@@ -1,12 +1,12 @@
 ---
-title: "Azure Advisor 백업 소개 | Microsoft Docs"
-description: "Azure Advisor를 사용하여 Azure 배포를 최적화합니다."
+title: Azure Advisor 백업 소개 | Microsoft Docs
+description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -43,9 +43,6 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
   ![Advisor 권장 사항 유형](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Azure Advisor를 구독과 함께 사용하려면 구독 *소유자*가 Advisor 대시보드를 시작해야 합니다.  이 작업은 Advisor에 구독을 등록합니다.  이 시점부터는 구독 *소유자*, *참여자* 또는 *읽기 권한자*가 구독에 대한 Advisor 권장 사항에 액세스할 수 있습니다. 
-
 범주를 클릭하여 해당 범주 내의 권장 사항 목록을 표시하고 권장 사항을 선택하여 자세한 내용을 볼 수 있습니다.  기회를 활용하거나 문제를 해결하기 위해 수행할 수 있는 작업에 대해 알아볼 수도 있습니다.
 
 ![Advisor 권장 사항 범주](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 가상 머신 리소스 인터페이스를 통해 Advisor 권장 사항을 볼 수도 있습니다. 가상 컴퓨터를 선택하고 메뉴에서 Advisor 권장 사항으로 스크롤합니다. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Advisor에 액세스하려면 어떤 권한이 필요하나요?
-
-구독에 대한 Advisor 권장 사항을 얻으려면 먼저 Advisor에 구독을 등록해야 합니다. 구독 *소유자*가 Advisor 대시보드를 시작하면 구독이 등록됩니다. 이 작업은 한 번만 수행하면 됩니다. 구독이 등록된 후 구독에 대한 *소유자*, *참여자* 또는 *읽기 권한자*로 Advisor 권장 사항에 액세스할 수 있습니다.
+ 
+구독에 대한 *소유자*, *참여자* 또는 *읽기 권한자*로 Advisor 권장 사항에 액세스할 수 있습니다.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Advisor는 어떤 리소스에 대해 권장 사항을 제공하나요?
 
-Advisor는 가상 머신, 가용성 집합, Application Gateway, App Services, SQL Server, SQL Database 및 Redis Cache에 대한 권장 사항을 제공합니다.
+Advisor는 가상 머신, 가용성 집합, Application Gateway, App Services, SQL Server 및 Redis Cache에 대한 권장 사항을 제공합니다.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Search의 서비스 제한 사항 | Microsoft Docs"
-description: "용량 계획에 사용되는 서비스 제한 및 Azure Search에 대한 요청 및 응답의 최대 제한입니다."
+title: Azure Search의 서비스 제한 사항 | Microsoft Docs
+description: 용량 계획에 사용되는 서비스 제한 및 Azure Search에 대한 요청 및 응답의 최대 제한입니다.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
 ms.service: search
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/09/2017
+ms.date: 03/26/2018
 ms.author: heidist
-ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fb2234e79e8deb98a94068f31a40c8f0b415d7ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크로드 및 인덱스, 문서, 기타 개체의 수량에 대한 최대 제한은 Azure Search를 **무료**, **기본** 또는 **표준** 가격 책정 계층 중 [어디에 프로비전하는지](search-create-service-portal.md)에 따라 달라집니다.
@@ -32,30 +32,35 @@ ms.lasthandoff: 11/10/2017
 > 서비스는 특정 계층에서 프로비전됩니다. 용량을 얻기 위해 계층을 건너뛰려면 새 서비스를 프로비전해야 합니다(전체 업그레이드 없음). 자세한 내용은 [SKU 또는 계층 선택](search-sku-tier.md)을 참조하세요. 이미 프로비전한 서비스 내에서 용량을 조정하는 방법에 대한 자세한 내용은 [쿼리 및 인덱싱 워크로드에 대한 리소스 수준 크기 조정](search-capacity-planning.md)을 참조하세요.
 >
 
-## <a name="per-subscription-limits"></a>구독당 제한
+## <a name="subscription-limits"></a>구독 제한
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="per-service-limits"></a>서비스당 제한
+## <a name="service-limits"></a>서비스 제한
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## <a name="per-index-limits"></a>인덱스당 제한
-인덱스에 대한 제한과 인덱서에 대한 제한 간에는 일대일 대응이 형성됩니다. 예를 들어 인덱스 수 제한이 200개인 경우 동일한 서비스에 대한 최대 인덱서 수도 200개로 제한됩니다.
+## <a name="index-limits"></a>인덱스 제한
 
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| 인덱스: 인덱스당 최대 필드 |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| 인덱스: 인덱스당 최대 점수 매기기 프로필 |100 |100 |100 |100 |100 |100 |
-| 인덱스: 프로필당 최대 함수 |8 |8 |8 |8 |8 |8 |
-| 인덱서: 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |해당 없음<sup>2</sup> |
-| 인덱서: 최대 실행 시간 | 1-3분 <sup>3</sup> |24시간 |24시간 |24시간 |24시간 |해당 없음<sup>2</sup> |
-| Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 없음<sup>2</sup> |
-| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |400만 |400만 |400만 |해당 없음<sup>2</sup> |
+| 인덱스당 최대 필드 |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
+| 인덱스당 최대 점수 매기기 프로필 |100 |100 |100 |100 |100 |100 |
+| 프로필당 최대 함수 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> 기본 계층은 인덱스당 100개 필드 제한보다 더 낮은 SKU입니다.
 
-<sup>2</sup> S3 HD는 현재 인덱서를 지원하지 않습니다. 이 기능이 긴급하게 필요한 경우 Azure 지원 서비스에 문의하세요.
+## <a name="indexer-limits"></a>인덱서 제한
 
-<sup>3</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다.
+| 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD |
+| --- | --- | --- | --- | --- | --- | --- |
+| 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |N/A <sup>1</sup> |
+| 최대 실행 시간 | 1-3분 <sup>2</sup> |24시간 |24시간 |24시간 |24시간 |N/A <sup>1</sup> |
+| Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |N/A <sup>1</sup> |
+| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |400만 |400만 |400만 |N/A <sup>1</sup> |
+
+<sup>1</sup> S3 HD는 현재 인덱서를 지원하지 않습니다. 이 기능이 긴급하게 필요한 경우 Azure 지원 서비스에 문의하세요.
+
+<sup>2</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다.
+
 
 ## <a name="document-size-limits"></a>문서 크기 제한
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD |

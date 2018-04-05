@@ -1,14 +1,14 @@
 ---
-title: "Azure HDInsight Tools - Hive, LLAP 또는 pySpark용 Visual Studio Code 사용 | Microsoft Docs"
-description: "Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다."
+title: Azure HDInsight Tools - Hive, LLAP 또는 pySpark용 Visual Studio Code 사용 | Microsoft Docs
+description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
@@ -69,9 +69,9 @@ Azure에 연결하려면 먼저 VS Code에서 작업 영역을 만듭니다.
 
 4. **탐색기**에서 **XXXX_hdi_settings.json**을 열거나 스크립트 편집기를 마우스 오른쪽 단추로 클릭하여 **구성 설정**을 선택합니다. 파일에서 샘플에 표시된 것처럼 로그인 항목, 기본 클러스터 및 작업 제출 매개 변수를 구성할 수 있습니다. 나머지 매개 변수를 비워 둘 수도 있습니다.
 
-## <a name="connect-to-azure"></a>Azure에 연결
+## <a name="connect-to-hdinsight-cluster"></a>HDInsight 클러스터에 연결
 
-VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 Azure 계정에 연결해야 합니다.
+VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 Azure 계정에 연결하거나 클러스터를 연결해야 합니다(Ambari 사용자 이름/비밀번호 또는 도메인 가입 계정 사용).
 
 **Azure에 연결하려면**
 
@@ -315,10 +315,8 @@ HDInsight for VS Code에서 지원하는 기능은 다음과 같습니다.
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](spark/apache-spark-use-bi-tools.md)
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](spark/apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>응용 프로그램 만들기 및 실행

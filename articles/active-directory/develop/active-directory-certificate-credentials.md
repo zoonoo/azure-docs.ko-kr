@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>응용 프로그램 인증을 위한 인증서 자격 증명
 
-Azure Active Directory를 사용하면 응용 프로그램에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) 및 On-Behalf-Of 흐름([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
+Azure Active Directory를 사용하면 응용 프로그램에서 인증에 고유한 자격 증명을 사용할 수 있습니다. 예를 들어 OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) 및 On-Behalf-Of 흐름([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md))에서 제공됩니다.
 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램에서 소유한 인증서로 서명된 JWT(JSON Web Token) 어설션입니다.
 
 ## <a name="format-of-the-assertion"></a>어설션 형식
-어설션을 계산하려면 선택한 언어로 많은 [JSON Web Token](https://jwt.io/)(영문) 라이브러리 중 하나를 사용하는 것이 좋습니다. 토큰에 의해 전달되는 정보는 다음과 같습니다.
+어설션을 계산하려면 선택한 언어로 많은 [JSON Web Token](https://jwt.ms/)(영문) 라이브러리 중 하나를 사용하는 것이 좋습니다. 토큰에 의해 전달되는 정보는 다음과 같습니다.
 
 #### <a name="header"></a>헤더
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Azure AD에 인증서 등록
 
-인증서 자격 증명을 Azure AD의 클라이언트 응용 프로그램에 연결하려면 응용 프로그램 매니페스트를 편집해야 합니다.
+다음 방법 중 하나를 사용하여 Azure Portal을 통해 Azure AD에서 클라이언트 응용 프로그램과 인증서 자격 증명을 연결할 수 있습니다.
+
+**인증서 파일 업로드**
+
+클라이언트 응용 프로그램의 Azure 앱 등록에서 **설정**, **키** 및 **공개 키 업로드**를 차례로 클릭합니다. 업로드하려는 인증서 파일을 선택하고 **저장**을 클릭합니다. 일단 저장하면 인증서가 업로드되고 지문, 시작 날짜 및 만료 값이 표시됩니다. 
+
+**응용 프로그램 매니페스트 업데이트**
+
 인증서가 있을 때 다음을 계산해야 합니다.
 
 - `$base64Thumbprint` - 인증서 해시의 base64 인코딩

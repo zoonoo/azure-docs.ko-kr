@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -87,7 +87,7 @@ ms.lasthandoff: 03/08/2018
 **실버 또는 골드 내구성 수준 사용 시 단점**
  
 1. Virtual Machine Scale Set 및 기타 관련 Azure 리소스에 대한 배포가 지연되거나, 시간이 초과되거나, 클러스터 또는 인프라 수준에서 발생한 문제로 인해 완전히 차단될 수 있습니다. 
-2. Azure 인프라 작업 중에 자동으로 수행되는 노드 비활성화로 인해 [복제본 수명 주기 이벤트](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle )(예: 기본 스왑) 수가 증가합니다.
+2. Azure 인프라 작업 중에 자동으로 수행되는 노드 비활성화로 인해 [복제본 수명 주기 이벤트](service-fabric-reliable-services-lifecycle.md)(예: 기본 스왑) 수가 증가합니다.
 3. Azure 플랫폼 소프트웨어 업데이트 또는 하드웨어 유지 관리 작업이 발생하는 기간 동안 노드를 서비스 불가능 상태로 유지합니다. 이러한 작업 중에는 노드 상태가 비활성화 중/사용 안 함으로 표시될 수 있습니다. 이로 인해 클러스터 용량이 일시적으로 감소하지만 클러스터 또는 응용 프로그램의 가용성에는 영향을 주지 않아야 합니다.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>실버 또는 골드 내구성 수준을 사용해야 하는 경우에 대한 권장 사항
@@ -101,10 +101,10 @@ ms.lasthandoff: 03/08/2018
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>실버 또는 골드 내구성 수준으로 설정한 노드 유형에 대한 운영 권장 사항입니다.
 
-1. 클러스터와 응용 프로그램을 항상 정상 상태로 유지하고, 응용 프로그램이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle)(예: 빌드의 복제본에 문제가 있을 경우)에 제때에 응답하는지 확인하세요.
+1. 클러스터와 응용 프로그램을 항상 정상 상태로 유지하고, 응용 프로그램이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-lifecycle.md)(예: 빌드의 복제본에 문제가 있을 경우)에 제때에 응답하는지 확인하세요.
 2. VM SKU를 변경하는 보다 안전한 방법 채택(강화/규모 축소): Virtual Machine Scale Set의 VM SKU를 변경하는 작업은 기본적으로 안전하지 않으므로 가능하면 수행하지 않아야 합니다. 일반적인 문제를 방지하기 위해 수행할 수 있는 프로세스는 다음과 같습니다.
     - **주 노드 형식이 아닐 경우:**: 새 Virtual Machine Scale Set를 생성하고, 새로운 Virtual Machine Scale Set/노드 형식을 포함하도록 서비스 배치 제약 조건을 수정한 후 이전의 Virtual Machine Scale Set 인스턴스 수를 한 번에 한 노드씩 0으로 줄이는 것이 좋습니다(노드 제거로 인한 클러스터 안정성 저하를 방지하기 위함).
-    - **주 노드 형식일 경우:** 주 노드 형식의 VM SKU를 변경하지 않는 것이 좋습니다. 주 노드 유형 SKU 변경은 지원되지 않습니다. 새 SKU를 만드는 이유가 용량 때문이라면 다른 인스턴스를 더 추가하는 것이 좋습니다. 이것이 불가능한 경우 새 클러스터를 만들고 구 클러스터에서 [응용 프로그램 상태를 복원합니다](service-fabric-reliable-services-backup-restore.md)(해당하는 경우). 시스템 서비스 상태를 복원할 필요는 없습니다. 응용 프로그램을 새 클러스터에 배포하면 다시 만들어집니다. 클러스터에서 상태 비저장 응용 프로그램을 실행한 경우에만 응용 프로그램을 새 클러스터에 배포하기만 하면 되며 복원은 필요하지 않습니다. 지원되지 않은 경로를 선택하고 VM SKU를 변경하려는 경우 Virtual Machine Scale Set 모델 정의를 수정하여 새 SKU를 반영합니다. 클러스터에 한 노드 형식만 있다면 모든 상태 저장 응용 프로그램이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle)(예: 빌드의 복제본에 문제가 있을 경우)에 제때 응답하는지, 서비스 복제본 다시 빌드 기간이 5분 미만(실버 내구성 수준일 경우)인지 확인하세요. 
+    - **주 노드 형식일 경우:** 주 노드 형식의 VM SKU를 변경하지 않는 것이 좋습니다. 주 노드 유형 SKU 변경은 지원되지 않습니다. 새 SKU를 만드는 이유가 용량 때문이라면 다른 인스턴스를 더 추가하는 것이 좋습니다. 이것이 불가능한 경우 새 클러스터를 만들고 구 클러스터에서 [응용 프로그램 상태를 복원합니다](service-fabric-reliable-services-backup-restore.md)(해당하는 경우). 시스템 서비스 상태를 복원할 필요는 없습니다. 응용 프로그램을 새 클러스터에 배포하면 다시 만들어집니다. 클러스터에서 상태 비저장 응용 프로그램을 실행한 경우에만 응용 프로그램을 새 클러스터에 배포하기만 하면 되며 복원은 필요하지 않습니다. 지원되지 않은 경로를 선택하고 VM SKU를 변경하려는 경우 Virtual Machine Scale Set 모델 정의를 수정하여 새 SKU를 반영합니다. 클러스터에 한 노드 형식만 있다면 모든 상태 저장 응용 프로그램이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-lifecycle.md)(예: 빌드의 복제본에 문제가 있을 경우)에 제때 응답하는지, 서비스 복제본 다시 빌드 기간이 5분 미만(실버 내구성 수준일 경우)인지 확인하세요. 
 
 
 > [!WARNING]

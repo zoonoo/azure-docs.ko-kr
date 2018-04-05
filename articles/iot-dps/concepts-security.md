@@ -1,22 +1,22 @@
 ---
-title: "Azure IoT Hub Device Provisioning 서비스의 보안 개념 | Microsoft Docs"
-description: "Device Provisioning 서비스 및 IoT Hub를 사용하는 장치에 해당하는 보안 프로비전 개념 설명"
+title: Azure IoT Hub Device Provisioning 서비스의 보안 개념 | Microsoft Docs
+description: Device Provisioning 서비스 및 IoT Hub를 사용하는 장치에 해당하는 보안 프로비전 개념 설명
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning 서비스 보안 개념 
 
@@ -31,7 +31,7 @@ IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 �
 
 Device Provisioning 서비스는 두 가지 형태의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서**
-* 키에 대해 TPM 표준을 사용하여 nonce 챌린지를 기반으로 하는 **SAS 토큰** 장치에서 실제 TPM이 필요하지 않지만 서비스는 [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)당 인증 키를 사용하여 증명하기를 기대합니다.
+* nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)**은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 장치에서 실제 TPM이 필요하지 않지만 서비스는 [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)당 인증 키를 사용하여 증명하기를 기대합니다.
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
@@ -42,7 +42,7 @@ Device Provisioning 서비스는 두 가지 형태의 증명을 지원합니다.
 
 장치 비밀은 소프트웨어(메모리)에도 저장될 수 있지만 HSM보다 덜 안전한 형태의 저장소입니다.
 
-## <a name="trusted-platform-module-tpm"></a>TPM(신뢰할 수 있는 플랫폼 모듈)
+## <a name="trusted-platform-module"></a>신뢰할 수 있는 플랫폼 모듈
 
 TPM은 플랫폼을 인증하는 데 사용되는 키를 안전하게 저장하기 위한 표준을 참조할 수 있거나 표준을 구현하는 모듈과 상호 작용하는 데 사용되는 I/O 인터페이스를 참조할 수 있습니다. TPM은 별도 하드웨어, 통합된 하드웨어, 펌웨어 기반 또는 소프트웨어 기반으로 존재할 수 있습니다. [TPM 및 TPM 증명](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation)에 대해 자세히 알아봅니다. Device Provisioning 서비스는 TPM 2.0만 지원합니다.
 

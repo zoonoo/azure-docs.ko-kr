@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 끝점에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 - HTTP 응답을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 구문 분석
 
 이 커넥터와 [웹 테이블 커넥터](connector-web-table.md) 간의 차이는, 후자가 웹 HTML 페이지에서 테이블 콘텐츠를 추출하는 데 사용된다는 것입니다.
+
+>[!TIP]
+>ADF에서 HTTP 커넥터를 구성하기 전에 데이터 검색에 대한 HTTP 요청을 테스트하려면 헤더 및 본문 요구 사항에 대한 API 사양을 알아보고 유효성 검사를 위해 Postman 또는 웹 브라우저와 같은 도구를 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -100,7 +103,7 @@ ClientCertificate 인증을 사용하려면 “authenticationType” 속성을 *
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 인코딩 인증서 데이터입니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
 | certThumbprint | 자체 호스팅 Integration Runtime 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅된 유형의 Integration Runtime이 connectVia에 지정된 경우에만 적용됩니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
-| 암호 | 인증서와 연결된 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니오 |
+| 암호 | 인증서와 연결된 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 
 인증에 “certThumbprint”를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 자체 호스팅된 Integration Runtime에 읽기 권한을 부여해야 합니다.
 
@@ -163,9 +166,9 @@ HTTP에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **H
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 형식 속성을 **HttpFile**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니오 |
-| requestMethod | HTTP 메서드입니다.<br/>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니오 |
-| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
-| requestBody | HTTP 요청의 본문입니다. | 아니요 |
+| requestMethod | HTTP 메서드입니다.<br/>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니오 |
+| requestBody | HTTP 요청의 본문입니다. | 아니오 |
 | format | 데이터를 구문 분석하지 않고 **HTTP 끝점에서 데이터를 있는 그대로 검색**하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 집합 정의 모두에서 형식 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니오 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니오 |
 
@@ -219,7 +222,7 @@ HTTP에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Http
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **HttpSource**로 설정해야 합니다. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다.<br/> 기본값은 00:01:40입니다.  | 아니오 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다.<br/> 기본값은 00:01:40입니다.  | 아니요 |
 
 **예제:**
 

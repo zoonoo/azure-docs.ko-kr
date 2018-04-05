@@ -1,14 +1,14 @@
 ---
-title: "SAP용 Microsoft Azure 인증 | Microsoft Docs"
-description: "Azure 플랫폼의 SAP에 대한 현재 구성 및 인증의 업데이트된 목록입니다."
+title: SAP용 Microsoft Azure 인증 | Microsoft Docs
+description: Azure 플랫폼의 SAP에 대한 현재 구성 및 인증의 업데이트된 목록입니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
-ms.assetid: 
+keywords: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: rclaus
-ms.custom: 
-ms.openlocfilehash: 865fa54c908481b3f4c211f12293538c617b6129
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.custom: ''
+ms.openlocfilehash: 96a3b6f8f8a03019f0446aa7ba42f53298e21009
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
 
@@ -49,16 +49,16 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 - [1928533 - Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533): SAP TREX, SAP LiveCache 및 SAP Content Server를 포함하는 모든 SAP NetWeaver 기반 응용 프로그램 관련 모든 데이터베이스(SAP HANA 제외)
 
 
-| SAP 제품 | 게스트 OS | RDBMS | 가상 컴퓨터 유형 |
+| SAP 제품 | 게스트 OS | RDBMS | Virtual Machine 유형 |
 | --- | --- | --- | --- |
-| SAP Business Suite 소프트웨어 |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, M 시리즈 |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, M 시리즈 |
-| SAP BusinessObjects BI |Windows |해당 없음 |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, M 시리즈 |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, M 시리즈 |
+| SAP Business Suite 소프트웨어 |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s ~ M128ms |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s ~ M128ms |
+| SAP BusinessObjects BI |Windows |해당 없음 |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s ~ M128ms |
+| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s ~ M128ms |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Azure에서 지원되는 다른 SAP 워크로드
 
-| SAP 제품 | 게스트 OS | RDBMS | 가상 컴퓨터 유형 |
+| SAP 제품 | 게스트 OS | RDBMS | Virtual Machine 유형 |
 | --- | --- | --- | --- |
 | SQL Server의 SAP Business One | Windows  | SQL Server | 모든 NetWeaver 인증 VM 유형 |
 | SAP BPC 10.01 MS SP08 | Windows | | 모든 NetWeaver 인증 VM 유형<br /> SAP Note #2451795 |

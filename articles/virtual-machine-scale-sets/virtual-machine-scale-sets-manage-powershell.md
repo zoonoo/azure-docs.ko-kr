@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell을 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs"
-description: "인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure PowerShell cmdlet입니다."
+title: Azure PowerShell을 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs
+description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure PowerShell cmdlet입니다.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 집합 관리
 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure PowerShell cmdlet 중 일부를 설명합니다.
 
-이러한 관리 작업을 완료하려면 최신 Azure PowerShell 모듈이 필요합니다. 최신 버전을 설치하고 사용하는 방법에 대한 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요. 가상 머신 확장 집합을 만들어야 하는 경우 [Azure Portal에서 설정을 만들](virtual-machine-scale-sets-create-portal.md) 수 있습니다.
+이러한 관리 작업을 완료하려면 최신 Azure PowerShell 모듈이 필요합니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요. 가상 머신 확장 집합을 만들어야 하는 경우 [Azure PowerShell을 사용하여 확장 집합을 만들](quick-create-powershell.md) 수 있습니다.
 
 
 ## <a name="view-information-about-a-scale-set"></a>확장 집합에 대한 정보 보기

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 분석"
-description: "Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 기록 데이터를 분석하는 방법 알아보기"
+title: Azure Mobile Engagement 사용자 인터페이스 - 분석
+description: Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 기록 데이터를 분석하는 방법 알아보기
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>응용 프로그램에 대한 기록 데이터를 분석하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서에서는 **Mobile Engagement** 포털의 **분석** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다.
 
 UI의 분석 섹션에서는 24시간마다 업데이트되는 기록 데이터에 따라 응용 프로그램에 대한 집계 정보를 제공합니다. 정보는 꺾은선형/막대형/원형 차트, 표, 맵으로 구성된 여러 대시보드에 표시됩니다. 데이터를 .csv 파일로 다운로드할 수도 있습니다. 이와 동일한 대부분의 정보는 UI의 모니터 섹션에서도 실시간으로 제공되며 분석 API에서 액세스할 수도 있습니다.

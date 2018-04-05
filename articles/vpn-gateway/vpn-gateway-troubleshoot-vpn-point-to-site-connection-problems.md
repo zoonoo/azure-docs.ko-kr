@@ -1,12 +1,12 @@
 ---
-title: "Azure 지점 및 사이트 간 연결 문제 해결 | Microsoft Docs"
-description: "지점 및 사이트 간 연결 문제를 해결하는 방법을 알아봅니다."
+title: Azure 지점 및 사이트 간 연결 문제 해결 | Microsoft Docs
+description: 지점 및 사이트 간 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -289,7 +289,7 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 
 ### <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 Azure 가상 네트워크에서 사용되는 Azure DNS 서버가 로컬 리소스에 대한 DNS 레코드를 확인할 수 있는지 확인합니다. 이를 수행하기 위해 DNS 전달자 또는 조건부 전달자를 사용할 수 있습니다. 자세한 내용은 [자체 DNS 서버를 이용한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)을 참조하세요.
+이 문제를 해결하려면 Azure 가상 네트워크에서 사용되는 Azure DNS 서버가 로컬 리소스에 대한 DNS 레코드를 확인할 수 있는지 확인합니다. 이를 수행하기 위해 DNS 전달자 또는 조건부 전달자를 사용할 수 있습니다. 자세한 내용은 [자체 DNS 서버를 이용한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>지점 및 사이트 간 VPN 연결이 설정되어 있지만 여전히 Azure 리소스에 연결할 수 없습니다. 
 
@@ -304,11 +304,11 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>오류: “해지 서버가 오프라인 상태이므로 해지 함수가 해지를 확인할 수 없습니다(오류 0x80092013).”
 
 ### <a name="causes"></a>원인
-이 오류 메시지는 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 없는 경우에 발생합니다.  해지 검사를 수행하려면 이러한 두 사이트에 액세스해야 합니다.  이 문제는 일반적으로 프록시 서버가 구성된 클라이언트에서 발생합니다. 일부 환경에서 요청이 프록시 서버를 거치지 않을 경우 Edge 방화벽에서 거부됩니다.
+이 오류 메시지는 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 없는 경우 발생합니다.  해지 검사를 수행하려면 이러한 두 사이트에 액세스해야 합니다.  이 문제는 일반적으로 프록시 서버가 구성된 클라이언트에서 발생합니다. 일부 환경에서 요청이 프록시 서버를 거치지 않을 경우 Edge 방화벽에서 거부됩니다.
 
 ### <a name="solution"></a>해결 방법
 
-프록시 서버 설정을 확인하고 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 있는지 확인합니다.
+프록시 서버 설정을 확인하여 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 있는지 확인합니다.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN 클라이언트 오류: RAS/VPN 서버에 구성된 정책 때문에 연결되지 않았습니다. (오류 812)
 

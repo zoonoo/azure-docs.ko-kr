@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory에서 지원하는 Compute 환경 | Microsoft Docs"
-description: "데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 계산 환경을 알아봅니다."
+title: Azure Data Factory에서 지원하는 Compute 환경 | Microsoft Docs
+description: '데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 계산 환경을 알아봅니다.'
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 > [!NOTE]
@@ -32,8 +31,7 @@ ms.lasthandoff: 01/25/2018
 | ---------------------------------------- | ---------------------------------------- |
 | [주문형 Azure HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 자신의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| 
-            [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저 작업](data-factory-stored-proc-activity.md) |
 
@@ -52,7 +50,7 @@ Microsoft는 지원되는 HDInsight 버전 목록을 최신 Hadoop 에코시스�
 2017년 12월 15일 이후:
 
 - Data Factory 버전 1에서 주문형 HDInsight 연결된 서비스를 사용하여 Linux 기반 HDInsight 버전 3.3(또는 이전 버전) 클러스터를 더 이상 만들 수 없습니다. 
-- 기존 Data Factory 버전 1 주문형 HDInsight 연결된 서비스에 대한 JSON 정의에 [**osType** 및 **Version** 속성](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)이 명시적으로 지정되지 않으면, 기본값이 **Version=3.1, osType=Windows**에서 **Version=\<최신 HDI 기본 버전\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**로 변경됩니다.
+- [**osType** 및/또는 **Version** 속성](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)이 기존 Data Factory 버전1 주문형 HDInsight 연결된 서비스에 대한 JSON 정의에 명시적으로 지정되지 않은 경우 기본값이 **Version=3.1, osType=Windows**에서 **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**로 변경됩니다.
 
 2018년 7월 31일 이후:
 
@@ -130,7 +128,7 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 | 버전                      | HDInsight 클러스터의 버전입니다. HDInsight 버전은 [지원되는 HDInsight 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)을 참조하세요. 이 값을 지정하지 않으면 [마지막 HDI 기본값](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions)이 사용됩니다. | 아니오       |
 | linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. HDInsight 클러스터는 저장소 계정과 동일한 지역에 생성됩니다.<p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Data Lake Store에 저장하려면 활동 복사를 사용하여 Blob 저장소의 데이터를 Data Lake Store로 복사합니다. </p> | 예      |
 | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정합니다. Data Factory는 사용자 대신 저장소 계정을 등록합니다. 이러한 저장소 계정은 HDInsight 클러스터와 동일한 지역에 있어야 합니다. HDInsight 클러스터는 **linkedServiceName** 속성에 지정된 저장소 계정과 동일한 지역에 만들어집니다. | 아니오       |
-| osType                       | 운영 체제 유형입니다. 허용되는 값은 **Linux** 및 **Windows**입니다. 값을 지정하지 않으면 **Linux**가 사용됩니다.  <br /><br />Linux 기반 HDInsight 클러스터를 사용하는 것이 좋습니다. Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. | 아니요       |
+| osType                       | 운영 체제 유형입니다. 허용되는 값은 **Linux** 및 **Windows**입니다. 값을 지정하지 않으면 **Linux**가 사용됩니다.  <br /><br />Linux 기반 HDInsight 클러스터를 사용하는 것이 좋습니다. Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. | 아니오       |
 | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 SQL Database를 metastore로 사용하여 만들어집니다. | 아니요       |
 
 #### <a name="example-linkedservicenames-json"></a>예: LinkedServiceNames JSON
@@ -149,12 +147,12 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml)를 지정합니다. | 아니요       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 아니오       |
-| hdfsConfiguration      | HDInsight 클러스터에 대한 HDFS 구성 매개 변수(hdfs-site.xml)를 지정합니다. | 아니요       |
+| hdfsConfiguration      | HDInsight 클러스터에 대한 HDFS 구성 매개 변수(hdfs-site.xml)를 지정합니다. | 아니오       |
 | hiveConfiguration      | HDInsight 클러스터에 대한 Hive 구성 매개 변수(hive-site.xml)를 지정합니다. | 아니오       |
 | mapReduceConfiguration | HDInsight 클러스터에 대한 MapReduce 구성 매개 변수(mapred-site.xml)를 지정합니다. | 아니요       |
-| oozieConfiguration     | HDInsight 클러스터에 대한 Oozie 구성 매개 변수(oozie-site.xml)를 지정합니다. | 아니요       |
+| oozieConfiguration     | HDInsight 클러스터에 대한 Oozie 구성 매개 변수(oozie-site.xml)를 지정합니다. | 아니오       |
 | stormConfiguration     | HDInsight 클러스터에 대한 Storm 구성 매개 변수(storm-site.xml)를 지정합니다. | 아니오       |
-| yarnConfiguration      | HDInsight 클러스터에 대한 YARN 구성 매개 변수(yarn-site.xml)를 지정합니다. | 아니요       |
+| yarnConfiguration      | HDInsight 클러스터에 대한 YARN 구성 매개 변수(yarn-site.xml)를 지정합니다. | 아니오       |
 
 #### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>예제: 고급 속성을 포함하는 주문형 HDInsight 클러스터 구성
 
@@ -200,7 +198,7 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 
 | 자산          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | 헤드 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. 자세한 내용은 [노드 크기 지정](#specify-node-sizes)을 참조하세요. | 아니요       |
+| headNodeSize      | 헤드 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. 자세한 내용은 [노드 크기 지정](#specify-node-sizes)을 참조하세요. | 아니오       |
 | dataNodeSize      | 데이터 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. | 아니요       |
 | zookeeperNodeSize | ZooKeeper 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. | 아니요       |
 
@@ -335,7 +333,7 @@ Machine Learning 연결된 서비스를 만들어서 Machine Learning 일괄 처
 ### <a name="properties"></a>properties
 | 자산   | 설명                              | 필수 |
 | ---------- | ---------------------------------------- | -------- |
-| 형식       | type 속성을 **AzureML**로 설정합니다. | 예      |
+| 유형       | type 속성을 **AzureML**로 설정합니다. | 예      |
 | mlEndpoint | 일괄 처리 점수 매기기 URL입니다.                   | 예      |
 | apiKey     | 게시된 작업 영역 모델의 API입니다.     | 예      |
 

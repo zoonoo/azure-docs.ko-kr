@@ -1,20 +1,20 @@
 ---
-title: "Microsoft Azure Windows VM용 관리되지 않는(페이지 Blob) 디스크 및 관리 디스크 저장소 정보 | Microsoft Docs"
-description: "Azure에서 Windows 가상 머신의 관리되지 않는(페이지 Blob) 디스크 및 관리 디스크 저장소의 기본 사항에 대해 알아봅니다."
+title: Microsoft Azure Windows VM용 관리되지 않는(페이지 Blob) 디스크 및 관리 디스크 저장소 정보 | Microsoft Docs
+description: Azure에서 Windows 가상 머신의 관리되지 않는(페이지 Blob) 디스크 및 관리 디스크 저장소의 기본 사항에 대해 알아봅니다.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3d82416b7382b8e09706fd7fb8af9e1d3fe79f01
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows VM용 디스크 저장소 정보
 다른 컴퓨터와 마찬가지로, Azure에서 가상 머신은 운영 체제, 응용 프로그램 및 데이터를 저장하는 장소로 디스크를 사용합니다. 모든 Azure 가상 머신은 Windows 운영 체제 디스크와 임시 디스크라는 적어도 2개의 디스크를 갖습니다. 운영 체제 디스크는 이미지에서 만들어지며, 운영 체제 디스크 및 이미지 모두는 Azure 저장소 계정에 저장된 VHD(가상 하드 디스크)입니다. 가상 머신에도 데이터 디스크가 있을 수 있으며 이러한 디스크도 VHD로 저장됩니다. 

@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery를 사용하는 Azure 간 재해 복구 정보 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하는 Azure VM의 복제에 대한 네트워킹을 간략히 설명합니다."
+title: Azure Site Recovery를 사용하는 Azure 간 재해 복구 정보 | Microsoft Docs
+description: Azure Site Recovery를 사용하는 Azure VM의 복제에 대한 네트워킹을 간략히 설명합니다.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -154,9 +154,10 @@ IP 주소 범위는 다음과 같습니다.
 ### <a name="expressroute-configuration"></a>ExpressRoute 구성
 ExpressRoute 구성의 경우 다음 모범 사례를 따릅니다.
 
-- 원본 지역과 대상 지역 모두에 ExpressRoute 회로를 만들어야 합니다. 그런 다음 아래 간의 연결을 만들어야 합니다.
-  - 원본 가상 네트워크와 ExpressRoute 회로
-  - 대상 가상 네트워크와 ExpressRoute 회로
+- 원본 지역과 대상 지역 모두에 ExpressRoute 회로를 만듭니다. 그런 다음 아래 간의 연결을 만들어야 합니다.
+    - 원본 지역의 ExpressRoute 회로를 통한 원본 가상 네트워크와 온-프레미스 네트워크 간의 연결
+    - 대상 지역의 ExpressRoute 회로를 통한 대상 가상 네트워크와 온-프레미스 네트워크 간의 연결
+
 
 - ExpressRoute 표준의 일부로 동일한 지역에 회로를 만들 수 있습니다. 서로 다른 지역에 ExpressRoute 회로를 만들려면 증분 비용이 포함된 Azure ExpressRoute Premium이 필요합니다. ExpressRoute Premium을 이미 사용 중인 경우에는 추가 비용이 발생하지 않습니다. 자세한 내용은 [ExpressRoute 위치 문서](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) 및 [ExpressRoute 가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)을 참조하세요.
 

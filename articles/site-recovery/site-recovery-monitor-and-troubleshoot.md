@@ -1,12 +1,12 @@
 ---
-title: "Azure Site Recovery 모니터링 및 문제 해결 | Microsoft Docs"
-description: "포털을 사용하여 Azure Site Recovery 복제 및 작업을 모니터링하고 문제를 해결합니다."
+title: Azure Site Recovery 모니터링 및 문제 해결 | Microsoft Docs
+description: 포털을 사용하여 Azure Site Recovery 복제 및 작업을 모니터링하고 문제를 해결합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: bsiva
 manager: abhemraj
 editor: raynew
-ms.assetid: 
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Azure Site Recovery 모니터링 및 문제 해결
 
@@ -145,7 +145,7 @@ Azure Site Recovery 대시보드 페이지의 다양한 부분을 10분마다 �
 **A.** 인프라 보기 기능은 Azure에 복제하는 가상 머신에서만 사용할 수 있습니다. 현재 이 기능은 온-프레미스 사이트 간에 복제하는 가상 머신에서는 사용할 수 없습니다.
 
 **Q.** 자격 증명 모음 인프라 보기의 가상 머신 수가 복제된 항목의 도넛에 표시된 총 수와 다른 이유는 무엇인가요?</br>
-**A.** 자격 증명 모음 인프라 보기는 복제 시나리오에 따라 범위가 지정됩니다. 현재 선택한 복제 시나리오에 참여하는 가상 머신만 인프라 보기에 표시되는 가상 머신 수에 포함됩니다. 또한 선택한 시나리오의 경우 현재 Azure에 복제하도록 구성된 가상 머신만 인프라 보기에 표시되는 가상 머신 수에 포함됩니다. 예를 들어 장애 조치된 가상 머신, 온-프레미스 사이트에 다시 복제되는 가상 머신은 인프라 보기에 포함되지 않습니다.
+**A.** 자격 증명 모음 인프라 보기는 복제 시나리오에 따라 범위가 지정됩니다. 현재 선택한 복제 시나리오에 참여하는 가상 머신만 인프라 보기에 표시되는 가상 머신 수에 포함됩니다. 또한 선택한 시나리오의 경우 현재 Azure에 복제하도록 구성된 가상 머신만 인프라 보기에 표시되는 가상 머신 수에 포함됩니다. (예를 들어 장애 조치된 가상 머신, 온-프레미스 사이트에 다시 복제되는 가상 머신은 인프라 보기에 포함되지 않습니다.)
 
 **Q.** 개요 페이지의 기본 서랍에 표시된 복제된 항목의 수가 대시보드의 도넛형 차트에 표시된 복제된 항목의 총 수와 다른 이유는 무엇인가요?</br>
 **A.** 초기 복제가 완료된 가상 머신만 필수 서랍에 표시되는 수에 포함됩니다. 복제된 항목 도넛의 총 수에는 초기 복제가 현재 진행 중인 서버를 포함하여 자격 증명 모음의 모든 가상 머신이 포함됩니다.
@@ -159,7 +159,7 @@ Azure Site Recovery 대시보드 페이지의 다양한 부분을 10분마다 �
 >|모두     | 장애 조치됨         |  아니오       |
 >|Azure 두 영역 간에 복제하는 가상 머신     | 진행 중인 초기 복제 또는 보호됨         | 예         |
 >|Azure에 복제하는 VMware 가상 머신     | 진행 중인 초기 복제 또는 보호됨        | 예        |
->|Azure에 복제하는 VMware 가상 머신     | 온-프레미스 VMware 사이트에 다시 복제되는 장애 조치된 가상 머신         | 아니요        |
+>|Azure에 복제하는 VMware 가상 머신     | 온-프레미스 VMware 사이트에 다시 복제되는 장애 조치된 가상 머신         | 아니오        |
 >|Azure에 복제하는 Hyper-V 가상 머신     | 진행 중인 초기 복제 또는 보호됨        | 예       |
 >|Azure에 복제하는 Hyper-V 가상 머신     | 장애 조치/장애 복구 진행 중        |  아니요       |
 

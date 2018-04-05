@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 3652e0171e0c6a53c16fb5b5fde20df9ed2ab7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f41cc83bfb18146e46e7d8501318acd68ce9c421
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -170,15 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>CRON 식
 
-[CRON 식](https://en.wikipedia.org/wiki/Cron)은 6개의 필드로 구성되어 있습니다. `{second} {minute} {hour} {day} {month} {day of the week}`  예를 들어 다음과 같은 노래를 선택할 수 있다.
-
-* 15분 간격: `0 */15 * * * *`
-* 1시간 간격(즉, 분을 나타내는 숫자가 0일 때마다): `0 0 * * * *` 
-* 오전 9시에서 오후 5시까지 1시간마다: `0 0 9-17 * * *` 
-* 매일 오전 9시 30분: `0 30 9 * * *`
-* 평일 오전 9시 30분 간격: `0 30 9 * * 1-5`
-
-다음 예제와 같이 포털에 CRON 식을 입력하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
+다음 예제와 같이 포털에 [CRON 식](../azure-functions/functions-bindings-timer.md#cron-expressions)을 입력하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
 
 ```json
 {

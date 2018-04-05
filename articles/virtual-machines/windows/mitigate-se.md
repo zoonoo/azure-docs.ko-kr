@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 투기적 실행을 완화하기 위한 지침 | Microsoft Docs"
-description: "Azure에서 투기적 실행 사이드 채널 취약성을 완화하기 위한 지침입니다."
+title: Azure에서 투기적 실행을 완화하기 위한 지침 | Microsoft Docs
+description: Azure에서 투기적 실행 사이드 채널 취약성을 완화하기 위한 지침입니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 04/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 2739ba1fcdb9db64a19f5329c81c4e671cf6efec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 51d152a27e9f2027ddeba4dbe3f8fc8644979741
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Azure에서 투기적 실행 사이드 채널 취약성을 완화하기 위한 지침입니다.
 

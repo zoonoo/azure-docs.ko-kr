@@ -1,6 +1,6 @@
 ---
-title: "ILB App Service Environment와 Application Gateway 통합"
-description: "ILB App Service Environment의 앱을 Application Gateway와 통합하는 방법에 대한 연습"
+title: ILB App Service Environment와 Application Gateway 통합
+description: ILB App Service Environment의 앱을 Application Gateway와 통합하는 방법에 대한 연습
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>ILB App Service Environment와 Application Gateway 통합 #
 
-[PowerApps용 App Service Environment](./intro.md)는 고객의 Azure Virtual Network 서브넷에 Azure App Service를 배포한 환경입니다. 앱 액세스를 위해 공용 또는 개인 끝점으로 배포할 수 있습니다. 개인 끝점(즉, 내부 부하 분산 장치)을 사용하여 App Service Environment를 배포하는 것을 ILB App Service Environment라고 합니다.  
+[App Service Environment](./intro.md)는 고객의 Azure 가상 네트워크 서브넷에 Azure App Service를 배포한 환경입니다. 앱 액세스를 위해 공용 또는 개인 끝점으로 배포할 수 있습니다. 개인 끝점(즉, 내부 부하 분산 장치)을 사용하여 App Service Environment를 배포하는 것을 ILB App Service Environment라고 합니다.  
 
 Azure Application Gateway는 7계층 부하 분산, SSL 오프로딩 및 WAF(웹 응용 프로그램 방화벽) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 응용 프로그램 끝점으로 라우팅할 수 있습니다. 
 

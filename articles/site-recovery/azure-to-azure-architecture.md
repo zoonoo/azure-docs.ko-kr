@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery의 Azure 간 복제 아키텍처 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure 지역 간에 Azure VM을 복제하는 경우 사용되는 구성 요소와 아키텍처에 대해 간략히 설명합니다."
+title: Azure Site Recovery의 Azure 간 복제 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure 지역 간에 Azure VM을 복제하는 경우 사용되는 구성 요소와 아키텍처에 대해 간략히 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 간 복제 아키텍처
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/24/2018
 ## <a name="architectural-components"></a>아키텍처 구성 요소
 
 다음 그림은 특정 지역(이 예제에서는 미국 동부 지역)의 Azure VM 환경을 개략적으로 보여 줍니다. Azure VM 환경은 다음과 같습니다.
-- 앱은 여러 저장소 계정에 디스크가 분산되어 있는 VM에서 실행될 수 있습니다.
+- 앱은 저장소 계정에 분산된 관리 디스크 또는 관리되지 않는 디스크를 사용하여 VM에서 실행될 수 있습니다.
 - VM은 가상 네트워크 내에서 하나 이상의 서브넷에 포함될 수 있습니다.
 
 
@@ -49,7 +49,8 @@ Azure VM 복제를 사용하도록 설정하면 다음 리소스가 원본 지�
 **대상 리소스 그룹** | 장애 조치(failover) 후 복제된 VM이 속하게 되는 리소스 그룹입니다.
 **대상 가상 네트워크** | 장애 조치(failover) 후 복제된 VM이 있는 가상 네트워크입니다. 네트워크 매핑은 원본 및 대상 가상 네트워크 간에 만들어집니다.
 **캐시 저장소 계정** | 원본 VM 변경 내용이 대상 저장소 계정에 복제되기 전에 추적되어 원본 위치의 캐시 저장소 계정으로 전송됩니다. 이 단계를 통해 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.
-**대상 저장소 계정**  | 데이터가 복제되는 대상 위치의 Storage 계정입니다.
+**대상 저장소 계정(원본 VM이 관리 디스크를 사용하지 않는 경우)**  | 데이터가 복제되는 대상 위치의 Storage 계정입니다.
+**복제본 관리 디스크(원본 VM이 관리 디스크에 있는 경우)**  | 데이터가 복제되는 대상 위치의 관리 디스크입니다.
 **대상 가용성 집합**  | 장애 조치(failover) 후 복제된 VM이 있는 가용성 집합입니다.
 
 ### <a name="step-2"></a>2단계
@@ -76,7 +77,7 @@ Linux VM을 복제 그룹에 포함하고 싶다면 특정 Linux 버전의 지�
 
 ### <a name="step-3"></a>3단계
 
-연속 복제가 진행된 후에는 디스크 쓰기가 캐시 저장소 계정으로 즉시 전송됩니다. Site Recovery는 데이터를 처리하여 대상 저장소 계정으로 보냅니다. 데이터가 처리된 후에는 몇 분마다 대상 저장소 계정에 복구 지점이 생성됩니다.
+연속 복제가 진행된 후에는 디스크 쓰기가 캐시 저장소 계정으로 즉시 전송됩니다. Site Recovery는 데이터를 처리하여 대상 저장소 계정 또는 복제본 관리 디스크로 보냅니다. 데이터가 처리된 후에는 몇 분마다 대상 저장소 계정에 복구 지점이 생성됩니다.
 
 ## <a name="failover-process"></a>장애 조치(failover) 프로세스
 

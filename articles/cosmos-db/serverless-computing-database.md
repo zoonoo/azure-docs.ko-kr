@@ -1,24 +1,24 @@
 ---
-title: "서버를 사용하지 않는 데이터베이스 컴퓨팅 - Azure Functions 및 Azure Cosmos DB | Microsoft Docs"
-description: "Azure Cosmos DB 및 Azure Functions를 함께 사용하여 서버를 사용하지 않는 이벤트 구동 컴퓨팅 앱을 만들 수 있는 방법을 알아봅니다."
+title: 서버를 사용하지 않는 데이터베이스 컴퓨팅 - Azure Functions 및 Azure Cosmos DB | Microsoft Docs
+description: Azure Cosmos DB 및 Azure Functions를 함께 사용하여 서버를 사용하지 않는 이벤트 구동 컴퓨팅 앱을 만들 수 있는 방법을 알아봅니다.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39155a2407efa0cc13236a1bbbbcd292daac86b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
 
@@ -113,12 +113,16 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 ## <a name="tooling"></a>도구
 
-Azure Cosmos DB와 Azure Functions 간의 네이티브 통합은 Azure Portal에서 사용할 수 있습니다.
+Azure Cosmos DB와 Azure Functions 간의 네이티브 통합은 Azure Portal 및 Visual Studio 2017에서 지원됩니다.
 * Azure Functions Portal에서 Azure Cosmos DB 트리거를 만들 수 있습니다. 빠른 시작 지침은 [Azure Portal에서 Azure Cosmos DB 트리거 만들기](https://aka.ms/cosmosdbtriggerportalfunc) ![Azure Functions Portal에서 Azure Cosmos DB 트리거 만들기](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png)를 참조하세요. 
 * Azure Functions Portal에서 Azure Cosmos DB 입력 바인딩 및 출력 바인딩을 다른 트리거 형식에 추가할 수도 있습니다. 빠른 시작 지침은 [Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)을 참조하세요.
     ![Azure Functions Portal에서 Azure Cosmos DB 트리거 만들기](./media/serverless-computing-database/function-portal-input-binding.png)
 *   Azure Cosmos DB Portal에서 동일한 리소스 그룹의 기존 Azure Functions 앱에 Azure Cosmos DB 트리거를 추가할 수 있습니다.
     ![Azure Functions Portal에서 Azure Cosmos DB 트리거 만들기](./media/serverless-computing-database/cosmos-db-portal.png)
+* Visual Studio 2017에서 통합된 템플릿을 사용하여 Azure Cosmos DB 트리거를 만들 수 있습니다.
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>서버를 사용하지 않는 컴퓨팅에 대해 Azure Functions 통합을 선택하는 이유
 

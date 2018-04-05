@@ -1,11 +1,11 @@
 ---
 title: Publish-WebApplicationVM | Microsoft Docs
-description: "가상 컴퓨터에 웹 응용 프로그램을 배포하는 방법을 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다."
+description: 가상 머신에 웹 응용 프로그램을 배포하는 방법을 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 49778b00dc9b1f6a8a11de5e3575599957b753fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell 스크립트)
-가상 컴퓨터에 웹 응용 프로그램을 배포합니다. 없는 경우 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
+가상 머신에 웹 응용 프로그램을 배포합니다. 없는 경우 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
 
 ```
 Publish-WebApplicationVM
@@ -46,7 +46,7 @@ Publish-WebApplicationVM
 | Accept Wildcard Characters? |false |
 
 ### <a name="subscriptionname"></a>SubscriptionName
-가상 컴퓨터를 만들려는 Azure 구독의 이름입니다.
+가상 머신을 만들려는 Azure 구독의 이름입니다.
 
 | Aliases | 없음 |
 | --- | --- |
@@ -79,7 +79,7 @@ True인 경우 신뢰할 수 있는 루트 인증 기관에서 서명되지 않�
 | Accept Wildcard Characters? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-가상 컴퓨터 계정에 대한 자격 증명입니다. 예: -VMPassword @{Name = "admin"; Password = "password"}
+가상 머신 계정에 대한 자격 증명입니다. 예: -VMPassword @{Name = "admin"; Password = "password"}
 
 | Aliases | 없음 |
 | --- | --- |
@@ -114,7 +114,7 @@ True이면 스크립트에서 출력 스트림으로 메시지를 프린트합�
 ## <a name="remarks"></a>설명
 스크립트를 사용하여 개발 및 테스트 환경을 만드는 방법에 대한 전체 설명은 [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시](vs-azure-tools-publishing-using-powershell-scripts.md)를 참조하세요.
 
-JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프로젝트를 만들 때 지정한 정보(예: 가상 컴퓨터의 이름, 선호도 그룹, VHD 이미지, 크기)를 포함합니다. 또한 가상 컴퓨터의 끝점, 프로비전할 데이터베이스(있는 경우), 웹 배포 매개 변수를 포함합니다. 다음 코드에서는 JSON 구성 파일을 예로 보여줍니다.
+JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프로젝트를 만들 때 지정한 정보(예: 가상 머신의 이름, 선호도 그룹, VHD 이미지, 크기)를 포함합니다. 또한 가상 컴퓨터의 끝점, 프로비전할 데이터베이스(있는 경우), 웹 배포 매개 변수를 포함합니다. 다음 코드에서는 JSON 구성 파일을 예로 보여줍니다.
 
 ```
 {
@@ -183,5 +183,5 @@ JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프�
 }
 ```
 
-프로비전한 내용을 변경하도록 JSON 구성 파일을 편집할 수 있습니다. 가상 컴퓨터 및 클라우드 서비스는 필요하지만 데이터베이스 섹션은 선택 사항입니다.
+프로비전한 내용을 변경하도록 JSON 구성 파일을 편집할 수 있습니다. 가상 머신 및 클라우드 서비스는 필요하지만 데이터베이스 섹션은 선택 사항입니다.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 | 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 4~32 |
 | 그 밖의 모든 복사 시나리오 | 4 |
 
-기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값**은 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
+기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값**은 **256까지**입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
 
 작업 실행을 모니터링할 때 복사 작업 출력에서 각 복사 실행에 대해 실질적으로 사용되는 클라우드 데이터 이동 단위를 확인할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 참조하세요.
 
@@ -133,11 +133,14 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 | 복사 시나리오 | 서비스에 의해 결정되는 기본 병렬 복사 개수 |
 | --- | --- |
-| 파일 기반 저장소 간의 데이터 복사 |1~64 파일 크기 및 클라우드 데이터 이동 단위의 수(DMU)에 따라, 두 클라우드 데이터 저장소 간에 데이터를 복사하거나, 자체 호스팅 Integration Runtime 컴퓨터의 물리적 구성에 사용됩니다. |
+| 파일 기반 저장소 간의 데이터 복사 |파일 크기 및 클라우드 데이터 이동 단위의 수(DMU)에 따라, 두 클라우드 데이터 저장소 간에 데이터를 복사하거나, 자체 호스팅 Integration Runtime 컴퓨터의 물리적 구성에 사용됩니다. |
 | 원본 데이터 저장소의 데이터를 Azure Table Storage에 복사 |4 |
 | 그 밖의 모든 복사 시나리오 |1 |
 
-일반적으로 기본 동작이 최고의 처리량을 제공합니다. 하지만, 데이터 저장소를 호스트하는 컴퓨터에서 로드를 제어하거나 복사 성능을 조정하기 위해 기본 값을 재정의하고 **parallelCopies** 속성의 값을 지정하도록 선택할 수 있습니다. 값은 1 이상의 정수여야 합니다. 런타임 시, 최고의 성능을 위해 복사 작업은 설정된 값 이하의 값을 사용합니다.
+[!TIP]
+> 파일 기반 저장소 간에 데이터를 복사할 때 기본 동작(자동 결정됨)은 대개 최상의 처리량을 허용합니다. 
+
+데이터 저장소를 호스트하는 컴퓨터에서 로드를 제어하거나 복사 성능을 조정하기 위해 기본 값을 재정의하고 **parallelCopies** 속성의 값을 지정하도록 선택할 수 있습니다. 값은 1 이상의 정수여야 합니다. 런타임 시, 최고의 성능을 위해 복사 작업은 설정된 값 이하의 값을 사용합니다.
 
 ```json
 "activities":[

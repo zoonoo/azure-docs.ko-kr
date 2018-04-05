@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher의 리소스 문제 해결 소개 | Microsoft Docs"
-description: "이 페이지는 Network Watcher 리소스 문제 해결 기능에 대한 개요를 제공합니다."
+title: Azure Network Watcher의 리소스 문제 해결 소개 | Microsoft Docs
+description: 이 페이지는 Network Watcher 리소스 문제 해결 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Network Watcher의 리소스 문제 해결 소개
 
-Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다른 가상 네트워크 간의 연결을 제공합니다. 이러한 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. Network Watcher는 Virtual Network 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다. 이것은 포털, PowerShell, CLI 또는 REST API를 통해 호출할 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 진단하거나 해당 결과를 반환합니다. 이 요청은 장기 실행 트랜잭션이며 진단이 완료되면 결과가 반환됩니다.
+Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다른 가상 네트워크 간의 연결을 제공합니다. 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. Network Watcher는 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다. 이 기능은 포털, PowerShell, Azure CLI 또는 REST API를 통해 호출할 수 있습니다. 호출하면 Network Watcher가 게이트웨이 또는 연결의 상태를 진단하고 적절한 결과를 반환합니다. 요청은 장기 실행 트랜잭션입니다. 진단이 완료되면 결과가 반환됩니다.
 
 ![portal][2]
 
@@ -50,28 +50,28 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
-| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
-| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
-| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 아니요 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니요|
+| NoFault | 오류가 발견되지 않은 경우 |예|
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
+| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니오|
+| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다. | 아니요 |
+| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니오 |
+| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니오|
 | ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니요|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 아니요|
-| ConnectionsNotConnected | 연결이 연결되지 않습니다. 단지 경고일 뿐입니다.| 예|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 아니요|
+| ConnectionsNotConnected | 연결이 연결되지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
 | GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
 
 ### <a name="connection"></a>연결
 
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
-| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
+| NoFault | 오류가 발견되지 않은 경우 |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
 | PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
-| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다.  | 아니요 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
+| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다.  | 아니오 |
+| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니요 |
 | ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니요 |
-| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |아니요|
+| ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |아니오|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
 | ConnectionMarkedStandy | 기본 서비스가 대기로 표시되었습니다.| 예|
 | 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
@@ -81,13 +81,13 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 
 ## <a name="supported-gateway-types"></a>지원되는 게이트웨이 유형
 
-다음 목록은 Network Watcher 문제 해결로 지원되는 게이트웨이 및 연결을 보여줍니다.
+다음 표에는 Network Watcher 문제 해결로 지원되는 게이트웨이 및 연결이 나열되어 있습니다.
+
 |  |  |
 |---------|---------|
 |**게이트웨이 유형**   |         |
 |VPN      | 지원됨        |
 |ExpressRoute | 지원되지 않음 |
-|HyperNet | 지원되지 않음|
 |**VPN 유형** | |
 |경로 기반 | 지원됨|
 |정책 기반 | 지원되지 않음|
@@ -95,7 +95,6 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 |IPSec| 지원됨|
 |VNet2Vnet| 지원됨|
 |ExpressRoute| 지원되지 않음|
-|HyperNet| 지원되지 않음|
 |VPNClient| 지원되지 않음|
 
 ## <a name="log-files"></a>로그 파일

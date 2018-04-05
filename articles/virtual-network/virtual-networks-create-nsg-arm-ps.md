@@ -1,6 +1,6 @@
 ---
-title: "네트워크 보안 그룹 만들기 - Azure PowerShell | Microsoft Docs"
-description: "PowerShell을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다."
+title: 네트워크 보안 그룹 만들기 - Azure PowerShell | Microsoft Docs
+description: PowerShell을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 26fe67b43d63c6685d8ae7644dd7df6931a4d2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="create-network-security-groups-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹 만들기
 

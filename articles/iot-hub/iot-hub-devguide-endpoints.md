@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Hub 끝점 이해 | Microsoft Docs"
-description: "개발자 가이드 - IoT Hub 장치 지향 및 서비스 지향 끝점에 대한 참조 정보"
+title: Azure IoT Hub 끝점 이해 | Microsoft Docs
+description: 개발자 가이드 - IoT Hub 장치 지향 및 서비스 지향 끝점에 대한 참조 정보
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 17479fce776b0786e2fa32054eec8b0456871aae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 끝점
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="iot-hub-names"></a>IoT Hub 이름
 
@@ -70,7 +72,6 @@ IoT Hub는 현재 추가 끝점으로 다음과 같은 Azure 서비스를 지원
 
 * Azure Storage 컨테이너 
 * Event Hubs
-
 * Service Bus 큐
 * Service Bus 토픽
 

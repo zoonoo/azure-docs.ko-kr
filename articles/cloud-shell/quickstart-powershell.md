@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell의 PowerShell(미리 보기) 빠른 시작 | Microsoft Docs"
-description: "Azure Cloud Shell의 PowerShell에 대한 빠른 시작"
+title: Azure Cloud Shell의 PowerShell(미리 보기) 빠른 시작 | Microsoft Docs
+description: Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작(미리 보기)
 
@@ -118,7 +118,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 
 ### <a name="navigate-storage-resources"></a>저장소 리소스 이동
     
-`StorageAccounts` 폴더에 들어가면 저장소 리소스를 쉽게 탐색할 수 있습니다.
+`StorageAccounts` 디렉터리에 들어가면 저장소 리소스를 쉽게 탐색할 수 있습니다.
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -182,7 +182,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### <a name="invoke-powershell-script-across-remote-vms"></a>PowerShell 스크립트를 원격 VM에 걸쳐 호출
 
  > [!WARNING]
- > [Azure VM의 원격 관리 문제 해결](troubleshooting.md#powershell-resolutions)을 참조하세요.
+ > [Azure VM의 원격 관리 문제 해결](troubleshooting.md#troubleshooting-remote-management-of-azure-vms)을 참조하세요.
 
   MyVM1이란 VM이 있다고 가정하고 `Invoke-AzureRmVMCommand`를 사용하여 원격 컴퓨터에 PowerShell 스크립트 블록을 호출합니다.
 
@@ -227,7 +227,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ### <a name="discover-webapps"></a>WebApps 검색
 
-`WebApps` 폴더에 들어가면 웹앱 리소스를 쉽게 탐색할 수 있습니다.
+`WebApps` 디렉터리에 들어가면 웹앱 리소스를 쉽게 탐색할 수 있습니다.
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>사용자 지정 프로필을 사용하여 GIT 및 SSH 설정 유지
 
-로그아웃 시 세션이 유지되지 않으므로 `$env:USERPROFILE\.ssh` 폴더를 `CloudDrive`에 저장하거나 Cloud Shell을 시작할 때 symlink를 만듭니다.
+로그아웃 시 세션이 유지되지 않으므로 `$env:USERPROFILE\.ssh` 디렉터리를 `CloudDrive`에 저장하거나 Cloud Shell을 시작할 때 symlink를 만듭니다.
 profile.ps1에 다음 코드 조각을 추가하여 CloudDrive에 대한 symlink를 만듭니다.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-다음에 Azure Cloud Shell의 PowerShell을 사용할 때 `helloworld.ps1` 파일은 Azure Files 공유를 탑재한 `CloudDrive` 폴더에 존재할 것입니다.
+다음에 Azure Cloud Shell의 PowerShell을 사용할 때 `helloworld.ps1` 파일은 Azure Files 공유를 탑재한 `CloudDrive` 디렉터리에 존재할 것입니다.
 
 ## <a name="use-custom-profile"></a>사용자 지정 프로필 사용
 

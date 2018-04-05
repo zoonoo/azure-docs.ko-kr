@@ -1,6 +1,6 @@
 ---
-title: "행위자 기반 Azure 마이크로 서비스 수명 주기 개요 | Microsoft Docs"
-description: "서비스 패브릭 Reliable Actor 수명 주기, 가비지 수집 및 행위자와 해당 상태 수동 삭제에 대해 설명합니다."
+title: 행위자 기반 Azure 마이크로 서비스 수명 주기 개요 | Microsoft Docs
+description: 서비스 패브릭 Reliable Actor 수명 주기, 가비지 수집 및 행위자와 해당 상태 수동 삭제에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
 행위자는 해당 메서드 중 하나가 처음 호출되면 활성화됩니다. 구성 가능한 기간 동안 사용되지 않으면 비활성화됩니다(행위자 런타임에 의한 가비지 수집). 행위자와 그 상태를 언제든지 수동으로 삭제할 수도 있습니다.
@@ -112,37 +112,8 @@ public class Program
 
 메서드 중 하나를 실행하는 동안에는 해당 메서드를 실행하는 데 소요되는 시간에 상관 없이 행위자는 절대 가비지 수집되지 않습니다. 앞서 설명한 대로 행위자 인터페이스 메서드 및 미리 알림 콜백을 실행하면 행위자의 유휴 시간을 0으로 다시 설정하여 가비지 수집을 방지합니다. 타이머 콜백 실행의 경우는 유휴 시간이 0으로 설정되지 않습니다. 하지만 행위자의 가비지 수집은 타이머 콜백의 실행이 완료될 때까지는 지연됩니다.
 
-## <a name="deleting-actors-and-their-state"></a>행위자와 해당 상태 삭제
-비활성화된 행위자의 가비지 수집에서는 행위자 개체를 정리하기만 하고 행위자의 상태 관리자에 저장된 데이터를 제거하지는 않습니다. 행위자가 다시 활성화되면 상태 관리자를 통해 해당 데이터를 다시 사용할 수 있게 됩니다. 행위자가 상태 관리자에 데이터를 저장하고 비활성화되었지만 다시 활성화되지 않는 경우에는 해당 데이터를 정리해야 할 수 있습니다.
-
-[행위자 서비스](service-fabric-reliable-actors-platform.md) 에서는 원격 호출자에서 행위자를 삭제하는 기능을 제공합니다.
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-행위자를 삭제하면 행위자가 현재 활성 상태인지 여부에 따라 다음과 같은 결과가 발생합니다.
-
-* **활성 행위자**
-  * 행위자가 활성 행위자 목록에서 제거되고 비활성화됩니다.
-  * 해당 상태가 영구적으로 삭제됩니다.
-* **비활성 행위자**
-  * 해당 상태가 영구적으로 삭제됩니다.
-
-행위자는 행위자 메서드 중 하나에서 자체를 삭제하도록 호출할 수 없습니다. 행위자 호출 컨텍스트 내에서 실행되는 동안에는 런타임에서 단일 스레드 액세스를 적용하기 위해 행위자 호출에 대한 잠금을 획득하기 때문에 행위자를 삭제할 수 없습니다.
+## <a name="manually-deleting-actors-and-their-state"></a>수동으로 행위자와 해당 상태 삭제
+비활성화된 행위자의 가비지 수집에서는 행위자 개체를 정리하기만 하고 행위자의 상태 관리자에 저장된 데이터를 제거하지는 않습니다. 행위자가 다시 활성화되면 상태 관리자를 통해 해당 데이터를 다시 사용할 수 있게 됩니다. 행위자가 상태 관리자에 데이터를 저장하고 비활성화되었지만 다시 활성화되지 않는 경우에는 해당 데이터를 정리해야 할 수 있습니다.  행위자를 삭제하는 방법의 예제는 [행위자 및 해당 상태 삭제](service-fabric-reliable-actors-delete-actors.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)

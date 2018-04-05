@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66e3939a59f09650ce76488c38eb46699ab9f63f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
 Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 있는 서비스의 작성과 관리를 단순화합니다. 이 항목은 다음에 대해 설명합니다.
@@ -45,7 +45,7 @@ Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모
 * 플러그형 통신 모델. [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, 사용자 지정 TCP 프로토콜 또는 다른 프로그램과 함께 HTTP와 같은 원하는 전송 프로토콜을 사용합니다. 신뢰할 수 있는 서비스는 훌륭한 기본 옵션을 제공하거나 직접 만들 수 있게 지원합니다.
 * 상태 저장 서비스의 경우 Reliable Services 프로그래밍 모델을 통해 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)을 사용하여 일관되고 안정적으로 서비스 내에 상태를 바로 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 C# 컬렉션을 사용해본 적이 있는 사람에게 친숙한 고가용성인 신뢰할 수 있는 컬렉션 클래스의 간단한 집합입니다. 일반적으로 서비스는 신뢰할 수 있는 상태 관리를 위한 외부 시스템이 필요합니다. 신뢰할 수 있는 컬렉션을 사용하면 고가용성 외부 저장소에 기대하게 되는 것과 동일한 고가용성 및 안정성으로 컴퓨터 옆에 상태를 저장할 수 있습니다. 작동하는 데 필요한 계산 및 상태를 공동 배치하기 때문에 이 모델도 대기 시간을 개선합니다.
 
-Reliable Services의 개요는 다음 Microsoft Virtual Academy 비디오를 시청하세요. <center>
+Reliable Services 개요는 다음 Microsoft Virtual Academy 비디오를 시청하세요. <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>
@@ -111,5 +111,5 @@ Reliable Services의 개요는 다음 Microsoft Virtual Academy 비디오를 시
 
 ## <a name="next-steps"></a>다음 단계
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
-* [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
+* [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
 * [신뢰할 수 있는 행위자 프로그래밍 모델](service-fabric-reliable-actors-introduction.md)

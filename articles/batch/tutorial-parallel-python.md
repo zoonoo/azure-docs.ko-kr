@@ -1,6 +1,6 @@
 ---
-title: "병렬 워크로드 실행 - Azure Batch Python"
-description: "자습서 - Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 병렬 처리"
+title: 병렬 워크로드 실행 - Azure Batch Python
+description: 자습서 - Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 병렬 처리
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: dlepow
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f9853578962027d6308581a76e00d6619cbbf9ec
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a04cd63944d0ed75ff90f211134cd93c77abe1e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Python 2.7 또는 3.3 이상 버전](https://www.python.org/downloads/)
+* [Python 버전 2.7 또는 3.3 이상](https://www.python.org/downloads/)
 
 * [pip](https://pip.pypa.io/en/stable/installing/) 패키지 관리자
 
-* Azure Batch 계정과 연결된 범용 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
+* Azure Batch 계정 및 연결된 범용 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="download-the-sample"></a>샘플 다운로드
 
-GitHub에서 [샘플 응용 프로그램을 다운로드 또는 복제](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial)합니다. Git 클라이언트를 사용하여 샘플 앱 리포지토리를 복제하려면 다음 명령을 사용합니다.
+GitHub에서 [샘플 앱을 다운로드 또는 복제](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial)합니다. Git 클라이언트를 사용하여 샘플 앱 리포지토리를 복제하려면 다음 명령을 사용합니다.
 
 ```
 git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
@@ -83,7 +83,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 python batch_python_tutorial_ffmpeg.py
 ```
 
-샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
+샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
    
 ```
 Sample start: 12/12/2017 3:20:21 PM
@@ -169,7 +169,7 @@ input_files = [
 
 이 풀 구성에는 실제 노드 속성 외에 [StartTask](/python/api/azure.batch.models.starttask) 개체가 포함되어 있습니다. StartTask는 해당 노드가 풀을 연결할 때 각 노드에서 실행하고 이 때마다 노드가 다시 시작됩니다. 이 예에서 StartTask는 Bash 셸 명령을 실행하여 노드에 ffmpeg 패키지와 종속성을 설치합니다.
 
-[pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) 메서드는 Batch 서비스에 풀을 제출합니다.
+[pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -199,7 +199,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>작업 만들기
 
-Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `create_job`를 호출하여 작업을 만듭니다. 이 정의된 함수는 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) 메서드는 Batch 서비스에 풀을 제출합니다. 처음에는 이 작업에 태스크가 없습니다.
+Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `create_job`를 호출하여 작업을 만듭니다. 이 정의된 함수는 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) 메서드는 Batch 서비스에 풀을 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -264,7 +264,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 앱은 태스크를 실행한 후 생성된 입력 저장소 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/python/api/azure.batch.operations.joboperations) 및 [PoolOperations](/python/api/azure.batch.operations.pooloperations) 클래스에는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 저장소 계정에 남아 있습니다.
 
-더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이 작업을 수행하려면 Batch 계정의 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

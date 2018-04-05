@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c81a6f9af556a86f10d2482333fdc98f9cfb1454
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 디자인 결정 및 코딩 기술
 SQL Data Warehouse에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하려면 다음 개발 문서를 살펴보세요.
@@ -49,7 +49,7 @@ SQL Data Warehouse에 대한 주요 디자인 결정, 권장 사항 및 코딩 �
 * [변수 할당][variable assignment]
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 SQL Data Warehouse에 대한 [Transact-SQL 참조][Transact-SQL reference] 페이지를 참조하세요.
+자세한 참조 정보는 [SQL Data Warehouse T-SQL 명령문](sql-data-warehouse-reference-tsql-statements.md)을 참조하세요.
 
 <!--Image references-->
 
@@ -71,7 +71,7 @@ SQL Data Warehouse에 대한 주요 디자인 결정, 권장 사항 및 코딩 �
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

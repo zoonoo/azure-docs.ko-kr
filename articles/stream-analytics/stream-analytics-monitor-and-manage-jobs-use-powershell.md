@@ -1,12 +1,11 @@
 ---
-title: "PowerShell을 사용하여 Stream Analytics 작업 모니터링 및 관리 | Microsoft Docs"
-description: "Azure PowerShell 및 cmdlet을 사용하여 Stream Analytics 작업을 모니터링하고 관리하는 방법에 대해 알아봅니다."
-keywords: "azure powershell, azure powershell cmdlet, powershell 명령, powershell 스크립팅"
+title: PowerShell을 사용하여 Stream Analytics 작업 모니터링 및 관리 | Microsoft Docs
+description: Azure PowerShell 및 cmdlet을 사용하여 Stream Analytics 작업을 모니터링하고 관리하는 방법에 대해 알아봅니다.
+keywords: azure powershell, azure powershell cmdlet, powershell 명령, powershell 스크립팅
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: b8d362a2789c4e1f5594baa2b86a16e523757037
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 1dcb6f8fe9f2f26ea0bd6970134b0bec67a50aa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet을 사용하여 Stream Analytics 작업 모니터링 및 관리
 기본 Stream Analytics 작업을 실행하는 Azure PowerShell cmdlet 및 PowerShell 스크립팅을 사용하여 Stream Analytics 리소스를 모니터링 및 관리하는 방법을 알아봅니다.
@@ -58,7 +57,7 @@ Azure PowerShell 1.0.
 
 
 > [!NOTE]
-> 프로그래밍 방식으로 만든 Stream Analytics 작업은 기본적으로 모니터링이 설정되어 있지 않습니다.  작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure Stream Analytics - 프로그래밍 방식으로 Stream Analytics 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
+> 프로그래밍 방식으로 만든 Stream Analytics 작업은 기본적으로 모니터링이 설정되어 있지 않습니다.  작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure Portal에서 수동으로 모니터링을 설정하거나 [Azure Stream Analytics - 프로그래밍 방식으로 Stream Analytics 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
 > 
 > 
 

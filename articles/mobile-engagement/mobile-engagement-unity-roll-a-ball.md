@@ -1,11 +1,11 @@
 ---
-title: "Unity Roll a Ball 자습서"
-description: "모든 Mobile Engagement Unity의 필수 조건인 고전 Unity Roll a Ball 게임을 만드는 단계를 설명합니다."
+title: Unity Roll a Ball 자습서
+description: 모든 Mobile Engagement Unity의 필수 조건인 고전 Unity Roll a Ball 게임을 만드는 단계를 설명합니다.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d5962645b1408fdba61ec1bf4e4f682b80905b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a id="unity-roll-a-ball"></a>Unity Roll a Ball 게임 만들기
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 자습서에서는 약간 수정된 [Unity Roll a Ball 자습서](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)의 주요 단계를 다룹니다. 이 샘플 게임은 앱 사용자에 의해 제어되는 구 모양의 '플레이어' 개체로 구성되며, 플레이어 개체를 수집 가능한 개체와 충돌하여 수집 가능한 개체를 '수집'하는 것이 이 게임의 목표입니다. 이 자습서는 여러분이 Unity 편집기 환경에 대한 기본 지식을 갖춘 것으로 가정하고 진행됩니다. 문제가 발생하면 전체 자습서를 참조하셔야 합니다. 
 
 ### <a name="setting-up-the-game"></a>게임 설정

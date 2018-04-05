@@ -1,11 +1,11 @@
 ---
-title: "Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트) | Microsoft Docs"
-description: "Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 WebJob 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다."
+title: Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트) | Microsoft Docs
+description: Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 WebJob 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.service: storage
 ms.workload: web
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 52c089d2657d61ee42730a00def060dec74439fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Azure Storage 계정을 만들거나 참조한 후 Visual Studio Azure WebJob프로젝트에서 Azure Queue Storage를 사용하는 방법을 설명합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 저장소 계정을 추가하는 경우 적절한 Azure 저장소 NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 저장소 계정에 대한 연결 문자열이 업데이트됩니다.  
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Azure Storage 계정을 만들거나 참조한 후 Visual Studio Azure WebJob프로젝트에서 Azure Queue Storage를 사용하는 방법을 설명합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 Storage 계정을 추가하는 경우 적절한 Azure Storage NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 Storage 계정에 대한 연결 문자열이 업데이트됩니다.  
 
 이 문서에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET을 사용하여 Azure 큐 저장소 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
+Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>큐 메시지를 받을 때 함수를 트리거하는 방법
 큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면 **QueueTrigger** 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 문자열 매개 변수를 사용합니다. 큐 이름을 동적으로 설정하는 방법을 알아보려면 [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)을 참조하세요.
@@ -222,7 +222,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 * **out POCO** (직렬화 가능한 유형, 함수가 종료될 때 매개 변수가 null인 경우 null 개체가 포함된 메시지 생성)
 * **ICollector**
 * **IAsyncCollector**
-* **CloudQueue** (Azure 저장소 API를 직접 사용하여 수동으로 메시지 생성)
+* **CloudQueue** (Azure Storage API를 직접 사용하여 수동으로 메시지 생성)
 
 ### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>함수 본문에 WebJobs SDK 특성 사용
 **Queue**, **Blob** 또는 **Table**과 같은 WebJobs SDK 특성을 사용하기 전에 함수에서 일부 작업을 수행해야 하는 경우 **IBinder** 인터페이스를 사용할 수 있습니다.

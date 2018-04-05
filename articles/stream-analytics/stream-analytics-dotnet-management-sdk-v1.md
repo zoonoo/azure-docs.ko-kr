@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics용 관리 .NET SDK v1.x | Microsoft Docs"
-description: "Stream Analytics 관리 .NET SDK를 시작합니다. 분석 작업을 설정 및 실행하는 방법에 대해 알아봅니다. 프로젝트, 입력, 출력 및 변환을 만듭니다."
-keywords: ".net SDK, 분석 API"
+title: Azure Stream Analytics용 관리 .NET SDK v1.x | Microsoft Docs
+description: Stream Analytics 관리 .NET SDK를 시작합니다. 분석 작업을 설정 및 실행하는 방법에 대해 알아봅니다. 프로젝트, 입력, 출력 및 변환을 만듭니다.
+keywords: .net SDK, 분석 API
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
-ms.author: samacha
-ms.openlocfilehash: 7f434f1fe600877d1a12174ae84aaa47e878a055
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: jeanb
+ms.openlocfilehash: acda06ae2d0eea4b3352870bd6e1f4410ad05b17
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK v1.x: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.

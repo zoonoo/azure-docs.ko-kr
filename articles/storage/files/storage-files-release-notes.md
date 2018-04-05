@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -93,11 +93,12 @@ Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하�
 - 서버 엔드포인트는 시스템 볼륨에 있을 수 없습니다. 예를 들어 C:\MyFolder는 C:\MyFolder가 탑재 지점이 아닌 경우 적합한 경로가 아닙니다.
 - 장애 조치(failover) 클러스터링은 CSV(클러스터 공유 볼륨)가 아닌 클러스터된 디스크로만 지원됩니다.
 - 서버 엔드포인트는 중첩될 수 없습니다. 다른 엔드포인트와 병렬로 동일한 볼륨에 공존할 수 있습니다.
-- 한 번에 한 서버에서 많은 수(10,000개 이상)의 디렉터리를 삭제하면 동기화 실패가 발생할 수 있습니다. 10,000보다 작은 일괄 처리에 있는 디렉터리를 삭제합니다. 다음 일괄 처리를 삭제하기 전에 삭제 작업 동기화가 성공했는지 확인합니다.
 - 이 릴리스는 볼륨의 루트에서 동기화 루트에 대한 지원이 추가되었습니다.
 - 서버 엔드포인트 내에 있는 OS 또는 응용 프로그램 페이징 파일을 저장하지 마십시오.
 - 이 릴리스의 변경 내용: 클라우드 계층화(EventID 9016)의 총 런타임, 동기화 업로드 진행률(EventID 9302) 및 동기화되지 않은 파일(EventID 9900)을 추적하는 새 이벤트가 추가되었습니다.
-- 이 릴리스의 변경 내용: 빠른 DR 네임스페이스 동기화 성능이 크게 향상되었습니다.
+- 이 릴리스에서 개선된 내용: 
+- 빠른 DR 네임스페이스 동기화 성능이 크게 향상되었습니다.
+- 많은(10,000개 이상) 디렉터리를 삭제하려면 v2*의 일괄 처리에서 수행해야 합니다.
  
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 이전 버전에서 변경 내용: 계층화 정책 설정에 따라 1시간(이전 32시간) 내에서 새 파일이 계층화됩니다. 필요에 따라 PowerShell cmdlet을 계층에 제공합니다. cmdlet을 사용하여 백그라운드 프로세스를 기다리지 않고 보다 효율적으로 계층화를 평가할 수 있습니다.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/09/2018
 VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="regions"></a>영역
-동아시아를 제외한 모든 공용 Azure 지역에서 사용할 수 있습니다.   Azure Government 클라우드는 아직 지원되지 않습니다.
+모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 이 기능을 사용하는 경우 다음과 같은 제한이 적용됩니다.

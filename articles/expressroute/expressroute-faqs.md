@@ -1,24 +1,24 @@
 ---
 title: Azure ExpressRoute FAQ | Microsoft Docs
-description: "ExpressRoute FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다."
+description: ExpressRoute FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -340,7 +340,10 @@ Office 365 서비스 및 Dynamics 365를 사용하려면 프리미엄 추가 기
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>ExpressRoute가 내 조직에 구성되어 있더라도 인터넷을 통해 Office 365에 액세스할 수 있나요?
 
-예. ExpressRoute가 네트워크에 구성되어 있더라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. ExpressRoute를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 ExpressRoute를 통해 연결됩니다.
+예. ExpressRoute가 네트워크에 구성되어 있더라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. 사용자의 위치에서 네트워크가 ExpressRoute 통해 Office 365 서비스에 연결되도록 구성하는 경우 조직의 네트워킹 팀에 문의하십시오.
+
+### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Azure ExpressRoute에서 Office 365 네트워크 트래픽에 대한 고가용성을 위해 어떤 계획이 가능합니까?
+[Azure ExpressRoute의 고가용성 및 장애 조치](https://aka.ms/erhighavailability)에 대한 권장 사항 참조
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Azure 미국 정부 ExpressRoute 회로를 통해 Office 365 미국 정부 커뮤니티(GCC) 서비스에 액세스할 수 있나요?
 

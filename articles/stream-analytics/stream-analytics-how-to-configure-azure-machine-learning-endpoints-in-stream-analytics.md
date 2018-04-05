@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics의 Machine Learning 끝점 사용 | Microsoft Docs"
-description: "Stream Analytics의 기계 언어 사용자 정의 함수"
-keywords: 
-documentationcenter: 
+title: Stream Analytics의 Machine Learning 끝점 사용 | Microsoft Docs
+description: Stream Analytics의 기계 언어 사용자 정의 함수
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: ca656ce11f267340872f4b8566d0ee21791f29d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 5638071e667c5777138f7c25add8b5f60bee21fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Stream Analytics의 Machine Learning 통합
 Stream Analytics는 Azure Machine Learning 끝점을 호출하는 사용자 정의 함수를 지원합니다. 이 기능에 대한 REST API 지원은 [Stream Analytics REST API 라이브러리](https://msdn.microsoft.com/library/azure/dn835031.aspx)에 자세히 설명되어 있습니다. 이 문서에서는 Stream Analytics에서 이 기능을 성공적으로 구현하기 위해 필요한 추가 정보를 제공합니다. 자습서도 게시되어 있으며 [여기](stream-analytics-machine-learning-integration-tutorial.md)서 확인할 수 있습니다.
 
 ## <a name="overview-azure-machine-learning-terminology"></a>개요: Azure Machine Learning 용어
-Microsoft Azure Machine Learning은 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. 이 도구를 *Azure Machine Learning 스튜디오*라고 부릅니다. 이 스튜디오는 Machine Learning 리소스와 상호 작용하고 설계를 간편하게 빌드, 테스트 및 반복하는 데 사용됩니다. 이러한 리소스 및 해당 정의는 다음과 같습니다.
+Microsoft Azure Machine Learning은 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. 이 도구를 *Azure Machine Learning Studio*라고 부릅니다. 이 스튜디오는 Machine Learning 리소스와 상호 작용하고 설계를 간편하게 빌드, 테스트 및 반복하는 데 사용됩니다. 이러한 리소스 및 해당 정의는 다음과 같습니다.
 
 * **작업 영역**: *작업 영역* 은 관리 및 제어를 위해 다른 모든 Machine Learning 리소스를 함께 보관하는 컨테이너입니다.
 * **실험**: 데이터 과학자가 데이터 집합을 활용하고 Machine Learning 모델을 교육하기 위해 *실험* 을 만듭니다.
-* **끝점**: *끝점* 은 입력으로 기능을 가져오고, 지정된 Machine Learning 모델을 적용하고, 점수가 매겨진 출력을 반환하는 데 사용되는 Azure Machine Learning 개체입니다.
+* **끝점**: *끝점*은 입력으로 기능을 가져오고, 지정된 기계 학습 모델을 적용하고, 점수가 매겨진 출력을 반환하는 데 사용되는 Azure Machine Learning 개체입니다.
 * **점수 매기기 웹 서비스**: *점수 매기기 웹 서비스* 는 위에서 언급한 대로 끝점 컬렉션입니다.
 
 각 끝점에는 배치 실행 및 동기 실행을 위한 API가 있습니다. Stream Analytics은 동기 실행을 사용합니다. 특정 서비스는 AzureML 스튜디오에 있는 [Request/Response Service](../machine-learning/studio/consume-web-services.md) 라는 서비스입니다.
@@ -48,7 +47,7 @@ REST API를 사용하여 Azure 기계 언어 함수를 호출하는 작업을 �
 6. 작업 시작
 
 ## <a name="creating-a-udf-with-basic-properties"></a>기본 속성을 사용하여 UDF 만들기
-예를 들어 다음 샘플 코드는 Azure Machine Learning 끝점에 바인딩되는 *newudf* 라고 하는 스칼라 UDF를 만듭니다. *끝점*(서비스 URI)은 선택한 서비스에 대한 API 도움말 페이지에서 찾을 수 있고 *apiKey*는 서비스 기본 페이지에서 찾을 수 있습니다.
+예를 들어 다음 샘플 코드는 Azure Machine Learning 끝점에 바인딩되는 *newudf*라고 하는 스칼라 UDF를 만듭니다. *끝점*(서비스 URI)은 선택한 서비스에 대한 API 도움말 페이지에서 찾을 수 있고 *apiKey*는 서비스 기본 페이지에서 찾을 수 있습니다.
 
 ````
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
@@ -195,7 +194,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

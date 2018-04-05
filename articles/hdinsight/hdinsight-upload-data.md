@@ -1,9 +1,9 @@
 ---
-title: "HDInsight에서 Hadoop 작업용 데이터 업로드 | Microsoft Docs"
-description: "Azure CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다."
-keywords: "etl hadoop, hadoop으로 데이터 가져오기, hadoop 데이터 로드"
+title: HDInsight에서 Hadoop 작업용 데이터 업로드 | Microsoft Docs
+description: Azure CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다.
+keywords: etl hadoop, hadoop으로 데이터 가져오기, hadoop 데이터 로드
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업용 데이터 업로드
 
@@ -176,7 +176,7 @@ HDInsight의 기본 파일 시스템이 Azure Storage에 있으므로 /example/d
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-파일과 함께 작동하는 다른 Hadoop 명령의 목록은 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+파일로 작업하는 다른 Hadoop 명령의 목록은 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)을 참조하세요.
 
 > [!WARNING]
 > HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 이 문서의 [Blob에서 쓰기를 위한 저장소 예외](#storageexception) 섹션을 참조하세요.
@@ -188,7 +188,7 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 | 클라이언트 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage 탐색기](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [클라우드 저장소 스튜디오 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,7 +196,7 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>HDInsight 용 Visual Studio Tools
-자세한 내용은 [연결된 리소스 탐색](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)을 참조하세요.
+자세한 내용은 [연결된 리소스 탐색](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources)을 참조하세요.
 
 #### <a id="storageexplorer"></a>Azure Storage 탐색기
 *Azure Storage 탐색기* 는 Blob의 데이터를 검사하고 변경하는 데 유용한 도구입니다. [http://storageexplorer.com/](http://storageexplorer.com/)에서 다운로드할 수 있는 무료 오픈 소스 도구입니다. 소스 코드도 이 링크에서 사용할 수 있습니다.
@@ -280,7 +280,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Ambari를 사용하여 `fs.azure.write.request.size` 값을 전역적으로 늘릴 수도 있습니다. 다음 단계에 따라 Ambari 웹 UI 값을 변경합니다.
 
-1. 브라우저에서 클러스터에 대한 Ambari 웹 UI로 이동합니다. https://CLUSTERNAME.azurehdinsight.net이며, **CLUSTERNAME**은 클러스터 이름입니다.
+1. 브라우저에서 클러스터에 대한 Ambari 웹 UI로 이동합니다. https://CLUSTERNAME.azurehdinsight.net에서 **CLUSTERNAME**은 클러스터의 이름입니다.
 
     메시지가 표시되면 클러스터의 관리자 이름 및 암호를 입력합니다.
 2. 화면 왼쪽에서 **HDFS**를 선택한 다음 **구성** 탭을 선택합니다.
