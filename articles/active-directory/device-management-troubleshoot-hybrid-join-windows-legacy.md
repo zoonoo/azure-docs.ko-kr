@@ -1,8 +1,8 @@
 ---
-title: "하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 | Microsoft Docs"
-description: "하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결"
+title: 하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 | Microsoft Docs
+description: 하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -91,7 +91,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
     3. 조직에서 Azure AD 원활한 Single Sign-On을 사용하고 있는 경우 다음 URL은 장치의 IE 인트라넷 설정에 없습니다.
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        그리고 "스크립트를 통해 상태 표시줄에 업데이트 허용" 설정은 인트라넷 영역에 대해 활성화되어야 합니다.
 

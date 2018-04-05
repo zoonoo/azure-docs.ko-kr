@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning에서 모델 성능 평가 | Microsoft Docs"
-description: "Azure 기계 학습에서 모델 성능을 평가하는 방법에 대해 설명합니다."
+title: Machine Learning에서 모델 성능 평가 | Microsoft Docs
+description: Azure Machine Learning에서 모델 성능을 평가하는 방법에 대해 설명합니다.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 48ce4584f7270d78b1d09b848bfdd305d03012b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Azure 기계 학습에서 모델 성능을 평가하는 방법
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Azure Machine Learning에서 모델 성능을 평가하는 방법
 이 문서에서는 Azure Machine Learning Studio에서 모델의 성능을 평가하는 방법을 살펴본 다음 이 작업에 사용할 수 있는 메트릭을 간략하게 설명합니다. 다음 세 가지 일반적인 감독 학습 시나리오가 제공됩니다. 
 
 * 회귀
@@ -43,10 +43,10 @@ Azure Machine Learning에서는 해당 기본 Machine Learning 모듈 중 두 �
 다음 섹션에서는 간단한 회귀 및 분류 모델을 빌드하고 [모델 평가][evaluate-model] 및 [모델 교차 유효성 검사][cross-validate-model] 모듈을 둘 다 사용하여 해당 성능을 평가합니다.
 
 ## <a name="evaluating-a-regression-model"></a>회귀 모델 평가
-크기, 마력, 엔진 사양 등의 몇 가지 기능을 사용하여 자동차 가격을 예측하려고 합니다. 이는 대상 변수(*price*)가 연속 숫자 값인 일반적인 회귀 문제입니다. 특정 자동차의 기능 값이 주어진 경우 해당 자동차의 가격을 예측할 수 있는 간단한 선형 회귀 모델을 적합화할 수 있습니다. 이 회귀 모델을 사용하여 학습한 동일한 데이터 집합의 점수를 매길 수 있습니다. 모든 자동차의 가격을 예측한 후에는 예측이 실제 가격에서 평균적으로 어느 정도 벗어났는지 확인하여 모델의 성능을 평가할 수 있습니다. 이 예에서는 Azure 기계 학습 스튜디오의 *저장된 데이터 집합* 섹션에서 제공된 **자동차 가격 데이터(원시)** 를 사용합니다.
+크기, 마력, 엔진 사양 등의 몇 가지 기능을 사용하여 자동차 가격을 예측하려고 합니다. 이는 대상 변수(*price*)가 연속 숫자 값인 일반적인 회귀 문제입니다. 특정 자동차의 기능 값이 주어진 경우 해당 자동차의 가격을 예측할 수 있는 간단한 선형 회귀 모델을 적합화할 수 있습니다. 이 회귀 모델을 사용하여 학습한 동일한 데이터 집합의 점수를 매길 수 있습니다. 모든 자동차의 가격을 예측한 후에는 예측이 실제 가격에서 평균적으로 어느 정도 벗어났는지 확인하여 모델의 성능을 평가할 수 있습니다. 이 예에서는 Azure Machine Learning Studio의 *저장된 데이터 집합* 섹션에서 제공된 **자동차 가격 데이터(원시)** 를 사용합니다.
 
 ### <a name="creating-the-experiment"></a>실험 만들기
-다음 모듈을 Azure 기계 학습 스튜디오의 작업 영역에 추가합니다.
+다음 모듈을 Azure Machine Learning Studio의 작업 영역에 추가합니다.
 
 * 자동차 가격 데이터(원시)
 * [선형 회귀][linear-regression]
@@ -85,10 +85,10 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 그림 4. 회귀 모델의 교차 유효성 검사 결과
 
 ## <a name="evaluating-a-binary-classification-model"></a>이진 분류 모델 평가
-이진 분류 시나리오에서는 대상 변수의 가능한 결과가 두 가지뿐입니다. 예를 들면 {0, 1} 또는 {false, true}, {negative, positive}입니다. 일부 인구 통계 및 고용 변수가 있는 성인 직원의 데이터 집합에서 소득 수준(값이 {“<=50K”, “>50K”}인 이진 변수)을 예측해 보겠습니다. 즉, 부정 클래스는 소득이 연간 50K 이하인 직원을 나타내고, 긍정 클래스는 다른 모든 직원을 나타냅니다. 회귀 시나리오와 마찬가지로 모델을 학습하고, 일부 데이터의 점수를 매긴 다음, 결과를 평가합니다. 가장 큰 차이점은 Azure 기계 학습에서 계산하고 출력하는 메트릭의 선택입니다. 소득 수준 예측 시나리오를 보여 주기 위해 [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) 데이터 집합을 사용하여 Azure Machine Learning 실험을 만들고, 일반적으로 사용되는 이진 분류자인 2클래스 로지스틱 회귀 모델의 성능을 평가합니다.
+이진 분류 시나리오에서는 대상 변수의 가능한 결과가 두 가지뿐입니다. 예를 들면 {0, 1} 또는 {false, true}, {negative, positive}입니다. 일부 인구 통계 및 고용 변수가 있는 성인 직원의 데이터 집합에서 소득 수준(값이 {“<=50K”, “>50K”}인 이진 변수)을 예측해 보겠습니다. 즉, 부정 클래스는 소득이 연간 50K 이하인 직원을 나타내고, 긍정 클래스는 다른 모든 직원을 나타냅니다. 회귀 시나리오와 마찬가지로 모델을 학습하고, 일부 데이터의 점수를 매긴 다음, 결과를 평가합니다. 가장 큰 차이점은 Azure Machine Learning에서 계산하고 출력하는 메트릭의 선택입니다. 소득 수준 예측 시나리오를 보여 주기 위해 [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) 데이터 집합을 사용하여 Azure Machine Learning 실험을 만들고, 일반적으로 사용되는 이진 분류자인 2클래스 로지스틱 회귀 모델의 성능을 평가합니다.
 
 ### <a name="creating-the-experiment"></a>실험 만들기
-다음 모듈을 Azure 기계 학습 스튜디오의 작업 영역에 추가합니다.
+다음 모듈을 Azure Machine Learning Studio의 작업 영역에 추가합니다.
 
 * 성인 인구 조사 소득 이진 분류 데이터 집합
 * [2클래스 로지스틱 회귀 분석][two-class-logistic-regression]
@@ -107,7 +107,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 
 정확도는 올바르게 분류된 인스턴스의 비율일 뿐입니다. 이는 일반적으로 분류자를 평가할 때 확인하는 첫 번째 메트릭입니다. 그러나 테스트 데이터가 불균형하거나(대부분의 인스턴스가 클래스 중 하나에 속한 경우) 클래스 중 하나에 대한 성능에 더 많은 관심이 있는 경우 정확도는 실제로 분류자의 효과를 캡처하지 못합니다. 소득 수준 분류 시나리오에서는 인스턴스의 99%가 연간 소득이 50K 이하인 사람을 나타내는 일부 데이터를 테스트하는 것으로 가정합니다. 0.99의 정확도는 모든 인스턴스에 대해 “<=50K” 클래스를 예측하여 달성할 수 있습니다. 이 경우 분류자는 전반적으로 양호한 것처럼 보이지만 실제로는 고소득자(1%)를 올바르게 분류하지 못합니다.
 
-따라서 평가의 보다 특정한 측면을 캡처하는 추가 메트릭을 계산하는 것이 좋습니다. 이러한 메트릭에 대해 자세히 알아보기 전에 이진 분류 평가의 혼동 행렬을 이해해야 합니다. 학습 집합의 클래스 레이블은 일반적으로 긍정 또는 부정이라는 두 가지 가능한 값만 취할 수 있습니다. 분류자가 올바르게 예측한 긍정 및 부정 인스턴스를 각각 TP(참 긍정) 및 TN(참 부정)이라고 합니다. 마찬가지로 잘못 분류된 인스턴스는 FP(거짓 긍정) 및 FN(거짓 부정)이라고 합니다. 혼동 행렬은 이 네 가지 범주 각각에 속하는 인스턴스 수를 보여 주는 테이블입니다. Azure 기계 학습에서는 데이터 집합의 두 클래스 중 긍정 클래스를 자동으로 결정합니다. 클래스 레이블이 부울 또는 정수인 경우에는 ‘true’ 또는 ‘1’ 레이블이 지정된 인스턴스에 긍정 클래스가 할당됩니다. 레이블이 문자열인 경우에는 income 데이터 집합의 경우처럼 레이블이 사전순으로 정렬되고 첫 번째 수준은 부정 클래스로, 두 번째 수준은 긍정 클래스로 선택됩니다.
+따라서 평가의 보다 특정한 측면을 캡처하는 추가 메트릭을 계산하는 것이 좋습니다. 이러한 메트릭에 대해 자세히 알아보기 전에 이진 분류 평가의 혼동 행렬을 이해해야 합니다. 학습 집합의 클래스 레이블은 일반적으로 긍정 또는 부정이라는 두 가지 가능한 값만 취할 수 있습니다. 분류자가 올바르게 예측한 긍정 및 부정 인스턴스를 각각 TP(참 긍정) 및 TN(참 부정)이라고 합니다. 마찬가지로 잘못 분류된 인스턴스는 FP(거짓 긍정) 및 FN(거짓 부정)이라고 합니다. 혼동 행렬은 이 네 가지 범주 각각에 속하는 인스턴스 수를 보여 주는 테이블입니다. Azure Machine Learning에서는 데이터 집합의 두 클래스 중 긍정 클래스를 자동으로 결정합니다. 클래스 레이블이 부울 또는 정수인 경우에는 ‘true’ 또는 ‘1’ 레이블이 지정된 인스턴스에 긍정 클래스가 할당됩니다. 레이블이 문자열인 경우에는 income 데이터 집합의 경우처럼 레이블이 사전순으로 정렬되고 첫 번째 수준은 부정 클래스로, 두 번째 수준은 긍정 클래스로 선택됩니다.
 
 ![이진 분류 혼동 행렬](./media/evaluate-model-performance/6a.png)
 
@@ -138,7 +138,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 이 실험에서는 세 가지 유형(클래스)의 붓꽃 인스턴스가 포함된 일반적인 [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") 데이터 집합을 사용합니다. 각 인스턴스에 대해 4개의 기능 값(꽃받침 길이/너비 및 꽃잎 길이/너비)이 있습니다. 이전 실험에서 동일한 데이터 집합을 사용하여 모델을 학습하고 테스트했습니다. 여기에서는 [데이터 분할][split] 모듈을 사용하여 데이터의 하위 집합 2개를 만들고 첫 번째 하위 집합을 학습한 후 두 번째 하위 집합의 점수를 매기고 평가합니다. Iris 데이터 집합은 [UCI Machine Learning 리포지토리](http://archive.ics.uci.edu/ml/index.html)에서 공개적으로 사용할 수 있으며, [데이터 가져오기][import-data] 모듈을 사용하여 다운로드할 수 있습니다.
 
 ### <a name="creating-the-experiment"></a>실험 만들기
-다음 모듈을 Azure 기계 학습 스튜디오의 작업 영역에 추가합니다.
+다음 모듈을 Azure Machine Learning Studio의 작업 영역에 추가합니다.
 
 * [데이터 가져오기][import-data]
 * [다중 클래스 의사 결정 포리스트][multiclass-decision-forest]
@@ -151,7 +151,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 
 [모델 학습][train-model] 모듈의 레이블 열 인덱스를 5로 설정합니다. 이 데이터 집합에는 헤더 행이 없지만 클래스 레이블이 다섯 번째 열에 있다는 것을 알고 있습니다.
 
-[데이터 가져오기][import-data] 모듈을 클릭하고 *데이터 원본* 속성을 *HTTP를 통한 웹 URL*로, *URL*을 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data로 설정합니다.
+[데이터 가져오기][import-data] 모듈을 클릭하고 *데이터 원본* 속성을 *HTTP 통해 웹 URL*로, *URL*을 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data로 설정합니다.
 
 [데이터 분할][split] 모듈에서 학습에 사용할 인스턴스 부분을 설정합니다(이 예의 경우 0.7).
 

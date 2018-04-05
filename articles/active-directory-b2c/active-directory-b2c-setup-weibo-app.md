@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Weibo 구성 | Microsoft Docs"
-description: "소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 Weibo 계정으로 등록 및 로그인을 제공합니다."
+title: 'Azure Active Directory B2C: Weibo 구성 | Microsoft Docs'
+description: 소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 Weibo 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1860de34-94cb-4ceb-851e-102f930f7230
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: 320d7c57035d3b3ecdb4e03d80141a58cf429461
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: 고객에게 Weibo 계정으로 등록 및 로그인 제공
 
@@ -28,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-weibo-application"></a>Weibo 응용 프로그램 만들기
 
-Azure AD(Azure Active Directory) B2C에서 Weibo를 ID 공급자로 사용하려면 Weibo 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. 이렇게 하려면 Weibo 계정이 필요합니다. 없는 경우 [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us)에서 가져올 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 Weibo를 ID 공급자로 사용하려면 Weibo 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. 이렇게 하려면 Weibo 계정이 필요합니다. 계정이 없는 경우 [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us)에서 가져올 수 있습니다.
 
 ### <a name="register-for-the-weibo-developer-program"></a>Weibo 개발자 프로그램 등록
 
@@ -54,9 +51,9 @@ Azure AD(Azure Active Directory) B2C에서 Weibo를 ID 공급자로 사용하려
 10. **提交**(제출)을 클릭합니다.  
 
 ## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>테넌트에서 Weibo를 ID 공급자로 구성
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
+1. 다음 단계에 따라 [Azure Portal의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
 2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
-3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
+3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
 4. ID 공급자 구성에 친숙한 **이름** 을 제공합니다. 예를 들어 "Weibo"를 입력합니다.
 5. **ID 공급자 형식**을 클릭하고 **Weibo**를 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭합니다.

@@ -1,24 +1,24 @@
 ---
 title: Azure Traffic Manager - FAQ | Microsoft Docs
-description: "이 문서에서는 Traffic Manager에 대한 질문과 대답을 제공합니다."
+description: 이 문서에서는 Traffic Manager에 대한 질문과 대답을 제공합니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -123,9 +123,6 @@ Traffic Manager는 쿼리의 원본 IP를 찾고(대개 사용자 대신 쿼리�
 
 ## <a name="real-user-measurements"></a>실제 사용자 측정
 
->[!NOTE]
->Traffic Manager의 실제 사용자 측정 기능은 공개 미리 보기 상태이며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림은 [Azure Traffic Manager 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager) 페이지를 참조하세요.
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>실제 사용자 측정을 사용하는 장점은 무엇인가요?
 성능 라우팅 메서드를 사용하는 경우 Traffic Manager에서는 원본 IP와 EDNS 클라이언트 서브넷(통과되는 경우)을 검사하고 서비스에서 유지하는 네트워크 대기 시간 인텔리전스에 대해 확인하여 최종 사용자에 대해 최상의 Azure 지역을 연결하도록 선택합니다. 실제 사용자 측정은 최종 사용자가 Azure에 연결된 최종 사용자 네트워크에 이 대기 시간 테이블이 적절하게 걸쳐 있는지 확인할 뿐만 아니라 해당 성능이 해당 테이블에 영향을 주도록 하여 최종 사용자를 기반으로 향상시킵니다. 이로 인해 최종 사용자의 라우팅 정확도가 증가합니다.
 
@@ -140,7 +137,8 @@ Traffic Manager는 쿼리의 원본 IP를 찾고(대개 사용자 대신 쿼리�
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>내 구독에서 실제 사용자 측정을 해제하려면 어떻게 할까요?
 클라이언트 응용 프로그램에서 대기 시간 측정을 수집하고 다시 보내는 작업을 중지하는 경우 실제 사용자 측정과 관련하여 발생되는 요금이 중지될 수 있습니다. 예를 들어 JavaScript 측정값이 웹 페이지에 포함되면 JavaScript를 제거하거나 페이지를 렌더링할 때 해당 호출을 해제하여 이 기능의 사용을 중지할 수 있습니다.
-실제 사용자 측정을 사용하지 않는 다른 방법은 키를 삭제하는 것입니다. 이렇게 하면 해당 키가 있는 Traffic Manager로 전송되는 측정값이 삭제됩니다.
+
+키를 삭제하여 실제 사용자 측정을 해제할 수도 있습니다. 키를 삭제하면 해당 키가 있는 Traffic Manager로 전송되는 측정값이 삭제됩니다.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>웹 페이지가 아닌 클라이언트 응용 프로그램에서 실제 사용자 측정을 사용할 수 있나요?
 예, 실제 사용자 측정은 다른 유형의 최종 사용자 클라이언트를 통해 수집된 데이터를 수집하도록 설계되었습니다. 이 FAQ는 새롭게 지원되는 유형의 클라이언트 응용 프로그램으로 업데이트됩니다.
@@ -155,7 +153,7 @@ Traffic Manager는 쿼리의 원본 IP를 찾고(대개 사용자 대신 쿼리�
 아니요, 호출될 때마다 실제 사용자 측정 스크립트는 서비스에 의해 결정된 대로 6개의 Azure 지역 집합을 측정합니다. 이 값은 다른 호출 간의 변경 내용을 설정하고 이러한 호출이 많이 발생하는 경우 측정 검사는 다른 Azure 지역으로 확장됩니다.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>측정값 수를 지정된 숫자로 제한할 수 있나요?
-JavaScript 측정값을 웹 페이지 내에 포함하고 사용 시작 및 중지 시기를 완전히 제어합니다. Traffic Manager 서비스가 측정될 Azure 지역 목록에 대한 요청을 받으면 지역 집합이 반환됩니다. 또한 미리 보기 기간 중에 Traffic Manager에 보고된 모든 측정값에 대한 요금이 청구되지는 않습니다.
+JavaScript 측정값을 웹 페이지 내에 포함하고 사용 시작 및 중지 시기를 완전히 제어합니다. Traffic Manager 서비스가 측정될 Azure 지역 목록에 대한 요청을 받으면 지역 집합이 반환됩니다.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>실제 사용자 측정의 일환으로 클라이언트 응용 프로그램에서 측정된 측정값을 볼 수 있나요?
 측정 논리가 클라이언트 응용 프로그램에서 실행되므로 대기 시간 측정값을 보는 작업을 포함하여 상황을 완전히 제어합니다. Traffic Manager는 구독에 연결된 키 아래에서 수신한 측정값의 집계 보기를 보고하지 않습니다.
@@ -186,9 +184,6 @@ JavaScript 측정값을 웹 페이지 내에 포함하고 사용 시작 및 중�
 
 ## <a name="traffic-view"></a>트래픽 보기
 
->[!NOTE]
->Traffic Manager의 트래픽 보기 기능은 공개 미리 보기로 제공되며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림은 [Azure Traffic Manager 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager) 페이지를 참조하세요.
-
 ### <a name="what-does-traffic-view-do"></a>트래픽 보기의 기능은 무엇인가요?
 트래픽 보기는 Traffic Manager의 기능으로 사용자 및 사용자 환경을 더 이해할 수 있도록 합니다. 서비스에서 유지하는 Traffic Manager 및 네트워크 대기 시간 인텔리전스 테이블에서 받은 쿼리를 사용하여 다음을 제공합니다.
 - 사용자가 Azure에서 끝점에 연결하는 지역
@@ -196,7 +191,7 @@ JavaScript 측정값을 웹 페이지 내에 포함하고 사용 시작 및 중�
 - 사용자가 라우팅되는 Azure 지역
 - 이러한 Azure 지역에 대한 해당 대기 시간 환경
 
-이 정보는 원시 데이터로 다운로드할 수 있을 뿐만 아니라 포털에서 테이블 형식 보기를 통해 사용할 수 있습니다.
+이 정보는 원시 데이터로 다운로드할 수 있을 뿐만 아니라 포털에서 지리적 맵 오버레이 및 테이블 형식 보기를 통해 사용할 수 있습니다.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>트래픽 보기를 사용하는 장점은 무엇인가요?
 
@@ -208,7 +203,7 @@ JavaScript 측정값을 웹 페이지 내에 포함하고 사용 시작 및 중�
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>트래픽 보기에서 EDNS 클라이언트 서브넷 정보를 사용하나요?
 
-트래픽 보기에서는 해당 출력을 만들 때 EDNS 클라이언트 서브넷 정보를 고려하지 않습니다. 로컬 DNS 해결 프로그램의 IP 주소를 사용하여 그룹화합니다.
+Azure Traffic Manager에서 제공되는 DNS 쿼리는 라우팅의 정확도를 높이기 위해 ECS 정보를 고려합니다. 하지만 사용자가 연결되는 위치를 보여주는 데이터 집합을 만들 때 트래픽 보기는 DNS 확인자의 IP 주소만을 사용합니다.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>트래픽 보기는 며칠 동안의 데이터를 사용하나요?
 
@@ -219,15 +214,18 @@ JavaScript 측정값을 웹 페이지 내에 포함하고 사용 시작 및 중�
 Traffic Manager 프로필의 Azure 지역 외부에서 호스팅되는 외부 끝점을 사용하는 경우 해당 대기 시간 특성에 대한 프록시인 Azure 지역에 매핑되도록 선택할 수 있습니다(실제로 성능 라우팅 메서드를 사용하는 경우 필요함). 이 Azure 지역이 매핑되는 경우 트래픽 보기를 만들 때 해당 Azure 지역의 대기 시간 메트릭을 사용합니다. Azure 지역을 지정하지 않은 경우 해당 외부 끝점의 데이터에서 대기 시간 정보가 비게 됩니다.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>내 구독의 각 프로필에 트래픽 보기를 사용하도록 설정해야 하나요?
-미리 보기 기간 중에 트래픽 보기는 구독 수준에서 사용하도록 설정되고 해당 구독에서 모든 Traffic Manager 프로필에 사용할 수 있습니다.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>트래픽 보기를 해제하려면 어떻게 할까요?
-미리 보기 기간 중에 지원 티켓을 만들어서 구독에 트래픽 보기를 사용하지 않도록 요청합니다.
+미리 보기 기간 중 트래픽 보기는 구독 수준에서 활성화되었습니다. 일반 공급 이전에 만든 기능 향상의 일환으로 이제 프로필 수준에서 트래픽 보기를 활성화하여 더욱 세분화된 이 기능의 활성화를 얻을 수 있습니다. 기본적으로 트래픽 보기는 프로필에 대해 비활성화됩니다.
+
+>[!NOTE]
+>미리 보기 기간 동안 구독 수준에서 트래픽을 보기를 활성화한 경우 이제 해당 구독의 각 프로필에 대해 다시 활성화해야 합니다.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>트래픽 보기를 해제하려면 어떻게 할까요? 
+포털 또는 REST API를 사용하여 모든 프로필에 대한 트래픽 보기를 해제할 수 있습니다. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>트래픽 보기 요금 청구는 어떻게 작동하나요?
 
 트래픽 보기 가격 책정은 출력을 생성하는 데 사용되는 데이터 요소의 수를 기반으로 합니다. 현재 지원되는 유일한 데이터 형식은 프로필이 수신하는 쿼리입니다. 또한 트래픽 보기를 사용할 수 있을 때 수행된 처리에 대해서만 요금이 청구됩니다. 즉, 한 달 내의 일정 기간 동안 트래픽 보기를 사용하도록 설정하고 그 외 시간 동안 해제한 경우 요금으로 계산되는 기능을 사용하는 동안에만 데이터 요소가 처리되었습니다.
-미리 보기 기간 중에 트래픽 보기를 사용하는 요금이 청구되지 않습니다.
 
 ## <a name="traffic-manager-endpoints"></a>Traffic Manager 끝점
 

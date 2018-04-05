@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 규칙 엔진 일치 조건 
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건에 대해 자세히 설명합니다.
@@ -305,7 +305,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 #### <a name="string-type"></a>문자열 형식
 WURFL 기능은 일반적으로 숫자, 문자 및 기호의 모든 조합을 허용합니다. 이 기능이 유연하기 때문에 이 일치 조건과 연결된 값이 해석되는 방식을 선택해야 합니다. 다음 테이블에는 사용 가능한 옵션 집합이 설명되어 있습니다.
 
-형식     | 설명
+유형     | 설명
 ---------|------------
 리터럴  | 대부분의 문자가 [리터럴 값](cdn-rules-engine-reference.md#literal-values)을 사용하여 특별한 의미를 갖지 못하게 하려면 이 옵션을 선택합니다.
 와일드카드 | 모든 [와일드카드 문자]([와일드카드 값](cdn-rules-engine-reference.md#wildcard-values))을 활용하려면 이 옵션을 선택합니다.
@@ -526,15 +526,15 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
 
      예: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
 
-     이 URL은 다음 Verizon CDN 호스트 이름을 가리킵니다. http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder**/index.htm
+     이 URL은 Verizon CDN 호스트 이름 http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm을 가리킵니다.
 
 - 에지 CNAME URL은 URL을 비교하기 전에 CDN URL로 다시 작성됩니다.
 
     예를 들어 다음 URL은 모두 동일한 자산을 가리키기 때문에 URL 경로가 동일합니다.
-    - CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     
     - 에지 CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
+    
     추가 정보:
     - 사용자 지정 도메인: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
     **기준** 옵션에는 다음 값을 사용할 수 있습니다.
      - **루트**: URL 비교 지점이 CDN 호스트 이름 바로 뒤에 시작됩니다.
 
-       예: http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       예: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **원본**: URL 비교 지점이 콘텐츠 액세스 포인트 다음에 시작됩니다(예: /000001 또는 /800001/myorigin). \*.azureedge.net CNAME은 기본적으로 Verizon CDN 호스트 이름의 원본 디렉터리를 기준으로 생성되기 때문에 Azure CDN 사용자는 **원본** 값을 사용해야 합니다. 
 
        예: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     이 URL은 다음 Verizon CDN 호스트 이름을 가리킵니다. http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     이 URL은 Verizon CDN 호스트 이름 http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm을 가리킵니다.
 
 - 에지 CNAME URL은 URL을 비교하기 전에 CDN URL로 다시 작성됩니다.
 
-   예를 들어 다음 URL은 모두 동일한 자산을 가리키기 때문에 URL 경로가 동일합니다.
-    - CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    예를 들어 다음 URL은 모두 동일한 자산을 가리키기 때문에 URL 경로가 동일합니다.
+    - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     - 에지 CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   추가 정보:
+    
+    추가 정보:
     
     - URL 경로(루트 기준): /800001/CustomerOrigin/path/asset.htm
    
@@ -681,13 +681,13 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
 주요 정보:
 - 에지 CNAME URL은 URL을 비교하기 전에 CDN URL로 다시 작성됩니다. 
  
-   예를 들어 두 URL이 모두 동일한 자산을 가리키기 때문에 URL 경로가 동일합니다.
+    예를 들어 두 URL이 모두 동일한 자산을 가리키기 때문에 URL 경로가 동일합니다.
 
-     - CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
 
      - 에지 CNAME URL: http:\//my.domain.com/path/asset.htm
-
-   추가 정보:
+    
+    추가 정보:
     
      - URL 경로: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
    이 옵션에 사용할 수 있는 값은 다음과 같습니다.
      - **루트**: URL 비교 지점이 CDN 호스트 이름 바로 뒤에 시작됩니다.
 
-       예: http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       예: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **원본**: URL 비교 지점이 콘텐츠 액세스 포인트 다음에 시작됩니다(예: /000001 또는 /800001/myorigin). \*.azureedge.net CNAME은 기본적으로 Verizon CDN 호스트 이름의 원본 디렉터리를 기준으로 생성되기 때문에 Azure CDN 사용자는 **원본** 값을 사용해야 합니다. 
 
        예: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     이 URL은 다음 Verizon CDN 호스트 이름을 가리킵니다. http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     이 URL은 Verizon CDN 호스트 이름 http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm을 가리킵니다.
 
 - 에지 CNAME URL은 URL을 비교하기 전에 CDN URL로 다시 작성됩니다.
 
-   예를 들어 다음 URL은 모두 동일한 자산을 가리키기 때문에 URL 경로가 동일합니다.
-     - CDN URL: http://wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    예를 들어 다음 URL은 모두 동일한 자산을 가리키기 때문에 URL 경로가 동일합니다.
+     - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - 에지 CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   추가 정보:
+    
+    추가 정보:
     
      - URL 경로(루트 기준): /800001/CustomerOrigin/path/asset.htm
     
@@ -737,7 +737,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
     
 - 각 항목을 하나의 공백으로 구분하여 여러 URL 경로를 지정합니다.
 
-   예: /marketing/asset.\* /sales/\*.htm
+   예: /marketing/asset.* /sales/*.htm
 
 - URL의 쿼리 문자열은 무시됩니다.
     
@@ -757,7 +757,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
 /80ABCD/origin/text/*   | 루트           | 이 패턴은 요청된 자산이 다음 조건을 충족하는 경우에 일치합니다. <br />- "원본"이라는 고객 원본에 있어야 합니다. <br />- 상대 경로가 "text"라는 폴더로 시작해야 합니다. 즉, 요청된 자산이 "text" 폴더 또는 해당 하위 폴더 중 하나에 있어야 합니다.
 */css/* */js/*          | 루트 또는 원본 | 이 패턴은 css 또는 js 폴더가 포함된 모든 CDN 또는 에지 CNAME URL과 일치합니다.
 *.jpg *.gif *.png       | 루트 또는 원본 | 이 패턴은 .jpg, .gif 또는 .png로 끝나는 모든 CDN 또는 에지 CNAME URL과 일치합니다. 이 패턴을 지정하는 다른 방법은 [URL 경로 확장 일치 조건](#url-path-extension)을 사용하는 것입니다.
-/images/\* /media/\*      | 원본         | 이 패턴은 상대 경로가 "images" 또는 "media" 폴더로 시작하는 CDN 또는 에지 CNAME URL과 일치합니다. <br />- CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- 샘플 에지 CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | 원본         | 이 패턴은 상대 경로가 "images" 또는 "media" 폴더로 시작하는 CDN 또는 에지 CNAME URL과 일치합니다. <br />- CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- 샘플 에지 CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
 #### <a name="sample-scenarios"></a>샘플 시나리오
 다음 예제는 이 옵션이 특정 상황에서 작동하는 방식을 보여줍니다.
 
-Name      | 값 |  결과
-----------|-------|--------
-사용자      | Joe   | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
-사용자      | *     | 이 패턴은 요청된 URL의 쿼리 문자열에 User 매개 변수가 포함된 경우에 일치합니다.
-Email Joe | *     | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시작되는 Email 매개 변수가 포함된 경우에 일치합니다.
+Name  | 값 |  결과
+------|-------|--------
+사용자  | Joe   | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
+사용자  | *     | 이 패턴은 요청된 URL의 쿼리 문자열에 User 매개 변수가 포함된 경우에 일치합니다.
+Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시작되는 Email 매개 변수가 포함된 경우에 일치합니다.
 
 [맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Email Joe | *     | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 
    값 | 해석되는 값 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - 캐시 설정을 추적하는 방식으로 인해 이 일치 조건은 다음 기능과 호환되지 않습니다.
    - 전체 캐시 채우기

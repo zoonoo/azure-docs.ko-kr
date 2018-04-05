@@ -1,11 +1,11 @@
 ---
-title: "등록 관리"
-description: "이 항목에서는 푸시 알림을 받기 위해 알림 허브에 장치를 등록하는 방법에 대해 설명합니다."
+title: 등록 관리
+description: 이 항목에서는 푸시 알림을 받기 위해 알림 허브에 장치를 등록하는 방법에 대해 설명합니다.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>등록 관리
 ## <a name="overview"></a>개요
@@ -31,7 +31,7 @@ Notification Hub에 장치 등록은 **등록** 또는 **설치**를 사용하�
 등록은 태그 및 아마도 템플릿을 가진 장치에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 장치 토큰 또는 GCM 등록 ID일 수 있습니다. 태그는 장치 핸들의 정확한 집합에 알림을 올바른 장치 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
 
 #### <a name="installations"></a>설치
-설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 장치 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 장치 자체에서 등록하는 경우 설치를 지원하기 위해 [알림 허브 REST API](https://msdn.microsoft.com/library/mt621153.aspx) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
+설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 장치 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 장치 자체에서 등록하는 경우 설치를 지원하기 위해 [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
 
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 
@@ -105,7 +105,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 클라이언트 앱에서 등록 관리의 두 번째 단점은 앱이 해킹을 당할 수 있으므로 “태그 수준 보안" 섹션에서 설명했듯이 특정 태그에 대한 등록을 보호하려면 좀 더 주의해야 합니다.
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>설치를 사용하여 장치에서 알림 허브에 등록하는 예제 코드
-현재 이 기능은 [알림 허브 REST API](https://msdn.microsoft.com/library/mt621153.aspx)를 사용해서만 지원됩니다.
+현재 이 기능은 [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx)를 사용해서만 지원됩니다.
 
 설치를 업데이트하는 경우 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902) 을 사용하여 PATCH 메서드를 사용할 수도 있습니다.
 
@@ -293,7 +293,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 장치에서 알림 허브에 등록하는 예제 코드
-앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예:
+앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예: 
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
@@ -316,5 +316,5 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
     await hub.DeleteRegistrationAsync(r);
 
 
-백 엔드에서 등록 업데이트 간의 동시성을 처리해야 합니다. 서비스 버스는 등록 관리를 위해 낙관적 동시성 제어를 제공합니다. HTTP 수준에서 이 기능은 등록 관리 작업에 ETag를 사용하여 구현 됩니다. 이 기능은 동시성 문제로 인해 업데이트가 거부될 경우 예외를 throw하는 Microsoft SDK에 의해 투명하게 사용됩니다. 앱 백 엔드는 이러한 예외를 처리하고 필요한 경우 업데이트를 다시 시도하는 일을 담당합니다.
+백 엔드에서 등록 업데이트 간의 동시성을 처리해야 합니다. Service Bus는 등록 관리를 위해 낙관적 동시성 제어를 제공합니다. HTTP 수준에서 이 기능은 등록 관리 작업에 ETag를 사용하여 구현 됩니다. 이 기능은 동시성 문제로 인해 업데이트가 거부될 경우 예외를 throw하는 Microsoft SDK에 의해 투명하게 사용됩니다. 앱 백 엔드는 이러한 예외를 처리하고 필요한 경우 업데이트를 다시 시도하는 일을 담당합니다.
 

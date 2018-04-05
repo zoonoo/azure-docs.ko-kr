@@ -1,6 +1,6 @@
 ---
-title: "Docker 이미지를 개인 Azure 레지스트리에 푸시"
-description: "Docker CLI를 사용하여 Azure의 개인 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기"
+title: Docker 이미지를 개인 Azure 레지스트리에 푸시
+description: Docker CLI를 사용하여 Azure의 개인 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 기본 사항을 배웠으니 레지스트리 사용을 시작할 준비가 되었습니다. 예를 들어 레지스트리의 컨테이너 이미지를 [AKS(Azure Container Service)](../aks/tutorial-kubernetes-prepare-app.md) 클러스터에 배포할 수 있습니다.
+이제 기본 사항을 배웠으니 레지스트리 사용을 시작할 준비가 되었습니다. 레지스트리에서 다음에 컨테이너 이미지를 배포합니다.
+
+* [AKS(Azure Container Service)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

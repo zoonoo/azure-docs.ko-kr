@@ -1,5 +1,5 @@
 ---
-title: 네트워크 트래픽 라우팅 - PowerShell | Microsoft Docs
+title: 네트워크 트래픽 라우팅 - Azure PowerShell | Microsoft Docs
 description: PowerShell을 사용하여 경로 테이블이 포함된 네트워크 트래픽을 라우팅하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -242,7 +242,7 @@ VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때
 이후 단계에서 tracert.exe 명령은 라우팅을 테스트하는 데 사용됩니다. Tracert는 ICMP(Internet Control Message Protocol)를 사용하는데, ICMP는 Windows 방화벽에서 허용되지 않습니다. PowerShell에서 다음 명령을 입력하여 Windows 방화벽을 통해 ICMP를 활성화합니다.
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 이 문서에서는 라우팅을 테스트하는 데 tracert가 사용되지만, 프로덕션 배포에 Windows 방화벽을 통한 ICMP는 허용하지 않는 것이 좋습니다.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 PowerShell에서 다음 명령을 입력하여 Windows 방화벽을 통해 ICMP를 활성화합니다.
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 *myVmPublic* VM에서 *myVmPrivate* VM으로의 네트워크 트래픽 라우팅을 테스트하려면 PowerShell에서 다음 명령을 입력합니다.
@@ -332,4 +332,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 가상 네트워크 내에서 여러 Azure 리소스를 배포할 수 있는 반면, 일부 Azure PaaS 서비스에 대한 리소스는 가상 네트워크에 배포할 수 없습니다. 하지만 일부 Azure PaaS 서비스의 리소스에 대한 액세스를 가상 네트워크 서브넷의 트래픽만으로 제한할 수 있습니다. 다음 자습서에서 Azure PaaS 리소스에 대한 네트워크 액세스를 제한하는 방법에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [PaaS 리소스에 대한 네트워크 액세스 제한](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [PaaS 리소스에 대한 네트워크 액세스 제한](tutorial-restrict-network-access-to-resources-powershell.md)

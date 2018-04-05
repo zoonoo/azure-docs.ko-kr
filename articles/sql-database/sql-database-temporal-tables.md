@@ -3,17 +3,17 @@ title: Azure SQL Database의 임시 테이블 시작| Microsoft Docs
 description: Azure SQL Database에서 임시 테이블을 사용하여 시작하는 방법을 알아봅니다.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL Database의 임시 테이블 시작
 임시 테이블은 사용자 지정 코딩을 필요로 하지 않고 데이터의 전체 변경 기록을 추적하고 분석할 수 있는 Azure SQL Database의 새로운 프로그래밍 기능입니다. 임시 테이블은 특정 기간 내에서만 유효하기 때문에 저장된 팩트를 해석할 수 있도록 데이터를 시간 컨텍스트와 밀접하게 연결해둡니다. 임시 테이블의 이 속성을 사용하면 효율적인 시간 기반 분석 및 데이터의 진화에서 정보를 얻을 수 있습니다.
@@ -64,7 +64,7 @@ CREATE TABLE WebsiteUserInfo
 이 경우에는 더 큰 데이터 집합으로 더 긴 데이터 기록에 걸친 시간 기반 추세 분석을 수행하려고 합니다. 그러므로 기록 테이블에 대한 저장소로 클러스터된 columnstore 인덱스를 선택합니다. 클러스터된 columnstore는 분석 쿼리를 훌륭하게 압축하고 좋은 성능을 제공합니다. 임시 테이블은 현재 및 임시 테이블에서 완전히 독립적으로 인덱스를 구성하는 유연성을 제공합니다. 
 
 > [!NOTE]
-> Columnstore 인덱스는 프리미엄 서비스 계층에서만 사용할 수 있습니다.
+> Columnstore 인덱스는 Premium 계층 및 S3 이상 표준 계층에서 사용할 수 있습니다.
 >
 
 다음 스크립트는 기록 테이블에서 기본 인덱스를 클러스터된 columnstore로 변경하는 방법을 보여줍니다.

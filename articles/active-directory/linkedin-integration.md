@@ -9,15 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft 앱 및 서비스에 대한 LinkedIn 계정 연결
 이 문서에서는 Azure AD(Azure Active Directory) 관리 센터에서 테넌트에 대해 LinkedIn 계정 연결을 관리하는 방법을 알아볼 수 있습니다. 
@@ -56,9 +56,9 @@ LinkedIn 계정 연결 기능은 전체 테넌트에 대해 기본적으로 사�
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>그룹 정책을 사용하여 조직의 Office 2016 앱에 LinkedIn 계정 연결을 사용하도록 설정 또는 해제
 
 1. [Office 2016 관리 템플릿 파일(ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030) 다운로드
-2. **ADMX** 파일을 추출하고 **중앙 리포지토리**에 복사합니다.
+2. **ADMX** 파일을 추출하고 중앙 저장소에 복사합니다.
 3. 그룹 정책 관리를 엽니다.
-4. **사용자 구성** > **관리 템플릿** > **Microsoft Office 2016** > **기타** > **LinkedIn 통합 허용** 설정을 사용하여 그룹 정책 개체를 만듭니다.
+4. **사용자 구성** > **관리 템플릿** > **Microsoft Office 2016** > **기타** > **Office 응용 프로그램에서 LinkedIn 기능 표시** 설정을 사용하여 그룹 정책 개체를 만듭니다.
 5. **사용** 또는 **사용 안 함**을 선택합니다.
   * 이 정책을 **사용**으로 설정하면 Office 2016 옵션 대화 상자에 있는 **Office 응용 프로그램에서 LinkedIn 기능 표시** 설정이 사용됩니다. 즉, 조직의 사용자가 Office 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
   * 이 정책을 **사용 안 함**으로 설정하면 Office 2016 옵션 대화 상자에 있는 **Office 응용 프로그램에서 LinkedIn 기능 표시** 설정이 사용 안 함 상태로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다. 

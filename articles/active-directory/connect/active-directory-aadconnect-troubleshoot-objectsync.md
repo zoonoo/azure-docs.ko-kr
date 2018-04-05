@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: 개체 동기화 문제 해결 | Microsoft Docs"
-description: "이 항목에서는 문제 해결 작업을 사용하여 개체 동기화 관련 문제를 해결하는 방법에 대한 단계를 제공합니다."
+title: 'Azure AD Connect: 개체 동기화 문제 해결 | Microsoft Docs'
+description: 이 항목에서는 문제 해결 작업을 사용하여 개체 동기화 관련 문제를 해결하는 방법에 대한 단계를 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 개체 동기화 문제 해결
 이 문서에서는 문제 해결 작업을 사용하여 개체 동기화 관련 문제를 해결하는 방법에 대한 단계를 제공합니다.
 
 ## <a name="troubleshooting-task"></a>문제 해결 작업
-버전 <verison> 이상인 AAD(Azure Active Directory) Connect 배포의 경우 개체 동기화 문제를 해결하는 데 마법사에서 문제 해결 작업을 사용할 수 있습니다. 이전 버전의 경우 [여기](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)에 설명된 대로 수동으로 문제를 해결하세요.
+버전 1.1.749.0 이상인 AAD(Azure Active Directory) Connect 배포의 경우 마법사에서 문제 해결 작업을 사용하여 개체 동기화 문제를 해결합니다. 이전 버전의 경우 [여기](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)에 설명된 대로 수동으로 문제를 해결하세요.
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>마법사에서 문제 해결 작업을 실행합니다.
 마법사에서 문제 해결 작업을 실행하려면 다음 단계를 수행하세요.

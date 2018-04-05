@@ -1,6 +1,6 @@
 ---
-title: "MySQL용 Azure Database의 가격 책정 계층"
-description: "이 문서에서는 Azure Database for MySQL의 가격 책정 계층을 설명합니다."
+title: MySQL용 Azure Database의 가격 책정 계층
+description: 이 문서에서는 Azure Database for MySQL의 가격 책정 계층을 설명합니다.
 services: mysql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 6bd24da05c337a902ce0e4a2b9acf22a809eb653
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ec475648f1da4420e86bf59053d95770409bed8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -22,7 +22,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |    | **Basic** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
-| vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | vCore 메모리 | 1x | 2x 기본 | 2x 범용 |
 | 저장소 크기 | 5GB-1TB | 5GB-1TB | 5GB-1TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -40,7 +40,32 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 ## <a name="compute-generations-vcores-and-memory"></a>세대, vCore 수 및 메모리 계산
 
-계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 현재 2개의 계산 세대, 즉 4세대와 5세대가 제공됩니다. 4세대 논리적 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다.
+계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 현재 2개의 계산 세대, 즉 4세대와 5세대가 제공됩니다. 4세대 논리적 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. Gen 4 및 Gen 5는 다음 지역에서 사용할 수 있습니다(“X”는 사용할 수 있음을 나타냄). 
+
+| **Azure 지역** | **4세대** | **5세대** |
+|:---|:----------:|:--------------------:|
+| 미국 중부 |  | X |
+| 미국 동부 | X | X |
+| 미국 동부 2 | X |  |
+| 미국 중북부 | X |  |
+| 미국 중남부 | X |  |
+| 미국 서부 | X | X |
+| 미국 서부 2 |  | X |
+| 캐나다 중부 | X | X |
+| 캐나다 동부 | X | X |
+| 브라질 남부 | X |  |
+| 북유럽 | X | X |
+| 서유럽 | X | X |
+| 영국 서부 |  | X |
+| 영국 남부 |  | X |
+| 동아시아 | X |  |
+| 동남아시아 | X |  |
+| 오스트레일리아 동부 |  | X |
+| 인도 중부 | X |  |
+| 인도 서부 | X |  |
+| 일본 동부 | X |  |
+| 일본 서부 | X |  |
+| 한국 남부 |  | X |
 
 가격 책정 계층에 따라 각 vCore는 특정 양의 메모리로 프로비전됩니다. 서버에 대한 vCore 수를 늘리거나 줄이면 이에 비례하여 메모리도 늘어나거나 줄어듭니다. 범용 계층은 기본 계층에 비해 vCore당 두 배의 메모리를 제공하고, 메모리 최적화 계층은 범용 계층에 비해 두 배의 메모리를 제공합니다.
 

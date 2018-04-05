@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -28,8 +28,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [지속성 함수 설치](durable-functions-install.md)의 지침에 따라 샘플을 설정합니다.
-* 이 문서에서는 [Hello 시퀀스](durable-functions-sequence.md) 샘플 연습을 이미 살펴보았다고 가정합니다.
+* [지속성 함수를 설치합니다](durable-functions-install.md).
+* [Hello 시퀀스](durable-functions-sequence.md) 연습을 완료합니다.
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/17/2018
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-다음 섹션에서는 Azure Portal 개발에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+다음 섹션에서는 C# 스크립팅에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 확인 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드) 
 

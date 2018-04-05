@@ -1,6 +1,6 @@
 ---
-title: "자습서: SAP Cloud Platform과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 SAP Cloud Platform 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: SAP Cloud Platform과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 SAP Cloud Platform 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>자습서: SAP Cloud Platform과 Azure Active Directory 통합
 
@@ -122,7 +122,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하고 테스트하려
     | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
     | `https://<subdomain>.hana.ondemand.com/<instancename>` |
 
-    b. **식별자** 텍스트 상자에 다음 패턴 중 하나를 사용하여 SAP Cloud Platform의 URL 형식을 입력합니다. 
+    나. **식별자** 텍스트 상자에 다음 패턴 중 하나를 사용하여 SAP Cloud Platform의 URL 형식을 입력합니다. 
 
     | |
     |--|
@@ -131,7 +131,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하고 테스트하려
     | `https://us1.hana.ondemand.com/<instancename>` |
     | `https://ap1.hana.ondemand.com/<instancename>` |
 
-    c. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
 
     | |
     |--|
@@ -155,7 +155,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. 다른 웹 브라우저 창에서, `https://account.<landscape host>.ondemand.com/cockpit`(예: https://account.hanatrial.ondemand.com/cockpit)에서 SAP Cloud Platform Cockpit에 로그인합니다.
+6. 다른 웹 브라우저 창의 `https://account.<landscape host>.ondemand.com/cockpit`(예: https://account.hanatrial.ondemand.com/cockpit))에 있는 SAP Cloud Platform Cockpit에 로그인합니다.
 
 7. **신뢰** 탭을 클릭합니다.
    
@@ -167,9 +167,9 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하고 테스트하려
    
     a. **편집**을 클릭합니다.
 
-    b. **구성 유형**으로 **사용자 지정**을 선택합니다.
+    나. **구성 유형**으로 **사용자 지정**을 선택합니다.
 
-    c. **로컬 공급자 이름**으로 기본값을 그대로 사용합니다. 이 값을 복사하고 SAP Cloud Platform의 Azure AD 구성에서 **식별자** 필드로 붙여넣습니다.
+    다. **로컬 공급자 이름**으로 기본값을 그대로 사용합니다. 이 값을 복사하고 SAP Cloud Platform의 Azure AD 구성에서 **식별자** 필드로 붙여넣습니다.
 
     d. **서명 키** 및 **서명 인증서** 키 쌍을 생성하려면 **키 쌍 생성**을 클릭합니다.
 
@@ -177,7 +177,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     f. **강제 인증**으로 **사용 안 함**을 선택합니다.
 
-    g. **Save**를 클릭합니다.
+    g. **저장**을 클릭합니다.
 
 9. **로컬 서비스 공급자** 설정을 저장한 후 다음을 수행하여 회신 URL을 가져옵니다.
    
@@ -185,9 +185,9 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     a. **메타데이터 가져오기**를 클릭하여 SAP Cloud Platform 메타데이터 파일을 다운로드합니다.
 
-    b. 다운로드한 SAP Cloud Platform 메타데이터 XML 파일을 연 다음 **ns3:AssertionConsumerService** 태그를 찾습니다.
+    나. 다운로드한 SAP Cloud Platform 메타데이터 XML 파일을 연 다음 **ns3:AssertionConsumerService** 태그를 찾습니다.
  
-    c. **위치** 특성의 값을 복사한 다음 SAP Cloud Platform의 Azure AD 구성에서 **회신 URL** 필드로 붙여넣습니다.
+    다. **위치** 특성의 값을 복사한 다음 SAP Cloud Platform의 Azure AD 구성에서 **회신 URL** 필드로 붙여넣습니다.
 
 10. **신뢰할 수 있는 ID 공급자** 탭을 클릭한 다음 **신뢰할 수 있는 ID 공급자 추가**를 클릭합니다.
    
@@ -224,11 +224,11 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하고 테스트하려
      >특성의 구성은 SAML 응답에서 예상되는 특성 및 코드의 이 특성에 액세스하는 이름(보안 주체 특성)과 같은 SCP의 응용 프로그램이 개발된 방법에 따라 다릅니다.
      > 
     
-    b. 스크린샷의 **기본 특성** 은 설명 목적입니다. 시나리오 작업을 작성할 필요가 없습니다.  
+    나. 스크린샷의 **기본 특성** 은 설명 목적입니다. 시나리오 작업을 작성할 필요가 없습니다.  
  
-    c. 스크린샷에 표시되는 **보안 주체 특성** 의 이름 및 값은 응용 프로그램 개발 방법에 따라 달라집니다. 응용 프로그램에 다른 매핑이 필요할 수 있습니다.
+    다. 스크린샷에 표시되는 **보안 주체 특성** 의 이름 및 값은 응용 프로그램 개발 방법에 따라 달라집니다. 응용 프로그램에 다른 매핑이 필요할 수 있습니다.
 
-###<a name="assertion-based-groups"></a>어설션 기반 그룹
+### <a name="assertion-based-groups"></a>어설션 기반 그룹
 
 선택적 단계로, Azure Active Directory ID 공급자에 대한 어설션 기반 그룹을 구성할 수 있습니다.
 
@@ -268,9 +268,9 @@ SAP Cloud Platform 계정에서 응용 프로그램의 하나 이상의 역할�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -288,13 +288,13 @@ Azure AD 사용자가 SAP Cloud Platform으로 로그를 사용하려면, SAP Cl
    
     a. **권한 부여**를 클릭합니다.
 
-    b. **사용자** 탭을 클릭합니다.
+    나. **사용자** 탭을 클릭합니다.
 
-    c. **사용자** 텍스트 상자에 사용자의 이메일 주소를 입력합니다.
+    다. **사용자** 텍스트 상자에 사용자의 이메일 주소를 입력합니다.
 
     d. **할당** 을 클릭하여 사용자에 역할을 할당합니다.
 
-    e. **Save**를 클릭합니다.
+    e. **저장**을 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -336,7 +336,7 @@ Azure AD 사용자가 SAP Cloud Platform으로 로그를 사용하려면, SAP Cl
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
 

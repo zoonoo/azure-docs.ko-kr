@@ -1,8 +1,8 @@
 ---
-title: "Stream Analytics를 사용하여 IoT 솔루션 빌드 | Microsoft Docs"
-description: "요금 창구 시나리오의 Stream Analytics IoT 솔루션 시작하기 자습서"
-keywords: "iot 솔루션, 창 함수"
-documentationcenter: 
+title: Stream Analytics를 사용하여 IoT 솔루션 빌드 | Microsoft Docs
+description: 요금 창구 시나리오의 Stream Analytics IoT 솔루션 시작하기 자습서
+keywords: iot 솔루션, 창 함수
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -41,8 +41,7 @@ ms.lasthandoff: 01/16/2018
 * Visual Studio 2017, 2015 또는 무료 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 * 컴퓨터에 대한 관리자 권한
-* Microsoft 다운로드 센터에서 [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) 다운로드
-* 선택 사항: [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* [azure-stream-analytics GitHub 리포지토리](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)에서 TollApp 센서 데이터 분석에 대한 소스 코드를 다운로드합니다. 이 리포지토리는 다음 섹션에서 사용할 샘플 데이터와 쿼리를 포함합니다. 
 
 ## <a name="scenario-introduction-hello-toll"></a>시나리오 소개: “Hello, Toll!”
 톨게이트 요금소는 일반적인 현상입니다. 전 세계의 많은 고속도로, 다리 및 터널에서 이러한 요금소를 만날 수 있습니다. 각 요금소에는 여러 개의 요금 창구가 있습니다. 유인 창구에서는 직원에게 요금을 지불하기 위해 멈춰야 합니다. 무인 창구에서는 차량이 톨게이트 창구를 통과할 때 각 창구 상단의 센서가 차량의 윈드쉴드에 부착된 RFID 카드를 검색합니다. 이러한 요금소를 통과하는 차량 흐름을 흥미로운 작업을 수행할 수 있는 이벤트 스트림으로 쉽게 시각화할 수 있습니다.
@@ -173,7 +172,7 @@ Windows는 .ps1, .dll 및 .exe 파일을 자동으로 차단하기 때문에 스
 
 !["이벤트 허브 데이터 전송 중" 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-이제 리소스를 Azure Portal에서 볼 수 있습니다. <https://portal.azure.com>으로 이동하고 계정 자격 증명으로 로그인합니다. 현재 일부 기능은 클래식 포털을 활용합니다. 다음 단계가 명확하게 표시됩니다.
+이제 리소스를 Azure Portal에서 볼 수 있습니다. <https://portal.azure.com>으로 이동하고, 계정 자격 증명으로 로그인합니다. 현재 일부 기능은 클래식 포털을 활용합니다. 다음 단계가 명확하게 표시됩니다.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 

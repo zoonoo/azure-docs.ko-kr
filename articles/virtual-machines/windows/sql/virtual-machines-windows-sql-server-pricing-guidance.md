@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/08/2018
 
 ### <a name="pay-per-usage"></a>사용당 지급
 
-**사용당 SQL Server 라이선스 지급**은 Azure VM의 분당 비용에 SQL Server 라이선스 비용이 포함됨을 의미합니다. [Azure VM 가격 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에서 다른 SQL Server 버전(Web, Standard, Enterprise)에 대한 가격을 확인할 수 있습니다. SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다. 일반적으로 SQL Server 라이선스처럼 분당 라이선스 비용은 VM 코어 수에 따라 결정됩니다.
+**사용당 SQL Server 라이선스 지급**은 Azure VM의 초당 비용에 SQL Server 라이선스 비용이 포함됨을 의미합니다. [Azure VM 가격 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에서 다른 SQL Server 버전(Web, Standard, Enterprise)에 대한 가격을 확인할 수 있습니다. SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다. 일반적으로 SQL Server 라이선스처럼 초당 라이선스 비용은 VM 코어 수에 따라 결정됩니다.
 
 사용당 SQL Server 라이선스 지급이 권장되는 경우는 다음과 같습니다.
 
@@ -113,7 +113,7 @@ BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enter
 > Azure에서 사용할 SQL Server 라이선스 수를 10일 이내에 알려주세요. 이전 이미지의 링크에는 이 작업을 수행하는 방법에 대한 지침이 있습니다.
 
 > [!NOTE]
-> 사용자 고유의 라이선스를 사용하기 위해 분 단위로 요금이 부과되는 SQL Server VM의 라이선스 모델을 변경할 수 없습니다. 이 경우에 새 BYOL VM을 만들고 새 VM에 데이터베이스를 마이그레이션해야 합니다. 
+> 사용자 고유의 라이선스를 사용하기 위해 초 단위로 요금이 부과되는 SQL Server VM의 라이선스 모델을 변경할 수 없습니다. 이 경우에 새 BYOL VM을 만들고 새 VM에 데이터베이스를 마이그레이션해야 합니다. 
 
 ## <a name="avoid-unnecessary-costs"></a>불필요한 비용 방지
 

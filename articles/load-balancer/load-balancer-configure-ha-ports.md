@@ -1,32 +1,32 @@
 ---
-title: "Azure Load Balancer에 대한 고가용성 포트 구성 | Microsoft Docs"
-description: "모든 포트에서 내부 트래픽의 부하를 분산하는 고가용성 포트를 사용하는 방법에 대해 알아봅니다."
+title: Azure Load Balancer에 대한 고가용성 포트 구성 | Microsoft Docs
+description: 모든 포트에서 내부 트래픽의 부하를 분산하는 고가용성 포트를 사용하는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>내부 부하 분산 장치에 대해 고가용성 포트 구성
 
 이 문서에서는 내부 부하 분산 장치에 고가용성 포트를 배포하는 예제를 제공합니다. NVA(네트워크 가상 어플라이언스) 특정 구성에 대한 자세한 정보는 해당 공급자 웹 사이트를 참조하세요.
 
 >[!NOTE]
-> 고가용성 포트 기능은 현재 미리 보기 상태입니다. 미리 보기 중에는 이 기능이 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서에서는 표준 Load Balancer에 대해 설명합니다. 기본 Load Balancer에 대한 자세한 내용은 [Load Balancer 개요](load-balancer-overview.md)를 참조하세요.
 
 아래 그림은 이 문서에서 설명하는 배포 예제에 대해 다음과 같은 구성을 보여 줍니다.
 

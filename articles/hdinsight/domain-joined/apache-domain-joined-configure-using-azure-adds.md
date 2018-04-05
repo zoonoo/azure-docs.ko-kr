@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성
 
 도메인에 가입된 클러스터는 HDInsight에서 다중 사용자 엔터프라이즈 보안 기능을 제공합니다. 도메인에 가입된 HDInsight 클러스터는 Active Directory 도메인에 연결되기 때문에 도메인 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터를 인증하고 빅 데이터 작업을 실행할 수 있습니다. 
 
-도메인에 가입된 HDInsight 클러스터에 연결할 수 있도록 도메인 컨트롤러를 설정하는 두 가지 방법이 있습니다.
-
-- Azure AD DS(Azure Active Directory Domain Services)
-- Azure IaaS VM의 Active Directory 도메인 컨트롤러
-
 이 문서에서는 Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
+
+> [!NOTE]
+> Azure IaaS VM에서 Active Directory는 더 이상 지원되지 않습니다.
 
 ## <a name="create-azure-adds"></a>Azure ADDS 만들기
 

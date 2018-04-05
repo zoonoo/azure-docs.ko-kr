@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 대부분의 Azure Automation Runbook에는 사용자에게 표시되는 오류 메시지와 같은 일종의 출력 형식 또는 다른 워크플로에서 사용할 복합 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
@@ -204,8 +204,8 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](https://msdn.microsoft.c
    
    ![그래픽 작성 로깅 및 추적 블레이드](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Microsoft OMS(Operations Management Suite) Log Analytics
-Automation에서 Microsoft Operations Management Suite(OMS) Log Analytics 작업 영역으로 runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. Log Anaytics를 사용하여 다음을 수행할 수 있습니다.
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. Log Anaytics를 사용하여 다음을 수행할 수 있습니다.
 
 * Automation 작업에 대한 통찰력 확보 
 * Runbook 작업 상태(예: 실패 또는 일시 중단)를 기반으로 전자 메일 또는 경고 트리거 
@@ -213,7 +213,7 @@ Automation에서 Microsoft Operations Management Suite(OMS) Log Analytics 작업
 * Automation 계정 간에 작업 상호 연결 
 * 시간별 작업 기록 시각화    
 
-Log Analytics와의 통합을 구성하여 작업 데이터를 수집하고, 상관 관계를 설정하고, 작업을 수행하는 방법에 대한 자세한 내용은 [Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달(OMS)](automation-manage-send-joblogs-log-analytics.md)을 참조하세요.
+Log Analytics와의 통합을 구성하여 작업 데이터를 수집하고, 상관 관계를 설정하고, 작업을 수행하는 방법에 대한 자세한 내용은 [Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)

@@ -1,25 +1,25 @@
 ---
-title: "Azure Batch의 서비스 할당량 및 제한 | Microsoft Docs"
-description: "기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다."
+title: Azure Batch의 서비스 할당량 및 제한 | Microsoft Docs
+description: 기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다.
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 3cc833e456571b63fa03574808529c8c501d7ab5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -53,6 +53,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | 각 응용 프로그램 패키지 크기 |약 195GB<sup>1</sup> |
 | 최대 시작 태스크 크기 | 32768자<sup>2</sup> |
 | 최대 작업 수명 | 7일<sup>3</sup> |
+| 노드 간 통신 사용 풀의 계산 노드 | 100 |
 
 <sup>1</sup> 최대 블록 Blob 크기에 대한 Azure Storage 용량 한도<br />
 <sup>2</sup> 리소스 파일 및 환경 변수를 포함합니다.<br />

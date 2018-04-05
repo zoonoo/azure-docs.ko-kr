@@ -1,24 +1,21 @@
 ---
-title: "토큰, 세션 및 Single Sign-On 구성 - Azure AD B2C | Microsoft Docs"
-description: "Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성"
+title: 토큰, 세션 및 Single Sign-On 구성 - Azure AD B2C | Microsoft Docs
+description: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: 76feb172ce9b08d4feef9c86e74a592553a3c7f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성
 
@@ -32,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 기본 제공 정책의 경우 다음과 같이 Azure AD B2C 디렉터리에서 이 기능을 사용할 수 있습니다.
 
 1. 다음 단계에 따라 Azure Portal의 [B2C 기능 메뉴로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. **등록 또는 로그인 정책**을 클릭합니다. *참고: **등록 또는 로그인 정책**뿐만 아니라 모든 정책 유형에서 이 기능을 사용할 수 있습니다*.
+2. **등록 또는 로그인 정책**을 클릭합니다. *참고: **등록 또는 로그인 정책***뿐만 아니라 모든 정책 유형에서 이 기능을 사용할 수 있습니다.
 3. 클릭하여 정책을 엽니다. 예를 들어 **B2C_1_SiUpIn**을 클릭합니다.
 4. 메뉴 위쪽에서 **편집**을 클릭합니다.
 5. **토큰, 세션 및 Single Sign-On 구성**을 클릭합니다.
