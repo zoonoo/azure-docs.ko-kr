@@ -1,11 +1,11 @@
 ---
-title: "내부 가상 네트워크에서 Azure API Management를 사용하는 방법 | Microsoft Docs"
-description: "내부 가상 네트워크에서 Azure API Management를 설정하고 구성하는 방법에 대해 알아봅니다."
+title: 내부 가상 네트워크에서 Azure API Management를 사용하는 방법 | Microsoft Docs
+description: 내부 가상 네트워크에서 Azure API Management를 설정하고 구성하는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -72,7 +72,7 @@ API Management를 내부 가상 네트워크 모드로 배포하는 경우 모�
 API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를 관리합니다. 내부 가상 네트워크 모드의 경우 자체의 라우팅을 관리해야 합니다.
 
 > [!NOTE]
-> API Management 서비스는 IP 주소에서 오는 요청을 수신 대기하지 않습니다. 해당 서비스 끝점에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이러한 끝점에는 게이트웨이, 개발자 포털, Azure Portal, 직접 관리 끝점 및 Git가 포함됩니다.
+> API Management 서비스는 IP 주소에서 오는 요청을 수신 대기하지 않습니다. 해당 서비스 끝점에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이러한 끝점에는 게이트웨이, Azure Portal, 개발자 포털, 직접 관리 끝점 및 Git가 포함됩니다.
 
 ### <a name="access-on-default-host-names"></a>기본 호스트 이름에 대한 액세스
 예를 들어 "contoso"라는 API Management 서비스를 만들면 기본적으로 다음 서비스 끝점이 구성됩니다.

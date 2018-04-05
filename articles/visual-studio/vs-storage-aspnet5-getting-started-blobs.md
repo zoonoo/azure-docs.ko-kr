@@ -1,11 +1,11 @@
 ---
-title: "Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core) | Microsoft Docs"
-description: "Visual Studio 연결된 서비스를 사용하여 저장소 계정을 만든 후 Visual Studio ASP.NET Core 프로젝트에서 Azure Blob Storage 사용을 시작하는 방법입니다."
+title: Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core) | Microsoft Docs
+description: Visual Studio 연결된 서비스를 사용하여 저장소 계정을 만든 후 Visual Studio ASP.NET Core 프로젝트에서 Azure Blob Storage 사용을 시작하는 방법입니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: kraigb
-ms.openlocfilehash: afd73bd0fd041a53fbe31aa3a5c23b3e27d7a9ec
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e3814533b955d5b6444692a7b565219d28002262
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/28/2017
 
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다. 이 문서에서는 ASP.NET Core 프로젝트에서 Visual Studio **연결된 서비스**를 사용하여 Azure Storage 계정을 만든 후 Blob Storage를 시작하는 방법을 설명합니다.
 
-파일이 폴더에 저장되듯이 저장소 Blob은 컨테이너에 저장됩니다. Blob을 만든 후 해당 Blob에 하나 이상의 컨테이너를 만듭니다. 예를 들어 “Scrapbook”이라는 Blob을 만든 다음 사진을 저장할 “images”라는 컨테이너를 만들고 오디오 파일을 저장할 “audio”라는 컨테이너를 만들 수 있습니다. 컨테이너를 만든 후 컨테이너에 개별 파일을 업로드할 수 있습니다. Blob을 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob 저장소 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 을 참조하세요.
+파일이 폴더에 저장되듯이 저장소 Blob은 컨테이너에 저장됩니다. Blob을 만든 후 해당 Blob에 하나 이상의 컨테이너를 만듭니다. 예를 들어 “Scrapbook”이라는 Blob에 사진을 저장할 “images”라는 컨테이너를 만들고 오디오 파일을 저장할 “audio”라는 컨테이너를 만들 수 있습니다. 컨테이너를 만든 후 컨테이너에 개별 파일을 업로드할 수 있습니다. Blob을 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
 
 Azure Storage API 중 일부는 비동기적이며 이 문서의 코드는 비동기 메서드를 사용하는 것으로 가정합니다. 자세한 내용은 [비동기 프로그래밍](https://docs.microsoft.com/dotnet/csharp/async)을 참조하세요.
 
@@ -141,7 +141,7 @@ do
 } while (token != null);
 ```
 
-Blob 컨테이너의 콘텐츠를 나열하는 다른 방법은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)을 참조하세요.
+Blob 컨테이너의 콘텐츠를 나열하는 다른 방법 [빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container)을 참조하세요.
 
 ## <a name="download-a-blob"></a>Blob 다운로드
 
@@ -158,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Blob을 파일로 저장하는 다른 방법은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)을 참조하세요.
+Blob을 파일로 저장하는 다른 방법은 [빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs)을 참조하세요.
 
 ## <a name="delete-a-blob"></a>Blob 삭제
 

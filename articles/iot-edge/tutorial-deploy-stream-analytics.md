@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge를 사용하여 Azure Stream Analytics 배포 | Microsoft Docs"
-description: "Azure Stream Analytics를 Edge 장치에 모듈로 배포"
+title: Azure IoT Edge를 사용하여 Azure Stream Analytics 배포 | Microsoft Docs
+description: Azure Stream Analytics를 Edge 장치에 모듈로 배포
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics를 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -36,7 +36,7 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 장치 둘 다에서 �
 > * 새 Azure Stream Analytics 작업을 다른 IoT Edge 모듈에 연결합니다.
 > * Azure Stream Analytics 작업을 IoT Edge 장치에 배포합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * IoT Hub 
 * 빠른 시작 또는 [Windows][lnk-tutorial1-win] 및 [Linux][lnk-tutorial1-lin]의 시뮬레이트된 장치에 Azure IoT Edge 배포하는 작업에 대한 문서에서 만들어 구성한 장치 장치 연결 키 및 장치 ID를 알고 있어야 합니다. 

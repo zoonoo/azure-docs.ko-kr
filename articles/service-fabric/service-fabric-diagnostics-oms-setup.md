@@ -3,7 +3,7 @@ title: Azure Service Fabric - OMS Log Analytics로 모니터링 설정 | Microso
 description: Azure Service Fabric 클러스터를 모니터링하기 위해 Operations Management Suite를 설정하여 이벤트를 시각화 및 분석하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>클러스터에 대한 Operations Management Suite Log Analytics 설정
 
@@ -75,7 +75,7 @@ OMS Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 
 
 Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 템플릿은 새 OMS 작업 영역을 만들고, 작업 영역에 Service Fabric 솔루션을 추가하고, 적절한 저장소 테이블에서 데이터를 읽도록 구성합니다.
 
-[이 샘플 템플릿](https://azure.microsoft.com/resources/templates/service-fabric-oms/)을 사용하고 요구 사항에 맞게 수정할 수 있습니다. OMS 작업 영역 설정을 위한 다양한 옵션을 제공하는 템플릿은 [Service Fabric 및 OMS 템플릿](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS)에서 확인할 수 있습니다.
+[이 샘플 템플릿](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms)을 사용하고 요구 사항에 맞게 수정할 수 있습니다.
 
 다음과 같이 수정합니다.
 1. *template.json* 파일에 정의된 매개 변수에 다음 코드 조각을 추가하여 매개 변수에 `omsWorkspaceName` 및 `omsRegion`을 추가합니다. 기본값을 원하는 대로 자유롭게 수정합니다. 또한 *parameters.json* 파일에 새 매개 변수 두 개를 추가하여 리소스 배포에 대한 해당 값을 정의합니다.

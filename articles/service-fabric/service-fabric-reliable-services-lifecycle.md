@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric Reliable Services의 수명 주기 개요 | Microsoft Docs"
-description: "Service Fabric Reliable Services의 다른 수명 주기 이벤트에 대해 알아보기"
+title: Azure Service Fabric Reliable Services의 수명 주기 개요 | Microsoft Docs
+description: Service Fabric Reliable Services의 다른 수명 주기 이벤트에 대해 알아보기
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
 editor: vturecek;
-ms.assetid: 
+ms.assetid: ''
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9cb017997c528c987403186097599a721ee591bc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Azure Service Fabric Reliable Services의 수명 주기를 고려할 경우 수�
 2. 그런 후 다음 두 가지 작업이 동시에 수행됩니다.
     - `StatelessService.CreateServiceInstanceListeners()`가 호출되고 반환된 모든 수신기가 열립니다. `ICommunicationListener.OpenAsync()`가 각 수신기에서 호출됩니다.
     - 서비스의 `StatelessService.RunAsync()` 메서드가 호출됩니다.
-3. 있는 경우 서비스의 `StatelessService.OnOpenAsync()` 메서드가 호출됩니다. 이 호출은 일반적이지 않은 재정의이지만 사용 가능합니다.
+3. 있는 경우 서비스의 `StatelessService.OnOpenAsync()` 메서드가 호출됩니다. 이 호출은 일반적이지 않은 재정의이지만 사용 가능합니다. 이때 확장된 서비스 초기화 작업을 시작할 수 있습니다.
 
 수신기 및 **RunAsync**를 만들고 여는 호출 간에 순서가 없다는 점에 유의합니다. **RunAsync**가 시작되기 전에 수신기가 열릴 수 있습니다. 마찬가지로 통신 수신기를 열고 생성하기 전에 **RunAsync**를 호출할 수 있습니다. 동기화가 필요한 경우 구현 작업에 연습으로 남겨 둡니다. 다음은 몇 가지 일반적인 해결 방법입니다.
 
@@ -63,7 +63,7 @@ Azure Service Fabric Reliable Services의 수명 주기를 고려할 경우 수�
 1. 병렬로
     - 열려 있는 수신기가 모두 닫힙니다. `ICommunicationListener.CloseAsync()`가 각 수신기에서 호출됩니다.
     - `RunAsync()`에 전달된 취소 토큰이 취소됩니다. 취소 토큰의 `IsCancellationRequested` 속성을 확인하면 true를 반환하고, 호출되는 경우 토큰의 `ThrowIfCancellationRequested` 메서드에서 `OperationCanceledException`이 발생됩니다.
-2. `CloseAsync()`가 각 수신기에서 완료되고 `RunAsync()`도 완료되면 서비스의 `StatelessService.OnCloseAsync()` 메서드가 호출됩니다(있는 경우). `StatelessService.OnCloseAsync()`를 재정의하는 것은 일반적이지 않습니다.
+2. `CloseAsync()`가 각 수신기에서 완료되고 `RunAsync()`도 완료되면 서비스의 `StatelessService.OnCloseAsync()` 메서드가 호출됩니다(있는 경우).  상태 비저장 서비스 인스턴스가 정상적으로 종료되려고 할 때 OnCloseAsync가 호출됩니다. 이는 서비스의 코드를 업그레이드할 때, 로드 균형 조정으로 인해 서비스 인스턴스가 이동할 때 또는 일시적인 오류가 감지되었을 때 발생할 수 있습니다. `StatelessService.OnCloseAsync()` 재정의는 일반적이지 않지만 리소스를 안전하게 닫거나 백그라운드 프로세스를 중지하거나 외부 상태 저장을 완료하거나 기존 연결을 종료하는 데 사용할 수 있습니다.
 3. `StatelessService.OnCloseAsync()`이 완료되면 서비스 개체는 소멸됩니다.
 
 ## <a name="stateful-service-startup"></a>상태 저장 서비스 시작
@@ -128,10 +128,10 @@ Service Fabric에서는 다양한 이유로 상태 저장 서비스에 대한 �
   - 서비스가 `RunAsync()`을 성공적으로 완료하고 거기에서 반환하는 작업이 유효합니다. 완료는 실패 조건이 아닙니다. `RunAsync()`를 완료하면 서비스의 백그라운드 작업이 완료되었음을 나타냅니다. 상태 저장 신뢰할 수 있는 서비스의 경우 복제본이 주에서 보조로 강등된 다음 다시 주로 승격되면 `RunAsync()`가 다시 호출됩니다.
   - 예기치 않은 예외가 발생(throw)되어 서비스가 `RunAsync()`에서 종료되는 경우 실패로 간주됩니다. 서비스 개체가 종료되고 상태 오류가 보고됩니다.
   - 이러한 메서드에서 반환에는 시간 제한이 없으며 신뢰할 수 있는 컬렉션에 작성할 수 있는 기능이 즉시 손실되고 모든 실제 작업을 완료할 수 없습니다. 취소 요청을 받는 즉시 최대한 신속하게 반환하는 것이 좋습니다. 서비스가 적절한 시간 내에 이러한 API 호출에 응답하지 않으면 Service Fabric은 서비스를 강제로 종료할 수 있습니다. 이러한 상황은 일반적으로 응용 프로그램을 업그레이드하거나 서비스를 삭제할 때 발생합니다. 이 시간 제한은 기본적으로 15분입니다.
-  - `OnCloseAsync()` 경로의 오류로 인해 `OnAbort()`가 호출되고 이것이 서비스에서 요구하는 리소스를 정리하고 릴리스할 수 있는 마지막 방법입니다.
+  - `OnCloseAsync()` 경로의 오류로 인해 `OnAbort()`가 호출되고 이것이 서비스에서 요구하는 리소스를 정리하고 릴리스할 수 있는 마지막 방법입니다. 이는 일반적으로 노드에서 영구 오류가 감지되거나, 내부 오류로 인해 서비스 패브릭에서 서비스 인스턴스 수명 주기를 안정적으로 관리할 수 없을 때 호출됩니다.
+  - 상태 저장 서비스 복제본이 역할을 변경할 경우(예: 주 또는 보조) `OnChangeRoleAsync()`가 호출됩니다. 주 복제본에는 쓰기 상태가 지정됩니다(신뢰할 수 있는 컬렉션을 만들고 쓰도록 허용). 보조 복제본에는 읽기 상태가 지정됩니다(신뢰할 수 있는 기존 컬렉션에서 읽기만 가능). 상태 저장 서비스에서 대부분의 작업은 주 복제본에서 수행됩니다. 보조 복제본은 읽기 전용 유효성 검사, 보고서 생성, 데이터 마이닝 또는 다른 읽기 전용 작업을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Reliable Services 소개](service-fabric-reliable-services-introduction.md)
 - [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
-- [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 - [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)

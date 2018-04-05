@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Logic Apps에서 오류 및 예외 처리
 
@@ -55,9 +55,9 @@ ms.lasthandoff: 03/16/2018
         "retryPolicy" : {
             "type": "exponential",
             "count": 4,
-            "interval": "PT7.5S",
+            "interval": "PT7S",
             "minimumInterval": "PT5S",
-            "maximumInterval": "PT45S"
+            "maximumInterval": "PT1H"
         }
     },
     "runAfter": {}
@@ -95,8 +95,8 @@ ms.lasthandoff: 03/16/2018
 | 형식 | 예 | 문자열 | **기하급수적** |
 | count | 예 | 정수  | 재시도 횟수이며, 1~90 사이여야 합니다.  |
 | interval | 예 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 재시도 간격이며, PT5S와 PT1D 사이여야 합니다. |
-| minimumInterval | 아니오 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 재시도 간격이며, PT5S와 **interval** 사이여야 합니다. |
-| maximumInterval | 아니요 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 재시도 간격이며, **interval**과 PT1D 사이여야 합니다. | 
+| minimumInterval | 아니요 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 재시도 간격이며, PT5S와 **interval** 사이여야 합니다. |
+| maximumInterval | 아니오 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 재시도 간격이며, **interval**과 PT1D 사이여야 합니다. | 
 ||||| 
 
 다음 표에서는 지정된 범위의 균일한 임의 변수가 각 재시도에 대해 **count**까지 생성되는 방법을 보여 줍니다.

@@ -1,24 +1,24 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 개요 | Microsoft Docs"
-description: "온-프레미스 가상 배열과 Microsoft Azure 클라우드 저장소 간의 저장소 작업을 관리하는 통합된 저장소 솔루션인 StorSimple 가상 배열을 설명합니다."
+title: Microsoft Azure StorSimple 가상 배열 개요 | Microsoft Docs
+description: 온-프레미스 가상 배열과 Microsoft Azure 클라우드 저장소 간의 저장소 작업을 관리하는 통합된 저장소 솔루션인 StorSimple 가상 배열을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
 
@@ -113,7 +113,7 @@ Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하
 
 가상 배열에는 다음 구성 요소가 포함됩니다.
 
-* [가상 배열](#virtual-array) – 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 컴퓨터를 기반으로 하는 하이브리드 클라우드 저장 장치입니다.
+* [가상 배열](#virtual-array) – 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하는 하이브리드 클라우드 저장 장치입니다.
 * [StorSimple Device Manager 서비스](#storsimple-device-manager-service) – 다양한 지리적 위치에서 액세스할 수 있는 단일 웹 인터페이스에서 하나 이상의 StorSimple 장치를 관리할 수 있는 Azure Portal의 확장입니다. StorSimple Device Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치와 경고를 보고 관리하고, 볼륨, 공유, 기존 스냅숏을 관리할 수 있습니다.
 * [로컬 웹 사용자 인터페이스](#local-web-user-interface) – 로컬 네트워크에 연결할 수 있도록 장치를 구성한 후에 StorSimple Device Manager 서비스에 장치를 등록하는 데 사용되는 웹 기반 UI입니다. 
 * [명령줄 인터페이스](#command-line-interface) – 가상 배열의 지원 세션을 시작하는 데 사용할 수 있는 Windows PowerShell 인터페이스입니다.
@@ -205,6 +205,15 @@ StorSimple은 중복 제거 및 데이터 압축을 사용하여 클라우드의
 ### <a name="scheduled-and-on-demand-backups"></a>예약된 백업 및 주문형 백업
 
 StorSimple 데이터 보호 기능을 통해 주문형 백업을 만들 수 있습니다. 또한, 기본 백업 일정은 매일 데이터가 백업되도록 보장합니다. Backup은 증분 스냅숏의 형태로 생성되고 클라우드에 저장됩니다. 스냅숏은 마지막 백업 이후의 변경 사항만을 기록하기 때문에 신속한 생성과 복원이 가능합니다. 이러한 스냅숏은 보조 저장소 시스템(예: 테이프 백업)을 대체하기 때문에 재해 복구 시나리오에서 매우 중요할 수 있으며, 필요한 경우 데이터 센터 또는 대체 사이트에 데이터를 복원할 수 있게 해줍니다.
+
+## <a name="gdpr-compliance"></a>GDPR 규정 준수
+[GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 개인 정보를 수집, 저장 및 사용하는 방법에 대한 많은 요구 사항을 포함하고 있습니다. GDPR 규칙은 회사 및 정부 기관 그리고 EU에서 작동하고 EU 지역 거주자와 연결된 데이터를 수집하고 분석하는 다른 조직에 적용됩니다.
+
+가상 계열에 대한 StorSimple 장치 관리자는 GDPR을 준수합니다. 개인 정보가 수집되고 서비스에 표시되는 두 개의 키 인스턴스가 있습니다.
+ - 사용자의 이메일 주소가 구성된 사용자 설정을 변경합니다. 이 정보는 관리자가 지울 수 있습니다. 
+ - 공유 폴더에 있는 데이터에 액세스할 수 있는 사용자입니다. 공유 데이터에 액세스할 수 있는 사용자의 목록을 표시하고 내보낼 수 있습니다. 공유가 삭제되는 경우 이 목록도 삭제됩니다.
+
+자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure AD와 동기화되지 않은 개체 문제 해결 | Microsoft Docs"
-description: "개체가 Azure AD와 동기화되지 않는 이유를 해결합니다."
+title: Azure AD와 동기화되지 않은 개체 문제 해결 | Microsoft Docs
+description: 개체가 Azure AD와 동기화되지 않는 이유를 해결합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD와 동기화되지 않는 개체 문제 해결
 
@@ -110,7 +110,7 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>로그
-로그 페이지를 사용하여 암호 동기화 상태와 기록을 볼 수 있습니다. 자세한 내용은 [암호 동기화 문제 해결](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)을 참조하세요.
+로그 페이지를 사용하여 암호 동기화 상태와 기록을 볼 수 있습니다. 자세한 내용은 [암호 해시 동기화 문제 해결](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)을 참조하세요.
 
 ## <a name="metaverse-object-properties"></a>메타버스 개체 속성
 일반적으로는 원본 Active Directory [커넥터 공간](#connector-space)에서 검색을 시작하는 것이 좋습니다. 하지만 메타버스에서 검색을 시작할 수도 있습니다.

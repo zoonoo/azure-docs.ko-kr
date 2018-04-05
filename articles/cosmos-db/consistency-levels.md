@@ -1,31 +1,35 @@
 ---
-title: "Azure Cosmos DB의 일관성 수준 | Microsoft Docs"
-description: "Azure Cosmos DB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 5가지 일관성 수준이 있습니다."
-keywords: "최종 일관성, azure cosmos db, azure, Microsoft azure"
+title: Azure Cosmos DB의 일관성 수준 | Microsoft Docs
+description: Azure Cosmos DB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 5가지 일관성 수준이 있습니다.
+keywords: 최종 일관성, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준
 Azure Cosmos DB는 처음부터 모든 데이터 모델에 대한 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 Azure Cosmos DB는 5가지 일관성 수준(강력, 제한된 부실, 세션, 일관적인 접두사 및 최종)을 제공합니다. 제한된 부실, 세션, 일관된 접두사 및 최종은 가능한 가장 일관성 높은 모델인 강력보다는 일관성이 낮기 때문에 "관대한 일관성 모델"로 간주됩니다. 
 
 Azure Cosmos DB는 분산 데이터베이스에서 흔히 제공하는 **강력** 및 **최종 일관성** 모델 외에도 신중하게 변환된 조작 가능한 3가지 일관성 모델, **제한된 부실**, **세션** 및 **일관된 접두사**를 제공합니다. 각 일관성 수준의 유용성은 실제 사용 사례에 대해 검증되었습니다. 이 5가지 일관성 수준을 통해 일관성, 가용성, 대기 시간 사이에서 타당하게 절충합니다. 
+
+Azure Cosmos DB 프로그램 관리자인 Andrew Liu는 다음 비디오에서 턴키 글로벌 배포 기능을 보여줍니다.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>분산된 데이터베이스 및 일관성
 상업적으로 분산된 데이터베이스는 입증 가능한 잘 정의된 일관성 선택 사항을 전혀 제공하지 않는 데이터베이스와, 두 가지 극단적인 프로그래밍 가능성 선택을 제공하는 데이터베이스(강력한 일관성, 결과적 일관성) 등의 두 가지 범주에 해당합니다. 
@@ -60,6 +64,7 @@ Azure Cosmos DB는 5가지 일관성 수준 중 하나로 구성된 단일 Azure
 ## <a name="consistency-levels"></a>일관성 수준
 Cosmos DB 아래의 모든 컬렉션(및 데이터베이스)에 적용되는 데이터베이스 계정에서 기본 일관성 수준을 구성할 수 있습니다. 기본적으로 사용자 정의 리소스에 대해 실행되는 모든 읽기 및 쿼리는 데이터베이스 계정에 지정된 기본 일관성 수준을 사용합니다. 지원되는 각 API를 사용하여 특정 읽기/쿼리 요청의 일관성 수준을 완화할 수 있습니다. Azure Cosmos DB 복제 프로토콜에서 지원하는 일관성 수준은 5가지가 있으며, 아래 설명처럼 특정 일관성 보증과 성능을 명확히 절충합니다.
 
+<a id="strong"></a>
 **강력**: 
 
 * 강력한 일관성은 [선형화 가능성](https://aphyr.com/posts/313-strong-consistency-models)을 보증하고, 읽기는 가장 최신 버전의 항목을 반환합니다. 
@@ -67,7 +72,8 @@ Cosmos DB 아래의 모든 컬렉션(및 데이터베이스)에 적용되는 데
 * 강력한 일관성을 사용하도록 구성된 Azure Cosmos DB 계정은 Azure Cosmos DB 계정에 두 개 이상의 Azure 지역을 연결할 수 없습니다.  
 * 강력한 일관성이 적용된 읽기 작업(사용한 [요청 단위](request-units.md) 기준)의 비용은 세션 및 최종보다 많지만, 제한된 경의와 같습니다.
 
-**제한된 부실** 
+<a id="bounded-staleness"></a>
+**제한된 부실**: 
 
 * 제한된 부실 일관성은 적어도 항목의 *K* 버전이나 접두어 또는 *t* 시간 간격에 읽기가 쓰기보다 뒤처지게 합니다. 
 * 따라서 제한된 부실을 선택하는 경우 "부실"을 두 가지 방법, 즉 읽기가 쓰기보다 느린 항목 버전 번호 *K*와 시간 간격 *t*로 구성할 수 있습니다. 
@@ -76,6 +82,7 @@ Cosmos DB 아래의 모든 컬렉션(및 데이터베이스)에 적용되는 데
 * 제한된 부실로 구성된 Azure Cosmos DB 계정은 Azure Cosmos DB 계정이 있는 모든 Azure 지역과 연결할 수 있습니다. 
 * 제한된 부실이 적용된 읽기 작업(사용한 요청 단위 기준)의 비용은 세션 및 최종 일관성보다 높지만, 강력한 일관성과 동일합니다.
 
+<a id="session"></a>
 **세션**: 
 
 * 강력한 일관성 수준과 제한된 부실 종속성 수준이 제공하는 전역 일관성 모델과 달리 세션 일관성 범위는 클라이언트 세션에 따라 범위가 지정됩니다. 
@@ -91,6 +98,7 @@ Cosmos DB 아래의 모든 컬렉션(및 데이터베이스)에 적용되는 데
 * 일관적인 접두사는 읽기가 잘못된 쓰기를 볼 수 없도록 보장합니다. 쓰기가 `A, B, C` 순서로 수행된 경우 클라이언트는 `A`, `A,B` 또는 `A,B,C`를 볼 수 있지만 `A,C` 또는 `B,A,C`처럼 잘못된 것은 볼 수 없습니다.
 * 일관적인 접두사로 구성된 Azure Cosmos DB 계정은 Azure Cosmos DB 계정이 있는 모든 Azure 지역과 연결할 수 있습니다. 
 
+<a id="eventual"></a>
 **최종**: 
 
 * 최종 일관성은 추가 쓰기가 없을 경우 그룹 내의 복제본이 결국 수렴되도록 보장합니다. 
@@ -125,19 +133,12 @@ Azure Cosmos DB는 현재 강함 및 최종, 두 개의 일관성 설정이 있�
 ## <a name="next-steps"></a>다음 단계
 장단점 및 일관성 수준에 대한 더 많은 읽기를 수행 하려는 경우 다음 리소스를 좋습니다.
 
-* Doug Terry. 야구(비디오)를 통해 복제된 데이터 일관성을 설명합니다.   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. 야구를 통해 복제된 데이터 일관성을 설명합니다.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. 약하게 일관된 복제 데이터에 대한 세션 보장입니다.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. 최신 분산 데이터베이스 시스템 디자인에서 일관성 균형: CAP는 스토리의 일부일 뿐입니다”.   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. 실용적인 부분 쿼럼에 대한 PBS(확률적 제한된 부실)입니다.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. 최종 일관성 - 재고되었습니다.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor, Avishai Wool, The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing, v.27 n.2, p.423-447, 1998년 4월.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation, 2010년 6월 05-10, Toronto, Ontario, Canada  [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein , Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, 2012년 4월 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [야구를 통해 설명하는 복제된 데이터 일관성(비디오) 작성자: Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [야구를 통해 설명하는 복제된 데이터 일관성(백서) 작성자: Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [약하게 일관된 복제 데이터에 대한 세션 보장](http://dl.acm.org/citation.cfm?id=383631)
+* [최신 분산 데이터베이스 시스템 디자인의 일관성 균형: CAP는 스토리의 일부일 뿐입니다.](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+* [최종 일관성 - 재고되었습니다.](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [쿼럼 시스템의 부하 용량 및 가용성, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [목록: 전체 자동 선형화 가능성 검사기, 프로그래밍 언어 디자인 및 구현에 대한 2010 ACM SIGPLAN 컨퍼런스 회보](http://dl.acm.org/citation.cfm?id=1806634)
+* [실용적인 부분 쿼럼에 대한 확률적으로 제한된 부실](http://dl.acm.org/citation.cfm?id=2212359)

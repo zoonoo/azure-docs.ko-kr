@@ -1,24 +1,19 @@
 ---
-title: "Azure Site Recovery를 통해 Azure에 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 온-프레미스에서 장애 조치(failover)한 후 Azure VM에 연결할 IP 주소를 설정하는 방법을 설명합니다."
+title: Azure Site Recovery를 통해 Azure에 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스에서 장애 조치(failover)한 후 Azure VM에 연결할 IP 주소를 설정하는 방법을 설명합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: carmonm
-editor: 
-ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: manayar
-ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e74ad30ea8c4be994c1c67735ee91ef8c033b9b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Azure에 장애 조치(failover)한 후 연결할 IP 주소 설정
 
@@ -51,7 +46,7 @@ Site Recovery는 Azure에 장애 조치할 경우 서브넷 장애 조치를 사
 
 가상의 회사인 Woodgrove Bank를 사용하여 Azure로 장애 조치하는 예제를 살펴보겠습니다.
 
-- Woodgrove Bank는 온-프레미스 사이트에 비즈니스 앱을 호스트합니다. Azure에서 Mobile Apps를 호스트합니다.
+- Woodgrove Bank는 온-프레미스 사이트에서 해당 비즈니스 앱을 호스트합니다. Azure에서 Mobile Apps를 호스트합니다.
 - 온-프레미스 가장자리 네트워크와 Azure 가상 네트워크 사이에는 VPN 사이트 간 연결이 있습니다. VPN 연결로 인해 Azure의 가상 네트워크가 온-프레미스 네트워크의 확장으로 나타납니다.
 - Woodgrove는 Site Recovery를 사용하여 온-프레미스 워크로드를 Azure로 복제하려고 합니다.
  - Woodgrove는 하드 코드된 IP 주소에 종속된 앱이 있으므로 Azure로 장애 조치한 이후 해당 앱의 IP 주소를 유지해야 합니다.

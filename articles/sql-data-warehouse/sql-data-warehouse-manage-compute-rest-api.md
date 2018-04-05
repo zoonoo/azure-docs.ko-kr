@@ -1,24 +1,24 @@
 ---
-title: "Azure SQL Data Warehouse의 REST를 사용한 일시 중지, 다시 시작, 크기 조정 | Microsoft Docs"
-description: "REST API를 통해 SQL Data Warehouse에서 계산 능력을 관리합니다."
+title: Azure SQL Data Warehouse의 REST를 사용한 일시 중지, 다시 시작, 크기 조정 | Microsoft Docs
+description: REST API를 통해 SQL Data Warehouse에서 계산 능력을 관리합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: kfile
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 02/13/2018
+ms.date: 03/22/2018
 ms.author: barbkess
-ms.openlocfilehash: cb5b6221a5fc1d02ed1d93d56fd3db4858923307
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 518bbe23f1dcb9ffdffcfb67f875165617762c78
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 REST API
 Azure SQL Data Warehouse에서 계산을 관리하기 위한 REST API입니다.
@@ -61,5 +61,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## <a name="next-steps"></a>다음 단계
-다른 관리 작업은 [관리 개요](./sql-data-warehouse-overview-manage.md)를 참조하세요.
+자세한 내용은 [계산 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 

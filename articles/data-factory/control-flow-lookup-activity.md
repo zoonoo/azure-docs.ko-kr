@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 조회 작업을 사용하여 외부 소스의 레코드, 테이블 이름 또는 값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다. 
@@ -30,12 +30,23 @@ ms.lasthandoff: 03/23/2018
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 다음은 현재 조회를 지원하는 데이터 원본입니다.
-- Azure Blob Storage의 JSON 파일
-- 파일 시스템의 JSON 파일
-- Azure SQL Database(쿼리에서 변환된 JSON 데이터)
-- Azure SQL Data Warehouse(쿼리에서 변환된 JSON 데이터)
-- SQL Server(쿼리에서 변화된 JSON 데이터)
-- Azure Table Storage(쿼리에서 변환된 JSON 데이터)
+
+- Amazon Redshift
+- Azure Blob 저장소
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure 파일 저장소
+- Azure SQL Database
+- Azure SQL Data Warehouse
+- Azure 테이블 저장소
+- Dynamics 365
+- Dynamics CRM
+- 파일 시스템
+- PostgreSQL
+- Salesforce
+- Salesforce 서비스 클라우드
+- SFTP
+- SQL Server
 
 조회 작업에서 반환되는 최대 행 수는 **5000**이고, 최대 크기는 **10MB**입니다.
 
@@ -62,9 +73,14 @@ ms.lasthandoff: 03/23/2018
 ## <a name="type-properties"></a>형식 속성
 Name | 설명 | 유형 | Required?
 ---- | ----------- | ---- | --------
-dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 현재 지원되는 데이터 집합 형식은 다음과 같습니다.<ul><li>원본으로 사용되는 [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties)에 대한 `AzureBlobDataset`</li><li>원본으로 사용되는 [파일 시스템](connector-file-system.md#dataset-properties)에 대한 `FileShareDataset`</li><li>원본으로 사용되는 [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) 또는 [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties)에 대한 `AzureSqlTableDataset`</li><li>원본으로 사용되는 [SQL Server](connector-sql-server.md#dataset-properties)에 대한 `SqlServerTable`</li><li>원본으로 사용되는 [Azure Table Storage](connector-azure-table-storage.md#dataset-properties)에 대한 `AzureTableDataset`</li> | 키/값 쌍 | 예
+dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 "데이터 집합 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예
 원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 "복사 작업 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예
 firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN | 번호 기본값은 `true`입니다.
+
+다음 사항에 유의하세요.
+
+1. ByteArray 형식의 원본 열은 지원되지 않습니다.
+2. 구조체는 데이터 집합 정의에서 지원되지 않습니다. 특히 텍스트 서식 파일의 경우 헤더 행을 사용해 열 이름을 제공할 수 있습니다.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>조회 작업 결과를 후속 작업에 사용
 

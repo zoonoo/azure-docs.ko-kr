@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fdb8009e3dbca1037cae61ec8627f73190a8263d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Azure PowerShell을 사용하여 Windows Virtual Machine 모니터링 및 업데이트
 
@@ -36,6 +36,7 @@ Azure 모니터링은 Azure VM에서 부팅 및 성능 데이터를 수집하고
 > * VM 메트릭 보기
 > * 경고 만들기
 > * Windows 업데이트 관리
+> * 변경 내용 및 인벤토리 모니터링
 > * 고급 모니터링 설정
 
 이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
@@ -274,6 +275,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
 > * VM 메트릭 보기
 > * 경고 만들기
 > * Windows 업데이트 관리
+> * 변경 내용 및 인벤토리 모니터링
 > * 고급 모니터링 설정
 
 Azure Security Center에 대해 알아보려면 다음 자습서로 진행합니다.

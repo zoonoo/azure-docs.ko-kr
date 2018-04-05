@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 4c4095071235dac7e8be3c16b614bdfa5b706a1c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>OMS 에이전트를 클러스터에 추가
 
@@ -61,12 +61,11 @@ OMS 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure C
  
 5. 이미 존재하는 VM 인스턴스에 이 구성을 적용하는 명령을 실행합니다.  
 
-
     ```sh
     az vmss update-instances
     ```
 
-에이전트를 노드에 성공적으로 추가하기 위해서는 15분 미만이 소요됩니다. `az vmss extension list` API를 사용하여 에이전트가 추가되었는지 확인할 수 있습니다.
+    에이전트를 노드에 성공적으로 추가하기 위해서는 15분 미만이 소요됩니다. `az vmss extension list` API를 사용하여 에이전트가 추가되었는지 확인할 수 있습니다.
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>

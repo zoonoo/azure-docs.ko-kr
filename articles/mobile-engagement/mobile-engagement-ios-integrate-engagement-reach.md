@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK 도달률 통합 | Microsoft Docs"
-description: "Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
+title: Azure Mobile Engagement iOS SDK 도달률 통합 | Microsoft Docs
+description: Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d531f5850e8f7f352774f5894285402bd4cc53e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>iOS에서 Engagement 도달률을 통합하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 가이드의 작업을 수행하기 전에 [iOS에서 Engagement를 통합하는 방법](mobile-engagement-ios-integrate-engagement.md) 문서에서 설명하는 통합 절차를 수행해야 합니다.
 
 이 설명서에는 XCode 8이 필요합니다. XCode 7을 사용하는 경우 [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh)를 사용할 수도 있습니다. iOS 10 장치에서 실행하는 경우 이 이전 버전에는 알려진 버그가 있습니다. 시스템 알림은 작동하지 않습니다. 이 문제를 해결하려면 다음과 같이 앱 대리자에서 더 이상 사용되지 않는 API `application:didReceiveRemoteNotification:`을 구현해야 합니다.
@@ -246,7 +250,7 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
       }
 
 ## <a name="how-to-customize-campaigns"></a>캠페인을 사용자 지정하는 방법
-### <a name="notifications"></a>알림
+### <a name="notifications"></a>공지
 알림에는 시스템 알림과 앱 내 알림의 두 가지 유형이 있습니다.
 
 시스템 알림은 iOS에서 처리되며 사용자 지정은 가능하지 않습니다.

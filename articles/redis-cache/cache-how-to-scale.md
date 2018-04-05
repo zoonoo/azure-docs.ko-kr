@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis Cache 크기를 조정하는 방법 | Microsoft Docs"
-description: "Azure Redis Cache 인스턴스 크기를 조정하는 방법에 대해 알아봅니다."
+title: Azure Redis Cache 크기를 조정하는 방법 | Microsoft Docs
+description: Azure Redis Cache 인스턴스 크기를 조정하는 방법에 대해 알아봅니다.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis Cache 크기를 조정하는 방법
 Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -111,6 +111,7 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 * [크기를 조정하는 동안 캐시의 데이터가 손실되나요?](#will-i-lose-data-from-my-cache-during-scaling)
 * [사용자 지정 데이터베이스 설정이 크기 조정 하는 동안에 영향을 받나요?](#is-my-custom-databases-setting-affected-during-scaling)
 * [크기를 조정하는 동안 내 캐시를 사용할 수 있나요?](#will-my-cache-be-available-during-scaling)
+* [지역 복제를 구성하여 내 캐시의 크기를 조정하거나 클러스터에서 분할된 데이터베이스를 변경할 수 없는 이유는 무엇인가요?](#scaling-limitations-with-geo-relication)
 * [지원되지 않는 작업](#operations-that-are-not-supported)
 * [크기 조정은 시간이 얼마나 걸리나요?](#how-long-does-scaling-take)
 * [크기 조정이 완료되었는지 어떻게 알 수 있나요?](#how-can-i-tell-when-scaling-is-complete)
@@ -119,7 +120,7 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 * **프리미엄** 캐시에서 **기본** 또는 **표준** 가격 책정 계층으로 축소할 수 없습니다.
 * 하나의 **프리미엄** 캐시 가격 책정 계층에서 다른 프리미엄 캐시 가격 책정 계층으로 크기를 조정할 수 있습니다.
 * **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장합니다.
-* **프리미엄** 캐시를 만들 때 클러스터링을 사용하도록 설정했으면 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다. 클러스터를 사용하지 않고 캐시를 만든 경우 나중에 클러스터링를 구성할 수 없습니다.
+* **프리미엄** 캐시를 만들 때 클러스터링을 사용하도록 설정했으면 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다. 클러스터를 사용하지 않고 캐시를 만든 경우 나중에 클러스터링를 구성할 수 있습니다.
   
   자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
 
@@ -151,6 +152,12 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 * **표준** 및 **프리미엄** 캐시는 크기 조정 작업을 수행하는 동안 사용할 수 있습니다. 그러나 표준 및 프리미엄 캐시 크기를 조정하는 동안 및 기본 에서 표준 캐시로 확장하는 동안 연결 블립이 발생할 수 있습니다. 이러한 연결 블립은 작을 것으로 예상되며 redis 클라이언트는 연결을 즉시 다시 설정할 수 있습니다.
 * 작업을 다른 크기로 확장하는 동안 **기본** 캐시는 오프라인 상태입니다. **기본**에서 **표준**으로 확장하는 동안 기본 캐시를 그대로 사용할 수 있지만 작은 연결 블립이 발생할 수도 있습니다. 연결 블립이 발생하는 경우 redis 클라이언트가 해당 연결을 즉시 다시 설정할 수 있습니다.
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>지역 복제를 사용하여 제한 사항 크기 조정
+
+두 개의 캐시 간에 지역 복제 링크를 추가하면 더 이상 크기 조정 작업을 시작하거나 클러스터에서 분할된 데이터베이스의 수를 변경할 수 없습니다. 캐시의 연결을 해제하여 이러한 명령을 실행해야 합니다. 자세한 내용은 [지역 복제 구성](cache-how-to-geo-replication.md)을 참조하세요.
+
+
 ### <a name="operations-that-are-not-supported"></a>지원되지 않는 작업
 * 높은 가격 책정 계층에서 낮은 가격 책정 계층으로 크기를 조정할 수 없습니다.
   * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
@@ -160,6 +167,7 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 * 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
 
 크기 조정 작업이 실패하면 서비스는 작업을 되돌리려고 하며 캐시는 원래 크기로 되돌아갑니다.
+
 
 ### <a name="how-long-does-scaling-take"></a>크기 조정은 시간이 얼마나 걸리나요?
 크기 조정은 약 20분이 걸립니다. 캐시에 있는 데이터의 양에 따라 다를 수 있습니다.

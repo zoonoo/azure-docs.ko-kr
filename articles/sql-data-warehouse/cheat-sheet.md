@@ -2,24 +2,19 @@
 title: Azure SQL Data Warehouse 치트 시트 | Microsoft Docs
 description: Azure SQL Data Warehouse 솔루션을 빠르게 구축하는 링크와 모범 사례를 찾습니다.
 services: sql-data-warehouse
-documentationcenter: NA
 author: acomet
 manager: jhubbard
-editor: ''
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
+ms.topic: overview
+ms.component: design
+ms.date: 03/28/2018
 ms.author: acomet
-ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: mausher,igorstan,jrj
+ms.openlocfilehash: 1e09dc2f3c7e7aa4ae98ef98a8957454a1beee6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 치트 시트
 이 치트 시트는 Azure SQL Data Warehouse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다. 시작하기 전에 [Azure SQL Data Warehouse 작업 패턴 및 안티 패턴](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)을 참조하여 각 단계에 대해 자세히 알아보세요. 이러한 패턴은 SQL Data Warehouse 정의 및 장단점에 대해 설명합니다.
@@ -54,7 +49,7 @@ ms.lasthandoff: 03/17/2018
 
 테이블 속성에 따라 다음 전략을 사용합니다.
 
-| 형식 | 적합한 대상| 유의해야 하는 경우|
+| 유형 | 적합한 대상| 유의해야 하는 경우|
 |:--- |:--- |:--- |
 | 복제됨 | • 압축 후 2GB 저장소 이하 별모양 스키마의 소형 차원 테이블(~5배 압축) |• 많은 쓰기 트랜잭션이 테이블에 있음(예: insert, upsert, delete, update)<br></br>• DWU(데이터 웨어하우스 단위) 프로비전이 자주 변경됨<br></br>• 2-3개 열만 사용하지만 테이블에 많은 열이 있음<br></br>• 복제된 테이블을 인덱싱 |
 | 라운드 로빈(기본값) | • 임시/준비 테이블<br></br> • 명백한 조인 키 또는 양호한 후보 열이 없음 |• 데이터 이동으로 인한 성능 저하 |
@@ -74,7 +69,7 @@ ms.lasthandoff: 03/17/2018
 
 인덱싱은 테이블을 빠르게 읽는 데 유용합니다. 필요에 따라 사용할 수 있는 고유한 기술 집합이 있습니다.
 
-| 형식 | 적합한 대상 | 유의해야 하는 경우|
+| 유형 | 적합한 대상 | 유의해야 하는 경우|
 |:--- |:--- |:--- |
 | 힙 | • 준비/임시 테이블<br></br>• 작은 조회를 통한 소형 테이블 |• 전체 테이블을 검색하는 모두 조회 |
 | 클러스터형 인덱스 | • 최대 1억 개 행이 있는 테이블<br></br>• 1-2개 열만 많이 사용하는 대형 테이블(1억 개 이상의 행) |• 복제 테이블에서 사용됨<br></br>• 여러 Join, Group By 작업과 관련된 복잡한 쿼리가 있음<br></br>• 인덱싱된 열을 업데이트하고 메모리가 필요함 |
@@ -152,6 +147,8 @@ SQL Data Warehouse에서 SQL 데이터베이스의 스포크를 한 번 클릭�
 [파티션]:sql-data-warehouse-tables-partition.md
 [통계]:sql-data-warehouse-tables-statistics.md
 [리소스 클래스 및 동시성]:resource-classes-for-workload-management.md
+[복제된 테이블]:design-guidance-for-replicated-tables.md
+[분산 테이블]:sql-data-warehouse-tables-distribute.md
 
 <!--MSDN references-->
 
@@ -160,8 +157,7 @@ SQL Data Warehouse에서 SQL 데이터베이스의 스포크를 한 번 클릭�
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [데이터 마이그레이션]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[복제된 테이블]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[분산 테이블]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[Azure Data Lake Store]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+
+[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

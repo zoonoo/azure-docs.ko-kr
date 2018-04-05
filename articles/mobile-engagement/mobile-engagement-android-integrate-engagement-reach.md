@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Android SDK 통합"
-description: "Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
+title: Azure Mobile Engagement Android SDK 통합
+description: Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e71d8aeb8c8060161ade4262e0be0a093b5650
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Android에서 Engagement 도달률을 통합하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 > [!IMPORTANT]
 > 이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
 > 
@@ -415,7 +419,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 ##### <a name="system-notifications"></a>시스템 알림
 기본 구현에서 준비한 알림을 변경하려면 `EngagementDefaultNotifier`을(를) 확장하여 `onNotificationPrepared`을(를) 재정의할 수 있습니다.
 
-예:
+예: 
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)

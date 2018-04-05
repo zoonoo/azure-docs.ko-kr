@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -104,7 +104,7 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 
 표준에서 프리미엄으로 업그레이드하는 등 상위 가격 책정 계층으로 업그레이드할 때는 비호환성이나 기타 문제가 발생하지 않습니다. 사용할 수 있는 기능 및 리소스만 증가합니다.
 
-하지만 가격 책정 계층을 다운그레이드하면 데이터베이스 성능이 저하될 수 있습니다. 데이터베이스에 메모리 내 OLTP 개체가 포함되어 있을 때 프리미엄에서 표준이나 기본으로 다운그레이드하면 성능 저하 현상이 특히 뚜렷하게 나타납니다. 메모리 최적화 테이블 및 columnstore 인덱스는 계속 표시되더라도 다운그레이드 후에 사용할 수 없는 상태가 됩니다. 탄력적 풀의 가격 책정 계층을 낮추거나 메모리 내 기술을 포함한 데이터베이스를 표준 또는 기본 탄력적 풀로 이동하는 경우에도 동일한 고려 사항이 적용됩니다.
+하지만 가격 책정 계층을 다운그레이드하면 데이터베이스 성능이 저하될 수 있습니다. 데이터베이스에 메모리 내 OLTP 개체가 포함되어 있을 때 프리미엄에서 표준이나 기본으로 다운그레이드하면 성능 저하 현상이 특히 뚜렷하게 나타납니다. 메모리 최적화 테이블은 계속 표시되더라도 다운그레이드 후에 사용할 수 없는 상태가 됩니다. 탄력적 풀의 가격 책정 계층을 낮추거나 메모리 내 기술을 포함한 데이터베이스를 표준 또는 기본 탄력적 풀로 이동하는 경우에도 동일한 고려 사항이 적용됩니다.
 
 ### <a name="in-memory-oltp"></a>메모리 내 OLTP
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Columnstore 인덱스
 
-*기본 또는 표준으로 다운그레이드*: columnstore 인덱스는 프리미엄 가격 책정 계층에서만 지원되며 표준 또는 기본 계층에서는 지원되지 않습니다. 데이터베이스를 표준 또는 기본으로 다운그레이드하면 columnstore 인덱스를 사용할 수 없게 됩니다. 시스템에서 columnstore 인덱스가 유지는 되지만 사용되지는 않습니다. 나중에 다시 프리미엄으로 업그레이드하는 경우 columnstore 인덱스는 즉시 다시 사용 가능한 상태가 됩니다.
+*기본 또는 표준으로 다운그레이드*: columnstore 인덱스는 프리미엄 가격 책정 계층 및 표준 계층, S3 이상에서만 지원되며 기본 계층에서는 지원되지 않습니다. 데이터베이스를 지원되지 않는 계층 또는 수준으로 다운그레이드하면 columnstore 인덱스를 사용할 수 없게 됩니다. 시스템에서 columnstore 인덱스가 유지는 되지만 사용되지는 않습니다. 나중에 다시 지원되는 계층 또는 수준으로 업그레이드하는 경우 columnstore 인덱스는 즉시 다시 사용 가능한 상태가 됩니다.
 
-**클러스터형** columnstore 인덱스가 있는 경우에는 계층 다운그레이드 후에 전체 테이블을 사용할 수 없게 됩니다. 그러므로 프리미엄 계층보다 하위 계층으로 데이터베이스를 다운그레이드하기 전에 *클러스터형* columnstore 인덱스를 모두 삭제하는 것이 좋습니다.
+**클러스터형** columnstore 인덱스가 있는 경우에는 다운그레이드 후에 전체 테이블을 사용할 수 없게 됩니다. 그러므로 지원되지 않는 계층 또는 수준으로 데이터베이스를 다운그레이드하기 전에 *클러스터형* columnstore 인덱스를 모두 삭제하는 것이 좋습니다.
 
-*하위 프리미엄 계층으로 다운그레이드*: 대상 가격 책정 계층의 최대 데이터베이스 크기 또는 탄력적 풀의 사용 가능한 저장소 내에 전체 데이터베이스를 포함할 수 있으면 이 다운그레이드는 성공합니다. columnstore 인덱스로부터 특별한 영향은 없습니다.
+*하위 지원되는 계층 또는 수준으로 다운그레이드*: 대상 가격 책정 계층의 최대 데이터베이스 크기 또는 탄력적 풀의 사용 가능한 저장소 내에 전체 데이터베이스를 포함할 수 있으면 이 다운그레이드는 성공합니다. columnstore 인덱스로부터 특별한 영향은 없습니다.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

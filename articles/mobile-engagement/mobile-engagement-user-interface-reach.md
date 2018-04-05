@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 도달률"
-description: "푸시 알림으로 응용 프로그램의 사용자에게 알리는 방법 알아보기"
+title: Azure Mobile Engagement 사용자 인터페이스 - 도달률
+description: 푸시 알림으로 응용 프로그램의 사용자에게 알리는 방법 알아보기
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d999b83df7d9d467f08ce8ec72468c738e8acfa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>푸시 알림으로 응용 프로그램의 사용자에게 알리는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서에서는 **Mobile Engagement** 포털의 **도달률** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 자세한 내용은 [Azure Mobile Engagement 계정 만들기](mobile-engagement-create.md)를 참조하세요.
 
 UI의 도달률 섹션은 푸시 알림 캠페인과 기능을 작성/편집/활성화/완료/모니터링하고 관련 통계를 가져올 수 있는 푸시 캠페인 관리 도구입니다. 하위 수준 푸시 API의 일부 요소와 도달률 API를 통해서도 이러한 캠페인과 기능에 액세스할 수 있습니다. API나 UI 중 어느 쪽을 사용하든 Azure Mobile Engagement 및 도달률을 모두 SDK와 함께 각 플랫폼의 응용 프로그램에 통합해야 도달률 캠페인을 사용할 수 있습니다.

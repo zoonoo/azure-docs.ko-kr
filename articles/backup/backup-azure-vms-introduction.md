@@ -1,31 +1,31 @@
 ---
-title: "Azure에서 VM 백업 인프라 계획 | Microsoft Docs"
-description: "Azure에서 가상 머신을 백업하려고 할 때 중요한 고려 사항"
+title: Azure에서 VM 백업 인프라 계획 | Microsoft Docs
+description: Azure에서 가상 머신을 백업하려고 할 때 중요한 고려 사항
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "vm 백업, virtual machines 백업"
+editor: ''
+keywords: vm 백업, virtual machines 백업
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2017
+ms.date: 3/23/2018
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure에서 VM 백업 인프라 계획
 이 문서에서는 성능 및 리소스를 제안하여 VM 백업 인프라를 계획할 수 있도록 합니다. 또한 Backup 서비스의 핵심 요소를 정의합니다. 이러한 측면은 아키텍처, 용량 계획 및 예약을 결정하는 데 중요한 요인이 될 수 있습니다. [환경을 준비](backup-azure-arm-vms-prepare.md)했다면 계획은 [VM 백업](backup-azure-arm-vms.md)을 시작하기 전의 다음 단계입니다. Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Azure에서 가상 머신을 백업하는 방법
-Azure Backup 서비스는 예약된 시간에 백업 작업을 시작할 때 시점 스냅숏을 만드는 백업 확장을 트리거합니다. Azure Backup 서비스는 Windows에서 _VMSnapshot_ 확장을 사용하고, Linux에서는 _VMSnapshotLinux_ 확장을 사용합니다. 확장은 첫 번째 VM 백업 중에 설치됩니다. 확장을 설치하려면 VM이 실행 중이어야 합니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 저장소의 스냅숏을 생성합니다(VM이 중지되었을 때는 응용 프로그램 쓰기가 수행되지 않음).
+Azure Backup 서비스가 예약된 시간에 백업 작업을 시작할 때 해당 서비스는 시점 스냅숏을 만드는 백업 확장을 트리거합니다. Azure Backup 서비스는 Windows에서 _VMSnapshot_ 확장을 사용하고, Linux에서는 _VMSnapshotLinux_ 확장을 사용합니다. 확장은 첫 번째 VM 백업 중에 설치됩니다. 확장을 설치하려면 VM이 실행 중이어야 합니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 저장소의 스냅숏을 생성합니다(VM이 중지되었을 때는 응용 프로그램 쓰기가 수행되지 않음).
 
 Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 머신의 디스크에 대한 일관된 스냅숏을 가져오도록 VSS(볼륨 섀도 복사본 서비스)와 조정됩니다. Linux VM을 백업하는 경우 VM 스냅숏을 생성할 때 일관성을 유지하기 위해 직접 사용자 지정 스크립트를 작성할 수 있습니다. 이러한 스크립트 호출에 대한 자세한 내용은 이 문서의 뒷부분에 제공됩니다.
 
@@ -38,7 +38,7 @@ Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 �
 > [!NOTE]
 > 1. Azure Backup은 백업 프로세스 중에 가상 머신에 연결된 임시 디스크를 포함하지 않습니다. 자세한 내용은 [임시 저장소](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)에 대한 블로그를 참조하세요.
 > 2. Azure Backup은 저장소 수준의 스냅숏을 생성하여 자격 증명 모음으로 전송하므로 백업 작업이 완료될 때까지 저장소 계정 키를 변경하지 마세요.
-> 3. 프리미엄 VM의 경우 저장소 계정에 스냅숏을 복사합니다. 이렇게 하면 Azure Backup 서비스가 자격 증명 모음으로 데이터를 전송하는 데 충분한 IOPS를 갖게 됩니다. 이러한 추가 저장소 복사본은 VM 할당 크기를 기준으로 대금이 청구됩니다. 
+> 3. 프리미엄 VM에서 Azure Backup은 저장소 계정에 스냅숏을 복사합니다. 이렇게 하면 Backup 서비스가 자격 증명 모음으로 데이터를 전송하는 데 충분한 IOPS를 사용하게 됩니다. 이러한 추가 저장소 복사본은 VM 할당 크기를 기준으로 대금이 청구됩니다. 
 >
 
 ### <a name="data-consistency"></a>데이터 일관성
@@ -64,7 +64,7 @@ Azure Backup은 스크립팅 프레임워크를 제공합니다. Linux VM을 백
 | --- | --- | --- |
 | 응용 프로그램 일관성 |Windows 경우 예|응용 프로그램 일관성은 다음을 보장하므로 워크로드에 이상적입니다.<ol><li> VM이 *부팅*됩니다. <li>*손상이 없습니다*. <li>*데이터 손실*이 없습니다.<li> 데이터는 백업 시 VSS 또는 사전/사후 스크립트를 사용하는 응용 프로그램을 포함하여 데이터를 사용하는 응용 프로그램과 일치됩니다.</ol> <li>*Windows VM* - 대부분의 Microsoft 워크로드에는 데이터 일관성과 관련된 워크로드 관련 동작을 수행하는 VSS 작성자가 있습니다. 예를 들어 Microsoft SQL Server에는 트랜잭션 로그 파일에 대한 쓰기를 확인하고 데이터베이스가 제대로 수행되었는지 확인하는 VSS 작성자가 있습니다. Azure Windows VM 백업의 경우, 응용 프로그램에 일관된 복구 지점을 생성하려면 백업 확장이 VSS 워크플로를 호출하고 VM 스냅숏을 촬영하기 전에 완료해야 합니다. Azure VM 스냅숏이 정확하려면 모든 Azure VM 응용 프로그램의 VSS 기록기도 완료해야 합니다. [VSS 기본 사항](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)(영문) 및 [작동 방법](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)(영문)에서 자세히 알아 보세요. </li> <li> *Linux VM* - 고객은 [응용 프로그램 일관성을 보장하기 위해 사용자 지정 사전 스크립트 및 사후 스크립트를](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) 실행할 수 있습니다. </li> |
 | 파일 시스템 일관성 |예 - Windows 기반 컴퓨터 |복구 지점이 *일관된 파일 시스템*일 수 있는 두 가지 시나리오는 다음과 같습니다.<ul><li>사전 스크립트/사후 스크립트 없이 또는 사전 스크립트/사후 스크립트가 실패한 경우 Azure에서 Linux VM의 Backup. <li>Azure에서 Windows VM을 백업하는 중에 VSS 오류가 발생합니다.</li></ul> 두 경우 모두 다음을 보장하는 것이 가장 좋습니다. <ol><li> VM이 *부팅*됩니다. <li>*손상이 없습니다*.<li>*데이터 손실*이 없습니다.</ol> 응용 프로그램은 복원된 데이터에 대해 고유한 "수정" 메커니즘을 구현해야 합니다. |
-| 충돌 일관성 |아니요 |이 상황은 "충돌"이 발생하는 가상 머신과 같습니다(소프트 또는 하드 재설정을 통해). 충돌 일관성은 일반적으로 Azure 가상 컴퓨터가 백업 시 종료될 때 발생합니다. 일관된 복구 지점에 충돌이 있다는 것은 저장소 매체의 데이터에 일관성을 보장해 주지 않는다는 뜻입니다(OS 관점 또는 응용 프로그램의 관점에서). 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. <br/> <br/> 보장은 없지만 대부분의 경우에 OS는 부팅됩니다. 이는 손상 오류를 수정하기 위한 chkdsk와 같은 디스크 검사 과정 이후에 발생합니다. 메모리 내 데이터 또는 디스크로 이전되지 않은 쓰기는 손실됩니다. 일반적으로 응용 프로그램은 데이터 롤백 작업을 수행해야 하는 경우에 고유한 확인 매커니즘을 수행합니다. <br><br>예를 들어 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일관성을 찾을 때가지 롤백합니다. 여러 가상 디스크(예: 스팬 볼륨)에 분산된 데이터의 경우 충돌-일관성 복구 지점은 데이터 정확성을 보장하지 않습니다. |
+| 충돌 일관성 |아니오 |이 상황은 "충돌"이 발생하는 가상 머신과 같습니다(소프트 또는 하드 재설정을 통해). 충돌 일관성은 일반적으로 Azure 가상 컴퓨터가 백업 시 종료될 때 발생합니다. 일관된 복구 지점에 충돌이 있다는 것은 저장소 매체의 데이터에 일관성을 보장해 주지 않는다는 뜻입니다(OS 관점 또는 응용 프로그램의 관점에서). 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. <br/> <br/> 보장은 없지만 대부분의 경우에 OS는 부팅됩니다. 이는 손상 오류를 수정하기 위한 chkdsk와 같은 디스크 검사 과정 이후에 발생합니다. 메모리 내 데이터 또는 디스크로 이전되지 않은 쓰기는 손실됩니다. 일반적으로 응용 프로그램은 데이터 롤백 작업을 수행해야 하는 경우에 고유한 확인 매커니즘을 수행합니다. <br><br>예를 들어 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일관성을 찾을 때가지 롤백합니다. 여러 가상 디스크(예: 스팬 볼륨)에 분산된 데이터의 경우 충돌-일관성 복구 지점은 데이터 정확성을 보장하지 않습니다. |
 
 ## <a name="performance-and-resource-utilization"></a>성능 및 리소스 사용률
 온-프레미스에 배포되는 백업 소프트웨어와 마찬가지로 Azure에서 VM을 백업하는 경우 용량 및 리소스 사용률에 대한 계획을 세워야 합니다. [Azure Storage 제한](../azure-subscription-service-limits.md#storage-limits) 은 워크로드 실행에 대한 영향을 최소화하면서 최대의 성능을 얻기 위한 VM 배포 구성 방법을 정의합니다.
@@ -125,24 +125,24 @@ Backup은 자격 증명 모음에 스냅숏 만들기 및 스냅숏 전송과 �
 Azure Backup은 백업 프로세스의 일부로 데이터를 암호화하지 않습니다. 그러나 VM 내에서 원활하게 데이터를 암호화하고 보호되는 데이터를 백업할 수 있습니다( [암호화된 데이터 백업](backup-azure-vms-encryption.md)에 대해 자세히 알아보기).
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>보호된 인스턴스 비용 계산
-Azure Backup을 통해 백업된 Azure 가상 머신에는 [Azure Backup 가격](https://azure.microsoft.com/pricing/details/backup/)이 적용됩니다. 보호된 인스턴스 계산은 가상 머신의 *실제* 크기를 기반으로 하며, "리소스 디스크"를 제외한 가상 머신의 모든 데이터 합계입니다.
+Azure Backup을 통해 백업된 Azure 가상 머신에는 [Azure Backup 가격](https://azure.microsoft.com/pricing/details/backup/)이 적용됩니다. 보호된 인스턴스 계산은 가상 머신의 *실제* 크기를 기반으로 하며, 임시 저장소를 제외한 가상 머신의 모든 데이터 합계입니다.
 
-VM 백업 비용은 가상 머신에 연결된 각 데이터 디스크의 최대 지원 크기에 따라 결정되는 것이 *아니라*, 데이터 디스크에 저장된 실제 데이터에 따라 청구됩니다. 마찬가지로, 백업 저장소 요금은 Azure Backup을 사용하여 저장된 데이터 양(각 복구 지점의 실제 데이터 합계)을 기준으로 청구됩니다.
+VM 백업에 대한 가격 책정은 가상 머신에 연결된 각 데이터 디스크의 최대 지원 크기에 따라 결정되는 것이 아니라, 데이터 디스크에 저장된 실제 데이터에 따라 청구됩니다. 마찬가지로, 백업 저장소 요금은 Azure Backup을 사용하여 저장된 데이터 양(각 복구 지점의 실제 데이터 합계)을 기준으로 청구됩니다.
 
 최대 크기가 각각 1TB인 두 개의 추가 데이터 디스크가 있는 A2 표준 크기 가상 머신을 예로 들 수 있습니다. 다음 표는 각 디스크에 저장된 실제 데이터를 제공합니다.
 
 | 디스크 유형 | 최대 크기 | 실제 데이터 표시 |
-| --- | --- | --- |
+| --------- | -------- | ----------- |
 | 운영 체제 디스크 |1023GB |17GB |
-| 로컬 디스크/리소스 디스크 |135GB |5GB(백업에 포함되지 않음) |
+| 로컬 디스크/임시 디스크 |135GB |5GB(백업에 포함되지 않음) |
 | 데이터 디스크 1 |1023GB |30GB |
 | 데이터 디스크 2 |1023GB |0GB |
 
-이 경우 가상 머신의 *실제* 크기는 17GB + 30GB + 0GB = 47GB입니다. 이 보호된 인스턴스 크기(47GB)는 월별 청구서의 근거가 됩니다. 가상 머신의 데이터 양이 증가하면 요금 청구에 사용되는 보호된 인스턴스 크기도 그에 따라 변경됩니다.
+이 경우 가상 머신의 실제 크기는 17GB+30GB+0GB=47GB입니다. 이 보호된 인스턴스 크기(47GB)는 월별 청구서의 근거가 됩니다. 가상 머신의 데이터 양이 증가하면 요금 청구에 사용되는 보호된 인스턴스 크기도 그에 따라 변경됩니다.
 
-요금 청구는 첫 번째 백업이 성공적으로 완료되기 전까지 시작되지 않습니다. 이때 저장소와 보호된 인스턴스 둘 다에 대한 요금 청구가 시작됩니다. *자격 증명 모음에 저장된 가상 컴퓨터의 백업 데이터*가 있는 한 요금이 계속 청구됩니다. 가상 머신의 보호를 중지하더라도 자격 증명 모음에 가상 머신 백업 데이터가 있으면 요금이 계속 청구됩니다.
+요금 청구는 첫 번째 백업이 성공적으로 완료되기 전까지 시작되지 않습니다. 이때 저장소와 보호된 인스턴스 둘 다에 대한 요금 청구가 시작됩니다. 가상 머신의 백업 데이터가 자격 증명 모음에 저장되어 있는 한 요금이 계속 청구됩니다. 가상 머신의 보호를 중지하더라도 자격 증명 모음에 가상 머신 백업 데이터가 있으면 요금이 계속 청구됩니다.
 
-지정된 가상 컴퓨터에 대한 요금 청구는 보호가 중지되고 모든 백업 데이터 *또한* 삭제된 경우에만 중단됩니다. 보호가 중지되고 활성 백업 작업이 없으면 마지막으로 성공한 VM 백업이 월별 청구에 사용되는 보호된 인스턴스 크기가 됩니다.
+지정된 가상 머신에 대한 요금 청구는 보호가 중지되고 모든 백업 데이터가 삭제된 경우에만 중단됩니다. 보호가 중지되고 활성 백업 작업이 없으면 마지막으로 성공한 VM 백업이 월별 청구에 사용되는 보호된 인스턴스 크기가 됩니다.
 
 ## <a name="questions"></a>질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).

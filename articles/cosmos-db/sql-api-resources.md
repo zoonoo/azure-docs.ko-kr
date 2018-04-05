@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB 리소스 모델 및 개념 | Microsoft Docs"
-description: "데이터베이스, 컬렉션, UDF(사용자 정의 함수), 문서, 리소스 관리 권한 등으로 구성된 Azure Cosmos DB의 계층적 모델에 대해 알아봅니다."
-keywords: "계층적 모델, cosmosdb, azure, Microsoft azure"
+title: Azure Cosmos DB 리소스 모델 및 개념 | Microsoft Docs
+description: 데이터베이스, 컬렉션, UDF(사용자 정의 함수), 문서, 리소스 관리 권한 등으로 구성된 Azure Cosmos DB의 계층적 모델에 대해 알아봅니다.
+keywords: 계층적 모델, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 계층적 리소스 모델 및 핵심 개념
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB에서 관리하는 데이터베이스 엔터티를 **리소스**라고 합니다. 각 리소스는 논리적 URI를 통해 고유하게 식별됩니다. 표준 HTTP 동사, 요청/응답 헤더 및 상태 코드를 사용해서 리소스를 조작할 수 있습니다. 
 
@@ -34,6 +32,12 @@ Azure Cosmos DB에서 관리하는 데이터베이스 엔터티를 **리소스**
 * 리소스를 어떻게 해결하나요?
 * 컬렉션을 어떻게 사용하나요?
 * 저장된 프로시저, 트리거 및 UDF(사용자 정의 함수)를 사용하려면 어떻게 하나요?
+
+다음 비디오에서는 Azure Cosmos DB 프로그램 관리자인 Andrew Liu가 Azure Cosmos DB 리소스 모델을 안내합니다. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>계층적 리소스 모델
 다음 다이어그램에 표시된 대로, Azure Cosmos DB의 계층적 **리소스 모델**은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 통해 주소 지정이 가능한 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 **피드**라고 합니다. 
@@ -154,7 +158,7 @@ Azure Portal([http://portal.azure.com/](https://portal.azure.com/))을 통해 Co
     </tbody>
 </table>
 
-Azure Portal에서 데이터베이스 계정을 프로비전, 구성 및 관리할 뿐만 아니라 [Azure Cosmos DB REST API](/rest/api/documentdb/) 및 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 프로그래밍 방식으로 Cosmos DB 데이터베이스 계정을 만들고 관리할 수도 있습니다.  
+Azure Portal에서 데이터베이스 계정을 프로비전, 구성 및 관리할 뿐만 아니라 [Azure Cosmos DB REST API](/rest/api/cosmos-db/) 및 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 프로그래밍 방식으로 Cosmos DB 데이터베이스 계정을 만들고 관리할 수도 있습니다.  
 
 ## <a name="databases"></a>데이터베이스
 Cosmos DB 데이터베이스는 다음 다이어그램에 표시된 것처럼 하나 이상의 컬렉션 및 사용자의 논리적 컨테이너입니다. Cosmos DB 데이터베이스 계정에 데이터베이스를 개수에 제한 없이 만들 수 있으며 제공 한도가 적용됩니다.  
@@ -173,7 +177,7 @@ Cosmos DB 데이터베이스는 기본적으로 탄력적이며 SSD 지원 문�
 
 Azure Cosmos DB 데이터베이스는 사용자 컨테이너이기도 합니다. 다시 사용자는 컬렉션, 문서 및 첨부 파일에 대한 미세 조정된 권한 부여 및 액세스 권한을 제공하는 사용 권한 집합의 논리적 네임스페이스입니다.  
 
-Azure Cosmos DB 리소스 모델의 다른 리소스와 마찬가지로, [REST API](/rest/api/documentdb/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 데이터베이스를 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. Azure Cosmos DB는 데이터베이스 리소스의 메타데이터 읽기 또는 쿼리에 대해 강력한 일관성을 보장합니다. 데이터베이스를 삭제하면 자동으로 컬렉션 또는 컬렉션 내에 포함된 사용자에 액세스할 수 없게 됩니다.   
+Azure Cosmos DB 리소스 모델의 다른 리소스와 마찬가지로, [REST API](/rest/api/cosmos-db/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 데이터베이스를 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. Azure Cosmos DB는 데이터베이스 리소스의 메타데이터 읽기 또는 쿼리에 대해 강력한 일관성을 보장합니다. 데이터베이스를 삭제하면 자동으로 컬렉션 또는 컬렉션 내에 포함된 사용자에 액세스할 수 없게 됩니다.   
 
 ## <a name="collections"></a>컬렉션
 Cosmos DB 컬렉션은 JSON 문서의 컨테이너입니다. 
@@ -191,7 +195,7 @@ Azure Cosmos DB는 진정한 스키마 없는 데이터베이스 시스템입니
 * 문서의 특정 경로나 패턴을 인덱스에 포함할지 아니면 제외할지를 선택합니다. 컬렉션의 indexingPolicy에서 각각 includedPaths 및 excludedPaths를 설정하면 됩니다. 특정 경로 패턴의 범위 및 해시 쿼리에 대해 저장소 및 성능 절충을 구성할 수도 있습니다. 
 * 동기(일관성) 및 비동기(지연) 인덱스 업데이트 간에 선택합니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 이렇게 하면 쿼리에 문서 읽기와 동일한 일관성 수준을 적용할 수 있습니다. Azure Cosmos DB는 쓰기 최적화되며 동기 인덱스 유지 관리 및 일관성 있는 쿼리 처리와 함께 지속적인 대량 문서 쓰기를 지원하지만 인덱스를 지연 업데이트하도록 특정 컬렉션을 구성할 수 있습니다. 지연 인덱스는 쓰기 성능을 더욱 향상하며 주로 읽기 중심인 컬렉션에 대한 대량 수집 시나리오에 적합합니다.
 
-인덱싱 정책은 컬렉션에서 PUT를 실행하여 변경할 수 있습니다. [클라이언트 SDK](sql-api-sdk-dotnet.md), [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/documentdb/)를 통해 수행할 수 있습니다.
+인덱싱 정책은 컬렉션에서 PUT를 실행하여 변경할 수 있습니다. [클라이언트 SDK](sql-api-sdk-dotnet.md), [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/cosmos-db/)를 통해 수행할 수 있습니다.
 
 ### <a name="querying-a-collection"></a>컬렉션 쿼리
 컬렉션 내의 문서는 임의 스키마를 포함할 수 있으며, 스키마 또는 보조 인덱스를 미리 제공하지 않고 컬렉션 내의 문서를 쿼리할 수 있습니다. JavaScript 기반 UDF를 통해 풍부한 계층적, 관계형 및 공간 연산자와 확장성을 제공하는 [Azure Cosmos DB SQL 구문 참조](https://msdn.microsoft.com/library/azure/dn782250.aspx)를 사용하여 컬렉션을 쿼리할 수 있습니다. JSON 문법을 통해 JSON 문서를 트리로 모델링하고 레이블을 트리 노드로 사용할 수 있습니다. 이는 SQL API의 자동 인덱싱 기술과 Azure Cosmos DB의 SQL 언어 둘 다에서 사용됩니다. SQL 쿼리 언어는 다음 세 가지 주요 측면으로 구성됩니다.   
@@ -200,7 +204,7 @@ Azure Cosmos DB는 진정한 스키마 없는 데이터베이스 시스템입니
 2. 컴퍼지션, 필터, 프로젝션, 집계 및 자체 조인을 포함하는 관계형 작업 하위 집합 
 3. (1) 및 (2)로 작동하는 순수 JavaScript기반 UDF  
 
-Azure Cosmos DB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이루려고 합니다. Azure Cosmos DB의 데이터베이스 엔진은 기본적으로 SQL 쿼리 문을 컴파일하고 실행합니다. [REST API](/rest/api/documentdb/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 컬렉션을 쿼리할 수 있습니다. .NET SDK에는 LINQ 공급자가 포함되어 있습니다.
+Azure Cosmos DB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이루려고 합니다. Azure Cosmos DB의 데이터베이스 엔진은 기본적으로 SQL 쿼리 문을 컴파일하고 실행합니다. [REST API](/rest/api/cosmos-db/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 컬렉션을 쿼리할 수 있습니다. .NET SDK에는 LINQ 공급자가 포함되어 있습니다.
 
 > [!TIP]
 > [Query Playground](https://www.documentdb.com/sql/demo)(쿼리 실습)에서 SQL API를 사용해 보고 데이터 집합에 대해 SQL 쿼리를 실행할 수 있습니다.
@@ -222,7 +226,7 @@ Azure Cosmos DB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형�
 
 버퍼 풀과 동일한 주소 공간에 있는 데이터베이스 엔진 내에서 직접 JavaScript를 실행할 수 있으므로 컬렉션 문서에 대한 데이터베이스 작업의 신속한 트랜잭션 실행이 가능합니다. 또한 Cosmos DB 데이터베이스 엔진은 JSON 및 JavaScript를 전체 통합하므로 응용 프로그램과 데이터베이스의 형식 시스템 간 불일치가 제거됩니다.   
 
-컬렉션을 만든 후 [REST API](/rest/api/documentdb/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 저장 프로시저, 트리거 및 UDF를 컬렉션에 등록할 수 있습니다. 등록이 완료되면 참조하고 실행할 수 있습니다. 아래 코드의 JavaScript로만 작성된 다음 저장 프로시저는 두 개의 인수(책 이름 및 저자 이름)를 사용하며 새 문서를 만들고 문서를 쿼리한 다음 업데이트합니다. 모든 작업은 암시적 ACID 트랜잭션 내에서 수행됩니다. 실행 중 언제든지 JavaScript 예외가 발생하면 전체 트랜잭션이 중단됩니다.
+컬렉션을 만든 후 [REST API](/rest/api/cosmos-db/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 저장 프로시저, 트리거 및 UDF를 컬렉션에 등록할 수 있습니다. 등록이 완료되면 참조하고 실행할 수 있습니다. 아래 코드의 JavaScript로만 작성된 다음 저장 프로시저는 두 개의 인수(책 이름 및 저자 이름)를 사용하며 새 문서를 만들고 문서를 쿼리한 다음 업데이트합니다. 모든 작업은 암시적 ACID 트랜잭션 내에서 수행됩니다. 실행 중 언제든지 JavaScript 예외가 발생하면 전체 트랜잭션이 중단됩니다.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -275,10 +279,10 @@ Azure Cosmos DB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형�
 
 저장 프로시저와 트리거는 현재 컬렉션 컨텍스트를 노출하는 잘 정의된 개체 모델을 통해 컬렉션 및 컬렉션 내 문서를 조작합니다.  
 
-[REST API](/rest/api/documentdb/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 SQL API의 컬렉션을 쉽게 만들거나 삭제하거나 읽거나 열거할 수 있습니다. SQL API는 컬렉션의 메타데이터 읽기 또는 쿼리에 대해 항상 강력한 일관성을 제공합니다. 컬렉션을 삭제하면 자동으로 컬렉션 내에 포함된 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 액세스할 수 없게 됩니다.   
+[REST API](/rest/api/cosmos-db/) 또는 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용하여 SQL API의 컬렉션을 쉽게 만들거나 삭제하거나 읽거나 열거할 수 있습니다. SQL API는 컬렉션의 메타데이터 읽기 또는 쿼리에 대해 항상 강력한 일관성을 제공합니다. 컬렉션을 삭제하면 자동으로 컬렉션 내에 포함된 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 액세스할 수 없게 됩니다.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
-이전 섹션에서 설명한 대로 데이터베이스 엔진의 내부 트랜잭션 내에서 직접 실행할 응용 프로그램 논리를 작성할 수 있습니다. 전적으로 JavaScript로 응용 프로그램 논리를 작성하고 저장 프로시저, 트리거 또는 UDF로 모델링할 수 있습니다. 저장 프로시저 또는 트리거 내의 JavaScript 코드는 컬렉션 내 문서를 삽입하거나 바꾸거나 삭제하거나 읽거나 쿼리할 수 있습니다. 반면에 UDF 내에서 JavaScript는 문서를 삽입, 바꾸기 또는 삭제할 수 없습니다. UDF는 쿼리 결과 집합의 문서를 열거하고 다른 결과 집합을 생성합니다. 다중 테넌트 지원을 위해 Azure Cosmos DB는 엄격한 예약 기반 리소스 거버넌스를 적용합니다. 각 저장 프로시저, 트리거 또는 UDF는 작업 수행을 위해 운영 체제 리소스의 고정 퀀텀을 받습니다. 또한 저장 프로시저, 트리거 또는 UDF는 외부 JavaScript 라이브러리에 대해 연결할 수 없으며 할당된 리소스 예산을 초과할 경우 블랙리스트에 추가됩니다. REST API를 통해 저장 프로시저, 트리거 또는 UDF를 컬렉션에 등록하거나 등록 취소할 수 있습니다.  등록하면 저장 프로시저, 트리거 또는 UDF가 사전 컴파일되고 나중에 실행되는 바이트 코드로 저장됩니다. 다음 섹션에서는 Azure Cosmos DB JavaScript SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 등록, 실행 및 등록 취소하는 방법을 보여 줍니다. JavaScript SDK는 [REST API](/rest/api/documentdb/) 위의 단순한 래퍼입니다. 
+이전 섹션에서 설명한 대로 데이터베이스 엔진의 내부 트랜잭션 내에서 직접 실행할 응용 프로그램 논리를 작성할 수 있습니다. 전적으로 JavaScript로 응용 프로그램 논리를 작성하고 저장 프로시저, 트리거 또는 UDF로 모델링할 수 있습니다. 저장 프로시저 또는 트리거 내의 JavaScript 코드는 컬렉션 내 문서를 삽입하거나 바꾸거나 삭제하거나 읽거나 쿼리할 수 있습니다. 반면에 UDF 내에서 JavaScript는 문서를 삽입, 바꾸기 또는 삭제할 수 없습니다. UDF는 쿼리 결과 집합의 문서를 열거하고 다른 결과 집합을 생성합니다. 다중 테넌트 지원을 위해 Azure Cosmos DB는 엄격한 예약 기반 리소스 거버넌스를 적용합니다. 각 저장 프로시저, 트리거 또는 UDF는 작업 수행을 위해 운영 체제 리소스의 고정 퀀텀을 받습니다. 또한 저장 프로시저, 트리거 또는 UDF는 외부 JavaScript 라이브러리에 대해 연결할 수 없으며 할당된 리소스 예산을 초과할 경우 블랙리스트에 추가됩니다. REST API를 통해 저장 프로시저, 트리거 또는 UDF를 컬렉션에 등록하거나 등록 취소할 수 있습니다.  등록하면 저장 프로시저, 트리거 또는 UDF가 사전 컴파일되고 나중에 실행되는 바이트 코드로 저장됩니다. 다음 섹션에서는 Azure Cosmos DB JavaScript SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 등록, 실행 및 등록 취소하는 방법을 보여 줍니다. JavaScript SDK는 [REST API](/rest/api/cosmos-db/) 위의 단순한 래퍼입니다. 
 
 ### <a name="registering-a-stored-procedure"></a>저장 프로시저 등록
 저장 프로시저 등록은 HTTP POST를 통해 컬렉션에 새 저장 프로시저 리소스를 만드는 것입니다.  
@@ -406,7 +410,7 @@ UDF 등록 취소는 단순히 기존 UDF 리소스에 대해 HTTP DELETE를 실
             console.log("Error");
         });
 
-위 코드 조각에서는 [JavaScript SDK](https://github.com/Azure/azure-documentdb-js)를 통한 등록(POST), 등록 취소(PUT), 읽기/나열(GET) 및 실행(POST)을 보여 주었지만 [REST API](/rest/api/documentdb/) 또는 다른 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용할 수도 있습니다. 
+위 코드 조각에서는 [JavaScript SDK](https://github.com/Azure/azure-documentdb-js)를 통한 등록(POST), 등록 취소(PUT), 읽기/나열(GET) 및 실행(POST)을 보여 주었지만 [REST API](/rest/api/cosmos-db/) 또는 다른 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 사용할 수도 있습니다. 
 
 ## <a name="documents"></a>문서
 컬렉션의 임의 JSON 문서를 삽입하고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. Azure Cosmos DB는 스키마를 위임하지 않으며 컬렉션 내 문서 쿼리를 지원하기 위해 보조 인덱스가 필요하지 않습니다. 문서의 최대 크기는 2MB입니다.   

@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리되는 인스턴스 및 SQL Server 간의 T-SQL 차이점 
 
@@ -393,7 +393,11 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 저장소 공간 초과
 
-관리되는 인스턴스마다 최대 35TB의 예약된 저장소 공간이 있으며, 모든 데이터베이스 파일은 처음에 128GB의 저장소 할당 단위로 배치됩니다. 작은 파일이 많은 데이터베이스는 128GB 단위로 배치되지만 총 용량에서 35TB 제한을 초과할 수 있습니다. 이 경우 모든 데이터베이스의 전체 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 데이터베이스를 만들거나 복원할 수 없습니다. 이 경우 반환되는 오류가 명확하지 않을 수 있습니다.
+각 관리되는 인스턴스에는 Azure Premium 디스크 공간에 대해 예약된 최대 35TB의 저장소가 있으며 각 데이터베이스 파일은 별도의 실제 디스크에 배치됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 일부 경우에서 총 8TB가 필요 없는 관리되는 인스턴스는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다. 
+
+예를 들어 관리되는 인스턴스는 4TB 디스크를 사용하는 1.2TB 크기의 하나의 파일 및 각각 128GB 크기의 248개의 디스크에 있는 1GB의 248개의 파일을 가질 수 있습니다. 이 예제에서 전체 디스크 저장소 크기는 1x4TB + 248x128GB = 35TB입니다. 그러나 데이터베이스에 대한 총 예약된 인스턴스 크기는 1x1.2TB + 248x1GB = 1.4TB입니다. 특정 상황에서 매우 구체적인 파일의 배포로 인해 관리되는 인스턴스는 예상치 못한 Azure Premium 디스크 저장소 용량 한도에 도달할 수 있음을 보여줍니다. 
+
+기존 데이터베이스에 오류가 없으며 새 파일이 추가되지 않으면 문제 없이 증가시킬 수 있지만 새 데이터베이스는 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 디스크 드라이브에 대한 충분한 공간이 없기 때문에 생성 또는 복원될 수 없습니다. 이 경우 반환되는 오류가 명확하지 않습니다.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>데이터베이스 복원 중 잘못된 SAS 키 구성
 

@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker를 배포하는 방법
 
@@ -32,13 +30,13 @@ Hybrid Runbook Worker 역할의 기술적 개요는 [Automation 아키텍처 개
 Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 구성원에 따라 요청을 처리할 작업자가 결정됩니다. 특정 작업자를 지정할 수 없습니다.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 설치
-Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우 간단한 프로세스에 따라 역할을 수동으로 설치하고 구성하면 됩니다. OMS 작업 공간에서 **Automation Hybrid Worker** 솔루션을 활성화한 다음 일련의 명령을 실행하여 컴퓨터를 작업자로 등록하고 새 또는 기존 그룹에 추가해야 합니다. 
+Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우 간단한 프로세스에 따라 역할을 수동으로 설치하고 구성하면 됩니다. Log Analytics 작업 영역에서 **Automation Hybrid Worker** 솔루션을 활성화한 다음, 일련의 명령을 실행하여 컴퓨터를 작업자로 등록하고 새 또는 기존 그룹에 추가해야 합니다. 
 
 계속 진행하기 전에 자동화 계정이 연결되어 있는 Log Analytics 작업 영역을 확인해야 하며 자동화 계정의 기본 키도 확인해야 합니다. 작업 영역과 기본 키는 모두 Portal에서 찾을 수 있습니다. 자동화 계정을 선택하고 **작업 영역**을 선택하면 작업 영역 ID를, **키**를 선택하면 기본 키를 확인할 수 있습니다.  
 
-1.  OMS에서 “Automation Hybrid Worker”를 활성화합니다. 이렇게 하려면 다음 방법 중 하나를 사용합니다.
+1.  Azure에서 “Automation Hybrid Worker”를 사용하도록 설정합니다. 이렇게 하려면 다음 방법 중 하나를 사용합니다.
 
-   1. [OMS 포털](https://mms.microsoft.com)의 솔루션 갤러리에서 **Automation Hybrid Worker** 솔루션 활성화
+   1. [작업 영역에 Log Analytics 관리 솔루션 추가](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions)의 프로시저를 사용하여 구독에 **Automation Hybrid Worker** 솔루션을 추가합니다.
    2. 다음 cmdlet을 실행합니다.
 
         ```powershell
@@ -47,18 +45,18 @@ Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우
 
 2.  *-w*, *-k*, *-g*, 및 *-e* 매개 변수의 값을 변경하여 다음 명령을 실행합니다. *-g* 매개 변수의 경우 해당 값을 새 Linux Hybrid Runbook Worker가 가입해야 하는 Hybrid Runbook Worker 그룹의 이름으로 바꿉니다. 해당 이름이 Automation 계정에 아직 없으면 해당 이름의 Hybrid Runbook Worker 그룹이 새로 만들어집니다.
     
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    ```python
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. 명령이 완료되면 Azure Portal의 Hybrid Worker 그룹 블레이드에 새 그룹 및 멤버 수가 표시되고, 기존 그룹이 있으면 해당 멤버 수가 증가됩니다. **Hybrid Worker 그룹** 블레이드의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. **Hybrid Worker** 블레이드에서 나열된 그룹의 각 멤버를 확인합니다.  
 
 
 ## <a name="turning-off-signature-validation"></a>서명 유효성 검사 끄기 
-기본적으로 Linux Hybrid Runbook Worker는 서명 유효성 검사를 요구합니다. 작업자에 대해 서명되지 않은 Runbook을 실행하는 경우 "서명 유효성 검사에 실패"를 나타내는 오류가 표시됩니다. 서명 유효성 검사를 끄려면 두 번째 매개 변수를 OMS 작업 영역 ID로 바꾸어 다음 명령을 실행합니다.
+기본적으로 Linux Hybrid Runbook Worker는 서명 유효성 검사를 요구합니다. 작업자에 대해 서명되지 않은 Runbook을 실행하는 경우 "서명 유효성 검사에 실패"를 나타내는 오류가 표시됩니다. 서명 유효성 검사를 끄려면 두 번째 매개 변수를 Log Analytics 작업 영역 ID로 바꾸어 다음 명령을 실행합니다.
 
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
-    ```
+ ```python
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ ```
 
 ## <a name="supported-runbook-types"></a>지원되는 Runbook 유형
 

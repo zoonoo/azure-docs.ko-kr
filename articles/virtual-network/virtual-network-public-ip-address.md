@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: efb24f5e55d7ba0077797d3f7d0f2177020f92b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>공용 IP 주소 만들기, 변경 또는 삭제
 
@@ -51,14 +51,14 @@ ms.lasthandoff: 03/23/2018
     |IP 버전|예| IPv4 또는 IPv6을 선택합니다. 공용 IPv4 주소는 여러 Azure 리소스에 할당할 수 있는 반면 IPv6 공용 IP 주소는 인터넷 연결 부하 분산 장치에만 할당할 수 있습니다. 부하 분산 장치는 Azure 가상 머신으로 IPv6 트래픽을 부하 분산할 수 있습니다. 자세한 내용은 [가상 머신으로 IPv6 트래픽 부하 분산](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **표준 SKU**를 선택한 경우 *IPv6*를 선택할 수 있는 옵션이 없습니다. **표준 SKU**를 사용하는 경우 IPv4 주소만 만들 수 있습니다.|
     |IP 주소 할당|예|**동적:** 동적 주소는 공용 IP 주소가 가상 머신에 연결된 네트워크 인터페이스에 연결되고 가상 머신을 처음 시작한 후에만 할당됩니다. 네트워크 인터페이스가 연결된 가상 머신을 중지(할당 취소)하면 동적 주소가 변경될 수 있습니다. 가상 컴퓨터를 다시 부팅하거나 중지하는 경우(하지만 할당 취소하지 않은 경우) 주소가 동일하게 유지됩니다. **고정:** 고정 IP 주소를 만들면 고정 주소가 할당됩니다. 가상 머신이 중지(할당 취소)된 상태에 있더라도 고정 주소는 변경되지 않습니다. 이 주소는 네트워크 인터페이스를 삭제할 때만 해제됩니다. 네트워크 인터페이스를 만든 후에 할당 방법을 변경할 수 있습니다. **IP 버전**으로 *IPv6*를 선택하는 경우 할당 방법은 *동적*입니다. **SKU**로 *표준*을 선택하는 경우 할당 방법은 *정적*입니다.|
     |유휴 제한 시간(분)|아니오|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. **IP 버전**으로 IPv6을 선택하는 경우에는 이 값을 변경할 수 없습니다. |
-    |DNS 이름 레이블|아니요|이름을 만드는 Azure 위치 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 두 주소 버전을 모두 만드는 경우 IPv4 및 IPv6 주소 둘 다에 같은 DNS 이름이 할당됩니다. Azure의 기본 DNS는 IPv4 A 및 IPv6 AAAA 이름 레코드를 모두 포함하며, DNS 이름을 조회할 때 응답으로 두 레코드를 모두 전송합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다. 기본 접미사로 DNS 이름 레이블을 사용하는 것 대신 또는 그 외에 Azure DNS 서비스를 사용하여 공용 IP 주소로 확인하는 사용자 지정 접미사로 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure 공용 IP 주소로 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
+    |DNS 이름 레이블|아니오|이름을 만드는 Azure 위치 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 두 주소 버전을 모두 만드는 경우 IPv4 및 IPv6 주소 둘 다에 같은 DNS 이름이 할당됩니다. Azure의 기본 DNS는 IPv4 A 및 IPv6 AAAA 이름 레코드를 모두 포함하며, DNS 이름을 조회할 때 응답으로 두 레코드를 모두 전송합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다. 기본 접미사로 DNS 이름 레이블을 사용하는 것 대신 또는 그 외에 Azure DNS 서비스를 사용하여 공용 IP 주소로 확인하는 사용자 지정 접미사로 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure 공용 IP 주소로 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
     |IPv6 주소 만들기 또는 IPv4 주소 만들기|아니오| **IP 버전**으로 선택한 항목에 따라 IPv6 또는 IPv4가 표시됩니다. 예를 들어 **IP 버전**으로 **IPv4**를 선택하면 여기에 **IPv6**이 표시됩니다. **SKU**로 *표준*을 선택하는 경우 IPv6 주소를 만들 수 있는 옵션이 없습니다.
     |이름(**IPv6 주소 만들기 또는 IPv4 주소 만들기** 확인란을 선택한 경우에만 표시됨)|예 - **IPv6 주소 만들기** 또는 IPv4 주소 만들기 확인란을 선택하는 경우|이름은 이 목록의 첫 번째 **이름**으로 입력하는 이름과 달라야 합니다. IPv4 주소와 IPv6 주소를 모두 만들도록 선택하면 Portal에서는 각 IP 주소 버전이 할당된 개별 공용 IP 주소 리소스 두 개를 만듭니다.|
     |IP 주소 할당(**IPv6 주소 만들기 또는 IPv4 주소 만들기** 확인란을 선택한 경우에만 표시됨)|예 - **IPv6 주소 만들기** 또는 IPv4 주소 만들기 확인란을 선택하는 경우|**IPv4 주소 만들기** 확인란이 표시되는 경우 할당 방법을 선택할 수 있습니다. **IPv6 주소 만들기** 확인란이 표시되는 경우에는 **동적** 할당 방법만 사용해야 하므로 할당 방법을 선택할 수 없습니다.|
     |구독|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
     |리소스 그룹|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
     |위치|예|공용 IP 주소를 연결하려는 리소스와 동일한 [위치](https://azure.microsoft.com/regions)(하위 지역이라고도 함)에 있어야 합니다.|
-    |가용성 영역| 아니오 | 이 설정은 지원되는 위치를 선택하는 경우에만 나타납니다. 지원되는 위치 목록은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 가용성 영역은 현재 미리 보기 릴리스 상태입니다. 영역 또는 영역 중복 옵션을 선택하기 전에 먼저 [가용성 영역 미리 보기 등록](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview)의 단계를 완료해야 합니다. **기본** SKU를 선택한 경우 *없음*이 자동으로 선택됩니다. 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다. 두 선택 중 하나는 영역 중복이 아닙니다. **표준** SKU를 선택한 경우: 영역 중복이 자동으로 선택되며, 영역 오류 시 데이터 경로가 복원 가능합니다. 영역 오류 시 복원 불가능한 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다.
+    |가용성 영역| 아니오 | 이 설정은 지원되는 위치를 선택하는 경우에만 나타납니다. 지원되는 위치 목록은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. **기본** SKU를 선택한 경우 *없음*이 자동으로 선택됩니다. 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다. 두 선택 중 하나는 영역 중복이 아닙니다. **표준** SKU를 선택한 경우: 영역 중복이 자동으로 선택되며, 영역 오류 시 데이터 경로가 복원 가능합니다. 영역 오류 시 복원 불가능한 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다.
   
 
 **명령**

@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해 - 미리 보기
 
@@ -134,32 +134,21 @@ Edge 허브는 모듈 간 및 모듈과 IoT Hub 간에 메시지를 선언적으
 ### <a name="condition"></a>조건
 조건은 경로 선언의 선택 사항입니다. 싱크에서 원본으로 모든 메시지를 전달하려는 경우 전체 **WHERE** 절을 그대로 둡니다. 또는 [IoT Hub 쿼리 언어][lnk-iothub-query]를 사용하여 조건을 만족하는 특정 메시지 또는 메시지 유형에 대해 필터링할 수 있습니다.
 
-Azure IoT 메시지는 JSON으로 서식이 지정되고 항상 최소한 **본문** 매개 변수를 포함합니다. 예: 
+IoT Edge의 모듈 간에 전달되는 메시지는 장치와 Azure IoT Hub 간에 전달되는 메시지와 동일한 서식이 지정됩니다. 모든 메시지는 JSON으로 서식이 지정되고 **systemProperties**, **appProperties** 및 **body** 매개 변수를 포함합니다. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+다음 구문을 사용하여 세 가지 매개 변수에 쿼리를 빌드할 수 있습니다. 
+
+* 시스템 속성: `$<propertyName>` 또는 `{$<propertyName>}`
+* 응용 프로그램 속성: `<propertyName>`
+* 본문 속성: `$body.<propertyName>` 
+
+메시지 속성에 대한 쿼리를 만드는 방법에 대한 예제는 [장치-클라우드 메시지 경로에 대한 쿼리 식](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions)을 참조하세요.
+
+IoT Edge에 특정되는 예제는 리프 장치에서 게이트웨이 장치에 도착하는 메시지를 필터링하려는 경우입니다. 모듈에서 발생한 메시지에는 **connectionModuleId**라는 시스템 속성이 포함되어 있습니다. 따라서 리프 장치에서 IoT Hub로 직접 메시지를 라우팅하려는 경우 다음 경로를 사용하여 모듈 메시지를 제외합니다.
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-이 샘플 메시지에 따라 다음과 같이 정의될 수 있는 여러 조건이 있습니다.
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-메시지 유형을 정렬하는 데도 조건을 사용할 수 있습니다(예: 리프 장치에서 제공되는 메시지를 라우팅하려는 게이트웨이에서). 모듈에서 발생하는 메시지에는 **connectionModuleId**라는 특정 속성이 포함되어 있습니다. 따라서 리프 장치에서 IoT Hub로 직접 메시지를 라우팅하려는 경우 다음 경로를 사용하여 모듈 메시지를 제외합니다.
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>sink
 싱크는 메시지를 보낼 위치를 정의합니다. 다음 값 중 하나일 수 있습니다.

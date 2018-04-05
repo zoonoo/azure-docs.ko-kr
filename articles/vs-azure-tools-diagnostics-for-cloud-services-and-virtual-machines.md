@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services 및 가상 컴퓨터에 대한 진단 설정 | Microsoft Docs"
-description: "Visual Studio에서 Azure 클라우드 서비스 및 VM(가상 컴퓨터) 디버깅을 위해 진단을 설정하는 방법을 설명합니다."
+title: Azure Cloud Services 및 가상 머신에 대한 진단 설정 | Microsoft Docs
+description: Visual Studio에서 Azure 클라우드 서비스 및 VM(가상 머신) 디버깅을 위해 진단을 설정하는 방법을 설명합니다.
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure Cloud Services 및 가상 컴퓨터에 대한 진단 설정
-Azure 클라우드 서비스 또는 가상 컴퓨터 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 설정할 수 있습니다. 진단은 클라우드 서비스를 실행하는 가상 컴퓨터 및 가상 컴퓨터 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처합니다. 진단 데이터는 사용자가 선택한 저장소 계정으로 전송됩니다. Azure의 진단 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대해 진단 로깅 사용](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
+# <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure Cloud Services 및 가상 머신에 대한 진단 설정
+Azure 클라우드 서비스 또는 가상 머신 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 설정할 수 있습니다. 진단은 클라우드 서비스를 실행하는 가상 머신 및 가상 머신 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처합니다. 진단 데이터는 사용자가 선택한 저장소 계정으로 전송됩니다. Azure의 진단 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대해 진단 로깅 사용](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
 
 이 문서에서는 Visual Studio를 사용하여 배포 전후에 Azure 진단을 켜고 설정하는 방법을 보여 줍니다. Azure Virtual Machines에서 진단을 설정하는 방법, 수집할 진단 정보 유형을 선택하는 방법 및 수집한 후에 정보를 확인하는 방법을 알아봅니다.
 
 Azure 진단을 설정하려면 다음 옵션 중 하나를 사용할 수 있습니다.
 
 * Visual Studio의 **진단 구성** 대화 상자에서 진단 설정을 변경합니다. 설정은 diagnostics.wadcfgx(Azure SDK 2.4 이하에서는 diagnostics.wadcfg)라는 파일에 저장됩니다. 구성 파일을 직접 수정할 수도 있습니다. 파일을 수동으로 업데이트하는 경우 다음에 클라우드 서비스를 Azure에 배포하거나 에뮬레이터에서 서비스를 실행할 때 변경 사항이 적용됩니다.
-* Visual Studio에서 클라우드 탐색기 또는 서버 탐색기를 사용하여 실행 중인 클라우드 서비스 또는 가상 컴퓨터에 대한 진단 설정을 변경합니다.
+* Visual Studio에서 클라우드 탐색기 또는 서버 탐색기를 사용하여 실행 중인 클라우드 서비스 또는 가상 머신에 대한 진단 설정을 변경합니다.
 
 ## <a name="azure-sdk-26-diagnostics-changes"></a>Azure SDK 2.6 진단 변경
 다음 변경 내용은 Visual Studio의 Azure SDK 2.6 이상 프로젝트에 적용됩니다.
@@ -100,16 +100,16 @@ Visual Studio에서 Azure Virtual Machines에 대한 진단 데이터를 수집�
 ### <a name="to-turn-on-diagnostics-on-azure-virtual-machines"></a>Azure Virtual Machines에서 진단을 켜려면
 
 1. 서버 탐색기에서 Azure 노드를 선택하고 아직 연결되어 있지 않은 경우 Azure 구독에 연결합니다.
-2. **Virtual Machines** 노드를 확장합니다. 새 가상 컴퓨터를 만들거나 기존 노드를 선택할 수 있습니다.
-3. 원하는 가상 컴퓨터에 대한 바로 가기 메뉴에서 **구성**을 선택합니다. 가상 컴퓨터 구성 대화 상자가 나타납니다.
+2. **Virtual Machines** 노드를 확장합니다. 새 가상 머신을 만들거나 기존 노드를 선택할 수 있습니다.
+3. 원하는 가상 컴퓨터에 대한 바로 가기 메뉴에서 **구성**을 선택합니다. 가상 머신 구성 대화 상자가 나타납니다.
    
     ![Azure Virtual Machine 구성](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796663.png)
 4. 아직 설치되어 있지 않은 경우 Microsoft Monitoring Agent 진단 확장을 추가 합니다. 이 확장을 통해 Azure Virtual Machine에 대한 진단 데이터를 수집할 수 있습니다. **설치된 확장**의 **사용 가능한 확장 선택** 드롭다운 목록 상자에서 **Microsoft Monitoring Agent 진단**을 선택합니다.
    
-    ![Azure Virtual Machine 확장 설치](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
+    ![Azure 가상 머신 확장 설치](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
    
     > [!NOTE]
-   > 다른 진단 확장은 가상 컴퓨터에 대해 사용할 수 있습니다. 자세한 내용은 [Windows용 가상 컴퓨터 확장 및 기능](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)을 참조하세요.
+   > 다른 진단 확장은 가상 머신에 대해 사용할 수 있습니다. 자세한 내용은 [Windows용 가상 머신 확장 및 기능](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)을 참조하세요.
    > 
    > 
 5. 확장을 추가하고 해당 **진단 구성** 대화 상자를 표시하려면 **추가**를 선택합니다.
@@ -128,7 +128,7 @@ Visual Studio에서 Azure Virtual Machines에 대한 진단 데이터를 수집�
 10. 원하는 모든 진단 데이터의 컬렉션을 사용하도록 설정한 후에는 **확인**을 선택합니다.
 11. 업데이트된 프로젝트를 저장합니다.
     
-    **Microsoft Azure 활동 로그** 창에 가상 컴퓨터가 업데이트되었다는 메시지가 표시됩니다.
+    **Microsoft Azure 활동 로그** 창에 가상 머신이 업데이트되었다는 메시지가 표시됩니다.
 
 ## <a name="set-up-diagnostics-data-sources"></a>진단 데이터 원본 설정
 진단 데이터 컬렉션을 사용하도록 설정했으면 수집할 데이터 원본과 수집되는 정보를 정확하게 선택할 수 있습니다. 다음 섹션에서는 **진단 구성** 대화 상자에 있는 탭 목록과 각 구성 옵션의 의미를 설명합니다.
@@ -160,7 +160,7 @@ Azure SDK 2.5를 사용 중이고 사용자 지정 데이터 원본을 지정하
 
 ![성능 카운터](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
-나열되지 않은 성능 카운터를 추적하려면 제안된 구문을 사용하여 성능 카운터를 입력합니다. 그런 후 **추가**를 선택합니다. 가상 컴퓨터의 운영 체제에 따라 추적할 수 있는 성능 카운터 수가 결정됩니다. 구문에 대한 자세한 내용은 [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx)을 참조하세요.
+나열되지 않은 성능 카운터를 추적하려면 제안된 구문을 사용하여 성능 카운터를 입력합니다. 그런 후 **추가**를 선택합니다. 가상 머신의 운영 체제에 따라 추적할 수 있는 성능 카운터 수가 결정됩니다. 구문에 대한 자세한 내용은 [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx)을 참조하세요.
 
 ### <a name="infrastructure-logs"></a>인프라 로그
 인프라 로그는 Azure 진단 인프라, RemoteAccess 모듈 및 RemoteForwarder 모듈에 대한 정보를 포함합니다. 인프라 로그에 대한 정보를 수집하려면 **인프라 로그 전송 사용** 확인란을 선택합니다. 저장소 계정으로의 인프라 로그 전송 간격을 늘리거나 줄이려면 변경 된 **전송 기간(분)** 값을 변경합니다.
@@ -197,7 +197,7 @@ ETW 프레임워크는 [System.Diagnostics.aspx](https://msdn.microsoft.com/libr
 자세한 내용은 [Microsoft Azure에서 로깅 및 추적 관리](https://msdn.microsoft.com/magazine/ff714589.aspx) 및 [Microsoft Azure 진단 4부: 사용자 지정 로깅 구성 요소 및 Azure 진단 1.3 변경 내용](http://justazure.com/microsoft-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/)을 참조하세요.
 
 ## <a name="view-the-diagnostics-data"></a>진단 데이터 보기
-클라우드 서비스 또는 가상 컴퓨터에 대한 진단 데이터를 수집한 후에 이를 볼 수 있습니다.
+클라우드 서비스 또는 가상 머신에 대한 진단 데이터를 수집한 후에 이를 볼 수 있습니다.
 
 ### <a name="to-view-cloud-service-diagnostics-data"></a>클라우드 서비스 진단 데이터를 보려면
 1. 일반적인 방법으로 클라우드 서비스를 배포하고 실행합니다.
@@ -214,13 +214,13 @@ ETW 프레임워크는 [System.Diagnostics.aspx](https://msdn.microsoft.com/libr
     데이터를 즉시 업데이트하려면 **새로 고침** 링크를 선택합니다. 데이터를 자동으로 업데이트하려면 **자동 새로 고침** 드롭다운 목록 상자에서 간격을 선택합니다. 오류 데이터를 내보내려면 **CSV로 내보내기** 단추를 선택하여 Excel 워크시트에서 열 수 있는 쉼표로 구분된 값 파일을 만듭니다.
    
     클라우드 탐색기 또는 서버 탐색기에서 배포와 관련된 저장소 계정을 엽니다.
-3. 테이블 뷰어에서 진단 테이블을 열고 수집한 데이터 검토 합니다. IIS 로그 및 사용자 지정 로그인 경우 BLOB 컨테이너를 열 수 있습니다. 다음 표에는 다른 로그 파일에 대한 데이터를 포함하는 테이블 또는 Blob 컨테이너가 나와 있습니다. 해당 로그 파일에 대한 데이터 외에도 테이블 항목에는 **EventTickCount**, **DeploymentId**, **Role** 및 **RoleInstance**가 포함되어 데이터가 생성된 가상 컴퓨터 및 역할과 데이터가 생성된 시기를 파악할 수 있습니다. 
+3. 테이블 뷰어에서 진단 테이블을 열고 수집한 데이터 검토 합니다. IIS 로그 및 사용자 지정 로그인 경우 BLOB 컨테이너를 열 수 있습니다. 다음 표에는 다른 로그 파일에 대한 데이터를 포함하는 테이블 또는 Blob 컨테이너가 나와 있습니다. 해당 로그 파일에 대한 데이터 외에도 테이블 항목에는 **EventTickCount**, **DeploymentId**, **Role** 및 **RoleInstance**가 포함되어 데이터가 생성된 가상 머신 및 역할과 데이터가 생성된 시기를 파악할 수 있습니다. 
    
    | 진단 데이터 | 설명 | 위치 |
    | --- | --- | --- |
    | 응용 프로그램 로그 |코드에서 **System.Diagnostics.Trace** 클래스의 메서드를 호출하여 생성하는 로그입니다. |WADLogsTable |
-   | 이벤트 로그 |가상 컴퓨터에서 Windows 이벤트 로그에서 가져온 데이터입니다. Windows에서는 이러한 로그에 정보를 저장하지만 응용 프로그램 및 서비스에서는 로그를 사용하여 오류 또는 로그 정보를 보고합니다. |WADWindowsEventLogsTable |
-   | 성능 카운터 |가상 컴퓨터에서 사용할 수 있는 성능 카운터에서 데이터를 수집할 수 있습니다. 운영 체제에서 메모리 사용량 및 프로세서 시간 등의 다양한 통계를 포함하는 성능 카운터를 제공합니다. |WADPerformanceCountersTable |
+   | 이벤트 로그 |가상 머신에서 Windows 이벤트 로그에서 가져온 데이터입니다. Windows에서는 이러한 로그에 정보를 저장하지만 응용 프로그램 및 서비스에서는 로그를 사용하여 오류 또는 로그 정보를 보고합니다. |WADWindowsEventLogsTable |
+   | 성능 카운터 |가상 머신에서 사용할 수 있는 성능 카운터에서 데이터를 수집할 수 있습니다. 운영 체제에서 메모리 사용량 및 프로세서 시간 등의 다양한 통계를 포함하는 성능 카운터를 제공합니다. |WADPerformanceCountersTable |
    | 인프라 로그 |진단 인프라 자체에서 생성되는 로그입니다. |WADDiagnosticInfrastructureLogsTable |
    | IIS 로그 |웹 요청을 기록하는 로그입니다. 클라우드 서비스에 상당한 양의 트래픽이 들어오는 경우 이러한 로그 시간이 오래 걸릴 수 있습니다. 데이터를 필요할 때만 수집하고 저장하는 것이 좋습니다. |배포, 역할 및 인스턴스에 대한 경로의 wad-iis-failedreqlogs 아래에 있는 BLOB 컨테이너에서 실패한 요청 로그를 찾을 수 있습니다. 전체 로그는 wad-iis-logfiles 아래에서 찾을 수 있습니다. 각 파일에 대한 항목은 WADDirectories 테이블에서 생성됩니다. |
    | 크래시 덤프 |클라우드 서비스 프로세스의 이진 이미지를 제공합니다(일반적으로 작업자 역할). |wad-crush-dumps BLOB 컨테이너 |
@@ -229,14 +229,14 @@ ETW 프레임워크는 [System.Diagnostics.aspx](https://msdn.microsoft.com/libr
 5. (선택 사항) 저장소 계정에서 데이터를 삭제하여 전체 저장소 비용을 절감하는 경우도 있습니다.
 6. 전체 배포를 수행하면 Azure에서 diagnostics.cscfg 파일(Azure SDK 2.5의 경우 wadcfgx)이 업데이트되고 클라우드 서비스가 진단 구성에 대한 변경 내용을 선택합니다. 대신, 기존 배포를 업데이트하는 경우 Azure에서 .cscfg 파일은 업데이트되지 않습니다. 다음 섹션의 단계에 따라 계속해서 진단 설정을 변경할 수 있습니다. 전체 배포 및 기존 배포 업데이트에 대한 자세한 내용은 [Azure 응용 프로그램 게시 마법사](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
 
-### <a name="to-view-virtual-machine-diagnostics-data"></a>가상 컴퓨터 진단 데이터를 보려면
-1. 가상 컴퓨터에 대한 바로 가기 메뉴에서 **진단 데이터 보기**를 선택합니다.
+### <a name="to-view-virtual-machine-diagnostics-data"></a>가상 머신 진단 데이터를 보려면
+1. 가상 머신에 대한 바로 가기 메뉴에서 **진단 데이터 보기**를 선택합니다.
    
     ![Azure Virtual Machine에서 진단 데이터 보기](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766027.png)
    
     **진단 요약** 대화 상자가 나타납니다.
    
-    ![Azure 가상 컴퓨터 진단 요약](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796667.png)  
+    ![Azure 가상 머신 진단 요약](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796667.png)  
    
     가장 최근 데이터가 나타나지 않는 경우 전송 기간이 경과할 때까지 기다려야 할 수 있습니다.
    
@@ -261,11 +261,11 @@ ETW 프레임워크는 [System.Diagnostics.aspx](https://msdn.microsoft.com/libr
 ## <a name="q--a"></a>질문과 대답
 **버퍼 크기란 무엇이고 얼마나 클 수 있습니까?**
 
-각 가상 컴퓨터 인스턴스에서 로컬 파일 시스템에 저장할 수 있는 진단 데이터의 양에 대한 할당량 제한입니다. 또한 사용할 수 있는 진단 데이터의 각 형식에 대해 버퍼 크기를 지정합니다. 이 버퍼 크기는 해당 형식의 데이터에 대해 개별 할당량과 같은 역할을 합니다. 전체 할당량과 남은 메모리의 양을 확인하려면 진단 데이터 형식에 대한 대화 상자의 아래쪽을 확인하세요. 버퍼 크기를 크게 지정하거나 더 많은 데이터 형식을 지정할 경우 전체 할당량에 근접하게 됩니다. diagnostics.wadcfg 또는 .wadcfgx 구성 파일을 수정하여 전체 할당량을 변경할 수 있습니다. 진단 데이터는 응용 프로그램 데이터와 같은 파일 시스템에 저장됩니다. 응용 프로그램이 많은 양의 디스크 공간을 사용하는 경우 전체 진단 할당량을 늘리지 말아야 합니다.
+각 가상 머신 인스턴스에서 로컬 파일 시스템에 저장할 수 있는 진단 데이터의 양에 대한 할당량 제한입니다. 또한 사용할 수 있는 진단 데이터의 각 형식에 대해 버퍼 크기를 지정합니다. 이 버퍼 크기는 해당 형식의 데이터에 대해 개별 할당량과 같은 역할을 합니다. 전체 할당량과 남은 메모리의 양을 확인하려면 진단 데이터 형식에 대한 대화 상자의 아래쪽을 확인하세요. 버퍼 크기를 크게 지정하거나 더 많은 데이터 형식을 지정할 경우 전체 할당량에 근접하게 됩니다. diagnostics.wadcfg 또는 .wadcfgx 구성 파일을 수정하여 전체 할당량을 변경할 수 있습니다. 진단 데이터는 응용 프로그램 데이터와 같은 파일 시스템에 저장됩니다. 응용 프로그램이 많은 양의 디스크 공간을 사용하는 경우 전체 진단 할당량을 늘리지 말아야 합니다.
 
 **전송 기간이란 무엇이고 얼마나 기간이 깁니까?**
 
-전송 기간은 데이터 캡처 간에 경과되는 시간의 양입니다. 각 전송 기간 후 데이터는 가상 컴퓨터의 로컬 파일 시스템에서 저장소 계정의 테이블로 이동합니다. 전송 기간이 끝나기 전에 수집되는 데이터 양이 할당량을 초과하는 경우 오래된 데이터가 삭제됩니다. 데이터가 버퍼 크기 또는 전체 할당량을 초과하기 때문에 데이터가 손실되는 경우 전송 기간을 줄일 수 있습니다.
+전송 기간은 데이터 캡처 간에 경과되는 시간의 양입니다. 각 전송 기간 후 데이터는 가상 머신의 로컬 파일 시스템에서 저장소 계정의 테이블로 이동합니다. 전송 기간이 끝나기 전에 수집되는 데이터 양이 할당량을 초과하는 경우 오래된 데이터가 삭제됩니다. 데이터가 버퍼 크기 또는 전체 할당량을 초과하기 때문에 데이터가 손실되는 경우 전송 기간을 줄일 수 있습니다.
 
 **타임 스탬프는 어떤 표준 시간대를 기준으로 합니까?**
 
