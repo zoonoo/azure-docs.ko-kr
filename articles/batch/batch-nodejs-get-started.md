@@ -1,21 +1,21 @@
 ---
-title: "자습서 - Node.js용 Azure Batch 클라이언트 라이브러리 사용 | Microsoft Docs"
-description: "Azure Batch의 기본 개념을 알아보고 Node.js를 사용하여 간단한 솔루션을 빌드합니다."
+title: 자습서 - Node.js용 Azure Batch 클라이언트 라이브러리 사용 | Microsoft Docs
+description: Azure Batch의 기본 개념을 알아보고 Node.js를 사용하여 간단한 솔루션을 빌드합니다.
 services: batch
 author: shwetams
-manager: timlt
-ms.assetid: 
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 96a4203c11cc20e01eb164dfdd9178988074ff48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: bef298ea8e5710b386822f071d0644c9ddad04a2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 

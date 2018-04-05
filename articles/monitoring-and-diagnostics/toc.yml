@@ -31,7 +31,7 @@
       href: monitoring-overview-of-diagnostic-logs.md
     - name: 활동 로그
       href: monitoring-overview-activity-logs.md
-    - name: Alerts
+    - name: 경고
       href: monitoring-overview-unified-alerts.md
     - name: 경고(클래식)
       href: monitoring-overview-alerts.md
@@ -187,3 +187,5 @@
       href: 'https://stackoverflow.com/search?q=monitoring'
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=monitor'
+    - name: 사용량 및 예상 비용
+      href: monitoring-usage-and-estimated-costs.md

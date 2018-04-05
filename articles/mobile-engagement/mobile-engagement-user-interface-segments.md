@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 세그먼트"
-description: "Azure Mobile Engagement를 사용하여 사용자의 세그먼트를 만들고 관리하여 사용 패턴을 식별하는 방법 알아보기"
+title: Azure Mobile Engagement 사용자 인터페이스 - 세그먼트
+description: Azure Mobile Engagement를 사용하여 사용자의 세그먼트를 만들고 관리하여 사용 패턴을 식별하는 방법 알아보기
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>사용자의 세그먼트를 만들고 관리하여 사용 패턴을 식별하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서에서는 **Mobile Engagement** 포털의 **세그먼트** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다.
 
 UI의 세그먼트 섹션에서는 응용 프로그램에서 확인할 수 있으며 세그먼트 API를 통해서도 액세스할 수 있는 다양한 동작 및 분석 정보에 따라 사용자 구분 작업을 수행할 수 있습니다. 세그먼트는 작성된 지 24시간 후에 먼저 계산된 다음 최신 분석 정보를 기준으로 24시간마다 다시 계산됩니다. 계산된 세그먼트는 매일 "일 단위 기록" 차트에 표시됩니다.

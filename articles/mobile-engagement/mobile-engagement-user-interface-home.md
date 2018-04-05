@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 홈"
-description: "Azure Mobile Engagement를 사용하여 기존 응용 프로그램과 프로젝트를 관리하는 방법을 알아봅니다."
+title: Azure Mobile Engagement 사용자 인터페이스 - 홈
+description: Azure Mobile Engagement를 사용하여 기존 응용 프로그램과 프로젝트를 관리하는 방법을 알아봅니다.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0379e51a30927af88367fc687d8f8ce66eb827f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>기존 응용 프로그램 및 프로젝트를 관리하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서에서는 **Mobile Engagement** 포털의 **홈** 페이지를 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 
 
 홈페이지로 이동하려면 페이지의 왼쪽 위에서 **홈** 을 클릭합니다. 선택한 컬렉션에 속하는 모든 응용 프로그램 목록이 있습니다. 이 페이지에서는 응용 프로그램의 빠른 개요만 참조합니다.
@@ -42,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 * **세션**: 세션은 사용자가 응용 프로그램 사용을 시작한 시간부터 중지할 때까지 한 번 사용하는 것
 * **세션 추세**: 지난 2주 동안의 세션 증가 수
 
-응용 프로그램을 클릭하면 UI를 통해 앱 모니터링 및 관리를 시작할 수 있습니다. 예:    
+응용 프로그램을 클릭하면 UI를 통해 앱 모니터링 및 관리를 시작할 수 있습니다. 예:     
 
 * [응용 프로그램에 대한 실시간 데이터 모니터링](mobile-engagement-user-interface-monitor.md)
 * [응용 프로그램에 대한 기록 데이터 분석](mobile-engagement-user-interface-analytics.md)

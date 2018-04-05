@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK 업그레이드 절차 | Microsoft Docs"
-description: "Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
+title: Azure Mobile Engagement iOS SDK 업그레이드 절차 | Microsoft Docs
+description: Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac03593cf0c983297e583985a3e68ea6c17e39de
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>업그레이드 절차
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
 SDK의 각 새 버전에 대해 먼저 EngagementSDK 및 EngagementReach 폴더를 대체해야 합니다. 즉, xcode에서 이 폴더를 제거한 후에 다시 가져와야 합니다.
@@ -202,7 +206,7 @@ SmartAd 추적이 SDK에서 제거되었으므로 `AETrackModule` 클래스의 �
 
 "CP" 접두사가 붙은 모든 클래스의 이름이 "AE"로 바뀌었습니다.
 
-예제:
+예:
 
 * `CPModule.h`의 이름이 `AEModule.h`(으)로 바뀌었습니다.
 

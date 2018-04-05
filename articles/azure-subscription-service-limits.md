@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 3218778640acc5d08cef94849e25323650c42c6c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -71,7 +71,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [IoT 허브](#iot-hub-limits)
 * [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Log Analytics/Operational Insights](#log-analytics-limits)
+* [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [모바일 고객 관리](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)

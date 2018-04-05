@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 대시보드"
-description: "Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법 알아보기"
+title: Azure Mobile Engagement 사용자 인터페이스 - 대시보드
+description: Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법 알아보기
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 분석 섹션에서 정보를 검색하는 대신 원하는 정확한 정보를 제공하는 방식으로 고객은 UI의 대시보드 섹션을 통해 사용자 지정된 차트를 만들어 작업 시간을 최대한 활용할 수 있습니다. 대시보드에는 지정된 시간(시간/일/주/월/사용자 지정) 동안의 각 응용 프로그램 버전별 활성 사용자 수와 응용 프로그램의 추세가 표시됩니다. 지난 7일 동안의 추세가 표시됩니다.
 
 ### <a name="see-also"></a>참고 항목

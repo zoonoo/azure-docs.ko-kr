@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 문제 해결 가이드 - 분석"
-description: "Azure Mobile Engagement에서 분석, 모니터링, 구분 및 대시보드 문제 해결"
+title: Azure Mobile Engagement 문제 해결 가이드 - 분석
+description: Azure Mobile Engagement에서 분석, 모니터링, 구분 및 대시보드 문제 해결
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19d018b83ee8b3d5848d29afff190d3dcaf3fde
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>분석, 모니터링, 구분 및 대시보드 문제에 대한 문제 해결 가이드
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 다음은 Azure Mobile Engagement에서 응용 프로그램, 장치 및 사용자에 대한 정보를 수집하는 방법과 관련해서 발생할 수 있는 문제입니다.
 
 ## <a name="missingdelayed-information"></a>정보 누락/지연

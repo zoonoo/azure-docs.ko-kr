@@ -1,23 +1,23 @@
 ---
-title: "Azure Files에 대한 질문과 대답 | Microsoft Docs"
-description: "Azure Files에 대한 질문과 대답을 확인합니다."
+title: Azure Files에 대한 질문과 대답 | Microsoft Docs
+description: Azure Files에 대한 질문과 대답을 확인합니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure Files에 대한 질문과 대답
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(일반 인터넷 파일 시스템 또는 CIFS라고도 함)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync(미리 보기)를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/01/2018
 이 문서는 Azure Files와 Azure File Sync 사용을 비롯하여 Azure Files 기능에 대한 일반적인 질문에 대답합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
 
 1. 이 문서의 의견 섹션입니다.
-2. [Microsoft Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+2. [Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택합니다.
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/01/2018
 
 * <a id="file-access-options"></a>
 **Azure Files에서 파일에 액세스하는 다른 방법은 무엇인가요?**  
-    SMB 3.0 프로토콜을 사용하여 로컬 컴퓨터에 파일 공유를 탑재하거나 [Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. 응용 프로그램에서 저장소 클라이언트 라이브러리, REST API, Powershell 또는 Azure 명령줄 인터페이스를 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
+    SMB 3.0 프로토콜을 사용하여 로컬 컴퓨터에 파일 공유를 탑재하거나 [Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. 응용 프로그램에서 저장소 클라이언트 라이브러리, REST API, Powershell 또는 Azure CLI를 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
 
 * <a id="what-is-afs"></a>
 **Azure File Sync란?**  
@@ -202,7 +202,7 @@ ms.lasthandoff: 02/01/2018
 
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
-    Microsoft Azure Storage 서비스는 암호화는 모든 지역에서 기본적으로 활성화되도록 처리되고 있습니다. 이런 지역에서는 암호화를 사용하기 위해 아무런 작업도 수행할 필요가 없습니다. 다른 지역의 경우 [서버 쪽 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
+    Azure Storage 서비스는 암호화는 모든 지역에서 기본적으로 활성화되도록 처리되고 있습니다. 이런 지역에서는 암호화를 사용하기 위해 아무런 작업도 수행할 필요가 없습니다. 다른 지역의 경우 [서버 쪽 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
 * <a id="access-via-browser"></a>
 **웹 브라우저를 사용하여 특정 파일에 대한 액세스를 제공하려면 어떻게 해야 하나요?**  
@@ -214,11 +214,11 @@ ms.lasthandoff: 02/01/2018
 
 * <a id="ip-restrictions"></a>
 **Azure 파일 공유에 대한 IP 제한을 구현할 수 있나요?**  
-    예. Azure 파일 공유에 대한 액세스는 저장소 계정 수준에서 제한할 수 있습니다. 자세한 내용은 [Microsoft Azure Storage 방화벽 및 Virtual Networks 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+    예. Azure 파일 공유에 대한 액세스는 저장소 계정 수준에서 제한할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
-   Azure Files는 Microsoft Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Microsoft Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Microsoft Azure Data Protection 문서](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)를 다운로드하여 참조하고, [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx)로 이동할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Microsoft Azure Data Protection 문서](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)를 다운로드하여 참조하고, [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx)로 이동할 수 있습니다.
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 * <a id="expressroute-not-required"></a>
@@ -229,10 +229,10 @@ ms.lasthandoff: 02/01/2018
 **내 로컬 컴퓨터에서 Azure 파일 공유를 탑재하려면 어떻게 해야 하나요?**  
     445 포트(TCP 아웃바운드)가 열려 있고 클라이언트(예: Windows 10 또는 Windows Server 2016을 사용하는 경우)에서 SMB 3.0 프로토콜을 지원하는 경우 SMB 프로토콜을 사용하여 파일 공유를 탑재할 수 있습니다. 포트 445가 조직의 정책이나 ISP에 의해 차단되어 있으면 Azure File Sync를 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
 
-## <a name="backup"></a>백업
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **내 Azure 파일 공유를 백업하려면 어떻게 하나요?**  
-    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅숏(미리 보기)](storage-how-to-use-files-snapshots.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. 
+    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅숏](storage-how-to-use-files-snapshots.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. 
 
 ## <a name="share-snapshots"></a>공유 스냅숏
 ### <a name="share-snapshots-general"></a>공유 스냅숏: 일반
@@ -255,6 +255,10 @@ ms.lasthandoff: 02/01/2018
 * <a id="snapshot-limits"></a>
 **사용할 수 있는 공유 스냅숏 수에 제한이 있나요?**  
     예. Azure Files는 최대 200개의 공유 스냅숏을 유지할 수 있습니다. 공유 스냅숏은 공유 할당량에 포함되지 않으므로 모든 공유 스냅숏에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 저장소 계정 제한은 여전히 적용됩니다. 공유 스냅숏이 200개를 넘는 경우 새 공유 스냅숏을 생성하려면 이전 스냅숏을 삭제해야 합니다.
+* <a id="snapshot-cost"></a>
+**스냅숏 공유 비용은 얼마나 되나요?**  
+    표준 트랜잭션 및 표준 저장소 비용이 스냅숏에 적용됩니다. 스냅숏은 기본적으로 증분식입니다. 기본 스냅숏은 공유 자체입니다. 모든 후속 스냅숏은 증분이며, 이전 스냅숏과의 차이만 저장합니다. 즉, 청구서에 표시되는 델타 변경 내용은 워크로드 변동이 적은 경우 최소화됩니다. 표준 Azure 파일 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/storage/files/)를 참조하세요. 현재 공유 스냅숏으로 소비되는 크기를 보는 방법은 청구된 용량과 사용된 용량을 비교하는 것입니다. 보고를 개선하기 위한 도구를 개발 중입니다.
+
 
 ### <a name="create-share-snapshots"></a>공유 스냅숏 만들기
 * <a id="file-snaphsots"></a>
@@ -274,7 +278,7 @@ ms.lasthandoff: 02/01/2018
 ### <a name="manage-share-snapshots"></a>공유 스냅숏 관리
 * <a id="browse-snapshots-linux"></a>
 **Linux에서 내 공유 스냅숏을 찾아볼 수 있나요?**  
-    Azure 명령줄 인터페이스 2.0을 사용하여 Linux에서 공유 스냅숏을 생성, 나열, 검색 및 복원할 수 있습니다.
+    Azure CLI 2.0을 사용하여 Linux에서 공유 스냅숏을 생성, 나열, 검색 및 복원할 수 있습니다.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
 **다른 저장소 계정으로 공유 스냅숏을 복사할 수 있나요?**  
@@ -341,7 +345,7 @@ ms.lasthandoff: 02/01/2018
 
 * <a id="rest-rename"></a>
 **REST API에 이름 바꾸기 작업이 있나요?**  
-    현재로서는 공유하지 않습니다.
+    지금은 없습니다.
 
 * <a id="nested-shares"></a>
 **중첩된 공유를 설정할 수 있나요? 즉, 공유 아래에 공유를 설정할 수 있나요?**  

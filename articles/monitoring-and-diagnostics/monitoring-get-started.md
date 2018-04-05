@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor 시작 | Microsoft Docs"
-description: "Azure Monitor로 리소스 작업에 대한 정보를 확보하고 데이터 기반 조치를 취합니다."
+title: Azure Monitor 시작 | Microsoft Docs
+description: Azure Monitor로 리소스 작업에 대한 정보를 확보하고 데이터 기반 조치를 취합니다.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Azure Monitor 시작
 Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 플랫폼 서비스입니다. Azure에서 Azure Monitor를 통해 리소스의 메트릭과 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다. Azure Portal, [Monitor PowerShell Cmdlet](insights-powershell-samples.md), [플랫폼 간 CLI](insights-cli-samples.md) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx)를 사용하여 데이터 작업을 수행할 수 있습니다. 이 문서에서는 데모용 포털을 사용하여 Azure Monitor의 몇 가지 주요 구성 요소에 대해 살펴봅니다.
@@ -39,7 +39,7 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
     [**활동 로그**](monitoring-overview-activity-logs.md)는 구독에서 리소스에 대해 수행한 모든 작업을 설명합니다. 구독에서 활동 로그를 통해 리소스에 수행된 만들기, 업데이트 또는 삭제 작업에 대해 ‘누가, 무엇을, 언제’를 판단할 수 있습니다. 예를 들어 활동 로그를 통해 웹앱이 중지된 시기와 웹앱을 중지한 사람을 알 수 있습니다. 활동 로그 이벤트는 90일 동안 플랫폼에 저장되어 쿼리에서 사용할 수 있습니다.
 
     공통 필터에 대한 쿼리를 만들어 저장한 다음 가장 중요한 쿼리를 포털 대시보드에 고정하면 기준에 부합하는 이벤트가 발생할 경우 항상 알 수 있습니다.
-4. 지난 주의 특정 리소스 그룹에 대해 보기를 필터링한 다음 **저장** 단추를 클릭합니다.
+4. 지난 주의 특정 리소스 그룹에 대해 보기를 필터링한 다음 **저장** 단추를 클릭합니다. 쿼리에 이름을 지정합니다. 
 
     ![활동 로그 쿼리 저장](./media/monitoring-get-started/monitor-act-log-save.png)
 5. 이제 **고정** 단추를 클릭합니다.

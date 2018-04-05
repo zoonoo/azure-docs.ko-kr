@@ -1,11 +1,11 @@
 ---
-title: "Cloud Cruiser 및 Microsoft Azure 청구 API 통합 | Microsoft Docs"
-description: "경험으로 해당 제품에 Azure 청구 API를 통합하여 Microsoft Azure 청구 파트너 Cloud Cruiser에서 고유한 관점을 제공합니다.  Microsoft Azure 팩용 Cloud Cruiser를 사용/시도하는 데 관심을 두는 Azure 및 Cloud Cruiser 고객에게 특히 유용합니다."
-services: 
-documentationcenter: 
-author: BryanLa
+title: Cloud Cruiser 및 Microsoft Azure 청구 API 통합 | Microsoft Docs
+description: 경험으로 해당 제품에 Azure 청구 API를 통합하여 Microsoft Azure 청구 파트너 Cloud Cruiser에서 고유한 관점을 제공합니다.  Microsoft Azure 팩용 Cloud Cruiser를 사용/시도하는 데 관심을 두는 Azure 및 Cloud Cruiser 고객에게 특히 유용합니다.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>클라우드 크루저 및 Microsoft Azure 청구 API 통합
 이 문서는 새로운 Microsoft Azure 청구 API로부터 수집한 정보를 Cloud Cruiser에서 워크플로 비용 시뮬레이션 및 분석에 사용할 수 있는 방법을 설명합니다.

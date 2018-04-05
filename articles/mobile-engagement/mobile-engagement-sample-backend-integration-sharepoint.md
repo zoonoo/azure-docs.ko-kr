@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - 백 엔드 통합"
-description: "Azure Mobile Engagement를 SharePoint 백 엔드와 연결하여 SharePoint에서 캠페인 만들기"
+title: Azure Mobile Engagement - 백 엔드 통합
+description: Azure Mobile Engagement를 SharePoint 백 엔드와 연결하여 SharePoint에서 캠페인 만들기
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - API 통합
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 자동화된 마케팅 시스템에서는 마케팅 캠페인을 만들고 활성화하는 작업도 자동으로 수행됩니다. 이를 위해 Azure Mobile Engagement에서는 API를 사용하여 이런 자동화된 마케팅 캠페인을 만들 수 있습니다. 
 
 일반적으로 고객은 Mobile Engagement 프런트 엔드 인터페이스를 사용하여 공지/설문 조사 등을 마케팅 캠페인 부분으로 만듭니다. 그러나 마케팅 캠페인이 성숙하면서 백 엔드 시스템으로 흘러 들어가거나 나오는 데이터에 따라 동적으로 Mobile Engagement에서 캠페인을 만드는 완전 자동화된 파이프라인을 만들 수 있도록 백 엔드 시스템(예: 모든 CRM 시스템 또는 SharePoint 같은 CMS 시스템)에 잠겨 있는 데이터를 활용해야 할 필요가 있습니다. 

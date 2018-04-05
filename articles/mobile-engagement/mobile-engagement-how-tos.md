@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 도달률 방법"
-description: "Azure Mobile Engagement의 사용자 인터페이스 개요"
+title: Azure Mobile Engagement 사용자 인터페이스 - 도달률 방법
+description: Azure Mobile Engagement의 사용자 인터페이스 개요
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c536d378023ee4a9675bb2d67262fb485c8052b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>사용 시작 및 최종 사용자에게 도달하는 푸시 관리 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 사용하기 시작하여 응용 프로그램의 사용자에게 푸시 알림을 할 수 있습니다.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>첫 번째 푸시 알림 캠페인 수행

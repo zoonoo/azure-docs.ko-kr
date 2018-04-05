@@ -1,11 +1,11 @@
 ---
-title: "Windows 유니버설 앱 Azure Mobile Engagement 시작"
-description: "Windows 유니버설 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
+title: Windows 유니버설 앱 Azure Mobile Engagement 시작
+description: Windows 유니버설 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다.
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48103867-7f64-4646-b019-42bd797d38e2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f1de1092458bfc12236802d829a2043dcc74540
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Windows 유니버설 앱용 Azure Mobile Engagement 시작
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다.
@@ -73,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
             using Microsoft.Azure.Engagement;
 
-    b. Engagement를 초기화하는 메서드 추가:
+    나. Engagement를 초기화하는 메서드 추가:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -82,7 +86,7 @@ ms.lasthandoff: 10/11/2017
              //... rest of the code
            }
 
-    c. **OnLaunched** 메서드에서 SDK 초기화:
+    다. **OnLaunched** 메서드에서 SDK 초기화:
 
             protected override void OnLaunched(LaunchActivatedEventArgs e)
             {
@@ -91,7 +95,7 @@ ms.lasthandoff: 10/11/2017
               //... rest of the code
             }
 
-    c. **OnActivated** 메서드에 다음을 삽입하고 아직 없는 경우 해당 메서드 추가:
+    다. **OnActivated** 메서드에 다음을 삽입하고 아직 없는 경우 해당 메서드 추가:
 
             protected override void OnActivated(IActivatedEventArgs e)
             {
@@ -115,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-    b. XML 태그 이름의 **Page**를 **engagement:EngagementPageOverlay**로 바꿉니다.
+    나. XML 태그 이름의 **Page**를 **engagement:EngagementPageOverlay**로 바꿉니다.
 
 > [!IMPORTANT]
 > 페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다. 이 작업은 기본 템플릿에 `OnNavigatedTo` 메서드가 있는 Windows Phone 프로젝트에서 특히 중요합니다.

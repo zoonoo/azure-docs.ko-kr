@@ -9,15 +9,14 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="back-up-azure-file-shares-preview"></a>Azure 파일 공유 백업(미리 보기)
-
-이 문서에서는 Azure Portal을 사용하여 Azure에서 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
+# <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
+이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
 
 이 가이드에서는 다음 작업 방법을 배웁니다.
 > [!div class="checklist"]
@@ -32,17 +31,16 @@ ms.lasthandoff: 03/28/2018
 Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 저장소 계정 유형](troubleshoot-azure-files.md#preview-boundaries) 중 하나에 있는지 확인합니다. 이를 확인한 후에는 파일 공유를 보호할 수 있습니다.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
-Azure Files 백업은 미리 보기입니다. 미리 보기인 동안에는 다음과 같은 제한이 있습니다.
-- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 복제를 사용하여 파일 공유를 보호할 수 없습니다.
-- Virtual Networks를 사용하도록 설정된 저장소 계정에서 파일 공유를 보호할 수 없습니다.
+Azure 파일 공유를 위한 백업은 미리 보기에 있습니다. 미리 보기인 동안에는 다음과 같은 제한이 있습니다.
+- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 복제를 사용하여 Azure 파일 공유를 보호할 수 없습니다.
+- Virtual Networks를 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
 - Azure Files 보호에 PowerShell 또는 CLI를 사용할 수 없습니다.
 - 일별 최대 예약 백업의 수는 1개입니다.
 - 일별 최대 주문형 백업의 수는 4개입니다.
 - 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
 - Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다. 
 
-## <a name="configuring-azure-file-shares-backup"></a>Azure 파일 공유 백업 구성
-
+## <a name="configuring-backup-for-an-azure-file-share"></a>Azure 파일 공유를 위한 백업 구성
 모든 백업 데이터는 Recovery Services 자격 증명 모음에 저장됩니다. 이 자습서에서는 이미 Azure 파일 공유를 설정한 것으로 가정합니다. Azure 파일 공유를 백업하려면:
 
 1. 파일 공유와 동일한 지역에 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음이 이미 있는 경우 자격 증명 모음의 개요 페이지를 열고 **Backup**을 클릭합니다.
@@ -55,21 +53,21 @@ Azure Files 백업은 미리 보기입니다. 미리 보기인 동안에는 다�
 
 3. **Backup**을 클릭하여 Recovery Services 자격 증명 모음에 대한 Azure 파일 공유를 구성합니다. 
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/set-backup-goal.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/set-backup-goal.png)
 
     자격 증명 모음이 Azure 파일 공유와 연결되면 Backup 메뉴가 열리고 저장소 계정을 선택하라는 메시지가 표시됩니다. 메뉴에는 개발자의 자격 증명 모음이 있는 지역에서 아직 Recovery Services 자격 증명 모음과 연결되지 않은 모든 지원되는 저장소 계정이 표시됩니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-storage-accounts.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-storage-accounts.png)
 
 4. 저장소 계정 목록에서 계정을 선택하고 **확인**을 클릭합니다. Azure는 저장소 계정에서 백업 가능한 파일 공유를 검색합니다. 최근에 파일 공유를 추가했는데 목록에 보이지 않으면 파일 공유가 표시될 때까지 잠시 기다립니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/discover-file-shares.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/discover-file-shares.png)
 
 5. **파일 공유** 목록에서 백업하려는 파일 공유를 하나 이상 선택하고 **확인**을 클릭합니다.
 
 6. 파일 공유를 선택하면 Backup 메뉴가 **Backup 정책**으로 전환됩니다. 이 메뉴에서 기존 백업 정책을 선택하거나 새 백업 정책을 만든 후 **Backup 사용**을 클릭합니다. 
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/apply-backup-policy.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/apply-backup-policy.png)
 
     백업 정책을 설정한 후에는 예정된 시간에 파일 공유의 스냅숏이 생성되고, 선택한 기간 동안 복구 지점이 유지됩니다.
 
@@ -80,29 +78,29 @@ Azure Files 백업은 미리 보기입니다. 미리 보기인 동안에는 다�
 
 1. 파일 공유 복구 지점이 포함된 Recovery Services 자격 증명 모음을 열고 **Backup 항목**을 클릭합니다. Backup 항목 형식 목록이 표시됩니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png)
 
 2. 목록에서 **Azure Storage(Azure Files)**를 선택합니다. Azure 파일 공유 목록이 나타납니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
 3. Azure 파일 공유 목록에서 원하는 파일 공유를 선택합니다. 선택한 파일 공유에 대한 Backup 항목 메뉴가 열립니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/backup-item-menu.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/backup-item-menu.png)
 
 4. Backup 항목 메뉴에서 **지금 백업**을 클릭합니다. 이것은 주문형 백업 작업이기 때문에 복구 지점과 연결된 보존 정책이 없습니다. **지금 백업** 대화 상자가 열립니다. 복구 지점을 보존할 마지막 날을 지정합니다. 
   
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/backup-now-menu.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/backup-now-menu.png)
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Azure 파일 공유의 백업에서 복원
 복원 지점에서 전체 파일 공유나 개별 파일 또는 폴더를 복원해야 하는 경우 이전 섹션에서 자세히 설명한 것처럼 Backup 항목으로 이동합니다. **공유 복원**을 선택하여 원하는 지점에서 전체 파일 공유를 복원합니다. 표시되는 복원 지점 목록에서, 현재 파일 공유를 덮어쓸 수 있거나 동일한 지역에 있는 대체 파일 공유로 복원할 수 있는 복원 지점을 선택합니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/select-restore-location.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Azure 파일 공유의 백업에서 개별 파일 또는 폴더 복원
 Azure Backup은 Azure Portal 내에서 복원 지점을 찾아보는 기능을 제공합니다. 원하는 파일 또는 폴더를 복원하려면 [Backup 항목] 페이지에서 [파일 복구]를 클릭하고 복원 지점 목록에서 선택합니다. [복구 대상]을 선택한 다음, **파일 선택**을 클릭하여 복원 지점을 찾아봅니다. 원하는 파일 또는 폴더를 선택하고 **복원**을 선택합니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/restore-individual-files-folders.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/restore-individual-files-folders.png)
 
 ## <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리
 
@@ -159,7 +157,7 @@ Azure 파일 공유 보호를 중지하려면:
 
 1. 파일 공유 복구 지점이 포함된 Recovery Services 자격 증명 모음을 열고 **Backup 항목**을 클릭합니다. Backup 항목 형식 목록이 표시됩니다.
 
-   ![[Backup]을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png) 
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png) 
 
 2. **Backup 관리 유형** 목록에서 **Azure Storage(Azure 파일)**를 선택합니다. (Azure Storage(Azure Files))에 대한 Backup 항목 목록이 표시됩니다.
 

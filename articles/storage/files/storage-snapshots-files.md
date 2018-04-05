@@ -1,6 +1,6 @@
 ---
-title: "Azure 파일의 공유 스냅숏 개요(미리 보기) | Microsoft Docs"
-description: "공유 스냅숏은 공유를 백업하는 방법으로 특정 시점에 생성된 Azure 파일 공유의 읽기 전용 버전입니다."
+title: Azure 파일의 공유 스냅숏 개요(미리 보기) | Microsoft Docs
+description: 공유 스냅숏은 공유를 백업하는 방법으로 특정 시점에 생성된 Azure 파일 공유의 읽기 전용 버전입니다.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Azure 파일의 공유 스냅숏 개요(미리 보기)
-Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제공합니다. 공유 스냅숏(미리 보기)은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅숏이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 파일의 공유 스냅숏 개요 
+Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제공합니다. 공유 스냅숏은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅숏이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
 
 
 ## <a name="when-to-use-share-snapshots"></a>공유 스냅숏을 사용하는 경우
@@ -48,7 +48,7 @@ REST API 및 SMB 둘 다를 사용하여 공유의 스냅숏을 볼 수 있습�
 
 공유 스냅숏 기능은 파일 공유 수준에서 제공됩니다. 검색은 개별 파일을 복원할 수 있도록 개별 파일 수준에서 제공됩니다. SMB, REST API, 포털, 클라이언트 라이브러리 또는 PowerShell/CLI 툴링을 사용하여 전체 파일 공유를 복원할 수 있습니다.
 
-파일 공유의 공유 스냅숏은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅숏을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http://storagesample.core.file.windows.net/myshare인 경우 공유 스냅숏 URI는 다음과 유사합니다.
+파일 공유의 공유 스냅숏은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅숏을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http://storagesample.core.file.windows.net/myshare이면 공유 스냅숏 URI는 다음과 유사합니다.
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 �
 
 ## <a name="next-steps"></a>다음 단계
 * [공유 스냅숏 작업](storage-how-to-use-files-snapshots.md)
-* [공유 스냅숏 FAQ](storage-files-faq.md)
+* [공유 스냅숏 FAQ](storage-files-faq.md#share-snapshots)
 

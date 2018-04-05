@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Health 개요 | Microsoft Docs"
-description: "Azure Resource Health 개요"
+title: Azure Resource Health 개요 | Microsoft Docs
+description: Azure Resource Health 개요
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 661faf8560295dd037364f9509d21719362ae727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-overview"></a>Azure Resource Health 개요
  
@@ -77,7 +77,7 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 ![잘못된 상태에 대한 정보를 제출하는 상자](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>기록 정보
-Resource Health에서 **기록 보기**를 선택하면 최대 14일 동안의 상태 기록에 액세스할 수 있습니다. 
+Resource Health의 **상태 기록** 섹션에서 최대 14일 동안의 상태 기록에 액세스할 수 있습니다. 
 
 ![지난 2주 동안의 Resource Health 이벤트 목록](./media/resource-health-overview/history-blade.png)
 

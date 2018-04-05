@@ -317,10 +317,6 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: 컨테이너 서비스 빌드
           items:
-            - name: 컨테이너에서 인증서 사용
-              href: service-fabric-securing-containers.md
-            - name: Windows 컨테이너용 gMSA 설정
-              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose(미리 보기)
               href: service-fabric-docker-compose.md
             - name: 컨테이너 및 서비스에 대한 리소스 관리
@@ -383,22 +379,30 @@
               href: service-fabric-reliable-actors-fabrictransportsettings.md
             - name: ReliableDictionaryActorStateProvider 구성
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
-        - name: 이전 Java 응용 프로그램을 마이그레이션하여 Maven 지원
-          href: service-fabric-migrate-old-javaapp-to-use-maven.md
-        - name: 보안 통신에 대한 역방향 프록시 구성
-          href: service-fabric-reverseproxy-configure-secure-communication.md
         - name: ASP.NET Core 서비스 빌드
           href: service-fabric-add-a-web-frontend.md
         - name: 보안 구성
           items:
             - name: 응용 프로그램 비밀 관리
               href: service-fabric-application-secret-management.md
+            - name: 보안 통신에 대한 역방향 프록시 구성
+              href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: 로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
               href: service-fabric-run-script-at-service-startup.md
             - name: 로컬 사용자 또는 시스템 계정으로 서비스 실행
               href: service-fabric-application-runas-security.md
             - name: 끝점에 보안 액세스 정책 할당
               href: service-fabric-assign-policy-to-endpoint.md
+            - name: AD 사용자 또는 그룹으로 서비스 실행
+              href: service-fabric-run-service-as-ad-user-or-group.md
+            - name: 그룹 관리 서비스 계정으로 서비스 실행
+              href: service-fabric-run-service-as-gmsa.md
+            - name: 컨테이너에서 인증서 사용
+              href: service-fabric-securing-containers.md
+            - name: Windows 컨테이너용 gMSA 설정
+              href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: 이전 Java 응용 프로그램을 마이그레이션하여 Maven 지원
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Windows/VS 개발 환경에서 작업
       items:
         - name: Visual Studio에서 응용 프로그램 관리
@@ -501,8 +505,6 @@
               href: service-fabric-cluster-upgrade.md
             - name: 액세스 제어 설정
               href: service-fabric-cluster-security-roles.md
-            - name: 구성
-              href: service-fabric-cluster-fabric-settings.md
             - name: Load Balancer에서 포트 열기
               href: create-load-balancer-rule.md
             - name: 클러스터 인증서 관리
@@ -525,14 +527,8 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: 확장
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: 보안 구성
-              items:
-                - name: 액세스 제어 설정
-                  href: service-fabric-cluster-security-roles.md
-                - name: AD 사용자 또는 그룹으로 서비스 실행
-                  href: service-fabric-run-service-as-ad-user-or-group.md
-                - name: 그룹 관리 서비스 계정으로 서비스 실행
-                  href: service-fabric-run-service-as-gmsa.md
+            - name: 액세스 제어 설정
+              href: service-fabric-cluster-security-roles.md
             - name: 구성
               href: service-fabric-cluster-manifest.md
             - name: 업그레이드
@@ -614,6 +610,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST (영문)
       href: /rest/api/servicefabric
+    - name: 클러스터 설정 및 패브릭 업그레이드 정책 구성
+      href: service-fabric-cluster-fabric-settings.md
     - name: 서비스 모델 XML 스키마
       href: service-fabric-service-model-schema.md
     - name: 환경 변수

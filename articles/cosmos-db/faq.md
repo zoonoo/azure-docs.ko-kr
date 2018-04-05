@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7039b87c80aecb837059d80087c97e8691da2988
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -76,7 +76,7 @@ Azure를 처음 사용하는 경우 [Azure 평가판 계정](https://azure.micro
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Azure Cosmos DB 추가 도움말은 어떻게 구할 수 있나요?
 
 기술 관련 질문을 하려면 다음 두 가지의 질문 및 답변 포럼 중 하나에 게시합니다.
-* [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow는 프로그래밍 질문에 가장 적합합니다. 질문이 [주제와 관련된](https://stackoverflow.com/help/on-topic) 것인지 확인하고 [질문에 대해 분명하고 답변할 수 있도록 가능한 한 자세하게 제공하세요](https://stackoverflow.com/help/how-to-ask). 
 
 새로운 기능을 요청하려면 [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)에 새 요청을 만듭니다.
@@ -122,7 +122,7 @@ Azure Cosmos DB는 [Azure 지역](https://azure.microsoft.com/regions/) 페이�
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API에 대해 어떻게 개발을 시작하나요?
 먼저 Azure 구독에 등록해야 합니다. Azure 구독에 등록하면 사용자의 Azure 구독에 SQL API 컨테이너를 추가할 수 있습니다. Azure Cosmos DB 계정 추가에 대한 지침은 [Azure Cosmos DB 데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-account)를 참조하세요. 
 
-[SDK](sql-api-sdk-dotnet.md) 는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](/rest/api/documentdb/)를 사용하여 다양한 플랫폼 및 언어의 Azure Cosmos DB 리소스를 조작할 수 있습니다.
+[SDK](sql-api-sdk-dotnet.md) 는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](/rest/api/cosmos-db/)를 사용하여 다양한 플랫폼 및 언어의 Azure Cosmos DB 리소스를 조작할 수 있습니다.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>유리한 출발을 위해 사전에 준비된 몇 가지 샘플에 액세스할 수 있나요?
 GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md)및 [Python](sql-api-python-samples.md) SDK의 샘플을 사용할 수 있습니다.
@@ -140,10 +140,10 @@ GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.co
 컬렉션은 Azure Cosmos DB의 청구 엔터티이기도 합니다. 각 컬렉션은 프로비전된 처리량 및 사용된 저장소 공간에 따라 시간 단위로 요금이 청구됩니다. 자세한 내용은 [Azure Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/)을 참조하세요. 
 
 ### <a name="how-do-i-create-a-database"></a>데이터베이스를 어떻게 만드나요?
-[컬렉션 추가](create-sql-api-dotnet.md#create-collection)의 설명대로 [Azure Portal](https://portal.azure.com)을 사용하거나 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](/rest/api/documentdb/)를 사용하여 데이터베이스를 만들 수 있습니다. 
+[컬렉션 추가](create-sql-api-dotnet.md#create-collection)의 설명대로 [Azure Portal](https://portal.azure.com)을 사용하거나 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](/rest/api/cosmos-db/)를 사용하여 데이터베이스를 만들 수 있습니다. 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>사용자 및 사용 권한을 어떻게 설정하나요?
-[Cosmos DB API SDK](sql-api-sdk-dotnet.md) 또는 [REST API](/rest/api/documentdb/) 중 하나를 사용하여 사용자 및 사용 권한을 만들 수 있습니다.  
+[Cosmos DB API SDK](sql-api-sdk-dotnet.md) 또는 [REST API](/rest/api/cosmos-db/) 중 하나를 사용하여 사용자 및 사용 권한을 만들 수 있습니다.  
 
 ### <a name="does-the-sql-api-support-sql"></a>SQL API는 SQL을 지원하나요?
 SQL API 계정에서 지원하는 SQL 쿼리 언어는 SQL Server에서 지원되는 쿼리 기능의 향상된 하위 집합입니다. Azure Cosmos DB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 레이블이 지정된 노드가 있는 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 Azure Cosmos DB 자동 인덱싱 기술 및 Azure Cosmos DB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용하는 방법에 대한 자세한 내용은 [SQL 쿼리][query] 문서를 참조하세요.
@@ -244,7 +244,7 @@ Azure Cosmos DB가 SAS(공유 액세스 서명)을 지원하지만 새 테이블
 다음 방법 중 하나로 사용자 의견을 공유할 수 있습니다.
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow는 프로그래밍 질문에 가장 적합합니다. 질문이 [주제와 관련된](https://stackoverflow.com/help/on-topic) 것인지 확인하고 [질문에 대해 분명하고 답변할 수 있도록 가능한 한 자세하게 제공하세요](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Table API에 연결하는 데 사용해야 하는 연결 문자열은 무엇인가요?

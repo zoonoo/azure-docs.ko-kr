@@ -1,6 +1,6 @@
 ---
-title: Azure Load Balancer 표준 개요 | Microsoft Docs
-description: Azure Load Balancer 표준 기능 개요
+title: Azure 표준 Load Balancer 개요 | Microsoft Docs
+description: Azure 표준 Load Balancer 기능 개요
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,61 +12,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer 표준 개요(미리 보기)
+# <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
-Azure Load Balancer 표준 SKU 및 공용 IP 표준 SKU를 함께 사용하여 확장성이 매우 크고 신뢰할 수 있는 아키텍처를 만들 수 있습니다. Load Balancer 표준을 사용하는 응용 프로그램은 새로운 기능을 활용할 수 있습니다. 모든 TCP 및 UDP 응용 프로그램의 수백만 흐름에 대해 짧은 대기 시간, 높은 처리량 및 규모가 제공됩니다.
+Azure Load Balancer를 사용하여 응용 프로그램 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오에 사용할 수 있으며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 응용 프로그램에 대해 수백만 개의 흐름으로 확장됩니다. 
+
+이 문서에서는 표준 Load Balancer에 대해 설명합니다.  Azure Load Balancer에 대한 보다 일반적인 개요를 보려면 [Load Balancer 개요](load-balancer-overview.md)도 검토하세요.
+
+## <a name="what-is-standard-load-balancer"></a>표준 Load Balancer란?
+
+표준 Load Balancer는 기본 Load Balancer보다 확장되고 좀 더 세분화된 기능 집합을 포함하는 모든 TCP 및 UDP 응용 프로그램을 위한 새로운 Load Balancer 제품입니다.  유사성이 많지만 이 문서에 설명된 차이점을 이해하는 것이 중요합니다.
+
+표준 Load Balancer는 공용 또는 내부 Load Balancer로 사용할 수 있습니다. 또한 가상 머신을 하나의 공용 Load Balancer 및 하나의 내부 Load Balancer 리소스에 연결할 수 있습니다.
+
+Load Balancer 리소스의 기능은 항상 프런트 엔드, 규칙, 상태 프로브 및 백 엔드 풀 정의로 표현됩니다.  하나의 리소스가 여러 규칙을 포함할 수 있습니다. 가상 머신의 NIC 리소스에 있는 백 엔드 풀을 지정하여 가상 머신을 백 엔드 풀에 배치할 수 있습니다.  가상 머신 확장 집합의 경우 이 매개 변수가 네트워크 프로필을 통해 전달되고 확장됩니다.
+
+한 가지 중요한 측면은 리소스에 대한 가상 네트워크 범위입니다.  기본 Load Balancer는 가용성 집합 범위 내에 존재하지만, 표준 Load Balancer는 가상 네트워크의 범위에 완전히 통합되며, 모든 가상 네트워크 개념이 적용됩니다.
+
+Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다.  Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. 따라서 Load Balancer를 만들어도 인스턴스가 만들어지지 않으며 용량은 항상 사용 가능하고, 고려해야 할 시작 또는 확장 지연도 없습니다. 
 
 >[!NOTE]
-> Load Balancer 표준 SKU는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다. 이 미리 보기와 함께 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 사용하려면 Load Balancer [표준 미리 보기](#preview-sign-up) 등록뿐 아니라 [별도의 등록](https://aka.ms/availabilityzones)이 필요합니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다.  TLS 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요.  전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요.  필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
-## <a name="why-use-load-balancer-standard"></a>Load Balancer 표준을 사용하는 이유
+## <a name="why-use-standard-load-balancer"></a>표준 Load Balancer를 사용해야 하는 이유
 
-Load Balancer 표준은 다양한 가상 데이터 센터에 사용할 수 있습니다. 소규모 배포에서부터 크고 복잡한 다중 영역 아키텍처까지 Load Balancer 표준을 사용하여 다음 기능을 활용합니다.
+소규모 배포에서부터 크고 복잡한 다중 영역 아키텍처까지 전체 가상 데이터 센터 범위에 표준 Load Balancer를 사용할 수 있습니다.
 
-- Load Balancer 표준을 통해 [엔터프라이즈급](#enterprisescale)을 구현할 수 있습니다. 이 기능은 가상 네트워크 내에서 최대 1000개의 VM 인스턴스로 모든 가상 머신 인스턴스에 사용할 수 있습니다.
+표준 Load Balancer 및 기본 Load Balancer 간의 차이점에 대한 개요는 아래 표를 검토하세요.
 
-- [새로운 진단 정보](#diagnosticinsights)를 사용하여 가상 데이터 센터의 이 중요한 구성 요소를 이해하고 관리하고 문제를 해결할 수 있습니다. Azure Monitor(미리 보기)를 사용하여 연속 데이터 경로 상태 측정을 위한 새로운 다차원 메트릭을 표시하고 필터링하고 그룹화할 수 있습니다. 프런트 엔드, VM, 끝점 상태 프로브, TCP 연결 시도, 아웃바운드 연결 등에 대한 데이터를 모니터링할 수 있습니다.
+>[!NOTE]
+> 새 디자인에서는 표준 Load Balancer 사용을 고려해야 합니다. 
 
-- 이제 Load Balancer 표준 SKU 또는 공용 IP 표준 SKU와 연결된 모든 VM 인스턴스에 대해 [네트워크 보안 그룹](#nsg)이 필요합니다. NSG(네트워크 보안 그룹)는 시나리오에 따라 향상된 보안을 제공합니다.
+| | 표준 SKU | 기본 SKU |
+| --- | --- | --- |
+| 백 엔드 풀 크기 | 최대 1,000개 인스턴스 | 최대 100개 인스턴스 |
+| 백 엔드 풀 끝점 | 단일 가상 네트워크의 가상 머신(가상 머신, 가용성 집합, 가상 머신 확장 집합 혼합 포함) | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신 |
+| 가용성 영역 | 인바운드 및 아웃바운드, 아웃바운드 흐름 매핑 생존 영역 장애, 영역 간 부하 분산을 위한 영역 중복 및 영역 프런트 엔드 | / |
+| 진단 | Azure Monitor, 바이트 및 패킷 카운터, 상태 프로브 상태, 연결 시도(TCP SYN), 아웃바운드 연결 상태(SNAT 성공 및 실패 흐름), 활성 데이터 평면 측정을 포함하는 다차원 메트릭 | 공용 Load Balancer 전용, SNAT 소모 경고, 백 엔드 풀 상태 수에 대한 Azure Log Analytics |
+| HA 포트 | 내부 Load Balancer | / |
+| 기본적으로 보안 적용 | 공용 IP 및 Load Balancer 끝점에 대해 기본적으로 닫혀 있으며, 네트워크 보안 그룹을 사용하여 트래픽이 흐르도록 명시적으로 허용해야 합니다. | 기본적으로 열려 있는 선택적 네트워크 보안 그룹 |
+| 아웃바운드 연결 | 규칙별 옵트아웃이 적용되는 여러 프런트 엔드. 가상 머신이 아웃바운드 연결을 사용할 수 있도록 하려면 _반드시_ 아웃바운드 시나리오를 만들어야 합니다.  [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)에 아웃바운드 연결 없이 연결할 수 있으며,처리된 데이터 수는 고려되지 않습니다.  VNet 서비스 끝점으로 사용할 수 없는 Azure PaaS 서비스를 포함하는 모든 공용 IP 주소는 아웃바운드 연결을 통해 연결해야 하며, 처리된 데이터 수도 고려되어야 합니다. 내부 Load Balancer만 가상 머신에 작동할 경우 기본 SNAT를 통한 아웃바운드 연결은 사용할 수 없습니다. 아웃바운드 SNAT 프로그래밍은 인바운드 부하 분산 규칙의 프로토콜을 기준으로 하는 전송 프로토콜 기준 방식입니다. | 여러 프런트 엔드가 있을 때 임의로 선택되는 단일 프런트 엔드입니다.  내부 Load Balancer만 가상 머신에 작동할 경우 기본 SNAT가 사용됩니다. |
+| 여러 프런트 엔드 | 인바운드 및 아웃바운드 | 인바운드 전용 |
+| 관리 작업 | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초 |
+| SLA | 2개의 정상 가상 머신이 있는 데이터 경로에 대해 99.99% | VM SLA에서 암시적 | 
+| 가격 | 규칙의 수, 리소스와 연결해서 인바운드 또는 아웃바운드로 처리된 데이터에 따라 요금이 부과됩니다.  | 무료 |
 
-- NVA(네트워크 가상 어플라이언스) 및 기타 응용 프로그램 시나리오에 대해 [HA(고가용성) 포트는 높은 신뢰성](#highreliability) 및 규모를 제공합니다. HA 포트는 VM 인스턴스의 풀에 Azure ILB(Internal Load Balancer) 프런트 엔드의 모든 포트에 대한 부하를 분산합니다.
-
-- [아웃바운드 연결](#outboundconnections)은 이제 큰 복원력 및 규모를 제공하는 새로운 SNAT(Source Network Address Translation) 포트 할당 모델을 사용합니다.
-
-- [가용성 영역이 있는 Load Balancer 표준](#availabilityzones)은 영역 중복 및 영역 아키텍처를 만드는 데 사용할 수 있습니다. 이러한 아키텍처는 모두 영역 간 부하 분산을 포함할 수 있습니다. DNS 레코드에 대한 종속성 없이도 영역 중복을 얻을 수 있습니다. 단일 IP 주소는 기본적으로 영역 중복입니다.  단일 IP 주소는 모든 가용성 영역을 포함하는 지역 내에서 가상 네트워크의 모든 VM에 연결할 수 있습니다.
+[Load Balancer의 서비스 제한](https://aka.ms/lblimits)과 [가격 책정](https://aka.ms/lbpricing) 및 [SLA](https://aka.ms/lbsla)를 검토하세요.
 
 
-Load Balancer 표준을 공용 또는 내부 구성에서 사용하여 다음과 같은 기본 시나리오를 지원할 수 있습니다.
+### <a name="backend"></a>백 엔드 풀
 
-- 정상 백 엔드 인스턴스에 인바운드 트래픽을 부하 분산합니다.
-- 단일 백 엔드 인스턴스에 인바운드 트래픽을 포트 전달합니다.
-- 가상 네트워크 내의 개인 IP 주소의 아웃바운드 트래픽을 공용 IP 주소로 변환합니다.
+표준 Load Balancer 백 엔드 풀은 가상 네트워크의 가상 머신 리소스로 확장됩니다.  최대 1,000개의 백 엔드 인스턴스를 포함할 수 있습니다.  백 엔드 인스턴스는 NIC 리소스의 속성인 IP 구성입니다.
 
-### <a name = "enterprisescale"></a>엔터프라이즈급 규모
+백 엔드 풀은 독립 실행형 가상 머신, 가용성 집합 또는 가상 머신 확장 집합을 포함할 수 있습니다.  백 엔드 풀에는 다양한 리소스가 혼합될 수 있으며, 이러한 리소스 조합을 총 150개까지 포함할 수 있습니다.
 
- Load Balancer 표준을 사용하여 고성능 가상 데이터 센터를 설계하고 모든 TCP 또는 UDP 응용 프로그램을 지원할 수 있습니다. 독립 실행형 VM 인스턴스를 사용하거나 백 엔드 풀에서 최대 1,000개의 가상 머신 확장 집합 인스턴스를 사용할 수 있습니다. 완전히 관리되는 Azure 서비스에서 낮은 전달 대기 시간, 높은 처리량 성능 및 수백만의 흐름에 대한 규모를 계속 사용할 수 있습니다.
- 
-Load Balancer 표준은 지역의 가상 네트워크에서 모든 VM 인스턴스에 트래픽을 전달할 수 있습니다. 백 엔드 풀 크기는 다음 VM 시나리오 조합으로 최대 1,000개의 인스턴스가 될 수 있습니다.
+백 엔드 풀을 디자인하는 방법을 고려할 때는 가장 적은 수의 개별 백 엔드 풀 리소스에 맞게 디자인하고, 관리 작업 기간을 추가로 최적화할 수 있습니다.  데이터 평면 성능 또는 크기 조정에는 차이가 없습니다.
 
-- 가용성 집합이 없는 독립 실행형 VM
-- 가용성 집합이 있는 독립 실행형 VM
-- 가상 머신 크기 확장 집합, 최대 1,000개 인스턴스
-- 여러 가상 머신 확장 집합
-- VM 및 가상 머신 확장 집합의 혼합
+## <a name="az"></a> 가용성 영역
 
-가용성 집합에 대한 요구 사항은 더 이상 없습니다. 가용성 집합을 사용하면 다른 이점도 얻을 수 있습니다.
+>[!NOTE]
+> 표준 Load Balancer에서 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 사용하려면 [가용성 영역에 등록](https://aka.ms/availabilityzones)해야 합니다.
 
-### <a name = "diagnosticinsights"></a>진단 정보
+표준 Load Balancer는 가용성 영역을 사용할 수 있는 지역에서 추가 기능을 지원합니다.  이러한 기능은 모든 표준 Load Balancer 제공 기능에 추가됩니다.  가용성 영역 구성은 공용 및 내부 표준 Load Balancer에 사용할 수 있습니다.
 
-Load Balancer 표준은 공용 및 내부 Load Balancer 구성에 대해 새로운 다차원 진단 기능을 제공합니다. 이러한 새 메트릭은 Azure Monitor(미리 보기)를 통해 제공되며 다운스트림 소비자와 통합할 수 있는 기능을 포함하여 관련된 모든 기능을 활용합니다.
+비영역 프런트 엔드는 가용성 영역이 구성된 지역에 배포될 경우 기본적으로 영역 중복 상태가 됩니다.   영역 중복 프런트 엔드는 영역 실패 후에도 유지되며, 모든 영역의 전용 인프라를 통해 제공됩니다. 
+
+또한 특정 영역에 대한 프런트 엔드도 보장할 수 있습니다. 영역 프론트 엔드는 해당 영역과 결과를 공유하며, 단일 영역의 전용 인프라를 통해서만 제공됩니다.
+
+영역 간 부하 분산은 백 엔드 풀에 사용될 수 있으며, vnet의 모든 가상 머신은 백 엔드 풀의 일부가 될 수 있습니다.
+
+[가용성 영역 관련 기능에 대한 자세한 논의](load-balancer-standard-availability-zones.md)를 검토하세요.
+
+### <a name="diagnostics"></a> 진단
+
+표준 Load Balancer는 Azure Monitor를 통해 다차원 메트릭을 제공합니다.  이러한 메트릭은 필터링, 그룹화될 수 있고, 서비스의 성능과 상태에 대한 현재 및 이전 정보를 제공할 수 있습니다.  리소스 상태도 지원됩니다.  다음은 지원되는 진단에 대한 간략한 개요입니다.
 
 | 메트릭 | 설명 |
 | --- | --- |
@@ -77,222 +103,74 @@ Load Balancer 표준은 공용 및 내부 Load Balancer 구성에 대해 새로�
 | 바이트 카운터 | Load Balancer 표준은 프런트 엔드당 처리된 데이터를 보고합니다.|
 | 패킷 카운터 | Load Balancer 표준은 프런트 엔드당 처리된 패킷을 보고합니다.|
 
-### <a name = "highreliability"></a>높은 안정성
+[표준 Load Balancer 진단에 대한 자세한 논의](load-balancer-standard-diagnostics.md)를 검토하세요.
 
-부하 분산 규칙을 구성하여 응용 프로그램 규모를 매우 안정적으로 만듭니다. 개별 포트에 대한 규칙을 구성하거나 HA 포트를 사용하여 TCP 또는 UDP 포트 번호에 관계없이 모든 트래픽을 부하 분산할 수 있습니다.  
+### <a name="haports"></a>HA 포트
 
-새 HA 포트 기능을 사용하여 내부 NVA에 대한 고가용성 및 규모를 비롯한 다양한 시나리오를 활용할 수 있습니다. 이 기능은 개별 포트 지정이 불가능하거나 바람직하지 않은 다른 시나리오에 유용합니다. HA 포트는 필요한 만큼 많은 인스턴스를 허용하여 중복 및 규모를 제공합니다. 더 이상 활성/수동 시나리오로만 구성할 필요가 없습니다. 상태 프로브 구성은 정상 인스턴스에만 트래픽을 전달하여 서비스를 보호합니다.
+표준 Load Balancer는 새로운 유형의 규칙을 지원합니다.  
 
-NVA 공급업체는 고객에게 공급업체에서 완벽히 지원하는 탄력적인 시나리오를 제공할 수 있습니다. 단일 실패 지점이 제거되고 규모에 대해 여러 활성 인스턴스가 지원됩니다. 어플라이언스의 기능에 따라 둘 이상의 인스턴스로 확장할 수 있습니다. 이러한 시나리오에 대한 추가 지침은 NVA 공급업체에 문의하세요.
+부하 분산 규칙을 구성하여 응용 프로그램 규모를 매우 안정적으로 만들 수 있습니다. HA 포트 부하 분산 규칙을 사용할 경우, 표준 Load Balancer는 내부 표준 Load Balancer 프런트 엔드 IP 주소의 모든 삭제 포트에서 흐름별 부하 분산을 제공합니다.  이 기능은 개별 포트 지정이 불가능하거나 바람직하지 않은 다른 시나리오에 유용합니다.
 
-### <a name = "availabilityzones"></a>가용성 영역
+HA 포트 부하 분산 규칙을 사용하여 네트워크 가상 어플라이언스 및 광범위한 인바운드 포트가 모든 응용 프로그램을 위한 활성-수동 또는 활성-활성 n+1 시나리오를 만들 수 있습니다.  상태 프로브를 사용하여 새 흐름을 수신할 백 엔드를 확인할 수 있습니다.  네트워크 보안 그룹을 사용하여 포트 범위 시나리오를 에뮬레이트할 수 있습니다.
 
-[!INCLUDE [availability-zones-preview-statement](../../includes/availability-zones-preview-statement.md)]
+>[!IMPORTANT]
+> 네트워크 가상 어플라이언스를 사용하려는 경우, 제품을 HA 포트로 테스트했는지에 따른 지침을 공급업체에 문의하고 구체적인 지침에 따라 구현합니다. 
 
-지원되는 지역에서 가용성 영역을 사용하여 응용 프로그램의 복구를 진행합니다. 가용성 영역은 현재 특정 지역에서 미리 보기 상태이며 추가 옵트인이 필요합니다.
+[HA 포트에 대한 자세한 논의](load-balancer-ha-ports-overview.md)를 검토하세요.
 
-### <a name="automatic-zone-redundancy"></a>자동 영역 중복
+### <a name="securebydefault"></a>기본적으로 보안 적용
 
-Load Balancer에서 각 응용 프로그램에 대해 영역 중복 또는 영역 프런트 엔드를 제공해야 하는지 여부를 선택할 수 있습니다. Load Balancer 표준을 사용하여 영역 중복을 만들기 쉽습니다. 단일 프런트 엔드 IP 주소는 자동으로 영역 중복입니다. 영역 중복 프런트 엔드는 지역의 모든 가용성 영역에서 동시에 서비스됩니다. 인바운드 및 아웃바운드 연결에 대한 영역 중복 데이터 경로가 만들어집니다. Azure에서 영역 중복은 여러 IP 주소 및 DNS 레코드가 필요하지 않습니다. 
-
-영역 중복은 공용 또는 내부 프런트 엔드에 사용할 수 있습니다. 내부 Load Balancer의 공용 IP 주소 및 프런트 엔드 개인 IP는 영역 중복될 수 있습니다.
-
-다음 스크립트를 사용하여 내부 Load Balancer의 영역 중복 공용 IP 주소를 만듭니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-다음 스크립트를 사용하여 내부 Load Balancer의 영영 중복 프런트 엔드 IP를 만듭니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-공용 IP 프런트 엔드가 영역 중복인 경우 VM 인스턴스에서 만들어진 아웃바운드 연결은 자동으로 영역 중복이 됩니다. 프런트 엔드는 영역 장애로부터 보호됩니다. SNAT 포트 할당은 영역 실패 후에도 유지됩니다.
-
-#### <a name="cross-zone-load-balancing"></a>영역 간 부하 분산
-
-영역 간 부하 분산은 백 엔드 풀에 대한 지역 내에서 사용할 수 있으며 VM 인스턴스에 대해 최대 유연성을 제공합니다. 프런트 엔드는 VM 인스턴스의 가용성 영역에 관계없이 가상 네트워크 내의 모든 VM에 흐름을 제공합니다.
-
-또한 프런트 엔드 및 백 엔드 인스턴스에 대한 특정 영역을 지정하여 특정 영역으로 데이터 경로 및 리소스를 맞출 수도 있습니다.
-
-가상 네트워크 및 서브넷은 영역의 제약을 받지 않습니다. 원하는 VM 인스턴스로 백 엔드 풀을 정의하면 구성이 완료됩니다.
-
-#### <a name="zonal-deployments"></a>영역 배포
-
-필요에 따라 영역 프런트 엔드를 정의하여 특정 영역에 부하 분산 장치 프런트 엔드를 맞출 수 있습니다. 영역 프런트 엔드는 지정된 단일 가용성 영역에서만 서비스됩니다. 프런트 엔드를 영역 VM 인스턴스와 결합하면 리소스를 특정 영역에 맞출 수 있습니다.
-
-특정 영역에 생성된 공용 IP 주소는 항상 해당 영역에만 존재합니다. 공용 IP 주소의 영역을 변경하는 것은 불가능합니다. 여러 영역의 리소스에 연결할 수 있는 공용 IP 주소가 필요한 경우 대신 영역 중복 공용 IP를 만듭니다.
-
-다음 스크립트를 사용하여 가용성 영역 1에서 영역 공용 IP 주소를 만듭니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-다음 스크립트를 사용하여 가용성 영역 1에 내부 Load Balancer 프런트 엔드를 만듭니다.
-
-구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다. 또한 하위 리소스에 대한 프런트 엔드 IP 구성에서 **zones** 특성을 정의합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-가상 네트워크에 있는 VM 인스턴스를 풀에 넣어 백 엔드 풀에 대한 영역 간 부하 분산을 추가합니다.
-
-Load Balancer 표준 리소스는 항상 가용성 영역이 지원되는 지역 및 영역 중복입니다. 할당된 영역이 없는 공용 IP 주소 또는 Load Balancer 프런트 엔드를 원하는 지역에 배포할 수 있습니다. 가용성 영역에 대한 지원이 배포 기능에 영향을 주지는 않습니다. 나중에 지역이 가용성 영역을 얻는 경우 이미 배포된 공용 IP 또는 내부 Load Balancer 프런트 엔드는 자동으로 영역 중복이 됩니다. 영역 중복 데이터 경로는 0% 패킷 손실을 의미하지 않습니다.
-
-### <a name = "nsg"></a>네트워크 보안 그룹
-
-Load Balancer 표준 및 공용 IP 표준은 가상 네트워크에 완전히 온보드되어 NSG(네트워크 보안 그룹)를 사용해야 합니다. NSG를 사용하면 트래픽 흐름을 허용 목록에 추가할 수 있습니다. NSG를 사용하면 배포의 트래픽에 대한 모든 권한을 얻을 수 있습니다. 더 이상 다른 트래픽 흐름이 완료될 때까지 기다릴 필요가 없습니다.
-
-백 엔드 풀에서 VM 인스턴스의 서브넷 또는 NIC(네트워크 인터페이스)와 NSG를 연결합니다. Load Balancer 표준 및 공용 IP 표준(인스턴스 수준 공용 IP로 사용되는 경우)에서 이 구성을 사용합니다. NSG에서는 허용할 트래픽을 명시적으로 허용 목록에 추가해야만 해당 트래픽이 흐릅니다.
+표준 Load Balancer는 가상 네트워크에 완벽하게 온보딩됩니다.  가상 네트워크는 닫혀 있는 개인 네트워크입니다.  표준 Load Balancer 및 표준 공용 IP 주소는 이 가상 네트워크를 가상 네트워크 외부에서 액세스할 수 있도록 디자인되어 있으므로, 이제 이러한 리소스는 열지 않으면 기본적으로 닫혀 있습니다. 즉, 이제 NSG(네트워크 보안 그룹)를 사용하여 트래픽을 명시적으로 허용합니다.  전체 가상 데이터 센터를 만들고, NSG를 통해 사용 가능한 항목 및 시기를 결정할 수 있습니다.  서브넷에 NSG가 없거나 가상 컴퓨터 리소스의 NIC가 없으면 트래픽이 이 리소스에 도달하도록 허용하지 않게 됩니다.
 
 NSG에 대한 개요와 NSG를 시나리오에 적용하는 방법을 자세히 알아보려면 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
-### <a name ="outboundconnections"></a>아웃바운드 연결
+### <a name="outbound"></a> 아웃바운드 연결
 
-Load Balancer 표준은 부하 분산 장치가 포트 위장 SNAT을 사용할 경우 가상 네트워크 내에 있는 VM에 대한 아웃바운드 연결을 제공합니다. 포트 위장 SNAT 알고리즘은 향상된 견고성 및 규모를 제공합니다.
+Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원합니다.  표준 Load Balancer는 아웃바운드 연결 측면에서 기본 Load Balancer와 크게 다릅니다.
 
-공용 Load Balancer 리소스가 VM 인스턴스와 연결된 경우 각 아웃바운드 연결 원본이 다시 작성됩니다. 원본은 가상 네트워크 개인 IP 주소 공간에서 부하 분산 장치의 프런트 엔드 공용 IP 주소로 다시 작성됩니다.
+가상 네트워크의 내부, 개인 IP 주소를 Load Balancer 프런트 엔드의 공용 IPO 주소에 매핑하는 데 SNAT(Systems Network Architecture)가 사용됩니다.
 
-아웃바운드 연결이 영역 중복 프런트 엔드로 사용되는 경우에는 이 연결도 영역 중복이며 SNAT 포트 할당은 영역 실패 후에도 유지됩니다.
+표준 Load Balancer는 [좀 더 강력하고 확장 가능하고 예측 가능한 SNAT 알고리즘](load-balancer-outbound-connections.md#snat)을 위한 새로운 알고리즘을 도입했으며, 새로운 기능을 지원하고, 모호함을 없애고, 파생 작업을 기대하기 보다는 명시적인 구성을 강제로 적용합니다. 이러한 변경은 새 기능이 구현되기 위해 반드시 필요합니다. 
 
-Load Balancer 표준의 새 알고리즘은 각 VM의 NIC에 SNAT 포트를 미리 할당합니다. 풀에 NIC가 추가되면 풀 크기를 기준으로 SNAT 포트가 미리 할당됩니다. 다음 표에서는 6개 계층의 백 엔드 풀 크기에 대한 포트 미리 할당을 보여 줍니다.
+다음은 표준 Load Balancer로 작업할 때 기억해야 할 주요 개념입니다.
 
-| 풀 크기(VM 인스턴스) | 미리 할당된 SNAT 포트 수 |
-| --- | --- |
-| 1 - 50 | 1024 |
-| 51 - 100 | 512 |
-| 101 - 200 | 256 |
-| 201 - 400 | 128 |
-| 401 - 800 | 64 |
-| 801 - 1,000 | 32 |
+- 규칙이 완성되면 Load Balancer 리소스가 구동됩니다.  Azure의 모든 프로그래밍은 구성에서 파생됩니다.
+- 여러 프론트 엔드를 사용할 수 있는 경우, 모든 프런트 엔드가 사용되므로 사용 가능한 SNAT 포트 수가 크게 증가합니다.
+- 특정 프런트 엔드를 아웃바운드 연결에 사용할지를 선택하고 제어할 수 있습니다.
+- 아웃바운드 시나리오는 명시적이며 아웃바운드 연결은 지정될 때까지 존재하지 않습니다.
+- 부하 분산 규칙은 SNAT가 프로그래밍되는 방식을 유추합니다. 부하 분산 규칙은 프로토콜에 따라 다릅니다. SNAT는 프로토콜에 따라 다르므로, 파생 결과가 나타나지 않도록 구성에 프로토콜이 반영되어야 합니다.
 
-SNAT 포트는 아웃바운드 연결 수로 직접 변환하지 않습니다. 여러 고유한 대상에 SNAT 포트를 재사용할 수 있습니다. 자세한 내용은 [아웃 바운드 연결](load-balancer-outbound-connections.md) 문서를 참조하세요.
+#### <a name="multiple-frontends"></a>여러 프런트 엔드
+아웃바운드 연결에 대한 수요가 높아질 것으로 예상되거나 이미 높아져서 더 많은 SNAT 포트를 원할 경우, 동일한 가상 머신 리소스에 대해 추가 프런트 엔드, 규칙 및 백 엔드 풀을 구성하여 증분 SNAT 포트 인벤토리를 추가할 수도 있습니다.
 
-백 엔드 풀 크기가 늘고 더 높은 계층으로 전환되면 할당된 포트의 절반이 회수됩니다. 회수된 포트와 연결된 연결이 시간 초과되며 다시 설정해야 합니다. 새 연결 시도는 즉시 성공합니다. 백 엔드 풀 크기가 줄고 더 낮은 계층으로 전환되면 사용 가능한 SNAT 포트 수가 증가합니다. 이 경우 기존 연결은 영향을 받지 않습니다.
+#### <a name="control-which-frontend-is-used-for-outbound"></a>아웃바운드에 사용되는 프런트 엔드 제어
+특정 프런트 엔드 IP 주소에서만 시작되도록 아웃바운드 연결을 제한하려는 경우, 필요에 따라 아웃바운드 매핑을 나타내는 규칙에서 아웃바운드 SNAT를 사용하지 않도록 설정할 수 있습니다.
 
-Load Balancer 표준에는 규칙별로 사용할 수 있는 추가 구성 옵션이 있습니다. 여러 프런트 엔드를 사용할 수 있는 경우 포트 위장 SNAT에 사용되는 프런트 엔드를 제어할 수 있습니다.
+#### <a name="control-outbound-connectivity"></a>아웃바운드 연결 제어
+표준 Load Balancer는 가상 네트워크의 컨텍스트 내에 존재합니다.  가상 네트워크는 격리된 개인 네트워크입니다.  공용 IP 주소와의 연결이 없으면 공용 연결이 허용되지 않습니다.  [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)은 가상 네트워크의 내부 및 로컬에 있으므로 연결 가능합니다.  가상 네트워크 외부의 대상에 대해 아웃바운드 연결을 설정하려는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
+- 표준 SKU 공용 IP 주소를 가상 머신 리소스에 대한 인스턴스 수준 공용 IP 주소로 할당 또는
+- 가상 머신 리소스를 공용 표준 Load Balancer의 백 엔드 풀에 배치
 
-Load Balancer 표준만 VM 인스턴스를 제공하는 경우 아웃바운드 SNAT 연결을 사용할 수 없습니다. VM 인스턴스를 공용 부하 분산 장치에도 할당하여 이 기능을 명시적으로 복원할 수 있습니다. 공용 IP를 인스턴스 수준 공용 IP로 각 VM 인스턴스에 직접 할당할 수도 있습니다. 일부 운영 체제와 응용 프로그램 시나리오에 이 구성 옵션이 필요할 수 있습니다. 
+두 방법 모두 가상 네트워크에서 가상 네트워크 외부로의 아웃바운드 연결을 허용합니다. 
 
-### <a name="port-forwarding"></a>포트 전달
+가상 머신 리소스가 있는 백 엔드 풀에 내부 표준 Load Balancer_만_ 연결되어 있는 경우 가상 머신은 가상 네트워크 리소스 및 [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)에만 연결될 수 있습니다.  아웃바운드 연결을 만들려면 이전 단락에 설명된 단계를 따르면 됩니다.
 
-기본 및 표준 Load Balancer는 인바운드 NAT 규칙을 구성하는 기능을 제공하여 프런트 엔드 포트를 개별 백 엔드 인스턴스에 매핑합니다. 이러한 규칙을 구성하면 원격 데스크톱 프로토콜 끝점과 SSH 끝점을 노출하거나 다른 응용 프로그램 시나리오를 수행할 수 있습니다.
+표준 SKU와 연결되지 않은 가상 머신 리소스의 아웃바운드 연결은 이전과 동일하게 유지됩니다.
 
-Load Balancer 표준은 인바운드 NAT 규칙을 통해 포트 전달 기능을 계속해서 제공합니다. 영역 중복 프런트 엔드로 사용되는 경우 인바운드 NAT 규칙은 영역 중복이 되고 영역 실패 후에도 유지됩니다.
+[아웃바운드 연결에 대한 자세한 논의](load-balancer-outbound-connections.md)를 검토하세요.
 
-### <a name="multiple-front-ends"></a>여러 프런트 엔드
+### <a name="multife"></a>여러 프런트 엔드
+Load Balancer는 여러 프런트 엔드가 있는 여러 규칙을 지원합니다.  표준 Load Balancer는 이 규칙을 아웃바운드 시나리오로 확장합니다.  아웃바운드 시나리오는 기본적으로 인바운드 부하 분산 규칙을 뒤집은 것입니다.  인바운드 부하 분산 규칙에서도 아웃바운드 연결을 위한 연결을 만듭니다. 표준 Load Balancer는 부하 분산 규칙을 통해 가상 머신 리소스와 연결된 모든 프런트 엔드를 사용합니다.  또한 부하 분산 규칙에 대한 매개 변수를 사용하여 아웃바운드 연결을 위한 부하 분산 규칙을 표시하지 않을 수 있으며, 없음을 비롯한 특정 프런트 엔드 선택 옵션도 사용할 수 있습니다.
 
-응용 프로그램에 노출될 여러 개별 IP 주소가 필요한 경우 설계 유연성을 위해 여러 프런트 엔드를 구성합니다(예: TLS 웹 사이트 또는 SQL AlwaysOn 가용성 그룹 끝점). 
+비교하자면, 기본 Load Balancer는 임의로 단일 프런트 엔드를 선택하며, 선택되는 프런트 엔드를 제어하는 기능도 없습니다.
 
-Load Balancer 표준은 고유 IP 주소에서 특정 응용 프로그램 끝점을 노출해야 하는 경우 여러 프런트 엔드를 계속해서 제공합니다.
+[아웃바운드 연결에 대한 자세한 논의](load-balancer-outbound-connections.md)를 검토하세요.
 
-여러 프런트 엔드 IP를 구성하는 방법에 대한 자세한 내용은 [다중 IP 구성](load-balancer-multivip-overview.md)을 참조하세요.
+### <a name="operations"></a> 관리 작업
 
-## <a name = "sku"></a>SKU 정보
+표준 Load Balancer 리소스는 완전히 새로운 인프라 플랫폼에 존재합니다.  따라서 표준 SKU에 대한 관리 작업이 훨씬 더 빨라지며, 완료 시간도 표준 SKU 리소스별로 30초 이내로 감소됩니다.  백 엔드 풀 크기가 커질수록 백 엔드 풀 변경에 필요한 기간도 늘어납니다.
 
-SKU는 Azure Resource Manager 배포 모델에서만 사용할 수 있습니다. 이 미리 보기는 Load Balancer 및 공용 IP 리소스에 대해 두 개의 SKU(기본 및 표준)를 소개합니다. SKU는 기능, 성능 특성, 제한 사항 및 일부 내장 동작에서 다릅니다. 두 SKU에서 Virtual Machines를 사용할 수 있습니다. Load Balancer 및 공용 IP 리소스의 경우 SKU는 선택적 특성으로 유지됩니다. 시나리오 정의에서 SKU를 생략하면 구성에서 기본적으로 기본 SKU가 사용됩니다.
-
->[!IMPORTANT]
->리소스의 SKU는 변경할 수 없습니다. 기존 리소스의 SKU는 변경할 수 없습니다.  
-
-### <a name="load-balancer"></a>Load Balancer
-
-[기존 Load Balancer 리소스](load-balancer-overview.md)는 기본 SKU가 되며 일반 공급으로 유지되고 변경되지 않습니다.
-
-Load Balancer 표준 SKU는 새 제품이며 현재 미리 보기 상태입니다. Microsoft.Network/loadBalancers의 2017년 8월 1일 API 버전에서는 리소스 정의에 **sku** 속성을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-Load Balancer 표준은 가용성 영역을 제공하는 영역에서 자동으로 영역 중복입니다. Load Balancer에 영역이 선언되면 자동으로 영역 중복이 되지 않습니다.
-
-### <a name="public-ip"></a>공용 IP
-
-[기존 공용 IP 리소스](../virtual-network/virtual-network-ip-addresses-overview-arm.md)는 기본 SKU가 되고 모든 해당 기능, 성능 특성 및 제한 사항과 함께 일반 공급으로 유지됩니다.
-
-공용 IP 표준 SKU는 새 제품이며 현재 미리 보기 상태입니다. Microsoft.Network/publicIPAddresses의 2017년 8월 1일 API 버전에서는 리소스 정의에 **sku** 속성을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-여러 할당 메서드를 제공하는 공용 IP 기본과 달리 공용 IP 표준은 항상 정적 할당을 사용합니다.
-
-공용 IP 표준은 가용성 영역을 제공하는 영역에서 자동으로 영역 중복입니다. 공용 IP에 영역이 선언되면 자동으로 영역 중복이 되지 않습니다. 영역 공용 IP는 한 영역에서 다른 영역으로 변경할 수 없습니다.
+표준 Load Balancer 리소스를 수정하고 표준 공용 IP 주소를 가상 머신 간에 훨씬 더 빠르게 이동할 수 있습니다.
 
 ## <a name="migration-between-skus"></a>SKU 간의 마이그레이션
 
@@ -322,158 +200,41 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 >
 >HA 포트 및 표준 SKU 진단은 표준 SKU에서만 사용할 수 있습니다. 표준 SKU에서 기본 SKU로 마이그레이션할 수 없으며 이러한 기능을 유지할 수도 없습니다.
 >
->SKU 일치는 Load Balancer 및 공용 IP 리소스에 대해 사용되어야 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. VM, 가용성 집합의 VM 또는 가상 머신 확장 집합을 두 SKU에 동시에 연결할 수 없습니다.
+>기본 및 표준 SKU는 이 문서에 설명된 것과 같은 많은 차이점을 갖습니다.  이러한 차이점을 이해하고 대비해야 합니다.
 >
+>SKU 일치는 Load Balancer 및 공용 IP 리소스에 대해 사용되어야 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
-Load Balancer 표준은 현재, 미국 서부를 제외한 모든 공용 클라우드 지역에서 사용할 수 있습니다.
+Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할 수 있습니다.
 
->[!IMPORTANT]
-> 짧은 기간 동안 초기 실행 지역(미국 동부 2, 미국 중부, 북유럽, 미국 중서부, 유럽 서부, 동남 아시아) 이외의 지역에 액세스하려면 추가 구독 기능(AllowLBPreviewWave2 및 AllowLBPreviewWave3)에 등록해야 합니다.  [다음 단계를 따르세요](#additionalpreviewregions). 이전에 AllowLBPreview에 이미 등록한 경우에도 모든 단계를 실행하시기 바랍니다.
-> 이 요구 사항은 몇 주 후에 제거됩니다.
+## <a name="sla"></a>SLA
 
-## <a name="sku-service-limits-and-abilities"></a>SKU 서비스 제한 및 기능
+표준 Load Balancer는 99.99% SLA으로 사용할 수 있습니다.  자세한 내용은 [표준 Load Balancer SLA](https://aka.ms/lbsla)를 검토하세요.
 
-[네트워킹에 대한 Azure 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)은 구독당 지역당 적용됩니다. 
-
-다음 표에서는 Load Balancer 기본 및 표준 SKU에 대한 제한 사항과 기능을 비교합니다.
-
-| Load Balancer | Basic | Standard |
-| --- | --- | --- |
-| 백 엔드 풀 크기 | 최대 100 | 최대 1,000 |
-| 백 엔드 풀 경계 | 가용성 집합 | 가상 네트워크, 지역 |
-| 백 엔드 풀 디자인 | 가용성 집합의 VM, 가용성 집합의 가상 머신 확장 집합 | 가상 네트워크의 모든 VM 인스턴스 |
-| HA 포트 | 지원되지 않음 | 사용 가능 |
-| 진단 | 제한됨, 공용만 해당 | 사용 가능 |
-| VIP 가용성  | 지원되지 않음 | 사용 가능 |
-| 빠른 IP 이동성 | 지원되지 않음 | 사용 가능 |
-|가용성 영역 시나리오 | 영역만 해당 | 영역, 영역 중복, 영역 간 부하 분산 |
-| 아웃바운드 SNAT 알고리즘 | 요청 시 | 미리 할당됨 |
-| 아웃바운드 SNAT 프런트 엔드 선택 | 구성할 수 없음, 여러 후보 | 후보를 줄이기 위한 옵션 구성 |
-| 네트워크 보안 그룹 | NIC/서브넷의 선택 사항 | 필수 |
-
-다음 표에서는 공용 IP 기본 및 표준 SKU에 대한 제한 사항과 기능을 비교합니다.
-
-| 공용 IP | Basic | Standard |
-| --- | --- | --- |
-| 가용성 영역 시나리오 | 영역만 해당 | 영역 중복(기본값), 영역(선택 사항) | 
-| 빠른 IP 이동성 | 지원되지 않음 | 사용 가능 |
-| VIP 가용성 | 지원되지 않음 | 사용 가능 |
-| Counters | 지원되지 않음 | 사용 가능 |
-| 네트워크 보안 그룹 | NIC의 선택 사항 | 필수 |
-
-
-## <a name="preview-sign-up"></a>미리 보기 등록
-
-Load Balancer 표준 SKU 및 해당 공용 IP 표준 SKU에 대한 미리 보기에 참여하려면 구독을 등록합니다.  구독을 등록하면 PowerShell 또는 Azure CLI 2.0에서 액세스할 수 있습니다. 등록하려면 다음 단계를 수행합니다.
-
->[!NOTE]
->Load Balancer 표준 기능 등록이 전역으로 적용되는 데 최대 1시간이 소요될 수 있습니다. [가용성 영역](https://aka.ms/availabilityzones)과 함께 Load Balancer 표준을 사용하려는 경우 AZ 미리 보기에 대한 [별도의 등록](https://aka.ms/availabilityzones)이 필요합니다.
-
-<a name="additionalpreviewregions"></a>
->[!IMPORTANT]
-> 짧은 기간 동안 초기 실행 지역(미국 동부 2, 미국 중부, 북유럽, 미국 중서부, 유럽 서부, 동남 아시아) 이외의 지역에 액세스하려면 추가 구독 기능(AllowLBPreviewWave2 및 AllowLBPreviewWave3)에 등록해야 합니다.  추가 구독 기능을 사용하도록 설정하기 위해 아래 단계가 수정되었습니다. 이전에 AllowLBPreview에 이미 등록한 경우에도 모든 단계를 실행하시기 바랍니다. 이 요구 사항은 몇 주 후에 제거됩니다.
-
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 등록
-
-1. 공급자에 기능을 등록합니다.
-
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
-    ```
-    
-2. 이 작업을 완료하려면 최대 10분이 걸릴 수 있습니다. 다음 명령을 사용하여 작업 상태를 확인할 수 있습니다.
-
-    ```cli
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
-    ```
-    
-    위의 각 구독 기능에 대해 기능 등록 상태가 ‘등록됨’인 경우 다음 단계로 진행합니다. 예:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-4. 리소스 공급자에 구독을 다시 등록하여 미리 보기 등록을 완료합니다.
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-
-### <a name="sign-up-by-using-powershell"></a>PowerShell을 사용하여 등록
-
-1. 공급자에 기능을 등록합니다.
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-    
-2. 이 작업을 완료하려면 최대 10분이 걸릴 수 있습니다. 다음 명령을 사용하여 작업 상태를 확인할 수 있습니다.
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-
-  위의 각 구독 기능에 대해 기능 등록 상태가 ‘등록됨’인 경우 다음 단계로 진행합니다. 예:
-
-    ```
-    FeatureName      ProviderName        RegistrationState
-    -----------      ------------        -----------------
-    AllowLBPreview   Microsoft.Network   Registered
-    ```
-    
-3. 리소스 공급자에 구독을 다시 등록하여 미리 보기 등록을 완료합니다.
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
- 
 ## <a name="pricing"></a>가격
 
-Load Balancer 표준 SKU 요금은 구성한 규칙과 처리된 데이터를 기준으로 청구됩니다. 미리 보기 기간 동안은 요금이 발생하지 않습니다. 자세한 내용은 [Load Balancer](https://aka.ms/lbpreviewpricing) 및 [공용 IP](https://aka.ms/lbpreviewpippricing) 가격 책정 페이지를 참조하세요.
-
-고객은 계속해서 추가 비용 없이 Load Balancer 기본 SKU를 이용합니다.
+표준 Load Balancer는 구성된 부하 분산 규칙 수와 처리되는 모든 인바운드 및 아웃바운드 데이터를 기준으로 요금이 청구되는 제품입니다. 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://aka.ms/lbpricing) 페이지를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
-다음 제한 사항은 미리 보기의 기간에 적용되며 변경될 수 있습니다.
-
 - 현재 Load Balancer 백 엔드 인스턴스는 피어링된 가상 네트워크에서 찾을 수 없습니다. 모든 백 엔드 인스턴스는 동일한 지역에 있어야 합니다.
 - SKU는 변경할 수 없습니다. 기존 리소스의 SKU는 변경할 수 없습니다.
-- 독립 실행형 VM, 가용성 집합의 VM 인스턴스 또는 가상 머신 확장 집합에 두 SKU를 함께 사용할 수 없습니다. VM 조합을 두 SKU에 동시에 사용할 수 없습니다. 혼합된 SKU를 포함하는 구성은 허용되지 않습니다.
-- VM 인스턴스(또는 가용성 집합의 일부)와 함께 내부 Load Balancer 표준을 사용하면 [기본 SNAT 아웃바운드 연결](load-balancer-outbound-connections.md)을 사용할 수 없게 됩니다. 이 기능을 독립 실행형 VM, 가용성 집합의 VM 인스턴스 또는 가상 머신 확장 집합으로 복원할 수 있습니다. 이 기능을 복원하여 아웃바운드 연결을 만들 수도 있습니다. 이러한 기능을 복원하려면 동일한 VM 인스턴스에 공용 Load Balancer 표준 또는 공용 IP 표준을 인스턴스 수준 공용 IP로 동시에 할당합니다. 할당이 완료되면 공용 IP 주소에 대한 포트 위장 SNAT가 다시 제공됩니다.
-- 전체 백 엔드 풀 규모를 얻으려면 VM 인스턴스를 가용성 집합으로 그룹화해야 할 수 있습니다. 최대 150개의 가용성 집합 및 독립 실행형 VM을 단일 백 엔드 풀에 배치할 수 있습니다.
-- IPv6은 지원되지 않습니다.
-- 가용성 영역의 컨텍스트에서 프런트 엔드는 영역에서 영역 중복으로 또는 반대로 변경할 수 없습니다. 프런트 엔드를 영역 중복으로 작성하면 영역 중복으로 유지됩니다. 프런트 엔드를 영역으로 작성하면 영역으로 유지됩니다.
-- 가용성 영역의 컨텍스트에서 영역 공용 IP 주소는 한 영역에서 다른 영역으로 이동할 수 없습니다.
+- 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 또는 가상 머신 확장 집합 리소스는 하나의 SKU만 참조할 수 있습니다.
 - 현재 [Azure Monitor 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 지원되지 않습니다.
-- 포털에서 아직 확장된 미리 보기 지역을 지원하지 않습니다.  템플릿, Azure CLI 2.0 또는 PowerShell 등의 클라이언트 도구를 임시 해결책으로 사용하세요.
 - [구독 작업 이동](../azure-resource-manager/resource-group-move-resources.md)은 표준 SKU LB 및 PIP 리소스에 대해 지원되지 않습니다.
-- 미국 서부에서는 사용할 수 없습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Load Balancer 기본](load-balancer-overview.md)에 대해 자세히 알아보세요.
+- [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보세요.
+- [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
+- [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)의 진단과 관련된 [지원되는 다차원 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)에 대해 자세히 알아보세요.
+- [아웃바운드 연결에 Load Balancer](load-balancer-outbound-connections.md) 사용에 대해 자세히 알아보세요.
+- [HA 포트 부하 분산 규칙을 사용하는 표준 Load Balancer](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
+- [다중 프런트 엔드를 사용하는 Load Balancer](load-balancer-multivip-overview.md)에 대해 자세히 알아보세요.
+- [Virtual Networks](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보세요.
 - [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대해 자세히 알아보세요.
+- [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)에 대해 자세히 알아보세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.
-- [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)에 [표시되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)에 대해 알아봅니다.
+- [Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보세요.

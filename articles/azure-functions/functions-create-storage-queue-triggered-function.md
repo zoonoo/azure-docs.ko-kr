@@ -1,26 +1,26 @@
 ---
-title: "Azure에서 큐 메시지에 의해 트리거되는 함수 만들기 | Microsoft Docs"
-description: "Azure Functions를 사용하여 Azure Storage 큐에 제출된 메시지에 의해 호출되는 서버를 사용하지 않는 함수를 만듭니다."
+title: Azure에서 큐 메시지에 의해 트리거되는 함수 만들기 | Microsoft Docs
+description: Azure Functions를 사용하여 Azure Storage 큐에 제출된 메시지에 의해 호출되는 서버를 사용하지 않는 함수를 만듭니다.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: d9ab8115ad273101a0a25a094436bc0a24a45e68
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Queue Storage에 의해 트리거되는 함수 만들기
 
@@ -33,8 +33,6 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 - [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다.
 
 - Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍 | Microsoft Docs"
-description: "Azure Cosmos DB를 사용하여 JavaScript에서 저장 프로시저, 데이터베이스 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다. 데이터베이스 프로그래밍 팁 등을 가져옵니다."
-keywords: "데이터베이스 트리거, 저장 프로시저, 저장 프로시저, 데이터베이스 프로그램, sproc, azure, Microsoft azure"
+title: Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍 | Microsoft Docs
+description: Azure Cosmos DB를 사용하여 JavaScript에서 저장 프로시저, 데이터베이스 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다. 데이터베이스 프로그래밍 팁 등을 가져옵니다.
+keywords: 데이터베이스 트리거, 저장 프로시저, 저장 프로시저, 데이터베이스 프로그램, sproc, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: aliuy
 manager: jhubbard
 editor: mimig
@@ -13,29 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행하므로 개발자가 기본적으로 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성할 수 있는 방법을 알아봅니다. 이 Javascript 통합을 사용하여 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다. 
 
-Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행하므로 개발자가 기본적으로 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성할 수 있는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다. 
+먼저 Andrew Liu가 Azure Cosmos DB의 서버 쪽 데이터베이스 프로그래밍 모델을 소개하는 다음 비디오를 시청하시기 바랍니다. 
 
-먼저 Andrew Liu가 Cosmos DB의 서버 쪽 데이터베이스 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
-> 
+> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
+>
 > 
 
 그런 다음 이 문서로 돌아와서 다음 내용을 살펴보세요.  
 
-* JavaScript를 사용해서 저장 프로시저, 트리거 또는 UDF를 작성하는 방법은 무엇인가?
+* JavaScript를 사용해서 저장 프로시저, 트리거 또는 UDF를 작성하려면 어떻게 하나요?
 * Cosmos DB는 ACID를 어떻게 보장하나요?
 * Cosmos DB에서 트랜잭션이 어떻게 작동하나요?
 * 사전 트리거 및 사후 트리거는 무엇이고 어떻게 작성하는가?
@@ -46,14 +44,14 @@ Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행�
 이 *"최신 T-SQL로서의 JavaScript"* 접근 방법을 통해 응용 프로그램 개발자는 형식 시스템 불일치 및 개체-관계형 매핑 기술의 복잡성을 벗어날 수 있습니다. 또한 풍부한 응용 프로그램을 작성하기 위해 활용할 수 있는 내재된 많은 장점이 있습니다.  
 
 * **절차적 논리:** 고급 프로그래밍 언어인 JavaScript는 비즈니스 논리를 노출하는 풍부하고 익숙한 인터페이스를 제공합니다. 데이터에 더 가까운 복잡한 작업 시퀀스를 수행할 수 있습니다.
-* **원자성 트랜잭션:** Cosmos DB는 단일 저장 프로시저 또는 트리거 내에서 수행되는 데이터베이스 작업의 원자성을 보장합니다. 따라서 응용 프로그램이 관련 작업을 단일 배치로 결합하여 모두 성공하거나 모두 실패하도록 할 수 있습니다. 
+* **원자성 트랜잭션:** Cosmos DB는 단일 저장 프로시저 또는 트리거 내에서 수행되는 데이터베이스 작업의 원자성을 보장합니다. 이 원자성 기능을 사용하면 응용 프로그램이 관련 작업을 단일 배치로 결합하여 모두 성공하거나 모두 실패하도록 할 수 있습니다. 
 * **성능:** JSON은 본질적으로 Javascript 언어 형식 시스템에 매핑되고 Cosmos DB의 기본 저장소 단위이기도 하므로 버퍼 풀에서 JSON 문서의 지연 구체화와 같은 많은 최적화를 수행할 수 있으며 요청 시 실행 코드에서 JSON 문서를 사용할 수 있습니다. 데이터베이스에 비즈니스 논리를 전달할 경우 다음과 같은 추가 성능 이점이 있습니다.
   
   * 일괄 처리 – 개발자가 삽입 등의 작업을 그룹화하여 대량 제출할 수 있습니다. 개별 트랜잭션을 만들기 위한 네트워크 트래픽 지연 비용 및 저장소 오버헤드가 크게 줄어듭니다. 
   * 사전 컴파일 – Cosmos DB는 각 호출의 JavaScript 컴파일 비용을 방지하기 위해 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 사전 컴파일합니다. 절차적 논리의 바이트 코드 작성 오버헤드가 최소값으로 줄어듭니다.
   * 시퀀싱 – 보조 저장소 작업을 하나 또는 많이 수행하는 파생 작업("트리거")이 필요한 작업이 많습니다. 원자성뿐 아니라 이 특성도 서버로 이동할 경우 성능이 향상됩니다. 
-* **캡슐화:** 저장 프로시저를 사용하여 비즈니스 논리를 단일 장소에 그룹화할 수 있습니다. 다음 두 가지 장점이 있습니다.
-  * 원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
+* **캡슐화:** 저장 프로시저를 사용하여 비즈니스 논리를 단일 장소에 그룹화할 수 있으며 다음 두 가지 장점이 있습니다.
+  * 원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우, 응용 프로그램에 포함되어야 할 수 있는 가정 때문에 이 추상화 레이어는 데이터에 스키마가 없을 때 유용합니다.  
   * 이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
 
 데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 만들기 및 실행은 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [Azure Portal](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 및 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 통해 지원됩니다.
@@ -298,7 +296,7 @@ JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. Cosmos DB
 
 ## <a id="trigger"></a> 데이터베이스 트리거
 ### <a name="database-pre-triggers"></a>데이터베이스 사전 트리거
-Cosmos DB는 문서 작업에 의해 실행되거나 트리거되는 트리거를 제공합니다. 예를 들어 문서를 만들 때 사전 트리거를 지정할 수 있습니다. 이 사전 트리거는 문서를 만들기 전에 실행됩니다. 다음은 사전 트리거를 사용하여 만드는 문서의 속성 유효성을 검사할 수 있는 방법의 예입니다.
+Cosmos DB는 문서 작업에 의해 실행되거나 트리거되는 트리거를 제공합니다. 예를 들어 문서를 만들 때 사전 트리거를 지정할 수 있습니다. 이 사전 트리거는 문서를 만들기 전에 실행됩니다. 다음 예제에서는 사전 트리거를 사용하여 만드는 문서의 속성 유효성을 검사할 수 있는 방법을 보여 줍니다.
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -522,7 +520,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 <b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-이 각 입력 항목에서 단일 속성의 값을 추출하는 맵에 대한 바로 가기입니다.
+각 입력 항목에서 단일 속성의 값을 추출하는 맵에 대한 바로 가기입니다.
 </li>
 </ul>
 </li>
@@ -561,7 +559,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 
 다음 JavaScript 구문은 Azure Cosmos DB 인덱스에 대해 최적화되지 않습니다.
 
-* 흐름 제어(예: if, for, while)
+* 제어 흐름(예: if, for, while)
 * 함수 호출
 
 자세한 내용은 [서버 쪽 JSDocs](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.
@@ -624,7 +622,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 ## <a name="sql-to-javascript-cheat-sheet"></a>SQL-Javascript 치트 시트
 다음 표에서 다양한 SQL 쿼리 및 해당 JavaScript 쿼리를 표시합니다.
 
-SQL 쿼리를 사용하는 것과 같이 문서 속성 키(예: `doc.id`)는 소문자를 구분합니다.
+SQL 쿼리와 마찬가지로, 문서 속성 키(예: `doc.id`)는 대/소문자를 구분합니다.
 
 |SQL| JavaScript Query API|아래 설명|
 |---|---|---|
@@ -641,7 +639,7 @@ SQL 쿼리를 사용하는 것과 같이 문서 속성 키(예: `doc.id`)는 소
 3. 조건자: id = "X998\_Y998"을 사용하여 문서를 쿼리합니다.
 4. Tags 속성이 있는 문서를 쿼리합니다. Tags는 123 값을 포함하는 배열입니다.
 5. 조건자 id = "X998_Y998"을 사용하여 문서를 쿼리한 다음 id와 message(msg로 별칭이 지정됨)를 프로젝션합니다.
-6. array 속성 Tags가 있는 문서를 필터링하고 _ts timestamp system 속성으로 결과 문서를 정렬한 다음 Tags 배열을 프로젝션 및 평면화합니다.
+6. 배열 속성 Tags가 있는 문서를 필터링하고 _ts 타임스탬프 시스템 속성으로 결과 문서를 정렬한 다음, Tags 배열을 프로젝션 및 평면화합니다.
 
 
 ## <a name="runtime-support"></a>런타임 지원
@@ -776,7 +774,7 @@ Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 외에도 Azure Cosmos DB에�
     }
 
 
-저장 프로시저와 달리 트리거는 직접 실행할 수 없습니다. 대신, 문서 작업의 일부로 실행됩니다. HTTP 헤더를 사용하여 요청과 함께 실행할 트리거를 지정할 수 있습니다. 다음은 문서 만들기 요청입니다.
+저장 프로시저와 달리 트리거는 직접 실행할 수 없습니다. 대신, 문서 작업의 일부로 실행됩니다. HTTP 헤더를 사용하여 요청과 함께 실행할 트리거를 지정할 수 있습니다. 다음 코드는 문서 만들기 요청을 보여 줍니다.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>

@@ -1,11 +1,11 @@
 ---
-title: "게임 앱에 대한 Azure Mobile Engagement 구현"
-description: "Azure Mobile Engagement 구현을 위한 게임 앱 시나리오"
+title: 게임 앱에 대한 Azure Mobile Engagement 구현
+description: Azure Mobile Engagement 구현을 위한 게임 앱 시나리오
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>게임 앱에서 Mobile Engagement 구현
 ## <a name="overview"></a>개요
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 새 낚시 기반 롤플레이/전략 게임 앱을 출시했습니다. 이 게임이 시작되고 6개월 동안 실행되었습니다. 이 게임은 커다란 성공을 거두어 수백만 회의 다운로드를 기록했고 재방문 주기도 새로 시작한 다른 게임 앱에 비해 매우 높습니다. 이에 관련자들은 분기별 검토 회의에서 ARPU(사용자당 평균 수익)를 올리기로 합의했습니다. 프리미엄 게임 내 패키지가 특별 제공으로 나와 있습니다. 이러한 게임 팩을 통해 사용자는 게임의 낚싯줄 및 미끼와 낚시 도구의 모양 및 성능을 업그레이드할 수 있습니다. 그러나 패키지 판매는 매우 낮은 실정입니다. 그래서 분석 도구를 사용하여 사용자 환경을 먼저 분석한 다음 Engagement 프로그램을 개발하여 고급 구분을 통해 판매를 늘리기로 결정했습니다.
 
 [Azure Mobile Engagement - 모범 사례가 포함된 시작 가이드](mobile-engagement-getting-started-best-practices.md) 에 따라 Engagement 전략을 구축했습니다.

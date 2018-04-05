@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링"
+title: Azure CLI 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
 ms.service: app-service
@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4abd595a62474b3e83b5e8581782a61a66492b3d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: dc9bc90eb5be6fd700f5a7ca4cbac28170633722
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-a-web-app-with-web-server-logs"></a>웹 서버 로그로 웹앱 모니터링
 
@@ -44,11 +44,11 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 | 명령 | 메모 |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service 계획을 만듭니다. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Azure 웹앱을 만듭니다. |
-| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_config) | Azure 웹앱에서 유지하는 로그를 구성합니다. |
-| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_download) | Azure 웹앱의 로그를 로컬 컴퓨터에 다운로드합니다. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Azure 웹앱을 만듭니다. |
+| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Azure 웹앱에서 유지하는 로그를 구성합니다. |
+| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Azure 웹앱의 로그를 로컬 컴퓨터에 다운로드합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

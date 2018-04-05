@@ -1,12 +1,11 @@
 ---
-title: "Visual Studio용 Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스 설정 | Microsoft Docs"
-description: "Visual Studio용 Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스를 설정하기 위한 자습서"
+title: Visual Studio용 Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스 설정 | Microsoft Docs
+description: Visual Studio용 Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스를 설정하기 위한 자습서
 keywords: visual studio, NuGet, DevOps, CI/CD
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
-manager: 
-editor: 
+manager: ''
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 0fdc7bd1a98e147bf6c7f7c290f03a878c83a1a9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 14bb15f19b517b55281959f0de970e3f5e0d360b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Visual Studio용 Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스 설정
 이 자습서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스를 설정하는 방법에 대해 알아봅니다.
@@ -88,7 +87,7 @@ localrun -Project [ProjectFullPath]
 ```
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
-예제:
+예:
 ```
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```

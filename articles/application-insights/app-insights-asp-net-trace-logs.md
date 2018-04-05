@@ -1,6 +1,6 @@
 ---
-title: "Application Insights에서 .NET 추적 로그 탐색"
-description: "추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다."
+title: Application Insights에서 .NET 추적 로그 탐색
+description: 추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Application Insights에서 .NET 추적 로그 탐색
 ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Azure Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 응용 프로그램에서 들어오는 다른 원격 분석과 병합됩니다.
@@ -99,7 +99,7 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSou
 Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 이벤트를 구성할 수 있습니다. 먼저 [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>
@@ -131,14 +131,14 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource
 ## <a name="using-the-trace-api-directly"></a>직접 추적 API 사용
 Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어댑터는 이 API를 사용합니다.
 
-예:
+예: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대한 필터링 또는 검색하는 데 사용할 수 있는 속성 값을 추가할 수 있습니다. 예:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대한 필터링 또는 검색하는 데 사용할 수 있는 속성 값을 추가할 수 있습니다. 예: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",

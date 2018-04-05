@@ -1,11 +1,11 @@
 ---
-title: "Windows Phone 도달률 Engagement SDK 통합"
-description: "Windows Phone Silverlight 앱에서 Azure Mobile Engagement 도달률을 통합하는 방법"
+title: Windows Phone 도달률 Engagement SDK 통합
+description: Windows Phone Silverlight 앱에서 Azure Mobile Engagement 도달률을 통합하는 방법
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34e5ce414ebf72fbecef6c921e57128e2658c921
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Windows Phone 도달률 Engagement SDK 통합
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 가이드의 작업을 수행하기 전에 [Windows Phone Silverlight Engagement SDK 통합](mobile-engagement-windows-phone-integrate-engagement.md) 에 설명된 통합 절차를 수행해야 합니다.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>Windows Phone Silverlight 프로젝트에 Engagement 도달률 SDK 통합

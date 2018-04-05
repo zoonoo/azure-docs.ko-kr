@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Windows 유니버설 SDK 통합 | Microsoft Docs"
-description: "Azure Mobile Engagement의 Windows 유니버설 SDK 통합"
+title: Azure Mobile Engagement Windows 유니버설 SDK 통합 | Microsoft Docs
+description: Azure Mobile Engagement의 Windows 유니버설 SDK 통합
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c513d5b05afaee4c49d0d2e96a0dcda78761421
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Azure Mobile Engagement의 Windows 유니버설 SDK 통합
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서는 Azure Mobile Engagement Windows 유니버설 SDK에 사용 가능한 모든 통합 및 구성 옵션에 관해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -33,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 1. [고급 보고 옵션](mobile-engagement-windows-store-advanced-reporting.md)
 2. [고급 구성 옵션](mobile-engagement-windows-store-advanced-configuration.md)
 
-### <a name="notifications"></a>알림
+### <a name="notifications"></a>공지
 [Windows 유니버설 앱에서 도달률(알림)을 통합하는 방법](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
 ### <a name="tag-plan-implementation"></a>태그 계획 구현:

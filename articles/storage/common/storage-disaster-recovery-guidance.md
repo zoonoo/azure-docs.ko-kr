@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage 중단이 발생할 경우 수행할 작업 | Microsoft Docs"
-description: "Azure Storage 중단이 발생할 경우 수행할 작업"
+title: Azure Storage 중단이 발생할 경우 수행할 작업 | Microsoft Docs
+description: Azure Storage 중단이 발생할 경우 수행할 작업
 services: storage
 documentationcenter: .net
 author: tamram
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Azure Storage 중단이 발생할 경우 수행할 작업
 Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 경우에 따라 강제적으로 우리의 제어 영향을 벗어나 하나 이상의 지역에서 계획되지 않은 서비스 중단이 발생되는 경우가 있습니다. 이러한 드문 경우를 처리할 수 있도록 Azure Storage 서비스에 대해 다음과 같은 높은 수준의 지침을 제공합니다.
@@ -42,10 +42,10 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 이 경우에 사용자의 조치가 필요하지 않습니다. Azure 서비스 가용성을 복원하기 위해 열심히 노력 중입니다. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 서비스 상태를 모니터링할 수 있습니다.
 
 ### <a name="option-2-copy-data-from-secondary"></a>옵션 2: 보조에서 데이터 복사 
-저장소 계정에 대해 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy.md#read-access-geo-redundant-storage) (권장)를 선택한 경우 보조 지역의 데이터에 대한 읽기 권한을 가집니다. [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 및 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)와 같은 도구를 사용하여 보조 지역의 데이터를 영향을 받지 않은 지역의 다른 저장소 계정으로 복사할 수 있으며, 응용 프로그램이 읽기 및 쓰기 가용성 모두에 대한 해당 저장소 계정을 가리키도록 할 수 있습니다.
+저장소 계정에 대해 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (권장)를 선택한 경우 보조 지역의 데이터에 대한 읽기 권한을 가집니다. [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 및 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)와 같은 도구를 사용하여 보조 지역의 데이터를 영향을 받지 않은 지역의 다른 저장소 계정으로 복사할 수 있으며, 응용 프로그램이 읽기 및 쓰기 가용성 모두에 대한 해당 저장소 계정을 가리키도록 할 수 있습니다.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>저장소 장애 조치(failover)가 발생할 경우 예상 결과
-[GRS(지역 중복 저장소)](storage-redundancy.md#geo-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy.md#read-access-geo-redundant-storage)(권장)를 선택한 경우 Azure Storage가 두 지역(기본 및 보조)에 데이터를 지속적으로 유지합니다. Azure Storage는 두 지역에 여러 데이터 복제본을 계속 유지합니다.
+[GRS(지역 중복 저장소)](storage-redundancy-grs.md) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy-grs.md#read-access-geo-redundant-storage)(권장)를 선택한 경우 Azure Storage가 두 지역(기본 및 보조)에 데이터를 지속적으로 유지합니다. Azure Storage는 두 지역에 여러 데이터 복제본을 계속 유지합니다.
 
 지역 재해가 기본 지역에 영향을 미칠 경우 먼저 해당 지역에서 서비스 복원을 시도합니다. 재해 및 그 영향에 따라 드물지만 기본 지역을 복원하지 못할 수 있습니다. 이때 지역 장애 조치(failover)를 수행합니다. 지역 간 데이터 복제는 지연될 수 있는 비동기 프로세스이므로 보조 지역으로 미처 복제되지 않은 변경 내용은 손실될 수 있습니다. 복제 상태에 대한 세부 내용을 가져오기 위해 [사용자 저장소 계정의 “마지막 동기화 시간”](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)을 쿼리할 수 있습니다.
 

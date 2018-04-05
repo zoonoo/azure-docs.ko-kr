@@ -1,13 +1,13 @@
 ---
-title: "Azure ExpressRoute 회로에 라우팅을 구성하는 방법: CLI | Microsoft Docs"
-description: "이 문서는 ExpressRoute 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 데 도움이 됩니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다."
+title: 'Azure ExpressRoute 회로에 라우팅을 구성하는 방법: CLI | Microsoft Docs'
+description: 이 문서는 ExpressRoute 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 데 도움이 됩니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b54f7768e64e1689e5b25b94905beea6bd5471df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f4ad959de1425e828ce11fb658f8b5304e9d8775
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로의 라우팅 만들기 및 수정
 
 이 문서는 CLI를 사용하여 Resource Manager 배포 모델에서 ExpressRoute 회로에 라우팅 구성을 만들고 관리하는 데 도움이 됩니다. ExpressRoute 회로에 대한 피어링의 상태를 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행할 수도 있습니다. 회로를 사용하는 다른 메서드를 사용하려는 경우 다음 목록에서 문서를 선택합니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [비디오 - 개인 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -55,8 +55,6 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft 피어링을 만들려면
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Azure CLI 최신 버전 설치 최신 버전의 Azure CLI(명령줄 인터페이스)를 사용합니다. *구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "Web Apps용 Azure Mobile Engagement 시작 | Microsoft Docs"
-description: "Web Apps에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
+title: Web Apps용 Azure Mobile Engagement 시작 | Microsoft Docs
+description: Web Apps에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb7a0e61b6d29c292642fd950aed7617de9b340d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Web Apps용 Azure Mobile Engagement 시작
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 웹앱 사용량을 파악하는 방법을 보여 줍니다.
@@ -109,7 +113,7 @@ Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual St
 3. 오류
    
         engagement.agent.sendError(name, extras);
-4. 작업
+4. 교육
    
         engagement.agent.startJob(name);
         engagement.agent.endJob(name);

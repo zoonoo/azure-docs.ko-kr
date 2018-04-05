@@ -1,11 +1,11 @@
 ---
-title: "Windows Phone Silverlight Engagement SDK 통합"
-description: "Windows Phone Silverlight 앱에서 Azure Mobile Engagement를 통합하는 방법"
+title: Windows Phone Silverlight Engagement SDK 통합
+description: Windows Phone Silverlight 앱에서 Azure Mobile Engagement를 통합하는 방법
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: f041f19ceff366a34b1761bfdca12242f4bdf9b8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Windows Phone Silverlight Engagement SDK 통합
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows 범용](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -79,7 +83,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 `App.xaml.cs`파일을 수정합니다.
 
-* `using` 구문에 다음 줄을 추가합니다.
+* `using` 구문에 추가:
   
       using Microsoft.Azure.Engagement;
 * `EngagementAgent.Instance.Init`을(를) `Application_Launching` 메서드에 삽입합니다.

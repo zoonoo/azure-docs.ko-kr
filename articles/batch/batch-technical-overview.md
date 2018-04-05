@@ -1,12 +1,12 @@
 ---
-title: "Azure Batch로 클라우드에서 대규모 병렬 작업 실행 | Microsoft Docs"
-description: "대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비스를 사용하는 방법에 대해 알아봅니다."
+title: Azure Batch로 클라우드에서 대규모 병렬 작업 실행 | Microsoft Docs
+description: 대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비스를 사용하는 방법에 대해 알아봅니다.
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
-manager: jkabat
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 

@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio로 사설 Azure 클라우드에 액세스 | Microsoft Docs"
-description: "Visual Studio를 사용하여 사설 클라우드 리소스에 액세스하는 방법에 대해 알아봅니다."
+title: Visual Studio로 사설 Azure 클라우드에 액세스 | Microsoft Docs
+description: Visual Studio를 사용하여 사설 클라우드 리소스에 액세스하는 방법에 대해 알아봅니다.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 9d733c8d-703b-44e7-a210-bb75874c45c8
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/13/2017
-ms.author: kraigb
-ms.openlocfilehash: 54acfc7c686dc7025368c381d79cde93d7d48fc5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 09f74e1e43d63fbd1a8fd4ddea7b23f8dc9370db
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>Visual Studio로 사설 Azure 클라우드에 액세스
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Windows Phone Silverlight SDK 릴리스 정보 | Microsoft Docs"
-description: "Azure Mobile Engagement - Windows Phone Silverlight SDK 릴리스 정보"
+title: Azure Mobile Engagement Windows Phone Silverlight SDK 릴리스 정보 | Microsoft Docs
+description: Azure Mobile Engagement - Windows Phone Silverlight SDK 릴리스 정보
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b87045c-79c2-46da-a147-c075bf276b89
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ef242cd4b1924092714325ce744f37af42c101b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Windows Phone Silverlight SDK 릴리스 정보
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 ##<a name="331-11032016"></a>3.3.1 (11/03/2016)
 *MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.4.1**의 일부
 

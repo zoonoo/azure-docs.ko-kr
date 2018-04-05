@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine으로 무엇을 할 수 있나요?
-데이터 과학 Virtual Machine의 목표는 기술 수준 및 역할에 상관없이 모든 데이터 전문가에게 효율적이고 이상적인 데이터 과학 환경을 제공하는 것입니다. 이 VM은 유사한 환경을 직접 운영할 경우 들어가는 시간을 상당히 줄여 줍니다. 대신에 새로 작성된 VM 인스턴스에서 데이터 과학 프로젝트를 바로 시작할 수 있습니다. 
+DSVM(데이터 과학 가상 머신)의 목표는 기술 수준 및 모든 역할에 상관없이 모든 데이터 전문가에게 효율적이고 사전 구성된 완전 통합형 데이터 과학 환경을 제공하는 것입니다. 필적할 만한 작업 영역을 직접 롤아웃하는 대신 DSVM을 프로비전하면 설치, 구성 및 패키지 관리 프로세스에 소요되는 _시간_을 절약할 수 있습니다. DSVM이 할당된 후 데이터 과학 프로젝트에 대한 작업을 즉시 시작할 수 있습니다.
 
 데이터 과학 VM은 광범위한 사용 시나리오에서 작동하도록 설계 및 구성되었습니다. 프로젝트의 요구가 변함에 따라 환경을 확장하거나 축소할 수 있습니다. 원하는 언어를 사용하여 데이터 과학 작업을 프로그래밍할 수 있습니다. 요구에 딱 맞도록 다른 도구를 설치하고 시스템을 사용자 지정할 수 있습니다.
 

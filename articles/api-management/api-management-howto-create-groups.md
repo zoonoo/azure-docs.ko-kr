@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management에서 그룹을 사용하여 개발자 계정 관리 | Microsoft Docs"
-description: "Azure API Management에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다."
+title: Azure API Management에서 그룹을 사용하여 개발자 계정 관리 | Microsoft Docs
+description: Azure API Management에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f4e1f8a701b5584138b92526e0e65e28d45e7c04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 184c8fff35a59715407989589d6d69b3dc2481e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 API Management에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품이 먼저 그룹에 표시된 다음, 이러한 그룹의 개발자가 그룹과 연결된 제품을 보고 구독할 수 있습니다. 
@@ -32,7 +32,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 이 가이드에서는 API Management 인스턴스의 관리자가 새 그룹을 추가하고 이 그룹과 새 제품 및 개발자를 연결하는 방법을 보여 줍니다.
 
-게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
+게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -94,7 +94,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 ## <a name="next-steps"> </a>다음 단계
 
 * 그룹에 개발자를 추가하면 개발자가 해당 그룹과 연결된 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API Management에서 제품을 만들고 게시하는 방법][How create and publish a product in Azure API Management]을 참조하세요.
-* 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
+* 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

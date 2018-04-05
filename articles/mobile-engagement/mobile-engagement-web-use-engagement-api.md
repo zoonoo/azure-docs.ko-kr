@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 웹 SDK API | Microsoft Docs"
-description: "Azure Mobile Engagement용 웹 SDK의 최신 업데이트 및 절차"
+title: Azure Mobile Engagement 웹 SDK API | Microsoft Docs
+description: Azure Mobile Engagement용 웹 SDK의 최신 업데이트 및 절차
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8a87d5ac-d8b7-4a0d-bdee-414dbcc561b2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2ae75b384b60d0383c1682a00a4fc0d19d0f43
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>웹 응용 프로그램에서 Azure Mobile Engagement API 사용
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서는 [웹 응용 프로그램에서 Mobile Engagement를 통합](mobile-engagement-web-integrate-engagement.md)하는 방법을 안내하는 문서를 보완하는 추가 문서로, Azure Mobile Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Mobile Engagement API는 `engagement.agent` 개체를 통해 제공됩니다. 기본 Azure Mobile Engagement 웹 SDK 별칭은 `engagement`입니다. SDK 구성에서 이 별칭을 재정의할 수 있습니다.

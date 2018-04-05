@@ -1,11 +1,11 @@
 ---
-title: "Mobile Engagement 개요 | Microsoft Docs"
-description: "Azure Mobile Engagement 개요"
+title: Mobile Engagement 개요 | Microsoft Docs
+description: Azure Mobile Engagement 개요
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8eab55d9-c8cc-4928-8d01-78e429eece42
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
-ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 047c3242e3801cfbf8113d80eef2af8ea3631ea3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-overview"></a>Azure Mobile Engagement 개요
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 Azure Mobile Engagement는 데이터 기반 통찰력을 앱 사용, 실시간 사용자 분석에 제공하고 컨텍스트 인식 푸시 알림 및 앱 내 메시징을 가능하게 하는 SaaS(Software-as-a-Service) 사용자 참여 플랫폼입니다.
 
 ### <a name="overview-video"></a>개요 동영상

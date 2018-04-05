@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 문제 해결 가이드"
-description: "Azure Mobile Engagement용 문제 해결 가이드"
+title: Azure Mobile Engagement 문제 해결 가이드
+description: Azure Mobile Engagement용 문제 해결 가이드
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1242b2b796821856561a82d4a585b26693aadadd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - 문제 해결 가이드
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 ## <a name="introduction"></a>소개
 다음 문제 해결 가이드는 일반적으로 나타나는 문제의 근본 원인을 이해하는데 도움이 되고 스스로 문제를 해결할 수 있도록 합니다. 
 

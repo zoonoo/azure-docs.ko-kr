@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights의 원격 분석 샘플링 | Microsoft Docs"
-description: "제어에서 원격 분석의 양을 유지하는 방법입니다."
+title: Azure Application Insights의 원격 분석 샘플링 | Microsoft Docs
+description: 제어에서 원격 분석의 양을 유지하는 방법입니다.
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1f6c58b219a5fb040048d0075644102f5f0c5323
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -28,18 +28,18 @@ ms.lasthandoff: 01/24/2018
 샘플링은 트래픽 및 데이터 비용을 줄여주며 제한을 피하는 데 도움이 됩니다.
 
 ## <a name="in-brief"></a>개요:
-* 샘플링은 *n*개의 레코드에서 1을 유지하고 나머지는 버립니다. 예를 들어 20%의 샘플링 속도로 5개의 이벤트 1을 유지할 수 있습니다. 
+* 샘플링은 *n* 레코드에 1을 유지하면서 나머지는 무시합니다. 예를 들어 20%의 샘플링 속도로 5개의 이벤트 1을 유지할 수 있습니다. 
 * 응용 프로그램이 다양한 원격 분석을 보내는 경우 샘플링은 ASP.NET 웹 서버 앱에서 자동으로 발생합니다.
-* 샘플링을 가격 책정 페이지의 포털 또는 .config 파일의 ASP.NET SDK에서 수동으로 설정하여 네트워크 트래픽을 줄일 수도 있습니다.
+* 샘플링을 포털의 가격 책정 페이지나 ASP.NET SDK의 .config 파일 또는 Java SDK의 ApplicationInsights.xml 파일에서 수동으로 설정하여 네트워크 트래픽을 줄일 수도 있습니다.
 * 사용자 지정 이벤트를 기록하고 일련의 이벤트가 유지되는지 아니면 함께 무시되는지 확인하려는 경우 동일한 OperationId 값을 갖는지 확인합니다.
-* *n* 샘플링 약수는 `itemCount` 속성의 각 레코드에서 보고되며, 검색에서 "요청 수" 또는 "이벤트 수" 이름으로 표시됩니다. 샘플링이 작업 중이지 않을 때 `itemCount==1`입니다.
+* 샘플링 약수 *n*은 `itemCount` 속성의 각 레코드에서 보고되며 이는 검색의 이름 "요청 개수" 또는 "이벤트 개수"에 나타납니다. 샘플링이 작업 중이지 않을 때 `itemCount==1`입니다.
 * 분석 쿼리를 작성하는 경우 [샘플링을 고려](app-insights-analytics-tour.md#counting-sampled-data)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 
 ## <a name="types-of-sampling"></a>샘플링 유형
 다음은 세 가지 대체 샘플링 방법입니다.
 
 * **적응 샘플링** 은 ASP.NET 앱의 SDK에서 전송되는 원격 분석의 양을 자동으로 조정합니다. SDK v 2.0.0-beta3부터는 기본 샘플링 방법입니다. 적응 샘플링은 현재 ASP.NET 서버 쪽 원격 분석에만 사용할 수 있습니다. 
-* **고정 비율 샘플링** 은 ASP.NET 서버와 사용자 브라우저에서 전송되는 원격 분석의 양을 줄입니다. 비율은 사용자가 설정합니다. 클라이언트와 서버는 샘플링을 동기화하므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
+* **고정 비율 샘플링** 은 ASP.NET 또는 Java 서버와 사용자 브라우저에서 전송되는 원격 분석의 양을 줄입니다. 비율은 사용자가 설정합니다. 클라이언트와 서버는 샘플링을 동기화하므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
 * **수집 샘플링**은 Azure Portal에서 작동합니다. 설정한 샘플링 주기에 따라 앱에서 보낸 원격 분석 중 일부를 삭제합니다. 앱에서 보낸 원격 분석 트래픽을 줄이지는 않지만 월별 할당량 내로 유지하는 데 도움이 됩니다. 수집 샘플링의 주요 이점은 앱을 다시 배포하지 않고 샘플링 주기를 설정할 수 있으며, 모든 서버와 클라이언트에 균일하게 작동한다는 것입니다. 
 
 적응 또는 고정 비율 샘플링이 작업 중인 경우 수집 샘플링은 비활성화됩니다.
@@ -194,14 +194,14 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 
 서버에서도 고정 비율 샘플링을 사용하도록 설정하는 경우 클라이언트와 서버가 동기화되므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
 
-## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>ASP.NET 웹 사이트에 대한 고정 비율 샘플링
+## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>ASP.NET 및 Java 웹 사이트에 대한 고정 비율 샘플링
 고정 비율 샘플링은 웹 서버와 웹 브라우저에서 전송되는 트래픽을 줄입니다. 적응 샘플링과 달리 사용자가 결정한 고정 비율로 원격 분석을 줄어듭니다. 또한 클라이언트와 서버 샘플링을 동기화하여 관련 항목이 유지되도록 합니다. 예를 들어 Search의 페이지 보기에서 관련 요청을 찾을 수 있습니다.
 
 샘플링 알고리즘에는 관련 항목이 유지됩니다. 각 HTTP 요청 이벤트에 대해 요청 및 관련 이벤트가 함께 삭제되거나 전송됩니다. 
 
 메트릭 탐색기에서 요청 및 예외 수와 같은 빈도는 거의 정확한 값이 되도록 계수가 곱해져 샘플링 주기에 맞게 보정됩니다.
 
-### <a name="configuring-fixed-rate-sampling"></a>고정 비율 샘플링 구성 ###
+### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>ASP.NET에서 고정 비율 샘플링 구성 ###
 
 1. **시험판** 버전의 Application Insights로 *프로젝트의 NuGet 패키지를 업데이트* 합니다. Visual Studio의 [솔루션 탐색기]에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, [NuGet 패키지 관리]를 선택하고, **시험판 포함**을 선택한 다음, Microsoft.ApplicationInsights.Web을 검색합니다. 
 2. **적응 샘플링을 사용하지 않도록 설정**: [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 `AdaptiveSamplingTelemetryProcessor` 노드를 제거하거나 주석으로 처리합니다.
@@ -218,7 +218,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 
     ```
 
-1. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 다음 코드 조각을 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에 추가합니다.
+3. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 다음 코드 조각을 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에 추가합니다.
    
     ```XML
    
@@ -232,6 +232,36 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
     </TelemetryProcessors>
    
     ```
+
+### <a name="configuring-fixed-rate-sampling-in-java"></a>JAVA에서 고정 비율 샘플링 구성 ###
+
+1. 최신 [Application Insights Java SDK](app-insights-java-get-started.md)를 사용하여 웹 응용 프로그램 다운로드 및 구성
+
+2. ApplicationInsights.xml 파일에 다음 코드 조각을 추가하여 **고정 비율 샘플링 모듈을 사용하도록 설정**합니다.
+
+```XML
+    <TelemetryProcessors>
+        <BuiltInProcessors>
+            <Processor type = "FixedRateSamplingTelemetryProcessor">
+                <!-- Set a percentage close to 100/N where N is an integer. -->
+                <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+                <Add name = "SamplingPercentage" value = "50" />
+            </Processor>
+        </BuilrInProcessors>
+    <TelemetryProcessors/>
+```
+
+3. 프로세서 태그 “FixedRateSamplingTelemetryProcessor” 내부에 다음 태그를 사용하여 샘플링에서 특정 유형의 원격 분석을 포함하거나 제외할 수 있습니다.
+```XML
+    <ExcludedTypes>
+        <ExcludedType>Request</ExcludedType>
+    </ExcludedTypes>
+
+    <IncludedTypes>
+        <IncludedType>Exception</IncludedType>
+    </IncludedTypes>
+```
+샘플링에서 포함하거나 제외할 수 있는 원격 분석 유형은 종속성, 이벤트, 예외, PageView, 요청 및 추적입니다.
 
 > [!NOTE]
 > 샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다.  현재 샘플링은 다른 값을 지원하지 않습니다.
@@ -264,6 +294,8 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ## <a name="when-to-use-sampling"></a>언제 샘플링을 사용합니까?
 ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이 자동으로 사용되도록 설정됩니다. 사용하는 SDK 버전에 관계 없이 수집 샘플링을 사용하면 Application Insights에서 수집된 데이터를 샘플링할 수 있습니다.
 
+기본적으로 Java SDK에서는 샘플링을 사용할 수 없습니다. 현재 고정 비율 샘플링만 지원합니다. 적응 샘플링은 Java SDK에서 지원되지 않습니다.
+
 일반적으로 중소 규모의 응용 프로그램 대부분에서는 샘플링이 필요하지 않습니다. 가장 유용한 진단 정보 및 가장 정확한 통계는 모든 사용자 활동에서 데이터를 수집하여 구합니다. 
 
 샘플링의 주요 장점은 다음과 같습니다.
@@ -276,12 +308,12 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 **다음과 같은 경우 수집 샘플링을 사용합니다.**
 
 * 원격 분석의 월간 할당량을 자주 초과하는 경우
-* 샘플링을 지원하지 않는 SDK 버전(예: Java SDK 또는 ASP.NET 버전 2 미만)을 사용하는 경우
+* 샘플링을 지원하지 않는 SDK 버전(예: ASP.NET 버전 2 이전)을 사용하는 경우
 * 사용자의 웹 브라우저에서 많은 원격 분석이 전송되는 경우
 
 **다음과 같은 경우 고정 비율 샘플링을 사용합니다.**
 
-* ASP.NET 웹 서비스용 Application Insights SDK 버전 2.0.0 이상을 사용하는 경우
+* ASP.NET 웹 서비스용 Application Insights SDK 버전 2.0.0 이상 또는 Java SDK v2.0.1 이상을 사용하는 경우
 * 사용자가 클라이언트 및 서버 간의 동기화된 샘플링을 원하는 경우 [검색](app-insights-diagnostic-search.md)에서 이벤트를 조사하고 있을 때 클라이언트 및 서버에서 페이지 보기 및 http 요청과 같은 관련 이벤트 사이를 탐색할 수 있습니다.
 * 사용자가 앱에 대한 적절한 샘플링 비율을 확신하는 경우입니다. 샘플링 비율은 정확한 메트릭을 가져오기 위해 충분히 높아야 하지만 가격 책정 할당량 및 조정 제한을 초과하는 비율보다 낮아야 합니다. 
 
@@ -299,7 +331,7 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 보존된 각 레코드에서 `itemCount` 은 나타내는 원래 레코드 수를 나타내며 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 
 ## <a name="how-does-sampling-work"></a>샘플링은 어떻게 작동되나요?
-고정 비율 및 적응 샘플링은 ASP.NET 버전 2.0.0 이상에서의 SDK 기능입니다. 수집 샘플링은 Application Insights 서비스의 기능이며 SDK가 샘플링을 수행하지 않는 경우 작동될 수 있습니다. 
+ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율 샘플링 기능입니다. 적응 샘플링은 ASP.NET 버전 2.0.0 이상에서 SDK의 기능입니다. 수집 샘플링은 Application Insights 서비스의 기능이며 SDK가 샘플링을 수행하지 않는 경우 작동될 수 있습니다. 
 
 샘플링 알고리즘은 어떤 원격 분석 항목을 삭제할 것인지 및 유지(SDK 또는 Application Insights 서비스에)할 것인지를 결정합니다. 샘플링 의사 결정은 상호 관련된 데이터 요소를 그대로 유지하려는 목표의 여러 규칙에 기반하며 이는 감소된 데이터 집합을 사용하더라도 실행할 수 있고 신뢰할 수 있는 Application Insights에서 진단 환경을 유지 관리합니다. 예를 들어 실패한 요청의 경우 앱이 추가 원격 분석 항목을 전송하면(예: 해당 요청에서 기록된 예외 및 추적) 샘플링은 해당 요청 및 기타 원격 분석을 분할하지 않습니다. 전체를 유지하거나 삭제합니다. 결과적으로 Application Insights에서 요청 세부 정보를 볼 때 항상 연결된 원격 분석 항목과 함께 요청을 확인할 수 있습니다. 
 
@@ -350,8 +382,9 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
 *샘플링을 어떤 플랫폼에서 사용할 수 있습니까?*
 
-* SDK가 샘플링을 수행하지 않는 경우 특정 볼륨을 초과하는 모든 원격 분석에 대해 자동으로 수집 샘플링이 발생할 수 있습니다. 예를 들어 앱이 Java 서버를 사용하거나 이전 버전의 ASP.NET SDK를 사용하는 경우 수집 샘플링이 작동합니다.
+* SDK가 샘플링을 수행하지 않는 경우 특정 볼륨을 초과하는 모든 원격 분석에 대해 자동으로 수집 샘플링이 발생할 수 있습니다. 예를 들어 이전 버전의 ASP.NET SDK 또는 이전 버전의 Java SDK(1.0.10 또는 이전 버전)를 사용하는 경우 수집 샘플링이 수행됩니다.
 * ASP.NET SDK 버전 2.0.0 이상을 사용(Azure 또는 자체 서버에 호스트됨)하는 경우 기본적으로 적응 샘플링이지만 위에서 설명한 것처럼 고정 비율 샘플링으로 전환할 수 있습니다. 고정 비율 샘플링을 사용하면 SDK 브라우저는 자동으로 관련 이벤트를 샘플링하도록 동기화합니다. 
+* Java SDK 버전 2.0.1 이상을 사용하는 경우, 고정 비율 샘플링을 켜도록 ApplicationInsights.xml을 구성할 수 있습니다. 샘플링은 기본적으로 꺼져 있습니다. 고정 비율 샘플링을 사용하면 SDK 브라우저는 자동으로 관련 이벤트를 샘플링하도록 동기화합니다.
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 

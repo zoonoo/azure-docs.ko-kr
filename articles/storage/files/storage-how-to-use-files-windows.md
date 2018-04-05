@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
@@ -86,7 +86,7 @@ User: AZURE\<yourstorageaccountname>
     
     !["네트워크 드라이브 연결" 드롭다운 메뉴의 스크린샷](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Azure Portal의 "연결" 창에서 UNC 경로 복사합니다**. 이 정보를 찾는 방법에 대한 자세한 설명은 [여기서](storage-how-to-use-files-portal.md#connect-to-file-share) 찾을 수 있습니다.
+3. **Azure Portal의 "연결" 창에서 UNC 경로를 복사합니다.** 
 
     ![Azure Files 연결 창의 UNC 경로](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 

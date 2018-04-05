@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 32661ad4d647f266273c4c94a5ba177a348c5431
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
->[!NOTE]
-> Load Balancer 표준 SKU는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다. 이 미리 보기와 함께 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 사용하려면 Load Balancer [표준 미리 보기](#preview-sign-up) 등록뿐 아니라 [별도의 등록](https://aka.ms/availabilityzones)이 필요합니다.
-
 Azure는 여러 메커니즘을 통해 고객 배포에 대한 아웃바운드 연결을 제공합니다. 이 문서에서는 시나리오, 적용 시기, 작동 방식 및 관리 방법을 설명합니다.
+
+>[!NOTE] 
+>이 문서에서는 리소스 관리자 배포에 대해서만 설명합니다. Azure의 모든 클래식 배포 시나리오는 [아웃 바운드 연결(클래식)](load-balancer-outbound-connections-classic.md)을 참조하세요.
 
 Azure에 배포되는 솔루션은 공용 IP 주소 공간에 있는 Azure 외부의 엔드포인트와 통신할 수 있습니다. 인스턴스가 공용 IP 주소 공간에서 대상에 대한 아웃바운드 흐름을 시작하면 Azure는 개인 IP 주소를 공용 IP 주소에 동적으로 매핑합니다. 이 매핑이 생성되면 이 아웃바운드에서 시작된 흐름에 대한 반환 트래픽도 흐름이 시작된 개인 IP 주소에 연결할 수 있습니다.
 
@@ -38,11 +38,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 ## <a name="scenarios"></a>시나리오 개요
 
-Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 주요 배포 모델이 있습니다. [Azure Resource Manager](#arm)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다. 클래식 배포는 [클라우드 서비스](#classic)의 엔드포인트 정의를 통해 부하 분산 장치 개념을 추상화하고 비슷한 함수를 표현합니다. 배포에 적용 가능한 [시나리오](#scenarios)는 사용하는 배포 모델에 따라 다릅니다.
-
-### <a name="arm"></a>Azure Resource Manager
-
-현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. [클래식](#classic) 배포에는 이러한 시나리오의 하위 집합이 포함되어 있습니다.
+[Azure Resource Manager](#arm)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
 | 시나리오 | 방법 | 설명 |
 | --- | --- | --- |
@@ -52,19 +48,11 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 주요 배�
 
 VM이 공용 IP 주소 공간에 있는 Azure 외부에서 끝점과 통신하지 않게 하려면 NSG(네트워크 보안 그룹)를 사용하여 필요에 따라 액세스를 차단할 수 있습니다. NSG 사용에 대한 자세한 내용은 [아웃바운드 연결 방지](#preventoutbound)에서 다룹니다. 아웃바운드 액세스 없이 가상 네트워크를 설계, 구현 및 관리하는 방법은 이 문서의 범위를 벗어납니다.
 
-### <a name="classic"></a>클래식(클라우드 서비스)
-
-클래식 배포에 사용할 수 있는 시나리오는 [Azure Resource Manager](#arm) 배포 및 Load Balancer 기본에 제공되는 시나리오의 하위 집합입니다.
-
-클래식 가상 머신은 Azure Resource Manager 리소스에서 설명했듯이 세 가지 동일한 기본 시나리오를 갖고 있습니다([1](#ilpip), [2](#lb), [3](#defaultsnat)). 클래식 웹 작업자 역할에는 두 가지 시나리오만 있습니다([2](#lb), [3](#defaultsnat)). [완화 전략](#snatexhaust)의 차이점도 똑같습니다.
-
-클래식 배포의 PAT에서 [삭제 포트 미리 할당](#ephemeralprots)에 사용되는 알고리즘은 Azure Resource Manager 리소스 배포와 동일합니다.  
-
 ### <a name="ilpip"></a>시나리오 1: 인스턴스 수준 공용 IP 주소가 있는 VM
 
 이 시나리오에서 VM에는 ILPIP(인스턴스 수준 공용 IP)가 할당되어 있습니다. 아웃바운드 연결에 있어서는 VM이 부하 분산되었는지 여부는 중요하지 않습니다. 이 시나리오는 다른 시나리오에 우선합니다. ILPIP가 사용되면 VM은 모든 아웃바운드 흐름에 ILPIP를 사용합니다.  
 
-포트 가장(PAT)은 사용되지 않으며 VM에는 사용 가능한 모든 삭제 포트가 있습니다.
+VM에 할당된 공용 IP는 1:다가 아니라 1:1 관계이며 상태 비저장 1:1 NAT로 구현됩니다.  포트 가장(PAT)은 사용되지 않으며 VM에는 사용 가능한 모든 삭제 포트가 있습니다.
 
 응용 프로그램이 아웃바운드 흐름을 시작하고 SNAT 포트 소모가 발생하는 경우 [ILPIP를 할당하여 SNAT 제약 조건을 완화](#assignilpip)하는 방안을 고려해야 합니다. [SNAT 고갈 관리](#snatexhaust)를 전체적으로 검토합니다.
 
@@ -74,7 +62,7 @@ VM이 공용 IP 주소 공간에 있는 Azure 외부에서 끝점과 통신하�
 
 이 규칙 구성을 완료하지 않으면 동작은 [인스턴스 수준 공용 IP가 없는 독립 실행형 VM](#defaultsnat)에 대한 시나리오에 설명된 대로 나타납니다. 백 엔드 풀 또는 상태 프로브에 작업 수신기가 있어야만 규칙이 성공하는 것은 아닙니다.
 
-부하 분산 VM이 아웃바운드 흐름을 만든 경우 Azure에서는 아웃바운드 흐름의 개인 원본 IP 주소를 공용 부하 분산 장치 프런트 엔드의 공용 IP 주소로 변환합니다. Azure는 SNAT을 사용하여 이 기능을 수행합니다. 또한 Azure는 [PAT](#pat)를 사용하여 공용 IP 주소 뒤에서 여러 개인 IP 주소를 가장합니다. 
+부하 분산 VM이 아웃바운드 흐름을 만든 경우 Azure에서는 아웃바운드 흐름의 개인 원본 IP 주소를 공용 부하 분산 장치 프론트 엔드의 공용 IP 주소로 변환합니다. Azure는 SNAT을 사용하여 이 기능을 수행합니다. 또한 Azure는 [PAT](#pat)를 사용하여 공용 IP 주소 뒤에서 여러 개인 IP 주소를 가장합니다. 
 
 Load Balancer의 공용 IP 주소 프런트 엔드에 있는 삭제 포트는 VM에서 발생하는 개별 흐름을 구별하는 데 사용됩니다. SNAT은 아웃바운드 흐름이 생성될 때 동적으로 [삭제 포트를 미리 할당](#preallocatedports)합니다. 이 컨텍스트에서 SNAT에 사용되는 임시 포트를 SNAT 포트라고 부릅니다.
 
@@ -97,15 +85,11 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 
 ### <a name="combinations"></a>여러 결합 시나리오
 
-이전 섹션에서 설명한 시나리오를 결합하여 특정 결과를 달성할 수 있습니다. 여러 시나리오가 있는 경우 우선 순위가 적용됩니다. [시나리오 1](#ilpip)은 [시나리오 2](#lb) 및 [3](#defaultsnat)보다 우선합니다(Azure Resource Manager만 해당). [시나리오 2](#lb)는 [시나리오 3](#defaultsnat)을 재정의합니다(Azure Resource Manager 및 클래식).
+이전 섹션에서 설명한 시나리오를 결합하여 특정 결과를 달성할 수 있습니다. 여러 시나리오가 있는 경우 우선 순위가 적용됩니다. [시나리오 1](#ilpip)이 [시나리오 2](#lb) 및 [3](#defaultsnat)보다 우선합니다. [시나리오 2](#lb)가 [시나리오 3](#defaultsnat)을 재정의합니다.
 
 응용 프로그램이 제한된 수의 대상에 대한 아웃바운드 연결에 크게 의존하지만 Load Balancer 프런트 엔드를 통해 인바운드 흐름을 수신하는 Azure Resource Manager 배포를 예로 들 수 있습니다. 이 경우 시나리오 1과 2를 결합하면 안심할 수 있습니다. 추가 패턴은 [SNAT 고갈 관리](#snatexhaust)를 검토하세요.
 
 ### <a name="multife"></a> 아웃바운드 흐름에 대한 여러 프런트 엔드
-
-#### <a name="load-balancer-basic"></a>Load Balancer 기본
-
-[여러(공개) IP 프런트 엔드](load-balancer-multivip-overview.md)가 아웃바운드 흐름의 후보인 경우 Load Balancer 기본은 아웃바운드 흐름에 단일 프런트 엔드를 사용하기로 선택합니다. 이 선택은 구성할 수 없으며 선택 알고리즘은 임의로 결정된다고 보면 됩니다. [여러 결합 시나리오](#combinations)에 설명된 대로 아웃바운드 흐름에 대한 특정 IP 주소를 지정할 수 있습니다.
 
 #### <a name="load-balancer-standard"></a>Load Balancer 표준
 
@@ -122,6 +106,10 @@ Load Balancer 표준은 [여러 (공개) IP 프런트 엔드](load-balancer-mult
 ```
 
 일반적으로 이 옵션의 기본값은 _false_이며 이 규칙 프로그램이 부하 분산 규칙의 백 엔드 풀에 연결된 VM에 대한 SNAT를 아웃바운드하는 것을 의미합니다.  Load Balancer를 이 부하 분산 규칙의 백 엔드 풀에서 VM에 대한 아웃바운드 연결에 연결된 프런트 엔드 IP 주소를 사용하지 않도록 하려면 이를 _true_로 변경할 수 있습니다.  또한 [여러 결합 시나리오](#combinations)에 설명된 대로 아웃바운드 흐름에 대한 특정 IP 주소를 지정할 수도 있습니다.
+
+#### <a name="load-balancer-basic"></a>Load Balancer 기본
+
+[여러(공개) IP 프런트 엔드](load-balancer-multivip-overview.md)가 아웃바운드 흐름의 후보인 경우 Load Balancer 기본은 아웃바운드 흐름에 단일 프런트 엔드를 사용하기로 선택합니다. 이 선택은 구성할 수 없으며 선택 알고리즘은 임의로 결정된다고 보면 됩니다. [여러 결합 시나리오](#combinations)에 설명된 대로 아웃바운드 흐름에 대한 특정 IP 주소를 지정할 수 있습니다.
 
 ### <a name="az"></a> 가용성 영역
 
@@ -147,7 +135,12 @@ SNAT 포트 리소스가 고갈되면 기존 흐름에서 SNAT 포트를 릴리�
 
 Azure는 포트 가장 SNAT([PAT](#pat))을 사용할 때 백 엔드 풀의 크기에 따라 사용 가능한 미리 할당 SNAT 포트 수를 결정하는 알고리즘을 사용합니다. SNAT 포트는 특정 공용 IP 원본 주소에 사용할 수 있는 삭제 포트입니다.
 
-Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀에 IP 구성이 추가되면 백 엔드 풀 크기에 따라 이 IP 구성에 대한 SNAT 포트가 미리 할당됩니다. 클래식 웹 작업자 역할의 경우 역할 인스턴스 별로 할당됩니다. 아웃바운드 흐름이 생성되면 [PAT](#pat)는 흐름이 닫히거나 [유휴 제한 시간](#ideltimeout)에 도달하는 경우 이러한 포트를 동적으로 소비(미리 할당된 제한까지)하거나 해제합니다.
+동일한 수의 SNAT 포트가 UDP 및 TCP에 대해 각각 미리 할당되고 IP 전송 프로토콜별로 독립적으로 사용됩니다. 
+
+>[!IMPORTANT]
+>표준 SKU SNAT 프로그래밍은 IP 전송 프로토콜별로 사용되며 부하 분산 규칙에서 파생됩니다.  TCP 부하 분산 규칙만 존재하는 경우, TCP에만 SNAT를 사용할 수 있습니다. TCP 부하 분산 규칙만 있고 UDP에 대한 아웃바운드 SNAT가 필요한 경우, 동일한 프런트 엔드 풀에서 동일한 백 엔드 풀로의 UDP 부하 분산 규칙을 만듭니다.  이렇게 하면 UDP에 대한 SNAT 프로그래밍이 트리거됩니다.  작업 규칙 또는 상태 프로브는 필요하지 않습니다.  기본 SKU SNAT는 부하 분산 규칙에 지정된 전송 프로토콜과 관계없이 항상 IP 전송 프로토콜 둘 다에 대해 SNAT를 프로그래밍합니다.
+
+Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀에 IP 구성이 추가되면 백 엔드 풀 크기에 따라 이 IP 구성에 대한 SNAT 포트가 미리 할당됩니다. 아웃바운드 흐름이 생성되면 [PAT](#pat)는 흐름이 닫히거나 [유휴 제한 시간](#ideltimeout)에 도달하는 경우 이러한 포트를 동적으로 소비(미리 할당된 제한까지)하거나 해제합니다.
 
 다음 표는 백 엔드 풀 크기 계층의 SNAT 포트 미리 할당을 보여줍니다.
 
@@ -168,6 +161,18 @@ Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀�
 백 엔드 풀의 크기를 변경하면 설정된 흐름에 영향을 줄 수 있습니다. 백 엔드 풀 크기가 증가하여 그 다음 계층으로 전환되면 그 다음으로 큰 백 앤드 풀 계층으로 전환되는 동안 미리 할당된 SNAT 포트의 절반이 회수됩니다. 회수된 SNAT 포트와 연결된 흐름은 시간이 초과되며 다시 설정해야 합니다. 미리 할당된 포트를 사용할 수 있는 한, 새 흐름이 즉시 성공합니다.
 
 백 엔드 풀 크기가 줄고 더 낮은 계층으로 전환되면 사용 가능한 SNAT 포트 수가 증가합니다. 이 경우 기존에 할당된 SNAT 포트와 각각의 흐름은 영향을 받지 않습니다.
+
+SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP가 별도로 유지 관리됨), 다음 조건에서 해제됩니다.
+
+### <a name="tcp-snat-port-release"></a>TCP SNAT 포트 해제
+
+- 서버/클라이언트가 둘 다 FIN/ACK를 보내는 경우 240초 후에 SNAT 포트가 해제됩니다.
+- RST가 표시되는 경우 15초 후에 SNAT 포트가 해제됩니다.
+- 유휴 시간 제한에 도달함
+
+### <a name="udp-snat-port-release"></a>UDP SNAT 포트 해제
+
+- 유휴 시간 제한에 도달함
 
 ## <a name="problemsolving"></a> 문제 해결 
 
@@ -208,9 +213,19 @@ ILPIP를 할당하면 시나리오가 [VM에 대한 인스턴스 수준 공용 I
 >[!NOTE]
 >대부분의 경우에서 SNAT 포트 소모는 잘못된 디자인의 징후입니다.  더 많은 프런트 엔드를 사용하기 전에 SNAT 포트를 추가하기 위해 포트를 소진하는 이유를 이해해야 합니다.  나중에 오류가 발생할 수 있는 문제를 감출 수 있습니다.
 
+#### <a name="scaleout"></a>규모 확장
+
+[미리 할당된 포트](#preallocatedports)는 백 엔드 풀 크기를 기준으로 할당되며, 그다음으로 큰 백 엔드 풀 크기 계층을 수용하기 위해 일부 포트를 다시 할당해야 하는 경우, 중단 시간을 최소화하기 위해 계층으로 그룹화됩니다.  지정된 계층의 최대 크기까지 백 엔드 풀을 확장하여 지정된 프런트 엔드에 대한 SNAT 포트 사용률 강도를 늘릴 수도 있습니다.  이 경우 응용 프로그램이 효율적으로 확장되어야 합니다.
+
+예를 들어 백 엔드 풀에 있는 2개의 가상 머신에서 IP 구성당 1024개의 SNAT 포트가 사용 가능하며 총 2048개의 SNAT 포트를 배포에 사용할 수 있습니다.  배포를 50개 가상 머신으로 늘리는 경우, 가상 머신당 미리 할당된 포트 수가 일정한 경우에도 총 51,200(50x1024)개의 SNAT 포트를 사용할 수 있습니다.  배포를 확장하려는 경우, 계층당 [미리 할당된 포트](#preallocatedports) 수를 확인하여 해당 계층의 최댓값까지 확장되도록 합니다.  앞의 예제에서 50개가 아닌 51개의 인스턴스로 확장하도록 선택한 경우, 다음 계층으로 진행하며 합계뿐 아니라 VM당 SNAT 포트 수도 줄어듭니다.
+
+반대로, 할당된 포트를 다시 할당해야 하는 경우 잠재적으로 아웃바운드 연결인 그다음으로 큰 백 엔드 풀 크기 계층으로 확장합니다.  이러한 경우를 방지하려면 배포를 계층 크기에 맞게 조정해야 합니다.  또는 응용 프로그램이 필요에 따라 검색하고 다시 시도할 수 있게 합니다.  TCP Keepalive는 다시 할당되어 SNAT 포트가 더 이상 작동하지 않는 경우의 검색을 지원할 수 있습니다.
+
 ### <a name="idletimeout"></a>keepalive를 사용하여 아웃바운드 유휴 시간 제한 다시 설정
 
-아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 조정할 수 없습니다. 그러나 필요한 경우 전송(예: TCP keepalive) 또는 응용 프로그램 레이어 keepalive를 사용하여 유휴 흐름을 새로 고치고 이 유휴 시간 제한을 다시 설정할 수 있습니다.
+아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 조정할 수 없습니다. 그러나 필요한 경우 전송(예: TCP keepalive) 또는 응용 프로그램 레이어 keepalive를 사용하여 유휴 흐름을 새로 고치고 이 유휴 시간 제한을 다시 설정할 수 있습니다.  
+
+TCP Keepalive를 사용하는 경우 연결의 한 쪽에서 사용하도록 설정하는 것으로 충분합니다. 예를 들어 서버 쪽에서만 사용하도록 설정해도 흐름의 유휴 타이머가 다시 설정되며 양쪽에서 TCP Keepalive를 시작하지 않아도 됩니다.  데이터베이스 클라이언트 서버 구성을 포함하여 응용 프로그램 계층에 대한 유사한 개념이 있습니다.  서버 쪽에서 사용 가능한 응용 프로그램 관련 Keepalive 옵션을 확인합니다.
 
 ## <a name="discoveroutbound"></a>VM에서 사용하는 공용 IP 검색
 여러 가지 방법으로 아웃바운드 연결의 공용 원본 IP 주소를 확인할 수 있습니다. OpenDNS는 VM의 공용 IP 주소를 표시할 수 있는 서비스를 제공합니다. 
@@ -231,6 +246,7 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Load Balancer 기본](load-balancer-overview.md)에 대해 자세히 알아보세요.
+- [Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보세요.
+- [Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
 - [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대해 자세히 알아보세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.

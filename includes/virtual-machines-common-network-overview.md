@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14aa0002ff88678bb54a3abed8bf7eeed3b717f4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 Azure VM(가상 머신)을 만들 때 [VNet(가상 네트워크)](../articles/virtual-network/virtual-networks-overview.md)을 만들거나 기존 VNet을 사용해야 합니다. 또한 VNet에서 VM을 액세스하는 방법도 결정해야 합니다. [리소스를 만들기 전에 계획을 수립](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)하고 [네트워킹 리소스의 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 이해해야 합니다.
 
@@ -110,8 +110,8 @@ VM 및 VNet을 계획할 때는 NSG를 [계획](../articles/virtual-network/virt
 | 방법 | 설명 |
 | ------ | ----------- |
 | [Azure Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Azure Portal에서 VM을 만들 때 NSG가 자동으로 만들어지고 포털에서 만든 NIC에 연결됩니다. NSG 이름은 VM 이름과 **-nsg**의 조합입니다. 이 NSG에는 1000으로 설정된 우선 순위, RDP로 설정된 서비스, TCP로 설정된 프로토콜, 3389로 설정된 포트 및 Allow로 설정된 작업이 포함된 인바운드 규칙이 있습니다. VM에 대해 다른 인바운드 트래픽을 허용하려면 해당 NSG에 추가 규칙을 추가해야 합니다. |
-| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md) | [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig)를 사용하고 필요한 규칙 정보를 제공합니다. [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup)을 사용하여 NSG를 만듭니다. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig)를 사용하여 NSG를 서브넷에 구성합니다. [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)를 사용하여 NSG를 VNet에 추가합니다. |
-| [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create)를 사용하여 NSG를 처음으로 만듭니다. [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create)를 사용하여 규칙을 NSG에 추가합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update)를 사용하여 NSG를 서브넷에 추가합니다. |
+| [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig)를 사용하고 필요한 규칙 정보를 제공합니다. [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup)을 사용하여 NSG를 만듭니다. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig)를 사용하여 NSG를 서브넷에 구성합니다. [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)를 사용하여 NSG를 VNet에 추가합니다. |
+| [Azure CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create)를 사용하여 NSG를 처음으로 만듭니다. [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create)를 사용하여 규칙을 NSG에 추가합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update)를 사용하여 NSG를 서브넷에 추가합니다. |
 | [템플릿](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | 템플릿을 사용하여 네트워크 보안 그룹을 배포하기 위한 지침으로 [네트워크 보안 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create)를 사용합니다. |
 
 ## <a name="load-balancers"></a>부하 분산 장치

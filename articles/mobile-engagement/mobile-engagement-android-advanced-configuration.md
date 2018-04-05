@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Android SDK용 고급 구성"
-description: "Azure Mobile Engagement Android SDK를 사용하는 Android 매니페스트를 포함하여 고급 구성 옵션에 대해 설명합니다"
+title: Azure Mobile Engagement Android SDK용 고급 구성
+description: Azure Mobile Engagement Android SDK를 사용하는 Android 매니페스트를 포함하여 고급 구성 옵션에 대해 설명합니다
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 29a7bb7daae59e2034504ce27c9ba66755b11e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Azure Mobile Engagement Android SDK용 고급 구성
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 > [!div class="op_single_selector"]
 > * [유니버설 Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -44,9 +48,9 @@ ms.lasthandoff: 12/21/2017
 
 | 사용 권한 | 사용할 경우 |
 | --- | --- |
-| 인터넷 |필수입니다. 기본 보고용 |
-| ACCESS_NETWORK_STATE |필수입니다. 기본 보고용 |
-| RECEIVE_BOOT_COMPLETED |필수입니다. 장치 재부팅 후 알림 센터를 표시합니다. |
+| 인터넷 |필수 사항입니다. 기본 보고용 |
+| ACCESS_NETWORK_STATE |필수 사항입니다. 기본 보고용 |
+| RECEIVE_BOOT_COMPLETED |필수 사항입니다. 장치 재부팅 후 알림 센터를 표시합니다. |
 | WAKE_LOCK |권장됩니다. WiFi를 사용하거나 화면이 꺼져 있을 때 데이터를 수집합니다. |
 | VIBRATE |선택 사항입니다. 알림이 수신될 때 진동을 울립니다. |
 | DOWNLOAD_WITHOUT_NOTIFICATION |선택 사항입니다. Android 큰 그림 알림을 사용합니다. |

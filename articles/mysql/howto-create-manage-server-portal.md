@@ -1,19 +1,19 @@
 ---
-title: "Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기 및 관리"
-description: "이 문서에서는 Azure Portal을 사용하여 신속하게 새로운 MySQL용 Azure Database 서버를 만들고 해당 서버를 관리하는 방법을 설명합니다."
+title: Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기 및 관리
+description: 이 문서에서는 Azure Portal을 사용하여 신속하게 새로운 MySQL용 Azure Database 서버를 만들고 해당 서버를 관리하는 방법을 설명합니다.
 services: mysql
 author: ajlam
-ms.author: nolanwu
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0e274c0ada3de5e9000ae41516e5b9b67ef1490b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기 및 관리
 이 항목에서는 새로운 MySQL용 Azure Database 서버를 빠르게 만들 수 있는 방법을 설명합니다. 또한 Azure Portal을 사용하여 서버를 관리하는 방법에 대한 정보를 포함합니다. 서버 관리에는 서버 세부 정보 및 데이터베이스를 보고, 암호를 다시 설정하고, 리소스 크기를 조정하고, 서버를 삭제하는 것이 포함됩니다.

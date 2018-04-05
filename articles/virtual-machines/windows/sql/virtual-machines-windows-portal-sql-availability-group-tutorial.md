@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 가용성 그룹 - Azure Virtual Machines - 자습서 | Microsoft Docs"
-description: "이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다."
+title: SQL Server 가용성 그룹 - Azure Virtual Machines - 자습서 | Microsoft Docs
+description: 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
@@ -356,7 +356,7 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
    | **가상 네트워크** |Azure Virtual Network의 이름을 사용합니다. |
    | **서브넷** |가상 컴퓨터가 있는 서브넷 이름을 사용합니다.  |
    | **IP 주소 할당** |공용 |
-   | **IP 주소** |서브넷에서 사용 가능한 주소를 사용합니다. |
+   | **IP 주소** |서브넷에서 사용 가능한 주소를 사용합니다. 이것은 클러스터 IP 주소와 다릅니다. |
    | **구독** |가상 머신과 동일한 구독을 사용합니다. |
    | **위치**: |가상 컴퓨터와 동일한 위치를 사용합니다. |
 

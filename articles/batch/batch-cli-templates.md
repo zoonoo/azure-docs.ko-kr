@@ -1,21 +1,21 @@
 ---
-title: "코드를 작성하지 않고 종단 간 Azure Batch 작업 실행(미리 보기) | Microsoft Docs"
-description: "Azure CLI에 템플릿 파일을 만들어서 Batch 풀, 작업 및 태스크를 만듭니다."
+title: 코드를 작성하지 않고 종단 간 Azure Batch 작업 실행(미리 보기) | Microsoft Docs
+description: Azure CLI에 템플릿 파일을 만들어서 Batch 풀, 작업 및 태스크를 만듭니다.
 services: batch
 author: mscurrell
-manager: timlt
-ms.assetid: 
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: c991a1535b82a76a3d0b9bdbf4ede8f3e22bc866
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)
 

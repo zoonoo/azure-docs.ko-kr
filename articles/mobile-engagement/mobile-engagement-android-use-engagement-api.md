@@ -1,11 +1,11 @@
 ---
-title: "Android에서 Engagement API를 사용하는 방법"
-description: "최신 Android SDK - Android에서 Engagement API를 사용하는 방법"
+title: Android에서 Engagement API를 사용하는 방법
+description: 최신 Android SDK - Android에서 Engagement API를 사용하는 방법
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79d0652be227dd6703a35d31409cf8e0d9c59519
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Android에서 Engagement API를 사용하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서는 [Android Mobile Engagement SDK에 대한 고급 보고 옵션](mobile-engagement-android-advanced-reporting.md)문서의 추가 자료입니다. Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램의 세션, 활동, 충돌 및 기술 정보만 보고하길 원하는 경우 가장 간단한 방법은 모든 `Activity` 하위 클래스가 해당 `EngagementActivity` 클래스에서 상속하도록 설정하는 것입니다.
@@ -91,7 +95,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 ### <a name="standalone-events"></a>독립 실행형 이벤트
 세션 이벤트와 반대로 독립 실행형 이벤트는 세션의 컨텍스트 외부에서 발생할 수 있습니다.
 
-**예:**
+**예제:**
 
 브로드캐스트 수신기가 트리거될 때 발생하는 이벤트를 보고하려고 한다고 가정합니다.
 
@@ -161,7 +165,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 ### <a name="report-errors-during-a-job"></a>작업 중 오류 보고
 오류는 현재 사용자 세션이 아닌 실행 중인 작업에 관련될 수 있습니다.
 
-**예:**
+**예제:**
 
 프로세스에 로그인하는 동안 오류를 보고하려고 한다고 가정합니다.
 
@@ -195,7 +199,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 ### <a name="reporting-events-during-a-job"></a>작업 중 이벤트 보고
 이벤트는 현재 사용자 세션이 아닌 실행 중인 작업에 관련될 수 있습니다.
 
-**예:**
+**예제:**
 
 소셜 네트워크가 있으며 작업을 사용하여 사용자가 서버에 연결되어 있는 총 시간을 보고한다고 가정해 보겠습니다. 사용자가 다른 응용 프로그램을 사용하거나 휴대폰이 절전 모드에 있는 경우에도 사용자가 백그라운드에서 연결을 유지할 수 있으므로, 세션이 존재하지 않습니다.
 
@@ -231,7 +235,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 > 
 > 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
             Bundle extras = new Bundle();
             extras.putString("video_id", 123);
             extras.putString("ref_click", "http://foobar.com/blog");
@@ -259,7 +263,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 이벤트 추가 매개 변수와 마찬가지로, 번들 클래스는 응용 프로그램 정보를 추상화는 데 사용됩니다. 배열 또는 하위 번들은 단순 문자열로 처리됩니다(JSON 직렬화를 사용하여).
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 사용자 성별 및 생년월일을 보내는 코드 샘플은 다음과 같습니다.
 
             Bundle appInfo = new Bundle();

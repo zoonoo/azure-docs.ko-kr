@@ -1,26 +1,26 @@
 ---
-title: "Azure Portal에서 첫 번째 함수 만들기 | Microsoft Docs"
-description: "Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다."
+title: Azure Portal에서 첫 번째 함수 만들기 | Microsoft Docs
+description: Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/21/2018
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: 86cc435a7d632f1cc1b9a0e4a2e6508059d4d675
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -39,8 +39,6 @@ Azure 계정을 사용하여 <http://portal.azure.com>에서 Azure Portal에 로
 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 다음으로 새 함수 앱에서 함수를 만듭니다.
 

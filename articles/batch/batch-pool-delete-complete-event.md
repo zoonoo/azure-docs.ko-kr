@@ -1,22 +1,22 @@
 ---
-title: "Azure Batch 풀 삭제 완료 이벤트 | Microsoft Docs"
-description: "Batch 풀 삭제 완료 이벤트에 대한 참조입니다."
+title: Azure Batch 풀 삭제 완료 이벤트 | Microsoft Docs
+description: Batch 풀 삭제 완료 이벤트에 대한 참조입니다.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: 890f2ba7fda37060c56177868d6214d517d91831
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bfcbcf40efc64ab1c79ee1a86e02502c68ad6d47
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="pool-delete-complete-event"></a>풀 삭제 완료 이벤트
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-|요소|형식|참고 사항|
+|요소|형식|메모|
 |-------------|----------|-----------|
-|id|String|풀의 ID입니다.|
-|startTime|DateTime|풀 삭제가 시작된 시간입니다.|
+|id|문자열|풀의 ID입니다.|
+|startTime|Datetime|풀 삭제가 시작된 시간입니다.|
 |endTime|DateTime|풀 삭제가 완료된 시간입니다.|
 
 ## <a name="remarks"></a>설명

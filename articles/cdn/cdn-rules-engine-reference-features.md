@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 규칙 엔진 기능 | Microsoft Docs"
-description: "Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서"
+title: Azure CDN 규칙 엔진 기능 | Microsoft Docs
+description: Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 규칙 엔진 기능
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
@@ -46,28 +46,28 @@ Name | 목적
 Name | 목적
 -----|--------
 [대역폭 매개 변수](#bandwidth-parameters) | 대역폭 제한 매개 변수(예: ec_rate 및 ec_prebuf)를 활성화할지 여부를 결정합니다.
-[대역폭 제한](#bandwidth-throttling) | 에지 서버에서 제공하는 응답에 대한 대역폭을 제한합니다.
+[대역폭 제한](#bandwidth-throttling) | POP(상호 접속 위치)에서 제공하는 응답에 대한 대역폭을 제한합니다.
 [바이패스 캐시](#bypass-cache) | 요청이 캐싱을 무시할지 여부를 결정합니다.
-[Cache-Control 헤더 처리](#cache-control-header-treatment) | 외부 Max-Age 기능이 활성 상태일 때 에지 서버에 의한 `Cache-Control` 헤더의 생성을 제어합니다.
+[Cache-Control 헤더 처리](#cache-control-header-treatment) | 외부 Max-Age 기능이 활성 상태일 때 POP에 의한 `Cache-Control` 헤더의 생성을 제어합니다.
 [Cache-Key 쿼리 문자열](#cache-key-query-string) | cache-key에서 요청과 관련된 쿼리 문자열 매개 변수를 포함할지 또는 제외할지 여부를 결정합니다.
 [Cache-Key 다시 쓰기](#cache-key-rewrite) | 요청과 관련된 cache-key를 다시 씁니다.
-[전체 캐시 채우기](#complete-cache-fill) | 요청 결과, 에지 서버에서 캐시가 부분적으로 누락된 경우 수행할 작업을 결정합니다.
+[전체 캐시 채우기](#complete-cache-fill) | 요청 결과, POP에서 캐시가 부분적으로 누락된 경우 수행할 작업을 결정합니다.
 [압축 파일 형식](#compress-file-types) | 서버에서 압축할 파일 형식을 정의합니다.
-[기본 내부 Max-Age](#default-internal-max-age) | 에지 서버에서 원본 서버 캐시 유효성 재검사를 위한 기본 max-age 간격을 결정합니다.
-[Expires 헤더 처리](#expires-header-treatment) | 외부 Max-Age 기능이 활성 상태일 때 에지 서버에 의한 `Expires` 헤더의 생성을 제어합니다.
-[외부 Max-Age](#external-max-age) | 브라우저에서 에지 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다.
-[강제 내부 Max-Age](#force-internal-max-age) | 에지 서버에서 원본 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다.
+[기본 내부 Max-Age](#default-internal-max-age) | POP에서 원본 서버 캐시 유효성 재검사를 위한 기본 max-age 간격을 결정합니다.
+[Expires 헤더 처리](#expires-header-treatment) | 외부 Max-Age 기능이 활성 상태일 때 POP에 의한 `Expires` 헤더의 생성을 제어합니다.
+[외부 Max-Age](#external-max-age) | 브라우저에서 POP 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다.
+[강제 내부 Max-Age](#force-internal-max-age) | POP에서 원본 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다.
 [H.264 지원(HTTP 점진적 다운로드)](#h264-support-http-progressive-download) | 콘텐츠를 스트리밍하는 데 사용할 수 있는 H.264 파일 형식의 유형을 결정합니다.
 [no-cache 요청 부여](#honor-no-cache-request) | HTTP 클라이언트의 no-cache 요청을 원본 서버에 전달할지 여부를 결정합니다.
 [원본 no-cache 무시](#ignore-origin-no-cache) | CDN이 원본 서버에서 제공되는 특정 지시문을 무시할지 여부를 결정합니다.
 [적절하지 않은 범위 무시](#ignore-unsatisfiable-ranges) | 요청에서 416 요청한 범위가 적절하지 않음 상태 코드를 생성하는 경우 클라이언트로 반환할 응답을 결정합니다.
-[내부 Max-Stale](#internal-max-stale) | 에지 서버가 원본 서버로 캐시된 자산의 유효성 재검사를 할 수 없는 경우 에지 서버에서 캐시된 자산이 정상 만료 시간을 지나 얼마나 오래 제공될 수 있는지를 제어합니다.
+[내부 Max-Stale](#internal-max-stale) | POP가 원본 서버로 캐시된 자산의 유효성 재검사를 할 수 없는 경우 POP에서 캐시된 자산이 정상 만료 시간을 지나 얼마나 오래 제공될 수 있는지를 제어합니다.
 [부분 캐시 공유](#partial-cache-sharing) | 요청에서 부분적으로 캐시된 콘텐츠를 생성할 수 있는지 여부를 결정합니다.
 [캐시된 콘텐츠 사전 유효성 검사](#prevalidate-cached-content) | TTL이 만료되기 전에 캐시된 콘텐츠 유효성 재검사를 미리 수행할 수 있는지 여부를 결정합니다.
-[0바이트 캐시 파일 새로 고침](#refresh-zero-byte-cache-files) | 0바이트 캐시 자산에 대한 HTTP 클라이언트 요청이 에지 서버에 의해 처리되는 방식을 결정합니다.
+[0바이트 캐시 파일 새로 고침](#refresh-zero-byte-cache-files) | 0바이트 캐시 자산에 대한 HTTP 클라이언트 요청이 POP에 의해 처리되는 방식을 결정합니다.
 [캐시 가능한 상태 코드 집합](#set-cacheable-status-codes) | 캐시된 콘텐츠가 발생할 수 있는 상태 코드 집합을 정의합니다.
 [오류 시 오래된 콘텐츠 배달](#stale-content-delivery-on-error) | 캐시 유효성 재검사 중에 오류가 발생하거나 고객 원본 서버에서 요청된 콘텐츠를 검색할 때 만료되고 캐시된 콘텐츠를 배달할지 여부를 결정합니다.
-[유효성 재검사 중 기한 경과](#stale-while-revalidate) | 유효성 재검사를 수행하는 동안 에지 서버가 오래된 클라이언트를 요청자에게 제공하도록 하여 성능을 개선합니다.
+[유효성 재검사 중 기한 경과](#stale-while-revalidate) | 유효성 재검사를 수행하는 동안 POP가 오래된 클라이언트를 요청자에게 제공하도록 하여 성능을 개선합니다.
 
 ## <a name="comment-feature"></a>주석 기능
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ If the desired site does not appear in the list, then you should edit its config
 Name | 목적
 -----|--------
 [최대 연결 유지 요청](#maximum-keep-alive-requests) | 연결이 닫히기 전에 연결을 유지할 최대 요청 수를 정의합니다.
-[프록시 특별 헤더](#proxy-special-headers) | 에지 서버에서 원본 서버로 전달할 CDN 특정 요청 헤더의 집합을 정의합니다.
+[프록시 특별 헤더](#proxy-special-headers) | POP에서 원본 서버로 전달할 CDN 특정 요청 헤더의 집합을 정의합니다.
 
 
 ## <a name="specialty-features"></a>전문 기능
@@ -201,8 +201,8 @@ Name | 목적
 
 값|결과
 --|--
-사용|에지 서버에서 대역폭 제한 요청을 따르도록 허용합니다.
-사용 안 함|에지 서버에서 대역폭 제한 매개 변수를 무시하도록 합니다. 요청된 콘텐츠는 대역폭 제한 없이 정상적으로 처리됩니다.
+사용|POP에서 대역폭 제한 요청을 따르도록 허용합니다.
+사용 안 함|POP에서 대역폭 제한 매개 변수를 무시하도록 합니다. 요청된 콘텐츠는 대역폭 제한 없이 정상적으로 처리됩니다.
 
 **기본 동작**: 사용
  
@@ -212,14 +212,14 @@ Name | 목적
 
 ---
 ### <a name="bandwidth-throttling"></a>대역폭 제한
-**목적:** 에지 서버에서 제공하는 응답에 대한 대역폭을 제한합니다.
+**목적:** POP에서 제공하는 응답에 대한 대역폭을 제한합니다.
 
 대역폭 제한을 제대로 설정하려면 다음 옵션을 모두 정의해야 합니다.
 
 옵션|설명
 --|--
 초당 킬로바이트|이 옵션을 응답을 전달하는 데 사용할 수 있는 최대 대역폭(Kbps)으로 설정합니다.
-Prebuf 초|이 옵션을 대역폭이 제한될 때까지 에지 서버가 대기하는 시간(초)으로 설정합니다. 대역폭 제한이 없는 이 기간은 미디어 플레이어에서 대역폭 제한에 따른 스터터링 또는 버퍼링 문제가 발생하지 않도록 하기 위한 것입니다.
+Prebuf 초|이 옵션을 대역폭이 제한될 때까지 POP가 대기하는 시간(초)으로 설정합니다. 대역폭 제한이 없는 이 기간은 미디어 플레이어에서 대역폭 제한에 따른 스터터링 또는 버퍼링 문제가 발생하지 않도록 하기 위한 것입니다.
 
 **기본 동작**: 사용 안 함
 
@@ -233,8 +233,8 @@ Prebuf 초|이 옵션을 대역폭이 제한될 때까지 에지 서버가 대�
 
 값|결과
 --|--
-사용|이전에 에지 서버에서 콘텐츠를 캐시한 경우에도 모든 요청을 원본 서버로 전달하도록 합니다.
-사용 안 함|에지 서버에서 응답 헤더에 정의된 캐시 정책에 따라 자산을 캐시하도록 합니다.
+사용|이전에 POP에서 콘텐츠를 캐시한 경우에도 모든 요청을 원본 서버로 전달하도록 합니다.
+사용 안 함|POP에서 응답 헤더에 정의된 캐시 정책에 따라 자산을 캐시하도록 합니다.
 
 **기본 동작:**
 
@@ -289,7 +289,7 @@ Prebuf 초|이 옵션을 대역폭이 제한될 때까지 에지 서버가 대�
 
 ---
 ### <a name="cache-control-header-treatment"></a>Cache-Control 헤더 처리
-**목적:** 외부 Max-Age 기능이 활성 상태일 때 에지 서버의 `Cache-Control` 헤더 생성을 제어합니다.
+**목적:** 외부 Max-Age 기능이 활성 상태일 때 POP의 `Cache-Control` 헤더 생성을 제어합니다.
 
 이 유형의 구성을 획득하는 가장 쉬운 방법은 동일한 문에 외부 Max-Age와 Cache-Control 헤더 처리 기능을 배치하는 것입니다.
 
@@ -315,7 +315,7 @@ Prebuf 초|이 옵션을 대역폭이 제한될 때까지 에지 서버가 대�
 - 쿼리 문자열 매개 변수 이름을 둘 이상 지정합니다. 단일 공백으로 각 매개 변수 이름을 구분합니다.
 - 이 기능은 cache-key에서 쿼리 문자열 매개 변수를 포함할지 또는 제외할지 여부를 결정합니다. 다음 표에 각 옵션에 대한 추가 정보가 제공됩니다.
 
-형식|설명
+유형|설명
 --|--
  포함|  지정된 매개 변수마다 cache-key에 포함되어야 함을 나타냅니다. 이 기능에 정의된 쿼리 문자열 매개 변수의 고유한 값을 포함하는 요청마다 고유한 cache-key가 생성됩니다. 
  모두 포함  |고유한 쿼리 문자열을 포함하는 자산에 대한 요청마다 고유한 cache-key가 생성됨을 나타냅니다. 이러한 유형의 구성은 일반적으로 캐시 적중률이 낮을 수 있으므로 권장되지 않습니다. 캐시 적중 수가 적으면 원래 서버가 더 많은 요청을 처리해야 하기 때문에 로드가 증가합니다. 이 구성은 Query-String Caching 페이지에서 "unique-cache"로 알려진 캐싱 동작을 복제합니다. 
@@ -415,9 +415,9 @@ cache-key는 캐싱을 위해 자산을 식별하는 상대 경로입니다. 즉
 
 ---
 ### <a name="complete-cache-fill"></a>전체 캐시 채우기
-**목적:** 요청으로 인해 에지 서버에서 부분 캐시가 누락된 경우 수행할 작업을 결정합니다.
+**목적:** 요청 결과, POP에서 캐시가 부분적으로 누락된 경우 수행할 작업을 결정합니다.
 
-부분 캐시 누락은 에지 서버에 완전히 다운로드되지 않은 자산의 캐시 상태를 설명합니다. 자산을 에지 서버에 부분적으로만 캐시한 경우 해당 자산에 대한 다음 요청이 원본 서버로 다시 전달됩니다.
+부분 캐시 누락은 POP에 완전히 다운로드되지 않은 자산의 캐시 상태를 설명합니다. 자산을 POP에 부분적으로만 캐시한 경우 해당 자산에 대한 다음 요청이 원본 서버로 다시 전달됩니다.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ HTTP Large 플랫폼의 기본 구성을 그대로 유지하세요. 고객 원�
 
 값|결과
 --|--
-사용|기본 동작을 복원합니다. 기본 동작은 에지 서버에서 원본 서버에 있는 자산의 백그라운드 페치를 시작하도록 하는 것입니다. 그런 다음 자산이 에지 서버의 로컬 캐시에 저장됩니다.
-사용 안 함|에지 서버에서 자산에 대한 백그라운드 페치를 수행하지 못하도록 합니다. 그 결과 해당 지역의 해당 자산에 대한 다음 요청으로 인해 에지 서버에서 고객 원본 서버의 해당 자산을 요청하게 됩니다.
+사용|기본 동작을 복원합니다. 기본 동작은 POP에서 원본 서버에 있는 자산의 백그라운드 페치를 시작하도록 하는 것입니다. 그런 다음 자산이 POP의 로컬 캐시에 저장됩니다.
+사용 안 함|POP에서 자산에 대한 백그라운드 페치를 수행하지 못하도록 합니다. 그 결과 해당 지역의 해당 자산에 대한 다음 요청으로 인해 POP에서 고객 원본 서버의 해당 자산을 요청하게 됩니다.
 
 **기본 동작**: 사용
 
@@ -523,14 +523,14 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="default-internal-max-age"></a>기본 내부 Max-Age
-**목적:** 에지 서버에서 원본 서버 캐시 유효성 재검사를 위한 기본 max-age 간격을 결정합니다. 즉 에지 서버에서 캐시된 자산이 원본 서버에 저장된 자산과 일치하는지 여부를 확인할 때까지 경과할 시간입니다.
+**목적:** POP에서 원본 서버 캐시 유효성 재검사를 위한 기본 max-age 간격을 결정합니다. 즉, POP에서 캐시된 자산이 원본 서버에 저장된 자산과 일치하는지 여부를 확인할 때까지 경과할 시간입니다.
 
 주요 정보:
 
 - 이 작업은 `Cache-Control` 또는 `Expires` 헤더에 max-age 표시를 할당하지 않은 원본 서버의 응답에 대해서만 발생합니다.
 - 이 작업은 캐시 가능하다고 간주되지 않는 자산에 대해서는 수행되지 않습니다.
-- 이 작업은 브라우저-에지 서버 캐시 유효성 재검사에 영향을 주지 않습니다. 이러한 유형의 유효성 재검사는 외부 Max-Age 기능으로 사용자 지정할 수 있는 브라우저로 보낸 `Cache-Control` 또는 `Expires` 헤더에 의해 결정됩니다.
-- 이 작업의 결과는 응답 헤더와 콘텐츠의 에지 서버에서 반환된 콘텐츠에 대해 관찰 가능한 영향을 주지 않지만, 에지 서버에서 원본 서버로 보내는 유효성 검사 트래픽의 양에는 영향을 줄 수 있습니다.
+- 이 작업은 브라우저-POP 캐시 유효성 재검사에 영향을 주지 않습니다. 이러한 유형의 유효성 재검사는 외부 Max-Age 기능으로 사용자 지정할 수 있는 브라우저로 보낸 `Cache-Control` 또는 `Expires` 헤더에 의해 결정됩니다.
+- 이 작업의 결과는 응답 헤더와 콘텐츠의 POP에서 반환된 콘텐츠에 대해 관찰 가능한 영향을 주지 않지만, POP에서 원본 서버로 보내는 유효성 검사 트래픽의 양에는 영향을 줄 수 있습니다.
 - 이 기능은 다음과 같이 구성합니다.
     - 기본 내부 max-age 간격을 적용할 수 있는 상태 코드를 선택합니다.
     - 정수 값을 지정한 다음 원하는 시간 단위(예: 초, 분, 시간 등)를 선택합니다. 이 값은 기본 내부 max-age 간격을 정의합니다.
@@ -571,7 +571,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="expires-header-treatment"></a>만료 헤더 처리
-**목적:** 외부 Max-Age 기능이 활성 상태일 때 에지 서버의 `Expires` 헤더 생성을 제어합니다.
+**목적:** 외부 Max-Age 기능이 활성 상태일 때 POP의 `Expires` 헤더 생성을 제어합니다.
 
 이 유형의 구성을 획득하는 가장 쉬운 방법은 동일한 문에 외부 Max-Age와 Expires 헤더 처리 기능을 배치하는 것입니다.
 
@@ -590,15 +590,15 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="external-max-age"></a>외부 Max-Age
-**목적:** 브라우저에서 에지 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다. 즉 브라우저에서 에지 서버에 있는 새 버전의 자산을 확인할 수 있을 때까지 경과할 시간입니다.
+**목적:** 브라우저에서 POP 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다. 즉, 브라우저에서 POP에 있는 새 버전의 자산을 확인할 수 있을 때까지 경과할 시간입니다.
 
-이 기능을 사용하면 에지 서버에서 `Cache-Control: max-age` 및 `Expires` 헤더가 생성되고 HTTP 클라이언트로 전송됩니다. 기본적으로 이러한 헤더는 원본 서버에서 만든 헤더를 덮어씁니다. 그러나 Cache-Control 헤더 처리 및 Expires 헤더 처리 기능을 사용하여 이 동작을 변경할 수 있습니다.
+이 기능을 사용하면 POP에서 `Cache-Control: max-age` 및 `Expires` 헤더가 생성되고 HTTP 클라이언트로 전송됩니다. 기본적으로 이러한 헤더는 원본 서버에서 만든 헤더를 덮어씁니다. 그러나 Cache-Control 헤더 처리 및 Expires 헤더 처리 기능을 사용하여 이 동작을 변경할 수 있습니다.
 
 주요 정보:
 
-- 이 작업은 에지 서버-원본 서버 캐시 유효성 재검사에 영향을 주지 않습니다. 이러한 유형의 유효성 재검사는 원본 서버에서 받은 `Cache-Control` 및 `Expires` 헤더에 의해 결정되며, 기본 내부 Max-Age 및 강제 내부 Max-Age 기능을 사용하여 사용자 지정할 수 있습니다.
+- 이 작업은 POP-원본 서버 캐시 유효성 재검사에 영향을 주지 않습니다. 이러한 유형의 유효성 재검사는 원본 서버에서 받은 `Cache-Control` 및 `Expires` 헤더에 의해 결정되며, 기본 내부 Max-Age 및 강제 내부 Max-Age 기능을 사용하여 사용자 지정할 수 있습니다.
 - 정수 값을 지정한 다음 원하는 시간 단위(예: 초, 분, 시간 등)를 선택하여 이 기능을 구성합니다.
-- 이 기능을 음수 값으로 설정하면 에지 서버에서 브라우저에 대한 각 응답과 함께 과거에 설정된 `Cache-Control: no-cache` 및 `Expires` 시간을 보냅니다. HTTP 클라이언트에서 응답을 캐시하지 않지만 이 설정은 원본 서버에서 응답을 캐시하는 에지 서버의 기능에 영향을 주지 않습니다.
+- 이 기능을 음수 값으로 설정하면 POP에서 브라우저에 대한 각 응답과 함께 과거에 설정된 `Cache-Control: no-cache` 및 `Expires` 시간을 보냅니다. HTTP 클라이언트에서 응답을 캐시하지 않지만 이 설정은 원본 서버에서 응답을 캐시하는 POP의 기능에 영향을 주지 않습니다.
 - 시간 단위를 "끄기"로 설정하면 이 기능을 비활성화합니다. 원본 서버의 응답으로 캐시된 `Cache-Control` 및 `Expires` 헤더는 브라우저로 전달합니다.
 
 **기본 동작:** 끄기
@@ -628,13 +628,13 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="force-internal-max-age"></a>강제 내부 Max-Age
-**목적:** 에지 서버에서 원본 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다. 즉 에지 서버에서 캐시된 자산이 원본 서버에 저장된 자산과 일치하는지 여부를 확인할 수 있을 때까지 경과할 시간입니다.
+**목적:** POP에서 원본 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다. 즉, POP에서 캐시된 자산이 원본 서버에 저장된 자산과 일치하는지 여부를 확인할 때까지 경과할 시간입니다.
 
 주요 정보:
 
 - 이 기능은 원본 서버로부터 생성한 `Cache-Control` 또는 `Expires` 헤더에 정의된 max-age 간격을 무시합니다.
-- 이 기능은 브라우저-에지 서버 캐시 유효성 재검사에 영향을 주지 않습니다. 이러한 유형의 유효성 재검사는 브라우저로 보낸 `Cache-Control` 또는 `Expires` 헤더에 의해 결정됩니다.
-- 이 기능은 에지 서버에서 요청자에게 전달한 응답에 관찰 가능한 영향을 주지 않습니다. 그러나 에지 서버에서 원본 서버로 보낸 유효성 재검사 트래픽의 양에 영향을 줄 수 있습니다.
+- 이 기능은 브라우저-POP 캐시 유효성 재검사에 영향을 주지 않습니다. 이러한 유형의 유효성 재검사는 브라우저로 보낸 `Cache-Control` 또는 `Expires` 헤더에 의해 결정됩니다.
+- 이 기능은 POP에서 요청자에게 전달한 응답에 관찰 가능한 영향을 주지 않습니다. 그러나 POP에서 원본 서버로 보낸 유효성 재검사 트래픽의 양에 영향을 줄 수 있습니다.
 - 이 기능은 다음과 같이 구성합니다.
     - 내부 max-age 간격을 적용할 상태 코드를 선택합니다.
     - 정수 값을 지정하고 원하는 시간 단위(예: 초, 분, 시간 등)를 선택합니다. 이 값은 요청의 max-age 간격을 정의합니다.
@@ -678,7 +678,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 값|결과
 --|--
-사용|HTTP 클라이언트의 no-cache 요청을 원본 서버로 전달할 수 있으며, 원본 서버에서 에지 서버를 통해 응답 헤더와 본문을 HTTP 클라이언트에 다시 반환합니다.
+사용|HTTP 클라이언트의 no-cache 요청을 원본 서버로 전달할 수 있으며, 원본 서버에서 POP를 통해 응답 헤더와 본문을 HTTP 클라이언트에 다시 반환합니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 no-cache 요청을 원본 서버로 전달하지 않도록 하는 것입니다.
 
 모든 프로덕션 트래픽에 대해 이 기능을 기본 비활성 상태로 유지하는 것이 좋습니다. 그렇지 않으면 실수로 웹 페이지를 새로 고칠 때 많은 no-cache 요청을 트리거할 수 있는 최종 사용자 또는 모든 비디오 요청과 함께 no-cache 헤더를 보내도록 코딩된 인기 있는 다양한 미디어 플레이어로부터 원본 서버를 보호하지 않습니다. 그럼에도 불구하고 이 기능은 원본 서버에서 요청 시 새로운 콘텐츠를 끌어올 수 있도록 특정 비프로덕션 스테이징 또는 테스트 디렉터리에 적용하는 것이 유용할 수 있습니다.
@@ -724,11 +724,11 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 ### <a name="ignore-unsatisfiable-ranges"></a>적절하지 않은 범위 무시 
 **목적:** 요청에서 416 요청한 범위가 충분하지 않음 상태 코드를 생성하는 경우 클라이언트로 반환할 응답을 결정합니다.
 
-기본적으로 에지 서버에서 지정된 바이트 범위 요청을 충족할 수 없고 If-Range 요청 헤더 필드를 지정하지 않은 경우에 이 상태 코드를 반환합니다.
+기본적으로 POP에서 지정된 바이트 범위 요청을 충족할 수 없고 If-Range 요청 헤더 필드를 지정하지 않은 경우에 이 상태 코드를 반환합니다.
 
 값|결과
 -|-
-사용|에지 서버에서 416 요청한 범위가 충분하지 않음 상태 코드의 잘못된 바이트 범위 요청에 응답하지 못하도록 합니다. 대신 서버에서 요청된 자산을 제공하고 클라이언트에 200 확인을 반환합니다.
+사용|POP에서 416 요청한 범위가 충분하지 않음 상태 코드의 잘못된 바이트 범위 요청에 응답하지 못하도록 합니다. 대신 서버에서 요청된 자산을 제공하고 클라이언트에 200 확인을 반환합니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 416 요청한 범위가 충분하지 않음 상태 코드를 허용하는 것입니다.
 
 **기본 동작**: 사용 안 함
@@ -739,15 +739,15 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 ---
 ### <a name="internal-max-stale"></a>내부 Max-Stale
-**목적:** 에지 서버에서 원본 서버와 함께 캐시된 자산의 유효성 재검사를 수행할 수 없는 경우 에지 서버에서 캐시된 자산을 제공할 수 있는 정상 만료 시간을 제어합니다.
+**목적:** POP가 원본 서버로 캐시된 자산의 유효성 재검사를 할 수 없는 경우 POP에서 캐시된 자산이 정상 만료 시간을 지나 얼마나 오래 제공될 수 있는지를 제어합니다.
 
-일반적으로 자산의 max-age 간격이 만료되면 에지 서버에서 유효성 재검사 요청을 원본 서버로 보냅니다. 그런 다음 원본 서버에서 304 수정되지 않음으로 응답하여 캐시된 자산을 에지 서버에 새로 빌려주거나, 그렇지 않으면 200 확인을 사용하여 캐시된 자산의 업데이트된 버전을 에지 서버에 제공합니다.
+일반적으로 자산의 max-age 간격이 만료되면 POP에서 유효성 재검사 요청을 원본 서버로 보냅니다. 그런 다음 원본 서버에서 304 수정되지 않음으로 응답하여 캐시된 자산을 POP에 새로 빌려주거나, 그렇지 않으면 200 확인을 사용하여 캐시된 자산의 업데이트된 버전을 POP에 제공합니다.
 
-이러한 유효성 재검사를 시도하는 동안 에지 서버에서 원본 서버와의 연결을 설정할 수 없는 경우 내부 Max-Stale 기능은 에지 서버에서 현재의 부실 자산을 계속 제공할지 여부와 기간을 제어합니다.
+이러한 유효성 재검사를 시도하는 동안 POP에서 원본 서버와의 연결을 설정할 수 없는 경우 내부 Max-Stale 기능은 POP에서 현재의 부실 자산을 계속 제공할지 여부와 기간을 제어합니다.
 
 이 시간 간격은 실패한 유효성 재검사를 수행할 때가 아니라 자산의 max-age 간격이 만료될 때 시작됩니다. 따라서 성공적인 유효성 재검사 없이 자산을 제공할 수 있는 최대 기간은 max-age와 max-stale의 조합으로 지정된 시간입니다. 예를 들어 자산을 9시 00분에 30분의 max-age 및 15분의 max-stale 간격으로 캐시한 경우 9시 44분에 실패한 유효성 재검사 시도는 최종 사용자에게 캐시된 부실 자산을 제공하는 반면 9시 46분에 실패한 유효성 재검사 시도는 최종 사용자에게 504 게이트웨이 시간 제한을 제공하게 됩니다.
 
-이 기능에 대해 구성된 모든 값은 원본 서버에서 수신된 `Cache-Control: must-revalidate` 또는 `Cache-Control: proxy-revalidate` 헤더로 대체됩니다. 자산을 처음 캐시할 때 원본 서버로부터 이러한 헤더 중 하나를 수신하면 에지 서버에서 캐시된 부실 자산을 제공하지 않습니다. 이러한 경우 자산의 max-age 간격이 만료되었을 때 에지 서버에서 원본 서버와 함께 유효성을 재검사할 수 없는 경우 에지 서버에서 504 게이트웨이 시간 제한 오류를 반환합니다.
+이 기능에 대해 구성된 모든 값은 원본 서버에서 수신된 `Cache-Control: must-revalidate` 또는 `Cache-Control: proxy-revalidate` 헤더로 대체됩니다. 자산을 처음 캐시할 때 원본 서버로부터 이러한 헤더 중 하나를 수신하면 POP에서 캐시된 부실 자산을 제공하지 않습니다. 이러한 경우 자산의 max-age 간격이 만료되었을 때 POP에서 원본 서버와 함께 유효성을 재검사할 수 없는 경우 POP에서 504 게이트웨이 시간 제한 오류를 반환합니다.
 
 주요 정보:
 
@@ -828,7 +828,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
     - CACHE-CONTROL
     - cachE-Control
 - 헤더 이름을 지정할 때는 영숫자 문자, 대시 또는 밑줄만 사용합니다.
-- 헤더를 삭제하면 에지 서버에서 해당 헤더를 원본 서버로 전달하지 않습니다.
+- 헤더를 삭제하면 POP에서 해당 헤더를 원본 서버로 전달하지 않습니다.
 - 다음 헤더는 예약되어 있으며, 이 기능으로 수정할 수 없습니다.
     - forwarded
     - host
@@ -848,7 +848,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 응답 헤더에 할당된 값을 추가하거나 덮어씁니다. 지정된 응답 헤더가 없는 경우 이 기능은 응답에 해당 헤더를 추가합니다.
 - 응답에서 응답 헤더를 삭제합니다.
 
-기본적으로 응답 헤더 값은 원본 서버 및 에지 서버에서 정의합니다.
+기본적으로 응답 헤더 값은 원본 서버 및 POP에서 정의합니다.
 
 응답 헤더에서 다음 작업 중 하나를 수행할 수 있습니다.
 
@@ -922,7 +922,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 ---
 ### <a name="proxy-special-headers"></a>프록시 특별 헤더
-**목적:** 에지 서버에서 원본 서버로 전달할 CDN 특정 요청 헤더 집합을 정의합니다.
+**목적:** POP에서 원본 서버로 전달할 CDN 특정 요청 헤더 집합을 정의합니다.
 
 주요 정보:
 
@@ -937,15 +937,15 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>0바이트 캐시 파일 새로 고침
-**목적:** 에지 서버에서 0바이트 캐시 자산에 대한 HTTP 클라이언트 요청을 처리하는 방식을 결정합니다.
+**목적:** 0바이트 캐시 자산에 대한 HTTP 클라이언트 요청이 POP에 의해 처리되는 방식을 결정합니다.
 
 유효한 값은 다음과 같습니다.
 
 값|결과
 --|--
-사용|에지 서버가 원본 서버로부터 자산을 다시 가져오도록 합니다.
+사용|POP가 원본 서버로부터 자산을 다시 가져오도록 합니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 요청 시 유효한 캐시 자산을 제공하는 것입니다.
-이 기능은 올바른 캐싱 및 콘텐츠 배달에는 필요하지 않지만 해결 방법으로는 유용할 수 있습니다. 예를 들어 원본 서버의 동적 콘텐츠 생성기로 인해 실수로 0바이트 응답을 에지 서버로 보낼 수 있습니다. 이러한 유형의 응답은 일반적으로 에지 서버에서 캐시합니다. 0바이트 응답이 이러한 콘텐츠에 대해 유효한 응답이 아님을 알고 있는 경우 
+이 기능은 올바른 캐싱 및 콘텐츠 배달에는 필요하지 않지만 해결 방법으로는 유용할 수 있습니다. 예를 들어 원본 서버의 동적 콘텐츠 생성기로 인해 실수로 0바이트 응답을 POP로 보낼 수 있습니다. 이러한 유형의 응답은 일반적으로 POP에서 캐시합니다. 0바이트 응답이 이러한 콘텐츠에 대해 유효한 응답이 아님을 알고 있는 경우 
 
 이 기능을 통해 이러한 유형의 자산을 클라이언트에 제공하지 못하도록 방지할 수 있습니다.
 
@@ -1016,7 +1016,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 ---
 ### <a name="stale-while-revalidate"></a>유효성 재검사 중 기한 경과
-**목적:** 유효성 재검사를 수행하는 동안 에지 서버에서 요청자에게 부실 콘텐츠를 제공하도록 하여 성능을 향상시킵니다.
+**목적:** 유효성 재검사를 수행하는 동안 POP에서 요청자에게 부실 콘텐츠를 제공하도록 하여 성능을 향상시킵니다.
 
 주요 정보:
 
@@ -1109,7 +1109,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 값|결과
 ---|----
-사용|토큰 기반 인증 매개 변수에 대한 URL을 비교할 때 에지 서버에서 대/소문자를 무시하도록 합니다.
+사용|토큰 기반 인증 매개 변수에 대한 URL을 비교할 때 POP에서 대/소문자를 무시하도록 합니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 토큰 인증을 위한 URL 비교에서 대/소문자를 구분하는 것입니다.
 
 **기본 동작**: 사용 안 함
@@ -1156,7 +1156,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 이 예제에서는 기본 CDN URL(http://marketing.azureedge.net/brochures)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
 
-요청이 유효하면 기본 에지 CNAME URL(http://cdn.mydomain.com/resources)으로 리디렉션됩니다.
+요청이 유효하면 기본 에지 CNAME URL(http://cdn.mydomain.com/resources)로 리디렉션됩니다.
 
 이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
@@ -1166,13 +1166,13 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 - 일치하는 모든 요청은 대상 옵션에 정의된 에지 CNAME URL로 리디렉션됩니다. 
     - 샘플 시나리오 #1: 
         - 샘플 요청(CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - 요청 URL(리디렉션 이후): http://cdn.mydomain.com/resources/widgets.pdf  
+        - 요청 URL(리디렉션 후): http://cdn.mydomain.com/resources/widgets.pdf  
     - 샘플 시나리오 2: 
         - 샘플 요청(에지 CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - 요청 URL(리디렉션 이후): http://cdn.mydomain.com/resources/widgets.pdf 샘플 시나리오
+        - 요청 URL(리디렉션 후): http://cdn.mydomain.com/resources/widgets.pdf 샘플 시나리오
     - 샘플 시나리오 #3: 
         - 샘플 요청(에지 CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - 요청 URL(리디렉션 이후):: http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - 요청 URL(리디렉션 후): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - 요청 스키마(%{scheme}) 변수는 대상 옵션에서 활용되었습니다. 이렇게 하면 리디렉션 후에도 요청의 스키마가 변경되지 않습니다.
 - 요청에서 캡처한 URL 세그먼트는 "$1"을 통해 새 URL에 추가됩니다.
 
@@ -1192,13 +1192,13 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 -|-
  원본 및 패턴 | 이러한 설정은 다시 쓸 수 있는 요청의 형식을 식별하는 요청 URI 패턴을 정의합니다. URL이 다음 기준을 모두 충족하는 요청만 다시 씁니다. <br/>     - **원본(또는 콘텐츠 액세스 지점):** 원본 서버를 식별하는 상대 경로를 선택합니다. 이는 "/XXXX/" 섹션과 끝점 이름입니다. <br/> - **원본(패턴):** 상대 경로로 요청을 식별하는 패턴을 정의해야 합니다. 이 정규식 패턴은 이전에 선택한 콘텐츠 액세스 지점 바로 뒤에서 시작하는 경로를 정의해야 합니다(위 참조). <br/> 이전에 정의한 요청 URI 기준(즉, 원본 및 패턴)이 이 기능에 대해 정의된 일치 조건과 충돌하지 않는지 확인합니다. 패턴을 지정합니다. 패턴으로 빈 값을 사용하는 경우 모든 문자열이 일치됩니다. 
  대상  |위의 요청을 다시 쓸 상대 URL을 다음과 같이 정의합니다. <br/>    1. 원본 서버를 식별하는 콘텐츠 액세스 지점 선택 <br/>    2. 다음을 사용하여 상대 경로 정의 <br/>        - 정규식 패턴 <br/>        - HTTP 변수 <br/> <br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다. 
- 이 기능을 사용하면 에지 서버에서 기존의 리디렉션을 수행하지 않고도 URL을 다시 쓸 수 있습니다. 즉 요청자가 다시 쓴 URL을 요청한 것과 동일한 응답 코드를 받게 됩니다.
+ 이 기능을 사용하면 POP에서 기존의 리디렉션을 수행하지 않고도 URL을 다시 쓸 수 있습니다. 즉 요청자가 다시 쓴 URL을 요청한 것과 동일한 응답 코드를 받게 됩니다.
 
 **샘플 시나리오 1**
 
-이 예제에서는 기본 CDN URL(http://marketing.azureedge.net/brochures)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
+이 예제에서는 기본 CDN URL(http://marketing.azureedge.net/brochures/)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
 
-요청이 유효하면 기본 에지 CNAME URL(http://MyOrigin.azureedge.net/resources/)으로 리디렉션됩니다.
+요청이 유효하면 기본 에지 CNAME URL(http://MyOrigin.azureedge.net/resources/)로 리디렉션됩니다.
 
 이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 

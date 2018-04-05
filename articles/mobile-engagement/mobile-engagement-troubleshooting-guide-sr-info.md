@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 문제 해결 가이드 - 서비스 요청 정보"
-description: "Azure Mobile Engagement 문제를 해결하기 위해 지원 팀에 필요한 서비스 요청 정보"
+title: Azure Mobile Engagement 문제 해결 가이드 - 서비스 요청 정보
+description: Azure Mobile Engagement 문제를 해결하기 위해 지원 팀에 필요한 서비스 요청 정보
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d08ccbe6639809f16c41b3399cbe374d34c9a5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="service-request-sr-information"></a>SR(서비스 요청) 정보
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 Mobile Engagement 서비스에 대한 서비스 요청을 개설할 때는 다음 정보를 제공합니다.
 
 ## <a name="ids-applicable-identifiers-related-to-your-issue"></a>ID: 문제와 관련된 해당 식별자:

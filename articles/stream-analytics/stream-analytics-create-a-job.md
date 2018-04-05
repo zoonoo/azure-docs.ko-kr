@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics을 위한 데이터 분석 처리 작업을 만드는 방법 | Microsoft Docs"
-description: "Stream Analytics을 위한 데이터 분석 처리 작업 만들기 | 학습 경로 세그먼트."
-keywords: "데이터 분석 처리"
-documentationcenter: 
+title: Stream Analytics을 위한 데이터 분석 처리 작업을 만드는 방법 | Microsoft Docs
+description: Stream Analytics을 위한 데이터 분석 처리 작업 만들기 | 학습 경로 세그먼트.
+keywords: 데이터 분석 처리
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeanb
+ms.openlocfilehash: 03f21c076624ee758d313c4f58e29c616226de57
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Stream Analytics을 위한 데이터 분석 처리 작업을 만드는 방법
 Azure Stream Analytics에서 최상위 리소스는 Stream Analytics 작업입니다.  하나 이상의 입력 데이터 원본, 데이터 변환을 표현하는 쿼리 및 결과가 기록되는 하나 이상의 출력 대상으로 이루어져 있습니다. 이러한 요소가 모여서 데이터 시나리오 스트리밍을 위한 데이터 분석 처리 작업을 수행할 수 있게 해줍니다.

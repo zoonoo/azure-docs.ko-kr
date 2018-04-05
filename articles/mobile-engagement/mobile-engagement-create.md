@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 앱 만들기 | Microsoft Docs"
-description: "Azure에서 새 Mobile Engagement 앱 컬렉션을 만들고 Mobile Engagement 포털을 사용하여 앱을 관리하기 시작하는 방법을 설명합니다."
+title: Azure Mobile Engagement 앱 만들기 | Microsoft Docs
+description: Azure에서 새 Mobile Engagement 앱 컬렉션을 만들고 Mobile Engagement 포털을 사용하여 앱을 관리하기 시작하는 방법을 설명합니다.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,19 +14,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f47133a466f00de43ebfb2652eaf9058899f140
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Azure Mobile Engagement 앱 만들기
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서에서는 **빨리 만들기** 메서드를 사용하여 새 **Azure Mobile Engagement** 앱을 만드는 방법을 보여 줍니다. 또한 문서는 앱을 모니터링하고 관리하기 위해 **Mobile Engagement** 포털을 탐색하는 방법도 보여줍니다. 
 
 앱에 대한 데이터를 수집하고 푸시 알림을 보낼 수 있기 위해 "기본 통합"의 최소 집합을 추가해야 합니다. 전체 통합 설명서는 [Mobile Engagement 통합](mobile-engagement-windows-store-integrate-engagement.md)에서 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Mobile Engagement 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> Azure Mobile Engagement 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 체험</a>을 참조하세요.
 > 
 > 
 

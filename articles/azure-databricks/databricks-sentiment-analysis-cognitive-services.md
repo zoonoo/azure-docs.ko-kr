@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 8858df394885ae7820a4bc72458f4f1d851965e6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 889284d9c53f902b7a8443c4622e1c3015630ae0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -395,6 +395,8 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     -------------------------------------------
     ...
     ...
+
+이제 Apache Spark의 Event Hubs 커넥터를 사용하여 거의 실시간으로 Azure Event Hubs의 데이터를 Azure Databricks로 스트리밍합니다. Spark에 Event Hubs 커넥터를 사용하는 방법에 대한 자세한 내용은 [커넥터 설명서](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)를 참조하세요.
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>트윗에 대한 감정 분석 실행
 

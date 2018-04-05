@@ -25,9 +25,15 @@
 ### Load Balancer
 #### [부하 분산 장치란?](../load-balancer/load-balancer-standard-overview.md)
 #### [부하 분산 장치 표준 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Azure Portal을 사용하여 영역 중복 공용 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [PowerShell을 사용하여 영역 중복 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [CLI를 사용하여 영역 중복 공용 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [영역 중복 공용 표준 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [영역 중복 공용 표준 부하 분산 장치 만들기(PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [영역 중복 공용 표준 부하 분산 장치 만들기(CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [영역 공용 표준 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [영역 공용 표준 부하 분산 장치 만들기(PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [영역 중복 공용 표준 부하 분산 장치 만들기(CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [가용성 영역에 VM 부하 분산](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Azure를 사용하여 가용성 영역에 VM 부하 분산(CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [SQL Database를 사용하는 가용성 영역](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Storage
-#### [영역 중복 저장소](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [영역 중복 저장소](../storage/common/storage-redundancy-zrs.md)
 
 # 재해 복구
 ## [Azure Site Recovery 사용](https://docs.microsoft.com/azure/site-recovery/)

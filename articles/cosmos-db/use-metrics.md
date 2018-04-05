@@ -1,13 +1,13 @@
 ---
-title: "Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅 | Microsoft Docs"
-description: "Azure Cosmos DB에서 메트릭을 사용하여 일반적인 문제를 디버그하고 데이터베이스를 모니터링합니다."
-keywords: "메트릭"
+title: Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅 | Microsoft Docs
+description: Azure Cosmos DB에서 메트릭을 사용하여 일반적인 문제를 디버그하고 데이터베이스를 모니터링합니다.
+keywords: 메트릭
 services: cosmos-db
 author: gnot
 manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 
+editor: ''
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 37ef1bc01bd3679e664e71e6a6e3bede84615305
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅
 
@@ -34,7 +34,7 @@ Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간�
 
 ## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>성공한 요청 수 또는 오류가 발생하는 요청 수 이해
 
-시작하려면 [Azure Portal](https://portal.azure.com)에서 **메트릭** 블레이드로 이동합니다. 블레이드에서 **1분당 용량을 초과한 요청 수** 차트를 찾습니다. 이 차트에서는 상태 코드로 분할된 총 요청 수를 분 단위로 보여 줍니다. HTTP 상태 코드에 대한 자세한 내용은 [Azure Cosmos DB에 대한 HTTP 상태 코드](https://docs.microsoft.com/rest/api/documentdb/http-status-codes-for-documentdb)를 참조하세요.
+시작하려면 [Azure Portal](https://portal.azure.com)에서 **메트릭** 블레이드로 이동합니다. 블레이드에서 **1분당 용량을 초과한 요청 수** 차트를 찾습니다. 이 차트에서는 상태 코드로 분할된 총 요청 수를 분 단위로 보여 줍니다. HTTP 상태 코드에 대한 자세한 내용은 [Azure Cosmos DB에 대한 HTTP 상태 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조하세요.
 
 가장 일반적인 오류 상태 코드는 429(제한)로, Azure Cosmos DB에 대한 요청이 프로비전된 처리량을 초과함을 의미합니다. 가장 일반적인 솔루션은 지정된 컬렉션에 대한 [RU를 확장](./set-throughput.md)합니다.
 
