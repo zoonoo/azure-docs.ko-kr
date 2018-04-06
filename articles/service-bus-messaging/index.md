@@ -1,22 +1,22 @@
 ---
-title: "Service Bus 메시징 설명서"
-description: "온-프레미스 및 클라우드 환경에서 응용 프로그램 및 서비스를 연결하는 메시징을 설정하는 방법에 대해 알아봅니다."
-services: service-bus
-author: czeumault
-manager: carolz
+title: Service Bus 메시징 설명서
+description: 온-프레미스 및 클라우드 환경에서 응용 프로그램 및 서비스를 연결하는 메시징을 설정하는 방법에 대해 알아봅니다.
+services: service-bus-messaging
+author: sethmanheim
+manager: timlt
 layout: LandingPage
-ms.assetid: 
-ms.service: service-bus
+ms.assetid: ''
+ms.service: service-bus-messaging
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 03/14/2017
-ms.author: carolz
-ms.openlocfilehash: 733d2fd848e100525cb7f50f9831f52d5d473863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/02/2018
+ms.author: sethm
+ms.openlocfilehash: cafe8d0687260362347600f05ef090c7cb95ea82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-bus-messaging-documentation"></a>Service Bus 메시징 설명서
 메시징 서비스는 조정되거나 타사 통신 메커니즘으로서 신뢰할 수 있는 정보 배달을 제공합니다.
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
