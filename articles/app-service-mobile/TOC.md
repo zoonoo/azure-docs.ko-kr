@@ -119,7 +119,6 @@
 #### [Node.js 백 엔드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## 보안
-### [인증 및 권한 부여](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### ID 공급자를 사용하여 인증
 #### [Azure Active Directory 인증](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Facebook 인증](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -172,7 +171,7 @@
 ## [App Service 모범 사례](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [가격](https://azure.microsoft.com/en-us/pricing/details/app-service/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f234c2529213dfa7f42d6ee11b840236488065d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure 스택 PKI 인증서의 유효성을 검사합니다
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="prerequisites"></a>필수 조건
 시스템은 Azure 스택 배포를 위한 PKI 인증서의 유효성 검사 하기 전에 다음 선행 조건을 충족 해야 합니다.
 - CertChecker (에서 **PartnerToolKit** 아래 **\utils\certchecker**)
-- SSL 인증서 내보낸 다음는 [준비 지침은](prepare-pki-certs.md)
+- SSL 인증서 내보낸 다음는 [준비 지침은](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 또는 Windows Server 2016
 

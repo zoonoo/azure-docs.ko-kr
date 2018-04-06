@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e37b63580d8cea4b5772bc54f7b2f79980afc0bc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>정책 서비스는 azure 스택
 이 문서에서는 Azure 스택 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 수행 해야 하는 것에 대 한 서비스 정책을 설명 합니다. 
@@ -47,19 +47,6 @@ Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 �
 
 Microsoft 소프트웨어 업데이트 패키지가 아닌 누적 되며이 필수 구성 요소로 이전 업데이트 패키지 해야 합니다. 하나 이상의 업데이트를 연기 하려는 경우를 최신 버전으로 가져올 경우 전체 런타임을 고려 합니다. 
 
-다음 표에서 예제 업데이트 패키지 릴리스, 해당 필수 구성 요소 및 지원 유지 하기 위해 시스템에 있어야 하는 최소 지원된 버전을 보여 줍니다. 테이블은 2017 년 9 월의 첫 번째 업데이트 패키지 릴리스 (1709)로 통합 하는 Azure 스택 시스템 (1708 빌드), 초기 버전을 기반으로 합니다. 
-
-| 최신 업데이트 패키지 (*예제*) | 필수 요소 | 지원 되는 최소 버전 |
-| -- | -- | -- |
-| 1710 | 1709 | N/A |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1712 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
-앞의 표에 없는 릴리스 버전 1801 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
