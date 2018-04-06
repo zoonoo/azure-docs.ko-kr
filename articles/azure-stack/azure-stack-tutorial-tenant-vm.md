@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Azure 스택 사용자에 게 가상 컴퓨터를 사용할 수 있도록
 Azure 스택 클라우드 관리자 (테 넌 트 라고도 함) 사용자가 구독할 수 있는 서비스를 만들 수 있습니다. 구독을 사용 하 여 사용자가 Azure 스택 서비스를 사용할 수 있습니다.
@@ -113,7 +113,7 @@ Azure 스택 서비스 구독, 이벤트, 및 계획을 사용 하 여 사용자
    지금 제공 하는 서비스에 가입 하려면 사용자로 포털에 로그인 수 있습니다.
 
    a. 사용자 및 클릭으로 사용자 포털에 로그인 **구독**합니다.
-   - 통합된 된 시스템에 대 한 URL 운영자의 지역 및 외부 도메인 이름에 따라 달라 집니다 하 고 형식 https://portal에 포함 됩니다. &lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
+   - 통합된 된 시스템에 대 한 URL 운영자의 지역 및 외부 도메인 이름에 따라 달라 집니다 및 형식에 포함 될 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
    - Azure 스택 개발 키트를 사용 하는 경우 포털 주소는 https://portal.local.azurestack.external합니다.
 
    ![구독 가져오기](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ Azure 스택 서비스 구독, 이벤트, 및 계획을 사용 하 여 사용자
    이제 구독을 사용 하 여 가상 컴퓨터를 프로 비전 하려면 사용자로 포털에 로그인 수 있습니다. 
 
    a. 사용자 포털에 사용자로 로그인 합니다.
-      - 통합된 된 시스템에 대 한 URL 운영자의 지역 및 외부 도메인 이름에 따라 달라 집니다 하 고 형식 https://portal에 포함 됩니다. &lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
+      - 통합된 된 시스템에 대 한 URL 운영자의 지역 및 외부 도메인 이름에 따라 달라 집니다 및 형식에 포함 될 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
    - Azure 스택 개발 키트를 사용 하는 경우 포털 주소는 https://portal.local.azurestack.external합니다.
 
    나.  대시보드 클릭 **새로** > **계산** > **Windows Server 2016 데이터 센터 Eval**, 클릭 하 고 **만들기**.
