@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1754d4b121fdaf4f7b8e4c1954dfd4202ba344b1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -71,7 +71,7 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
     | 1710: 1.0.171028.1 | [SQL RP 1.1.8.0 버전](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. 필요한 인증서를 제공 합니다. Azure 스택 SDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 만들어집니다, 그리고 없습니다 추가 인증서가 필요 합니다. 통합된 시스템에 대 한 적절 한 인증서를 제공 해야 합니다.
+4. Azure 스택 SDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 통합된 시스템에 대 한 적절 한 인증서를 제공 해야 합니다.
 
    고유한 인증서를 제공 하려면에서.pfx 파일을 배치는 **DependencyFilesLocalPath** 다음과 같습니다.
 

@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics 및 AzureML 함수를 사용한 작업 크기 조정 | Microsoft Docs"
-description: "Azure Machine Learning 함수를 사용할 때 Stream Analytics 작업의 크기를 적절하게 조정하는 방법(분할, SU 수량 등)에 대해 알아봅니다."
-keywords: 
-documentationcenter: 
+title: Azure Stream Analytics 및 AzureML 함수를 사용한 작업 크기 조정 | Microsoft Docs
+description: Azure Machine Learning 함수를 사용할 때 Stream Analytics 작업의 크기를 적절하게 조정하는 방법(분할, SU 수량 등)에 대해 알아봅니다.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정
 Stream Analytics 작업을 설정하고 그 작업을 통해 몇 가지 샘플 데이터를 실행하면 아주 간단한 경우가 종종 있습니다. 더 큰 데이터 볼륨으로 같은 작업을 실행해야 할 때 어떻게 해야 할까요? 크기를 조정할 수 있도록 Stream Analytics 작업을 구성하는 방법을 이해해야 합니다. 이 문서에서는 Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기를 조정하는 방법을 집중적으로 다루겠습니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
@@ -82,9 +81,9 @@ Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합
 | **1SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12SU** |5,000 |10,000 |40,000 |60,000 |100,000 |
+| **12SU** |5,000 |10000 |40,000 |60,000 |100,000 |
 | **18SU** |7,500 |15,000 |60,000 |90,000 |150,000 |
-| **24SU** |10,000 |20,000 |80,000 |120,000 |200,000 |
+| **24SU** |10000 |20,000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60SU** |25,000 |50,000 |200,000 |300,000 |500,000 |
 

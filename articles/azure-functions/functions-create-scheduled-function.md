@@ -1,26 +1,26 @@
 ---
-title: "Azure에서 일정에 따라 실행되는 함수 만들기 | Microsoft Docs"
-description: "Azure에서 정의한 일정에 따라 실행되는 함수를 만드는 방법을 알아봅니다."
+title: Azure에서 일정에 따라 실행되는 함수 만들기 | Microsoft Docs
+description: Azure에서 정의한 일정에 따라 실행되는 함수를 만드는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 9c961c06a01bba0b645088a19cd55e72a54396c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
@@ -32,9 +32,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
++ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
 

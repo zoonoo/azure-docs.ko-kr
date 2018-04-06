@@ -1,8 +1,8 @@
 ---
-title: "Cortana Intelligence AppSource 게시 가이드 | Microsoft Docs"
-description: "여기서는 Microsoft 파트너가 Cortana Intelligence 솔루션을 AppSource에 게시하기 위해 수행해야 하는 모든 단계를 설명합니다."
+title: Cortana Intelligence AppSource 게시 가이드 | Microsoft Docs
+description: 여기서는 Microsoft 파트너가 Cortana Intelligence 솔루션을 AppSource에 게시하기 위해 수행해야 하는 모든 단계를 설명합니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource 게시 가이드
 
@@ -46,8 +46,9 @@ AppSource에 이미 게시된 [Cortana Intelligence 솔루션](https://appsource
 1. 솔루션은 다음 구성 요소 중 하나 이상을 사용해야 합니다.
 
     - HDInsight
-    - 기계 학습
+    - Machine Learning
     - Data Lake Analytics
+
     - Stream Analytics
     - Cognitive Services
     - Bot Framework
@@ -109,7 +110,7 @@ AppSource에서 추가하는 콘텐츠는 고품질이어야 하며 다음이 �
 ## <a name="publish-your-app-on-the-publishing-portal"></a>게시 포털에 앱 게시
 응용 프로그램에 대해 위 단계의 평가를 완료했으므로, 게시 포털에 액세스할 수 있으며 [클라우드 파트너 포털을 통해 Cortana Intelligence 제품을 게시하는 방법](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app)에서 다음 단계에 대한 자세한 지침을 확인할 수 있습니다.
 
-필드에 대한 정보가 필요하면 <appsourcecissupport@microsoft.com>으로 메일을 보내주세요.
+필드에 대한 정보가 필요하면 <appsourcecissupport@microsoft.com>으로 이메일을 보내주세요.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>내 앱이 AppSource에 게시되었습니다. 이제 어떻게 해야 하나요?
 먼저 앱이 게시된 것을 축하 드립니다.
 AppSource에 앱을 게시하여 얻게 되는 수익 수준은 대상 사용자에게 미치는 영향에 따라 달라집니다. 수익을 극대화하는 방법에 대한 자세한 내용은 [AppSource에서 Cortana Intelligence 앱 해킹 증가](http://aka.ms/aagrowthhackguide)를 참조하세요.

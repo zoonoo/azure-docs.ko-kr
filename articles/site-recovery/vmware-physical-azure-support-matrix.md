@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -108,7 +108,7 @@ Azure Traffic Manager | 예
 예약된 IP 주소 | 예
 IPv4 | 예
 원본 IP 주소 유지 | 예
-Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Virtual Networks) | 아니요
+Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Virtual Networks) | 아니오
 
 ## <a name="storage"></a>Storage
 **구성 요소** | **지원됨**
@@ -118,10 +118,10 @@ Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Vi
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 게스트/서버 VMDK | 예
 게스트/서버 EFI/UEFI| 부분(Windows Server 2012 이상 VMware 가상 머신에서만 Azure로 마이그레이션) </br></br> 표 끝에 있는 메모를 참조하세요.
-게스트/서버 공유 클러스터 디스크 | 아니요
+게스트/서버 공유 클러스터 디스크 | 아니오
 게스트/서버 암호화된 디스크 | 아니오
-게스트/서버 NFS | 아니요
-게스트/서버 SMB 3.0 | 아니요
+게스트/서버 NFS | 아니오
+게스트/서버 SMB 3.0 | 아니오
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
@@ -147,12 +147,12 @@ Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Vi
 로컬 중복 저장소 | 예
 지역 중복 저장소 | 예
 읽기 액세스 지역 중복 저장소 | 예
-쿨 저장소 | 아니요
+쿨 저장소 | 아니오
 핫 저장소| 아니요
-블록 Blob | 아니요
+블록 Blob | 아니오
 휴지 상태의 암호화(Storage 서비스 암호화)| 예
 Premium Storage | 예
-Import/Export 서비스 | 아니요
+Import/Export 서비스 | 아니오
 Virtual Network 서비스 엔드포인트<br/><br/> 저장소 방화벽 및 대상 저장소/캐시 저장소 계정에 구성된 Virtual Network(복제 데이터 저장에 사용) | 아니오
 범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니요
 
@@ -175,7 +175,7 @@ Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azur
 운영 체제 디스크 크기 | 최대 2,048GB. | 지원되지 않는 경우 확인이 실패합니다. 
 운영 체제 디스크 수 | 1 | 지원되지 않는 경우 확인이 실패합니다.  
 데이터 디스크 수 | 64개 이하. | 지원되지 않는 경우 확인이 실패합니다.  
-데이터 디스크 VHD 크기 | 최대 4,095GB | 지원되지 않는 경우 확인이 실패합니다. 
+데이터 디스크 크기 | 최대 4,095GB | 지원되지 않는 경우 확인이 실패합니다. 
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. | 
 공유 VHD | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다. 
 FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다. 
@@ -188,7 +188,7 @@ VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으�
 **작업** | **지원됨**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요
 
 
 ## <a name="mobility-service"></a>Mobility Service

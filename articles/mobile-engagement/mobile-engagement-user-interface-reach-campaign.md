@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 도달률 캠페인"
-description: "Azure Mobile Engagement를 사용하여 푸시 알림 캠페인을 만들고 관리하는 방법을 알아봅니다."
+title: Azure Mobile Engagement 사용자 인터페이스 - 도달률 캠페인
+description: Azure Mobile Engagement를 사용하여 푸시 알림 캠페인을 만들고 관리하는 방법을 알아봅니다.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>푸시 알림 캠페인을 만들고 관리하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 보내는 데 필요한 모든 정보를 제공하여 새 푸시 캠페인을 만들 수 있습니다. 푸시 캠페인 옵션은 알림, 설문 조사, 데이터 푸시 및 타일(Windows Phone에만 해당)의 4가지 캠페인 유형에 따라 약간씩 다릅니다.
 
 ### <a name="option-applies-to"></a>옵션 적용 대상

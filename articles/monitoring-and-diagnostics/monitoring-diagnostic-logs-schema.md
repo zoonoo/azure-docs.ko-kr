@@ -1,9 +1,9 @@
 ---
-title: "Azure 진단 로그 지원 서비스 및 스키마 | Microsoft Docs"
-description: "Azure 진단 로그에 대해 지원되는 서비스 및 이벤트 스키마에 대해 알아봅니다."
+title: Azure 진단 로그 지원 서비스 및 스키마 | Microsoft Docs
+description: Azure 진단 로그에 대해 지원되는 서비스 및 이벤트 스키마에 대해 알아봅니다.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -37,11 +37,9 @@ ms.lasthandoff: 01/25/2018
 | Customer Insights | 스키마를 사용할 수 없음 |
 | Content Delivery Network | 스키마를 사용할 수 없음 |
 | CosmosDB | [Azure Cosmos DB 로깅](../cosmos-db/logging.md) |
-| Data Lake Analytics
- |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Data Lake Analytics |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Event Hubs
- |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Event Hubs |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT 허브 | [IoT Hub 작업](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault 로깅](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |

@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS에서 역방향 DNS 조회 영역 호스트 | Microsoft Docs"
-description: "Azure DNS를 사용하여 IP 범위에 대한 역방향 DNS 조회 영역을 호스트하는 방법을 알아봅니다."
+title: Azure DNS에서 역방향 DNS 조회 영역 호스트 | Microsoft Docs
+description: Azure DNS를 사용하여 IP 범위에 대한 역방향 DNS 조회 영역을 호스트하는 방법을 알아봅니다.
 services: dns
 documentationcenter: na
 author: jtuliani

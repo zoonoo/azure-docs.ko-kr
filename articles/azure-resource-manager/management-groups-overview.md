@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성 
 
@@ -24,15 +24,13 @@ ms.lasthandoff: 03/17/2018
 
 관리 그룹 기능은 공개 미리 보기에서 사용할 수 있습니다. 관리 그룹을 사용하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **모든 서비스** 섹션에서 **관리 그룹**을 검색합니다. 
 
-관리 그룹에 대한 Azure Policy 지원은 아직 공개 미리 보기에 제공되지 않으며 다음 주에 제공될 예정입니다.  
-
 예를 들어, VM(가상 머신) 생성에 사용 가능한 지역을 제한하는 정책을 관리 그룹에 적용할 수 있습니다. 이 정책은 해당 지역에만 VM을 만들 수 있도록 허용하는 방식으로 그 지역에 속한 모든 관리 그룹, 구독 및 리소스에 적용됩니다.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>관리 그룹 및 구독의 계층 구조 
 
 리소스를 통합 정책 및 액세스 관리를 위한 계층 구조로 구성하는 유연한 관리 그룹 및 구독 구조를 만들 수 있습니다. 다음 다이어그램은 부서에서 구성하는 관리 그룹 및 구독으로 구성된 계층의 예를 보여줍니다.    
 
-![계층 구조](media/management-groups/MG_overview.png)
+![트리](media/management-groups/MG_overview.png)
 
 부서별로 그룹화된 계층을 만들면 *상속*하는 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md) 역할을 해당 관리 그룹에 속한 부서에 할당할 수 있습니다. 관리 그룹을 사용하면 역할을 한 번만 할당하면 되므로 워크로드를 줄이고 오류 위험을 낮출 수 있습니다. 
 
@@ -42,6 +40,14 @@ ms.lasthandoff: 03/17/2018
     - 이 제한에는 루트 수준 또는 구독 수준이 포함되지 않습니다.
 - 각 관리 그룹은 하나의 부모만 지원할 수 있습니다.
 - 각 관리 그룹은 여러 자식을 가질 수 있습니다. 
+
+### <a name="preview-subscription-visibility-limitation"></a>미리 보기 구독 가시성 제한 
+현재 미리 보기 내에서 액세스를 상속받은 구독을 볼 수 없도록 제한됩니다. 액세스는 구독에 상속되지만 Azure Resource Manager를 통해 상속 액세스 권한을 아직 처리할 수 없습니다.  
+
+REST API를 사용하여 구독에 대한 정보를 가져오면 액세스할 수 있는 경우와 같은 세부 정보를 반환하지만 Azure Portal 및 Azure Powershell 내에서 구독은 표시되지 않습니다. 
+
+이 항목은 현재 처리 중이며 "일반 공급"으로 발표된 관리 그룹보다 우선하여 해결될 예정입니다.  
+
 
 ## <a name="root-management-group-for-each-directory"></a>각 디렉터리에 대한 루트 관리 그룹
 

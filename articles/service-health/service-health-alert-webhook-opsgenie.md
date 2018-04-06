@@ -1,12 +1,12 @@
 ---
-title: "OpsGenie를 사용하여 Azure 서비스 상태 경고 구성 | Microsoft Docs"
-description: "서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGenie 인스턴스로 가져옵니다."
+title: OpsGenie를 사용하여 Azure 서비스 상태 경고 구성 | Microsoft Docs
+description: 서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGenie 인스턴스로 가져옵니다.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: a2309a050225dd0d7ac8d5b3e4c762bc5bcb25c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b8017f62dd895219f1d2cdac40f0efdf2db6c93
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>OpsGenie를 사용하여 서비스 상태 경고 구성
 
@@ -53,9 +53,9 @@ ms.lasthandoff: 11/16/2017
 
     a. **작업 유형:** *웹후크*
 
-    b. **세부 정보:** 이전에 저장한 OpsGenie **통합 URL**입니다.
+    나. **세부 정보:** 이전에 저장한 OpsGenie **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 3. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -70,9 +70,9 @@ ms.lasthandoff: 11/16/2017
 
     a. **작업 유형:** *웹후크*
 
-    b. **세부 정보:** 이전에 저장한 OpsGenie **통합 URL**입니다.
+    나. **세부 정보:** 이전에 저장한 OpsGenie **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 5. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 11/16/2017
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. 상태 메시지 "성공"과 함께 `200 OK` 응답이 표시됩니다.
 

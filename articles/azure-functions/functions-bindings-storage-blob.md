@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -233,12 +233,12 @@ C# 및 C# 스크립트에서 트리거 blob에 대한 다음 매개 변수 형�
 * `string`
 * `Byte[]`
 * JSON으로 직렬화 가능한 POCO
-* `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudBlockBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+<sup>1</sup> *function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.ReadWrite`의 “inout” 바인딩이 필요합니다.
 
 `string`, `Byte[]` 또는 POCO에 바인딩하는 방식은 전체 Blob 내용이 메모리에 로드되므로 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [동시성 및 메모리 사용량](#trigger---concurrency-and-memory-usage)을 참조하세요.
 
@@ -289,7 +289,7 @@ Blob의 이름이 *{20140101}-soundfile.mp3*인 경우 함수 코드에서 `name
 
 Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) 형식과 동일한 의미 체계를 가집니다.
 
-|자산  |형식  |설명  |
+|자산  |유형  |설명  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Blob을 트리거하는 경로입니다.|
 |`Uri`|`System.Uri`|기본 위치에 대한 Blob의 URI입니다.|
@@ -364,7 +364,7 @@ Blob Storage 입력 바인딩을 사용하여 Blob을 읽습니다.
 
 ### <a name="input---c-example"></a>입력 - C# 예제
 
-다음 예제는 하나의 큐 트리거와 입력 Blob 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)입니다. 큐 메시지에는 Bob의 이름이 포함되고 함수는 Bob의 크기를 기록합니다.
+다음 예제는 하나의 큐 트리거와 입력 Blob 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)입니다. 큐 메시지에는 Blob의 이름이 포함되고 함수는 Blob의 크기를 기록합니다.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ C# 및 C# 스크립트에서 Blob 입력 바인딩에 대해 다음 매개 변�
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudBlockBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+<sup>1</sup> *function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.ReadWrite`의 “inout” 바인딩이 필요합니다.
 
 `string` 또는 `Byte[]`에 바인딩하는 방식은 전체 Blob 내용이 메모리에 로드되므로 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 앞부분에 나오는 [동시성 및 메모리 사용량](#trigger---concurrency-and-memory-usage)을 참조하세요.
 
@@ -737,21 +736,23 @@ public static void Run(
 
 ## <a name="output---usage"></a>출력 - 사용
 
-C# 및 C# 스크립트에서 Blob 출력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+C# 및 C# 스크립트에서 다음과 같은 형식으로 바인딩하여 Blob을 쓸 수 있습니다.
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudBlockBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
-* `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+<sup>1</sup> *function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.Read`의 “in” 바인딩이 필요합니다.
+
+<sup>2</sup> *function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.ReadWrite`의 “inout” 바인딩이 필요합니다.
 
 비동기 함수에서는 `out` 매개 변수 대신, 반환 값 또는 `IAsyncCollector`를 사용합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 트래픽 분석 질문과 대답 | Microsoft 문서
+title: Azure 트래픽 분석 질문과 대답 | Microsoft Docs
 description: 트래픽 분석에 대해 자주 묻는 질문에 대한 대답을 알아봅니다.
 services: network-watcher
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -29,6 +29,18 @@ ms.lasthandoff: 03/09/2018
     - 모니터링할 NSG에 대해 설정된 NSG 흐름 로그
     - 원시 흐름 로그를 저장할 Azure Storage 계정
     - Log Analytics(OMS) 작업 영역과 읽기 및 쓰기 권한
+    - 계정은 Microsoft.Network 공급자에서 다음 작업을 할당받습니다.
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
 
@@ -83,7 +95,7 @@ ms.lasthandoff: 03/09/2018
 12.  “1) NSG 흐름 로그를 처음으로 분석하는 중입니다. 이 프로세스를 완료하는 데 20-30분 정도 걸릴 수 있습니다. 잠시 후 다시 확인하십시오. 2) 위의 단계가 작동하지 않거나 작업 영역이 무료 SKU에 소속된 경우 여기서 작업 영역 사용량을 확인하여 할당량과 비교해 보십시오. 추가 정보가 필요하면 FAQ를 참조하십시오." 메시지가 표시됩니다. 어떻게 해야 하나요?
 
         다음과 같은 이유로 이 오류가 나타날 수 있습니다.
-        - 트래픽 분석이 최근에 설정되었으며 의미 있는 정보를 얻는 데 필요한 데이터를 수집 중인 것일 수 있습니다. 데이터를 충분히 수집한 후에야 보고서가 작성됩니다. 이 경우 30분 후 다시 시도해 보세요.
+        - 트래픽 분석이 최근에 설정되었으며 의미 있는 정보를 얻는 데 필요한 데이터를 수집하고 있을 수 있습니다. 데이터를 충분히 수집한 후에야 보고서가 작성됩니다. 이 경우 30분 후 다시 시도해 보세요.
         - OMS 작업 영역이 무료 SKU에 속해 있으며 할당량 제한에 도달했습니다. 이 경우 더 큰 용량의 SKU에 속한 작업 영역을 사용해야 합니다.
     
         그래도 문제가 계속되면 [사용자 의견 포럼](https://feedback.azure.com/forums/217313-networking?category_id=195844)에 문제를 올려주세요.
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  트래픽 분석의 비용은 얼마인가요?
 
-        트래픽 분석이 공개 미리 보기로 제공되는 기간에는 요금이 청구되지 않습니다. NSG 흐름 로그를 생성하고 OMS 작업 영역에 데이터를 보관할 때에는 게시된 요율이 적용됩니다.
+        트래픽 분석은 축소된 로그를 향상시키고 Log Analytics 작업 영역에서 향상된 로그를 저장하기 위해 요금이 측정됩니다. 미리 보기 상태에서 축소된 로그를 향상시키기 위해 트래픽 분석의 요금이 부과되지 않습니다. 하지만 작업 영역에서 데이터의 보존은 게시된 요금제로 청구됩니다. 트래픽 분석에 가격 책정을 사용할 수 있게 되면 이 응답이 업데이트됩니다.
 
 15.  지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 

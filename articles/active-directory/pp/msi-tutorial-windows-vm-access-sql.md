@@ -1,8 +1,8 @@
 ---
-title: "Windows VM MSI를 사용하여 Azure SQL 액세스"
-description: "Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL에 액세스하는 프로세스를 안내하는 자습서입니다."
+title: Windows VM MSI를 사용하여 Azure SQL 액세스
+description: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL 액세스
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/21/2018
 
 이 자습서에서는 새 Windows VM을 만듭니다.  기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
 
-1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
+1.  Azure Portal의 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
 2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
 3.  가상 머신 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 머신에 로그인하는 데 사용하는 자격 증명입니다.
 4.  드롭다운에서 가상 머신의 적절한 **구독**을 선택합니다.
@@ -137,7 +137,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL Server에 대해 Azure AD 인증 사용
 
-그룹을 만들고 그룹 구성원 자격에 VM MSI를 추가했으므로 다음 단계를 사용하여 [SQL Server에 대해 Azure AD 인증을 구성](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)할 수 있습니다.
+그룹을 만들고 그룹 구성원 자격에 VM MSI를 추가했으므로 다음 단계를 사용하여 [SQL Server에 대해 Azure AD 인증을 구성](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)할 수 있습니다.
 
 1.  Azure Portal의 왼쪽 탐색 영역에서 **SQL Server**를 선택합니다.
 2.  Azure AD 인증에 사용할 SQL Server를 클릭합니다.
@@ -183,7 +183,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 Azure SQL은 기본적으로 Azure AD 인증을 지원하므로 MSI를 사용하여 획득한 액세스 토큰을 직접 수락할 수 있습니다.  SQL에 대한 연결을 만들기 위해 **액세스 토큰** 방법을 사용합니다.  이 방법은 Azure SQL을 Azure AD와 통합하는 작업의 일부로, 연결 문자열에서 자격 증명을 제공하는 것과는 다릅니다.
 
-다음은 액세스 토큰을 사용하여 SQL에 대한 연결을 여는 .Net 코드 예제입니다.  VM MSI 끝점에 액세스하기 위해서는 VM에 대해 이 코드를 실행해야 합니다.  액세스 토큰 방법을 사용하려면 **.NET Framework 4.6** 이상이 필요합니다.  그에 따라 AZURE-SQL-SERVERNAME 및 DATABASE 값을 바꿉니다.  Azure SQL의 리소스 ID는 "https://database.windows.net/"입니다.
+다음은 액세스 토큰을 사용하여 SQL에 대한 연결을 여는 .Net 코드 예제입니다.  VM MSI 끝점에 액세스하기 위해서는 VM에 대해 이 코드를 실행해야 합니다.  액세스 토큰 방법을 사용하려면 **.NET Framework 4.6** 이상이 필요합니다.  그에 따라 AZURE-SQL-SERVERNAME 및 DATABASE 값을 바꿉니다.  Azure SQL에 대한 리소스 ID는 "https://database.windows.net/"입니다.
 
 ```csharp
 using System.Net;

@@ -1,10 +1,10 @@
 ---
-title: "ServiceNow를 사용하여 Azure 서비스 상태 경고 구성 | Microsoft Docs"
-description: "서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다."
+title: ServiceNow를 사용하여 Azure 서비스 상태 경고 구성 | Microsoft Docs
+description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
 author: shawntabrizi
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 625718ab82443c897d1b15c2eac51dea3d0dfeb4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>ServiceNow를 사용하여 서비스 상태 경고 구성
 
@@ -159,9 +159,9 @@ ms.lasthandoff: 11/16/2017
 
     a. **작업 유형:** *웹후크*
 
-    b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
+    나. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 3. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -176,9 +176,9 @@ ms.lasthandoff: 11/16/2017
 
     a. **작업 유형:** *웹후크*
 
-    b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
+    나. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 5. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 11/16/2017
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. "인시던트가 생성되었습니다" 메시지와 함께 `200 OK` 응답이 표시됩니다.
 

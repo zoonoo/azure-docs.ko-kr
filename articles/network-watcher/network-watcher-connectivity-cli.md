@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher로 연결 문제 해결 - Azure CLI 2.0 | Microsoft Docs"
-description: "Azure CLI 2.0을 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다."
+title: Azure Network Watcher로 연결 문제 해결 - Azure CLI 2.0 | Microsoft Docs
+description: Azure CLI 2.0을 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article

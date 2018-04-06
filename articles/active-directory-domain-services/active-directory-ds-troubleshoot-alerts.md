@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/16/2018
 | AADDS102 | *Azure AD Domain Services가 제대로 작동하는 데 필요한 서비스 주체가 Azure AD 디렉터리에서 삭제되었습니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.* | [누락된 서비스 주체](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Azure AD Domain Services를 사용하도록 설정한 가상 네트워크의 IP 주소 범위가 공용 IP 범위에 있습니다. Azure AD Domain Services는 개인 IP 주소 범위를 갖는 가상 네트워크에서 사용되도록 설정해야 합니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.* | [주소가 공용 IP 범위에 있습니다.](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft는 이 관리되는 도메인에 대한 도메인 컨트롤러에 연결할 수 없습니다. 가상 네트워크에 구성된 NSG(네트워크 보안 그룹)가 관리되는 도메인에 대한 액세스를 차단하려고 할 때 이 문제가 발생할 수 있습니다. 다른 가능한 이유는 인터넷에서 들어오는 트래픽을 차단하는 사용자 정의 경로가 있는 경우입니다.* | [네트워크 오류](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체는 삭제되었으며, Microsoft에서 다시 만들 수 없습니다. 이 서비스 주체는 암호 동기화에 사용되는 다른 서비스 주체와 응용 프로그램을 관리합니다. 관리되는 서비스 주체 및 응용 프로그램은 새로 생성된 서비스 주체로 승인되지 않으며, 동기화 인증서가 만료되면 만료됩니다. 즉, 새로 생성된 서비스 주체는 이전의 관리되는 응용 프로그램을 업데이트할 수 없으며, AAD의 개체 동기화가 영향을 받게 됩니다.* | [암호 동기화 응용 프로그램이 만료됨](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 이 서비스 주체는 암호 동기화에 사용되는 다른 서비스 주체와 응용 프로그램을 관리합니다. 새로 만든 서비스 주체에서 관리 서비스 주체 및/또는 응용 프로그램에는 권한이 없습니다. 따라서 서비스에서 관리할 수 없습니다. 즉, 새로 생성된 서비스 주체는 이전의 관리 응용 프로그램을 업데이트할 수 없으며, 암호의 동기화가 영향을 받게 됩니다.* | [암호 동기화 응용 프로그램이 만료됨](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *관리되는 도메인은 [date]에 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.* | [잠시 후에 동기화가 수행되지 않았습니다.](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *관리되는 도메인은 마지막으로 [date]에 백업되었습니다.* | [잠시 후에 백업이 수행되지 않았습니다.](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *관리되는 도메인에 대한 보안 LDAP 인증서는 XX에 만료됩니다.* | [보안 LDAP 인증서 만료](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

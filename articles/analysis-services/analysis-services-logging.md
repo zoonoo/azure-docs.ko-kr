@@ -1,31 +1,31 @@
 ---
-title: "Azure Analysis Services에 대한 진단 로깅 | Microsoft Docs"
-description: "Azure Analysis Services에 진단 로깅을 설정하는 방법을 알아봅니다."
+title: Azure Analysis Services에 대한 진단 로깅 | Microsoft Docs
+description: Azure Analysis Services에 진단 로깅을 설정하는 방법을 알아봅니다.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
-Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)에 포함되는 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 
+Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 
 
-![Log Analytics를 통해 Storage, Event Hubs 또는 Operations Management Suite로 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
+![Storage, Event Hubs 또는 Log Analytics에 대한 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>다음이 로깅됩니다.
@@ -171,7 +171,7 @@ Log Analytics에서 진단 데이터를 보려면 아래에 표시된 대로 왼
 
 **EventClass\_s** 또는 이벤트 이름 중 하나를 클릭하면 Log Analytics가 계속 쿼리를 구성합니다. 나중에 다시 사용하도록 쿼리를 저장해야 합니다.
 
-Log Analytics 데이터에 대한 향상된 쿼리, 대시보드 및 경고 기능이 포함된 웹 사이트를 제공하는 Operations Management Suite를 확인하세요.
+Log Analytics를 확인하세요. 여기에서는 수집된 데이터에 대한 향상된 쿼리, 대시보드 및 경고 기능이 포함된 웹 사이트를 제공합니다.
 
 ### <a name="queries"></a>쿼리
 

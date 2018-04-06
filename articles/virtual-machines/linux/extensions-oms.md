@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: danis
-ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c0b7224d0f534661950117813e1a4f348810853
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Linux용 OMS 가상 머신 확장
 
@@ -195,10 +195,11 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 | 오류 코드 | 의미 | 가능한 작업 |
 | :---: | --- | --- |
+| 9 | 조기 호출 사용 설정 | [Azure Linux 에이전트를 사용 가능한 최신 버전으로 업데이트](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)합니다. |
 | 10 | VM이 Log Analytics 작업 영역에 이미 연결됨 | VM을 확장 스키마에 지정된 작업 영역에 연결하려면 공용 설정에서 stopOnMultipleConnections를 false로 설정하거나 이 속성을 제거합니다. 이 VM은 연결된 각 작업 영역에 대해 한 번만 비용이 청구됩니다. |
 | 11 | 확장에 잘못된 구성이 제공됨 | 이전 예제에 따라 배포에 필요한 모든 속성 값을 설정합니다. |
 | 12 | dpkg 패키지 관리자가 잠겨 있음 | 컴퓨터의 모든 dpkg 업데이트 작업이 완료되었는지 확인하고 다시 시도합니다. |
-| 20 | 조기 호출 사용 설정 | [Azure Linux 에이전트를 사용 가능한 최신 버전으로 업데이트](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)합니다. |
+| 20 | SCX 패키지 설치 실패 |
 | 51 | 이 확장이 VM의 운영 체제에서 지원되지 않음 | |
 | 55 | Microsoft Operations Management Suite 서비스에 연결할 수 없음 | 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공되었는지 확인합니다. 또한 작업 영역 ID가 올바른지 확인합니다. |
 

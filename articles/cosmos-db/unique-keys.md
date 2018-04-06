@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB의 고유 키 | Microsoft Docs"
-description: "Azure Cosmos DB 데이터베이스에서 고유 키를 사용하는 방법을 알아봅니다."
+title: Azure Cosmos DB의 고유 키 | Microsoft Docs
+description: Azure Cosmos DB 데이터베이스에서 고유 키를 사용하는 방법을 알아봅니다.
 services: cosmos-db
-keywords: "고유 키 제약 조건, 고유 키 제약 조건 위반"
+keywords: 고유 키 제약 조건, 고유 키 제약 조건 위반
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/14/2017
 
 각 고유 키에 최대 16경로 값(예: /firstName, /lastName, /address/zipCode 등)을 포함할 수 있습니다. 
 
-각 고유 키 정책에는 최대 10개의 고유 키 제약 조건 또는 조합을 포함할 수 있습니다. 이름, 성 및 이메일 주소를 사용하는 이전 예제는 제약 조건이 하나뿐이고, 최대 16경로 중 3개를 사용합니다. 
+고유한 키 정책에는 각각 최대 10개의 고유한 키 제약 조건이 있을 수 있습니다. 또는 모든 고유한 인덱스 속성에 대해 조합과 결합된 경로는 60자를 초과하지 않아야 합니다. 이름, 성 및 이메일 주소를 사용하는 이전 예제는 제약 조건이 하나뿐이고, 최대 16경로 중 3개를 사용합니다. 
 
 컨테이너에 대한 고유한 키 정책이 있으면 항목을 만들고 업데이트하고 삭제하기 위한 요청 단위 요금이 약간 더 비쌉니다. 
 

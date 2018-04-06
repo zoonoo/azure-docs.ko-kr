@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics의 Power BI 대시보드 | Microsoft Docs"
-description: "실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 Stream Analytics 작업에서 대량의 데이터를 분석합니다."
-keywords: "분석 대시보드, 실시간 대시보드"
+title: Azure Stream Analytics의 Power BI 대시보드 | Microsoft Docs
+description: 실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 Stream Analytics 작업에서 대량의 데이터를 분석합니다.
+keywords: 분석 대시보드, 실시간 대시보드
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 실시간 대시보드를 만들고 사용하는 방법도 학습합니다.
@@ -113,7 +112,7 @@ Power BI 데이터 집합에 대한 자세한 내용은 [Power BI REST API](http
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 
 ## <a name="test-the-query"></a>쿼리 테스트
@@ -142,7 +141,7 @@ Power BI 데이터 집합에 대한 자세한 내용은 [Power BI REST API](http
 
 3. 작업 블레이드에서 **시작**을 클릭합니다.
 
-    ![Stream Analytic 작업 시작](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
+    ![Stream Analytics 작업 시작](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
 Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 검색합니다. 작업은 Power BI에서 데이터 집합 및 테이블을 만들고 사기성 호출에 대한 데이터 보내기를 시작합니다.
 
@@ -173,7 +172,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
     ![새 타일에 대한 시각화 세부 정보](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
 
-7. **다음**을 누릅니다.
+7. **다음**을 클릭합니다.
 
 8. 제목 및 부제목 같은 타일 세부 정보를 입력합니다.
 
@@ -217,7 +216,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 ![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-예:
+예: 
 
 * 1,000대의 장치가 1초 간격으로 데이터를 보내고 있습니다.
 * 시간당 1,000,000개의 행을 지원하는 Power BI Pro SKU를 사용하고 있습니다.
@@ -255,6 +254,6 @@ Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

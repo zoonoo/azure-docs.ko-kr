@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: bb481b1aade29130e01a9d15c6dcf4a3a68e194e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac0b15f120071093fd81de1d83cf2067ecbac269
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/09/2018
 
 1. **+ 리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 2. 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 선택합니다.
-    - **이름**: 가상 네트워크를 만들려고 선택하는 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에서 고유해야 합니다. 가상 네트워크를 만든 후 이름을 변경할 수 없습니다. 시간이 지남에 따라 여러 가상 네트워크를 만들 수 있습니다. 명명 제안에 대해서는 [명명 규칙](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)을 참조하세요. 명명 규칙을 따르면 여러 가상 네트워크를 보다 쉽게 관리할 수 있습니다.
+    - **이름**: 가상 네트워크를 만들려고 선택하는 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에서 고유해야 합니다. 가상 네트워크를 만든 후 이름을 변경할 수 없습니다. 시간이 지남에 따라 여러 가상 네트워크를 만들 수 있습니다. 명명 제안에 대해서는 [명명 규칙](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)을 참조하세요. 명명 규칙을 따르면 여러 가상 네트워크를 보다 쉽게 관리할 수 있습니다.
     - **주소 공간**: 가상 네트워크의 주소 공간은 CIDR 표기법으로 지정된 하나 이상의 겹치지 않는 주소 범위로 구성됩니다. 정의하는 주소 범위는 공용 또는 개인 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 개인으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
         - 224.0.0.0/4(멀티캐스트)
         - 255.255.255.255/32(브로드캐스트)

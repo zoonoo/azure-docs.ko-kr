@@ -1,28 +1,28 @@
 ---
-title: "빠른 시작: Azure SQL Data Warehouse에서 계산 능력 확장 - T-SQL | Microsoft Docs"
-description: "DWU를 조정하여 계산 리소스 크기를 조정하기 위한 T-SQL 명령입니다."
+title: '빠른 시작: Azure SQL Data Warehouse에서 계산 능력 확장 - T-SQL | Microsoft Docs'
+description: DWU를 조정하여 계산 리소스 크기를 조정하기 위한 T-SQL 명령입니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1591192c72f5bf201dbbef80acc5895c8324fca4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure SQL Data Warehouse에서 계산 능력 조정
 
-T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 계산 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
+T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 계산 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절약을 위해 다시 축소할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -101,18 +101,9 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## <a name="check-database-state"></a>데이터베이스 상태 확인
+## <a name="check-data-warehouse-state"></a>데이터 웨어하우스 상태 확인
 
-데이터베이스 상태를 **master** 데이터베이스에 대해 다음 쿼리를 실행합니다.
-
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
-
-이 명령을 실행하면 온라인, 일시 중지 중, 다시 시작 중, 크기 조정 또는 일시 중지됨의 상태가 표시됩니다.
+데이터 웨어하우스를 일시 중지하면 T-SQL로 연결할 수 없습니다. 데이터 웨어하우스의 현재 상태를 보려면 PowerShell cmdlet을 사용합니다. 한 예로 [데이터 웨어하우스 상태 확인 - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)을 참조하세요. 
 
 ## <a name="check-operation-status"></a>작업 상태 확인
 

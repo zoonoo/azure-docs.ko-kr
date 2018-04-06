@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 데모 앱 | Microsoft Docs"
-description: "Azure Mobile Engagement 데모 앱 다운로드 위치, 사용 방법, 사용 시 이점에 대해 설명합니다"
+title: Azure Mobile Engagement 데모 앱 | Microsoft Docs
+description: Azure Mobile Engagement 데모 앱 다운로드 위치, 사용 방법, 사용 시 이점에 대해 설명합니다
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f624d5aa-254b-4ad0-96a3-f00e6c3a2c97
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b74afcadc52973a4d824afddc0abff6ac9f71d17
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Azure Mobile Engagement 데모 앱
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 유용한 리소스를 찾고 Mobile Engagement에 대한 자세한 정보를 알아보는데 도움이 되도록 **iOS**, **Android** 및 **Windows** 플랫폼용 Azure Mobile Engagement 데모 앱을 게시했습니다.
 
 앱을 통해 다음 작업이 가능합니다.

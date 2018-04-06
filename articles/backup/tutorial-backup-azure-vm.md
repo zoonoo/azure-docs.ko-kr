@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 대규모로 Azure VM 백업 | Microsoft Docs"
-description: "이 자습서에서는 여러 Azure 가상 컴퓨터를 Recovery Services 자격 증명 모음에 백업하는 방법을 자세히 설명합니다."
+title: Azure에서 대규모로 Azure VM 백업 | Microsoft Docs
+description: 이 자습서에서는 여러 Azure 가상 머신을 Recovery Services 자격 증명 모음에 백업하는 방법을 자세히 설명합니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "가상 컴퓨터 백업; 백업 및 재해 복구"
-ms.assetid: 
+editor: ''
+keywords: 가상 머신 백업; 백업 및 재해 복구
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Azure에서 대규모로 Azure 가상 컴퓨터 백업
+# <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Azure에서 대규모로 Azure 가상 머신 백업
 
-이 자습서에서는 Azure 가상 컴퓨터를 Recovery Services 자격 증명 모음에 백업하는 방법을 자세히 설명합니다. 가상 컴퓨터를 백업하는 작업은 대부분 준비 작업입니다. 가상 컴퓨터를 백업하거나 보호할 수 있으려면, VM을 보호하도록 환경을 준비하기 위한 [필수 구성 요소](backup-azure-arm-vms-prepare.md)를 완료해야 합니다. 
+이 자습서에서는 Azure 가상 머신을 Recovery Services 자격 증명 모음에 백업하는 방법을 자세히 설명합니다. 가상 머신을 백업하는 작업은 대부분 준비 작업입니다. 가상 머신을 백업하거나 보호할 수 있으려면, VM을 보호하도록 환경을 준비하기 위한 [필수 구성 요소](backup-azure-arm-vms-prepare.md)를 완료해야 합니다. 
 
 > [!IMPORTANT]
-> 이 자습서에서는 리소스 그룹 및 Azure 가상 컴퓨터를 이미 만들었다고 가정합니다.
+> 이 자습서에서는 리소스 그룹 및 Azure 가상 머신을 이미 만들었다고 가정합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -40,20 +40,20 @@ Azure Backup을 처음 사용할 때에는 구독과 함께 Azure Recovery Servi
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 ```
 
-**New-AzureRmRecoveryServicesVault**를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 백업할 가상 컴퓨터를 구성할 때 사용할 리소스 그룹 이름과 위치를 지정해야 합니다. 
+**New-AzureRmRecoveryServicesVault**를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 백업할 가상 머신을 구성할 때 사용할 리소스 그룹 이름과 위치를 지정해야 합니다. 
 
 ```powershell
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다. 그런 다음 **Set-AzureRmRecoveryServicesBackupProperties**를 사용해 **-BackupStorageRedundancy** 옵션을 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy.md#geo-redundant-storage)로 설정합니다. 
+많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다. 그런 다음 **Set-AzureRmRecoveryServicesBackupProperties**를 사용해 **-BackupStorageRedundancy** 옵션을 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy-grs.md)로 설정합니다. 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault
 Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
 ```
 
-## <a name="back-up-azure-virtual-machines"></a>Azure 가상 컴퓨터 백업
+## <a name="back-up-azure-virtual-machines"></a>Azure 가상 머신 백업
 
 초기 백업을 실행하기 전에 자격 증명 모음 컨텍스트를 설정해야 합니다. 자격 증명 모음 컨텍스트는 자격 증명 모음에서 보호되는 데이터의 형식입니다. Recovery Services 자격 증명 모음을 만들면 기본 보호 및 보존 정책이 함께 제공됩니다. 기본 보호 정책은 매일 지정된 시간에 백업 작업을 트리거합니다. 기본 보존 정책은 매일 복구 지점을 30일 동안 유지합니다. 이 자습서에서는 기본 정책을 적용합니다. 
 
@@ -85,11 +85,11 @@ Remove-AzureRmRecoveryServicesVault -Vault $vault1
 ```
 
 ## <a name="troubleshooting-errors"></a>문제 해결 오류
-가상 컴퓨터를 백업하는 동안 문제가 발생한 경우 [Azure 가상 컴퓨터 백업 문제 해결 문서](backup-azure-vms-troubleshoot.md)를 참조하세요.
+가상 머신을 백업하는 동안 문제가 발생한 경우 [Azure 가상 머신 백업 문제 해결 문서](backup-azure-vms-troubleshoot.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이제 가상 컴퓨터를 보호했으므로, 다음 문서를 참조하여 관리 작업과 복구 지점에서 가상 컴퓨터를 복원하는 방법을 알아보세요.
+이제 가상 머신을 보호했으므로, 다음 문서를 참조하여 관리 작업과 복구 지점에서 가상 머신을 복원하는 방법을 알아보세요.
 
-* 백업 정책을 수정하려면 [AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업](backup-azure-vms-automation.md#create-a-protection-policy)을 참조하세요.
-* [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
-* [가상 컴퓨터 복원](backup-azure-arm-restore-vms.md)
+* 백업 정책을 수정하려면 [AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 머신 백업](backup-azure-vms-automation.md#create-a-protection-policy)을 참조하세요.
+* [가상 머신 관리 및 모니터링](backup-azure-manage-vms.md)
+* [가상 머신 복원](backup-azure-arm-restore-vms.md)

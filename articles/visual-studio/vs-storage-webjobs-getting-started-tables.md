@@ -1,11 +1,11 @@
 ---
-title: "Azure 저장소 및 Visual Studio 연결 서비스 시작(WebJob 프로젝트)"
-description: "Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio Azure WebJobs 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다."
+title: Azure 저장소 및 Visual Studio 연결 서비스 시작(WebJob 프로젝트)
+description: Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio Azure WebJobs 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.service: storage
 ms.workload: web
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e0c77e08bff971277a09d6066f259db84617616
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 75ca4914fe60ec6f5c50e4942ad6d5cc7a6fe98b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure 저장소 시작(Azure WebJob 프로젝트)
+# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure Storage 시작(Azure WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>개요

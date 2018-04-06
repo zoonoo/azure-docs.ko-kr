@@ -1,24 +1,24 @@
 ---
 title: Log Analytics FAQ | Microsoft Docs
-description: "Azure Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다."
+description: Azure Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -27,7 +27,7 @@ Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics는 Azure Security Center와 같은 에이전트를 사용합니까?
 
-A. 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션 FAQ](../security-center/security-center-platform-migration-faq.md)를 참조하세요.
+a. 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션 FAQ](../security-center/security-center-platform-migration-faq.md)를 참조하세요.
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. AD 및 SQL 평가 솔루션에서 수행하는 검사는 무엇입니까?
 
@@ -51,19 +51,21 @@ A: 아니요. Log Analytics는 대량의 데이터를 처리 및 저장하는 �
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Log Analytics에서 더 이상 데이터를 수집하지 않는 경우 어떻게 해결하나요?
 
-A: 무료 가격 책정 계층에 있고 하루에 500MB 이상의 데이터를 보낸 경우 남은 날 동안 데이터 수집이 중지됩니다. 일일 한도에 도달하는 것은 Log Analytics가 데이터 수집을 중지하고 데이터가 사라진 것처럼 표시되는 일반적인 이유입니다.
+A: 무료 가격 책정 계층에 있고 하루에 500MB 이상의 데이터를 보낸 경우 남은 날 동안 데이터 수집이 중지됩니다. 일일 한도에 도달하는 것은 Log Analytics가 데이터 수집을 중지하고 데이터가 사라진 것처럼 표시되는 일반적인 이유입니다.  
 
-Log Analytics는 데이터 수집을 시작하고 중지할 때 *Operation* 형식의 이벤트를 만듭니다. 
+Log Analytics는 *Heartbeat* 형식의 이벤트를 만들며, 데이터 수집이 중지되었는지 여부를 확인하는 데 사용할 수 있습니다. 
 
-일일 한도에 도달하고 데이터 누락이 있는지 확인하려면 검색에서 다음 쿼리를 실행합니다. `Type=Operation OperationCategory="Data Collection Status"`
+일일 한도에 도달하고 데이터 누락이 있는지 확인하려면 검색에서 다음 쿼리를 실행합니다. `Heartbeat | summarize max(TimeGenerated)`
 
-데이터 수집이 중지되는 경우 *OperationStatus*가 **Warning**입니다. 데이터 수집이 시작되는 경우 *OperationStatus*가 **Succeeded**입니다. 
+특정 컴퓨터를 확인하려면 다음 쿼리를 실행합니다. `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+선택한 시간 범위에 따라 데이터 수집이 중지되면 반환되는 모든 레코드가 표시되지 않습니다.   
 
 다음 표에서 데이터 수집을 중지하는 이유 및 데이터 수집을 다시 시작하는 권장되는 작업을 설명합니다.
 
 | 데이터 수집 중지 이유                       | 데이터 수집을 다시 시작하려면 |
 | -------------------------------------------------- | ----------------  |
-| 무료 데이터의 일일 한도 도달<sup>1</sup>       | 수집이 다음 날에 자동으로 다시 시작될 때까지 대기 또는<br> 유료 가격 책정 계층으로 변경 |
+| 무료 데이터의 한도 도달<sup>1</sup>       | 수집이 다음 달에 자동으로 다시 시작될 때까지 대기 또는<br> 유료 가격 책정 계층으로 변경 |
 | Azure 구독이 다음으로 인해 일시 중단된 상태: <br> 평가판 종료 <br> Azure 암호 만료 <br> 월별 지출 한도 도달(예: MSDN 또는 Visual Studio 구독에서)                          | 유료 구독으로 전환 <br> 유료 구독으로 전환 <br> 한도 제거 또는 한도가 재설정될 때까지 대기 |
 
 <sup>1</sup> 작업 영역이 무료 가격 책정 계층에 있는 경우 일당 500MB의 데이터를 서비스에 전송하도록 제한됩니다. 일일 한도에 도달하면 데이터 수집이 다음 날까지 중지됩니다. 데이터 수집이 중지되는 동안 전송된 데이터가 인덱싱되지 않으며 검색에 사용할 수 없습니다. 데이터 수집이 다시 시작되면 전송된 새 데이터에 대해서만 프로세스가 발생합니다. 
@@ -77,35 +79,34 @@ A: [경고 규칙 만들기](log-analytics-alerts-creating.md#create-an-alert-ru
 데이터 수집이 중단되는 경우에 대한 경고를 만드는 시기는 다음을 설정합니다.
 - **이름**을 *데이터 수집 중지됨*으로
 - **심각도**를 *경고*로
-- **쿼리 검색**을 `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`으로
-- **시간 창**을 *2시간*으로 설정합니다.
-- 사용량 데이터가 시간당 한 번만 업데이트되므로 **경고 빈도**를 1시간으로 설정합니다.
+- **쿼리 검색**을 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`으로
+- **시간 창**을 *30분*으로.
+- **경고 빈도**를 매 *10*분으로.
 - **경고 생성 기준**을 *결과의 수*로
 - **결과 수**를 *0보다 큼*으로
 
-[경고 규칙에 작업 추가](log-analytics-alerts-actions.md)에 설명한 단계를 사용하여 경고 규칙에 전자 메일, 웹후크 또는 Runbook 작업을 구성합니다.
-
+이 경고는 15분 이상에 하트비트가 누락된 경우에만 쿼리가 결과를 반환할 때 발생합니다.  [경고 규칙에 작업 추가](log-analytics-alerts-actions.md)에 설명한 단계를 사용하여 경고 규칙에 전자 메일, 웹후크 또는 Runbook 작업을 구성합니다.
 
 ## <a name="configuration"></a>구성
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. WAD(Azure 진단)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
 
-A. 아니요, 현재 Azure 저장소의 임의 테이블 또는 컨테이너에서 읽을 수 없습니다.
+a. 아니요, 현재 Azure 저장소의 임의 테이블 또는 컨테이너에서 읽을 수 없습니다.
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>Q. Log Analytics 서비스에서 사용하는 IP 주소는 무엇인가요? 내 방화벽에서 Log Analytics 서비스에 대한 트래픽만 허용하도록 하려면 어떻게 하나요?
 
-A. Log Analytics 서비스는 Azure를 기반으로 빌드됩니다. Log Analytics IP 주소는 [Microsoft Azure 데이터 센터 IP 범위](http://www.microsoft.com/download/details.aspx?id=41653)에 있습니다.
+a. Log Analytics 서비스는 Azure를 기반으로 빌드됩니다. Log Analytics IP 주소는 [Microsoft Azure 데이터 센터 IP 범위](http://www.microsoft.com/download/details.aspx?id=41653)에 있습니다.
 
 서비스 배포가 수행되면서 Log Analytics 서비스의 실제 IP 주소가 변경됩니다. 방화벽을 통과하도록 허용할 DNS 이름이 [Log Analytics에서 프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md)에 설명되어 있습니다.
 
-### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. Express 경로를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
+### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. ExpressRoute를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
 
-A. 여러 유형의 Express 경로 트래픽이 [Express 경로 설명서](../expressroute/expressroute-faqs.md#supported-services)에 나와 있습니다.
+a. 여러 유형의 ExpressRoute 트래픽이 [ExpressRoute 설명서](../expressroute/expressroute-faqs.md#supported-services)에 나와 있습니다.
 
-Log Analytics에 대한 트래픽은 공용 피어링 Express 경로 회로를 사용합니다.
+Log Analytics에 대한 트래픽은 공용 피어링 ExpressRoute 회로를 사용합니다.
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?
 
-A. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 자동화 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
+a. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 자동화 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
 
 이러한 변경은 Azure 포털에서 이루어집니다.
 
@@ -139,19 +140,19 @@ A: Azure Portal을 사용하는 경우 이동에 대해 작업 영역만 선택�
 
 ## <a name="agent-data"></a>에이전트 데이터
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. 에이전트를 통해 Log Analytics로 얼마나 많은 데이터를 보낼 수 있나요? 고객 한 명당 최대 데이터 용량이 있나요?
-A. 무료 요금제에서는 작업 영역당 일일 용량을 500MB로 설정합니다. 표준 및 프리미엄 요금제에는 업로드되는 데이터 양에 제한이 없습니다. 클라우드 서비스로 Log Analytics는 고객의 데이터 볼륨(일일 테라바이트 단위까지)을 처리하도록 자동 강화되도록 설계되었습니다.
+a. 무료 요금제에서는 작업 영역당 일일 용량을 500MB로 설정합니다. 표준 및 프리미엄 요금제에는 업로드되는 데이터 양에 제한이 없습니다. 클라우드 서비스로 Log Analytics는 고객의 데이터 볼륨(일일 테라바이트 단위까지)을 처리하도록 자동 강화되도록 설계되었습니다.
 
-Log Analytics 에이전트는 작은 공간을 갖도록 설계되었습니다. 고객 중 한 명이 에이전트에 대해 수행한 테스트와 그에 대한 의견을 다룬 블로그를 작성했습니다. 데이터 볼륨은 사용하도록 설정한 솔루션에 따라 다릅니다. [사용량](log-analytics-usage.md) 페이지에서 데이터 볼륨에 대한 자세한 정보를 확인하고 솔루션별로 정리된 내용을 볼 수 있습니다.
+Log Analytics 에이전트는 작은 공간을 갖도록 설계되었습니다. 데이터 볼륨은 사용하도록 설정한 솔루션에 따라 다릅니다. [사용량](log-analytics-usage.md) 페이지에서 데이터 볼륨에 대한 자세한 정보를 확인하고 솔루션별로 정리된 내용을 볼 수 있습니다.
 
-자세한 내용은 OMS 에이전트의 적은 사용 공간에 대한 [고객 블로그](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) 를 참조할 수 있습니다.
+자세한 내용은 OMS 에이전트의 적은 사용 공간에 대한 [고객 블로그](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)를 참조할 수 있습니다.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. 데이터를 Log Analytics로 전송할 때 Microsoft Management Agent(MMA)에 사용된 네트워크 대역폭은 얼마나 되나요?
 
-A. 대역폭은 전송된 데이터 양에 대한 기능입니다. 네트워크를 통해 데이터가 전송되는 동안 데이터가 압축됩니다.
+a. 대역폭은 전송된 데이터 양에 대한 기능입니다. 네트워크를 통해 데이터가 전송되는 동안 데이터가 압축됩니다.
 
 ### <a name="q-how-much-data-is-sent-per-agent"></a>Q. 에이전트당 얼마나 많은 데이터가 전송되나요?
 
-A. 에이전트당 전송되는 데이터의 양에 따라 달라집니다.
+a. 에이전트당 전송되는 데이터의 양에 따라 달라집니다.
 
 * 사용하도록 설정한 솔루션
 * 수집되는 로그 및 성능 카운터 수

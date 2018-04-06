@@ -1,24 +1,24 @@
 ---
-title: "Azure Search에서 데이터 및 작업 보호 | Microsoft Docs"
-description: "Azure Search 보안은 Azure Search 필터에서 사용자 및 그룹 보안 식별자를 통해 SOC 2 규정 준수, 암호화, 인증 및 ID 액세스를 기반으로 합니다."
+title: Azure Search에서 데이터 및 작업 보호 | Microsoft Docs
+description: Azure Search 보안은 Azure Search 필터에서 사용자 및 그룹 보안 식별자를 통해 SOC 2 규정 준수, 암호화, 인증 및 ID 액세스를 기반으로 합니다.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
-ms.devlang: 
+ms.devlang: ''
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Azure Search의 보안 및 제어된 액세스
 
@@ -57,29 +57,16 @@ Microsoft 데이터 센터는 업계 최고의 물리적 보안을 제공하고 
 
 ## <a name="service-access-and-authentication"></a>서비스 액세스 및 인증
 
-Azure Search이 Azure 플랫폼의 보안 보호 기능을 상속하는 동시에 고유한 키 기반 인증도 제공합니다. 키의 형식(관리자 또는 쿼리)은 액세스 수준을 결정합니다. 유효한 키를 제출하면 요청이 신뢰할 수 있는 엔터티에서 시작되었다는 증명으로 간주됩니다. 
+Azure Search이 Azure 플랫폼의 보안 보호 기능을 상속하는 동시에 고유한 키 기반 인증도 제공합니다. api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. 키의 형식(관리자 또는 쿼리)은 액세스 수준을 결정합니다. 유효한 키를 제출하면 요청이 신뢰할 수 있는 엔터티에서 시작되었다는 증명으로 간주됩니다. 검색 서비스에 액세스하는 데 사용되는 두 가지 키 유형은 다음과 같습니다.
 
-인증은 필수 키, 작업 및 개체로 구성된 각 요청에 필요합니다. 함께 연결하는 경우 두 개의 사용 권한 수준(전체 및 읽기 전용) 및 컨텍스트는 서비스 작업에 전체 스펙트럼 보안을 충분히 제공할 수 있습니다. 
+* 관리(서비스에 대한 모든 읽기-쓰기 작업에 유효)
+* 쿼리(인덱스에 대한 쿼리와 같은 읽기 전용 작업에 유효)
 
-|키|설명|제한|  
-|---------|-----------------|------------|  
-|관리자|서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다.<br /><br /> 포털에서 *기본* 및 *보조* 키라고 하는 두 개의 관리자 **api-key**는 서비스를 만들 때 생성되고 요청 시 개별적으로 다시 생성할 수 있습니다. 키가 두 개이면 서비스에 대해 액세스를 지속하는 데 하나의 키를 사용하는 동안 다른 키를 롤오버할 수 있습니다.<br /><br /> 관리자 키는 HTTP 요청 헤더에서만 지정됩니다. URL에 관리자 api-key를 배치할 수 없습니다.|서비스당 최대 2개|  
-|쿼리|인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 수행하는 클라이언트 응용 프로그램에 배포됩니다.<br /><br /> 쿼리 키는 요청 시 생성됩니다. 포털에서 수동으로 만들거나 [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 통해 프로그래밍 방식으로 만들 수 있습니다.<br /><br /> 검색, 제안 또는 조회 작업의 HTTP 요청 헤더에서 쿼리 키를 지정할 수 있습니다. 또는 쿼리 키를 URL에 매개 변수로 전달할 수 있습니다. 클라이언트 응용 프로그램이 요청을 생성하는 방법에 따라 키를 쿼리 매개 변수로 전달하는 것이 쉬울 수 있습니다.<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|서비스당 50개|  
+관리 키는 서비스가 프로비전될 때 만들어집니다. 두 개의 관리 키가 있으며 단순하게 유지하기 위해 *주* 및 *보조*로 지정되지만 실제로는 서로 바꿔 사용할 수 있습니다. 각 서비스에는 서비스에 대한 액세스 권한을 잃지 않고 롤오버할 수 있는 두 개의 관리 키가 있습니다. 관리 키를 다시 생성할 수 있지만 총 관리 키 수에 추가할 수는 없습니다. 검색 서비스당 최대 두 개의 관리 키가 있습니다.
 
- 시각적으로는 관리자 키 및 쿼리 키 간의 구분이 없습니다. 두 키는 임의로 생성된 32개의 영숫자 문자로 구성된 문자열입니다. 응용 프로그램에서 지정된 키의 형식을 잃어버린 경우 [포털에서 키 값을 확인](https://portal.azure.com)하거나 [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 사용하여 값 및 키 형식을 반환할 수 있습니다.  
+쿼리 키는 필요에 따라 생성되며, 검색을 직접 호출하는 클라이언트 응용 프로그램을 위해 설계되었습니다. 최대 50개까지 쿼리 키를 만들 수 있습니다. 응용 프로그램 코드에서 서비스에 대한 읽기 전용 액세스를 허용하도록 검색 URL 및 쿼리 api-key를 지정합니다. 또한 응용 프로그램 코드는 응용 프로그램에 사용된 인덱스도 지정합니다. 동시에, 끝점, 읽기 전용 액세스를 위한 api-key 및 대상 인덱스는 클라이언트 응용 프로그램에서 연결의 액세스 수준 및 범위를 정의합니다.
 
-> [!NOTE]  
->  요청 URI에서 `api-key`와 같은 중요한 데이터를 전달하는 낮은 수준의 보안 사례로 간주됩니다. 따라서 Azure Search에서는 쿼리 키만을 쿼리 문자열의 `api-key`로 허용하며, 인덱스 콘텐츠가 공개적으로 제공되어야 하는 경우가 아니면 중요한 데이터를 요청 URI에서 전달해서는 안 됩니다. 일반적으로 `api-key`를 요청 헤더로 전달하는 것이 좋습니다.  
-
-### <a name="how-to-find-the-access-keys-for-your-service"></a>서비스의 액세스 키를 찾는 방법
-
-포털에서 또는 [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 통해 액세스 키를 가져올 수 있습니다. 자세한 내용은 [키 관리](search-manage.md#manage-api-keys)를 참조하세요.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 구독에 대한 [검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 나열합니다.
-3. 서비스를 선택하고 서비스 페이지에서 **설정** >**키**를 찾아 관리자 및 쿼리 키를 봅니다.
-
-![포털 페이지, 설정, 키 섹션](media/search-security-overview/settings-keys.png)
+인증은 필수 키, 작업 및 개체로 구성된 각 요청에 필요합니다. 함께 연결하는 경우 두 개의 사용 권한 수준(전체 및 읽기 전용) 및 컨텍스트(예: 인덱스에서의 쿼리 작업)는 서비스 작업에 전체 스펙트럼 보안을 충분히 제공할 수 있습니다. 키에 대 한 자세한 내용은 [api-key 만들기 및 관리](search-security-api-keys.md)를 참조하세요.
 
 ## <a name="index-access"></a>액세스 인덱싱
 
@@ -123,7 +110,7 @@ Azure Search에서 요청을 구성하는 방법에 대한 정보는 [Azure Sear
 | 인덱스 쿼리 | 관리자 또는 쿼리 키(RBAC 적용되지 않음) |
 | 통계, 개수 및 개체의 목록을 반환하는 등 쿼리 시스템 정보입니다. | 관리자 키, 리소스에 대한 RBAC(소유자, 참가자, 독자) |
 | 관리자 키 관리 | 관리자 키, 리소스에 대한 RBAC 소유자 또는 참가자 |
-| 쿼리 키 관리 |  관리자 키, 리소스에 대한 RBAC 소유자 또는 참가자 RBAC 독자는 쿼리 키를 볼 수 있습니다. |
+| 쿼리 키 관리 |  관리자 키, 리소스에 대한 RBAC 소유자 또는 참가자  |
 
 
 ## <a name="see-also"></a>참고 항목

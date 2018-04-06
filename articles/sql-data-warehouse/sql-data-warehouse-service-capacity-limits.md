@@ -3,7 +3,7 @@ title: SQL Data Warehouse 용량 한도 | Microsoft Docs
 description: SQL Data Warehouse의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 아래 표에는 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최대값이 나와 있습니다.
@@ -39,13 +39,13 @@ ms.lasthandoff: 03/17/2018
 |:--- |:--- |:--- |
 | 데이터베이스 |최대 크기 |디스크에서 압축된 240TB<br/><br/>이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. |
 | 테이블 |최대 크기 |디스크에서 압축된 60TB |
-| 테이블 |데이터베이스 당 테이블 |20억 |
+| 테이블 |데이터베이스 당 테이블 |10000 |
 | 테이블 |테이블 당 열 |1024열 |
 | 테이블 |열 당 바이트 |열 [데이터 형식][data type]에 따라 다릅니다.  char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
 | 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server와 마찬가지로, SQL Data Warehouse는 **가변 길이 열**을 행 외부로 밀수 있게 하는 행 오버플로 저장소를 지원합니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 [8KB를 초과하는 행 오버플로 데이터][Row-Overflow Data Exceeding 8 KB]를 참조하세요. |
 | 테이블 |테이블 당 파티션 |15,000<br/><br/>높은 성능을 위해서는 계속해서 비즈니스 요구사항을 지원하면서 파티션 수를 줄이는 것이 좋습니다. 파티션 수가 늘어나면 DDL(데이터 정의 언어) 및 DML(데이터 조작 언어) 작업에 대한 오버헤드가 증가하고 성능이 저하됩니다. |
 | 테이블 |파티션 경계 값 당 문자. |4000 |
-| 인덱스 |테이블 당 비클러스터형 인덱스. |999<br/><br/>rowstore 테이블에만 적용됩니다. |
+| 인덱스 |테이블 당 비클러스터형 인덱스. |50<br/><br/>rowstore 테이블에만 적용됩니다. |
 | 인덱스 |테이블 당 클러스터형 인덱스. |1<br><br/>rowstore 및 columnstore 테이블 모두에 적용됩니다. |
 | 인덱스 |인덱스 키 크기. |900바이트.<br/><br/>rowstore 인덱스에만 적용됩니다.<br/><br/>인덱스를 만들 때 열에 있는 기존 데이터가 900바이트를 초과하지 않는 경우 최대 크기가 900바이트 보다 큰 varchar 열에 인덱스를 만들 수 있습니다. 그러나 나중에 전체 크기가 900바이트를 초과하는 열에서 삽입 또는 업데이트 동작이 실패합니다. |
 | 인덱스 |인덱스 당 키 열. |16<br/><br/>rowstore 인덱스에만 적용됩니다. 클러스터형 columnstore 인덱스는 모든 열을 포함합니다. |
@@ -72,8 +72,9 @@ ms.lasthandoff: 03/17/2018
 | SELECT |중첩된 하위 쿼리 |32<br/><br/>SELECT 문에는 32개 보다 많은 중첩된 하위 쿼리가 있어서는 안 됩니다. 항상 32가 있다고 보장할 수 없습니다. 예를 들어 조인은 쿼리 계획에 하위 쿼리를 제공할 수 있습니다. 또한 사용 가능한 메모리에서 하위 쿼리의 수를 제한할 수 있습니다. |
 | SELECT |조인 당 열 |1024열<br/><br/>조인에는 1024개 이상의 열이 있어서는 안 됩니다. 항상 1024가 있다고 보장할 수 없습니다. 조인 계획에 조인 결과보다 많은 열을 가진 임시 테이블이 필요한 경우 1024 제한은 임시 테이블에 적용됩니다. |
 | SELECT |그룹화 기준 열 당 바이트. |8060<br/><br/>GROUP BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
-| SELECT |정렬 기준 열 당 바이트 |8060 바이트.<br/><br/>GROUP BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
-| 식별자 및 문 당 상수 |참조된 식별자 및 상수의 수. |65,535<br/><br/>SQL Data Warehouse는 쿼리의 단일 수식에 포함될 수 있는 식별자 및 상수의 수를 제한합니다. 이 제한은 65,535입니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다.][Internal error: An expression services limit has been reached]를 참조하세요. |
+| SELECT |정렬 기준 열 당 바이트 |8,060바이트<br/><br/>ORDER BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
+| 명령문당 식별자 |참조된 식별자의 수 |65,535<br/><br/>SQL Data Warehouse는 쿼리의 단일 수식에 포함될 수 있는 식별자의 수를 제한합니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다.][Internal error: An expression services limit has been reached]를 참조하세요. |
+| 문자열 리터럴 | 명령문의 문자열 리터럴 수 | 20,000 <br/><br/>SQL Data Warehouse는 쿼리의 단일 수식에 포함될 수 있는 문자열 상수의 수를 제한합니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다.][Internal error: An expression services limit has been reached]를 참조하세요. |
 
 ## <a name="metadata"></a>Metadata
 | 시스템 뷰 | 최대 행 |

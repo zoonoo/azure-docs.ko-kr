@@ -1,27 +1,41 @@
 ---
-title: "Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Docs"
-description: "게스트 OS 릴리스에 적용된 업데이트 목록"
+title: Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Docs
+description: 게스트 OS 릴리스에 적용된 업데이트 목록
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/4/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c42986e4cdae1d5156863d92eb946220805f7b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="february-guest-os"></a>게스트 OS 2월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 18-02 | [4074590], [4074588] |Windows 10 보안 |5.16 |2018년 2월 13일 |
+| Rel 18-02 | [4074587], [4074589], [4074597] |Windows 보안 전용 |2.71, 3.58, 4.51 |2018년 2월 13일 |
+| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |2018년 2월 13일 |
+| Rel 18-02 | [4074595] |깜박임 |3.58, 4.51, 5.16 |2018년 2월 13일 |
+| 해당 없음 | [4056894] |1월 비보안 롤업 |2.71 |2018년 1월 4일 |
+| 해당 없음 | [4056896] |1월 비보안 롤업 |3.58 |2018년 1월 4일 |
+| 해당 없음 | [4056895] |1월 비보안 롤업 |4.51 |2018년 1월 4일 |
+| 해당 없음 | [4054176], [4054172] |1월 .NET 롤업 |2.71 |2018년 1월 4일 |
+| 해당 없음 | [4054175], [4054171] |1월 .NET 롤업 |3.58 |2018년 1월 4일 |
+| 해당 없음 | [4054177], [4054170] |1월 .NET 롤업 |4.51 |2018년 1월 4일 |
 
 ## <a name="january-guest-os"></a>게스트 OS 1월
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -587,6 +601,25 @@ ms.lasthandoff: 02/09/2018
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 
+
+[4074590]: http://support.microsoft.com/kb/4074590
+[4074588]: http://support.microsoft.com/kb/4074588 
+[4074587]: http://support.microsoft.com/kb/4074587
+[4074589]: http://support.microsoft.com/kb/4074589
+[4074597]: http://support.microsoft.com/kb/4074597
+[4074736]: http://support.microsoft.com/kb/4074736
+[4074595]: http://support.microsoft.com/kb/4074595
+[4056894]: http://support.microsoft.com/kb/4056894
+[4056896]: http://support.microsoft.com/kb/4056896
+[4056895]: http://support.microsoft.com/kb/4048958
+[4054176]: http://support.microsoft.com/kb/4054176
+[4054172]: http://support.microsoft.com/kb/4054172
+[4054175]: http://support.microsoft.com/kb/4054175
+[4054171]: http://support.microsoft.com/kb/4054171
+[4054177]: http://support.microsoft.com/kb/4054177
+[4054170]: http://support.microsoft.com/kb/4054170
+
+
 [4056898]: http://support.microsoft.com/kb/4056898
 [4056897]: http://support.microsoft.com/kb/4056897
 [4056899]: http://support.microsoft.com/kb/4056899
@@ -596,6 +629,7 @@ ms.lasthandoff: 02/09/2018
 [4054520]: http://support.microsoft.com/kb/4054520
 [4054519]: http://support.microsoft.com/kb/4054519
 [4051956]: http://support.microsoft.com/kb/4051956
+
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

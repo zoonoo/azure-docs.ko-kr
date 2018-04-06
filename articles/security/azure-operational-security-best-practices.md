@@ -1,12 +1,12 @@
 ---
-title: "Azure 운영 보안 모범 사례 | Microsoft Docs"
-description: "이 문서에서는 Azure 운영 보안을 위한 모범 사례 모음을 제공합니다."
+title: Azure 운영 보안 모범 사례 | Microsoft Docs
+description: 이 문서에서는 Azure 운영 보안을 위한 모범 사례 모음을 제공합니다.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
@@ -112,7 +112,7 @@ Azure Active Directory 통합 및 활성화 방법에 대한 자세한 내용은
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)는 Azure 리소스를 모니터링하는 단일 원본이 되는 플랫폼 서비스입니다. Azure에서 Azure Monitor를 통해 리소스의 메트릭과 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다. 모니터 포털 블레이드, [Monitor PowerShell Cmdlet](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples), [플랫폼 간 CLI](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx)를 사용하는 데이터를 통해 작업을 수행할 수 있습니다.
 
 ### <a name="enable-autoscale-with-azure-monitor"></a>Azure Monitor에서 자동 크기 조정 사용
-[Azure Monitor 자동 크기 조정](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started) 활성화는 VMSS(Virtual Machine Scale Sets), Cloud Services 및 App Service 계획과 App Service 환경에만 적용됩니다.
+[Azure Monitor 자동 크기 조정](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started) 활성화는 VMSS(가상 머신 확장 집합), Cloud Services 및 App Service 계획과 App Service 환경에만 적용됩니다.
 
 ### <a name="manage-roles-permissions-and-security"></a>역할 권한 및 보안 관리
 많은 팀에서는 [모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다.
@@ -153,7 +153,7 @@ Azure Security Center를 사용하여 모든 Azure 리소스의 보안 상태를
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다.
 
 ### <a name="automate-remote-network-monitoring-with-packet-capture"></a>패킷 캡처를 사용하여 원격 네트워크 모니터링 자동화
-가상 컴퓨터(VM)에 로그인하지 않고 Network Watcher를 사용하여 네트워킹 문제를 모니터링 및 진단합니다. 경고를 설정하여 [패킷 캡처](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture)를 트리거하고 패킷 수준에서 실시간 성능 정보에 액세스합니다. 문제를 발견하면 자세히 조사하여 더 정확히 진단할 수 있습니다.
+가상 머신(VM)에 로그인하지 않고 Network Watcher를 사용하여 네트워킹 문제를 모니터링 및 진단합니다. 경고를 설정하여 [패킷 캡처](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture)를 트리거하고 패킷 수준에서 실시간 성능 정보에 액세스합니다. 문제를 발견하면 자세히 조사하여 더 정확히 진단할 수 있습니다.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>흐름 로그를 사용하여 네트워크 트래픽 이해
 [네트워크 보안 그룹 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)를 사용하여 네트워크 트래픽 패턴을 더 자세히 이해합니다. 흐름 로그에서 제공하는 정보를 사용하여 준수, 감사 및 네트워크 보안 프로필 모니터링에 필요한 데이터를 수집할 수 있습니다.
@@ -167,10 +167,10 @@ Network Watcher 구성 방법과 그 활성화 방법에 대한 자세한 내용
 기업 및 팀의 생산성과 효율성을 높일 수 있는 Microsoft Cloud에서의 Azure DevOps 일부 사례 목록입니다.
 
 -   **IaC(Infrastructure as Code):** IaC는 일상의 모듈식 인프라 빌드 및 관리와 관련한 IT 전문가들의 업무 부담을 해소해주는 기술과 사례의 모음입니다. 이를 통해 IT 전문가들은 소프트웨어 개발자가 응용 프로그램 코드를 구축 및 유지 관리하는 것과 유사한 방식으로 최신 서버 환경을 빌드하여 유지 관리할 수 있습니다. Azure의 경우 [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/)를 사용하면 선언적 템플릿을 통해 응용 프로그램을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 배포합니다.
--   **Continuous Integration and Deployment:** Azure 웹앱 또는 클라우드 서비스에 [자동으로 빌드 및 배포](https://www.visualstudio.com/docs/build/overview)하도록 Visual Studio Online 팀 프로젝트를 구성할 수 있습니다. VSO는 코드 체크인 후 매번 Azure에 빌드한 뒤 이진 파일을 자동으로 배포합니다. 여기서 설명하는 패키지 빌드 프로세스는 Visual Studio의 Package 명령과 동일하며 게시 단계는 Visual Studio의 Publish 명령과 동일합니다.
+-   **지속적인 통합 및 배포:** Azure 웹앱 또는 클라우드 서비스에 [자동으로 빌드 및 배포](https://www.visualstudio.com/docs/build/overview)하도록 VSTS(Visual Studio Team Services) 팀 프로젝트를 구성할 수 있습니다. VSTS는 코드 체크인 후 매번 Azure에 빌드한 뒤 이진 파일을 자동으로 배포합니다. 여기서 설명하는 패키지 빌드 프로세스는 Visual Studio의 Package 명령과 동일하며 게시 단계는 Visual Studio의 Publish 명령과 동일합니다.
 -   **릴리스 관리:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview)는 다단계 배포 자동화 및 릴리스 프로세스 관리를 위한 훌륭한 솔루션입니다. 관리되는 지속적인 배포 파이프라인을 만들어 빠르고 쉽게 자주 릴리스합니다. Release Management를 통해 릴리스 프로세스 자동화 수준을 높이고 사전 정의된 승인 워크플로를 갖출 수 있습니다. 필요에 맞게 온-프레미스 및 클라우드에 배포하고 확장하며 사용자 지정합니다.
 -   **앱 성능 모니터링:** 문제를 감지하고, 문제를 해결하고, 지속적으로 응용 프로그램을 개선합니다. 라이브 응용 프로그램의 모든 문제를 신속하게 진단합니다. 사용자가 어떤 작업을 하는지 확인합니다. JS 코드와 webconfig 항목을 추가하기만 하면 쉽게 구성이 가능하고 몇 분 안에 포털에서 그 결과와 모든 상세 정보를 확인하게 됩니다. [앱 정보](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/)를 통해 기업에서 문제와 조치를 더 신속하게 파악할 수 있습니다.
--   **부하 테스트 및 자동 크기 조정:** 앱의 성능 문제를 찾아내어 배포 품질을 향상시키고 비즈니스 요구 사항에 맞춰 항상 앱을 가동하고 사용할 수 있는지 확인할 수 있습니다. 앱이 다음 번 출시나 마케팅 캠페인을 위한 트래픽을 처리할 수 있게 합니다. Visual Studio Online를 통해 거의 순식간에 클라우드 기반 [부하 테스트](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)를 실행하기 시작합니다.
+-   **부하 테스트 및 자동 크기 조정:** 앱의 성능 문제를 찾아내어 배포 품질을 향상시키고 비즈니스 요구 사항에 맞춰 항상 앱을 가동하고 사용할 수 있는지 확인할 수 있습니다. 앱이 다음 번 출시나 마케팅 캠페인을 위한 트래픽을 처리할 수 있게 합니다. VSTS로 거의 순식간에 클라우드 기반 [부하 테스트](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)를 실행하기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)에 대한 자세한 정보

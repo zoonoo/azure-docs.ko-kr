@@ -1,13 +1,13 @@
 ---
-title: "HBase 및 Phoenix 백업 및 복제 설정 - Azure HDInsight | Microsoft Docs"
-description: "HBase 및 Phoenix에 대한 백업 및 복제를 설정합니다."
+title: HBase 및 Phoenix 백업 및 복제 설정 - Azure HDInsight | Microsoft Docs
+description: HBase 및 Phoenix에 대한 백업 및 복제를 설정합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

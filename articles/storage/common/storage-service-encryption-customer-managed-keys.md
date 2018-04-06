@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>5단계: 저장소 계정에 데이터 복사
 
-새 Storage 계정으로 데이터를 전송하여 암호화되도록 하려면 [3단계의 미사용 데이터에 대한 Storage 서비스 암호화에서 시작](storage-service-encryption.md#step-3-copy-data-to-storage-account)을 참조하세요.
+암호화되도록 새 저장소 계정에 데이터를 전송하려고 합니다. 자세한 내용은 [저장소 서비스 암호화의 FAQ](storage-service-encryption.md#faq-for-storage-service-encryption)를 참조하세요.
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>6단계: 암호화된 데이터 상태 쿼리
 
-암호화된 데이터 상태를 쿼리하려면 4단계의 [미사용 데이터에 대한 Storage 서비스 암호화에서 시작](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data)을 참조하세요.
+암호화된 데이터 상태 쿼리
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>고객 관리 키를 사용하는 SSE에 대한 FAQ
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure Cosmos DB로 데이터 글로벌 배포 | Microsoft Docs"
-description: "전 세계적으로 배포된 다중 모델 데이터베이스 서비스인, Azure Cosmos DB에서 글로벌 데이터베이스를 사용한 전 세계적 지역에서 복제, 장애 조치(Failover), 데이터 복구에 대해 알아봅니다."
+title: Azure Cosmos DB로 데이터 글로벌 배포 | Microsoft Docs
+description: 전 세계적으로 배포된 다중 모델 데이터베이스 서비스인, Azure Cosmos DB에서 글로벌 데이터베이스를 사용한 전 세계적 지역에서 복제, 장애 조치(Failover), 데이터 복구에 대해 알아봅니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
 Azure는 어디에나 존재합니다. 전 세계 30개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 전 세계에서 사용되기 때문에 Azure가 개발자에게 제공하는 차별화된 이점 중 하나는 전 세계에 분산된 응용 프로그램을 간편하게 빌드, 배포 및 관리할 수 있다는 점입니다. 
@@ -37,6 +37,11 @@ Azure Cosmos DB의 턴키 전역 분산을 사용하면 개발자는 데이터�
 
 ## <a id="EnableGlobalDistribution"></a>턴키 전역 분산 활성화
 Azure Cosmos DB는 세계 규모의 응용 프로그램을 손쉽게 작성할 수 있도록 다음과 같은 기능을 제공합니다. 이러한 기능은 Azure Cosmos DB의 리소스 공급자 기반 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)와 Azure Portal을 통해 제공됩니다.
+
+Azure Cosmos DB 프로그램 관리자인 Andrew Liu는 다음 비디오에서 턴키 글로벌 배포 기능을 보여줍니다.
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>어느 지역에나 존재 
 Azure는 [새 하위 지역](https://azure.microsoft.com/regions/)을 온라인으로 연결하여 지리적 존재 영역을 지속적으로 늘려가고 있습니다. Azure Cosmos DB는 기본적으로 모든 새 Azure 하위 지역에 제공됩니다. 따라서 Azure가 새로운 비즈니스 영역을 개통하는 즉시 지리적 지역을 Azure Cosmos DB 데이터베이스 계정과 연결할 수 있습니다.

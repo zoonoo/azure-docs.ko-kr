@@ -1,25 +1,25 @@
 ---
-title: "계산 노드에 응용 프로그램 패키지 설치 - Azure Batch | Microsoft Docs"
-description: "Azure Batch의 응용 프로그램 패키지 기능을 사용하여 Batch 계산 노드에 설치할 여러 응용 프로그램 및 버전을 간편하게 관리하세요."
+title: 계산 노드에 응용 프로그램 패키지 설치 - Azure Batch | Microsoft Docs
+description: Azure Batch의 응용 프로그램 패키지 기능을 사용하여 Batch 계산 노드에 설치할 여러 응용 프로그램 및 버전을 간편하게 관리하세요.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 07/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b5f10cbd79227ccc6acb2004e449f426a6cbd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>응용 프로그램을 배포하여 Batch 응용 프로그램 패키지에서 노드 계산
 
@@ -262,7 +262,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 응용 프로그램 ID의 대/소문자는 유지됩니다. 예:
+Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 응용 프로그램 ID의 대/소문자는 유지됩니다. 예: 
 
 ```
 Linux:

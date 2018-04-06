@@ -1,6 +1,6 @@
 ---
-title: "변환을 사용하여 XML 데이터 변환 - Azure Logic Apps | Microsoft Docs"
-description: "엔터프라이즈 통합 SDK를 사용하여 Logic Apps에서 XML 데이터를 다른 형식으로 변환하기 위한 변환 또는 맵 만들기"
+title: 변환을 사용하여 XML 데이터 변환 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 SDK를 사용하여 Logic Apps에서 XML 데이터를 다른 형식으로 변환하기 위한 변환 또는 맵 만들기
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>XML 변환과 엔터프라이즈 통합
 ## <a name="overview"></a>개요
@@ -35,7 +35,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 **변환을 사용하는 단계는 다음과 같습니다**.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 * 통합 계정을 만든 후 맵 추가  
 
@@ -64,6 +64,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 이제 HTTP 끝점에 요청하여 변환을 테스트할 수 있습니다.  
 
+
 ## <a name="features-and-use-cases"></a>기능 및 사용 사례
 * 맵에서 만든 변환은 이름과 주소를 한 문서에서 다른 문서로 복사하는 것과 같이 단순할 수 있습니다. 또는 기본 맵 작업을 사용하여 더 복잡한 변환을 만들 수 있습니다.  
 * 문자열, 날짜 시간 함수 등 여러 맵 작업이나 함수를 바로 사용할 수 있습니다.  
@@ -73,11 +74,49 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 * 기존 데이터 업로드  
 * XML 형식 지원을 포함합니다.
 
-## <a name="adanced-features"></a>고급 기능
-다음과 같은 기능은 코드 보기에서만 액세스할 수 있습니다.
+## <a name="advanced-features"></a>고급 기능
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>맵의 사용자 지정 코드 또는 참조 어셈블리 
+변환 작업은 외부 어셈블리를 참조하여 맵 또는 변환을 지원합니다. 이 기능을 사용하면 XSLT 맵에서 사용자 지정 .NET 코드를 직접 호출할 수 있습니다. 다음은 맵에서 어셈블리를 사용하기 위한 필수 구성 요소입니다.
+
+* 맵에서 참조하는 맵과 어셈블리를 [통합 계정에 업로드](./logic-apps-enterprise-integration-maps.md)해야 합니다. 
+
+  > [!NOTE]
+  > 맵과 어셈블리는 특정 순서로 업로드해야 합니다. 어셈블리를 참조하는 맵을 업로드하기 전에 어셈블리를 업로드해야 합니다.
+
+* 맵에는 다음 속성 및 어셈블리 코드에 대한 호출을 포함하는 CDATA 섹션도 있어야 합니다.
+
+    * **name**은 사용자 지정 어셈블리 이름입니다.
+    * **namespace**는 사용자 지정 코드가 포함된 어셈블리의 네임스페이스입니다.
+
+  다음 예제에서는 "XslUtilitiesLib"라는 어셈블리를 참조하고 어셈블리에서 `circumreference` 메서드를 호출하는 맵을 보여줍니다.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>바이트 순서 표시
-기본적으로 변환의 응답은 BOM(바이트 순서 표시)으로 시작됩니다. 이 기능을 사용하지 않도록 설정하려면 `transformOptions` 속성에 대해 `disableByteOrderMark`를 지정합니다.
+기본적으로 변환의 응답은 BOM(바이트 순서 표시)으로 시작됩니다. 이 기능은 코드 보기 편집기에서 작업하는 동안에만 액세스 할 수 있습니다. 이 기능을 사용하지 않도록 설정하려면 `transformOptions` 속성에 대해 `disableByteOrderMark`를 지정합니다.
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>자세한 정보
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  

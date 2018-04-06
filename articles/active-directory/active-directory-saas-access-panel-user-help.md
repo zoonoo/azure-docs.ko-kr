@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory에서 My Apps 포털 액세스 및 사용에 대한 지원 | Microsoft Docs"
-description: "액세스 패널에서 로그인하고 일반적인 작업을 수행할 수 있도록 도움을 받습니다."
+title: Azure Active Directory에서 My Apps 포털 액세스 및 사용에 대한 지원 | Microsoft Docs
+description: 액세스 패널에서 로그인하고 일반적인 작업을 수행할 수 있도록 도움을 받습니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity

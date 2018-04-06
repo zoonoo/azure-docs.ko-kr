@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스 | Microsoft Azure"
-description: "페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법 및 곧 만료되는 인증서를 갱신하는 방법에 대해 알아봅니다."
+title: Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스 | Microsoft Azure
+description: 페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법 및 곧 만료되는 인증서를 갱신하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/22/2018
 | 페더레이션된 Single Sign-On |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 | 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](active-directory-application-proxy-troubleshoot.md) |
-| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 해시 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 동적 그룹 멤버 자격 |[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO(Single Sign-On)
@@ -95,7 +95,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 |:---:| --- |
 | 하이브리드 환경 관리에 대한 정보 및 Azure AD Connect에 제공되는 Single Sign-On 옵션에 대한 개요 |[Azure AD Connect의 사용자 로그온 옵션](active-directory-aadconnect-user-signin.md) |
 | 온-프레미스 Active Directory 및 Azure Active Directory로 환경을 관리하기 위한 일반적인 지침  |[Azure AD 하이브리드 ID 설계 고려 사항](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md) |
-| 암호 동기화를 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Azure AD Connect와 암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[암호 동기화 문제 해결](https://support.microsoft.com/en-us/kb/2855271) |
+| 암호 동기화를 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Azure AD Connect와 암호 동기화 구현](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[암호 동기화 문제 해결](https://support.microsoft.com/en-us/kb/2855271) |
 | 비밀번호 쓰기 저장을 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Azure AD에서 암호 관리 시작](active-directory-passwords-getting-started.md)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 타사 ID 공급자를 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Single Sign-On을 사용하도록 설정하는 데 사용할 수 있는 호환 가능한 타사 ID 공급자 목록](https://aka.ms/ssoproviders) |
 | Windows 10 사용자가 Azure AD 조인을 통해 Single Sign-On의 이점을 얻을 수 있는 방법 |[Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md) |

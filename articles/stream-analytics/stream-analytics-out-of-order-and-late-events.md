@@ -1,13 +1,12 @@
 ---
-title: "Azure Stream Analytics로 이벤트 순서 및 지연 처리 | Microsoft Docs"
-description: "Stream Analytics가 데이터 스트림의 잘못된 순서 또는 지연 이벤트에 어떻게 작동하는지 알아봅니다."
-keywords: "순서 비지정, 지연, 이벤트"
-documentationcenter: 
+title: Azure Stream Analytics로 이벤트 순서 및 지연 처리 | Microsoft Docs
+description: Stream Analytics가 데이터 스트림의 잘못된 순서 또는 지연 이벤트에 어떻게 작동하는지 알아봅니다.
+keywords: 순서 비지정, 지연, 이벤트
+documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics 이벤트 순서 고려 사항
 

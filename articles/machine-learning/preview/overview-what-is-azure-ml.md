@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning이란? | Microsoft Docs
-description: 고급 분석 응용 프로그램을 클라우드 규모로 개발, 실험 및 배포하는 전문 데이터 과학자를 위한 통합 종단 간 데이터 과학 솔루션인 Azure Machine Learning 실험 및 모델 관리의 개요입니다.
+description: 클라우드에서 기계 학습의 기본 개념을 설명하고, 용도에 대해 기술하고 기계 학습 용어를 정의합니다. 고급 분석 응용 프로그램을 클라우드 규모로 개발, 실험 및 배포하는 전문 데이터 과학자를 위한 통합 종단 간 데이터 과학 솔루션인 Azure Machine Learning의 개요입니다.
 services: machine-learning
 author: mwinkle
 ms.author: mwinkle
@@ -9,14 +9,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: e5716e3fc519c48aaea3ec17939d11008a1b1fd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8a92f42ecee926042e9e0662f6b0bd9438024248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
+# <a name="what-is-machine-learning"></a>Machine Learning이란 무엇인가요?
 
+Machine Learning은 컴퓨터에서 기존 데이터를 사용하여 미래 동작, 결과 및 추세를 예측하는 데이터 과학 기술입니다. Machine Learning을 사용하면 컴퓨터에서 명시적으로 프로그래밍하지 않고 학습합니다.
+
+Machine Learning을 통한 예측은 좀 더 똑똑한 앱 및 장치를 만드는 데 도움이 됩니다. 온라인 쇼핑 시 기계 학습은 사용자가 구매한 제품에 따라 좋아할만한 다른 제품을 추천하는 데 도움이 됩니다. 신용 카드를 읽을 때 기계 학습은 해당 거래를 거래 데이터베이스와 비교하여 부정 행위를 검색하는 데 도움을 줍니다. 로봇 진공 청소기가 방을 청소할 때, 기계 학습은 작업이 완료되었는지 여부를 판단하도록 해줍니다.
+
+## <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 Azure Machine Learning은 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
 
 Azure Machine Learning의 주요 구성 요소는 다음과 같습니다.
@@ -29,6 +34,7 @@ Azure Machine Learning의 주요 구성 요소는 다음과 같습니다.
 또한, 이러한 응용 프로그램 및 서비스는 크게 데이터 과학 프로젝트 개발 및 배포를 크게 가속화하는 데 기여합니다. 
 
 ![Azure Machine Learning 개](media/overview-what-is-azure-ml/aml-concepts.png)
+
 
 ## <a name="open-source-compatible"></a>오픈 소스 호환성
 

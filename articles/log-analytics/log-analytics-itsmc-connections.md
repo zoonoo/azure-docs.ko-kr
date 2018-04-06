@@ -1,10 +1,10 @@
 ---
-title: "Azure Log Analytics의 IT Service Management Connector와의 연결 지원 | Microsoft Docs"
-description: "이 문서에서는 ITSM 제품/서비스를 OMS Log Analytics의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다."
-documentationcenter: 
+title: Azure Log Analytics의 IT Service Management Connector와의 연결 지원 | Microsoft Docs
+description: 이 문서에서는 ITSM 제품/서비스를 OMS Log Analytics의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다.
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -271,13 +271,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 > [!NOTE]
 
-> 사용자가 Azure에서 ServiceNow에 **경고** 및 **이벤트**를 만들도록 허용하려면 다음을 수행합니다.
-
-> - ServiceNow 인스턴스에 이벤트 관리 모듈이 설치되어 있는지 확인합니다.
-
-> - 통합 사용자에게 다음과 같은 역할을 추가합니다.
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+> ITSM 커넥터는 ServiceNow 인스턴스에 설치된 다른 모듈 없이 ServiceNow에 인시던트를 보낼 수 있습니다. ServiceNow 인스턴스에서 EventManagement 모듈을 사용하고 커넥터를 사용하여 ServiceNow에서 이벤트 또는 경고를 만들려는 경우 통합 사용자에게 다음 역할을 추가합니다. evt_mgmt_integration - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Province를 Azure의 IT 서비스 관리 커넥터에 연결

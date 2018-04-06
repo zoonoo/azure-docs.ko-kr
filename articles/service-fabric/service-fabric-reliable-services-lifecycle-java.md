@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric Reliable Services 수명 주기 | Microsoft Docs"
-description: "Service Fabric Reliable Services의 수명 주기 이벤트에 대해 알아봅니다."
+title: Azure Service Fabric Reliable Services 수명 주기 | Microsoft Docs
+description: Service Fabric Reliable Services의 수명 주기 이벤트에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: ad4228ade68f4494e5be0454643752e742c1cc81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services 수명 주기
 > [!div class="op_single_selector"]
@@ -65,11 +65,11 @@ Reliable Services에서 이벤트 순서는 신뢰할 수 있는 서비스가 �
 1. 이러한 이벤트는 병렬로 수행됩니다.
     - 열려 있는 수신기가 모두 닫힙니다. `CommunicationListener.closeAsync()`가 각 수신기에서 호출됩니다.
     - `runAsync()`에 전달된 취소 토큰이 취소됩니다. 취소 토큰의 `isCancelled` 속성을 확인하면 `true`를 반환하고, 호출된 경우 토큰의 `throwIfCancellationRequested` 메서드에서 `CancellationException`이 발생(throw)됩니다.
-2. `closeAsync()`가 각 수신기에 완료되고 `runAsync()`도 완료되면 서비스의 `StatelessService.onCloseAsync()` 메서드가 호출됩니다(있는 경우). 다시 말하지만, 이것은 일반적인 재정의가 아닙니다.
+2. `closeAsync()`가 각 수신기에 완료되고 `runAsync()`도 완료되면 서비스의 `StatelessService.onCloseAsync()` 메서드가 호출됩니다(있는 경우). 다시 말해 이것이 일반적인 재정의는 아니지만 리소스를 안전하게 닫거나 백그라운드 프로세스를 중지하거나 외부 상태 저장을 완료하거나 기존 연결을 종료하는 데 사용할 수 있습니다.
 3. `StatelessService.onCloseAsync()`이 완료되면 서비스 개체는 소멸됩니다.
 
 ## <a name="stateful-service-startup"></a>상태 저장 서비스 시작
-상태 저장 서비스에는 상태 비저장 서비스와 비슷한 패턴이 포함되지만, 몇 가지 다른 점이 있습니다. 상태 저장 서비스를 시작할 때의 이벤트 순서는 다음과 같습니다.
+상태 저장 서비스에는 상태 비저장 서비스와 비슷한 패턴이 포함되지만, 몇 가지 다른 점이 있습니다.  상태 저장 서비스를 시작할 때의 이벤트 순서는 다음과 같습니다.
 
 1. 서비스가 생성됩니다.
 2. `StatefulServiceBase.onOpenAsync()`을 호출합니다. 이 호출은 서비스에서 드물게 재정의됩니다.
@@ -127,15 +127,14 @@ Service Fabric으로 throw된 예외는 영구적[(`FabricException`)](https://d
 Reliable Services 테스트 및 유효성 검사 중 중요한 부분은 서비스 수명 주기 이벤트와 함께 `ReliableCollections`를 사용할 때 발생하는 예외를 처리하는 것입니다. 서비스는 항상 부하 상태에서 실행하는 것이 좋습니다. 또한 프로덕션에 배포하기 전에 업그레이드 및 [Chaos 테스트](service-fabric-controlled-chaos.md)를 수행해야 합니다. 이러한 기본 단계는 서비스가 올바르게 구현되고, 수명 주기 이벤트가 올바르게 처리될 수 있도록 보장합니다.
 
 ## <a name="notes-on-service-lifecycle"></a>서비스 수명 주기에 대한 참고 사항
-* `runAsync()` 메서드 및 `createServiceInstanceListeners/createServiceReplicaListeners` 호출은 모두 선택 사항입니다. 서비스에는 이 중 하나 또는 두 개가 모두 포함되거나 아무 것도 포함되지 않을 수 있습니다. 예를 들어 서비스가 사용자 호출에 대한 응답으로 모든 작업을 수행할 경우, `runAsync()`를 구현할 필요가 없습니다. 통신 수신기 및 해당 관련 코드만이 필요합니다. 
-
-  마찬가지로 통신 수신기 만들기 및 반환은 선택 사항입니다. 서비스에 수행할 백그라운드 작업만 포함될 수 있기 때문에 `runAsync()`만 구현하면 됩니다.
+* `runAsync()` 메서드 및 `createServiceInstanceListeners/createServiceReplicaListeners` 호출은 모두 선택 사항입니다. 서비스에는 이 중 하나 또는 두 개가 모두 포함되거나 아무 것도 포함되지 않을 수 있습니다. 예를 들어 서비스가 사용자 호출에 대한 응답으로 모든 작업을 수행할 경우, `runAsync()`를 구현할 필요가 없습니다. 통신 수신기 및 해당 관련 코드만이 필요합니다.  마찬가지로 통신 수신기 만들기 및 반환은 선택 사항입니다. 서비스에 수행할 백그라운드 작업만 포함될 수 있기 때문에 `runAsync()`만 구현하면 됩니다.
 * 서비스가 `runAsync()`를 성공적으로 완료하고 여기에서 반환하는 것은 유효합니다. 이것은 오류 조건으로 간주되지 않습니다. 이것은 서비스의 백그라운드 작업의 완료를 나타냅니다. 상태 저장 Reliable Services의 경우에는 서비스가 주 복제본에서 강등되고 다시 주 복제본으로 승격된 경우 `runAsync()`를 다시 호출해야 합니다.
 * 일부 예기치 않은 예외가 throw되어 서비스가 `runAsync()`에서 종료된 경우는 실패입니다. 서비스 개체가 종료되고 상태 오류가 보고됩니다.
 * 이러한 메서드에서의 반환에는 시간 제한이 없지만, 쓰기 기능이 즉시 손실됩니다. 따라서 모든 실제 작업을 완료할 수 없습니다. 취소 요청을 받는 즉시 최대한 신속하게 반환하는 것이 좋습니다. 서비스가 적절한 시간 내에 이러한 API 호출에 응답하지 않으면 Service Fabric은 서비스를 강제로 종료할 수 있습니다. 이러한 상황은 일반적으로 응용 프로그램을 업그레이드하거나 서비스를 삭제할 때만 발생합니다. 이 시간 제한은 기본적으로 15분입니다.
-* `onCloseAsync()` 경로에서 실패가 발생하면 `onAbort()`가 호출됩니다. 이 호출은 서비스가 이전에 요구한 리소스를 정리하고 릴리스할 수 있는 마지막 최선의 기회입니다.
+* `onCloseAsync()` 경로에서 실패가 발생하면 `onAbort()`가 호출됩니다. 이 호출은 서비스가 이전에 요구한 리소스를 정리하고 릴리스할 수 있는 마지막 최선의 기회입니다. 이는 일반적으로 노드에서 영구 오류가 감지되거나, 내부 오류로 인해 서비스 패브릭에서 서비스 인스턴스 수명 주기를 안정적으로 관리할 수 없을 때 호출됩니다.
+* 상태 저장 서비스 복제본이 역할을 변경할 경우(예: 주 또는 보조) `OnChangeRoleAsync()`가 호출됩니다. 주 복제본에는 쓰기 상태가 지정됩니다(신뢰할 수 있는 컬렉션을 만들고 쓰도록 허용). 보조 복제본에는 읽기 상태가 지정됩니다(신뢰할 수 있는 기존 컬렉션에서 읽기만 가능). 상태 저장 서비스에서 대부분의 작업은 주 복제본에서 수행됩니다. 보조 복제본은 읽기 전용 유효성 검사, 보고서 생성, 데이터 마이닝 또는 다른 읽기 전용 작업을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Reliable Services 소개](service-fabric-reliable-services-introduction.md)
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start-java.md)
-* [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
+

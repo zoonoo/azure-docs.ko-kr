@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 스크립트 샘플 - Docker 컨테이너에서 ASP.NET Core 웹앱 만들기 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - Docker 컨테이너에서 ASP.NET Core 웹앱 만들기"
+title: Azure CLI 스크립트 샘플 - Docker 컨테이너에서 ASP.NET Core 웹앱 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - Docker 컨테이너에서 ASP.NET Core 웹앱 만들기
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.service: app-service
@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 78d62d01c8006e4693a040d67def9a029df0c09e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2514617d2feca7ed349df42e27b0710a6b6c3a9b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container"></a>Docker 컨테이너에서 ASP.NET Core 웹앱 만들기
 
@@ -44,10 +44,10 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 | 명령 | 메모 |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service 계획을 만듭니다. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Azure 웹앱을 만듭니다. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) | Azure 웹앱에 대한 Docker 컨테이너를 설정합니다. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Azure 웹앱을 만듭니다. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Azure 웹앱에 대한 Docker 컨테이너를 설정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

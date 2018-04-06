@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적으로 Azure AD B2C UI(사용자 인터페이스)를 사용자 지정"
-description: "런타임 시 동적으로 변경되는 HTML5/CSS 콘텐츠로 여러 브랜딩 환경을 지원합니다."
+title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적으로 Azure AD B2C UI(사용자 인터페이스)를 사용자 지정'
+description: 런타임 시 동적으로 변경되는 HTML5/CSS 콘텐츠로 여러 브랜딩 환경을 지원합니다.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 끝점으로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
@@ -121,7 +118,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 ### <a name="step-23-change-the-background-image"></a>2.3단계: 배경 이미지 변경
 
-`ID` 값 *background_background_image*가 포함된 `<img>` 요소를 찾아서 `src` 값을 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 또는 다른 원하는 배경 이미지로 바꿉니다.
+`ID` 값 *background_background_image*가 포함된 `<img>` 요소를 찾은 다음, `src` 값을 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 또는 사용하려는 다른 배경 이미지로 바꿉니다.
 
 ![페이지 배경 변경](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 

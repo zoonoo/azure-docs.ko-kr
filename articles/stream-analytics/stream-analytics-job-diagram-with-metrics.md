@@ -1,25 +1,24 @@
 ---
-title: "작업 다이어그램을 사용하여 Azure Stream Analytics 데이터 기반 디버그 | Microsoft Docs"
-description: "작업 다이어그램 및 메트릭을 사용하여 Stream Analytics 작업 문제를 해결합니다."
-keywords: 
-documentationcenter: 
+title: 작업 다이어그램을 사용하여 Azure Stream Analytics 데이터 기반 디버그 | Microsoft Docs
+description: 작업 다이어그램 및 메트릭을 사용하여 Stream Analytics 작업 문제를 해결합니다.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: samacha
-ms.openlocfilehash: 5b689c07bf8baa531c7a50ca50ed5140c1787e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 65eeeee7daa22b94074f55defdfd1219049774c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 
@@ -82,7 +81,7 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .**을 선택합니다. 
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>데이터를 읽을 때 뒤쳐지고 있습니까?
 
-*   **InputEventsSourcesBackloggedTotal**은 이벤트 허브 및 Azure IoT Hub 입력에 읽어야 하는 메시지가 얼마나 더 있는지를 알려 줍니다.
+*   **InputEventsSourcesBackloggedTotal**은 Event Hubs 및 Azure IoT Hub 입력에 읽어야 하는 메시지가 얼마나 더 있는지를 알려 줍니다.
 
 
 ## <a name="get-help"></a>도움말 보기

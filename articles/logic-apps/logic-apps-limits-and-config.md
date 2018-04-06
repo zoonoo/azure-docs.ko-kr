@@ -1,11 +1,11 @@
 ---
-title: "제한 및 구성 - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps에 대한 서비스 제한 및 구성 값"
+title: 제한 및 구성 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에 대한 서비스 제한 및 구성 값
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 제한 및 구성
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 03/05/2018
 
 | Name | 제한 | 메모 | 
 | ----- | ----- | ----- | 
-| 5분당 작업 실행 | 100,000 | 한도를 300,000까지 높이려면 `High Througput` 모드에서 논리 앱을 실행합니다. 높은 처리량 모드를 구성하려면 워크플로 리소스의 `runtimeConfiguration` 아래에서 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. <p>**참고**: 높은 처리량 모드는 미리 보기로 제공됩니다. 필요에 따라 여러 앱에 워크로드를 배포할 수도 있습니다. | 
+| 5분당 작업 실행 | 100,000 | 한도를 300,000까지 높이려면 `High Throughput` 모드에서 논리 앱을 실행합니다. 높은 처리량 모드를 구성하려면 워크플로 리소스의 `runtimeConfiguration` 아래에서 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. <p>**참고**: 높은 처리량 모드는 미리 보기로 제공됩니다. 또한 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
 | 작업 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
 | 런타임 끝점: 들어오는 동시 호출 |~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
 | 런타임 끝점: 5분마다 호출을 읽습니다.  | 60,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 

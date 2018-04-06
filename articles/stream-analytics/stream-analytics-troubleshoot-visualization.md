@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics 작업 시각화 및 문제 해결 | Microsoft Docs"
-description: "진단 다이어그램 기능을 사용하여 셀프 서비스 문제 해결을 위해 Stream Analytics 작업 파이프라인을 시각화하는 방법을 알아봅니다."
-keywords: 
-documentationcenter: 
+title: Stream Analytics 작업 시각화 및 문제 해결 | Microsoft Docs
+description: 진단 다이어그램 기능을 사용하여 셀프 서비스 문제 해결을 위해 Stream Analytics 작업 파이프라인을 시각화하는 방법을 알아봅니다.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: eae43a6a444514855229af760de6aa1cbec7840a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Stream Analytics 작업 시각화 및 문제 해결
 다른 클라우드 기반 기술과 마찬가지로 Stream Analytics에서도 작업이 예상된 출력(또는 해당 문제에 대한 출력)을 생성하지 않는 이유를 알아내기 위해 문제 해결이 필요합니다. 이러한 개념을 고려할 때 Stream Analytics은 스트리밍 작업을 시각화하는 기능을 제공합니다. 이 기능은 모델링 도구만큼 유용하며 업무에 필요한 문서 작성이라는 부수적인 효과도 제공합니다.

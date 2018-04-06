@@ -1,12 +1,12 @@
 ---
-title: "공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 | Microsoft Docs"
-description: "공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보"
+title: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 | Microsoft Docs
+description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -273,6 +273,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 메시지 효력 상실 |수신 대기 |유효한 큐 주소 |
 | 메시지 큐 세션을 사용하여 연결된 상태 가져오기 |수신 대기 |유효한 큐 주소 |
 | 메시지 큐 세션을 사용하여 연결된 상태 설정 |수신 대기 |유효한 큐 주소 |
+| 나중에 배달할 메시지를 예약합니다(예: [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_)). |수신 대기 | 유효한 큐 주소
 | **항목** | | |
 | 토픽 만들기 |관리 |네임스페이스 주소 |
 | 항목 삭제 |관리 |유효한 항목 주소 |

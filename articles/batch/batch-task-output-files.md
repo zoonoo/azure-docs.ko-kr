@@ -2,21 +2,21 @@
 title: Azure Batch 서비스 API를 사용하여 Azure Storage에 작업 및 태스크 출력 유지 | Microsoft Docs
 description: Batch 서비스 API를 사용하여 Azure Storage에 Batch 작업 및 태스크 출력을 유지하는 방법을 알아봅니다.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
-ms.openlocfilehash: fa124109bfc9d333469c255c50df0af96a26bebf
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: danlep
+ms.openlocfilehash: ee8622525adcc698bf920b0c3379cc3065798a19
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
 

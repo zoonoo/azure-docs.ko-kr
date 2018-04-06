@@ -1,11 +1,11 @@
 ---
-title: "Azure 모바일 계약 내에서 이모지 이모티콘 사용"
-description: "푸시 알림 내에서 이모지 이모티콘을 사용하는 방법"
+title: Azure 모바일 계약 내에서 이모지 이모티콘 사용
+description: 푸시 알림 내에서 이모지 이모티콘을 사용하는 방법
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 663317d7-3c93-4e8f-b13d-c6fb342124ee
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bbb7ce5e95b229a7505c5e97b6866d5a302a1d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5b0e7bfe07054d093dc164cb5f72bde4ba28170
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-emoji-emoticon-within-push-notifications"></a>푸시 알림 내에서 이모지 이모티콘 사용
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 다음과 같은 쉬운 몇 가지 단계를 통해 푸시 알림에 이모지 이모티콘을 포함할 수 있습니다. 
 
 1. 먼저 메시지에서 보낼 이모지를 찾아야 합니다. 장치 제조업체에서 새로 승인한 이모지를 장치 플랫폼에 추가하려면 다소 시간이 걸리므로 선택하는 이모지를 대상 장치에서 지원할지 확인하십시오. 

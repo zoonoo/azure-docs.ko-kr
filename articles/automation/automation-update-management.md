@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -36,7 +36,7 @@ Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방
 
 컴퓨터에서 업데이트 준수를 검색한 후 에이전트에서 Log Analytics에 정보를 대량으로 전달합니다. Windows 컴퓨터에서 준수 검사는 기본적으로 12시간마다 수행됩니다. 검사 일정 외에도, MMA(Microsoft Monitoring Agent)가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 내에 업데이트 준수 검사가 시작됩니다. Linux 컴퓨터의 경우 기본적으로 3시간마다 준수 검사가 수행되며, MMA 에이전트가 다시 시작되면 15분 내에 준수 검사가 시작됩니다.
 
-솔루션은 동기화하도록 구성된 소스를 기반으로 컴퓨터가 최신 상태를 유지하는 방식을 보고합니다. Windows 컴퓨터가 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft Update와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft Update가 표시하는 것과 다를 수 있습니다. 로컬 리포지토리에 보고하도록 구성된 Linux 컴퓨터와 공용 리포지토리에 보고하도록 구성된 Linux 컴퓨터도 마찬가지입니다.
+솔루션은 동기화하도록 구성된 소스를 기반으로 컴퓨터가 최신 상태를 유지하는 방식을 보고합니다. Windows 컴퓨터가 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft Update와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft Update가 표시하는 것과 다를 수 있습니다. 로컬 리포지토리에 보고하도록 구성된 Linux 컴퓨터와 공용 리포지토리에 보고하도록 구성된 Linux 컴퓨터에서도 마찬가지입니다.
 
 예약 배포를 만들어서 업데이트가 필요한 컴퓨터에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. *선택 사항*으로 분류된 업데이트는 Windows 컴퓨터의 배포 범위에 포함되지 않으며, 필수 업데이트만 포함됩니다. 예약 배포는 컴퓨터를 명시적으로 지정하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 선택하여 해당 업데이트를 받는 대상 컴퓨터를 정의합니다. 또한 업데이트 설치가 허용되는 시간을 승인하고 지정하는 일정을 지정합니다. Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 runbook을 볼 수 없고 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 지정된 시간에 마스터 업데이트 runbook을 시작하는 일정을 만듭니다. 이 마스터 runbook은 필수 업데이트를 설치하는 각 에이전트에서 하위 runbook을 시작합니다.
 

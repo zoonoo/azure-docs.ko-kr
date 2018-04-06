@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 서비스 주체 구성 문제 해결
 
@@ -93,7 +93,7 @@ ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64```가 있는 서비스 주체가 Azur
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>경고 AADDS105: 암호 동기화 응용 프로그램이 만료됨
 
-**경고 메시지:** 응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체는 삭제되었으며, Microsoft에서 다시 만들 수 없습니다. 이 서비스 주체는 암호 동기화에 사용되는 다른 서비스 주체와 응용 프로그램을 관리합니다. 관리되는 서비스 주체 및 응용 프로그램은 새로 생성된 서비스 주체로 승인되지 않으며, 동기화 인증서가 만료되면 만료됩니다. 즉, 새로 생성된 서비스 주체는 이전의 관리되는 응용 프로그램을 업데이트할 수 없으며, AAD의 개체 동기화가 영향을 받게 됩니다.
+**경고 메시지:** 응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 이 서비스 주체는 암호 동기화에 사용되는 다른 서비스 주체와 응용 프로그램을 관리합니다. 새로 만든 서비스 주체에서 관리 서비스 주체 및/또는 응용 프로그램에는 권한이 없습니다. 따라서 서비스에서 관리할 수 없습니다. 즉, 새로 생성된 서비스 주체는 이전의 관리 응용 프로그램을 업데이트할 수 없으며, 암호의 동기화가 영향을 받게 됩니다.
 
 
 **해결:** 이 단계를 완료하려면 Azure AD PowerShell이 있어야 합니다. Azure AD PowerShell을 설치하는 방법에 대한 내용은 [이 문서](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)를 참조하세요.
@@ -108,7 +108,7 @@ ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64```가 있는 서비스 주체가 Azur
 2. 다음 PowerShell 명령을 사용하여 이전 응용 프로그램 및 개체 삭제
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

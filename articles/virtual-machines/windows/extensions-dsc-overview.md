@@ -1,11 +1,11 @@
 ---
-title: "Azuredml Desired State Configuration 개요 | Microsoft Docs"
-description: "PowerShell DSC(Desired State Configuration)에 대한 Microsoft Azure 확장 처리기 사용 방법을 알아봅니다. 이 문서에는 필수 구성 요소, 아키텍처 및 cmdlet이 포함되어 있습니다."
+title: Azuredml Desired State Configuration 개요 | Microsoft Docs
+description: PowerShell DSC(Desired State Configuration)에 대한 Microsoft Azure 확장 처리기 사용 방법을 알아봅니다. 이 문서에는 필수 구성 요소, 아키텍처 및 cmdlet이 포함되어 있습니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -71,7 +71,7 @@ Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 
 
 DSC 확장 관리에 사용되는 PowerShell cmdlet은 대화형 문제 해결 및 정보 수집 시나리오에 가장 적합합니다. cmdlet을 사용하여 DSC 확장 배포를 패키징하고 게시하며 모니터링할 수 있습니다. DSC 확장용 cmdlet은 아직 [기본 구성 스크립트](#default-configuration-script)를 사용할 수 있도록 업데이트되지 않았습니다.
 
-**Publish-AzureRMVMDscConfiguration** cmdlet은 구성 파일을 가져와, 종속 DSC 리소스를 검색한 다음, .zip 파일을 만듭니다. .zip 파일에는 구성과 구성을 실행하는 데 필요한 DSC 리소스가 포함됩니다. 또한 이 cmdlet에서는 *-ConfigurationArchivePath* 매개 변수를 사용하여 로컬로 패키지를 만들 수도 있습니다. 그렇지 않으면 이 cmdlet은 Blob 저장소에 .zip 파일을 게시하고 SAS 토큰으로 보호합니다.
+**Publish-AzureRMVMDscConfiguration** cmdlet은 구성 파일을 가져와, 종속 DSC 리소스를 검색한 다음, .zip 파일을 만듭니다. .zip 파일에는 구성과 구성을 실행하는 데 필요한 DSC 리소스가 포함됩니다. 또한 이 cmdlet에서는 *-OutputArchivePath* 매개 변수를 사용하여 로컬로 패키지를 만들 수도 있습니다. 그렇지 않으면 이 cmdlet은 Blob 저장소에 .zip 파일을 게시하고 SAS 토큰으로 보호합니다.
 
 이 cmdlet에서 만든 .ps1 구성 스크립트는 보관 폴더 루트의 .zip 파일에 포함됩니다. 모듈 폴더는 리소스의 보관 폴더에 있습니다.
 
@@ -133,7 +133,7 @@ Set-AzureRmVmDscExtension -Version 2.72 -ResourceGroupName $resourceGroup -VMNam
 
 포털에는 다음 입력이 필요합니다.
 
-* **구성 모듈 또는 스크립트**: 이 필드는 필수입니다(양식이 [기본 구성 스크립트](#default-configuration-script)에 대해 업데이트되지 않음). 구성 모듈 및 스크립트에는 구성 스크립트가 있는 .ps1 파일 또는 루트에 .ps1 구성 스크립트가 있는 .zip 파일이 필요합니다. .zip 파일을 사용하는 경우 모든 종속 리소스를 .zip의 모듈 폴더에 포함해야 합니다. Azure PowerShell SDK에 포함된 **Publish-AzureVMDscConfiguration -ConfigurationArchivePath** cmdlet을 사용하여 .zip 파일을 만들 수 있습니다. .zip 파일은 사용자 Blob 저장소로 업로드되고 SAS 토큰에 의해 보호됩니다.
+* **구성 모듈 또는 스크립트**: 이 필드는 필수입니다(양식이 [기본 구성 스크립트](#default-configuration-script)에 대해 업데이트되지 않음). 구성 모듈 및 스크립트에는 구성 스크립트가 있는 .ps1 파일 또는 루트에 .ps1 구성 스크립트가 있는 .zip 파일이 필요합니다. .zip 파일을 사용하는 경우 모든 종속 리소스를 .zip의 모듈 폴더에 포함해야 합니다. Azure PowerShell SDK에 포함된 **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet을 사용하여 .zip 파일을 만들 수 있습니다. .zip 파일은 사용자 Blob 저장소로 업로드되고 SAS 토큰에 의해 보호됩니다.
 
 * **구성 데이터 PSD1 파일**: 이 필드는 선택적 필드입니다. 구성에 .psd1의 구성 데이터 파일이 필요한 경우 이 필드를 사용하여 데이터 필드를 선택하고 사용자 Blob 저장소에 업로드합니다. 구성 데이터 파일은 blob 저장소의 SAS 토큰에 의해 보호됩니다.
 

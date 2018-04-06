@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics 소개 | Microsoft Docs"
-description: "IoT(사물 인터넷)의 스트리밍 데이터를 실시간으로 분석하도록 도와주는 관리 서비스인 Stream Analytics에 대해 알아봅니다."
-keywords: "analytics as a service, 관리 서비스, 스트림 처리, 스트림 분석, 스트림 분석이란"
+title: Stream Analytics 소개 | Microsoft Docs
+description: IoT(사물 인터넷)의 스트리밍 데이터를 실시간으로 분석하도록 도와주는 관리 서비스인 Stream Analytics에 대해 알아봅니다.
+keywords: analytics as a service, 관리 서비스, 스트림 처리, 스트림 분석, 스트림 분석이란
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/17/2017
-ms.author: samacha
-ms.openlocfilehash: 5747f2f1d3eed3905e0ae3123dab74287beccf66
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.author: jeanb
+ms.openlocfilehash: 70a4b0b358b79ec892483a9fa5573e4bf2d57534
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-is-stream-analytics"></a>Stream Analytics란 무엇인가요?
 

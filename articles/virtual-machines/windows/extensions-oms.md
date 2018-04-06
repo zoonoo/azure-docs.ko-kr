@@ -1,11 +1,11 @@
 ---
-title: "Windows용 OMS Azure 가상 머신 확장 | Microsoft Docs"
-description: "가상 머신 확장을 사용하여 Windows 가상 머신에 OMS 에이전트를 배포합니다."
+title: Windows용 OMS Azure 가상 머신 확장 | Microsoft Docs
+description: 가상 머신 확장을 사용하여 Windows 가상 머신에 OMS 에이전트를 배포합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: 19f116470ac7a73daea6ad03699ef53d86cfb321
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 9b090029ade1cab1d0be17f7622ecf622521fc14
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Windows용 OMS 가상 머신 확장
 
@@ -137,7 +137,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzureRmVMExtension`명령을 사용하여 OMS 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 개인 구성을 PowerShell 해시 테이블에 저장해야 합니다. 
+`Set-AzureRmVMExtension` 명령을 사용하여 OMS 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 개인 구성을 PowerShell 해시 테이블에 저장해야 합니다. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
@@ -151,7 +151,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS ` 
+    -Location WestUS 
 ```
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원

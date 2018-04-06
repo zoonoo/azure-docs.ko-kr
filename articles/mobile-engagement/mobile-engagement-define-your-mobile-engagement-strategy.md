@@ -1,11 +1,11 @@
 ---
-title: "Mobile Engagement 전략 정의 | Microsoft Docs"
-description: "분석 및 푸시 알림으로 Mobile Engagement를 등록 및 최적화하는 방법에 관해 알아봅니다."
+title: Mobile Engagement 전략 정의 | Microsoft Docs
+description: 분석 및 푸시 알림으로 Mobile Engagement를 등록 및 최적화하는 방법에 관해 알아봅니다.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 494dd27acfd59eb79da13dae9bbbe0f80ee41370
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Mobile Engagement 전략 정의
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 *사용자가 앱을 사용하도록 하겠다!라는 이유로 앱을 만들었을 것입니다.*
 
 분명 사용자가 좋아할 훌륭한 앱을 만들려고 상당한 노력을 기울였을 것입니다. 또한 사용자의 관심을 얻기 위해 아마도 마케팅 예산에 상당한 금액을 투자했을 것입니다. 하지만 초기에 가장 사용자의 이목이 쏠리는 시간이 지나면 점점 앱 사용이 줄어드는 것을 확인할 수 있습니다. *여기에 Azure Mobile Engagement의 지향점이 나와 있습니다!*즉, 앱에 대한 사용자의 관심이 떠나지 않도록 하고 테스트와 학습을 통해 앱을 점진적으로 개선하는 것입니다.

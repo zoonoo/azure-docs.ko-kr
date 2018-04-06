@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB Cassandra API 소개 | Microsoft Docs"
-description: "Azure Cosmos DB를 사용하여 기존 응용 프로그램을 “리프트 앤 시프트”하고, 이미 익숙한 Cassandra 드라이버와 CQL을 사용하여 Cassandra API를 사용하는 새 응용 프로그램을 빌드하는 방법을 알아봅니다."
+title: Azure Cosmos DB Cassandra API 소개 | Microsoft Docs
+description: Azure Cosmos DB를 사용하여 기존 응용 프로그램을 “리프트 앤 시프트”하고, 이미 익숙한 Cassandra 드라이버와 CQL을 사용하여 Cassandra API를 사용하는 새 응용 프로그램을 빌드하는 방법을 알아봅니다.
 services: cosmos-db
 author: govindk
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88364cecc1fa1ad7318cb28c9708a42e6a807347
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB용 Apache Cassandra API 소개
+# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB 소개: Apache Cassandra API
 
 Azure Cosmos DB는 다음과 같은 프리미엄 기능이 필요한, Apache Cassandra용으로 작성된 응용 프로그램을 위한 Cassandra API(미리 보기)를 제공합니다.
 

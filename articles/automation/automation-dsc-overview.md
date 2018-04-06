@@ -1,24 +1,19 @@
 ---
-title: "Azure Automation DSC 개요 | Microsoft Docs"
-description: "Azure Automation DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제"
+title: Azure Automation DSC 개요
+description: Azure Automation DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제
+keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure Automation DSC 개요
 
@@ -45,8 +40,8 @@ Azure Portal 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 ### <a name="import-reporting-data-into-log-analytics"></a>Log Analytics로 보고 데이터 가져오기
 
 Azure Automation DSC로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다.
-이 데이터를 Microsoft OMS(Operations Management Suite) Log Analytics 작업 영역으로 보내도록 Azure Automation DSC를 구성할 수 있습니다.
-DSC 상태 데이터를 Log Analytics 작업 영역으로 보내는 방법을 알아보려면 [Azure Automation DSC 보고 데이터를 OMS Log Analytics로 전달](automation-dsc-diagnostics.md)을 참조하세요.
+이 데이터를 Log Analytics 작업 영역으로 보내도록 Azure Automation DSC를 구성할 수 있습니다.
+DSC 상태 데이터를 Log Analytics 작업 영역으로 보내는 방법을 알아보려면 [Azure Automation DSC 보고 데이터를 Log Analytics로 전달](automation-dsc-diagnostics.md)을 참조하세요.
 
 ## <a name="introduction-video"></a>소개 비디오
 

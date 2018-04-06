@@ -1,21 +1,20 @@
 ---
-title: URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs
+title: URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure Portal
 description: Azure Portal을 사용하여 응용 프로그램 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -36,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합니다.
+[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
@@ -141,8 +140,8 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 1. **규칙**을 클릭한 다음, **경로 기반**을 클릭합니다.
 2. 이름에 *rule2*를 입력합니다.
-3. 첫 번째 경로의 이름에 *Images*를 입력합니다. 경로에 */images/*\*를 입력합니다. 백 엔드 풀에 **imagesBackendPool**을 선택합니다.
-4. 두 번째 경로의 이름에 *Video*를 입력합니다. 경로에 */video/*\*를 입력합니다. 백 엔드 풀에 **videoBackendPool**을 선택합니다.
+3. 첫 번째 경로의 이름에 *Images*를 입력합니다. 경로에 */images/**를 입력합니다. 백 엔드 풀에 **imagesBackendPool**을 선택합니다.
+4. 두 번째 경로의 이름에 *Video*를 입력합니다. 경로에 */video/**를 입력합니다. 백 엔드 풀에 **videoBackendPool**을 선택합니다.
 
     ![경로 기반 규칙 만들기](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 
@@ -154,11 +153,11 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
     ![응용 프로그램 게이트웨이 공용 IP 주소 기록](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http://http://40.121.222.19.
+2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http://http://40.121.222.19
 
     ![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. http://&lt;ip-address&gt;:8080/video/test.htm에서 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하여 URL을 변경하면 다음 예제와 같은 내용이 표시됩니다.
+3. &lt;ip-address&gt;를 사용자 IP 주소로 대체하여 http://&lt;ip-address&gt;:8080/images/test.htm에 대한 URL을 변경하면 다음 예제와 같은 내용이 표시됩니다.
 
     ![응용 프로그램 게이트웨이의 이미지 URL 테스트](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

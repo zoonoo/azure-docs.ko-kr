@@ -1,19 +1,19 @@
 ---
-title: "Azure Policy 정의 구조 | Microsoft Docs"
-description: "정책이 언제 적용되고 어떤 작업이 실행될지 설명함으로써 Azure Policy가 조직의 리소스에 대한 규칙을 설정하기 위해 리소스 정책 정의가 어떻게 사용되는지 설명합니다."
+title: Azure Policy 정의 구조 | Microsoft Docs
+description: 정책이 언제 적용되고 어떤 작업이 실행될지 설명함으로써 Azure Policy가 조직의 리소스에 대한 규칙을 설정하기 위해 리소스 정책 정의가 어떻게 사용되는지 설명합니다.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -70,7 +70,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 * `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다. 
 * `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
 
-**mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 지정하고 `all`로 설정해야 합니다. 
+대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정해야 합니다.
+
+`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 필수는 아니지만, 태그 및 위치를 지원하지 않는 리소스가 준수 결과에서 호환되지 않음으로 표시되지 않도록 방지합니다. 한 가지 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하려고 하는 정책은 **모드**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroup` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](scripts/enforce-tag-rg.md)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -126,7 +128,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 조건은 **field**에서 특정 기준을 충족하는지를 평가합니다. 지원되는 조건은 다음과 같습니다.
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-**like** 조건을 사용하는 경우 값에 와일드카드(*)를 제공할 수 있습니다.
+**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드(*)를 제공할 수 있습니다.
 
-**match** 조건을 사용하는 경우 자릿수 하나를 나타내려면 `#`를, 문자 하나를 나타내려면 `?`를, 해당 실제 문자를 나타내려면 다른 모든 문자를 제공합니다. 예를 들어 [승인된 VM 이미지](scripts/allowed-custom-images.md)를 참조하세요.
+**match** 및 **notMatch** 조건을 사용하는 경우 자릿수 하나를 나타내려면 `#`를, 문자 하나를 나타내려면 `?`를, 해당 실제 문자를 나타내려면 다른 문자를 입력합니다. 예를 들어 [승인된 VM 이미지](scripts/allowed-custom-images.md)를 참조하세요.
 
 ### <a name="fields"></a>필드
 조건은 필드를 사용하여 구성됩니다. 필드는 리소스의 상태를 설명하는 데 사용되는 리소스 요청 페이로드의 속성을 나타냅니다.  
@@ -182,12 +190,28 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 다음 필드가 지원됩니다.
 
 * `name`
+* `fullName`
+  * 부모(예: "myServer/myDatabase")를 비롯한 리소스의 전체 이름을 반환합니다.
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * 이 대괄호 구문은 마침표가 포함된 태그 이름을 지원합니다.
 * 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
+
+### <a name="alternative-accessors"></a>대체 접근자
+**필드**는 정책 규칙에서 사용되는 기본 접근자입니다. 평가되는 리소스를 직접 검사합니다. 그러나 정책에서는 다른 하나의 접근자인 **원본**을 지원합니다.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**원본**은 하나의 값인 **작업**만 지원합니다. 작업은 평가되는 요청의 권한 부여 동작을 반환합니다. 권한 부여 작업은 [활동 로그](../monitoring-and-diagnostics/monitoring-activity-log-schema.md)의 권한 부여 섹션에서 노출됩니다.
+
+정책이 백그라운드에서 기존 리소스를 평가하는 경우 **작업**을 리소스 형식에 대한 `/write` 권한 부여 작업으로 설정합니다.
 
 ### <a name="effect"></a>결과
 정책은 다음과 같은 형식의 결과 지원합니다.
@@ -212,7 +236,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 값은 문자열 또는 JSON 형식의 개체일 수 있습니다.
 
-**AuditIfNotExists** 및 **DeployIfNotExists**를 사용하면 자식 리소스의 존재 여부를 평가하고, 해당 리소스가 없을 경우 규칙과 그 결과를 적용할 수 있습니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다.
+**AuditIfNotExists** 및 **DeployIfNotExists**를 사용하면 관련 리소스의 존재 여부를 평가하고, 해당 리소스가 없을 경우 규칙과 그 결과를 적용할 수 있습니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다.
 가상 머신 확장이 배포되지 않은 경우의 감사 예제는 [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md)를 참조하세요.
 
 

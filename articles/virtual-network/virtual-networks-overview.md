@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Network | Microsoft Docs
-description: "Azure Virtual Network 개념 및 기능에 대해 알아봅니다."
+description: Azure Virtual Network 개념 및 기능에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -32,7 +32,7 @@ Azure Virtual Network는 다음과 같은 광범위한 기능을 제공합니다
 - **[가상 네트워크 연결:](#connect-vnets)** 가상 네트워크를 서로 연결하면 한 가상 네트워크의 리소스가 다른 가상 네트워크의 리소스와 통신할 수 있습니다.
 - **[온-프레미스 연결](#connect-on-premises)**: 가상 네트워크를 온-프레미스 네트워크에 연결하여 리소스가 서로 통신하도록 할 수 있습니다.
 - **[트래픽 필터링](#filtering)**: 가상 네트워크의 리소스와의 네트워크 트래픽을 원본 IP 주소 및 포트, 대상 IP 주소 및 포트, 프로토콜 등으로 필터링할 수 있습니다.
-- **[라우팅:](#routing)** 필요에 따라 자체 경로를 구성하거나 네트워크 게이트웨이를 통해 BGP 경로를 전파하여 Azure의 기본 라우팅을 재정의할 수 있습니다.
+- **[라우팅:](#routing)** 필요에 따라 자체 경로를 구성하거나 네트워크 게이트웨이를 통해 BGP(경계 게이트웨이 프로토콜) 경로를 전파하여 Azure의 기본 라우팅을 재정의할 수 있습니다.
 
 ## <a name = "isolation"></a>네트워크 격리 및 분할
 

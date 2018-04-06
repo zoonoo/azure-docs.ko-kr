@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -172,6 +172,15 @@ vCenter에 연결되면 검색할 범위를 선택할 수 있습니다. 범위�
 Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 합니다. 검색된 데이터가 포털에 표시되고 평가 생성이 시작되기까지 프로젝트에 시간이 더 걸릴 수 있습니다.
 
 정적 메타데이터를 프로젝트에 보내는 데 최대 15분이(선택한 범위에 있는 가상 머신의 수를 기반으로) 소요됩니다. 정적 메타데이터를 포털에서 사용할 수 있게 되면, 포털에 컴퓨터 목록이 표시되고 그룹 만들기를 시작할 수 있습니다. 컬렉션 작업이 완료되고 프로젝트가 데이터를 처리할 때까지 평가를 생성할 수 없습니다. Collector에서 컬렉션 작업이 완료된 후, 포털에서 성능 데이터를 사용할 수 있게 되기까지는 선택한 범위에 있는 가상 머신의 수에 따라 최대 1시간이 걸릴 수 있습니다.
+
+## <a name="locking-down-the-collector-appliance"></a>수집기 어플라이언스 잠금
+수집기 어플라이언스에서 지속적인 Windows 업데이트를 실행하는 것이 좋습니다. 수집기가 45일 동안 업데이트되지 않으면, 수집기는 컴퓨터를 자동 종료하기 시작합니다. 검색을 실행 중인 경우 45일의 기간이 경과되어도 컴퓨터는 꺼지지 않습니다. 검색 작업이 완료된 후 컴퓨터가 꺼집니다. 45일 이상 수집기를 사용 중인 경우 Windows 업데이트를 실행하여 컴퓨터를 항상 업데이트된 상태로 유지하는 것이 좋습니다.
+
+또한 다음 단계를 통해 어플라이언스를 보호하는 것이 좋습니다.
+1. 관리자 암호를 권한이 없는 주체와 공유하거나 잃어버리지 마십시오.
+2. 사용 중이 아니면 어플라이언스를 종료합니다.
+3. 보안된 네트워크에 어플라이언스를 배치합니다.
+4. 마이그레이션 작업이 완료되면 어플라이언스 인스턴스를 삭제합니다. 디스크에 캐시된 vCenter 자격 증명이 있을 수 있으므로 디스크 백업 파일(VMDK)을 삭제해야 합니다.
 
 ## <a name="how-to-upgrade-collector"></a>수집기를 업그레이드하는 방법
 

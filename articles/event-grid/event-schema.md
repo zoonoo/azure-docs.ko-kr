@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 이벤트 스키마"
-description: "Azure Event Grid를 사용하여 이벤트에 제공되는 속성을 설명합니다."
+title: Azure Event Grid 이벤트 스키마
+description: Azure Event Grid를 사용하여 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/24/2018
 
 모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 포함됩니다.
 
-| 자산 | 형식 | 설명 |
+| 자산 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
@@ -97,7 +97,11 @@ ms.lasthandoff: 02/24/2018
 * [IoT 허브](event-schema-iot-hub.md)
 * [리소스 그룹(관리 작업)](event-schema-resource-groups.md)
 
-사용자 지정 항목의 경우 이벤트 게시자가 데이터 개체를 결정합니다. 최상위 수준 데이터에는 표준 리소스 정의 이벤트와 동일한 필드가 있어야 합니다. 사용자 지정 항목에 이벤트를 게시할 때 라우팅 및 필터링을 지원하도록 이벤트의 주체를 모델링하는 것이 좋습니다.
+사용자 지정 항목의 경우 이벤트 게시자가 데이터 개체를 결정합니다. 최상위 수준 데이터에는 표준 리소스 정의 이벤트와 동일한 필드가 있어야 합니다.
+
+사용자 지정 항목에 이벤트를 게시할 때 구독자가 이벤트에 관심이 있는지 더 쉽게 알 수 있도록 사용자 이벤트에 대한 제목을 만듭니다. 구독자는 제목을 사용하여 이벤트를 필터링 및 라우팅합니다. 구독자가 해당 경로의 세그먼트를 기준으로 필터링할 수 있도록 이벤트가 발생하는 경로를 제공하는 것을 고려합니다. 구독자는 경로를 통해 이벤트를 제한적이거나 광범위하게 필터링할 수 있습니다. 예를 들어 제목에 `/A/B/C`와 같은 3개의 세그먼트 경로를 제공하는 경우 구독자는 첫 번째 세그먼트 `/A`를 기준으로 필터링하여 광범위한 이벤트 집합을 가져올 수 있습니다. 구독자는 `/A/B/C` 또는 `/A/D/E`와 같은 제목이 있는 이벤트를 가져옵니다. 다른 구독자는 `/A/B`를 기준으로 필터링하여 제한된 이벤트 집합을 얻을 수 있습니다.
+
+경우에 따라 제목에 무엇에 관해서인지 자세한 내용이 포함되어야 합니다. 예를 들어 컨테이너에 파일을 추가할 때 **저장소 계정** 게시자가 제목 `/blobServices/default/containers/<container-name>/blobs/<file>`을 제공하는 경우, 구독자는 경로 `/blobServices/default/containers/testcontainer`를 기준으로 필터링하여 저장소 계정에 다른 컨테이너가 아닌 해당 컨테이너에 대한 모든 이벤트를 가져올 수 있습니다. 또한 구독자는 접미사 `.txt`를 기준으로 필터링 또는 라우팅하여 텍스트 파일로만 작업할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

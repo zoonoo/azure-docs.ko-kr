@@ -1,11 +1,12 @@
 ---
-title: "데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 - Azure Machine Learning | Microsoft Docs"
-description: "데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다."
-keywords: "관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비"
+title: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 - Azure Machine Learning | Microsoft Docs
+description: 데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
+keywords: 관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 2d9c66d89b82c63561b147f3d2537ba6ad07c511
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 ## <a name="video-2-data-science-for-beginners-series"></a>비디오 2: 초급자를 위한 데이터 과학 시리즈
@@ -47,9 +47,7 @@ ms.lasthandoff: 01/04/2018
 데이터 과학을 통해 원하는 대답을 얻으려면 먼저 작업할 고품질 원재료를 제공해야 합니다. 피자를 만들 때처럼 더 나은 재료로 시작할수록 더 나은 최종 제품을 얻을 수 있습니다. 
 
 ## <a name="criteria-for-data"></a>데이터 기준
-데이터 과학의 경우 모아야 하는 몇 가지 재료가 있습니다.
-
-다음과 같은 데이터가 필요합니다.
+데이터 과학에서 다음을 포함하여 함께 끌어와야 하는 특정 구성 요소가 있습니다.
 
 * 관련성
 * 연결됨
@@ -57,11 +55,11 @@ ms.lasthandoff: 01/04/2018
 * 작업하는 데 충분함
 
 ## <a name="is-your-data-relevant"></a>여러분의 데이터는 관련성이 있나요?
-첫 번째 재료가 바로 이것입니다. 우리에게는 관련성이 있는 데이터가 필요합니다.
+첫 번째 재료가 바로 이것입니다. 관련성이 있는 데이터가 필요합니다.
 
 ![관련 데이터 및 관련이 없는 데이터 - 데이터 평가](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-왼쪽의 표를 보세요. 우리는 보스턴 술집 밖에서 7명의 사람들을 만나서 그들의 혈중 알코올 농도, 마지막 Red Sox 게임에서 Red Sox의 평균 타율, 가장 가까운 편의점 우유 가격을 측정했습니다.
+왼쪽 표에는 보스턴 술집 밖에서 측정한 7명의 혈중 알코올 농도, 마지막 게임에서 Red Sox의 평균 타율 및 가장 가까운 편의점 우유 가격이 나와 있습니다.
 
 이 모든 것은 완벽하게 합법적인 데이터입니다. 유일한 결함은 서로 관련성이 없다는 것입니다. 이러한 수치 간에는 명확한 관계가 없습니다. 현재 우유 가격과 Red Sox 타율 평균을 안다고 해서 혈중 알코올 농도도 알 수 있는 방법은 없습니다.
 
@@ -76,12 +74,12 @@ ms.lasthandoff: 01/04/2018
 
 대부분의 데이터 집합에서 일부 값이 누락되어 있습니다. 이러한 누락은 일반적인 것이며 해결 방법이 있습니다. 그렇지만 누락된 데이터가 너무 많으면 스위스 치즈처럼 보이기 시작합니다.
 
-왼쪽의 표를 보면 누락된 데이터가 많이 있으므로 그릴 온도와 패티 두께 간 관계를 추측하기 어렵습니다. 연결되지 않은 데이터의 예입니다.
+왼쪽의 표를 보면 누락된 데이터가 많이 있으므로 그릴 온도와 패티 두께 간 관계를 추측하기 어렵습니다. 이 예제에서는 연결되지 않은 데이터를 보여 줍니다.
 
 그렇지만 오른쪽의 표는 꽉 차서 완전합니다. 연결된 데이터의 예로 볼 수 있습니다.
 
 ## <a name="is-your-data-accurate"></a>데이터가 정확한가요?
-필요한 다음 재료는 정확성입니다. 화살로 맞추려는 4개의 과녁이 있습니다.
+다음 재료는 정확성입니다. 여기 맞춰야 하는 과녁이 4개 있습니다.
 
 ![정확한 데이터 및 부정확한 데이터 - 데이터 기준](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
@@ -89,10 +87,10 @@ ms.lasthandoff: 01/04/2018
 
 이러한 화살의 중심을 배치해보면 과녁의 중앙에 매우 가깝다는 것을 알 수 있습니다. 화살은 과녁 전체에 퍼져 있으므로 정밀하지 않은 것으로 간주되지만 과녁의 중앙 근처에 있으므로 정확한 것으로 간주됩니다.
 
-이제 왼쪽 위 과녁을 살펴보겠습니다. 화살끼리 매우 가깝게 모여 있습니다. 정확한 편이지만 중심이 과녁의 중앙을 벗어나 있으므로 정확하지 않습니다. 물론 왼쪽 아래 과녁의 화살표는 부정확하고 정밀하지도 않습니다. 이 궁수는 좀 더 연습이 필요합니다.
+이제 왼쪽 위 과녁을 살펴보겠습니다. 화살끼리 매우 가깝게 모여 있습니다. 정확한 편이지만 중심이 과녁의 중앙을 벗어나 있으므로 정확하지 않습니다. 왼쪽 아래 과녁의 화살표는 부정확하고 정밀하지도 않습니다. 이 궁수는 좀 더 연습이 필요합니다.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>사용할 충분한 데이터가 있나요?
-마지막으로 재료 4는 충분한 데이터가 필요하다는 것입니다.
+마지막으로, 네 번째 재료는 충분한 데이터입니다.
 
 ![분석을 위한 충분한 데이터가 있나요? 데이터 평가](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
@@ -102,7 +100,7 @@ ms.lasthandoff: 01/04/2018
 
 붓 자국이 어느 정도 있어야 대략적인 결정을 내릴 수 있게 됩니다. 제가 가보고 싶은 곳일까요? 밝고 깨끗한 물처럼 보입니다. 맞습니다. 제가 휴가를 보내고 싶은 곳입니다.
 
-더 많은 데이터를 추가하면 그림이 좀 더 명확해지고 보다 자세한 결정을 내릴 수 있게 됩니다. 이제 왼쪽 강둑에 있는 세 곳의 호텔을 볼 수 있습니다. 아시다시피 저는 앞쪽에 있는 호텔의 건축 특성을 정말 좋아합니다. 그 호텔 3층에 머물 것입니다.
+더 많은 데이터를 추가하면 그림이 좀 더 명확해지고 보다 자세한 결정을 내릴 수 있게 됩니다. 이제 왼쪽 강둑에 있는 세 곳의 호텔을 볼 수 있습니다. 전경에서 호텔의 건축 모양을 확인할 수 있습니다. 전망을 이유로 3층 방을 선택할 수도 있습니다.
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 
@@ -110,5 +108,4 @@ Microsoft Azure Machine Learning의 *초급자를 위한 데이터 과학*에 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* 
-            [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)
+* [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)

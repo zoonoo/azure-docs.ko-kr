@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
 Azure Load Balancer의 표준 SKU는 [가용성 영역](../availability-zones/az-overview.md) 시나리오를 지원합니다. 표준 Load Balancer에서는 몇 가지 새로운 개념을 사용할 수 있습니다. 이를 통해 리소스를 영역에 맞게 조정하고 영역 간에 분산하여 종단 간 시나리오의 가용성을 최적화할 수 있습니다.  가용성 영역에 대한 설명, 현재 가용성 영역을 지원하는 지역 및 기타 관련 개념 및 제품에 대한 지침은 [가용성 영역](../availability-zones/az-overview.md)을 검토하세요. 표준 Load Balancer와 결합된 가용성 영역은 다양한 시나리오를 만들 수 있는 광범위하고 유연한 기능 집합입니다.  이러한 [개념](#concepts)과 기본 시나리오 [디자인 지침](#design)을 이해하려면 이 문서를 검토하세요.
 
 >[!NOTE]
-> Load Balancer 표준 SKU는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다. 이 미리 보기와 함께 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 사용하려면 Load Balancer [표준 미리 보기](#preview-sign-up) 등록뿐 아니라 [별도의 등록](https://aka.ms/availabilityzones)이 필요합니다.
+>다른 관련 항목은 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 검토하세요. 
 
 ## <a name="concepts"></a> Load Balancer에 적용된 가용성 영역 개념
 
@@ -151,7 +151,7 @@ Load Balancer 리소스는 영역 및 영역 중복 프런트 엔드 둘 다를 
 
 영역 간 부하 분산은 Load Balancer에서 모든 영역의 백 엔드 엔드포인트에 연결하는 기능이며 프런트 엔드 및 해당 영역 조건과는 별개입니다.
 
-단일 영역으로 배포를 조정하고 보장하려면 영역 프런트 엔드 및 영역 백 엔드 리소스를 동일한 영역에 맞춥니다. 별도의 작업이 필요하지 않습니다.
+단일 영역 내에서 배포를 조정하고 보장하려면 영역 프런트 엔드 및 영역 백 엔드 리소스를 동일한 영역에 맞춥니다. 별도의 작업이 필요하지 않습니다.
 
 ### <a name="backend"></a>백 엔드
 
@@ -210,7 +210,7 @@ Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간
 
 영역은 영역의 상태와 수명을 공유하면서 영역에 대한 명시적 보증을 제공할 수 있습니다. 영역 IP 주소 또는 영역 Load Balancer 프런트 엔드를 연결하는 것은 특히 연결된 리소스가 동일한 영역의 영역 VM인 경우 바람직하거나 합리적인 특성이 될 수 있습니다.  또는 응용 프로그램에 리소스가 있는 영역에 대한 명시적 기술이 필요하고, 별도의 영역에서 가용성에 대한 이유를 명시적으로 추론하려고 합니다.  영역 전체에서 분산된 종단 간 서비스에 대해 여러 영역 프런트 엔드를 공개하도록 선택할 수 있습니다(즉, 여러 영역 가상 머신 확장 집합에 대해 영역 프런트 엔드별).  그리고 영역 프런트 엔드가 공용 IP 주소인 경우, [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 서비스를 공개하는 데 이러한 여러 영역 프런트 엔드를 사용할 수 있습니다.  또는 여러 영역 프런트 엔드를 사용하여 타사 모니터링 솔루션을 통해 영역별 상태 및 성능 정보를 얻고, 영역 중복 프런트 엔드를 사용하여 전체 서비스를 공개할 수 있습니다. 동일한 영역에 맞게 조정된 영역 프런트 엔드가 있는 영역 리소스만 처리하고, 영역 리소스에 잠재적으로 위험한 영역 간 시나리오는 방지해야 합니다.  영역 리소스는 가용성 영역이 있는 지역에만 존재합니다.
 
-종단 간 서비스를 알지 못하면 다른 서비스보다 더 나은 선택이라는 일반적인 지침이 없습니다.
+서비스 아키텍처를 알지 못하면 다른 서비스보다 더 나은 선택이라는 일반적인 지침이 없습니다.
 
 ## <a name="limitations"></a>제한 사항
 

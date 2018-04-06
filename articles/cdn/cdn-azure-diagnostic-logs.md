@@ -1,12 +1,12 @@
 ---
-title: "Azure 진단 로그 | Microsoft Docs"
-description: "고객은 Azure CDN에 대한 Log Analytics를 사용하도록 설정할 수 있습니다."
+title: Azure 진단 로그 | Microsoft Docs
+description: 고객은 Azure CDN에 대한 Log Analytics를 사용하도록 설정할 수 있습니다.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -95,7 +95,7 @@ OMS 로그 분석을 사용하여 로그를 저장하려면 아래 단계를 따
 
     로그 분석 구성을 설정한 후 **CoreAnalytics**를 선택했는지 확인합니다.
 
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 7. 새 OMS 작업 영역을 보려면 Azure Portal 대시보드로 이동하여 로그 분석 작업 영역의 이름을 클릭합니다. OMS 포털 타일을 클릭하여 OMS 리포지토리에서 작업 영역을 봅니다. 
 
@@ -109,7 +109,7 @@ OMS 로그 분석을 사용하여 로그를 저장하려면 아래 단계를 따
 
 다음 예제는 Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하는 방법을 보여 줍니다.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Storage 계정에서 진단 로그 사용
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Storage 계정에서 진단 로그 사용
 
 먼저 로그인하고 구독을 선택합니다.
 
@@ -173,7 +173,7 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 
 이 도구를 사용하는 방법은 다음과 같습니다.
 
-1.  Github 링크 [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ) 방문
+1.  Github 링크를 방문합니다. [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
 2.  코드를 다운로드합니다.
 3.  지침에 따라 컴파일 및 구성합니다.
 4.  도구를 실행합니다.
@@ -296,27 +296,27 @@ Verizon 로그 데이터는 1시간 지연되고, 끝점 전파가 완료된 후
 | RequestCountHttpStatus4xx |4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수               | 예   |예   |
 | RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수              | 예  |예   |
 | RequestCountHttpStatusOthers |  다른 모든 HTTP 코드의 수(2xx-5xx 이외) | 예  |예   |
-| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수              |아니요   |예   |
+| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수              |아니오   |예   |
 | RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수              |아니요   |예   |
-| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수              |아니요   |예   |
-| RequestCountHttpStatus304 |  304 HTTP 코드 응답을 생성한 모든 요청의 수             |아니요   |예   |
+| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수              |아니오   |예   |
+| RequestCountHttpStatus304 |  304 HTTP 코드 응답을 생성한 모든 요청의 수             |아니오   |예   |
 | RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수              |아니요   |예   |
-| RequestCountCacheHit |캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다.               | 예  |아니요   |
-| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었습니다.              |예   | 아니요  |
+| RequestCountCacheHit |캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다.               | 예  |아니오   |
+| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었습니다.              |예   | 아니오  |
 | RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수              |예   | 아니요  |
-| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수                |예   |아니요   |
-| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수              |예   | 아니요  |
+| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수                |예   |아니오   |
+| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수              |예   | 아니오  |
 | EgressTotal | 아웃바운드 데이터 전송(GB)              |예   |예   |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송* (GB)            |예   |아니요   |
-| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)              |예   |아니요   |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송*(GB)            |예   |아니요   |
+| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)              |예   |아니오   |
 | EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   | 아니요  |
 | EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   |  아니요 |
-| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)                |예   |아니요   |
-| EgressCacheHit |  CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송  |예   |  아니요 |
+| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)                |예   |아니오   |
+| EgressCacheHit |  CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송  |예   |  아니오 |
 | EgressCacheMiss | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송              |예   |  아니요 |
 | EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송                |예   |아니요   |
-| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다.                   |예   | 아니요  |
-| EgressCacheOthers |  다른 캐시 시나리오에 대한 아웃바운드 데이터 전송             |예   | 아니요  |
+| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다.                   |예   | 아니오  |
+| EgressCacheOthers |  다른 캐시 시나리오에 대한 아웃바운드 데이터 전송             |예   | 아니오  |
 
 * 아웃바운드 데이터 전송은 CDN POP 서버에서 클라이언트로 전달되는 트래픽을 나타냅니다.
 

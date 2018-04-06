@@ -133,7 +133,7 @@ items:
         href: cli-samples.md
       - name: PowerShell
         href: powershell-samples.md
-      - name: Azure Resource Manager 템플릿
+      - name: Azure 리소스 관리자 템플릿
         href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
   - name: 개념
     items:
@@ -416,9 +416,9 @@ items:
           - name: 파이썬
             href: sql-api-sdk-python.md
           - name: REST (영문)
-            href: /rest/api/documentdb/
+            href: /rest/api/cosmos-db/
           - name: REST 리소스 공급자
-            href: /rest/api/documentdbresourceprovider/
+            href: /rest/api/cosmos-db-resource-provider/
           - name: SQL
             href: sql-api-sql-query-reference.md
       - name: 테이블 API

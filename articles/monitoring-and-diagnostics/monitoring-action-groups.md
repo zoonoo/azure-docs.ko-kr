@@ -1,24 +1,24 @@
 ---
-title: "Azure Portal에서 작업 그룹 만들기 및 관리 | Microsoft Docs"
-description: "Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다."
+title: Azure Portal에서 작업 그룹 만들기 및 관리 | Microsoft Docs
+description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/12/2018
 ms.author: dukek
-ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/21/2018
 하나의 작업 그룹에는 각 작업 유형이 최대 10개 포함될 수 있습니다. 각 작업은 다음과 같은 속성으로 구성됩니다.
 
 * **이름**: 작업 그룹 내의 고유 식별자입니다.  
-* **동작 유형**: SMS 보내기, 이메일 보내기, 웹후크 호출, ITSM 도구에 데이터 보내기, Azure 앱 호출 또는 Automation Runbook 실행
+* **동작 유형**: 음성 통화 또는 SMS 보내기, 이메일 보내기, 웹후크 호출, ITSM 도구에 데이터 보내기, Azure 앱 호출 또는 Automation Runbook 실행.
 * **세부 정보**: 해당 전화 번호, 이메일 주소, 웹후크 URI 또는 ITSM 연결 세부 정보입니다.
 
 Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](monitoring-create-action-group-with-resource-manager-template.md)을 참조하세요.
@@ -56,7 +56,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     a. **이름**: 이 작업에 대한 고유 식별자를 입력합니다.
 
-    나. **작업 유형**: 이메일/SMS/Azure 앱, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
+    나. **작업 유형**: 이메일/SMS/푸시/음성, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
 
     다. **세부 정보**: 작업 유형에 따라 전화 번호, 이메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
 

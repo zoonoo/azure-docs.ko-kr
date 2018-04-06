@@ -1,11 +1,11 @@
 ---
-title: "Azure의 고가용성 포트 개요 | Microsoft Docs"
-description: "내부 부하 분산 장치에서 고가용성 포트 부하 분산에 대해 자세히 알아봅니다."
+title: Azure의 고가용성 포트 개요 | Microsoft Docs
+description: 내부 부하 분산 장치에서 고가용성 포트 부하 분산에 대해 자세히 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: rdhillon
-manager: timlt
-editor: 
+author: KumudD
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
-Azure Load Balancer 표준은 내부 Load Balancer를 사용하는 경우 모든 포트에서 TCP 및 UDP 흐름을 동시에 분산시키도록 도와줍니다. 
+Azure Standard Load Balancer는 내부 Load Balancer를 사용하는 경우 모든 포트에서 TCP 및 UDP 흐름의 부하를 동시에 분산하도록 도와줍니다. 
 
->[!NOTE]
-> 고가용성(HA) 포트 기능은 Load Balancer 표준에서 사용할 수 있으며 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Load Balancer 표준 리소스와 함께 HA 포트를 사용하려면 Load Balancer 표준 미리 보기에 등록합니다. Load Balancer [표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up) 등록에 대한 지침도 따릅니다.
-
-HA 포트 규칙은 내부 Load Balancer 표준에 구성된 부하 분산 규칙의 변형입니다. 모든 TCP 및 UDP 흐름이 내부 Load Balancer 표준의 모든 포트에 도달하도록 부하를 분산하기 위한 단일 규칙을 제공하면 Load Balancer 사용을 간소화할 수 있습니다. 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트 및 프로토콜의 5 튜플 연결을 기준으로 합니다.
+HA 포트 규칙은 내부 Standard Load Balancer에 구성된 부하 분산 규칙의 변형입니다. 모든 TCP 및 UDP 흐름이 내부 Standard Load Balancer의 모든 포트에 도달하도록 부하를 분산하기 위한 단일 규칙을 제공하면 Load Balancer 사용을 간소화할 수 있습니다. 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트 및 프로토콜의 5 튜플 연결을 기준으로 합니다.
 
 HA 포트 기능은 고가용성 및 가상 네트워크 내 네트워크 가상 어플라이언스(NVA)에 대한 크기 조정 등의 중요한 시나리오를 지원합니다. 또한 많은 수의 포트에서 부하를 분산시켜야 할 때 도움이 될 수 있습니다. 
 
@@ -44,11 +41,11 @@ Azure 내부 Load Balancer의 백엔드 풀에 NVA 인스턴스를 추가하고 
 
 HA 포트는 NVA HA 시나리오에 대해 다음과 같은 몇 가지 이점을 제공합니다.
 - 인스턴스 상태 프로브별로 정상 인스턴스로 빠르게 장애 조치(Failover)
-- *n* 활성 인스턴스로 확장 가능한 뛰어난 성능
+- *n*개 활성 인스턴스로 확장 가능한 뛰어난 성능
 - *N*개의 활성 및 활성-수동 시나리오
 - 어플라이언스를 모니터링하기 위해 Apache Zookeeper 노드 같은 복합 솔루션의 필요성 해소
 
-다음 다이어그램은 허브 및 스포크 가상 네트워크 배포를 나타냅니다. 스포크는 신뢰할 수 있는 공간을 벗어나기 전에 허브 가상 네트워크 및 NVA를 통해 트래픽을 강제 터널링합니다. NVA는 HA 포트가 구성된 내부 Load Balancer 표준을 통해 지원됩니다. 그에 따라 모든 트래픽을 처리하고 전달할 수 있습니다.
+다음 다이어그램은 허브 및 스포크 가상 네트워크 배포를 나타냅니다. 스포크는 신뢰할 수 있는 공간을 벗어나기 전에 허브 가상 네트워크 및 NVA를 통해 트래픽을 강제 터널링합니다. NVA는 HA 포트가 구성된 내부 Standard Load Balancer를 통해 지원됩니다. 그에 따라 모든 트래픽을 처리하고 전달할 수 있습니다.
 
 ![HA 모드로 배포된 NVA가 있는 허브 및 스포크 가상 네트워크의 다이어그램](./media/load-balancer-ha-ports-overview/nvaha.png)
 
@@ -57,34 +54,56 @@ HA 포트는 NVA HA 시나리오에 대해 다음과 같은 몇 가지 이점을
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>많은 수의 포트에서 부하 분산
 
-또한 많은 수의 포트에서 부하를 분산해야 하는 응용 프로그램에 대해 HA 포트를 사용할 수도 있습니다. HA 포트와 함께 [Load Balancer 표준](https://aka.ms/lbpreview)을 사용하여 이러한 시나리오를 단순화할 수 있습니다. 단일 부하 분산 규칙은 여러 개의 개별 부하 분산 규칙을 모든 포트에 대해 하나씩 대체합니다.
+또한 많은 수의 포트에서 부하를 분산해야 하는 응용 프로그램에 대해 HA 포트를 사용할 수도 있습니다. HA 포트와 함께 내부 [Standard Load Balancer](load-balancer-standard-overview.md)를 사용하여 이러한 시나리오를 단순화할 수 있습니다. 단일 부하 분산 규칙은 여러 개의 개별 부하 분산 규칙을 모든 포트에 대해 하나씩 대체합니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
-HA 포트 기능은 [Load Balancer 표준과 같은 지역](https://aka.ms/lbpreview#region-availability)에서 사용할 수 있습니다.  
+HA 포트 기능은 모든 글로벌 Azure 지역에서 사용할 수 있습니다.
 
-## <a name="preview-sign-up"></a>미리 보기 등록
+## <a name="supported-configurations"></a>지원되는 구성
 
-Load Balancer 표준에서 HA 포트 기능의 미리 보기에 참여하려면 Load Balancer [표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up)의 구독을 등록합니다. Azure CLI 2.0 또는 PowerShell을 사용하여 등록할 수 있습니다.
+### <a name="one-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>내부 Standard Load Balancer의 단일 비부동 IP(비 Direct Server Return) HA 포트 구성
+
+기본 HA 포트 구성입니다. 다음 구성을 사용하면 단일 프런트 엔드 IP 주소에 HA 포트 부하 분산을 구성할 수 있습니다.
+- Standard Load Balancer를 구성하는 동안 Load Balancer 규칙 구성에서 **HA 포트** 확인란을 선택합니다. 
+- **부동 IP**가 **사용 안 함**으로 설정되었는지 확인합니다.
+
+이 구성은 현재 Load Balancer 리소스에서 다른 부하 분산 규칙 구성을 허용하지 않으며 지정된 백 엔드 인스턴스 집합에 대한 다른 내부 Load Balancer 리소스 구성도 허용하지 않습니다.
+
+그러나 이 HA 포트 규칙 외에 백 엔드 인스턴스에 대한 공용 Standard Load Balancer를 구성할 수 있습니다.
+
+## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>내부 Standard Load Balancer의 단일 부동 IP(Direct Server Return) HA 포트 구성
+
+단일 프런트 엔드가 있고 **부동 IP**가 **사용**으로 설정된 **HA 포트**로 부하 분산 규칙을 사용하도록 부하 분산 장치를 유사하게 구성할 수 있습니다. 
+
+이 구성을 사용하면 다른 부동 IP 부하 분산 규칙 및/또는 공용 Load Balancer를 추가할 수 있습니다. 그러나 이 구성에서 비부동 IP HA 포트 부하 분산 구성을 사용할 수는 없습니다.
+
+## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>내부 Standard Load Balancer의 다중 HA 포트 구성
+
+동일한 백 엔드 풀에 대해 둘 이상의 HA 포트를 구성해야 하는 시나리오의 경우 다음을 수행하면 됩니다. 
+- 단일 내부 Standard Load Balancer 리소스에 대해 둘 이상의 프런트 엔드 개인 IP 주소를 구성합니다.
+- 각 규칙에 대해 단일 고유 프런트 엔드 IP 주소를 선택하여 여러 부하 분산 규칙을 구성합니다.
+- **HA 포트** 옵션을 선택하고 모든 부하 분산 규칙에 대해 **부동 IP**를 **사용**으로 설정합니다.
+
+## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>HA 포트가 있는 내부 Load Balancer 및 동일한 백 엔드 인스턴스의 공용 Load Balancer
+
+HA 포트가 있는 단일 내부 Standard Load Balancer 외에 백 엔드 리소스에 대해 **하나**의 공용 Standard Load Balancer 리소스를 구성할 수 있습니다.
 
 >[!NOTE]
->등록은 최대 1시간 정도 걸릴 수 있습니다.
+>이 기능은 현재 Azure Resource Manager 템플릿을 통해서만 사용할 수 있고 Azure Portal에서는 사용할 수 없습니다.
 
 ## <a name="limitations"></a>제한 사항
 
-다음은 HA 포트 기능에 대해 지원되는 구성 또는 예외 사항입니다.
+- HA 포트 구성은 내부 Load Balancer에만 사용할 수 있고 공용 Load Balancer에는 사용할 수 없습니다.
 
-- 단일 프런트엔드 IP 구성에는 HA 포트가 있는 단일 DSR(Direct Server Return - Azure의 부동 IP) Load Balancer 규칙이나 HA 포트가 있는 단일 비 DSR Load Balancer 규칙을 설정할 수 있습니다. 둘 다 사용할 수는 없습니다.
-- 단일 네트워크 인터페이스 IP 구성에는 HA 포트가 있는 비 DSR 부하 분산 장치 규칙 하나만 설정할 수 있습니다. 이 ipconfig에 대해 다른 규칙을 구성할 수는 없습니다.
-- 단일 네트워크 인터페이스 IP 구성에 HA 포트가 있는 하나 이상의 DSR 부하 분산 장치 규칙을 설정할 수 있습니다. 단, 각각의 프런트 엔드 IP 구성은 고유해야 합니다.
-- 모든 부하 분산 규칙이 HA 포트(DSR 전용)인 경우 동일한 백엔드 풀을 가리키는 두 개(또는 그 이상)의 Load Balancer 규칙이 공존할 수 있습니다. 모든 규칙이 비 HA 포트(DSR 및 비 DSR)인 경우에도 마찬가지입니다. 하지만 HA 포트와 비 HA 포트 규칙의 조합이 있는 경우 이러한 두 가지 부하 분산 규칙은 공존할 수 없습니다.
+- HA 포트 부하 분산 규칙과 비 HA 포트 부하 분산 규칙을 함께 사용할 수는 없습니다.
+
 - HA 포트 기능은 IPv6에서 사용할 수 없습니다.
-- NVA 시나리오에 대한 흐름 대칭은 단일 NIC에서만 지원됩니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 
 
+- NVA 시나리오에 대한 흐름 대칭은 단일 NIC에서만 지원됩니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 그러나 대상 NAT가 시나리오에서 지원되는 경우, 대상 NAT를 사용하여 내부 Load Balancer가 반환 트래픽을 동일한 NVA로 보내도록 할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [내부 Load Balancer 표준에서 HA 포트 구성](load-balancer-configure-ha-ports.md)
-- [Load Balancer 표준 미리 보기에 대해 자세히 알아보기](https://aka.ms/lbpreview)
-
+- [내부 Standard Load Balancer에서 HA 포트 구성](load-balancer-configure-ha-ports.md)
+- [Standard Load Balancer에 대한 자세한 정보](load-balancer-standard-overview.md)

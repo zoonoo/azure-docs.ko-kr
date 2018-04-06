@@ -1,19 +1,19 @@
 ---
-title: "Azure Container Service에서 Kubernetes와 Jenkins 연속 배포"
-description: "Jenkins로 연속 배포 프로세스를 자동화하여 Azure Container Service의 Kubernetes에서 컨테이너화된 앱을 배포 및 업그레이드하는 방법"
+title: Azure Container Service에서 Kubernetes와 Jenkins 연속 배포
+description: Jenkins로 연속 배포 프로세스를 자동화하여 Azure Container Service의 Kubernetes에서 컨테이너화된 앱을 배포 및 업그레이드하는 방법
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1293fda45602203570a0f7f75481f67bdcb6edf3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Azure Container Service에서 Jenkins와 연속 배포
 
@@ -160,6 +160,20 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
+
+Jenkins에 로그인하는 문제가 발생하는 경우 Jenkins VM을 사용하여 SSH 세션을 만들고, Jenkins 서비스를 다시 시작합니다. VM의 IP 주소는 빌드 스크립트에서 제공한 동일한 주소입니다. VM 관리 사용자 이름은 `azureuser`입니다.
+
+```bash
+ssh azureuser@52.166.118.64
+```
+
+Jenkins 서비스를 다시 시작합니다.
+
+```bash
+sudo service jenkins restart
+```
+
+브라우저를 새로 고치고 Jenkins 로그인 양식을 표시해야 합니다.
 
 ## <a name="jenkins-environment-variables"></a>Jenkins 환경 변수
 

@@ -1,8 +1,8 @@
 ---
-title: "Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 - Azure | Microsoft Docs"
-description: "Bash 스크립트를 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다. HDInsight의 스크립트 작업 기능을 사용하면 클러스터를 생성하는 동안 또는 생성한 후에 스크립트를 실행할 수 있습니다. 클러스터 구성 설정을 변경하거나 추가 소프트웨어를 설치하는 데 스크립트를 사용할 수 있습니다."
+title: Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 - Azure | Microsoft Docs
+description: Bash 스크립트를 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다. HDInsight의 스크립트 작업 기능을 사용하면 클러스터를 생성하는 동안 또는 생성한 후에 스크립트를 실행할 수 있습니다. 클러스터 구성 설정을 변경하거나 추가 소프트웨어를 설치하는 데 스크립트를 사용할 수 있습니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -103,7 +103,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh에서 이러한 코드 조각을 포함하는 전체 스크립트를 찾을 수 있습니다.
+이 코드 조각이 포함된 전체 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh에서 찾을 수 있습니다.
 
 HDInsight에서 사용되는 Ubuntu 버전은 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md) 문서를 참조하세요.
 
@@ -118,7 +118,7 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 > [!IMPORTANT]
 > 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
-예를 들어 Microsoft에서 제공하는 샘플은 저장소 계정인 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 에 저장됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
+예를 들어 Microsoft에서 제공하는 샘플은 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 저장소 계정에 저장됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
 
 ### <a name="bPS4"></a>사전 컴파일한 리소스 사용
 
@@ -168,7 +168,7 @@ echo "Getting ready to install Foo"
 >&2 echo "An error occurred installing Foo"
 ```
 
-이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)를 참조하세요.
+이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)을 참조하세요.
 
 스크립트 동작에서 기록된 정보 보기에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -317,7 +317,7 @@ fi
 이러한 스크립트 배포를 준비할 때 수행하는 단계는 다음과 같습니다.
 
 * 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 예를 들어 클러스터의 기본 저장소입니다. 공개적으로 읽을 수 있는 호스팅 서비스에 파일을 저장할 수도 있습니다.
-* 스크립트가 멱등원인지 확인합니다. 이렇게 하면 스크립트가 동일한 노드에서 여러 번 실행될 수 있습니다.
+* 스크립트가 idempotent인지 확인합니다. 이렇게 하면 스크립트가 동일한 노드에서 여러 번 실행될 수 있습니다.
 * 임시 파일 디렉터리 /tmp를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
 * OS 수준 설정 또는 Hadoop 서비스 구성 파일이 변경되면 HDInsight 서비스를 다시 시작할 수 있습니다.
 

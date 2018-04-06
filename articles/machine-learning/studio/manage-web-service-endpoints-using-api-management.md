@@ -1,12 +1,13 @@
 ---
-title: "API Management를 사용하여 Azure ML 웹 서비스를 관리하는 방법 알아보기 | Microsoft Docs"
-description: "API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다."
-keywords: "기계 학습, api 관리"
+title: API Management를 사용하여 Azure ML 웹 서비스를 관리하는 방법 알아보기 | Microsoft Docs
+description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다.
+keywords: 기계 학습, api 관리
 services: machine-learning
-documentationcenter: 
-author: roalexan
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: roalexan
-ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대해 알아봅니다.
 ## <a name="overview"></a>개요
@@ -42,7 +42,7 @@ AzureML은 고급 분석 솔루션을 손쉽게 빌드, 배포 및 공유할 수
 
 API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스를 관리할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+ 리소스 만들기**를 선택합니다.
 3. 검색 상자에 "API Management"를 입력한 다음 "API Management" 리소스를 선택합니다.
 4. **만들기**를 클릭합니다.
@@ -73,7 +73,7 @@ API를 만들려면:
 4. **Web API URL 접미사"를 입력합니다. 고객이 서비스 인스턴스에 요청을 보내는 데 사용할 URL의 마지막 부분이 됩니다(이 예제에서는 "azureml-demo" 사용).
 5. **Web API URL 구성표**에서 **HTTPS**를 선택합니다.
 6. **제품**에서 **시작**을 선택합니다.
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 
 ## <a name="add-the-operations"></a>작업 추가
@@ -110,7 +110,7 @@ API를 만들려면:
 3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"를 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 제출" 사용).
 5. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 ### <a name="start-a-batch-execution-job"></a>일괄 처리 실행 작업 시작
 
@@ -119,7 +119,7 @@ API를 만들려면:
 3. **HTTP 동사**에 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"을 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 시작" 사용).
 6. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>일괄 처리 실행 작업의 상태 또는 결과 가져오기
 
@@ -128,7 +128,7 @@ API를 만들려면:
 3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"를 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 상태" 사용).
 6. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 ### <a name="delete-a-batch-execution-job"></a>일괄 처리 실행 작업 삭제
 
@@ -137,7 +137,7 @@ API를 만들려면:
 3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"를 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 삭제" 사용).
 5. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>개발자 포털에서 작업 호출
 
@@ -173,13 +173,13 @@ API를 만들려면:
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>부록 A - 간단한 AzureML 웹 서비스 만들기 및 테스트
 ### <a name="creating-the-experiment"></a>실험 만들기
-간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예:
+간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예: 
 
 | 텍스트 | 해시된 텍스트 |
 | --- | --- |
 | This is a good day |1 1 2 2 0 2 0 1 |
 
-먼저 선택한 브라우저를 사용하여 [https://studio.azureml.net/](https://studio.azureml.net/) 으로 이동하고 자격 증명을 입력하여 로그인합니다. 그리고 새 실험을 만듭니다.
+먼저 선택한 브라우저를 사용하여 [https://studio.azureml.net/](https://studio.azureml.net/)으로 이동하고 자격 증명을 입력하여 로그인합니다. 그리고 새 실험을 만듭니다.
 
 ![search-experiment-templates](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 

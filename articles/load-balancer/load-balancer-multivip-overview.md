@@ -1,34 +1,32 @@
 ---
-title: "Azure Load Balancer에 대한 다중 프런트 엔드 | Microsoft Docs"
-description: "Azure Load Balancer의 다중 프런트 엔드에 대한 개요"
+title: Azure Load Balancer에 대한 다중 프런트 엔드 | Microsoft Docs
+description: Azure Load Balancer의 다중 프런트 엔드에 대한 개요
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer의 다중 프런트 엔드
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
 이 문서에서는 이 기능, 중요한 개념 및 제약 조건에 대한 기본 사항을 설명합니다. 서비스를 하나의 IP 주소에 노출만 하려는 경우 [공용](load-balancer-get-started-internet-portal.md) 또는 [내부](load-balancer-get-started-ilb-arm-portal.md) 부하 분산 장치 구성에 대한 단순화된 지침을 찾을 수 있습니다. 여러 프런트 엔드를 추가하면 단일 프런트 엔드 구성이 증가합니다. 이 문서의 개념을 사용하여 단순화된 구성을 언제라도 확장할 수 있습니다.
 
-Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 구성이 규칙과 연결됩니다. 규칙에서 참조하는 상태 프로브는 새로운 흐름을 백 엔드 풀의 노드로 전송하는 방법을 결정하는 데 사용됩니다. 프런트 엔드는 IP 주소(공용 또는 내부), 전송 프로토콜(UDP 또는 TCP) 및 부하 분산 규칙의 포트 번호로 구성된 3 튜플인 프런트 엔드 IP 구성(다른 이름: VIP)으로 정의됩니다. DIP는 백 엔드 풀의 VM에 연결된 Azure virtual NIC의 IP 주소입니다.
+Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 풀 구성이 규칙과 연결됩니다. 규칙에서 참조하는 상태 프로브는 새로운 흐름을 백 엔드 풀의 노드로 전송하는 방법을 결정하는 데 사용됩니다. 프런트 엔드(일명 VIP)는 IP 주소(공용 또는 내부), 전송 프로토콜(UDP 또는 TCP) 및 부하 분산 규칙의 포트 번호로 구성된 3 튜플로 정의됩니다. 백 엔드 풀은 부하 분산 장치 백 엔드 풀을 참조하는 가상 머신 IP 구성(NIC 리소스의 일부)의 컬렉션입니다.
 
 다음 표에는 프런트 엔드 구성의 몇 가지 예가 들어 있습니다.
 
@@ -134,6 +132,10 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 ## <a name="limitations"></a>제한 사항
 
 * 다중 프런트 엔드 구성은 IaaS VM에서만 지원됩니다.
-* 부동 IP 규칙을 사용할 경우 응용 프로그램은 아웃바운드 흐름에 대해 DIP를 사용해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성된 프런트 엔드 IP 주소에 바인딩하는 경우 SNAT를 사용하여 아웃바운드 흐름을 다시 작성할 수 없으며 흐름이 실패합니다.
+* 부동 IP 규칙을 사용하면 응용 프로그램은 아웃바운드 흐름에 대해 기본 IP 구성을 사용해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃바운드 흐름을 다시 작성하는 데 Azure의 SNAT를 사용할 수 없으며 흐름이 실패합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- 아웃바운드 연결 동작에서 여러 프런트 엔드의 영향을 파악하려면 [아웃바운드 연결](load-balancer-outbound-connections.md)을 검토합니다.

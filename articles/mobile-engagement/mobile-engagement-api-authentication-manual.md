@@ -1,11 +1,11 @@
 ---
-title: "Mobile Engagement REST API를 사용한 인증 - 수동 설정"
-description: "Mobile Engagement REST API에 대한 인증을 수동으로 설정하는 방법을 설명합니다."
+title: Mobile Engagement REST API를 사용한 인증 - 수동 설정
+description: Mobile Engagement REST API에 대한 인증을 수동으로 설정하는 방법을 설명합니다.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e79f9c9-41e4-45ac-b427-3b8338675163
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0d71908b34ddf8313aa45014420c9e63a00078c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Mobile Engagement REST API를 사용한 인증 - 수동 설정
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Mobile Engagement REST API를 사용한 인증 - 수동 설치
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서는 [Mobile Engagement REST API를 사용한 인증](mobile-engagement-api-authentication.md)에 대한 부록입니다. 전후 관계를 이해하려면 먼저 해당 문서를 참조해야 합니다. 또한 Azure Portal을 사용하여 Mobile Engagement REST API에 대한 일회성 인증 설정을 수행하는 다른 방법에 대해서도 설명합니다.
 
 > [!NOTE]

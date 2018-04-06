@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics의 IT Service Management Connector | Microsoft Docs"
-description: "이 문서에서는 ITSMC(IT 서비스 관리 커넥터)의 개요 및 이 솔루션을 사용하여 Azure Log Analytics의 ITSM 작업 항목을 중앙에서 모니터링하고 관리하며 모든 문제를 신속하게 해결하는 방법에 대한 정보를 제공합니다."
+title: Azure Log Analytics의 IT Service Management Connector | Microsoft Docs
+description: 이 문서에서는 ITSMC(IT 서비스 관리 커넥터)의 개요 및 이 솔루션을 사용하여 Azure Log Analytics의 ITSM 작업 항목을 중앙에서 모니터링하고 관리하며 모든 문제를 신속하게 해결하는 방법에 대한 정보를 제공합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c39cf464a7e838fecf7ebd4a3cbb08612388a5fa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -191,7 +191,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 4. **연락처 유형**, **영향**, **긴급도**, **범주** 및 **하위 범주** 텍스트 상자에 적절한 값을 입력하고 **만들기**를 클릭합니다.
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>인시던트 및 변경 요청 데이터 시각화 및 분석
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>인시던트 및 변경 요청 데이터 시각화 및 분석
 
 연결을 설정할 때 구성에 따라 ITSM 커넥터는 최대 120일간 인시던트 및 변경 요청 데이터를 동기화할 수 있습니다. [다음 섹션](#additional-information)에서는 이 데이터에 대한 로그 레코드 스키마가 제공됩니다.
 
@@ -262,7 +262,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 원본
 - 할당 대상
 - 제목
-- 형식
+- 유형
 - Category
 - 시스템 상태
 - 에스컬레이션
@@ -314,7 +314,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  형식 |
+| Type_s|  유형 |
 | Category_s|  Category |
 | CRState_s|  시스템 상태|
 | Urgency_s|  긴급도 |
@@ -342,7 +342,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2.  ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
 3.  OMS 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
  -  ITSMC: 연결/작업 항목/컴퓨터 등에 대한 요약을 보여 줍니다. **커넥터 상태**를 보여 주는 타일을 클릭하면 관련 쿼리가 있는 **로그 검색**으로 이동됩니다. 자세한 정보는 LogType_S가 ERROR(오류)인 로그 레코드를 살펴봅니다.
- - **로그 검색** 페이지: *Type=ServiceDeskLog_CL* 쿼리를 사용하여 오류/관련 정보를 직접 확인합니다.
+ - **로그 검색** 페이지: `*`ServiceDeskLog_CL`*` 쿼리를 사용하여 오류/관련 정보를 직접 확인합니다.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager 웹앱 배포 문제 해결
 1.  웹앱 배포 문제가 발생한 경우 구독에 리소스 생성/배포 권한이 있는지 확인합니다.

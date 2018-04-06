@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio에서 연결된 서비스를 사용하여 Azure 저장소 추가 | Microsoft Docs"
-description: "Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure 저장소를 앱에 추가"
+title: Visual Studio에서 연결된 서비스를 사용하여 Azure Storage 추가 | Microsoft Docs
+description: Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure Storage를 앱에 추가
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
 ms.service: storage
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: kraigb
-ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 3252d022222e1c31491a6b111e5e96f8c62ca915
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Visual Studio 연결 서비스를 사용하여 Azure 저장소 추가
 Visual Studio를 사용하면 **연결된 서비스 추가** 대화 상자에서 Azure Storage에 다음을 연결할 수 있습니다.
@@ -33,7 +33,7 @@ Visual Studio를 사용하면 **연결된 서비스 추가** 대화 상자에서
 
 완료되면 **연결된 서비스 추가** 대화 상자에 Blob Storage, 큐, 테이블 작업을 시작하는 데 필요한 단계를 자세히 설명하는 설명서가 자동으로 표시됩니다.
 
-## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>연결된 서비스 대화 상자를 사용하여 Azure 저장소에 연결
+## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>연결된 서비스 대화 상자를 사용하여 Azure Storage에 연결
 1. Visual Studio에서 프로젝트 열기
 
 1. **솔루션 탐색기**에서 **연결된 서비스** 노드를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **연결된 서비스 추가**를 선택합니다.
@@ -52,9 +52,9 @@ Visual Studio를 사용하면 **연결된 서비스 추가** 대화 상자에서
 
 1. 저장소 계정을 만들려면 
    
-   1. 대화 상자 아래쪽에 있는 **새 저장소 계정 만들기**를 선택합니다.
+   1. 대화 상자 아래쪽에 있는 **새 Storage 계정 만들기**를 선택합니다.
 
-   1. **저장소 계정 만들기** 대화 상자를 채운 다음 **만들기**를 선택합니다.
+   1. **Storage 계정 만들기** 대화 상자를 채운 다음 **만들기**를 선택합니다.
       
        ![새 Azure Storage 계정](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
       
@@ -71,6 +71,6 @@ Visual Studio를 사용하면 **연결된 서비스 추가** 대화 상자에서
 - WebJob 프로젝트 - [변경된 내용 -WebJob 프로젝트](visual-studio/vs-storage-webjobs-what-happened.md)
 
 ## <a name="next-steps"></a>다음 단계
-- [MSDN 포럼: Azure 저장소](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+- [MSDN 포럼: Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 - [Microsoft Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Azure 저장소 설명서](https://docs.microsoft.com/azure/storage/)
+- [Azure Storage 설명서](https://docs.microsoft.com/azure/storage/)

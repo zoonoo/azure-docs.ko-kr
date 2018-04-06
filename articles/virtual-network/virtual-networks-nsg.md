@@ -1,6 +1,6 @@
 ---
-title: "Azure의 네트워크 보안 그룹 | Microsoft Docs"
-description: "네트워크 보안 그룹을 사용하여 Azure에서 분산된 방화벽을 사용하여 가상 네트워크 내에서 트래픽 흐름을 격리하고 제어하는 방법을 알아봅니다."
+title: Azure의 네트워크 보안 그룹 | Microsoft Docs
+description: 네트워크 보안 그룹을 사용하여 Azure에서 분산된 방화벽을 사용하여 가상 네트워크 내에서 트래픽 흐름을 격리하고 제어하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
 
@@ -123,10 +123,10 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 
 | 배포 도구 | 클래식 | 리소스 관리자 |
 | --- | --- | --- |
-| Azure portal   | 아니요 | [예](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [예](virtual-networks-create-nsg-classic-ps.md) | [예](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [예](virtual-networks-create-nsg-classic-cli.md) | [예](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **V2**   | 아니요 | [예](virtual-networks-create-nsg-arm-cli.md) |
+| Azure portal   | 예 | [예](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [예](virtual-networks-create-nsg-classic-ps.md) | [예](tutorial-filter-network-traffic.md) |
+| Azure CLI **V1**   | [예](virtual-networks-create-nsg-classic-cli.md) | [예](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **V2**   | 아니요 | [예](tutorial-filter-network-traffic-cli.md) |
 | Azure Resource Manager 템플릿   | 아니요  | [예](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>계획

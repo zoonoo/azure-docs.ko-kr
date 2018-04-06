@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -87,6 +87,11 @@ ms.lasthandoff: 03/16/2018
   az provider register --namespace Microsoft.Batch
   ```
 
+4. 리소스를 이동시키는 계정에는 적어도 다음과 같은 권한이 있어야 합니다.
+
+   * 원본 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**
+   * 대상 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/write**
+
 ## <a name="when-to-call-support"></a>지원을 호출해야 하는 경우
 
 대부분의 리소스는 이 문서에 나오는 셀프 서비스 작업을 통해 이동할 수 있습니다. 다음에 대해 셀프 서비스 작업을 사용합니다.
@@ -105,6 +110,7 @@ ms.lasthandoff: 03/16/2018
 
 * API Management
 * App Service 앱(웹앱) - [App Service 제한](#app-service-limitations)
+* App Service Certificates
 * Application Insights
 * Automation
 * Azure Cosmos DB
@@ -194,7 +200,9 @@ Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독�
 
 ## <a name="app-service-limitations"></a>App Service 제한
 
-App Service 리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 리소스 이동에 대한 제한 사항이 다릅니다.
+App Service 리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 리소스 이동에 대한 제한 사항이 다릅니다. 
+
+이 섹션에서 설명한 제한 사항은 App Service Certificates가 아닌 업로드된 인증서에 적용됩니다. 아무런 제한 없이 App Service Certificate를 새 리소스 그룹 또는 구독으로 이동시킬 수 있습니다. 동일한 App Service Certificate를 사용하는 여러 웹앱이 있는 경우 먼저 모든 웹앱을 이동한 다음, 인증서를 이동합니다.
 
 ### <a name="moving-within-the-same-subscription"></a>동일한 구독 내에서 이동
 

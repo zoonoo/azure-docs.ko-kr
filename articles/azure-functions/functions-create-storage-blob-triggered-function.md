@@ -1,26 +1,26 @@
 ---
-title: "Azure에서 Blob Storage에 의해 트리거되는 함수 만들기 | Microsoft Docs"
-description: "Azure Functions를 사용하여 Azure Blob Storage에 추가된 항목에 의해 호출되는 서버를 사용하지 않는 함수를 만듭니다."
+title: Azure에서 Blob Storage에 의해 트리거되는 함수 만들기 | Microsoft Docs
+description: Azure Functions를 사용하여 Azure Blob Storage에 추가된 항목에 의해 호출되는 서버를 사용하지 않는 함수를 만듭니다.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 928ea1dbb68206e128f0593ba15cb48935ab1ccf
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob Storage에 의해 트리거되는 함수 만들기
 
@@ -32,8 +32,6 @@ ms.lasthandoff: 12/14/2017
 
 + [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다.
 + Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
 

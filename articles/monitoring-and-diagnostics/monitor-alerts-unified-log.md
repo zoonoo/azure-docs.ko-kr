@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor의 로그 경고 - 경고(미리 보기) | Microsoft Docs
-description: Azure Alerts(미리 보기)에 대한 지정한 복잡한 쿼리 조건이 충족될 경우 이메일, 알림, 웹 사이트 URL 호출(webhook) 또는 자동화를 트리거합니다.
+title: Azure Monitor의 로그 경고 - 경고 | Microsoft Docs
+description: Azure Alerts에 대해 지정한 복잡한 쿼리 조건이 충족될 경우 이메일, 알림, 웹 사이트 URL 호출(웹후크) 또는 자동화를 트리거합니다.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Azure Monitor의 로그 경고 - 경고(미리 보기)
-이 문서에서는 Azure Alerts(미리 보기)에서 Analytics 쿼리의 경고 규칙이 작동하는 방법 및 다양한 종류의 로그 경고 규칙 간의 차이점에 대해 자세히 설명합니다. 로그를 사용하는 메트릭 경고에 대한 자세한 내용은 [거의 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 참조하세요.
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Azure Monitor의 로그 경고 - 경고 
+이 문서에서는 Azure Alerts에서 Analytics 쿼리의 경고 규칙이 작동하는 방법 및 다양한 종류의 로그 경고 규칙 간의 차이점에 대해 자세히 설명합니다. 로그를 사용하는 메트릭 경고에 대한 자세한 내용은 [거의 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 참조하세요.
 
-현재 Azure Alerts(미리 보기)는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)와 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)에서 쿼리에 대한 로그 경고를 지원합니다.
+현재 Azure Alerts는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)와 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)에서 쿼리에 대한 로그 경고를 지원합니다.
 
 > [!WARNING]
 
-> 현재 Azure Alerts(미리 보기)의 로그 경고는 작업 영역 간 또는 앱 간 쿼리를 지원하지 않습니다.
+> 현재 Azure Alerts의 로그 경고는 작업 영역 간 또는 앱 간 쿼리를 지원하지 않습니다. 또한 Application Insights에 대한 로그 경고는 공개 미리 보기로 제공되며 기능 및 사용자 환경은 변경될 수 있습니다.
 
-또한 사용자는 Azure에서 선택한 Analytics 플랫폼으로 해당 쿼리를 완전하게 수행한 다음, *쿼리를 저장하여 경고(미리 보기)에서 사용할 수 있게 가져올 수* 있습니다. 수행할 단계는 다음과 같습니다.
+또한 사용자는 Azure에서 선택한 Analytics 플랫폼으로 해당 쿼리를 완전하게 수행한 다음, *쿼리를 저장하여 경고에서 사용할 수 있게 가져올 수* 있습니다. 수행할 단계는 다음과 같습니다.
 - Application Insights: Analytics 포털로 이동한 후 쿼리 및 해당 결과가 유효한지 검사합니다. 그런 후 고유한 이름을 사용하여 *공유 쿼리*에 저장합니다.
 - Log Analytics: 로그 검색으로 이동한 후 쿼리 및 해당 결과가 유효한지 검사합니다. 그런 후 고유한 이름을 사용하여 아무 범주에나 저장합니다.
 
-이제 [Alerts에서 로그 경고를 만들 때(미리 보기)](monitor-alerts-unified-usage.md) 아래 예제인 ![Alerts로 가져온 저장된 쿼리](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)에 설명된 대로, 저장된 쿼리가 신호 유형 **로그(저장된 쿼리)**로 표시되는 것을 볼 수 있습니다.
+이제 [Alerts에서 로그 경고를 만들 때](monitor-alerts-unified-usage.md) 아래 예제인 ![Alerts로 가져온 저장된 쿼리](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)에 설명된 대로, 저장된 쿼리가 신호 유형 **로그(저장된 쿼리)**로 표시되는 것을 볼 수 있습니다.
 
 > [!NOTE]
 > **로그(저장된 쿼리)**를 사용하면 Alerts로 가져오기됩니다. 따라서 Analytics에서 그 이후에 변경한 내용이 저장된 경고 규칙에 반영되지 않고 그 반대의 경우도 마찬가지입니다.
 
 ## <a name="log-alert-rules"></a>로그 경고 규칙
 
-경고는 일정한 간격으로 로그 쿼리를 자동으로 실행하는 Azure Alerts(미리 보기)에 의해 만들어집니다.  로그 쿼리 결과가 특정 조건과 일치하는 경우 경고 레코드가 만들어집니다. 그런 다음 규칙에 따라 하나 이상의 작업이 자동으로 실행되어 경고를 미리 알리거나 [작업 그룹](monitoring-action-groups.md)을 사용하여 [json 기반 웹후크](monitor-alerts-unified-log-webhook.md)를 통한 외부 응용 프로그램으로의 데이터 전송과 같은 다른 프로세스를 호출할 수 있습니다. 이 분석을 수행하기 위해 다양한 유형의 경고 규칙에서 별도의 논리를 사용합니다.
+경고는 일정한 간격으로 로그 쿼리를 자동으로 실행하는 Azure Alerts에 의해 만들어집니다.  로그 쿼리 결과가 특정 조건과 일치하는 경우 경고 레코드가 만들어집니다. 그런 다음 규칙에 따라 하나 이상의 작업이 자동으로 실행되어 경고를 미리 알리거나 [작업 그룹](monitoring-action-groups.md)을 사용하여 [json 기반 웹후크](monitor-alerts-unified-log-webhook.md)를 통한 외부 응용 프로그램으로의 데이터 전송과 같은 다른 프로세스를 호출할 수 있습니다. 이 분석을 수행하기 위해 다양한 유형의 경고 규칙에서 별도의 논리를 사용합니다.
 
 경고 규칙은 다음 세부 정보에 의해 정의됩니다.
 
@@ -118,7 +118,7 @@ Log Analytics의 각 경고 규칙은 두 가지 형식 중 하나입니다.  �
 
 ## <a name="next-steps"></a>다음 단계
 * [로그 경고에 대한 웹후크 작업](monitor-alerts-unified-log-webhook.md) 이해
-* [Azure Alerts(미리 보기) 개요 보기](monitoring-overview-unified-alerts.md)
-* [Azure Alerts(미리 보기) 사용](monitor-alerts-unified-usage.md)에 대해 알아보기
+* [Azure Alerts 개요 보기](monitoring-overview-unified-alerts.md)
+* [Azure Alerts 사용](monitor-alerts-unified-usage.md)에 대해 알아보기
 * [Application Insights](../application-insights/app-insights-analytics.md)에 대해 자세히 알아보기
 * [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기    

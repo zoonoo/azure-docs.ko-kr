@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -112,15 +112,15 @@ VMware 가상 머신을 복제하는 경우:
     예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기에서 하나만 지원하는 경우 대상 컴퓨터에는 하나의 어댑터만 있습니다.
     - 가상 머신에 네트워크 어댑터가 여러 개 있으면 모두 동일한 네트워크에 연결됩니다. 또한 목록에서 표시되는 첫 번째 어댑터는 Azure 가상 머신에서 *기본* 네트워크 어댑터가 됩니다.
 
-### <a name="azure-hybrid-use-benefit"></a>AHUB(Azure Hybrid Use Benefit)
+### <a name="azure-hybrid-benefit"></a>Azure 하이브리드 혜택
 
-Microsoft Software Assurance 고객은 Azure Hybrid Use Benefit을 사용하여 Azure로 마이그레이션되거나 재해 복구를 위해 Azure를 사용하는 Windows Server 컴퓨터에 대한 라이선스 비용을 절감할 수 있습니다. Azure Hybrid Use Benefit을 사용할 수 있는 경우 장애 조치(Failover) 시 여기에 할당된 가상 머신이 Azure Site Recovery에서 만든 가상 머신임을 지정할 수 있습니다. 다음을 수행합니다.
+Microsoft Software Assurance 고객은 Azure 하이브리드 혜택을 사용하여 Azure로 마이그레이션되거나 재해 복구를 위해 Azure를 사용하는 Windows Server 컴퓨터에 대한 라이선스 비용을 절감할 수 있습니다. Azure 하이브리드 혜택을 사용할 자격이 있는 경우 장애 조치(Failover) 시 여기에 할당된 가상 머신이 Azure Site Recovery에서 만든 가상 머신임을 지정할 수 있습니다. 다음을 수행합니다.
 - 복제된 가상 머신의 계산 및 네트워크 속성 섹션으로 이동합니다.
-- Azure Hybrid Use Benefit에 해당하는 Windows Server 라이선스가 있는지 묻는 질문에 답변합니다.
-- Software Assurance가 포함된 적절한 Windows Server 라이선스가 있는지 확인하려면 이 확인란을 선택합니다. 이 항목은 장애 조치(Failover) 시 생성될 컴퓨터에 Hybrid Use Benefit을 적용하는 데 사용할 수 있습니다.
+- Azure 하이브리드 혜택을 받을 수 있는 Windows Server 라이선스가 있는지 묻는 질문에 답변합니다.
+- Software Assurance가 포함된 적절한 Windows Server 라이선스가 있는지 확인하려면 이 확인란을 선택합니다. 이 항목은 장애 조치(Failover) 시 생성될 컴퓨터에 Azure 하이브리드 혜택을 적용하는 데 사용할 수 있습니다.
 - 복제된 컴퓨터에 대한 설정을 저장합니다.
 
-[Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing)에 대해 자세히 알아보세요.
+[Azure 하이브리드 혜택](https://aka.ms/azure-hybrid-benefit-pricing)에 대해 자세히 알아봅니다.
 
 ## <a name="common-issues"></a>일반적인 문제
 

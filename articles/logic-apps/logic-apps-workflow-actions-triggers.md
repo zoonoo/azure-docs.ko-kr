@@ -1121,7 +1121,7 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | 비교 함수가 지원됩니다. 이 예제에서는 action1의 출력이 임계값보다 큰 경우에만 작업이 실행됩니다. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | 중첩된 부울 식을 만들기 위한 논리 함수가 지원됩니다. 이 예제에서는 action1의 출력이 임계값보다 크거나 100 미만인 경우에 작업이 실행됩니다. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | 배열에 항목이 있는지 여부를 확인하려면 배열 함수를 사용할 수 있습니다. 이 예제에서는 errors 배열이 비어 있는 경우에 작업이 실행됩니다. | 
-| `"expression": "parameters('hasSpecialAction')"` | 이 식은 오류를 발생시키고 유효한 조건이 아닙니다. 조건에서 "@" 기호를 사용해야 합니다. | 
+| `"expression": "parameters('hasSpecialAction')"` | 이 식은 오류를 발생시키고 유효한 조건이 아닙니다. 조건에서 \"\@\" 기호를 사용해야 합니다. | 
 ||| 
 
 ## <a name="switch-action"></a>Switch 작업

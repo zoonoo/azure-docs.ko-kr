@@ -1,12 +1,11 @@
 ---
-title: "데이터 연결: 이벤트 스트림의 데이터 스트림 입력 | Microsoft Docs"
+title: '데이터 연결: 이벤트 스트림의 데이터 스트림 입력 | Microsoft Docs'
 description: "'inputs'이라는 Stream Analytics에 대해 데이터 연결을 설정하는 방법을 알아보세요. 입력에는 이벤트의 데이터 스트림과 참조 데이터가 포함되어 있습니다."
-keywords: "데이터 스트림, 데이터 연결, 이벤트 스트림"
+keywords: 데이터 스트림, 데이터 연결, 이벤트 스트림
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>데이터 연결: 이벤트에서 Stream Analytics으로의 데이터 스트림 입력에 대해 알아보기
 Stream Analytics 작업에 대한 데이터 연결은 데이터 원본의 이벤트 스트림이며 작업의 *입력*으로 참조됩니다. Stream Analytics는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)를 비롯한 Azure 데이터 스트림 원본과 높은 수준으로 통합됩니다. 이러한 입력 원본은 분석 작업과 동일한 Azure 구독 또는 다른 구독에서 가져올 수 있습니다.
@@ -53,7 +52,7 @@ Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프�
 ### <a name="configure-an-event-hub-as-a-data-stream-input"></a>데이터 스트림 입력으로 이벤트 허브 구성
 다음 표에서는 입력으로 이벤트 허브를 구성할 때 Azure Portal의 **새 입력** 블레이드에서 각 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **입력 별칭** |이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
 | **서비스 버스 네임스페이스** |Azure Service Bus 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 Service Bus 네임스페이스도 만듭니다. |
@@ -66,7 +65,7 @@ Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프�
 
 데이터를 이벤트 허브에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **EventProcessedUtcTime** |이벤트가 Stream Analytics으로 처리되는 날짜 및 시간입니다. |
 | **EventEnqueuedUtcTime** |Event Hubs에서 이벤트를 받은 날짜 및 시간입니다. |
@@ -102,7 +101,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프가 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>데이터 스트림 입력으로 IoT Hub 구성
 다음 표에서는 입력으로 IoT Hub를 구성할 때 Azure Portal의 **새 입력** 블레이드에서 각 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **입력 별칭** |이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 | **IoT Hub** |입력으로 사용할 IoT Hub의 이름입니다. |
@@ -116,7 +115,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프가 
 
 데이터를 IoT Hub에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **EventProcessedUtcTime** |이벤트가 처리되는 날짜 및 시간입니다. |
 | **EventEnqueuedUtcTime** |IoT Hub에서 이벤트를 받은 날짜 및 시간입니다. |
@@ -144,7 +143,7 @@ CSV 형식의 입력은 데이터 집합에 대한 필드를 정의하는 헤더
 
 다음 표에서는 입력으로 Blob Storage를 구성할 때 Azure Portal의 **새 입력** 블레이드에서 각 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **입력 별칭** | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
 | **Storage 계정** | Blob 파일이 위치한 저장소 계정의 이름입니다. |
@@ -159,7 +158,7 @@ CSV 형식의 입력은 데이터 집합에 대한 필드를 정의하는 헤더
 
 데이터를 Blob Storage 원본에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **BlobName** |이 이벤트가 발생한 입력 Blob의 이름입니다. |
 | **EventProcessedUtcTime** |이벤트가 Stream Analytics으로 처리되는 날짜 및 시간입니다. |
@@ -183,8 +182,8 @@ FROM Input
 Stream Analytics 작업을 위한 Azure의 데이터 연결 옵션에 대해 알아보았습니다. Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->

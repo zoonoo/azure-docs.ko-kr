@@ -1,11 +1,11 @@
 ---
-title: "IoT Hub에 대한 개발자 가이드 | Microsoft Docs"
-description: "Azure IoT Hub 개발자 가이드는 끝점의 토론, 보안, ID 레지스트리, 장치 관리, 직접 메서드, 장치 쌍, 파일 업로드, 작업, IoT Hub 쿼리 언어 및 메시징을 포함합니다."
+title: IoT Hub에 대한 개발자 가이드 | Microsoft Docs
+description: Azure IoT Hub 개발자 가이드는 끝점의 토론, 보안, ID 레지스트리, 장치 관리, 직접 메서드, 장치 쌍, 파일 업로드, 작업, IoT Hub 쿼리 언어 및 메시징을 포함합니다.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d534ff9d-2de5-4995-bb2d-84a02693cb2e
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 31ccf65ccd2ab4e9673900efb1de357ab450b799
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub 개발자 가이드
 
 Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Azure IoT Hub는 다음을 제공합니다.
 
