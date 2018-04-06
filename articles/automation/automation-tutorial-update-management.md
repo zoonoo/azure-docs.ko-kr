@@ -39,7 +39,7 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal(http://portal.azure.com)에 로그인합니다.
+Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="enable-update-management"></a>업데이트 관리 사용
 

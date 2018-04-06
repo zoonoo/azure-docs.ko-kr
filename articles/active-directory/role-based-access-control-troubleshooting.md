@@ -1,6 +1,6 @@
 ---
-title: "Azure RBAC 역할 기반 액세스 제어 문제 해결 | Microsoft Docs"
-description: "역할 기반 Access Control 리소스에 대해 발생하는 문제 또는 질문 사항에 대한 도움말을 봅니다."
+title: Azure RBAC 역할 기반 액세스 제어 문제 해결 | Microsoft Docs
+description: 역할 기반 Access Control 리소스에 대해 발생하는 문제 또는 질문 사항에 대한 도움말을 봅니다.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어 문제 해결 
 
-이 문서에서는 역할과 함께 부여되는 특정 액세스 권한에 대한 일반적인 질문에 대한 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
+이 아티클에서는 역할과 함께 부여되는 특정 액세스 권한에 대한 일반적인 질문에 대한 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
 
 * 소유자  
 * 참가자  
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/09/2018
 
 소유자와 참여자 양쪽 모두 관리 환경에 대한 모든 권한을 가집니다. 하지만, 참여자의 경우 다른 사용자나 그룹에 액세스 권한을 부여할 수 없다는 것입니다. 읽기 권한자 역할은 좀 더 복잡하므로 자세히 파악해야 합니다. 액세스를 부여하는 방법에 대한 세부 정보는 [역할 기반 Access Control 시작 문서](role-based-access-control-configure.md)를 참조하세요.
 
-## <a name="app-service-workloads"></a>앱 서비스 워크로드
+## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>쓰기 액세스 기능
 사용자에게 단일 웹앱에 대한 읽기 전용 액세스를 부여하면 예상치 않게 일부 기능을 사용하지 못할 수 있습니다. 다음 관리 기능을 사용하려면 참여자나 소유자에게 제공되는 웹앱에 대한 **쓰기** 권한이 필요하며, 읽기 전용 시나리오에서는 이러한 기능을 사용할 수 없습니다.
 
@@ -69,7 +69,14 @@ ms.lasthandoff: 02/09/2018
 * Application Insights 구성 요소  
 * 웹 테스트  
 
-## <a name="virtual-machine-workloads"></a>가상 머신 작업
+## <a name="azure-functions"></a>Azure 기능
+[Azure Functions](../azure-functions/functions-overview.md)의 일부 기능에는 쓰기 액세스 권한이 있어야 합니다. 예를 들어 사용자가 읽기 역할에 할당된 경우 함수 앱 내에서 함수를 볼 수 없습니다. 포털에서는 **(액세스 권한 없음)**을 표시합니다.
+
+![함수 앱 액세스 권한 없음](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다.
+
+## <a name="virtual-machine"></a>가상 머신
 웹앱과 마찬가지로 가상 머신 블레이드의 일부 기능 역시 가상 머신 또는 리소스 그룹의 기타 리소스에 대한 쓰기 권한이 있어야 사용할 수 있습니다.
 
 가상 머신은 도메인 이름, 가상 네트워크, 저장소 계정 및 경고 규칙과 관련이 있습니다.

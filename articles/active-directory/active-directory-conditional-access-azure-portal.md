@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory 조건부 액세스 | Microsoft Docs"
-description: "Azure Active Directory의 조건부 액세스를 통해 중앙 위치에서 액세스 제어를 관리할 수 있는 방법을 알아봅니다."
+title: Azure Active Directory 조건부 액세스 | Microsoft Docs
+description: Azure Active Directory의 조건부 액세스를 통해 중앙 위치에서 액세스 제어를 관리할 수 있는 방법을 알아봅니다.
 services: active-directory
-keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
-documentationcenter: 
+keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/24/2018
 
 - **[네트워크 위치](active-directory-conditional-access-locations.md)**: Azure AD는 어디서나 액세스할 수 있습니다. IT 부서에서 제어하지 않는 네트워크 위치로부터 액세스를 시도하는 경우 어떻게 되나요? 사용자 이름 및 암호 조합을 사용하면 회사 네트워크의 리소스에 액세스하기 위한 확인 증명으로 충분할 수 있습니다. 다른 예기치 않은 국가 또는 지역에서 시작되는 액세스 시도에 대해 보다 강력한 확인 증명을 요구하는 경우 어떻게 되나요? 특정 위치에서의 액세스 시도를 차단하려는 경우 어떻게 되나요?  
 
-- **[장치 관리](active-directory-conditional-access-conditions.md#device-platforms)**: Azure AD에서 사용자는 모바일 및 개인 장치를 포함하여 광범위한 장치에서 클라우드 앱에 액세스할 수 있습니다. IT 부서에서 관리하는 장치를 사용하는 사용자만 액세스하도록 요구하는 경우 어떻게 되나요? 사용자 환경의 클라우드 앱에서 특정 장치 유형의 액세스를 차단하려는 경우 어떻게 되나요? 
+- **[장치 관리](active-directory-conditional-access-conditions.md#device-platforms)**: Azure AD에서 사용자는 모바일 및 개인 장치를 포함하여 광범위한 장치에서 클라우드 앱에 액세스할 수 있습니다. IT 부서에서 관리하는 장치를 사용하여 액세스하도록 요구하는 경우 어떻게 되나요? 사용자 환경의 클라우드 앱에서 특정 장치 유형의 액세스를 차단하려는 경우 어떻게 되나요? 
 
 - **[클라이언트 응용 프로그램](active-directory-conditional-access-conditions.md#client-apps)**: 현재, 웹 기반 앱, 모바일 앱, 데스크톱 앱 등의 여러 앱 유형을 사용하여 많은 클라우드 앱에 액세스할 수 있습니다. 알려진 문제를 발생시키는 클라이언트 앱 유형을 사용하여 액세스를 시도하는 경우 어떻게 되나요? 특정 앱 유형에 대해 IT 부서에서 관리하는 장치를 요구하는 경우 어떻게 되나요? 
 

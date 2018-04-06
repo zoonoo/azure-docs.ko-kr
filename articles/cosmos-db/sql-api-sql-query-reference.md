@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB: SQL 구문 쿼리 참조 | Microsoft Docs"
-description: "Azure Cosmos DB SQL 쿼리 언어에 대한 참조 설명서입니다."
+title: 'Azure Cosmos DB: SQL 구문 쿼리 참조 | Microsoft Docs'
+description: Azure Cosmos DB SQL 쿼리 언어에 대한 참조 설명서입니다.
 services: cosmos-db
 author: LalithaMV
 manager: jhubbard
 editor: mimig
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 구문 참조
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 항목에서는 SQL API 계정과 호환되는 SQL 쿼리 언어에 대한 참조 설명서를 제공합니다.
 
@@ -631,7 +629,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|아포스트로피(')|U+0027|  
 |\\"|따옴표(")|U+0022|  
-|\\\|백슬래시(\\)|U+005C|  
+|\\\|역슬래시(\\)|U+005C|  
 |\\/|슬래시(/)|U+002F|  
 |\b|백스페이스|U+0008|  
 |\f|폼 피드|U+000C|  

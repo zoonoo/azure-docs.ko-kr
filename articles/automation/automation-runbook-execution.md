@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 Azure Automation에서 Runbook을 시작하면 작업이 생성됩니다. 작업은 Runbook의 단일 실행 인스턴스입니다. 각 작업을 실행하기 위해 Azure Automation 작업자가 할당됩니다. 작업자는 여러 Azure 계정에서 공유하지만 여러 Automation 계정의 작업은 서로 격리됩니다. 사용자는 작업에 대한 요청을 처리할 작업자를 제어할 수 없습니다. 단일 Runbook에서 동시에 여러 작업을 실행할 수 있습니다.  동일한 Automation 계정의 작업 실행 환경은 다시 사용할 수 있습니다. Azure Portal에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작된 모든 작업의 상태가 나열됩니다. 각 Runbook에 대한 작업 목록을 확인하여 각 작업의 상태를 추적할 수 있습니다. 다양한 작업 상태에 대한 설명은 [작업 상태](#job-statuses)를 참조하세요.
@@ -46,7 +46,7 @@ Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 �
 | Suspending |시스템이 사용자의 요청에 따라 작업을 일시 중단하려고 합니다. Runbook의 다음 검사점에 도달해야만 Runbook을 일시 중단할 수 있습니다. 이미 마지막 검사점을 지난 경우 완료되어야만 일시 중단할 수 있습니다.  [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md) 에만 적용됩니다. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Azure Portal에서 작업 상태 보기
-Azure Portal에서 또는 runbook 작업 상태 및 작업 스트림을 전달하도록 Microsoft OMS(Operations Management Suite) Log Analytics 작업 영역과의 통합을 구성하여 모든 runbook 작업의 요약된 상태를 보거나 특정 runbook 작업에 대한 세부 정보를 확인할 수 있습니다.  OMS Log Analytics와의 통합에 대한 자세한 내용은 [Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달(OMS)](automation-manage-send-joblogs-log-analytics.md)을 참조하세요.  
+Azure Portal에서 또는 Runbook 작업 상태 및 작업 스트림을 전달하도록 Log Analytics 작업 영역과의 통합을 구성하여 모든 Runbook 작업의 요약된 상태를 보거나 특정 Runbook 작업에 대한 세부 정보를 확인할 수 있습니다.  Log Analytics와의 통합에 대한 자세한 내용은 [Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)을 참조하세요.  
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation runbook 작업 요약
 선택한 Automation 계정 오른쪽의 **작업 통계** 타일 아래에는 선택한 Automation 계정에 대한 모든 runbook 작업의 요약을 볼 수 있습니다.<br><br> ![작업 통계 타일](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> 이 타일은 실행된 모든 작업의 개수 및 작업 상태를 그래픽으로 표시합니다.  

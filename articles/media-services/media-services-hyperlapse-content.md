@@ -1,36 +1,34 @@
 ---
-title: "Azure Media Hyperlapse에서의 Hyperlapse 미디어 파일 | Microsoft 문서"
-description: "Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만듭니다. 이 항목에서는 Media Indexer를 사용하는 방법을 보여 줍니다."
+title: Azure Media Hyperlapse에서의 Hyperlapse 미디어 파일 | Microsoft 문서
+description: Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만듭니다. 이 항목에서는 Media Indexer를 사용하는 방법을 보여 줍니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: asolanki
 manager: johndeu
-editor: 
+editor: ''
 ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 86a9d44a93d7717d2ed949db2b1d1e94963781d0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 미디어 파일 및 Azure 미디어 Hyperlapse
 Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 미디어 프로세서(MP)입니다.  [Microsoft Research의 데스크톱 Hyperlapse Pro 및 전화 기반 Hyperlapse 모바일](http://aka.ms/hyperlapse)에 대한 클라우드 기반 형제 제품인 Azure Media Services용 Microsoft Hyperlapse는 Azure Media Services 미디어 처리 플랫폼의 상당 부분을 활용하여 대량의 Hyperlapse 처리를 수평적으로 확장하고 병렬 처리합니다.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse는 이동 카메라를 사용한 1인칭 콘텐츠에 최적으로 작동하도록 설계되었습니다.  스틸 카메라 영상에도 작동할 수 있지만 다른 형식의 콘텐츠에서는 Azure 미디어 Hyperlapse 미디어 프로세서의 성능 및 품질을 보장할 수 없습니다.  Azure Media Services용 Microsoft Hyperlapse에 대해 자세히 알아보고 예제 비디오를 보려면 공개 미리 보기 상태인 [소개 블로그 게시물](http://aka.ms/azurehyperlapseblog) 을 확인하세요.
+> Microsoft Hyperlapse는 이동 카메라를 사용한 1인칭 콘텐츠에 최적으로 작동하도록 설계되었습니다. 스틸 카메라 영상에도 작동할 수 있지만 다른 형식의 콘텐츠에서는 Azure 미디어 Hyperlapse 미디어 프로세서의 성능 및 품질을 보장할 수 없습니다.
 > 
 > 
 
 Azure 미디어 Hyperlapse 작업은 MP4, MOV 또는 WMV 자산 파일 및 어떤 비디오 프레임을 어떤 속도로 시간 경과시킬지 지정(예: 2배속으로 처음 10,000프레임)하는 구성 파일을 입력으로 사용합니다.  출력은 입력 비디오의 안정화되고 시간 경과된 표현입니다.
-
-최신 Azure 미디어 Hyperlapse 업데이트는 [Media Services 블로그](https://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
 
 ## <a name="hyperlapse-an-asset"></a>자산 Hyperlapse
 먼저 원하는 입력 파일을 Azure Media Services로 업로드해야 합니다.  콘텐츠 업로드 및 관리와 관련된 개념에 대해 자세히 알아보려면 [콘텐츠 관리 문서](media-services-portal-vod-get-started.md)를 읽어보세요.

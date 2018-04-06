@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>VM 사용자 할당 MSI(관리 서비스 ID)용 토큰 가져오기
 
@@ -42,7 +42,9 @@ ms.lasthandoff: 03/16/2018
 | [CURL을 사용하여 토큰 가져오기](#get-a-token-using-curl) | Bash/CURL 클라이언트에서 MSI REST 끝점을 사용하는 예제 |
 | [토큰 만료 처리](#handling-token-expiration) | 만료된 액세스 토큰을 처리하는 지침 |
 | [오류 처리](#error-handling) | MSI 토큰 끝점에서 반환된 HTTP 오류를 처리하는 지침 |
+| [제한 지침](#throttling-guidance) | MSI 토큰 끝점의 제한을 처리하는 지침 |
 | [Azure 서비스의 리소스 ID](#resource-ids-for-azure-services) | 지원되는 Azure 서비스에 리소스 ID를 가져올 위치 |
+
 
 ## <a name="get-a-token-using-http"></a>HTTP를 사용하여 토큰 가져오기 
 
@@ -164,6 +166,16 @@ MSI 끝점은 HTTP 응답 메시지 헤더의 상태 코드 필드를 통해 4xx
 |           | unsupported_response_type | 권한 부여 서버는 이 메서드를 사용하여 액세스 토큰을 획득하도록 지원하지 않습니다. |  |
 |           | invalid_scope | 요청된 범위가 잘못되었거나, 알려지지 않거나, 형식이 잘못되었습니다. |  |
 | 500 내부 서버 오류 | 알 수 없음 | Active directory에서 토큰을 검색하지 못했습니다. 자세한 내용은 *\<파일 경로\>*에서 로그를 참조하세요. | MSI가 VM에서 설정되어 있는지 확인합니다. VM을 구성하는 데 도움이 필요한 경우 [Azure Portal을 사용하여 VM MSI(관리 서비스 ID) 구성](msi-qs-configure-portal-windows-vm.md)을 참조하세요.<br><br>또한 HTTP GET 요청 URI의 형식, 특히 쿼리 문자열에서 지정된 리소스 URI가 올바르게 지정되었는지 확인합니다. 관련 예제는 [HTTP를 사용하여 토큰 가져오기](#get-a-token-using-http) 섹션의 "샘플 요청"을 참조하세요. 서비스 및 해당 리소스 ID 목록은 [Azure AD 인증을 지원하는 Azure 서비스](msi-overview.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+
+## <a name="throttling-guidance"></a>제한 지침 
+
+MSI IMDS 끝점에 이루어진 호출 수를 제한합니다. 제한 임계값을 초과한 경우 제한이 적용되는 동안 MSI IMDS 끝점은 추가 요청을 제한합니다. 이 기간 동안 MSI IMDS 끝점은 HTTP 상태 코드 429("요청이 너무 많음")를 반환하고 요청이 실패합니다. 
+
+다시 시도하는 경우 다음 전략을 사용하는 것이 좋습니다. 
+
+| **재시도 전략** | **설정** | **값** | **작동 방법** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |재시도 횟수<br />최소 백오프<br />최대 백오프<br />델타 백오프<br />첫 번째 빠른 재시도 |5<br />0초<br />60초<br />2초<br />false |시도 1 - 0초 지연<br />시도 2 - ~2초 지연<br />시도 3 - ~6초 지연<br />시도 4 - ~14초 지연<br />시도 5 - ~30초 지연 |
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 서비스의 리소스 ID
 

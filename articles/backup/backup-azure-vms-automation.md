@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 Resource Manager 배포 VM에 대한 백업 배포 및 관리 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure에서 Resource Manager 배포 VM에 대한 백업 배포 및 관리"
+title: PowerShell을 사용하여 Resource Manager 배포 VM에 대한 백업 배포 및 관리 | Microsoft Docs
+description: PowerShell을 사용하여 Azure에서 Resource Manager 배포 VM에 대한 백업 배포 및 관리
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab75c88409c6e20f9bc46ad3b4336da150abd52c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 머신 백업
 
@@ -124,7 +124,7 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
     ```PS
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-3. [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage) 또는 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy.md#geo-redundant-storage) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+3. [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy-grs.md) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
     ```PS
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"

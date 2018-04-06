@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -48,6 +48,13 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 
 ### <a name="what-do-i-need-on-premises"></a>온-프레미스에는 무엇이 필요한가요?
 온-프레미스에는 단일 VMware VM에 설치된 Site Recovery 구성 요소가 필요합니다. 하나 이상의 ESXi 호스트가 있는 VMware 인프라가 필요하며 vCenter 서버를 사용하는 것이 좋습니다. 또한 복제할 하나 이상의 VMware VM도 필요합니다. VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
+
+다음 두 가지 방법 중 하나로 온-프레미스 구성 서버를 배포할 수 있습니다.
+
+1. 사전 설치된 구성 서버가 있는 VM 템플릿을 사용하여 배포합니다. [여기에서 자세히 알아보세요](vmware-azure-tutorial.md#download-the-vm-template).
+2. 원하는 Windows Server 2016 컴퓨터에서 설치 프로그램을 사용하여 배포합니다. [여기에서 자세히 알아보세요](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+사용자의 고유한 Windows Server 컴퓨터에서 구성 서버 배포 시작 단계를 검색하려면 보호 활성화의 보호 목표에서 **Azure로 > 가상화되지 않음/기타**를 선택합니다.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>온-프레미스 VM은 어디에 복제되는가요?
 데이터는 Azure 저장소에 복제됩니다. 장애 조치를 실행하면 Site Recovery에서 저장소 계정으로부터 Azure VM을 자동으로 만듭니다.

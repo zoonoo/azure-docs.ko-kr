@@ -1,13 +1,13 @@
 ---
-title: "게시된 응용 프로그램 설치 - Datameer - Azure HDInsight | Microsoft Docs"
-description: "Datameer 타사 Hadoop 응용 프로그램을 설치하고 사용합니다."
+title: 게시된 응용 프로그램 설치 - Datameer - Azure HDInsight | Microsoft Docs
+description: Datameer 타사 Hadoop 응용 프로그램을 설치하고 사용합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na

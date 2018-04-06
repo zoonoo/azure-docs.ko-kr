@@ -1,23 +1,23 @@
 ---
-title: "Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스 | Microsoft Docs"
-description: "이 항목에서는 Azure AD(Azure Active Directory) 인증을 사용하여 .NET으로 AMS(Azure Media Services) API에 액세스하는 방법을 보여 줍니다."
+title: Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스 | Microsoft Docs
+description: 이 항목에서는 Azure AD(Azure Active Directory) 인증을 사용하여 .NET으로 AMS(Azure Media Services) API에 액세스하는 방법을 보여 줍니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스
 
@@ -26,7 +26,7 @@ windowsazure.mediaservices 4.0.0.4부터는 Azure Media Services에서 Azure AD(
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
-- 미디어 서비스 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
+- Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 - 최신 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 패키지.
 - [AAD 인증으로 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 항목 익히기. 
 
@@ -36,7 +36,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 - **서비스 주체 인증**은 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 응용 프로그램은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로 서비스)을 실행하는 앱입니다.
 
 >[!IMPORTANT]
->현재 Azure Media Services는 Azure Access Control Service 인증 모델을 지원합니다. 그러나 Access Control 권한 부여는 2018년 6월 1일부로 더 이상 사용되지 않을 예정입니다. 가능한 빨리 Azure Active Directory 인증 모델로 마이그레이션하는 것이 좋습니다.
+>현재 Azure Media Services는 Azure Access Control Service 인증 모델을 지원합니다. 그러나 Access Control 권한 부여는 2018년 6월 22일부로 더 이상 사용되지 않을 예정입니다. 가능한 빨리 Azure Active Directory 인증 모델로 마이그레이션하는 것이 좋습니다.
 
 ## <a name="get-an-azure-ad-access-token"></a>Azure AD 액세스 토큰 가져오기
 

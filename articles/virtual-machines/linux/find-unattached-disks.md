@@ -1,25 +1,25 @@
 ---
-title: "연결되지 않은 Azure 관리/비관리 디스크를 찾아서 삭제 | Microsoft Docs"
-description: "Azure CLI를 사용하여 연결되지 않은 Azure 관리 및 비관리(VHD/페이지 Blob) 디스크를 찾고 삭제하는 방법입니다."
+title: 연결되지 않은 Azure 관리/비관리 디스크를 찾아서 삭제 | Microsoft Docs
+description: Azure CLI를 사용하여 연결되지 않은 Azure 관리 및 비관리(VHD/페이지 Blob) 디스크를 찾고 삭제하는 방법입니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ramankumarlive
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: 281e51783af05e02346b537f0abccdb2def38b31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1718b35aa68937cad4b3ae7e677e300506820bd0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
 Azure에서 VM(가상 머신)을 삭제할 때 기본적으로 VM에 연결된 디스크는 삭제되지 않습니다. 이 기능은 의도하지 않은 VM 삭제로 인한 데이터 손실을 방지하는 데 도움이 됩니다. VM을 삭제한 후에도 연결되지 않은 디스크에 대한 요금을 계속 지불합니다. 이 문서에서는 연결되지 않은 디스크를 찾아서 삭제하여 불필요한 비용을 줄이는 방법을 보여줍니다. 

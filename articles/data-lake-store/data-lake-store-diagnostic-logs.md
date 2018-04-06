@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store에 대한 진단 로그 보기 | Microsoft 문서"
-description: "Azure Data Lake Store에 대한 진단 로그를 설정하고 액세스하는 방법을 이해합니다  "
+title: Azure Data Lake Store에 대한 진단 로그 보기 | Microsoft 문서
+description: 'Azure Data Lake Store에 대한 진단 로그를 설정하고 액세스하는 방법을 이해합니다  '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 진단 로그에 액세스
 Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
@@ -31,7 +31,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Data Lake Store 계정에 대한 진단 로깅 사용
 1. 새로운 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Data Lake Store 계정을 열고 Data Lake Store 계정 블레이드에서 **설정**, **진단 로그**를 차례로 클릭합니다.
+2. Data Lake Store 계정을 열고 Data Lake Store 계정 블레이드에서 **진단 로그**를 클릭합니다.
 3. **진단 로그** 블레이드에서 **진단 켜기**를 클릭합니다.
 
     ![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "진단 로그 사용")
@@ -114,7 +114,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| Name | 형식 | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
@@ -127,7 +127,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| Name | 형식 | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | path |문자열 |작업이 수행된 경로 |
@@ -150,6 +150,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -160,19 +161,20 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| Name | 형식 | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
 | 카테고리 |문자열 |로그 범주 예: **Audit**. |
 | operationName |문자열 |기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType |문자열 |작업의 상태, 예를 들어 200 |
+| resultSignature |문자열 |작업에 대한 추가 세부 정보입니다. |
 | CorrelationId |문자열 |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
 | ID |Object |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| Name | 형식 | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | StreamName |문자열 |작업이 수행된 경로 |
 

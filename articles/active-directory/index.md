@@ -1,22 +1,22 @@
 ---
 layout: LandingPage
-description: "디렉터리를 동기화하고 Single Sign-On을 활성화하는 방법에 대해 알아봅니다. 설명서에서는 전체 ID 관리 기능을 통합하는 방법을 보여 줍니다."
-title: "Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: 디렉터리를 동기화하고 Single Sign-On을 활성화하는 방법에 대해 알아봅니다. 설명서에서는 전체 ID 관리 기능을 통합하는 방법을 보여 줍니다.
+title: Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs
 services: active-directory
-author: czeumault
+author: rolyon
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ae0dfb7e6033a85cc32434bbbbde336fbc0903ea
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 39226c7ada2bf3672cb62b6a0def4191bee342c0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
@@ -117,7 +117,7 @@ Azure AD(Azure Active Directory)를 사용하여 디렉터리를 동기화하고
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

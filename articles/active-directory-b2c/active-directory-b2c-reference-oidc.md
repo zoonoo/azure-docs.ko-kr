@@ -1,24 +1,21 @@
 ---
-title: "OpenID Connect를 사용하는 웹 로그인 - Azure AD B2C | Microsoft Docs"
-description: "OpenID Connect 인증 프로토콜의 Azure Active Directory 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
+title: OpenID Connect를 사용하는 웹 로그인 - Azure AD B2C | Microsoft Docs
+description: OpenID Connect 인증 프로토콜의 Azure Active Directory 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: OpenID Connect로 웹 로그인
 OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인하는 데 사용할 수 있도록 OAuth 2.0을 기반으로 하여 빌드된 인증 프로토콜입니다. OpenID Connect의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하여 웹 응용 프로그램의 등록, 로그인 및 기타 ID 관리 환경을 Azure AD( Azure Active Directory)로 아웃소싱할 수 있습니다. 이 가이드에서는 언어에 관계 없이 이 작업을 수행하는 방법을 보여 줍니다. 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
@@ -29,7 +26,7 @@ OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인
 
 Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OpenID Connect 프로토콜을 확장합니다. OpenID Connect를 사용하여 앱에 등록, 로그인 및 프로필 관리와 같은 사용자 환경을 추가할 수 있는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 소개합니다. 여기서는 OpenID Connect 및 정책을 사용하여 웹 응용 프로그램에서 이러한 환경을 각각 구현하는 방법 및 웹 API에 액세스하기 위한 액세스 토큰을 얻는 방법도 보여 줍니다.
 
-다음 섹션의 예제 HTTP 요청에서는 fabrikamb2c.onmicrosoft.com 샘플 B2C 디렉터리뿐만 아니라 https://aadb2cplayground.azurewebsites.net 샘플 응용 프로그램 및 정책도 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 고유의 작업으로 바꿀 수 있습니다.
+다음 섹션의 예제 HTTP 요청은 샘플 B2C 디렉터리 fabrikamb2c.onmicrosoft.com뿐만 아니라 샘플 응용 프로그램 https://aadb2cplayground.azurewebsites.net 및 정책도 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 고유의 작업으로 바꿀 수 있습니다.
 [사용자 고유의 B2C 테넌트, 응용 프로그램 및 정책을 가져오는](#use-your-own-b2c-directory)방법을 알아봅니다.
 
 ## <a name="send-authentication-requests"></a>인증 요청 보내기
@@ -116,7 +113,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | --- | --- |
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -133,7 +130,7 @@ Azure AD B2C에는 앱이 런타임에 Azure AD B2C에 대한 정보를 가져�
 
 이 구성 문서의 속성 중 하나가 `jwks_uri`이며, 동일한 정책에 대한 값은 다음과 같습니다.
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
+`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 ID 토큰에 서명하는 데 사용된 정책(및 메타데이터를 가져올 위치)을 결정하려면 두 가지 옵션이 있습니다. 먼저 정책 이름이 ID 토큰의 `acr` 클레임에 포함됩니다. ID 토큰에서 클레임을 구문 분석하는 방법에 대한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요. 다른 옵션은 요청을 실행할 때 `state` 매개 변수의 값에 정책을 인코딩한 다음 이를 디코딩하여 어떤 정책을 사용할지 결정하는 것입니다. 두 방법 중 하나는 유효합니다.
 

@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -144,7 +144,9 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 - **저장소 계정 캐시**: Site Recovery는 원본 영역의 저장소 계정을 사용합니다. 원본 VM의 변경 내용이 이 계정으로 전송된 후 대상 위치에 복제됩니다.
 
-- **대상 저장소 계정**: 기본적으로 Site Recovery는 대상 지역에 새 저장소 계정을 만들어서 원본 VM 저장소 계정을 미러링합니다.
+- **대상 저장소 계정(원본 VM에 관리 디스크를 사용하지 않는 경우)**: 기본적으로 Site Recovery는 대상 지역에 새 저장소 계정을 만들어서 원본 VM 저장소 계정을 미러링합니다.
+
+- **복제본 관리 디스크(원본 VM이 관리 디스크를 사용하는 경우)**: 기본적으로 Site Recovery는 대상 지역에 복제본 관리 디스크를 만들어서 원본 VM의 관리 디스크와 동일한 저장소 유형(표준 또는 프리미엄)을 원본 VM의 관리 디스크로 미러링합니다.
 
 - **대상 가용성 집합**: 기본적으로 Site Recovery는 “asr” 접미사를 사용하여 대상 지역에 새 가용성 집합을 만듭니다. VM이 원본 영역에 있는 집합의 일부인 경우 가용성 집합만 추가할 수 있습니다.
 

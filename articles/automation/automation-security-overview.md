@@ -1,26 +1,20 @@
 ---
-title: "Azure Automation의 인증 소개 | Microsoft Docs"
-description: "이 문서는 Automation 보안의 개요와 Azure Automation의 Automation 계정에 사용 가능한 다양한 인증 방법에 대해 설명합니다."
+title: Azure Automation의 인증 소개
+description: 이 문서는 Automation 보안의 개요와 Azure Automation의 Automation 계정에 사용 가능한 다양한 인증 방법에 대해 설명합니다.
+keywords: 자동화 보안, 안전한 자동화, 자동화 인증
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "자동화 보안, 안전한 자동화, 자동화 인증"
-ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2017
-ms.author: magoedte
+manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4280c0de3f5c38aa8a72bad391544b03116e26c9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure Automation의 인증 소개  
 Azure Automation을 사용하여 Azure, 온-프레미스 및 AWS(Amazon 웹 서비스)와 같은 기타 클라우드 공급자의 리소스에 대해 작업을 자동화할 수 있습니다.  Runbook이 필요한 작업을 수행하려면 구독 내에서 최소의 권한으로 리소스에 안전하게 액세스할 수 있는 권한이 있어야 합니다.

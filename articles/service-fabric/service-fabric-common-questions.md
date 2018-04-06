@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure Service Fabric에 대한 일반적인 질문 | Microsoft Docs"
-description: "다음은 Service Fabric에 대해 자주 묻는 몇 가지 질문과 그에 대한 답변입니다."
+title: Microsoft Azure Service Fabric에 대한 일반적인 질문 | Microsoft Docs
+description: 다음은 Service Fabric에 대해 자주 묻는 몇 가지 질문과 그에 대한 답변입니다.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -89,17 +89,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)의 연결된 데이터 디스크를 암호화할 수 있나요?
 예.  자세한 내용은 [연결된 데이터 디스크를 사용하여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [디스크 암호화(PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) 및 [디스크 암호화(CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)를 참조하세요.
 
-## <a name="container-support"></a>컨테이너 지원
-
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>SF에 배포된 내 컨테이너에서 DNS 주소를 확인할 수 없는 이유는 무엇인가요?
-
-이 문제는 5.6.204.9494 버전의 클러스터에 대해 보고되었습니다. 
-
-**완화**: [이 문서](service-fabric-dnsservice.md)에 따라 클러스터의 DNS Service Fabric 서비스를 사용하도록 설정합니다.
-
-**수정**: 사용 가능한 경우 5.6.204.9494보다 높은 지원되는 클러스터 버전으로 업그레이드합니다. 클러스터가 자동 업그레이드로 설정되면 클러스터는 이 문제가 수정된 버전으로 자동으로 업그레이드됩니다.
-
-  
+ 
 ## <a name="application-design"></a>응용 프로그램 설계
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Reliable Collection의 파티션에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?
@@ -146,9 +136,11 @@ Reliable Services와 마찬가지로 행위자 서비스에 저장할 수 있는
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>Service Fabric의 오픈 소스 계획이 있나요?
 
-GitHub에서 Reliable Services 및 Reliable Actors 프레임워크에 대한 오픈 소스를 계획 중이며 해당 프로젝트에 대한 커뮤니티 참여를 허용합니다. 공지되면 [Service Fabric 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 자세한 내용을 확인하세요.
+GitHub의 Service Fabric 일부에 대해 오픈 소스를 제공하였으며([신뢰할 수 있는 서비스 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [신뢰할 수 있는 작업자 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core 통합 라이브러리](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) 및 [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)), 해당 프로젝트에 대한 커뮤니티 참여를 받고 있습니다. 
 
-현재, Service Fabric 런타임에 대한 오픈 소스 계획은 없습니다.
+Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 발표했습니다](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/). 현재 GitHub의 Linux 빌드 및 테스트 도구가 포함된 [Service Fabric 리포지토리](https://github.com/Microsoft/service-fabric/)가 있습니다. 즉, 리포지토리를 복제하고, Linux용 Service Fabric을 빌드하고, 기본 테스트를 실행하고, 현안을 공개하고, 끌어오기 요청을 제출할 수 있습니다. 마이그레이션된 Windows 빌드 환경과 함께 완벽한 CI 환경을 제공하기 위해 최선을 다하고 있습니다.
+
+공지되면 [Service Fabric 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 자세한 내용을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

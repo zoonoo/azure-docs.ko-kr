@@ -1,24 +1,19 @@
 ---
-title: "Visual Studio Team Services 소스 제어에 Azure Automation 통합 | Microsoft Docs"
-description: "Azure Automation 계정 및 Visual Stuido Team Services 소스 제어와의 통합 설정을 안내하는 시나리오입니다."
+title: Visual Studio Team Services 소스 제어와 Azure Automation 통합
+description: Azure Automation 계정 및 Visual Stuido Team Services 소스 제어와의 통합 설정을 안내하는 시나리오입니다.
 services: automation
-documentationcenter: 
-author: eamono
-manager: 
-editor: 
-keywords: "azure powershell, VSTS, 소스 제어, Automation"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+documentationcenter: ''
+author: eamonoreilly
+ms.author: eamono
+keywords: azure powershell, VSTS, 소스 제어, Automation
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
-ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 03/19/2017
+ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure Automation 시나리오 - Visual Studio Team Services와 Automation 소스 제어 통합
 
@@ -51,7 +46,7 @@ VSTS에서 runbook을 인증하고 runbook 및 구성을 Automation 계정에 �
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Runbook 또는 구성을 Automation 계정에 동기화하는 Runbook을 가져옵니다. VSTS 소스 제어를 사용하는지 또는 Git이 있는 VSTS를 사용하여 Automation 계정에 배포하는지에 따라 [VSTS 샘플 runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) 또는 PowerShellGallery.com(https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript)의 [Git이 있는 VSTS 샘플 runbook]을 사용할 수 있습니다.
+Runbook 또는 구성을 Automation 계정에 동기화하는 Runbook을 가져옵니다. VSTS 소스 제어 또는 Git이 있는 VSTS를 사용하여 Automation 계정에 배포하는지에 따라 [VSTS 샘플 Runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) 또는 PowerShellGallery.com의 [Git이 있는 VSTS 샘플 Runbook](https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript))을 사용할 수 있습니다.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 

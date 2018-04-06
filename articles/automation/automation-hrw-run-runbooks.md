@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 6e1e6272009b4357162339643580f3d31dc6062e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d635938558a5c2bf68e7c20c287b16c672bdf962
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행 
 Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 구조상 차이가 없습니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드의 리소스를 관리하지만, Hybrid Runbook Worker를 대상으로 하는 Runbook은 일반적으로 로컬 컴퓨터 자체 또는 배포된 로컬 환경의 리소스를 관리하기 때문에, 각각에서 사용하는 Runbook은 서로 크게 다릅니다.
@@ -22,7 +20,7 @@ Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실�
 Azure Automation에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지만 편집기에서 Runbook을 테스트하려는 경우 어려움이 있을 수 있습니다.  로컬 리소스에 액세스하는 PowerShell 모듈을 Azure Automation 환경에 설치하지 못할 수 있으며, 이 경우 테스트에 실패합니다.  필요한 모듈을 설치한 경우에는 Runbook이 실행되지만 완전한 테스트에 필요한 로컬 리소스에 액세스할 수 없습니다.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 시작
-[Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md) 에 Runbook을 시작하는 여러 가지 방법이 설명되어 있습니다.  Hybrid Runbook Worker는 Hybrid Runbook Worker 그룹의 이름을 지정할 수 있는 **RunOn** 옵션을 추가합니다.  그룹을 지정하면 해당 그룹의 작업자가 Runbook을 검색하고 실행합니다.  이 옵션을 지정하지 않으면 평소처럼 Azure Automation에서 Runbook이 실행됩니다.
+[Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md) 에 Runbook을 시작하는 여러 가지 방법이 설명되어 있습니다.  Hybrid Runbook Worker는 Hybrid Runbook Worker 그룹의 이름을 지정할 수 있는 **RunOn** 옵션을 추가합니다.  그룹을 지정하면 해당 그룹의 작업자 중 하나가 Runbook을 검색하고 실행합니다.  이 옵션을 지정하지 않으면 평소처럼 Azure Automation에서 Runbook이 실행됩니다.
 
 Azure Portal에서 Runbook을 시작하면 **Azure** 또는 **Hybrid Worker**를 선택할 수 있는 **실행 대상** 옵션이 표시됩니다.  **Hybrid Worker**를 선택한 경우 드롭다운에서 그룹을 선택할 수 있습니다.
 

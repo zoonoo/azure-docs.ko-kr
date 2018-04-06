@@ -1,11 +1,11 @@
 ---
-title: "OAuth 2.0을 사용한 Azure AD 서비스 간 인증 | Microsoft Docs"
-description: "이 문서는 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다."
+title: OAuth 2.0을 사용한 Azure AD 서비스 간 인증 | Microsoft Docs
+description: 이 문서는 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ad2118130ec36aed1561db763946104501eb0f32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da657fb6072c0655e47623c58e7051e8dd462049
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스(공유 암호 또는 인증서)
 OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하는 대신 다른 웹 서비스를 호출할 때 웹 서비스( *기밀 클라이언트*)가 자체 자격 증명을 사용하여 인증하도록 허용합니다. 이 시나리오에서 클라이언트는 일반적으로 중간 계층 웹 서비스, 데몬 서비스 또는 웹 사이트입니다. 더 높은 수준의 보증을 위해 Azure AD는 호출 서비스가 자격 증명으로 인증서(공유 암호 대신)를 사용할 수 있도록 합니다.
@@ -53,12 +53,12 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | grant_type |필수 |요청된 부여 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
-| client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. [Azure Portal](https://portal.azure.com)에서 호출 응용 프로그램의 클라이언트 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 전환한 후, 응용 프로그램을 클릭합니다. client_id는 *응용 프로그램 ID*입니다. |
-| client_secret |필수 |Azure AD에서 호출 웹 서비스 또는 디먼 응용 프로그램에 대해 등록된 키를 입력합니다. 키를 생성하려면 Azure Portal에서 **Active Directory**를 클릭하고, 디렉터리를 전환한 후 응용 프로그램을 클릭하고 **설정**을 클릭하고 **키**를 클릭한 후 키를 입력합니다.|
-| resource |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. Azure Portal에서 앱 ID URI을 찾으려면, **Active Directory**을 클릭하고, 디렉터리를 전환하고, 서비스 응용 프로그램을 클릭한 후 **설정** 및 **속성**을 클릭합니다. |
+| client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 응용 프로그램의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 응용 프로그램을 차례로 클릭합니다. client_id는 *응용 프로그램 ID*입니다. |
+| client_secret |필수 |Azure AD에서 호출 웹 서비스 또는 디먼 응용 프로그램에 대해 등록된 키를 입력합니다. 키를 만들려면 Azure Portal에서 **Azure Active Directory**, **앱 등록** 및 응용 프로그램, **설정** 및 **키**를 차례로 클릭하고, 키를 추가합니다.|
+| resource |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI을 찾으려면 Azure Portal에서 **Azure Active Directory**,  **등록**, 서비스 응용 프로그램 및 **설정**과 **속성**을 차례로 클릭합니다. |
 
-#### <a name="example"></a>예제
-다음 HTTP POST는 https://service.contoso.com/ 웹 서비스용 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
+#### <a name="example"></a>예
+다음 HTTP POST는 https://service.contoso.com/ 웹 서비스에 대한 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -74,15 +74,15 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | grant_type |필수 |요청된 응답 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
-| client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. [Azure Portal](https://portal.azure.com)에서 호출 응용 프로그램의 클라이언트 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 전환한 후, 응용 프로그램을 클릭합니다. client_id는 *응용 프로그램 ID*입니다. |
+| client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 응용 프로그램의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 응용 프로그램을 차례로 클릭합니다. client_id는 *응용 프로그램 ID*입니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
 | client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
-| resource | 필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. Azure Portal에서 앱 ID URI을 찾으려면, **Active Directory**을 클릭하고, 디렉터리를 클릭하고, 응용 프로그램을 클릭한 후 **구성**을 클릭합니다. |
+| resource | 필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI을 찾으려면 Azure Portal에서 **Azure Active Directory**,  **등록**, 서비스 응용 프로그램 및 **설정**과 **속성**을 차례로 클릭합니다. |
 
 client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
 
-#### <a name="example"></a>예제
-다음 HTTP POST는 인증서가 있는 https://service.contoso.com/ 웹 서비스용 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
+#### <a name="example"></a>예
+다음 HTTP POST는 인증서를 사용하여 https://service.contoso.com/ 웹 서비스에 대한 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1

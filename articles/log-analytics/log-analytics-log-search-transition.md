@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics 쿼리 언어 참고 자료 | Microsoft Docs"
-description: "이 문서는 이미 레거시 언어에 잘 알고 있는 경우에 Log Analytics에 대한 새로운 쿼리 언어로의 전환에 관한 지원을 제공합니다."
+title: Azure Log Analytics 쿼리 언어 참고 자료 | Microsoft Docs
+description: 이 문서는 이미 레거시 언어에 잘 알고 있는 경우에 Log Analytics에 대한 새로운 쿼리 언어로의 전환에 관한 지원을 제공합니다.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Azure Log Analytics 새로운 쿼리 언어로 전환
 Log Analytics는 최근에 새로운 쿼리 언어를 구현했습니다.  이 문서는 이미 레거시 언어에 잘 알고 있고 약간의 도움이 필요한 사용자에게 Log Analytics에 대한 이 언어로 전환하기 위한 지원을 제공합니다.
@@ -43,14 +43,14 @@ Log Analytics는 최근에 새로운 쿼리 언어를 구현했습니다.  이 �
 | 설명 | 레거시 | 신규 |
 |:--|:--|:--|
 | 모든 테이블 검색      | error | “오류” 검색(대소문자 구분 안 함) |
-| 테이블에서 데이터 선택 | Type=Event |  이벤트 |
+| 테이블에서 데이터 선택 | Type=Event |  행사 |
 |                        | Type=Event &#124; select Source, EventLog, EventID | Event &#124; project Source, EventLog, EventID |
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | 문자열 비교      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
 |                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (not case sensitive)<br>Event &#124; where Computer contains_cs "Contoso" (case sensitive) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | 날짜 비교        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
+|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | 부울 비교     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | 정렬                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinct               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |

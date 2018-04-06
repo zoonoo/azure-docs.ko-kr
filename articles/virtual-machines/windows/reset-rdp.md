@@ -1,11 +1,11 @@
 ---
-title: "Windows VM에서 암호 또는 원격 데스크톱 구성 다시 설정 | Microsoft Docs"
-description: "Azure 포털 또는 Azure PowerShell을 사용하여 Windows VM에서 계정 암호 또는 원격 데스크톱 서비스를 다시 설정하는 방법을 알아봅니다."
+title: Windows VM에서 암호 또는 원격 데스크톱 구성 다시 설정 | Microsoft Docs
+description: Azure 포털 또는 Azure PowerShell을 사용하여 Windows VM에서 계정 암호 또는 원격 데스크톱 서비스를 다시 설정하는 방법을 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
 ms.service: virtual-machines-windows
@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
-ms.author: genli
-ms.openlocfilehash: d9ca3d393bd4544fb4efdbc779f139ca13d98bcd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: d793b101e3b6fa5a441158ef8ca9f7cd6d3a5a5b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법
-Windows VM(가상 머신)에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정할 수도 있고 원격 데스크톱 서비스 구성을 다시 설정할 수도 있습니다(Windows 도메인 컨트롤러에서는 지원되지 않음). 암호를 다시 설정하려면 Azure 포털이나 Azure PowerShell의 VM 액세스 확장을 사용할 수 있습니다. PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성](/powershell/azure/overview)하고 Azure 구독에 로그인해야 합니다. [클래식 배포 모델을 사용하여 만든 VM에 대해 이러한 단계를 수행](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp)할 수도 있습니다.
+Windows VM(가상 머신)에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정할 수도 있고 원격 데스크톱 서비스 구성을 다시 설정할 수도 있습니다(Windows 도메인 컨트롤러에서는 지원되지 않음). 암호를 다시 설정하려면 Azure 포털이나 Azure PowerShell의 VM 액세스 확장을 사용할 수 있습니다. VM에 로그인하면 해당 사용자의 암호를 다시 설정해야 합니다.  
+PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성](/powershell/azure/overview)하고 Azure 구독에 로그인해야 합니다. [클래식 배포 모델을 사용하여 만든 VM에 대해 이러한 단계를 수행](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp)할 수도 있습니다.
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>구성 또는 자격 증명을 다시 설정하는 방법
 필요에 따라 몇 가지 방법으로 원격 데스크톱 서비스 및 자격 증명을 재설정할 수 있습니다.

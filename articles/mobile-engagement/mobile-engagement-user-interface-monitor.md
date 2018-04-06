@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 모니터"
-description: "Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법 알아보기"
+title: Azure Mobile Engagement 사용자 인터페이스 - 모니터
+description: Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법 알아보기
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서에서는 **Mobile Engagement** 포털의 **모니터링** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 
 
 UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전부터 UI의 [분석](mobile-engagement-user-interface-analytics.md) 섹션에 있었던 거의 대부분의 정보에 대해 임계값에 도달하면 전송할 경고를 설정할 수 있습니다. 분석 및 모니터링에서 사용되는 용어와 약어의 정의는 [개념](http://go.microsoft.com/fwlink/?LinkId=525555) 항목의 **용어집** 섹션을 참조하세요. 이러한 용어로는 활성 사용자, 새 사용자, 재방문 사용자, 세션, 사용자 경로 그래프, 사용자 맵, 추적 URL, 추세, 활동, 이벤트, 작업, 오류, 추가 정보, 작동 중단, 앱 정보 등이 있습니다.

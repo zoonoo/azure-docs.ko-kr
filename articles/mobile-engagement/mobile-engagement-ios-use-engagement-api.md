@@ -1,11 +1,11 @@
 ---
-title: "iOS에서 Engagement API를 사용하는 방법"
-description: "최신 iOS SDK - iOS에서 Engagement API를 사용하는 방법"
+title: iOS에서 Engagement API를 사용하는 방법
+description: 최신 iOS SDK - iOS에서 Engagement API를 사용하는 방법
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>iOS에서 Engagement API를 사용하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 문서는 iOS에 Engagement를 통합하는 방법 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램 세션, 활동, 작동 중단 및 기술 정보만 보고하도록 하려는 경우 가장 간단한 방법은 모든 사용자 지정 `UIViewController` 개체가 해당 `EngagementViewController` 클래스에서 상속하도록 지정하는 것입니다.
@@ -178,7 +182,7 @@ API를 호출하기 전에 메서드 `[EngagementAgent init:@"Endpoint={YOUR_APP
 ### <a name="events-during-a-job"></a>작업 중의 이벤트
 이벤트는 현재 사용자 세션이 아닌 실행 중인 작업에 관련될 수 있습니다.
 
-**예:**
+**예제:**
 
 소셜 네트워크가 있으며 작업을 사용하여 사용자가 서버에 연결되어 있는 총 시간을 보고한다고 가정해 보겠습니다. 사용자는 친구로부터 메시지를 받을 수 있습니다. 이것이 작업 이벤트입니다.
 

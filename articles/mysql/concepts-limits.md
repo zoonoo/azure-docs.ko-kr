@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for MySQL의 제한 사항"
-description: "이 문서에서는 Azure Database for MySQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다."
+title: Azure Database for MySQL의 제한 사항
+description: 이 문서에서는 Azure Database for MySQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,20 +8,20 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
-MySQL용 Azure 데이터베이스 서비스는 공개 미리 보기 상태입니다. 다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
+다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
 
 ## <a name="service-tier-maximums"></a>서비스 계층 최대값
 Azure Database for MySQL에는 서버를 만들 때 선택할 수 있는 여러 서비스 계층이 있습니다. 자세한 내용은 [Azure Database for MySQL 가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.  
 
-다음과 같이 미리 보기 동안 각 서비스 계층에는 연결, Compute 단위 및 저장소의 최대 수가 지정되어 있습니다. 
+각 서비스 계층에는 다음과 같은 최대 연결 수, 계산 단위 및 저장소가 있습니다. 
 
 |**가격 책정 계층**| **계산 세대**|**vCore**| **최대 연결**|
 |---|---|---|---|
@@ -29,21 +29,20 @@ Azure Database for MySQL에는 서버를 만들 때 선택할 수 있는 여러 
 |Basic| 4세대| 2| 100|
 |Basic| 5세대| 1| 50|
 |Basic| 5세대| 2| 100|
-|범용| 4세대| 2| 200|
-|범용| 4세대| 4| 400|
-|범용| 4세대| 8| 800|
-|범용| 4세대| 16| 1600|
-|범용| 4세대| 32| 3200|
-|범용| 5세대| 2| 200|
-|범용| 5세대| 4| 400|
-|범용| 5세대| 8| 800|
-|범용| 5세대| 16| 1600|
-|범용| 5세대| 32| 3200|
+|범용| 4세대| 2| 300|
+|범용| 4세대| 4| 625|
+|범용| 4세대| 8| 1250|
+|범용| 4세대| 16| 2500|
+|범용| 4세대| 32| 5,000|
+|범용| 5세대| 2| 300|
+|범용| 5세대| 4| 625|
+|범용| 5세대| 8| 1250|
+|범용| 5세대| 16| 2500|
+|범용| 5세대| 32| 5,000|
 |메모리 최적화| 5세대| 2| 600|
 |메모리 최적화| 5세대| 4| 1250|
 |메모리 최적화| 5세대| 8| 2500|
 |메모리 최적화| 5세대| 16| 5,000|
-|메모리 최적화| 5세대| 32| 10000| 
 
 너무 많은 연결에 도달하면 다음 오류가 나타날 수 있습니다.
 > 오류 1040(08004): 너무 많은 연결이 있습니다.
@@ -74,7 +73,7 @@ Azure Database for MySQL에는 서버를 만들 때 선택할 수 있는 여러 
 ### <a name="unsupported"></a>지원되지 않음
 - SELECT ... INTO OUTFILE
 
-## <a name="preview-functional-limitations"></a>미리 보기 기능 제한 사항
+## <a name="functional-limitations"></a>기능 제한 사항
 
 ### <a name="scale-operations"></a>크기 조정 작업
 - 가격 책정 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본, 범용 및 메모리 최적화 가격 책정 계층 사이의 전환을 말합니다.

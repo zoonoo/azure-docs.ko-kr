@@ -61,6 +61,10 @@
           items:
             - name: Windows 에이전트
               href: log-analytics-agent-windows.md
+            - name: Windows용 VM 확장
+              href: ../virtual-machines/windows/extensions-oms.md
+            - name: Linux용 VM 확장
+              href: ../virtual-machines/linux/extensions-oms.md
             - name: Azure 리소스
               href: log-analytics-azure-storage.md
             - name: Azure PaaS 리소스
@@ -228,6 +232,8 @@
               href: log-analytics-network-performance-monitor-service-endpoint.md
             - name: ExpressRoute
               href: log-analytics-network-performance-monitor-expressroute.md
+            - name: 가격
+              href: log-analytics-network-performance-monitor-pricing-faq.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: SCOM 상태 검사

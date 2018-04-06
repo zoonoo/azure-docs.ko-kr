@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -160,9 +160,14 @@ Azure File Sync는 다음 지역에서 미리 보기로만 사용할 수 있습�
 |--------|---------------------|
 | 오스트레일리아 동부 | 뉴사우스웨일스 |
 | 캐나다 중부 | 토론토 |
+| 미국 중부 | 아이오와 |
+| 동아시아 | 홍콩 |
 | 미국 동부 | 버지니아 |
+| 미국 동부2 | 버지니아 |
+| 북유럽 | 아일랜드 |
 | 동남아시아 | 싱가포르 |
 | 영국 남부 | 런던 |
+| 미국 중서부 |
 | 서유럽 | 네덜란드 |
 | 미국 서부 | 캘리포니아 |
 
@@ -172,6 +177,7 @@ Azure File Sync는 다음 지역에서 미리 보기로만 사용할 수 있습�
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>다음 단계
+* [방화벽 및 프록시 설정 고려](storage-sync-files-firewall-and-proxy.md)
 * [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 * [Azure Files 배포](storage-files-deployment-guide.md)
 * [Azure File Sync 배포](storage-sync-files-deployment-guide.md)

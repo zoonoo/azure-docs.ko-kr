@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: df2565be7c543be061c3297f4d87aeae5eae4b8e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager 배포에서 Windows 시스템 상태 백업
 이 문서에서는 Azure에 Windows 서버 시스템 상태를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다.
@@ -87,7 +87,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
     ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 끝점으로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 끝점으로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 이제 자격 증명 모음을 만들었으므로 Windows 시스템 상태를 백업하도록 구성합니다.
 

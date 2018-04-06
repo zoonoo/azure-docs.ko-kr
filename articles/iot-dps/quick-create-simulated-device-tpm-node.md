@@ -1,22 +1,22 @@
 ---
-title: "Node.js를 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs"
-description: "Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 Node.js 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전"
+title: Node.js를 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs
+description: Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 Node.js 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 03/01/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b73379baa2b0b73fb1501a4356db10279ac41185
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Node.js 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 
@@ -26,6 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)에 나와 있는 단계를 완료해야 합니다.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>환경 준비 
 

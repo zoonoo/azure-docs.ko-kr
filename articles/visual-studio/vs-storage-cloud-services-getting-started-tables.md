@@ -1,11 +1,11 @@
 ---
-title: "Table Storage 및 Visual Studio 연결 서비스 시작(클라우드 서비스) | Microsoft Docs"
-description: "Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다."
+title: Table Storage 및 Visual Studio 연결 서비스 시작(클라우드 서비스) | Microsoft Docs
+description: Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a3a11ed8-ba7f-4193-912b-e555f5b72184
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 51b71d783806d9b0d58d4473b8c07f77441dadd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 68ce9630c5224bd7d9bc4b093ce54dd94140f9e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure 테이블 저장소 및 Visual Studio 연결 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -33,8 +33,8 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 **참고:** Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
 * 테이블을 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](../storage/storage-dotnet-how-to-use-tables.md) 을 참조하세요.
-* Azure 저장소에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/) 를 참조하세요.
-* Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](https://azure.microsoft.com/documentation/services/cloud-services/) 를 참조하세요.
+* Azure Storage에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
+* Azure Cloud Services에 대한 일반적인 내용은 [Cloud Services 설명서](https://azure.microsoft.com/documentation/services/cloud-services/) 를 참조하세요.
 * ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net) 을 참조하세요.
 
 ## <a name="access-tables-in-code"></a>코드에서 테이블 액세스하기

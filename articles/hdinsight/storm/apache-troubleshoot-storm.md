@@ -1,12 +1,12 @@
 ---
-title: "Azure HDInsight를 사용한 Storm 문제 해결 | Microsoft Docs"
-description: "Azure HDInsight에서 Apache Storm을 사용할 때 제기되는 일반적인 질문에 답합니다."
-keywords: "Azure HDInsight, Storm, FAQ, 문제 해결 가이드, 일반적인 문제"
+title: Azure HDInsight를 사용한 Storm 문제 해결 | Microsoft Docs
+description: Azure HDInsight에서 Apache Storm을 사용할 때 제기되는 일반적인 질문에 답합니다.
+keywords: Azure HDInsight, Storm, FAQ, 문제 해결 가이드, 일반적인 문제
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Storm 문제 해결
 
@@ -38,7 +38,7 @@ Apache Ambari에서 Apache Storm 페이로드를 사용할 때의 주요 문제 
 
 https://\<클러스터 DNS 이름\>/stormui
 
-예제:
+예:
 
  https://stormcluster.azurehdinsight.net/stormui
 
@@ -79,7 +79,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>토폴로지에서 맨 처음부터 또는 사용자가 선택하는 타임스탬프부터 데이터 처리를 시작할 수 있도록 오프셋 메타데이터 삭제
-1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
+1. SSH를 사용하여 검사점 오프셋을 삭제해야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
 2. HDP 버전 문자열을 업데이트한 후 다음 명령을 실행하여 현재 클러스터의 모든 ZooKeeper 오프셋 데이터를 삭제합니다.
 
     ```apache

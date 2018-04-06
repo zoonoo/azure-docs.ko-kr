@@ -1,8 +1,8 @@
 ---
-title: "자습서 - Azure Cost Management에서 사용량 및 비용 검토 | Microsoft Docs"
-description: "이 자습서에서는 사용량과 비용을 검토하여 추세를 추적하고, 비효율성을 검색하고, 경고를 만듭니다."
+title: 자습서 - Azure Cost Management에서 사용량 및 비용 검토 | Microsoft Docs
+description: 이 자습서에서는 사용량과 비용을 검토하여 추세를 추적하고, 비효율성을 검색하고, 경고를 만듭니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="open-the-cloudyn-portal"></a>Cloudyn 포털 열기
 
-Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
+Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com 으로 이동하여 로그인합니다.
 
 ## <a name="track-usage-and-cost-trends"></a>사용량 및 비용 추세 추적
 

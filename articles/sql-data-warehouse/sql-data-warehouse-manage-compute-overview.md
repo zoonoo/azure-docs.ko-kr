@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse에서 계산 리소스 관리 | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 성능 확장 기능을 알아봅니다. DWU를 조정하여 확장하거나 데이터 웨어하우스를 일시 중지하여 비용을 절약합니다."
+title: Azure SQL Data Warehouse에서 계산 리소스 관리 | Microsoft Docs
+description: Azure SQL Data Warehouse의 성능 확장 기능을 알아봅니다. DWU를 조정하여 확장하거나 데이터 웨어하우스를 일시 중지하여 비용을 절약합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 계산 관리
 Azure SQL Data Warehouse에서 계산 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 
@@ -36,7 +36,7 @@ SQL Data Warehouse는 크기 조정 작업을 수행하기 위해 먼저 들어�
 
 다음 표에서는 데이터 웨어하우스 단위를 변경할 때 계산 노드당 배포 수가 변경되는 방식을 보여 줍니다.  6,000DWU는 60개 계산 노드를 제공하며, 100DWU보다 훨씬 높은 쿼리 성능을 달성합니다. 
 
-| DWU(데이터 웨어하우스 단위)  | \#(계산 노드 수) | \#(노드당 배포 수) |
+| DWU(데이터 웨어하우스 단위)  | \#(계산 노드 수) | 노드당 배포 수 \# |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -110,7 +110,7 @@ SQL Data Warehouse를 일시 중지하거나 크기를 조정하는 경우 일�
 
 각각의 확장, 일시 중지 및 다시 시작 작업을 완료하는 데 몇 분이 걸릴 수 있습니다. 자동으로 크기 조정, 일시 중지 또는 다시 시작하는 경우, 다른 작업을 진행하기 전에 특정 작업이 완료되었는지 확인하는 논리를 구현하는 것이 좋습니다. 다양한 엔드포인트를 통해 데이터 웨어하우스 상태를 확인하면 이러한 작업의 자동화를 올바르게 구현할 수 있습니다. 
 
-데이터 웨어하우스 상태를 확인하려면 [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) 또는 [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) 빠른 시작을 참조하세요. 또한 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state)를 사용하여 데이터 웨어하우스 상태를 확인할 수도 있습니다.
+데이터 웨어하우스 상태를 확인하려면 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 또는 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 빠른 시작을 참조하세요. 또한 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state)를 사용하여 데이터 웨어하우스 상태를 확인할 수도 있습니다.
 
 
 ## <a name="permissions"></a>권한

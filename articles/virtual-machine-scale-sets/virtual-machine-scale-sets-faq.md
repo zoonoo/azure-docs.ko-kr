@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
 Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>확장 집합에 대한 상위 질문과 대답
+**Q.** 크기 집합에 포함할 수 있는 VM 수는 몇 개인가요?
+
+**A.** 확장 집합에는 플랫폼 이미지 기준으로 0~1,000대의 VM, 사용자 지정 이미지 기준으로 0~300대의 VM을 포함시킬 수 있습니다. 
+
+**Q.** 크기 집합 내에서 데이터 디스크가 지원되나요?
+
+**A.** 예. 크기 집합은 집합에서 모든 VM에 적용되는 연결된 데이터 디스크 구성을 정의할 수 있습니다. 자세한 내용은 [}Azure 확장 집합 및 연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)를 참조하세요. 데이터를 저장하는 기타 옵션은 다음과 같습니다.
+
+* Azure 파일(SMB 공유 드라이브)
+* OS 드라이브
+* 임시 드라이브(Azure Storage에서 지원되지 않는 로컬 드라이브)
+* Azure 데이터 서비스(예: Azure 테이블, Azure Blob)
+* 외부 데이터 서비스(예: 원격 데이터베이스)
+
+**Q.** 크기 집합을 지원하는 Azure 지역은 어디인가요?
+
+**A.** 모든 지역에서 크기 집합을 지원합니다.
+
+**Q.** 사용자 지정 이미지를 사용하여 크기 집합을 어떻게 만드나요?
+
+**A.** 사용자 지정 이미지 VHD를 기반으로 Managed Disk를 만들고 크기 집합 템플릿에서 참조합니다. [예를 들면 다음과 같습니다](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**Q.** 내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
+
+**A.** 가용성을 최대화하기 위해 업데이트 도메인과 장애 도메인이 균등하도록 가상 머신이 확장 집합에서 제거됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
+
+**Q.** 그런 다음 용량을 15에서 18로 늘리면 어떻게 되나요?
+
+**A.** 용량을 18로 늘리면 3개의 새로운 VM 생성됩니다. VM 인스턴스 ID는 이전의 가장 큰 값에서 증가합니다(예: 20, 21, 22). VM은 장애 도메인과 업데이트 도메인에 균등하게 분배됩니다.
+
+**Q.** 크기 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
+
+**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다. 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure 가상 머신 확장 집합의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 확인할 수 있습니다.
+
+**Q.** 크기 집합은 Azure 가용성 집합과 작업이 가능한가요?
+
+**A.** 예. 확장 집합은 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적인 가용성 집합입니다. 100대 이상인 VM의 확장 집합은 여러 가용성 집합에 해당하는 여러 *배치 그룹*으로 확장됩니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
+
 
 ## <a name="autoscale"></a>Autoscale
 
@@ -558,7 +598,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>각 VM에 공용 IP 주소를 할당하도록 확장 집합을 구성하려면 어떻게 해야 하나요?
 
-각 VM에 공용 IP 주소를 할당하는 가상 머신 확장 집합을 만들려면 Microsoft.Compute/virtualMAchineScaleSets 리소스의 API 버전이 2017-03-30인지 확인하고 _publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가합니다. 예:
+각 VM에 공용 IP 주소를 할당하는 가상 머신 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 2017-03-30인지 확인하고 _publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가합니다. 예:
 
 ```json
     "publicipaddressconfiguration": {

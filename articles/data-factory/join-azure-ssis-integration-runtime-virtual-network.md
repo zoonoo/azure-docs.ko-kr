@@ -4,8 +4,7 @@ description: Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인�
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -52,7 +51,7 @@ SSIS 카탈로그가 가상 네트워크의 SQL Database 관리되는 인스턴�
 - 온-프레미스 네트워크에 연결된 기존 Azure Resource Manager 가상 네트워크가 Azure-SSIS IR과 다른 위치에 있는 경우, 먼저 Azure-SSIS IR에서 조인할 [Azure Resource Manager 가상 네트워크](../virtual-network/quick-create-portal.md##create-a-virtual-network)를 만듭니다. 그런 다음, Azure Resource Manager-Azure Resource Manager 가상 네트워크 연결을 구성합니다. 또는 Azure-SSIS IR에서 조인할 [클래식 가상 네트워크](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 만들 수 있습니다. 그런 다음, [클래식-Azure Resource Manager 가상 네트워크](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다.
 
 ## <a name="domain-name-services-server"></a>도메인 이름 서비스 서버 
-Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에서 자체 DNS(도메인 이름 서비스) 서버를 사용해야 하는 경우 지침에 따라 [가상 네트워크의 Azure-SSIS 통합 런타임 노드에서 Azure 엔드포인트를 확인할 수 있는지 확인하세요](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Azure SSIS 통합 런타임에 의해 가입된 가상 네트워크에서 고유한 DNS(도메인 이름 서비스) 서버를 사용해야 하는 경우 [가상 머신과 역할 인스턴스의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 아티클의 "고유한 DNS 서버를 사용하는 이름 확인" 섹션의 지침에 따릅니다.
 
 ## <a name="network-security-group"></a>네트워크 보안 그룹
 Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워크 보안 그룹)를 구현해야 하는 경우 다음 포트를 통해 인바운드/아웃바운드 트래픽을 허용합니다.

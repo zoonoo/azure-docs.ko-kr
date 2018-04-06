@@ -1,22 +1,22 @@
 ---
-title: "Service Bus Relay 설명서"
-description: "Azure Relay 서비스가 어떻게 하이브리드 클라우드 및 온-프레미스 환경에서 작동하고, 방법, 자습서, 비디오, API 참조 등으로 완료되는지 알아봅니다."
-services: service-bus
-author: czeumault
-manager: carolz
+title: Service Bus Relay 설명서
+description: Azure Relay 서비스가 어떻게 하이브리드 클라우드 및 온-프레미스 환경에서 작동하고, 방법, 자습서, 비디오, API 참조 등으로 완료되는지 알아봅니다.
+services: service-bus-relay
+author: sethmanheim
+manager: timlt
 layout: LandingPage
-ms.assetid: 
-ms.service: service-bus
+ms.assetid: ''
+ms.service: service-bus-relay
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 03/14/2017
-ms.author: carolz
-ms.openlocfilehash: 9305e85ff075e8e7ee3e21315d28f63613ac01f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/02/2018
+ms.author: sethm
+ms.openlocfilehash: ed525cff6e25eb9719cf7f9b4b66ee1e6a8f14ec
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 ---
 # <a name="service-bus-relay-documentation"></a>Service Bus Relay 설명서
@@ -117,7 +117,7 @@ Azure Relay 서비스는 방화벽 연결을 열거나 회사 네트워크 인�
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

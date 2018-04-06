@@ -1,12 +1,12 @@
 ---
-title: "TTL(Time To Live)을 사용하여 Azure Cosmos DB의 데이터 만료 | Microsoft Docs"
-description: "TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 시스템에서 문서를 자동으로 삭제하는 기능을 제공합니다."
+title: TTL(Time To Live)을 사용하여 Azure Cosmos DB의 데이터 만료 | Microsoft Docs
+description: TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 시스템에서 문서를 자동으로 삭제하는 기능을 제공합니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: TTL(Time to live)
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 6f8ce4e270b94bf1043c27ba879878e20372ffe7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
-응용 프로그램은 방대한 양의 데이터를 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
+응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
 
 "time to live" 또는 TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 데이터베이스에서 문서를 자동으로 삭제하는 기능을 제공합니다. 기본 TTL(Time to live)을 컬렉션 수준에서 설정할 수 있고 문서별로 재정의할 수 있습니다. TTL을 컬렉션 기본값으로 설정하거나 문서 수준에서 설정하면 Cosmos DB는 마지막으로 수정된 이후 해당 기간(초) 후에 존재하는 문서를 자동으로 제거합니다.
 

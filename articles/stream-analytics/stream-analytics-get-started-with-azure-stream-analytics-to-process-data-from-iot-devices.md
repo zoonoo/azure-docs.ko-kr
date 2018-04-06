@@ -1,12 +1,11 @@
 ---
-title: "IoT 실시간 데이터 스트림 및 Azure Stream Analytics | Microsoft Docs"
-description: "스트림 분석 및 실시간 데이터 처리와 IoT 센서 태그 및 데이터 스트림"
-keywords: "IoT 솔루션, IoT 시작"
+title: IoT 실시간 데이터 스트림 및 Azure Stream Analytics | Microsoft Docs
+description: 스트림 분석 및 실시간 데이터 처리와 IoT 센서 태그 및 데이터 스트림
+keywords: IoT 솔루션, IoT 시작
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52b05d4daf75d81402d7c72cd05f3819a3456171
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 장치에서 데이터를 처리하도록 Azure Stream Analytics 시작
 이 자습서에서는 IoT(사물 인터넷) 장치에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 * 샘플 쿼리 및 데이터 파일은 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 

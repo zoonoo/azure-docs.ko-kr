@@ -1,24 +1,18 @@
 ---
-title: "Azure Automation 데이터 관리 | Microsoft Docs"
-description: "이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.  현재 Azure Automation에 데이터 보존 및 Azure Automation 재해 복구 백업이 포함되어 있습니다."
+title: Azure Automation 데이터 관리
+description: 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.  현재 Azure Automation에 데이터 보존 및 Azure Automation 재해 복구 백업이 포함되어 있습니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation 데이터 관리
 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.
@@ -43,7 +37,7 @@ Azure Automation은 90일이 넘은 작업을 자동으로 삭제하고 영구�
 
 보존 정책은 모든 사용자에게 적용되며 지금은 사용자 지정할 수 없습니다.
 
-그러나 긴 시간 동안 데이터를 유지해야 하는 경우 Runbook 작업 로그를 Log Analytics로 전달할 수 있습니다.  자세한 내용은 [Azure Automation 작업 데이터를 OMS Log Analytics로 전달](automation-manage-send-joblogs-log-analytics.md)을 검토하세요.   
+그러나 긴 시간 동안 데이터를 유지해야 하는 경우 Runbook 작업 로그를 Log Analytics로 전달할 수 있습니다.  자세한 내용은 [Azure Automation 작업 데이터를 Log Analytics로 전달](automation-manage-send-joblogs-log-analytics.md)을 검토하세요.   
 
 ## <a name="backing-up-azure-automation"></a>Azure Automation 백업
 Microsoft Azure에서 자동화 계정을 삭제하면 Runbook, 모듈, 구성, 설정, 작업, 자산 등 해당 계정의 모든 개체가 삭제됩니다. 계정을 삭제한 후에는 개체를 복구할 수 없습니다.  자동화 계정을 삭제하기 전에 다음 정보를 사용하여 자동화 계정의 내용을 백업할 수 있습니다. 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory와 응용 프로그램 통합"
-description: "Azure Active Directory(Azure AD)에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법"
+title: Azure Active Directory와 응용 프로그램 통합
+description: Azure Active Directory(Azure AD)에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin

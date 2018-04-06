@@ -1,22 +1,22 @@
 ---
-title: "C# 코드를 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리 | Microsoft Docs"
-description: "이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 앱을 코딩하여 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 설명합니다."
+title: C# 코드를 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리 | Microsoft Docs
+description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 앱을 코딩하여 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 설명합니다.
 services: time-series-insights
 ms.service: time-series-insights
 author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리
 
@@ -26,6 +26,11 @@ ms.lasthandoff: 12/19/2017
 2. 사용자가 액세스 권한을 가진 환경 목록을 가져옵니다. 환경 중 하나를 관심 환경으로 선택하고 이 환경에 대해 추가 데이터를 쿼리합니다.
 3. HTTPS 요청의 예로, 관심 환경에 대해 가용성 데이터를 요청합니다.
 4. 웹 소켓 요청의 예로, 관심 환경에 대해 이벤트 집계 데이터를 요청합니다. 전체 가용성 시간 범위에 대한 데이터가 요청됩니다.
+
+이 예제 코드는 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)에도 제공됩니다.
+
+## <a name="project-references"></a>프로젝트 참조
+이 예제에서는 NuGet 패키지 `Microsoft.IdentityModel.Clients.ActiveDirectory` 및 `Newtonsoft.Json`을 추가합니다. 
 
 ## <a name="c-example"></a>C# 예제
 

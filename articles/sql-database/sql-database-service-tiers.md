@@ -3,17 +3,17 @@ title: Azure SQL Database 서비스 | Microsoft Docs
 description: 성능 수준 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층이란?
 
@@ -33,7 +33,8 @@ ms.lasthandoff: 03/17/2018
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
 |IO 처리량(근사치) |DTU당 2.5 IOPS  | DTU당 2.5 IOPS | DTU당 48 IOPS|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
-|Columnstore 인덱싱 및 메모리 내 OLTP|해당 없음|해당 없음|지원됨|
+|Columnstore 인덱싱 |해당 없음|S3 이상|지원됨|
+|메모리 내 OLTP|해당 없음|해당 없음|지원됨|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>성능 수준 및 저장소 크기 제한

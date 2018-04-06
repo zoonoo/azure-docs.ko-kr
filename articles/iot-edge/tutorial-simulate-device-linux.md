@@ -1,8 +1,8 @@
 ---
-title: "Linux에서 Azure IoT Edge 시뮬레이트 | Microsoft Docs"
-description: "Linux에서 시뮬레이션트된 장치에 Azure IoT Edge 런타임을 설치하고 첫 번째 모듈 배포"
+title: Linux에서 Azure IoT Edge 시뮬레이트 | Microsoft Docs
+description: Linux에서 시뮬레이션트된 장치에 Azure IoT Edge 런타임을 설치하고 첫 번째 모듈 배포
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Linux 또는 MacOS에서 시뮬레이션된 장치에 Azure IoT Edge 배포 - 미리 보기
 
@@ -31,12 +31,17 @@ Azure IoT Edge에서는 클라우드로 모든 데이터를 푸시하는 대신,
 
 이 자습서에서 만드는 시뮬레이트된 장치는 온도, 습도 및 압력 데이터를 생성하는 모니터입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 IoT(사물 인터넷) 장치와 같은 컴퓨터 또는 가상 머신을 사용합니다. 컴퓨터를 IoT Edge 장치로 전환하려면 다음 서비스가 필요합니다.
 
 * Python pip - IoT Edge 런타임을 설치합니다.
    * Linux: `sudo apt-get install python-pip`
+     * _특정 배포(예: Raspbian)에서 특정 pip 패키지를 업그레이드하고 추가 종속성을 설치해야 할 수도 있습니다._
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS: `sudo easy_install pip`
 * Docker - IoT Edge 모듈을 실행합니다.
    * [Linux용 Docker를 설치][lnk-docker-ubuntu]하고 실행 중인지 확인합니다. 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 이전 섹션의 IoT Edge 장치 연결 문자열로 런타임을 구성합니다.
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 런타임을 시작합니다.

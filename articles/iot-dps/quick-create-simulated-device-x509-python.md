@@ -1,22 +1,22 @@
 ---
-title: "Python을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 장치 프로비전 | Microsoft Docs"
-description: "Azure 빠른 시작 - IoT Hub Device Provisioning Service용 Python 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전"
+title: Python을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 장치 프로비전 | Microsoft Docs
+description: Azure 빠른 시작 - IoT Hub Device Provisioning Service용 Python 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/21/2017
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: e274b60c89b8e03aa8823588546fa1a97c474142
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0f0b5b536ec98668118b497b0defd587820753fe
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Python 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,6 +25,7 @@ ms.lasthandoff: 02/09/2018
 
 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)에 나와 있는 단계를 완료해야 합니다.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>환경 준비 
 
@@ -136,7 +137,7 @@ ms.lasthandoff: 02/09/2018
 장치 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음 **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 장치** 블레이드를 열고, 이 빠른 시작에서 등록한 장치의 *장치 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

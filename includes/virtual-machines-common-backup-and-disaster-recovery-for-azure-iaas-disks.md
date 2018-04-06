@@ -84,22 +84,22 @@ IaaS 응용 프로그램 데이터 문제도 발생할 수 있습니다. 응용 
 
 [Azure Backup](https://azure.microsoft.com/services/backup/)은 백업 및 DR에 사용되며 [Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) 및 [Unmanaged Disks](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks)와 함께 작동합니다. 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. 
 
-[Premium Storage 디스크](../articles/virtual-machines/windows/premium-storage.md), [Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) 또는 [로컬 중복 저장소](../articles/storage/common/storage-redundancy.md#locally-redundant-storage) 옵션이 있는 다른 디스크 유형을 사용하는 경우 정기적인 DR 백업을 만들어야 합니다. Azure Backup은 장기 보존을 위해 복구 서비스 자격 증명 모음에 데이터를 저장합니다. 백업 복구 서비스 자격 증명 모음에 대해 [지역 중복 저장소](../articles/storage/common/storage-redundancy.md#geo-redundant-storage) 옵션을 선택합니다. 이 옵션은 지역 재해로부터 보호하기 위해 백업을 다른 Azure 지역에 복제하도록 합니다.
+[Premium Storage 디스크](../articles/virtual-machines/windows/premium-storage.md), [Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) 또는 [로컬 중복 저장소](../articles/storage/common/storage-redundancy-lrs.md) 옵션이 있는 다른 디스크 유형을 사용하는 경우 정기적인 DR 백업을 만들어야 합니다. Azure Backup은 장기 보존을 위해 복구 서비스 자격 증명 모음에 데이터를 저장합니다. 백업 복구 서비스 자격 증명 모음에 대해 [지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md) 옵션을 선택합니다. 이 옵션은 지역 재해로부터 보호하기 위해 백업을 다른 Azure 지역에 복제하도록 합니다.
 
 [Unmanaged Disks](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks)의 경우 IaaS 디스크에 대해 로컬 중복 저장소 유형을 사용할 수 있지만, Azure Backup이 복구 서비스 자격 증명 모음에 대한 지역 중복 저장소 옵션으로 사용하도록 설정되어 있는지 확인합니다.
 
 > [!NOTE]
-> Unmanaged Disks에 대해 [지역 중복 저장소](../articles/storage/common/storage-redundancy.md#geo-redundant-storage) 또는 [읽기 액세스 지역 중복 저장소](../articles/storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 옵션을 사용하는 경우 백업 및 DR에 대해 일관성 있는 스냅숏도 필요합니다. [Azure Backup](https://azure.microsoft.com/services/backup/) 또는 [일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) 중 하나를 사용합니다.
+> Unmanaged Disks에 대해 [지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md) 또는 [읽기 액세스 지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 옵션을 사용하는 경우 백업 및 DR에 대해 일관성 있는 스냅숏도 필요합니다. [Azure Backup](https://azure.microsoft.com/services/backup/) 또는 [일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) 중 하나를 사용합니다.
 
  다음 표는 DR에 사용할 수 있는 솔루션의 요약입니다.
 
 | 시나리오 | 자동 복제 | DR 솔루션 |
 | --- | --- | --- |
-| Premium Storage 디스크 | 로컬([로컬 중복 저장소](../articles/storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| 관리 디스크 | 로컬([로컬 중복 저장소](../articles/storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| 관리되지 않은 로컬 중복 저장소 디스크 | 로컬([로컬 중복 저장소](../articles/storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| 관리되지 않은 지역 중복 저장소 디스크 | 지역 간([지역 중복 저장소](../articles/storage/common/storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) |
-| 관리되지 않은 읽기 액세스 지역 중복 저장소 디스크 | 지역 간([읽기 액세스 지역 중복 저장소](../articles/storage/common/storage-redundancy.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) |
+| Premium Storage 디스크 | 로컬([로컬 중복 저장소](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| 관리 디스크 | 로컬([로컬 중복 저장소](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| 관리되지 않은 로컬 중복 저장소 디스크 | 로컬([로컬 중복 저장소](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| 관리되지 않은 지역 중복 저장소 디스크 | 지역 간([지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) |
+| 관리되지 않은 읽기 액세스 지역 중복 저장소 디스크 | 지역 간([읽기 액세스 지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) |
 
 Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우에 가장 고가용성이 충족됩니다. Unmanaged Disks를 사용하는 경우 DR에 Azure Backup을 계속 사용할 수 있습니다. Azure Backup을 사용할 수 없는 경우 백업 및 DR을 위한 대안 솔루션은 이후의 섹션에서 설명하는 [일관성 있는 스냅숏](#alternative-solution-consistent-snapshots)을 사용하는 것입니다.
 

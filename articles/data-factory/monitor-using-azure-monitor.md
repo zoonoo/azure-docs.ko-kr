@@ -1,11 +1,11 @@
 ---
-title: "Azure Monitor를 사용하여 데이터 팩터리 모니터링 | Microsoft Docs"
-description: "Azure Data Factory 정보가 있는 진단 로그를 사용하도록 설정하여 Azure Monitor를 통해 Data Factory 파이프라인을 모니터링하는 방법을 알아봅니다."
+title: Azure Monitor를 사용하여 데이터 팩터리 모니터링 | Microsoft Docs
+description: Azure Data Factory 정보가 있는 진단 로그를 사용하도록 설정하여 Azure Monitor를 통해 Data Factory 파이프라인을 모니터링하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 모니터링  
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 } 
 ```
 
-| 자산 | 형식 | 설명 |
+| 자산 | 유형 | 설명 |
 | --- | --- | --- |
 | storageAccountId |문자열 | 진단 로그를 보내려는 저장소 계정의 리소스 ID입니다. |
 | serviceBusRuleId |문자열 | 진단 로그 스트리밍에 대해 Event Hubs를 만들려는 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. 규칙 ID의 형식은 "{service bus resource ID}/authorizationrules/{key name}"입니다.|
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[자세한 내용은 여기에 있음](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+자세한 내용 참고: https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>로그 및 이벤트의 스키마
 
@@ -273,7 +273,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 자산 | 형식 | 설명 | 예 |
+| 자산 | 유형 | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 항상 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -320,7 +320,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 자산 | 형식 | 설명 | 예 |
+| 자산 | 유형 | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -365,7 +365,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| 자산 | 형식 | 설명 | 예 |
+| 자산 | 유형 | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 활동 실행 로그에 대해 수준 4로 설정합니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -381,7 +381,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| 문자열 | 시간 간격에서 발생한 트리거의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
 |status| 문자열 | 트리거가 성공적으로 시작되었는지 여부에 대한 최종 상태(Succeeded 또는 Failed)입니다. | `Succeeded`|
 
-### <a name="metrics"></a>메트릭
+## <a name="metrics"></a>메트릭
 
 Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
 
@@ -396,7 +396,52 @@ ADFV2에서 내보내는 메트릭은 다음과 같습니다.
 | TriggerSucceededRuns | 성공한 트리거 실행 메트릭  | 개수    | 합계                | 1분 기간 내에 성공한 총 트리거 실행 수입니다.   |
 | TriggerFailedRuns    | 실패한 트리거 실행 메트릭     | 개수    | 합계                | 1분 기간 내에 실패한 총 트리거 실행 수입니다.      |
 
-메트릭에 액세스하려면 https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 문서의 지침을 따릅니다. 
+메트릭에 액세스하려면 다음 문서의 지침을 참조하세요. https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Alerts
+
+Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. Data Factory **모니터** 페이지에서 **경고** 단추를 클릭합니다.
+
+![경고 옵션](media/monitor-using-azure-monitor/alerts_image1.png)
+
+그러면 **경고** 페이지로 이동됩니다.
+
+![경고 페이지](media/monitor-using-azure-monitor/alerts_image2.png)
+
+Azure Portal에 로그인하여 **모니터 -&gt; 경고**를 클릭하여 **경고** 페이지로 직접 이동할 수도 있습니다.
+
+![포털 메뉴의 경고](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>경고 만들기
+
+1.  **+ 새로운 경고 규칙**을 클릭하여 새 경고를 만듭니다.
+
+    ![새 경고 규칙](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  **경고 조건**을 정의합니다.
+
+    > [!NOTE]
+    > **리소스 종류별로 필터링**에서 **모두**를 선택해야 합니다.
+
+    ![경고 조건, 1/3 화면](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![경고 조건, 2/3 화면](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![경고 조건, 3/3 화면](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  **경고 세부 정보**를 정의합니다.
+
+    ![경고 세부 정보](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  **작업 그룹**을 정의합니다.
+
+    ![작업 그룹, 1/4 화면](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![작업 그룹, 2/4 화면](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![작업 그룹, 3/4 화면](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![작업 그룹, 4/4 화면](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>다음 단계
 실행 중인 파이프라인 모니터링 및 관리에 대한 자세한 내용은 [프로그래밍 방식으로 파이프라인 모니터링 및 관리](monitor-programmatically.md) 문서를 참조하세요. 

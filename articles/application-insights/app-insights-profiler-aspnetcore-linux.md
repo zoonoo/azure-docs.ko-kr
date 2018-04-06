@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -143,6 +143,18 @@ ms.lasthandoff: 03/16/2018
 5. Azure Portal에서 Application Insights 성능 창으로 이동합니다. 오른쪽 아래 모서리에 프로파일러 추적이 표시됩니다.
 
     ![추적 보기](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>알려진 문제
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>프로파일러 구성 창에서 단추를 사용해도 작동하지 않습니다.
+**App Services Linux를 사용하여 앱을 호스트하는 경우 App Insights 포털의 성능 창에서 프로파일러를 다시 사용하지 않아도 됩니다. 프로젝트에서 NuGet 패키지를 포함하고 앱 설정에서 App Insights iKey를 설정하면 충분히 프로파일러를 사용할 수 있습니다**.
+
+[Windows용 App Insights Profiler](./app-insights-profiler.md) 사용 워크플로를 수행하여 프로파일러 구성 창에서 **사용**을 클릭하는 경우 단추가 Linux 환경에서 프로파일러 에이전트의 Windows 버전을 설치하려고 하므로 오류가 발생하게 됩니다.
+
+사용 환경에서 이 문제를 해결하려고 노력하고 있습니다.
+
+![프로파일러가 Linux App Services에서 작동하기 위해 성능 창에서 다시 프로파일러를 설정하지 않아도 됩니다.](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 App Services에 의해 호스트되는 사용자 지정 컨테이너를 사용하는 경우 [컨테이너화된 ASP.NET Core 응용 프로그램에 Service Profiler 설정](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)의 지침을 따라 App Insights Profiler를 사용하도록 설정합니다.

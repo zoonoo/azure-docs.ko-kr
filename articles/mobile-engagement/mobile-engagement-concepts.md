@@ -1,11 +1,11 @@
 ---
-title: "Mobile Engagement 개념 | Microsoft Docs"
-description: "Azure Mobile Engagement 개념"
+title: Mobile Engagement 개념 | Microsoft Docs
+description: Azure Mobile Engagement 개념
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8d19abd1-0a6c-4772-9fa5-5e99980ac5da
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bc09de37c1b2aca35ef1ea74227df770f15baf5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement 개념
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 Mobile Engagement는 지원되는 모든 플랫폼에 공통되는 몇 가지 개념을 정의합니다. 이 문서에서는 이러한 개념을 간략하게 설명합니다.
 
 Mobile Engagement를 처음 사용하는 경우 이 문서부터 참조하면 좋습니다. 또한 사용 중인 플랫폼과 관련된 문서를 읽어보세요. 자세한 정보 및 예제뿐만 아니라 가능한 제한 사항을 통해 이 문서에 설명된 개념을 구체적으로 설명해 줍니다.

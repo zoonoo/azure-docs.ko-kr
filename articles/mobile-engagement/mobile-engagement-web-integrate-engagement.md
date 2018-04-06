@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 웹 SDK 통합 | Microsoft Docs"
-description: "Azure Mobile Engagement 웹 SDK의 최신 업데이트 및 절차"
+title: Azure Mobile Engagement 웹 SDK 통합 | Microsoft Docs
+description: Azure Mobile Engagement 웹 SDK의 최신 업데이트 및 절차
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b5daa2a2-942b-489d-aa1d-568c3b25e56f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bccfbdfe9d99900f58d5dbfa44183146c79b9c88
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>웹 응용 프로그램에 Azure Mobile Engagement 통합
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows 범용](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -107,7 +111,7 @@ Mobile Engagement 세션은 일련의 활동으로 나뉘며 각각이 이름으
 
 기존 웹 사이트는 사이트의 각 페이지에서 서로 다른 활동을 선언하는 것이 좋습니다. 현재 페이지가 절대 변경되지 않는 웹 사이트 또는 웹 응용 프로그램에서는 페이지 내부와 같이 좀 더 작은 규모로 활동을 추적하는 것이 좋습니다.
 
-현재 사용자 활동을 시작하든 변경하든 `engagement.agent.startActivity` 함수를 호출합니다. 예:
+현재 사용자 활동을 시작하든 변경하든 `engagement.agent.startActivity` 함수를 호출합니다. 예: 
 
     <body onload="yourOnload()">
 

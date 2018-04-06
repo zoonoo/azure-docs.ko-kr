@@ -1,19 +1,19 @@
 ---
-title: "Azure Container Instances에 다중 컨테이너 그룹 배포"
-description: "Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다."
+title: Azure Container Instances에 다중 컨테이너 그룹 배포
+description: Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 services: container-instances
 author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-a-container-group"></a>컨테이너 그룹 배포
 
@@ -45,7 +45,7 @@ Azure Container Instances에서는 [컨테이너 그룹](container-instances-con
     {
       "name": "myContainerGroup",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [

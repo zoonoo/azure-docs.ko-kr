@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3991312d7f7609bb0a206ccc0ecc67123ebec469
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/16/2018
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
 Spark는 대규모 데이터 처리에 사용되며 Kubernetes 노드의 크기가 Spark 리소스 요구 사항을 충족해야 합니다. AKS(Azure Container Service) 노드의 최소 권장 크기는 `Standard_D3_v2`입니다.
- 
+
 이 최소 권장 사항을 충족하는 AKS 클러스터가 필요한 경우 다음 명령을 실행합니다.
 
 클러스터용 리소스 그룹을 만듭니다.
@@ -58,12 +58,12 @@ ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장�
 
 ## <a name="build-the-spark-source"></a>Spark 소스 빌드
 
-AKS 클러스터에서 Spark 작업을 실행하기 전에 Spark 소스 코드를 빌드하고 컨테이너 이미지에 패키지해야 합니다. Spark 소스에는 이 프로세스를 완료하는 데 사용할 수 있는 스크립트가 포함되어 있습니다. 
+AKS 클러스터에서 Spark 작업을 실행하기 전에 Spark 소스 코드를 빌드하고 컨테이너 이미지에 패키지해야 합니다. Spark 소스에는 이 프로세스를 완료하는 데 사용할 수 있는 스크립트가 포함되어 있습니다.
 
 Spark 프로젝트 리포지토리를 개발 시스템에 복제합니다.
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 복제된 리포지토리의 디렉터리를 변경하고 Spark 소스의 경로를 변수에 저장합니다.
@@ -73,7 +73,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-여러 가지 JDK 버전이 설치된 경우 현재 세션에 8 버전을 사용하도록 `JAVA_HOME`을 설정합니다. 
+여러 가지 JDK 버전이 설치된 경우 현재 세션에 8 버전을 사용하도록 `JAVA_HOME`을 설정합니다.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -85,16 +85,21 @@ export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-다음 명령은 Spark 컨테이너 이미지를 만들어서 컨테이너 이미지 레지스트리에 푸시합니다. `registry.example.com`을 컨테이너 레지스트리의 이름으로 바꿉니다. Docker 허브를 사용하는 경우 이 값은 레지스트리 이름입니다. ACR(Azure Container Registry)을 사용하는 경우 이 값은 ACR 로그인 서버 이름입니다.
+다음 명령은 Spark 컨테이너 이미지를 만들어서 컨테이너 이미지 레지스트리에 푸시합니다. `registry.example.com`을 컨테이너 레지스트리의 이름으로 바꾸고 `v1`를 사용하려는 태그로 바꿉니다. Docker 허브를 사용하는 경우 이 값은 레지스트리 이름입니다. ACR(Azure Container Registry)을 사용하는 경우 이 값은 ACR 로그인 서버 이름입니다.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 컨테이너 이미지를 컨테이너 이미지 레지스트리에 푸시합니다.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## <a name="prepare-a-spark-job"></a>Spark 작업 준비
@@ -196,18 +201,10 @@ jarUrl=$(az storage blob url --container-name $CONTAINER_NAME --name $BLOB_NAME 
 
 ## <a name="submit-a-spark-job"></a>Spark 작업 제출
 
-Spark 작업을 제출하려면 Kubernetes API 서버 주소가 필요합니다. `kubectl cluster-info` 명령을 사용하여 이 주소를 가져옵니다.
-
-Kubernetes API 서버가 실행되고 있는 URL을 검색합니다.
+다음 코드를 사용하여 별도의 명령줄에서 kube-proxy를 시작합니다.
 
 ```bash
-kubectl cluster-info
-```
-
-주소와 포트를 기록해 둡니다.
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 Spark 리포지토리의 루트로 돌아갑니다.
@@ -216,18 +213,16 @@ Spark 리포지토리의 루트로 돌아갑니다.
 cd $sparkdir
 ```
 
-`spark-submit` 명령을 사용하여 작업을 제출합니다. 
-
-`<kubernetes-api-server>` 값을 API 서버 주소와 포트로 바꿉니다. `<spark-image>`를 `<your container registry name>/spark:<tag>` 형식의 컨테이너 이미지 이름으로 바꿉니다.
+`spark-submit` 명령을 사용하여 작업을 제출합니다.
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -315,6 +310,9 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
+
+> [!WARNING]
+> Spark [설명서][spark-docs]에서 "Kubernetes 스케줄러는 현재 실험적입니다. 이후 버전에서는 구성, 컨테이너 이미지 및 진입점 동작이 변경될 수 있습니다."
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Alerts(미리 보기)의 로그 경고에 대한 웹후크 작업 | Microsoft Docs"
-description: "이 문서에서는 Log Analytics 또는 Application Insights를 사용하는 로그 경고 규칙이 HTTP 웹후크 및 다른 가능한 사용자 지정의 세부 정보로 데이터를 푸시하는 방법을 설명합니다."
+title: Azure Alerts의 로그 경고에 대한 웹후크 작업 | Microsoft Docs
+description: 이 문서에서는 Log Analytics 또는 Application Insights를 사용하는 로그 경고 규칙이 HTTP 웹후크 및 다른 가능한 사용자 지정의 세부 정보로 데이터를 푸시하는 방법을 설명합니다.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
-[Azure(미리 보기)에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
+[Azure에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
 
 
 ## <a name="webhook-actions"></a>웹후크 작업
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/08/2018
 | 자산 | 설명 |
 |:--- |:--- |
 | Webhook URL |웹후크의 URL입니다. |
-| 사용자 지정 JSON 페이로드 |경고를 만드는 동안 이 옵션을 선택한 경우 웹후크와 함께 전송할 사용자 지정 페이로드입니다. [Azure Alerts(미리 보기)를 사용하여 경고 관리](monitor-alerts-unified-usage.md)에서 세부 정보를 확인할 수 있습니다. |
+| 사용자 지정 JSON 페이로드 |경고를 만드는 동안 이 옵션을 선택한 경우 웹후크와 함께 전송할 사용자 지정 페이로드입니다. [Azure Alerts를 사용하여 경고 관리](monitor-alerts-unified-usage.md)에서 세부 정보를 확인할 수 있습니다. |
 
 > [!NOTE]
 > 로그 경고의 *웹후크에 대한 사용자 지정 JSON 페이로드 포함* 옵션과 함께 웹후크 테스트 단추를 실행하면 웹후크 URL을 테스트하기 위한 더미 호출이 트리거됩니다. 로그 경고에 사용된 JSON 스키마의 실제 데이터 및 표현은 포함되지 않습니다. 
@@ -157,6 +157,8 @@ ms.lasthandoff: 03/08/2018
     }
     }
 
+> [!NOTE]
+> Application Insights에 대한 로그 경고는 현재 공개 미리 보기로 제공되며 기능 및 사용자 환경은 변경될 수 있습니다.
 
 #### <a name="log-alert-with-custom-json-payload"></a>사용자 지정 JSON 페이로드가 있는 로그 경고
 예를 들어 경고 이름과 검색 결과만 포함하는 사용자 지정 페이로드를 만들려면 다음을 사용할 수 있습니다. 
@@ -194,7 +196,7 @@ ms.lasthandoff: 03/08/2018
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Alerts(미리 보기)에서 로그 경고](monitor-alerts-unified-log.md)에 대해 알아보기
+- [Azure Alerts의 로그 경고](monitor-alerts-unified-log.md)에 대해 알아봅니다.
 - [Azure에서 작업 그룹](monitoring-action-groups.md) 만들기 및 관리
 - [Application Insights](../application-insights/app-insights-analytics.md)에 대해 자세히 알아보기
 - [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기 

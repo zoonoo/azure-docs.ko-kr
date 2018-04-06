@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -100,7 +100,10 @@ ms.lasthandoff: 03/16/2018
     - Windows Server 2016 및 Windows 10에서 Docker 엔진 및 클라이언트를 설치한 후 에이전트를 연결하여 정보를 수집하고 Log Analytics에 보냅니다. Windows 환경을 사용하는 경우 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts)을 검토하세요.
   - Docker 다중 호스트 오케스트레이션의 경우:
     - Red Hat OpenShift 환경인 경우 [Red Hat OpenShift용 OMS 에이전트 구성](#configure-an-oms-agent-for-red-hat-openshift)을 검토하세요.
-    - Azure Container Service를 사용하여 Kubernetes 클러스터를 설정한 경우 [Kubernetes용 OMS 에이전트 구성](#configure-an-oms-agent-for-kubernetes)을 검토하세요.
+    - Azure Container Service를 사용하는 Kubernetes 클러스터가 있는 경우:
+       - [Kubernetes용 OMS Linux에이전트 구성](#configure-an-oms-linux-agent-for-kubernetes)을 검토합니다.
+       - [Kubernetes용 OMS Windows 에이전트 구성](#configure-an-oms-windows-agent-for-kubernetes)을 검토합니다.
+       - [Helm을 사용하여 Linux Kubernetes에 OMS 에이전트 배포](#use-helm-to-deploy-oms-agent-on-linux-kubernetes)를 검토합니다.
     - Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/dcos-swarm/container-service-monitoring-oms.md)에서 자세한 내용을 참조하세요.
     - Docker Swarm 모드 환경에 있는 경우 [Docker Swarm용 OMS 에이전트 구성](#configure-an-oms-agent-for-docker-swarm)에서 자세히 알아보세요.
     - Service Fabric 클러스터가 있는 경우 [OMS Log Analytics를 사용하여 컨테이너 모니터링](../service-fabric/service-fabric-diagnostics-oms-containers.md)에서 자세히 알아보세요.
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Windows Kubernetes용 OMS 에이전트 구성
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Kubernetes용 OMS Windows 에이전트 구성
 Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) 페이지에는 비밀 정보를 포함하여 사용할 수 있는 파일이 있습니다.  마스터 및 에이전트 노드에 대해 별도의 OMS 에이전트를 설치해야 합니다.  
 
 1. 마스터 노드에 대한 비밀 정보를 사용하여 OMS 에이전트 DaemonSet을 사용하려면 먼저 로그인하여 비밀을 만듭니다.
@@ -544,15 +547,15 @@ Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에�
 
 | 데이터 형식 | 로그 검색의 데이터 유형 | 필드 |
 | --- | --- | --- |
-| 호스트 및 컨테이너에 대한 성능 | `Type=Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| 컨테이너 인벤토리 | `Type=ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| 컨테이너 이미지 인벤토리 | `Type=ContainerImageInventory` | TimeGenerated, 컴퓨터, 이미지, ImageTag, ImageSize, VirtualSize, 실행 중, 일시 중지됨, 중지됨, 실패, SourceSystem, ImageID, TotalContainer |
-| 컨테이너 로그 | `Type=ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| 컨테이너 서비스 로그 | `Type=ContainerServiceLog`  | TimeGenerated, 컴퓨터, TimeOfCommand, 이미지, 명령, SourceSystem, ContainerID |
-| 컨테이너 노드 인벤토리 | `Type=ContainerNodeInventory_CL`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes 인벤토리 | `Type=KubePodInventory_CL` | TimeGenerated, 컴퓨터, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| 컨테이너 프로세스 | `Type=ContainerProcess_CL` | TimeGenerated, 컴퓨터, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| kubernetes 이벤트 | `Type=KubeEvents_CL` | TimeGenerated, 컴퓨터, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, 메시지 |
+| 호스트 및 컨테이너에 대한 성능 | `Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| 컨테이너 인벤토리 | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| 컨테이너 이미지 인벤토리 | `ContainerImageInventory` | TimeGenerated, 컴퓨터, 이미지, ImageTag, ImageSize, VirtualSize, 실행 중, 일시 중지됨, 중지됨, 실패, SourceSystem, ImageID, TotalContainer |
+| 컨테이너 로그 | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| 컨테이너 서비스 로그 | `ContainerServiceLog`  | TimeGenerated, 컴퓨터, TimeOfCommand, 이미지, 명령, SourceSystem, ContainerID |
+| 컨테이너 노드 인벤토리 | `ContainerNodeInventory_CL`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes 인벤토리 | `KubePodInventory_CL` | TimeGenerated, 컴퓨터, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| 컨테이너 프로세스 | `ContainerProcess_CL` | TimeGenerated, 컴퓨터, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| kubernetes 이벤트 | `KubeEvents_CL` | TimeGenerated, 컴퓨터, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, 메시지 |
 
 *PodLabel* 데이터 형식에 추가된 레이블은 사용자 고유의 사용자 지정 레이블입니다. 테이블에 표시된 추가된 PodLabel 레이블은 예입니다. 따라서 `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s`는 사용자 환경의 데이터 집합에 따라 달라지며 일반적으로 `PodLabel_yourlabel_s`와 비슷합니다.
 
@@ -607,7 +610,7 @@ OMS 포털에서 솔루션을 사용하도록 설정한 후에는 **컨테이너
    ![컨테이너 상태](./media/log-analytics-containers/containers-log-search.png)
 3. 추가 정보를 보려면 실패한 컨테이너의 집계 값을 클릭합니다. **자세히 표시**를 확장하여 이미지 ID를 봅니다.  
    ![실패한 컨테이너](./media/log-analytics-containers/containers-state-failed.png)  
-4. 검색 쿼리에 `Type=ContainerInventory <ImageID>`를 입력하여 이미지 크기 및 중지되고 실패한 이미지 수와 같은 이미지에 대한 세부 정보를 확인합니다.  
+4. 검색 쿼리에 `ContainerInventory <ImageID>`를 입력하여 이미지 크기 및 중지되고 실패한 이미지 수와 같은 이미지에 대한 세부 정보를 확인합니다.  
    ![실패한 컨테이너](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>컨테이너 데이터에 대한 로그 검색
@@ -625,17 +628,17 @@ OMS 포털에서 솔루션을 사용하도록 설정한 후에는 **컨테이너
 
 
 ### <a name="to-search-logs-for-container-data"></a>컨테이너 데이터에 대한 로그 검색
-* 최근에 실패했다고 알고 있는 이미지를 선택하고 그에 대한 오류 로그를 찾습니다. **ContainerInventory** 검색을 통해 해당 이미지를 실행 중인 컨테이너 이름부터 찾습니다. 예를 들어, `Type=ContainerInventory ubuntu Failed`를 검색합니다.  
+* 최근에 실패했다고 알고 있는 이미지를 선택하고 그에 대한 오류 로그를 찾습니다. **ContainerInventory** 검색을 통해 해당 이미지를 실행 중인 컨테이너 이름부터 찾습니다. 예를 들어, `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`를 검색합니다.  
     ![Ubuntu 컨테이너에 대한 검색](./media/log-analytics-containers/search-ubuntu.png)
 
-  **이름** 옆에 컨테이너 이름을 확인하고 해당 로그를 검색합니다. 이 예제에서는 `Type=ContainerLog cranky_stonebreaker`입니다.
+  **이름** 옆에 컨테이너 이름을 확인하고 해당 로그를 검색합니다. 이 예제에서는 `ContainerLog | where Name == "cranky_stonebreaker"`입니다.
 
 **성능 정보 보기**
 
 쿼리 작성을 시작할 때는 먼저 가능한 항목을 확인하는 것이 도움이 될 수 있습니다. 예를 들어, 모든 성능 데이터를 보려면 다음 검색 쿼리를 입력하여 광범위 쿼리를 실행합니다.
 
 ```
-Type=Perf
+Perf
 ```
 
 ![컨테이너 성능](./media/log-analytics-containers/containers-perf01.png)
@@ -643,7 +646,7 @@ Type=Perf
 쿼리 오른쪽에 이름을 입력하여 확인하는 성능 데이터의 범위를 특정 데이터로 한정할 수 있습니다.
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 그러면 개별 컨테이너에 대해 수집된 성능 메트릭 목록이 표시됩니다.
@@ -652,8 +655,6 @@ Type=Perf <containerName>
 
 ## <a name="example-log-search-queries"></a>로그 검색 쿼리 예제
 한두 가지 예제로 쿼리 구성을 시작한 다음 환경에 맞게 수정하는 것이 유용한 경우가 종종 있습니다. 먼저 **샘플 쿼리** 영역에서 테스트하면 고급 쿼리를 빌드하는 데 도움이 될 수 있습니다.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![컨테이너 쿼리](./media/log-analytics-containers/containers-queries.png)
 

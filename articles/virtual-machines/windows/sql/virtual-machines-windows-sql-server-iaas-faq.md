@@ -1,11 +1,11 @@
 ---
-title: "Windows Azure Virtual Machines의 SQL Server FAQ | Microsoft Docs"
-description: "이 문서는 Azure VM에서 SQL Server를 실행하는 방법에 대한 질문과 대답을 제공합니다."
+title: Windows Azure Virtual Machines의 SQL Server FAQ | Microsoft Docs
+description: 이 문서는 Azure VM에서 SQL Server를 실행하는 방법에 대한 질문과 대답을 제공합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: v-shysun
 manager: felixwu
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: v-shysun
-ms.openlocfilehash: 141dd1fe9e727f430b7c45dbb798f5471167c355
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 42a82a59d0cf786e80b93f124cbe04007b2a4704
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Windows Azure Virtual Machines의 SQL Server에 대한 FAQ(질문과 대답)
 
@@ -48,15 +48,19 @@ ms.lasthandoff: 12/21/2017
 
    예. Azure에서는 주 버전당 하나의 이미지를 유지 관리합니다. 예를 들어 새 SQL Server 서비스 팩이 출시되면 Azure에서는 해당 서비스 팩의 갤러리에 새 이미지를 추가합니다. 이전 서비스 팩의 SQL Server 이미지는 Azure Portal에서 즉시 제거됩니다. 그러나 다음 3개월 동안은 PowerShell에서 프로비전할 수 있습니다. 3개월 후에는 이전 서비스 팩 이미지를 사용할 수 없습니다. 해당 수명 끝에 도달하면 이 제거 정책이 SQL Server 버전이 지원되지 않는 경우에 적용됩니다.
 
+1. **SQL Server VM에서 VHD 이미지를 만들 수 있나요?**
+
+   예, 그러나 몇 가지 고려 사항이 있습니다. 이 VHD를 Azure의 새 VM에 배포하는 경우 포털에서 SQL Server 구성 섹션을 가질 수 없습니다. PowerShell을 통해 SQL Server 구성 옵션을 관리해야 합니다. 또한 이미지가 원래 기반으로 했던 SQL VM의 속도에서 청구됩니다. 배포하기 전에 VHD에서 SQL Server를 제거하는 경우에도 마찬가지입니다. 
+
 1. **가상 머신 갤러리에 표시되지 않은 구성을 설정할 수 있습니까(예: Windows 2008 R2 + SQL Server 2012)?**
 
-   아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
+   번호 SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
 
 ## <a name="creation"></a>만들기
 
 1. **SQL Server를 사용하여 Azure 가상 머신을 만들려면 어떻게 해야 합니까?**
 
-   가장 쉬운 해결 방법은 SQL Server가 포함된 Virtual Machine을 만드는 것입니다. Azure에 등록하고 포털에서 SQL VM을 만드는 방법에 대한 자습서는 [Azure Portal에 SQL Server 가상 머신 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. 분 단위로 요금이 부과되는 SQL Server 라이선스를 사용하는 가상 머신 이미지를 선택하거나 사용자 SQL Server 라이선스를 가져오도록 허용하는 이미지를 사용할 수 있습니다. 무료 라이선스 버전(Developer 또는 Express)을 사용하거나 온-프레미스 라이선스를 재사용하여 VM에 SQL Server를 수동으로 설치할 수도 있습니다. 사용자 라이선스가 필요하면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 가능해야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+   가장 쉬운 해결 방법은 SQL Server가 포함된 Virtual Machine을 만드는 것입니다. Azure에 등록하고 포털에서 SQL VM을 만드는 방법에 대한 자습서는 [Azure Portal에 SQL Server 가상 머신 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. 초 단위로 요금이 부과되는 SQL Server 라이선스를 사용하는 가상 머신 이미지를 선택하거나 사용자 SQL Server 라이선스를 가져오도록 허용하는 이미지를 사용할 수 있습니다. 무료 라이선스 버전(Developer 또는 Express)을 사용하거나 온-프레미스 라이선스를 재사용하여 VM에 SQL Server를 수동으로 설치할 수도 있습니다. 사용자 라이선스가 필요하면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 가능해야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 1. **온-프레미스 SQL Server 데이터베이스를 클라우드로 마이그레이션하려면 어떻게 해야 합니까?**
 
@@ -70,7 +74,7 @@ ms.lasthandoff: 12/21/2017
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
-   아니요. 분 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. [BYOL 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 사용하여 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
+   번호 초 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. [BYOL 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 사용하여 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
 
@@ -85,15 +89,16 @@ ms.lasthandoff: 12/21/2017
 
 1. **SQL Server의 기본 인스턴스를 제거할 수 있나요?**
 
-   예. 그러나 몇 가지 고려 사항이 있습니다. 앞의 답변에서 설명한 것처럼, [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하는 기능은 기본 인스턴스에 대해서만 작동합니다. 기본 인스턴스를 제거하면 확장에서 계속 기본 인스턴스를 찾아 이벤트 로그 오류가 발생할 수 있습니다. 이러한 오류는 두 원본 **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
+   예, 그러나 몇 가지 고려 사항이 있습니다. 앞의 답변에서 설명한 것처럼, [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하는 기능은 기본 인스턴스에 대해서만 작동합니다. 기본 인스턴스를 제거하면 확장에서 계속 기본 인스턴스를 찾아 이벤트 로그 오류가 발생할 수 있습니다. 이러한 오류는 두 원본 **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
 
       SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
 
    기본 인스턴스를 제거하려면 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)도 제거합니다.
-   
-   >[!NOTE]
-   >SQL Server Azure 가상 머신은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)에 설명된 대로 청구됩니다. SQL Server를 제거한 경우 사용 요금은 계속 청구됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 응용 프로그램을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
 
+1. **SQL VM에서 SQL Server를 완전히 제거할 수 있나요?**
+
+   예, 그러나 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)에 설명된 대로 SQL VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 응용 프로그램을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
+   
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 
 1. **Azure VM에서 SQL Server의 새 버전을 업그레이드하려면 어떻게 합니까?**

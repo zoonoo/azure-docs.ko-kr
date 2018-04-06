@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft Docs"
-description: "Azure Resource Health를 통해 지원되는 리소스 유형"
+title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft Docs
+description: Azure Resource Health를 통해 지원되는 리소스 유형
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |실행된 검사|
 |---|
-|<ul><li>가상 컴퓨터를 호스팅하는 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 저장소 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li></ul>|
+|<ul><li>가상 머신을 호스팅하는 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 저장소 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |실행된 검사|
@@ -121,6 +121,6 @@ ms.lasthandoff: 12/11/2017
 |<ul><li>호스트 서버가 작동 중인가?</li><li>인터넷 정보 서버를 실행 중인가?</li><li>부하 분산 장치를 실행 중인가?</li><li>데이터 센터 내에서 Web App에 도달할 수 있는가?</li><li>사이트 콘텐츠를 호스팅하는 저장소 계정이 제공되는가?</li></ul>|
 
 # <a name="next-steps"></a>다음 단계
--  [Azure 서비스 상태 소개](service-health-overview.md) 및 [Azure Resource Health 소개](resource-health-overview.md)를 참조하여 자세한 내용을 확인합니다. 
+-  [Azure Service Health 대시보드 소개](service-health-overview.md) 및 [Azure Resource Health 소개](resource-health-overview.md)를 참조하여 자세한 내용을 확인합니다. 
 -  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
-- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health에 대한 경고 구성](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요. 
+- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요. 

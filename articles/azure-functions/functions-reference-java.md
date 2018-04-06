@@ -1,11 +1,11 @@
 ---
-title: "Azure Functions에 대한 Java 개발자 참조 | Microsoft Docs"
-description: "Java로 함수를 개발하는 방법을 이해합니다."
+title: Azure Functions에 대한 Java 개발자 참조 | Microsoft Docs
+description: Java로 함수를 개발하는 방법을 이해합니다.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버를 사용하지 않는 아키텍처, Java"
+keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버를 사용하지 않는 아키텍처, Java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 > [!div class="op_single_selector"]
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>환경 변수
+
+보안상의 이유로 소스 코드에서 암호 정보를 추출하는 것이 좋습니다. 그러면 실수로 다른 개발자에게 자격 증명을 제공하지 않고 소스 코드 리포지토리에 코드를 게시할 수 있습니다. Azure Functions를 로컬로 실행할 때 및 함수를 Azure에 배포할 때 모두 환경 변수를 사용하여 이 작업을 수행할 수 있습니다.
+
+로컬로 Azure Functions를 실행할 때 쉽게 환경 변수를 설정하려면 local.settings.json 파일에 이러한 변수를 추가하도록 선택할 수 있습니다. 변수가 함수 프로젝트의 루트 디렉터리에 없는 경우 새로 만듭니다. 파일은 다음과 같아야 합니다.
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+`values` 맵의 각 키/값 매핑은 런타임 시 환경 변수로 사용할 수 있고 `System.getenv("<keyname>")`(예: `System.getenv("AzureWebJobsStorage")`)를 호출하여 액세스할 수 있습니다. 추가 키/값 쌍을 추가하는 것이 좋습니다.
+
+> [!NOTE]
+> 이 방법을 사용하는 경우 파일을 커밋하지 않도록 local.settings.json을 리포지토리에 추가하여 파일을 무시하도록 합니다.
+
+이제 이러한 환경 변수에 따라 코드를 사용하면 로컬로 테스트할 때 및 Azure에 배포할 때 코드가 동등하게 작동되도록 Azure Portal에 로그인하여 함수 앱 설정에서 동일한 키/값 쌍을 설정할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+* [Visual Studio Code를 사용하여 Java Azure Functions 원격 디버그](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

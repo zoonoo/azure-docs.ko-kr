@@ -1,6 +1,6 @@
 ---
-title: "Application Gateway에 대한 액세스 로그, 성능 로그, 백 엔드 상태 및 메트릭 모니터링 | Microsoft Docs"
-description: "Application Gateway에 대한 액세스 및 성능 로그를 사용하고 관리하는 방법을 알아봅니다"
+title: Application Gateway에 대한 액세스 로그, 성능 로그, 백 엔드 상태 및 메트릭 모니터링 | Microsoft Docs
+description: Application Gateway에 대한 액세스 및 성능 로그를 사용하고 관리하는 방법을 알아봅니다
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -27,7 +27,7 @@ Azure Application Gateway를 사용하여 다음과 같은 방법으로 리소�
 
 * [백 엔드 상태](#back-end-health) - Application Gateway는 Azure Portal과 PowerShell을 통해 백 엔드 풀에 있는 서버의 상태를 모니터링하는 기능을 제공합니다. 또한 성능 진단 로그를 통해 백 엔드 풀의 상태도 확인할 수 있습니다.
 
-* [로그](#diagnostic-logs) - 로그를 사용하면 모니터링하기 위해 리소스에서 성능, 액세스 및 기타 데이터를 저장하거나 사용할 수 있습니다.
+* [로그](#diagnostic-logging) - 로그를 사용하면 모니터링하기 위해 리소스에서 성능, 액세스 및 기타 데이터를 저장하거나 사용할 수 있습니다.
 
 * [메트릭](#metrics) - Application Gateway에는 현재 메트릭이 하나만 있습니다. 이 메트릭은 응용 프로그램 게이트웨이의 처리량을 초당 바이트 수로 측정합니다.
 
@@ -109,7 +109,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 로그 저장에는 세 가지 옵션이 있습니다.
 
-* **저장소 계정** - 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
+* **Storage 계정** - 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
 * **이벤트 허브** - 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
 * **Log Analytics** - 일반적으로 응용 프로그램을 실시간 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
 
@@ -152,9 +152,9 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
    ![구성 프로세스 시작][2]
 
-4. 기존 OMS(Operations Management Suite) 작업 영역을 선택하거나 새 작업 영역을 만듭니다. 이 예제에서는 기존 작업 영역을 사용합니다.
+4. 기존 Log Analytics 작업 영역을 선택하거나 새로운 작업 영역을 만듭니다. 이 예제에서는 기존 작업 영역을 사용합니다.
 
-   ![OMS 작업 영역에 대한 옵션][3]
+   ![Log Analytics 작업 영역의 옵션][3]
 
 5. 설정을 확인하고 **저장**을 클릭합니다.
 
@@ -176,7 +176,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |clientPort     | 요청에 대한 원래 포트       |
 |httpMethod     | 요청에서 사용된 HTTP 메서드       |
 |requestUri     | 받은 요청의 URI        |
-|RequestQuery     | **Server-Routed**: 요청을 보낸 백 엔드 풀 인스턴스입니다. </br> **X-AzureApplicationGateway-LOG-ID**: 요청에 사용된 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드       |
+|RequestQuery     | **Server-Routed**: 요청을 보낸 백 엔드 풀 인스턴스입니다.</br>**X-AzureApplicationGateway-LOG-ID**: 요청에 사용된 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드       |
 |UserAgent     | HTTP 요청 헤더의 사용자 에이전트        |
 |httpStatus     | Application Gateway에서 클라이언트로 반환한 HTTP 상태 코드       |
 |httpVersion     | 요청의 HTTP 버전        |
@@ -316,9 +316,21 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 ## <a name="metrics"></a>메트릭
 
-메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대한 기능입니다. Application Gateway의 경우 현재 메트릭 하나만 사용할 수 있습니다. 이 메트릭은 처리량이며 포털에서 볼 수 있습니다. 응용 프로그램 게이트웨이를 찾아 **메트릭**을 클릭합니다. 값을 보려면 **사용 가능한 메트릭** 섹션에서 처리량을 선택합니다. 다음 이미지에서는 여러 시간 범위의 데이터를 표시하는 데 사용할 수 있는 필터가 있는 예를 볼 수 있습니다.
+메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대한 기능입니다. Application Gateway에는 다음 메트릭이 지원됩니다.
 
-![필터가 있는 메트릭 보기][5]
+- 현재 연결
+- 실패한 요청
+- 정상 호스트 수
+- 응답 상태
+- 처리량
+- 총 요청 수
+- 비정상 호스트 수
+
+응용 프로그램 게이트웨이를 찾아 **모니터링** 아래에서 **메트릭**을 클릭합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
+
+다음 이미지에서는 최근 30분 동안 표시된 세 가지 메트릭을 포함한 예제가 표시됩니다.
+
+[![](media/application-gateway-diagnostics/figure5.png "메트릭 보기")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 현재 지원되는 메트릭 목록을 보려면 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)을 참조하세요.
 

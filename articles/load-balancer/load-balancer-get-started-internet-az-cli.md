@@ -4,7 +4,7 @@ description: Azure CLI를 사용하여 영역 중복 공용 IP 주소 프런트 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a430f5c6349741e5d04626158dc89d42169a15b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Azure CLI를 사용하여 영역 중복 프런트 엔드로 공용 부하 분산 장치 표준 만들기
 
@@ -27,19 +27,14 @@ ms.lasthandoff: 03/09/2018
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>가용성 영역 등록, 부하 분산 장치 표준 및 공용 IP 표준 미리 보기
+## <a name="register-for-availability-zones-preview"></a>가용성 영역 미리 보기에 등록
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.17 이상을 실행해야 합니다.  버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
->[!NOTE]
-[부하 분산 장치 표준 SKU](https://aka.ms/azureloadbalancerstandard)는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다. 
-
 > [!NOTE]
 > 가용성 영역은 미리 보기 상태이며 개발 및 테스트 시나리오에 대한 준비를 마쳤습니다. Azure 리소스, 지역 및 VM 크기 제품군을 선택하는 데 지원을 사용할 수 있습니다. 시작하는 방법에 대한 자세한 내용 및 가용성 영역을 사용해 볼 수 있는 Azure 리소스, 지역 및 VM 크기 제품군은 [가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조하세요. 지원을 위해 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones)에 연결하거나 [Azure 지원 티켓을 열](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수 있습니다.  
-
-부하 분산 장치의 프런트 엔드 공용 IP 주소에 대해 영역 또는 영역 중복 옵션을 선택하기 전에 먼저 [가용성 영역 미리 보기 등록](https://docs.microsoft.com/azure/availability-zones/az-overview)의 단계를 완료해야 합니다.
 
 최신 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치했고 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 

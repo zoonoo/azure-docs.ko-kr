@@ -1,8 +1,8 @@
 ---
-title: "휴대폰용 Microsoft Authenticator 앱 | Microsoft Docs"
-description: "최신 버전의 Azure Authenticator로 업그레이드하는 방법에 알아봅니다."
+title: 휴대폰용 Microsoft Authenticator 앱 | Microsoft Docs
+description: 최신 버전의 Azure Authenticator로 업그레이드하는 방법에 알아봅니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba

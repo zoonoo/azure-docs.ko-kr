@@ -132,9 +132,24 @@
       tocHref: '/azure/#pivot=products&panel=ai'
       topicHref: '/azure/#pivot=products&panel=ai'
       items:
+        - name: Bing Autosuggest
+          tocHref: /azure/cognitive-services/Bing-Autosuggest/
+          topicHref: /azure/cognitive-services/Bing-Autosuggest/
         - name: Bing 사용자 지정 검색
           tocHref: /azure/cognitive-services/bing-custom-search/
           topicHref: /azure/cognitive-services/bing-custom-search/
+        - name: Bing Entity Search
+          tocHref: /azure/cognitive-services/bing-entities-search/
+          topicHref: /azure/cognitive-services/bing-entities-search/
+        - name: Bing 이미지 검색
+          tocHref: /azure/cognitive-services/bing-image-search/
+          topicHref: /azure/cognitive-services/bing-image-search/
+        - name: Bing 뉴스 검색
+          tocHref: /azure/cognitive-services/bing-news-search/
+          topicHref: /azure/cognitive-services/bing-news-search/
+        - name: Bing 비디오 검색
+          tocHref: /azure/cognitive-services/Bing-Video-Search/
+          topicHref: /azure/cognitive-services/Bing-Video-Search/
         - name: Bing 웹 검색
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
@@ -144,27 +159,36 @@
         - name: Computer Vision
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
+        - name: 사용자 지정 의사 결정 서비스
+          tocHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview/
+          topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview/
         - name: Custom Speech Service
           tocHref: /azure/cognitive-services/custom-speech-service/
           topicHref: /azure/cognitive-services/custom-speech-service/
         - name: 사용자 지정 시각 서비스
           tocHref: /azure/cognitive-services/custom-vision-service/
           topicHref: /azure/cognitive-services/custom-vision-service/
+        - name: Emotion
+          tocHref: /azure/cognitive-services/emotion/home/
+          topicHref: /azure/cognitive-services/emotion/home/
         - name: Face
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
         - name: 언어 이해(LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
+        - name: QnA Maker
+          tocHref: /azure/cognitive-services/qnamaker/home/
+          topicHref: /azure/cognitive-services/qnamaker/home/
         - name: 텍스트 분석
           tocHref: /azure/cognitive-services/text-analytics/
-          topicHref: /azure/cognitive-services/text-analytics/overview
+          topicHref: /azure/cognitive-services/text-analytics/
         - name: 비디오 인덱서
-          tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
-          topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+          tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview/
+          topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview/
         - name: Content Moderator
-          tocHref: /azure/cognitive-services/content-moderator/overview
-          topicHref: /azure/cognitive-services/content-moderator/overview
+          tocHref: /azure/cognitive-services/content-moderator/overview/
+          topicHref: /azure/cognitive-services/content-moderator/overview/
     - name: 커넥터
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
@@ -193,8 +217,7 @@
     - name: Data Factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: |
-        Data Lake Analytics
+    - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
     - name: Data Lake Store

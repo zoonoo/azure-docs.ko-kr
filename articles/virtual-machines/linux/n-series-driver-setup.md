@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d97afd2b5dccca64db2df7cb0d4f110987642cfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
-Linux를 실행하는 Azure N 시리즈 VM의 GPU 기능을 이용하려면 지원되는 NVIDIA 그래픽 드라이버를 설치합니다. 이 문서에서는 N 시리즈 VM을 배포한 후의 드라이버 설치 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 설치 정보도 사용할 수 있습니다.
+Linux를 실행하는 Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA 그래픽 드라이버를 설치해야 합니다. 이 문서에서는 N 시리즈 VM을 배포한 후의 드라이버 설치 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 설치 정보도 사용할 수 있습니다.
 
 N 시리즈 VM 사양, 저장소 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
@@ -32,15 +32,12 @@ N 시리즈 VM 사양, 저장소 용량 및 디스크 세부 정보는 [GPU Linu
 
 ## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>NC, NCv2, NCv3 및 ND VM용 CUDA 드라이버 설치
 
-N 시리즈 VM의 NVIDIA CUDA 도구 키트에서 NVIDIA 드라이버를 설치하는 단계는 다음과 같습니다. 
+N 시리즈 VM의 NVIDIA CUDA 도구 키트에서 CUDA 드라이버를 설치하는 단계는 다음과 같습니다. 
+
 
 경우에 따라 C 및 C++ 개발자는 GPU 가속 응용 프로그램을 빌드하기 위해 전체 도구 키트를 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)를 참조하세요.
 
-> [!NOTE]
-> 여기에 제공된 CUDA 드라이버 다운로드 링크는 게시 시점에 최신 링크였습니다. 최신 CUDA 드라이버에 대해서는 [NVIDIA](https://developer.nvidia.com/cuda-zone) 웹 사이트를 참조하세요.
->
-
-CUDA 도구 키트를 설치하려면 각 VM에 SSH 연결을 설정합니다. 시스템에 CUDA 호환 GPU가 있는지 확인하려면 다음 명령을 실행합니다.
+CUDA 드라이버를 설치하려면 각 VM에 SSH 연결을 설정합니다. 시스템에 CUDA 호환 GPU가 있는지 확인하려면 다음 명령을 실행합니다.
 
 ```bash
 lspci | grep -i NVIDIA
@@ -162,16 +159,13 @@ GPU 장치 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이�
 
 ### <a name="distributions"></a>배포
 
-N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지에서 RDMA 지원 N 시리즈 VM을 배포합니다.
+N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 중 하나에서 RDMA 지원 N 시리즈 VM을 배포합니다.
   
 * **Ubuntu 16.04 LTS** - Intel MPI를 다운로드하도록 VM에서 RDMA 드라이버를 구성하고 Intel에 등록합니다.
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> CentOS 기반 HPC 이미지는 현재, N 시리즈 VM의 RDMA 연결에 대해 권장되지 않습니다. RDMA는 NVIDIA GPU를 지원하는 최신 CentOS 7.4 커널에서 지원되지 않습니다.
-> 
-
+* **CentOS 기반 7.4 HPC** - RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
 
 ## <a name="install-grid-drivers-for-nv-series-vms"></a>NV 시리즈 VM용 GRID 드라이버 설치
 
@@ -321,10 +315,10 @@ EndSection
  
 또한 `"Screen"` 섹션을 업데이트하여 이 장치를 사용합니다.
  
-실행하여 BusID를 찾을 수 있음
+실행하여 소수점 BusID를 찾을 수 있음
 
 ```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
 BusID는 VM이 다시 할당되거나 다시 부팅될 때를 변경할 수 있습니다. 따라서 스크립트를 사용하여 VM이 다시 부팅될 때 X11 구성에서 BusID를 업데이트할 수도 있습니다. 예: 

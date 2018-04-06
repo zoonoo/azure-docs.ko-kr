@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2167754d832eb9be3add9875a8189780e1785988
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2748b078586c27a7625c8e48172048d7a574a4d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>빠른 시작: AKS(Azure Container Service) 클러스터 배포
 
@@ -29,7 +29,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="enabling-aks-preview"></a>AKS 미리 보기 사용
 
-`az provider register` 명령을 사용하여 필요한 Azure 서비스 공급자를 사용하도록 설정되어 있는지 확인합니다. 
+`az provider register` 명령을 사용하여 필요한 Azure 서비스 공급자를 사용하도록 설정되어 있는지 확인합니다.
 
 ```azurecli-interactive
 az provider register -n Microsoft.Network
@@ -236,7 +236,7 @@ az group delete --name myResourceGroup --yes --no-wait
 AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [ASK 자습서][aks-tutorial]:
+> [AKS 자습서][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -250,7 +250,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

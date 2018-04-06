@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Packager를 사용하여 정적 패키징 작업 수행 | Microsoft Docs"
-description: "이 토픽에서는 Azure Media Packager를 사용하여 수행되는 다양한 작업을 보여 줍니다."
+title: Azure Media Packager를 사용하여 정적 패키징 작업 수행 | Microsoft Docs
+description: 이 토픽에서는 Azure Media Packager를 사용하여 수행되는 다양한 작업을 보여 줍니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services
 ms.workload: media
@@ -707,7 +707,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
 > [!NOTE]
 > 콘텐츠를 HLS로 변환하려면 먼저 콘텐츠를 부드러운 스트리밍으로 변환/인코딩해야 합니다.
 > 또한 AES로 암호화된 HLS의 경우 MediaPackager_SmoothToHLS.xml 파일의 다음 속성을 설정합니다. 암호화 속성을 true로 설정하고 키 값을 설정하고 keyuri 값을 인증/권한 부여 서버를 가리키도록 합니다.
-> Media Services는 키 파일을 만들고 이를 자산 컨테이너에 배치합니다. /asset-containerguid/*.key 파일을 서버에 복사(또는 고유 키 파일 만들기)한 다음 자산 컨테이너에서 *.key 파일을 삭제합니다.
+> Media Services는 키 파일을 만들고 이를 자산 컨테이너에 배치합니다. /asset-containerguid/\*.key 파일을 서버에 복사(또는 고유 키 파일 만들기)한 다음 자산 컨테이너에서 \*.key 파일을 삭제합니다.
 > 
 > 
 

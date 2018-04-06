@@ -1,16 +1,16 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault 일시 삭제 | Microsoft Docs"
+ms.assetid: ''
+title: Azure Key Vault 일시 삭제 | Microsoft Docs
 ms.service: key-vault
 author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
@@ -67,6 +67,13 @@ Key Vault 또는 Key Vault 개체를 복구하지 않으면 보존 간격이 끝
 프록시 리소스에 대한 POST 작업을 통해 주요 자격 증명 모음을 영구 삭제, 즉 제거할 수 있으며, 특별한 권한이 필요합니다. 일반적으로 구독 소유자만 주요 자격 증명 모음을 제거할 수 있습니다. POST 작업은 해당 자격 증명 모음에 대해 즉각적이고 복구할 수 없는 삭제를 트리거합니다. 
 
 단, Azure 구독이 *삭제할 수 없음*으로 표시된 경우는 예외입니다. 이 경우 서비스는 실제 삭제만 수행할 수 있으며, 예약된 프로세스로 삭제합니다. 
+
+### <a name="billing-implications"></a>요금 청구 영향
+
+일반적으로 개체(키 자격 증명 모음 또는 암호)가 삭제된 상태인 경우 '제거' 및 '복구'라는 두 개의 작업만 가능합니다. 다른 모든 작업이 실패합니다. 따라서 개체가 있는 경우라도 어떤 작업도 수행할 수 없게 되고 사용량이 발생하지 않아 청구도 없습니다. 그러나 다음과 같은 예외가 있습니다.
+
+- '제거' 및 '복구' 작업은 일반 키 자격 증명 모음 작업에 포함됨에 따라 요금이 청구됩니다.
+- 개체가 HSM 키인 경우 키 버전이 지난 30일 안에 사용됐다면 월 요금별 키 버전당 'HSM 보호 키' 요금이 적용됩니다. 그 후 개체가 삭제된 상태이기 때문에 아무 작업도 수행할 수 없게 되고 요금도 적용되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

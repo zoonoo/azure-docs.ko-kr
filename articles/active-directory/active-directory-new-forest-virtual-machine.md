@@ -1,12 +1,12 @@
 ---
-title: "Azure 가상 네트워크에 Active Directory 포리스트 설치 | Microsoft Docs"
-description: "Azure 가상 네트워크의 VM(가상 머신)에서 새 Active Directory 포리스트를 만드는 방법이 설명된 자습서입니다."
+title: Azure 가상 네트워크에 Active Directory 포리스트 설치 | Microsoft Docs
+description: Azure 가상 네트워크의 VM(가상 머신)에서 새 Active Directory 포리스트를 만드는 방법이 설명된 자습서입니다.
 services: active-directory, virtual-network
-keywords: "active directory 가상 머신, active directory 포리스트 설치, azure active directory 비디오  "
-documentationcenter: 
+keywords: 'active directory 가상 머신, active directory 포리스트 설치, azure active directory 비디오  '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Azure 가상 네트워크에 새 Active Directory 포리스트 설치
 이 문서에서는 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)의 VM(가상 머신)에서 새 Windows Server Active Directory 환경을 만드는 방법을 보여 줍니다. 이 경우 Azure 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다.

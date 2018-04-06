@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory를 사용하여 Azure Batch 서비스 솔루션 인증 | Microsoft Docs"
-description: "Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합니다."
+title: Azure Active Directory를 사용하여 Azure Batch 서비스 솔루션 인증 | Microsoft Docs
+description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합니다.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 

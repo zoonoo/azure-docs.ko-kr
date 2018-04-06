@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>공용 피어링을 Microsoft 피어링으로 이동
 
@@ -27,8 +27,6 @@ ExpressRoute는 Azure Storage 및 Azure SQL Database와 같은 Azure PaaS 서비
 
 이 문서에서는 가동 중지 없이 공용 피어링 구성을 Microsoft 피어링으로 이동할 수 있습니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-> [!IMPORTANT]
-> Microsoft 피어링을 사용하려면 ExpressRoute 프리미엄 추가 기능이 있어야 합니다. 프리미엄 추가 기능에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md#expressroute-premium)를 참조하세요.
 
 ## <a name="before"></a>시작하기 전에
 

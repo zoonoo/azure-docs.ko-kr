@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions를 사용하여 데이터베이스 정리 작업 수행 | Microsoft Docs"
-description: "Azure Functions를 사용하여 Azure SQL Database에 연결하여 행을 주기적으로 정리하는 작업을 예약합니다."
+title: Azure Functions를 사용하여 데이터베이스 정리 작업 수행 | Microsoft Docs
+description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 행을 주기적으로 정리하는 작업을 예약합니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
-이 항목에서는 Azure Functions를 사용하여 Azure SQL Database의 테이블에서 행을 정리하는 예약된 작업을 만드는 방법을 보여 줍니다. 새 C# 함수는 Azure Portal에서 미리 정의된 타이머 트리거 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
+이 항목에서는 Azure Functions를 사용하여 Azure SQL Database의 테이블에서 행을 정리하는 예약된 작업을 만드는 방법을 보여 줍니다. 새 C# 스크립트 함수는 Azure Portal에서 미리 정의된 타이머 트리거 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
 
 함수가 Mobile Apps 테이블에서 개별 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 처리하게 하려면 [Mobile Apps 바인딩](functions-bindings-mobile-apps.md)을 사용해야 합니다.
 
@@ -36,11 +36,11 @@ ms.lasthandoff: 11/30/2017
 
 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md)를 완료하면 만든 데이터베이스에 대한 연결 문자열을 가져와야 합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
  
 3. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 선택합니다.
 
-4. **데이터베이스 연결 문자열 표시**를 선택하고 **ADO.NET** 연결 문자열 전체를 복사합니다.
+4. **데이터베이스 연결 문자열 표시**를 선택하고 **ADO.NET** 연결 문자열 전체를 복사합니다. 
 
     ![ADO.NET 연결 문자열을 복사합니다.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -64,20 +64,22 @@ ms.lasthandoff: 11/30/2017
     | **값** | 복사한 문자열  | 이전 섹션에서 복사한 연결 문자열을 붙여넣고 `{your_username}` 및 `{your_password}` 자리 표시자를 실제 값으로 바꿉니다. |
     | **형식** | SQL Database | 기본 SQL Database 연결을 사용합니다. |   
 
-3. **Save**를 클릭합니다.
+3. **저장**을 클릭합니다.
 
 이제 SQL Database와 연결하는 C# 함수 코드를 추가할 수 있습니다.
 
 ## <a name="update-your-function-code"></a>함수 코드 업데이트
 
-1. 함수 앱에서 타이머 트리거 함수를 선택합니다.
+1. 함수 앱의 포털에서 타이머 트리거 함수를 선택합니다.
  
-3. 기존 함수 코드의 맨 위에 다음 어셈블리 참조를 추가합니다.
+3. 기존 C# 스크립트 함수 코드의 맨 위에 다음 어셈블리 참조를 추가합니다.
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >이 예제의 코드는 포털의 C# 스크립트입니다. 미리 컴파일된 C# 함수를 로컬로 개발하는 경우 대신 로컬 프로젝트의 이러한 어셈블리에 대한 참조를 추가해야 합니다.  
 
 3. 다음 `using` 문을 함수에 추가합니다.
     ```cs

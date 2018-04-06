@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf0bfa052c8cd7589af40972fda1e1802b4d1acb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
@@ -29,9 +29,10 @@ ms.lasthandoff: 03/16/2018
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 관리 문서](hdinsight-component-versioning.md)를 참조하세요.
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>HDInsight 3.6에서 Spark 2.2의 2018/03/08 릴리스 정보
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>HDInsight 3.6에서 Spark 2.2의 2018/03/20 릴리스 정보
 
 - Spark 2.2.0은 Spark Core, SQL, ML 간 안정성을 개선하고 GA 상태에 대한 구조적 스트리밍을 제공합니다. 이제 Spark 2.2.0은 HDInsight 3.6에 제공됩니다.
+
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>HDInsight의 2017/08/01 릴리스 정보
 

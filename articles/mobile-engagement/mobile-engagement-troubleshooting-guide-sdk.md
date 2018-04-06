@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 문제 해결 가이드 - SDK"
-description: "Azure Mobile Engagement에서 SDK 통합 문제 해결"
+title: Azure Mobile Engagement 문제 해결 가이드 - SDK
+description: Azure Mobile Engagement에서 SDK 통합 문제 해결
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: de265cf1-2f88-43ef-8616-156ada5be7b6
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f617b3c3b221a38b63be6f61f7553b390cf2f7c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>SDK 통합 문제에 대한 문제 해결 가이드
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 다음은 Azure Mobile Engagement가 응용 프로그램에 통합되는 방법과 관련해서 발생할 수 있는 문제입니다.
 
 ## <a name="sdk-issues-discovered-by-a-failure-in-another-area-of-your-application"></a>응용 프로그램의 다른 영역에서 발생한 오류를 통해 검색된 SDK 문제

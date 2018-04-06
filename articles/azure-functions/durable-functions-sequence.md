@@ -1,24 +1,24 @@
 ---
-title: "지속성 함수의 함수 체이닝 - Azure"
-description: "일련의 함수를 실행하는 지속성 함수 샘플을 실행하는 방법에 대해 알아봅니다."
+title: 지속성 함수의 함수 체이닝 - Azure
+description: 일련의 함수를 실행하는 지속성 함수 샘플을 실행하는 방법에 대해 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [지속성 함수 설치](durable-functions-install.md)의 지침에 따라 샘플을 설정합니다.
+* [지속성 함수를 설치합니다](durable-functions-install.md).
 
 ## <a name="the-functions"></a>함수
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/05/2017
 * `E1_HelloSequence`: 시퀀스에서 `E1_SayHello`를 여러 번 호출하는 오케스트레이터 함수입니다. `E1_SayHello` 호출의 출력을 저장하고 결과를 기록합니다.
 * `E1_SayHello`: 문자열 앞에 "Hello"가 추가되는 작업 함수입니다.
 
-다음 섹션에서는 Azure Portal 개발에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+다음 섹션에서는 C# 스크립팅에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
  
 ## <a name="functionjson-file"></a>function.json 파일
 

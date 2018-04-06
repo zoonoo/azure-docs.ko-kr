@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 설정"
-description: "Azure Mobile Engagement를 사용하여 응용 프로그램의 전역 설정을 관리하는 방법 알아보기"
+title: Azure Mobile Engagement 사용자 인터페이스 - 설정
+description: Azure Mobile Engagement를 사용하여 응용 프로그램의 전역 설정을 관리하는 방법 알아보기
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31df9f151febcb7e5f0f2cd4a83053b3aac416a3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>응용 프로그램의 전역 설정을 관리하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 응용 프로그램에서 제공하는 **설정** 메뉴 옵션은 응용 프로그램의 플랫폼과 응용 프로그램에 대해 부여한 권한에 따라 달라집니다. 설정에는 세부 정보, 프로젝트, 네이티브 푸시, 푸시 속도, 태그(앱 정보) 및 상업적 압력 등이 있습니다. 설정 섹션의 태그(앱 정보) 메뉴 옵션은 응용 프로그램(SDK 사용) 또는 백 엔드(장치 API 사용)에서 관리할 수 있습니다. 
 
 > [!NOTE]

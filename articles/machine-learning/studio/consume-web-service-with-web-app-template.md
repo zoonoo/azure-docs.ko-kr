@@ -1,11 +1,12 @@
 ---
-title: "웹앱 템플릿을 사용한 Machine Learning 웹 서비스 사용 | Microsoft Docs"
-description: "Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다."
-keywords: "웹 서비스, 운영, REST API, 기계 학습"
+title: 웹앱 템플릿을 사용한 Machine Learning 웹 서비스 사용 | Microsoft Docs
+description: Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다.
+keywords: 웹 서비스, 운영, REST API, 기계 학습
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: raymondl
-ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 81b89a1f8a053fd3b1d0d6a0a1bcc5c67d2ba728
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용
 
@@ -77,7 +77,7 @@ RRS(요청-응답 서비스) 템플릿은 단일 결과를 가져오기 위해 �
 2. **새로 만들기**를 선택하고 **Azure ML 요청-응답 서비스 웹앱**을 선택한 후 **만들기**를 선택합니다. 
 3. **만들기** 창에서 다음을 수행합니다.
    
-   * 웹 앱에 고유한 이름을 지정합니다. 웹앱의 URL은 이 이름과 **.azurewebsites.net**으로 구성됩니다. 예를 들면 **http://carprediction.azurewebsites.net**과 같습니다.
+   * 웹 앱에 고유한 이름을 지정합니다. 웹앱의 URL은 이 이름과 **.azurewebsites.net**으로 구성됩니다. 예는 **http://carprediction.azurewebsites.net**입니다.
    * Azure 구독과 웹 서비스가 실행되는 서비스를 선택합니다.
    * **만들기**를 선택합니다.
      

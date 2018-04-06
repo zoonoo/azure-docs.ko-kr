@@ -3,7 +3,7 @@ title: Azure Functions의 Azure Event Hubs 바인딩
 description: Azure Functions에서 Azure Event Hubs 바인딩을 사용하는 방법을 이해합니다.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: wesmc
-ms.openlocfilehash: 87a7d25e1095fe1511c86dc56375c02f06f51b73
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="packages"></a>패키지
 
-Event Hubs 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub 리포지토리에 있습니다.
+Azure Functions 버전 1.x의 경우 Event Hubs 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에서 제공됩니다. Functions 2.x의 경우 [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) 패키지를 사용합니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -203,6 +203,34 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
+일괄 처리에서 이벤트를 수신하려면 *function.json* 파일에서 `cardinality`를 `many`로 설정합니다.
+
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function (context, eventHubMessages) {
+    context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
+    
+    eventHubMessages.forEach(message => {
+        context.log(`Processed message ${message}`);
+    });
+
+    context.done();
+};
+```
+
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
@@ -230,6 +258,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**name** | 해당 없음 | 함수 코드에서 이벤트 항목을 나타내는 변수의 이름입니다. | 
 |**path** |**EventHubName** | 이벤트 허브의 이름입니다. | 
 |**consumerGroup** |**ConsumerGroup** | 허브에서 이벤트를 구독하는 데 사용되는 [소비자 그룹](../event-hubs/event-hubs-features.md#event-consumers)을 설정하는 선택적 속성입니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다. | 
+|**cardinality** | 해당 없음 | JavaScript의 경우 `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략되거나 `one`로 설정한 경우 단일 메시지가 함수에 전달됩니다. | 
 |**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임스페이스](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

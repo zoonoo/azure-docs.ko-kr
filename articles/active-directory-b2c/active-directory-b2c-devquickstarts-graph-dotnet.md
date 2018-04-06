@@ -1,24 +1,21 @@
 ---
-title: "Graph API 사용 - Azure AD B2C | Microsoft Docs"
-description: "프로세스를 자동화하기 위해 응용 프로그램 ID를 사용하여 B2C 테넌트에 Graph API를 호출하는 방법입니다."
+title: Graph API 사용 - Azure AD B2C | Microsoft Docs
+description: 프로세스를 자동화하기 위해 응용 프로그램 ID를 사용하여 B2C 테넌트에 Graph API를 호출하는 방법입니다.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -48,7 +45,7 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 3. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **앱 등록**을 클릭한 다음, **추가**를 클릭합니다.
 4. 프롬프트에 따라 새 응용 프로그램을 만듭니다. 
     1. 응용 프로그램 형식에 **Web App/API**를 입력합니다.    
-    2. 이 예제와 관련이 없지만 **모든 리디렉션 URI**(예: https://B2CGraphAPI )를 제공합니다.  
+    2. 이 예제와 관련이 없는 **로그온 URL**(예: https://B2CGraphAPI))을 입력합니다.  
 5. 이제 응용 프로그램은 응용 프로그램의 목록을 표시합니다. 이를 클릭하여 **응용 프로그램 ID**(클라이언트 ID라고도 함)를 가져옵니다. 이후 섹션에서 필요하므로 복사합니다.
 6. 설정 메뉴에서 **키**를 클릭하고 새 키(클라이언트 암호라고도 함)를 추가합니다. 또한 뒤에 나오는 섹션에서 사용하기 위해 복사합니다.
 

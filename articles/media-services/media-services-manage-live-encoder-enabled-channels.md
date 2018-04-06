@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍 | Microsoft 문서"
-description: "이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 Media Services를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다."
+title: Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍 | Microsoft 문서
+description: 이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 Media Services를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
+
+> [!NOTE]
+> 2018년 5월 12일부터 라이브 채널은 RTP/MPEG-2 전송 스트림 수집 프로토콜을 더 이상 지원하지 않습니다. RTP/MPEG-2에서 RTMP 또는 조각난 MP4(부드러운 스트리밍) 수집 프로토콜로 마이그레이션하세요.
+
 ## <a name="overview"></a>개요
 AMS(Azure Media Services)에서 **채널** 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. **채널** 은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 

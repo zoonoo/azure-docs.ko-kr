@@ -1,8 +1,8 @@
 ---
-title: "Python: Azure Data Lake Store에서의 계정 관리 작업 | Microsoft Docs"
-description: "Python SDK를 사용하여 Data Lake Store 계정 관리 작업을 수행하는 방법을 알아봅니다."
+title: 'Python: Azure Data Lake Store에서의 계정 관리 작업 | Microsoft Docs'
+description: Python SDK를 사용하여 Data Lake Store 계정 관리 작업을 수행하는 방법을 알아봅니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5f060dfd061af07f220576f17110afccd01fdae5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Python을 사용한 Azure Data Lake Store의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Python SDK를 사용하여 Azure Data Lake Store에서 Data Lake Store 계정 만들기, Data Lake Store 계정 나열 등과 같은 기본 계정 관리 작업을 수행하는 방법을 알아봅니다. Python을 사용하여 Data Lake Store에서 파일 시스템 작업을 수행하는 방법에 대한 지침은 [Python을 사용한 Data Lake Store의 파일 시스템 작업](data-lake-store-data-operations-python.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 
@@ -43,7 +43,7 @@ Python SDK를 사용하여 Azure Data Lake Store에서 Data Lake Store 계정 �
 Python을 사용한 Data Lake Store 작업을 위해서는 3가지 모듈을 설치해야 합니다.
 
 * Active Directory 등 Azure 모듈을 포함하는 `azure-mgmt-resource` 모듈.
-* Azure Data Lake Store 계정 관리 작업을 포함하는 `azure-mgmt-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Store 관리 모듈 참조](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)를 참조하세요.
+* Azure Data Lake Store 계정 관리 작업을 포함하는 `azure-mgmt-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Store 관리 모듈 참조](http://azure-sdk-for-python.readthedocs.io/sample_azure-mgmt-datalake-store.html)를 참조하세요.
 * Azure Data Lake Store 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Store 파일 시스템 모듈 참조](http://azure-datalake-store.readthedocs.io/en/latest/)를 참조하세요.
 
 다음 명령을 사용하여 모듈을 설치합니다.

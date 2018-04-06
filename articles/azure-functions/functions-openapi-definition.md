@@ -1,13 +1,13 @@
 ---
-title: "함수에 대한 OpenAPI 정의 만들기 | Microsoft Docs"
-description: "다른 앱 및 서비스를 사용하도록 설정하여 Azure에서 함수를 호출할 수 있도록 하는 OpenAPI 정의를 만듭니다."
+title: 함수에 대한 OpenAPI 정의 만들기 | Microsoft Docs
+description: 다른 앱 및 서비스를 사용하도록 설정하여 Azure에서 함수를 호출할 수 있도록 하는 OpenAPI 정의를 만듭니다.
 services: functions
-keywords: "OpenAPI, Swagger, 클라우드 앱, 클라우드 서비스,"
-documentationcenter: 
+keywords: OpenAPI, Swagger, 클라우드 앱, 클라우드 서비스,
+documentationcenter: ''
 author: mgblythe
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
-ms.custom: mvc
-ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 8caea30196a7ecdd4226b18963cd8b2040dc7e35
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>함수에 대한 OpenAPI 정의 만들기
 REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](http://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
@@ -40,8 +40,6 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 
 ## <a name="create-the-function"></a>함수 만들기

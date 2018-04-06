@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
-Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Database의 새 기능으로 SQL Server 온-프레미스와 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 기본 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. 관리되는 인스턴스를 사용하면 기존 SQL Server 고객은 응용 프로그램 및 데이터베이스 변경을 최소화하고 온-프레미스 응용 프로그램을 클라우드로 이동할 수 있습니다. 뿐만 아니라 관리되는 인스턴스는 관리 오버헤드와 TCO를 대폭 줄이는 모든 PaaS 기능(자동 패치 및 버전 업데이트, 백업, 고가용성)을 유지합니다.
+Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Database의 새 기능으로 SQL Server 온-프레미스(Enterprise Edition)와 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 기본 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. 관리되는 인스턴스를 사용하면 기존 SQL Server 고객은 응용 프로그램 및 데이터베이스 변경을 최소화하고 온-프레미스 응용 프로그램을 클라우드로 이동할 수 있습니다. 뿐만 아니라 관리되는 인스턴스는 관리 오버헤드와 TCO를 대폭 줄이는 모든 PaaS 기능(자동 패치 및 버전 업데이트, 백업, 고가용성)을 유지합니다.
 
 > [!IMPORTANT]
 > 관리되는 인스턴스를 현재 사용할 수 있는 지역 목록은 [Azure SQL Database 관리되는 인스턴스를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조하세요.
@@ -34,16 +34,16 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 
 관리되는 인스턴스의 목표는 일반 공급이 시작될 때까지 단계별 릴리스 계획을 통해 최신 온-프레미스 SQL Server 버전과 거의 100% 호환되는 노출 영역 호환성을 제공하는 것입니다. 
 
-다음 표에는 SQL IaaS, Azure SQL Database 및 관리되는 인스턴스의 주요 차이점과 사용 시나리오가 설명되어 있습니다.
+다음 표에는 SQL IaaS, Azure SQL Database 및 SQL Database 관리되는 인스턴스의 주요 차이점과 사용 시나리오가 설명되어 있습니다.
 
 | | 사용 시나리오 | 
 | --- | --- | 
-|관리되는 인스턴스 |온-프레미스나 IaaS, 자체 제작 또는 ISV에서 제공하는 대량의 앱을 최소한의 마이그레이션 작업을 통해 마이그레이션하려는 고객에게는 관리되는 인스턴스를 제안합니다. Azure에서 완전 자동화 [DMS(Database Migration Service)](/sql/dma/dma-overview)를 사용하는 고객은 기본 VNET 지원을 통해 온-프레미스 SQL Server를 SQL Server 온-프레미스와 호환되고 고객의 인스턴스를 완벽하게 격리하는 관리되는 인스턴스로 이동할 수 있습니다.  Software Assurance와 함께 사용하면 Azure SQL Database 관리되는 인스턴스에서 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 기존 라이선스를 할인된 가격에 교환할 수 있습니다.  SQL Database 관리되는 인스턴스는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다. |
-|Azure SQL Database |**탄력적 풀**: 새 SaaS 다중 테넌트 응용 프로그램을 개발 중이거나 기존 온-프레미스 앱을 의도적으로 SaaS 다중 테넌트 앱으로 전환하려는 고객에게는 탄력적 풀을 제안합니다. 이 모델의 장점은 다음과 같습니다. <br><ul><li>비즈니스 모델을 라이선스 판매에서 서비스 구독 판매로 전환(ISV의 경우)</li></ul><ul><li>간편하고 완벽한 테넌트 격리</li></ul><ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul><ul><li>하드 한도에 도달하지 않고 규모 확장할 수 있는 가능성</li></ul>**단일 데이터베이스**: SaaS 다중 테넌트 이외의 새 앱을 개발 중이고 워크로드가 안정적이고 예측 가능한 고객에게는 단일 데이터베이스를 제안합니다. 이 모델의 장점은 다음과 같습니다.<ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul>  <ul><li>각 데이터베이스의 예측 가능한 성능</li></ul>|
-|SQL IaaS |운영 체제 또는 데이터베이스 서버를 사용자 지정해야 하는 고객 그리고 타사 앱을 SQL Server와 함께(같은 VM에서) 실행해야 하는 고객에게는 최적의 솔루션으로 SQL VM/IaaS를 제안합니다.|
+|SQL Database 관리되는 인스턴스 |온-프레미스나 IaaS, 자체 제작 또는 ISV에서 제공하는 대량의 앱을 최소한의 마이그레이션 작업을 통해 마이그레이션하려는 고객에게는 관리되는 인스턴스를 제안합니다. Azure에서 완전 자동화 [DMS(Database Migration Service)](/sql/dma/dma-overview)를 사용하는 고객은 기본 VNET 지원을 통해 온-프레미스 SQL Server를 SQL Server 온-프레미스와 호환되고 고객의 인스턴스를 완벽하게 격리하는 관리되는 인스턴스로 이동할 수 있습니다.  Software Assurance와 함께 사용하면 Azure SQL Database 관리되는 인스턴스에서 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 기존 라이선스를 할인된 가격에 교환할 수 있습니다.  SQL Database 관리되는 인스턴스는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다. |
+|Azure SQL Database(단일 또는 풀) |**탄력적 풀**: 새 SaaS 다중 테넌트 응용 프로그램을 개발 중이거나 기존 온-프레미스 앱을 의도적으로 SaaS 다중 테넌트 앱으로 전환하려는 고객에게는 탄력적 풀을 제안합니다. 이 모델의 장점은 다음과 같습니다. <br><ul><li>비즈니스 모델을 라이선스 판매에서 서비스 구독 판매로 전환(ISV의 경우)</li></ul><ul><li>간편하고 완벽한 테넌트 격리</li></ul><ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul><ul><li>하드 한도에 도달하지 않고 규모 확장할 수 있는 가능성</li></ul>**단일 데이터베이스**: SaaS 다중 테넌트 이외의 새 앱을 개발 중이고 워크로드가 안정적이고 예측 가능한 고객에게는 단일 데이터베이스를 제안합니다. 이 모델의 장점은 다음과 같습니다.<ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul>  <ul><li>각 데이터베이스의 예측 가능한 성능</li></ul>|
+|SQL IaaS 가상 머신|운영 체제 또는 데이터베이스 서버를 사용자 지정해야 하는 고객 그리고 타사 앱을 SQL Server와 함께(같은 VM에서) 실행해야 하는 고객에게는 최적의 솔루션으로 SQL VM/IaaS를 제안합니다.|
 |||
 
-![위치 지정](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>관리되는 인스턴스를 프로그래밍 방식으로 식별하는 방법
 
@@ -57,6 +57,9 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|<instanceName>.<dnsPrefix>.database.windows.net 형식의 전체 인스턴스 DNS 이름. 여기서 <instanceName>은 고객이 제공한 이름이고, <dnsPrefix>는 전역 DNS 이름의 고유성을 보장하기 위해 이름에서 자동으로 생성되는 부분(예: "wcus17662feb9ce98")입니다.|예: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>관리되는 인스턴스의 주요 특징 및 기능 
+
+> [!IMPORTANT]
+> 관리되는 인스턴스에는 온라인 작업, 자동 계획 수정 및 기타 엔터프라이즈 성능 향상을 비롯한 SQL Server 최신 버전의 모든 기능이 실행됩니다. 
 
 | **PaaS의 이점** | **비즈니스 연속성** |
 | --- | --- |
@@ -90,6 +93,7 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 | SQL Server 버전/빌드 | SQL Server(최신 버전 사용 가능) |
 | 최소 저장소 크기 | 32GB |
 | 최대 저장소 크기 | 8 TB |
+| 데이터베이스당 최대 저장소 | 4 TB |
 | 예상 저장소 IOPS | 데이터 파일당 500-7500 IOPS(데이터 파일에 따라 다름). [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) 보기 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
 | 데이터베이스당 로그 파일(로그) 수 | 1 | 
@@ -98,7 +102,7 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 | 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
 | 자동 소프트웨어 패치 | 예 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니요 |
+| VNet - 클래식 배포 모델 | 아니오 |
 | 포털 지원 | 예|
 |||
 
@@ -120,7 +124,7 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 
 ### <a name="auditing-for-compliance-and-security"></a>규정 준수 및 보안에 대한 감사 
 
-관리되는 인스턴스 [감사](sql-database-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 이벤트를 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. 
+[관리되는 인스턴스 감사](sql-database-managed-instance-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. 
 
 ### <a name="data-encryption-in-motion"></a>진행 중인 데이터 암호화 
 
@@ -138,7 +142,7 @@ SQL Database [동적 데이터 마스킹](/sql/relational-databases/security/dyn
 
 ### <a name="threat-detection"></a>위협 감지 
 
-[위협 감지](sql-database-threat-detection.md)는 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 감지하는 Azure SQL Database 서비스에 내장된 추가적인 보안 인텔리전스 계층을 제공하여 감사 기능을 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 위협 감지 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있으며 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.  
+[관리되는 인스턴스 위협 검색](sql-database-managed-instance-threat-detection.md)은 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 감지하는 서비스에 내장된 추가적인 보안 인텔리전스 계층을 제공하여 [관리되는 인스턴스 감사](sql-database-managed-instance-auditing.md) 기능을 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 위협 감지 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있으며 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 Multi-Factor Authentication 
 

@@ -1,11 +1,11 @@
 ---
-title: "Windows 유니버설 앱 도달률 SDK 통합"
-description: "Windows 유니버설 앱과 Azure 모바일 Engagement 도달률을 통합하는 방법"
+title: Windows 유니버설 앱 도달률 SDK 통합
+description: Windows 유니버설 앱과 Azure 모바일 Engagement 도달률을 통합하는 방법
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8472af2ac72a1976871970963851be775b19859b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Windows 유니버설 앱 도달률 SDK 통합
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이 가이드의 작업을 수행하기 전에 [Windows 유니버설 Engagement SDK 통합](mobile-engagement-windows-store-integrate-engagement.md) 에 설명된 통합 절차를 수행해야 합니다.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Windows 유니버설 프로젝트에 Engagement 도달률 SDK 포함

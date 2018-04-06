@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: 5f74e43d20b5954ae4808f82a34372d1e2190481
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Azure Function 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/08/2018
 
 활성 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azureinfo.microsoft.com/us-freetrial.html) 활성화
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/en-us/free/) 활성화
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="step-1-open-the-project-folder"></a>1단계. 프로젝트 폴더 열기

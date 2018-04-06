@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory Connect Health FAQ - Azure | Microsoft Docs
-description: "이 FAQ는 Azure AD Connect Health에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다."
+description: 이 FAQ는 Azure AD Connect Health에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -175,6 +175,9 @@ CheckForMS17-010
 
 ```
 
+**Q: PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i>가 결과에서 동기화 오류를 적게 표시하는 이유는 무엇인가요?**
+
+<i>Get-MsolDirSyncProvisioningError</i>는 DirSync 프로비전 오류를 반환합니다. 뿐만 아니라 Connect Health 포털에는 내보내기 오류와 같은 다른 동기화 오류 형식이 표시됩니다. Azure AD Connect 델타 결과와 일치합니다. [Azure AD Connect 동기화 오류](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)에 대해 자세히 알아봅니다.
 
 
 ## <a name="related-links"></a>관련 링크

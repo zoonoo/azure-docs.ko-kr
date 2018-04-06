@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: 사용자 지정 정책을 사용하는 개발자 정보 | Microsoft Docs"
-description: "사용자 지정 정책으로 Azure AD B2C를 구성 및 유지 관리하는 개발자를 위한 정보"
+title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하는 개발자 정보 | Microsoft Docs'
+description: 사용자 지정 정책으로 Azure AD B2C를 구성 및 유지 관리하는 개발자를 위한 정보
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/13/2017
-ms.author: joroja
-ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C 사용자 지정 정책 공개 미리 보기에 대한 릴리스 정보
 사용자 지정 정책 기능 집합은 현재 모든 Azure Active Directory B2C(Azure AD B2C) 고객에 대해 공개 미리 보기에서 평가용으로 제공됩니다. 이 기능 집합은 가장 복잡한 ID 솔루션을 구축하는 고급 ID 개발자를 대상으로 합니다.  
@@ -60,7 +57,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="features-by-stage-and-known-issues"></a>단계 및 알려진 문제별 기능
 사용자 지정 정책/ID 경험 프레임워크 기능은 지속적으로 빠르게 개발되고 있습니다.  다음 표는 기능/구성 요소 가용성 색인입니다.
 
-[https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)에 있는 Stack Overflow에 질문을 게시하세요.
+[https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)에서 Stack Overflow에 대한 질문을 게시하세요.
 
 
 ### <a name="identity-providers-tokens-protocols"></a>ID 공급자, 토큰, 프로토콜

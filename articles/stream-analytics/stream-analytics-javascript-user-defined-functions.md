@@ -1,24 +1,23 @@
 ---
-title: "Azure Stream Analytics JavaScript 사용자 정의 함수 | Microsoft Docs"
-description: "JavaScript 사용자 정의 함수로 고급 쿼리 역학 수행"
-keywords: "javascript, 사용자 정의 함수, udf"
+title: Azure Stream Analytics JavaScript 사용자 정의 함수 | Microsoft Docs
+description: JavaScript 사용자 정의 함수로 고급 쿼리 역학 수행
+keywords: javascript, 사용자 정의 함수, udf
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure Stream Analytics JavaScript 사용자 정의 함수
 Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합(**String**, **RegExp**, **Math**, **Array**, **Date**)을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
@@ -84,10 +83,10 @@ Azure Stream Analytics JavaScript 사용자 정의 함수는 표준인 기본 �
 
 Stream Analytics 쿼리 언어와 JavaScript가 지원하는 형식 간에는 차이가 있습니다. 이 테이블에는 둘 간의 변환 매핑 목록이 나열되어 있습니다.
 
-스트림 분석 | JavaScript
+Stream Analytics | JavaScript
 --- | ---
 bigint | Number(JavaScript에서는 정확히 최대 2^53의 정수만 표현할 수 있음)
-DateTime | Date(JavaScript에서는 밀리초만 지원)
+Datetime | Date(JavaScript에서는 밀리초만 지원)
 double | Number
 nvarchar(MAX) | 문자열
 레코드 | Object
@@ -98,11 +97,11 @@ NULL | Null
 다음은 JavaScript-Stream Analytics 변환입니다.
 
 
-JavaScript | 스트림 분석
+JavaScript | Stream Analytics
 --- | ---
 Number | Bigint(숫자를 반올림하여 long.MinValue와 long.MaxValue 사이에 있는 경우, 그렇지 않으면 double임)
-Date | DateTime
-String | nvarchar(MAX)
+Date | Datetime
+문자열 | nvarchar(MAX)
 Object | 레코드
 배열 | 배열
 Null, Undefined | NULL
@@ -144,6 +143,6 @@ FROM
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

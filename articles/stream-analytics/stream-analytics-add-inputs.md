@@ -1,12 +1,12 @@
 ---
-title: "Stream Analytics 작업에 데이터 입력 추가 | Microsoft Docs"
-description: "데이터 원본을 스트리밍 데이터 입력(Event Hubs) 또는 참조 데이터(블로그 저장소)로 Stream Analytics 작업에 연결하는 방법을 알아봅니다."
-keywords: "데이터 입력, 스트리밍 데이터"
-documentationcenter: 
+title: Stream Analytics 작업에 데이터 입력 추가 | Microsoft Docs
+description: 데이터 원본을 스트리밍 데이터 입력(Event Hubs) 또는 참조 데이터(블로그 저장소)로 Stream Analytics 작업에 연결하는 방법을 알아봅니다.
+keywords: 데이터 입력, 스트리밍 데이터
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: 
+author: jseb225
+manager: ryanw
+editor: ''
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: jeanb
+ms.openlocfilehash: 441cc2d1c6d2cdc6ce4bbd14306ec8ae71c38c55
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Stream Analytics 작업에 스트리밍 데이터 입력 또는 참조 데이터 추가
 Blob 저장소에서 참조 데이터 또는 Event Hubs에서 데이터 입력을 스트리밍하면서 데이터 소스를 Stream Analytics 작업에 연결하는 방법을 배웁니다.
@@ -78,7 +78,7 @@ Stream Analytics 작업에 입력을 추가하려면
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

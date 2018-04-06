@@ -1,24 +1,24 @@
 ---
-title: "지속성 함수 확장 및 샘플 설치 - Azure"
-description: "Azure Functions, 포털 개발 또는 Visual Studio 개발을 위한 지속성 함수 확장을 설치하는 방법에 대해 알아봅니다."
+title: 지속성 함수 확장 및 샘플 설치 - Azure
+description: Azure Functions, 포털 개발 또는 Visual Studio 개발을 위한 지속성 함수 확장을 설치하는 방법에 대해 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
@@ -77,12 +77,17 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 3. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Azure Storage 에뮬레이터를 실행하거나 *local.appsettings.json* 파일을 실제 Azure Storage 연결 문자열로 업데이트합니다.
-3. Visual Studio Code에서 프로젝트를 엽니다. 
-5. 샘플을 실행하는 방법에 대한 지침은 [함수 체이닝 - Hello 시퀀스 샘플](durable-functions-sequence.md)로 시작하세요. 샘플을 로컬로 실행하거나 Azure에 게시할 수 있습니다.
-6. 명령 프롬프트/터미널에서 다음 명령을 실행하여 프로젝트를 시작합니다.
+4. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Twilio Extension을 설치합니다.
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Azure Storage 에뮬레이터를 실행하거나 *local.appsettings.json* 파일을 실제 Azure Storage 연결 문자열로 업데이트합니다.
+6. Visual Studio Code에서 프로젝트를 엽니다. 
+7. 샘플을 실행하는 방법에 대한 지침은 [함수 체이닝 - Hello 시퀀스 샘플](durable-functions-sequence.md)로 시작하세요. 샘플을 로컬로 실행하거나 Azure에 게시할 수 있습니다.
+8. 명령 프롬프트/터미널에서 다음 명령을 실행하여 프로젝트를 시작합니다.
     ```bash
     func host start
     ```

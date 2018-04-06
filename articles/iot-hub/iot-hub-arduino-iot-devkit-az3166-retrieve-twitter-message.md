@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: d9d03d35aa5d78d83e0f195c804cfe09fece3c07
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색!
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/09/2018
 
 활성 Azure 구독. 아직 구독이 없으면 다음 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azureinfo.microsoft.com/us-freetrial.html) 활성화
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/en-us/free/) 활성화
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="open-the-project-folder"></a>프로젝트 폴더 열기

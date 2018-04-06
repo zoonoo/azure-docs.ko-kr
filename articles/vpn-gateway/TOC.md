@@ -6,9 +6,10 @@
 ## [구독 및 서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # 시작
-## [경로 기반 VPN 게이트웨이 만들기 - Azure Portal](create-routebased-vpn-gateway-portal.md)
-## [경로 기반 VPN 게이트웨이 만들기 - PowerShell](create-routebased-vpn-gateway-powershell.md)
-## [경로 기반 VPN Gateway 만들기 - CLI](create-routebased-vpn-gateway-cli.md)
+## 경로 기반 VPN Gateway 만들기
+### [Azure Portal](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
 # 개념
 ## [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)
@@ -87,13 +88,16 @@
 ### [샘플: Cisco ASA 장치(IKEv2/BGP 아님)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [클래식에서 Resource Manager로 마이그레이션](vpn-gateway-classic-resource-manager-migration.md)
 ## [문제 해결](vpn-gateway-troubleshoot.md)
-### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 ### [커뮤니티에서 제안한 VPN 또는 방화벽 장치 설정](vpn-gateway-third-party-settings.md)
-### [지점 및 사이트 간 연결 문제](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-#### [지점 및 사이트 간 연결 문제 - Mac OS X VPN 클라이언트](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### [사이트 간 연결 문제](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [사이트 간 연결이 일시적으로 끊김](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [VNet 또는 VPN 연결 구성 및 유효성 검사](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
+### 지점 및 사이트 간 연결 문제
+#### [지점 및 사이트 간 연결 문제](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [지점 및 사이트 간 연결 문제 - Mac OS X VPN 클라이언트](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### 사이트 및 사이트 간 연결 문제
+#### [사이트 간 연결 문제](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [사이트 간 연결이 일시적으로 끊김](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -114,7 +118,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking)
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

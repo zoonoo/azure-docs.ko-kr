@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage에서 데이터 복제 | Microsoft Docs"
-description: "Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다."
+title: Azure Storage에서 데이터 복제 | Microsoft Docs
+description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage 복제
 
@@ -30,14 +30,14 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 * [GRS(지역 중복 저장소)](#geo-redundant-storage)
 * [RA-GRS(읽기 액세스 지역 중복 저장소)](#read-access-geo-redundant-storage)
 
-RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정을 만드는 경우 기본 옵션입니다.
+LRS(로컬 중복 저장소)는 저장소 계정을 만드는 경우 기본 옵션입니다.
 
 다음 테이블에는 LRS, ZRS, GRS 및 RA-GRS 사이의 차이점에 대한 간략한 개요가 제공됩니다. 이 문서의 후속 섹션에는 복제의 각 유형이 자세히 설명되어 있습니다.
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 데이터가 여러 데이터 센터에 걸쳐 복제됩니다. |아니요 |예 |예 |예 |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |예 |
+| 데이터가 여러 데이터 센터에 걸쳐 복제됩니다. |아니오 |예 |예 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니오 |아니오 |아니오 |예 |
 | 지정된 연도 동안 ___의 개체 내구성을 제공하도록 설계되었습니다. |최소 99.999999999%|최소 99.9999999999%|최소 99.99999999999999%|최소 99.99999999999999%|
 
 다른 이중화 옵션에 대한 가격 정보를 보려면 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.

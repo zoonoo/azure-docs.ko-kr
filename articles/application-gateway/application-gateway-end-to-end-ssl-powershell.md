@@ -1,24 +1,22 @@
 ---
-title: "Azure Application Gateway에서 종단 간 SSL 구성 | Microsoft Docs"
-description: "이 문서에서는 PowerShell을 사용하여 Azure Application Gateway로 종단 간 SSL을 구성하는 방법에 대해 설명합니다."
+title: Azure Application Gateway에서 종단 간 SSL 구성
+description: 이 문서에서는 PowerShell을 사용하여 Azure Application Gateway로 종단 간 SSL을 구성하는 방법에 대해 설명합니다.
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/27/2018
+ms.author: victorh
+ms.openlocfilehash: 2de7086d7c26d5a655ad5998678f392126ea7e1d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 종단 간 SSL 구성
 
@@ -160,7 +158,8 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    5. Application Gateway에 대한 인증서를 구성합니다. 이 인증서는 Application Gateway의 트래픽을 다시 암호화하고 암호 해독하는 데 사용됩니다.
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+   $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
 
    > [!NOTE]

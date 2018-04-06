@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(Resource Manager) | Microsoft Docs"
-description: "Azure Key Vault와 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure Key Vault 통합을 Resource Manager로 만든 SQL Server 가상 머신과 함께 사용하는 방법에 대해 설명합니다."
+title: Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(Resource Manager) | Microsoft Docs
+description: Azure Key Vault와 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure Key Vault 통합을 Resource Manager로 만든 SQL Server 가상 머신과 함께 사용하는 방법에 대해 설명합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/23/2017
 ms.author: jroth
-ms.openlocfilehash: 2d24bb839368b4f7fff61f0696c79a00c03af917
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
 > [!div class="op_single_selector"]
@@ -55,6 +55,11 @@ Resource Manager와 함께 새 SQL Server 가상 머신을 프로비전하는 �
 ![기존 VM에 대한 SQL AKV 통합 구성](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
 
 완료되면 **SQL Server 구성** 블레이드 아래쪽의 **확인** 단추를 클릭하여 변경 내용을 저장합니다.
+
+> [!NOTE]
+> 여기서 만든 자격 증명 이름은 나중에 SQL 로그인에 매핑됩니다. 이렇게 하면 SQL 로그인이 키 자격 증명 모음에 액세스할 수 있습다. 
+>
+>
 
 > [!NOTE]
 > 또한 템플릿을 사용하여 AKV 통합을 구성할 수 있습니다. 자세한 내용은 [Azure Key Vault 통합을 위한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update)을 참조하세요.

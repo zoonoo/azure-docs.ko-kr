@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 지리적 재해 복구 | Microsoft Docs"
-description: "지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Service Bus에서 재해 복구를 수행하는 방법"
+title: Azure Service Bus 지리적 재해 복구 | Microsoft Docs
+description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Service Bus에서 재해 복구를 수행하는 방법
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus 지역 재해 복구
 
@@ -86,12 +86,13 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 ## <a name="samples"></a>샘플
 
-[GitHub의 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)에서는 장애 조치를 설정하고 시작하는 방법을 보여줍니다. 이러한 예제는 다음과 같은 개념을 보여줍니다.
+[GitHub의 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/)에서는 장애 조치를 설정하고 시작하는 방법을 보여줍니다. 이러한 예제는 다음과 같은 개념을 보여줍니다.
 
-- Service Bus에서 Azure Resource Manager를 사용하는 데 필요한 Azure Active Directory의 설정 
-- 샘플 코드를 실행하는 데 필요한 단계 
-- 현재 기본 네임스페이스에서 전달 및 수신 
+- 지역 재해 복구를 설정하고 사용하기 위해 Service Bus에서 Azure Resource Manager를 사용하는 데 필요한 Azure Active Directory의 .Net 샘플 및 설정
+- 샘플 코드를 실행하는 데 필요한 단계
 - 기존 네임스페이스를 별칭으로 사용하는 방법
+- PowerShell 또는 CLI를 통해 지역 재해 복구를 사용하는 단계
+- 별칭을 사용하여 현재 기본 또는 보조 네임스페이스에서 [전달 및 수신](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1)
 
 ## <a name="considerations"></a>고려 사항
 

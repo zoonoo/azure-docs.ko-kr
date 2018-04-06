@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -35,6 +35,8 @@ ms.lasthandoff: 03/23/2018
 * IoT Edge 장치를 연결할 IoT Hub용 IoT Hub 연결 문자열
 * Azure Machine Learning 계정입니다. 계정을 만들려면 [Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
 * 컴퓨터에 있는 Azure ML용 모듈 관리입니다. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration)의 지침을 따릅니다.
+
+Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다. 
 
 ## <a name="create-the-azure-ml-container"></a>Azure ML 컨테이너 만들기
 이 섹션에서는 학습된 모델 파일을 다운로드하고 이를 Azure ML 컨테이너로 변환합니다.  

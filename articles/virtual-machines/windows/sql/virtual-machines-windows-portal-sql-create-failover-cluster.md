@@ -1,6 +1,6 @@
 ---
 title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
-description: "이 문서에서는 Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스를 만드는 방법을 설명합니다."
+description: 이 문서에서는 Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스를 만드는 방법을 설명합니다.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -46,6 +46,18 @@ ms.lasthandoff: 02/21/2018
 S2D에 대한 자세한 내용은 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 참조하세요.
 
 S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 지원합니다. 이 문서의 아키텍처는 하이퍼 수렴형입니다. 하이퍼 수렴형 인프라는 클러스터형 응용 프로그램을 호스트하는 동일한 서버에 저장소를 배치합니다. 이 아키텍처에서 저장소는 각 SQL Server FCI 노드에 있습니다.
+
+## <a name="licensing-and-pricing"></a>라이선싱 및 가격 책정
+
+Azure Virtual Machines에서 PAYG(용량제 통화 요금) 또는 BYOL(사용자 라이선스 필요) VM 이미지를 사용하여 SQL Server를 라이선싱할 수 있습니다. 선택하는 이미지의 유형은 청구 방식에 영향을 줍니다.
+
+PAYG 라이선싱을 사용하면 Azure Virtual Machines에서 SQL Server의 FCI(장애 조치 클러스터 인스턴스)는 수동 노드를 포함한 모든 FCI의 노드에 대한 요금을 부과합니다. 자세한 내용은 [SQL Server Enterprise Virtual Machines 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)을 참조하세요. 
+
+Software Assurance로 기업계약을 한 고객은 각 활성 노드에 대해 하나의 무료 수동 FCI 노드를 사용할 권리가 있습니다. Azure에서 이 이점을 활용하려면 BYOL VM 이미지를 사용한 다음, FCI의 활성 노드와 수동 노드 둘 다에 동일한 라이선스를 사용합니다. 자세한 내용은 [기업계약](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)을 참조하세요.
+
+Azure Virtual Machines의 SQL Server에 대한 PAYG와 BYOL 라이선싱을 비교하려면 [SQL VM 시작](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)을 참조하세요.
+
+SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www.microsoft.com/sql-server/sql-server-2017-pricing)을 참조하세요.
 
 ### <a name="example-azure-template"></a>예제 Azure 템플릿
 
@@ -123,7 +135,7 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
 
    SQL Server 라이선스에 대한 요금을 지불하려는 방법에 따라 올바른 이미지를 선택합니다.
 
-   - **사용 라이선스당 지불**: 이러한 이미지의 분당 비용은 SQL Server 라이선스를 포함합니다.
+   - **사용 라이선스당 지불**: 이러한 이미지의 초당 비용은 SQL Server 라이선스를 포함합니다.
       - **Windows Server Datacenter 2016의 SQL Server 2016 Enterprise**
       - **Windows Server Datacenter 2016의 SQL Server 2016 Standard**
       - **Windows Server Datacenter 2016의 SQL Server 2016 Developer**

@@ -124,7 +124,7 @@
             - name: 저장소 용량 관리
               href: azure-stack-manage-storage-shares.md
             - name: Azure 스택에 대 한 실제 저장소 용량 관리
-              href: azure-stack-manage-storage-physical-capacity.md
+              href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: 하드웨어 교체
           items:
             - name: 노드 작업

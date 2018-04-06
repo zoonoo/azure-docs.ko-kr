@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights에서 Java 웹앱에 대한 성능 모니터링 | Microsoft Docs"
-description: "Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링"
+title: Azure Application Insights에서 Java 웹앱에 대한 성능 모니터링 | Microsoft Docs
+description: Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>종속성, 예외 및 Java 웹앱에서의 실행 시간을 모니터링합니다.
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>종속성, 예외 포착 및 Java 웹앱에서의 메서드 실행 시간 모니터링
 
 
 [Application Insights로 Java 웹앱을 계측][java]한 경우, Java Agent를 사용하여 코드의 변경 없이 보다 심층적인 정보를 얻을 수 있습니다.
 
 * **종속성:** 응용 프로그램이 다음을 포함한 다른 구성 요소에 수행하는 호출에 대한 데이터:
-  * **REST 호출** .
-  * **Redis** 호출. 호출 시간이 10초보다 길면, 에이전트도 호출 인수를 가져옵니다.
-  * **[JDBC 호출](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB 또는 Apache Derby DB "executeBatch"호출이 지원됩니다. MySQL 및 PostgreSQL의 경우 호출 시간이 10초보다 길면 에이전트가 쿼리 계획을 보고합니다.
-* **예외 포착:** 코드에서 처리하는 예외에 대한 데이터입니다.
-* **메서드 실행 시간:** 특정 메서드를 실행하는 데 걸리는 시간에 대한 데이터입니다.
+  * HttpClient, OkHttp 및 RestTemplate(Spring)을 통해 만든 **REST 호출**이 캡처됩니다.
+  * Jedis 클라이언트를 통한 **Redis** 호출이 캡처됩니다.
+  * **[JDBC 호출](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server 및 Oracle DB 명령을 자동으로 캡처합니다. MySQL의 경우 호출 시간이 10초보다 길면 에이전트가 쿼리 계획을 보고합니다.
+* **예외 포착:** 코드에서 처리하는 예외에 대한 정보입니다.
+* **메서드 실행 시간:** 특정 메서드를 실행하는 데 걸리는 시간에 대한 정보입니다.
 
 Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Application Insights Java SDK][java]를 사용하여 웹앱을 계측해야 합니다. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Java용 Application Insights 에이전트 설치
-1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](https://aka.ms/aijavasdk)합니다.
+1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)합니다. Application Insights Java SDK 코어 및 웹 패키지와 동일한 버전의 Java Agent 다운로드를 확인하십시오.
 2. 응용 프로그램 서버 시작 스크립트를 편집하여 다음 JVM을 추가합니다.
    
     `javaagent:`*에이전트 JAR 파일에 대한 전체 경로*

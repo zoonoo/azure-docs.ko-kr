@@ -1,10 +1,11 @@
 ---
-title: "2단계: Machine Learning 실험에 데이터 업로드 | Microsoft Docs"
-description: "예측 솔루션 연습 개발의 2단계: Azure 기계 학습 스튜디오로 저장된 공용 데이터를 업로드합니다."
+title: '2단계: Machine Learning 실험에 데이터 업로드 | Microsoft Docs'
+description: '예측 솔루션 연습 개발의 2단계: Azure Machine Learning Studio로 저장된 공용 데이터를 업로드합니다.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -12,18 +13,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f482b1273f83f5ae5bb4f1e64609767ee0c5fe32
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>연습 2단계: Azure 기계 학습 실험에 기존 데이터 업로드
-[Azure 기계 학습에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>연습 2단계: Azure Machine Learning 실험에 기존 데이터 업로드
+[Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 
-1. [기계 학습 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
+1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
 2. **기존 데이터 업로드**
 3. [새 실험 만들기](walkthrough-3-create-new-experiment.md)
 4. [모델 학습 및 평가](walkthrough-4-train-and-evaluate-models.md)
@@ -51,7 +50,7 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 
 
 ## <a name="convert-the-dataset-format"></a>데이터 집합 형식 변환
-원래 데이터 집합은 공백으로 구분된 형식을 사용합니다. 기계 학습 스튜디오는 CSV(쉼표로 구분된 값) 파일에서 더 원활하게 작동하므로 공백을 쉼표로 바꿔서 데이터 집합을 변환합니다.  
+원래 데이터 집합은 공백으로 구분된 형식을 사용합니다. Machine Learning Studio는 CSV(쉼표로 구분된 값) 파일에서 더 원활하게 작동하므로 공백을 쉼표로 바꿔서 데이터 집합을 변환합니다.  
 
 여러 가지 방법으로 이 데이터를 변환할 수 있습니다. 한 가지 방법은 다음 Windows PowerShell 명령을 사용하는 것입니다.   
 
@@ -63,10 +62,10 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 
 이 두 방법에서는 모두 실험에서 사용할 수 있는 쉼표로 구분된 데이터 버전인 **german.csv** 파일을 만들었습니다.
 
-## <a name="upload-the-dataset-to-machine-learning-studio"></a>기계 학습 스튜디오에 데이터 집합 업로드
-데이터를 CSV 형식으로 변환한 후 기계 학습 스튜디오에 업로드해야 합니다. 
+## <a name="upload-the-dataset-to-machine-learning-studio"></a>Machine Learning Studio에 데이터 집합 업로드
+데이터를 CSV 형식으로 변환한 후 Machine Learning Studio에 업로드해야 합니다. 
 
-1. Machine Learning Studio 홈 페이지를 엽니다([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Machine Learning Studio 홈페이지([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 
 
 2. 창의 왼쪽 상단 모서리에 있는 ![메뉴][1]를 클릭하고 **Azure Machine Learning**을 클릭하고 **Studio**를 선택한 다음 로그인합니다.
 

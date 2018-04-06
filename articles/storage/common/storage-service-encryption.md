@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화
 
@@ -52,7 +52,7 @@ A: Storage 서비스 암호화는 모든 기존 Resource Manager 저장소 계�
 
 **Q: Resource Manager 저장소 계정에서 데이터를 암호화하려면 어떻게 해야 하나요?**
 
-A: Storage 서비스 암호화는 기본적으로 모든 저장소 계정(클래식 및 Resource Manager)에 대해 사용되도록 설정됩니다. 그러나 기존 데이터는 암호화되지 않습니다. 기존 데이터를 암호화하려면 다른 이름이나 다른 컨테이너에 복사한 후 암호화되지 않은 버전을 제거할 수 있습니다. 
+A: Storage 서비스 암호화는 기본적으로 모든 저장소 계정(클래식 및 Resource Manager)에 대해 활성화되고, 암호화가 활성화되기 전에 만들어진 저장소 계정의 모든 기존 파일은 배경 암호화 프로세스에 의해 소급되어 암호화됩니다.
 
 **Q: Azure PowerShell 및 Azure CLI를 사용하여 Storage 서비스 암호화가 사용되도록 설정된 저장소 계정을 만들 수 있나요?**
 

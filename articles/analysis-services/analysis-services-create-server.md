@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 Analysis Services 서버 만들기 | Microsoft Docs"
-description: "Azure에서 Analysis Services 서버 인스턴스를 만드는 방법을 알아봅니다."
+title: Azure에서 Analysis Services 서버 만들기 | Microsoft Docs
+description: Azure에서 Analysis Services 서버 인스턴스를 만드는 방법을 알아봅니다.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
 ms.service: analysis-services
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9a80d7e6e9f24ccc730fe747fa0a71b91f22b7e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Azure Portal에서 Azure Analysis Services 서버 만들기
 이 문서에서는 Azure 구독에서 Analysis Services 서버 리소스를 만드는 과정을 안내합니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/21/2018
 > 
 > 
 
-## <a name="to-create-a-server-in-azure-portal"></a>Azure Portal에서 서버를 만들려면
+## <a name="to-create-a-server-in-the-azure-portal"></a>Azure Portal에서 서버를 만들려면
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 2. **+새로 만들기** > **데이터 + 분석** > **Analysis Services**를 클릭합니다.
 3. **Analysis Services** 블레이드에서 필수 필드를 입력한 다음 **만들기**를 누릅니다.

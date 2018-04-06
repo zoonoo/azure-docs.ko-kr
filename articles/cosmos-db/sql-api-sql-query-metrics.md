@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0ba9934afef6cb4d546e315c271cc19b6d3fa02
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -138,7 +138,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 | `x-ms-documentdb-query-metrics` | 실행에 대한 쿼리 통계입니다. 다양한 쿼리 실행 단계에서 소요한 시간에 대한 통계 정보를 포함하는 구분된 문자열입니다. `x-ms-documentdb-populatequerymetrics`가 `True`로 설정되면 반환됩니다. | 
 | `x-ms-request-charge` | 쿼리에서 사용한 [요청 단위](request-units.md) 수입니다. | 
 
-REST API 요청 헤더 및 옵션에 대한 자세한 내용은 [Querying resources using the REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api)(REST API를 사용하여 리소스 쿼리)를 참조하세요.
+REST API 요청 헤더 및 옵션에 대한 자세한 내용은 [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api)(REST API를 사용하여 리소스 쿼리)를 참조하세요.
 
 ## <a name="best-practices-for-query-performance"></a>쿼리 성능에 대한 모범 사례
 Azure Cosmos DB 쿼리 성능에 영향을 주는 가장 일반적인 요소는 다음과 같습니다. 이 문서에서 이러한 각 항목에 대해 자세히 살펴보겠습니다.

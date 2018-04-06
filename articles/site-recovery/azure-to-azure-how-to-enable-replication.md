@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery의 Azure VM에 대한 복제 구성 | Microsoft Docs"
-description: "이 문서에서는 Site Recovery를 사용하여 한 Azure 지역에서 다른 Azure 지역으로 Azure VM에 대한 복제를 구성하는 방법을 설명합니다."
+title: Azure Site Recovery의 Azure VM에 대한 복제 구성 | Microsoft Docs
+description: 이 문서에서는 Site Recovery를 사용하여 한 Azure 지역에서 다른 Azure 지역으로 Azure VM에 대한 복제를 구성하는 방법을 설명합니다.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 39d81ed6408e5f2c434a4fbaa681efc4c0b19a63
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5947242295a9c57b1c73e202c061d222cd0842f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 Azure 가상 머신 복제
 
@@ -50,7 +50,8 @@ ms.lasthandoff: 03/12/2018
     - **대상 위치**: 원본 가상 머신 데이터가 복제될 위치입니다. 선택한 컴퓨터 위치에 따라 Site Recovery에서 적합한 대상 지역 목록을 제공합니다. 대상 위치를 Recovery Services 자격 증명 모음 위치와 동일하게 유지하는 것이 좋습니다.
     - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속하게 될 리소스 그룹입니다. 기본적으로 Azure Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. Azure Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 해당 리소스 그룹이 재사용 됩니다. 아래 섹션처럼 리소스 그룹을 사용자 지정할 수도 있습니다.
     - **대상 Virtual Network**: 기본적으로 Site Recovery는 이름에 "asr" 접미사가 있는 대상 지역에 새 가상 네트워크를 만듭니다. 이 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호를 위해 사용됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
-    - **대상 저장소 계정**: 기본적으로 Site Recovery는 원본 VM 저장소 구성을 모방하는 새 대상 저장소 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용됩니다.
+    - **대상 저장소 계정(원본 VM이 관리 디스크를 사용하는 경우)**: 기본적으로 Site Recovery는 원본 VM 저장소 구성을 모방하는 새 대상 저장소 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용됩니다.
+    - **복제본 관리 디스크(원본 VM이 관리 디스크를 사용하는 경우)**: Site Recovery는 대상 지역에 새로운 복제본 관리 디스크를 만들어서 원본 VM의 관리 디스크와 동일한 저장소 유형(표준 또는 프리미엄)을 원본 VM의 관리 디스크로 미러링합니다.
     - **캐시 저장소 계정**: Site Recovery는 원본 지역에 캐시 저장소로 불리는 추가 저장소 계정이 필요합니다. 원본 VM에서 발생하는 모든 변경 내용이 대상 위치로 복제되기 전에 추적되고 캐시 저장소 계정으로 전송됩니다.
     - **가용성 집합**: 기본적으로 Azure Site Recovery는 이름에 "asr" 접미사가 있는 대상 지역에 새 가용성 집합을 만듭니다. Azure Site Recovery에서 만든 가용성 집합이 이미 있는 경우 해당 가용성 집합이 재사용 됩니다.
     - **복제 정책**: 복구 지점 보존 기록 및 앱 일치 스냅숏 빈도 대한 설정을 정의합니다. 기본적으로 Azure Site Recovery는 복구 지점 보존의 경우 '24시간', 앱 일치 스냅숏 빈도의 경우 '60분'인 기본 설정으로 새 복제 정책을 만듭니다.

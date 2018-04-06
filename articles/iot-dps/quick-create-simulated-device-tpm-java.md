@@ -1,22 +1,22 @@
 ---
-title: "Java를 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs"
-description: "Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 Java 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전"
+title: Java를 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs
+description: Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 Java 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/05/2017
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 99cf221b08fc613c000dda4e5cc4855634091f55
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b97ed35750116591a919444b810faae8677ac136
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service용 Java 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 
@@ -26,6 +26,7 @@ ms.lasthandoff: 03/05/2018
 
 계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>환경 준비 
 
@@ -66,7 +67,7 @@ ms.lasthandoff: 03/05/2018
 
     ![DPS 정보](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_(프로비전 서비스 전역 엔드포인트)를 포함하도록 `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java`를 편집합니다.  
+1. 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_ (프로비전 서비스 전역 엔드포인트)를 포함하도록 `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` 를 편집합니다.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";

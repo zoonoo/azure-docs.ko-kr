@@ -1,24 +1,24 @@
 ---
-title: "Azure AD의 OAuth 2.0 인증 코드 흐름 이해"
-description: "이 문서에서는 Azure Active Directory 및 OAuth 2.0을 사용하여 테넌트에서 웹 응용 프로그램 및 Web API에 대한 액세스 권한을 부여하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다."
+title: Azure AD의 OAuth 2.0 인증 코드 흐름 이해
+description: 이 문서에서는 Azure Active Directory 및 OAuth 2.0을 사용하여 테넌트에서 웹 응용 프로그램 및 Web API에 대한 액세스 권한을 부여하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 03/19/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여
 Azure AD(Azure Active Directory)는 OAuth 2.0을 사용하여 사용자는 Azure AD 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다. 이 가이드는 언어 독립적이며 공개 소스 라이브러리를 사용하지 않고 HTTP 메시지를 수신하는 방법을 설명합니다.
@@ -59,6 +59,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt |선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다.<p> 유효한 값은 다음과 같습니다. <p> *로그인*: 사용자에게 재인증할지 묻는 메시지가 표시되어야 합니다. <p> *동의*: 사용자 동의가 허용되었지만 업데이트해야 합니다. 사용자에게 동의하는지 묻는 메시지가 표시되어야 합니다. <p> *admin_consent*: 관리자에게 조직의 사용자를 대신하여 동의하는지 묻는 메시지가 표시되어야 합니다. |
 | login_hint |선택 사항 |사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다.  `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다. |
 | domain_hint |선택 사항 |사용자가 로그인하는 데 사용해야 하는 테넌트 또는 도메인에 대한 힌트를 제공합니다. domain_hint의 값은 테넌트에 대해 등록된 도메인입니다. 테넌트가 온-프레미스 디렉터리로 페더레이션된 경우, AAD는 지정된 테넌트 페더레이션 서버로 리디렉션됩니다. |
+| code_challenge_method | 선택 사항    | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. `plain` 또는 `S256` 중 하나일 수 있습니다.  제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다.  Azure AAD v2.0은 `plain` 및 `S256`을 모두 지원합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
+| code_challenge        | 선택 사항    | 네이티브 클라이언트의 PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다.  자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 
 > [!NOTE]
 > 사용자가 조직에 소속된 경우 조직 관리자는 사용자 대신 동의 또는 거부하거나 사용자가 동의하도록 허용할 수 있습니다. 사용자에게는 관리자가 허용하는 경우에만 동의하는 옵션이 제공됩니다.
@@ -138,6 +140,7 @@ grant_type=authorization_code
 | redirect_uri |필수 |`authorization_code`를 획득하는 데 사용된 동일한 `redirect_uri` 값입니다. |
 | client_secret |웹앱에 필요 |앱에 대한 앱 등록 포털에서 만든 응용 프로그램 암호입니다.  장치에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱에서는 사용하면 안 됩니다.  서버 쪽에서 `client_secret` 을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다. |
 | resource |그렇지 않으면 선택적 인증 코드 요청에 지정 된 경우 필수 |웹 API (보안 리소스)의 앱 ID URI. |
+| code_verifier | 선택 사항              | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다.  인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다.  자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요.                                                                                                                                                                                                                                                                                             |
 
 Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**을 클릭하고, 디렉터리를 클릭하고, 응용 프로그램을 클릭한 후 **구성**을 클릭합니다.
 
@@ -293,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | authorization_uri |권한 부여 서버의 URI(실제 끝점)입니다. 이 값은 검색 끝점에서 서버에 관한 자세한 정보를 가져오기 위한 조회 키로도 사용됩니다. <p><p> 클라이언트는 권한 부여 서버가 신뢰할 수 있는지 확인해야 합니다. 리소스가 Azure AD에 의해 보호되는 경우 이 값은 URL이 https://login.microsoftonline.com 또는 Azure AD가 지원하는 다른 호스트 이름으로 시작하는지 확인하기에 충분합니다. 테넌트별 리소스는 언제나 테넌트별 권한 부여 URI를 반환해야 합니다. |
 | error |[OAuth 2.0 권한 부여 프레임워크](http://tools.ietf.org/html/rfc6749)의 섹션 5.2에 정의된 오류 코드 값입니다. |
 | error_description |오류에 대한 자세한 설명입니다. 이 메시지는 최종 사용자에게 친숙한 내용이 아닙니다. |
-| resource_id |리소스의 고유 ID를 반환합니다. 클라이언트 응용 프로그램은 리소스에 대한 토큰을 요청할 때 이 ID를 `resource` 매개 변수의 값으로 사용할 수 있습니다. <p><p> 클라이언트 응용 프로그램이 이 값을 확인하는 것이 중요합니다. 그렇지 않으면 악성 서비스가 **권한 상승** 공격을 유도할 수 있습니다. <p><p> 공격을 방지하기 위해 권장되는 전략은 `resource_id`이(가) 액세스 중인 웹 API URL의 기본과 일치하는지 확인하는 것입니다. 예를 들어 https://service.contoso.com/data에 액세스하는 경우 `resource_id`은(는) htttps://service.contoso.com/이 될 수 있습니다. 클라이언트 응용 프로그램은 ID를 확인하는 신뢰할 수 있는 대체 방법이 있지 않은 한 기본 URL로 시작하지 않는 `resource_id` 를 거부해야 합니다. |
+| resource_id |리소스의 고유 ID를 반환합니다. 클라이언트 응용 프로그램은 리소스에 대한 토큰을 요청할 때 이 ID를 `resource` 매개 변수의 값으로 사용할 수 있습니다. <p><p> 클라이언트 응용 프로그램이 이 값을 확인하는 것이 중요합니다. 그렇지 않으면 악성 서비스가 **권한 상승** 공격을 유도할 수 있습니다. <p><p> 공격을 방지하기 위해 권장되는 전략은 `resource_id`이(가) 액세스 중인 웹 API URL의 기본과 일치하는지 확인하는 것입니다. 예를 들어 https://service.contoso.com/data에 액세스하는 경우 `resource_id`는 htttps://service.contoso.com/일 수 있습니다. 클라이언트 응용 프로그램은 ID를 확인하는 신뢰할 수 있는 대체 방법이 있지 않은 한 기본 URL로 시작하지 않는 `resource_id` 를 거부해야 합니다. |
 
 #### <a name="bearer-scheme-error-codes"></a>전달자 체계 오류 코드
 RFC 6750 사양은 응답에 WWW-authenticate 헤더와 전달자 체계를 사용하는 리소스에 대한 다음과 같은 오류를 정의합니다.

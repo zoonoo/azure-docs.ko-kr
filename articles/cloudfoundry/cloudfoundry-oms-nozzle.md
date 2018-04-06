@@ -1,11 +1,11 @@
 ---
-title: "Cloud Foundry 모니터링용 Azure Log Analytics Nozzle 배포 | Microsoft Docs"
-description: "Azure Log Analytics을 위한 Cloud Foundry Loggregator Nozzle 배포에 대한 단계별 지침. Nozzle을 사용하여 Cloud Foundry 시스템 상태 및 성능 메트릭을 모니터링합니다."
+title: Cloud Foundry 모니터링용 Azure Log Analytics Nozzle 배포 | Microsoft Docs
+description: Azure Log Analytics을 위한 Cloud Foundry Loggregator Nozzle 배포에 대한 단계별 지침. Nozzle을 사용하여 Cloud Foundry 시스템 상태 및 성능 메트릭을 모니터링합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/)(OMS)의 서비스입니다. Log Analytics를 사용하면 클라우드 및 온-프레미스 환경에서 생성되는 데이터를 수집하고 분석할 수 있습니다.
+[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)은 Azure의 서비스입니다. Log Analytics를 사용하면 클라우드 및 온-프레미스 환경에서 생성되는 데이터를 수집하고 분석할 수 있습니다.
 
 Log Analytics Nozzle(Nozzle)은 [Cloud Foundry Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) Firehose에서 Log Analytics로 메트릭을 전달하는 CF(Cloud Foundry) 구성 요소입니다. Nozzle을 사용하면 여러 배포에서 CF 시스템 상태와 성능 메트릭을 수집, 확인 및 분석할 수 있습니다.
 
-이 문서에서는 CF 환경에 Nozzle을 배포한 다음 Log Analytics OMS 콘솔에서 데이터에 액세스하는 방법에 대해 알아봅니다.
+이 문서에서는 CF 환경에 Nozzle을 배포한 다음, Log Analytics 콘솔에서 데이터에 액세스하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,9 +53,9 @@ Nozzle은 또한 Loggregator Firehose 및 클라우드 컨트롤러에 대한 �
 
 UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 있는지 확인합니다.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Azure에서 OMS 작업 영역 만들기
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure에서 Log Analytics 작업 영역 만들기
 
-수동으로 또는 템플릿을 사용하여 OMS 작업 영역을 만들 수 있습니다. Nozzle 배포를 완료한 후 미리 구성된 OMS 보기 및 경고를 로드합니다.
+수동으로 또는 템플릿을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다. Nozzle 배포를 완료한 후 미리 구성된 OMS 보기 및 경고를 로드합니다.
 
 수동으로 작업 영역을 만들려면 다음을 수행합니다.
 
@@ -70,7 +70,7 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
 
 자세한 내용은 [Log Analytics 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조하세요.
 
-또는 OMS 템플릿을 통해 OMS 작업 영역을 만들 수 있습니다. 이 메서드를 사용하면 템플릿은 미리 구성된 OMS 보기 및 경고를 자동으로 로드합니다. 자세한 내용은 [Cloud Foundry를 위한 Azure OMS Log Analytics 솔루션](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution)을 참조하세요.
+또는 OMS 템플릿을 통해 Log Analytics 작업 영역을 만들 수 있습니다. 이 메서드를 사용하면 템플릿은 미리 구성된 OMS 보기 및 경고를 자동으로 로드합니다. 자세한 내용은 [Cloud Foundry에 대한 Azure Log Analytics 솔루션](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution)을 참조하세요.
 
 ## <a name="deploy-the-nozzle"></a>Nozzle 배포
 
@@ -86,7 +86,7 @@ PCF Ops Manager를 사용하지 않는 경우 Nozzle을 응용 프로그램으�
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -110,7 +110,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>최신 Log Analytics Nozzle 릴리스 다운로드
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -118,14 +118,14 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>환경 변수 설정
 
-이제 현재 디렉터리에서 manifest.yml 파일에 환경 변수를 설정할 수 있습니다. 다음은 Nozzle용 앱 매니페스트를 보여 줍니다. 값을 사용자의 특정 OMS 작업 영역 정보로 바꿉니다.
+이제 현재 디렉터리에서 manifest.yml 파일에 환경 변수를 설정할 수 있습니다. 다음은 Nozzle용 앱 매니페스트를 보여 줍니다. 값을 사용자의 특정 Log Analytics 작업 영역 정보로 바꿉니다.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,13 +135,13 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 응용 프로그램 푸시
 
-현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령을 실행합니다.
+현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
 ```
 cf push
 ```
@@ -165,7 +165,7 @@ OMS Nozzle 응용 프로그램이 실행되고 있는지 확인합니다.
 
 ### <a name="1-import-the-oms-view"></a>1. OMS 보기 가져오기
 
-OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 이동하고 omsview 파일 중 하나를 선택합니다. 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 OMS **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
+OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 이동하고 omsview 파일 중 하나를 선택합니다. 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
 
 **뷰 디자이너**를 통해 새 뷰를 만들거나 이러한 뷰를 사용자 지정할 수 있습니다.
 
@@ -183,7 +183,7 @@ OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 �
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | 결과 수 > 0   | Consul은 상태를 주기적으로 내보냅니다. 값이 0이면 시스템이 정상 상태이며, 1이면 경로 내보내기에서 Consul이 다운되었음을 감지한 것입니다. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | 결과 수 > 0 | 백 프레셔로 인해 Doppler가 의도적으로 삭제한 메시지의 델타 번호입니다. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | 결과 수 > 0   | Loggregator는 로깅 프로세스의 문제를 나타내기 위해 **LGR**을 내보냅니다. 이러한 문제의 예는 로그 메시지 출력이 너무 높은 경우입니다. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 결과 수 > 0   | Nozzle은 Loggregator에서 slow consumer 경고를 수신하면 OMS에 **slowConsumerAlert** ValueMetric을 보냅니다. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 결과 수 > 0   | Nozzle은 Loggregator에서 slow consumer 경고를 수신하면 Log Analytics에 **slowConsumerAlert** ValueMetric을 보냅니다. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | 결과 수 > 0   | 손실된 이벤트의 델타 번호가 임계값에 도달하는 경우 Nozzle 실행과 관련하여 문제가 있을 수 있습니다. |
 
 ## <a name="scale"></a>확장
@@ -201,7 +201,7 @@ Nozzle을 강화하려면 Apps Manager 또는 CF CLI를 사용하여 Nozzle용 �
 Loggregator는 로깅 프로세스의 문제를 나타내기 위해 **LGR** 로그 메시지를 보냅니다. 경고를 모니터링하여 Loggregator를 강화해야 하는지 여부를 결정할 수 있습니다.
 Loggregator를 강화하려면 Doppler 버퍼 크기를 늘리거나 CF 매니페스트에 Doppler 서버 인스턴스를 추가합니다. 자세한 내용은 [Loggregator 크기 조정을 위한 지침](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling)을 참조하세요.
 
-## <a name="update"></a>업데이트
+## <a name="update"></a>주 지역에서
 
 Nozzle을 최신 버전으로 업데이트하려면 새 Nozzle 릴리스를 다운로드한 다음 “Nozzle 배포” 섹션의 단계에 따라 응용 프로그램을 다시 푸시합니다.
 
@@ -218,7 +218,7 @@ CF CLI 창에서 다음을 입력합니다.
 cf delete <App Name> -r
 ```
 
-Nozzle을 제거하는 경우 OMS 포털의 데이터는 자동으로 제거되지 않습니다. OMS Log Analytics 보존 설정에 따라 만료됩니다.
+Nozzle을 제거하는 경우 OMS 포털의 데이터는 자동으로 제거되지 않습니다. Log Analytics 보존 설정에 따라 만료됩니다.
 
 ## <a name="support-and-feedback"></a>지원 및 피드백
 

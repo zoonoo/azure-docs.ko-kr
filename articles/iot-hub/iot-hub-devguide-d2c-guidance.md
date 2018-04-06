@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Hub 장치-클라우드 옵션 | Microsoft Docs"
-description: "개발자 가이드 - 장치-클라우드 메시지, reported 속성 또는 클라우드-장치 통신을 위한 파일 업로드를 사용하는 경우에 대한 지침입니다."
+title: Azure IoT Hub 장치-클라우드 옵션 | Microsoft Docs
+description: 개발자 가이드 - 장치-클라우드 메시지, reported 속성 또는 클라우드-장치 통신을 위한 파일 업로드를 사용하는 경우에 대한 지침입니다.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>장치-클라우드 통신 지침
 장치 앱에서 솔루션 백 엔드로 정보를 전송할 때 IoT Hub은 다음 세 가지 옵션을 공개합니다.
@@ -26,6 +26,8 @@ ms.lasthandoff: 02/01/2018
 * [장치-클라우드 메시지][lnk-d2c] 시계열 원격 분석 및 경고의 경우
 * [장치 쌍의 보고된 속성][lnk-twins] 장기 실행 워크플로의 사용 가능한 기능, 조건 또는 상태와 같은 장치 상태 정보를 보고하는 경우 예를 들어 구성 및 소프트웨어 업데이트입니다.
 * [파일 업로드][lnk-fileupload] 간헐적으로 연결된 장치로 업로드되거나 대역폭을 절약하기 위해 압축된 미디어 파일 및 대형 원격 분석 배치의 경우
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 다음은 다양한 장치-클라우드 통신 옵션에 대해 자세히 비교하고 있습니다.
 

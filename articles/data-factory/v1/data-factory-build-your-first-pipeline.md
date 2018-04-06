@@ -1,11 +1,11 @@
 ---
-title: "데이터 팩터리 자습서: 첫 번째 데이터 파이프라인 | Microsoft Docs"
-description: "이 Azure 데이터 팩터리 자습서에서는 Hadoop 클러스터에서 Hive 스크립트를 사용하여 데이터를 처리하는 데이터 팩터리를 만들고 예약하는 방법을 보여 줍니다."
+title: '데이터 팩터리 자습서: 첫 번째 데이터 파이프라인 | Microsoft Docs'
+description: 이 Azure 데이터 팩터리 자습서에서는 Hadoop 클러스터에서 Hive 스크립트를 사용하여 데이터를 처리하는 데이터 팩터리를 만들고 예약하는 방법을 보여 줍니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
-> * [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -85,15 +85,15 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 1. **Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
 2. **Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후 **계정 이름**과 **액세스 키**를 적어둡니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
-3. 다음 위치에서 Hive 쿼리 파일(**HQL**)을 다운로드하여 검토합니다. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). 이 쿼리는 출력 데이터를 생성하기 위해 입력 데이터를 변환합니다. 
-4. 다음 위치에서 샘플 입력 파일(**input.log**)을 다운로드하여 검토합니다. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
+3. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)에 있는 Hive 쿼리 파일(**HQL**)을 다운로드하고 검토합니다. 이 쿼리는 출력 데이터를 생성하기 위해 입력 데이터를 변환합니다. 
+4. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)에 있는 샘플 입력 파일(**input.log**)을 다운로드하고 검토합니다.
 5. Azure Blob Storage에 **adfgetstarted**라는 Blob 컨테이너를 만듭니다. 
 6. **adfgetstarted** 컨테이너의 **script** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용합니다. 
 7. **adfgetstarted** 컨테이너의 **inputdata** 폴더에 **input.log** 파일을 업로드합니다. 
 
 필수 조건을 완료했으면 다음 도구/SDK 중 하나를 선택하여 자습서를 수행합니다. 
 
-- [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)

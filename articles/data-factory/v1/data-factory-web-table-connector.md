@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory를 사용하여 웹 테이블에서 데이터 이동 | Microsoft Docs"
-description: "Azure Data Factory를 사용하여 웹 페이지의 테이블로 데이터를 이동하는 방법을 알아봅니다."
+title: Azure Data Factory를 사용하여 웹 테이블에서 데이터 이동 | Microsoft Docs
+description: Azure Data Factory를 사용하여 웹 페이지의 테이블로 데이터를 이동하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8f35a2bec410eccc59a19e5b82b9e109b15f0738
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +35,7 @@ ms.lasthandoff: 01/08/2018
 > [!IMPORTANT]
 > 이 웹 커넥터는 현재 HTML 페이지에서 테이블 콘텐츠를 추출하도록 지원합니다. HTTP/s 끝점에서 데이터를 검색하려면 [HTTP 커넥터](data-factory-http-connector.md)를 대신 사용합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 웹 테이블 커넥터를 사용하려면 자체 호스트 통합 런타임(즉, 데이터 관리 게이트웨이)을 설정하고 싱크 연결된 서비스에서 `gatewayName` 속성을 구성해야 합니다. 예를 들어, 웹 테이블에서 Azure Blob 저장소로 복사하려면 다음과 같이 Azure Storage 연결된 서비스를 구성합니다.
 
@@ -74,9 +73,9 @@ ms.lasthandoff: 01/08/2018
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **웹** |적용 |
-| Url |웹 원본에 대한 URL입니다. |적용 |
-| authenticationType |익명 |적용 |
+| 형식 |형식 속성은 **웹** |예 |
+| Url |웹 원본에 대한 URL입니다. |예 |
+| authenticationType |익명 |예 |
 
 ### <a name="using-anonymous-authentication"></a>익명 인증 사용
 
@@ -102,9 +101,9 @@ ms.lasthandoff: 01/08/2018
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |데이터 집합의 형식입니다. **데이터 집합** |적용 |
+| 형식 |데이터 집합의 형식입니다. **데이터 집합** |예 |
 | 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. |번호 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
-| index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |적용 |
+| index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
 
 **예제:**
 
@@ -290,11 +289,11 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#copy-ac
 2. 도구 모음에서 **새 쿼리**를 클릭하고 **기타 원본에서**를 가리킨 다음 **웹에서**를 클릭합니다.
 
     ![파워 쿼리 메뉴](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/)과 데이터 집합에 대해 지정할 경로(예: AFI %27s_100_Years... 100_Movies)를 입력하고 **확인**을 클릭합니다.
+3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/))과 데이터 집합에 대해 지정할 경로(예: AFI%27s_100_Years...100_Movies)를 입력하고 **확인**을 클릭합니다.
 
     ![웹 대화 상자](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-    이 예제에 사용된 URL: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    이 예제에서 사용되는 URL은 https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies입니다.
 4. **웹 콘텐츠 액세스** 대화 상자가 표시된 경우 오른쪽 **URL**, **인증**을 선택하고 **연결**을 클릭합니다.
 
    ![웹 콘텐츠 액세스 대화 상자](./media/data-factory-web-table-connector/AccessWebContentDialog.png)

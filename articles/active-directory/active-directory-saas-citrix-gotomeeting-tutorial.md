@@ -1,6 +1,6 @@
 ---
-title: "자습서: GoToMeeting과 Azure Active Directory 통합 | Microsoft 문서"
-description: "Azure Active Directory 및 GoToMeeting 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: GoToMeeting과 Azure Active Directory 통합 | Microsoft 문서'
+description: Azure Active Directory 및 GoToMeeting 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>자습서: GoToMeeting과 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ GoToMeeting을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 GoToMeeting과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -108,77 +108,32 @@ GoToMeeting에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![GoToMeeting 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    **식별자** 텍스트 상자에 URL `https://login.citrixonline.com/saml/sp`을 입력합니다.
+    **식별자** 텍스트 상자에 URL `https://authentication.logmeininc.com/saml/sp`을 입력합니다.
 
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+4. **고급 URL 표시 구성**을 클릭하고 아래 URL을 구성합니다.
 
-    ![인증서 다운로드 링크](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **로그온 URL**(비워 두기)
+    
+    **회신 URL**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - GoToMeeting 앱의 경우 `https://global.gotomeeting.com`을 사용합니다.
+    
+    - GoToTraining의 경우 `https://global.gototraining.com`을 사용합니다.
+    
+    - GoToWebinar의 경우 `https://global.gotowebinar.com`을 사용합니다. 
+    
+    - GoToAssist의 경우 `https://app.gotoassist.com`을 사용합니다.
+    
 5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. **메타데이터** URL을 생성하려면 다음 단계를 수행합니다.
+6. 다른 브라우저 창에서 [GoToMeeting 조직 센터](https://organization.logmeininc.com/)에 로그인합니다. IdP가 업데이트되었는지 확인하라는 메시지가 표시됩니다.
 
-    a. **앱 등록**을 클릭합니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. "내 ID 공급자가 새 도메인으로 업데이트됨" 확인란을 선택합니다. 작업을 마쳤으면 **완료**를 클릭합니다.
 
-    다. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. 이제 **GoToMeeting**의 속성 페이지로 이동하고 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여 넣습니다.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.   
-
-7. **GoToMeeting 구성** 섹션에서 **GoToMeeting 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
-
-    ![GoToMeeting 구성](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. 다른 브라우저 창에서 [GoToMeeting 조직 센터](https://organization.logmeininc.com/)에 로그인합니다.
-
-9. **ID 공급자**탭에서 생성된 **메타데이터 URL**또는 다운로드된 **메타데이터 파일**또는 **수동**을 제공하여 Azure 설정을 구성할 수 있습니다.
-
-10. **메타데이터 URL**에 대해 다음 단계를 수행합니다.
-
-    ![GoToMeeting 구성](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. **How would you like to configure your SAML IDP?**(SAML IDP를 어떻게 구성하시겠습니까?)의 드롭다운에서 **자동**을 선택합니다.
-
-    나. 이전 단계에서 생성한 **메타데이터 URL**을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
-
-    다. **저장**을 클릭합니다.
-
-11. **메타데이터 파일**에 대해 다음 단계를 수행합니다.
-
-    ![GoToMeeting 구성](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. **How would you like to configure your SAML IDP?**(SAML IDP를 어떻게 구성하시겠습니까?)의 드롭다운에서 **Upload SAML metadata file**(SAML 메타데이터 파일 업로드)을 선택합니다.
-
-    나. 다운로드한 메타데이터 파일을 업로드하려면 **Upload metadata file**(메타데이터 파일 업로드)을 클릭합니다.
-
-    다. **저장**을 클릭합니다.
-
-12. **수동**에 대해 다음 단계를 수행합니다.
-
-    ![GoToMeeting 구성](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
-
-    나.  Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
-
-    다.  Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
-
-    d. 다운로드한 메타데이터 파일에서 X509Certificate을 추출하고 **인증서 업로드**를 클릭하여 이 인증서를 업로드합니다.
-
-    e. **저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

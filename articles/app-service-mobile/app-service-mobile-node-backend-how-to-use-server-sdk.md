@@ -1,11 +1,11 @@
 ---
-title: "Mobile Apps용 Node.js 백 엔드 서버 SDK를 사용하는 방법 | Microsoft Docs"
-description: "Azure App Service Mobile Apps용 Node.js 백 엔드 서버 SDK를 사용하는 방법에 대해 알아봅니다."
+title: Mobile Apps용 Node.js 백 엔드 서버 SDK를 사용하는 방법 | Microsoft Docs
+description: Azure App Service Mobile Apps용 Node.js 백 엔드 서버 SDK를 사용하는 방법에 대해 알아봅니다.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
         app.use(mobile);
 
    파일을 저장합니다.
-10. 응용 프로그램을 로컬로 실행하거나(API가 http://localhost:3000 에서 제공됨) Azure에 게시합니다.
+10. 응용 프로그램을 로컬로 실행하거나(API가 http://localhost:3000)에서 제공됨) Azure에 게시합니다.
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
 [Azure 포털]에서 바로 Mobile Apps 백 엔드를 만들 수 있습니다. 다음 단계를 완료하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 클라이언트 및 서버를 함께 만들 수 있습니다. 자습서는 이러한 지침의 단순화된 버전을 포함하고 있으며 개념 증명 프로젝트에 가장 적합합니다.
@@ -135,7 +135,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 다음 절차에서는 Git 리포지토리를 사용하여 빠른 시작 프로젝트 코드를 다운로드합니다.
 
 1. 아직 수행하지 않았다면 Git을 설치합니다. Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제별 배포 및 설치 지침은 [Git 설치](http://git-scm.com/book/en/Getting-Started-Installing-Git)를 참조하세요.
-2. 백 엔드 사이트에 대한 Git 리포지토리를 사용하도록 [App Service 앱 리포지토리 사용](../app-service/app-service-deploy-local-git.md#Step3)의 단계를 수행합니다. 배포 사용자 이름 및 암호를 기록해 둡니다.
+2. [리포지토리 준비](../app-service/app-service-deploy-local-git.md#prepare-your-repository)를 참조하여 백 엔드 사이트에 Git 리포지토리를 사용할 수 있습니다. 배포 사용자 이름 및 암호를 기록해 둡니다.
 3. Mobile Apps 백 엔드에 대한 창에서 **Git 복제 URL** 설정을 적어 둡니다.
 4. Git 복제 URL을 사용하여 `git clone` 명령을 실행합니다. 다음 예제와 같이 필요한 경우 암호를 입력합니다.
 
@@ -495,7 +495,7 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 
     module.exports = table;
 
-사용할 수 있는 클레임을 보려면 웹 브라우저를 사용하여 사이트의 `/.auth/me` 엔드포인트를 봅니다.
+사용할 수 있는 클레임을 보려면 웹 브라우저를 사용하여 사이트의 `/.auth/me` 끝점을 봅니다.
 
 ### <a name="howto-tables-disabled"></a>특정 테이블 작업에 대한 액세스 사용 안 함
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
@@ -623,7 +623,7 @@ Mobile Apps는 기본 제공 [Swagger]를 지원합니다. Swagger 지원을 사
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. `/swagger/ui` 엔드포인트를 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
+`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. `/swagger/ui` 끝점을 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
 
 또한 로컬로 개발을 위해 Swagger 지원을 원하는 경우 azureMobile.js 파일에 Swagger 옵션을 추가할 수도 있습니다.
 

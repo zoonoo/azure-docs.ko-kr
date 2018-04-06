@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics의 경고 이해 | Microsoft Docs"
-description: "Log Analytics의 경고는 OMS 저장소의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 다양한 유형의 경고 규칙 및 경고 규칙을 정의하는 방법에 대해 설명합니다."
+title: Azure Log Analytics의 경고 이해 | Microsoft Docs
+description: Log Analytics의 경고는 OMS 저장소의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 다양한 유형의 경고 규칙 및 경고 규칙을 정의하는 방법에 대해 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Log Analytics의 경고 이해
 
@@ -102,7 +102,7 @@ Log Analytics의 각 경고 규칙은 두 가지 형식 중 하나입니다.  �
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-특정 기간에 프로세서 평균 사용량이 90%를 초과하는 경우에 경고하려면 다음과 같은 [측정 명령](log-analytics-search-reference.md#commands)을 사용하여 쿼리하고 경고 규칙에 대한 임계값을 **0보다 크게** 설정합니다.
+특정 기간에 프로세서 평균 사용량이 90%를 초과하는 경우에 경고하려면 다음과 같은 `measure` 명령을 사용하여 쿼리하고 경고 규칙에 대한 임계값을 **0보다 크게** 설정합니다.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -119,7 +119,7 @@ Log Analytics의 각 경고 규칙은 두 가지 형식 중 하나입니다.  �
 **미터법** 경고 규칙은 쿼리에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 경고를 만듭니다.  **결과 수** 경고 규칙과는 다음과 같이 분명하게 구별됩니다.
 
 #### <a name="log-search"></a>로그 검색
-**결과 수** 경고 규칙에 대해서는 모든 쿼리를 사용할 수 있지만, 미터법 경고 규칙에 대한 쿼리에는 특정 요구 사항이 있습니다.  특정 필드를 기준으로 결과를 그룹화하려면 [measure 명령](log-analytics-search-reference.md#commands)을 포함해야 합니다. 이 명령에는 다음 요소가 포함되어야 합니다.
+**결과 수** 경고 규칙에 대해서는 모든 쿼리를 사용할 수 있지만, 미터법 경고 규칙에 대한 쿼리에는 특정 요구 사항이 있습니다.  특정 필드를 기준으로 결과를 그룹화하려면 `measure` 명령을 포함해야 합니다. 이 명령에는 다음 요소가 포함되어야 합니다.
 
 - **집계 함수** -  수행되는 계산과 잠재적으로 집계할 숫자 필드를 결정합니다.  예를 들어 **count()**는 쿼리의 레코드 수를 반환하고, **avg(CounterValue)**는 해당 간격 동안 CounterValue 필드의 평균을 반환합니다.
 - **그룹 필드** -  이 필드의 각 인스턴스에 대해 집계된 값이 있는 레코드가 만들어지며 각각에 대해 경고가 생성될 수 있습니다.  예를 들어 각 컴퓨터에 대해 경고를 생성하려면 **컴퓨터별**을 사용합니다.   
@@ -148,7 +148,7 @@ Log Analytics의 규칙에 의해 만든 경고 레코드에는 **경고**의 **
 
 | 자산 | 설명 |
 |:--- |:--- |
-| type |*경고* |
+| 유형 |*경고* |
 | SourceSystem |*OMS* |
 | *Object*  | [미터법 경고](#metric-measurement-alert-rules)에는 그룹 필드 속성이 있습니다.  예를 들어 로그 검색에서 Computer 기준으로 그룹화하는 경우 경고 레코드에는 값으로 컴퓨터 이름을 포함한 Computer 필드가 있습니다.
 | AlertName |경고의 이름입니다. |

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>AKS(Azure Container Service)에서 HTTPS 수신
 
@@ -31,21 +31,20 @@ Helm을 사용하여 NGINX 수신 컨트롤러를 설치합니다. 자세한 배
 helm repo update
 ```
 
-NGINX 수신 컨트롤러를 설치합니다.
+NGINX 수신 컨트롤러를 설치합니다. 이 예제에서는 `kube-system` 네임스페이스에서 컨트롤러를 설치하고 선택한 네임스페이스에서 수정할 수 있습니다.
 
 ```
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --namespace kube-system
 ```
 
 설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 공용 IP 주소를 얻으려면 kubectl get service 명령을 사용합니다. 서비스에 IP 주소가 할당할 될 때까지 다소 시간이 걸릴 수 있습니다.
 
 ```console
-$ kubectl get service
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
-kubernetes                                    ClusterIP      10.0.0.1       <none>           443/TCP                      3d
-toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.224.125.195   80:30927/TCP,443:31144/TCP   18m
-toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
 ```
 
 수신 규칙이 만들어지지 않았기 때문에 공용 IP 주소를 검색하면 NGINX 수신 컨트롤러 기본 404 페이지로 라우팅됩니다.

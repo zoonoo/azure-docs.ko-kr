@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [지속성 함수 설치](durable-functions-install.md)의 지침에 따라 샘플을 설정합니다.
-* 이 문서에서는 [Hello 시퀀스](durable-functions-sequence.md) 샘플 연습을 이미 살펴보았다고 가정합니다.
+* [지속성 함수를 설치합니다](durable-functions-install.md).
+* [Hello 시퀀스](durable-functions-sequence.md) 연습을 완료합니다.
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/17/2018
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-다음 섹션에서는 Azure Portal 개발에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+다음 섹션에서는 C# 스크립팅에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>클라우드 백업 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 

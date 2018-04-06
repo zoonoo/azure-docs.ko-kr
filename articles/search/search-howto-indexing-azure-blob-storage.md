@@ -1,24 +1,24 @@
 ---
-title: "Azure Search로 Azure Blob Storage 인덱싱"
-description: "Azure Blob Storage를 인덱싱하고 Azure Search를 사용하여 문서에서 텍스트를 추출하는 방법에 대해 알아보세요."
+title: Azure Search로 Azure Blob Storage 인덱싱
+description: Azure Blob Storage를 인덱싱하고 Azure Search를 사용하여 문서에서 텍스트를 추출하는 방법에 대해 알아보세요.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
@@ -31,7 +31,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 ## <a name="setting-up-blob-indexing"></a>BLOB 인덱싱 설정
 다음을 사용하여 Azure Blob Storage 인덱서를 설정할 수 있습니다.
 
-* [쉬운 테이블](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Search [.NET SDK](https://aka.ms/search-sdk)
 
@@ -271,6 +271,10 @@ Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 일부 Blob의 경우 Azure Search는 콘텐츠 형식을 확인할 수 없거나 지원되는 다른 콘텐트 형식의 문서를 처리할 수 없습니다. 이 오류 모드를 무시하려면 `failOnUnprocessableDocument` 구성 매개 변수를 False로 설정합니다.
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Azure Search는 인덱싱되는 Blob의 크기를 제한합니다. 이러한 제한 사항은 [Azure Search의 서비스 제한 사항](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)에서 설명됩니다. 너무 큰 Blob은 기본적으로 오류로 처리됩니다. 그러나 `indexStorageMetadataOnlyForOversizedDocuments` 구성 매개 변수를 true로 설정한 경우 너무 큰 Blob의 저장소 메타데이터를 여전히 인덱싱할 수 있습니다. 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예: 
 

@@ -1,11 +1,11 @@
 ---
-title: "여러 서비스 구성을 사용하여 Azure 프로젝트 구성 | Microsoft Docs"
-description: "ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg 및 ServiceConfiguration.Cloud.cscfg 파일을 변경하여 Azure 클라우드 서비스 프로젝트를 구성하는 방법에 대해 알아봅니다."
+title: 여러 서비스 구성을 사용하여 Azure 프로젝트 구성 | Microsoft Docs
+description: ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg 및 ServiceConfiguration.Cloud.cscfg 파일을 변경하여 Azure 클라우드 서비스 프로젝트를 구성하는 방법에 대해 알아봅니다.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: ghogen
+ms.openlocfilehash: 919568922ada2d842233ade029a54d474b4a1a0e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>여러 서비스 구성을 사용하여 Visual Studio에서 Azure 프로젝트 구성
 
@@ -73,7 +73,7 @@ HTTPS 엔드포인트를 이미 추가한 경우, HTTPS 엔드포인트 옵션�
 
 연결 문자열을 만들려면 **설정 추가**를 선택하고 **형식**을 “연결 문자열”로 설정합니다.
 
-기존 또는 새 연결 문자열의 경우 **값** 필드 오른쪽에 있는 **...**\*을 선택하여 **저장소 연결 문자열 만들기** 대화 상자를 엽니다.
+기존 또는 새 연결 문자열의 경우 **값** 필드 오른쪽에 있는 **...***을 선택하여 **저장소 연결 문자열 만들기** 대화 상자를 엽니다.
 
 1. **연결 방법**에서 구독에서 저장소 계정을 선택하는 **구독** 옵션을 선택합니다. 그런 다음 Visual Studio에서 자동으로 `.publishsettings` 파일에서 저장소 계정 자격 증명을 획득합니다.
 1. **수동으로 입력한 자격 증명**을 선택하면 Azure Portal의 정보를 사용하여 계정 이름 및 키를 직접 지정할 수 있습니다. 계정 키를 복사하려면 다음을 수행합니다. a. Azure Portal에서 저장소 계정으로 이동하고 **키 관리**를 선택합니다.

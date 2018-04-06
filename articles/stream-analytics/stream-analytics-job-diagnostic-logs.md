@@ -1,25 +1,24 @@
 ---
-title: "진단 로그로 Azure Stream Analytics 문제 해결 | Microsoft Docs"
-description: "Microsoft Azure에서 Stream Analytics 작업의 진단 로그를 분석하는 방법을 알아봅니다."
-keywords: 
-documentationcenter: 
+title: 진단 로그로 Azure Stream Analytics 문제 해결 | Microsoft Docs
+description: Microsoft Azure에서 Stream Analytics 작업의 진단 로그를 분석하는 방법을 알아봅니다.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>진단 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -77,14 +76,14 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 모든 로그는 JSON 형식으로 저장됩니다. 각 항목에는 다음과 같은 일반적인 문자열 필드가 있습니다.
 
-이름 | 설명
+Name | 설명
 ------- | -------
 실시간 | 로그의 타임스탬프(UTC)입니다.
-resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+ResourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 카테고리 | 로그 범주로, **실행** 또는 **작성** 중 하나입니다.
 operationName | 기록된 작업의 이름 예: **이벤트 전송: mysqloutput에 대한 SQL 출력 쓰기 실패**.
 status | 작업의 상태입니다. 예: **실패** 또는 **성공**.
-최소 수준 | 로그 수준. 예: **오류**, **경고** 또는 **정보**.
+level | 로그 수준. 예: **오류**, **경고** 또는 **정보**.
 properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 ### <a name="execution-log-properties-schema"></a>실행 로그 속성 스키마
@@ -95,11 +94,11 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 
 작업이 데이터를 처리하는 동안 발생한 오류는 이 로그 범주에 속합니다. 이러한 로그는 데이터 읽기, serialization 및 쓰기 작업 도중에 가장 자주 생성됩니다. 이러한 로그는 연결 오류를 포함하지 않습니다. 연결 오류는 일반 이벤트로 처리됩니다.
 
-이름 | 설명
+Name | 설명
 ------- | -------
 원본 | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
 Message | 오류와 연결된 메시지
-형식 | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
+유형 | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
 Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
@@ -112,11 +111,11 @@ Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포�
 
 일반 이벤트는 다른 모든 항목을 처리합니다.
 
-이름 | 설명
+Name | 설명
 -------- | --------
 오류 | (선택 사항) 오류 정보입니다. 일반적으로 사용 가능한 경우 예외 정보입니다.
 Message| 로그 메시지
-형식 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
+유형 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

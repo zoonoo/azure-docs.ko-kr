@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 문제 해결 가이드 - 서비스"
-description: "Azure Mobile Engagement에 대한 문제 해결 가이드"
+title: Azure Mobile Engagement 문제 해결 가이드 - 서비스
+description: Azure Mobile Engagement에 대한 문제 해결 가이드
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: f13fd0540b783120014b3a8d4e41f78808c7fade
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64bd4849e3bb9a37fb32940548d5ecf01fffe0ca
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-service-issues"></a>서비스 문제에 대한 문제 해결 가이드
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 다음은 Azure Mobile Engagement 실행 방법과 관련해서 발생할 수 있는 문제입니다.
 
 ## <a name="service-outages"></a>서비스 중단
@@ -44,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 * 캠페인
 * 관리자 사용자 계정
 * 브라우저(IE, Firefox, Chrome 등)
-* 컴퓨터
+* Computer
 
 2) 문제가 UI 또는 API에만 영향을 주는지 테스트하려면 다음을 수행합니다.
 

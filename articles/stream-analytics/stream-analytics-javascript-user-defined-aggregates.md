@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics JavaScript 사용자 정의 집계 | Microsoft Docs"
-description: "JavaScript 사용자 정의 집계로 고급 쿼리 역학 수행"
-keywords: "javascript, 사용자 정의 집계, uda"
+title: Azure Stream Analytics JavaScript 사용자 정의 집계 | Microsoft Docs
+description: JavaScript 사용자 정의 집계로 고급 쿼리 역학 수행
+keywords: javascript, 사용자 정의 집계, uda
 services: stream-analytics
 author: minhe-msft
 manager: santoshb
-editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: b3863a34ed146e54c6d60e035957b942a1976ff9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9f9a2e33f97fc90265933ee9941f2d02a92cbc4c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript 사용자 정의 집계(미리 보기)
 
@@ -179,7 +178,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>ASA 쿼리에서 JavaScript UDA 호출
 
-Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 "uda"로 TWA() 함수를 호출합니다. 예:
+Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 "uda"로 TWA() 함수를 호출합니다. 예: 
 
 ````SQL
 WITH value AS

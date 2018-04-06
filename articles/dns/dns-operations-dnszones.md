@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS에서 DNS 영역 관리 - PowerShell | Microsoft Docs"
-description: "Azure Powershell을 사용하여 DNS 영역을 관리할 수 있습니다. 이 문서에서는 Azure DNS에서 DNS 영역을 업데이트, 삭제 및 만드는 방법을 설명합니다."
+title: Azure DNS에서 DNS 영역 관리 - PowerShell | Microsoft Docs
+description: Azure Powershell을 사용하여 DNS 영역을 관리할 수 있습니다. 이 문서에서는 Azure DNS에서 DNS 영역을 업데이트, 삭제 및 만드는 방법을 설명합니다.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 이 문서는 Azure PowerShell을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure Portal을 사용하여 DNS 영역을 관리할 수도 있습니다.
+
+이 가이드에서는 특히 공용 DNS 영역을 다룹니다. Azure PowerShell을 사용하여 Azure DNS에서 사설 영역 관리에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure DNS Private Zones 시작](private-dns-getstarted-powershell.md)을 참조하세요.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -50,7 +52,7 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS는 이제 사설 DNS 영역(현재는 미리 보기 기능)도 지원합니다.  사설 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
+Azure DNS는 이제 사설 DNS 영역(현재는 공개 미리 보기)도 지원합니다.  사설 DNS 영역에 대해 자세히 알아보려면 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 사설 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
 
 ## <a name="get-a-dns-zone"></a>DNS 영역 가져오기
 

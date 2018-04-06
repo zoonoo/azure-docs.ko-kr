@@ -1,11 +1,11 @@
 ---
-title: "Azure Docker VM 확장 사용 | Microsoft Docs"
-description: "Docker VM 확장을 사용하여 Azure에서 Resource Manager 템플릿 및 Azure CLI 2.0을 사용하여 Docker 환경을 빠르고 안전하게 배포하는 방법에 대해 알아보기"
+title: Azure Docker VM 확장 사용 | Microsoft Docs
+description: Docker VM 확장을 사용하여 Azure에서 Resource Manager 템플릿 및 Azure CLI 2.0을 사용하여 Docker 환경을 빠르고 안전하게 배포하는 방법에 대해 알아보기
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: fe4013eefc0a7a896d6e8eb737ee8e2bc26ecf61
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM 확장을 사용하여 Azure에서 Docker 환경 만들기
 Docker는 Linux에서 컨테이너와 함께 빠르게 사용할 수 있는 인기 있는 컨테이너 관리 및 이미징 플랫폼입니다. Azure에는 필요에 맞게 Docker를 배포할 수 있는 다양한 방법이 있습니다. 이 문서는 Azure CLI 2.0을 사용하여 Docker VM 확장 및 Azure Resource Manager 템플릿을 사용하는 방법에 중점을 두고 있습니다. [Azure CLI 1.0](dockerextension-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다.
+
+> [!WARNING]
+> Linux용 Azure Docker VM 확장은 사용되지 않으며 2018년 11월에 사용 중지됩니다.
+> 확장은 단순히 Docker를 설치합니다.따라서 cloud-init 또는 사용자 지정 스크립트 확장 등 대안을 사용하여 선택한 Docker 버전을 설치하는 것이 좋습니다. cloud-init를 사용하는 방법에 대한 자세한 내용은 [cloud-init를 사용하여 Linux VM 사용자 지정](tutorial-automate-vm-deployment.md)을 참조하세요.
 
 ## <a name="azure-docker-vm-extension-overview"></a>Azure Docker VM 확장 개요
 Azure Docker VM 확장은 Linux 가상 머신(VM)에 Docker 데몬, Docker 클라이언트 및 Docker Compose를 설치하고 구성합니다. Azure Docker VM 확장을 사용하면 직접 Docker 호스트를 만들거나 Docker Machine을 사용하는 것보다 더 많은 제어와 가능을 사용할 수 있습니다. [Docker Compose](https://docs.docker.com/compose/overview/)와 같은 이러한 추가 기능은 Azure Docker VM 확장을 보다 강력한 개발자 또는 프로덕션 환경에 적합하도록 만들어 줍니다.

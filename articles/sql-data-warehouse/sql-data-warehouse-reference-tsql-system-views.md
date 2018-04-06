@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse 시스템 보기 | Microsoft Docs"
-description: "SQL Data Warehouse에 대한 시스템 보기 콘텐츠에 연결하는 링크."
+title: SQL Data Warehouse 시스템 보기 | Microsoft Docs
+description: SQL Data Warehouse에 대한 시스템 보기 콘텐츠에 연결하는 링크.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 01/22/2018
 ms.author: barbkess
-ms.openlocfilehash: 51e2bf8e9e0bbd6b2e61d37b438bf51325192058
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 96bd74a9c68cc77d35832836afa966958ed37264
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="system-views"></a>시스템 뷰
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse 카탈로그 보기
@@ -233,12 +233,12 @@ SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어�
 * [뷰](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [SQL Data Warehouse 참조 개요][SQL Data Warehouse reference overview]를 참조하세요.
+자세한 참조 정보는 [SQL Data Warehouse 참조 개요][SQL Data Warehouse 참조 개요]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 

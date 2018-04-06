@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 Ansible을 사용하기 위한 도구"
-description: "Azure에서 Ansible용 개별 도구 설치 및 사용"
+title: Azure에서 Ansible을 사용하기 위한 도구
+description: Azure에서 Ansible용 개별 도구 설치 및 사용
 ms.service: ansible
-keywords: "ansible, azure, 개발, 도구, vs 코드, visual studio code, 확장"
+keywords: ansible, azure, 개발, 도구, vs 코드, visual studio code, 확장
 author: tomarcher
 manager: routlaw
 ms.author: tarcher

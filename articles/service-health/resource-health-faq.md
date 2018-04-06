@@ -1,11 +1,11 @@
 ---
 title: Azure Resource Health FAQ | Microsoft Docs
-description: "Azure Resource Health 개요"
+description: Azure Resource Health 개요
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5155faac6051f5a586255148f77a52a90745673e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -81,12 +81,12 @@ Resource Health를 통해 지원되는 상태 검사 및 리소스 유형 목록
 - 독일 중부
 - 독일 북동부
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Resource Health는 서비스 상태 대시보드 또는 Azure Portal 서비스 알림과 어떻게 다른가요?
-Resource Health에서 제공하는 정보는 Azure Resource Health 대시보드에서 제공하는 정보보다 더 구체적입니다.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Resource Health는 Azure 상태 또는 Service Health 대시보드와 어떻게 다른가요?
+Resource Health에서 제공하는 정보는 Azure 상태 또는 Service Health 대시보드에서 제공하는 정보보다 더 구체적입니다.
 
-[Azure 상태](https://status.azure.com)와 포털 서비스 알림은 광범위한 고객 집합(예: Azure 지역)에 영향을 주는 서비스 문제를 알려주지만, Resource Health는 특정 리소스에만 관련된 보다 세분화된 이벤트를 노출합니다. 예를 들어 호스트가 예기치 않게 재부팅되는 경우 Resource Health는 가상 머신이 해당 호스트에서 실행 중인 고객에게만 경고합니다.
+[Azure 상태](https://status.azure.com)와 Service Health 대시보드는 광범위한 고객 집합(예: Azure 지역)에 영향을 주는 서비스 문제를 알려주는 반면, Resource Health는 특정 리소스에만 관련된 더 세분화된 이벤트를 노출합니다. 예를 들어 호스트가 예기치 않게 재부팅되는 경우 Resource Health는 가상 머신이 해당 호스트에서 실행 중인 고객에게만 경고합니다.
 
-리소스에 영향을 주는 이벤트에 대한 충분한 가시성을 제공하는 것이 중요하며 Resource Health는 서비스 알림 및 서비스 상태 대시보드에 게시된 이벤트를 표시합니다.
+리소스에 영향을 주는 이벤트에 대한 충분한 가시성을 제공하는 것이 중요하며 Resource Health는 Service Health 대시보드에 게시된 이벤트를 표시합니다.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>각 리소스에 대해 Resource Health를 활성화해야 하나요?
 아니요, 상태 정보는 Resource Health를 통해 제공되는 모든 리소스 유형에 대해 사용 가능합니다. 

@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 응용 프로그램 업그레이드 | Microsoft Docs"
-description: "이 문서에서는 업그레이드 모드 선택 및 상태 확인 수행 등을 포함하여 서비스 패브릭 응용 프로그램 업그레이드를 소개합니다."
+title: Service Fabric 응용 프로그램 업그레이드 | Microsoft Docs
+description: 이 문서에서는 업그레이드 모드 선택 및 상태 확인 수행 등을 포함하여 서비스 패브릭 응용 프로그램 업그레이드를 소개합니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>서비스 패브릭 응용 프로그램 업그레이드
 Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 서비스 패브릭은 새로운 [응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md) 를 이전 버전과 비교하여 응용 프로그램의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
@@ -57,6 +57,13 @@ Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다
 
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 클러스터 구성 설정은 위의 규칙 2) 및 3)을 활성화하도록 *true*여야 합니다(기본 서비스 업데이트 및 삭제). 이 기능은 Service Fabric 버전 5.5부터 지원됩니다.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>HTTPS 끝점으로 여러 응용 프로그램 업그레이드
+HTTP**S**를 사용할 때는 동일한 응용 프로그램의 서로 다른 인스턴스에 대해 **동일한 포트**를 사용하지 않도록 주의해야 합니다. Service Fabric에서 응용 프로그램 인스턴스 중 하나에 대해 인증서를 업그레이드할 수 없기 때문입니다. 예를 들어, 응용 프로그램 1 또는 응용 프로그램 2 모두 해당 인증서 1을 인증서 2로 업그레이드하려고 합니다. 업그레이드가 발생할 때 Service Fabric은 다른 응용 프로그램에서 아직 사용 중이라고 하더라도 http.sys에서 인증서 1 등록을 정리할 수 있습니다. 이러한 상황을 방지하기 위해 Service Fabric은 인증서와 함께 해당 포트에 등록된(http.sys에 따라) 다른 응용 프로그램 인스턴스가 이미 있는지 검색하고 있는 경우 작업이 실패합니다.
+
+따라서 Service Fabric은 서로 다른 응용 프로그램 인스턴스에 **동일한 포트**를 사용하는 두 가지 다른 서비스의 업그레이드를 지원하지 않습니다. 즉, 동일한 포트에서 서로 다른 서비스에 동일한 인증서를 사용할 수 없습니다. 동일한 포트에서 공유 인증서를 포함해야 하는 경우 배치 제약 조건에 따라 서비스가 서로 다른 컴퓨터에 배치되는지 확인해야 합니다. 또는 각 응용 프로그램 인스턴스에서 각 서비스에 대해 Service Fabric 동적 포트를 사용하는 것이 좋습니다(가능한 경우). 
+
+https로 업그레이드 실패가 표시되면 “The Windows HTTP Server API does not support multiple certificates for applications that share a port(Windows HTTP 서버 API에서 포트를 공유하는 응용 프로그램에 대해 여러 인증서를 지원하지 않습니다).”라는 오류 경고가 표시됩니다.
 
 ## <a name="application-upgrade-flowchart"></a>응용 프로그램 업그레이드 순서도
 이 단락 다음에 나오는 순서도는 서비스 패브릭 응용 프로그램의 업그레이드 프로세스를 이해하는 데 도움이 될 수 있습니다. 특히 *HealthCheckStableDuration*, *HealthCheckRetryTimeout* 및 *UpgradeHealthCheckInterval*을 비롯한 시간 제한이 한 업데이트 도메인의 업그레이드를 성공 또는 실패로 간주하는 시간을 어떻게 제어하는지 잘 설명되어 있습니다.

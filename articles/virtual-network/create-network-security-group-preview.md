@@ -1,13 +1,13 @@
 ---
-title: "Azure 네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 사용하여 네트워크 트래픽 필터링 | Microsoft Docs"
-description: "네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 만들어 가상 머신에서 네트워크 트래픽 유형을 제한하는 방법에 대해 알아봅니다."
+title: Azure 네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 사용하여 네트워크 트래픽 필터링 | Microsoft Docs
+description: 네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 만들어 가상 머신에서 네트워크 트래픽 유형을 제한하는 방법에 대해 알아봅니다.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 사용하여 네트워크 트래픽 필터링
 

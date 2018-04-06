@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB에서 변경 피드 지원 사용 | Microsoft Docs"
-description: "Azure Cosmos DB의 변경 피드 지원을 사용하여 문서에서 변경 내용을 추적하고 트리거와 마찬가지로 이벤트 기반 처리를 수행하고 캐시 및 분석 시스템을 최신 상태로 유지합니다."
-keywords: "변경 피드"
+title: Azure Cosmos DB에서 변경 피드 지원 사용 | Microsoft Docs
+description: Azure Cosmos DB의 변경 피드 지원을 사용하여 문서에서 변경 내용을 추적하고 트리거와 마찬가지로 이벤트 기반 처리를 수행하고 캐시 및 분석 시스템을 최신 상태로 유지합니다.
+keywords: 변경 피드
 services: cosmos-db
 author: rafats
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e0940ab11f8840ffa2dbdbfd739340f8af5caf51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 16f339540767246ef82bce020aacf9846c8d2e0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
 
@@ -34,7 +34,13 @@ Azure Cosmos DB의 **변경 피드 지원**을 사용하면 다음 그림과 같
 ![Azure Cosmos DB 변경 피드를 사용하여 실시간 분석 및 이벤트 기반 컴퓨팅 시나리오 작동](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Azure Cosmos DB의 모든 데이터 모델 및 컨테이너에 대해 변경 피드 지원이 제공됩니다. 하지만 변경 피드는 SQL 클라이언트를 사용하여 읽고 항목을 JSON 형식으로 직렬화합니다. MongoDB 클라이언트는 JSON 형식으로 인해 BSON 형식 문서와 JSON 형식의 변경 피드 간 불일치가 나타납니다. 
+> Azure Cosmos DB의 모든 데이터 모델 및 컨테이너에 대해 변경 피드 지원이 제공됩니다. 하지만 변경 피드는 SQL 클라이언트를 사용하여 읽고 항목을 JSON 형식으로 직렬화합니다. MongoDB 클라이언트는 JSON 형식으로 인해 BSON 형식 문서와 JSON 형식의 변경 피드 간 불일치가 나타납니다.
+
+다음 비디오에서는 Azure Cosmos DB 프로그램 관리자인 Andrew Liu가 Azure Cosmos DB 변경 피드 작동 방법을 설명합니다.
+
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
+>
+>
 
 ## <a name="how-does-change-feed-work"></a>변경 피드의 작동 방식
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 여러 IP 구성의 부하 분산 | Microsoft Docs"
-description: "기본 및 보조 IP 구성에서 부하 분산."
+title: Azure에서 여러 IP 구성의 부하 분산 | Microsoft Docs
+description: 기본 및 보조 IP 구성에서 부하 분산.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -27,7 +27,6 @@ ms.lasthandoff: 02/21/2018
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 이 문서에서는 보조 NIC(네트워크 인터페이스 컨트롤러)에 여러 IP 주소가 있는 Azure Load Balancer를 사용하는 방법을 설명합니다. 아래 다이어그램은 시나리오를 보여 줍니다.
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 02/21/2018
 
 가상 네트워크의 각 VM에 대해 보조 NIC에 대한 IP 구성을 추가합니다.  
 
-1. Azure Portal http://portal.azure.com으로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal http://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 위에 있는 **리소스 그룹** 아이콘을 선택합니다. 그런 다음 VM이 있는 리소스 그룹(예: **contosofabrikam**)을 선택합니다. **리소스 그룹** 창에 VM의 모든 리소스와 NIC가 표시됩니다.
 
@@ -87,7 +86,7 @@ ms.lasthandoff: 02/21/2018
 
 구성에 대한 부하 분산 장치를 만듭니다.
 
-1. Azure Portal http://portal.azure.com으로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal http://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다. 다음 **만들기**를 선택합니다.
 

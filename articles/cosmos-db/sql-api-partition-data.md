@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>SQL API를 사용하여 Azure Cosmos DB에서 분할
 
@@ -78,7 +78,7 @@ SQL API에서 JSON 경로 형태로 파티션 키 정의를 지정합니다. 다
 파티션 키의 선택이 응용 프로그램의 성능에 미치는 영향을 살펴보겠습니다.
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>Azure Cosmos DB SDK 사용
-Azure Cosmos DB에는 [REST API 버전 2015-12-16](/rest/api/documentdb/)을 사용한 자동 분할에 대한 지원이 추가되었습니다. 분할된 컨테이너를 만들려면 지원되는 SDK 플랫폼(.NET, Node.js, Java, Python, MongoDB) 중 하나에서 SDK 버전 1.6.0 이상을 다운로드해야 합니다. 
+Azure Cosmos DB에는 [REST API 버전 2015-12-16](/rest/api/cosmos-db/)을 사용한 자동 분할에 대한 지원이 추가되었습니다. 분할된 컨테이너를 만들려면 지원되는 SDK 플랫폼(.NET, Node.js, Java, Python, MongoDB) 중 하나에서 SDK 버전 1.6.0 이상을 다운로드해야 합니다. 
 
 ### <a name="creating-containers"></a>컨테이너 만들기
 다음 샘플에서는 처리량이 초당 20,000개 요청 단위인 장치 원격 분석 데이터를 저장하는 컨테이너를 만드는 .NET 코드 조각을 보여 줍니다. SDK는 OfferThroughput 값을 설정합니다(이 값은 REST API에서 `x-ms-offer-throughput` 요청 헤더를 설정함). 여기에서는 `/deviceId` 를 파티션 키로 설정합니다. 선택한 파티션 키는 이름 및 인덱싱 정책과 같은 나머지 컨테이너 메타데이터와 함께 저장됩니다.
@@ -225,6 +225,6 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 이 문서에서는 SQL API를 사용하여 Azure Cosmos DB 컨테이너의 분할 작업을 수행하는 방법에 대한 개요를 제공했습니다. Azure Cosmos DB API를 사용하여 분할하기 위한 개념 및 모범 사례의 개요는 [분할 및 수평적 크기 조정](../cosmos-db/partition-data.md)을 참조하세요. 
 
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행합니다. 샘플에 대해서는 [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
-* [SDKs](sql-api-sdk-dotnet.md) 또는 [REST API](/rest/api/documentdb/)를 사용하여 코딩 시작
+* [SDKs](sql-api-sdk-dotnet.md) 또는 [REST API](/rest/api/cosmos-db/)를 사용하여 코딩 시작
 * [Azure Cosmos DB에서 프로비전된 처리량](request-units.md)에 대한 자세한 정보
 

@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics 작업 모니터링 이해 | Microsoft Docs"
-description: "Stream Analytics 작업 모니터링 이해"
-keywords: "쿼리 모니터"
+title: Stream Analytics 작업 모니터링 이해 | Microsoft Docs
+description: Stream Analytics 작업 모니터링 이해
+keywords: 쿼리 모니터
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 7474f45494c6190ffcac354e75458b18f5777fb9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jeanb
+ms.openlocfilehash: cbfbc653deccbd215a404479100ee5cae860cb3f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
@@ -64,7 +63,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

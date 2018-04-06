@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>자습서: Spacio와 Azure Active Directory 통합
 
@@ -112,18 +112,32 @@ Spacio에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Spacio 클라이언트 지원 팀](mailto:support@spac.io)에 문의하세요. 
- 
 
-
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
-
-    ![인증서 다운로드 링크](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. **저장** 단추를 클릭합니다.
+4. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. **Spacio** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Spacio 지원 팀](mailto:support@spac.io)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+5. **메타데이터 URL**을 생성하려면 다음 단계를 수행합니다.
+
+    a. **앱 등록**을 클릭합니다.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    다. **복사** 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하고 메모장에 붙여넣습니다.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. 이제 **Spacio**의 속성 페이지로 이동하고, **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하고 메모장에 붙여넣습니다.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
+
+6. **Spacio** 쪽에서 Single Sign-On을 구성하려면 생성된 **메타데이터 URL**을 [Spacio 지원 팀](mailto:support@spac.io)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

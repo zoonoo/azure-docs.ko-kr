@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>지속성 함수의 인스턴스 관리(Azure Functions)
 
@@ -104,7 +104,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>인스턴스 종료
 
-실행 중인 인스턴스는 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 클래스의 [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) 메서드를 사용하여 종료할 수 있습니다. 두 가지 매개 변수는 `instanceId` 및 `reason` 문자열이며, 로그 및 인스턴스 상태에 기록됩니다. 종료된 인스턴스는 다음 `await` 지점에 도달하는 즉시 실행을 중지하거나 이미 `await`에 있는 경우 즉시 종료됩니다.
+실행 중인 오케스트레이션 인스턴스는 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 클래스의 [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) 메서드를 사용하여 종료할 수 있습니다. 두 가지 매개 변수는 `instanceId` 및 `reason` 문자열이며, 로그 및 인스턴스 상태에 기록됩니다. 종료된 인스턴스는 다음 `await` 지점에 도달하는 즉시 실행을 중지하거나 이미 `await`에 있는 경우 즉시 종료됩니다. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -119,6 +119,9 @@ public static Task Run(
 
 > [!NOTE]
 > 인스턴스 종료는 현재 C# 오케스트레이터 함수에서만 지원됩니다.
+
+> [!NOTE]
+> 현재 인스턴스 종료는 전파되지 않았습니다. 활동 함수 및 하위 오케스트레이션은 호출된 오케스트레이션 인스턴스가 종료되었는지 여부에 관계 없이 완료될 때까지 실행됩니다.
 
 ## <a name="sending-events-to-instances"></a>인스턴스로 이벤트 보내기
 

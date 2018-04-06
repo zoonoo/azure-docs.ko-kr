@@ -1,16 +1,16 @@
 ---
-title: "Azure Migrate 평가 설정 사용자 지정 | Microsoft Docs"
-description: "Azure Migration Planner를 사용하여 VMware VM을 Azure에 마이그레이션하기 위해 평가를 설정 및 실행하는 방법을 설명합니다."
+title: Azure Migrate 평가 설정 사용자 지정 | Microsoft Docs
+description: Azure Migration Planner를 사용하여 VMware VM을 Azure에 마이그레이션하기 위해 평가를 설정 및 실행하는 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 459a29012ec879d4d4989e51b5688b9042adc1a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="customize-an-assessment"></a>평가 사용자 지정
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/27/2018
     **설정** | **세부 정보** | **기본값**
     --- | --- | ---
     **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/> Azure Migrate는 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. |  미국 서부 2가 기본 위치입니다.
-    **저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 저장소 중복 유형입니다. | 기본값은 [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage)입니다. Azure Migrate는 관리 디스크 기반 평가만 지원하고 관리 디스크는 LRS만 지원하므로 현재는 속성에 LRS 옵션만 있습니다. 
+    **저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 저장소 중복 유형입니다. | 기본값은 [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md)입니다. Azure Migrate는 관리 디스크 기반 평가만 지원하고 관리 디스크는 LRS만 지원하므로 현재는 속성에 LRS 옵션만 있습니다. 
     **크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. *성능 기반* 크기 조정을 수행하거나, 성능 기록을 고려하지 않고 *온-프레미스로* VM 크기를 조정할 수 있습니다. | 기본 옵션은 성능 기반 크기 조정입니다.
     **성능 기록** | VM의 성능을 평가하는 데 고려할 기간입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다. | 기본값은 1일입니다.
     **백분위 수 사용률** | 적정 크기를 산정하는 데 고려되는 성능 샘플 집합의 백분위수 값입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다.  | 기본값은 95번째 백분위수입니다.

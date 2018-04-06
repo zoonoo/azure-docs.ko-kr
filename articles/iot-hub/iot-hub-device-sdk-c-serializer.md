@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 장치 SDK - 직렬 변환기에 대한 자세한 정보
 이 시리즈의 [첫 번째 문서](iot-hub-device-sdk-c-intro.md)에서는 **C용 Azure IoT 장치 SDK**에 대해 소개했습니다. 다음 문서에서 [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md)에 대해 보다 자세히 설명했습니다. 이 문서에서는 나머지 구성 요소인 **serializer** 라이브러리에 대한 보다 자세한 설명을 제공하여 SDK의 범위를 보완합니다.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 소개 자료에서 **serializer** 라이브러리를 사용하여 IoT Hub로 이벤트를 보내고 메시지를 받는 방법을 설명했습니다. 이 문서에서는 **serializer** 매크로 언어로 데이터를 모델링하는 방법에 대한 자세한 설명을 제공하여 논의를 확장합니다. 또한 라이브러리에서 메시지를 직렬화하고 직렬화 동작을 제어하는 방법도 자세히 설명합니다. 사용자가 만드는 모델의 크기를 결정하는 일부 매개 변수를 수정하는 방법에 대해서도 설명합니다.
 
@@ -64,7 +66,7 @@ END_NAMESPACE(WeatherStation);
 ### <a name="supported-data-types"></a>지원되는 데이터 원본
 **serializer** 라이브러리로 만든 모델에 다음 데이터 형식이 지원됩니다.
 
-| 형식 | 설명 |
+| 유형 | 설명 |
 | --- | --- |
 | double |배정밀도 부동 소수점 숫자 |
 | int |32비트 정수 |

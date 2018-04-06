@@ -6,13 +6,13 @@ manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -151,7 +151,7 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 ### <a name="operating-system"></a>운영 체제
 다음 64비트 운영 체제 중 하나를 사용하여 드라이브를 Azure로 운송하기 전에 WAImportExport 도구를 사용하여 하드 드라이브를 준비할 수 있습니다.
 
-Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. 이러한 모든 운영 체제는 BitLocker 드라이브 암호화를 지원합니다.
+Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. 이러한 모든 운영 체제는 BitLocker 드라이브 암호화를 지원합니다.
 
 ### <a name="locations"></a>위치
 Azure Import/Export 서비스는 모든 공용 Azure 저장소 계정으로의 데이터 복사를 지원합니다. 나열된 위치 중 하나로 하드 디스크 드라이브를 발송할 수 있습니다. 저장소 계정이 여기에 지정되지 않은 공용 Azure 위치에 있는 경우 Azure Portal 또는 Import/Export REST API를 사용하여 작업을 만들 때 대체 운송 위치가 제공됩니다.
