@@ -1,24 +1,24 @@
 ---
-title: "VM 이미지를 Azure 스택에 추가 | Microsoft Docs"
-description: "조직의 사용자 지정 Windows 또는 Linux VM 이미지를 사용 하도록 테 넌 트를 추가 합니다."
+title: VM 이미지를 Azure 스택에 추가 | Microsoft Docs
+description: 조직의 사용자 지정 Windows 또는 Linux VM 이미지를 사용 하도록 테 넌 트를 추가 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>이미지를 사용자 지정 가상 컴퓨터에서에서 사용할 수 있도록 Azure 스택
 
@@ -126,6 +126,7 @@ Azure 스택 마켓플레이스 이미지를 추가 하려면 다음 단계를 �
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 이 명령은 다음 작업을 수행 합니다.
 
 * Azure 스택 환경으로 인증합니다.
@@ -133,9 +134,9 @@ Azure 스택 마켓플레이스 이미지를 추가 하려면 다음 단계를 �
 * VM 이미지 리포지토리에 VM 이미지를 추가합니다.
 * 마켓플레이스 항목을 만듭니다.
 
-포털에서이 명령은 성공적으로 실행 했는지 확인 하려면는 마켓플레이스로 이동 합니다. VM 이미지에서 사용할 수 있는지 확인은 **가상 컴퓨터** 범주입니다.
+포털에서이 명령은 성공적으로 실행 했는지 확인 하려면는 마켓플레이스로 이동 합니다. VM 이미지에서 사용할 수 있는지 확인은 **계산** 범주입니다.
 
-![성공적으로 추가 하는 VM 이미지](./media/azure-stack-add-vm-image/image5.PNG)
+![성공적으로 추가 하는 VM 이미지](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>PowerShell을 사용 하 여 VM 이미지를 제거 합니다.
 
@@ -185,7 +186,7 @@ Remove-AzsVMImage `
 
    * 업로드 하는 경우는 [Windows VM 이미지](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), 대체 해야는 **Azure에 로그인** 단계와 함께 [Azure 스택 운영자의 PowerShell 환경을 구성](azure-stack-powershell-configure-admin.md) 단계입니다.  
 
-   * Blob 저장소 URI 이미지를 업로드 하기를 기록해 둡니다. Blob 저장소 URI 형식은 다음과 같습니다:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd 합니다.
+   * Blob 저장소 URI 이미지를 업로드 하기를 기록해 둡니다. Blob 저장소 URI 형식은 다음과 같습니다: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd 합니다.
 
    * Blob를 익명으로 액세스할 수 있도록로 저장소 계정 blob 컨테이너는 VM 이미지의 VHD 업로드 되었습니다. 선택 **Blob**를 선택한 후 **액세스 정책**합니다. 필요에 따라 대신는 컨테이너에 대 한 공유 액세스 서명 생성 및 blob URI의 일부분으로 포함 수 있습니다.
 

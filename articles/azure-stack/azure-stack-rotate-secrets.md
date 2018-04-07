@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3c6d50ac128cd766a1d22689b737da975922466
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 509570dfe0e3d4be2e589ac1958dd377dc4e8e03
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure 스택의 암호를 회전
 
@@ -69,7 +69,7 @@ Azure 스택 인프라의 무결성을 유지 하기 위해 연산자에는 조�
 2.  새로운 교체 집합이 외부 인증서를 준비 합니다. 새 설정 된 인증서 사양에 설명 된 일치는 [Azure 스택 PKI 인증서 요구 사항](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs)합니다.
 3.  보안 백업 위치에 회전에 대 한 사용 되는 인증서는 백업을 저장 합니다. 회전에 실행 되 고 실패 하면 다음을 하는 경우는 회전을 다시 실행 하기 전에 백업 복사본과 함께 파일 공유에 있는 인증서를 대체 합니다. 보안 백업 위치에 백업 복사본을 보관 하십시오.
 3.  ERCS Vm에서 액세스할 수 파일 공유를 만듭니다. 파일 공유는 읽을 수 있는 고에 대 한 쓰기 가능 해야는 **CloudAdmin** identity입니다.
-4.  사용 하 여 ERCS VM에 PowerShell ISE 콘솔을 열고는 **CloudAdmin** 계정.  프로그램 파일 공유로 이동 합니다. 
+4.  파일 공유에 액세스할 수 있는 컴퓨터에서 PowerShell ISE 콘솔을 엽니다. 프로그램 파일 공유로 이동 합니다. 
 5.  실행 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 외부 인증서에 대 한 필수 디렉터리를 만들려고 합니다.
 
 ## <a name="rotating-external-and-internal-secrets"></a>외부 및 내부 암호를 회전

@@ -1,22 +1,22 @@
 ---
-title: "Azure 스택에서 사용할 수 있는 설정 하는 가상 컴퓨터 크기 확인 | Microsoft Docs"
-description: "클라우드 운영자 추가 방법은 가상 컴퓨터 크기를 Azure 스택 Marketplace로"
+title: Azure 스택에서 사용할 수 있는 설정 하는 가상 컴퓨터 크기 확인 | Microsoft Docs
+description: 클라우드 운영자 추가 방법은 가상 컴퓨터 크기를 Azure 스택 Marketplace로
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+keywords: ''
+ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>가상 컴퓨터 크기 집합에서에서 사용할 수 있도록 Azure 스택
 
@@ -47,6 +47,7 @@ Azure 스택, 가상 컴퓨터 크기 집합에는 자동 크기 조정 지원 �
 
    Linux 지원 Ubuntu Server 16.04를 다운로드 하 고 사용 하 여 추가 ```Add-AzsVMImage``` 는 다음 매개 변수: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```합니다.
 
+
 ## <a name="add-the-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합 추가
 
 사용자 환경에 대해 다음 PowerShell 스크립트를 편집 하 고 가상 컴퓨터 크기 집합 Azure 스택 마켓플레이스로 추가 하도록를 실행 하십시오. 
@@ -72,6 +73,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합의 이미지 업데이트 
+가상 컴퓨터 크기 집합을 만든 후 사용자가 크기 집합 다시 생성 하지 않고 설정 규모에 맞게 이미지를 업데이트할 수 있습니다. 이미지를 업데이트 하는 프로세스는 다음과 같은 시나리오에 따라 달라 집니다.
+
+1. 가상 컴퓨터 크기 집합 배포 템플릿을 **최신 지정** 에 대 한 *버전*:  
+
+   경우는 *버전* 로 설정 되어 **최신** 에 *imageReference* 눈금에 대 한 서식 파일의 섹션 설정, 눈금 집합 사용에 대 한 작업 가장 최신 버전을 사용할 수 있는 확장 눈금에 대 한 이미지의 인스턴스를 설정합니다. 스케일 업 완료 되 면 이전 가상 컴퓨터 크기 조정 설정 인스턴스를 삭제할 수 있습니다.  (값에 대 한 *게시자*, *제공*, 및 *sku* 변경 되지 않습니다). 
+
+   다음은 지정 하는 예로 *최신*:  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   수직 확장 새 이미지를 사용 하려면 먼저 해당 새 이미지를 다운로드 해야 합니다.  
+
+   - 크기 집합의 이미지 보다 최신 버전이 때 마켓플레이스에 이미지: 이전 이미지를 대체 하는 새 이미지를 다운로드 합니다. 이미지를 교체한 후 사용자 배율을 조정할 수 있습니다. 
+
+   - 마켓플레이스에 이미지 버전 경우 이미지 크기 집합의와 동일: 크기 집합의 사용 중인 이미지를 삭제 한 후 새 이미지를 다운로드 합니다. 원본 이미지를 제거 하 고 새 이미지를 다운로드 하는 사이의 시간 동안 수직 수 없습니다. 
+      
+     이 프로세스는 필요한 resyndicate 하려면 하는 이미지 1803 버전에 도입 된 스파스 파일 형식의 사용 합니다. 
+ 
+
+2. 가상 컴퓨터 크기 집합 배포 템플릿을 **최신 버전을 지정 하지 않습니다** 에 대 한 *버전* 대신 버전 번호를 지정 합니다.  
+
+     최신 버전 (사용 가능한 버전 변경)를 사용 하 여 이미지를 다운로드 하는 경우 크기 집합 확장할 수 없습니다. 이 의도적인 눈금 집합 서식 파일에 지정 된 이미지 버전을 사용할 수 있어야 합니다.  
+
+자세한 내용은 참조 [운영 체제 디스크 및 이미지](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images)합니다.  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합 제거
 
