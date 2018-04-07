@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: cff6d780826164de6ef0122849e40d453192f81c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure 스택 1803 업데이트
 
@@ -44,7 +44,9 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
-*1803 업데이트에 대 한 업데이트 후 단계가 없습니다.*
+1803 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.
+
+- [Azure 스택 업데이트를 설치 하려고 할 때 KB 4103348-네트워크 컨트롤러 API 서비스가 충돌](https://support.microsoft.com/en-us/help/4103348)
 
 
 ### <a name="new-features"></a>새로운 기능 
@@ -90,7 +92,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제    
-1803 업데이트를 설치 하는 동안에 blob 서비스 및 blob 서비스를 사용 하는 내부 서비스의 가동 중지 시간이 있을 수 있습니다. 일부 가상 컴퓨터 작업이 포함 됩니다.  이 작동 중단 시간 수로 인해 실패할 테 넌 트의 작업 또는 경고 데이터를 액세스할 수 없는 서비스에서 합니다. 업데이트 설치를 완료 하는 경우이 문제는 자체 해결 합니다. 
+<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 
 ### <a name="known-issues-post-installation"></a>알려진된 문제 (설치 후)
@@ -129,10 +131,6 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 #### <a name="compute"></a>컴퓨팅
 - 크기 조정 설정을 가상 컴퓨터 크기 집합에 대 한 포털에서 사용할 수 없는 경우 한 대 안으로 사용할 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)합니다. PowerShell 버전 차이 때문에 사용 해야 합니다는 `-Name` 매개 변수 대신 `-VMScaleSetName`합니다.
-
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
-
-  이 문제를 해결 하려면 핫픽스를 요청 하는 지원에 문의 **1.0.180302.4** Azure 스택에 대 한 합니다. 
 
 - 가용성으로 이동 하 여 포털에서 집합을 만들 때 **새로** > **계산** > **가용성 집합**를 만들 수 있습니다는 가용성 장애 도메인과 업데이트 도메인 1으로 설정합니다. 해결 방법으로, 새 가상 컴퓨터를 만들 때, 가용성 집합 내에서 또는 PowerShell, CLI를 사용 하 여 만듭니다 포털입니다.
 

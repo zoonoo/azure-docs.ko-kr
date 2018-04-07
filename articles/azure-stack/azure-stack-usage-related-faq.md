@@ -1,9 +1,25 @@
- ---
-제목: 사용량 API 관련 Faq | Microsoft Docs 설명: Azure 스택 목록이 미터, Azure 사용량 API, 사용 시간 및 보고 된 시간, 오류 코드를 비교 합니다.
-서비스: azure 스택 documentationcenter: ' 작성자: mattbriggs 관리자: femila 편집기: '
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 03/09/2018 ms.author: mabrigg ms.reviewer: alfredop
-
+---
+title: 사용 API 관련 Faq | Microsoft Docs
+description: Azure 스택 미터, Azure 사용량 API, 사용 시간 및 보고 된 시간, 오류 코드를 있는 비교 목록입니다.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/09/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>질문과 대답 Azure 스택 사용량 API
 이 문서 Azure 스택 사용량 API에 대 한 몇 가지 자주 묻는 질문에 대답 합니다.

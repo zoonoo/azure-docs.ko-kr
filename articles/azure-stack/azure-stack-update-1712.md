@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure 스택 1712 업데이트
 
@@ -43,11 +43,14 @@ Azure 스택 1712 업데이트 빌드 번호는 **180106.1**합니다. 고객이
 Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) 이 업데이트를 적용 하기 전에 합니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
+- 1712 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.  
+  - [Azure 스택 업데이트를 설치 하려고 할 때 KB 4103348-네트워크 컨트롤러 API 서비스가 충돌](https://support.microsoft.com/help/4103348)
 
-이 업데이트는 1712 Azure 스택 업데이트 설치를 완료 한 후 OEM 업체 로부터 펌웨어 업데이트를 설치 하도 필요 합니다.
 
-> [!NOTE]
-> 업데이트를 다운로드 하려면 OEM 파트너 웹 사이트를 참조 하십시오.
+- 업데이트 1712 1712 Azure 스택 업데이트 설치를 완료 한 후 OEM 업체 로부터 펌웨어 업데이트를 설치 하도 필요 합니다.
+
+  > [!NOTE]
+  > 업데이트를 다운로드 하려면 OEM 파트너 웹 사이트를 참조 하십시오.
 
 ### <a name="new-features-and-fixes"></a>새 기능 및 수정
 
