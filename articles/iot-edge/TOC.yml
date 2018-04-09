@@ -17,18 +17,18 @@
       href: tutorial-simulate-device-linux.md
     - name: Edge 장치 시뮬레이션 - Windows
       href: tutorial-simulate-device-windows.md
-    - name: 'C# 모듈 개발'
-      href: tutorial-csharp-module.md
-    - name: Python 모듈 개발
-      href: tutorial-python-module.md
+    - name: 모듈로 코드 배포
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: 파이썬
+          href: tutorial-python-module.md
     - name: Azure Stream Analytics 배포
       href: tutorial-deploy-stream-analytics.md
     - name: Azure Machine Learning 배포
       href: tutorial-deploy-machine-learning.md
     - name: Azure Functions 배포
       href: tutorial-deploy-function.md
-    - name: VS Code에서 여러 모듈 작업
-      href: tutorial-multiple-modules-in-vscode.md
 - name: 방법 가이드
   items:
     - name: 게이트웨이 만들기
@@ -53,6 +53,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Azure Functions 디버그
           href: how-to-vscode-debug-azure-function.md
+        - name: 여러 모듈로 작업
+          href: tutorial-multiple-modules-in-vscode.md
     - name: 에지에 데이터 저장
       href: sql-storage.md
     - name: 문제 해결

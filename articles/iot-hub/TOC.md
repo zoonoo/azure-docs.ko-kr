@@ -43,6 +43,7 @@
 ## MXChip IoT DevKit 사용
 ### [Azure Cognitive Services로 음성 메시지 변환](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Azure Functions를 사용하여 Twitter 메시지 검색](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Eclipse Paho API를 사용하여 MQTT 서버로 메시지 보내기](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Azure Functions로 자기 센서 모니터링 및 전자 메일 알림 보내기](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # 방법 가이드

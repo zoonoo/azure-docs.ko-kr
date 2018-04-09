@@ -215,11 +215,12 @@
 ##### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
 ##### [인라인 링크 변환](application-proxy-link-translation.md)
 ##### [와일드카드 응용 프로그램](active-directory-application-proxy-wildcard.md)
-##### [Azure AD 응용 프로그램 프록시 및 Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### 게시 연습
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft 팀](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
 
