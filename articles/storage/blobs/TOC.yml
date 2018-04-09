@@ -30,6 +30,8 @@
       href: storage-quickstart-blobs-ruby.md
     - name: Blob 사용 - Node.js
       href: storage-quickstart-blobs-nodejs.md
+    - name: Blob 사용 - JavaScript/HTML
+      href: storage-quickstart-blobs-javascript-client-libraries.md
     - name: Blob 사용 - PHP
       href: storage-quickstart-blobs-php.md
 - name: 자습서

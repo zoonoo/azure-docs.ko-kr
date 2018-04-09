@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors 이벤트
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: 성능 메트릭
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: 원격 서비스 모니터링
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: 응용 프로그램 로깅
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: 성능 메트릭
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: 상태 모델 개요
           href: service-fabric-health-introduction.md
         - name: 보고서 상태 이벤트
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: 권장 사례
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: 마이그레이션된 앱 리팩터링
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: 응용 프로그램 수명 주기 관리
       items:
         - name: 응용 프로그램 패키지 작성
