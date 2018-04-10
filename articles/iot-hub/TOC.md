@@ -45,6 +45,7 @@
 ### [Azure Functions를 사용하여 Twitter 메시지 검색](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 ### [Eclipse Paho API를 사용하여 MQTT 서버로 메시지 보내기](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Azure Functions로 자기 센서 모니터링 및 전자 메일 알림 보내기](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Azure 장치 쌍을 사용하여 MXChip IoT DevKit RGB LED 제어](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # 방법 가이드
 ## 계획
@@ -173,7 +174,7 @@
 ## [.NET(서비스)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java(장치)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js(장치)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js(서비스)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js(서비스)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C 장치 SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
