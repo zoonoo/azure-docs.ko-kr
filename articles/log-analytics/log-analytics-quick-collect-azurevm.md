@@ -1,25 +1,25 @@
 ---
-title: "Azure Virtual Machines에 대한 데이터 수집 | Microsoft Docs"
-description: "Log Analytics를 사용하여 OMS 에이전트 VM 확장을 사용하도록 설정하고 Azure VM에서 데이터 수집을 사용하도록 설정하는 방법을 알아봅니다."
+title: Azure Virtual Machines에 대한 데이터 수집 | Microsoft Docs
+description: Log Analytics를 사용하여 OMS 에이전트 VM 확장을 사용하도록 설정하고 Azure VM에서 데이터 수집을 사용하도록 설정하는 방법을 알아봅니다.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 03/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: be43701f96a71ad5cd9239c4ec7b3eea7fd6db21
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff610c4efa9db16ca8a1e151b36e0e08dfe30d69
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Virtual Machines에 대한 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
@@ -27,22 +27,27 @@ ms.lasthandoff: 02/21/2018
 또한 기존 Azure Virtual Machine이 있다고 가정합니다. 그렇지 않은 경우 VM 빠른 시작 가이드에 따라 [Windows VM을 만들거나](../virtual-machines/windows/quick-create-portal.md) [Linux VM을 만들 수 있습니다](../virtual-machines/linux/quick-create-cli.md).
 
 ## <a name="log-in-to-azure-portal"></a>Azure Portal에 로그인
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다. 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br> ![Azure 포털](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. **만들기**를 클릭하고 다음 항목에 대한 옵션을 선택합니다.
 
   * 새 **OMS 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 
   * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
   * **리소스 그룹**에 대해 하나 이상의 Azure Virtual Machines를 포함하는 기존 리소스 그룹을 선택합니다.  
   * VM이 배포된 **위치**를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
-  * Log Analytics에서 세 가지 다른 **가격 책정 계층**을 선택할 수 있지만 이 빠른 시작 가이드에서는 **무료** 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
+  * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 세 가지 가격 책정 계층 중에 선택하는 옵션이 제공됩니다.  이 빠른 시작에서는 무료 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
+  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
-        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
 3. **OMS 작업 영역** 창에서 필요한 정보를 제공한 후에 **확인**을 클릭합니다.  
 
 정보가 확인되고 작업 영역이 만들어지는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
+
+>[!NOTE]
+>2018년 4월 2일 이후에 만들어진 새 구독과 연결되는 새 작업 영역을 만드는 경우 자동으로 *PerGB2018* 가격 책정 계획이 사용됩니다.  이 계획은 Application Insights 및 Log Analytics 리소스에 걸쳐 매월 데이터 5GB를 무료로 제공합니다. 가격 책정 모델에 대한 자세한 내용은 [Log Analytics 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
+>
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 사용
 Azure에 이미 배포된 Windows 및 Linux 가상 머신에 대해, Log Analytics VM 확장을 사용하여 Log Analytics 에이전트를 설치합니다.  이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
@@ -53,7 +58,7 @@ Azure에 이미 배포된 Windows 및 Linux 가상 머신에 대해, Log Analyti
 Azure Government 클라우드에서 작업 영역을 만든 경우 포털의 Log Analytics 리소스 페이지 맨 위에는 업그레이드를 위해 사용자를 초대하는 배너가 표시될 수 있습니다.  이 빠른 시작 가이드에서는 업그레이드가 필요하지 않습니다.<br>
 
 ![Azure Portal의 Log Analytics 업그레이드 알림](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png)에서도 확인할 수 있습니다.    
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 이전에 만든 *DefaultLAWorkspace*를 선택합니다.
 3. 왼쪽 메뉴의 작업 영역 데이터 원본에서 **가상 머신**를 클릭합니다.  
 4. **가상 머신** 목록에서 에이전트를 설치할 가상 머신을 선택합니다. VM에 대한 **OMS 연결 상태**가 **연결되지 않음**을 나타냅니다.

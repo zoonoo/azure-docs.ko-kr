@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f9487067ae77fbb261fb683ddd15207670f9576f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: aab864696be7121be049ce4e907b10431a7b63cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure에 SQL Server Integration Services 패키지 배포
 이 자습서에서는 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -83,7 +83,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
@@ -246,7 +246,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
@@ -300,7 +300,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>Azure-SSIS IR을 VNet에 조인
-VNet(가상 네트워크) 내에서 SSIS(SQL Server Integration Services) 카탈로그를 호스팅하는 데 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하는 경우 Azure-SSIS 통합 런타임을 동일한 가상 네트워크에 조인해야 합니다. Azure Data Factory 버전 2(미리 보기)를 사용하면 Azure-SSIS 통합 런타임을 VNet에 조인할 수 있습니다. 자세한 내용은 [Azure-SSIS 런타임을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
+VNet(가상 네트워크) 내에서 SSIS(SQL Server Integration Services) 카탈로그를 호스팅하는 데 Azure SQL 관리되는 인스턴스(미리 보기)를 사용하는 경우 Azure-SSIS 통합 런타임을 동일한 가상 네트워크에 조인해야 합니다. Azure Data Factory 버전 2(미리 보기)를 사용하면 Azure-SSIS 통합 런타임을 VNet에 조인할 수 있습니다. 자세한 내용은 [Azure-SSIS 런타임을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
 VNet을 조인하는 Azure-SSIS 런타임을 만드는 전체 스크립트는 [Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
 

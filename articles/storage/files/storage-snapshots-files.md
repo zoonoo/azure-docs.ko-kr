@@ -1,5 +1,5 @@
 ---
-title: Azure 파일의 공유 스냅숏 개요(미리 보기) | Microsoft Docs
+title: Azure 파일의 공유 스냅숏 개요 | Microsoft Docs
 description: 공유 스냅숏은 공유를 백업하는 방법으로 특정 시점에 생성된 Azure 파일 공유의 읽기 전용 버전입니다.
 services: storage
 documentationcenter: .net
@@ -14,32 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 파일의 공유 스냅숏 개요 
 Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제공합니다. 공유 스냅숏은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅숏이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
 
-
 ## <a name="when-to-use-share-snapshots"></a>공유 스냅숏을 사용하는 경우
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>응용 프로그램 오류 및 데이터 손상으로부터 보호
-
 파일 공유를 사용하는 응용 프로그램은 쓰기, 읽기, 저장, 전송 및 처리 등의 작업을 수행합니다. 응용 프로그램이 잘못 구성되거나 의도하지 않은 버그가 발생하여 일부 블록을 실수로 덮어쓰거나 손상시킬 수 있습니다. 이러한 시나리오를 방지하기 위해 새 응용 프로그램 코드를 배포하기 전에 공유 스냅숏을 생성할 수 있습니다. 새 배포에서 버그 또는 응용 프로그램 오류가 발생하면 해당 파일 공유에 있는 이전 버전의 데이터로 돌아갈 수 있습니다. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>실수로 삭제 또는 의도하지 않은 변경 방지
-
 파일 공유의 텍스트 파일을 작업하고 있다고 가정하겠습니다. 텍스트 파일을 닫은 후에는 변경 내용을 취소할 수 없게 됩니다. 이런 경우에는 파일의 이전 버전을 복구해야 합니다. 실수로 파일 이름을 변경하거나 파일을 삭제한 경우 공유 스냅숏을 사용하여 파일의 이전 버전을 복구할 수 있습니다.
 
 ### <a name="general-backup-purposes"></a>일반 백업 목적
-
 파일 공유를 만든 후에는 파일 공유의 공유 스냅숏을 주기적으로 만들어 데이터 백업에 사용할 수 있습니다. 공유 스냅숏을 주기적으로 만들면 나중에 감사 요구 사항이나 재해 복구에 사용할 수 있는 데이터의 이전 버전을 유지 관리하는 데 도움이 됩니다.
 
 ## <a name="capabilities"></a>기능
-
 공유 스냅숏은 데이터의 특정 시점 읽기 전용 복사본입니다. REST API를 사용하여 스냅숏을 만들고 삭제하고 관리할 수 있습니다. 클라이언트 라이브러리, Azure CLI 및 Azure Portal에서도 같은 기능을 사용할 수 있습니다. 
 
 REST API 및 SMB 둘 다를 사용하여 공유의 스냅숏을 볼 수 있습니다. 디렉터리 또는 파일의 버전 목록을 검색할 수 있으며 특정 버전을 드라이브로 직접 탑재할 수도 있습니다. 
@@ -59,9 +54,7 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 
 먼저 모든 공유 스냅숏을 삭제하지 않으면 공유 스냅숏이 있는 공유를 삭제할 수 없습니다.
 
-
 ## <a name="space-usage"></a>공간 사용 
-
 공유 스냅숏은 기본적으로 증분합니다. 가장 최근의 공유 스냅숏 이후에 변경된 데이터만 저장됩니다. 따라서 공유 스냅숏을 생성하는 데 필요한 시간이 최소화되어 저장소 비용이 절약됩니다. 개체 또는 속성 또는 메타데이터 업데이트 작업에 대한 쓰기 작업은 "변경한 콘텐츠"에 포함되어 공유 스냅숏에 저장됩니다. 
 
 공간을 절약하기 위해 변동이 가장 큰 기간의 공유 스냅숏을 삭제할 수 있습니다.
@@ -71,13 +64,11 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 스냅숏은 5TB 공유 제한에 포함되지 않습니다. 공유 스냅숏이 차지하는 총 공간에는 제한이 없습니다. 저장소 계정 제한은 여전히 적용됩니다.
 
 ## <a name="limits"></a>제한
-
 Azure Files에서 허용하는 최대 공유 스냅숏 수는 200개입니다. 공유 스냅숏 200이후로 새 공유 스냅숏을 생성하려면 이전 공유 스냅숏을 삭제해야 합니다. 
 
 공유 스냅숏 생성을 위한 동시 호출에는 제한이 없습니다. 특정 파일 공유의 공유 스냅숏이 사용할 수 있는 공간의 양에는 제한이 없습니다. 
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>공유 스냅숏에서 공유로 데이터 다시 복사
-
 파일 및 공유 스냅숏과 관련된 복사 작업에는 다음 규칙이 적용됩니다.
 
 파일 공유 스냅숏의 개별 파일을 해당 기본 공유 또는 다른 위치에 덮어써서 복사할 수 있습니다. 공유 스냅숏에서 파일별로 복사하여 한 파일의 이전 버전을 복원하거나 전체 파일 공유를 복원할 수 있습니다. 공유 스냅숏은 기본 공유로 승격되지 않습니다. 
@@ -89,7 +80,6 @@ Azure Files에서 허용하는 최대 공유 스냅숏 수는 200개입니다. �
 대상 파일을 복사본으로 덮어쓸 때 원래 대상 파일과 연결된 공유 스냅숏은 그대로 유지됩니다.
 
 ## <a name="general-best-practices"></a>일반 모범 사례 
-
 Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 언제나 백업을 자동화하십시오. 자동화된 작업은 수동 프로세스보다 더 안정적이므로 데이터 보호 및 복구 기능을 개선하는 데 도움이 됩니다. 자동화를 위해 REST API, 클라이언트 SDK 또는 스크립팅을 사용할 수 있습니다.
 
 공유 스냅숏 스케줄러를 배포하기 전에 불필요한 요금이 발생하지 않도록 공유 스냅숏 빈도 및 보존 설정을 신중히 고려하십시오.
@@ -97,6 +87,8 @@ Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 �
 공유 스냅숏은 파일 수준 보호만 제공합니다. 공유 스냅숏은 파일 공유 또는 저장소 계정에서 키보드 입력 실수로 인한 삭제를 방지하지 않습니다. 저장소 계정이 실수로 삭제되지 않도록 보호하기 위해 저장소 계정이나 리소스 그룹을 잠글 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [공유 스냅숏 작업](storage-how-to-use-files-snapshots.md)
-* [공유 스냅숏 FAQ](storage-files-faq.md#share-snapshots)
-
+- 다음에서 공유 스냅숏으로 작업:
+    - [포털](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
+    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+- [공유 스냅숏 FAQ](storage-files-faq.md#share-snapshots)

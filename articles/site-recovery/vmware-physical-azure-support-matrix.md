@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: raynew
-ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -41,7 +41,7 @@ VMware | vCenter Server 6.5, 6.0 또는 5.5 또는 vSphere 6.5, 6.0 또는 5.5 |
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 Windows 2016 Nano Server는 지원되지 않습니다.
-Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4 <br/><br/>CentOS: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7/Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/>SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4 <br/><br/>복제된 컴퓨터를 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.
+Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4 <br/><br/>CentOS: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/>SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4 <br/><br/>복제된 컴퓨터를 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.
 
 >[!NOTE]
 >
@@ -55,20 +55,30 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
-14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic에서 3.13.0-128-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic에서 3.13.0-132-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic에서 3.13.0-137-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-104-generic |
-16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
+14.04 LTS | 9.14 | 3.13.0-24-generic에서 3.13.0-142-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-116-generic |
 16.04 LTS | 9.11 | 4.4.0-21-generic에서 4.4.0-91-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic에서 4.4.0-96-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic에서 4.4.0-104-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic |
+16.04 LTS | 9.14 | 4.4.0-21-generic에서 4.4.0-116-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-36-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1011-azure |
+
+
+### <a name="debian-kernel-versions"></a>Debian 커널 버전
+
+
+**지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
+--- | --- | --- |
+Debian 7 | 9.14 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 저장소
 
 **구성 요소** | **지원됨**
 --- | ---
-파일 시스템 | ext3, ext4, ReiserFS(Suse Linux Enterprise Server만 해당), XFS.
+파일 시스템 | ext3, ext4, XFS.
 볼륨 관리자 | LVM2.
 다중 경로 소프트웨어 | 장치 매퍼.
 반가상화 저장 장치 | 반가상화 드라이버에서 내보낸 장치는 지원되지 않습니다.
@@ -119,9 +129,9 @@ Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Vi
 게스트/서버 VMDK | 예
 게스트/서버 EFI/UEFI| 부분(Windows Server 2012 이상 VMware 가상 머신에서만 Azure로 마이그레이션) </br></br> 표 끝에 있는 메모를 참조하세요.
 게스트/서버 공유 클러스터 디스크 | 아니오
-게스트/서버 암호화된 디스크 | 아니오
+게스트/서버 암호화된 디스크 | 아니요
 게스트/서버 NFS | 아니오
-게스트/서버 SMB 3.0 | 아니오
+게스트/서버 SMB 3.0 | 아니요
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
@@ -148,13 +158,13 @@ Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Vi
 지역 중복 저장소 | 예
 읽기 액세스 지역 중복 저장소 | 예
 쿨 저장소 | 아니오
-핫 저장소| 아니요
-블록 Blob | 아니오
+핫 저장소| 아니오
+블록 Blob | 아니요
 휴지 상태의 암호화(Storage 서비스 암호화)| 예
 Premium Storage | 예
-Import/Export 서비스 | 아니오
-Virtual Network 서비스 엔드포인트<br/><br/> 저장소 방화벽 및 대상 저장소/캐시 저장소 계정에 구성된 Virtual Network(복제 데이터 저장에 사용) | 아니오
-범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니요
+Import/Export 서비스 | 아니요
+Virtual Network 서비스 엔드포인트<br/><br/> 저장소 방화벽 및 대상 저장소/캐시 저장소 계정에 구성된 Virtual Network(복제 데이터 저장에 사용) | 아니요
+범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니오
 
 ## <a name="azure-compute"></a>Azure Compute
 
@@ -188,7 +198,7 @@ VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으�
 **작업** | **지원됨**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오
 
 
 ## <a name="mobility-service"></a>Mobility Service

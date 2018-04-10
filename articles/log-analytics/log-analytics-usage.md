@@ -1,27 +1,27 @@
 ---
-title: "Log Analytics에서 데이터 사용 현황 분석 | Microsoft Docs"
-description: "Log Analytics에서 사용량 대시보드를 사용하여 Log Analytics 서비스에 보내는 데이터의 양을 보고 많은 양의 데이터를 전송하는 원인을 해결합니다."
+title: Log Analytics에서 데이터 사용 현황 분석 | Microsoft Docs
+description: Log Analytics의 사용량 및 예상 비용 대시보드를 사용하여 Log Analytics로 전송된 데이터 양을 평가하고 예상치 않게 데이터 양이 증가할 수 있는 잠재적 요소를 파악합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
-Log Analytics는 데이터를 전송한 시스템 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 Log Analytics 서비스에 전송된 데이터의 양을 확인합니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
+Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 데이터 사용을 검토하고 분석할 수 있습니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
 
 ## <a name="understand-the-usage-dashboard"></a>사용량 대시보드 이해
 **Log Analytics 사용량** 대시보드에는 다음 정보가 표시됩니다.
@@ -41,20 +41,17 @@ Log Analytics는 데이터를 전송한 시스템 및 전송되는 데이터의 
     - 데이터 수집 및 인덱싱 소요 시간  
 - 쿼리 목록
 
-![사용량 대시보드](./media/log-analytics-usage/usage-dashboard01.png)
+![사용 및 비용 대시보드](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### <a name="to-work-with-usage-data"></a>사용률 데이터를 작업하려면
-1. [Azure Portal](https://portal.azure.com)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
-2. **모든 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 클릭합니다.  
-    ![Azure 허브](./media/log-analytics-usage/hub.png)
-3. **Log Analytics** 대시보드는 작업 영역 목록을 표시합니다. 작업 영역을 선택합니다.
-4. *작업 영역* 대시보드에서 **Log Analytics 사용량**을 클릭합니다.
-5. **Log Analytics 사용량** 대시보드에서 **시간: 최근 24시간**을 클릭하여 시간 간격을 변경합니다.  
-    ![시간 간격](./media/log-analytics-usage/time.png)
-6. 관심이 있는 영역을 표시하는 사용량 범주 블레이드를 확인합니다. [로그 검색](log-analytics-log-searches.md)에서 블레이드를 선택하고 더 자세히 보려는 항목을 클릭합니다.  
-    ![예제 데이터 사용량 블레이드](./media/log-analytics-usage/blade.png)
-7. 로그 검색 대시보드에서 검색에서 반환되는 결과를 검토합니다.  
-    ![예제 사용량 로그 검색](./media/log-analytics-usage/usage-log-search.png)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Log Analytics 작업 영역 목록에서 작업 영역을 선택합니다.
+4. 왼쪽 창의 목록에서 **사용량 및 예상 비용**을 선택합니다.
+5. **사용량 및 예상 비용** 대시보드에서 **시간: 마지막 24시간**을 선택하고 시간 간격을 변경하여 시간 범위를 수정할 수 있습니다.<br><br> ![시간 간격](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. 관심이 있는 영역을 표시하는 사용량 범주 블레이드를 확인합니다. [로그 검색](log-analytics-log-searches.md)에서 블레이드를 선택하고 더 자세히 보려는 항목을 클릭합니다.<br><br> ![예제 데이터 사용량 kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. 로그 검색 대시보드에서 검색에서 반환되는 결과를 검토합니다.<br><br> ![예제 사용량 로그 검색](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>데이터 컬렉션이 예상보다 높은 경우 경고를 만듭니다.
 이 섹션에서는 경고가 발생하는 경우를 설명합니다.

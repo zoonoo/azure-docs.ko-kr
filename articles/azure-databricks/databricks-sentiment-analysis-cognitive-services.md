@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 889284d9c53f902b7a8443c4622e1c3015630ae0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -113,7 +113,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만들어야 합니다. 다음 단계에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
-1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](http://twitter.com/app)로 이동하고 **새 앱 만들기**를 선택합니다.
+1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
 
     ![Twitter 응용 프로그램 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Twitter 응용 프로그램 만들기")
 

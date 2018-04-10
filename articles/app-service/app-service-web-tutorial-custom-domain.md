@@ -1,12 +1,12 @@
 ---
-title: "Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑 | Microsoft Docs"
-description: "Azure App Service의 웹앱, 모바일 앱 백 엔드 또는 API 앱에 기존 사용자 지정 DNS 도메인 이름(베니티 도메인)을 추가하는 방법을 알아봅니다."
-keywords: "App Service, Azure App Service, 도메인 매핑, 도메인 이름, 기존 도메인, 호스트 이름"
+title: Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑 | Microsoft Docs
+description: Azure App Service의 웹앱, 모바일 앱 백 엔드 또는 API 앱에 기존 사용자 지정 DNS 도메인 이름(베니티 도메인)을 추가하는 방법을 알아봅니다.
+keywords: App Service, Azure App Service, 도메인 매핑, 도메인 이름, 기존 도메인, 호스트 이름
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -292,7 +292,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 ![가상 디렉터리 사용자 지정](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-작업이 완료되면 앱은 루트 경로(예를 들어 http://contoso.com)에서 오른쪽 페이지를 반환해야 합니다.
+작업이 완료되면 앱은 루트 경로(예를 들어 http://contoso.com )에서 오른쪽 페이지를 반환해야 합니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 

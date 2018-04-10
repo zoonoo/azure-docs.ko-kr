@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>구독 전체의 Azure 활동 로그를 Log Analytics에 수집
 
@@ -324,9 +324,9 @@ Logic App 디자이너에서 **실행**을 클릭하여 Logic App을 테스트�
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>5단계 - Log Analytics에서 Azure 활동 로그 보기
 최종 단계는 Log Analytics 작업 영역을 검사하여 데이터가 예상대로 수집되는지 확인하는 것입니다.
 
-1. Azure Portal에서 **Log Analytics**를 선택합니다.
-2. 작업 영역, **로그 검색** 타일을 차례로 선택합니다.
-3. 검색 쿼리 표시줄에서 `AzureActivity_CL`을 입력하고 검색 단추를 클릭합니다. 사용자 지정 로그의 이름을 *AzureActivity*로 지정하지 않은 경우 선택한 이름을 입력하고 `_CL`을 추가합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+2. Log Analytics 작업 영역 목록에서 작업 영역을 선택합니다.
+3.  **로그 검색** 타일을 클릭하고 로그 검색 창의 쿼리 필드에 `AzureActivity_CL`를 입력한 후 Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 클릭합니다. 사용자 지정 로그의 이름을 *AzureActivity*로 지정하지 않은 경우 선택한 이름을 입력하고 `_CL`을 추가합니다.
 
 >[!NOTE]
 > 새 사용자 지정 로그를 Log Analytics에 처음 보내는 경우 사용자 지정 로그가 검색 가능해질 때까지 최대 1시간이 걸릴 수 있습니다.

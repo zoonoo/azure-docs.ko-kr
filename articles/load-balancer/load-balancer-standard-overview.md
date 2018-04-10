@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -175,6 +175,9 @@ Load Balancer는 여러 프런트 엔드가 있는 여러 규칙을 지원합니
 ## <a name="migration-between-skus"></a>SKU 간의 마이그레이션
 
 SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 간에 이동합니다.
+
+>[!IMPORTANT]
+>SKU 간의 차이점을 이해하고 시나리오를 신중하게 검사하기 위해 전체에서 이 문서를 검토합니다.  시나리오에 맞게 추가로 변경해야 할 수 있습니다.
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>기본에서 표준 SKU로 마이그레이션
 

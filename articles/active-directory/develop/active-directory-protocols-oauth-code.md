@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여
 Azure AD(Azure Active Directory)는 OAuth 2.0을 사용하여 사용자는 Azure AD 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다. 이 가이드는 언어 독립적이며 공개 소스 라이브러리를 사용하지 않고 HTTP 메시지를 수신하는 방법을 설명합니다.
@@ -138,9 +138,9 @@ grant_type=authorization_code
 | grant_type |필수 |인증 코드 흐름에 대한 `authorization_code` 여야 합니다. |
 | 코드 |필수 |이전 섹션에서 획득한 `authorization_code` 입니다. |
 | redirect_uri |필수 |`authorization_code`를 획득하는 데 사용된 동일한 `redirect_uri` 값입니다. |
-| client_secret |웹앱에 필요 |앱에 대한 앱 등록 포털에서 만든 응용 프로그램 암호입니다.  장치에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱에서는 사용하면 안 됩니다.  서버 쪽에서 `client_secret` 을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다. |
+| client_secret |웹앱에 필요하지만 공용 클라이언트에 허용되지 않습니다. |앱에 대한 앱 등록 포털에서 만든 응용 프로그램 암호입니다.  장치에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱(공용 클라이언트)에서는 사용할 수 없습니다.  서버 쪽에서 `client_secret`을 안전하게 저장할 수 있는 웹앱 및 Web API(모두 기밀 클라이언트)에 필요합니다. |
 | resource |그렇지 않으면 선택적 인증 코드 요청에 지정 된 경우 필수 |웹 API (보안 리소스)의 앱 ID URI. |
-| code_verifier | 선택 사항              | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다.  인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다.  자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요.                                                                                                                                                                                                                                                                                             |
+| code_verifier | 선택 사항              | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다.  인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다.  자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요.   |
 
 Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**을 클릭하고, 디렉터리를 클릭하고, 응용 프로그램을 클릭한 후 **구성**을 클릭합니다.
 

@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-http://portal.azure.com에서 Azure Portal에 로그인합니다.
+http://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기

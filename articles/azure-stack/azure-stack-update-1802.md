@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure 스택 1802 업데이트
 
@@ -56,7 +56,9 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
 
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
-*1802 업데이트에 대 한 업데이트 후 단계가 없습니다.*
+1802 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.  
+- [Azure 스택 업데이트를 설치 하려고 할 때 KB 4103348-네트워크 컨트롤러 API 서비스가 충돌](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>새 기능 및 수정
@@ -141,6 +143,10 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
 
 #### <a name="compute"></a>컴퓨팅
 - 크기 조정 설정을 가상 컴퓨터 크기 집합에 대 한 포털에서 사용할 수 없는 경우 한 대 안으로 사용할 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)합니다. PowerShell 버전 차이 때문에 사용 해야 합니다는 `-Name` 매개 변수 대신 `-VMScaleSetName`합니다.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  이 문제는 1803 버전에서 해결 되었습니다. 1802 버전에 대 한이 문제를 해결 하려면 Azure 스택 핫픽스 설치 **1.0.180302.4**합니다. 자세한 내용은 참조 [KB 4131152: 기존 가상 컴퓨터 크기 집합을 사용할 수 없게 될 수 있습니다]( https://support.microsoft.com/help/4131152)합니다. 
 
 - Azure 스택 사용 하는 고정된 형식 Vhd만 지원 합니다. Azure 스택 마켓플레이스를 통해 제공 되는 일부 이미지 동적 Vhd를 사용 하지만 제거 된 것입니다. 가상 컴퓨터 (VM)에 연결 된 동적 디스크 크기 조정을 VM 실패 한 상태로 둡니다.
 

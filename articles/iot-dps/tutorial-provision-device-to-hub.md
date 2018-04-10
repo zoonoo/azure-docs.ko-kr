@@ -1,22 +1,22 @@
 ---
-title: "Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전 | Microsoft Docs"
-description: "Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT Hub에 장치를 프로비전"
+title: Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전 | Microsoft Docs
+description: Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT Hub에 장치를 프로비전
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 03/28/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 장치를 프로비전
 
@@ -29,25 +29,25 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-계속 진행하기 전에 자습서에 설명된 대로 장치 및 *하드웨어 보안 모듈*을 구성할 수 있는지 확인하고, [Azure IoT Hub Device Provisioning Service를 사용하여 프로비전하도록 장치를 설정](./tutorial-set-up-device.md)합니다.
+계속 진행하려면 [Azure IoT Hub Device Provisioning Service를 사용하여 프로비전하도록 장치를 설정](./tutorial-set-up-device.md) 자습서의 설명에 따라 장치를 구성해야 합니다.
 
+자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>장치 등록
 
-이 단계에서는 Device Provisioning Service에 장치의 고유 보안 아티팩트를 추가하는 것이 포함됩니다. 이러한 보안 아티팩트는 다음과 같습니다.
+이 단계에서는 Device Provisioning Service에 장치의 고유 보안 아티팩트를 추가하는 것이 포함됩니다. 이러한 보안 아티팩트는 다음과 같은 장치의 [증명 메커니즘](concepts-device.md#attestation-mechanism)을 기반으로 합니다.
 
-- TPM 기반 장치의 경우:
-    - 각 TPM 칩 또는 시뮬레이션에 고유한 *인증 키*입니다. 자세한 정보는 [TPM 인증 키 이해](https://technet.microsoft.com/library/cc770443.aspx)를 읽어보세요.
-    - 네임스페이스/범위에서 장치를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이는 장치 ID와 같거나 다를 수 있습니다. ID는 모든 장치에 필수입니다. TPM 기반 장치의 경우 등록 ID는 TPM 인증 키의 SHA-256 해시와 같이 TPM 자체에서 파생될 수도 있습니다.
+- TPM 기반 장치의 경우 다음과 같은 항목이 필요합니다.
+    - TPM 칩 제조업체에서 얻은 각 TPM 칩 또는 시뮬레이션에 고유한 *인증 키*.  자세한 정보는 [TPM 인증 키 이해](https://technet.microsoft.com/library/cc770443.aspx)를 읽어보세요.
+    - 네임스페이스/범위에서 장치를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이 ID는 장치 ID와 같을 수도 있고 다를 수도 있습니다. ID는 모든 장치에 필수입니다. TPM 기반 장치의 경우 등록 ID는 TPM 인증 키의 SHA-256 해시와 같이 TPM 자체에서 파생될 수도 있습니다.
 
     ![포털에서 TPM에 대한 등록 정보](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
 
-- X.509 기반 장치의 경우:
-    - [X.509에 발급된 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) 칩 또는 시뮬레이션입니다. 형식은 *.pem* 또는 *.cer* 파일 중 하나입니다. 개별 등록은 X.509 시스템에 대한 *서명자 인증서*를, 등록 그룹의 경우 *루트 인증서*를 사용해야 합니다.
+- X.509 기반 장치의 경우 다음과 같은 항목이 필요합니다.
+    - [X.509에 발급된 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) 칩 또는 시뮬레이션입니다. 형식은 *.pem* 또는 *.cer* 파일 중 하나입니다. 개별 등록은 X.509 시스템에 대한 장치별 *서명자 인증서*를, 등록 그룹의 경우 *루트 인증서*를 사용해야 합니다. 
 
     ![포털에서 X.509에 대한 등록 정보](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
-
 
 Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 있습니다.
 
@@ -55,30 +55,28 @@ Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 �
 
     ![포털에서 X.509에 대한 등록 그룹](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
 
-- **개별 등록** Device Provisioning Service에 등록할 수도 있는 단일 장치에 대한 항목을 나타냅니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 장치 또는 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록은 지정된 원하는 IoT Hub 장치 ID가 있을 수 있습니다.
+- **개별 등록** Device Provisioning Service에 등록할 수도 있는 단일 장치에 대한 항목을 나타냅니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 장치 및 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록에는 원하는 IoT Hub 장치 ID가 지정될 수 있습니다.
 
-포털에서 장치를 등록하는 단계는 다음과 같습니다.
-
-1. 장치에서 HSM에 대한 보안 아티팩트를 적어 둡니다. 이전 자습서의 [보안 아티팩트 추출](./tutorial-set-up-device.md#extractsecurity)이란 제목의 섹션에 언급된 API를 개발 환경에서 사용해야 할 수도 있습니다.
+이제 장치의 증명 메커니즘에 따라 필요한 보안 아티팩트를 사용하여 장치를 Device Provisioning Service 인스턴스에 등록합니다. 
 
 1. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
 
-1. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭 또는 **등록 그룹** 탭 중 하나를 장치 설정에 따라 탭합니다. 위쪽에 있는 **추가** 단추를 클릭합니다. **TPM** 또는 **X.509**를 ID 증명 *메커니즘*으로 선택하고, 이전에 설명된 대로 적절한 보안 아티팩트를 입력합니다. 새 **IoT Hub 장치 ID**를 입력할 수도 있습니다. 완료되면 **저장** 단추를 클릭합니다. 
+2. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭 또는 **등록 그룹** 탭 중 하나를 장치 설정에 따라 탭합니다. 위쪽에 있는 **추가** 단추를 클릭합니다. **TPM** 또는 **X.509**를 ID 증명 *메커니즘*으로 선택하고, 이전에 설명된 대로 적절한 보안 아티팩트를 입력합니다. 새 **IoT Hub 장치 ID**를 입력할 수도 있습니다. 완료되면 **저장** 단추를 클릭합니다. 
 
-1. 장치를 성공적으로 등록하면 포털에 다음과 같은 화면이 표시됩니다.
+3. 장치를 성공적으로 등록하면 포털에 다음과 같은 화면이 표시됩니다.
 
     ![포털에서 성공적인 TPM 등록](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
 
+등록 후 프로비전 서비스는 향후 특정한 시점에 이러한 장치가 부팅 및 연결될 때까지 대기합니다. 장치를 처음으로 부팅하는 경우 클라이언트 SDK 라이브러리는 칩과 상호 작용하여 장치에서 보안 아티팩트를 추출하고, Device Provisioning Service에 등록을 확인합니다. 
 
 ## <a name="start-the-device"></a>장치 시작
 
 이 시점에서 다음 설정이 장치 등록을 위해 준비되었습니다.
 
 1. 장치 또는 장치 그룹이 Device Provisioning Service에 등록되었습니다. 
-2. 장치가 Device Provisioning Service 클라이언트 SDK를 사용하여 응용 프로그램을 통해 구성 및 액세스가 가능한 HSM 칩과 함께 준비되어 있습니다.
+2. 장치의 증명 메커니즘이 구성되었으며 Device Provisioning Service 클라이언트 SDK를 사용하여 응용 프로그램을 통해 장치에 액세스할 수 있습니다.
 
 장치에서 Device Provisioning Service를 통해 등록을 시작하도록 클라이언트 응용 프로그램을 허용합니다.  
-
 
 ## <a name="verify-the-device-is-registered"></a>장치가 등록되어 있는지 확인
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics의 Azure 네트워킹 모니터링 솔루션
 
@@ -28,18 +28,19 @@ Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔�
 * 검토할 Azure Application Gateway 분석
  * Azure Application Gateway 로그
  * Azure Application Gateway 메트릭
+* 클라우드 네트워크에서 네트워크 작업을 모니터링하고 감사하는 솔루션
+* [트래픽 분석](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
 * Azure 네트워크 보안 그룹 분석
- * Azure 네트워크 보안 그룹 로그
 
 ## <a name="network-performance-monitor-npm"></a>NPM(네트워크 성능 모니터)
 
-[네트워크 성능 모니터](log-analytics-network-performance-monitor.md) 관리 솔루션은 네트워크의 상태, 가용성 및 연결 가능성을 모니터링하는 네트워크 모니터링 솔루션입니다.  다음 항목 간의 연결을 모니터링하는 데 사용됩니다.
+[네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview) 관리 솔루션은 네트워크의 상태, 가용성 및 연결 가능성을 모니터링하는 네트워크 모니터링 솔루션입니다.  다음 항목 간의 연결을 모니터링하는 데 사용됩니다.
 
 * 공용 클라우드 및 온-프레미스
 * 데이터 센터 및 사용자 위치(지점)
 * 다중 계층 응용 프로그램의 다양한 계층을 호스팅하는 서브넷
 
-자세한 내용은 [네트워크 성능 모니터](log-analytics-network-performance-monitor.md)를 참조하세요.
+자세한 내용은 [네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview)를 참조하세요.
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway 및 네트워크 보안 그룹 분석
 솔루션을 사용하려면:

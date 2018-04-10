@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure에서 첫 번째 Java 웹앱 만들기
 description: 기본 Java 앱을 배포하여 App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: routlaw
+manager: mbaldwin
 editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/08/2017
+ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e63f8706e28a5d34cc9774cbaecde31415a4b48e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
 [Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
+
+> [!NOTE]
+>
+> 이 빠른 시작의 단계에서는 Eclipse IDE를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여주지만, IntelliJ IDEA Ultimate Edition 또는 Community Edition을 사용할 수 있습니다. 자세한 내용은 [IntelliJ를 사용하여 Azure용 Hello World 웹앱 만들기](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)를 참조하세요.
+>
 
 이 빠른 시작을 완료하면 웹 브라우저에서 응용 프로그램을 봤을 때 다음 그림과 같이 표시됩니다.
 
@@ -37,6 +42,11 @@ ms.lasthandoff: 03/29/2018
 
 * 무료 <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. 이 빠른 시작은 Eclipse Neon을 사용합니다.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Eclipse용 Azure 도구 키트</a>.
+
+> [!NOTE]
+>
+> 이 빠른 시작의 단계를 완료하려면 Eclipse용 Azure 도구 키트를 사용하여 Azure 계정에 로그인해야 합니다. 이렇게 하려면 [Eclipse용 Azure 도구 키트에 대한 Azure 로그인 지침](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions)을 참조하세요.
+>
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Eclipse에서 동적 웹 프로젝트 만들기
 
@@ -74,15 +84,20 @@ index.jsp 파일에서 `<body></body>` 요소를 다음 태그로 바꿉니다.
 
 변경 내용을 저장합니다.
 
+> [!NOTE]
+>
+> 누락된 Java Servlet 클래스를 참조하는 첫 번째 줄에서 오류가 발생하는 경우 무시해도 됩니다.
+> 
+> ![Benign Java servlet 오류](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
+>
+
 ## <a name="publish-the-web-app-to-azure"></a>Azure에 웹앱 게시
 
-프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Azure** > **Azure 웹앱으로 게시**를 선택합니다.
+프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **Azure** > **Azure 웹앱으로 게시**를 선택합니다.
 
 ![Azure 웹앱으로 게시 상황에 맞는 메뉴](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-**Azure 로그인** 대화 상자에서 **대화형** 옵션을 유지한 다음 **로그인**합니다.
-
-로그인 지침을 따릅니다.
+**Azure 로그인** 대화 상자가 나타나면 자격 증명을 입력하기 위해 [Eclipse용 Azure 도구 키트에 대한 Azure 로그인 지침](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) 아티클의 단계를 따라야 합니다.
 
 ### <a name="deploy-web-app-dialog-box"></a>웹앱 배포 대화 상자
 
@@ -100,8 +115,8 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 
 **App Service 만들기** 대화 상자에서:
 
-* 웹앱에 대해 생성된 이름을 유지합니다. 이 이름은 Azure에서 고유해야 합니다. 이름은 웹앱에 대한 URL 주소의 일부입니다. 예: 웹앱 이름이 **MyJavaWebApp**이면 URL은 *myjavawebapp.azurewebsites.net*입니다.
-* 기본 웹 컨테이너를 유지합니다.
+* 웹앱의 고유한 이름을 입력하거나 생성된 이름을 그대로 사용합니다. 이 이름은 Azure에서 고유해야 합니다. 이름은 웹앱에 대한 URL 주소의 일부입니다. 예: 웹앱 이름이 **MyJavaWebApp**이면 URL은 *myjavawebapp.azurewebsites.net*입니다.
+* 이 빠른 시작에서는 기본 웹 컨테이너를 유지합니다.
 * Azure 구독을 선택합니다.
 * **App Service 계획** 탭에서:
 
@@ -187,7 +202,7 @@ Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합�
 
 리소스 그룹을 선택합니다. 페이지에서 이 빠른 시작에서 만든 리소스를 보여 줍니다.
 
-![리소스 그룹 myResourceGroup](media/app-service-web-get-started-java/rg2.png)
+![리소스 그룹](media/app-service-web-get-started-java/rg2.png)
 
 웹앱을 선택합니다(이전 이미지에서 **webapp-170602193915**).
 

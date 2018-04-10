@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 04/02/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
 
@@ -45,7 +45,7 @@ Java 통해 함수 앱을 개발하려면 다음을 설치해야 합니다.
 
 [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools)는 Azure Functions의 작성, 실행 및 디버그를 위한 로컬 개발 환경을 제공합니다. 
 
-설치하려면 [설치](https://github.com/azure/azure-functions-core-tools#installing) 섹션을 방문하여 선택한 운영 체제(Windows, Linux, Mac)에 대한 지침을 찾아봅니다.
+설치하려면 Azure Functions 핵심 도구 프로젝트의 [설치](https://github.com/azure/azure-functions-core-tools#installing) 섹션으로 이동하여 해당 운영 체제에 대한 지침을 찾아보세요.
 
 다음과 같은 요구 사항을 설치한 후 [Node.js](https://nodejs.org/)에 포함된 [npm](https://www.npmjs.com/)을 사용하여 수동으로 설치할 수도 있습니다.
 
@@ -80,7 +80,9 @@ mvn archetype:generate ^
     -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven에 프로젝트 생성 완료를 위해 필요한 값을 입력하라는 메시지가 표시됩니다. _groupId_, _artifactId_ 및 _version_ 값은 [Maven 명명 규칙](https://maven.apache.org/guides/mini/guide-naming-conventions.html) 참고를 참조하세요. _appName_ 값은 Azure 전체에서 고유해야 하므로 기본적으로 Maven이 이전에 입력한 _artifactId_를 기준으로 앱 이름을 생성합니다. _packageName_ 값은 생성된 함수 코드에 대한 Java 패키지를 결정합니다.
+Maven이 프로젝트 생성을 완료하기 위해 필요한 값을 요청합니다. _groupId_, _artifactId_ 및 _version_ 값은 [Maven 명명 규칙](https://maven.apache.org/guides/mini/guide-naming-conventions.html) 참고를 참조하세요. _appName_ 값은 Azure 전체에서 고유해야 하므로 기본적으로 Maven이 이전에 입력한 _artifactId_를 기준으로 앱 이름을 생성합니다. _packageName_ 값은 생성된 함수 코드에 대한 Java 패키지를 결정합니다.
+
+아래의 `com.fabrikam.functions` 및 `fabrikam-functions` 식별자는 예제로 사용되며 이 빠른 시작의 이후 단계를 좀 더 쉽게 읽는 데 도움이 됩니다. 이 단계에서는 Maven에 각자 고유의 값을 제공하시기 바랍니다.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -91,7 +93,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
+Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 이 프로젝트에서 생성된 즉시 실행 가능 코드는 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
 
 ```java
 public class Function {
@@ -133,7 +135,7 @@ mvn azure-functions:run
 > [!NOTE]
 > Java 9에서 `javax.xml.bind.JAXBException` 예외가 발생하면 [GitHub](https://github.com/jOOQ/jOOQ/issues/6477)에서 해결 방법을 참조하세요.
 
-함수가 실행되면 이 출력이 표시됩니다.
+함수가 시스템에서 로컬로 실행되고 HTTP 요청에 응답할 준비가 완료되면 이 출력이 보입니다.
 
 ```Output
 Listening on http://localhost:7071
@@ -144,7 +146,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-새 터미널에서 curl을 사용하여 명령줄에서 함수를 트리거합니다.
+새 터미널 창에서 curl을 사용하여 명령줄에서 함수를 트리거합니다.
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -158,10 +160,15 @@ Hello LocalFunction!
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
-Azure Functions에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. [Azure CLI에 로그인하고](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) `azure-functions:deploy` Maven 대상을 사용하여 새 함수 앱에 코드를 배포합니다.
+Azure Functions에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
+
+```azurecli
+az login
+```
+
+`azure-functions:deploy` Maven 대상을 사용하여 새 함수 앱에 코드를 배포합니다.
 
 ```
-az login
 mvn azure-functions:deploy
 ```
 
@@ -175,7 +182,7 @@ mvn azure-functions:deploy
 [INFO] ------------------------------------------------------------------------
 ```
 
-curl을 사용하여 Azure에서 실행 중인 함수 앱을 테스트합니다.
+`cURL`을 사용하여 Azure에서 실행 중인 함수 앱을 테스트합니다. 아래 예제에서는 이전 단계에서 만든 사용자 고유의 함수 앱에 배포한 URL과 일치하도록 URL을 변경해야 합니다.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

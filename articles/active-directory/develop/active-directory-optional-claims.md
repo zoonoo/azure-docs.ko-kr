@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD의 선택적 클레임(미리 보기)
 
@@ -69,9 +69,7 @@ ms.lasthandoff: 03/23/2018
 | `is_device_managed`        | 장치에 MDM이 설치되어 있는지를 나타냅니다. 조건부 액세스 정책과 관련되어 있습니다.                                                                                                                  | SAML       |           | JWT의 경우 signin_state에 수렴됩니다.                                                                                                                                                                                                                                                   |
 | `is_device_compliant`      | MDM이 장치가 조직의 장치 보안 정책을 준수하는 것을 확인했음을 나타냅니다.                                                                                  | SAML       |           | JWT의 경우 signin_state에 수렴됩니다.                                                                                                                                                                                                                                                   |
 | `kmsi`                     | 사용자가 로그인 유지 옵션을 선택했는지를 나타냅니다.                                                                                                                                    | SAML       |           | JWT의 경우 signin_state에 수렴됩니다.                                                                                                                                                                                                                                                   |
-| `upn`                      | UserPrincipalName 클레임입니다.  이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. | JWT, SAML  |           | 추가 속성: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | 사용자가 멤버인 그룹입니다.                                                                                                                                                               | JWT, SAML  |           | 추가 속성: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | UserPrincipalName 클레임입니다.  이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. | JWT, SAML  |           | 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>V2.0 선택적 클레임
 이러한 클레임은 항상 v1.0 토큰에 포함되지만, 요청되지 않을 경우 v2.0 토큰에서 제거됩니다.  이러한 클레임은 JWT(ID 토큰 및 액세스 토큰)에 대해서만 적용 가능합니다.  
 
@@ -90,26 +88,19 @@ ms.lasthandoff: 03/23/2018
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
 
-일부 선택적 클레임은 클레임이 반환되는 방식을 변경하도록 구성할 수 있습니다.  이러한 추가 속성은 서식 변경(예: `include_externally_authenticated_upn_without_hash`)부터 반환되는 데이터 집합 변경(`Dns_domain_and_sam_account_name`)까지 다양합니다.
+일부 선택적 클레임은 클레임이 반환되는 방식을 변경하도록 구성할 수 있습니다.  대개 이러한 추가 속성을 사용하여 다른 데이터 기대가 포함된 온-프레미스 응용 프로그램을 마이그레이션할 수 있습니다(예: UPN에서 `include_externally_authenticated_upn_without_hash`를 통해 해시 표시(`#`)를 처리할 수 없는 클라이언트에 사용할 수 있음).
 
 **표 4: 표준 선택적 클레임을 구성하기 위한 값**
 
 | 속성 이름                                     | 추가 속성 이름                                                                                                             | 설명 |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다.  예를 들어 `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | 해시 표시(`#`)가 밑줄(`_`)로 바뀐다는 점을 제외하고 위와 같습니다(예: `foo_hometenant.com_EXT_@resourcetenant.com`). |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | 반환되는 그룹 수를 최대 그룹 크기 제한(1,000)으로 늘립니다.                                                            |             
-| | `emit_as_roles`                                     | 같은 값을 사용해서 "groups" 클레임 대신, "roles" 클레임을 내보냅니다.  기본적으로 RBAC가 그룹 멤버 자격을 통해 제어되던 온-프레미스 환경에서 마이그레이션되는 앱을 위한 것입니다.   |             
 
 > [!Note]
 >추가 속성 없이 UPN 선택적 클레임을 지정하면 어떤 동작도 변경되지 않습니다. 토큰에서 발급된 새 클레임을 보려면 하나 이상의 추가 속성을 추가해야 합니다. 
->
->그룹에 대한 `account_name` 추가 속성은 상호 운용 가능하지 않으며, 추가 속성의 순서가 중요합니다. 즉, 추가 속성이 나열한 첫 번째 계정 이름이 사용됩니다. 
+
 
 #### <a name="additional-properties-example"></a>추가 속성 예제:
 
@@ -118,15 +109,15 @@ ms.lasthandoff: 03/23/2018
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-이 OptionalClaims 개체는 마치 `sam_account_name`이 포함되지 않은 것처럼 동일한 `groups` 클레임을 반환합니다. 이 개체는 `netbios_domain_and_sam_account_name` 다음에 나오므로 무시됩니다. 
+이 OptionalClaims 개체를 통해 ID 토큰이 클라이언트에 반환되어 추가 홈 테넌트 및 리소스 테넌트 정보와 함께 다른 UPN을 포함하게 됩니다.  
 
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 

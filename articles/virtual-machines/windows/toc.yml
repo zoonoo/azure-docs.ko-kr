@@ -342,13 +342,20 @@
         - name: Azure 로그 수집기 확장
           href: log-collector-extension.md
         - name: Azure 진단 확장
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: 확장 스키마
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: PowerShell을 사용하여 사용
+              href: ps-extensions-diagnostics.md
+            - name: 템플릿을 사용하여 사용
+              href: extensions-diagnostics-template.md
+            - name: 문제 해결
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: VM 확장 내보내기
           href: extensions-export-templates.md
         - name: 확장 문제 해결
           href: extensions-troubleshoot.md
-        - name: 모니터링 및 진단 확장
-          href: extensions-diagnostics-template.md
         - name: Network Watcher 에이전트
           href: extensions-nwa.md
         - name: 확장 설치 제한

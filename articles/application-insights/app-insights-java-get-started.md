@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -47,10 +47,10 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. 프로젝트에 Java용 Aplication Insights SDK 추가
 *프로젝트에 적합한 방법을 선택합니다.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Eclipse를 사용하여 Maven 또는 동적 웹 프로젝트를 만드는 경우...
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>Eclipse를 사용하여 동적 웹 프로젝트를 만드는 경우...
 [Java 플러그인용 Application Insights SDK][eclipse]를 사용합니다.
 
-#### <a name="if-youre-using-maven"></a>Maven을 사용하는 경우...
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Maven을 사용하는 경우... <a name="maven-setup" />
 빌드에 Maven을 사용하도록 프로젝트가 이미 설정된 경우 pom.xml 파일에 다음 코드를 병합합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
@@ -78,12 +78,12 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 * *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `<version>2.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
 * *새 SDK로 업데이트해야 하는 경우* 프로젝트의 종속성을 새로 고칩니다.
 
-#### <a name="if-youre-using-gradle"></a>Gradle을 사용하는 경우...
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Gradle을 사용하는 경우... <a name="gradle-setup" />
 빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드를 build.gradle 파일에 병합합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +95,24 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
     }
 ```
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다*`version:'2.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
-* *새 SDK로 업데이트하려면*
-  * 프로젝트의 종속성을 새로 고칩니다.
+* *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `version:'2.0.n'`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
+* *새 SDK로 업데이트하려면* 프로젝트의 종속성을 새로 고칩니다.
 
-#### <a name="otherwise-"></a>기타...
-수동으로 SDK 추가:
-
-1. [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)를 다운로드합니다.
-2. zip 파일에서 이진 파일을 추출하고 프로젝트에 추가합니다.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>그렇지 않으면 수동으로 종속성을 관리하는 경우...
+[최신 버전](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)을 다운로드하고 필요한 파일을 프로젝트에 복사하여 이전 버전을 교체합니다.
 
 ### <a name="questions"></a>질문...
-* *zip에서 `-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
-
+* *`-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
   * `applicationinsights-core` 는 최소한의 API를 제공합니다. 이 구성 요소는 항상 필요합니다.
   * `applicationinsights-web` 은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 이 구성 요소를 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
-* *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
+  
+* *SDK를 최신 버전으로 업데이트하려면 어떻게 해야 하나요?*
+  * Gradle 또는 Maven을 사용하는 경우...
+    * 빌드 파일을 업데이트하여 최신 버전을 지정하거나 Gradle/Maven의 와일드 카드 구문을 사용하여 최신 버전을 자동으로 포함합니다. 그런 다음, 프로젝트의 종속성을 새로 고칩니다. 와일드 카드 구문은 [Gradle](#gradle-setup) 또는 [Maven](#maven-setup)에 대한 위의 예제에서 볼 수 있습니다.
+  * 종속성을 수동으로 관리하는 경우...
+    * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) 를 다운로드하여 이전 버전을 대체합니다. 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
-  * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) 를 다운로드하여 이전 버전을 대체합니다.
-  * 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Application Insights .xml 파일 추가
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. ApplicationInsights.xml 파일 추가
 ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가하거나 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
 Azure 포털에서 가져온 계측 키를 대체합니다.
@@ -127,12 +124,10 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
     </ApplicationInsights>
 ```
 
+필요에 따라 응용 프로그램에 액세스할 수 있는 위치에 구성 파일이 있으면 됩니다.  `-Dapplicationinsights.configurationDirectory` 시스템 속성은 ApplicationInsights.xml을 포함하는 디렉터리를 지정합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이 식별자를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
-* Application Insights 키를 시스템 속성으로 Azure 포털에서 동적으로 전달할 수 있습니다(-DAPPLICATION_INSIGHTS_IKEY=your_ikey). 정의된 속성이 없는 경우 Azure 앱 설정에서 환경 변수(APPLICATION_INSIGHTS_IKEY)를 확인합니다. 두 속성이 모두 정의되지 않은 경우 ApplicationInsights.xml에서 기본 InstrumentationKey를 사용됩니다. 이 시퀀스를 사용하면 다양한 환경에 대한 여러 InstrumentationKeys를 동적으로 관리할 수 있습니다.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>계측 키를 설정하는 다른 방법
 Application Insights SDK는 다음 순서로 키를 찾습니다.
@@ -219,7 +214,7 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.)
+기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.
 
 ## <a name="5-run-your-application"></a>5. 응용 프로그램 실행
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.

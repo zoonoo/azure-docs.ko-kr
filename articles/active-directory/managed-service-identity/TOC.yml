@@ -37,37 +37,49 @@
           href: how-to-use-vm-sign-in.md
         - name: Azure SDK와 함께 사용
           href: how-to-use-vm-sdk.md
-    - name: VM MSI를 사용하여 Azure Data Lake Store에 액세스
+    - name: Windows VM/VMSS 관리 ID 사용
       items:
-        - name: Windows VM에서
+        - name: Azure Data Lake Store 액세스
           href: tutorial-windows-vm-access-datalake.md
-        - name: Linux VM에서
-          href: tutorial-linux-vm-access-datalake.md
-    - name: VM MSI를 사용하여 Azure Resource Manager에 액세스
-      items:
-        - name: Windows VM에서
+        - name: Azure Resource Manager 액세스
           href: tutorial-windows-vm-access-arm.md
-        - name: Linux VM에서
-          href: tutorial-linux-vm-access-arm.md
-    - name: VM MSI를 사용하여 Azure SQL에 액세스
-      items:
-        - name: Windows VM에서
+        - name: Azure SQL 액세스
           href: tutorial-windows-vm-access-sql.md
-    - name: VM MSI를 사용하여 Azure Storage에 액세스
-      items:
-        - name: 액세스 키를 사용하는 Windows VM에서
+        - name: 액세스 키를 사용하여 Azure Storage 액세스
           href: tutorial-windows-vm-access-storage.md
-        - name: SAS를 사용하는 Windows VM에서
+        - name: SAS를 사용하여 Azure Storage 액세스
           href: tutorial-windows-vm-access-storage-sas.md
-        - name: 액세스 키를 사용하는 Linux VM에서
-          href: tutorial-linux-vm-access-storage.md
-        - name: SAS를 사용하는 Linux VM에서
-          href: tutorial-linux-vm-access-storage-sas.md
-    - name: VM MSI를 사용하여 Azure Key Vault에 액세스
-      items:
-        - name: Windows VM에서
+        - name: Azure Key Vault 액세스
           href: tutorial-windows-vm-access-nonaad.md
-        - name: Linux VM에서
+    - name: Linux VM/VMSS 관리 ID 사용
+      items:
+        - name: Azure Data Lake Store 액세스
+          href: tutorial-linux-vm-access-datalake.md
+        - name: Azure Resource Manager 액세스
+          href: tutorial-linux-vm-access-arm.md
+        - name: 액세스 키를 사용하여 Azure Storage 액세스
+          href: tutorial-linux-vm-access-storage.md
+        - name: SAS를 사용하여 Azure Storage 액세스
+          href: tutorial-linux-vm-access-storage-sas.md
+        - name: Azure Key Vault 액세스
           href: tutorial-linux-vm-access-nonaad.md
     - name: FAQ 및 알려진 문제
       href: known-issues.md
+    - name: 참고 자료
+      items:
+        - name: CLI
+          href: /cli/azure/identity
+        - name: PowerShell
+          href: '/powershell/module/azurerm.managedserviceidentity#managed_service_identity'
+        - name: .NET
+          href: '/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet'
+        - name: 자바
+          href: 'https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines'
+        - name: 파이썬
+          href: /python/api/azure.mgmt.msi
+        - name: Ruby
+          href: 'https://rubygems.org/gems/azure_mgmt_msi'
+        - name: Node.js
+          href: /javascript/api/ms-rest-azure
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi'

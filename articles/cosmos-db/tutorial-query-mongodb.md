@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>자습서: MongoDB API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -30,6 +30,10 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 
 > [!div class="checklist"]
 > * MongoDB를 사용한 데이터 쿼리
+
+MongoDB를 쿼리하는 방법에 대한 Azure Cosmos DB 프로그램 관리자 Andy Hoh의 비디오를 시청하여 쿼리를 시작할 수 있습니다.
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>샘플 문서
 
@@ -148,7 +152,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 
 ## <a id="examplequery3"></a>예제 쿼리 3 
 
-다음 쿼리에서는 등록된 모든 가족을 반환합니다. 
+다음 쿼리는 등록된 모든 가족을 반환합니다. 
 
 **쿼리**
     
@@ -157,7 +161,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 
 ## <a id="examplequery4"></a>예제 쿼리 4
 
-다음 쿼리에서는 등록되지 않은 모든 가족을 반환합니다. 
+다음 쿼리는 등록되지 않은 모든 가족을 반환합니다. 
 
 **쿼리**
     
@@ -201,7 +205,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 
 ## <a id="examplequery5"></a>예제 쿼리 5
 
-다음 쿼리에서는 등록되지 않은 모든 가족을 반환하고 거주 지역(state)은 NY입니다. 
+다음 쿼리는 등록되지 않았고 거주 지역(주)이 NY인 가족을 모두 반환합니다. 
 
 **쿼리**
     
@@ -300,7 +304,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 
 **결과**
 
-2명 이상의 자식이 있는 가족이 없기 때문에 결과가 반환되지 않습니다. 매개 변수가 2일 때만 이 쿼리가 성공하여 전체 문서를 반환합니다.
+자식이 셋 이상인 가족이 없으므로 결과가 반환되지 않습니다. 매개 변수가 2일 때만 이 쿼리가 성공하여 전체 문서를 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

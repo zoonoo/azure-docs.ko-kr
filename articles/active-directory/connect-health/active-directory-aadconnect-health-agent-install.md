@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect Health Agent 설치 | Microsoft Docs"
-description: "AD FS 및 동기화를 위한 에이전트 설치에 관해 설명하는 Azure AD Connect Health 페이지입니다."
+title: Azure AD Connect Health Agent 설치 | Microsoft Docs
+description: AD FS 및 동기화를 위한 에이전트 설치에 관해 설명하는 Azure AD Connect Health 페이지입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
@@ -136,7 +136,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다. 기본적으로 사용하도록 설정되어 있습니다.
 10. PowerShell 창을 열고 다음 명령을 실행합니다. ```Set-AdfsProperties -AuditLevel Verbose```.
 
-기본적으로 "기본" 감사 수준을 사용하도록 설정되어 있습니다. [Windows Server 2016의 AD FS 감사 기능 향상](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)에 대해 자세히 알아보세요.
+기본적으로 "기본" 감사 수준을 사용하도록 설정되어 있습니다. [Windows Server 2016의 AD FS 감사 기능 향상](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)에 대해 자세히 알아보세요.
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>AD FS 감사 로그를 찾으려면
@@ -144,6 +144,8 @@ Windows Server 2008 R2 서버에 대한 단계:
 2. Windows 로그로 이동하여 **보안**을 선택합니다.
 3. 오른쪽에서 **현재 로그 필터링**을 클릭합니다.
 4. 이벤트 소스에서 **AD FS 감사**를 선택합니다.
+
+    감사 로그에 대한 빠른 [FAQ 참고](active-directory-aadconnect-health-faq.md#operations-questions)도 살펴보세요.
 
 ![AD FS 감사 로그](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
