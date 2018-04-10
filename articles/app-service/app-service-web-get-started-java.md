@@ -109,7 +109,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 
 ### <a name="create-app-service-dialog-box"></a>App Service 만들기 대화 상자
 
-기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 표시된 숫자 **170602185241**은 대화 상자에 따라 달라집니다.
+기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 나타난 숫자 **170602185241**과는 다른 숫자가 대화 상자에 나타날 수 있습니다.
 
 ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/cas1.png)
 
@@ -121,7 +121,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 * **App Service 계획** 탭에서:
 
   * **새로 만들기**: App Service 계획의 이름인 기본값을 유지합니다.
-  * **위치**: **유럽 서부** 또는 인접 위치를 선택합니다.
+  * **위치**: **서유럽** 또는 인접 위치를 선택합니다.
   * **가격 책정 계층**: 무료 옵션을 선택합니다. 기능의 경우 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 참조하세요.
 
    ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)

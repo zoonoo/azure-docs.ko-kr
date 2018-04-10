@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -76,9 +76,6 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 백 엔드 풀을 디자인하는 방법을 고려할 때는 가장 적은 수의 개별 백 엔드 풀 리소스에 맞게 디자인하고, 관리 작업 기간을 추가로 최적화할 수 있습니다.  데이터 평면 성능 또는 크기 조정에는 차이가 없습니다.
 
 ## <a name="az"></a> 가용성 영역
-
->[!NOTE]
-> 표준 Load Balancer에서 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 사용하려면 [가용성 영역에 등록](https://aka.ms/availabilityzones)해야 합니다.
 
 표준 Load Balancer는 가용성 영역을 사용할 수 있는 지역에서 추가 기능을 지원합니다.  이러한 기능은 모든 표준 Load Balancer 제공 기능에 추가됩니다.  가용성 영역 구성은 공용 및 내부 표준 Load Balancer에 사용할 수 있습니다.
 
