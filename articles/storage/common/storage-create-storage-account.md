@@ -1,8 +1,8 @@
 ---
-title: "Azure Portal에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Microsoft Docs"
-description: "Azure Portal에서 새 저장소 계정을 만들고 계정 선택키를 관리하거나 저장소 계정을 삭제합니다. 표준 및 프리미엄 저장소 계정에 대해 알아봅니다."
+title: Azure Portal에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Microsoft Docs
+description: Azure Portal에서 새 저장소 계정을 만들고 계정 선택키를 관리하거나 저장소 계정을 삭제합니다. 표준 및 프리미엄 저장소 계정에 대해 알아봅니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -12,7 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords: sql13.swb.windowsazurestorage.connect.f1
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
 ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511

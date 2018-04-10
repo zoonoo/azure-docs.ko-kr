@@ -9,18 +9,72 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: ac08baa6f478926a2c8dadd366049e9506272366
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9d16606665bf043e094bebdfbbce973910135f1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning의 새로운 기능
 
-이 문서에서는 [Azure Machine Learning Services](overview-what-is-azure-ml.md)의 새로운 기능과 알려진 문제에 대해 알아봅니다. 
+이 아티클에서는 [Azure Machine Learning Services](overview-what-is-azure-ml.md)의 새로운 릴리스에 대해 알아봅니다. 
+
+## <a name="2018-03-sprint-4"></a>2018-03(스프린트 4)
+**버전 번호**: 0.1.1801.24353&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+
+
+다섯 번째 Azure Machine Learning Workbench 업데이트를 시작합니다. 다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 앞으로도 이러한 결과를 얻을 수 있도록 여러분의 피드백을 계속 보내주십시오!
+
+**주목할 만한 새로운 기능 및 변경 사항**
+
+- 기본적으로 원격 Docker 기반 실행 외에도 고유한 환경의 원격 Ubuntu VM에서 스크립트를 실행하도록 지원합니다.
+- 워크벤치 앱에서 새로운 환경을 사용하면 계산 대상을 만들고 CLI 기반 환경 외에도 구성을 실행할 수 있습니다.
+![환경 탭](media/azure-machine-learning-release-notes/environment-page.png)
+- 사용자 지정 가능한 실행 기록 보고서 ![새로운 실행 기록 보고서의 이미지](media/azure-machine-learning-release-notes/new-run-history-reports.png)
+
+**자세한 업데이트**
+
+다음은 이 스프린트의 Azure Machine Learning 구성 요소 영역 각각에 대한 자세한 업데이트 목록입니다.
+
+### <a name="workbench-ui"></a>워크벤치 UI
+- 사용자 지정 가능한 실행 기록 보고서
+  - 실행 기록 보고서에 대한 향상된 차트 구성
+    - 사용되는 진입점을 변경할 수 있습니다.
+    - 최상위 필터를 추가하고 수정할 수 있습니다. ![필터 추가](media/azure-machine-learning-release-notes/add-filters.jpg)
+    - 차트 및 통계를 추가하거나 수정(및 끌어서 놓기를 다시 정렬)할 수 있습니다.
+    ![새 차트 만들기](media/azure-machine-learning-release-notes/configure-charts.png)
+
+  - 실행 기록 보고서의 CRUD
+  - 선택한 진입점에서 실행 시 파이프라인과 같은 역할을 담당하는 서버 쪽 보고서로 모든 기존 실행 기록 목록 보기 구성을 이동합니다.
+
+- 환경 탭
+  - 프로젝트에 새로운 계산 대상 및 실행 구성 파일을 쉽게 추가합니다. ![새 계산 대상](media/azure-machine-learning-release-notes/add-new-environments.png)
+  - 간단한 양식 기반 UX를 사용하여 구성 파일을 관리하고 업데이트합니다.
+  - 실행할 환경을 준비하기 위한 새 단추입니다.
+
+- 세로 막대에 있는 파일 목록에 대한 성능 향상
+
+### <a name="data-preparation"></a>데이터 준비 
+- 이제 Azure Machine Learning Workbench를 사용하면 알려진 열의 이름을 사용하여 열을 검색할 수 있습니다.
+
+
+### <a name="experimentation"></a>실험
+- 이제 Azure Machine Learning Workbench는 기본적으로 고유한 Python 또는 PySpark 환경에서 스크립트를 실행하도록 지원합니다. 이 기능으로 사용자는 원격 VM에서 고유한 환경을 만들고 관리하고, Azure Machine Learning Workbench를 사용하여 해당 대상에서 해당 스크립트를 실행합니다. [Azure Machine Learning 실험 서비스 구성](experimentation-service-configuration.md)을 참조하세요. 
+
+### <a name="model-management"></a>모델 관리
+- 배포된 컨테이너를 사용자 지정하도록 지원: apt-get 등을 사용하는 외부 라이브러리를 설치하도록 허용하여 컨테이너 이미지를 사용자 지정할 수 있습니다. 더 이상 pip 설치 가능 라이브러리로 제한되지 않습니다. 자세한 내용은 [문서](model-management-custom-container.md)를 참조하세요.
+  - 매니페스트, 이미지 또는 서비스 생성 명령이 포함된 `--docker-file myDockerStepsFilename` 플래그 및 파일 이름을 사용합니다.
+  - 기본 이미지가 Ubuntu이며 수정할 수 없습니다.
+  - 예제 명령: 
+  
+      ```shell
+      $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
+      ```
+
+
 
 ## <a name="2018-01-sprint-3"></a>2018-01(스프린트 3) 
-**버전 번호**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md))
+**버전 번호**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 다음은 이번 스프린트의 업데이트 및 개선 사항입니다. 아래 업데이트 중 많은 부분은 사용자가 보내 주신 피드백에 따른 직접적인 결과입니다. 
 
@@ -55,7 +109,7 @@ ms.lasthandoff: 03/28/2018
   - 무료 구독을 위한 로컬 환경 설정을 사용하도록 설정됨 
 
 ## <a name="2017-12-sprint-2-qfe"></a>2017-12(스프린트 2 QFE) 
-**버전 번호**: 0.1.1711.15323 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md))
+**버전 번호**: 0.1.1711.15323 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 원격 분석 문제를 해결하고 제품 팀이 제품 사용 방법을 보다 잘 이해할 수 있도록 도와줍니다. 제품 환경을 개선하기 위한 향후 노력에 대한 내용이 포함될 수 있습니다. 
 
@@ -65,8 +119,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 - 명령줄 도구에서 더 이상 Azure 구독 소유자가 아니어도 Machine Learning Compute ACS 클러스터를 프로비전할 수 있습니다. 
 
 ## <a name="2017-12-sprint-2"></a>2017-12(스프린트 2)
-**버전 번호**: 0.1.1711.15263 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md))
-
+**버전 번호**: 0.1.1711.15263 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 세 번째 Azure Machine Learning 업데이트를 시작합니다. 이 업데이트는 Workbench 앱, CLI(명령줄 인터페이스) 및 백 엔드 서비스의 향상된 기능을 포함합니다. 웃는 얼굴과 찡그린 얼굴을 보내 주시어 대단히 감사합니다. 다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 
 
@@ -165,7 +218,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
     - `az ml computetarget attach --type cluster`는 이제 `az ml computetarget attach cluster`입니다.
 
 ## <a name="2017-11-sprint-1"></a>2017-11(스프린트 1) 
-**버전 번호**: 0.1.1710.31013 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md))
+**버전 번호**: 0.1.1710.31013 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 이 릴리스에서는 워크벤치 앱, CLI 및 백 엔드 서비스 계층에서 보안, 안정성 및 유지 관리 기능이 향상되었습니다. 웃는 얼굴과 찡그린 얼굴을 보내 주시어 대단히 감사합니다. 아래 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 앞으로도 이러한 결과를 얻을 수 있도록 여러분의 피드백을 계속 보내주십시오!
 
@@ -287,7 +340,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 
 
 ## <a name="2017-10-sprint-0"></a>2017-10(스프린트 0) 
-**버전 번호**: 0.1.1710.31013 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md))
+**버전 번호**: 0.1.1710.31013 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Microsoft Ignite 2017 컨퍼런스에서 최초 공용 미리 보기를 선보인 후에 출시된 Azure Machine Learning Workbench 최초 업데이트입니다. 이 릴리스에서는 주로 안정성이 개선되고 안정화 문제가 수정되었습니다.  해결된 중요한 문제 일부는 다음과 같습니다.
 

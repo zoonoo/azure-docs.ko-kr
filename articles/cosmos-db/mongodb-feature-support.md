@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22ae56d9ebb2ea39acbd9f4536ef9ea5508b9867
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 기능 및 구문에 대한 MongoDB API 지원
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 임의의 오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers)를 통해 데이터베이스의 MongoDB API와 통신할 수 있습니다. MongoDB API에서는 MongoDB [유선 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)을 준수함으로써 기존 클라이언트 드라이버를 사용할 수 있습니다.
 
-Azure Cosmos DB MongoDB API를 사용하면 Azure Cosmos DB의 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB API의 이점을 누릴 수 있습니다. 이러한 기능에는 [전역 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 휴식 시 암호화, 백업 등이 포함됩니다.
+Azure Cosmos DB MongoDB API를 사용하면 Azure Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB API의 이점을 누릴 수 있습니다. 이러한 기능에는 [전역 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 휴식 시 암호화, 백업 등이 포함됩니다.
 
 ## <a name="mongodb-query-language-support"></a>MongoDB 쿼리 언어 지원
 

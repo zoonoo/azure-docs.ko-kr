@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -178,6 +178,10 @@ CheckForMS17-010
 **Q: PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i>가 결과에서 동기화 오류를 적게 표시하는 이유는 무엇인가요?**
 
 <i>Get-MsolDirSyncProvisioningError</i>는 DirSync 프로비전 오류를 반환합니다. 뿐만 아니라 Connect Health 포털에는 내보내기 오류와 같은 다른 동기화 오류 형식이 표시됩니다. Azure AD Connect 델타 결과와 일치합니다. [Azure AD Connect 동기화 오류](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)에 대해 자세히 알아봅니다.
+
+**Q: ADFS 감사가 생성되지 않는 이유는 무엇인가요?**
+
+PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대한 자세한 정보
 
 
 ## <a name="related-links"></a>관련 링크
