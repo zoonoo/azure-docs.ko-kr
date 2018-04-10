@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2018
+ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -79,8 +79,8 @@ ms.lasthandoff: 03/28/2018
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Debian 7
-- Debian 8
+- Debian 7[(지원되는 커널 버전)](#supported-debian-kernel-versions-for-azure-virtual-machines)
+- Debian 8[(지원되는 커널 버전)](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -95,14 +95,22 @@ ms.lasthandoff: 03/28/2018
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic에서 3.13.0-125-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-83-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic에서 3.13.0-132-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic에서 3.13.0-137-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-104-generic |
-16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
+14.04 LTS | 9.14 | 3.13.0-24-generic에서 3.13.0-141-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-112-generic |
 16.04 LTS | 9.11 | 4.4.0-21-generic에서 4.4.0-83-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-27-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic에서 4.4.0-96-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic에서 4.4.0-104-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic |
+16.04 LTS | 9.14 | 4.4.0-21-generic에서 4.4.0-112-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-32-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1009-azure |
+
+
+### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Debian 커널 버전
+
+**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+--- | --- | --- |
+Debian 7 | 9.14 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Linux OS를 실행하는 Azure Virtual Machines에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -165,7 +173,7 @@ GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
+Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니오 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
 범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니오 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]

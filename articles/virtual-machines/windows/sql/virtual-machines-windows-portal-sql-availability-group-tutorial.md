@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
@@ -374,22 +374,14 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
 
    ![리소스 그룹의 부하 분산 장치 찾기](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. 부하 분산 장치를 클릭하고 **백엔드 풀**, **+추가**를 차례로 클릭합니다. 백엔드 풀을 다음과 같이 설정합니다.
+1. 부하 분산 장치를 클릭하고 **백엔드 풀**, **+추가**를 차례로 클릭합니다. 
 
-   | 설정 | 설명 | 예
-   | --- | --- |---
-   | **Name** | 텍스트 이름 입력 | SQLLBBE
-   | **연결 대상** | 목록에서 선택 | 가용성 집합
-   | **가용성 집합** | SQL Server VM이 있는 가용성 집합의 이름 사용 | sqlAvailabilitySet |
-   | **가상 머신** |두 개의 Azure SQL Server VM 이름 | sqlserver-0, sqlserver-1
+1. VM이 포함된 가용성 집합과 백 엔드 풀을 연결합니다.
 
-1. 백 엔드 풀에 대한 이름을 입력합니다.
+1. **대상 네트워크 IP 구성**에서 **가상 머신**을 확인하고, 가용성 그룹 복제본을 호스팅하는 두 개의 가상 머신을 선택합니다. 파일 공유 미러링 모니터 서버는 포함하지 마십시오.
 
-1. **+가상 머신 추가**를 클릭합니다.
-
-1. 가용성 집합의 경우 SQL Server가 있는 가용성 집합을 선택합니다.
-
-1. 가상 머신의 경우 두 SQL Server를 모두 포함합니다. 파일 공유 미러링 모니터 서버는 포함하지 마십시오.
+   >[!NOTE]
+   >가상 머신을 둘 다 지정하지 않은 경우 주 복제본에 대한 연결만 성공합니다.
 
 1. **확인**을 클릭하여 백엔드 풀을 만듭니다.
 

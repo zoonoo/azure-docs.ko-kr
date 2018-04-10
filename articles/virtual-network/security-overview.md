@@ -1,12 +1,12 @@
 ---
-title: "Azure 네트워크 보안 개요 | Microsoft Docs"
-description: "Azure 리소스 간에 네트워크 트래픽 흐름을 제어하기 위한 보안 옵션에 대해 알아봅니다."
+title: Azure 네트워크 보안 개요 | Microsoft Docs
+description: Azure 리소스 간에 네트워크 트래픽 흐름을 제어하기 위한 보안 옵션에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 02/28/2018
  
 응용 프로그램 보안 그룹을 만들고 보안 규칙에서 지정하는 경우 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-응용 프로그램 보안 그룹은 미리 보기 릴리스에서 사용할 수 있습니다. 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다. 응용 프로그램 보안 그룹을 사용하기 전에 [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md)의 Azure 또는 PowerShell에서 1~5단계를 완료하여 사용하도록 등록해야 합니다. 응용 프로그램 보안 그룹에는 다음과 같은 제약 사항이 있습니다.
+응용 프로그램 보안 그룹에는 다음과 같은 제약 사항이 있습니다.
 
 -   응용 프로그램 보안 그룹 내의 모든 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 서로 다른 가상 네트워크의 네트워크 인터페이스를 동일한 응용 프로그램 보안 그룹에 추가할 수 없습니다. 응용 프로그램 보안 그룹에 할당된 첫 번째 네트워크 인터페이스가 있는 가상 네트워크는 이후 할당된 모든 네트워크 인터페이스가 있어야 하는 가상 네트워크를 정의합니다.
 - 응용 프로그램 보안 그룹을 보안 규칙의 원본 및 대상으로 지정하는 경우 두 응용 프로그램 보안 그룹에 있는 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 예를 들어, ASG1이 VNet1에서 네트워크 인터페이스를 포함하고 ASG2가 VNet2에서 네트워크 인터페이스를 포함하는 경우 규칙에서 ASG1을 원본으로 ASG2를 대상으로 할당할 수 없으며 모든 네트워크 인터페이스는 VNet1에 있어야 합니다.
@@ -165,5 +165,4 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="next-steps"></a>다음 단계
 
-* [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md) 자습서 완료
-* [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md) 자습서 완료
+* [네트워크 보안 그룹 만들기](tutorial-filter-network-traffic.md)에 대해 알아보세요.

@@ -1,8 +1,8 @@
 ---
-title: "첫 번째 Azure Resource Manager 템플릿 만들기 | Microsoft Docs"
-description: "첫 번째 Azure Resource Manager 템플릿을 만드는 단계별 가이드입니다. 저장소 계정에 대한 템플릿 참조를 사용하여 템플릿을 만드는 방법을 보여 줍니다."
+title: 첫 번째 Azure Resource Manager 템플릿 만들기 | Microsoft Docs
+description: 첫 번째 Azure Resource Manager 템플릿을 만드는 단계별 가이드입니다. 저장소 계정에 대한 템플릿 참조를 사용하여 템플릿을 만드는 방법을 보여 줍니다.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>첫 번째 Azure Resource Manager 템플릿을 만들고 배포
 이 항목에서는 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 안내합니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요. 기존 리소스가 있고 해당 리소스에 대한 템플릿을 가져오려는 경우 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
@@ -26,8 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Visual Studio Code. 필요한 경우 [https://code.visualstudio.com/](https://code.visualstudio.com/)에서 설치합니다.
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Visual Studio Code. 필요한 경우 [https://code.visualstudio.com/](https://code.visualstudio.com/)에서 Visual Studio Code를 추가합니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* 로컬로 설치된 [Azure PowerShell](/powershell/azure/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli). 템플릿이 로컬 파일로 저장되기 때문에 이 자습서에 대한 로컬 설치가 필요합니다. Cloud Shell을 사용하려면 [저장소 계정에 템플릿을 로드](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell)해야 합니다.
 
 ## <a name="create-template"></a>템플릿 만들기
 
@@ -65,7 +66,7 @@ ms.lasthandoff: 10/11/2017
    }
    ```
 
-   저장소 계정 이름에는 설정을 어렵게 하는 몇 가지 제한 사항이 있습니다. 이름은 길이가 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용하고 고유해야 합니다. 이전 템플릿은 [uniqueString](resource-group-template-functions-string.md#uniquestring) 함수를 사용하여 해시 값을 생성합니다. 이 해시 값에 더 많은 의미를 부여하기 위해 *storage*라는 접두사를 추가합니다. 
+   Storage 계정 이름에는 설정을 어렵게 하는 몇 가지 제한 사항이 있습니다. 이름은 길이가 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용하고 고유해야 합니다. 이전 템플릿은 [uniqueString](resource-group-template-functions-string.md#uniquestring) 함수를 사용하여 해시 값을 생성합니다. 이 해시 값에 더 많은 의미를 부여하기 위해 *storage*라는 접두사를 추가합니다. 
 
 3. 이 파일을 로컬 폴더에 **azuredeploy.json**으로 저장합니다.
 
@@ -92,24 +93,6 @@ ms.lasthandoff: 10/11/2017
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-배포가 완료되면 저장소 계정이 리소스 그룹에 있습니다.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Azure CLI의 경우 다음 명령을 사용합니다.
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-현재 PowerShell을 미리 보기로 Cloud Shell에서 사용할 수 있습니다. PowerShell의 경우 다음 명령을 사용합니다.
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 배포가 완료되면 저장소 계정이 리소스 그룹에 있습니다.
 
@@ -244,12 +227,6 @@ Azure CLI의 경우
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Cloud Shell의 경우 변경된 템플릿을 파일 공유에 업로드합니다. 기존 파일을 덮어씁니다. 그런 후 다음 명령을 사용합니다.
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>자동 완성 사용
 
 지금까지 템플릿에서 한 작업은 이 문서에서 JSON을 복사하고 붙여 넣는 방법으로 구성되었습니다. 그러나 고유한 템플릿을 개발할 경우 리소스 형식에 사용할 수 있는 속성 및 값을 찾고 지정하는 것이 좋습니다. VS Code는 리소스 유형에 대한 스키마를 읽고 속성 및 값을 제공합니다. 자동 완성 기능을 확인하려면 템플릿의 속성 요소로 이동하고 새 줄을 추가합니다. 따옴표를 입력하면 VS Code에서 즉시 속성 요소 내에서 사용할 수 있는 이름을 제공합니다.
@@ -377,12 +354,6 @@ Azure CLI의 경우
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Cloud Shell의 경우 변경된 템플릿을 파일 공유에 업로드합니다. 기존 파일을 덮어씁니다. 그런 후 다음 명령을 사용합니다.
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

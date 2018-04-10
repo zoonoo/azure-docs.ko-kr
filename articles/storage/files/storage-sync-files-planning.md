@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -96,6 +96,19 @@ Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기�
 
 > [!Note]  
 > NTFS 볼륨만 지원됩니다. ReFS, FAT, FAT32 및 다른 파일 시스템은 지원되지 않습니다.
+
+### <a name="files-skipped"></a>건너뛴 파일
+| 파일/폴더 | 참고 |
+|-|-|
+| Desktop.ini | 시스템에 특정된 파일 |
+| ethumbs.db$ | 썸네일의 임시 파일 |
+| ~$\*.\* | Office 임시 파일 |
+| \*.tmp | 임시 파일 |
+| \*.laccdb | Access DB 잠금 파일|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\시스템 볼륨 정보 | 볼륨에 특정된 폴더 |
+| $RECYCLE.BIN| 폴더 |
+| \\SyncShareState | 동기화할 폴더 |
 
 ### <a name="failover-clustering"></a>장애 조치(Failover) 클러스터링
 Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버" 배포 옵션의 Azure 파일 동기화에서 지원됩니다. 장애 조치(Failover) 클러스터링은 "응용 프로그램 데이터용 스케일 아웃 파일 서버" 또는 "CSV(클러스터된 공유 볼륨)"에서는 지원되지 않습니다.

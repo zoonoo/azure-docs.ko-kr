@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 850d4d1e2ef6a13fcd8a072e6da210d558c7769b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8093275ec9e9cce6d9a765bf1bfc434fecdb6ea7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -29,8 +29,14 @@ ms.lasthandoff: 03/29/2018
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>백업을 구성하려고 할 때 저장소 계정에서 일부 Azure 파일 공유가 표시되지 않는 이유는 무엇인가요? <br/>
 Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 이미 보호되었거나 최근에 삭제되었는지 확인합니다.
 
-### <a name="why-cant-i-protect-file-shares-connected-to-a-sync-group-in-azure-file-sync-br"></a>Azure File Sync에서 동기화 그룹에 연결된 파일 공유를 보호할 수 없는 이유는 무엇인가요? <br/>
-동기화 그룹에 연결된 Azure 파일 공유는 제한된 미리 보기로 보호되고 있습니다. 요청된 액세스에 대한 구독 ID를 사용하여 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)으로 문의하세요. 
+### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync-br"></a>Azure File Sync에서 동기화 그룹에 연결된 파일 공유를 보호할 수 있나요? <br/>
+예. 동기화 그룹에 연결된 Azure 파일 공유를 보호하도록 설정되어 있으며 이 기능은 공개 미리 보기의 일부입니다.
+
+### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>파일 공유를 백업하려고 시도할 때 저장소 계정의 파일 공유를 검색하기 위해 저장소 계정을 클릭했습니다. 그런데 파일 공유를 보호하지 않았습니다. 다른 자격 증명 모음으로 이러한 파일 공유를 보호하려면 어떻게 해야 하나요?
+백업하려고 시도할 때 파일 공유를 검색할 저장소 계정을 선택하면 파일 공유가 검색되는 자격 증명 모음에 저장소 계정이 등록됩니다. 다른 자격 증명 모음으로 파일 공유를 보호하려면 이 자격 증명 모음에서 선택한 저장소 계정을 [등록 취소](troubleshoot-azure-files.md#configuring-backup)합니다.
+
+### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>내 파일 공유를 백업한 자격 증명 모음을 변경할 수 있나요?
+예. 그러나 연결된 자격 증명 모음에서 [보호를 중지](backup-azure-files.md#stop-protecting-an-azure-file-share)하고, 이 저장소 계정을 [등록 취소](troubleshoot-azure-files.md#configuring-backup)한 다음, 다른 자격 증명 모음에서 파일 공유를 보호해야 합니다.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Azure 파일 공유를 백업할 수 있는 지역은 어디인가요? <br/>
 Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다음 지역에서만 사용할 수 있습니다. 
@@ -43,7 +49,11 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 -   오스트레일리아 동부(AE) 
 -   미국 동부(EUS)
 -   미국 동부 2(EUS2)
+- 일본 동부(JPE)
+- 일본 서부(JPW)
 -   인도 중부(INC) 
+- 인도 남부(INS)
+- 대한민국(KRS)
 -   미국 중북부(NCUS) 
 -   북유럽(NE) 
 -   미국 중남부(SCUS) 
@@ -58,7 +68,10 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 위에 나열되지 않은 특정 지역에서 사용해야 하는 경우 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)으로 문의하세요.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>자격 증명 모음에서 보호할 수 있는 Azure 파일 공유 수는 몇 개인가요?<br/>
-미리 보기 동안에는 자격 증명 모음당 최대 25개의 저장소 계정에서 Azure 파일 공유를 보호할 수 있습니다. 또한 자격 증명 모음당 최대 200개의 Azure 파일 공유를 보호할 수 있습니다. 
+미리 보기 동안에는 자격 증명 모음당 최대 25개의 저장소 계정에서 Azure 파일 공유를 보호할 수 있습니다. 또한 자격 증명 모음당 최대 200개의 Azure 파일 공유를 보호할 수 있습니다.
+
+### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>동일한 저장소 계정의 두 파일 공유를 서로 다른 자격 증명 모음에서 보호할 수 있나요?
+번호 한 저장소 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
 
 ## <a name="backup"></a>Backup
 
@@ -71,7 +84,7 @@ Azure 파일 공유에 대한 Backup은 Virtual Networks를 사용하도록 설�
 ## <a name="restore"></a>복원
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share-br"></a>삭제된 Azure 파일 공유에서 복구할 수 있나요? <br/>
-Azure 파일 공유가 삭제되면 삭제될 백업 목록도 표시되고 확인이 요구됩니다. 삭제된 Azure 파일 공유는 복원할 수 없습니다.
+Azure 파일 공유가 삭제되면 삭제될 백업 목록이 표시되고 확인이 요청됩니다. 삭제된 Azure 파일 공유는 복원할 수 없습니다.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Azure 파일 공유에 대한 보호를 중지한 경우 백업에서 복원할 수 있나요? <br/>
 예. 보호를 중지할 때 **백업 데이터 보관**을 선택한 경우 모든 기존 복원 지점에서 복원할 수 있습니다.
@@ -85,7 +98,7 @@ Azure Backup에서 만든 모든 스냅숏은 포털의 스냅숏 보기, PowerS
 Azure 파일 공유에 대한 Backup에서는 매일 백업을 최대 120일 동안 유지할 수 있습니다.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Azure 파일 공유에 대한 Backup 정책을 변경하면 어떻게 되나요? <br/>
-파일 공유에 대한 새 정책이 적용되면 새 정책의 일정 및 보존 기간을 따릅니다. 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다. 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 결과적으로 삭제됩니다.
+파일 공유에 대한 새 정책이 적용되면 새 정책의 일정 및 보존 기간을 따릅니다. 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다. 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 삭제됩니다.
 
 ## <a name="see-also"></a>참고 항목
 이 정보는 Azure 파일 백업에 대한 내용일 뿐이며, Azure Backup의 다른 영역에 대한 자세한 내용은 다음 Backup FAQ를 참조하세요.

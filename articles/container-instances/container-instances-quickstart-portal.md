@@ -6,14 +6,14 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 04/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cb0c8c5f5730ae1f7a2e9b38c3ef3e04ee8cde67
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>빠른 시작: Azure Container Instances에서 첫 번째 컨테이너 만들기
 
@@ -23,11 +23,11 @@ Azure Container Instances를 통해 Azure에서 컨테이너를 쉽게 만들고
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal(http://portal.azure.com)에 로그인합니다.
+http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-container-instance"></a>컨테이너 인스턴스 만들기
 
-**리소스 만들기** > **컨테이너** > **Azure Container Instances(미리 보기)**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **Azure Container Instances**를 선택합니다.
 
 ![Azure Portal에서 새 컨테이너 인스턴스를 만들기 시작][aci-portal-01]
 
@@ -72,7 +72,7 @@ Azure Container Instances에서는 Windows 및 Linux 컨테이너를 모두 만�
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
+<!--[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png-->
 [aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png

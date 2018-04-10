@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 40abc884a898dc16ae4d785c13d3e926fb30e432
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1d477bfe42cebbc35db4fd40aa5bc3de4829c49b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>PowerShell을 사용하여 Linux 가상 머신 만들기
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Ubuntu 서버를 실행하는 가상 머신을 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포되면 SSH 연결을 만들고 NGINX 웹 서버를 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
-마지막으로 이름이 *id_rsa.pub*인 공용 SSH 키가 Windows 사용자 프로필의 *.ssh* 디렉터리에 저장되어 있어야 합니다. Azure에 대한 SSH 키 만들기에 대한 자세한 내용은 [Azure용 SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+마지막으로 이름이 *id_rsa.pub*인 공용 SSH 키가 Windows 사용자 프로필의 *.ssh* 디렉터리에 저장되어 있어야 합니다. SSH 키를 만들고 사용하는 방법에 대한 자세한 내용은 [Azure용 SSH 키 만들기](ssh-from-windows.md)를 참조하세요.
 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인

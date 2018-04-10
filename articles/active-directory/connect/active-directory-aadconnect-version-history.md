@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -49,6 +49,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 #### <a name="fixed-issues"></a>해결된 문제
 
 * 자동 업그레이드 상태가 일시 중단됨으로 설정되어 있으면 Set-ADSyncAutoUpgrade cmdlet은 자동 업그레이드를 차단합니다. 이후 빌드의 자동 업그레이드를 차단하지 않도록 이제 변경되었습니다.
+* **사용자 로그인** 페이지 옵션 "암호 동기화"를 "암호 해시 동기화"로 변경합니다.  Azure AD Connect는 이 정렬이 실제로 이뤄지도록 암호가 아닌 암호 해시를 동기화합니다.  자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](active-directory-aadconnectsync-implement-password-hash-synchronization.md)을 참조하세요.
 
 ## <a name="117490"></a>1.1.749.0
 상태: 고객을 선택하도록 릴리스됨
@@ -558,7 +559,7 @@ Azure AD Connect 동기화
   * **userType**을 메타버스 스키마 및 AAD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다.
 
 * Azure AD Connect는 이제 ConsistencyGuid 특성을 온-프레미스 AD 개체에 대한 원본 앵커 특성으로 사용하도록 자동으로 설정합니다. 또한 Azure AD Connect는 ConsistencyGuid 특성이 비어 있는 경우 이 특성을 objectGuid 특성 값으로 채웁니다. 이 기능은 새 배포에만 적용됩니다. 이 기능에 대한 자세한 내용은 [Azure AD Connect: 디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)을 참조하세요.
-* 암호 해시 동기화 관련 문제를 진단하는 데 도움이 되는 새 Invoke-ADSyncDiagnostics 문제 해결 cmdlet을 추가했습니다. cmdlet 사용 방법에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 동기화 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization) 문서를 참조하세요.
+* 암호 해시 동기화 관련 문제를 진단하는 데 도움이 되는 새 Invoke-ADSyncDiagnostics 문제 해결 cmdlet을 추가했습니다. cmdlet 사용 방법에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md) 아티클을 참조하세요.
 * Azure AD Connect는 이제 온-프레미스 AD에서 Azure AD로 메일 사용 가능 공용 폴더 개체 동기화를 지원합니다. Azure AD Connect 마법사를 사용하여 [선택적 기능]에서 이 기능을 사용하도록 설정할 수 있습니다. 이 기능에 대한 자세한 내용은 [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders)(온-프레미스 메일 사용이 가능한 공용 폴더에 대한 Office 365 디렉터리 기반 에지 차단 지원) 문서를 참조하세요.
 * 온-프레미스 AD에서 동기화하려면 Azure AD Connect에 AD DS 계정이 필요합니다. 이전에 Express 모드를 사용하여 Azure AD Connect를 설치한 경우 엔터프라이즈 관리자 계정의 자격 증명을 제공할 수 있고 Azure AD Connect에서는 필요한 AD DS 계정을 만듭니다. 그러나 사용자 지정 설치하거나 기존 배포에 포리스트를 추가하는 경우에는 AD DS 계정을 대신 제공해야 합니다. 이제는 사용자 지정 설치 중에 엔터프라이즈 관리자 계정의 자격 증명을 제공하고 Azure AD Connect에서 필요한 AD DS 계정을 만들 수 있습니다.
 * Azure AD Connect는 이제 SQL AOA를 지원합니다. Azure AD Connect를 설치하기 전에 SQL AOA를 사용하도록 설정해야 합니다. Azure AD Connect는 설치 중에 제공된 SQL 인스턴스에서 SQL AOA를 사용하도록 설정되었는지 여부를 검색합니다. SQL AOA를 사용하도록 설정된 경우 Azure AD Connect는 SQL AOA에서 동기 복제 또는 비동기 복제를 사용하도록 구성되어 있는지 확인합니다. 가용성 그룹 수신기를 설정할 때 RegisterAllProvidersIP 속성을 0으로 설정하는 것이 좋습니다. 이는 Azure AD Connect에서 현재 SQL Native Client를 사용하여 SQL에 연결하고, SQL Native Client에서는 MultiSubNetFailover 속성 사용을 지원하지 않기 때문입니다.
@@ -748,7 +749,7 @@ AD FS 관리
 **수정된 문제 및 향상된 기능:**
 
 * 이제 Azure AD Connect를 FIPS 규격 서버에 설치할 수 있습니다.
-  * 암호 동기화에 대해서는 [암호 동기화 및 FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)를 참조하세요.
+  * 암호 동기화에 대해서는 [암호 해시 동기화 및 FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips)를 참조하세요.
 * Active Directory Connector에서 NetBIOS 이름을 FQDN으로 확인할 수 없던 문제를 해결했습니다.
 
 ## <a name="111800"></a>1.1.180.0

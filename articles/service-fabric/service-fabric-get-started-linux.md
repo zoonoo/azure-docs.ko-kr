@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -28,17 +28,25 @@ ms.lasthandoff: 03/28/2018
 >
 >  
 
-Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다.
+Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
-> [!NOTE]
-> Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 그러나 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있는 Azure Service Fabric CLI(명령줄 인터페이스)는 지원됩니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
->
+이 문서의 단계에서는 기본적으로 Linux에 설치하거나 Service Fabric OneBox 컨테이너 이미지 `microsoft/service-fabric-onebox`를 사용한다고 가정합니다. 
+
+Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 그러나 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있는 Azure Service Fabric CLI(명령줄 인터페이스)는 지원됩니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
+
 
 ## <a name="prerequisites"></a>필수 조건
 
-개발을 위해 다음 운영 체제 버전이 지원됩니다.
+* 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 
-* Ubuntu 16.04(`Xenial Xerus`)
+    * Ubuntu 16.04(`Xenial Xerus`)
+
+* `apt-transport-https` 패키지가 설치되었는지 확인합니다.
+
+      ```bash
+      sudo apt-get install apt-transport-https
+      ```
+
 
 ## <a name="installation-methods"></a>설치 방법
 

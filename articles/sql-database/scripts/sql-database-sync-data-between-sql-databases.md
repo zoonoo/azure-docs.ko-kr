@@ -1,13 +1,13 @@
 ---
-title: "PowerShell 예제 - 여러 Azure SQL Database 간 동기화 | Microsoft 문서"
-description: "이 문서에서는 여러 Azure SQL Database 간의 동기화를 수행하는 Azure PowerShell 예제 스크립트를 제공합니다."
+title: PowerShell 예제 - 여러 Azure SQL Database 간 동기화 | Microsoft 문서
+description: 이 문서에서는 여러 Azure SQL Database 간의 동기화를 수행하는 Azure PowerShell 예제 스크립트를 제공합니다.
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,15 +17,15 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 23446e4156daca3903f15e538e2c47e63fcbf673
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8a6dbf6e8cdd2fe066c11cc14ae587912873f7e4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>PowerShell을 사용하여 여러 SQL Databases 간 동기화
  
-이 PowerShell 예제는 여러 Azure SQL Database 간에 동기화를 수행하도록 데이터 동기화를 구성합니다.
+이 PowerShell 예제는 여러 Azure SQL Database 간에 동기화를 수행하도록 데이터 동기화(미리 보기)를 구성합니다.
 
 이 샘플에는 Azure PowerShell 모듈 버전 4.2 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요.
  
