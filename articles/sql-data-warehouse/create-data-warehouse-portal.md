@@ -1,25 +1,20 @@
 ---
-title: "빠른 시작: Azure SQL Data Warehouse 만들기 - Azure Portal | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 경우 Azure Portal에서 SQL 서버, 서버 수준 방화벽 규칙 및 데이터 웨어하우스를 만듭니다. 그런 다음 쿼리합니다."
-keywords: "sql 데이터 웨어하우스 자습서, SQL 데이터 웨어하우스 만들기"
-services: sql-database
-documentationcenter: 
-author: barbkess
+title: Azure SQL 데이터 웨어하우스 만들기 및 쿼리 - Azure Portal | Microsoft Docs
+description: Azure Portal에서 Azure SQL Data Warehouse를 만들고 쿼리하는 방법을 알아봅니다.
+services: sql-data-warehouse
+author: hirokib
 manager: jhubbard
-editor: 
-ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.date: 11/20/2017
-ms.author: barbkess
-ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: implement
+ms.date: 03/28/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse 생성 및 쿼리
 
@@ -31,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms.md)를 다운로드하여 설치합니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 

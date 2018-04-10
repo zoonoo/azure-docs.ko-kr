@@ -1,24 +1,24 @@
 ---
-title: "Azure Virtual Network 피어링 | Microsoft Docs"
-description: "Azure의 가상 네트워크 피어링에 대해 알아봅니다."
+title: Azure Virtual Network 피어링 | Microsoft Docs
+description: Azure의 가상 네트워크 피어링에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: NarayanAnnamalai
-manager: jefco
-editor: tysonn
+author: jimdial
+manager: jeconnoc
+editor: ''
 ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: narayan;anavin
-ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 03/26/2018
+ms.author: jdial
+ms.openlocfilehash: 69264ac7ffe8124b964a10c11aacaca5c712fd63
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -29,24 +29,9 @@ ms.lasthandoff: 03/08/2018
 * 피어링된 가상 네트워크 간의 네트워크 트래픽이 개인 전용입니다. 가상 네트워크 간의 트래픽이 Microsoft 백본 네트워크에서 유지됩니다. 가상 네트워크 간의 통신에 공용 인터넷, 게이트웨이, 또는 암호화가 필요하지 않습니다.
 * 다른 가상 네트워크에 있는 리소스 간에 짧은 대기 시간, 높은 대역폭 연결
 * 가상 네트워크가 피어링되면 하나의 가상 네트워크에 있는 리소스가 다른 가상 네트워크에 있는 리소스와 통신할 수 있습니다.
-* Azure 구독, 배포 모델 및 Azure 지역(미리 보기)에 데이터를 전송할 수 있습니다.
+* Azure 구독, 배포 모델 및 Azure 지역에 데이터를 전송할 수 있습니다.
 * Azure Resource Manager를 통해 만든 가상 네트워크를 피어링하거나 클래식 배포 모델을 통해 만든 가상 네트워크에 Resource Manager를 통해 만든 다른 가상 네트워크를 피어링할 수 있는 기능입니다. Azure 배포 모델에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 * 피어링을 만들 때 또는 피어링이 생성된 후에 각 가상 네트워크에 있는 리소스에 대한 가동 중지 시간이 없습니다.
-
-## <a name="requirements-constraints"></a>요구 사항 및 제약 조건
-
-* 동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역의 가상 네트워크 피어링은 현재 미국 중서부, 캐나다 중부, 미국 서부 2, 대한민국, 영국 남부, 영국 서부, 캐나다 동부, 인도 남부, 인도 중부 및 인도 서부에서 미리 보기로 제공됩니다. 다른 지역에서 가상 네트워크를 피어링하기 전에 먼저 미리 보기에 대한 [구독을 등록](tutorial-connect-virtual-networks-powershell.md#register)해야 합니다. 미리 보기에 대한 등록을 완료하지 않은 경우 다른 지역의 가상 네트워크 사이에 피어링 만들려는 시도가 실패합니다.
-    > [!WARNING]
-    > 교차 지역에서 만든 가상 네트워크 피어링은 일반 공급 릴리스의 피어링과 동일한 수준의 가용성과 신뢰성을 가질 수 없습니다. 가상 네트워크 피어링은 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
-
-* 피어링된 가상 네트워크에는 겹치지 않는 IP 주소 공간이 있어야 합니다.
-* 가상 네트워크가 다른 가상 네트워크와 피어링되면 주소 범위를 추가하거나 가상 네트워크의 주소 공간에서 삭제할 수 없습니다. 피어링된 가상 네트워크의 주소 공간에 주소 범위를 추가해야 하는 경우 피어링을 제거하고, 주소 공간을 추가한 후 피어링을 다시 추가해야 합니다.
-* 가상 네트워크 피어링은 두 개의 가상 네트워크 간에 가능합니다. 피어링을 통해 파생된 전이적 관계가 없습니다. 예를 들어 virtualNetworkA가 virtualNetworkB와 피어링되고 virtualNetworkB가 virtualNetworkC와 피어링되는 경우 virtualNetworkA는 virtualNetworkC로 피어링되지 *않습니다*.
-* 서로 다른 두 구독의 권한 있는 사용자([특정 권한](create-peering-different-deployment-models-subscriptions.md#permissions) 참조)가 피어링 권한을 부여하고 구독이 동일한 Azure Active Directory 테넌트에 연결되어 있는 한 두 구독에 있는 가상 네트워크를 피어링할 수 있습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 다른 Active Directory 테넌트에 연결된 구독에서 가상 네트워크를 연결할 수 있습니다.
-* 두 가상 네트워크를 Resource Manager 배포 모델을 통해 만들거나, 하나는 Resource Manager 배포 모델을 통해 만들고 다른 하나는 클래식 배포 모델을 통해 만든 경우 이 두 가상 네트워크를 피어링할 수 있습니다. 그러나 클래식 배포 모델을 통해 만든 가상 네트워크는 서로 피어링될 수 없습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 클래식 배포 모델을 통해 만든 가상 네트워크를 연결할 수 없습니다.
-* 피어링된 가상 네트워크에 있는 가상 머신 간의 통신에 추가 대역폭이 제한되지 않지만 적용되는 가상 머신의 크기에 따라 최대 네트워크 대역폭이 제한됩니다. 다양한 가상 머신 크기의 최대 네트워크 대역폭에 대한 자세한 내용을 알아보려면 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기 문서를 참조하세요.
-
-     ![기본 가상 네트워크 피어링](./media/virtual-networks-peering-overview/figure03.png)
 
 ## <a name="connectivity"></a>연결
 
@@ -55,8 +40,6 @@ ms.lasthandoff: 03/08/2018
 동일한 지역에서 피어링된 가상 네트워크에 있는 가상 머신 간의 네트워크 대기 시간은 단일 가상 네트워크 내의 대기 시간과 같습니다. 네트워크 처리량은 해당 크기에 비례하는 가상 머신에 허용되는 대역폭을 기반으로 합니다. 피어링 내에서 대역폭에 대한 추가 제한이 없습니다.
 
 피어링된 가상 네트워크에 있는 가상 머신 간의 트래픽은 게이트웨이나 공용 인터넷을 통해서가 아니라 Microsoft 백본 인프라를 통해 직접 라우팅됩니다.
-
-가상 네트워크의 가상 머신은 동일한 지역에서 피어링된 가상 네트워크에 있는 내부 부하 분산 장치에 액세스할 수 있습니다. 내부 부하 분산 장치에 대한 지원은 전역적으로 피어링된 가상 네트워크에 확장되지 않습니다(미리 보기). 전역 가상 네트워크 피어링의 일반 공급 릴리스는 내부 부하 분산 장치에 대해 지원됩니다.
 
 원하는 경우 다른 가상 네트워크 또는 서브넷에 대한 액세스를 차단하기 위해 네트워크 보안 그룹을 각 가상 네트워크에 적용할 수 있습니다.
 가상 네트워크 피어링을 구성할 때 가상 네트워크 간에 네트워크 보안 그룹 규칙을 열거나 닫을 수 있습니다. 피어링된 가상 네트워크 간의 전체 연결을 여는 경우(기본 옵션임) 특정 서브넷 또는 가상 머신에 네트워크 보안 그룹을 적용하여 특정 액세스를 차단하거나 거부할 수 있습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](virtual-networks-nsg.md)를 참조하세요.
@@ -79,42 +62,23 @@ ms.lasthandoff: 03/08/2018
 
 ![가상 네트워크 피어링 전송](./media/virtual-networks-peering-overview/figure04.png)
 
-게이트웨이 전송은 다른 배포 모델 또는 다른 지역을 통해 만든 가상 네트워크 간의 피어링 관계에서 지원되지 않습니다. 피어링 관계인 두 가상 네트워크는 Resource Manager를 통해 만들고 게이트웨이 전송을 작동시키기 위해 동일한 지역에 있어야 합니다. 전역적으로 피어링된 가상 네트워크는 현재 게이트웨이 전송을 지원하지 않습니다.
+게이트웨이 전송은 다른 배포 모델 또는 다른 지역을 통해 만든 가상 네트워크 간의 피어링 관계에서 지원되지 않습니다. 피어링 관계인 두 가상 네트워크는 Resource Manager를 통해 만들고 게이트웨이 전송을 작동시키기 위해 동일한 지역에 있어야 합니다.
 
 단일 Azure ExpressRoute 연결을 공유하는 가상 네트워크가 피어링된 경우 둘 사이의 트래픽은 피어링 관계(즉, Azure 백본 네트워크)를 거치게 됩니다. 로컬 게이트웨이 각각에서 가상 네트워크를 사용하여 온-프레미스 회로에 연결할 수 있습니다. 또는 공유 게이트웨이를 사용하고 온-프레미스 연결에 대한 전송을 구성할 수 있습니다.
-
-## <a name="permissions"></a>권한
-
-가상 네트워크 피어링은 권한 있는 작업입니다. VirtualNetworks 네임스페이스에서 별도 기능입니다. 사용자는 특정 권한을 지정하여 피어링하는 권한을 부여할 수 있습니다. 가상 네트워크에 대한 읽기-쓰기 액세스 권한이 있는 사용자는 이러한 권한을 자동으로 상속합니다.
-
-피어링 기능의 관리자 또는 권한있는 사용자 중 하나인 사용자는 다른 가상 네트워크에 대한 피어링 작업을 시작할 수 있습니다. 최소한으로 필요한 수준의 사용 권한은 네트워크 참여자입니다. 다른 쪽에 피어링에 대해 동일한 요청이 있고 다른 요구 사항을 충족하는 경우 피어링이 설정됩니다.
-
-예를 들어 myVirtualNetworkA 및 myVirtualNetworkB라는 가상 네트워크를 피어링한 경우 계정에는 각 가상 네트워크에 대한 다음과 같은 최소 역할 또는 사용 권한이 할당되어야 합니다.
-
-|가상 네트워크|배포 모델|역할|권한|
-|---|---|---|---|
-|myVirtualNetworkA|리소스 관리자|[네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |클래식|[클래식 네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|해당 없음|
-|myVirtualNetworkB|리소스 관리자|[네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||클래식|[클래식 네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
-
-## <a name="monitor"></a>모니터
-
-Resource Manager를 통해 만든 두 가상 네트워크를 피어링할 때는 피어링의 각 가상 네트워크에 대해 피어링을 구성해야 합니다. 피어링 연결 상태를 모니터링할 수 있습니다. 피어링 상태는 다음 상태 중 하나입니다.
-
-* **시작됨**: 첫 번째 가상 네트워크에서 두 번째 가상 네트워크로 피어링을 만들 때 표시되는 상태입니다.
-* **연결됨**: 두 번째 가상 네트워크에서 첫 번째 가상 네트워크로 피어링을 만들면 표시되는 상태입니다. 첫 번째 가상 네트워크에 대한 피어링 상태가 *시작됨*에서 *연결됨*으로 변경됩니다. 두 가상 네트워크 피어링의 상태가 *연결됨*이 될 때까지 가상 네트워크 피어링은 성공적으로 설정되지 않습니다.
-* **연결 끊김**: 두 가상 네트워크 사이에 피어링이 설정된 후 한 가상 네트워크에서 다른 가상 네트워크로의 피어링이 삭제되면 표시되는 상태입니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
 가상 네트워크 피어링을 확인하려면 가상 네트워크의 서브넷에서 네트워크 인터페이스의 [유효 경로를 확인](virtual-network-routes-troubleshoot-portal.md)합니다. 가상 네트워크 피어링이 존재하는 경우에는 가상 네트워크 내의 모든 서브넷에는 피어링된 각 가상 네트워크의 각 주소 공간에 대해 다음 홉 형식의 *VNet 피어링*을 사용하는 경로가 있습니다.
 
-Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivity-portal.md)을 사용하여 피어링된 가상 네트워크에서 가상 머신에 대한 연결 문제를 해결할 수 있습니다. 연결 확인을 통해 원본 가상 머신의 네트워크 인터페이스에서 대상 가상 머신의 네트워크 인터페이스로 트래픽이 라우팅되는 방식을 확인할 수 있습니다.
+Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 피어링된 가상 네트워크에서 가상 머신에 대한 연결 문제를 해결할 수 있습니다. 연결 확인을 통해 원본 가상 머신의 네트워크 인터페이스에서 대상 가상 머신의 네트워크 인터페이스로 트래픽이 라우팅되는 방식을 확인할 수 있습니다.
 
-## <a name="limits"></a>제한
+## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건
 
-단일 가상 네트워크에 허용되는 피어링의 수에 대한 제한이 있습니다. 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
+요구 사항 및 제약 조건에 대한 자세한 내용은 [가상 네트워크 피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 가상 네트워크에 만들 수 있는 피어링 수 제한에 대한 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
+
+## <a name="permissions"></a>권한
+
+가상 네트워크 피어링을 만드는 데 필요한 사용 권한에 대한 자세한 내용은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 
 ## <a name="pricing"></a>가격
 
@@ -122,14 +86,14 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 네트워크 피어링 자습서를 완료합니다. 가상 네트워크 피어링은 동일하거나 다른 구독에 존재하는 동일하거나 다른 배포 모델을 통해 만든 가상 네트워크 간에 만들어집니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
+* 가상 네트워크 피어링은 동일하거나 다른 구독에 존재하는 동일하거나 다른 배포 모델을 통해 만든 가상 네트워크 간에 만들어집니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-    |Azure 배포 모델  | 구독  |
-    |---------|---------|
-    |둘 다 Resource Manager |[동일](tutorial-connect-virtual-networks-portal.md)|
-    | |[다름](create-peering-different-subscriptions.md)|
-    |하나는 Resource Manager, 다른 하나는 클래식     |[동일](create-peering-different-deployment-models.md)|
-    | |[다름](create-peering-different-deployment-models-subscriptions.md)|
+    |Azure 배포 모델             | 구독  |
+    |---------                          |---------|
+    |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
+    |                                   |[다름](create-peering-different-subscriptions.md)|
+    |하나는 Resource Manager, 다른 하나는 클래식  |[동일](create-peering-different-deployment-models.md)|
+    |                                   |[다름](create-peering-different-deployment-models-subscriptions.md)|
 
 * [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)를 만드는 방법을 알아봅니다.
 * 모든 [가상 네트워크 피어링 설정 및 변경 방법](virtual-network-manage-peering.md)에 대해 자세히 알아봅니다.

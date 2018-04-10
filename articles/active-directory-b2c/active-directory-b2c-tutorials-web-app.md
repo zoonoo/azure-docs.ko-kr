@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>자습서: ASP.NET 웹앱에서 Azure Active Directory B2C를 사용하여 사용자 인증
 
@@ -66,7 +66,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 ### <a name="create-a-client-password"></a>클라이언트 암호 만들기
 
-Azure AD B2C는 [클라이언트 응용 프로그램](../active-directory/develop/active-directory-dev-glossary.md#client-application)에 OAuth2 인증을 사용합니다. 웹앱은 [기밀 클라이언트](../active-directory/develop/active-directory-dev-glossary.md#web-client)이며 클라이언트 암호가 필요합니다. 응용 프로그램 클라이언트 ID와 클라이언트 암호는 웹앱이 Azure Active Directory로 인증할 때 사용됩니다. 
+Azure AD B2C는 [클라이언트 응용 프로그램](../active-directory/develop/active-directory-dev-glossary.md#client-application)에 OAuth2 인증을 사용합니다. 웹앱은 [기밀 클라이언트](../active-directory/develop/active-directory-dev-glossary.md#web-client)이며 클라이언트 ID 또는 응용 프로그램 ID와 클라이언트 비밀, 클라이언트 암호 또는 응용 프로그램 키가 필요합니다.
 
 1. 등록된 웹앱에 대한 [키] 페이지를 선택하고 **키 생성**을 클릭합니다.
 
@@ -150,7 +150,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 **Web API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
 
-테넌트에서 앱 등록을 사용하도록 앱을 변경해야 합니다. 또한 만든 정책도 구성해야 합니다. 샘플 웹앱은 Web.config 파일에서 구성 값을 앱 설정으로 정의합니다. 앱 설정을 변경하려면 다음을 수행합니다.
+테넌트에서 앱 등록을 사용하도록 앱을 변경해야 하며, 여기에는 클라이언트 ID 또는 응용 프로그램 ID와 클라이언트 암호 또는 응용 프로그램 키가 포함됩니다. 또한 만든 정책도 구성해야 합니다. 샘플 웹앱은 Web.config 파일에서 구성 값을 앱 설정으로 정의합니다. 앱 설정을 변경하려면 다음을 수행합니다.
 
 1. Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 
@@ -161,7 +161,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. 정책을 만들 때 생성된 이름으로 정책 설정을 업데이트합니다.
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -45,7 +45,6 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 리소스 그룹 이름은 이 자습서에서 확장 집합 만들거나 수정할 때 지정됩니다.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 다음 예제 출력에서는 확장 집합의 두 VM 인스턴스를 보여 줍니다.
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 특정 VM 인스턴스에 대한 추가 정보를 보려면 `-InstanceId` 매개 변수를 [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm)에 추가합니다. 다음 예제에서는 *1* VM 인스턴스에 대한 정보가 표시됩니다.
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_D1_v2*의 기본 VM SKU가 제공되었습니다. [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 *Standard_F1*의 VM 인스턴스 크기를 지정하는 `-VmSize` 매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
+자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_DS1_v2*의 기본 VM SKU가 제공되었습니다. [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 *Standard_F1*의 VM 인스턴스 크기를 지정하는 `-VmSize` 매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
 
 ```azurepowershell-interactive
 New-AzureRmVmss `

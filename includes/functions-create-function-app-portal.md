@@ -1,4 +1,4 @@
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭한 다음, **계산** > **함수 앱**을 선택합니다. 
+1. Azure Portal의 왼쪽 위 모서리에 있는 **새로 만들기** 단추를 선택한 다음, **계산** > **함수 앱**을 차례로 선택합니다. 
 
     ![Azure Portal에서 함수 앱 만들기](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -16,8 +16,14 @@
     | **위치**: | 서유럽 | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
     | **[Storage 계정](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  전역적으로 고유한 이름 |  함수 앱에 사용된 새 저장소 계정의 이름. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. |
 
-1. **만들기** 를 클릭하여 새 함수 앱을 프로비전하고 배포합니다. 포털의 오른쪽 위 구석에 있는 알림 아이콘을 클릭하여 배포의 상태를 모니터링할 수 있습니다. 
+3. **만들기**를 선택하여 함수 앱을 프로비전하고 배포합니다. 
+
+4. 포털의 오른쪽 위 모서리에 있는 [알림] 아이콘을 선택하고 **배포 성공** 메시지가 표시될 때까지 기다립니다. 
 
     ![새 함수 앱 설정 정의](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    **리소스로 이동**을 클릭하면 새 함수 앱으로 이동됩니다.
+4. **리소스로 이동**을 선택하여 함수 앱을 봅니다.
+
+>[!TIP]
+>포털에서 앱 함수를 찾는 데 문제가 있는 경우 [Azure Portal에서 즐겨찾기에 함수 앱을 추가](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)합니다.   
+

@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
 
-이 자습서는 Azure에서 응용 프로그램 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복 저장소) 계정으로 Blob을 업로드하고 검색하는 콘솔 응용 프로그램을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 응용 프로그램은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 끝점을 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
+이 자습서는 Azure에서 응용 프로그램 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복 저장소) 계정으로 Blob을 업로드하고 검색하는 콘솔 응용 프로그램을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 응용 프로그램은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 끝점을 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
