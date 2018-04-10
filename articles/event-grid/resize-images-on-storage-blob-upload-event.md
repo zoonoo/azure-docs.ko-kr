@@ -1,10 +1,10 @@
 ---
-title: "Azure Event Grid로 업로드 이미지 크기 자동 조정 | Microsoft Docs"
-description: "Azure Event Grid는 Azure Storage에 BLOB 업로드를 트리거할 수 있습니다. 이 기능을 활용하여 Azure Storage에 업로드된 이미지 파일을 Azure Functions 등의 타 서비스로 보내 크기를 조절하거나 다른 향상을 수행할 수 있습니다."
+title: Azure Event Grid로 업로드 이미지 크기 자동 조정 | Microsoft Docs
+description: Azure Event Grid는 Azure Storage에 BLOB 업로드를 트리거할 수 있습니다. 이 기능을 활용하여 Azure Storage에 업로드된 이미지 파일을 Azure Functions 등의 타 서비스로 보내 크기를 조절하거나 다른 향상을 수행할 수 있습니다.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미지 업로드 앱에 추가합니다.
 
-![Edge 브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Microsoft Edge 브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -157,7 +157,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 업로드된 이미지가 사라진 후에는 업로드된 이미지의 사본이 **생성된 미리 보기** 카루셀에 표시됩니다. 이 이미지는 함수를 통해 크기 조정되어 *썸네일* 컨테이너에 추가되었으며 웹 클라이언트가 다운로드한 것입니다.
 
-![Edge 브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Microsoft Edge 브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -261,7 +261,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    > [!IMPORTANT]
    > Windows Server 2012 또는 2012 R2 AD FS를 사용 하는 경우 발급 권한 부여 규칙을 구성 하려면 AD FS MMC 스냅인을 사용 해야 합니다.
 
-4. Internet Explorer 또는 Edge 브라우저를 사용 하 여 Azure 스택 액세스할 때 토큰 바인딩을 무시 해야 합니다. 그렇지 않으면 로그인 시도 실패 합니다. AD FS 인스턴스 또는 팜 구성원에서 다음 명령을 실행 합니다.
+4. Internet Explorer 또는 Microsoft Edge 브라우저를 사용 하 여 Azure 스택 액세스할 때 토큰 바인딩을 무시 해야 합니다. 그렇지 않으면 로그인 시도 실패 합니다. AD FS 인스턴스 또는 팜 구성원에서 다음 명령을 실행 합니다.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

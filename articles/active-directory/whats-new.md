@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9a947de3ad821d4cd65e579357e3c779e8623435
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -73,6 +73,32 @@ Azure AD는 갤러리 및 비갤러리 응용 프로그램에 대한 인증서�
 
 자세한 내용은 [Azure AD B2B 공동 작업이란?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)을 참조하세요.
  
+---
+
+
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>iOS 및 Android용 Azure AD 응용 프로그램 기반 조건부 액세스와 함께 Intune Managed Browser를 사용하여 브라우저 액세스를 제한합니다.
+
+**유형:** 새로운 기능  
+**서비스 범주:** 조건부 액세스  
+**제품 기능:** ID 보안 및 보호
+ 
+
+**현재 공개 미리 보기 상태입니다.**
+
+**Intune Managed Browser SSO:** 직원은 모든 Azure AD 연결 앱에 대한 기본 클라이언트(예: Microsoft Outlook)와 Intune Managed Browser에서 Single Sign-On을 사용할 수 있습니다.
+
+**Intune Managed Browser 조건부 액세스 지원:** 이제 직원이 응용 프로그램 기반 조건부 액세스 정책을 사용하여 Intune Managed Browser를 사용하도록 할 수 있습니다.
+
+[블로그 게시물](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/)에서 이에 대해 자세히 읽어보세요.
+
+자세한 내용은 다음을 참조하세요.
+
+- [응용 프로그램 기반 조건부 액세스 설정](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [Managed Browser 정책 구성](https://aka.ms/managedbrowser)  
+
+
+
 ---
  
 

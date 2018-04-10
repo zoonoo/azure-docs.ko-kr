@@ -148,7 +148,7 @@ Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google Chrome의 경우 통�
 
 #### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
-Firefox 및 Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
+Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 

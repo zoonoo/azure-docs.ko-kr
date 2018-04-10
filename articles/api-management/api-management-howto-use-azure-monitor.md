@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management에서 게시된 API 모니터링 | Microsoft Docs"
-description: "이 자습서의 단계에 따라 Azure API Management에서 API를 모니터링하는 방법을 알아봅니다."
+title: Azure API Management에서 게시된 API 모니터링 | Microsoft Docs
+description: 이 자습서의 단계에 따라 Azure API Management에서 API를 모니터링하는 방법을 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -44,29 +44,6 @@ Azure Monitor는 모든 Azure 리소스 모니터링을 위한 단일 소스를 
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="diagnostic-logs"></a>활동 로그 보기
-
-활동 로그는 API Management 서비스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그를 통해 API Management 서비스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 "무엇을, 누가, 언제"를 판단할 수 있습니다. 
-
-> [!NOTE]
-> 활동 로그에는 읽기(GET) 작업 또는 Azure Portal에서 수행되었거나 원본 Management API를 사용하는 작업이 포함되지 않습니다.
-
-API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor에서 모든 Azure 리소스의 로그에 액세스할 수 있습니다. 
-
-활동 로그를 보려면
-
-1. APIM 서비스 인스턴스를 선택합니다.
-2. **활동 로그**를 클릭합니다.
-
-## <a name="view-diagnostic-logs"></a>진단 로그 보기
-
-진단 로그는 감사 뿐만 아니라 문제 해결에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
-
-진단 로그에 액세스하려면
-
-1. APIM 서비스 인스턴스를 선택합니다.
-2. **진단 로그**를 클릭합니다.
 
 ## <a name="view-metrics-of-your-apis"></a>API의 메트릭 보기
 
@@ -109,6 +86,118 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
     > 경고 규칙은 트리거될 때 웹 후크 또는 Azure 논리 앱도 호출할 수 있습니다.
 
     ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+
+## <a name="activity-logs"></a>활동 로그
+
+활동 로그는 API Management 서비스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그를 통해 API Management 서비스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 "무엇을, 누가, 언제"를 판단할 수 있습니다. 
+
+> [!NOTE]
+> 활동 로그에는 읽기(GET) 작업 또는 Azure Portal에서 수행되었거나 원본 Management API를 사용하는 작업이 포함되지 않습니다.
+
+API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor에서 모든 Azure 리소스의 로그에 액세스할 수 있습니다. 
+
+활동 로그를 보려면
+
+1. APIM 서비스 인스턴스를 선택합니다.
+2. **활동 로그**를 클릭합니다.
+
+## <a name="diagnostic-logs"></a>진단 로그
+
+진단 로그는 감사 뿐만 아니라 문제 해결에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
+
+진단 로그를 구성하려면:
+
+1. APIM 서비스 인스턴스를 선택합니다.
+2. **진단 로그**를 클릭합니다.
+3. **진단 켜기**를 클릭합니다. 진단 로그를 메트릭과 함께 저장소 계정에 보관하고, Event Hub에 스트리밍하고, Log Analytics에 보낼 수 있습니다. 
+
+API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 요청에 대한 진단 로그(시간 단위로 일괄 처리됨)를 제공합니다.
+
+```json
+{  
+    "isRequestSuccess" : "",
+    "time": "",   
+    "operationName": "",      
+    "category": "",   
+    "durationMs": ,   
+    "callerIpAddress": "",   
+    "correlationId": "",   
+    "location": "",      
+    "httpStatusCodeCategory": "",      
+    "resourceId": "",      
+    "properties": {   
+        "method": "", 
+        "url": "", 
+        "clientProtocol": "", 
+        "responseCode": , 
+        "backendMethod": "", 
+        "backendUrl": "", 
+        "backendResponseCode": ,
+        "backendProtocol": "",  
+        "requestSize": , 
+        "responseSize": , 
+        "cache": "", 
+        "cacheTime": "", 
+        "backendTime": , 
+        "clientTime": , 
+        "apiId": "",
+        "operationId": "", 
+        "productId": "", 
+        "userId": "", 
+        "apimSubscriptionId": "", 
+        "backendId": "",
+        "lastError": { 
+            "elapsed" : "", 
+            "source" : "", 
+            "scope" : "", 
+            "section" : "" ,
+            "reason" : "", 
+            "message" : ""
+        } 
+    }      
+}  
+```
+
+| 자산  | 유형 | 설명 |
+| ------------- | ------------- | ------------- |
+| isRequestSuccess | 부울 | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
+| 실시간 | 날짜-시간 | 게이트웨이에서 HTTP 요청을 수신하는 타임스탬프 |
+| operationName | string | 상수 값 'Microsoft.ApiManagement/GatewayLogs' |
+| 카테고리 | string | 상수 값 'GatewayLogs' |
+| durationMS | 정수 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
+| callerIpAddress | string | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
+| CorrelationId | string | API Management에서 할당하는 고유의 http 요청 식별자 |
+| location | string | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
+| httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 또는 304 또는 307), 권한 없음(401, 403, 429) 권한이 없음, 잘못됨(400, 500 및 600 사이), 기타 |
+| ResourceId | string | "API Management 리소스 Id /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| properties | object | 현재 요청의 속성 |
+| 메서드 | string | 들어오는 요청의 HTTP 메서드 |
+| URL | string | 들어오는 요청의 URL |
+| clientProtocol | string | 들어오는 요청의 HTTP 프로토콜 버전 |
+| responseCode | 정수 | 클라이언트로 전송된 HTTP 응답의 상태 코드 |
+| backendMethod | string | 백 엔드로 전송된 요청의 HTTP 메서드 |
+| backendUrl | string | 백 엔드로 전송된 요청의 URL |
+| backendResponseCode | 정수 | 백 엔드에서 받은 HTTP 요청 코드 |
+| backendProtocol | string | 백 엔드로 전송된 요청의 HTTP 프로토콜 버전 | 
+| requestSize | 정수 | 요청을 처리하는 동안 클라이언트에서 받은 바이트 수 | 
+| responseSize | 정수 | 요청을 처리하는 동안 클라이언트로 전송된 바이트 수 | 
+| 캐시 | string | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
+| cacheTime | 정수 | 전체 API Management 캐시 IO에서 소요된(연결, 바이트 송신 및 수신) 시간(밀리초) | 
+| backendTime | 정수 | 전체 백 엔드 IO에서 소요된(연결, 바이트 송신 및 수신) 시간(밀리초) | 
+| clientTime | 정수 | 전체 클라이언트 IO에서 소요된(연결, 바이트 송신 및 수신) 시간(밀리초) | 
+| apiId | string | 현재 요청에 대한 API 엔터티 식별자 | 
+| operationId | string | 현재 요청에 대한 작업 엔터티 식별자 | 
+| productId | string | 현재 요청에 대한 제품 엔터티 식별자 | 
+| userId | string | 현재 요청에 대한 사용자 엔터티 식별자 | 
+| apimSubscriptionId | string | 현재 요청에 대한 구독 엔터티 식별자 | 
+| backendId | string | 현재 요청에 대한 백 엔드 엔터티 식별자 | 
+| LastError | object | 마지막 요청 처리 오류 | 
+| elapsed | 정수 | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간까지 경과한 시간(밀리초) | 
+| 원본 | string | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
+| scope | string | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 범위 | 
+| section | string | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 섹션 | 
+| reason | string | 오류 원인 | 
+| Message | string | 오류 메시지 | 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,9 +1,9 @@
 ---
-title: "Windows 장치의 Azure Portal 상의 여기에서 가져올 수 없습니다 | Microsoft Docs"
-description: "여기에서 가져올 수 없는 위치 및 이 대화 상자에서 실행되지 않도록 방지하기 위해 확인할 점에 대해 알아봅니다."
+title: Windows 장치의 Azure Portal 상의 여기에서 가져올 수 없습니다 | Microsoft Docs
+description: 여기에서 가져올 수 없는 위치 및 이 대화 상자에서 실행되지 않도록 방지하기 위해 확인할 점에 대해 알아봅니다.
 services: active-directory
-keywords: "장치 기반 조건부 액세스, 장치 등록, 장치 등록 사용, 장치 등록 및 MDM"
-documentationcenter: 
+keywords: 장치 기반 조건부 액세스, 장치 등록, 장치 등록 사용, 장치 등록 및 MDM
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="supported-browser"></a>지원되는 브라우저
 
-관리자가 조건부 액세스 정책을 구성한 경우, 지원되는 브라우저를 사용하여 조직의 리소스를 액세스할 수 있습니다. Windows 장치에서는 **Internet Explorer** 및 **Edge**만 지원됩니다.
+관리자가 조건부 액세스 정책을 구성한 경우, 지원되는 브라우저를 사용하여 조직의 리소스를 액세스할 수 있습니다. Windows 장치에서는 **Internet Explorer** 및 **Microsoft Edge**만 지원됩니다.
 
 오류 페이지의 세부 정보 섹션을 보면 리소스에 액세스할 수 없는 이유가 지원되지 않는 브라우저 때문인지 여부를 쉽게 알 수 있습니다.
 
