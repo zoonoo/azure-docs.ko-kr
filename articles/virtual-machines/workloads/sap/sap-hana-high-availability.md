@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: b84b523f919e6b253462139b6888e5eb16248084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure VM(Virtual Machines)의 SAP HANA 고가용성
 
@@ -290,7 +290,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     
     ```
 
-SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시나리오 가이드][suse-hana-ha-guide]의 4장을 따라 작업합니다.
+SAP HANA 시스템 복제를 설치하려면 https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/에서 SAP HANA SR 성능 최적화 시나리오 가이드의 4장을 따라 작업합니다.
 
 1. **[A]** HANA DVD에서 hdblcm 실행
     * 설치 선택 -> 1

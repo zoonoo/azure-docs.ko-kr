@@ -1,9 +1,9 @@
 ---
-title: "Windows 10 로밍 설정 참조 | Microsoft Docs"
-description: "Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다."
+title: Windows 10 로밍 설정 참조 | Microsoft Docs
+description: Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다.
 services: active-directory
-keywords: "엔터프라이즈 상태 로밍, windows 클라우드"
-documentationcenter: 
+keywords: 엔터프라이즈 상태 로밍, windows 클라우드
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -88,19 +88,19 @@ Microsoft Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화
 | **장치**: 연결된 공유 프린터 |X |X |기타 |
 | **Microsoft Edge 브라우저**: 읽기 목록 |sync |sync |내부 |
 | **Microsoft Edge 브라우저**: 즐겨찾기 |sync |sync |내부 |
-| **Edge 브라우저**: 상위 사이트 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 형식이 지정된 URL <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 즐겨찾기 표시줄 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 홈 단추 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 팝업 차단 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 각 다운로드에서 수행할 작업 확인 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 암호 저장 제안 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 보내기 시 요청 추적 안 함 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 양식 항목 저장 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 쿠키 기본 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 사이트에서 내 장치에 보호된 미디어 라이선스를 저장하도록 허용 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 화면 판독기 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 상위 사이트 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 형식이 지정된 URL <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 즐겨찾기 표시줄 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 홈 단추 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 팝업 차단 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 각 다운로드에서 수행할 작업 확인 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 암호 저장 제안 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 보내기 시 요청 추적 안 함 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 양식 항목 저장 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 쿠키 기본 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 사이트에서 내 장치에 보호된 미디어 라이선스를 저장하도록 허용 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 화면 판독기 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
 | **고대비**: 켜기 또는 끄기 |sync |X |간편한 액세스 |
 | **고대비**: 테마 설정 |sync |X |간편한 액세스 |
 | **Internet Explorer**: 탭 열기(URL 및 제목) |sync |sync |Internet Explorer |

@@ -62,7 +62,7 @@ Azure 계정을 사용하여 <http://portal.azure.com>에서 Azure Portal에 로
 
 2. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<yourname>` 쿼리 문자열을 이 URL의 마지막에 추가하고 키보드에서 `Enter` 키를 눌러 요청을 실행합니다. 브라우저에 함수에서 반환한 응답이 표시될 것입니다.  
 
-    다음 예제에서는 Edge 브라우저의 응답을 보여 줍니다(표시된 XML은 다른 브라우저에도 포함될 수 있음).
+    다음 예제에서는 Microsoft Edge 브라우저의 응답을 보여 줍니다(표시된 XML은 다른 브라우저에도 포함될 수 있음).
 
     ![브라우저에 함수 응답.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
