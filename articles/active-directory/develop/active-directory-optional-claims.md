@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD의 선택적 클레임(미리 보기)
 
@@ -65,10 +65,6 @@ ms.lasthandoff: 03/29/2018
 | `fwd`                      | IP 주소입니다.  요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우).                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | 사용자의 국가입니다.                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | 리소스의 테넌트 국가입니다.                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | 장치가 작업 공간에 연결되어 있는지를 나타냅니다. 조건부 액세스 정책과 관련되어 있습니다.                                                                                                                 | SAML       |           | JWT의 경우 signin_state에 수렴됩니다.                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | 장치에 MDM이 설치되어 있는지를 나타냅니다. 조건부 액세스 정책과 관련되어 있습니다.                                                                                                                  | SAML       |           | JWT의 경우 signin_state에 수렴됩니다.                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | MDM이 장치가 조직의 장치 보안 정책을 준수하는 것을 확인했음을 나타냅니다.                                                                                  | SAML       |           | JWT의 경우 signin_state에 수렴됩니다.                                                                                                                                                                                                                                                   |
-| `kmsi`                     | 사용자가 로그인 유지 옵션을 선택했는지를 나타냅니다.                                                                                                                                    | SAML       |           | JWT의 경우 signin_state에 수렴됩니다.                                                                                                                                                                                                                                                   |
 | `upn`                      | UserPrincipalName 클레임입니다.  이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. | JWT, SAML  |           | 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>V2.0 선택적 클레임
 이러한 클레임은 항상 v1.0 토큰에 포함되지만, 요청되지 않을 경우 v2.0 토큰에서 제거됩니다.  이러한 클레임은 JWT(ID 토큰 및 액세스 토큰)에 대해서만 적용 가능합니다.  

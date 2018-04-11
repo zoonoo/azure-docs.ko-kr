@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 6f1a40f254473ae7d02168f0cfd6ad5c0d461d82
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 장치에서 클라우드로 파일 업로드
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 - 파일을 업로드하기 위해 저장소 컨테이너를 안전하게 제공합니다.
 - Python 클라이언트를 사용하여 IoT 허브를 통해 파일을 업로드합니다.
 
-[IoT Hub 시작](iot-hub-node-node-getstarted.md) 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-node-node-c2d.md) 자습서는 IoT Hub의 기본적인 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. 그러나 일부 시나리오에서는 장치에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 장치에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
+[IoT Hub 시작](iot-hub-node-node-getstarted.md) 자습서는 IoT Hub의 기본 장치-클라우드 메시지 기능을 보여줍니다. 그러나 일부 시나리오에서는 장치에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 장치에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
 > [!NOTE]
 > IoT 허브 Python SDK는 현재 **.txt** 파일과 같은 문자 기반 파일의 업로드만 지원합니다.

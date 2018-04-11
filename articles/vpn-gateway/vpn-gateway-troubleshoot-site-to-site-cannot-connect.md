@@ -1,24 +1,24 @@
 ---
-title: "Azure 사이트 간 VPN 연결에서 연결할 수 없는 문제 해결 | Microsoft Docs"
-description: "갑자기 작동 중단되어 다시 연결할 수 없는 사이트 간 VPN 연결 문제를 해결하는 방법을 알아봅니다."
+title: Azure 사이트 간 VPN 연결에서 연결할 수 없는 문제 해결 | Microsoft Docs
+description: 갑자기 작동 중단되어 다시 연결할 수 없는 사이트 간 VPN 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
 
@@ -52,7 +52,7 @@ Azure VPN 게이트웨이 유형을 확인합니다.
 
 Azure VPN 연결에 대한 공유 키를 보려면 다음 방법 중 하나를 사용합니다.
 
-**Azure 포털**
+**Azure Portal**
 
 1. 만든 VPN 게이트웨이 사이트 간 연결로 이동합니다.
 
@@ -92,7 +92,9 @@ Azure Resource Manager 배포 모델:
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>7단계. Azure 게이트웨이 상태 프로브 확인
 
-1. 상태 프로브로 이동합니다.
+1. 다음 URL로 이동하여 상태 프로브를 엽니다.
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. 인증서 경고를 클릭합니다.
 3. 응답이 수신되면 VPN 게이트웨이가 정상으로 간주됩니다. 응답을 수신하지 못하면 게이트웨이가 정상이 아니거나 게이트웨이 서브넷에 문제를 일으키는 NSG가 있는 것입니다. 다음 텍스트는 샘플 응답입니다.

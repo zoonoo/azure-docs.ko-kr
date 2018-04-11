@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines
+author: iainfoulds
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: iainfou
+ms.custom: include file
+ms.openlocfilehash: a6b75b3804e7736fe5203caecb8c6badcfbf9ab4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/03/2018
+---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역 및 가용성
 Azure는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데이터 센터는 지리적 영역으로 그룹화되므로 응용 프로그램을 빌드할 위치를 유연하게 선택할 수 있습니다. 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 머신)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.
 
@@ -56,7 +72,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 응용 프로그램을 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | 데이터가 여러 시설에 걸쳐 복제됩니다. |아니요 |예 |예 |예 |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니오 |아니요 |아니오 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니오 |아니요 |아니요 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
 [여기에서 Azure Storage 복제 옵션](../articles/storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
@@ -90,11 +106,9 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 응용 프로그램을 
 
 ## <a name="availability-zones"></a>가용성 영역
 
-[가용성 영역](../articles/availability-zones/az-overview.md)(미리 보기)은 가용성 집합의 대안으로써 VM에 있는 응용 프로그램 및 데이터의 가용성을 유지해야 하는 컨트롤 수준을 확장합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 각 가용성 영역에는 고유한 전원, 네트워크 및 냉각이 있고 Azure 지역 내의 다른 가용성 영역에서 논리적으로 분리됩니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 앱과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다. 
+[가용성 영역](../articles/availability-zones/az-overview.md)은 가용성 집합의 대안으로써 VM에 있는 응용 프로그램 및 데이터의 가용성을 유지해야 하는 컨트롤 수준을 확장합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 각 가용성 영역에는 고유한 전원, 네트워크 및 냉각이 있고 Azure 지역 내의 다른 가용성 영역에서 논리적으로 분리됩니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 앱과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다. 
 
 ![가용성 영역](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
 
 가용성 영역에서 [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) 또는 [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM을 배포하는 방법에 대해 자세히 알아봅니다.
 

@@ -1,30 +1,30 @@
 ---
-title: "Azure PIM 리소스 RBAC 개요 | Microsoft Docs"
-description: "용어 및 알림을 포함하여 PIM의 RBAC 기능에 대한 개요를 살펴봅니다."
+title: Azure PIM 리소스 RBAC 개요 | Microsoft Docs
+description: 용어 및 알림을 포함하여 PIM의 RBAC 기능에 대한 개요를 살펴봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: barclayn
-ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pim-for-azure-resources-preview"></a>Azure Resources(미리 보기)용 PIM
+# <a name="pim-for-azure-resources"></a>Azure Resource용 PIM
 
-Azure Active Directory PIM(Privileged Identity Management)을 사용하면 이제 조직 내에서 Azure Resources(미리 보기)에 대한 액세스를 관리, 제어 및 모니터링할 수 있습니다. 여기에는 구독, 리소스 그룹 및 가상 컴퓨터도 포함됩니다. Azure Portal 내에서 Azure RBAC(역할 기반 액세스 제어) 기능을 활용하는 모든 리소스는 Azure AD PIM에서 제공해야 하는 매우 유용한 보안 및 수명 주기 관리 기능 모두와 Azure AD 역할에 곧 제공될 중요한 새 기능 몇 가지를 활용할 수 있습니다. 
+Azure Active Directory PIM(Privileged Identity Management)을 사용하면 이제 조직 내에서 Azure Resource에 대한 액세스를 관리, 제어 및 모니터링할 수 있습니다. 여기에는 구독, 리소스 그룹 및 Virtual Machines도 포함됩니다. Azure Portal 내에서 Azure RBAC(역할 기반 액세스 제어) 기능을 활용하는 모든 리소스는 Azure AD PIM에서 제공해야 하는 매우 유용한 보안 및 수명 주기 관리 기능 모두와 Azure AD 역할에 곧 제공될 중요한 새 기능 몇 가지를 활용할 수 있습니다. 
 
-## <a name="pim-for-azure-resources-preview-helps-resource-administrators"></a>리소스 관리자에 유용한 Azure Resources(미리 보기)용 PIM
+## <a name="pim-for-azure-resources-helps-resource-administrators"></a>리소스 관리자에 유용한 Azure Resource용 PIM
 
 - 관리하는 Azure 리소스에 대해 역할이 할당된 사용자 및 그룹 보기
 - 주문형 "Just-In-Time" 액세스를 통해 구독, 리소스 그룹 등과 같은 리소스 관리
@@ -38,7 +38,7 @@ Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사�
 
 - 소유자
 - 사용자 액세스 관리자
-- 참여자
+- 참가자
 - 보안 관리자
 - 보안 관리자 등
 
@@ -49,15 +49,15 @@ Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사�
 
 PIM은 왼쪽 탐색 메뉴의 [작업] 섹션에서 역할을 활성화하고 보류 중인 활성화/요청 및 [Azure AD 디렉터리 역할](azure-ad-pim-approval-workflow.md)에 대해 보류 중인 승인을 보는 데 편리한 액세스를 제공하고, 보류 중인 응답을 검토합니다.
 
-[개요] 진입점에서 [작업] 메뉴 항목 중 하나에 액세스하면 Azure AD 디렉터리 역할과 Azure 리소스 역할(미리 보기) 둘 다에 대한 결과가 결과 보기에 포함되어 있습니다. 
+개요 진입점에서 작업 메뉴 항목 중 하나에 액세스하면 Azure AD 디렉터리 역할과 Azure Resource 역할 둘 다에 대한 결과가 결과 보기에 포함되어 있습니다. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-[내 역할]에는 Azure AD 디렉터리 역할 및 Azure 리소스 역할(미리 보기)에 대한 활성 및 적격 역할 할당 목록이 포함되어 있습니다.
+내 역할에는 Azure AD 디렉터리 역할 및 Azure Resource 역할에 대한 활성 및 적격 역할 할당 목록이 포함되어 있습니다.
 
 ## <a name="activate-roles"></a>역할 활성화
 
-Azure Resources(미리 보기)에 대한 역할 활성화에서는 적격 역할 구성원이 미래의 날짜/시간으로 활성화를 예약하고 관리자가 구성한 최대 기간 내에서 특정 활성화를 선택할 수 있는 새로운 환경을 소개하고 있습니다. [여기서 Azure AD 역할 활성화](../active-directory-privileged-identity-management-how-to-activate-role.md)에 대해 자세히 알아봅니다.
+Azure Resources에 대한 역할 활성화에서는 적격 역할 구성원이 미래의 날짜/시간으로 활성화를 예약하고 관리자가 구성한 최대 기간 내에서 특정 활성화를 선택할 수 있는 새로운 환경을 소개하고 있습니다. [여기서 Azure AD 역할 활성화](../active-directory-privileged-identity-management-how-to-activate-role.md)에 대해 자세히 알아봅니다.
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -73,7 +73,7 @@ Azure Resources(미리 보기)에 대한 역할 활성화에서는 적격 역할
 
 ## <a name="discover-and-manage-azure-resources"></a>Azure 리소스 검색 및 관리
 
-Azure 리소스에 대한 역할을 검색하고 관리하려면 왼쪽 탐색 메뉴의 [관리] 탭에서 [Azure Resources(미리 보기)]를 선택합니다. 페이지 위쪽의 필터 또는 검색 표시줄을 사용하여 리소스를 찾습니다.
+Azure Resource에 대한 역할을 검색하고 관리하려면 왼쪽 탐색 메뉴의 관리 탭에서 Azure Resources를 선택합니다. 페이지 위쪽의 필터 또는 검색 표시줄을 사용하여 리소스를 찾습니다.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 

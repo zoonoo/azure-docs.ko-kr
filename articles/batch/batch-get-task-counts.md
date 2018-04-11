@@ -1,18 +1,18 @@
 ---
-title: "상태별로 작업을 계산하여 작업 진행 상태 모니터링 - Azure Batch | Microsoft Docs"
-description: "작업에 대한 태스크 수를 계산하도록 Get Task Counts 연산을 호출하여 작업의 진행 상황을 모니터링합니다. 활성, 실행 중, 완료된 태스크 수는 물론, 성공 또는 성공한 태스크 수를 계산할 수 있습니다."
+title: 상태별로 작업을 계산하여 작업 진행 상태 모니터링 - Azure Batch | Microsoft Docs
+description: 작업에 대한 태스크 수를 계산하도록 Get Task Counts 연산을 호출하여 작업의 진행 상황을 모니터링합니다. 활성, 실행 중, 완료된 태스크 수는 물론, 성공 또는 성공한 태스크 수를 계산할 수 있습니다.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>상태별로 태스크 수를 계산하여 작업의 진행 상황 모니터링(미리 보기)
 
@@ -31,7 +31,7 @@ Get Task Counts 연산은 다음과 같이 상태별로 태스크 수를 계산�
 - 계산 모드에 할당되었지만, 아직 완료하지 않은 태스크는 **실행 중**으로 계산됩니다. [태스크에 대한 정보 가져오기][rest_get_task] 연산으로 표시된 대로 상태가 `preparing` 또는 `running`인 태스크는 **실행 중**으로 계산됩니다.
 - 더 이상 실행 자격이 없는 태스크는 **완료**로 계산됩니다. **완료**로 계산된 태스크는 일반적으로 성공적으로 완료되었거나, 비성공적으로 완료되었고 다시 시도 제한 횟수를 모두 사용했습니다. 
 
-또한 Get Task Counts 연산은 성공 또는 실패한 태스크 수도 보고합니다. Batch는 [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] 속성의 **결과**를 확인하여 태스크가 성공 또는 실패했는지 판별합니다.
+또한 Get Task Counts 연산은 성공 또는 실패한 태스크 수도 보고합니다. Batch는 [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] 속성의 **result** 속성을 확인하여 작업의 성공 여부를 확인합니다.
 
     - 태스크 실행 결과가 `success`인 태스크는 **성공**으로 계산됩니다.
     - 태스크 실행 결과가 `failure`인 태스크는 **실패**로 계산됩니다.

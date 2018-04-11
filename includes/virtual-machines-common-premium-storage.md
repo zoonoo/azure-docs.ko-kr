@@ -35,21 +35,21 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 * **Premium Storage 디스크**
 
-    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈, Ls 시리즈, Fs 시리즈 및 Esv3 시리즈 VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB)과 같은 일곱 가지 디스크 크기를 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
+    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈, Ls 시리즈, Fs 시리즈 및 Esv3 시리즈 VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB) 등, 7가지 디스크 크기 중에서 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
 
 * **프리미엄 페이지 Blob**
 
-    Premium Storage에서는 페이지 Blob을 지원합니다. 페이지 Blob을 사용하여 Premium Storage에 VM의 관리되지 않는 영구적인 디스크를 저장합니다. 표준 Azure Storage와 달리 Premium Storage는 블록 Blob, 추가 Blob, 파일, 테이블 또는 큐를 지원하지 않습니다. 프리미엄 페이지 Blob은 P10~P50 및 P60(8191GiB)과 같은 여섯 가지 크기를 지원합니다. P60 프리미엄 페이지 Blob은 VM 디스크로 연결되도록 지원되지 않습니다. 
+    Premium Storage에서는 페이지 Blob을 지원합니다. 페이지 Blob을 사용하여 Premium Storage에 VM의 관리되지 않는 영구적인 디스크를 저장합니다. 표준 Azure Storage와 달리 Premium Storage는 블록 Blob, 추가 Blob, 파일, 테이블 또는 큐를 지원하지 않습니다. 프리미엄 페이지 Blob는 P10~P50 및 P60(8191GiB)과 같은 여섯 가지 크기를 지원합니다. P60 프리미엄 페이지 Blob은 VM 디스크로 연결되도록 지원되지 않습니다. 
 
     프리미엄 저장소 계정에 있는 모든 개체는 페이지 Blob이 됩니다. 페이지 Blob은 지원되는 프로비전 크기 중 하나에 맞춰집니다. 이 때문에 프리미엄 저장소 계정은 매우 작은 Blob을 저장하기에는 적합하지 않습니다.
 
 * **Premium Storage 계정**
 
-    Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 저장소 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)에서 프리미엄 저장소 계정을 만들려면 **Premium** 성능 계층을 선택합니다. **LRS(로컬 중복 저장소)** 복제 옵션을 선택합니다. 다음 위치 중 하나에서 형식을 **Premium_LRS**로 설정하여 프리미엄 저장소 계정을 만들 수도 있습니다.
-    * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)(버전 2014-02-14 이상)
-    * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)(버전 2014-10-01 이상, Azure 클래식 배포인 경우)
-    * [Azure Storage 리소스 공급자 REST API](https://docs.microsoft.com/rest/api/storagerp)(Azure Resource Manager 배포인 경우)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md)(버전 0.8.10 이상)
+    Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 저장소 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)에서 프리미엄 저장소 계정을 만들려면 **Premium** 성능 계층을 선택합니다. **LRS(로컬 중복 저장소)** 복제 옵션을 선택합니다. 성능 계층을 **Premium_LRS**로 설정하여 프리미엄 저장소 계정을 만들 수도 있습니다. 성능 계층을 변경하려면 다음 방법 중 하나를 사용합니다.
+     
+    - [Azure Storage용 PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Azure Storage용 Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp)(Azure Resource Manager 배포용) 또는 Azure Storage 리소스 공급자 클라이언트 라이브러리 중 하나
 
     프리미엄 저장소 계정 한도에 대해 자세히 알아보려면 [Premium Storage 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)를 참조하세요.
 
@@ -129,11 +129,11 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 ### <a name="premium-storage-disk-limits"></a>Premium Storage 디스크 한도
 프리미엄 저장소 디스크를 프로비전할 때 디스크의 크기가 최대 IOPS 및 처리량(대역폭)을 결정합니다. Azure에서는 P4(Managed Disks에만 해당), P6(Managed Disks에만 해당), P10, P20, P30, P40 및 P50과 같은 일곱 가지 프리미엄 저장소 디스크를 제공합니다. 각 프리미엄 저장소 디스크 유형에는 특정 IOPS 및 처리량 한도가 있습니다. 디스크 유형에 대한 한도는 다음 표에 설명되어 있습니다.
 
-| 프리미엄 디스크 유형  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 디스크 크기           | 32GB| 64GB| 128GB| 512 GB            | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
-| 디스크당 IOPS       | 120   | 240   | 500   | 2,300              | 5,000              | 7,500              | 7,500              | 
-| 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 
+| 프리미엄 디스크 유형  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| 디스크 크기           | 32GB| 64GB| 128GB| 256GB| 512 GB            | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
+| 디스크당 IOPS       | 120   | 240   | 500   | 1100   | 2,300              | 5,000              | 7,500              | 7,500              | 
+| 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 125MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 
 
 > [!NOTE]
 > [Premium Storage 지원 VM](#premium-storage-supported-vms) 섹션에서 설명한 대로 VM에서 디스크 트래픽을 운용하기에 충분한 대역폭을 사용할 수 있는지 확인해야 합니다. 그렇지 않으면 처리량 및 IOPS가 낮은 값으로 제한됩니다. 최대 처리량 및 IOPS는 이전 표에 설명된 디스크 한도가 아닌 VM 한도를 기초로 합니다.  
@@ -144,7 +144,7 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 * **프로비전된 용량 및 성능**
 
-    프리미엄 저장소 디스크를 프로비전하면 표준 저장소와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500IOPS, 250MB/초 처리량이 프로비전됩니다. 응용 프로그램에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다.
+    프리미엄 저장소 디스크를 프로비전하면 표준 저장소와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 응용 프로그램에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다.
 
 * **디스크 크기**
 
@@ -297,14 +297,3 @@ Premium Storage에 대한 가격 책정, Premium Storage 지원 VM 및 관리 �
 
 ## <a name="next-steps"></a>다음 단계
 Premium Storage에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-### <a name="design-and-implement-with-premium-storage"></a>Premium Storage를 사용하여 디자인 및 구현
-* [Premium Storage를 사용한 성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [Premium Storage에서 Blob Storage 작업](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>운영 가이드
-* [Azure Premium Storage로 마이그레이션](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>블로그 게시물
-* [일반적으로 제공되는 Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [GS 시리즈 발표: 공용 클라우드의 최대 VM에 Premium Storage 지원 추가](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

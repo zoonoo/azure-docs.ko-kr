@@ -1,5 +1,5 @@
 ---
-title: Log Analytics에서 Azure Automation 계정 연결 해제
+title: Log Analytics에서 Azure Automation 계정 연결 해제 | Microsoft Docs
 description: 이 아티클에서는 Log Analytics 작업 영역에서 Azure Automation 계정 연결을 해제하는 방법을 대략적으로 설명합니다.
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Log Analytics에서 Automation 계정 연결을 해제하는 방법
 
@@ -46,4 +46,4 @@ Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정�
 
 ## <a name="next-steps"></a>다음 단계
 
-OMS Log Analytics와 통합되도록 Automation 계정을 다시 구성하려면 [Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달(OMS)](automation-manage-send-joblogs-log-analytics.md)을 참조하세요. 
+Log Analytics와 통합되도록 Automation 계정을 다시 구성하려면 [Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)을 참조하세요. 

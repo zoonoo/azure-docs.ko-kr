@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성 
 
@@ -47,6 +47,10 @@ ms.lasthandoff: 03/23/2018
 REST API를 사용하여 구독에 대한 정보를 가져오면 액세스할 수 있는 경우와 같은 세부 정보를 반환하지만 Azure Portal 및 Azure Powershell 내에서 구독은 표시되지 않습니다. 
 
 이 항목은 현재 처리 중이며 "일반 공급"으로 발표된 관리 그룹보다 우선하여 해결될 예정입니다.  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>미리 보기 중 CSP(클라우드 솔루션 공급자) 제한 
+현재 CSP(클라우드 솔루션 공급자) 파트너에 대해 고객의 디렉터리 내에서 고객의 관리 그룹을 만들거나 관리할 수 없도록 제한돼 있습니다.  
+이 항목은 현재 처리 중이며 "일반 공급"으로 발표된 관리 그룹보다 우선하여 해결될 예정입니다.
 
 
 ## <a name="root-management-group-for-each-directory"></a>각 디렉터리에 대한 루트 관리 그룹

@@ -1,6 +1,6 @@
 ---
-title: "Azure Table Storage: 웹앱 Node.js 빌드 | Microsoft Docs"
-description: "Azure Storage 서비스 및 Azure 모듈을 추가해 Express를 사용하여 Web App 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다."
+title: 'Azure Table Storage: 웹앱 Node.js 빌드 | Microsoft Docs'
+description: Azure Storage 서비스 및 Azure 모듈을 추가해 Express를 사용하여 Web App 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table Storage: Node.js 웹 응용 프로그램
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>개요
 이 자습서에서는 데이터 관리 서비스를 작업하도록 Node.js용 Microsoft Azure Client Libraries를 사용하여 [Express를 사용하는 Node.js 웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
 
-작업 항목은 Azure Storage에 저장됩니다. Azure Storage는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure Storage에는 데이터를 저장 및 액세스할 수 있는 몇 가지 데이터 구조가 포함되어 있습니다. Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스]를 참조하십시오.
+작업 항목은 Azure Storage 또는 Azure Cosmos DB에 저장됩니다. Azure Storage 및 Azure Cosmos DB는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure Storage 및 Azure Cosmos DB에는 데이터를 저장 및 액세스할 수 있는 몇 가지 데이터 구조가 포함되어 있습니다. Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 및 Azure Cosmos DB 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스]를 참조하십시오.
 
 이 자습서는 [Node.js 웹 응용 프로그램] 및 [Express를 사용하는 Node.js][Express를 사용하는 Node.js 웹 응용 프로그램] 자습서를 완료했다고 가정합니다.
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/18/2018
 ![Internet Explorer의 완료된 웹 페이지](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Web.Config에서 저장소 자격 증명 설정
-Azure Storage에 액세스하려면 저장소 자격 증명을 전달해야 합니다. 이를 위해 web.config 응용 프로그램 설정을 사용합니다.
+Azure Storage 또는 Azure Cosmos DB에 액세스하려면 저장소 자격 증명을 전달해야 합니다. 이를 위해 web.config 응용 프로그램 설정을 사용합니다.
 web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에서 읽습니다.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
    서비스를 삭제하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 삭제되면 서비스가 삭제되었다는 메시지가 표시됩니다.
 
 [Express를 사용하는 Node.js 웹 응용 프로그램]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure에 데이터 저장 및 액세스]: https://docs.microsoft.com/azure/storage/
 [Node.js 웹 응용 프로그램]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

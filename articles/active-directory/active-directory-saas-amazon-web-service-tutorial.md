@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 92189eba7df49aa45adaee7ee3c93c8972b5594b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합
 
@@ -146,7 +146,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 8. 다른 브라우저 창에서 AWS(Amazon Web Services) 회사 사이트에 관리자로 로그인합니다.
 
-9. **콘솔 홈**을 클릭합니다.
+9. **AWS 홈**을 클릭합니다.
    
     ![Single Sign-On 홈 구성][11]
 
@@ -174,65 +174,53 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     ![Single Sign-On 확인 구성][15]
 
-14. **역할**을 클릭하고 **새 역할 만들기**를 클릭합니다. 
+14. **역할**을 클릭하고 **역할 만들기**를 클릭합니다. 
     
     ![Single Sign-On 역할 구성][16]
 
-15. **역할 이름 설정** 대화 상자에서 다음 단계를 수행합니다. 
-    
-    ![Single Sign-On 이름 구성][17] 
-
-    a. **역할 이름** 텍스트 상자에 역할 이름(예: *TestUser*)을 입력합니다. 
-
-    나. **다음 단계**를 클릭합니다.
-
-16. **역할 유형 선택** 대화 상자에서 다음 단계를 수행합니다. 
-    
-    ![Single Sign-On 역할 형식 구성][18] 
-
-    a. **ID 공급자 액세스에 대한 역할**을 선택합니다. 
-
-    나. **SAML 공급자에게 WebSSO(웹 Single Sign-On) 액세스 권한 부여** 섹션에서 **선택**을 클릭합니다.
-
-17. **트러스트 설정** 대화 상자에서 다음 단계를 수행합니다.  
+15. **역할 만들기** 페이지에서 다음 단계를 수행합니다.  
     
     ![Single Sign-On 트러스트 구성][19] 
 
-    a. 이전에 만든 SAML 공급자(예: *WAAD*)를 SAML 공급자로 선택합니다. 
+    a. **신뢰할 수 있는 엔터티 유형 선택**에서 **SAML 2.0 페더레이션**을 선택합니다.
+
+    나. **SAML 2.0 공급자 선택**에서 이전에 만든 **SAML 공급자**를 선택합니다(예: *WAAD*).
+
+    다. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
   
-    나. **다음 단계**를 클릭합니다.
+    d. **다음: 권한**을 클릭합니다.
 
-18. **역할 트러스트 확인** 대화 상자에서 **다음 단계**를 클릭합니다. 
-    
-    ![Single Sign-On 역할 트러스트 구성][32]
-
-19. **정책 연결** 대화 상자에서 **다음 단계**를 클릭합니다.  
+16. **권한 연결 정책** 대화 상자에서 **다음: 검토**를 클릭합니다.  
     
     ![Single Sign-On 정책 구성][33]
 
-20. **검토** 대화 상자에서 다음 단계를 수행합니다.   
+17. **검토** 대화 상자에서 다음 단계를 수행합니다.   
     
     ![Single Sign-On 검토 구성][34] 
+
+    a. **역할 이름** 텍스트 상자에 역할 이름을 입력합니다.
+
+    나. **역할 설명** 텍스트 상자에 설명을 입력합니다.
 
     a. **역할 만들기**를 클릭합니다.
 
     나. 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
 
-21. Azure AD 사용자 프로비전의 AWS 계정에서 역할을 페치하기 위해 AWS 서비스 계정 자격 증명을 사용합니다. 이 경우에 AWS 콘솔 홈을 엽니다.
+18. Azure AD 사용자 프로비전의 AWS 계정에서 역할을 페치하기 위해 AWS 서비스 계정 자격 증명을 사용합니다. 이 경우에 AWS 콘솔 홈을 엽니다.
 
-22. **서비스** -> **보안, ID 및 규정 준수** -> **IAM**을 클릭합니다.
+19. **서비스** -> **보안, ID 및 규정 준수** -> **IAM**을 클릭합니다.
 
     ![AWS 계정에서 역할 페치](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-23. IAM 섹션에서 **정책** 탭을 선택합니다.
+20. IAM 섹션에서 **정책** 탭을 선택합니다.
 
     ![AWS 계정에서 역할 페치](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
 
-24. **정책 만들기**를 클릭하여 새 정책을 만듭니다.
+21. Azure AD 사용자 프로비전의 AWS 계정에서 역할을 가져올 수 있도록 **정책 만들기**를 클릭하여 새 정책을 만듭니다.
 
     ![새 정책 만들기](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
- 
-25. 다음 단계를 수행하여 AWS 계정에서 모든 역할을 가져오는 고유한 정책을 만듭니다.
+
+22. 다음 단계를 수행하여 AWS 계정에서 모든 역할을 가져오는 고유한 정책을 만듭니다.
 
     ![새 정책 만들기](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
@@ -272,7 +260,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![새 정책 정의](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
-26. 다음 단계를 수행하여 **새 정책**을 정의합니다.
+23. 다음 단계를 수행하여 **새 정책**을 정의합니다.
 
     ![새 정책 정의](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
@@ -281,8 +269,17 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     나. 정책에 **이 정책을 사용하면 AWS 계정에서 역할을 페치할 수 있습니다.**라는 **설명**을 제공할 수 있습니다.
     
     다. **"정책 만들기"** 단추를 클릭합니다.
-        
-27. 다음 단계를 수행하여 AWS IAM 서비스에서 새 사용자 계정을 만듭니다.
+
+24. **검토** 대화 상자에서 다음 단계를 수행합니다.   
+    
+    ![Single Sign-On 검토 구성][34] 
+
+    a. **역할 만들기**를 클릭합니다.
+
+    나. 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
+
+
+25. 다음 단계를 수행하여 AWS IAM 서비스에서 새 사용자 계정을 만듭니다.
 
     a. AWS IAM 콘솔에서 **사용자** 탐색을 클릭합니다.
 
@@ -302,7 +299,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     * 오른쪽 아래 모서리에서 **다음 사용 권한** 단추를 클릭합니다.
 
-28. 이제 다음 단계를 수행하여 이 사용자에 대한 새 정책을 만듭니다.
+26. 이제 다음 단계를 수행하여 이 사용자에 대한 새 정책을 만듭니다.
 
     ![사용자 추가](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -312,7 +309,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     다. **정책**을 선택하고 **다음: 검토** 단추를 클릭합니다.
 
-29. 다음 단계를 수행하여 연결된 사용자에 대한 정책을 검토합니다.
+27. 다음 단계를 수행하여 연결된 사용자에 대한 정책을 검토합니다.
 
     ![사용자 추가](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -320,7 +317,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     나. 오른쪽 아래 모서리에 있는 **사용자 만들기** 단추를 클릭하여 사용자를 만듭니다.
 
-30. 다음 단계를 수행하여 사용자의 사용자 자격 증명을 다운로드합니다.
+28. 다음 단계를 수행하여 사용자의 사용자 자격 증명을 다운로드합니다.
 
     ![사용자 추가](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -330,11 +327,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     다. 아래쪽에 있는 **닫기** 단추를 클릭합니다.
 
-31. Azure AD 관리 포털에 있는 Amazon Web Services 앱의 **사용자 프로비전** 섹션으로 이동합니다.
+29. Azure AD 관리 포털에 있는 Amazon Web Services 앱의 **사용자 프로비전** 섹션으로 이동합니다.
 
     ![사용자 추가](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. **클라이언트 암호** 및 **암호 토큰** 필드에 각각 **액세스 키** 및 **암호**를 입력합니다.
+30. **클라이언트 암호** 및 **암호 토큰** 필드에 각각 **액세스 키** 및 **암호**를 입력합니다.
 
     ![사용자 추가](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -346,13 +343,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     d. 위쪽에 있는 **저장** 단추를 클릭하여 설정을 저장합니다.
  
-33. 스위치를 켜고 상단에서 **저장** 단추를 클릭하여 설정 섹션에서 프로비전 상태 **켜기**를 사용할 수 있어야 합니다.
+31. 스위치를 켜고 상단에서 **저장** 단추를 클릭하여 설정 섹션에서 프로비전 상태 **켜기**를 사용할 수 있어야 합니다.
 
     ![사용자 추가](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

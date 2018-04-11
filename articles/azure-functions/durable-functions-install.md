@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
 Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확장이 NuGet 패키지 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)에서 제공됩니다. 이 문서에서는 다음 개발 환경을 위한 패키지 및 샘플 집합을 설치하는 방법을 보여 줍니다.
 
 * Visual Studio 2017(권장) 
-
+* Visual Studio Code
 * Azure portal
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -48,11 +48,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 샘플을 시작할 때와 같은 지침을 따르지만 *.zip* 파일을 다운로드하는 대신 다음 단계를 수행합니다.
 
 1. 함수 앱 프로젝트를 만듭니다.
-2. 다음 NuGet 패키지 참조를 *.csproj* 파일에 추가합니다.
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. *Nuget 패키지 관리*를 사용하는 다음 NuGet 패키지 참조를 검색하고 Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 프로젝트에 추가합니다(이 패키지를 검색하려면 *시험판 포함* 선택).
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -129,6 +125,8 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 1. [functions.azure.com](https://functions.azure.com/signin)에서 새 함수 앱을 만듭니다.
 
 2. [2.0 런타임 버전을 사용](set-runtime-version.md)하도록 함수 앱을 구성합니다.
+
+   지속성 함수 확장은 1.X 런타임 및 2.0 런타임 모두에서 작동하지만 Azure Portal 템플릿은 2.0 런타임을 대상으로 하는 경우에만 사용할 수 있습니다.
 
 3. **"사용자 고유의 사용자 지정 함수 만들기"**를 선택하여 새 함수를 만듭니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher 소개 | Microsoft Docs"
-description: "Azure에서 네트워크에 연결된 리소스를 모니터링하고 시각화하는 Network Watcher 서비스에 대한 개요를 간략히 설명합니다."
+title: Azure Network Watcher 소개 | Microsoft Docs
+description: Azure에서 네트워크에 연결된 리소스를 모니터링하고 시각화하는 Network Watcher 서비스에 대한 개요를 간략히 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure 네트워크 모니터링 개요
 
@@ -47,6 +47,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 * **[네트워크 구독 제한](#network-subscription-limits)** - 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 * **[진단 로그 구성](#diagnostic-logs)** – 리소스 그룹의 네트워크 리소스에 대해 진단 로그를 사용하거나 사용하지 않도록 설정할 수 있는 단일 창을 제공합니다.
 * **[연결 문제 해결](network-watcher-connectivity-overview.md)** - 가상 머신에서 Azure 컨텍스트를 사용해 보강된 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지 확인합니다.
+* **[연결 모니터](connection-monitor.md)** - 원본 및 대상 IP 주소와 포트를 사용하여 Azure 가상 머신과 IP 주소 사이의 대기 시간 및 구성 문제를 모니터링합니다.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Network Watcher의 RBAC(역할 기반 Access Control)
 

@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 진단 - Azure"
-description: "Azure Functions의 지속성 함수 확장을 사용하여 문제를 진단하는 방법을 알아봅니다."
+title: 지속성 함수의 진단 - Azure
+description: Azure Functions의 지속성 함수 확장을 사용하여 문제를 진단하는 방법을 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>지속성 함수의 진단(Azure Functions)
 
@@ -50,6 +50,7 @@ Azure Functions에서 진단 및 모니터링을 수행하려면 [Application In
 * **reason**: 추적 이벤트와 관련된 추가 데이터입니다. 예를 들어 인스턴스에서 외부 이벤트 알림을 기다리고 있는 경우 이 필드는 대기 중인 이벤트의 이름을 나타냅니다. 함수가 실패하면 이 필드에 오류 세부 정보가 포함됩니다.
 * **isReplay**: 재생된 실행에 대한 추적 이벤트인지를 나타내는 부울 값입니다.
 * **extensionVersion**: 지속성 작업 확장의 버전입니다. 이는 확장에서 가능한 버그를 보고할 때 특히 중요한 데이터입니다. 장기 실행 인스턴스는 실행되는 동안 업데이트가 발생하는 경우 여러 버전을 보고할 수 있습니다. 
+* **sequenceNumber**: 이벤트에 대한 실행 시퀀스 번호. 타임스탬프와 결합하면 이벤트를 실행 시간 기준으로 정렬하는 데 도움이 됩니다. *인스턴스가 실행 중인 동안 호스트가 다시 시작되면 이 번호가 0으로 다시 설정되므로, 항상 가장 먼저 타임스탬프를 기준으로 정렬한 후 sequenceNumber를 기준으로 정렬해야 합니다.*
 
 Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는 `host.json` 파일의 `logger` 섹션에서 구성할 수 있습니다.
 
@@ -72,11 +73,11 @@ Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는
 
 ### <a name="single-instance-query"></a>단일 인스턴스 쿼리
 
-다음 쿼리에서는 [Hello 시퀀스](durable-functions-sequence.md) 함수 오케스트레이션의 단일 인스턴스에 대한 추적 기록 데이터를 보여 줍니다. [AIQL(Application Insights Query Language)](https://docs.loganalytics.io/docs/Language-Reference)을 사용하여 작성되었습니다. *논리* 실행 경로만 표시되도록 재생 실행을 필터링합니다.
+다음 쿼리에서는 [Hello 시퀀스](durable-functions-sequence.md) 함수 오케스트레이션의 단일 인스턴스에 대한 추적 기록 데이터를 보여 줍니다. [AIQL(Application Insights Query Language)](https://docs.loganalytics.io/docs/Language-Reference)을 사용하여 작성되었습니다. *논리* 실행 경로만 표시되도록 재생 실행을 필터링합니다. 아래 쿼리처럼 `timestamp` 및 `sequenceNumber`를 기준으로 이벤트를 정렬할 수 있습니다. 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-결과는 모든 작업 함수를 포함하여 오케스트레이션의 실행 경로를 보여 주는 추적 이벤트 목록입니다.
 
-![Application Insights 쿼리](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+그 결과는 실행 시간 오름차순으로 정렬된 작업 함수를 포함하여 오케스트레이션의 실행 경로를 보여주는 추적 이벤트 목록입니다.
 
-> [!NOTE]
-> 이러한 추적 이벤트 중 일부는 `timestamp` 열의 정밀도 부족으로 인해 순서가 잘못될 수 있습니다. 이 문제는 GitHub에서 [문제 #71](https://github.com/Azure/azure-functions-durable-extension/issues/71)로 추적되고 있습니다.
+![Application Insights 쿼리](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>인스턴스 요약 쿼리
 
@@ -191,7 +193,7 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 > [!TIP]
 > 중단점을 설정할 때 재생되지 않는 실행에서만 중단하려면 `IsReplaying`이 `false`인 경우에만 중단되는 조건부 중단점을 설정할 수 있습니다.
 
-## <a name="storage"></a>저장소
+## <a name="storage"></a>Storage
 
 기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 즉 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용하여 오케스트레이션 상태를 검사할 수 있습니다.
 

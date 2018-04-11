@@ -1,29 +1,24 @@
 ---
-title: "Azure SQL Data Warehouse용 ELT 설계 | Microsoft Docs"
-description: "Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 프로세스를 설계하기 위해 데이터를 Azure로 이동하는 기술과 데이터를 SQL Data Warehouse에 로드하는 기술을 결합합니다."
+title: ETL 대신 Azure SQL Data Warehouse용 ELT 설계 | Microsoft Docs
+description: ETL 대신 Azure SQL 데이터 웨어하우스 또는 데이터를 로드하기 위한 추출, 로드 및 변환(ELT) 프로세스를 설계합니다.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 설계
 
-Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 프로세스를 설계하기 위해 데이터를 Azure Storage에 두는 기술과 데이터를 SQL Data Warehouse에 로드하는 기술을 결합합니다. 이 문서에서는 Polybase를 사용하여 로드를 지원하는 기술을 소개한 다음, T-SQL과 함께 Polybase를 사용하여 Azure Storage에서 SQL Data Warehouse로 데이터를 로드하는 ELT 프로세스 설계에 집중합니다.
+추출, 변환 및 로드(ETL) 대신 Azure SQL Data Warehouse로 데이터를 로드하기 위한 추출, 로드 및 변환(ELT) 프로세스를 설계합니다. 이 문서에서는 Azure 데이터 웨어하우스로 데이터를 이동하는 ELT 프로세스를 설계하는 방법을 소개합니다.
 
 ## <a name="what-is-elt"></a>ELT란 무엇인가요?
 

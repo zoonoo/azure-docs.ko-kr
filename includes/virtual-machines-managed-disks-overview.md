@@ -104,7 +104,8 @@ Managed Disks와 관련하여 논의할 두 종류의 암호화가 있습니다.
 
 ### <a name="storage-service-encryption-sse"></a>SSE(Storage 서비스 암호화)
 
-[Azure Storage 서비스 암호화](../articles/storage/common/storage-service-encryption.md)를 사용하여 미사용 암호화를 제공하고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. SSE는 Managed Disks를 사용할 수 있는 모든 지역에서 모든 Managed Disks, 스냅숏 및 이미지에 기본적으로 사용됩니다. 2017년 6월 10일부터 기존 Managed Disks에 기록되는 모든 새 Managed Disks/스냅숏/이미지 및 새 데이터는 Microsoft에서 관리되는 키로 자동으로 미사용 암호화됩니다.  자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
+[Azure Storage 서비스 암호화](../articles/storage/common/storage-service-encryption.md)를 사용하여 미사용 암호화를 제공하고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. SSE는 Managed Disks를 사용할 수 있는 모든 지역에서 모든 Managed Disks, 스냅숏 및 이미지에 기본적으로 사용됩니다. 2017년 6월 10일부터 기존 관리 디스크에 기록된 모든 새 관리 디스크/스냅숏/이미지 및 새 데이터는 기본으로 Microsoft에서 관리되는 키로 자동으로 미사용 암호화됩니다. Azure Blob 및 파일용 암호화에 대한 고유 키를 가져오도록 선택할 수 있습니다. 테이블 및 큐에 대한 암호화는 항상 Microsoft 관리 키를 사용합니다.
+Storage 서비스 암호화를 사용하도록 설정하더라도 이후 새 데이터만이 암호화되고 이 Storage 계정의 기존 파일은 배경 암호화 프로세스에 의해 소급해 암호화됩니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
 
 
 ### <a name="azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)

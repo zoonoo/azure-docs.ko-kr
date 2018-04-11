@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 557c6a75140f399f74d77543de834af086871032
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -36,7 +36,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>ExpressRoute 통신 업체 중 하나와 파트너의 관계가 아닌 경우, ExpressRoute를 사용하여 Microsoft에 연결할 수 있는 방법이 있나요?
 
-지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
+지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [ 파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
 
 ### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 비용
 
@@ -70,11 +70,12 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 * Power BI
 * Dynamics 365 for Finance and Operations(이전의 Dynamics AX Online)
-* 다음 몇 가지 예외를 제외한 대부분의 Azure 서비스
-  * CDN
-  * Visual Studio Team Services 부하 테스트
-  * Multi-Factor 인증
-  * Traffic Manager
+* 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br>
+  다음 서비스는 지원되지 않습니다.
+    * CDN
+    * Visual Studio Team Services 부하 테스트
+    * Multi-Factor 인증
+    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
 
@@ -87,7 +88,8 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 * [경로 필터](#route-filters-for-microsoft-peering)를 사용하면 Microsoft 피어링을 통해 동일한 공용 서비스에 액세스할 수 있습니다.
   * Power BI
   * 재무 및 운영을 위한 Dynamics 365
-  * 다음 몇 가지 예외를 제외한 대부분의 Azure 서비스
+  * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br>
+  다음 서비스는 지원되지 않습니다.
     * CDN
     * Visual Studio Team Services 부하 테스트
     * Multi-Factor 인증
@@ -214,9 +216,9 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>가상 네트워크에서 ExpressRoute 게이트웨이와 연결된 공용 IP 주소가 있는 이유는 무엇인가요?
 
-공용 IP 주소는 내부 관리를 위해서만 사용되므로 인터넷에 공개되지 않으며 가상 네트워크의 보안 노출을 구성하지 않습니다.
+공용 IP 주소는 내부 관리용으로만 사용되며, 가상 네트워크의 보안 노출을 구성하지 않습니다.
 
-### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>ExpressRoute를 통해 Azure storage에 연결해야 하나요?
+### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>ExpressRoute를 통해 Azure 저장소에 연결해야 하나요?
 
 ExpressRoute 회로를 설정하고 공용 피어링에 대한 경로를 구성해야 합니다.
 

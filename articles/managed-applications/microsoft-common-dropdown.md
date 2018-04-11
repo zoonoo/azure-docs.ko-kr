@@ -1,6 +1,6 @@
 ---
-title: "Azure Managed Application DropDown UI 요소 | Microsoft Docs"
-description: "Azure Managed Applications의 Microsoft.Common.DropDown UI 요소에 대해 설명합니다."
+title: Azure DropDown UI 요소 | Microsoft Docs
+description: Azure Portal의 Microsoft.Common.DropDown UI 요소에 대해 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: a3cbb7363c04043eb253e91e058753bc271e4e01
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 6c92304ae623807ffba05dcdbb576e1cef63b10c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 요소
-드롭다운 목록을 포함하는 선택 컨트롤입니다. [Azure 관리되는 응용 프로그램을 만드는](publish-service-catalog-app.md) 경우 이 요소를 사용합니다.
+드롭다운 목록을 포함하는 선택 컨트롤입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
@@ -31,17 +31,17 @@ ms.lasthandoff: 10/27/2017
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
   "label": "Some drop down",
-  "defaultValue": "Foo",
+  "defaultValue": "my value",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Foo",
-        "value": "Bar"
+        "label": "Value one",
+        "value": "one"
       },
       {
-        "label": "Baz",
-        "value": "Qux"
+        "label": "Value two",
+        "value": "two"
       }
     ]
   },
@@ -61,6 +61,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](overview.md)를 참조하세요.
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
 * UI 요소의 공용 속성에 대한 설명은 [CreateUiDefinition 요소](create-uidefinition-elements.md)를 참조하세요.

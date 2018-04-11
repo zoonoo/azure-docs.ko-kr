@@ -1,29 +1,32 @@
 ---
-title: "Azure Active Directory에는 최근에 삭제된 사용자 복원 또는 영구히 제거 | Microsoft Docs"
-description: "Azure Active Directory에서 삭제된 사용자를 복원하거나, 복원 가능한 사용자를 보거나, 영구적으로 사용자를 삭제하는 방법"
+title: Azure Active Directory에는 최근에 삭제된 사용자 복원 또는 영구히 제거 | Microsoft Docs
+description: Azure Active Directory에서 삭제된 사용자를 복원하거나, 복원 가능한 사용자를 보거나, 영구적으로 사용자를 삭제하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/28/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: d8a1850f8635097364268abdf77394ba592f761b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9eea61cc1b735c6505df87526cd526a9a4a6eed8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 사용자 복원
 
 이 문서에는 이전에 삭제된 사용자를 복원하거나 영구적으로 삭제하는 지침이 포함되어 있습니다. Azure AD(Azure Active Directory)에서 사용자를 삭제하는 경우 삭제된 사용자가 삭제 날짜부터 30일 동안 유지됩니다. 이 시간 중에는 사용자와 해당 속성을 복원할 수 있습니다. 
+
+> [!wARNING]
+> 사용자가 영구적으로 삭제된 후에는 복원할 수 없습니다.
 
 
 ## <a name="how-to-restore-a-recently-deleted-user"></a>최근에 삭제된 사용자를 복원하는 방법

@@ -1,8 +1,8 @@
 ---
-title: "PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 액세스 관리"
-description: "PIM에서 역할 기반 액세스 관리를 사용하여 Azure 리소스에 액세스하는 방법을 알아봅니다."
+title: PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 액세스 관리
+description: PIM에서 역할 기반 액세스 관리를 사용하여 Azure 리소스에 액세스하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: skwan
 manager: mtillman
 editor: bryanla
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
-ms.author: skwan
-ms.openlocfilehash: 1f31d8b76351ac8871f8a5b03d513f7b6704c709
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 1e74579ef2f0e18f23a40dfc573177938b9b726f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="manage-access-to-azure-resources-with-privileged-identity-management-preview"></a>Privileged Identity Management(미리 보기)를 사용하여 Azure 리소스에 대한 액세스 관리
+# <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 액세스 관리
 
 권한 있는 계정을 악의적인 사이버 공격으로부터 보호하기 위해 Azure Active Directory PIM(Privileged Identity Management)를 사용하여 권한 노출 시간을 줄이고 보고서 및 경고를 통해 해당 사용에 대한 가시성을 증가시킬 수 있습니다. 사용자가 해당 권한 JIT("just in time")만을 사용하도록 제한하거나 권한이 자동으로 해지되는 짧은 기간 동안 권한을 할당하여 PIM에서 이 작업을 수행합니다. 
 

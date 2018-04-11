@@ -1,8 +1,8 @@
 ---
-title: "OMS 솔루션에 저장된 검색 및 경고 | Microsoft Docs"
-description: "OMS의 솔루션은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 저장된 검색을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 경고를 정의합니다.  이 문서에서는 관리 솔루션에 포함되도록 리소스 관리 템플릿에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다."
+title: 관리 솔루션에 저장된 검색 및 경고 | Microsoft Docs
+description: 관리 솔루션은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 저장된 검색을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 경고를 정의합니다.  이 문서에서는 관리 솔루션에 포함되도록 리소스 관리 템플릿에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>OMS 관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
 > [!NOTE]
-> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   
+> 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   
 
 
-[OMS의 관리 솔루션](operations-management-suite-solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../log-analytics/log-analytics-log-searches.md)을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../log-analytics/log-analytics-alerts.md)를 정의합니다.  이 문서에서는 [관리 솔루션](operations-management-suite-solutions-creating.md)에 포함되도록 [리소스 관리 템플릿](../resource-manager-template-walkthrough.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
+[관리 솔루션](operations-management-suite-solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../log-analytics/log-analytics-log-searches.md)을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../log-analytics/log-analytics-alerts.md)를 정의합니다.  이 문서에서는 [관리 솔루션](operations-management-suite-solutions-creating.md)에 포함되도록 [리소스 관리 템플릿](../resource-manager-template-walkthrough.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
 
 > [!NOTE]
-> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다.  
+> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용  
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](operations-management-suite-solutions-creating.md)과 [Resource Manager 템플릿](../resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
-Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
+Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [Log Analytics 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
 
 작업 영역 이름은 각 Log Analytics 리소스의 이름을 사용합니다.  이 작업은 다음 저장된 검색 리소스 예제와 같이 **workspace** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
@@ -186,9 +186,9 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 형식 | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| 유형 | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
 | Name | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
-| 설명 | 아니요 | 경고에 대한 선택적 설명입니다. |
+| 설명 | 아니오 | 경고에 대한 선택적 설명입니다. |
 | 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**Warning**<br>**정보 제공** |
 
 
@@ -237,7 +237,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 |:--|:--|:--|
 | RunbookName | 예 | 시작할 runbook의 이름입니다. |
 | WebhookUri | 예 | runbook의 웹후크 Uri입니다. |
-| Expiry | 아니오 | 재구성이 만료되는 날짜 및 시간입니다. |
+| Expiry | 아니요 | 재구성이 만료되는 날짜 및 시간입니다. |
 
 #### <a name="webhook-actions"></a>웹후크 작업
 
@@ -268,7 +268,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 | 형식 | 예 | 작업의 유형입니다.  웹후크 작업의 **웹후크**가 됩니다. |
 | 이름 | 예 | 작업의 표시 이름입니다.  콘솔에 표시되지 않습니다. |
 | wehookUri | 예 | 웹후크의 Uri입니다. |
-| customPayload | 아니요 | 웹후크에 보낼 사용자 지정 페이로드입니다. 형식은 예상하는 웹후크에 따라 달라집니다. |
+| customPayload | 아니오 | 웹후크에 보낼 사용자 지정 페이로드입니다. 형식은 예상하는 웹후크에 따라 달라집니다. |
 
 
 

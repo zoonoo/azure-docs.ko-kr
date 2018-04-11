@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -119,7 +119,7 @@ Heartbeat
 
 Windows 컴퓨터에서 다음 사항을 검토하여 에이전트가 Log Analytics에 연결되었는지 확인할 수 있습니다.
 
-1.  제어판에서 Microsoft Monitoring Agent를 열면 **OMS(Azure Log Analytics)** 탭에서 에이전트가 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지를 표시합니다.   
+1.  제어판에서 Microsoft Monitoring Agent를 열면 **Azure Log Analytics** 탭에서 에이전트가 **Microsoft Monitoring Agent가 Log Analytics에 성공적으로 연결되었습니다**라는 메시지를 표시합니다.   
 2.  Windows 이벤트 로그를 열고, **응용 프로그램 및 서비스 Logs\Operations Manager**로 이동하여 원본 서비스 커넥터에서 이벤트 ID 3000 및 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.  
 
 에이전트가 Log Analytics 서비스와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 [Windows 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 검토하여 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다.
@@ -131,7 +131,7 @@ Windows 컴퓨터에서 다음 사항을 검토하여 에이전트가 Log Analyt
 
 평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다. 이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
 
-Operations Manager 관리 그룹이 Log Analytics와 통신하는지 확인하려면 [OMS와 Operations Manager 통합 유효성 검사](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)를 참조하세요.
+Operations Manager 관리 그룹이 Log Analytics와 통신하는지 확인하려면 [Log Analytics와 Operations Manager 통합 유효성 검사](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)를 참조하세요.
 
 ## <a name="data-collection"></a>데이터 수집
 
@@ -173,7 +173,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 
 ## <a name="viewing-update-deployments"></a>업데이트 배포 보기
 
-**업데이트 배포**를 클릭하여 기존 업데이트 배포 목록을 표시합니다. 목록에서 업데이트 배포 중 하나를 클릭하면 해당 업데이트 배포에 대한 **업데이트 배포 실행** 페이지가 열립니다.
+**업데이트 배포** 탭을 클릭하여 기존 업데이트 배포의 목록을 볼 수 있습니다. 테이블에서 업데이트 배포 중 하나를 클릭하면 해당 업데이트 배포에 대한 **업데이트 배포 실행** 페이지가 열립니다.
 
 ![업데이트 배포 결과의 개요](./media/automation-update-management/update-deployment-run.png)
 
@@ -213,7 +213,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 
 PC, 서버 및 모바일 장치를 관리하기 위해 System Center Configuration Manager에 투자하는 고객들은 SUM(소프트웨어 업데이트 관리) 주기의 일환으로 이 강력하고 완성도 있는 소프트웨어 업데이트 관리를 신뢰합니다.
 
-System Center Configuration Manager와 OMS 업데이트 관리 솔루션을 통합하는 방법을 알아보려면 [OMS 업데이트 관리와 System Center Configuration Manager 통합](oms-solution-updatemgmt-sccmintegration.md)을 참조하세요.
+System Center Configuration Manager와 관리 솔루션을 통합하는 방법을 알아보려면 [업데이트 관리와 System Center Configuration Manager 통합](oms-solution-updatemgmt-sccmintegration.md)을 참조하세요.
 
 ## <a name="patching-linux-machines"></a>Linux 컴퓨터 패치
 

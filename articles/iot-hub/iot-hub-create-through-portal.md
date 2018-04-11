@@ -1,24 +1,24 @@
 ---
-title: "Azure Portal을 사용하여 IoT Hub 만들기 | Microsoft 문서"
-description: "Azure Portal을 통해 Azure IoT Hub를 만들고 관리하고 삭제하는 방법입니다. 가격 책정 계층, 보안, 배율 및 메시징 구성에 대한 정보가 포함됩니다."
+title: Azure Portal을 사용하여 IoT Hub 만들기 | Microsoft 문서
+description: Azure Portal을 통해 Azure IoT Hub를 만들고 관리하고 삭제하는 방법입니다. 가격 책정 계층, 보안, 배율 및 메시징 구성에 대한 정보가 포함됩니다.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
@@ -53,18 +53,9 @@ IoT Hub를 만들려면 IoT Hub의 이름을 지정해야 합니다. 이 이름�
 
 ### <a name="choose-the-pricing-tier"></a>가격 책정 계층 선택
 
-**무료**, **표준 1**, **표준 2**, **표준 S3**라는 네 개의 계층 중에서 선택할 수 있습니다. 무료 계층에서는 IoT Hub에 500개 장치만 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다.
+원하는 기능 수 그리고 하루에 솔루션을 통해 보내는 메시지 수에 따라 여러 계층에서 선택할 수 있습니다. 무료 계층은 테스트와 평가를 위해 제공됩니다. IoT Hub에 500개 장치를 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다. 각 Azure 구독은 무료 계층에 하나의 IoT Hub를 만들 수 있습니다. 
 
-**표준 S1**: 각각 적은 양의 데이터를 생성하는 많은 장치의 IoT 솔루션을 위한 S1 버전을 사용합니다. S1 버전의 각 단위는 연결된 모든 장치에서 하루에 최대 400,000개의 메시지를 전송할 수 있습니다.
-
-**표준 S2**: 장치가 대량의 데이터를 생성하는 IoT 솔루션을 위한 S2 버전을 사용합니다. S2 버전의 각 단위를 통해 연결된 모든 장치 간에 하루에 최대 600만 개의 메시지를 전송할 수 있습니다.
-
-**표준 S3**: 대량의 데이터를 생성하는 IoT 솔루션을 위한 S3 버전을 사용합니다. S3 버전의 각 단위를 통해 연결된 모든 장치 간에 하루에 최대 300만 개의 메시지를 전송할 수 있습니다.
-
-![][4]
-
-> [!NOTE]
-> IoT Hub는 Azure 구독당 하나의 무료 허브만 허용합니다.
+다른 계층 옵션에 대한 자세한 내용은 [적절한 IoT Hub 계층 선택](iot-hub-scaling.md)을 참조하세요.
 
 ### <a name="iot-hub-units"></a>IoT Hub 단위
 
@@ -112,7 +103,7 @@ IoT Hub 블레이드에서 IoT Hub를 만든 후에 기존 IoT Hub의 설정을 
 
 ![][10]
 
-## <a name="endpoints"></a>끝점
+## <a name="endpoints"></a>Endpoints
 
 **끝점**을 클릭하여 수정하는 IoT Hub에 대한 끝점 목록을 표시합니다. 끝점의 두 가지 유형은 IoT Hub에 기본 제공된 끝점 및 IoT Hub를 만든 후 여기에 추가된 끝점입니다.
 
@@ -153,17 +144,6 @@ IoT Hub 블레이드에서 IoT Hub를 만든 후에 기존 IoT Hub의 설정을 
 **경로** * 블레이드에서 맨 위의 **추가**를 클릭하여 필요한 정보를 입력하고 **확인** 을 클릭하여 IoT Hub에 경로를 추가할 수 있습니다. 그러면 기본 **경로** 블레이드에 경로가 나열됩니다. 경로 목록에서 경로를 클릭하면 편집할 수 있습니다. 경로를 사용하려면 경로 목록에서 경로를 클릭하고 **사용** 토글을 **해제**로 설정합니다. 변경 내용을 저장하려면 블레이드의 맨 아래에서 **확인**을 클릭합니다.
 
 ![][15]
-
-## <a name="pricing-and-scale"></a>가격 및 크기 조정
-
-기존 IoT Hub의 가격 책정을 **가격 책정** 설정을 통해 변경할 수 있으며 단, 다음과 같은 예외가 적용됩니다.
-
-* 현재 구현에서는, 무료 SKU를 포함하는 IoT Hub는 계층을 유료 SKU 중 하나로 변경할 수 없으며 또는 그 반대도 불가능합니다.
-* Azure 구독에는 하나의 무료 계층 IoT Hub만 포함될 수 있습니다.
-
-![][12]
-
-그 날 보낸 메시지 수가 하위 계층에 대한 할당량을 초과하는 경우에만 상위 계층에서 하위 계층으로 이동할 수 있습니다. 예를 들어 하루당 메시지 수가 400,000개를 초과하면 IoT Hub에 대한 계층을 변경할 수 있습니다. 그러나 S1 계층으로 변경하면 해당 일에 IoT Hub가 제한됩니다.
 
 ## <a name="delete-the-iot-hub"></a>IoT Hub 삭제
 

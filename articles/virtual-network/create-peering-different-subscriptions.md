@@ -4,7 +4,7 @@ description: 리소스 관리자를 통해 서로 다른 Azure 구독에 존재�
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: e4ca1f62be8185dd7e0e45f6736bc0273b466309
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 92cbcad42508f2ae6113d13449aba7eed5acd251
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독 
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/28/2018
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
 
-이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 서로 다른 지역에서 가상 네트워크 피어링을 시도하기 전에 [전역 가상 네트워크 피어링 등록](#register)의 단계를 완료하도록 합니다. 그렇지 않으면 피어링은 실패합니다. Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 서로 다른 지역에서 가상 네트워크를 연결하는 기능을 일반적으로 사용할 수 있으며 등록이 필요하지 않습니다.
+이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다. 
 
 [Azure Portal](#portal), Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#powershell) 또는 [Azure Resource Manager 템플릿](#template)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/28/2018
 
 이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, 포털 로그아웃 절차와 가상 네트워크에 다른 사용자 권한을 할당하는 절차를 생략할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
+1. [Azure Portal](https://portal.azure.com)에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 2. **+ 새로 만들기**, **네트워킹**, **가상 네트워크**를 차례로 클릭합니다.
 3. **가상 네트워크 만들기** 블레이드에서 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
     - **이름**: *myVnetA*
@@ -106,7 +106,7 @@ ms.lasthandoff: 03/28/2018
 
 CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 수 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 클릭하면 Azure 계정에 로그인할 수 있는 Cloud Shell이 호출됩니다. 
 
-1. CLI 세션을 열고 `azure login` 명령을 사용하여 사용자 A로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
+1. CLI 세션을 열고 `azure login` 명령을 사용하여 사용자 A로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 2. 다음 스크립트를 PC의 텍스트 편집기에 복사하고 `<SubscriptionA-Id>`는 구독 A의 ID로 교체한 다음 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣고 `Enter`를 누릅니다. 구독 ID를 모르는 경우 'az account show' 명령을 입력합니다. 출력에 표시되는 **id** 값이 구독 ID입니다.
 
     ```azurecli-interactive
@@ -129,7 +129,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
     
-3. `az logout` 명령을 사용하여 사용자 A로 Azure에서 로그아웃한 다음 사용자 B로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
+3. `az logout` 명령을 사용하여 사용자 A로 Azure에서 로그아웃한 다음 사용자 B로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 4. myVnetB를 만듭니다. 2 단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 B의 ID로 바꿉니다. 10.0.0.0/16을 10.1.0.0/16으로 변경하고 모든 A를 B로, 모든 B를 A로 바꿉니다. 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다. 
 5. 사용자 B로 Azure에서 로그아웃하고 사용자 A로 Azure에 로그인합니다.
 6. myVnetA에서 myVnetB로의 가상 네트워크 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트 내용을 복사합니다. `<SubscriptionB-Id>`를 구독 B의 ID로 바꿉니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 Enter를 누릅니다.
@@ -179,7 +179,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 1. 최신 버전의 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 모듈을 설치합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 2. PowerShell 세션을 시작합니다.
-3. PowerShell에서 `login-azurermaccount` 명령을 입력하여 Azure에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
+3. PowerShell에서 `login-azurermaccount` 명령을 입력하여 Azure에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 4. 리소스 그룹 및 가상 네트워크 A를 만듭니다. 다음 스크립트를 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 A의 ID로 바꿉니다. 구독 ID를 모르는 경우 `Get-AzureRmSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
 
     ```powershell
@@ -202,7 +202,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
 
-5. 사용자 A로 Azure에서 로그아웃하고 사용자 B로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
+5. 사용자 A로 Azure에서 로그아웃하고 사용자 B로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 6. 4단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 B의 ID로 바꿉니다. 10.0.0.0/16을 10.1.0.0/16으로 변경합니다. 모든 A를 B로, 모든 B를 A로 변경합니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
 7. 사용자 B로 Azure에서 로그아웃하고 사용자 A로 로그인합니다.
 8. myVnetA에서 myVnetB로의 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<SubscriptionB-Id>`를 구독 B의 ID로 교체합니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
@@ -241,7 +241,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 ## <a name="template"></a>피어링 만들기 - Resource Manager 템플릿
 
-1. 이 문서의 [포털](#permissions), [Azure CLI](#portal) 또는 [PowerShell](#cli) 섹션에 나오는 단계를 완료하여 가상 네트워크를 만들고 적합한 [권한](#powershell)을 각 구독의 계정에 할당합니다.
+1. 가상 네트워크를 만들고 적절한 [사용 권한](virtual-network-manage-peering.md#permissions)을 할당하려면 이 문서의 [포털](#portal), [Azure CLI](#cli) 또는 [PowerShell](#powershell) 섹션에 나오는 단계를 완료합니다.
 2. 다음에 나오는 텍스트를 로컬 컴퓨터의 파일에 저장합니다. `<subscription ID>`를 사용자 A의 구독 ID로 바꿉니다. 예를 들어 파일을 vnetpeeringA.json으로 저장할 수 있습니다.
 
     ```json
@@ -279,17 +279,6 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 5. 3단계를 다시 완료하고 UserB로 Azure에 로그인합니다.
 6. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
 7. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 이 문서의 [리소스 삭제](#delete) 섹션에서 설명하는 단계를 완료합니다.
-
-## <a name="permissions"></a>권한
-
-가상 네트워크 피어링을 만드는 데 사용하는 계정에 필요한 역할 또는 권한이 있어야 합니다. 예를 들어 이름이 **myVnetA**와 **myVnetB**인 두 가상 네트워크를 피어링하는 경우 계정에는 각 가상 네트워크에 대한 다음과 같은 최소 역할 또는 권한이 할당되어야 합니다.
-    
-|가상 네트워크|역할|권한|
-|---|---|---|
-|myVnetA|[네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-|myVnetB|[네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-
-[기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(Resource Manager만 해당)에 대해 자세히 알아보세요.
 
 ## <a name="delete"></a>리소스 삭제
 이 자습서를 마친 경우 사용 요금이 발생하지 않도록 자습서에서 만든 리소스를 삭제하려고 할 것입니다. 리소스 그룹을 삭제하면 리소스 그룹에 있는 리소스도 모두 삭제됩니다.
@@ -331,54 +320,6 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
     ```powershell
     Remove-AzureRmResourceGroup -Name myResourceGroupB -force
     ```
-
-## <a name="register"></a>전역 가상 네트워크 피어링 미리 보기에 등록
-
-동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 사용 가능한 지역에 대해서는 [가상 네트워크 업데이트](https://azure.microsoft.com/en-us/updates/?product=virtual-network)를 참조하세요. 여러 지역에 걸쳐 가상 네트워크를 피어링하려면 먼저 Azure PowerShell 또는 Azure CLI를 사용하여 (피어링하려는 각 가상 네트워크가 있는 구독 내에서) 다음 단계를 완료하여 미리 보기에 등록해야 합니다.
-
-### <a name="powershell"></a>PowerShell
-
-1. 최신 버전의 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 모듈을 설치합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
-2. PowerShell 세션을 시작하고 `Login-AzureRmAccount` 명령을 사용하여 로그인합니다.
-3. 다음 명령을 입력하여 피어링하려는 각 가상 네트워크가 미리 보기를 위해 있는 구독을 등록합니다.
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-4. 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    두 구독에 대해 모두 이전 명령을 입력하여 받은 **RegistrationState** 출력이 **Registered**가 되기 전까지는 이 문서의 포털, Azure 명령줄 인터페이스 또는 PowerShell 또는 리소스 관리자 템플릿 섹션에 있는 절차를 수행하지 않습니다.
-
-### <a name="azure-cli"></a>Azure CLI
-
-1. [Azure CLI를 설치 및 구성합니다](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
-2. `az --version` 명령을 입력하여 Azure CLI 버전 2.0.18 이상을 사용하고 있는지 확인합니다. 그렇지 않을 경우 최신 버전을 설치합니다.
-3. `az login` 명령을 사용하여 Azure에 로그인합니다.
-4. 다음 명령을 입력하여 미리 보기에 등록합니다.
-
-   ```azurecli-interactive
-   az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-   az provider register --name Microsoft.Network
-   ```
-
-5. 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
-
-    ```azurecli-interactive
-    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-    ```
-
-    두 구독에 대해 모두 이전 명령을 입력하여 받은 **RegistrationState** 출력이 **Registered**가 되기 전까지는 이 문서의 포털, Azure 명령줄 인터페이스 또는 PowerShell 또는 리소스 관리자 템플릿 섹션에 있는 절차를 수행하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

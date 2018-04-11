@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c8804dce7dd8291b65f704ba36aaa1cd05eb4518
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 이 문서에서는 Azure Data Factory에서 Azure-SSIS 통합 런타임을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다.
 
 자습서: [자습서: SSIS(SQL Server Integration Services 패키지)를 Azure에 배포](tutorial-create-azure-ssis-runtime-portal.md)는 Azure SQL Database를 SSIS 카탈로그의 저장소로 사용하여 Azure-SSIS IR(Integration Runtime)을 만드는 방법을 보여 줍니다. 이 문서는 자습서를 확장하고 다음을 수행하는 방법을 보여 줍니다. 
 
-- SSIS 카탈로그(SSISDB 데이터베이스) 호스팅을 위해 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용합니다.
+- SSIS 카탈로그(SSISDB 데이터베이스) 호스팅을 위해 Azure SQL 관리되는 인스턴스(미리 보기)를 사용합니다.
 - Azure-SSIS IR을 Azure 가상 네트워크(VNet)에 조인합니다. Azure-SSIS IR을 VNet에 조인하고 Azure Portal에서 VNet을 구성하는 개념적 정보는 [Azure-SSIS IR을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요. 
 
 > [!NOTE]
@@ -44,11 +44,11 @@ Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack fo
 ## <a name="prerequisites"></a>필수 조건
 
 - **Azure 구독**. 구독이 없는 경우 [평가판](http://azure.microsoft.com/pricing/free-trial/) 계정을 만들 수 있습니다.
-- **Azure SQL Database 서버** 또는 **SQL Server 관리되는 인스턴스(비공개 미리 보기)(확장된 비공개 미리 보기)** - 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 이 서버는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅합니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. Azure SQL Server의 가격 책정 계층을 적어 둡니다. Azure SQL Database에 지원되는 가격 책정 계층의 목록은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요.
+- **Azure SQL Database 서버** 또는 **SQL Server 관리되는 인스턴스(미리 보기)(확장된 비공개 미리 보기)**. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 이 서버는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅합니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. Azure SQL Server의 가격 책정 계층을 적어 둡니다. Azure SQL Database에 지원되는 가격 책정 계층의 목록은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요.
 
-    Azure SQL Database 서버 또는 SQL Server 관리되는 인스턴스(확장된 비공개 미리보기)에 SSIS 카탈로그(SSIDB 데이터베이스)가 없는지 확인합니다. Azure-SSIS IR 프로비전은 기존 SSIS 카탈로그 사용을 지원하지 않습니다.
+    Azure SQL Database 서버 또는 SQL Server 관리되는 인스턴스(미리 보기)에 SSIS 카탈로그(SSIDB 데이터베이스)가 없는지 확인합니다. Azure-SSIS IR 프로비전은 기존 SSIS 카탈로그 사용을 지원하지 않습니다.
 - **클래식 또는 Azure Resource Manager VNet(가상 네트워크)(선택 사항)** 다음 조건 중 하나 이상에 해당하는 경우 Azure Virtual Network(VNet)가 있어야 합니다.
-    - VNet의 일부인 SQL Server 관리되는 인스턴스(비공개 미리 보기)에서 SSIS 카탈로그 데이터베이스를 호스팅합니다.
+    - VNet의 일부인 SQL Server 관리되는 인스턴스(미리 보기)에서 SSIS 카탈로그 데이터베이스를 호스팅합니다.
     - Azure-SSIS 통합 런타임에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다.
 - **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요. PowerShell을 사용하여 클라우드에서 SSIS 패키지를 실행하는 Azure-SSIS 통합 런타임을 프로비전하는 스크립트를 실행합니다. 
 
@@ -181,15 +181,15 @@ $AzureSSISNodeNumber = 2
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (Preview) server endpoint]"
 $SSISDBServerAdminUserName = "[your server admin username]"
 $SSISDBServerAdminPassword = "[your server admin password]"
 
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network (VNet). 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
@@ -204,7 +204,7 @@ Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="validate-the-connection-to-database"></a>데이터베이스에 대한 연결 유효성 검사
-다음 스크립트를 추가하여 server.database.windows.net Azure SQL Database 서버 끝점 또는 Azure SQL 관리되는 인스턴스(비공개 미리 보기) 서버 끝점의 유효성을 검사합니다. 
+다음 스크립트를 추가하여 server.database.windows.net Azure SQL Database 서버 끝점 또는 Azure SQL 관리되는 인스턴스(미리 보기) 서버 끝점의 유효성을 검사합니다. 
 
 ```powershell
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
@@ -263,7 +263,7 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ### <a name="create-an-integration-runtime"></a>Integration Runtime 만들기
-다음 명령을 실행하여 Azure에서 SSIS 패키지를 실행하는Azure-SSIS Integration Runtime을 만듭니다. 이때 사용 중인 데이터베이스 유형(Azure SQL Database 및 Azure SQL 관리되는 인스턴스(비공개 미리 보기))에 따라 이 섹션의 스크립트를 사용합니다. 
+다음 명령을 실행하여 Azure에서 SSIS 패키지를 실행하는Azure-SSIS Integration Runtime을 만듭니다. 이때 사용 중인 데이터베이스 유형(Azure SQL Database 및 Azure SQL 관리되는 인스턴스(미리 보기))에 따라 이 섹션의 스크립트를 사용합니다. 
 
 #### <a name="azure-sql-database-to-host-the-ssisdb-database-ssis-catalog"></a>SSISDB 데이터베이스(SSIS 카탈로그)를 호스트하는 Azure SQL Database 
 
@@ -286,7 +286,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 온-프레미스 데이터 액세스가 필요하지 않으면 VNetId 및 서브넷에 대한 값을 전달할 필요가 없습니다. 즉, SSIS 패키지에 온-프레미스 데이터 원본/대상이 있습니다. CatalogPricingTier 매개 변수 값을 전달해야 합니다. Azure SQL Database에 지원되는 가격 책정 계층의 목록은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요.
 
-#### <a name="azure-sql-managed-instance-private-preview-to-host-the-ssisdb-database"></a>SSISDB 데이터베이스를 호스트하는 Azure SQL 관리되는 인스턴스(비공개 미리 보기)
+#### <a name="azure-sql-managed-instance-preview-to-host-the-ssisdb-database"></a>SSISDB 데이터베이스를 호스트하는 Azure SQL 관리되는 인스턴스(미리 보기)
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -306,7 +306,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Subnet $SubnetName
 ```
 
-VNet을 조인하는 Azure SQL 관리되는 인스턴스(비공개 미리 보기)와 함께 VnetId 및 서브넷 매개 변수에 대한 값을 전달해야 합니다. Azure SQL 관리되는 인스턴스에는 CatalogPricingTier 매개 변수가 적용되지 않습니다. 
+VNet을 조인하는 Azure SQL 관리되는 인스턴스(미리 보기)와 함께 VnetId 및 서브넷 매개 변수에 대한 값을 전달해야 합니다. Azure SQL 관리되는 인스턴스(미리 보기)에는 CatalogPricingTier 매개 변수가 적용되지 않습니다. 
 
 ### <a name="start-integration-runtime"></a>Integration Runtime 시작
 다음 명령을 실행하여 Azure-SSIS Integration Runtime을 시작합니다. 
@@ -325,7 +325,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 
 ### <a name="full-script"></a>전체 스크립트
-다음은 Azure-SSIS IR을 만들어 VNet에 조인하는 전체 스크립트입니다. 이 스크립트에서는 Azure SQL MI(관리되는 인스턴스)를 사용하여 SSIS 카탈로그를 호스트한다고 가정합니다. 
+다음은 Azure-SSIS IR을 만들어 VNet에 조인하는 전체 스크립트입니다. 이 스크립트에서는 Azure SQL 관리되는 인스턴스(미리 보기)를 사용하여 SSIS 카탈로그를 호스트한다고 가정합니다. 
 
 ```powershell
 # Azure Data Factory version 2 information 
@@ -351,7 +351,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 

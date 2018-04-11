@@ -1,12 +1,12 @@
 ---
-title: "Azure CDN을 통해 동적 사이트 가속"
-description: "동적 사이트 가속 심층 분석"
+title: Azure CDN을 통해 동적 사이트 가속
+description: Azure CDN은 동적 콘텐츠가 포함된 파일에 대한 DSA(동적 사이트 가속) 최적화를 지원합니다.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 03/02/2018
 **Akamai의 Azure CDN** 및 **Verizon의 Azure CDN**은 끝점을 만드는 동안 **최적화 목표** 메뉴를 통해 DSA 최적화를 제공합니다.
 
 > [!Important]
-> **Akamai의 Azure CDN** 프로필에만 해당하는 경우 CDN 끝점을 만든 후에 최적화를 변경할 수 있습니다.
+> **Akamai의 Azure CDN** 프로필의 경우 CDN 끝점을 만든 후에 최적화를 변경할 수 있습니다.
 >   
-> **Verizon의 Azure CDN** 프로필에 해당하는 경우 CDN 끝점을 만든 후에 최적화를 변경할 수 없습니다.
+> **Verizon의 Azure CDN** 프로필의 경우 CDN 끝점을 만든 후에 최적화를 변경할 수 없습니다.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>동적 파일 배달을 가속화하도록 CDN 끝점 구성
 
@@ -152,19 +152,32 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
 고정 자산과 동적 자산이 혼합된 웹 사이트가 있는 경우 최상의 성능을 얻기 위해서는 하이브리드 접근 방식을 취하는 것이 가장 좋습니다. 
 
-**Verizon의 Azure CDN Premium** 프로필의 경우 DSA 끝점에 대한 [규칙 엔진](cdn-rules-engine.md)을 사용하여 특정 사례에 대한 캐싱을 설정할 수 있습니다. 생성되는 모든 규칙은 DSA에 최적화된 프로필의 해당 끝점에만 영향을 줍니다. 
+**Verizon Standard의 Azure CDN** 및 **Akamai Standard의 Azure CDN** 프로필의 경우, [캐싱 규칙](cdn-caching-rules.md)을 사용하여 특정 DSA 끝점에 대한 캐싱을 설정할 수 있습니다.
 
-DSA 끝점에 대한 규칙 엔진에 액세스하려면:
+캐싱 규칙에 액세스하려면
+
+1. **CDN 프로필** 페이지의 설정 아래에서 **캐싱 규칙**을 선택합니다.  
+    
+    ![CDN 캐싱 규칙 단추](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    **캐싱 규칙** 페이지가 열립니다.
+
+2. DSA 끝점에 대한 캐싱을 설정하려면 전역 또는 사용자 지정 캐싱 규칙을 만듭니다. 
+
+**Verizon의 Azure CDN Premium** 프로필만 [규칙 엔진](cdn-rules-engine.md)을 사용하여 특정 DSA 끝점에 대한 캐싱을 설정합니다. 생성되는 모든 규칙은 DSA에 최적화된 프로필의 해당 끝점에만 영향을 줍니다. 
+
+규칙 엔진에 액세스하려면
     
 1. **CDN 프로필** 페이지에서 **관리**를 선택합니다.  
     
-    ![CDN 프로필 관리 단추](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN 프로필 관리 단추](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     CDN 관리 포털이 열립니다.
 
 2. CDN 관리 포털에서 **ADN**을 선택한 다음, **규칙 엔진**을 선택합니다. 
 
-    ![DSA에 대한 규칙 엔진](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![DSA에 대한 규칙 엔진](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 또는 동적 자산을 제공하는 DSA를 사용하여 최적화된 끝점과 일반 웹 배달 등의 고정 최적화 형식을 사용하여 최적화된 다른 끝점 등 두 개의 CDN 끝점을 사용하여 캐싱 가능한 자산을 제공할 수 있습니다. 웹 페이지 URL을 수정하여 사용하려는 CDN 끝점의 자산에 직접 연결합니다. 

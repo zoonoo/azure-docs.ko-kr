@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -123,7 +123,6 @@ ms.lasthandoff: 03/28/2018
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
-
 * Data Lake Store
 * DNS
 * Event Hubs
@@ -132,7 +131,7 @@ ms.lasthandoff: 03/28/2018
 * Key Vault
 * 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Logic Apps
-* Machine Learning
+* 기계 학습 - Machine Learning Studio 웹 서비스는 동일한 구독의 리소스 그룹으로 이동할 수 있지만 다른 구독으로 이동할 수는 없습니다. 다른 Machine Learning 리소스는 구독 간에 이동할 수 있습니다.
 * Media Services
 * 모바일 고객 관리
 * Notification Hubs

@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/29/2018
 * 올바른 AI 리소스를 보고 있나요? 원격 분석이 필요한 리소스에 응용 프로그램의 iKey를 일치합니다. 동일해야 합니다.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우
-* 할당량 및 가격 책정 블레이드를 열고 [샘플링](app-insights-sampling.md)이 작동하는지 여부를 확인합니다. (100% 전송이란 샘플링을 사용하지 않는다는 의미입니다.) Application Insights 서비스는 앱에서 도착하는 원격 분석의 일부만 허용하도록 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다. 
+* 사용량 및 예상 비용 페이지를 열고 [샘플링](app-insights-sampling.md)이 작동 중인지 확인합니다. (100% 전송이란 샘플링을 사용하지 않는다는 의미입니다.) Application Insights 서비스는 앱에서 도착하는 원격 분석의 일부만 허용하도록 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다. 
 * SDK 샘플링이 켜져 있나요? 켜져 있으면 적용 가능한 모든 유형에서 지정된 비율로 데이터가 샘플링됩니다.
 * 이전 버전의 Java SDK를 실행 중인가요? 버전 2.0.1부터 로컬 드라이브의 데이터 지속성뿐 아니라 간헐적인 네트워크 및 백 엔드 오류를 처리하는 내결함성 메커니즘이 도입되었습니다.
 * 과도한 원격 분석 때문에 제한되나요? INFO 로깅을 켜면 “앱이 제한되었습니다.”라는 로그 메시지가 표시됩니다. 현재 제한은 32K 원격 분석 항목/초입니다.

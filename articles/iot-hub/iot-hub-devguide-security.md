@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
 이 섹션에서는 IoT Hub를 보호하는 옵션을 설명합니다. IoT Hub는 *권한*을 사용하여 각 IoT Hub의 끝점에 대한 액세스를 부여합니다. 사용 권한은 기능에 따라 IoT Hub에 대한 액세스를 제한합니다.
 
-이 문서에서는 다음을 설명합니다.
+이 문서에서는 다음을 소개합니다.
 
 * IoT Hub에 액세스하기 위해 장치 또는 백 엔드 앱에 부여할 수 있는 다양한 권한
 * 권한을 확인하기 위해 사용되는 인증 프로세스 및 토큰.
 * 자격 증명을 통해 특정 리소스에 대한 액세스를 제한하는 방법.
 * X.509 인증서에 대한 IoT Hub 지원.
 * 기존 장치 ID 레지스트리 또는 인증 체계를 사용하는 사용자 지정 장치 인증 메커니즘.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. 예를 들어 IoT Hub에 보내는 모든 메시지에는 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
 

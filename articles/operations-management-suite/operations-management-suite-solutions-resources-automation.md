@@ -1,8 +1,8 @@
 ---
-title: "OMS 솔루션의 Azure Automation 리소스 | Microsoft Docs"
-description: "OMS의 솔루션에는 일반적으로 모니터링 데이터를 수집하고 처리하는 등의 프로세스를 자동화하기 위한 Azure Automation의 runbook이 포함됩니다.  이 문서에서는 솔루션에 runbook과 관련 리소스를 포함하는 방법을 설명합니다."
+title: 관리 솔루션의 Azure Automation 리소스 | Microsoft Docs
+description: 관리 솔루션에는 일반적으로 모니터링 데이터를 수집하고 처리하는 등의 프로세스를 자동화하기 위한 Azure Automation의 runbook이 포함됩니다.  이 문서에서는 솔루션에 runbook과 관련 리소스를 포함하는 방법을 설명합니다.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5750cd1147ec861ea38ff2ebc9ce481d256c1959
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>OMS 관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
+# <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
-> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   
+> 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   
 
 
-[OMS의 관리 솔루션](operations-management-suite-solutions.md)에는 일반적으로 모니터링 데이터를 수집하고 처리하는 등의 프로세스를 자동화하기 위한 Azure Automation의 runbook이 포함됩니다.  runbook 외에도 Automation 계정에는 솔루션에서 사용되는 runbook을 지원하는 변수, 일정 등의 자산이 포함됩니다.  이 문서에서는 솔루션에 runbook과 관련 리소스를 포함하는 방법을 설명합니다.
+[관리 솔루션](operations-management-suite-solutions.md)에는 일반적으로 모니터링 데이터를 수집하고 처리하는 등의 프로세스를 자동화하기 위한 Azure Automation의 runbook이 포함됩니다.  runbook 외에도 Automation 계정에는 솔루션에서 사용되는 runbook을 지원하는 변수, 일정 등의 자산이 포함됩니다.  이 문서에서는 솔루션에 runbook과 관련 리소스를 포함하는 방법을 설명합니다.
 
 > [!NOTE]
-> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다. 
+> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용 
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/01/2018
 - 방법: [Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Automation 계정
-Azure Automation의 모든 리소스는 [Automation 계정](../automation/automation-security-overview.md#automation-account-overview)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 Automation 계정은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
+Azure Automation의 모든 리소스는 [Automation 계정](../automation/automation-security-overview.md#automation-account-overview)에 포함됩니다.  [Log Analytics 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 Automation 계정은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
 
 각 Automation 리소스의 이름에는 해당 Automation 계정의 이름이 포함됩니다.  이 작업은 다음 runbook 리소스 예제와 같이 **accountName** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
@@ -118,7 +118,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 작업에는 runbook 이름과 runbook으로 전송되는 모든 매개 변수 값이 포함됩니다.  작업 전에 Runbook을 만들어야 하므로 작업은 시작하는 Runbook에 따라 [달라집니다](operations-management-suite-solutions-solution-file.md#resources).  시작해야 하는 Runbook이 여러 개 있는 경우 작업을 먼저 실행해야 하는 다른 작업에 종속되게 하여 순서를 정의 할 수 있습니다.
 
-작업 리소스의 이름에는 보통 매개 변수를 통해 할당되는 GUID가 포함되어야 합니다.  GUID 매개 변수에 대한 자세한 내용은 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-solution-file.md#parameters)를 참조하세요.  
+작업 리소스의 이름에는 보통 매개 변수를 통해 할당되는 GUID가 포함되어야 합니다.  GUID 매개 변수에 대한 자세한 내용은 [Azure의 관리 솔루션 파일 만들기](operations-management-suite-solutions-solution-file.md#parameters)를 참조하세요.  
 
 
 ## <a name="certificates"></a>인증서

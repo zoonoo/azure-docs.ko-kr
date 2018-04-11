@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **Q: ADFS 감사가 생성되지 않는 이유는 무엇인가요?**
 
-PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대한 자세한 정보
+PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(응용 프로그램 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 응용 프로그램 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요. 
 
 
 ## <a name="related-links"></a>관련 링크

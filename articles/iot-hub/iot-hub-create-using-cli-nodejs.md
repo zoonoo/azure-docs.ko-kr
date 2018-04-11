@@ -3,7 +3,7 @@ title: Azure CLI(azure.js)를 사용하여 IoT Hub 만들기 | Microsoft Docs
 description: 플랫폼 간 Azure CLI(azure.js)를 사용하여 Azure IoT hub를 만드는 방법
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**: 리소스 그룹 이름입니다. 형식은 대/소문자를 구분하지 않는 영숫자, 밑줄 및 하이픈으로 구성되며, 길이는 1-64자입니다.
 * **이름**: 만들려는 IoT Hub의 이름입니다. 형식은 대/소문자를 구분하지 않는 영숫자 및 하이픈으로 구성되며, 길이는 3-50자입니다.
 * **location**: IoT Hub를 프로비전할 위치(Azure 지역/데이터 센터)입니다.
-* **sku-name**: sku 이름이며, [F1, S1, S2, S3] 중 하나입니다. 최신 전체 목록은 IoT Hub 가격 책정 페이지를 참조하세요.
-* **units**: 프로비전된 단위의 수입니다. 범위: F1[1-1], S1, S2[1-200], S3[1-10]. IoT Hub 단위는 총 메시지 수와 연결하려는 장치 수를 기반으로 합니다.
+* **sku-name**: sku 이름이며, [F1, S1, S2, S3] 중 하나입니다. 각 sku에 대한 자세한 내용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요. 현재 기본 계층은 포털을 통해서만 사용할 수만 있습니다. 
+* **units**: 프로비전된 단위의 수입니다. 단위 제한에 대한 자세한 내용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

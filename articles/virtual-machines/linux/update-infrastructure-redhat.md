@@ -1,11 +1,11 @@
 ---
-title: "Red Hat 업데이트 인프라 | Microsoft Docs"
-description: "Microsoft Azure의 주문형 Red Hat Enterprise Linux 인스턴스에 대한 Red Hat 업데이트 인프라에 대해 알아봅니다."
+title: Red Hat 업데이트 인프라 | Microsoft Docs
+description: Microsoft Azure의 주문형 Red Hat Enterprise Linux 인스턴스에 대한 Red Hat 업데이트 인프라에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: BorisB2015
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/10/2017
 ms.author: borisb
-ms.openlocfilehash: ea9a5cbd9b9b7b67ceb131cb8ba1d2476dbd5f72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe354c6c9415c1525527dd6b95d1b3a481b5a2de
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -30,9 +30,9 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 
     예를 들어 RHEL 7.2 PAYG 이미지에서 VM을 프로비전하고 `sudo yum update`를 실행하는 경우 RHEL 7.4 VM(RHEL7 제품군에서 최신 부 버전)이 설치됩니다.
 
-    이러한 동작을 피하려면 [Azure에 대한 Red Hat 기반 가상 컴퓨터 만들기 및 업로드](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에 설명된 대로 사용자 고유의 이미지를 빌드해야 합니다. 그런 다음 다른 업데이트 인프라([Red Hat 콘텐츠 전달 서버에 직접](https://access.redhat.com/solutions/253273) 또는 [Red Hat 위성 서버](https://access.redhat.com/products/red-hat-satellite))에 연결해야 합니다.
+    이러한 동작을 피하려면 [Azure에 대한 Red Hat 기반 가상 머신 만들기 및 업로드](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에 설명된 대로 사용자 고유의 이미지를 빌드해야 합니다. 그런 다음 다른 업데이트 인프라([Red Hat 콘텐츠 전달 서버에 직접](https://access.redhat.com/solutions/253273) 또는 [Red Hat 위성 서버](https://access.redhat.com/products/red-hat-satellite))에 연결해야 합니다.
 
-* Azure 호스티드 RHUI에 대한 액세스는 RHEL PAYG 이미지 가격에 포함됩니다. Azure 호스티드 RHUI에서 PAYG RHEL VM의 등록을 취소하면 가상 컴퓨터를 사용자 라이선스 필요(BYOL) 형식 VM으로 변환하지 않습니다. 동일한 VM을 다른 업데이트 소스에 등록하면 _간접_ 요금이 이중으로 부과될 수 있습니다. 최초의 Azure RHEL 소프트웨어 요금이 사용자에게 청구됩니다. 이전에 구매한 Red Hat 구독에 대한 요금이 두 번째로 부과됩니다. Azure 호스티드 RHUI 이외의 업데이트 인프라를 지속적으로 사용해야 한다면 사용자 고유의(BYOL 형식) 이미지를 만들어 배포하도록 고려합니다. 이 과정은 [Azure용 Red Hat 기반 가상 컴퓨터 만들기 및 업데이트](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 설명합니다.
+* Azure 호스티드 RHUI에 대한 액세스는 RHEL PAYG 이미지 가격에 포함됩니다. Azure 호스티드 RHUI에서 PAYG RHEL VM의 등록을 취소하면 가상 머신을 사용자 라이선스 필요(BYOL) 형식 VM으로 변환하지 않습니다. 동일한 VM을 다른 업데이트 소스에 등록하면 _간접_ 요금이 이중으로 부과될 수 있습니다. 최초의 Azure RHEL 소프트웨어 요금이 사용자에게 청구됩니다. 이전에 구매한 Red Hat 구독에 대한 요금이 두 번째로 부과됩니다. Azure 호스티드 RHUI 이외의 업데이트 인프라를 지속적으로 사용해야 한다면 사용자 고유의(BYOL 형식) 이미지를 만들어 배포하도록 고려합니다. 이 과정은 [Azure용 Red Hat 기반 가상 머신 만들기 및 업데이트](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 설명합니다.
 
 * Azure에서 RHEL PAYG 이미지의 두 가지 클래스(RHEL for SAP HANA 및 RHEL for SAP Business Applications)는 SAP 인증에 필요한 대로 특정 RHEL 부 버전에 남아 있는 전용 RHUI 채널에 연결됩니다. 
 
@@ -50,6 +50,7 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 40.85.190.91
 52.187.75.218
 52.174.163.213
+52.237.203.198
 
 # Azure US Government
 13.72.186.193
@@ -72,9 +73,9 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
     a. `/etc/yum.repos.d/rh-cloud.repo` 파일이 해당 파일에 있는 `[rhui-microsoft-azure-rhel*]` 섹션의 `baseurl`에서 `rhui-[1-3].microsoft.com`에 대한 참조를 포함하는지 확인합니다. 그렇다면 새 Azure RHUI를 사용 중입니다.
 
-    b. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅숏을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
+    나. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅숏을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
 
-2. Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 내의 VM으로 제한됩니다.
+2. Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위] 내의 VM에 제한됩니다(https://www.microsoft.com/download/details.aspx?id=41653).
  
 3. 새 구성을 사용하고 VM이 Azure IP 범위에서 연결된다고 확인되며 여전히 Azure RHUI에 연결할 수 없으면 Microsoft 또는 Red Hat을 사용하여 지원 사례를 정리합니다.
 
@@ -141,13 +142,13 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
         curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
         ```
 
-   b. 확인
+   나. 확인
 
    ```bash
    rpm -Kv azureclient.rpm
    ```
 
-   c. 출력을 확인하여 패키지의 서명이 정상인지 확인합니다.
+   다. 출력을 확인하여 패키지의 서명이 정상인지 확인합니다.
 
    ```bash
    azureclient.rpm:

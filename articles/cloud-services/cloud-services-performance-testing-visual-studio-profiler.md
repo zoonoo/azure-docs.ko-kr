@@ -1,12 +1,12 @@
 ---
-title: "Compute 에뮬레이터에서 로컬로 클라우드 서비스 프로파일링 | Microsoft Docs"
+title: Compute 에뮬레이터에서 로컬로 클라우드 서비스 프로파일링 | Microsoft Docs
 services: cloud-services
-description: "Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능 문제를 조사합니다."
-documentationcenter: 
+description: Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능 문제를 조사합니다.
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure Compute 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 이 문서에서는 에뮬레이터를 통해 로컬로 수행할 수 있는 CPU 샘플링 프로파일링 방법을 다룹니다. CPU 샘플링은 주입식이 아닌 프로파일링 방법입니다. 지정된 샘플링 간격마다 프로파일러가 호출 스택의 스냅숏을 만듭니다. 정해진 기간 동안 데이터가 수집되어 보고서에 표시됩니다. 이 프로파일링 방법은 계산이 많은 응용 프로그램에서 대부분의 CPU 작업이 수행되는 위치를 나타냅니다.  이 정보를 통해 응용 프로그램이 대부분의 시간을 보내는 "실행 부하 과다 경로"에 집중할 수 있습니다.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: 프로파일링을 위해 Visual Studio 구성
-먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 응용 프로그램용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택하면 됩니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치**아래에 표시되는지 확인합니다.  추가 기호 파일이 있는 http://referencesource.microsoft.com/symbols를 참조할 수도 있습니다.
+먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 응용 프로그램용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택하면 됩니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치**아래에 표시되는지 확인합니다.  추가 기호 파일을 포함할 수 있는 http://referencesource.microsoft.com/symbols도 참조할 수 있습니다.
 
 ![기호 옵션][4]
 

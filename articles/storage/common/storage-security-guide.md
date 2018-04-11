@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -357,7 +357,7 @@ Azure Disk Encryption을 새로운 기능입니다. 이 기능을 사용하면 I
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VM 및 해당 VHD 파일
 
-IaaS VM에서 사용되는 데이터 디스크의 경우 Azure Disk Encryption이 권장됩니다. Azure Marketplace에서 이미지를 사용하여 VM을 만드는 경우 Azure는 Azure Storage의 Storage 계정에 대해 이미지의 [단순 복사](https://en.wikipedia.org/wiki/Object_copying) 를 수행하며, SSE가 사용되도록 설정되어 있더라도 암호화되지 않습니다. VM을 만들고 이미지 업데이트를 시작한 후에는 SSE가 데이터 암호화를 시작합니다. 따라서 완전히 암호화하려는 경우 Azure Marketplace의 이미지에서 만든 VM에 대해 Azure Disk Encryption을 사용하는 것이 좋습니다.
+IaaS VM에서 사용되는 데이터 디스크의 경우 Azure Disk Encryption이 권장됩니다. Azure Marketplace에서 이미지를 사용하여 관리되지 않는 디스크가 있는 VM을 만드는 경우 Azure는 Azure Storage의 Storage 계정에 대해 이미지의 [단순 복사](https://en.wikipedia.org/wiki/Object_copying)를 수행하며, SSE가 사용되도록 설정되어 있더라도 암호화되지 않습니다. VM을 만들고 이미지 업데이트를 시작한 후에는 SSE가 데이터 암호화를 시작합니다. 따라서 완전히 암호화하려는 경우 Azure Marketplace의 이미지에서 만든 관리되지 않는 디스크가 있는 VM에 대해 Azure 디스크 암호화를 사용하는 것이 좋습니다. Managed Disks가 있는 VM을 만들 경우 SSE는 플랫폼 관리 키를 사용하여 기본적으로 모든 데이터를 암호화합니다. 
 
 온-프레미스에서 Azure로 미리 암호화된 VM을 가져오는 경우 Azure Key Vault에 암호화 키를 업로드할 수 있으며 사용하던 해당 VM에 대한 암호화를 온-프레미스에서 계속 사용할 수 있습니다. 이 시나리오를 위해 Azure 디스크 암호화가 사용되도록 설정됩니다.
 

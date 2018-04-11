@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Azure 서비스에 대한 Azure Monitor에서 클래식 메트릭 경고 만들기 - Azure Portal
 > [!div class="op_single_selector"]
@@ -31,25 +31,25 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>개요
 
 > [!NOTE]
-> 이 문서에서는 기존 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 더 나은 메트릭 경고를 지원합니다. 이러한 경고는 여러 메트릭을 모니터링하고 차원 메트릭에 대한 경고를 허용할 수 있습니다. [근 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)에 대해 자세히 알아봅니다.
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 [최신 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 지원합니다. 
 >
 >
 
-이 문서에서는 Azure Portal을 사용하여 Azure 메트릭 경고를 설정하는 방법을 보여 줍니다. 
+이 문서에서는 Azure Portal을 사용하여 클래식 Azure 메트릭 경고를 설정하는 방법을 보여줍니다. 
 
 Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 
 * **메트릭 값** - 이 경고는 특정 메트릭의 값이 어느 방향으로든 사용자가 할당한 임계값을 초과했을 때 트리거됩니다. 즉 조건에 처음 부합했을 때와, 조건에 더 이상 부합하지 않게 되었을 때 모두 트리거됩니다.    
 * **활동 로그 이벤트** - *모든* 이벤트에 대해 또는 특정 이벤트가 발생했을 때만 경고를 트리거할 수 있습니다. [활동 로그 경고](monitoring-activity-log-alerts.md)에 대해 자세히 알아봅니다.
 
-트리거되면 다음을 수행하도록 메트릭 경고를 구성할 수 있습니다.
+트리거되면 다음을 수행하도록 클래식 메트릭 경고를 구성할 수 있습니다.
 
 * 서비스 관리자 및 공동 관리자에게 이메일 알림을 보냅니다.
 * 사용자가 지정한 추가 이메일 주소로 이메일을 보냅니다.
 * webhook 호출
 * Azure runbook 실행 시작(현재는 Azure 포털에서만 가능)
 
-다음을 통해 메트릭 경고 규칙에 대한 정보를 구성하고 가져올 수 있습니다.
+다음을 통해 클래식 메트릭 경고 규칙에 대한 정보를 구성하고 가져올 수 있습니다.
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -63,7 +63,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
     ![모니터링](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. **Add metric alert** 명령을 선택하고 필드에 입력합니다.
+3. **Add metric alert(클래식)** 명령을 선택하고 필드에 입력합니다.
 
     ![Add alert](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 

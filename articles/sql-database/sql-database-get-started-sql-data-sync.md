@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 설정
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 하이브리드 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 새 동기화 그룹을 완벽하게 구성하고 설정한 일정에 동기화합니다.
@@ -38,6 +38,8 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
     ![Azure SQL Database 목록](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  **SQL Database** 페이지에서 데이터 동기화의 허브 데이터베이스로 사용하려는 기존 SQL Database를 선택합니다. SQL Database 페이지가 열립니다.
+
+    허브 데이터베이스는 동기화 그룹에 여러 데이터베이스 엔드포인트를 갖는 동기화 토폴로지의 중앙 엔드포인트입니다. 동일한 동기화 그룹의 다른 모든 데이터베이스 엔드포인트입니다. 즉, 모든 멤버 데이터베이스는 허브 데이터베이스와 동기화합니다.
 
 4.  선택한 데이터베이스의 SQL Database 페이지에서 **다른 데이터베이스에 동기화**를 선택합니다. 데이터 동기화 페이지가 열립니다.
 
@@ -67,6 +69,8 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
         ![동기화 빈도 지정](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  **충돌 해결** 섹션에서 "허브 우선" 또는 "구성원 우선"을 선택합니다.
+
+        "허브 우선"은 충돌이 발생할 경우 허브 데이터베이스의 데이터가 멤버 데이터베이스에서 충돌하는 데이터를 덮어쓰는 것을 의미합니다. "멤버 우선"은 충돌이 발생할 경우 멤버 데이터베이스의 데이터가 허브 데이터베이스에서 충돌하는 데이터를 덮어쓰는 것을 의미합니다. 
 
         ![충돌 해결 방법 지정](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 

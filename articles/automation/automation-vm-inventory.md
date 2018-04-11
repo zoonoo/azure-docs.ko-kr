@@ -1,18 +1,18 @@
 ---
-title: "인벤토리 수집을 사용하여 Azure 가상 머신 관리 | Microsoft Docs"
-description: "인벤토리 수집을 사용하여 가상 컴퓨터 관리"
+title: 인벤토리 수집을 사용하여 Azure 가상 머신 관리 | Microsoft Docs
+description: 인벤토리 수집을 사용하여 가상 컴퓨터 관리
 services: automation
-keywords: "인벤토리, 자동화, 변경, 추적"
+keywords: 인벤토리, 자동화, 변경, 추적
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/11/2018
 Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
 Azure 가상 머신이 없는 경우 [가상 머신을 만듭니다](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>가상 머신 리소스 페이지에서 인벤토리 수집 활성화
@@ -66,4 +66,4 @@ Azure 가상 머신이 없는 경우 [가상 머신을 만듭니다](https://doc
 ## <a name="next-steps"></a>다음 단계
 
 * 가상 머신의 파일 및 레지스트리 설정에서 변경 관리에 대해 알아보려면 [변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적](../log-analytics/log-analytics-change-tracking.md)을 참조하세요.
-* 가상 머신에서 Windows 및 패키지 업데이트 관리에 대해 알아보려면 [OMS의 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.
+* 가상 머신에서 Windows 및 패키지 업데이트 관리에 대해 알아보려면 [Azure의 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.

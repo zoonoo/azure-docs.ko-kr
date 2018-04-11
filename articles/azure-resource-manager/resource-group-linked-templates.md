@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 326d6873ae78c5f712832c4cfce9c793f1dfbf37
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -446,7 +446,7 @@ done
 }
 ```
 
-PowerShell에서는 컨테이너용 토큰을 얻고 다음을 사용하여 템플릿을 배포합니다.
+PowerShell에서는 다음 명령을 사용하여 컨테이너용 토큰을 얻고 템플릿을 배포합니다. **containerSasToken** 매개 변수는 템플릿에 정의됩니다. **New-AzureRmResourceGroupDeployment** 명령의 매개 변수가 아닙니다.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

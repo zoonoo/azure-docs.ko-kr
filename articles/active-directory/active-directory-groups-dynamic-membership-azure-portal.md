@@ -12,31 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
-Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
+Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
 
 사용자 또는 장치의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 장치가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다.
 
 > [!NOTE]
-> 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
->
 > 이 기능은 하나 이상의 동적 그룹에 추가된 각 사용자 멤버에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자가 동적 그룹의 구성원이 되도록 사용자에게 실제로 라이선스를 할당해야 하는 것은 아니지만 테넌트에 모든 사용자를 포괄할 수 있도록 최소한의 라이선스가 있어야 합니다. 예를 들어 테넌트의 모든 동적 그룹에 고유 사용자가 총 1,000명 있는 경우 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 최소 1,000개 또는 그 이상의 라이선스가 있어야 합니다.
 >
 > 장치 또는 사용자에 대한 동적 그룹을 만들 수 있지만 사용자 및 장치 개체를 모두 포함하는 규칙을 만들 수는 없습니다.
 > 
 > 지금 사용자의 특성을 기반으로 하는 장치 그룹을 만들 수 없습니다. 장치 멤버 자격 규칙은 디렉터리에 있는 장치 개체의 즉각적인 특성만 참조할 수 있습니다.
-> 
-> Microsoft Teams에서는 아직 동적 그룹 멤버 자격을 지원하지 않습니다. "동적 멤버 자격 그룹을 마이그레이션할 수 없습니다."와 관련된 로그에서 오류를 확인할 수 있습니다.
 
 ## <a name="to-create-an-advanced-rule"></a>고급 규칙을 만들려면
 1. 전역 관리자 또는 사용자 계정 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
@@ -74,7 +70,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 고급 규칙 본문의 총 길이는 2048자를 초과할 수 없습니다.
 
 > [!NOTE]
-> 문자열 및 regex 연산은 대/소문자를 구분하지 않습니다. *null*을 상수로 사용하여 null 확인을 수행할 수도 있습니다(예: user.department -eq *$null*).
+> 문자열 및 regex 연산은 대/소문자를 구분하지 않습니다. *null*을 상수로 사용하여 Null 확인을 수행할 수도 있습니다(예: user.department -eq *null*).
 > 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
 
 ## <a name="supported-expression-rule-operators"></a>지원되는 식 규칙 연산자
@@ -106,11 +102,11 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 모든 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다. 괄호는 우선 순위가 요구 사항을 충족하지 않을 경우에 필요합니다.
 예: 
 ```
-   user.department -eq "Marketing" -and user.country -eq "US"
+   user.department –eq "Marketing" –and user.country –eq "US"
 ```
 이는 다음과 동등합니다.
 ```
-   (user.department -eq "Marketing") -and (user.country -eq "US")
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>-In 및 -notIn 연산자 사용
 
@@ -160,32 +156,32 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 | properties | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
-| city |임의의 문자열 값 또는 *$null* |(user.city -eq "value") |
-| country |임의의 문자열 값 또는 *$null* |(user.country -eq "value") |
-| companyName | 임의의 문자열 값 또는 *$null* | (user.companyName -eq "value") |
-| department |임의의 문자열 값 또는 *$null* |(user.department -eq "value") |
+| city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
+| country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
+| companyName | 임의의 문자열 값 또는 *null*입니다. | (user.companyName -eq "value") |
+| department |임의의 문자열 값 또는 *null*입니다. |(user.department -eq "value") |
 | displayName |임의의 문자열 값입니다. |(user.displayName -eq "value") |
-| employeeId |임의의 문자열 값입니다. |(user.employeeId -eq "value")<br>(user.employeeId -ne *$null*) |
-| facsimileTelephoneNumber |임의의 문자열 값 또는 *$null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |임의의 문자열 값 또는 *$null* |(user.givenName -eq "value") |
-| jobTitle |임의의 문자열 값 또는 *$null* |(user.jobTitle -eq "value") |
-| mail |임의의 문자열 값 또는 *$null*(사용자의 SMTP 주소) |(user.mail -eq "value") |
+| employeeId |임의의 문자열 값입니다. |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
+| facsimileTelephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |임의의 문자열 값 또는 *null*입니다. |(user.givenName -eq "value") |
+| jobTitle |임의의 문자열 값 또는 *null*입니다. |(user.jobTitle -eq "value") |
+| mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
-| mobile |임의의 문자열 값 또는 *$null* |(user.mobile -eq "value") |
+| mobile |임의의 문자열 값 또는 *null*입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 온-프레미스에서 클라우드로 동기화된 사용자의 온-프레미스 SID(보안 식별자)입니다. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |임의의 문자열 값 또는 *$null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |임의의 문자열 값 또는 *$null* |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |임의의 문자열 값 또는 *null*입니다. |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |임의의 문자열 값 또는 *null*입니다. |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 코드 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |임의의 문자열 값 또는 *$null* |(user.sipProxyAddress -eq "value") |
-| state |임의의 문자열 값 또는 *$null* |(user.state -eq "value") |
-| streetAddress |임의의 문자열 값 또는 *$null* |(user.streetAddress -eq "value") |
-| surname |임의의 문자열 값 또는 *$null* |(user.surname-eq "value") |
-| telephoneNumber |임의의 문자열 값 또는 *$null* |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |임의의 문자열 값 또는 *null*입니다. |(user.sipProxyAddress -eq "value") |
+| state |임의의 문자열 값 또는 *null*입니다. |(user.state -eq "value") |
+| streetAddress |임의의 문자열 값 또는 *null*입니다. |(user.streetAddress -eq "value") |
+| surname |임의의 문자열 값 또는 *null*입니다. |(user.surname-eq "value") |
+| telephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.telephoneNumber -eq "value") |
 | usageLocation |두 자로 된 국가 코드 |(user.usageLocation -eq "US") |
 | userPrincipalName |임의의 문자열 값입니다. |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest *$null* |(user.userType -eq "Member") |
+| userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 허용되는 연산자
@@ -226,9 +222,9 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-## <a name="use-of-null-values"></a>null 값 사용
+## <a name="use-of-null-values"></a>Null 값 사용
 
-규칙에 null 값을 지정하려면 *null* 값을 사용할 수 있습니다. 단어 *null* 주위에 따옴표를 사용하지 않도록 주의합니다. 이렇게 하면 리터럴 문자열 값으로 해석됩니다. null 값을 참조하는 올바른 방법은 다음과 같습니다.
+규칙에 null 값을 지정하려면 *null* 값을 사용할 수 있습니다. 단어 *null* 주위에 따옴표를 사용하지 않도록 주의합니다. 이렇게 하면 리터럴 문자열 값으로 해석됩니다. -not 연산자는 null에 대한 비교 연산자로 사용할 수 없습니다. 이 연산자를 사용할 경우 null을 사용하든 아니면 $null을 사용하든 오류가 발생합니다. 그 대신 -eq 또는 -ne를 사용하세요. null 값을 참조하는 올바른 방법은 다음과 같습니다.
 ```
    user.mail –ne $null
 ```
@@ -254,13 +250,14 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 > [!NOTE]
 > 1. 규칙이 작동하려면 테넌트의 사용자에 대해 **관리자 ID** 속성이 올바르게 설정되어야 합니다. 해당 **프로필 탭**에서 사용자의 현재 값을 확인할 수 있습니다.
 > 2. 이 규칙은 **직접** 보고서만을 지원합니다. 예를 들어 현재는 직접 보고서 및 해당 보고서를 포함하는 그룹과 같이 중첩된 계층에 그룹을 만들 수 없습니다.
+> 3. 이 규칙은 다른 고급 규칙과 결합할 수 없습니다.
 
 **그룹을 구성하려면**
 
 1. [고급 규칙을 만들려면](#to-create-the-advanced-rule) 섹션의 1~5단계에 따르고 **동적 사용자**의 **멤버 자격 형식**을 선택합니다.
 2. **동적 멤버 자격 규칙** 블레이드에서 다음 구문을 사용하여 규칙을 입력합니다.
 
-    *"{obectID_of_manager}"의 직접 보고서*
+    *"{objectID_of_manager}"의 직접 보고서*
 
     올바른 규칙의 예제:
 ```
@@ -295,19 +292,43 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>동적 멤버 자격을 정적으로 또는 그 반대로 변경
 그룹에서 멤버 자격을 관리하는 방식을 변경할 수 있습니다. 이것은 시스템에 동일한 그룹 이름과 ID를 유지하려는 경우에 유용하므로 그룹에 대한 기존 참조는 여전히 유효합니다. 새 그룹을 만들면 해당 참조를 업데이트해야 합니다.
 
-이 기능을 지원하기 위해 Azure Portal을 업데이트 하는 중입니다. 그동안 아래 표시된 대로 PowerShell cmdlet을 사용할 수 있습니다.
+이 기능 지원을 추가하도록 Azure AD 관리 센터를 업데이트했습니다. 이제 고객은 아래와 같이 Azure AD 관리 센터 또는 PowerShell cmdlet을 통해 기존 그룹을 동적 멤버 자격에서 할당된 멤버 자격으로 또는 그 반대로 변환할 수 있습니다.
 
 > [!WARNING]
 > 기존 정적 그룹을 동적 그룹으로 변경할 경우 기존의 모든 멤버가 그룹에서 제거된 후 멤버 자격 규칙이 처리되어 새 멤버가 추가됩니다. 그룹이 앱 또는 리소스에 대한 액세스를 제어하는 데 사용되는 경우 멤버 자격 규칙이 완전히 처리될 때까지는 원래 멤버가 액세스하지 못할 수 있습니다.
 >
 > 그룹의 새 멤버 자격이 예상대로 유지되는지 확인하기 위해 새 멤버 자격 규칙을 미리 테스트하는 것이 좋습니다.
 
-**PowerShell을 사용하여 그룹에 대한 멤버 자격 관리 변경**
+### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Azure AD 관리 센터를 사용하여 그룹에 대한 멤버 자격 관리 변경 
+
+1. 테넌트의 전역 관리자 또는 사용자 계정 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+2. **그룹**을 선택합니다.
+3. **모든 그룹** 목록에서 변경하려는 그룹을 엽니다.
+4. **속성**을 선택합니다.
+5. 해당 그룹의 **속성**에서, 원하는 멤버 자격 종류에 따라 **멤버 자격 유형**을 할당됨(정적), 동적 사용자 또는 동적 장치 중에 선택합니다. 동적 멤버 자격의 경우 규칙 작성기를 사용하여 간단한 규칙에 대한 옵션을 선택하거나 고급 규칙을 직접 작성할 수 있습니다. 
+
+다음 단계는 사용자 무리에 대한 그룹을 정적 멤버 자격에서 동적 멤버 자격으로 변경하는 예제입니다. 
+
+1. 선택한 그룹의**속성** 페이지에서 **멤버 자격 유형**을 **동적 사용자**로 선택한 다음, 그룹 멤버의 변경 내용을 설명하는 대화 상자에서 [예]를 선택하여 계속 진행합니다. 
+  
+   ![멤버 자격 유형을 동적 사용자로 선택](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. **동적 쿼리 추가**를 선택하고 규칙을 입력합니다.
+  
+   ![규칙 입력](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. 규칙을 만든 후 페이지 맨 아래에서 **쿼리 추가**를 선택합니다.
+4. 해당 그룹의 **속성** 페이지에서 **저장**을 선택하여 변경 내용을 저장합니다. 그룹 목록에서 해당 그룹의 **멤버 자격 유형**이 즉시 업데이트됩니다.
+
+> [!TIP]
+> 입력한 고급 규칙이 올바르지 않으면 그룹 변환이 실패할 수 있습니다. 포털의 오른쪽 상단 구석에 알림이 표시됩니다. 알림에는 시스템에서 규칙을 수락할 수 없는 이유에 대한 설명이 포함되어 있습니다. 이 알림을 신중하게 읽고 규칙을 올바르게 수정하는 방법을 이해하세요.
+
+### <a name="using-powershell-to-change-membership-management-on-a-group"></a>PowerShell을 사용하여 그룹에 대한 멤버 자격 관리 변경
 
 > [!NOTE]
-> 동적 그룹 속성을 변경하려면 **Azure AD PowerShell 버전 2**의 [미리 보기 버전](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 cmdlet을 사용해야 합니다. [여기](https://www.powershellgallery.com/packages/AzureADPreview)에서 미리 보기를 설치할 수 있습니다.
+> 동적 그룹 속성을 변경하려면 **Azure AD PowerShell 버전 2**의 [미리 보기 버전](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 cmdlet을 사용해야 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview)에서 미리 보기를 설치할 수 있습니다.
 
-기존 그룹에서 멤버 자격 관리를 전환하는 기능의 예는 다음과 같습니다. GroupTypes 속성을 정확하게 조작하고 동적 멤버 자격과 무관한 다른 기존 값을 그대로 유지하기 위해 주의가 필요합니다.
+기존 그룹에서 멤버 자격 관리를 전환하는 기능의 예는 다음과 같습니다. 이 예제에서는 GroupTypes 속성을 정확하게 조작하고 동적 멤버 자격과 무관한 다른 기존 값을 그대로 유지하기 위해 주의가 필요합니다.
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object

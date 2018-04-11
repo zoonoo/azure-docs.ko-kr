@@ -1,6 +1,6 @@
 ---
-title: "콘솔 응용 프로그램용 Azure Application Insights | Microsoft Docs"
-description: "응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다."
+title: 콘솔 응용 프로그램용 Azure Application Insights | Microsoft Docs
+description: 응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다.
 services: application-insights
 documentationcenter: .net
 author: lmolkova
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: lmolkova
-ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: lmolkova; mbullwin
+ms.openlocfilehash: f9d734abeb644fc865d5dc86afc8ad0e586bfc0a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 응용 프로그램용 Application Insights
 [Application Insights](app-insights-overview.md)를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
@@ -26,8 +26,8 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="getting-started"></a>시작
 
-* [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). 응용 프로그램 유형으로 ASP.NET 앱을 선택합니다.
-* 계측 키를 복사합니다. 만든 새 리소스의 필수 드롭다운에서 키를 찾습니다. 
+* [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). 응용 프로그램 유형으로 **일반**을 선택합니다.
+* 계측 키를 복사합니다. 만든 새 리소스의 **필수** 드롭다운에서 키를 찾습니다. 
 * 최신 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 패키지를 설치합니다.
 * 원격 분석을 추적하기 전에 코드에서 계측 키를 설정합니다(또는 APPINSIGHTS_INSTRUMENTATIONKEY 환경 변수 설정). 그런 다음, 수동으로 원격 분석을 추적하고 Azure Portal에서 확인할 수 있습니다.
 
@@ -39,7 +39,10 @@ telemetryClient.TrackTrace("Hello World!");
 
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) 패키지의 최신 버전을 설치합니다. 이 패키지는 HTTP, SQL 또는 기타 외부 종속성 호출을 자동으로 추적합니다.
 
-코드를 통해 또는 `ApplicationInsights.config` 파일을 사용하여 Application Insights를 초기화하고 구성할 수 있습니다. 가능한 한 조기에 초기화를 수행해야 합니다.
+코드를 통해 또는 `ApplicationInsights.config` 파일을 사용하여 Application Insights를 초기화하고 구성할 수 있습니다. 가능한 한 조기에 초기화를 수행해야 합니다. 
+
+> [!NOTE]
+> **ApplicationInsights.config**에 대한 지침은 .NET Standard를 대상으로 하는 앱에만 적용되고 .NET Core 응용 프로그램에는 적용되지 않습니다. 
 
 ### <a name="using-config-file"></a>구성 파일 사용
 

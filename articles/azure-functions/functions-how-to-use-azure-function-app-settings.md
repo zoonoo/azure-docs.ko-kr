@@ -1,24 +1,25 @@
 ---
-title: "Azure Functions 앱 설정 구성 | Microsoft Docs"
-description: "Azure 함수 앱 설정을 구성하는 방법에 알아봅니다."
-services: 
+title: Azure Functions 앱 설정 구성 | Microsoft Docs
+description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
@@ -27,6 +28,24 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 시작하려면 [Azure Portal](http://portal.azure.com)로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력하고 목록에서 선택합니다. 함수 앱을 선택하면 다음 페이지가 표시됩니다.
 
 ![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>포털의 즐겨 찾는 함수 
+
+경우에 따라 [Azure 포털]에서 리소스를 찾기 어려울 수 있습니다. 자신이 만든 함수 앱을 더 쉽게 찾을 수 있도록 하려면 포털의 즐겨찾기에 함수 앱을 추가합니다. 
+
+1. [Azure 포털] 에 로그인합니다.
+
+2. 맨 아래 왼쪽에서 화살표를 클릭하여 모든 서비스를 확장하고 **필터** 필드에 `Functions`를 입력한 후 **Function Apps** 옆의 별 모양을 클릭합니다.  
+ 
+    ![Azure Portal에서 함수 앱 만들기](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    그러면 Functions 아이콘이 포털 왼쪽 메뉴에 추가됩니다.
+
+3. 메뉴를 닫은 후 맨 아래로 스크롤하면 Functions 아이콘이 표시됩니다. 이 아이콘을 클릭하면 모든 함수 앱 목록이 표시됩니다. 이 앱에서 함수로 작업하려면 함수 앱을 클릭합니다. 
+ 
+    ![즐겨찾기의 함수 앱](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[Azure 포털]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>함수 앱 설정 탭
 

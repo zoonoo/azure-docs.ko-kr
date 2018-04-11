@@ -1,6 +1,6 @@
 ---
 title: Log Analytics 경고에서 Azure Automation Runbook 호출
-description: 이 문서는 Operations Management Suite의 Log Analytics 경고에서 Automation Runbook을 호출하는 방법에 대한 개요를 제공합니다.
+description: 이 문서는 Azure의 Log Analytics 경고에서 Automation Runbook을 호출하는 방법에 대한 개요를 제공합니다.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3f95d6b9385b252bce05f19b38ae38f11e88a88c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2a0e497535f783cbffc21004331ccd2a50ab8eef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Log Analytics 경고에서 Azure Automation Runbook 호출
 
@@ -23,11 +23,11 @@ Azure Log Analytics에서 경고를 구성하여 결과가 조건에 일치하�
 경고 구성에서 Runbook을 호출하는 옵션은 두 가지입니다.
 
 * 웹후크를 사용합니다.
-   * Operations Management Suite 작업 영역이 Automation 계정에 연결되지 않은 경우 이 옵션만 사용할 수 있습니다.
-   * Operations Management Suite 작업 영역에 연결된 Automation 계정이 이미 있는 경우에도 이 옵션을 사용할 수 있습니다.  
+   * Log Analytics 작업 영역이 Automation 계정에 연결되지 않은 경우 이 옵션만 사용할 수 있습니다.
+   * Log Analytics 작업 영역에 연결된 Automation 계정이 이미 있는 경우에도 이 옵션을 계속 사용할 수 있습니다.  
 
 * Runbook을 직접 선택합니다.
-   * 이 옵션은 Operations Management Suite 작업 영역이 Automation 계정에 연결된 경우에만 사용할 수 있습니다.
+   * 이 옵션은 Log Analytics 작업 영역이 Automation 계정에 연결된 경우에만 사용할 수 있습니다.
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>웹후크를 사용하여 Runbook 호출
 
@@ -35,7 +35,7 @@ Azure Log Analytics에서 경고를 구성하여 결과가 조건에 일치하�
 
 ## <a name="calling-a-runbook-directly"></a>Runbook 직접 호출
 
-Operations Management Suite 작업 영역에서 Automation and Control 제품을 설치 및 구성할 수 있습니다. 경고에 대한 Runbook 작업 옵션을 구성하는 동안, **Runbook 선택** 드롭다운 목록에서 모든 Runbook을 볼 수 있고 경고에 대한 응답으로 실행할 특정 Runbook을 선택할 수 있습니다. 선택한 Runbook은 Azure 작업 영역 또는 Hybrid Runbook Worker에서 실행할 수 있습니다. 
+Log Analytics 작업 영역에서 Automation and Control 제품을 설치 및 구성할 수 있습니다. 경고에 대한 Runbook 작업 옵션을 구성하는 동안, **Runbook 선택** 드롭다운 목록에서 모든 Runbook을 볼 수 있고 경고에 대한 응답으로 실행할 특정 Runbook을 선택할 수 있습니다. 선택한 Runbook은 Azure 작업 영역 또는 Hybrid Runbook Worker에서 실행할 수 있습니다. 
 
 Runbook 옵션을 사용하여 경고를 만들면 웹후크가 Runbook에 대해 생성됩니다. Automation 계정으로 이동하고 선택한 Runbook의 웹후크 창을 열면 웹후크를 볼 수 있습니다. 
 
@@ -90,7 +90,7 @@ $SearchResult.SvcDisplayName_CF
 
 서비스가 중지되면 Log Analytics의 경고 규칙은 일치 항목을 검색하고 Runbook을 트리거하고 경고 컨텍스트를 Runbook에 보냅니다. Runbook은 서비스가 중지되었는지 확인하려고 시도합니다. 확인이 되면 Runbook은 서비스를 다시 시작하려고 시도하고, 제대로 시작되었는지 확인하고, 결과를 표시합니다.     
 
-또는, Operations Management Suite 작업 영역에 연결된 Automation 계정이 없는 경우, 웹후크 작업으로 경고 규칙을 구성할 수 있습니다. 웹후크 작업은 Runbook을 트리거합니다. 또한 앞서 언급한 지침에 따라 JSON 형식의 문자열을 변환하고 **SearchResult**를 필터링하도록 Runbook을 구성합니다.    
+또는, Log Analytics 작업 영역에 연결된 Automation 계정이 없는 경우, 웹후크 작업으로 경고 규칙을 구성할 수 있습니다. 웹후크 작업은 Runbook을 트리거합니다. 또한 앞서 언급한 지침에 따라 JSON 형식의 문자열을 변환하고 **SearchResult**를 필터링하도록 Runbook을 구성합니다.    
 
 >[!NOTE]
 > 작업 영역을 [새 Log Analytics 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 웹후크 페이로드가 변경됩니다. 형식의 세부 내용은 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)에 있습니다.

@@ -1,24 +1,24 @@
 ---
-title: "Azure Log Analytics 에이전트 관리 | Microsoft Docs"
-description: "이 문서에서는 컴퓨터에 배포된 MMA(Microsoft Monitoring Agent)의 수명 주기 동안 일반적으로 수행하는 여러 관리 작업에 대해 설명합니다."
+title: Azure Log Analytics 에이전트 관리 | Microsoft Docs
+description: 이 문서에서는 컴퓨터에 배포된 MMA(Microsoft Monitoring Agent)의 수명 주기 동안 일반적으로 수행하는 여러 관리 작업에 대해 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -69,6 +69,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >이전에 명령줄 또는 스크립트를 사용하여 에이전트를 설치 또는 구성한 경우 `EnableAzureOperationalInsights`가 `AddCloudWorkspace` 및 `RemoveCloudWorkspace`로 바뀌었습니다.
 >
+
+### <a name="linux-agent"></a>Linux 에이전트
+다음 단계는 다른 작업 영역으로 등록하거나 해당 구성에서 작업 영역을 제거하려는 경우 Linux 에이전트를 다시 구성하는 방법을 설명합니다.  
+
+1.  작업 영역에 등록되었는지 확인하려면 다음 명령을 실행합니다.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    다음 예제와 유사한 결과가 반환됩니다. 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    상태는 에이전트가 실행 중임을 보여주거나 그렇지 않으면 에이전트를 다시 구성하는 다음 단계가 성공적으로 완료되지 않는 것을 보여줍니다.  
+
+2. 작업 영역으로 이미 등록된 경우 다음 명령을 실행하여 등록된 작업 영역을 제거합니다.  그렇지 않으면 등록되지 않은 경우 다음 단계를 진행합니다.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. 다른 작업 영역으로 등록하려면 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 명령을 실행합니다. 
+4. 변경 내용이 적용되었는지 확인하려면 명령을 실행합니다.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    다음 예제와 유사한 결과가 반환됩니다. 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+변경 내용 적용을 위해 에이전트 서비스를 다시 시작할 필요가 없습니다.
 
 ## <a name="update-proxy-settings"></a>프록시 설정 업데이트 
 배포 후 에이전트가 프록시 서버 또는 [OMS 게이트웨이](log-analytics-oms-gateway.md)를 통해 서비스와 통신하도록 구성하려면 다음 방법 중 하나를 사용하여 이 작업을 완료합니다.

@@ -1,6 +1,6 @@
 ---
-title: "Azure Managed Application CredentialsCombo UI 요소 | Microsoft Docs"
-description: "Azure Managed Applications의 Microsoft.Compute.CredentialsCombo UI 요소에 대해 설명합니다."
+title: Azure CredentialsCombo UI 요소 | Microsoft Docs
+description: Azure Portal의 Microsoft.Compute.CredentialsCombo UI 요소에 대해 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8faa36aca762bc8d787d5750fcf7efdbaf986ea
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c17677a9e34de4c1afca8f04c8bd22c2155c3439
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI 요소
-Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함된 기본 제공 컨트롤 그룹입니다. [Azure 관리되는 응용 프로그램을 만드는](publish-service-catalog-app.md) 경우 이 요소를 사용합니다.
+Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함된 기본 제공 컨트롤 그룹입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
@@ -107,6 +107,5 @@ Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](overview.md)를 참조하세요.
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
 * UI 요소의 공용 속성에 대한 설명은 [CreateUiDefinition 요소](create-uidefinition-elements.md)를 참조하세요.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -228,11 +228,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 Office 2010 이전 및 Apple 메일 등의 일부 응용 프로그램은 2단계 인증을 지원하지 않습니다. 이들 앱은 두 번째 인증을 허용하도록 구성되어 있지 않습니다. 이러한 응용 프로그램을 사용하려면 _앱 암호_ 기능을 이용합니다. 추가 암호 대신에 앱 암호를 사용하면 앱이 2단계 인증을 바이패스하고 계속 작동할 수 있도록 허용할 수 있습니다.
 
->[!NOTE]
->Microsoft Office 2013 클라이언트 이상에 대한 최신 인증
-> 
->Outlook을 포함한 Office 2013 클라이언트 이상의 버전은 최신 인증 프로토콜을 지원하고 2단계 인증과 함께 사용할 수 있습니다. 클라이언트가 사용하도록 설정된 후에는 클라이언트에 대해 앱 암호가 필요하지 않습니다. 자세한 내용은 [발표된 Office 2013 최신 인증 공개 미리 보기](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)를 참조하세요.
->
+Microsoft Office 2013 클라이언트 이상에 대해 최신 인증이 지원됩니다. Outlook을 포함한 Office 2013 클라이언트는 최신 인증 프로토콜을 지원하고 2단계 인증과 함께 사용할 수 있습니다. 클라이언트가 사용하도록 설정된 후에는 클라이언트에 대해 앱 암호가 필요하지 않습니다.
 
 ### <a name="considerations-about-app-passwords"></a>앱 암호에 대한 고려 사항
 

@@ -1,26 +1,27 @@
 ---
 title: 가상 네트워크 피어링으로 가상 네트워크 연결 - Azure Portal | Microsoft Docs
-description: 가상 네트워크 피어링을 사용하여 가상 네트워크를 연결하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크를 연결하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b864c71a62289b3abef13a98b52683f7d928b8e1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -32,7 +33,9 @@ ms.lasthandoff: 03/16/2018
 > * 각 가상 네트워크에 VM(가상 머신) 배포
 > * VM 간 통신
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+원하는 경우 [Azure CLI](tutorial-connect-virtual-networks-cli.md) 또는 [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)을 사용하여 이 문서를 완료할 수 있습니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
@@ -147,7 +150,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들�
 3. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다.
 4. VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택**을 선택한 다음, **다른 계정 사용**을 선택해야 할 수도 있음)한 다음, **확인**을 선택합니다.
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예**를 선택하여 연결을 진행합니다.
-6. 이후 단계에서는 ping을 사용하여 *myVm1* VM의 *myVm2* VM과 통신합니다. ping은 ICMP(Internet Control Message Protocol)를 사용하는데, ICMP는 기본적으로 Windows 방화벽에서 허용되지 않습니다. *myVm1* VM에서 Windows 방화벽을 통해 ICMP(Internet Control Message Protocol)를 사용하도록 설정하면 이후 단계에서 PowerShell을 사용하여 *myVm2*에서 이 VM을 ping할 수 있습니다.
+6. 이후 단계에서는 ping을 사용하여 *myVm1* VM의 *myVm2* VM과 통신합니다. ping은 ICMP(Internet Control Message Protocol)를 사용하는데, ICMP는 기본적으로 Windows 방화벽에서 허용되지 않습니다. *myVm1* VM에서 이후 단계에서 PowerShell을 사용하여 *myVm2*에서 이 VM을 ping할 수 있도록 Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
@@ -177,15 +180,8 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들�
 2. **리소스 그룹 삭제**를 선택합니다.
 3. **리소스 그룹 이름 입력:**에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
 
-**<a name="register"></a>전역 가상 네트워크 피어링 미리 보기에 등록**
-
-동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 사용 가능한 지역에 대해서는 [가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network)를 참조하세요. 지역에 걸쳐 가상 네트워크를 피어링하려면 먼저 미리 보기에 등록해야 합니다. 포털을 사용하여 등록할 수 없지만 [PowerShell](tutorial-connect-virtual-networks-powershell.md#register) 또는 [Azure CLI](tutorial-connect-virtual-networks-cli.md#register)를 사용하여 등록할 수 있습니다. 기능을 등록하기 전에 다른 지역에서 가상 네트워크를 피어링하려고 하면 실패합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 네트워크 피어링을 사용하여 동일한 Azure 위치에 있는 두 네트워크를 연결하는 방법을 배웠습니다. [다른 Azure 구독](create-peering-different-subscriptions.md#portal)의 [다른 지역](#register)에 있는 가상 네트워크를 피어링하고 피어링을 사용하여 [허브 및 스포크 네트워크 디자인](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)을 만들 수도 있습니다. 프로덕션 가상 네트워크를 피어링하기 전에, [피어링 개요](virtual-network-peering-overview.md), [피어링 관리](virtual-network-manage-peering.md) 및 [가상 네트워크 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)에 충분히 익숙해지는 것이 좋습니다. 
+이 문서에서는 가상 네트워크 피어링을 사용하여 동일한 Azure 지역에 있는 두 네트워크를 연결하는 방법을 배웠습니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)과 [다른 Azure 구독](create-peering-different-subscriptions.md#portal)에 있는 가상 네트워크를 피어링하고 피어링을 사용하여 [허브 및 스포크 네트워크 디자인](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)을 만들 수도 있습니다. 가상 네트워크 피어링에 대한 자세한 내용은 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md) 및 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md)를 참조하세요.
 
-계속하여 VPN을 통해 고유한 컴퓨터를 가상 네트워크에 연결하고, 가상 네트워크 또는 피어링된 가상 네트워크의 리소스와 상호 작용할 수 있습니다.
-
-> [!div class="nextstepaction"]
-> [가상 네트워크에 컴퓨터 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+VPN을 통해 고유한 컴퓨터를 가상 네트워크에 연결하고 가상 네트워크 또는 피어링된 가상 네트워크의 리소스와 상호 작용하려면 [가상 네트워크에 컴퓨터 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.

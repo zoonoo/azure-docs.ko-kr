@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 모니터링"
-description: "Azure Application Insights를 Azure Functions와 함께 사용하여 함수 실행을 모니터링하는 방법을 알아봅니다."
+title: Azure Functions 모니터링
+description: Azure Application Insights를 Azure Functions와 함께 사용하여 함수 실행을 모니터링하는 방법을 알아봅니다.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+editor: ''
+tags: ''
+keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -493,7 +493,7 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ### <a name="logging-to-storage"></a>저장소에 로깅
 
-기본 로깅은 `AzureWebJobsDashboard` 앱 설정의 연결 문자열에 지정된 저장소 계정을 사용합니다. 해당 앱 설정이 구성되면 Azure Portal에서 로깅 데이터를 볼 수 있습니다. 함수 앱 페이지에서 함수를 선택한 다음 **모니터** 탭을 선택하면 함수 실행 목록이 표시됩니다. 함수 실행을 선택하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다.
+기본 로깅은 `AzureWebJobsDashboard` 앱 설정의 연결 문자열에 지정된 저장소 계정을 사용합니다. 해당 앱 설정이 구성되면 Azure Portal에서 로깅 데이터를 볼 수 있습니다. Storage 리소스에서 파일로 이동하고 함수에 대한 파일 서비스를 선택한 다음, `LogFiles > Application > Functions > Function > your_function`으로 이동하여 로그 파일을 볼 수 있습니다. 함수 앱 페이지에서 함수를 선택한 다음 **모니터** 탭을 선택하면 함수 실행 목록이 표시됩니다. 함수 실행을 선택하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다.
 
 Application Insights를 사용하면서 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)하면 **모니터** 탭에 Application Insights가 열립니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 회로 및 라우팅 도메인
  연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하려면 *ExpressRoute 회로* 를 주문해야 합니다. 다음 그림은 WAN 및 Microsoft 간 연결의 논리적 표현을 보여 줍니다.
@@ -72,7 +72,7 @@ Microsoft 피어링을 통해 Microsoft 온라인 서비스(Office 365, Dynamics
 ## <a name="routing-domain-comparison"></a>라우팅 도메인 비교
 다음 표에서 3개의 라우팅 도메인을 비교합니다.
 
-|  | **개인 피어링** | **공용 피어링** | **Microsoft 피어링*** |
+|  | **개인 피어링** | **공용 피어링**(새로 만들기에 사용되지 않음) | **Microsoft 피어링** |
 | --- | --- | --- | --- |
 | **피어링당 지원되는 최대값 # 접두사** |기본적으로 4000, ExpressRoute 프리미엄으로 10,000 |200 |200 |
 | **지원되는 IP 주소 범위** |WAN 내의 유효한 IP 주소. |사용자 또는 연결 공급자가 소유한 공용 IP 주소. |사용자 또는 연결 공급자가 소유한 공용 IP 주소. |
@@ -81,7 +81,7 @@ Microsoft 피어링을 통해 Microsoft 온라인 서비스(Office 365, Dynamics
 | **라우팅 인터페이스 IP 주소** |RFC1918 및 공용 IP 주소 |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |
 | **MD5 해시 지원** |예 |예 |예 |
 
-(*) Premium 추가 기능 SKU 계층이 필요합니다.
+
 
 자신의 ExpressRoute 회로의 일부로 하나 이상의 라우팅 도메인을 사용하도록 선택할 수 있습니다. 단일 라우팅 도메인으로 결합하려는 경우 모든 라우팅 도메인을 동일 VPN에 넣도록 선택할 수 있습니다. 위의 도표와 유사한 다른 라우팅 도메인에도 넣습니다. 개인 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 DMZ에 연결되는 것이 권장 구성입니다.
 

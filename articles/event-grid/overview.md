@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 개요"
-description: "Azure Event Grid 및 해당 개념을 설명합니다."
+title: Azure Event Grid 개요
+description: Azure Event Grid 및 해당 개념을 설명합니다.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -33,31 +33,30 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 *   미국 서부
 *   미국 서부 2
 
-이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 다음 이미지에서는 Event Grid가 게시자 및 처리기를 연결하는 방법을 보여주지만 지원되는 옵션의 포괄적인 목록을 제공하지 않습니다.
+이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 다음 이미지에서는 Event Grid가 소스 및 처리기를 연결하는 방법을 보여주지만 지원되는 옵션의 포괄적인 목록을 제공하지 않습니다.
 
 ![Event Grid 기능 모델](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>이벤트 게시자
+## <a name="event-sources"></a>이벤트 원본
 
-현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 게시자를 지원합니다.
+현재 다음 Azure 서비스는 Event Grid로 이벤트 보내기를 지원합니다.
 
 * Azure 구독(관리 작업)
 * 사용자 지정 토픽
 * Event Hubs
-
 * IoT 허브
 * 리소스 그룹(관리 작업)
+* Service Bus
 * 저장소 Blob
 * 저장소 범용 v2(GPv2)
 
 ## <a name="event-handlers"></a>이벤트 처리기
 
-현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 처리기를 지원합니다. 
+현재 다음 Azure 서비스는 Event Grid의 이벤트 처리를 지원합니다. 
 
 * Azure Automation
 * Azure 기능
 * Event Hubs
-
 * Logic Apps
 * Microsoft Flow
 * 웹후크

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Azure 서비스에 대한 Azure Monitor에서 클래식 메트릭 경고 만들기 - PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>개요
 
 > [!NOTE]
-> 이 문서에서는 기존 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 [더 새롭고 더 나은 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 지원합니다. 이러한 경고는 여러 메트릭을 모니터링하고 차원 메트릭에 대한 경고를 허용할 수 있습니다. 더 새로운 메트릭 경고를 위한 Powershell 지원이 곧 제공됩니다.
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 [더 새롭고 더 나은 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 지원합니다. 이러한 경고는 여러 메트릭을 모니터링하고 차원 메트릭에 대한 경고를 허용할 수 있습니다. 더 새로운 메트릭 경고를 위한 Powershell 지원이 곧 제공됩니다.
 >
 >
 
-이 문서에서는 PowerShell을 사용하여 Azure 메트릭 경고를 설정하는 방법을 보여 줍니다.  
+이 문서에서는 PowerShell을 사용하여 Azure 클래식 메트릭 경고를 설정하는 방법을 보여줍니다.  
 
 Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 
 * **메트릭 값** - 이 경고는 특정 메트릭의 값이 어느 방향으로든 사용자가 할당한 임계값을 초과했을 때 트리거됩니다. 즉 조건에 처음 부합했을 때와, 조건에 더 이상 부합하지 않게 되었을 때 모두 트리거됩니다.    
 * **활동 로그 이벤트** - *모든* 이벤트에 대해 또는 특정 이벤트가 발생했을 때만 경고를 트리거할 수 있습니다 활동 로그 경고에 대해 자세히 알아보려면 [여기를 클릭](monitoring-activity-log-alerts.md)하세요.
 
-트리거되면 다음을 수행하도록 메트릭 경고를 구성할 수 있습니다.
+트리거되면 다음을 수행하도록 클래식 메트릭 경고를 구성할 수 있습니다.
 
 * 서비스 관리자 및 공동 관리자에게 이메일 알림을 보냅니다.
 * 사용자가 지정한 추가 이메일 주소로 이메일을 보냅니다.
@@ -135,8 +135,8 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 모니터링 개요](monitoring-overview.md) 를 확인합니다.
-* [경고에서의 webhook 구성](insights-webhooks-alerts.md)에 대해 자세히 알아봅니다.
-* [활동 로그 이벤트에 대한 경고 구성](monitoring-activity-log-alerts.md)에 대해 자세히 알아봅니다.
+* [경고에서 웹후크 구성](insights-webhooks-alerts.md)을 알아봅니다.
+* [활동 로그 이벤트에 대한 경고 구성](monitoring-activity-log-alerts.md)을 알아봅니다.
 * [Azure Automation Runbook](../automation/automation-starting-a-runbook.md)에 대해 자세히 알아봅니다.
 * 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그 수집](monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
