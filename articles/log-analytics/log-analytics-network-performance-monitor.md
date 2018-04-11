@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 847213a5b8aab908d412ecc9aecec984aec1a9ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -48,6 +48,7 @@ NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 �
 * 미국 동부
 * 동남아시아
 * 오스트레일리아 동남부
+* 영국 남부
 * 미국 버지니아 주 정부
 
 ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions)에 제공됩니다.
@@ -142,7 +143,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 1.  **서브네트워크 ID** 옆에 있는 확인란을 선택하거나 선택 취소합니다. 그런 다음,  **모니터링에 사용** 이 적절하게 선택되거나 선택이 취소되었는지 확인합니다. 여러 서브넷을 선택 또는 선택 취소할 수 있습니다. 이 설정을 사용하지 않도록 설정할 경우 서브네트워크가 모니터링되지 않고 다른 에이전트에 대한 Ping을 중지하도록 에이전트가 업데이트됩니다. 
 2. 특정 서브네트워크에서 모니터링할 노드를 선택합니다. 목록에서 서브네트워크를 선택하고 모니터링되지 않는 노드와 모니터링되는 노드가 있는 목록 사이에서 필요한 노드를 이동합니다. 서브네트워크에 사용자 지정 설명을 추가할 수 있습니다.
-3. 구성을 저장하려면 **저장**을 선택합니다. 
+3. **저장**을 선택하여 구성을 저장합니다. 
 
 #### <a name="choose-nodes-to-monitor"></a>모니터링할 노드 선택
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -51,7 +51,7 @@ A: 아니요. Log Analytics는 대량의 데이터를 처리 및 저장하는 �
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Log Analytics에서 더 이상 데이터를 수집하지 않는 경우 어떻게 해결하나요?
 
-A: 무료 가격 책정 계층에 있고 하루에 500MB 이상의 데이터를 보낸 경우 남은 날 동안 데이터 수집이 중지됩니다. 일일 한도에 도달하는 것은 Log Analytics가 데이터 수집을 중지하고 데이터가 사라진 것처럼 표시되는 일반적인 이유입니다.  
+A: 2018년 4월 2일 전에 생성된 작업 영역 및 구독이 *무료* 가격 책정 계층에 있는 경우 일당 500MB 초과의 데이터가 전송된다면 당일 나머지 시간 동안 데이터 수집은 중지합니다. 일일 한도에 도달하는 것은 Log Analytics가 데이터 수집을 중지하고 데이터가 사라진 것처럼 표시되는 일반적인 이유입니다.  
 
 Log Analytics는 *Heartbeat* 형식의 이벤트를 만들며, 데이터 수집이 중지되었는지 여부를 확인하는 데 사용할 수 있습니다. 
 
@@ -68,7 +68,7 @@ Log Analytics는 *Heartbeat* 형식의 이벤트를 만들며, 데이터 수집�
 | 무료 데이터의 한도 도달<sup>1</sup>       | 수집이 다음 달에 자동으로 다시 시작될 때까지 대기 또는<br> 유료 가격 책정 계층으로 변경 |
 | Azure 구독이 다음으로 인해 일시 중단된 상태: <br> 평가판 종료 <br> Azure 암호 만료 <br> 월별 지출 한도 도달(예: MSDN 또는 Visual Studio 구독에서)                          | 유료 구독으로 전환 <br> 유료 구독으로 전환 <br> 한도 제거 또는 한도가 재설정될 때까지 대기 |
 
-<sup>1</sup> 작업 영역이 무료 가격 책정 계층에 있는 경우 일당 500MB의 데이터를 서비스에 전송하도록 제한됩니다. 일일 한도에 도달하면 데이터 수집이 다음 날까지 중지됩니다. 데이터 수집이 중지되는 동안 전송된 데이터가 인덱싱되지 않으며 검색에 사용할 수 없습니다. 데이터 수집이 다시 시작되면 전송된 새 데이터에 대해서만 프로세스가 발생합니다. 
+<sup>1</sup> 작업 영역이 *무료* 가격 책정 계층에 있는 경우 일당 500MB의 데이터를 서비스에 전송하도록 제한됩니다. 일일 한도에 도달하면 데이터 수집이 다음 날까지 중지됩니다. 데이터 수집이 중지되는 동안 전송된 데이터가 인덱싱되지 않으며 검색에 사용할 수 없습니다. 데이터 수집이 다시 시작되면 전송된 새 데이터에 대해서만 프로세스가 발생합니다. 
 
 Log Analytics는 UTC 시간을 사용하고 매일 UTC 자정에 시작됩니다. 작업 영역이 일일 한도에 도달하면 다음 UTC 날의 처음 한 시간 동안 프로세스가 다시 시작됩니다.
 
@@ -96,7 +96,7 @@ a. 아니요, 현재 Azure 저장소의 임의 테이블 또는 컨테이너에�
 
 a. Log Analytics 서비스는 Azure를 기반으로 빌드됩니다. Log Analytics IP 주소는 [Microsoft Azure 데이터 센터 IP 범위](http://www.microsoft.com/download/details.aspx?id=41653)에 있습니다.
 
-서비스 배포가 수행되면서 Log Analytics 서비스의 실제 IP 주소가 변경됩니다. 방화벽을 통과하도록 허용할 DNS 이름이 [Log Analytics에서 프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md)에 설명되어 있습니다.
+서비스 배포가 수행되면서 Log Analytics 서비스의 실제 IP 주소가 변경됩니다. 방화벽을 통과하도록 허용하는 DNS 이름은 [시스템 요구 사항](log-analytics-concept-hybrid.md#prerequisites)에 문서화됩니다.
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. ExpressRoute를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
 
@@ -144,7 +144,7 @@ a. 무료 요금제에서는 작업 영역당 일일 용량을 500MB로 설정�
 
 Log Analytics 에이전트는 작은 공간을 갖도록 설계되었습니다. 데이터 볼륨은 사용하도록 설정한 솔루션에 따라 다릅니다. [사용량](log-analytics-usage.md) 페이지에서 데이터 볼륨에 대한 자세한 정보를 확인하고 솔루션별로 정리된 내용을 볼 수 있습니다.
 
-자세한 내용은 OMS 에이전트의 적은 사용 공간에 대한 [고객 블로그](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)를 참조할 수 있습니다.
+자세한 내용은 OMS 에이전트의 리소스 사용률(공간)을 평가한 후 해당 결과를 보여주는 [고객 블로그](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)를 참조할 수 있습니다.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. 데이터를 Log Analytics로 전송할 때 Microsoft Management Agent(MMA)에 사용된 네트워크 대역폭은 얼마나 되나요?
 
