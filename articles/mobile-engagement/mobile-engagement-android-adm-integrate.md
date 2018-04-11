@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Android SDK 통합"
-description: "Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
+title: Azure Mobile Engagement Android SDK 통합
+description: Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>ADM와 Engagement를 통합하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 > [!IMPORTANT]
 > 이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
 > 
@@ -34,14 +38,14 @@ ADM을 통합하면 Amazon Android 장치를 대상으로 할 때 응용 프로�
 SDK로 푸시된 ADM 페이로드는 데이터 개체에 항상 `azme` 키를 포함합니다. 따라서 응용 프로그램에서 다른 용도로 ADM을 사용하는 경우 해당 키에 따라 푸시를 필터링할 수 있습니다.
 
 > [!IMPORTANT]
-> Android 4.0.3 이상을 실행하는 Amazon Kindle 장치만 Amazon 장치 메시징을 통해 지원되지만 다른 장치에서 안전하게 이 코드를 통합할 수 있습니다.
+> Android 4.0.3 이상을 실행하는 Amazon Kindle 장치만 Amazon Device Messaging을 통해 지원되지만 다른 장치에서 안전하게 이 코드를 통합할 수 있습니다.
 > 
 > 
 
 ## <a name="sign-up-to-adm"></a>ADM에 등록
 아직 등록하지 않은 경우 Amazon 계정에서 ADM를 활성화해야 합니다.
 
-절차는 [<https://developer.amazon.com/sdk/adm/credentials.html>]에 자세히 설명되어 있습니다.
+프로시저는 [<https://developer.amazon.com/sdk/adm/credentials.html>]에 자세히 설명되어 있습니다.
 
 절차를 완료하면 다음을 얻게 됩니다.
 

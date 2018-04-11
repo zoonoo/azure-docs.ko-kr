@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 가용성 그룹 - Azure Virtual Machines - 필수 구성 요소 | Microsoft 문서"
-description: "이 자습서에서는 Azure VM에서 SQL Server Always On 가용성 그룹을 만들기 위한 필수 구성 요소를 구성하는 방법을 보여 줍니다."
+title: SQL Server 가용성 그룹 - Azure Virtual Machines - 필수 구성 요소 | Microsoft 문서
+description: 이 자습서에서는 Azure VM에서 SQL Server Always On 가용성 그룹을 만들기 위한 필수 구성 요소를 구성하는 방법을 보여 줍니다.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
@@ -51,9 +51,9 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
    ![리소스 그룹](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. **리소스 그룹**을 클릭합니다.
 5. **만들기**를 클릭합니다.
-6. **리소스 그룹** 블레이드의 **리소스 그룹 이름**에 리소스 그룹의 이름을 입력합니다. 예를 들어 **sql-ha-rg**를 입력합니다.
+6. **리소스 그룹 이름** 아래에 리소스 그룹의 이름을 입력합니다. 예를 들어 **sql-ha-rg**를 입력합니다.
 7. 여러 Azure 구독이 있는 경우 해당 구독이 가용성 그룹을 만들려는 Azure 구독인지 확인합니다.
-8. 위치를 선택합니다. 위치는 가용성 그룹을 만들려는 Azure 지역입니다. 이 자습서에서는 모든 리소스를 한 Azure 위치에 빌드합니다.
+8. 위치를 선택합니다. 위치는 가용성 그룹을 만들려는 Azure 지역입니다. 이 문서는 하나는 Azure 위치에 모든 리소스를 빌드합니다.
 9. **대시보드에 고정**이 선택되어 있는지 확인합니다. 이 선택적 설정은 Azure 포털 대시보드에 리소스 그룹에 대한 바로 가기를 배치합니다.
 
    ![리소스 그룹](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
@@ -69,14 +69,14 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 
 가상 네트워크를 만들려면
 
-1. Azure Portal의 리소스 그룹에서 **+ 추가**를 클릭합니다. **모두** 블레이드가 열립니다.
+1. Azure Portal의 리소스 그룹에서 **+ 추가**를 클릭합니다. 
 
    ![새 항목](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. **가상 네트워크**를 검색합니다.
 
      ![가상 네트워크 검색](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. **가상 네트워크**를 클릭합니다.
-4. **가상 네트워크** 블레이드에서 **Resource Manager** 배포 모델을 클릭하고 **만들기**를 클릭합니다.
+4. **가상 네트워크**에서 **Resource Manager** 배포 모델을 클릭한 다음, **만들기**를 클릭합니다.
 
     다음 표에서는 가상 네트워크에 대한 설정을 보여 줍니다.
 
@@ -106,14 +106,14 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 1. 대시보드에서 사용자가 만든 리소스 그룹인 **SQL-HA-RG**를 클릭합니다. 리소스 그룹의 **리소스**에서 네트워크를 찾습니다.
 
     **SQL-HA-RG**가 표시되지 않으면 **리소스 그룹**을 클릭하고 리소스 그룹 이름으로 필터링하여 찾습니다.
-2. 리소스 목록에서 **autoHAVNET** 을 클릭합니다. 네트워크 구성 블레이드가 열립니다.
-3. **autoHAVNET** 가상 네트워크 블레이드의 **설정**에서 **서브넷**을 클릭합니다.
+2. 리소스 목록에서 **autoHAVNET** 을 클릭합니다. 
+3. **autoHAVNET** 가상 네트워크의 **설정**에서 **서브넷**을 클릭합니다.
 
     이미 만들어진 서브넷을 확인합니다.
 
    ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. 두 번째 서브넷을 만듭니다. **+ 서브넷**을 클릭합니다.
-6. **서브넷 추가** 블레이드에서 **이름** 아래에 **sqlsubnet**을 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
+6. **서브넷 추가**에서 **이름** 아래에 **sqlsubnet**을 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
 7. **확인**을 클릭합니다.
 
     ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
@@ -157,9 +157,9 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>도메인 컨트롤러에 대한 가상 머신 만들기
 도메인 컨트롤러를 만들고 구성하려면 **SQL-HA-RG** 리소스 그룹으로 돌아갑니다.
 
-1. **추가**를 클릭합니다. **모두** 블레이드가 열립니다.
+1. **추가**를 클릭합니다. 
 2. **Windows Server 2016 Datacenter**를 입력합니다.
-3. **Windows Server 2016 Datacenter**를 클릭합니다. **Windows Server 2016 Datacenter** 블레이드에서 배포 모델이 **Resource Manager**인지 확인하고 **만들기**를 클릭합니다. **가상 머신 만들기** 블레이드가 열립니다.
+3. **Windows Server 2016 Datacenter**를 클릭합니다. **Windows Server 2016 Datacenter**에서 배포 모델이 **Resource Manager**인지 확인한 다음, **만들기**를 클릭합니다. 
 
 두 개의 가상 머신을 만들려면 이전 단계를 반복합니다. 두 개의 가상 머신 이름을 지정합니다.
 
@@ -202,7 +202,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 ### <a name="configure-the-domain-controller"></a>도메인 컨트롤러 구성
 다음 단계에서는 corp.contoso.com에 대한 도메인 컨트롤러로 **ad-primary-dc** 컴퓨터를 구성합니다.
 
-1. 포털에서 **SQL-HA-RG** 리소스 그룹을 선택하고 **ad-primary-dc** 컴퓨터를 선택합니다. **ad-primary-dc** 블레이드에서 **연결**을 클릭하여 원격 데스크톱 액세스를 위한 RDP 파일을 엽니다.
+1. 포털에서 **SQL-HA-RG** 리소스 그룹을 선택하고 **ad-primary-dc** 컴퓨터를 선택합니다. **ad-primary-dc**에서 **연결**을 클릭하여 원격 데스크톱 액세스를 위한 RDP 파일을 엽니다.
 
     ![가상 머신에 연결](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. 구성된 관리자 계정(**\DomainAdmin**) 및 암호(**Contoso!0000**)로 로그인합니다.
@@ -246,7 +246,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 
 2. 주 도메인 컨트롤러를 클릭합니다.
 
-3. 주 도메인 컨트롤러 블레이드에서 **네트워크 인터페이스**를 클릭합니다.
+3. 주 도메인 컨트롤러에서 **네트워크 인터페이스**를 클릭합니다.
 
 ![네트워크 인터페이스](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/25-primarydcip.png)
 
@@ -266,7 +266,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 ### <a name="configure-the-second-domain-controller"></a>두 번째 도메인 컨트롤러 구성
 주 도메인 컨트롤러를 다시 부팅한 후에 두 번째 도메인 컨트롤러를 구성할 수 있습니다. 이 선택적 단계는 가용성을 높이기 위한 것입니다. 두 번째 도메인 컨트롤러를 구성하려면 다음 단계를 수행합니다.
 
-1. 포털에서 **SQL-HA-RG** 리소스 그룹을 열고 **ad-secondary-dc** 컴퓨터를 선택합니다. **ad-secondary-dc** 블레이드에서 **연결**을 클릭하여 원격 데스크톱 액세스를 위한 RDP 파일을 엽니다.
+1. 포털에서 **SQL-HA-RG** 리소스 그룹을 열고 **ad-secondary-dc** 컴퓨터를 선택합니다. **ad-secondary-dc**에서 **연결**을 클릭하여 원격 데스크톱 액세스를 위한 RDP 파일을 엽니다.
 2. 구성된 관리자 계정(**BUILTIN\DomainAdmin**) 및 암호(**Contoso!0000**)를 사용하여 VM에 로그인합니다.
 3. 기본 설정된 DNS 서버 주소를 도메인 컨트롤러의 주소로 변경합니다.
 4. **네트워크 및 공유 센터**에서 네트워크 인터페이스를 클릭합니다.
@@ -305,7 +305,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 
 ### <a name="add-the-private-ip-address-to-the-second-domain-controller-to-the-vpn-dns-server"></a>두 번째 도메인 컨트롤러의 개인 IP 주소를 VPN DNS 서버에 추가합니다.
 
-Azure Portal의 가상 네트워크에서 보조 도메인 컨트롤러의 IP 주소를 포함하도록 DNS 서버를 변경합니다. 이렇게 하면 DNS 서비스 중복성이 허용됩니다.
+Azure Portal의 가상 네트워크에서 보조 도메인 컨트롤러의 IP 주소를 포함하도록 DNS 서버를 변경합니다. 이 설정은 DNS 서비스 중복성을 허용합니다.
 
 ### <a name=DomainAccounts></a> 도메인 계정 구성
 
@@ -358,7 +358,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 
 * **네트워크 - 프로덕션 환경의 개인 IP 주소**
 
-   이 자습서에서는 가상 머신에 대해 공용 IP 주소를 사용합니다. 이렇게 하면 인터넷을 통해 가상 컴퓨터에 직접 원격으로 연결할 수 있으므로 구성 단계가 좀 더 용이해집니다. 프로덕션 환경에서는 SQL Server 인스턴스 VM 리소스의 취약성을 줄이기 위해 개인 IP 주소만 권장됩니다.
+   이 자습서에서는 가상 머신에 대해 공용 IP 주소를 사용합니다. 공용 IP 주소를 사용하면 인터넷을 통해 가상 머신에 직접 원격으로 연결할 수 있으므로 구성 단계가 좀 더 용이해집니다. 프로덕션 환경에서는 SQL Server 인스턴스 VM 리소스의 취약성을 줄이기 위해 개인 IP 주소만 권장됩니다.
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>SQL Server VM 만들기 및 구성
 다음으로 추가 클러스터 노드의 VM 1개와 SQL Server VM 2개를 포함하는 VM을 3개 만듭니다. 각 VM을 만들려면 **SQL-HA-RG** 리소스 그룹으로 돌아가서 **추가**를 클릭하고, 적합한 갤러리 항목을 검색하고, **Virtual Machine**, **갤러리에서**를 차례로 클릭합니다. 아래 표의 정보를 사용하면 VM을 만드는 데 도움이 됩니다.
@@ -383,7 +383,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 
 ### <a name="joinDomain"></a>서버를 도메인에 가입
 
-이제 VM을 **corp.contoso.com**에 가입시킬 수 있습니다. 두 SQL Server VM 및 파일 공유 감시 서버에 대해 다음을 수행합니다.
+이제 VM을 **corp.contoso.com**에 가입시킬 수 있습니다. 두 SQL Server VM 및 파일 공유 감시 서버에 대해 다음 단계를 수행합니다.
 
 1. **BUILTIN\DomainAdmin**을 사용하여 가상 컴퓨터에 원격으로 연결합니다.
 2. **서버 관리자**에서 **로컬 서버**를 클릭합니다.
@@ -449,7 +449,7 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>두 SQL Server VM에 장애 조치(failover) 클러스터링 기능 추가
 
-장애 조치(failover) 클러스터링 기능을 추가하려면 두 SQL Server VM에서 모두 다음을 수행합니다.
+장애 조치(failover) 클러스터링 기능을 추가하려면 두 SQL Server VM에서 모두 다음 단계를 수행합니다.
 
 1. *CORP\install* 계정을 사용하여 RDP(원격 데스크톱 프로토콜)를 통해 SQL Server 가상 머신에 연결합니다. **서버 관리자 대시보드**를 엽니다.
 2. 대시보드에서 **역할 및 기능 추가** 링크를 클릭합니다.
@@ -492,6 +492,36 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 8. **이름** 페이지에서 **이름** 텍스트 상자에 **Azure LB Probe**와 같은 규칙 이름을 지정하고 **마침**을 클릭합니다.
 
 두 번째 SQL Server VM에서 이 단계를 반복합니다.
+
+## <a name="configure-system-account-permissions"></a>시스템 계정 권한 구성
+
+시스템 계정에 대한 계정을 만들고 적절한 권한을 부여하려면 각 SQL Server 인스턴스에서 다음 단계를 완료합니다.
+
+1. 각 SQL Server 인스턴스에서 `[NT AUTHORITY\SYSTEM]`에 대한 계정을 만듭니다. 다음 스크립트는 이 계정을 만듭니다.
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. 각 SQL Server 인스턴스에서 `[NT AUTHORITY\SYSTEM]`에 다음 권한을 부여합니다.
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   다음 스크립트는 이러한 권한을 부여합니다.
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

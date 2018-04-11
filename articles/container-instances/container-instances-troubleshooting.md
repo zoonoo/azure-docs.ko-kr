@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ac7ddbccdef736bce941716883cf821a0f5c1f34
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Azure Container Instances로의 배포 문제 해결
+# <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 및 배포 문제 해결
 
 이 문서에는 컨테이너를 Azure Container Instances로 배포하는 경우 문제를 해결하는 방법을 보여줄 뿐만 아니라, 발생할 수 있는 일반적인 문제 중 일부를 설명합니다.
 

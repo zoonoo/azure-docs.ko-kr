@@ -1,6 +1,6 @@
 ---
-title: "Azure Managed Application Section UI 요소 | Microsoft Docs"
-description: "Azure Managed Applications의 Microsoft.Common.Section UI 요소에 대해 설명합니다."
+title: Azure Section UI 요소 | Microsoft Docs
+description: Azure Portal의 Microsoft.Common.Section UI 요소에 대해 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a460fde88982c53a7ef3a1ec444d50c1c482fc4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 46ea2e3d404ac3ec9b7f909257451991dbb55f53
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI 요소
-제목 아래에 하나 이상의 요소를 그룹화하는 컨트롤입니다. [Azure 관리되는 응용 프로그램을 만드는](publish-service-catalog-app.md) 경우 이 요소를 사용합니다.
+제목 아래에 하나 이상의 요소를 그룹화하는 컨트롤입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -61,6 +61,5 @@ basics('section1').element1
 `Microsoft.Common.Section` 형식의 요소에는 출력 값 자체가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](overview.md)를 참조하세요.
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
 * UI 요소의 공용 속성에 대한 설명은 [CreateUiDefinition 요소](create-uidefinition-elements.md)를 참조하세요.

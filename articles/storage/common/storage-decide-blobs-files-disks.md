@@ -1,24 +1,18 @@
 ---
-title: "Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정"
-description: "사용할 기술을 결정할 수 있도록 Azure에서 데이터를 저장 및 액세스하는 여러 방법에 대해 알아봅니다."
+title: Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
+description: 사용할 기술을 결정할 수 있도록 Azure에서 데이터를 저장 및 액세스하는 여러 방법에 대해 알아봅니다.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 
@@ -47,9 +41,9 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
 |Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |디렉터리|단일 구조 네임스페이스|실제 디렉터리 개체|  
 |이름 대/소문자 구분|대/소문자 구분|대/소문자 구분 안 함, 대/소문자 유지|  
-|용량|최대 500TB 컨테이너|5TB 파일 공유|  
-|처리량|블록 Blob당 최대 60MB/s|공유당 최대 60MB/s|  
-|개체 크기|최대 200GB/블록 Blob|최대 1TB/파일|  
+|용량|최대 500TiB 컨테이너|5TiB 파일 공유|  
+|처리량|블록 Blob당 최대 60MiB/s|공유당 최대 60MiB/s|  
+|개체 크기|블록 Blob당 최대 약 4.75TiB|파일당 최대 1TiB|  
 |요금 청구 용량|기록된 바이트 기준|파일 크기 기준|  
 |클라이언트 라이브러리|여러 언어|여러 언어|  
   
@@ -63,14 +57,14 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 |-|-|-|  
 |**특성**|**Azure 디스크**|**Azure 파일**|  
 |범위|단일 가상 머신에 배타적으로 적용|여러 가상 머신 간에 공유 액세스|  
-|스냅숏 및 복사|예|아니요|  
+|스냅숏 및 복사|예|아니오|  
 |구성|가상 컴퓨터 시작 시 연결됨|가상 컴퓨터가 시작된 후 연결됨|  
 |인증|기본 제공|net use로 설정|  
 |정리|자동|설명서|  
 |REST를 사용하여 액세스|VHD 내의 파일에 액세스할 수 없음|공유에 저장된 파일에 액세스할 수 있음|  
-|최대 크기|4TB 디스크|공유 내 5TB 파일 공유 및 1TB 파일|  
+|최대 크기|4TiB 디스크|공유 내 5TiB 파일 공유 및 1TiB 파일|  
 |최대 8KB IOps|500IOps|1000IOps|  
-|처리량|디스크당 최대 60MB/s|파일 공유당 최대 60MB/s|  
+|처리량|디스크당 최대 60MiB/s|파일 공유당 최대 60MiB/s|  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,23 +1,23 @@
 ---
-title: "AKS 및 Azure Container Registry에서 Draft 사용"
-description: "AKS 및 Azure Container Registry에서 Draft 사용"
+title: AKS 및 Azure Container Registry에서 Draft 사용
+description: AKS 및 Azure Container Registry에서 Draft 사용
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Azure Container Service(AKS)에서 Draft 사용
 
-Draft는 Kubernetes 클러스터에서 코드를 패키지화하고 실행하는 데 도움이 되는 오픈 소스 도구입니다. Draft는 개발 반복 주기(코드 개발 중이지만 버전 제어에 커밋하기 전)를 목표로 합니다. Draft를 사용하면 코드가 변경될 때 Kubernetes에 응용 프로그램을 신속하게 재배포할 수 있습니다. Draft에 대한 자세한 내용은 [Github의 Draft 설명서][draft-documentation]를 참조하세요.
+Draft는 Kubernetes 클러스터에 이러한 컨테이너를 포함하고 배포하게 하면서 집중 개발의 "내부 루프" 곧 개발 주기에 자유롭게 집중하게 하는 오픈 소스 도구입니다. Draft는 코드가 개발되고 있을 때 그러나 버전 제어에 커밋하기 전에 작동합니다. Draft를 사용하면 코드가 변경될 때 Kubernetes에 응용 프로그램을 신속하게 재배포할 수 있습니다. Draft에 대한 자세한 내용은 [Github의 Draft 설명서][draft-documentation]를 참조하세요.
 
 이 문서에서는 AKS에서 Kubernetes 클러스터와 함께 Draft를 사용하는 방법에 대해 자세히 설명합니다.
 
@@ -29,64 +29,51 @@ ACR(Azure Container Registry)에서 개인 Docker 레지스트리도 필요합�
 
 또한 Helm을 AKS 클러스터에 설치해야 합니다. Helm을 설치하는 방법에 대한 자세한 내용은 [AKS(Azure Container Service)에서 AKS 사용][aks-helm]을 참조하세요.
 
+마지막으로 [Docker](https://www.docker.com)를 설치해야 합니다.
+
 ## <a name="install-draft"></a>Draft 설치
 
-Draft CLI는 개발 시스템에서 실행되는 클라이언트로, Kubernetes 클러스터에 코드를 신속하게 배포할 수 있습니다.
+Draft CLI는 개발 시스템에서 실행되는 클라이언트로, Kubernetes 클러스터에 코드를 신속하게 배포할 수 있습니다. 
+
+> [!NOTE] 
+> 버전 0.12 전에 Draft를 설치했다면 먼저 `helm delete --purge draft`을 사용하여 클러스터에서 Draft를 삭제한 다음, `rm -rf ~/.draft`를 실행하여 로컬 구성을 제거해야 합니다. MacOS에 있다면 `brew upgrade draft`을 실행할 수 있습니다.
 
 Mac에서 Draft CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션에 대해서는 [Draft 설치 가이드][install-draft]를 참조하세요.
 
 ```console
+brew tap azure/draft
 brew install draft
 ```
 
-출력
-
-```
-==> Installing draft from azure/draft
-==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
-Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
-==> /usr/local/Cellar/draft/0.7.0/bin/draft init --client-only
-🍺  /usr/local/Cellar/draft/0.7.0: 6 files, 61.2MB, built in 1 second
-```
-
-## <a name="configure-draft"></a>Draft 구성
-
-Draft를 구성할 때 컨테이너 레지스트리를 지정해야 합니다. 이 예제에서는 Azure Container Registry를 사용합니다.
-
-다음 명령을 실행하여 ACR 인스턴스의 이름과 로그인 서버 이름을 가져옵니다. 명령을 ACR 인스턴스가 있는 리소스 그룹의 이름으로 업데이트합니다.
-
-```console
-az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
-```
-
-ACR 인스턴스 암호도 필요합니다.
-
-ACR 암호를 반환하려면 다음 명령을 실행합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
-
-```console
-az acr credential show --name <acr name> --query "passwords[0].value" --output table
-```
-
-`draft init` 명령으로 Draft를 초기화합니다.
+이제 `draft init` 명령으로 Draft를 초기화합니다.
 
 ```console
 draft init
 ```
 
-이 프로세스 중에 컨테이너 레지스트리 자격 증명을 묻는 메시지가 나타납니다. Azure Container Registry를 사용하는 경우 레지스트리 URL은 ACR 로그인 서버 이름이고 사용자 이름은 ACR 인스턴스 이름이며 암호는 ACR 암호입니다.
+## <a name="configure-draft"></a>Draft 구성
+
+Draft는 컨테이너 이미지를 로컬에서 빌드한 다음, 로컬 레지스트리(Minikube의 경우)에서 이미지를 배포하거나 사용할 이미지 레지스트리를 지정해야 합니다. 이 예제에서는 ACR(Azure Container Registry)를 사용함으로써 AKS 클러스터와 ACR 레지스트리 간에 트러스트 관계를 설정하고 Draft를 구성하여 컨테이너를 ACR로 푸시합니다.
+
+### <a name="create-trust-between-aks-cluster-and-acr"></a>AKS 클러스터와 ACR 사이의 트러스트 만들기
+
+AKS 클러스터와 ACR 레지스트리 간에 트러스트를 설정하려면 ACR 리포지토리 범위를 통해 참가자 역할을 추가하여 AKS가 사용된 Azure Active Directory 서비스 주체를 수정합니다. 이렇게 하려면 다음 명령을 실행합니다. _&lt;aks-rg-name&gt;_ 및 _&lt;aks-cluster-name&gt;_을 AKS 클러스터의 이름 및 리소스 그룹으로 교체하고 _&lt;acr-rg-nam&gt;_ 및 _&lt;acr-repo-name&gt;_을 트러스트를 만들려는 ACR 리포지토리의 리소스 그룹 및 리포지토리 이름으로 바꾸십시오.
 
 ```console
-1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
-2. Enter your username: <ACR Name>
-3. Enter your password: <ACR Password>
+export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
-완료되면 Draft가 Kubernetes 클러스터에서 구성되고 사용할 준비가 됩니다.
+(ACR에 액세스하기 위한 이러한 단계 및 기타 인증 메커니즘은 [ACR을 사용하여 인증하기](../container-registry/container-registry-auth-aks.md)에 있습니다.)
 
-```
-Draft has been installed into your Kubernetes Cluster.
-Happy Sailing!
-```
+### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>ACR에서 배포하고 푸시할 Draft 구성
+
+AKS와 ACR 간에 트러스트 관계가 있으므로 다음 단계를 통해 AKS 클러스터에서 ACR을 사용할 수 있습니다.
+1. _&lt;레지스트리 이름&lt;_이 ACR 레지스트리 이름인 경우 `draft config set registry <registry name>.azurecr.io`를 실행하여 Draft 구성 `registry` 값을 설정합니다.
+2. `az acr login -n <registry name>`을 실행하여 ACR 레지스트리에 로그온합니다. 
+
+로컬로 ACR에 로그온하고 AKS와 ACR 간에 트러스트 관계를 만들었으므로 ACR에서 AKS로 푸시하거나 풀하기 위해 암호는 필요없습니다. Azure Active Directory를 사용하여 Azure Resource Manager 수준에서 인증이 발생합니다. 
 
 ## <a name="run-an-application"></a>응용 프로그램 실행
 
@@ -99,7 +86,7 @@ git clone https://github.com/Azure/draft
 Java 예제 디렉터리로 변경합니다.
 
 ```console
-cd draft/examples/java/
+cd draft/examples/example-java/
 ```
 
 `draft create` 명령을 사용하여 프로세스를 시작합니다. 이 명령은 Kubernetes 클러스터에서 응용 프로그램을 실행하는 데 사용되는 아티팩트를 만듭니다. 이러한 항목에는 Dockerfile, Helm 차트 포함 및 Draft 구성 파일인 `draft.toml` 파일이 포함됩니다.
@@ -110,12 +97,14 @@ draft create
 
 출력
 
-```
+```console
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
 
-Kubernetes 클러스터에서 응용 프로그램을 실행하려면 `draft up` 명령을 사용합니다. 이 명령은 Kubernetes 클러스터에 응용 프로그램 코드 및 구성 파일을 업로드합니다. 그런 다음 Dockerfile을 실행하여 컨테이너 이미지를 만들고 이미지를 컨테이너 레지스트리에 푸시한 다음 마지막으로 Helm 차트를 실행하여 응용 프로그램을 시작합니다.
+Kubernetes 클러스터에서 응용 프로그램을 실행하려면 `draft up` 명령을 사용합니다. 이 명령은 Dockerfile을 빌드하여 컨테이너 이미지를 만들고 이미지를 ACR로 푸시하고 마지막으로 Helm 차트를 설치하여 AKS에서응용 프로그램을 시작합니다.
+
+처음 실행될 때는 컨테이너 이미지를 푸시하고 풀하는 데 어느 정도 시간이 걸릴 수 있습니다. 기본 계층이 캐시되면 걸리는 시간이 크게 줄어듭니다.
 
 ```console
 draft up
@@ -123,12 +112,13 @@ draft up
 
 출력
 
-```
-Draft Up Started: 'open-jaguar'
-open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
-open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
-open-jaguar: Releasing Application: SUCCESS ⚓  (4.5056s)
-open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
+```console
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (3.0007s)
+example-java: Releasing Application: SUCCESS ⚓  (0.9322s)
+example-java: Build ID: 01C9NPDYQQH2CZENDMZW7ESJAM
+Inspect the logs with `draft logs 01C9NPDYQQH2CZENDMZW7ESJAM`
 ```
 
 ## <a name="test-the-application"></a>응용 프로그램 테스트
@@ -143,7 +133,7 @@ draft connect
 
 출력
 
-```
+```console
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -153,7 +143,10 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-응용 프로그램 테스트가 끝나면 `Control+C`를 사용하여 프록시 연결을 중지합니다.
+http://localhost:46143로 이동하여 응용 프로그램을 테스트할 수 있습니다(앞의 예제에서 포트가 다를 수 있습니다). 응용 프로그램 테스트가 끝나면 `Control+C`를 사용하여 프록시 연결을 중지합니다.
+
+> [!NOTE]
+> `draft up --auto-connect` 명령을 사용하여 응용 프로그램을 빌드 및 배포할 수 있으며 즉각 첫 번째 실행 중인 컨테이너에 연결하여 반복 주기를 더 빠르게 할 수 있습니다.
 
 ## <a name="expose-application"></a>응용 프로그램 공개
 
@@ -163,7 +156,7 @@ Kubernetes에서 응용 프로그램을 테스트할 때 인터넷에서 응용 
 먼저, `LoadBalancer` 유형의 서비스를 만들도록 지정하기 위해 Draft 팩을 업데이트해야 합니다. 이렇게 하려면 `values.yaml` 파일에서 서비스 유형을 업데이트합니다.
 
 ```console
-vi chart/java/values.yaml
+vi charts/java/values.yaml
 ```
 
 `service.type` 속성을 찾고 값을 `ClusterIP`에서 `LoadBalancer`로 업데이트합니다.
@@ -203,13 +196,13 @@ kubectl get service -w
 처음에는 서비스에 대한 *EXTERNAL-IP*가 `pending`으로 표시됩니다.
 
 ```
-deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
+example-java-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
 EXTERNAL-IP 주소가 `pending`에서 `IP address`로 변경되면 `Control+C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
 
 ```
-deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+example-java-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
 응용 프로그램을 보려면 외부 IP 주소로 이동합니다.
@@ -243,25 +236,35 @@ import static spark.Spark.*;
 
 public class Hello {
     public static void main(String[] args) {
-        get("/", (req, res) -> "Hello World, I'm Java - Draft Rocks!");
+        get("/", (req, res) -> "Hello World, I'm Java in AKS!");
     }
 }
 ```
 
-`draft up` 명령을 실행하여 응용 프로그램을 재배포합니다.
+`draft up --auto-connect` 명령을 실행하여 Pod가 응답할 준비가 되자마자 응용 프로그램을 재배포합니다.
 
 ```console
-draft up
+draft up --auto-connect
 ```
 
 출력
 
 ```
-Draft Up Started: 'deadly-squid'
-deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
-deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
-deadly-squid: Releasing Application: SUCCESS ⚓  (6.5005s)
-deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (4.0010s)
+example-java: Releasing Application: SUCCESS ⚓  (1.1336s)
+example-java: Build ID: 01C9NPMJP6YM985GHKDR2J64KC
+Inspect the logs with `draft logs 01C9NPMJP6YM985GHKDR2J64KC`
+Connect to java:4567 on localhost:39249
+Your connection is still active.
+Connect to java:4567 on localhost:39249
+[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: == Spark has ignited ...
+[java]: >> Listening on 0.0.0.0:4567
+
 ```
 
 마지막으로 응용 프로그램을 보고 업데이트를 확인합니다.
@@ -273,7 +276,7 @@ curl 52.175.224.118
 출력
 
 ```
-Hello World, I'm Java - Draft Rocks!
+Hello World, I'm Java in AKS!
 ```
 
 ## <a name="next-steps"></a>다음 단계

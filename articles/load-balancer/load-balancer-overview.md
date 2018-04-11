@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Azure Load Balancer 개요
 
@@ -142,7 +142,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![공용 부하 분산 장치 예](./media/load-balancer-overview/IC727496.png)
 
-**그림 1: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산**
+*그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 가상 머신에 요청을 분산합니다. 부하 분산 알고리즘에 대한 자세한 내용은 [부하 분산 장치 개요 페이지](load-balancer-overview.md#load-balancer-features)를 참조하세요.
 
@@ -161,7 +161,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![내부 부하 분산 장치 예제](./media/load-balancer-overview/IC744147.png)
 
-**그림 2 - 공용 및 내부 부하 분산 장치를 둘 다 사용하여 다중 계층 응용 프로그램 부하 분산**
+*그림 - 공용 및 내부 부하 분산 장치를 둘 다 사용하여 다중 계층 응용 프로그램 부하 분산*
 
 ## <a name="pricing"></a>가격
 표준 Load Balancer는 구성된 부하 분산 규칙 수와 처리되는 모든 인바운드 및 아웃바운드 데이터를 기준으로 요금이 청구되는 제품입니다. 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.

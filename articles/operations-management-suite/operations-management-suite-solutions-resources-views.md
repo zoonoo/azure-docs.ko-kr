@@ -1,8 +1,8 @@
 ---
-title: "OMS(Operations Management Suite) 관리 솔루션의 보기 | Microsoft Docs"
-description: "OMS(Operations Management Suite)의 관리 솔루션은 대개 데이터를 시각화하기 위한 하나 이상의 보기를 포함합니다.  이 문서에서는 뷰 디자이너에서 만들어진 보기를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다. "
+title: 관리 솔루션 보기 | Microsoft Docs
+description: '관리 솔루션은 대개 데이터를 시각화하기 위한 하나 이상의 보기를 포함합니다.  이 문서에서는 뷰 디자이너에서 만들어진 보기를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>OMS(Operations Management Suite) 관리 솔루션의 보기(Preview)
+# <a name="views-in-management-solutions-preview"></a>관리 솔루션 보기(미리 보기)
 > [!NOTE]
-> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.    
->
->
+> 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.    
 
-[OMS(Operations Management Suite)의 관리 솔루션](operations-management-suite-solutions.md)은 대개 데이터를 시각화하기 위한 하나 이상의 보기를 포함합니다.  이 문서에서는 [뷰 디자이너](../log-analytics/log-analytics-view-designer.md)에서 만들어진 보기를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다.  
+
+[관리 솔루션](operations-management-suite-solutions.md)은 대개 데이터를 시각화하기 위한 하나 이상의 보기를 포함합니다.  이 문서에서는 [뷰 디자이너](../log-analytics/log-analytics-view-designer.md)에서 만들어진 보기를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다.  
 
 > [!NOTE]
-> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다.
+> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용
 >
 >
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 01/17/2018
 ## <a name="export-the-view-to-a-file"></a>보기를 파일로 내보내기
 [Log Analytics 뷰 디자이너](../log-analytics/log-analytics-view-designer.md)의 지침에 따라 보기를 파일로 내보냅니다.  내보낸 파일의 형식은 [솔루션 파일과 같은 요소](operations-management-suite-solutions-solution-file.md)가 포함된 JSON 형식이 됩니다.  
 
-보기 파일의 **resources** 요소에는 OMS 작업 영역을 나타내는 **Microsoft.OperationalInsights/workspaces** 형식의 리소스가 포함됩니다.  이 요소에는 보기를 나타내고 세부 구성이 들어 있는 **views** 형식의 하위 요소가 포함됩니다.  이 요소의 세부 정보를 복사하여 솔루션에 붙여넣습니다.
+보기 파일의 **리소스** 요소에는 Log Analytics 작업 영역을 나타내는 **Microsoft.OperationalInsights/workspaces** 형식의 리소스가 포함됩니다.  이 요소에는 보기를 나타내고 세부 구성이 들어 있는 **views** 형식의 하위 요소가 포함됩니다.  이 요소의 세부 정보를 복사하여 솔루션에 붙여넣습니다.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>솔루션에서 보기 리소스 만들기
 솔루션 파일의 **resources** 요소에 다음 보기 리소스를 추가합니다.  이 작업에는 아래 설명된, 추가해야 하는 변수가 사용됩니다.  **Dashboard** 및 **OverviewTile** 속성은 내보낸 보기 파일의 해당 속성으로 덮어쓸 자리 표시자입니다.

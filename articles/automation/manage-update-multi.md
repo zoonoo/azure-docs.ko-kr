@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -61,7 +61,7 @@ Windows 에이전트는 WSUS(Windows Server Update Services) 서버와 통신하
 
 Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.
 
-이 솔루션은 여러 개의 Operations Management Suite 작업 영역에 보고하도록 구성된 Linux용 OMS 에이전트를 지원하지 않습니다.
+이 솔루션은 여러 Log Analytics 작업 영역에 보고하도록 구성된 Linux용 OMS 에이전트는 지원하지 않습니다.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 업데이트 관리 사용
 
@@ -109,7 +109,7 @@ Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한
 | Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
 | Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
 | Operations Manager 관리 그룹 |예 |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
-| Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
+| Azure Storage 계정 |아니오 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
@@ -176,5 +176,5 @@ Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한
 
 ## <a name="next-steps"></a>다음 단계
 
-* 로그, 출력 및 오류를 비롯해 업데이트 관리에 대한 자세한 정보를 알아보려면 [OMS에서 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.
+* 로그, 출력 및 오류를 비롯해 업데이트 관리에 대한 자세한 정보를 알아보려면 [Azure에서 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.
 

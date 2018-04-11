@@ -1,12 +1,12 @@
 ---
-title: "Azure에 대한 vCPU 할당량 | Microsoft Docs"
-description: "Azure에 대한 vCPU 할당량에 대해 알아봅니다."
-keywords: 
+title: Azure에 대한 vCPU 할당량 | Microsoft Docs
+description: Azure에 대한 vCPU 할당량에 대해 알아봅니다.
+keywords: ''
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: drewm
-ms.openlocfilehash: b481299b62d452bc306c1f9c1fa2cdccd49b818e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 05d84e4b8c0ac84db5d0784e64071931408ec1d6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>가상 머신 vCPU 할당량
 

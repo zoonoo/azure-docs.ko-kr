@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: 2ec428bc5d2cdfb376db3c27b9899014c7ffa2af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 254f5012bfbf827aebc20d90405636dcb204193c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN 연결에 대한 VPN 장치 구성 스크립트 다운로드
 
 이 문서에서는 Azure Resource Manager를 사용하여 Azure VPN Gateway와의 S2S VPN 연결에 대한 VPN 장치 구성 스크립트를 다운로드하는 과정을 안내합니다. 다음 다이어그램은 개괄적인 워크플로를 보여 줍니다.
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
+
+다음 장치는 사용 가능한 스크립트를 포함하고 있습니다.
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="about"></a>VPN 장치 구성 스크립트 정보
 
@@ -81,14 +85,10 @@ Azure VPN Gateway, 로컬 네트워크 게이트웨이 및 이 둘을 연결하�
 
 또한 다음 예제와 같이 Azure PowerShell을 사용하여 구성 스크립트를 다운로드할 수 있습니다.
 
-```powershell
-$Sub         = "<YourSubscriptionName>"
+```azurepowershell-interactive
 $RG          = "TestRG1"
 $GWName      = "VNet1GW"
-$Connection  = "VNet1toSite5"
-
-Login-AzureRmAccount
-Set-AzureRmContext -Subscription $Sub
+$Connection  = "VNet1toSite1"
 
 # List the available VPN device models and versions
 Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG

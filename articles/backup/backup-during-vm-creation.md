@@ -1,23 +1,23 @@
 ---
-title: "Azure VM을 만드는 동안 백업 사용 | Microsoft Docs"
-description: "Azure Virtual Machine을 만드는 동안 백업을 사용하도록 설정하는 단계를 참조하세요."
+title: Azure VM을 만드는 동안 백업 사용 | Microsoft Docs
+description: Azure Virtual Machine을 만드는 동안 백업을 사용하도록 설정하는 단계를 참조하세요.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Azure Virtual Machine을 만드는 동안 백업 사용 
 
@@ -57,6 +57,10 @@ Azure Backup 서비스는 클라우드에 대한 백업을 만들고 구성하�
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>VM을 만든 후 백업 시작 
 
 백업 정책이 만들어졌어도 초기 백업을 만드는 것이 좋습니다. 가상 머신 만들기 템플릿이 완료된 후에 VM에 대한 백업 세부 정보를 보려면 왼쪽 메뉴의 **작업** 설정에서 **백업**을 클릭합니다. 이를 사용하여 요청 시 백업을 트리거하거나, 전체 VM 또는 모든 디스크를 복원하거나, VM 백업에서 파일을 복원하거나, 가상 머신과 연결된 백업 정책을 변경할 수 있습니다.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Resource Manager 템플릿을 사용하여 보호된 VM 배포
+
+이전 단계에서는 Azure Portal을 사용하여 가상 머신을 만들고 Recovery Services 자격 증명 모음에 대해 이를 보호하는 방법을 설명했습니다. 하나 이상의 가상 머신을 신속하게 배포하고 Recovery Services 자격 증명 모음에 대해 이를 보호하려면 [Windows VM 배포 및 백업 사용](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/) 템플릿을 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 

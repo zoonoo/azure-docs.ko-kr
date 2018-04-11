@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
@@ -73,7 +73,7 @@ ms.lasthandoff: 03/09/2018
 **포트 443(Azure AD와 동기화)**
 * 관리되는 도메인과 Azure AD 디렉터리를 동기화하는 데 사용됩니다.
 * NSG에서 이 포트에 대한 액세스를 허용해야 합니다. 이 포트에 대한 액세스 권한이 없으면 관리되는 도메인은 Azure AD 디렉터리와 동기화되지 않습니다. 사용자는 암호 변경 내용이 관리되는 도메인과 동기화되지 않으므로 로그인할 수 없습니다.
-* 이 포트에 대한 인바운드 액세스를 Azure IP 주소 범위에 속한 IP 주소로 제한할 수 있습니다.
+* 이 포트에 대한 인바운드 액세스를 Azure IP 주소 범위에 속한 IP 주소로 제한할 수 있습니다. Azure IP 주소 범위는 아래 규칙에 표시된 PowerShell 범위와 다른 범위입니다.
 
 **포트 5986(PowerShell 원격 기능)**
 * 이 포트는 관리되는 도메인에서 원격으로 PowerShell을 사용하여 관리 작업을 수행하는 데 사용됩니다.

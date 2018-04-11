@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory의 통합 런타임 모니터링 | Microsoft Docs"
-description: "Azure Data Factory에서 다양한 유형의 통합 런타임을 모니터링하는 방법을 알아봅니다."
+title: Azure Data Factory의 통합 런타임 모니터링 | Microsoft Docs
+description: Azure Data Factory에서 다양한 유형의 통합 런타임을 모니터링하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 74a4ad6438f9e66331f76e87d20d1eb8b29e8451
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링  
 **통합 런타임**은 서로 다른 네트워크 환경에서 다양한 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. Data Factory는 세 가지 유형의 통합 런타임을 제공합니다.
@@ -162,14 +162,14 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 | NodeSize | Azure-SSIS 통합 런타임의 각 노드의 크기. |
 | NodeCount | Azure-SSIS 통합 런타임의 노드 수. |
 | MaxParallelExecutionsPerNode | Azure-SSIS 통합 런타임의 노드당 병렬 실행 수. |
-| CatalogServerEndpoint | 기존 Azure SQL Database/SSISDB를 호스트할 관리 인스턴스 서버의 끝점. |
-| CatalogAdminUserName | 기존 Azure SQL Database/관리 인스턴스 서버의 관리 사용자 이름. Data Factory 서비스는 이 정보를 사용하여 사용자 대신 SSISDB를 준비하고 관리합니다. |
-| CatalogAdminPassword | 기존 Azure SQL Database/관리 인스턴스 서버의 관리자 암호. |
-| CatalogPricingTier | 기존 Azure SQL Database 서버에서 호스트하는 SSISDB의 가격 책정 계층.  SSISDB를 호스트하는 Azure SQL 관리 인스턴스에는 해당되지 않습니다. |
+| CatalogServerEndpoint | 기존 Azure SQL Database/SSISDB를 호스트할 관리되는 인스턴스(미리 보기) 서버의 끝점. |
+| CatalogAdminUserName | 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버의 관리 사용자 이름. Data Factory 서비스는 이 정보를 사용하여 사용자 대신 SSISDB를 준비하고 관리합니다. |
+| CatalogAdminPassword | 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버의 관리자 암호. |
+| CatalogPricingTier | 기존 Azure SQL Database 서버에서 호스트하는 SSISDB의 가격 책정 계층.  SSISDB를 호스트하는 Azure SQL 관리되는 인스턴스(미리 보기)에는 해당되지 않습니다. |
 | VNetId | Azure-SSIS 통합 런타임이 조인할 가상 네트워크(VNet) 리소스 ID. |
 | 서브넷 | Azure-SSIS 통합 런타임이 조인할 서브넷 이름. |
 | ID | Azure-SSIS 통합 런타임의 리소스 ID. |
-| 형식 | Azure-SSIS 통합 런타임의 유형(관리되는/자체 호스팅). |
+| 유형 | Azure-SSIS 통합 런타임의 유형(관리되는/자체 호스팅). |
 | ResourceGroupName | 데이터 팩터리 및 Azure-SSIS 통합 런타임이 만들어진 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName | Azure Data Factory의 이름. |
 | Name | Azure-SSIS 통합 런타임의 이름. |
@@ -199,7 +199,7 @@ Azure-SSIS 통합 런타임에 대한 자세한 내용은 다음 문서를 참�
 
 - [Azure-SSIS 통합 런타임](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
-- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
+- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
 - [Azure-SSIS IR을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서는 Azure-SSIS IR을 Azure 가상 네트워크(VNet)에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 VNet에 조인할 수 있도록 VNet을 구성하는 단계도 제공합니다. 
 

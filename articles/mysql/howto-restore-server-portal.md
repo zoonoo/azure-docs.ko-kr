@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for MySQL에서 서버를 복원하는 방법"
-description: "이 문서에서는 Azure Portal을 사용하여 MySQL용 Azure Database에서 서버를 복원하는 방법을 설명합니다."
+title: Azure Database for MySQL에서 서버를 복원하는 방법
+description: 이 문서에서는 Azure Portal을 사용하여 MySQL용 Azure Database에서 서버를 복원하는 방법을 설명합니다.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,14 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 5bef3f11d0b546fbd6b1161b20d7dfb81e975f99
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
@@ -49,7 +49,7 @@ Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창�
 
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 특정 시점 복원은 다음 섹션에서 자세히 설명합니다. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Azure Portal의 특정 시점 복원
+## <a name="point-in-time-restore"></a>지정 시간 복원
 Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 새 복사본으로 다시 복원할 수 있습니다. 이 새 서버를 사용하여 데이터를 복구하거나 클라이언트 응용 프로그램에서 이 새 서버를 가리키도록 할 수 있습니다.
 
 예를 들어 오늘 정오에 실수로 테이블을 삭제한 경우 정오 바로 전으로 복원하고 누락된 테이블과 데이터를 서버의 새로운 복사본에서 검색할 수 있습니다. 특정 시점 복원은 데이터베이스 수준이 아닌 서버 수준에 있습니다.
@@ -75,6 +75,22 @@ Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 �
 
 >[!Note]
 >특정 시점 복원으로 만든 새 서버에는 선택한 특정 시점 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+
+## <a name="geo-restore"></a>지역 복원
+서버를 지리적으로 중복된 백업으로 구성한 경우 기존 서버의 백업에서 새 서버를 만들 수 있습니다. 이 새 서버는 Azure Database for MySQL을 사용할 수 있는 모든 지역에서 만들 수 있습니다.  
+
+1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다. **데이터베이스** > **Azure Database for MySQL**을 차례로 선택합니다.
+
+   !["Azure Database for MySQL" 옵션](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+
+2. 양식의 **원본 선택** 드롭다운에서 **백업**을 선택합니다. 이 작업은 지역 중복 백업을 사용하도록 설정된 서버 목록을 로드합니다. 이러한 백업 중 하나를 새 서버의 원본으로 선택합니다.
+   ![원본 선택: 백업 및 지역 중복 백업 목록](./media/howto-restore-server-portal/2-georestore.png)
+
+3. 나머지 양식은 기본 설정으로 작성합니다. **위치**를 선택할 수 있습니다. 위치가 선택되면 **가격 책정 계층**을 선택할 수 있습니다. 기본적으로 복원하는 기존 서버에 대한 매개 변수가 표시됩니다. 이러한 설정을 상속하도록 변경하지 않고 **확인**을 클릭할 수 있습니다. 또는 **세대 계산**(선택한 지역에서 사용 가능한 경우), **vCore** 수, **백업 보존 기간** 및 **백업 중복 옵션**을 변경할 수 있습니다. **가격 책정 계층**(기본, 범용 또는 메모리 최적화) 또는 **저장소** 크기는 복원하는 동안 변경할 수 없습니다.
+
+>[!Note]
+>지역 복원으로 만든 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스의 [백업](concepts-backup.md)을 자세히 알아봅니다.

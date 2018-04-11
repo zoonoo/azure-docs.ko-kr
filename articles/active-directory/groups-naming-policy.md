@@ -1,32 +1,32 @@
 ---
-title: "Azure Active Directory에서 Office 365 그룹에 대한 그룹 이름 정책 설정 (미리 보기) | Microsoft Docs"
-description: "Azure Active Directory에서 Office 365 그룹에 대한 만료를 설정하는 방법(미리 보기)"
+title: Azure Active Directory에서 Office 365 그룹에 대한 그룹 이름 정책 설정 (미리 보기) | Microsoft Docs
+description: Azure Active Directory에서 Office 365 그룹에 대한 만료를 설정하는 방법(미리 보기)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 적용(미리 보기)
 
 사용자가 생성하거나 편집한 Office 365 그룹에 대해 일관된 명명 규칙을 적용하려면 Azure AD(Azure Active Directory)에서 테넌트에 대한 그룹 명명 정책을 설정하세요. 예를 들어 명명 정책을 사용하여 그룹의 기능, 멤버 자격, 지리적 영역 또는 그룹을 만든 사람 정보를 전달할 수 있습니다. 또한 명명 정책을 사용하여 주소록에서 그룹을 범주화할 수 있습니다. 이 정책을 사용하여 그룹 이름 및 별칭에 특정 단어를 사용하지 않도록 차단할 수 있습니다.
 
 > [!IMPORTANT]
-> Office 365 그룹 명명 정책 미리 보기를 사용하려면 하나 이상의 Office 365 그룹의 멤버인 각 고유 사용자에 대해 Azure Active Directory Premium P1 라이선스가 필요합니다.
+> Office 365 그룹 명명 정책 미리 보기를 사용하려면 하나 이상의 Office 365 그룹의 멤버인 각 고유 사용자에 대해 Azure Active Directory Premium P1 또는 Azure AD Basic EDU 라이선스가 필요합니다.
 
 명명 정책은 그룹을 만드는 데 적용되거나 워크로드(예: Outlook, Microsoft Team, SharePoint, Exchange 또는 Planner)에서 만든 그룹을 편집하는 데 적용됩니다. 이 정책은 그룹 이름 및 그룹 별칭 둘 다에 적용됩니다. Azure AD에서 명명 정책을 설정했는데 기존 Exchange 그룹 명명 정책이 있는 경우에는 Azure AD 명명 정책이 적용됩니다.
 

@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/05/2018
+ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 96826b2f8acd579cbfe30f2e524d94ce4867df30
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 GPU 최적화 VM 크기는 단일 또는 여러 NVIDIA GPU에서 사용 가능한 특수한 가상 머신입니다. 이러한 크기는 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 GPU, vCPU, 데이터 디스크 및 NIC의 수 및 형식에 대한 정보를 제공합니다. 
 
@@ -27,7 +27,7 @@ NC 시리즈 VM은 [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/keple
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | 최대 데이터 디스크 수 | 최대 NIC 수 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 | 24 | 1 |
+| Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
 | Standard_NC24 |24 |224 | 1,440 | 4 | 64 | 4 |
 | Standard_NC24r* |24 |224 | 1,440 | 4 | 64 | 4 |
@@ -46,10 +46,10 @@ NCv2 시리즈 VM은 [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | 최대 데이터 디스크 수 | 최대 NIC 수 |
 | --- | --- | --- | --- | --- | --- | ---  |
-| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
 
 한 개의 GPU = 한 개의 P100 카드
 
@@ -65,10 +65,10 @@ NCv3 시리즈 VM은 [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | 최대 데이터 디스크 수 | 최대 NIC 수 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 1344 | 4 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
 
 하나의 GPU = 하나의 V100 카드
 
@@ -84,10 +84,10 @@ ND 시리즈 가상 머신은 AI 및 심층 학습 워크로드용으로 설계�
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | 최대 데이터 디스크 수 | 최대 NIC 수 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 | 8 |
+| Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
 
 한 개의 GPU = 한 개의 P40 카드
 
@@ -101,7 +101,7 @@ NV 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. �
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 응용 프로그램 | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1,440 | 4 | 64 | 4 | 4 | 100 |
 

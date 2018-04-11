@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
 Azure Load Balancer의 표준 SKU는 [가용성 영역](../availability-zones/az-overview.md) 시나리오를 지원합니다. 표준 Load Balancer에서는 몇 가지 새로운 개념을 사용할 수 있습니다. 이를 통해 리소스를 영역에 맞게 조정하고 영역 간에 분산하여 종단 간 시나리오의 가용성을 최적화할 수 있습니다.  가용성 영역에 대한 설명, 현재 가용성 영역을 지원하는 지역 및 기타 관련 개념 및 제품에 대한 지침은 [가용성 영역](../availability-zones/az-overview.md)을 검토하세요. 표준 Load Balancer와 결합된 가용성 영역은 다양한 시나리오를 만들 수 있는 광범위하고 유연한 기능 집합입니다.  이러한 [개념](#concepts)과 기본 시나리오 [디자인 지침](#design)을 이해하려면 이 문서를 검토하세요.
 
 >[!NOTE]
->다른 관련 항목은 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 검토하세요. 
+>다른 관련 항목은 [가용성 영역](https://aka.ms/availabilityzones)을 검토하세요. 
 
 ## <a name="concepts"></a> Load Balancer에 적용된 가용성 영역 개념
 
@@ -43,7 +43,7 @@ Load Balancer 리소스 자체는 지역이며 영역이 될 수 없습니다.  
 
 Load Balancer 프런트 엔드는 공용 IP 주소 리소스 또는 가상 네트워크 리소스의 서브넷에 속한 개인 IP 주소를 참조하는 프런트 엔드 IP 구성입니다.  서비스가 노출되는 부하 분산된 엔드포인트를 형성합니다.
 
-Load Balancer 리소스는 영역 및 영역 중복 프런트 엔드 둘 다를 동시에 포함할 수 있습니다.
+Load Balancer 리소스는 영역 및 영역 중복 프런트 엔드 둘 다를 동시에 포함할 수 있습니다. 
 
 영역에 대한 공용 IP 리소스가 보장되면 영역 조건(또는 이에 따른 결핍)은 변경할 수 없습니다.  공용 IP 프런트 엔드의 영역 조건을 변경하거나 생략하려면 해당 영역에서 공용 IP를 다시 만들어야 합니다.  
 
@@ -219,3 +219,5 @@ Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간
 ## <a name="next-steps"></a>다음 단계
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보기
 - [표준 Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아봅니다.
+- [영역 프런트 엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM을 부하 분산](load-balancer-standard-public-zonal-cli.md)하는 방법에 대해 알아보기
+- [영역 중복 프런트 엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM을 부하 분산](load-balancer-standard-public-zone-redundant-cli.md)하는 방법에 대해 알아보기

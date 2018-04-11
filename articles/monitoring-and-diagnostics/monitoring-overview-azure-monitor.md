@@ -1,25 +1,25 @@
 ---
-title: "Azure Monitor 개요 | Microsoft Docs"
-description: "Azure Monitor는 경고, webhook, 자동 크기 조정 및 자동화를 사용하기 위해 통계를 수집합니다. 또한 문서에서는 다른 Microsoft 모니터링 옵션을 나열합니다."
+title: Azure Monitor 개요 | Microsoft Docs
+description: Azure Monitor는 경고, webhook, 자동 크기 조정 및 자동화를 사용하기 위해 통계를 수집합니다. 또한 문서에서는 다른 Microsoft 모니터링 옵션을 나열합니다.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
 이 문서에서는 Microsoft Azure의 Azure Monitor 서비스에 대해 간략히 설명합니다. Azure Monitor 기능에 대해 설명하고 Azure Monitor를 사용하는 방법에 대한 추가 정보를 제공합니다.  소개하는 비디오를 사용하려면 이 문서의 아래쪽에 있는 다음 단계 링크를 참조하세요. 
@@ -35,15 +35,13 @@ Azure Monitor의 기본 페이지를 통해 도움을 받을 수 있습니다.
 - Azure에서 제공하는 모니터링 기능을 이해합니다.
 - Azure 플랫폼 및 프리미엄 모니터링 기능을 검색, 구성 및 등록합니다.
 
-Azure Monitor 서비스가 릴리스되는 동안 시작 개요 페이지는 미리 보기로 제공됩니다. 
-
 해당 페이지는 등록을 포함한 탐색을 위한 시작점이며 다른 서비스에서 큐레이트된 주목할 만한 문제를 표시하고 사용자가 상황에 맞게 이동할 수 있도록 합니다.
  
 ![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 페이지를 열 때 읽기 액세스 권한이 있는 구독 중에 선택할 수 있습니다. 선택한 구독에서 다음을 확인할 수 있습니다.
 
-- **트리거된 경고 및 경고 원본** - 이 표에서는 요약 수, 경고 원본 및 선택한 기간 동안 발생한 경고 횟수를 보여줍니다. 메트릭과 활동 로그 경고에 모두 적용됩니다. *<편집: 모든 경고에 대해 표시된 통합된 환경을 사용하는 경고(미리 보기) - 이벤트, 메트릭 및 로그>*
+- **트리거된 경고 및 경고 원본** - 이 표에서는 요약 수, 경고 원본 및 선택한 기간 동안 발생한 경고 횟수를 보여줍니다. 이전 및 최신 경고 모두에 적용됩니다. [최신 Azure Alerts](monitoring-overview-unified-alerts.md)에 대해 자세히 알아봅니다. 
 - **활동 로그 오류** - Azure 리소스 중에 오류 수준의 심각도를 가진 이벤트가 기록된 경우 대략적인 수를 보고 활동 로그 페이지를 클릭하여 각 이벤트를 조사할 수 있습니다.
 - **Azure Service Health** - Service Health 서비스 문제, 계획된 유지 관리 이벤트 및 상태 권고의 수를 확인할 수 있습니다. Azure Service Health는 Azure 인프라의 문제가 서비스에 영향을 줄 때 개인 설정된 정보를 제공합니다.  자세한 내용은 [Azure Service Health](../service-health/service-health-overview.md)를 참조하세요.  
 - **Application Insights** - 현재 구독에서 각 AppInsights 리소스는 KPI를 참조하세요. KPI는 ASP.NET 웹앱, Java, Node 및 일반 응용 프로그램 유형인 서버 쪽 응용 프로그램 모니터링에 대해 최적화됩니다. KPI는 요청 속도, 응답 기간, 실패 속도 및 가용성 %에 대한 메트릭을 포함합니다. 
@@ -143,19 +141,19 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 
 ### <a name="automate"></a>자동화
 > [!NOTE]
-> Microsoft Azure에서 경고의 지속적인 변화의 일환으로, 이제 경고에 대한 통합된 환경이 미리보기로 지원됩니다. [Azure Alerts(미리 보기)](monitoring-overview-unified-alerts.md)에 대한 자세한 내용
+> Microsoft Azure에서 경고의 지속적인 변화의 일환으로, 이제 경고에 대한 통합된 환경을 사용할 수 있습니다. [새 Azure 경고](monitoring-overview-unified-alerts.md)에 대한 자세한 내용
 
-표준 Azure Alerts에서 모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 이러한 예로 다음이 포함됩니다.
+Azure 경고에서 모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 이러한 예로 다음이 포함됩니다.
 
 * 데이터를 사용하여 응용 프로그램 부하에 따라 계산 인스턴스 크기를 자동으로 조정
-* 메트릭이 미리 결정된 임계값을 초과하는 경우 전자 메일 보내기
+* 메트릭 또는 로그 조건에 따라 이메일을 보냅니다. 
 * 웹 URL(웹후크)을 호출하여 Azure 외부 시스템에서 동작 실행
 * Azure 자동화에서 runbook을 시작하여 다양한 태스크 수행
 
 ## <a name="methods-of-accessing-azure-monitor"></a>Azure Monitor에 액세스하는 방법
 일반적으로 다음 방법 중 하나를 사용하여 데이터 추적, 라우팅 및 검색을 조작할 수 있습니다. 일부 방법은 일부 동작 및 데이터 형식에 사용할 수 없습니다.
 
-* [Azure 포털](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
 * [CLI(플랫폼 간 명령줄 인터페이스)](insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -78,21 +78,6 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 4: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **원인 5: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
 **원인 6: [리소스 그룹이 잠겨 있으므로 Backup 서비스에 이전 복원 지점을 삭제할 수 있는 권한이 없습니다.](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>디스크 구성이 지원되지 않습니다.
-
-오류 메시지: “지정된 디스크 구성은 지원되지 않습니다.”
-
-> [!NOTE]
-> 1TB보다 큰 디스크를 사용하는 VM에 대한 백업을 지원하는 비공개 미리 보기가 있습니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
->
->
-
-현재 Azure Backup은 [1,023GB보다 큰](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 디스크를 지원하지 않습니다. 1TB보다 큰 디스크를 사용하는 경우 다음을 수행합니다.  
-1. 1TB보다 작은 [새 디스크를 연결](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)합니다.  
-2. 1TB보다 큰 디스크의 데이터를 1TB보다 작은 새로 만든 디스크에 복사합니다.  
-3. 모든 데이터가 복사되었는지 확인합니다. 그런 다음 1TB보다 큰 디스크를 제거합니다.  
-4. 백업을 시작합니다.
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage 마이그레이션 FAQ | Microsoft Docs"
-description: "Azure Storage 마이그레이션에 대한 일반적인 질문과 대답입니다."
+title: Azure Storage 마이그레이션 FAQ | Microsoft Docs
+description: Azure Storage 마이그레이션에 대한 일반적인 질문과 대답입니다.
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -168,7 +168,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 **저장소 계정에 대한 보조 지역을 유럽 지역으로 변경하려면 어떻게 할까요?**
 
-저장소 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [Azure Storage 복제](storage-redundancy.md)를 참조하세요.
+저장소 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(지역 중복 저장소): Azure Storage의 지역 간 복제](storage-redundancy.md)를 참조하세요.
 
 **Azure SSE(저장소 서비스 암호화)에 대한 자세한 정보는 어디서 얻을 수 있나요?**  
   
@@ -284,7 +284,7 @@ Azure CLI를 사용할 수 있습니다.
 
     - **SAS 토큰**: SAS 토큰을 사용하여 엔드포인트의 데이터에 액세스합니다. 자세한 내용은 [공유 액세스 서명 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
-**내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "https://mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https://www.contoso.com/images/image.gif"로 표시하려면 어떻게 해야 하나요?**
+**내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "https://mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https://www.contoso.com/images/image.gif"로 보이도록 하려면 어떻게 해야 합니까?**
 
 SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원되지 않습니다.
 하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob 저장소 엔드포인트에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.
@@ -299,6 +299,6 @@ Storage 탐색기 또는 유사한 응용 프로그램을 사용하지 않고 �
 
  [Blob 마이그레이션 스크립트](../scripts/storage-common-transfer-between-storage-accounts.md)를 사용하여 이 작업을 수행할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

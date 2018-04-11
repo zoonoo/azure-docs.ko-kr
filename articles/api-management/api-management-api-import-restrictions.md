@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 가져오기에서 제한 사항 및 알려진 문제 | Microsoft Docs"
-description: "Open API, WSDL 또는 WADL 형식을 사용하여 Azure API Management로 가져오기 시 알려진 문제 및 제한 사항입니다."
+title: Azure API Management 가져오기에서 제한 사항 및 알려진 문제 | Microsoft Docs
+description: Open API, WSDL 또는 WADL 형식을 사용하여 Azure API Management로 가져오기 시 알려진 문제 및 제한 사항입니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 758babce3ed387ed4864f1934650cf701bda788f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 ## <a name="about-this-list"></a>다음 목록 정보
@@ -29,7 +29,10 @@ Open API 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 �
 
 * **호스트 이름** APIM에는 호스트 이름 특성이 필요합니다.
 * **기본 경로** APIM에는 기본 경로 특성이 필요합니다.
-* **구성표** APIM에는 구성표 배열이 필요합니다. 
+* **구성표** APIM에는 구성표 배열이 필요합니다.
+
+> [!IMPORTANT]
+> OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)를 참조하세요.
 
 ## <a name="wsdl"> </a>WSDL
 SOAP 통과 API를 생성하는 데 WSDL 파일이 사용되며 SOAP-to-REST API의 백 엔드로 사용됩니다.

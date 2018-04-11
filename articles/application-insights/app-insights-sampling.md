@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/29/2018
 ## <a name="in-brief"></a>개요:
 * 샘플링은 *n* 레코드에 1을 유지하면서 나머지는 무시합니다. 예를 들어 20%의 샘플링 속도로 5개의 이벤트 1을 유지할 수 있습니다. 
 * 응용 프로그램이 다양한 원격 분석을 보내는 경우 샘플링은 ASP.NET 웹 서버 앱에서 자동으로 발생합니다.
-* 샘플링을 포털의 가격 책정 페이지나 ASP.NET SDK의 .config 파일 또는 Java SDK의 ApplicationInsights.xml 파일에서 수동으로 설정하여 네트워크 트래픽을 줄일 수도 있습니다.
+* 샘플링을 포털의 사용량 및 예상 비용 페이지나 ASP.NET SDK의 .config 파일 또는 Java SDK의 ApplicationInsights.xml 파일에서 수동으로 설정하여 네트워크 트래픽을 줄일 수도 있습니다.
 * 사용자 지정 이벤트를 기록하고 일련의 이벤트가 유지되는지 아니면 함께 무시되는지 확인하려는 경우 동일한 OperationId 값을 갖는지 확인합니다.
 * 샘플링 약수 *n*은 `itemCount` 속성의 각 레코드에서 보고되며 이는 검색의 이름 "요청 개수" 또는 "이벤트 개수"에 나타납니다. 샘플링이 작업 중이지 않을 때 `itemCount==1`입니다.
 * 분석 쿼리를 작성하는 경우 [샘플링을 고려](app-insights-analytics-tour.md#counting-sampled-data)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/29/2018
 
 앱이 월간 할당량을 자주 초과하지만 SDK 기반의 샘플링 유형 중 하나를 사용할 옵션이 없는 경우 이 샘플링 유형을 사용합니다. 
 
-할당량 및 가격 블레이드에서 샘플링 주기를 설정합니다.
+사용량 및 예상 비용 페이지에서 샘플링 주기를 설정합니다.
 
 ![응용 프로그램 개요 블레이드에서 설정, 할당량, 샘플을 차례로 클릭한 다음 샘플링 주기를 선택하고 업데이트를 클릭합니다.](./media/app-insights-sampling/04.png)
 

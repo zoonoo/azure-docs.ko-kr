@@ -1,24 +1,24 @@
 ---
-title: "Log Analytics에서 Azure 활동 로그 수집 및 분석 | Microsoft Docs"
-description: "Azure 활동 로그 솔루션을 사용하여 모든 Azure 구독에서 Azure 활동 로그를 분석하고 검색할 수 있습니다."
+title: Log Analytics에서 Azure 활동 로그 수집 및 분석 | Microsoft Docs
+description: Azure 활동 로그 솔루션을 사용하여 모든 Azure 구독에서 Azure 활동 로그를 분석하고 검색할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
 
@@ -40,7 +40,7 @@ Azure 활동 로그를 Log Analytics에 연결하면 다음 작업을 수행할 
 - 리소스에 영향을 미치는 운영 중단 또는 서비스 상태 문제 식별
 - 로그 검색을 사용하여 사용자 활동, 자동 크기 조정 작업, 권한 부여 변경, 서비스 상태와 사용자 환경의 다른 로그 또는 메트릭 간에 상관 관계 지정
 
-<sup>1</sup>기본적으로 Log Analytics는 무료 계층에서도 Azure 활동 로그를 90일 동안 보관합니다. 작업 영역 보존 설정이 90일 미만으로 설정된 경우에도 마찬가지입니다. 작업 영역 보존 설정이 90일보다 긴 경우 작업 영역의 보존 기간만큼 활동 로그가 보관됩니다.
+<sup>1</sup>기본적으로 Log Analytics는 무료 계층에서도 Azure 활동 로그를 90일 동안 보관합니다. 작업 영역 보존 설정이 90일 미만으로 설정된 경우에도 마찬가지입니다. 작업 영역 보존 설정이 90일보다 긴 경우 작업 영역의 보존 기간에 따라 활동 로그가 보관됩니다.
 
 Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 로그를 저장합니다. 로그를 90일 이상 저장하는 경우 90일 넘게 저장된 데이터에 대해 데이터 보존 요금이 발생합니다.
 
@@ -52,7 +52,7 @@ Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |

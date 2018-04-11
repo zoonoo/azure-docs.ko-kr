@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 도달률 콘텐츠"
-description: "Azure Mobile Engagement에서 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법을 알아봅니다."
+title: Azure Mobile Engagement 사용자 인터페이스 - 도달률 콘텐츠
+description: Azure Mobile Engagement에서 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법을 알아봅니다.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 새 도달률 캠페인의 콘텐츠 섹션을 사용하면 알림, 설문 조사, 데이터 푸시 및 타일(Windows Phone 전용)의 콘텐츠를 수정할 수 있습니다. 푸시 캠페인의 콘텐츠 설정은 캠페인의 유형에 따라 다릅니다. 
 
 ### <a name="content-types"></a>콘텐츠 형식:

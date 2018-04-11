@@ -1,33 +1,33 @@
 ---
-title: "Azure Cosmos DB에서 분할 및 수평적 확장 | Microsoft Docs"
-description: "Azure Cosmos DB에서 분할 작동 방법, 분할 및 파티션 키를 구성하는 방법 및 응용 프로그램에 대한 올바른 파티션 키를 선택하는 방법을 알아봅니다."
+title: Azure Cosmos DB에서 분할 및 수평적 확장 | Microsoft Docs
+description: Azure Cosmos DB에서 분할 작동 방법, 분할 및 파티션 키를 구성하는 방법 및 응용 프로그램에 대한 올바른 파티션 키를 선택하는 방법을 알아봅니다.
 services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Azure Cosmos DB의 파티션 및 확장
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 신속하고 예측 가능한 성능을 위해 세계적으로 배포된 다중 모델 데이터베이스 서비스입니다. 응용 프로그램의 증대에 따라 자연스럽게 확장됩니다. 이 문서에서는 Azure Cosmos DB의 모든 데이터 모델에서 분할이 어떻게 작동하는지에 대한 개요를 제공합니다. 또한 효과적으로 응용 프로그램을 확장하기 위해 Azure Cosmos DB 컨테이너를 구성하는 방법에 대해서도 설명합니다.
 
-Scott Hanselman과 Azure Cosmos DB 수석 엔지니어링 관리자 Shireesh Thota가 진행하는 이 Azure Friday 비디오에서는 분할 및 파티션 키에 대해서도 논의합니다.
+Azure Cosmos DB 프로그램 관리자 Andrew Liu와 함께 하는 이 비디오에서는 분할 및 파티션 키에 대해 토론합니다.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할

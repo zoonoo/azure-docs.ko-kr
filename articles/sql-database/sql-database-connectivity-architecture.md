@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7dc584c8fa9f4452b2bd9288df86492399c036c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처 
 
@@ -91,7 +91,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 
 ## <a name="change-azure-sql-database-connection-policy"></a>SQL Database 연결 정책 변경
 
-Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하려면 [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx)를 사용합니다.
+Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하려면 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)를 사용합니다.
 
 - 연결 정책을 **프록시**로 설정한 경우 모든 네트워크 패킷은 Azure SQL Database 게이트웨이를 통합니다. 이 설정에서 Azure SQL Database 게이트웨이 IP로만 아웃바운드를 허용해야 합니다. **프록시** 설정을 사용하면 **리디렉션** 설정보다 대기 시간이 길어집니다.
 - 연결 정책을 **리디렉션**으로 설정하는 경우 모든 네트워크 패킷은 미들웨어 프록시에 직접 전달됩니다. 이 설정에서 여러 IP에 대한 아웃바운드를 허용해야 합니다.
@@ -181,6 +181,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure SQL Database 서버의 Azure SQL Database 연결 정책을 변경하는 방법에 대한 정보는 [REST API를 사용하여 서버 연결 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt604439.aspx)를 참조하세요.
+- Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하는 방법에 대해서는 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)를 참조합니다.
 - ADO.NET 4.5 이상 버전을 사용하는 클라이언트의 Azure SQL Database 연결 동작에 대한 자세한 정보는 [ADO.NET 4.5에 대한 1433 이외 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 - 일반 응용 프로그램 개발 개요 정보는 [SQL Database 응용 프로그램 개발 개요](sql-database-develop-overview.md)를 참조하세요.

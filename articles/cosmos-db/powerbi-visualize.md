@@ -1,35 +1,35 @@
 ---
-title: "Azure Cosmos DB 커넥터에 대한 Power BI 자습서 | Microsoft Docs"
-description: "이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰력 있는 보고서를 만들고, Azure Cosmos DB 및 Power BI 커넥터를 사용하여 데이터를 시각화할 수 있습니다."
-keywords: "power bi 자습서, 데이터 시각화, power bi 커넥터"
+title: Azure Cosmos DB 커넥터에 대한 Power BI 자습서 | Microsoft Docs
+description: 이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰력 있는 보고서를 만들고, Azure Cosmos DB 및 Power BI 커넥터를 사용하여 데이터를 시각화할 수 있습니다.
+keywords: power bi 자습서, 데이터 시각화, power bi 커넥터
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
-[PowerBI.com](https://powerbi.microsoft.com/) 은 사용자 및 조직에 중요한 데이터로 대시보드와 보고서를 만들어 공유할 수 있는 온라인 서비스입니다.  Power BI 데스크톱은 다양한 데이터 원본에서 데이터를 검색하고, 데이터를 병합 및 변환하며, 강력한 보고서 및 시각화를 제작하고, 보고서를 Power BI에 게시할 수 있는 전용 보고서 제작 도구입니다.  Power BI Desktop의 최신 버전에서는 이제 Power BI용 Cosmos DB 커넥터를 통해 Cosmos DB 계정에 연결할 수 있습니다.   
+[PowerBI.com](https://powerbi.microsoft.com/) 은 사용자 및 조직에 중요한 데이터로 대시보드와 보고서를 만들어 공유할 수 있는 온라인 서비스입니다.  Power BI 데스크톱은 다양한 데이터 원본에서 데이터를 검색하고, 데이터를 병합 및 변환하며, 강력한 보고서 및 시각화를 제작하고, 보고서를 Power BI에 게시할 수 있는 전용 보고서 제작 도구입니다.  Power BI Desktop의 최신 버전에서는 이제 Power BI용 Azure Cosmos DB 커넥터를 통해 Azure Cosmos DB 계정에 연결할 수 있습니다.   
 
-이 Power BI 자습서에서는 Power BI Desktop의 Cosmos DB 계정에 연결하고, 탐색기를 사용하여 데이터를 추출할 컬렉션으로 이동하고, Power BI Desktop 쿼리 편집기를 사용하여 JSON 데이터를 테이블 형식으로 변환하고, 보고서를 빌드하여 PowerBI.com에 게시하는 단계를 안내합니다.
+이 Power BI 자습서에서는 Power BI Desktop의 Azure Cosmos DB 계정에 연결하고, 탐색기를 사용하여 데이터를 추출할 컬렉션으로 이동하고, Power BI Desktop 쿼리 편집기를 사용하여 JSON 데이터를 테이블 형식으로 변환하고, 보고서를 빌드하여 PowerBI.com에 게시하는 단계를 안내합니다.
 
 이 Power BI 자습서를 완료하고 나면 다음을 알게 됩니다.  
 
-* Power BI Desktop을 사용하여 Cosmos DB의 데이터로 보고서를 빌드하는 방법
-* Power BI Desktop에서 Cosmos DB 계정에 연결하는 방법
+* Power BI Desktop을 사용하여 Azure Cosmos DB의 데이터로 보고서를 빌드하는 방법
+* Power BI Desktop에서 Azure Cosmos DB 계정에 연결하는 방법
 * Power BI 데스크톱의 컬렉션에서 데이터를 검색하는 방법
 * Power BI 데스크톱에서 중첩된 JSON 데이터를 변환하는 방법
 * PowerBI.com에서 내 보고서를 게시 및 공유하는 방법
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/11/2017
 이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
 
 * [최신 버전의 Power BI Desktop](https://powerbi.microsoft.com/desktop).
-* 데모 계정 또는 Cosmos DB 계정의 데이터 액세스.
+* 데모 계정 또는 Azure Cosmos DB 계정의 데이터에 액세스합니다.
   * 데모 계정은 이 자습서에 표시된 화산 데이터로 채워집니다. 이 데모 계정은 SLA와 연결되지 않으며 데모용으로만 의미가 있습니다.  Microsoft는 계정 종료, 키 변경, 액세스 제한, 데이터 변경 및 삭제 등을 망라하여, 언제든 사전 고지나 이유 없이 이 데모 계정을 수정할 권리가 있습니다.
     * URL: https://analytics.documents.azure.com
     * 읽기 전용 키: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  무료 Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
 
 ## <a name="lets-get-started"></a>이제 시작하겠습니다.
-이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다.  화산 데이터는 Cosmos DB 계정에 저장되며 JSON 문서는 다음 샘플 문서와 같습니다.
+이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다.  화산 데이터는 Azure Cosmos DB 계정에 저장되며 JSON 문서는 다음 샘플 문서와 같습니다.
 
     {
         "Volcano Name": "Rainier",
@@ -72,7 +72,7 @@ PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어�
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같은 대화형 Power BI 보고서에서 데이터를 시각화하려고 합니다.
+Azure Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같은 대화형 Power BI 보고서에서 데이터를 시각화하려고 합니다.
 
 ![Power BI 커넥터를 사용하여 이 Power BI 자습서를 완료하여 Power BI Desktop 화산 보고서를 사용하여 데이터를 시각화할 수 있습니다.](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -86,11 +86,11 @@ Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같�
    
     ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. **홈** 리본 메뉴를 선택한 다음 **데이터 가져오기**를 클릭합니다.  **데이터 가져오기** 창이 나타납니다.
-5. **Azure**를 클릭하고 **Microsoft Azure DocumentDB(베타)**를 클릭한 다음 **연결**을 클릭합니다. 
+5. **Azure**를 클릭하고 **Azure Cosmos DB(베타)**를 선택한 다음, **연결**을 클릭합니다. 
 
     ![Power BI 데스크톱 데이터 가져오기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
-6. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Microsoft Azure DocumentDB 연결** 창이 표시됩니다.
-7. 아래와 같이 데이터를 가져올 Cosmos DB 계정 끝점 URL을 지정한 다음 **확인**을 클릭합니다. 자신의 계정을 사용하려는 경우 Azure Portal의 **[키](manage-account.md#keys)** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 데모 계정을 사용하려면 URL로 `https://analytics.documents.azure.com`을 입력합니다. 
+6. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Azure Cosmos DB** 창이 나타납니다.
+7. 아래와 같이 데이터를 검색할 Azure Cosmos DB 계정 끝점 URL을 지정한 다음, **확인**을 클릭합니다. 자신의 계정을 사용하려는 경우 Azure Portal의 **[키](manage-account.md#keys)** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 데모 계정을 사용하려면 URL로 `https://analytics.documents.azure.com`을 입력합니다. 
    
     데이터베이스 이름, 컬렉션 이름 및 SQL 문을 비워 둡니다. 이러한 필드는 선택 사항입니다.  대신 데이터의 출처를 식별하기 위해 탐색기를 사용하여 데이터베이스와 컬렉션을 선택합니다.
    
@@ -218,11 +218,11 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 3. **자격 증명 편집**을 클릭합니다. 
    
     구성 팝업이 나타납니다. 
-4. 키를 입력하여 해당 데이터 집합에 대한 Cosmos DB 계정에 연결한 다음 **로그인**을 클릭합니다. 
+4. 키를 입력하여 해당 데이터 집합에 대한 Azure Cosmos DB 계정에 연결한 다음, **로그인**을 클릭합니다. 
 5. **새로 고침 예약** 을 확장하고 데이터 집합을 새로 고치려는 일정을 설정합니다. 
 6. **적용** 을 클릭하고 예약된 새로 고침 설정을 완료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Power BI에 대한 자세한 내용은 [Power BI 시작](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 참조하세요.
-* Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 설명서 방문 페이지](https://azure.microsoft.com/documentation/services/cosmos-db/)를 참조하세요.
+* Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 설명서 방문 페이지](https://azure.microsoft.com/documentation/services/cosmos-db/)를 참조하세요.
 

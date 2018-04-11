@@ -1,11 +1,11 @@
 ---
-title: "Azure Access Control Service에서 마이그레이션 | Microsoft Docs"
-description: "Azure Access Control Service에서 앱 및 서비스를 이동하기 위한 옵션"
+title: Azure Access Control Service에서 마이그레이션 | Microsoft Docs
+description: Azure Access Control Service에서 앱 및 서비스를 이동하기 위한 옵션
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Azure Access Control Service에서 마이그레이션
 
-Azure Active Directory(Azure AD) 서비스의 하나인 Azure Access Control은 2018년 11월부터 사용 중지됩니다. 현재 Access Control을 사용하는 응용 프로그램 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
+Azure Active Directory(Azure AD) 서비스의 하나인 Azure Access Control은 2018년 11월 7일부터 사용 중지됩니다. 현재 Access Control을 사용하는 응용 프로그램 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
 
 
 ## <a name="overview"></a>개요
@@ -54,11 +54,9 @@ Access Control의 구성 요소는 다음과 같습니다.
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-이 URL에서 STS 및 관리 작업과의 모든 통신이 이루어집니다. 용도별로 서로 다른 경로를 갖습니다. 응용 프로그램 또는 서비스에서 Access Control을 사용하는지 확인하려면 https://\<namespace\>.accesscontrol.windows.net으로의 트래픽을 모니터링합니다. 이 URL로 전달되는 모든 트래픽은 Access Control에서 처리하는 것으로, 사용 중지 계획을 세워야 합니다. 
+이 URL에서 STS 및 관리 작업과의 모든 통신이 이루어집니다. 용도별로 서로 다른 경로를 갖습니다. 응용 프로그램 또는 서비스에서 Access Control을 사용하는지 확인하려면 https://<namespace>.accesscontrol.windows.net의 트래픽을 모니터링합니다. 이 URL로 전달되는 모든 트래픽은 Access Control에서 처리하는 것으로, 사용 중지 계획을 세워야 합니다. 
 
-https://accounts.accesscontrol.windows.net으로 전달되는 트래픽은 예외입니다. 이 URL로 전달되는 트래픽은 다른 서비스에 의해 처리되기 때문에 Access Control 사용 중지의 영향을 받지 않습니다. 
-
-클래식 Azure Portal에 로그인하여 보유 중인 구독에 Access Control 네임스페이스가 있는지도 확인해야 합니다. Access Control 네임스페이스는 **Active Directory** 서비스 아래의 **Access Control 네임스페이스** 탭에서 확인할 수 있습니다.
+이에 대한 예외는 모든 `https://accounts.accesscontrol.windows.net` 트래픽입니다. 이 URL로 전달되는 트래픽은 다른 서비스에 의해 처리되기 때문에 Access Control 사용 중지의 영향을 받지 **않습니다**. 
 
 Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)](https://msdn.microsoft.com/library/hh147631.aspx)을 참조하세요.
 
@@ -68,9 +66,9 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
 Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
-- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 이 시점에서 Access Control에 대한 네임스페이스 관리는 새로운 전용 URL http://manage.windowsazure.com?restoreClassic=true에서 사용할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
-- **2018년 4월**: Access Control 네임스페이스 관리를 더 이상 http://manage.windowsazure.com?restoreClassic=true 전용 URL에서 사용할 수 없게 됩니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 https://\<namespace\>.accesscontrol.windows.net에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
-- **2018년 11월**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
+- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `http://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
+- **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
+- **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
@@ -98,6 +96,17 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### <a name="sharepoint-customers"></a>SharePoint 고객
+
+SharePoint 2013, 2016 및 SharePoint Online 고객은 오래 전부터 클라우드, 온-프레미스 그리고 하이브리드 시나리오에서 ACS를 인증에 사용해 왔습니다. 일부 SharePoint 기능 및 사용 사례는 ACS 사용 중지의 영향을 받을 것이고, 일부는 그렇지 않습니다. 아래 표에는 ACS를 활용하는 가장 인기 있는 SharePoint의 일부 기능에 대한 마이그레이션 지침이 요약되어 있습니다.
+
+| 기능 | 지침 |
+| ------- | -------- |
+| Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제는 [토큰 발급 정책을 사용하여 SharePoint를 Azure AD에 직접 연결](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication)할 수 있습니다. |
+| [SharePoint 온-프레미스에서 앱 인증 및 서버 간 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
+| [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
+| [SharePoint 클라우드 하이브리드 검색](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>수동 인증을 사용하는 웹 응용 프로그램
 
@@ -243,7 +252,7 @@ Azure AD B2C가 응용 프로그램 및 서비스에 적합한 마이그레이�
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 많은 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 많은 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.  |
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 
@@ -305,7 +314,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 많은 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 많은 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.  |
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 

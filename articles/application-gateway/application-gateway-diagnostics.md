@@ -1,25 +1,22 @@
 ---
-title: Application Gateway에 대한 액세스 로그, 성능 로그, 백 엔드 상태 및 메트릭 모니터링 | Microsoft Docs
+title: Application Gateway에 대한 액세스 로그, 성능 로그, 백 엔드 상태 및 메트릭 모니터링
 description: Application Gateway에 대한 액세스 및 성능 로그를 사용하고 관리하는 방법을 알아봅니다
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -29,7 +26,7 @@ Azure Application Gateway를 사용하여 다음과 같은 방법으로 리소�
 
 * [로그](#diagnostic-logging) - 로그를 사용하면 모니터링하기 위해 리소스에서 성능, 액세스 및 기타 데이터를 저장하거나 사용할 수 있습니다.
 
-* [메트릭](#metrics) - Application Gateway에는 현재 메트릭이 하나만 있습니다. 이 메트릭은 응용 프로그램 게이트웨이의 처리량을 초당 바이트 수로 측정합니다.
+* [메트릭](#metrics): 현재 Application Gateway는 성능 카운터를 보여주는 7개 메트릭을 제공합니다.
 
 ## <a name="back-end-health"></a>백 엔드 상태
 
@@ -318,13 +315,22 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대한 기능입니다. Application Gateway에는 다음 메트릭이 지원됩니다.
 
-- 현재 연결
-- 실패한 요청
-- 정상 호스트 수
-- 응답 상태
-- 처리량
-- 총 요청 수
-- 비정상 호스트 수
+- **현재 연결**
+- **실패한 요청**
+- **정상 호스트 수**
+
+   특정 백 엔드 풀의 정상/비정상 호스트를 표시하도록 백 엔드 풀 기준으로 필터링 할 수 있습니다.
+
+
+- **응답 상태**
+
+   2xx, 3xx, 4xx 및 5xx 범주로 응답을 표시하도록 응답 상태 코드 분산을 더욱 세분화할 수 있습니다.
+
+- **처리량**
+- **총 요청 수**
+- **비정상 호스트 수**
+
+   특정 백 엔드 풀의 정상/비정상 호스트를 표시하도록 백 엔드 풀 기준으로 필터링 할 수 있습니다.
 
 응용 프로그램 게이트웨이를 찾아 **모니터링** 아래에서 **메트릭**을 클릭합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
 

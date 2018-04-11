@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: fc7a4062af9e73383af46f0c36eb22710ce9b6e1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 68f5784f1724441ff6f18e2581c8e01d66c60c5e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
@@ -811,11 +811,11 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |처리량|처리량|초당 바이트 수|합계|Application Gateway에서 제공하는 초당 바이트 수|차원 없음|
-|UnhealthyHostCount|비정상 호스트 수|개수|평균|비정상 백 엔드 호스트 수|BackendSettingsPool|
-|HealthyHostCount|정상 호스트 수|개수|평균|정상 백 엔드 호스트 수|BackendSettingsPool|
+|UnhealthyHostCount|비정상 호스트 수|개수|평균|비정상 백 엔드 호스트 수. 특정 백 엔드 풀의 정상/비정상 호스트를 표시하도록 백 엔드 풀 기준으로 필터링할 수 있습니다.|BackendSettingsPool|
+|HealthyHostCount|정상 호스트 수|개수|평균|정상 백 엔드 호스트 수. 특정 백 엔드 풀의 정상/비정상 호스트를 표시하도록 백 엔드 풀 기준으로 필터링할 수 있습니다.|BackendSettingsPool. |
 |TotalRequests|총 요청 수|개수|합계|Application Gateway가 제공하는 성공한 요청 수|BackendSettingsPool|
 |FailedRequests|실패한 요청|개수|합계|Application Gateway가 제공하는 실패한 요청 수|BackendSettingsPool|
-|ResponseStatus|응답 상태|개수|합계|Application Gateway에서 반환된 HTTP 응답 상태|HttpStatusGroup|
+|ResponseStatus|응답 상태|개수|합계|Application Gateway에서 반환된 HTTP 응답 상태. 2xx, 3xx, 4xx 및 5xx 범주로 응답을 표시하도록 응답 상태 코드 분산을 더욱 세분화할 수 있습니다.|HttpStatusGroup|
 |CurrentConnections|현재 연결|개수|합계|Application Gateway와 설정된 현재 연결 수|차원 없음|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways

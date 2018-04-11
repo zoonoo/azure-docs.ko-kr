@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: zhiweiw
-ms.openlocfilehash: a57bb4a019ce51e67516761ae6fb89461fe89e15
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6803d0a5cff45736013a840451b940ef7108bca1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health 경고 카탈로그 
 
 Azure AD Connect Health 서비스의 보내기 경고는 ID 인프라가 정상 상태가 아님을 나타냅니다. 이 문서에는 각 경고에 대한 경고 제목, 설명 및 수정 단계가 포함되어 있습니다. <br />
 오류, 경고 및 사전 경고는 Connect Health 서비스에서 생성되는 경고의 세 단계입니다. 트리거된 알림에 대한 작업을 즉시 수행하는 것이 좋습니다. <br />
 Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD Connect Health 에이전트가 정기적으로 성공 조건을 검색하여 서비스에 보고합니다. 일부 경고의 경우 시간을 기준으로 경고가 제거됩니다. 즉, 동일한 오류 조건이 경고 생성으로부터 72시간 내에 관찰되지 않으면 경고가 자동으로 해결됩니다.
+
+## <a name="general-alerts"></a>일반 경고
+
+| 경고 이름 | 설명 | 재구성 |
+| --- | --- | ----- |
+| 상태 관리 서비스 데이터가 최신 상태가 아님 | 하나 이상의 서버에서 실행 중인 상태 에이전트가 상태 관리 서비스에 연결되어 있지 않으며 상태 관리 서비스는 이 서버의 최신 데이터를 받고 있지 않습니다. 상태 관리 서비스에서 마지막으로 처리한 데이터는 2시간 이상 전의 데이터입니다. | 상태 에이전트는 다음 서비스 끝점에 대한 아웃바운드 연결을 포함해야 합니다. [자세히 알아보기](active-directory-aadconnect-health-data-freshness.md) |
 
 ## <a name="alerts-for-azure-ad-connect-sync"></a>Azure AD Connect(동기화)에 대한 경고
 
@@ -35,10 +41,10 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 | Active Directory로 내보내지 못했습니다. | Active Directory Connector로 내보내기 작업이 실패했습니다. | 내보내기 작업에 대한 이벤트 로그 오류에서 자세한 내용을 조사합니다. | 
 | Active Directory에서 가져오지 못했습니다. | Active Directory에서 가져오지 못했습니다. 이로 인해 이 포리스트의 일부 도메인에 있는 개체를 가져올 수 없습니다. | <li>DC 연결 확인</li> <li>수동으로 가져오기 다시 실행</li> <li> 가져오기 작업에 대한 이벤트 로그 오류에서 자세한 내용을 조사합니다. | 
 | Azure Active Directory로 내보내지 못했습니다. | Azure Active Directory Connector로 내보내기 작업이 실패했습니다. 이로 인해 일부 개체를 Azure Active Directory로 성공적으로 내보낼 수 없습니다. | 내보내기 작업에 대한 이벤트 로그 오류에서 자세한 내용을 조사합니다. |
-| 지난 120분 동안 암호 동기화 하트비트를 건너뛰었습니다. | 암호 동기화는 지난 120분 동안 Azure Active Directory와 연결되지 않았습니다. 이로 인해 암호가 Azure Active Directory와 동기화되지 않습니다. | Microsoft Azure Active Directory 동기화 서비스를 다시 시작합니다.</b><br> 현재 실행 중인 모든 동기화 작업이 중단됩니다. 진행 중인 동기화 작업이 없는 경우 아래 단계를 수행할 수 있습니다.<br> 1. <b>시작</b>, <b>실행</b>을 차례로 클릭하고, <b>Services.msc</b>를 입력한 다음, <b>확인</b>을 클릭합니다.<br> 2. <b>Microsoft Azure AD 동기화</b>를 찾아 마우스 오른쪽 단추로 클릭한 다음, <b>다시 시작</b>을 클릭합니다. | 
+| 지난 120분 동안 암호 해시 동기화 하트비트를 건너뛰었습니다. | 암호 해시 동기화는 지난 120분 동안 Azure Active Directory와 연결되지 않았습니다. 이로 인해 암호가 Azure Active Directory와 동기화되지 않습니다. | Microsoft Azure Active Directory 동기화 서비스를 다시 시작합니다.</b><br> 현재 실행 중인 모든 동기화 작업이 중단됩니다. 진행 중인 동기화 작업이 없는 경우 아래 단계를 수행할 수 있습니다.<br> 1. <b>시작</b>, <b>실행</b>을 차례로 클릭하고, <b>Services.msc</b>를 입력한 다음, <b>확인</b>을 클릭합니다.<br> 2. <b>Microsoft Azure AD 동기화</b>를 찾아 마우스 오른쪽 단추로 클릭한 다음, <b>다시 시작</b>을 클릭합니다. | 
 | 높은 CPU 사용량이 감지됨 | 이 서버에서 CPU 사용률이 권장 임계값을 초과했습니다. | <li>이로 인해 CPU 사용량이 일시적으로 급증할 수 있습니다. 모니터링 섹션에서 CPU 사용량 추세를 확인합니다.</li><li>서버에서 가장 높은 CPU 사용량을 소모하는 상위 프로세스를 검사합니다.<ol type="a"><li>작업 관리자를 사용하거나 다음 PowerShell 명령을 실행할 수 있습니다. <br> <i>get-process \| Sort-Object -Descending CPU \| Select-Object -First 10</i></li><li>CPU 사용량이 많은 예기치 않은 프로세스가 있는 경우 다음 PowerShell 명령을 사용하여 프로세스를 중지합니다. <br> <i>stop-process -ProcessName [프로세스 이름]</i></li></li></ol><li>위의 목록에 표시된 프로세스가 서버에서 실행되는 의도된 프로세스이고 CPU 사용량이 계속 임계값에 근접하고 있는 경우 이 서버의 배포 요구 사항을 다시 평가해 보세요.</li><li>fail-safe 옵션으로 서버를 다시 시작하는 것이 좋습니다. |
 | 높은 메모리 사용량이 감지됨 | 이 서버에서 메모리 사용률이 권장 임계값을 넘었습니다. | 서버에서 가장 많은 메모리를 소모하는 상위 프로세스를 검사합니다. 작업 관리자를 사용하거나 다음 PowerShell 명령을 실행할 수 있습니다.<br> <i>get-process \| Sort-Object -Descending WS \| Select-Object -First 10</i> </br> 많은 메모리를 사용하는 예기치 않은 프로세스가 있는 경우 다음 PowerShell 명령을 사용하여 프로세스를 중지합니다.<br><i>stop-process -ProcessName [프로세스 이름] </i></li><li> 위 목록에 표시된 프로세스가 서버에서 실행되는 의도된 프로세스인 경우 이 서버의 배포 요구 사항을 다시 평가해 보세요.</li><li>failsafe 옵션으로 서버를 다시 시작하는 것이 좋습니다. | 
-| 암호 동기화 작동이 중지되었습니다. | 암호 동기화가 중지되었습니다. 이로 인해 암호가 Azure Active Directory와 동기화되지 않습니다. | Microsoft Azure Active Directory 동기화 서비스를 다시 시작합니다. <br /> 현재 실행 중인 모든 동기화 작업이 중단됩니다. 진행 중인 동기화 작업이 없는 경우 아래 단계를 수행할 수 있습니다. <br /> <ol> <li><b>시작</b>, <b>실행</b>을 차례로 클릭하고, <b>Services.msc</b>를 입력한 다음, <b>확인</b>을 클릭합니다.</li> <li><b>Microsoft Azure AD 동기화</b>를 찾아 마우스 오른쪽 단추로 클릭한 다음, <b>다시 시작</b>을 클릭합니다.</li> </ol> </p>  | 
+| 암호 해시 동기화가 중지되었습니다. | 암호 해시 동기화가 중지되었습니다. 이로 인해 암호가 Azure Active Directory와 동기화되지 않습니다. | Microsoft Azure Active Directory 동기화 서비스를 다시 시작합니다. <br /> 현재 실행 중인 모든 동기화 작업이 중단됩니다. 진행 중인 동기화 작업이 없는 경우 아래 단계를 수행할 수 있습니다. <br /> <ol> <li><b>시작</b>, <b>실행</b>을 차례로 클릭하고, <b>Services.msc</b>를 입력한 다음, <b>확인</b>을 클릭합니다.</li> <li><b>Microsoft Azure AD 동기화</b>를 찾아 마우스 오른쪽 단추로 클릭한 다음, <b>다시 시작</b>을 클릭합니다.</li> </ol> </p>  | 
 | Azure Active Directory로 내보내기가 중지되었습니다. 실수로 삭제 임계값에 도달했습니다. | Azure Active Directory로 내보내기 작업이 실패했습니다. 구성된 임계값보다 삭제할 개체가 더 많습니다. 이로 인해 내보낼 개체가 없습니다. | <li> 삭제 표시된 개체 수가 설정된 임계값보다 큽니다. 이 결과가 필요한지 확인합니다.</li> <li> 내보내기를 계속하려면 다음 단계를 수행합니다. <ol type="a"> <li>Disable-ADSyncExportDeletionThreshold를 실행하여 임계값을 사용하지 않도록 설정합니다.</li> <li>동기화 서비스 관리자를 시작합니다.</li> <li>type = Azure Active Directory를 사용하여 Connector에서 내보내기를 실행합니다.</li> <li>개체가 성공적으로 내보내지면 Enable-ADSyncExportDeletionThreshold를 실행하여 임계값을 사용하도록 설정합니다.</li> </ol> </li> |
 
 ## <a name="alerts-for-active-directory-federation-services"></a>Active Directory Federation Services에 대한 경고
@@ -83,7 +89,7 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 | Netlogon 서비스가 실행되고 있지 않습니다. | 이 DC에서 도메인 컨트롤러의 로그온 요청, 등록, 인증 및 찾기를 사용할 수 없습니다. | 영향을 받는 도메인 컨트롤러에서 '<b>net start netlogon</b>'을 실행합니다. | 
 | W32Time 서비스가 실행되고 있지 않습니다. | Windows 시간 서비스가 중지되면 날짜 및 시간 동기화를 사용할 수 없습니다. 이 서비스를 사용하지 않도록 설정하면 이 서비스에 명시적으로 종속된 모든 서비스가 시작되지 않습니다. | 영향을 받는 도메인 컨트롤러에서 '<b>net start win32Time</b>'을 실행합니다. | 
 | ADWS 서비스가 실행되고 있지 않습니다. | Active Directory 웹 서비스가 중지되거나 사용하지 않도록 설정된 경우, Active Directory PowerShell과 같은 클라이언트 응용 프로그램은 이 서버에서 로컬로 실행되는 모든 디렉터리 서비스 인스턴스에 액세스하거나 이를 관리할 수 없습니다. | 영향을 받는 도메인 컨트롤러에서 '<b>net start adws</b>'를 실행합니다. | 
-| 루트 PDC가 NTP 서버에서 동기화되지 않습니다. | 외부 또는 내부 시간 원본에서 시간을 동기화하도록 PDC를 구성하지 않는 경우, PDC 에뮬레이터가 내부 클록을 사용하고 자체적으로 포리스트에 대한 신뢰할 수 있는 시간 원본이 됩니다. PDC 자체의 시간이 정확하지 않으면 모든 컴퓨터의 시간이 잘못 설정됩니다. | 영향을 받는 도메인 컨트롤러에서 명령 프롬프트를 엽니다. net stop w32time을 실행하여 시간 서비스를 중지합니다.</li> <li>다음을 실행하여 외부 시간 원본을 구성합니다. <br> <i>w32tm \/config \/manualpeerlist: time.windows.com \/syncfromflags:manual \/reliable:yes</i></br><br>참고: time.windows.com을 원하는 외부 시간 원본의 주소로 바꿉니다. <i>net start w32time</i>을 실행하여 <br> 시간 서비스를 시작합니다.</br> | 
+| 루트 PDC가 NTP 서버에서 동기화되지 않습니다. | 외부 또는 내부 시간 원본에서 시간을 동기화하도록 PDC를 구성하지 않는 경우, PDC 에뮬레이터가 내부 클록을 사용하고 자체적으로 포리스트에 대한 신뢰할 수 있는 시간 원본이 됩니다. PDC 자체의 시간이 정확하지 않으면 모든 컴퓨터의 시간이 잘못 설정됩니다. | 영향을 받는 도메인 컨트롤러에서 명령 프롬프트를 엽니다. net stop w32time을 실행하여 시간 서비스를 중지합니다.</li> <li>다음을 실행하여 외부 시간 원본을 구성합니다. <br> <i>w32tm \/config \/manualpeerlist: time.windows.com \/syncfromflags:manual \/reliable:yes</i></br><br>참고: time.windows.com을 원하는 외부 시간 원본의 주소로 바꿉니다. Time 서비스 시작: <br> <i>net start w32time</i>을</br> | 
 | 도메인 컨트롤러가 격리되었습니다. | 이 도메인 컨트롤러는 작동 중인 다른 도메인 컨트롤러에 연결되지 않았습니다. 이 문제는 부적절한 구성으로 인해 발생할 수 있습니다. 이에 따라 이 DC는 사용되지 않으며 어떤 사용자에게도 복제되지 않습니다. | 인바운드 및 아웃바운드 복제를 사용하도록 설정합니다. 이렇게 하려면 영향을 받는 도메인 컨트롤러에서 '<b>repadmin /options ServerName -DISABLE_INBOUND_REPL</b>' 및 '<b>repadmin /options ServerName -DISABLE_OUTBOUND_REPL</b>'을 실행합니다. 다른 도메인 컨트롤러에 새 복제 연결을 만듭니다.<ol type="1"><li>Active Directory 사이트 및 서비스를 엽니다. 이렇게 하려면 [시작] 메뉴에서 [관리 도구]를 가리킨 다음, [Active Directory 사이트 및 서비스]를 클릭합니다. </li><li>콘솔 트리에서 [사이트]를 펼친 다음, 이 DC가 속한 사이트를 펼칩니다. </li><li>[서버] 컨테이너를 확장하여 서버 목록을 표시합니다. </li><li>이 DC에 대한 서버 개체를 펼칩니다. </li><li>NTDS 설정 개체를 마우스 오른쪽 단추로 클릭하고, [새 Active Directory Domain Services 연결...]을 클릭합니다. </li><li>목록에서 [서버]를 선택하고 [확인]을 클릭합니다.</li></ol><a href="https://support.microsoft.com/kb/230306 ">Active Directory에서 분리된 도메인을 제거하는 방법</a> |
 | 아웃바운드 복제를 사용할 수 없습니다. | 사용할 수 없는 아웃바운드 복제가 있는 DC는 자체 내에서 시작된 변경을 배포할 수 없습니다. | 영향을 받는 도메인 컨트롤러에서 아웃바운드 복제를 사용하도록 설정하려면 다음 단계를 수행합니다. [시작], [실행]을 차례로 클릭하고, cmd를 입력한 다음, [확인]을 클릭합니다. 다음 텍스트를 입력한 다음, Enter 키를 누릅니다.<br><i>repadmin /options -DISABLE_OUTBOUND_REPL</i> | 
 | 인바운드 복제를 사용할 수 없습니다. | 사용할 수 없는 인바운드 복제가 있는 DC에는 최신 정보가 없습니다. 이로 인해 로그온 실패가 발생할 수 있습니다. | 영향을 받는 도메인 컨트롤러에서 인바운드 복제를 사용하도록 설정하려면 다음 단계를 수행합니다. [시작], [실행]을 차례로 클릭하고, cmd를 입력한 다음, [확인]을 클릭합니다. 다음 텍스트를 입력한 다음, Enter 키를 누릅니다.<br><i>repadmin /options -DISABLE_INBOUND_REPL</i> </br> | 

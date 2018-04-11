@@ -1,24 +1,19 @@
 ---
-title: Azure Application Gateway에 대한 질문과 대답 | Microsoft Docs
+title: Azure Application Gateway에 대한 질문과 대답
 description: 이 페이지에서는 Azure Application Gateway에 대한 질문과 대답을 제공합니다.
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -38,7 +33,19 @@ Application Gateway는 웹 트래픽(HTTP/HTTPS/WebSocket)에서만 작동하는
 
 **Q. Application Gateway에서 지원하는 프로토콜은 무엇인가요?**
 
-Application Gateway는 HTTP, HTTPS 및 WebSocket을 지원합니다.
+Application Gateway는 HTTP, HTTPS, HTTP/2 및 WebSocket을 지원합니다.
+
+**Q. Application Gateway는 어떻게 HTTP/2를 지원하나요?**
+
+HTTP/2 프로토콜 지원은 Application Gateway 수신기에만 연결되는 클라이언트에 제공됩니다. 백 엔드 서버 풀에 대한 통신은 HTTP/1.1을 통해 이루어집니다. 
+
+기본적으로 HTTP/2 지원은 사용할 수 없습니다. 다음 Azure PowerShell 코드 조각 예제는 이를 사용하도록 설정하는 방법을 보여 줍니다.
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **Q. 현재 백 엔드 풀의 일부로 어떤 리소스가 지원되나요?**
 
@@ -314,7 +321,7 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 
 **Q. Application Gateway로 경고를 설정할 수 있나요?**
 
-예, Application Gateway는 경고를 지원하며 메트릭에 따라 경고를 해제하도록 구성합니다.  Application Gateway에서는 현재 경고를 구성할 수 있는 "처리량" 메트릭을 포함합니다. 경고에 대한 자세한 내용을 보려면 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 방문하세요.
+예, Application Gateway는 경고를 지원하며 메트릭에 따라 경고를 해제하도록 구성합니다. Application Gateway에서는 현재 경고를 구성할 수 있는 "처리량" 메트릭을 포함합니다. 경고에 대한 자세한 내용을 보려면 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 방문하세요.
 
 **Q. 백 엔드 상태에서 알 수 없는 상태를 반환할 경우 이 상태의 원인은 무엇인가요?**
 

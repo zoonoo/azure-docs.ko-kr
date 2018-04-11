@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API를 보호하는 방법
 
@@ -183,7 +183,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3
 
 이때 사용자가 개발자 콘솔에서 호출을 수행하려고 하면 로그인하라는 메시지가 표시되며, 개발자 콘솔은 사용자 대신, 액세스 토큰을 획득합니다. 모든 것이 예상대로 작동됩니다. 그러나 토큰이 없거나 잘못된 토큰이 있는 상태에서 API를 호출하면 어떻게 될까요? 예를 들어, `Authorization` 헤더를 삭제한 상태에서도 API를 여전히 호출할 수 있습니다. 그 이유는 APIM인 지금은 액세스 토큰이 유효한지 검사하지 않기 때문입니다. APIM은 백 엔드 API에 `Auhtorization` 헤더를 전달합니다.
 
-APIM에서 [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰에 대한 유효성을 검사함으로써 해당 요청을 미리 인증할 수 있습니다. 요청에 유효한 토큰이 없으면 API Management에 의해 차단되며 요청이 백 엔드로 전달되지 않습니다. 아래 정책을 `Echo API`에 추가할 수 있습니다. 
+APIM에서 [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰에 대한 유효성을 검사함으로써 해당 요청을 미리 인증할 수 있습니다. 요청에 유효한 토큰이 없으면 API Management에 의해 차단되며 요청이 백 엔드로 전달되지 않습니다. 예를 들어 `Echo API`의 `<inbound>` 정책 섹션에 아래 정책을 추가할 수 있습니다. 액세스 토큰에서 대상 클레임을 확인하고 토큰이 유효하지 않은 경우 오류 메시지를 반환합니다. 정책을 구성하는 방법에 대한 내용은 [정책 설정 또는 편집](set-edit-policies.md)을 참조하세요.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ APIM에서 [JWT 유효성 검사](api-management-access-restriction-policies.md#
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>API를 호출하는 응용 프로그램 빌드
+
+이 가이드에서는 OAuth 2.0으로 보호되는 `Echo API`을 호출하기 위해 APIM에서 개발자 콘솔을 샘플 클라이언트 응용 프로그램으로 사용했습니다. OAuth 2.0 흐름을 구현하고 응용 프로그램을 빌드하는 방법을 자세히 알려보려면 [Azure Active Directory 코드 샘플](../active-directory/develop/active-directory-code-samples.md)을 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
+* [Azure Active Directory 및 OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)에 대해 자세히 알아보기
 * API Management에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.
 * 백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](api-management-howto-mutual-certificates.md)을 참조하세요.
 

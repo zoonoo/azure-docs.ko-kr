@@ -1,5 +1,5 @@
 ---
-title: 가용성 영역을 사용하는 Azure 확장 집합 만들기(미리 보기) | Microsoft Docs
+title: 가용성 영역을 사용하는 Azure 확장 집합 만들기 | Microsoft Docs
 description: 가동 중단에 대비해서 중복성을 늘리기 위해 가용성 영역을 사용하는 Azure 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -13,18 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: dee06eee045bc24c2864333a66a6d145a771b3ad
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기(미리 보기)
+# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 데이터 센터 수준 오류로부터 가상 머신 확장 집합을 보호하려면 가용성 영역에서 확장 집합을 만들 수 있습니다. 가용성 영역을 지원하는 Azure 지역은 각각 독립적인 전원, 네트워크 및 냉각 기능을 갖춘 3개 이상의 별도 지역을 포함합니다. 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.
-
-[!INCLUDE [availability-zones-preview-statement.md](../../includes/availability-zones-preview-statement.md)]
 
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>단일 영역 및 영역 중복 확장 집합
@@ -32,13 +30,28 @@ ms.lasthandoff: 03/28/2018
 
 단일 영역에서 확장 집합을 만들 경우 해당 VM 인스턴스가 모두 실행되는 영역을 제어하고 해당 영역 내에서만 확장 집합을 관리하고 확장 집합의 크기를 자동 조정합니다. 영역 중복 확장 집합을 사용하여 여러 영역에 걸쳐 있는 단일 확장 집합을 만들 수 있습니다. VM 인스턴스를 만들 때 기본적으로 영역에 균등하게 배포됩니다. 영역 중 하나가 중단되어야 확장 집합이 용량이 증가하도록 자동으로 확장되지 않습니다. 가장 좋은 방법은 CPU 또는 메모리 사용량을 기반으로 자동 크기 조정 규칙을 구성하는 것입니다. 확장 집합은 자동 크기 조정 규칙을 통해 다른 작업 영역에서 새 인스턴스를 확장하여 한 영역의 VM 인스턴스 손실에 대응할 수 있습니다.
 
-가용성 영역을 사용하려면 [지원되는 Azure 지역](../availability-zones/az-overview.md#regions-that-support-availability-zones)에 확장 집합을 만들어야 합니다. 또한 [가용성 영역 미리 보기에 등록](http://aka.ms/azenroll)해야 합니다. 다음 방법 중 하나를 사용하여 가용성 영역을 사용하는 확장 집합을 만들 수 있습니다.
+가용성 영역을 사용하려면 [지원되는 Azure 지역](../availability-zones/az-overview.md#regions-that-support-availability-zones)에 확장 집합을 만들어야 합니다. 다음 방법 중 하나를 사용하여 가용성 영역을 사용하는 확장 집합을 만들 수 있습니다.
 
 - [Azure Portal](#use-the-azure-portal)
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 리소스 관리자 템플릿](#use-azure-resource-manager-templates)
 
+## <a name="availability-considerations"></a>가용성 고려 사항
+API 버전 2017-12-01부터 확장 집합을 하나 이상의 영역으로 배포하는 경우 "최대 분산" 또는 "정적 5 장애 도메인 분산"을 사용하는 배포 옵션이 있습니다. 최대 확산을 사용하여 확장 집합은 각 영역 내에서 가능한 많은 장애 도메인에서 VM을 분산합니다. 이 분산은 영역당 5개의 장애 도메인보다 크거나 작을 수 있습니다. 반대로 "정적 5 장애 도메인 확산"을 사용하여 확장 집합은 정확히 영역당 5개의 장애 도메인에서 VM을 분산합니다. 확장 집합은 할당 요청을 충족하는 영역당 5개의 고유 장애 도메인을 찾을 수 없으므로 요청은 실패합니다.
+
+최대 분산은 대부분의 경우에서 최상의 분산을 제공하므로 **대부분의 워크로드에 대해 최대 분산을 사용하여 배포하는 것이 좋습니다**. 고유한 하드웨어 격리 단위에 분산될 복제본이 필요한 경우 가용성 영역에 분산하고 각 영역 내에서 최대 분산을 활용하는 것이 좋습니다. 최대 분산을 사용하면 VM이 실제로 분산되는 장애 도메인 수에 관계 없이 확장 집합 VM 인스턴스 보기 및 인스턴스 메타데이터에 하나의 장애 도메인만 표시됩니다. 각 영역 내 분산은 암시적입니다.
+
+최대 분산을 사용하려면 "platformFaultDomainCount"를 1로 설정합니다. 정적 5 장애 도메인 분산을 사용하려면 "platformFaultDomainCount"를 5로 설정합니다. API 버전 2017-12-01에서 "platformFaultDomainCount"는 단일 영역 및 영역 간 확장 집합에 대한 기본값이 1로 설정됩니다. 현재 정적 5 장애 도메인 분산만 지역 확장 집합에 대해 지원됩니다.
+
+또한 확장 집합을 배포할 때 가용성 영역당 단일 [배치 그룹](./virtual-machine-scale-sets-placement-groups.md) 또는 영역당 여러 배치 그룹을 사용하는 배포의 옵션이 있습니다(지역 확장 집합의 경우 선택은 영역에 단일 배치 그룹을 갖거나 영역에 여러 배치 그룹을 갖는 것임). 대부분의 작업의 경우 더 큰 확장을 허용하는 여러 배치 그룹을 사용하는 것이 좋습니다. API 버전 2017-12-01에서 확장 집합은 단일 영역 및 영역 간 확장 집합에 대해 여러 배치 그룹을 기본값으로 설정하지만 지역 확장 집합에 대해 단일 배치 그룹을 기본값으로 설정합니다.
+
+>[!NOTE]
+> 최대 분산을 사용하는 경우 여러 배치 그룹을 사용해야 합니다.
+
+마지막으로 여러 영역에서 배포되는 확장 집합의 경우 "최상의 노력 영역 균형" 또는 "엄격한 영역 균형"을 선택하는 옵션을 갖습니다. 확장 집합은 각 영역에서 VM의 수가 확장 집합에 대한 다른 모든 영역의 VM 수 중 하나에 있는 경우 "균형"으로 간주됩니다. 인스턴스의 경우 영역 1에 2개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 균형으로 간주됩니다. 그러나 영역 1에 1개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 불균형으로 간주됩니다. 확장 집합에서 VM을 성공적으로 만드는 것은 가능하지만 해당 VM에서 확장은 실패합니다. 확장이 실패한 이러한 VM은 확장 집합이 분산된 경우를 결정할 때에 여전히 계산됩니다. 예를 들어 영역 1에 3개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 모든 확장이 영역 1에서 실패하고 모든 확장이 영역 2 및 3에서 성공한 경우에도 균형으로 간주됩니다. 최상의 노력 영역 균형을 사용하여 확장 집합은 균형을 유지하면서 규모 확장 및 축소를 시도합니다. 그러나 어떤 이유로 불가능한 경우(예: 하나의 영역이 다운되어 확장 집합에서 해당 영역에 새 VM을 만들 수 없는 경우) 확장 집합은 성공적으로 규모 확장 또는 축소를 위해 일시적인 불균형을 허용합니다. 후속 규모 확장 시도에서 확장 집합은 확장 집합이 균형을 이루기 위해 더 많은 VM이 필요한 영역에 VM을 추가합니다. 마찬가지로 후속 규모 축소 시도에서 확장 집합은 확장 집합이 균형을 이루기 위해 더 적은 VM이 필요한 영역에서 VM을 제거합니다. 반면에 "엄격한 영역 균형"을 사용하면 확장 집합은 규모 확장 또는 축소 시도에 실패하고 그렇게 하는 경우 불균형이 발생합니다.
+
+최상의 노력 영역 균형을 사용하려면 "zoneBalance"를 false로 설정합니다(API 버전 2017-12-01에서 기본값). 엄격한 영역 균형을 사용하려면 "zoneBalance"를 true로 설정합니다.
 
 ## <a name="use-the-azure-portal"></a>Azure 포털 사용
 가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-portal.md)에 자세히 설명된 프로세스와 같습니다. [가용성 영역 미리 보기에 등록](http://aka.ms/azenroll)했는지 확인합니다. 지원되는 Azure 지역을 선택할 때 다음 예제에 표시된 대로 사용 가능한 지역 중 하나에 확장 집합을 만들 수 있습니다.
@@ -66,36 +79,7 @@ az vmss create \
 단일 영역 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 CLI 스크립트](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh.)를 참조하세요.
 
 ### <a name="zone-redundant-scale-set"></a>영역 중복 확장 집합
-영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md)를 참조하세요. 영역 중복 확장 집합 또는 부하 분산 장치를 처음 만드는 경우 다음 단계를 완료하여 이 미리 보기 기능에 계정을 등록해야 합니다.
-
-1. 다음과 같이 [az feature register](/cli/azure/feature#az_feature_register)를 사용하여 영역 중복 크기 집합 및 네트워크 기능에 계정을 등록합니다.
-
-    ```azurecli
-    az feature register --name MultipleAvailabilityZones --namespace Microsoft.Compute
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    ```
-    
-2. 기능에 등록하는 데 몇 분 정도 걸릴 수 있습니다. [az feature show](/cli/azure/feature#az_feature_show)를 사용하여 작업 상태를 확인할 수 있습니다.
-
-    ```azurecli
-    az feature show --name MultipleAvailabilityZones --namespace Microsoft.Compute
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
-    ```
-
-    다음 예제에서는 원하는 기능 상태가 *Registered*로 표시됩니다.
-    
-    ```json
-    "properties": {
-          "state": "Registered"
-       },
-    ```
-
-3. 영역 중복 확장 집합 및 네트워크 리소스가 모두 *Registered*로 보고되면 다음과 같이 [az provider register](/cli/azure/provider#az_provider_register)를 사용하여 *Compute* 및 *Network* 공급자를 다시 등록합니다.
-
-    ```azurecli
-    az provider register --namespace Microsoft.Compute
-    az provider register --namespace Microsoft.Network
-    ```
+영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md)를 참조하세요. 
 
 영역 중복 확장 집합을 만들려면 여러 영역을 `--zones` 매개 변수로 지정합니다. 다음 예제에서는 *1,2,3* 영역에 *myScaleSet*라는 영역 중복 확장 집합을 만듭니다.
 
@@ -130,36 +114,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 단일 영역 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 PowerShell 스크립트](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1)를 참조하세요.
 
 ### <a name="zone-redundant-scale-set"></a>영역 중복 확장 집합
-영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md)를 참조하세요. 영역 중복 확장 집합 또는 부하 분산 장치를 처음 만드는 경우 다음 단계를 완료하여 이 미리 보기 기능에 계정을 등록해야 합니다.
-
-1. 다음과 같이 [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)를 사용하여 영역 중복 확장 집합 및 네트워크 기능에 계정을 등록합니다.
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName MultipleAvailabilityZones -ProviderNamespace Microsoft.Compute
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-    
-2. 기능에 등록하는 데 몇 분 정도 걸릴 수 있습니다. [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature)를 사용하여 작업 상태를 확인할 수 있습니다.
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName MultipleAvailabilityZones -ProviderNamespace Microsoft.Compute 
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-
-    다음 예제에서는 원하는 기능 상태가 *Registered*로 표시됩니다.
-    
-    ```powershell
-    RegistrationState
-    -----------------
-    Registered
-    ```
-
-3. 영역 중복 확장 집합 및 네트워크 리소스가 모두 *Registered*로 보고되면 다음과 같이 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider)를 사용하여 *Compute* 및 *Network* 공급자를 다시 등록합니다.
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
+영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md)를 참조하세요.
 
 영역 중복 확장 집합을 만들려면 여러 영역을 `-Zone` 매개 변수로 지정합니다. 다음 예제에서는 *미국 동부 2* 영역 *1, 2, 3*에 *myScaleSet*라는 영역 중복 확장 집합 구성을 만듭니다.
 
@@ -220,7 +175,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 }
 ```
 
-단일 영역 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 Resource Manager 템플릿](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)을 참조하세요.
+단일 영역 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 Resource Manager 템플릿](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)을 참조하세요.
 
 ### <a name="zone-redundant-scale-set"></a>영역 중복 확장 집합
 영역 중복 확장 집합을 만들려면 *Microsoft.Compute/virtualMachineScaleSets* 리소스 종류에 대한 `zones` 속성에 여러 값을 지정합니다. 다음 예제에서는 *미국 동부 2* 영역 *1,2,3*에 *myScaleSet*라는 영역 중복 확장 집합을 만듭니다.
@@ -241,7 +196,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 공용 IP 주소 또는 부하 분산 장치를 만드는 경우 *"sku": { "name": "Standard" }"* 속성을 지정하여 영역 중복 네트워크 리소스를 만듭니다. 또한 모든 트래픽을 허용하는 네트워크 보안 그룹 및 규칙을 만들어야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md)를 참조하세요.
 
-영역 중복 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 Resource Manager 템플릿](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)을 참조하세요.
+영역 중복 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 Resource Manager 템플릿](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

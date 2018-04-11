@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -95,7 +95,7 @@ Application Insights는 오버헤드가 매우 낮습니다. Application Insight
 
 1. IIS Express를 클릭하여 앱 실행 ![Visual Studio IIS Express 아이콘 스크린샷](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. 브라우저 주소 표시줄에서 URL을 복사합니다. 형식 http://localhost:{random port number}로 되어 있습니다.
+2. 브라우저 주소 표시줄에서 URL을 복사합니다. 형식 http://localhost:{random 포트 번호}
 
    ![브라우저의 URL 주소 표시줄 스크린샷](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Visual Studio에서 **프로젝트** > **NuGet 패키지 관리** > **Microsoft.
    ```
      ![_ViewImports.cshtml의 코드 변경 스크린샷](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. **Layout.cshtml**에서 ``</head>`` 태그 앞에, 다른 스크립트 이전에 아래의 줄을 추가합니다.
+3. **_Layout.cshtml**에서 ``</head>`` 태그 앞에, 다른 스크립트 이전에 아래의 줄을 추가합니다.
 
     ```C#
     @Html.Raw(snippet.FullScript)

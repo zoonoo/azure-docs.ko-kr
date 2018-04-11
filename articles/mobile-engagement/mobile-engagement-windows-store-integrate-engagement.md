@@ -1,11 +1,11 @@
 ---
-title: "Windows 유니버설 앱 Engagement SDK 통합"
-description: "Windows 유니버설 앱과 Azure 모바일 Engagement를 통합하는 방법"
+title: Windows 유니버설 앱 Engagement SDK 통합
+description: Windows 유니버설 앱과 Azure 모바일 Engagement를 통합하는 방법
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dc075ffe6565b4ef60e77f74ba4f065629c99952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows 유니버설 앱 Engagement SDK 통합
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 > [!div class="op_single_selector"]
 > * [유니버설 Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -57,7 +61,7 @@ NuGet은 응용 프로그램 프로젝트의 루트에 있는 `Resources` 폴더
 NuGet이 아직 UWP 응용 프로그램에서 SDK 리소스를 자동으로 배포하지 않습니다. NuGet에서 리소스 배포가 다시 도입될 때까지 수동으로 배포해야 합니다.
 
 1. 파일 탐색기를 엽니다.
-2. *%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81* 위치로 이동합니다(**x.x.x**는 설치하는 Engagement 버전임).
+2. *%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81* 위치로 이동합니다(**x.x.x**는 설치하는 Engagement 버전)
 3. 파일 탐색기에서 **Resources** 폴더를 Visual Studio의 프로젝트 루트에 끌어다 놓습니다.
 4. Visual Studio에서 프로젝트를 선택하고 **솔루션 탐색기** 맨 위에서 **모든 파일 표시** 아이콘을 활성화합니다.
 5. 일부 파일이 프로젝트에 포함되지 않았습니다. 한 번에 가져오려면 **Resources** 폴더를 마우스 오른쪽 단추로 클릭하고 **프로젝트에서 제외**를 클릭한 다음 **Resources** 폴더를 다시 한 번 마우스 오른쪽 단추로 클릭하고 **프로젝트에 포함**을 다시 클릭하여 전체 폴더를 다시 포함합니다. 이제 **Resources** 폴더의 모든 파일이 프로젝트에 포함되었습니다.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -375,27 +375,13 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. 가상 머신을 사용하여 Azure 리소스 그룹으로 돌아가고 새 부하 분산 장치를 찾습니다. 리소스 그룹의 보기를 새로 고쳐야 할 수도 있습니다. 부하 분산 장치를 클릭합니다.
 
-1. 부하 분산 장치 블레이드에서 **백 엔드 풀**을 클릭합니다.
+1. **백 엔드 풀**을 클릭하고 **+ 추가**를 클릭하여 백 엔드 풀을 추가합니다.
 
-1. **+ 추가**를 클릭하여 백 엔드 풀을 추가합니다.
+1. VM이 포함된 가용성 집합과 백 엔드 풀을 연결합니다.
 
-1. 백 엔드 풀의 이름을 입력합니다.
+1. **대상 네트워크 IP 구성**에서 **가상 머신**을 확인하고, 클러스터 노드로 참여하는 가상 머신을 선택합니다. FCI를 호스팅하는 모든 가상 머신을 포함해야 합니다. 
 
-1. **가상 머신 추가**를 클릭합니다.
-
-1. **가상 머신 선택** 블레이드에서 **가용성 집합 선택**을 클릭합니다.
-
-1. SQL Server 가상 머신을 배치한 가용성 집합을 선택합니다.
-
-1. **가상 머신 선택** 블레이드에서 **가상 머신 선택**을 클릭합니다.
-
-   Azure Portal은 다음 그림과 같이 표시됩니다.
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. **가상 머신 선택** 블레이드에서 **선택**을 클릭합니다.
-
-1. **확인** 을 두 번 클릭합니다.
+1. **확인**을 클릭하여 백엔드 풀을 만듭니다.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>부하 분산 장치 상태 프로브 구성
 

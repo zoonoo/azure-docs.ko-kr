@@ -1,6 +1,6 @@
 ---
-title: "Azure RA-GRS(Read-Access Geo Redundant Storage)를 사용하여 항상 사용 가능한 응용 프로그램 설계 | Microsoft Docs"
-description: "Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 응용 프로그램을 설계하는 방법입니다."
+title: Azure RA-GRS(Read-Access Geo Redundant Storage)를 사용하여 항상 사용 가능한 응용 프로그램 설계 | Microsoft Docs
+description: Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 응용 프로그램을 설계하는 방법입니다.
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
 
 Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 응용 프로그램 호스팅을 위해 항상 사용할 수 있는 플랫폼을 제공하는 것입니다. 클라우드 기반 응용 프로그램 개발자는 사용자에게 항상 사용 가능한 응용 프로그램을 제공하기 위해 이러한 플랫폼을 활용할 방법을 신중하게 고려해야 합니다. 이 문서는 개발자가 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 해당 Azure Storage 응용 프로그램의 고가용성을 보장하는 방법에 중점을 둡니다.
 
-Azure Storage는 저장소 계정에서 데이터의 중복성을 위해 선택한 4개 항목을 제공합니다.
-
-- LRS(로컬 중복 저장소)
-- ZRS(영역 중복 저장소) 
-- GRS(지역 중복 저장소)
-- RA-GRS(읽기 액세스 지역 중복 저장소) 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 이 문서에서는 GRS 및 RA-GRS에 초점을 맞춥니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대해 읽기 액세스를 갖는다는 점을 제외하면 GRS와 동일합니다. 다양한 Azure Storage 중복 옵션에 대한 자세한 내용은 [Azure Storage 복제](https://docs.microsoft.com/azure/storage/storage-redundancy)를 참조하세요. 복제 문서는 주 지역과 보조 지역의 페어링도 보여줍니다.
 
 이 문서에는 코드 조각이 포함되어 있고 끝 부분에는 다운로드하여 실행할 수 있는 전체 샘플에 대한 링크가 있습니다.
+
+> [!NOTE]
+> Azure Storage는 이제 고가용성 응용 프로그램을 빌드하기 위한 ZRS(영역 중복 저장소)를 지원합니다. ZRS는 많은 응용 프로그램의 중복성 요구 사항에 대한 간단한 솔루션을 제공합니다. ZRS는 하드웨어 오류 또는 단일 데이터 센터에 영향을 주는 심각한 재해 방지를 제공합니다. 자세한 내용은 [ZRS(영역 중복 저장소): 고가용성 Azure Storage 응용 프로그램](storage-redundancy-zrs.md)을 참조하세요.
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS의 주요 기능
 

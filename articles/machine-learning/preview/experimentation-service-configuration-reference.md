@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
 
@@ -149,6 +149,8 @@ _\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 �
 **nativeSharedDirectory**: 이 속성은 파일을 같은 계산 대상에서 실행 간에 공유하기 위해 저장할 수 있는 기본 디렉터리(예: _~/.azureml/share/_)를 지정합니다. Docker 컨테이너에서 실행할 때 이 설정을 사용하는 경우 _sharedVolumes_를 True로 설정해야 한다. 그렇지 않으면 실행되지 않습니다.
 
 **userManagedEnvironment**: 이 속성은 계산 대상을 사용자가 직접 관리할지 아니면 실험 서비스를 통해 관리할지 지정합니다.  
+
+**pythonLocation**: 컴퓨터 대상에서 사용자의 프로그램을 실행하는 데 사용할 Python 런타임의 위치를 지정합니다. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<run configuration name>.runconfig
 _\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 구성 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.

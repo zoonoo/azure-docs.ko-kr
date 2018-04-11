@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher를 사용하여 네트워크 보안 그룹 흐름 로그 관리 | Microsoft Docs"
-description: "이 페이지에서는 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다."
+title: Azure Network Watcher를 사용하여 네트워크 보안 그룹 흐름 로그 관리 | Microsoft Docs
+description: 이 페이지에서는 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Azure Portal에서 네트워크 보안 그룹 흐름 로그 관리
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -38,7 +38,10 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 시나리오에서는 [Network Watcher 인스턴스 생성](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 머신이 있는 리소스 그룹이 있다고 가정합니다.
+이 문서의 단계를 완료하려면 다음 리소스가 이미 있어야 합니다.
+
+- 기존 Network Watcher Network Watcher를 만들려면 [Network Watcher 인스턴스 만들기](network-watcher-create.md)를 참조하세요.
+- 유효한 가상 머신이 있는 기존 리소스 그룹 가상 머신이 없는 경우 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 가상 머신 만들기를 참조하세요.
 
 ## <a name="register-insights-provider"></a>Insights 공급자 등록
 
@@ -68,7 +71,7 @@ Network Watcher 인스턴스로 이동한 다음 **NSG 흐름 로그**를 선택
 
 ### <a name="step-3"></a>3단계 
 
-**흐름 로그 설정** 블레이드에서 상태를 **켜기**로 설정한 다음 저장소 계정을 구성합니다.  완료되면 **확인**을 선택합니다. 그런 다음 **저장**을 선택합니다.
+**흐름 로그 설정** 블레이드에서 상태를 **켜기**로 설정한 다음 저장소 계정을 구성합니다. 저장소 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크** 아래에서 **모든 네트워크**(기본값)를 선택한 기존 저장소 계정을 선택합니다. 저장소 계정을 선택한 후 **확인**을 선택한 다음, **저장**을 선택합니다.
 
 ![흐름 로그 개요][3]
 

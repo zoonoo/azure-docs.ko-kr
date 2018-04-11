@@ -1,12 +1,12 @@
 ---
-title: "Azure 가상 머신을 다른 Azure 지역으로 장애 조치(failover)하는 경우 IP 주소 유지 | Microsoft Docs"
-description: "Azure Site Recovery로 Azure 장애 조치(failover) 시나리오에 Azure의 IP 주소를 유지하는 방법을 설명합니다."
+title: Azure 가상 머신을 다른 Azure 지역으로 장애 조치(failover)하는 경우 IP 주소 유지 | Microsoft Docs
+description: Azure Site Recovery로 Azure 장애 조치(failover) 시나리오에 Azure의 IP 주소를 유지하는 방법을 설명합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure 가상 머신 장애 조치(failover)를 위한 IP 주소 보존
 
@@ -84,11 +84,7 @@ A사는 VNet 피어링 또는 사이트 간 VPN을 사용하여 Recovery VNet과
 
 ### <a name="further-considerations"></a>추가 고려 사항
 
-VPN 게이트웨이는 공용 IP 주소와 게이트웨이 홉을 사용하여 연결을 설정합니다. 공용 IP를 사용하지 않거나 추가 홉을 방지하려면 글로벌 VNet 피어링을 사용하여 Azure 지역의 가상 네트워크를 피어링할 수 있습니다.
-
-이 기능은 현재 공개 미리 보기 상태이며 공용 인터넷을 사용하거나 추가 홉 없이 VM 간 직접 연결이 가능하도록 지원 지역을 확대하고 있습니다.
-
-자세한 내용은 [피어링 설명서](../virtual-network/tutorial-connect-virtual-networks-portal.md#register)와 [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network/)을 참조하세요.
+VPN 게이트웨이는 공용 IP 주소와 게이트웨이 홉을 사용하여 연결을 설정합니다. 공용 IP를 사용하지 않으려는 경우 및/또는 추가 홉을 방지하려는 경우 Azure [Virtual Network 피어 링](../virtual-network/virtual-network-peering-overview.md)을 사용하여 [지원되는 Azure 지역](../virtual-network/virtual-network-manage-peering.md#cross-region)에서 가상 네트워크를 피어링할 수 있습니다.
 
 ## <a name="on-premises-to-azure-connectivity"></a>온-프레미스에서 Azure 연결
 
