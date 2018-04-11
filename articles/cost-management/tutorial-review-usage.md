@@ -1,8 +1,8 @@
----
-title: 자습서 - Azure Cost Management에서 사용량 및 비용 검토 | Microsoft Docs
-description: 이 자습서에서는 사용량과 비용을 검토하여 추세를 추적하고, 비효율성을 검색하고, 경고를 만듭니다.
+﻿---
+title: "자습서 - Azure Cost Management에서 사용량 및 비용 검토 | Microsoft Docs"
+description: "이 자습서에서는 사용량과 비용을 검토하여 추세를 추적하고, 비효율성을 검색하고, 경고를 만듭니다."
 services: cost-management
-keywords: ''
+keywords: 
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
