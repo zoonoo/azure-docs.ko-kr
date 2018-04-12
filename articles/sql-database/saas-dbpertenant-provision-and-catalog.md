@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 1accc672e396c5a9405369654f9bc4f8463c9afc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS Database-Per-Tenant 앱이 배포되어 있습니다. 5분 안에 배포를 마치려면 [Wingtip Tickets SaaS Database-Per-Tenant 응용 프로그램 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요.
+* Wingtip Tickets SaaS 테넌트별 데이터베이스 앱이 배포되어 있습니다. 5분 안에 배포를 마치려면 [Wingtip Tickets SaaS Database-Per-Tenant 응용 프로그램 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>SaaS 카탈로그 패턴 소개
@@ -66,7 +66,7 @@ Wingtip Tickets Database-per-Tenant 앱은 카탈로그 서버에 배포된 _bas
 프로비저닝 스크립트는 _basetenantdb_ 데이터베이스를 복사하여 탄력적 풀에 새 테넌트 데이터베이스를 만듭니다. 그런 다음, 스크립트는 테넌트 관련 정보로 데이터베이스를 초기화하고 카탈로그 분할된 데이터베이스 맵에 등록합니다. 테넌트 데이터베이스에는 테넌트 이름을 본따서 이름이 지정됩니다. 이 명명 스키마는 패턴의 중요한 부분이 아닙니다. 카탈로그는 테넌트 키를 데이터베이스 이름으로 매핑하므로 어떤 명명 규칙도 사용 가능합니다. 
 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database-per-Tenant 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 스크립트 가져오기
 
 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 Wingtip Tickets SaaS 스크립트와 응용 프로그램 소스 코드를 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 

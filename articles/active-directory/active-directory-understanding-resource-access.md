@@ -1,8 +1,8 @@
 ---
-title: "Azure의 리소스 액세스 이해 | Microsoft Docs"
-description: "이 항목에서는 구독 관리자를 사용하여 전체 Azure Portal에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다."
+title: Azure의 리소스 액세스 이해 | Microsoft Docs
+description: 이 항목에서는 구독 관리자를 사용하여 전체 Azure Portal에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
@@ -15,10 +15,10 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
 ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Azure의 리소스 액세스 이해
 

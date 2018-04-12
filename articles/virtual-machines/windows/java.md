@@ -1,13 +1,13 @@
 ---
-title: "Java를 사용하여 Azure Virtual Machine 만들기 및 관리 | Microsoft Docs"
-description: "Java 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다."
+title: Java를 사용하여 Azure Virtual Machine 만들기 및 관리 | Microsoft Docs
+description: Java 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: da8f8b0e84a51683bd4f631832e1f319f3a9bbb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="create-credentials"></a>자격 증명 만들기
 
-이 단계를 시작하기 전에 [Active Directory 서비스 사용자](../../azure-resource-manager/resource-group-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 응용 프로그램 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
+이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../azure-resource-manager/resource-group-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 응용 프로그램 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
@@ -202,7 +202,7 @@ ResourceGroup resourceGroup = azure.resourceGroups()
 
 ### <a name="create-the-availability-set"></a>가용성 집합 만들기
 
-[가용성 집합](tutorial-availability-sets.md)은 응용 프로그램에서 사용되는 가상 컴퓨터를 쉽게 유지 관리할 수 있도록 합니다.
+[가용성 집합](tutorial-availability-sets.md)은 응용 프로그램에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
 
 가용성 집합을 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
@@ -217,9 +217,9 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>공용 IP 주소 만들기
 
-[공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)는 가상 컴퓨터와 통신하는 데 필요합니다.
+[공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)는 가상 머신과 통신해야 합니다.
 
-가상 컴퓨터의 공용 IP 주소를 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
+가상 머신의 공용 IP 주소를 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
 ```java
 System.out.println("Creating public IP address...");
@@ -233,7 +233,7 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
-가상 컴퓨터는 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)의 서브넷에 있어야 합니다.
+가상 머신은 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)의 서브넷에 있어야 합니다.
 
 서브넷 및 가상 네트워크를 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
@@ -250,7 +250,7 @@ Network network = azure.networks()
 
 ### <a name="create-the-network-interface"></a>네트워크 인터페이스 만들기
 
-가상 컴퓨터는 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
+가상 머신은 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
 
 네트워크 인터페이스를 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
@@ -267,11 +267,11 @@ NetworkInterface networkInterface = azure.networkInterfaces()
     .create();
 ```
 
-### <a name="create-the-virtual-machine"></a>가상 컴퓨터 만들기
+### <a name="create-the-virtual-machine"></a>가상 머신 만들기
 
-모든 지원 리소스를 만들었으므로 가상 컴퓨터를 만들 수 있습니다.
+모든 지원 리소스를 만들었으므로 가상 머신을 만들 수 있습니다.
 
-가상 컴퓨터를 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
+가상 머신을 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
 ```java
 System.out.println("Creating virtual machine...");
@@ -293,7 +293,7 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+> 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 머신을 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 머신 탐색 및 선택](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 > 
 >
 
@@ -320,7 +320,7 @@ azure.virtualMachines.define("myVM")
 
 ## <a name="perform-management-tasks"></a>관리 작업 수행
 
-가상 컴퓨터의 수명 주기 동안 가상 컴퓨터 시작, 중지 또는 삭제 등의 관리 작업을 실행하려고 할 수 있습니다. 또한 반복적이거나 복잡한 작업을 자동화하는 코드를 만들 수도 있습니다.
+가상 머신의 수명 주기 동안 가상 머신 시작, 중지 또는 삭제 등의 관리 작업을 실행하려고 할 수 있습니다. 또한 반복적이거나 복잡한 작업을 자동화하는 코드를 만들 수도 있습니다.
 
 VM에서 작업을 수행해야 하는 경우 VM의 인스턴스를 가져와야 합니다. Main 메서드의 try 블록에 이 코드를 추가합니다.
 
@@ -330,7 +330,7 @@ VirtualMachine vm = azure.virtualMachines().getByResourceGroup("myResourceGroup"
 
 ### <a name="get-information-about-the-vm"></a>VM 관련 정보 가져오기
 
-가상 컴퓨터에 대한 정보를 가져오려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
+가상 머신에 대한 정보를 가져오려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
 ```java
 System.out.println("hardwareProfile");
@@ -388,9 +388,9 @@ input.nextLine();
 
 ### <a name="stop-the-vm"></a>VM을 중지합니다.
 
-가상 컴퓨터를 중지하고 해당 설정을 모두 그대로 유지하면 계속 요금이 청구될 수 있습니다. 그렇지 않으려면 가상 컴퓨터를 중지하고 할당을 해제합니다. 가상 컴퓨터를 할당을 해제하면 연결된 모든 리소스의 할당이 취소되고 대금 청구가 끝납니다.
+가상 머신을 중지하고 해당 설정을 모두 그대로 유지하면 계속 요금이 청구될 수 있습니다. 그렇지 않으려면 가상 머신을 중지하고 할당을 해제합니다. 가상 머신을 할당을 해제하면 연결된 모든 리소스의 할당이 취소되고 대금 청구가 끝납니다.
 
-할당을 취소하지 않고 가상 컴퓨터를 중지하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
+할당을 취소하지 않고 가상 머신을 중지하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
 ```java
 System.out.println("Stopping vm...");
@@ -399,7 +399,7 @@ System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-가상 컴퓨터의 할당을 취소하려는 경우 PowerOff 호출을 이 코드로 변경합니다.
+가상 머신의 할당을 취소하려는 경우 PowerOff 호출을 이 코드로 변경합니다.
 
 ```java
 vm.deallocate();
@@ -407,7 +407,7 @@ vm.deallocate();
 
 ### <a name="start-the-vm"></a>VM 시작
 
-가상 컴퓨터를 시작하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
+가상 머신을 시작하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
 ```java
 System.out.println("Starting vm...");
@@ -418,9 +418,9 @@ input.nextLine();
 
 ### <a name="resize-the-vm"></a>VM 크기 조정
 
-가상 컴퓨터의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](sizes.md)를 참조하세요.  
+가상 머신의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](sizes.md)를 참조하세요.  
 
-가상 컴퓨터의 크기를 변경하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
+가상 머신의 크기를 변경하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
 ```java
 System.out.println("Resizing vm...");
@@ -446,7 +446,7 @@ input.nextLine();
 
 ## <a name="delete-resources"></a>리소스 삭제
 
-Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 더 이상 필요하지 않은 리소스를 항상 삭제하는 것이 좋습니다. 가상 컴퓨터 및 모든 지원 리소스를 삭제하려는 경우, 리소스 그룹을 삭제해야 합니다.
+Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 더 이상 필요하지 않은 리소스를 항상 삭제하는 것이 좋습니다. 가상 머신 및 모든 지원 리소스를 삭제하려는 경우, 리소스 그룹을 삭제해야 합니다.
 
 1. 리소스 그룹을 삭제하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
    

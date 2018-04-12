@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 Windows VM에 Symantec Endpoint Protection 설치 | Microsoft Docs"
-description: "클래식 배포 모델을 사용하여 새로운 또는 기존 Azure VM에 Symantec Endpoint Protection 보안 확장을 설치하고 구성하는 방법을 알아봅니다."
+title: Azure에서 Windows VM에 Symantec Endpoint Protection 설치 | Microsoft Docs
+description: 클래식 배포 모델을 사용하여 새로운 또는 기존 Azure VM에 Symantec Endpoint Protection 보안 확장을 설치하고 구성하는 방법을 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
 ms.service: virtual-machines-windows
@@ -15,30 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: iainfou
-ms.openlocfilehash: 1603ebc7ee3c29277f30fbb802bdd8205b92d648
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd96cb975bfc30b2561a98a950a9dd3fc060fa54
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
-이 문서에서는 Windows Server가 실행되는 기존 VM(가상 컴퓨터)에서 Symantec Endpoint Protection 클라이언트를 설치하고 구성하는 방법을 설명합니다. 이 전체 클라이언트는 바이러스 및 스파이웨어 보호, 방화벽, 침입 방지와 같은 서비스를 포함합니다. 이 클라이언트는 VM 에이전트를 사용하여 보안 확장 프로그램으로 설치됩니다.
+이 문서에서는 Windows Server가 실행되는 기존 VM(가상 머신)에서 Symantec Endpoint Protection 클라이언트를 설치하고 구성하는 방법을 설명합니다. 이 전체 클라이언트는 바이러스 및 스파이웨어 보호, 방화벽, 침입 방지와 같은 서비스를 포함합니다. 이 클라이언트는 VM 에이전트를 사용하여 보안 확장 프로그램으로 설치됩니다.
 
-온-프레미스 솔루션용 Symantec의 기존 구독이 있는 경우 Azure 가상 컴퓨터를 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 [Microsoft Azure 플랫폼의 Symantec Endpoint Protection][Symantec](영문)을 참조하세요. 이 페이지에는 Symantec 고객을 위한 라이선스 정보 및 이 클라이언트를 설치하는 방법에 대한 링크도 제공되어 있습니다.
+온-프레미스 솔루션용 Symantec의 기존 구독이 있는 경우 Azure 가상 머신을 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 [Microsoft Azure 플랫폼의 Symantec Endpoint Protection][Symantec](영문)을 참조하세요. 이 페이지에는 Symantec 고객을 위한 라이선스 정보 및 이 클라이언트를 설치하는 방법에 대한 링크도 제공되어 있습니다.
 
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>기존 VM에 Symantec Endpoint Protection 설치
 이 작업을 시작하려면 다음 조건을 충족해야 합니다.
 
 * Azure PowerShell 모듈 버전 0.8.2 이상이 작업 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법][PS]을 참조하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
-* Azure 가상 컴퓨터에서 VM 에이전트를 실행해야 합니다.
+* Azure Virtual Machine에서 VM 에이전트를 실행해야 합니다.
 
-먼저, VM 에이전트가 가상 컴퓨터에 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 컴퓨터 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
+먼저, VM 에이전트가 가상 머신에 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 머신 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
 
 > [!TIP]
-> 클라우드 서비스 및 가상 컴퓨터 이름을 모르는 경우 **Get-AzureVM** 을 실행하여 현재 구독의 모든 가상 컴퓨터에 대해 이름을 나열합니다.
+> 클라우드 서비스 및 가상 머신 이름을 모르는 경우 **Get-AzureVM** 을 실행하여 현재 구독의 모든 가상 머신에 대해 이름을 나열합니다.
 
 ```powershell
 $CSName = "<cloud service name>"
@@ -60,12 +60,12 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
 
 Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다음을 수행합니다.
 
-1. 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]을 참조하세요.
+1. 가상 머신에 로그온합니다. 지침은 [Windows Server를 실행하는 Virtual Machine에 로그온하는 방법][Logon]을 참조하세요.
 2. Windows Server 2008 R2의 경우, **시작 > Symantec Endpoint Protection**을 클릭합니다. Windows Server 2012 또는 Windows Server 2012 R2의 경우, 시작 화면에서 **Symantec**을 입력하고 **Symantec Endpoint Protection**을 클릭합니다.
 3. **Status-Symantec Endpoint Protection** 창의 **상태** 탭에서 필요한 경우 업데이트를 적용하거나 다시 시작합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]
+[Windows Server를 실행하는 Virtual Machine에 로그온하는 방법][Logon]
 
 [Azure VM 확장 및 기능][Ext]
 

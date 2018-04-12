@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Windows VHD 다운로드 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Windows VHD를 다운로드합니다."
+title: Azure에서 Windows VHD 다운로드 | Microsoft Docs
+description: Azure Portal을 사용하여 Windows VHD를 다운로드합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: d8bf89a4b7c2a158302f9ba09a182a3d8d062adc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9a75890af86a5342debe1d6fdb18f5e9bd2b227
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Azure에서 Windows VHD 다운로드
 
 이 문서에서는 Azure Portal을 사용하여 Azure에서 [Windows VHD(가상 하드 디스크)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 파일을 다운로드하는 방법을 배웁니다. 
 
-Azure에서 VM(가상 컴퓨터)은 운영 체제, 응용 프로그램 및 데이터를 저장하는 장소로 [디스크](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용합니다. 모든 Azure VM은 Windows 운영 체제 디스크와 임시 디스크라는 적어도 2개의 디스크를 갖습니다. 운영 체제 디스크는 초기에 이미지에서 만들어지며, 운영 체제 디스크 및 이미지는 모두 Azure Storage 계정에 저장된 VHD입니다. 가상 컴퓨터에도 데이터 디스크가 있을 수 있으며 이러한 디스크도 VHD로 저장됩니다.
+Azure에서 VM(가상 머신)은 운영 체제, 응용 프로그램 및 데이터를 저장하는 장소로 [디스크](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용합니다. 모든 Azure VM은 Windows 운영 체제 디스크와 임시 디스크라는 적어도 2개의 디스크를 갖습니다. 운영 체제 디스크는 초기에 이미지에서 만들어지며, 운영 체제 디스크 및 이미지는 모두 Azure Storage 계정에 저장된 VHD입니다. 가상 머신에도 데이터 디스크가 있을 수 있으며 이러한 디스크도 VHD로 저장됩니다.
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
 
@@ -42,7 +42,7 @@ VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계�
 
 VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스크로 사용하려면 다음 단계를 완료합니다.
 
-1.  Azure Portal에 있는 허브 메뉴에서 **가상 컴퓨터**를 클릭합니다.
+1.  Azure Portal에 있는 허브 메뉴에서 **Virtual Machines**를 클릭합니다.
 2.  목록에서 VM을 선택합니다.
 3.  VM에 대한 블레이드에서 **중지**를 클릭합니다.
 

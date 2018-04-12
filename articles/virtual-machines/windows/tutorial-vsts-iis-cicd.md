@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Team Services를 사용하여 CI/CD 파이프라인 만들기 | Microsoft Docs"
-description: "연속적인 통합 및 전달을 위해 Windows VM에서 웹앱을 IIS에 배포하는 Visual Studio Team Services 파이프라인을 만드는 방법에 대해 알아봅니다."
+title: Azure에서 Team Services를 사용하여 CI/CD 파이프라인 만들기 | Microsoft Docs
+description: 연속적인 통합 및 전달을 위해 Windows VM에서 웹앱을 IIS에 배포하는 Visual Studio Team Services 파이프라인을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Visual Studio Team Services 및 IIS를 사용하여 연속 통합 파이프라인 만들기
-응용 프로그램 개발의 빌드, 테스트 및 배포 단계를 자동화하려면 CI/CD(연속 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Visual Studio Team Services 및 IIS를 실행하는 Azure의 Windows VM(가상 컴퓨터)를 사용하여 CI/CD 파이프라인을 만듭니다. 다음 방법에 대해 알아봅니다.
+응용 프로그램 개발의 빌드, 테스트 및 배포 단계를 자동화하려면 CI/CD(연속 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Visual Studio Team Services 및 IIS를 실행하는 Azure의 Windows VM(가상 머신)를 사용하여 CI/CD 파이프라인을 만듭니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Team Services 프로젝트에 ASP.NET 웹 응용 프로그램 게시
 > * 코드 커밋으로 트리거되는 빌드 정의 만들기
-> * Azure의 가상 컴퓨터에 IIS 설치 및 구성
+> * Azure의 가상 머신에 IIS 설치 및 구성
 > * Team Services의 배포 그룹에 IIS 인스턴스 추가
 > * 새 웹 배포 패키지를 IIS에 게시하기 위한 릴리스 정의 만들기
 > * CI/CD 파이프라인 테스트
@@ -225,7 +225,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > [!div class="checklist"]
 > * Team Services 프로젝트에 ASP.NET 웹 응용 프로그램 게시
 > * 코드 커밋으로 트리거되는 빌드 정의 만들기
-> * Azure의 가상 컴퓨터에 IIS 설치 및 구성
+> * Azure의 가상 머신에 IIS 설치 및 구성
 > * Team Services의 배포 그룹에 IIS 인스턴스 추가
 > * 새 웹 배포 패키지를 IIS에 게시하기 위한 릴리스 정의 만들기
 > * CI/CD 파이프라인 테스트

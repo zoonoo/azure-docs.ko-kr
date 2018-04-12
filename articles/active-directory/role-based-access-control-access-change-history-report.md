@@ -1,8 +1,8 @@
 ---
-title: "액세스 보고 - Azure RBAC | Microsoft Docs"
-description: "지난 90일 동안 역할 기반 액세스 제어와 함께 Azure 구독 액세스에 대한 모든 변경 내용을 나열하는 보고서를 생성합니다."
+title: 액세스 보고 - Azure RBAC | Microsoft Docs
+description: 지난 90일 동안 역할 기반 액세스 제어와 함께 Azure 구독 액세스에 대한 모든 변경 내용을 나열하는 보고서를 생성합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>역할 기반 Access Control에 대한 액세스 보고서 만들기
 언제든지 누군가가 구독 내부의 액세스를 부여하거나 취소하면 변경 내용이 Azure 이벤트에 기록됩니다. 지난 90일 동안 모든 변경 내용을 보려면 액세스 변경 기록 보고서를 만들 수 있습니다.
