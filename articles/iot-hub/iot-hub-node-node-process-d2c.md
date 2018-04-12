@@ -199,7 +199,7 @@ ms.lasthandoff: 04/05/2018
    node SimulatedDevice.js
    ```
    
-   ![simulated-device 실행][simulateddevice]
+   ![simulateddevice][simulateddevice]
 
 ## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(선택 사항) 저장소 컨테이너를 IoT Hub에 추가 및 메시지 라우팅
 

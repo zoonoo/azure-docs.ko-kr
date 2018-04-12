@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory를 사용하여 Azure 리소스에 대한 액세스 관리"
-description: "Azure Active Directory의 다양한 기능을 사용하여 Azure 리소스에 대한 액세스를 관리하는 방법에 대해 알아봅니다."
+title: Azure Active Directory를 사용하여 Azure 리소스에 대한 액세스 관리
+description: Azure Active Directory의 다양한 기능을 사용하여 Azure 리소스에 대한 액세스를 관리하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: skwan
 manager: mtillman
 editor: bryanla
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 10/05/2017
 ms.author: skwan
 ms.openlocfilehash: eee4353c183aeec19f72f8e1dec6c20b6c5bb226
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure 리소스에 대한 액세스 관리
 
