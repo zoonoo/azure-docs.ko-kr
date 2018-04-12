@@ -1,24 +1,24 @@
 ---
-title: "Azure IoT Hub 장치 관리 시작(.NET/.NET) | Microsoft Docs"
-description: "Azure IoT Hub 장치 관리를 사용하여 원격 장치 재부팅을 시작하는 방법입니다. .NET용 Azure IoT 장치 SDK를 사용하여 직접 메서드를 포함한 시뮬레이트된 장치 앱을 구현하며 .NET용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다."
+title: Azure IoT Hub 장치 관리 시작(.NET/.NET) | Microsoft Docs
+description: Azure IoT Hub 장치 관리를 사용하여 원격 장치 재부팅을 시작하는 방법입니다. .NET용 Azure IoT 장치 SDK를 사용하여 직접 메서드를 포함한 시뮬레이트된 장치 앱을 구현하며 .NET용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 3af7fbfb9740e00d9ff9c2b077cb444a8057b8c3
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 44160eeb90f0f65c974b7188dd7c70cce382bf21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-netnet"></a>장치 관리 시작(.NET/.NET)
 
@@ -184,7 +184,7 @@ ms.lasthandoff: 11/07/2017
 8. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정...**을 클릭합니다. **단일 시작 프로젝트**를 선택한 다음 드롭다운 메뉴에서 **SimulateManagedDevice** 프로젝트를 선택합니다. 솔루션을 빌드하십시오.       
 
 > [!NOTE]
-> 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
+> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 
 ## <a name="run-the-apps"></a>앱 실행

@@ -1,11 +1,11 @@
 ---
-title: "Azure에 업로드할 Windows VHD 준비 | Microsoft Docs"
-description: "Azure에 업로드하기 전에 Windows VHD 또는 VHDX를 준비하는 방법"
+title: Azure에 업로드할 Windows VHD 준비 | Microsoft Docs
+description: Azure에 업로드하기 전에 Windows VHD 또는 VHDX를 준비하는 방법
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: glimoli
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 67832fd20b758af6fd7a31c0099ce8019bb2442d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 74c47907698e3365d093f0e17dba87b690406443
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
-온-프레미스에서 Microsoft Azure로 Windows VM(가상 컴퓨터)을 업로드하려면 먼저 VHD(가상 하드 디스크) 또는 VHDX를 준비해야 합니다. Azure에서는 VHD 파일 형식의 고정된 크기의 디스크를 가진 1세대 VM만 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 1세대 VM을 VHDX 파일 시스템에서 VHD로, 동적 확장 디스크에서 고정 크기로 변환할 수 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
+온-프레미스에서 Microsoft Azure로 Windows VM(가상 머신)을 업로드하려면 먼저 VHD(가상 하드 디스크) 또는 VHDX를 준비해야 합니다. Azure에서는 VHD 파일 형식의 고정된 크기의 디스크를 가진 1세대 VM만 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 1세대 VM을 VHDX 파일 시스템에서 VHD로, 동적 확장 디스크에서 고정 크기로 변환할 수 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
 
 Azure VM을 위한 지원 정책에 대한 자세한 내용은 [Microsoft Azure VM을 위한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)을 참조하세요.
 
 > [!Note]
-> 이 문서의 지침은 Windows Server 2008 R2 이상 Windows Server 운영 체제의 64비트 버전에 적용됩니다. Azure에서 실행 중인 32비트 버전 운영 체제에 대한 정보는 [Azure 가상 컴퓨터에서 32비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)을 참조하세요.
+> 이 문서의 지침은 Windows Server 2008 R2 이상 Windows Server 운영 체제의 64비트 버전에 적용됩니다. Azure에서 실행 중인 32비트 버전 운영 체제에 대한 정보는 [Azure 가상 머신에서 32비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)을 참조하세요.
 
 ## <a name="convert-the-virtual-disk-to-vhd-and-fixed-size-disk"></a>가상 디스크를 VHD 및 고정된 크기 디스크로 변환 
 가상 디스크를 Azure에 필요한 형식으로 변환해야 할 경우 이 섹션의 방법 중 하나를 사용합니다. 가상 디스크 변환 프로세스를 실행하기 전에 VM을 백업하고 Windows VHD가 로컬 서버에서 제대로 작동하는지 확인합니다. Azure로 변환하거나 업로드하기 전에 VM 자체 내에서 오류를 해결해 보세요.
@@ -297,7 +297,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 
 5. 업로드하려는 Windows VHD가 도메인 컨트롤러인 경우 이러한 단계를 수행합니다.
 
-    A. [이러한 추가 단계](https://support.microsoft.com/kb/2904015)에 따라 디스크를 준비합니다.
+    a. [이러한 추가 단계](https://support.microsoft.com/kb/2904015)에 따라 디스크를 준비합니다.
 
     B. 특정 시점에 DSRM에서 VM을 시작해야 하는 경우 DSRM 암호를 알고 있어야 합니다. 이 링크를 참조하여 [DSRM 암호](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx)를 설정할 수 있습니다.
 
@@ -324,7 +324,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 |                       |                   |           |                                       최소 파일 버전 x64       |                                      |                                      |                            |
 |-------------------------|-------------------|------------------------------------|---------------------------------------------|--------------------------------------|--------------------------------------|----------------------------|
 | 구성 요소               | 이진            | Windows 7 및 Windows Server 2008 R2 | Windows 8 및 Windows Server 2012             | Windows 8.1 및 Windows Server 2012 R2 | Windows 10 & Windows Server 2016 RS1 | Windows 10 RS2             |
-| 저장소                 | disk.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061           | -                                    | -                          |
+| Storage                 | disk.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061           | -                                    | -                          |
 |                         | storport.sys      | 6.1.7601.23403 - KB3125574         | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.332             |
 |                         | ntfs.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726           | 10.0.14393.1198 - KB4022715          | 10.0.15063.447             |
 |                         | Iologmsg.dll      | 6.1.7601.23403 - KB3125574         | 6.2.9200.16384 - KB2995387                  | -                                    | -                                    | -                          |
@@ -427,5 +427,5 @@ VM에 연결된 데이터 디스크가 있는 경우 Temporal 드라이브 볼�
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)
-* [Windows Azure 가상 컴퓨터 정품 인증 문제 해결](troubleshoot-activation-problems.md)
+* [Windows Azure 가상 머신 정품 인증 문제 해결](troubleshoot-activation-problems.md)
 

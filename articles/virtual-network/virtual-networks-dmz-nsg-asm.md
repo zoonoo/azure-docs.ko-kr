@@ -1,11 +1,11 @@
 ---
-title: "Azure DMZ 예제 – NSG를 사용하여 간단한 DMZ 빌드| Microsoft Docs"
-description: "NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드"
+title: Azure DMZ 예제 – NSG를 사용하여 간단한 DMZ 빌드| Microsoft Docs
+description: NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>예제 1 – 클래식 PowerShell로 NSG를 사용하여 간단한 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/21/2017
 * 서브넷 모두에 적용되는 네트워크 보안 그룹
 * 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows 서버
 * 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
-* DNS 서버("DNS01")를 나타내는 Windows Server
+* DNS 서버("DNS01")를 나타내는 Windows 서버
 
 참조 섹션에는 이 예제에서 설명한 대부분의 환경을 빌드하는 PowerShell 스크립트가 있습니다. VM 및 Virtual Network 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다. 
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 12/21/2017
 #### <a name="allowed-internet-to-web-server"></a>(*허용*) 인터넷에서 웹 서버
 1. 인터넷 사용자가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청합니다(인터넷 연결 클라우드 서비스).
 2. 클라우드 서비스는 포트 80에서 열린 끝점을 통해 IIS01(웹 서버)로 트래픽을 전달합니다.
-3. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
+3. 프런트 엔드 서브넷에서 인바운드 규칙 처리를 시작합니다.
    1. NSG 규칙 1(DNS)이 적용되지 않고 다음 규칙으로 이동합니다.
    2. NSG 규칙 2(RDP)가 적용되지 않고 다음 규칙으로 이동합니다.
    3. NSG 규칙 3(인터넷에서 IIS01로)이 적용되고 트래픽이 허용되며 규칙 처리를 중지합니다.

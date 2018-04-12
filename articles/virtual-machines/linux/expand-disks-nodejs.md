@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 1.0을 사용하여 Linux VM에서 OS 디스크 확장 | Microsoft Docs"
-description: "Azure CLI 1.0 및 Resource Manager 배포 모델을 사용하여 Linux VM에서 OS(운영 체제) 가상 디스크를 확장하는 방법에 대해 알아보기"
+title: Azure CLI 1.0을 사용하여 Linux VM에서 OS 디스크 확장 | Microsoft Docs
+description: Azure CLI 1.0 및 Resource Manager 배포 모델을 사용하여 Linux VM에서 OS(운영 체제) 가상 디스크를 확장하는 방법에 대해 알아보기
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Azure CLI 1.0에서 Azure CLI를 사용하여 Linux VM에서 OS 디스크 확장
-Azure에서 Linux VM(가상 컴퓨터)에서 OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 일반적으로 30GB입니다. [데이터 디스크를 추가](add-disk.md)하여 추가 저장소 공간을 제공하고 OS 디스크를 확장할 수 있습니다. 이 문서에서는 Azure CLI 1.0에서 관리되지 않는 디스크를 사용하여 Linux VM에 대한 OS 디스크를 확장하는 방법을 설명합니다.
+Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 일반적으로 30GB입니다. [데이터 디스크를 추가](add-disk.md)하여 추가 저장소 공간을 제공하고 OS 디스크를 확장할 수 있습니다. 이 문서에서는 Azure CLI 1.0에서 관리되지 않는 디스크를 사용하여 Linux VM에 대한 OS 디스크를 확장하는 방법을 설명합니다.
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.

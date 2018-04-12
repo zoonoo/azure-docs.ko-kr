@@ -1,25 +1,24 @@
 ---
-title: "빠른 시작: Graph API와 PHP - Azure Cosmos DB | Microsoft Docs"
-description: "이 빠른 시작은 Azure Portal 및 PHP와 함께 Azure Cosmos DB Graph API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다."
+title: '빠른 시작: Graph API와 PHP - Azure Cosmos DB | Microsoft Docs'
+description: 이 빠른 시작은 Azure Portal 및 PHP와 함께 Azure Cosmos DB Graph API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: dfce0de9-a326-401c-9940-406ac0414461
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: f6d8b8773719a59ad5326196f32a69a13a9a5d34
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: PHP 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 

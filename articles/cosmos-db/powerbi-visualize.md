@@ -3,9 +3,8 @@ title: Azure Cosmos DB 커넥터에 대한 Power BI 자습서 | Microsoft Docs
 description: 이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰력 있는 보고서를 만들고, Azure Cosmos DB 및 Power BI 커넥터를 사용하여 데이터를 시각화할 수 있습니다.
 keywords: power bi 자습서, 데이터 시각화, power bi 커넥터
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
 [PowerBI.com](https://powerbi.microsoft.com/) 은 사용자 및 조직에 중요한 데이터로 대시보드와 보고서를 만들어 공유할 수 있는 온라인 서비스입니다.  Power BI 데스크톱은 다양한 데이터 원본에서 데이터를 검색하고, 데이터를 병합 및 변환하며, 강력한 보고서 및 시각화를 제작하고, 보고서를 Power BI에 게시할 수 있는 전용 보고서 제작 도구입니다.  Power BI Desktop의 최신 버전에서는 이제 Power BI용 Azure Cosmos DB 커넥터를 통해 Azure Cosmos DB 계정에 연결할 수 있습니다.   

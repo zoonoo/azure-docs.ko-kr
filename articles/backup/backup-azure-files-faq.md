@@ -2,7 +2,6 @@
 title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure 파일 공유를 보호하는 방법을 자세히 설명합니다.
 services: backup
-keywords: SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
@@ -10,11 +9,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 8093275ec9e9cce6d9a765bf1bfc434fecdb6ea7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fb455fe6f1b481ad2dc855d147860cb2c7898779
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.

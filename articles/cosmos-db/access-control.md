@@ -1,21 +1,20 @@
 ---
-title: "Azure Cosmos DB에서 액세스 제어 설정 | Microsoft Docs"
-description: "Azure Cosmos DB에서 액세스 제어를 설정하는 방법을 알아봅니다."
+title: Azure Cosmos DB에서 액세스 제어 설정 | Microsoft Docs
+description: Azure Cosmos DB에서 액세스 제어를 설정하는 방법을 알아봅니다.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: fae3af3f-4d6e-46d8-9d9b-b80a4218add9
 ms.service: cosmos-db
 ms.topic: article
 ms.date: 02/06/2018
-ms.author: mimig
-ms.openlocfilehash: 5ef4a12c8229d8801a5d9749514a69c2c1e19499
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sngun
+ms.openlocfilehash: 740f1ca560207ada95dd03fbecc7f9940ee7b2a0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="access-control-in-azure-cosmos-db"></a>Azure Cosmos DB에서 액세스 제어
 

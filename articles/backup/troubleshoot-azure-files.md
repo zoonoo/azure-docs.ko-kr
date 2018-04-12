@@ -3,25 +3,24 @@ title: Azure Files Backup 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 services: backup
 ms.service: backup
-keywords: SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Azure Files 백업 문제 해결
 다음 표에 나열된 정보를 참조하여 Azure Files 백업을 사용하는 동안 발생하는 문제 및 오류를 해결할 수 있습니다.
 
 ## <a name="preview-boundaries"></a>미리 보기 경계
 Azure Files 백업은 미리 보기입니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
-- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 복제를 사용하여 Azure 파일 공유 보호
+- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy-zrs.md) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy-grs.md) 복제를 사용하여 Azure 파일 공유 보호
 - Virtual Networks를 사용하도록 설정된 저장소 계정에서 Azure 파일 공유 보호
 - PowerShell 또는 CLI를 사용하여 Azure 파일 공유 백업
 

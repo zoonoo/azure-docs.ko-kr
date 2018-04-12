@@ -3,9 +3,8 @@ title: Java로 Azure Cosmos DB 문서 데이터베이스 만들기 | Microsoft D
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
-ms.author: mimig
-ms.openlocfilehash: 99c4c15893d1318be13781558fb7ed35203bd971
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: sngun
+ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 문서 데이터베이스 만들기
 

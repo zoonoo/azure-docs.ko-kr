@@ -1,11 +1,11 @@
 ---
-title: "Windows Server용 Azure Hybrid Benefit | Microsoft Docs"
-description: "Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다."
+title: Windows Server용 Azure Hybrid Benefit | Microsoft Docs
+description: Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: kmouss
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f445a2c77b14477ea2ef4ff7722183d641275f08
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
-Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 컴퓨터를 실행하여 비용을 절감할 수 있습니다. Windows Server용 Azure Hybrid Benefit을 사용하여 모든 Azure 지원 플랫폼 Windows Server 이미지나 Windows 사용자 지정 이미지에서 새로운 가상 컴퓨터를 배포할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
+Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows Server용 Azure Hybrid Benefit을 사용하여 모든 Azure 지원 플랫폼 Windows Server 이미지나 Windows 사용자 지정 이미지에서 새로운 가상 머신을 배포할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
 
 > [!IMPORTANT]
 > Azure Marketplace의 기업 계약으로 고객을 위해 게시된 기존 '[허브]' Windows Server 이미지는 2017년 9월 11일을 기준으로 사용 중지되었습니다. Windows Server용 Azure Hybrid Benefit에 대한 "비용 절감" 옵션으로 표준 Windows Server를 사용하세요. 자세한 내용은 이 [문서](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)를 참조하세요.
@@ -43,10 +43,10 @@ Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 �
 1. 제공된 [Azure Marketplace의 Windows Server 이미지](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) 중 하나를 통해 VM을 배포할 수 있습니다.
 2. [사용자 지정 VM을 업로드](#upload-a-windows-vhd)하거나 [Resource Manager 템플릿](#deploy-a-vm-via-resource-manager) 또는 [Azure PowerShell을 사용하여 배포](#detailed-powershell-deployment-walkthrough)할 수 있습니다.
 3. Windows Server에 대해 Azure 하이브리드 혜택 또는 종량제를 통해 실행하는 방법 간에 기존 VM을 토글 및 변환할 수 있습니다.
-4. Windows Server용 Azure Hybrid Benefit을 통해서도 새 가상 컴퓨터 확장 집합을 배포할 수 있습니다.
+4. Windows Server용 Azure Hybrid Benefit을 통해서도 새 가상 머신 확장 집합을 배포할 수 있습니다.
 
 > [!NOTE]
-> 기존 가상 컴퓨터 확장 집합을 변환하여 Windows Server용 Azure 하이브리드 혜택을 사용하는 것은 지원되지 않습니다.
+> 기존 가상 머신 확장 집합을 변환하여 Windows Server용 Azure 하이브리드 혜택을 사용하는 것은 지원되지 않습니다.
 >
 
 ## <a name="deploy-a-vm-from-a-windows-server-marketplace-image"></a>Windows Server Marketplace 이미지에서 VM 배포
@@ -58,7 +58,7 @@ Azure Portal에서 직접 이러한 이미지를 배포할 수 있습니다. Res
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-[PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 단계에 따르고 LicenseType = "Windows_Server"를 전달할 수 있습니다. 이 옵션을 사용하면 Azure에서 기존 Windows Server 라이선스를 사용할 수 있습니다.
+[PowerShell을 사용하여 Windows 가상 머신 만들기](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 단계에 따르고 LicenseType = "Windows_Server"를 전달할 수 있습니다. 이 옵션을 사용하면 Azure에서 기존 Windows Server 라이선스를 사용할 수 있습니다.
 
 ### <a name="portal"></a>포털
 [Azure Portal을 사용하여 Windows 가상 컴퓨터를 만들기](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 단계에 따르고 기존 Windows Server 라이선스를 사용하는 옵션을 선택할 수 있습니다.
@@ -150,15 +150,15 @@ LicenseType              :
 
 ## <a name="list-all-azure-hybrid-benefit-for-windows-server-vms-in-a-subscription"></a>구독의 모든 Windows Server용 Azure Hybrid Benefit 나열
 
-Windows Server용 Azure Hybrid Benefit으로 배포된 모든 가상 컴퓨터를 확인 및 산출하려면 구독에서 다음 명령을 실행할 수 있습니다.
+Windows Server용 Azure Hybrid Benefit으로 배포된 모든 가상 머신을 확인 및 산출하려면 구독에서 다음 명령을 실행할 수 있습니다.
 
 ```powershell
 $vms = Get-AzureRMVM 
 foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Windows Server: "+ $vm.LicenseType}
 ```
 
-## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit을 통해 새 가상 컴퓨터 확장 집합을 배포
-가상 컴퓨터 확장 집합 Resource Manager 템플릿 내에서 `licenseType` 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. 확장 집합 virtualMachineProfile의 일부로 licenseType 속성을 포함하고 일반적인 방법으로 템플릿을 배포하도록 Resource Manager 템플릿을 편집합니다. 2016 Windows Server 이미지를 사용하는 다음 예제를 참조하세요.
+## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit을 통해 새 가상 머신 확장 집합을 배포
+가상 머신 확장 집합 Resource Manager 템플릿 내에서 `licenseType` 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. 확장 집합 virtualMachineProfile의 일부로 licenseType 속성을 포함하고 일반적인 방법으로 템플릿을 배포하도록 Resource Manager 템플릿을 편집합니다. 2016 Windows Server 이미지를 사용하는 다음 예제를 참조하세요.
 
 
 ```json
@@ -181,7 +181,7 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-[가상 컴퓨터 확장 집합을 만들어 배포하고](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) LicenseType 속성을 설정할 수도 있습니다.
+[가상 머신 확장 집합을 만들어 배포하고](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) LicenseType 속성을 설정할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 하이브리드 혜택을 사용하여 비용을 절감하는 방법](https://azure.microsoft.com/pricing/hybrid-use-benefit/)에 대해 자세히 알아봅니다.

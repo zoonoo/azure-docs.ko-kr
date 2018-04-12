@@ -2,24 +2,24 @@
 title: Azure Container Service 자습서 - Kubernetes 모니터링
 description: Azure Container Service 자습서 - Log Analytics를 사용하여 Kubernetes 모니터링
 services: container-service
-author: dlepow
+author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/26/2018
-ms.author: danlep
+ms.date: 04/05/2018
+ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e7d55f1579ce45a39f9b07225bc88c8ef8ff6b66
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 앱을 사용하여 대규모의 프로덕션 클러스터를 관리하는 경우 그렇습니다. 
+Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 앱을 사용하여 대규모의 프로덕션 클러스터를 관리하는 경우 그렇습니다.
 
 Microsoft 또는 다른 공급자가 제공하는 여러 Kubernetes 모니터링 솔루션을 활용할 수 있습니다. 이 자습서에서는 Microsoft의 클라우드 기반 IT 관리 솔루션인 [Log Analytics](../../operations-management-suite/operations-management-suite-overview.md)의 컨테이너 솔루션을 사용하여 Kubernetes 클러스터를 모니터링합니다. (컨테이너 솔루션은 미리 보기 상태입니다.)
 
@@ -32,9 +32,9 @@ Microsoft 또는 다른 공급자가 제공하는 여러 Kubernetes 모니터링
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 
+이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다.
 
-이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
+이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다.
 
 ## <a name="get-workspace-settings"></a>작업 영역 설정 가져오기
 
@@ -50,9 +50,9 @@ kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID -
 
 ## <a name="set-up-oms-agents"></a>OMS 에이전트 설정
 
-다음은 Linux 클러스터 노드에서 OMS 에이전트를 설정하기 위한 YAML 파일입니다. 이 파일은 Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)를 만들며, 이는 각 클러스터 노드에서 하나의 같은 Pod를 실행합니다. DaemonSet 리소스는 모니터링 에이전트 배포에 적합합니다. 
+다음 Kubernetes 매니페스트 파일을 사용하여 Kubernetes 클러스터에서 컨테이너 모니터링 에이전트를 구성할 수 있습니다. 이 파일은 Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)를 만들며, 이는 각 클러스터 노드에서 하나의 같은 Pod를 실행합니다.
 
-다음 텍스트를 `oms-daemonset.yaml`이라는 파일에 저장하고, *myWorkspaceID* 및 *myWorkspaceKey*의 자리 표시자 값을 해당 Log Analytics 작업 영역 ID 및 키로 바꿉니다. (프로덕션에서 이러한 값을 비밀로 인코딩할 수 있습니다.)
+`oms-daemonset.yaml`이라는 파일에 다음 텍스트를 저장합니다.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -68,26 +68,26 @@ spec:
     dockerProviderVersion: 1.0.0-30
   spec:
    containers:
-     - name: omsagent 
+     - name: omsagent
        image: "microsoft/oms"
        imagePullPolicy: Always
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP 
+         protocol: TCP
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/log 
+        - mountPath: /var/log
           name: host-log
         - mountPath: /etc/omsagent-secret
           name: omsagent-secret
           readOnly: true
-        - mountPath: /var/lib/docker/containers 
-          name: containerlog-path  
+        - mountPath: /var/lib/docker/containers
+          name: containerlog-path
        livenessProbe:
         exec:
          command:
@@ -97,26 +97,26 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux    
+    beta.kubernetes.io/os: linux
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - key: "node-role.kubernetes.io/master"
       operator: "Equal"
       value: "true"
-      effect: "NoSchedule"     
+      effect: "NoSchedule"
    volumes:
-    - name: docker-sock 
+    - name: docker-sock
       hostPath:
        path: /var/run/docker.sock
     - name: host-log
       hostPath:
-       path: /var/log 
+       path: /var/log
     - name: omsagent-secret
       secret:
        secretName: omsagent-secret
     - name: containerlog-path
       hostPath:
-       path: /var/lib/docker/containers 
+       path: /var/lib/docker/containers
 ```
 
 다음 명령을 사용하여 DaemonSet를 만듭니다.
@@ -142,7 +142,7 @@ omsagent   3         3         3         0            3           <none>        
 
 ## <a name="access-monitoring-data"></a>모니터링 데이터 액세스
 
-OMS 포털 또는 Azure Portal의 [컨테이너 솔루션](../../log-analytics/log-analytics-containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다. 
+OMS 포털 또는 Azure Portal의 [컨테이너 솔루션](../../log-analytics/log-analytics-containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다.
 
 [OMS 포털](https://mms.microsoft.com)을 사용하여 컨테이너 솔루션을 설치하려면 **솔루션 갤러리**로 이동합니다. 그런 다음 **컨테이너 솔루션**을 추가합니다. 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview)에서 컨테이너 솔루션을 추가합니다.
 

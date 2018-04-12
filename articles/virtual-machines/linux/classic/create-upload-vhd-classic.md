@@ -1,10 +1,10 @@
 ---
-title: "Linux VHD 만들기 및 Azure로 업로드 | Microsoft Docs"
-description: "클래식 배포 모델을 사용하여 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드합니다."
+title: Linux VHD 만들기 및 Azure로 업로드 | Microsoft Docs
+description: 클래식 배포 모델을 사용하여 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
 > [!IMPORTANT] 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/08/2018
 이 문서에서는 VHD(가상 하드 디스크)를 생성 및 업로드하고 이를 Azure에서 가상 머신을 만들기 위한 고유한 이미지로 사용하는 방법을 소개합니다. 또한 이 이미지를 기반으로 여러 개의 가상 머신을 만들 수 있도록 운영 체제를 준비하는 방법을 살펴봅니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 * **.vhd 파일에 설치된 Linux 운영 체제** - 가상 디스크에 VHD 형식으로 [Azure 보증 Linux 배포판](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(또는 [보증되지 않는 배포에 대한 정보](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 참조)을 설치했습니다. VM과 VHD를 만드는 도구는 여러 가지가 있습니다.

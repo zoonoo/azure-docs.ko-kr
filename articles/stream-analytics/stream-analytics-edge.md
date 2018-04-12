@@ -1,24 +1,19 @@
 ---
 title: IoT Edge의 Azure Stream Analytics(미리 보기)
 description: Azure Stream Analytics에서 Edge 작업을 만들고 Azure IoT Edge가 실행되는 장치에 배포합니다.
-keywords: 데이터 스트림, iot, edge
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 475ca357c8445e8a7c672406f919af1d99a0933b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/16/2017
+ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge의 Azure Stream Analytics(미리 보기)
 
@@ -207,7 +202,7 @@ Iot Edge에서 ASA에 대한 참조 데이터를 사용하려면 다음 단계�
 * [IoT Edge의 Azure Stream Analytics에 대한 타사 알림 미리 보기](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,26 +1,26 @@
 ---
-title: "PowerShell 예제 BACPAC 파일 Azure SQL Database 가져오기 | Microsoft Docs"
-description: "SQL Database로 BACPAC 파일을 가져오는 Azure PowerShell 예제 스크립트"
+title: PowerShell 예제 BACPAC 파일 Azure SQL Database 가져오기 | Microsoft Docs
+description: SQL Database로 BACPAC 파일을 가져오는 Azure PowerShell 예제 스크립트
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: c24a3b7551058a69cbfdddf8b859b635e0829402
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 1ee17d416baa99105ea870cf334bdb360ed39272
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>PowerShell을 사용하여 BACPAC 파일을 Azure SQL Database에 가져오기
 
@@ -44,7 +44,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |

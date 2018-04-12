@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 9ea8fdcd2d21729117101748e20e52029c315e15
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a3b081e34886d4075ae3c88e412d732578d1ce26
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>빠른 시작: Python을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 * [Python 설치](https://www.python.org/downloads/)
 * [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python) 다운로드 및 설치 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -39,6 +39,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 ```
 
 이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Python 프로그램을 열려면 storage-blobs-python-quickstart 폴더와 example.py 파일을 찾습니다.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 응용 프로그램에서 `BlockBlobService` 개체를 만들려면 저장소 계정 이름과 계정 키를 제공해야 합니다. IDE의 솔루션 탐색기에서 `example.py` 파일을 엽니다. **accountname** 및 **accountkey** 값을 해당하는 계정 이름과 키로 바꿉니다. 

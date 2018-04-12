@@ -1,11 +1,11 @@
 ---
-title: "MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정 | Microsoft Docs"
-description: "Azure RDMA 네트워크를 사용하여 MPI 앱을 실행하기 위해 H16r, H16mr, A8 또는 A9 크기의 VM으로 이루어진 Linux 클러스터를 만듭니다."
+title: MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정 | Microsoft Docs
+description: Azure RDMA 네트워크를 사용하여 MPI 앱을 실행하기 위해 H16r, H16mr, A8 또는 A9 크기의 VM으로 이루어진 Linux 클러스터를 만듭니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA 클러스터를 설정하는 방법을 알아봅니다. 이 문서는 클러스터에서 Intel MPI를 실행하도록 Linux HPC 이미지를 준비하기 위한 단계를 제공합니다. 준비가 끝나면 이 이미지와 RDMA 지원 Azure VM 크기(현재 H16r, H16mr, A8 또는 A9) 중 하나를 사용하여 VM 클러스터를 배포합니다. RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 짧은 대기 시간, 높은 처리량의 네트워크에서 효율적으로 통신하는 MPI 응용 프로그램을 실행하려면 클러스터를 사용합니다.

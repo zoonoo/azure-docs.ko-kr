@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Linux VM 개요 | Microsoft Docs"
-description: "Linux 가상 컴퓨터를 사용하여 Azure Compute, Storage 및 네트워킹 서비스를 설명합니다."
+title: Azure의 Linux VM 개요 | Microsoft Docs
+description: Linux 가상 컴퓨터를 사용하여 Azure Compute, Storage 및 네트워킹 서비스를 설명합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: cdb2bda0c3f7e73b115c2609c3f229c633093bdc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-and-linux"></a>Azure와 Linux
 Microsoft Azure는 솔루션을 호스팅하는 데 적합한 분석, Virtual Machines, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 비롯한 나날이 다양해지는 통합 공용 클라우드 서비스입니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.   Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
@@ -31,7 +31,7 @@ Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산
 
 * [Azure 지역](https://azure.microsoft.com/regions/)
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>가용성
 Azure는 모든 디스크에 프리미엄 저장소를 사용하여 VM을 배포하는 경우 업계 최고의 99.9% 단일 인스턴스 가상 머신 Service Level Agreement(서비스 수준 약정)를 발표했습니다.  배포에서 표준 99.95% VM 서비스 수준 약정을 충족하려면 가용성 집합 내부에서 워크로드를 실행하는 VM을 둘 이상 계속 배포해야 합니다. 가용성 집합을 사용하면 VM이 Azure 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ## <a name="managed-disks"></a>Managed Disks

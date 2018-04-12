@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 사용자 인터페이스 - 도달률 기준"
-description: "Azure Mobile Engagement를 사용하여 대상 지정 기준을 사용하여 선택한 사용자 하위 집합에 푸시 캠페인을 보내는 방법을 알아봅니다."
+title: Azure Mobile Engagement 사용자 인터페이스 - 도달률 기준
+description: Azure Mobile Engagement를 사용하여 대상 지정 기준을 사용하여 선택한 사용자 하위 집합에 푸시 캠페인을 보내는 방법을 알아봅니다.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>대상 지정 기준을 사용하여 선택한 사용자 하위 집합에 푸시 캠페인을 보내는 방법
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 "새 기준" 단추를 사용하여 특정 기준에 따라 대상을 지정하는 방식은 Azure Mobile Engagement에서 가장 유용한 개념 중 하나입니다. 이 방법을 사용하면 모든 대상을 스팸으로 처리하는 대신 고객이 반응을 보이도록 할 관련성이 높은 푸시 알림을 보낼 수 있습니다. 표준 기준에 따라 대상을 제한하고 푸시를 시뮬레이트하여 알림을 수신할 사용자 수를 결정할 수 있습니다.
 
 **참고 항목:**
@@ -36,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 * 세그먼트: 여러 기준을 포함하는 특정 사용자 동작을 기준으로 작성한 세그먼트에 따라 대상을 지정할 수도 있습니다. 앱에 대해 정의한 모든 세그먼트가 이 목록에 표시됩니다. **참고 항목:** [UI 설명서 - 세그먼트][Link 18]
 * **앱 정보:** "설정"에서 사용자 지정 앱 정보 태그를 만들어 사용자 동작을 추적할 수 있습니다. **참고 항목:** [UI 설명서 - 설정][Link 20]
 
-## <a name="example"></a>예제:
+## <a name="example"></a>예:
 앱 내 구매 작업을 수행한 사용자에게만 알림을 푸시하려는 경우 다음을 수행합니다.
 
 1. 응용 프로그램 설정 페이지로 이동하여 "앱 정보" 메뉴를 선택하고 "새 앱 정보"를 선택합니다.
@@ -62,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 * 네트워크 유형: 네트워크 유형
 * 로캘: 로캘
 * 화면 크기: 화면 크기
-* **위치**      
+* **위치**:      
 * 마지막으로 확인된 지역: 국가, 지역, 구/군/시
 * 실시간 지리적 펜스: 지점(이름/작업), 원형 지점(이름, 위도, 경도, 미터 단위 반경)
 * **도달률 피드백**     

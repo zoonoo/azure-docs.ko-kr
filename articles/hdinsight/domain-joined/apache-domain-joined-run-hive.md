@@ -1,8 +1,8 @@
 ---
-title: "도메인에 가입된 HDInsight에서 Hive 정책 구성 - Azure | Microsoft Docs"
-description: "유용한 정보"
+title: 도메인에 가입된 HDInsight에서 Hive 정책 구성 - Azure | Microsoft Docs
+description: 유용한 정보
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>도메인에 가입된 HDInsight에서 Hive 정책 구성
 Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
@@ -45,10 +45,10 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
     Ranger는 현재 Yarn 및 Hive에서만 작동합니다.
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
-[도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)에서 hiveruser1 및 hiveuser2를 만들었습니다. 이 자습서에서는 두 개의 사용자 계정을 사용합니다.
+hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [도메인에 가입된 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)를 참조하세요. 이 자습서에서는 두 개의 사용자 계정을 사용합니다.
 
 ## <a name="create-ranger-policies"></a>Ranger 정책 만들기
-이 섹션에서는 hivesampletable에 액세스하기 위한 두 개의 Ranger 정책을 만듭니다. 다른 열 집합에 대한 선택 사용 권한을 제공합니다. 두 사용자는 모두 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)에서 만들어집니다.  다음 섹션에서는 Excel에 있는 두 개의 정책을 테스트합니다.
+이 섹션에서는 hivesampletable에 액세스하기 위한 두 개의 Ranger 정책을 만듭니다. 다른 열 집합에 대한 선택 사용 권한을 제공합니다. 두 사용자는 모두 [도메인 가입 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)를 사용하여 생성됩니다. 다음 섹션에서는 Excel에 있는 두 개의 정책을 테스트합니다.
 
 **Ranger 정책을 만들려면**
 

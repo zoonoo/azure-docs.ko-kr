@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/03/2018
 - **인바운드 트래픽**: 네트워크 인터페이스가 위치한 서브넷에 연결된 네트워크 보안 그룹을 먼저 평가합니다. 서브넷에 연결된 네트워크 보안 그룹을 통해 허용된 모든 트래픽은 네트워크 인터페이스에 연결된 네트워크 보안 그룹에 의해 평가됩니다. 예를 들어 인터넷의 포트 80을 통해 가상 머신에 대한 인바운드 액세스가 필요할 수 있습니다. 네트워크 인터페이스 및 해당 네트워크 인터페이스가 위치한 서브넷에 네트워크 보안 그룹을 연결하는 경우 서브넷에 연결된 네트워크 보안 그룹 및 네트워크 인터페이스는 포트 80을 허용해야 합니다. 서브넷 또는 해당 서브넷이 위치한 네트워크 인터페이스에 연결된 네트워크 보안 그룹을 통한 포트 80만을 허용하는 경우 기본 보안 규칙으로 인해 통신에 실패합니다. 자세한 내용은 [기본 보안 규칙](#default-security-rules)을 참조하세요. 예를 들어 서브넷 또는 네트워크 인터페이스에 대한 네트워크 보안 그룹 및 포트 80 인바운드 트래픽을 허용하는 규칙을 포함하는 네트워크 보안 그룹에만 적용한 경우 통신에 성공합니다. 
 - **아웃바운드 트래픽**: 네트워크 인터페이스에 연결된 네트워크 보안 그룹을 먼저 평가합니다. 네트워크 인터페이스에 연결된 네트워크 보안 그룹을 통해 허용된 모든 트래픽은 서브넷에 연결된 네트워크 보안 그룹에 의해 평가됩니다.
 
-네트워크 인터페이스와 서브넷에 네트워크 보안 그룹이 적용되는 시점을 항상 알 수는 없습니다. 네트워크 인터페이스의 [유효 보안 규칙](virtual-network-manage-nsg-arm-portal.md)을 확인하여 네트워크 인터페이스에 적용되는 집계 규칙을 쉽게 볼 수 있습니다. Azure Network Watcher에서 [IP 흐름 확인](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용하여 통신이 네트워크 인터페이스 간에 허용되는지 여부를 결정할 수도 있습니다. 이 도구에서는 통신이 허용되는지 여부 및 어떤 네트워크 보안 규칙이 트래픽을 허용하거나 거부하는지를 알려줍니다.
+네트워크 인터페이스와 서브넷에 네트워크 보안 그룹이 적용되는 시점을 항상 알 수는 없습니다. 네트워크 인터페이스의 [유효 보안 규칙](virtual-network-nsg-troubleshoot-portal.md)을 확인하여 네트워크 인터페이스에 적용되는 집계 규칙을 쉽게 볼 수 있습니다. Azure Network Watcher에서 [IP 흐름 확인](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용하여 통신이 네트워크 인터페이스 간에 허용되는지 여부를 결정할 수도 있습니다. 이 도구에서는 통신이 허용되는지 여부 및 어떤 네트워크 보안 규칙이 트래픽을 허용하거나 거부하는지를 알려줍니다.
  
 > [!NOTE]
 > 네트워크 보안 그룹이 Resource Manager 배포 모델에서 네트워크 인터페이스가 아닌 배포 클래식 배포 모델에 배포된 서브넷 또는 가상 머신과 클라우드 서비스에 연결됩니다. Azure 배포 모델에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.

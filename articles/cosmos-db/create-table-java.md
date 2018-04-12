@@ -1,25 +1,24 @@
 ---
-title: "빠른 시작: 테이블 API와 Java - Azure Cosmos DB | Microsoft Docs"
-description: "이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB 테이블 API를 사용하여 응용 프로그램을 만드는 방법을 보여줍니다."
+title: '빠른 시작: 테이블 API와 Java - Azure Cosmos DB | Microsoft Docs'
+description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB 테이블 API를 사용하여 응용 프로그램을 만드는 방법을 보여줍니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: fb544e11ac637201fb3fb032daeb395d5f0da839
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>빠른 시작: Java 및 Azure Cosmos DB를 사용하여 테이블 API 응용 프로그램 빌드
 

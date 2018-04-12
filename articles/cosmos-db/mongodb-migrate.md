@@ -1,12 +1,11 @@
 ---
-title: "MongoDB용 Azure Cosmos DB API와 함께 mongoimport 및 mongorestore 사용 | Microsoft Docs"
-description: "mongoimport 및 mongorestore를 사용하여 데이터를 MongoDB API 계정으로 가져오는 방법을 알아봅니다."
+title: MongoDB용 Azure Cosmos DB API와 함께 mongoimport 및 mongorestore 사용 | Microsoft Docs
+description: mongoimport 및 mongorestore를 사용하여 데이터를 MongoDB API 계정으로 가져오는 방법을 알아봅니다.
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +15,11 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB 데이터 가져오기 
 
@@ -61,7 +60,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB API에 사용하려는 경�
 
     mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
 
-예제:  
+예:  
 
     mongoimport.exe --host anhoh-host.documents.azure.com:10255 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
 
@@ -73,7 +72,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB API에 사용하려는 경�
 
     mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
 
-예제:
+예:
 
     mongorestore.exe --host anhoh-host.documents.azure.com:10255 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
     
@@ -89,11 +88,11 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB API에 사용하려는 경�
 
     a. MongoDB 셸에서 Azure Cosmos DB MongoDB 데이터베이스에 연결합니다. [Azure Cosmos DB에 MongoDB 응용 프로그램 연결](connect-mongodb-account.md)에서 지침을 찾을 수 있습니다.
     
-    b. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
+    나. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. ```db.runCommand({getLastRequestStatistics: 1})```를 실행하고 다음과 같은 응답을 수신합니다.
+    다. ```db.runCommand({getLastRequestStatistics: 1})```를 실행하고 다음과 같은 응답을 수신합니다.
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -112,7 +111,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB API에 사용하려는 경�
     
     a. 다음 명령을 사용하여 MongoDB 셸에서 자세한 로깅 정보를 표시합니다. ```setVerboseShell(true)```
     
-    b. 데이터베이스에 대해 간단한 쿼리를 실행합니다. ```db.coll.find().limit(1)``` 다음과 같은 응답을 수신합니다.
+    나. 데이터베이스에 대해 간단한 쿼리를 실행합니다. ```db.coll.find().limit(1)``` 다음과 같은 응답을 수신합니다.
 
         ```
         Fetched 1 record(s) in 100(ms)
@@ -130,7 +129,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB API에 사용하려는 경�
     
     * *numInsertionWorkers*의 경우 *numInsertionWorkers =  (프로비전된 처리량 * 초 단위 대기 시간)/(배치 크기 * 단일 쓰기에 사용한 RU)* 수식을 사용합니다.
         
-    |속성|값|
+    |자산|값|
     |--------|-----|
     |batchSize| 24 |
     |프로비전된 RU | 10000 |

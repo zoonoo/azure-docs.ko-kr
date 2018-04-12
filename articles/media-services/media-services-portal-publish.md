@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal에서 콘텐츠 게시 | Microsoft Docs"
-description: "이 자습서에서는 Azure Portal에서 콘텐츠를 게시하는 단계를 안내합니다."
+title: Azure Portal에서 콘텐츠 게시 | Microsoft Docs
+description: 이 자습서에서는 Azure Portal에서 콘텐츠를 게시하는 단계를 안내합니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure Portal에서 콘텐츠 게시
 > [!div class="op_single_selector"]
@@ -36,20 +36,20 @@ ms.lasthandoff: 12/21/2017
 
 콘텐츠를 스트리밍 또는 다운로드하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 게시해야 합니다. 로케이터는 자산 파일에 대한 액세스를 제공합니다. Azure Media Services는 두 가지 유형의 로케이터를 지원합니다. 
 
-* **스트리밍(OnDemandOrigin) 로케이터** 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예에는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)이 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. 
+* **스트리밍(OnDemandOrigin) 로케이터** 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예에는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)이 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. 예: http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest
 * **점진적(공유 액세스 서명) 로케이터** 점진적 로케이터는 점진적 다운로드를 통해 비디오를 제공하는 데 사용합니다.
 
 HLS 스트리밍 URL을 작성하려면 URL에 *(format=m3u8-aapl)*을 추가합니다.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 부드러운 스트리밍 자산을 재생하기 위해 스트리밍 URL을 작성하려면 다음 URL 형식을 사용합니다.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 MPEG-DASH 스트리밍 URL을 작성하려면 URL에 *(format=mpd-time-csf)*를 추가합니다.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 공유 액세스 서명 URL의 형식은 다음과 같습니다.
 

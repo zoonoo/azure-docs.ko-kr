@@ -1,23 +1,23 @@
 ---
-title: "Team Data Science Process 팀 리더 작업 - Azure | Microsoft Docs"
-description: "데이터 과학 팀 프로젝트의 팀 리더 작업 개요입니다."
-documentationcenter: 
+title: Team Data Science Process 팀 리더 작업 - Azure | Microsoft Docs
+description: 데이터 과학 팀 프로젝트의 팀 리더 작업 개요입니다.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="team-lead-tasks"></a>팀 리더 작업
 
@@ -38,10 +38,10 @@ ms.lasthandoff: 11/14/2017
 3. 팀 데이터 및 분석 리소스를 만듭니다.
     - 팀 전용 유틸리티를 **TeamUtilities** 리포지토리에 추가합니다. 
     - (선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 **Azure 파일 저장소**를 만듭니다. 
-4. (선택 사항) Azure 파일 저장소를 팀 리더의 **DSVM**(데이터 과학 가상 컴퓨터)에 탑재하고 여기에 데이터 자산을 추가합니다.
+4. (선택 사항) Azure 파일 저장소를 팀 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 데이터 자산을 추가합니다.
 5. 팀 구성원을 추가하고 권한을 구성하여 **보안 제어**를 설정합니다.
 
->[AZURE.NOTE] 다음 지침에서 VSTS를 사용하여 TDSP 팀 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS로 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 완료해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 달라질 것입니다.
+>[AZURE.NOTE] 다음 지침에서 VSTS를 사용하여 TDSP 팀 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS로 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 완료해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
 
 ## <a name="repositories-and-directories"></a>리포지토리 및 디렉터리
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 11/14/2017
 - 그룹 관리자가 **그룹 VSTS 서버**(또는 다른 일부 코드 호스팅 플랫폼의 그룹 계정)를 설정합니다.
 - 사용하려는 코드 호스팅 플랫폼의 그룹 관리자가 **GroupProjectTemplate 리포지토리**(R1)를 그룹 계정에 설정합니다.
 - 팀의 리포지토리를 만들기 위해 그룹 계정에 대한 **권한**을 얻습니다.
-- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
+- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
 - **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이렇게 하면 최신 설치 관리자 페이지로 이동합니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
 - **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
     
@@ -208,7 +208,7 @@ ms.lasthandoff: 11/14/2017
 
 로컬 **GroupProjectTemplate**(D1) 폴더의 콘텐츠를 로컬 **MyTeamProjectTemplate**(D3)에 복사하려면 다음 셸 스크립트 중 하나를 실행합니다. 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>Windows용 PowerShell 명령줄에서 다음을 실행합니다.        
+#### <a name="from-the-powershell-command-line-for-windows"></a>Windows용 PowerShell 명령줄에서 다음을 실행합니다.       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ ms.lasthandoff: 11/14/2017
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>**Linux DSVM**용 Linux 셸에서 다음을 실행합니다.
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>**Linux DSVM**용 Linux 셸에서 다음을 실행합니다.
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -264,7 +264,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="3-create-team-data-and-analytics-resources-optional"></a>3. 팀 데이터 및 분석 리소스 만들기(선택 사항)
 
-전체 팀과 데이터 및 분석 리소스를 공유하면 성능 및 비용상의 이점을 얻을 수 있습니다. 팀 구성원은 공유 리소스에서 프로젝트를 실행하고 예산을 절약하며 보다 효율적으로 공동 작업을 수행할 수 있습니다. 이 섹션에서는 Azure 파일 저장소를 만드는 방법에 대한 지침을 제공합니다. 다음 섹션에서는 Azure 파일 저장소를 로컬 시스템에 탑재하는 방법에 대한 지침을 제공합니다. Azure 데이터 과학 가상 컴퓨터, Azure HDInsight Spark 클러스터 등 다른 리소스 공유에 대한 추가 정보는 [플랫폼 및 도구](platforms-and-tools.md)를 참조하세요. 이 항목에서는 데이터 과학 관점에서 요구 사항에 적합한 리소스를 선택하는 방법에 대한 지침과 제품 페이지 및 게시된 기타 유용한 관련 자습서에 대한 링크를 제공합니다.
+전체 팀과 데이터 및 분석 리소스를 공유하면 성능 및 비용상의 이점을 얻을 수 있습니다. 팀 구성원은 공유 리소스에서 프로젝트를 실행하고 예산을 절약하며 보다 효율적으로 공동 작업을 수행할 수 있습니다. 이 섹션에서는 Azure 파일 저장소를 만드는 방법에 대한 지침을 제공합니다. 다음 섹션에서는 Azure 파일 저장소를 로컬 시스템에 탑재하는 방법에 대한 지침을 제공합니다. Azure 데이터 과학 Virtual Machine, Azure HDInsight Spark 클러스터 등 다른 리소스 공유에 대한 추가 정보는 [플랫폼 및 도구](platforms-and-tools.md)를 참조하세요. 이 항목에서는 데이터 과학 관점에서 요구 사항에 적합한 리소스를 선택하는 방법에 대한 지침과 제품 페이지 및 게시된 기타 유용한 관련 자습서에 대한 링크를 제공합니다.
 
 >[AZURE.NOTE] 느리고 비용이 많이 드는 데이터 센터 간 데이터 전송을 방지하려면 리소스 그룹, 저장소 계정 및 Azure VM(예: DSVM)이 동일한 Azure 데이터 센터에 있는지 확인합니다. 
 
@@ -349,7 +349,7 @@ Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나�
 
 > [AZURE.NOTE] Azure 파일 저장소 정보가 포함된 파일이 없으면 이 섹션의 끝에 제공된 키보드의 정보를 입력하는 단계를 참조하세요.
 
-그런 다음 가상 컴퓨터에 추가할 드라이브의 이름을 입력하라는 메시지가 나타납니다. 기존 드라이브 이름 목록이 화면에 인쇄됩니다. 목록에 아직 없는 드라이브 이름을 제공해야 합니다.
+그런 다음 가상 머신에 추가할 드라이브의 이름을 입력하라는 메시지가 나타납니다. 기존 드라이브 이름 목록이 화면에 인쇄됩니다. 목록에 아직 없는 드라이브 이름을 제공해야 합니다.
 
 ![33](./media/team-lead-tasks/team-leads-33-attach-s2.png)
 
@@ -378,7 +378,7 @@ Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나�
 
 ![38](./media/team-lead-tasks/team-leads-38-attach-s2-linux.png)
 
-그런 다음 가상 컴퓨터에 추가할 드라이브의 이름을 입력하라는 메시지가 나타납니다. 기존 드라이브 이름 목록이 화면에 인쇄됩니다. 목록에 아직 없는 드라이브 이름을 제공해야 합니다.
+그런 다음 가상 머신에 추가할 드라이브의 이름을 입력하라는 메시지가 나타납니다. 기존 드라이브 이름 목록이 화면에 인쇄됩니다. 목록에 아직 없는 드라이브 이름을 제공해야 합니다.
 
 ![39](./media/team-lead-tasks/team-leads-39-attach-s3-linux.png)
 

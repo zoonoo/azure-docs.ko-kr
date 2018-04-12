@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 기본 모드 보고서 서버로 VM 만들기 | Microsoft Docs"
-description: "이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. "
+title: PowerShell을 사용하여 기본 모드 보고서 서버로 VM 만들기 | Microsoft Docs
+description: '이 항목에서는 Azure Virtual Machine에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
-이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. 이 문서의 단계는 가상 컴퓨터 및 Windows PowerShell 스크립트를 만드는 수동 단계를 조합하여 VM에서 Reporting Services를 구성합니다. 구성 스크립트에는 HTTP 또는 HTTPS에 대해 방화벽 포트를 여는 작업이 포함되어 있습니다.
+이 항목에서는 Azure Virtual Machine에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. 이 문서의 단계는 가상 머신 및 Windows PowerShell 스크립트를 만드는 수동 단계를 조합하여 VM에서 Reporting Services를 구성합니다. 구성 스크립트에는 HTTP 또는 HTTPS에 대해 방화벽 포트를 여는 작업이 포함되어 있습니다.
 
 > [!NOTE]
 > 보고서 서버에서 **HTTPS**가 필요하지 않은 경우 **2단계를 건너뜁니다**.
@@ -36,17 +36,17 @@ ms.lasthandoff: 12/11/2017
 * **Azure 구독**: Azure 구독에서 사용 가능한 코어 수를 확인합니다. 권장되는 VM 크기인 **A3**을 만드는 경우 **4**개의 사용 가능한 코어가 필요합니다. **A2**의 VM 크기를 사용하는 경우 **2**개의 사용 가능한 코어가 필요합니다.
   
   * 구독의 코어 제한을 확인하려면, Azure Portal의 왼쪽 창에서 설정을 클릭하고 위쪽 메뉴에서 사용을 클릭합니다.
-  * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+  * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 작동 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
   * [Windows Server에서 Windows PowerShell 시작](https://technet.microsoft.com/library/hh847814.aspx)
   * [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)
 
-## <a name="step-1-provision-an-azure-virtual-machine"></a>1단계: Azure 가상 컴퓨터 프로비전
+## <a name="step-1-provision-an-azure-virtual-machine"></a>1단계: Azure Virtual Machine 프로비전
 1. Azure Portal을 찾아봅니다.
 2. 왼쪽 창에서 **Virtual Machines**를 클릭합니다.
    
-    ![Microsoft Azure 가상 컴퓨터](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
+    ![Microsoft Azure 가상 머신](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 3. **새로 만들기**를 클릭합니다.
    
     ![새 단추](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
@@ -58,15 +58,15 @@ ms.lasthandoff: 12/11/2017
     ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
    
     Reporting Services 데이터 기반 구독 기능이 필요한 경우 **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**를 선택합니다. SQL Server 버전 및 기능 지원에 대한 자세한 내용은 [SQL Server 2012 버전에서 지원하는 기능](https://msdn.microsoft.com/library/cc645993.aspx#Reporting)을 참조하세요.
-6. **가상 컴퓨터 구성** 페이지에서 다음 필드를 편집합니다.
+6. **가상 머신 구성** 페이지에서 다음 필드를 편집합니다.
    
    * **버전 릴리스 날짜**가 둘 이상 있는 경우 가장 최신 버전을 선택합니다.
-   * **가상 컴퓨터 이름**: 컴퓨터 이름은 다음 구성 페이지에서 기본 클라우드 서비스 DNS 이름으로도 사용됩니다. Azure 서비스에서 DNS 이름은 고유해야 합니다. VM의 용도에 대해 설명하는 컴퓨터 이름을 사용하여 VM을 구성하는 것이 좋습니다. 예를 들어 ssrsnativecloud입니다.
+   * **Virtual Machine Name**: 머신 이름은 다음 구성 페이지에서 기본 클라우드 서비스 DNS 이름으로도 사용됩니다. Azure 서비스에서 DNS 이름은 고유해야 합니다. VM의 용도에 대해 설명하는 컴퓨터 이름을 사용하여 VM을 구성하는 것이 좋습니다. 예를 들어 ssrsnativecloud입니다.
    * **계층**: 표준
    * **크기: A3** 은 SQL Server 작업에 권장되는 VM 크기입니다. VM이 보고서 서버로만 사용되는 경우 보고서 서버의 작업이 크지 않는 한 VM 크기는 A2이면 충분합니다. VM 가격 책정 정보는 [Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
    * **새 사용자 이름**: 제공하는 이름은 VM에서 관리자로 만들어집니다.
    * **새 암호** 및 **확인**. 이 암호는 새 관리자 계정에 대해 사용되므로 강력한 암호를 사용하는 것이 좋습니다.
-   * **다음**을 누릅니다. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * **다음**을 클릭합니다. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. 다음 페이지에서 다음 필드를 편집합니다.
    
    * **클라우드 서비스**: **새 클라우드 서비스 만들기**를 선택합니다.
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
    * **끝점** **원격 데스크톱** 및 **PowerShell** 끝점을 그대로 유지한 다음 사용자 환경에 따라 HTTP 또는 HTTPS 끝점을 추가합니다.
      
      * **HTTP**: 기본 공용 포트 및 개인 포트가 **80**입니다. 80 이외의 개인 포트를 사용하는 경우 HTTP 스크립트에서 **$HTTPport = 80** 을 수정합니다.
-     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
+     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [Virtual Machine으로 끝점을 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
    * 다음을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치** 를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다.  VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 9. 완료를 클릭합니다. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -119,7 +119,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
    
    1. Azure Portal에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
       
-       ![Azure 가상 컴퓨터에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다. 
+       ![Azure 가상 머신에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다. 
       
        예를 들어 다음 이미지에서 VM 이름은 **ssrsnativecloud**이고 사용자 이름은 **testuser**입니다.
       
@@ -146,7 +146,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
 * 스크립트를 사용하여 보고서 서버 구성
 * 구성 관리자를 사용하여 보고서 서버를 구성합니다.
 
-자세한 단계는 [가상 컴퓨터에 연결 및 Reporting Services 구성 관리자 시작](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager)섹션을 참조하세요.
+자세한 단계는 [Virtual Machine에 연결 및 Reporting Services 구성 관리자 시작](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager)섹션을 참조하세요.
 
 **인증 참고:** Windows 인증은 권장되는 인증 방법이며 기본 Reporting Services 인증입니다. VM에 구성된 사용자만 Reporting Services에 액세스할 수 있으며 Reporting Services 역할에 할당됩니다.
 
@@ -155,7 +155,7 @@ Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하려
 
 1. Azure Portal에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
    
-    ![Azure 가상 컴퓨터에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다. 
+    ![Azure 가상 머신에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다. 
    
     예를 들어 다음 이미지에서 VM 이름은 **ssrsnativecloud**이고 사용자 이름은 **testuser**입니다.
    
@@ -289,7 +289,7 @@ Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 �
 
 1. Azure Portal에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
    
-    ![Azure 가상 컴퓨터에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다. 
+    ![Azure 가상 머신에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다. 
    
     예를 들어 다음 이미지에서 VM 이름은 **ssrsnativecloud**이고 사용자 이름은 **testuser**입니다.
    
@@ -478,7 +478,7 @@ Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 �
    
    * 스크립트가 와일드카드 인증서 $DNSName= "+"에 대해 구성됩니다. 와일드카드 인증서 바인딩에 대해 구성하지 않으려면 $DNSName="+"를 주석으로 처리하고 전체 $DNSNAme 참조인 ##$DNSName="$server.cloudapp.net” 줄을 사용하도록 설정합니다.
      
-       Reporting Services에 대해 가상 컴퓨터의 DNS 이름을 사용하지 않으려는 경우 $DNSName 값을 변경합니다. 매개 변수를 사용하는 경우 인증서가 이 이름을 사용해야 하며 DNS 서버에서 전역으로 이름을 등록해야 합니다.
+       Reporting Services에 대해 가상 머신의 DNS 이름을 사용하지 않으려는 경우 $DNSName 값을 변경합니다. 매개 변수를 사용하는 경우 인증서가 이 이름을 사용해야 하며 DNS 서버에서 전역으로 이름을 등록해야 합니다.
 9. 스크립트가 현재 Reporting Services에 대해 구성되어 있습니다. Reporting Services에 대한 스크립트를 실행하려는 경우 Get-WmiObject 문에서 네임스페이스 경로의 버전 부분을 "v11"로 수정합니다.
 10. 스크립트를 실행합니다.
 
@@ -497,7 +497,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 
 1. Azure Portal에서 VM을 선택하고 연결을 클릭합니다. VM을 만들 때 구성한 사용자 이름 및 암호를 사용합니다.
    
-    ![Azure 가상 컴퓨터에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
+    ![Azure 가상 머신에 연결](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
 2. Windows 업데이트를 실행하고 VM에 대한 업데이트를 설치합니다. VM을 다시 시작해야 하는 경우 VM을 다시 시작하고 Azure Portal에서 VM에 다시 연결합니다.
 3. VM의 시작 메뉴에서 **Reporting Services**를 입력하고 **Reporting Services 구성 관리자**를 엽니다.
 4. **서버 이름** 및 **보고서 서버 인스턴스**의 기본값을 그대로 둡니다. **Connect**를 클릭합니다.
@@ -511,7 +511,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
    
    1. **데이터베이스 변경**을 클릭합니다.
    2. **새 보고서 서버 데이터베이스 만들기**를 클릭한 후 **다음**을 클릭합니다.
-   3. 기본 **서버 이름**을 VM 이름으로 그대로 적용하고 기본 **인증 유형**을 **현재 사용자** – **통합된 보안**으로 그대로 적용합니다. **다음**을 누릅니다.
+   3. 기본 **서버 이름**을 VM 이름으로 그대로 적용하고 기본 **인증 유형**을 **현재 사용자** – **통합된 보안**으로 그대로 적용합니다. **다음**을 클릭합니다.
    4. 기본 **데이터베이스 이름**을 **ReportServer**로 그대로 적용하고 **다음**을 클릭합니다.
    5. 기본 **인증 유형**을 **서비스 자격 증명**으로 그대로 적용하고 **다음**을 클릭합니다.
    6. 왼쪽 창에서 **다음** on the **다음** 을 클릭합니다.
@@ -525,7 +525,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 > 
 > 
 
-가상 컴퓨터의 보고서 관리자 또는 보고서 서버에 원격으로 연결하려면 VM에서 TCP 끝점이 필요합니다. 이는 VM의 방화벽에서 동일한 포트를 여는 데 필요합니다. VM이 프로비전되었을 때 끝점이 만들어졌습니다.
+가상 머신의 보고서 관리자 또는 보고서 서버에 원격으로 연결하려면 VM에서 TCP 끝점이 필요합니다. 이는 VM의 방화벽에서 동일한 포트를 여는 데 필요합니다. VM이 프로비전되었을 때 끝점이 만들어졌습니다.
 
 이 섹션에서는 방화벽 포트를 여는 방법에 대한 기본 정보를 제공합니다. 자세한 내용은 [보고서 서버 액세스를 위한 방화벽 구성](https://technet.microsoft.com/library/bb934283.aspx)
 
@@ -563,25 +563,25 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>사용자 만들기 및 역할 할당
-보고서 서버를 구성하고 확인한 후 일반적인 관리 작업은 하나 이상의 사용자를 만들고 Reporting Services 역할에 사용자를 할당하는 것입니다. 자세한 내용은 다음을 참조하세요.
+보고서 서버를 구성하고 확인한 후 일반적인 관리 작업은 하나 이상의 사용자를 만들고 Reporting Services 역할에 사용자를 할당하는 것입니다. 자세한 내용은 
 
 * [로컬 사용자 계정 만들기](https://technet.microsoft.com/library/cc770642.aspx)
 * [보고서 서버에 사용자 액세스 권한 부여(보고서 관리자)](https://msdn.microsoft.com/library/ms156034.aspx)
 * [역할 할당 만들기 및 관리](https://msdn.microsoft.com/library/ms155843.aspx)
 
-## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>보고서를 만들고 Azure 가상 컴퓨터에 게시하려면
-다음 표에는 온-프레미스 컴퓨터의 기존 보고서를 Microsoft Azure 가상 컴퓨터에 호스트된 보고서 서버에 게시하는 데 사용 가능한 일부 옵션이 요약되어 있습니다.
+## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>보고서를 만들고 Azure Virtual Machine에 게시하려면
+다음 표에는 온-프레미스 컴퓨터의 기존 보고서를 Microsoft Azure Virtual Machine에 호스트된 보고서 서버에 게시하는 데 사용 가능한 일부 옵션이 요약되어 있습니다.
 
-* **RS.exe 스크립트**: RS.exe 스크립트를 사용하여 기존 보고서 서버의 보고서 항목을 Microsoft Azure 가상 컴퓨터에 복사합니다. 자세한 내용은 [보고서 서버 간 콘텐츠 마이그레이션을 위한 예제 Reporting Services rs.exe 스크립트](https://msdn.microsoft.com/library/dn531017.aspx)의 "기본 모드에서 기본 모드로 – Microsoft Azure 가상 컴퓨터" 섹션을 참조하세요.
-* **보고서 작성기**: 가상 컴퓨터는 Microsoft SQL Server 보고서 작성기의 ClickOnce 버전을 포함합니다. 가상 컴퓨터에서 처음으로 보고서 작성기를 시작하려면:
+* **RS.exe 스크립트**: RS.exe 스크립트를 사용하여 기존 보고서 서버의 보고서 항목을 Microsoft Azure Virtual Machine에 복사합니다. 자세한 내용은 [보고서 서버 간 콘텐츠 마이그레이션을 위한 예제 Reporting Services rs.exe 스크립트](https://msdn.microsoft.com/library/dn531017.aspx)의 "기본 모드에서 기본 모드로 – Microsoft Azure Virtual Machine" 섹션을 참조하세요.
+* **보고서 작성기**: 가상 머신은 Microsoft SQL Server 보고서 작성기의 ClickOnce 버전을 포함합니다. 가상 머신에서 처음으로 보고서 작성기를 시작하려면:
   
   1. 관리자 권한으로 브라우저를 시작합니다.
-  2. 가상 컴퓨터에서 보고서 관리자로 이동하고 리본에서 **보고서 작성기**를 클릭합니다.
+  2. 가상 머신에서 보고서 관리자로 이동하고 리본에서 **보고서 작성기**를 클릭합니다.
      
      자세한 내용은 [보고서 작성기 설치, 제거 및 지원](https://technet.microsoft.com/library/dd207038.aspx)을 참조하세요.
-* **SQL Server Data Tools: VM**: SQL Server 2012를 사용하여 VM을 만든 경우 SQL Server Data Tools가 가상 컴퓨터에 설치되어 있으므로 가상 컴퓨터에서 **보고서 서버 프로젝트** 및 보고서를 만드는 데 사용할 수 있습니다. SQL Server Data Tools는 보고서를 가상 컴퓨터의 보고서 서버에 게시할 수 있습니다.
+* **SQL Server Data Tools: VM**: SQL Server 2012를 사용하여 VM을 만든 경우 SQL Server Data Tools가 가상 머신에 설치되어 있으므로 가상 머신에서 **보고서 서버 프로젝트** 및 보고서를 만드는 데 사용할 수 있습니다. SQL Server Data Tools는 보고서를 가상 머신의 보고서 서버에 게시할 수 있습니다.
   
-    SQL Server 2014에서 VM을 만든 경우 SQL Server Data Tools - Visual Studio용 BI를 설치할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+    SQL Server 2014에서 VM을 만든 경우 SQL Server Data Tools - Visual Studio용 BI를 설치할 수 있습니다. 자세한 내용은 
   
   * [Microsoft SQL Server Data Tools - Visual Studio 2013용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Visual Studio 2012용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=36843)
@@ -603,7 +603,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 * Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 Virtual Machines 탭을 참조하세요.
 
 ### <a name="community-content"></a>커뮤니티 콘텐츠
-* 스크립트를 사용하지 않고 Reporting Services 기본 모드 보고서 서버를 만드는 방법에 대한 단계별 지침은 [Azure 가상 컴퓨터에 SQL Reporting Services 호스트](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html)를 참조하세요.
+* 스크립트를 사용하지 않고 Reporting Services 기본 모드 보고서 서버를 만드는 방법에 대한 단계별 지침은 [Azure Virtual Machine에 SQL Reporting Services 호스트](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html)를 참조하세요.
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Azure VM의 SQL Server에 대한 기타 리소스 링크
 [Azure Virtual Machines의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)

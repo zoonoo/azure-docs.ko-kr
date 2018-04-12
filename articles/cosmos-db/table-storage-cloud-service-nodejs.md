@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table Storage: Node.js 웹 응용 프로그램
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -55,7 +55,7 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
 3. Azure Powershell 창에서 다음 cmdlet을 입력하여 저장소 계정 정보를 가져옵니다.
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    앞에 나오는 cmdlet은 호스티드 서비스와 연결된 저장소 계정 및 계정 키 목록을 가져옵니다.
@@ -342,9 +342,20 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
 
 1. [Twitter Bootstrap](http://getbootstrap.com/)용 파일을 다운로드하여 추출합니다. **bootstrap\\dist\\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\\stylesheets** 디렉터리에 복사합니다.
 2. **views** 폴더에 있는 **layout.jade** 파일을 텍스트 편집기에서 열어 내용을 다음으로 바꿉니다.
-
-    doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. **layout.jade** 파일을 저장합니다.
 
 ### <a name="running-the-application-in-the-emulator"></a>에뮬레이터에서 응용 프로그램 실행

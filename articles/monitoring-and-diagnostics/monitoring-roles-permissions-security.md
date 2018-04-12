@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor에서의 역할, 권한 및 보안 시작 | Microsoft Docs"
-description: "Azure Monitor 기본 제공 역할 및 권한을 사용하여 모니터링 리소스에 대한 액세스를 제한하는 방법을 알아봅니다."
+title: Azure Monitor에서의 역할, 권한 및 보안 시작 | Microsoft Docs
+description: Azure Monitor 기본 제공 역할 및 권한을 사용하여 모니터링 리소스에 대한 액세스를 제한하는 방법을 알아봅니다.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
@@ -30,6 +30,7 @@ Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
 * 포털의 모니터링 대시보드를 확인하고 자체 개별 모니터링 대시보드를 만듭니다.
+* [Azure 경고](monitoring-overview-unified-alerts.md)에 정의된 경고 규칙 보기
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md) 또는 [플랫폼 간 CLI](insights-cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.
 * 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 을 확인합니다.
@@ -55,7 +56,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
 * 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 을 구성합니다.*
 * 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 설정합니다.*
-* 경고 활동 및 설정을 구성합니다.
+* [Azure 경고](monitoring-overview-unified-alerts.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.
 * Log Analytics 작업 영역 공유 키를 나열합니다.
 * Log Analytics 인텔리전스 팩을 사용하거나 사용하지 않도록 설정합니다.
@@ -76,7 +77,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |작업 그룹을 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |활동 로그 알림을 읽고 쓰고 삭제합니다. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |경고 규칙 읽고 쓰고 삭제합니다(메트릭 경고). |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |경고 규칙을 읽고 쓰고 삭제합니다(경고 클래식에서). |
 | Microsoft.Insights/AlertRules/Incidents/Read |경고 규칙에 대한 사건 나열(트리거된 경고 규칙 내역). 포털에만 적용됩니다. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |자동 크기 조정 설정 읽기/쓰기/삭제 |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |진단 설정 읽기/쓰기/삭제 |
@@ -86,10 +87,12 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 네트워크 흐름 로그의 진단 설정을 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/LogDefinitions/Read |이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |로그 프로필을 읽고 쓰고 삭제합니다(이벤트 허브 또는 저장소 계정으로 활동 로그 스트리밍). |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |거의 실시간으로 메트릭 경고를 읽고 쓰고 삭제합니다(공개 미리 보기). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |근 실시간 메트릭 경고를 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/MetricDefinitions/Read |메트릭 정의(리소스에 사용 가능한 메트릭 형식 목록)를 읽습니다. |
 | Microsoft.Insights/Metrics/Read |리소스에 대한 메트릭을 읽습니다. |
 | Microsoft.Insights/Register/Action |Azure Monitor 리소스 공급자를 등록합니다. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Application Insights에 대한 로그 경고를 읽고 쓰고 삭제합니다. |
+
 
 
 > [!NOTE]
@@ -118,9 +121,9 @@ New-AzureRmRoleDefinition -Role $role
 2. 진단 로그. 리소스가 내보낸 로그입니다.
 3. 메트릭. 리소스가 내보낸 항목입니다.
 
-이 세 데이터 형식은 저장소 계정에 저장되거나 이벤트 허브에 스트리밍되며, 모두 범용 Azure 리소스입니다. 범용 리소스이기 때문에 이 항목의 만들기, 삭제 및 액세스는 권한이 필요한 작업이며 일반적으로 관리자에게 예약됩니다. 오용을 방지하기 위해 모니터링 관련 리소스에는 다음 방법을 적용하는 것이 좋습니다.
+이 세 데이터 형식은 저장소 계정에 저장되거나 이벤트 허브에 스트리밍되며, 모두 범용 Azure 리소스입니다. 범용 리소스이기 때문에 이 항목의 만들기, 삭제 및 액세스는 관리자에게 예약된 권한이 필요한 작업입니다. 오용을 방지하기 위해 모니터링 관련 리소스에는 다음 방법을 적용하는 것이 좋습니다.
 
-* 모니터링 데이터에는 단일 전용 저장소 계정을 사용합니다. 모니터링 데이터를 여러 저장소 계정으로 구분해야 할 경우, 모니터링 데이터와 비 모니터링 데이터 간에 저장소 계정을 공유하여 사용하지 않습니다. 이 경우 모니터링 데이터(예: 타사 SIEM) 액세스만 필요한 사용자에게 의도치 않게 비 모니터링 데이터에 대한 액세스를 부여할 수 있습니다.
+* 모니터링 데이터에는 단일 전용 저장소 계정을 사용합니다. 모니터링 데이터를 여러 저장소 계정으로 분리해야 할 경우, 모니터링 데이터와 비 모니터링 데이터 간에 저장소 계정을 공유하여 사용하지 않습니다. 모니터링 데이터에 대한 액세스 권한만 필요한 대상(예: 타사 SIEM)에게 부주의하게 비 모니터링 데이터에 대한 액세스 권한을 줄 가능성이 있기 때문입니다.
 * 같은 이유로 모든 진단 설정에서 단일 전용 Service Bus 또는 Event Hub 네임스페이스를 사용합니다.
 * 별도의 리소스 그룹을 유지하여 모니터링 관련 저장소 계정이나 이벤트 허브에 대한 액세스를 제한하고, 모니터링 역할에 [범위를 사용하여](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) 액세스를 해당 리소스 그룹으로만 한정합니다.
 * 사용자가 모니터링 데이터 액세스만 필요할 경우 구독에서 이벤트 허브나 저장소 계정에 ListKeys 권한을 부여해서는 안 됩니다. 그 대신 리소스나 리소스 그룹(전용 모니터링 리소스 그룹이 있는 경우) 범위에서 사용자에게 해당 건한을 부여합니다.

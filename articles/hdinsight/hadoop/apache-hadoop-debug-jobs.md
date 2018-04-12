@@ -1,12 +1,12 @@
 ---
-title: "HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure | Microsoft Docs"
-description: "PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다."
+title: 'HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure | Microsoft Docs'
+description: PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다.
 services: hdinsight
 tags: azure-portal
 editor: cgronlun
 manager: jhubbard
 author: ashishthaps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashish
 ms.openlocfilehash: a5db3848eda2dbb6f117562e059b909575966993
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop 로그 분석
 

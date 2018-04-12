@@ -1,11 +1,11 @@
 ---
-title: "Linux에서 MySQL 성능 최적화 | Microsoft Docs"
-description: "Linux를 실행하는 Azure VM(가상 컴퓨터)에서 실행 중인 MySQL을 최적화하는 방법에 대해 알아봅니다."
+title: Linux에서 MySQL 성능 최적화 | Microsoft Docs
+description: Linux를 실행하는 Azure VM(가상 머신)에서 실행 중인 MySQL을 최적화하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Azure Linux VM에서 MySQL 성능 최적화
 가상 하드웨어 선택과 소프트웨어 구성 모두에서 Azure의 MySQL 성능에 영향을 주는 많은 요소가 있습니다. 이 문서에서는 저장소, 시스템 및 데이터베이스 구성을 통해 성능을 최적화하는 방법에 중점을 둡니다.
@@ -37,7 +37,7 @@ Azure의 디스크 I/O 처리량 및 I/O 응답 시간은 RAID를 통해 향상�
 
 또한 청크 크기를 고려할 수도 있습니다. 일반적으로 청크 크기가 크면 특히 대량 쓰기에서 오버헤드가 낮아집니다(특히 대량 쓰기의 경우). 그러나 청크 크기가 너무 크면 추가 오버헤드가 발생할 수 있으므로 RAID를 활용할 수 없습니다. 현재 기본 크기는 512KB이며, 대부분의 일반 프로덕션 환경에 가장 적합한 것으로 증명되었습니다. 자세한 내용은 [부록 C](#AppendixC)를 참조하세요.   
 
-여러 유형의 가상 컴퓨터에 추가할 수 있는 디스크 수에는 제한이 있습니다. 이러한 제한은 [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)에서 자세히 설명하고 있습니다. 더 적은 수의 디스크로 RAID를 설정하도록 선택할 수 있지만 이 문서의 RAID 예제를 따르려면 연결된 데이터 디스크 4개가 필요합니다.  
+여러 유형의 가상 머신에 추가할 수 있는 디스크 수에는 제한이 있습니다. 이러한 제한은 [Azure의 가상 머신 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)에서 자세히 설명하고 있습니다. 더 적은 수의 디스크로 RAID를 설정하도록 선택할 수 있지만 이 문서의 RAID 예제를 따르려면 연결된 데이터 디스크 4개가 필요합니다.  
 
 이 문서에서는 Linux 가상 컴퓨터를 이미 만들고 MYSQL을 설치 및 구성하는 것으로 가정합니다. 시작하는 방법에 대한 자세한 내용은 Azure에서 MySQL을 설치하는 방법을 참조하세요.  
 
@@ -46,22 +46,22 @@ Azure의 디스크 I/O 처리량 및 I/O 응답 시간은 RAID를 통해 향상�
 이 예제에서는 디스크 4개를 사용하여 RAID 0을 구성합니다.  
 
 #### <a name="add-a-data-disk-to-your-virtual-machine"></a>가상 컴퓨터에 데이터 디스크 추가
-Azure Portal에서 대시보드로 이동하고 데이터 디스크를 추가할 가상 컴퓨터를 선택합니다. 이 예제의 가상 컴퓨터는 mysqlnode1입니다.  
+Azure Portal에서 대시보드로 이동하고 데이터 디스크를 추가할 가상 머신을 선택합니다. 이 예제의 가상 컴퓨터는 mysqlnode1입니다.  
 
 <!--![Virtual machines][1]-->
 
 **디스크**를 클릭한 다음 **새로 연결**을 클릭합니다.
 
-![가상 컴퓨터에서 디스크 추가](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
+![가상 머신에서 디스크 추가](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
 
 새 500GB 디스크를 만듭니다. **호스트 캐시 기본 설정**이 **None**으로 설정되었는지 확인합니다.  작업을 완료하면 **확인**을 클릭합니다.
 
 ![빈 디스크 연결](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-attach-empty-disk.png)
 
 
-그러면 가상 컴퓨터에 빈 디스크 하나가 추가됩니다. RAID의 데이터 디스크가 4개가 되도록 이 단계를 세 번 더 반복합니다.  
+그러면 가상 머신에 빈 디스크 하나가 추가됩니다. RAID의 데이터 디스크가 4개가 되도록 이 단계를 세 번 더 반복합니다.  
 
-커널 메시지 로그에서 가상 컴퓨터에 추가된 드라이브를 확인할 수 있습니다. 예를 들어 Ubuntu에서 이를 보려면 다음 명령을 사용합니다.  
+커널 메시지 로그에서 가상 머신에 추가된 드라이브를 확인할 수 있습니다. 예를 들어 Ubuntu에서 이를 보려면 다음 명령을 사용합니다.  
 
     sudo grep SCSI /var/log/dmesg
 
@@ -312,7 +312,7 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 | --- | --- | --- |
 | **innodb_buffer_pool_size** |없음 |7 GB |
 | **innodb_log_file_size** |5MB |512MB |
-| **max_connections** |100 |5000 |
+| **max_connections** |100 |5,000 |
 | **innodb_file_per_table** |0 |1 |
 | **innodb_flush_log_at_trx_commit** |1 |2 |
 | **innodb_log_buffer_size** |8MB |128MB |

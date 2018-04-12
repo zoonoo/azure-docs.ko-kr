@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 2c1a4a1931bc2e38b0bee5f90518b01fdf4767a1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 Resource Manager 배포 모델을 사용 중인 경우 새로운 게이트웨이 SKU로 변경할 수 있습니다. 레거시 게이트웨이 SKU에서 새 SKU로 변경할 때는 기존 VPN 게이트웨이를 삭제하고 새 VPN 게이트웨이를 만듭니다.
 

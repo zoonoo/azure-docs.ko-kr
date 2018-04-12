@@ -1,12 +1,12 @@
 ---
-title: "Azure DMZ 예제 – NSG를 사용하여 간단한 DMZ 빌드| Microsoft Docs"
-description: "NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드"
+title: Azure DMZ 예제 – NSG를 사용하여 간단한 DMZ 빌드| Microsoft Docs
+description: NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>예 1 – Azure Resource Manager 템플릿으로 NSG를 사용하여 간단한 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/21/2017
 * 서브넷 모두에 적용되는 네트워크 보안 그룹
 * 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows 서버
 * 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
-* DNS 서버("DNS01")를 나타내는 Windows Server
+* DNS 서버("DNS01")를 나타내는 Windows 서버
 * 응용 프로그램 웹 서버에 연결된 공용 IP 주소
 
 참조 섹션에서 이 예제에서 설명된 환경을 구축하는 Azure Resource Manager 템플릿에 대한 링크가 있습니다. VM 및 Virtual Network 구축은 예제 템플릿으로 수행하지만 이 문서에서는 자세히 설명하지 않습니다. 

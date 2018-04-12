@@ -1,6 +1,6 @@
 ---
-title: "Azure 의료 분석 청사진"
-description: "HIPAA/HITRUST 의료 분석 청사진을 배포하기 위한 지침입니다."
+title: Azure 의료 분석 청사진
+description: HIPAA/HITRUST 의료 분석 청사진을 배포하기 위한 지침입니다.
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 

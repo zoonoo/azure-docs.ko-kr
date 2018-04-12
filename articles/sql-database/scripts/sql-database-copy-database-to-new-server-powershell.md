@@ -1,26 +1,26 @@
 ---
-title: "PowerShell 예제 복사 Azure SQL Database 새 서버 | Microsoft Docs"
-description: "SQL Database를 새 서버에 복사하는 Azure PowerShell 예제 스크립트"
+title: PowerShell 예제 복사 Azure SQL Database 새 서버 | Microsoft Docs
+description: SQL Database를 새 서버에 복사하는 Azure PowerShell 예제 스크립트
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 391d086959d2e38333abf47885193601b5904aa6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: f85ccf98e7b1f1702e1f2a4457d4be88ae7f4eb1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>PowerShell을 사용하여 SQL Database를 새 서버에 복사
 
@@ -45,7 +45,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 데이터베이스 또는 탄력적 풀을 호스트하는 논리 서버를 만듭니다. |

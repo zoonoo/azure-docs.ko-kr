@@ -3,7 +3,7 @@ title: Azure IoT Hub(노드)를 사용한 메시지 라우팅 | Microsoft Docs
 description: 다른 백 엔드 서비스에 메시지를 발송하기 위해 경로 규칙 및 사용자 지정 끝점을 사용하여 Azure IoT Hub 장치-클라우드 메시지를 처리하는 방법을 설명합니다.
 services: iot-hub
 documentationcenter: node
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
@@ -13,25 +13,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
-ms.author: v-masebo
-ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 02edb06d2d871cffac717358e33a6720c444a9b3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>IoT Hub(노드)를 사용한 메시지 라우팅
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-이 자습서는 [IoT Hub 시작] 자습서를 기반으로 합니다.  이 자습서의 내용은 다음과 같습니다.
+이 자습서는 [SimulatedDevice] 자습서를 기반으로 합니다.  이 자습서의 내용은 다음과 같습니다.
 
 * I라우팅 규칙을 사용하여 손쉬운 구성 기반 방식으로 장치-클라우드 메시지를 발송하는 방법을 보여 줍니다.
 * 추가 처리를 위해 솔루션 백 엔드의 즉각적인 작업을 요구하는 대화형 메시지를 격리하는 방법을 보여 줍니다.  예를 들어 장치는 CRM 시스템으로의 티켓 삽입을 트리거하는 경보 메시지를 보낼 수 있습니다.  반면 온도 원격 분석과 같은 데이터 요소 메시지는 분석 엔진으로 전달됩니다.
 
 이 자습서의 끝 부분에서 다음의 세 가지 Node.js 콘솔 앱을 생성합니다.
 
-* [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱인 **SimulatedDevice**는 매초 데이터 요소 장치-클라우드 메시지를 보내고 임의 간격마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 MQTT 프로토콜을 사용합니다.
+* [SimulatedDevice] 자습서에서 만든 수정된 버전의 앱인 **SimulatedDevice**는 매초 데이터 요소 장치-클라우드 메시지를 보내고 임의 간격마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 MQTT 프로토콜을 사용합니다.
 * **ReadDeviceToCloudMessages**는 장치 앱에서 보낸 원격 분석을 표시합니다.
 * **ReadCriticalQueue.js**는 IoT Hub에 연결된 Service Bus 큐에서 중요한 메시지를 큐에서 제거합니다.
 
@@ -40,16 +40,16 @@ ms.lasthandoff: 02/03/2018
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [IoT Hub 시작] 자습서의 전체 작업 버전
+* [SimulatedDevice] 자습서의 전체 작업 버전
 * Node.js 버전 4.0.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 또한 [Azure Storage] 및 [Azure Service Bus]에 대해서도 읽어보는 것이 좋습니다.
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>장치 앱에서 대화형 메시지 보내기
-이 섹션에서는 [IoT Hub 시작] 자습서에서 만든 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
+이 섹션에서는 [SimulatedDevice] 자습서에서 만든 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
 
-1. 텍스트 편집기를 사용하여 **simulateddevice\SimulatedDevice.js** 파일을 엽니다. 이 파일에는 [IoT Hub 시작] 자습서에서 만든 **SimulatedDevice** 앱이 포함되어 있습니다.
+1. 텍스트 편집기를 사용하여 **simulateddevice\SimulatedDevice.js** 파일을 엽니다. 이 파일에는 **IoT Hub 시작** 자습서에서 만든 [SimulatedDevice] 앱이 포함되어 있습니다.
 
 2. **connectCallback** 함수를 다음 코드로 바꿉니다.
 
@@ -257,7 +257,7 @@ IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 
 
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-[IoT Hub 시작]: iot-hub-node-node-getstarted.md
+[SimulatedDevice]: iot-hub-node-node-getstarted.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh675232.aspx
 

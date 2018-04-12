@@ -3,7 +3,7 @@ title: Azure IoT Hub를 사용하여 장치 펌웨어 업데이트(.NET/.NET) | 
 description: 장치 펌웨어 업데이트를 시작하려면 Azure IoT Hub에서 장치 관리를 사용하는 방법입니다. .NET용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 펌웨어 업데이트를 트리거하는 서비스 앱을 구현합니다.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>장치 관리를 사용하여 장치 펌웨어 업데이트(.NET/.NET)를 시작합니다.
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

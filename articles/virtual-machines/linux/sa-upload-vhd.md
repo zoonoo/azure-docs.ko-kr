@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 2.0을 사용하여 사용자 지정 Linux 디스크 업로드 | Microsoft Docs"
-description: "Resource Manager 배포 모델 및 Azure CLI 2.0을 사용하여 Azure에 VHD(가상 하드 디스크) 만들기 및 업로드"
+title: Azure CLI 2.0을 사용하여 사용자 지정 Linux 디스크 업로드 | Microsoft Docs
+description: Resource Manager 배포 모델 및 Azure CLI 2.0을 사용하여 Azure에 VHD(가상 하드 디스크) 만들기 및 업로드
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 258c2a5bbce1f15c78690cb01dc9b66fef4bb8f5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 사용자 지정 디스크에서 Linux VM 업로드 및 만들기
 이 문서에서는 Azure CLI 2.0을 사용하여 VHD(가상 하드 디스크)를 Azure Storage 계정에 업로드하고 이 사용자 지정 디스크에서 Linux VM을 만드는 방법을 설명합니다. [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 머신 (Vm)를 신속하게 만들 수 있습니다.

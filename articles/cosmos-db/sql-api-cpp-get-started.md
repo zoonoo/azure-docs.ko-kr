@@ -4,7 +4,7 @@ description: C++용 Azure Cosmos DB 인증 SDK를 사용하여 C++ 데이터베�
 services: cosmos-db
 documentationcenter: cpp
 author: asthana86
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
@@ -14,11 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: 86bf4fbc683efde60765b14b379a2b88c77d3103
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e04723a8fa37d32851dd91cdc45293a549c9ee64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 C++ 콘솔 응용 프로그램 자습서
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ C++용 Azure Cosmos DB SQL API 인증 SDK에 대한 C++ 자습서를 시작합�
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 자습서의 필수 구성 요소
 다음 리소스가 있는지 확인합니다.
 
-* 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+* 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

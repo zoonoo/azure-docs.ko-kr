@@ -1,32 +1,31 @@
 ---
-title: "Azure Cosmos DB MongoDB API에서 MongoDB 읽기 기본 설정 사용 | Microsoft Docs"
-description: "Azure Cosmos DB MongoDB API에서 MongoDB 읽기 기본 설정을 사용하는 방법을 알아봅니다."
+title: Azure Cosmos DB MongoDB API에서 MongoDB 읽기 기본 설정 사용 | Microsoft Docs
+description: Azure Cosmos DB MongoDB API에서 MongoDB 읽기 기본 설정을 사용하는 방법을 알아봅니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: vidhoonv
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
-ms.custom: 
-ms.workload: 
+ms.custom: ''
+ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: viviswan
-ms.openlocfilehash: b28285695f52d6dbcc33d9fb0efe06b43cdf1cab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cc9f22bc5e7b54ed03fbf83b58dda0aff0114737
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB MongoDB API에서 읽기 기본 설정을 사용하여 읽기를 전역적으로 배포하는 방법 
 
 이 문서에서는 Azure Cosmos DB의 MongoDB API를 사용하여 [MongoDB 읽기 기본 설정](https://docs.mongodb.com/manual/core/read-preference/)으로 읽기 작업을 전역으로 배포하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 Azure Portal을 사용하여 Azure Cosmos DB 계정을 전역 배포로 설정한 다음, MongoDB API를 사용하여 연결하는 방법에 대한 지침은 이 [빠른 시작](tutorial-global-distribution-mongodb.md) 문서를 참조하세요.

@@ -1,11 +1,11 @@
 ---
-title: "Linux VM에서 Microsoft HPC 팩으로 NAMD 실행 | Microsoft Docs"
-description: "Azure에서 Microsoft HPC 팩을 배포하고 여러 Linux 컴퓨터 노드에서 charmrun으로 NAMD 시뮬레이션을 실행합니다."
+title: Linux VM에서 Microsoft HPC 팩으로 NAMD 실행 | Microsoft Docs
+description: Azure에서 Microsoft HPC 팩을 배포하고 여러 Linux 컴퓨터 노드에서 charmrun으로 NAMD 시뮬레이션을 실행합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 76072c6b-ac35-4729-ba67-0d16f9443bd7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61dd49d4bd3183b6b9a78036d6d7d01798e4dc89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행
 이 문서는 Azure Virtual Machines에서 Linux HPC(고성능 컴퓨팅) 워크로드를 실행하는 한 가지 방법을 보여줍니다. 여기서는 Linux 계산 노드를 사용하여 Azure에 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 설정하고 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 시뮬레이션을 실행하여 규모가 큰 생체 분자 시스템을 계산하고 시각화합니다.  
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함하는 RSA 키 쌍을 간편하게 생성할 수 있습니다.
 
 1. Linux 컴퓨터에 로그온합니다.
-2. 다음 명령을 실행합니다.
+2. 다음 명령 실행:
    
    ```bash
    ssh-keygen -t rsa
@@ -208,7 +208,7 @@ host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-예:
+예: 
 
 ```
 group main

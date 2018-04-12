@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: a1d0232f093ab99bfbeba3012d78c35d6476496e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be8e58cd998abf0105c3ef17bd3e192605f15ecd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP를 사용하여 Azure Blob 저장소에서 개체 전송
 이 빠른 시작에서 PHP를 사용하여 Azure Blob 저장소의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다. 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 * [PHP용 Azure Storage SDK](https://github.com/Azure/azure-storage-php) 설치
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -40,6 +40,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
 이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. PHP 샘플 응용 프로그램을 열려면 storage-blobs-php-quickstart 폴더를 찾아 phpqs.php 파일을 엽니다.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 응용 프로그램에서 응용 프로그램에 대한 **BlobRestProxy** 인스턴스를 만들려면 저장소 계정 이름과 계정 키를 제공해야 합니다. 이러한 식별자는 응용 프로그램을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 다음 예제 중 하나를 사용하여 환경 변수를 만듭니다. **youraccountname** 및 **youraccountkey** 값을 계정 이름과 키로 바꿉니다.

@@ -1,13 +1,13 @@
 ---
-title: "클래식 VM을 ARM 관리 디스크 VM으로 마이그레이션 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서는 단일 Azure VM을 클래식 배포 모델에서 Managed Disks로 마이그레이션합니다."
+title: 클래식 VM을 ARM 관리 디스크 VM으로 마이그레이션 | Microsoft Docs
+description: Resource Manager 배포 모델에서는 단일 Azure VM을 클래식 배포 모델에서 Managed Disks로 마이그레이션합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 82389834d85981c0ed71bdcc891fbfdbe1377654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1241f893ca69e3ddaf464e66943caa2697e6d8e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>VHD에서 클래식 VM을 새 ARM 관리 디스크 VM으로 수동으로 마이그레이션 
 
@@ -38,8 +38,8 @@ Azure Managed Disks를 사용할 수 있는 위치를 선택합니다. 프리미
 
 ### <a name="vm-sizes"></a>VM 크기
 
-프리미엄 Managed Disks를 마이그레이션하는 경우 VM 크기를 VM이 위치한 지역에서 제공하는 Premium Storage 지원 가능 크기로 업데이트해야 합니다. Premium Storage를 사용할 수 있는 VM 크기를 검토합니다. Azure VM 크기 사양은 [가상 컴퓨터의 크기](sizes.md)에 나열되어 있습니다.
-프리미엄 저장소와 작동하는 가상 컴퓨터의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
+프리미엄 Managed Disks를 마이그레이션하는 경우 VM 크기를 VM이 위치한 지역에서 제공하는 Premium Storage 지원 가능 크기로 업데이트해야 합니다. Premium Storage를 사용할 수 있는 VM 크기를 검토합니다. Azure VM 크기 사양은 [가상 머신의 크기](sizes.md)에 나열되어 있습니다.
+Premium Storage와 작동하는 가상 머신의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
 
 ### <a name="disk-sizes"></a>디스크 크기
 
@@ -49,7 +49,7 @@ VM에서 사용할 수 있는 프리미엄 관리 디스크에는 7가지 형식
 
 | 프리미엄 디스크 유형  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 디스크 크기           | 128GB| 512GB| 128GB| 512GB            | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
+| 디스크 크기           | 128GB| 512 GB| 128GB| 512 GB            | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
 | 디스크당 IOPS       | 120   | 240   | 500   | 2,300              | 5,000              | 7,500              | 7,500              | 
 | 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 
 
@@ -59,7 +59,7 @@ VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 �
 
 | 표준 디스크 유형  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| 디스크 크기           | 30GB            | 64GB            | 128GB           | 512GB           | 1,024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
+| 디스크 크기           | 30GB            | 64GB            | 128GB           | 512 GB           | 1,024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
 | 디스크당 IOPS       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
 | 디스크당 처리량 | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
 
@@ -172,5 +172,5 @@ VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 가상 컴퓨터에 연결합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+- 가상 머신에 연결합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 

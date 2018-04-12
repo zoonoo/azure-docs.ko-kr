@@ -1,11 +1,11 @@
 ---
-title: "Linux VM에서 HPC 팩으로 STAR-CCM+ 실행 | Microsoft Docs"
-description: "Azure에서 Microsoft HPC Pack 클러스터를 배포하고 RDMA 네트워크 간의 여러 Linux 계산 노드에서 STAR-CCM+ 작업을 실행합니다."
+title: Linux VM에서 HPC 팩으로 STAR-CCM+ 실행 | Microsoft Docs
+description: Azure에서 Microsoft HPC Pack 클러스터를 배포하고 RDMA 네트워크 간의 여러 Linux 계산 노드에서 STAR-CCM+ 작업을 실행합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: xpillons
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8689d7abfd5ab45277df3b5672a1f6e7e874d88e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩으로 STAR-CCM+ 실행
 이 문서에서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 InfiniBand와 상호 연결된 여러 Linux 계산 노드에서 [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) 작업을 실행하는 방법을 보여 줍니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
+Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 머신의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
 
 ## <a name="set-up-an-hpc-pack-cluster"></a>HPC 팩 클러스터 설정
 [다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=44949)에서 HPC 팩 IaaS 배포 스크립트를 다운로드하고 로컬로 추출합니다.
 
 Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 구성되지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)문서를 참조하세요.
 
-이 문서를 작성할 당시 Azure 마켓플레이스의 Linux 이미지(Azure용 InfiniBand 포함)는 SLES 12, CentOS 6.5, CentOS 7.1용입니다. 이 문서는 SLES 12 사용을 기반으로 합니다. 마켓플레이스에서 HPC를 지원하는 모든 Linux 이미지의 이름을 검색하려면 다음 PowerShell 명령을 실행합니다.
+이 문서를 작성할 당시 Azure Marketplace의 Linux 이미지(Azure용 InfiniBand 포함)는 SLES 12, CentOS 6.5, CentOS 7.1용입니다. 이 문서는 SLES 12 사용을 기반으로 합니다. Marketplace에서 HPC를 지원하는 모든 Linux 이미지의 이름을 검색하려면 다음 PowerShell 명령을 실행합니다.
 
 ```
     get-azurevmimage | ?{$_.ImageName.Contains("hpc") -and $_.OS -eq "Linux" }
@@ -85,7 +85,7 @@ Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 �
     .\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml
 ```
 
-20~30분 후에 헤드 노드가 준비됩니다. 가상 컴퓨터의 **연결** 아이콘을 클릭하여 Azure 포털에서 헤드 노드에 연결할 수 있습니다.
+20~30분 후에 헤드 노드가 준비됩니다. 가상 머신의 **연결** 아이콘을 클릭하여 Azure 포털에서 헤드 노드에 연결할 수 있습니다.
 
 최종적으로 DNS 전달자를 수정해야 할 수 있습니다. 이 작업을 위해 DNS 관리자를 시작합니다.
 
@@ -158,7 +158,7 @@ Azure 파일 공유를 탑재하려면
 ```
 
 ## <a name="install-star-ccm"></a>STAR-CCM+ 설치
-Azure VM 인스턴스 A8 및 A9는 InfiniBand 지원 및 RDMA 기능을 제공합니다. 이러한 기능을 구현하는 커널 드라이버는 Azure 마켓플레이스에서 Windows Server 2012 R2, SUSE 12, CentOS 6.5, CentOS 7.1 이미지에 사용할 수 있습니다. Microsoft MPI 및 Intel MPI(릴리스 5.x)는 Azure에서 해당 드라이버를 지원하는 두 MPI 라이브러리입니다.
+Azure VM 인스턴스 A8 및 A9는 InfiniBand 지원 및 RDMA 기능을 제공합니다. 이러한 기능을 구현하는 커널 드라이버는 Azure Marketplace에서 Windows Server 2012 R2, SUSE 12, CentOS 6.5, CentOS 7.1 이미지에 사용할 수 있습니다. Microsoft MPI 및 Intel MPI(릴리스 5.x)는 Azure에서 해당 드라이버를 지원하는 두 MPI 라이브러리입니다.
 
 CD-adapco STAR-CCM+ 릴리스 11.x 이상은 Intel MPI 버전 5.x와 함께 제공되므로 Azure에 대한 InfiniBand 지원이 포함됩니다.
 
@@ -294,7 +294,7 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
 ```
 
-여기서,
+위치:
 
 * `<Number of nodes>` 는 이 작업에 할당된 노드 수입니다.
 * `<Name of node_n_...>` 은 이 작업에 할당된 각 노드의 이름입니다.

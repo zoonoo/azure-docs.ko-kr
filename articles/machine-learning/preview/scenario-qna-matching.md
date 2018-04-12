@@ -1,11 +1,11 @@
 ---
-title: "Azure Machine Learning Workbench를 사용하여 Q & A 일치 | Microsoft Docs"
-description: "다양하고 효과적인 기계 학습 방법을 사용하여 개방형 쿼리를 기존 FAQ 질문 /답변 쌍과 일치시키는 방법입니다."
+title: Azure Machine Learning Workbench를 사용하여 Q & A 일치 | Microsoft Docs
+description: 다양하고 효과적인 기계 학습 방법을 사용하여 개방형 쿼리를 기존 FAQ 질문 /답변 쌍과 일치시키는 방법입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 Q & A 일치
 개방형 질문에 대한 대답은 어려우며 종종 SME(실무 전문가)의 수동 작업이 필요합니다. 내부 SME에 대한 요구를 줄이기 위해 회사에서는 종종 사용자를 지원하는 수단으로 FAQ(질문과 대답) 목록을 만듭니다. 이 예제에서는 개방형 쿼리를 기존 FAQ 질문/답변 쌍과 일치시키는 다양하고 효과적인 기계 학습 방법을 보여 줍니다. 이 예제는 Azure Machine Learning Workbench를 사용하여 이러한 솔루션을 빌드하는 간편한 개발 프로세스를 보여 줍니다. 
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/18/2017
 
 세 가지 데이터 집합의 데이터 스키마 및 직접 다운로드 링크는 다음 표에서 볼 수 있습니다.
 
-| 데이터 집합 | 필드 | type | 설명
+| 데이터 집합 | 필드 | 유형 | 설명
 | ----------|------------|------------|--------
 | [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | 문자열 | 고유 질문 ID(기본 키)
 |  | AnswerId | 문자열 | 질문당 고유 답변 ID
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/18/2017
 
 이 예제에 있는 파일은 다음과 같이 구성됩니다.
 
-| 파일 이름 | type | 설명
+| 파일 이름 | 유형 | 설명
 | ----------|------------|--------
 | `Image` | 폴더 | 추가 정보 파일에 대한 이미지를 저장하는 데 사용되는 폴더
 | `notebooks` | 폴더 | Jupyter Notebook 폴더

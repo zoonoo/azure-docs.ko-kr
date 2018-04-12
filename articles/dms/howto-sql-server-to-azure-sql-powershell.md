@@ -1,21 +1,21 @@
 ---
-title: "Microsoft Azure PowerShell에서 Azure Database Migration Service 모듈을 사용하여 SQL Server 온-프레미스를 Azure SQL DB로 마이그레이션 | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 Azure SQL로 마이그레이션하는 방법에 대해 알아봅니다."
+title: Microsoft Azure PowerShell에서 Azure Database Migration Service 모듈을 사용하여 SQL Server 온-프레미스를 Azure SQL DB로 마이그레이션 | Microsoft Docs
+description: Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 Azure SQL로 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 04/05/2018
+ms.openlocfilehash: d70d39f027df1fba7934c4b752b1dd2100f2e8b9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL DB로 마이그레이션
 이 문서에서는 Microsoft Azure PowerShell을 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다. Microsoft Azure PowerShell에서 `AzureRM.DataMigration` 모듈을 사용하여 온-프레미스 SQL Server 인스턴스의 데이터베이스를 Azure SQL Database로 마이그레이션할 수 있습니다.
@@ -127,7 +127,7 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
   -TargetType SQLDB `
   -SourceConnection $sourceConnInfo `
   -TargetConnection $targetConnInfo `
-  -DatabaseInfos $dbList
+  -DatabaseInfo $dbList
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>마이그레이션 작업 만들기 및 시작

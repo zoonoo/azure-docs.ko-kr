@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 진단 1.3 이상 구성 스키마
 > [!NOTE]
@@ -569,7 +569,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
-|특성|형식|설명|  
+|특성|유형|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilterr**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
@@ -601,11 +601,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|형식|설명|  
+|특성|유형|설명|  
 |---------------|----------|-----------------|  
 |**name**|string|sinkname을 식별하는 문자열입니다.|  
 
-|요소|형식|설명|  
+|요소|유형|설명|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
 |**Channels**|string|스트림하는 각 추가 필터링에 대한|  
@@ -617,7 +617,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  싱크를 통해 전달되는 로그 데이터의 스트림에 대한 필터를 정의합니다.  
 
-|요소|형식|설명|  
+|요소|유형|설명|  
 |-------------|----------|-----------------|  
 |**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -628,7 +628,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|형식|설명|  
+|특성|유형|설명|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**name**|**string**|참조 하는 채널의 고유 이름|  

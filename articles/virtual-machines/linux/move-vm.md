@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Linux VM 이동 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 다른 Azure 구독 또는 리소스 그룹으로 Linux VM을 이동합니다."
+title: Azure의 Linux VM 이동 | Microsoft Docs
+description: Resource Manager 배포 모델에서 다른 Azure 구독 또는 리소스 그룹으로 Linux VM을 이동합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Linux VM을 다른 구독 또는 리소스 그룹으로 이동
 이 문서에서는 리소스 그룹 또는 구독 간에 Linux VM을 이동하는 방법을 안내합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.

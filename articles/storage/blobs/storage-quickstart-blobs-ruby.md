@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 493da815b670c15bb892fa0be750c684cab70cb9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>빠른 시작: Ruby를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/17/2018
 gem install azure-storage-blob
 ```
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -43,6 +43,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 ```
 
 이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Ruby 샘플 응용 프로그램을 열려면 storage-blobs-ruby-quickstart 폴더를 찾아 example.rb 파일을 엽니다.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 응용 프로그램에서 응용 프로그램용 `BlobService` 인스턴스를 만들려면 저장소 계정 이름과 계정 키를 제공해야 합니다. IDE의 솔루션 탐색기에서 `example.rb` 파일을 엽니다. **accountname** 및 **accountkey** 값을 해당하는 계정 이름과 키로 바꿉니다. 

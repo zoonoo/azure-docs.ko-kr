@@ -1,12 +1,12 @@
 ---
-title: "Azure Logic Apps에서 웹 API 및 REST API 배포 및 호출 | Microsoft Docs"
-description: "Azure Logic Apps에서 시스템 통합 워크플로에 대한 웹 API 및 REST API 배포 및 호출"
-keywords: "웹 API, REST API, 커넥터, 워크플로, 시스템 통합, 인증"
+title: Azure Logic Apps에서 웹 API 및 REST API 배포 및 호출 | Microsoft Docs
+description: Azure Logic Apps에서 시스템 통합 워크플로에 대한 웹 API 및 REST API 배포 및 호출
+keywords: 웹 API, REST API, 커넥터, 워크플로, 시스템 통합, 인증
 services: logic-apps
 author: stepsic-microsoft-com
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
 ms.workload: integration
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
 ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>논리 앱 워크플로에서 사용자 지정 API 배포 및 호출
 

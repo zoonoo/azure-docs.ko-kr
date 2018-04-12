@@ -4,7 +4,7 @@ description: 관리 Azure Batch AI 서비스를 사용하여 GPU 및 CPU 클러�
 services: batch-ai
 documentationcenter: ''
 author: alexsuttonms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: batch-ai
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 69e7617f1a5918a08e3c692a1a25c4fcdeca536b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Azure Batch AI란?
 Batch AI는 데이터 과학자 및 AI 연구원이 GPU를 지원하는 VM을 포함하여 Azure 가상 머신 클러스터에서 AI 및 기타 기계 학습 모델을 교육할 수 있게 해주는 관리 서비스입니다. 사용자가 작업의 요구 사항, 입력을 찾고 출력을 저장하는 위치를 설명하면 나머지는 Batch AI가 처리합니다.  

@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 1.0을 사용하여 Linux VM 만들기 | Microsoft Docs"
-description: "Azure CLI 1.0을 사용하여 Azure에서 Linux VM 만들기"
+title: Azure CLI 1.0을 사용하여 Linux VM 만들기 | Microsoft Docs
+description: Azure CLI 1.0을 사용하여 Azure에서 Linux VM 만들기
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: 71bb55ab4800389c956cebd00eb3e6e506610153
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: ea9eab1a02a29005917848ed54ab8ba160b89b63
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Linux VM 만들기
 
-이 문서에서는 Azure 명령줄 인터페이스(CLI)의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라 내에 VM을 배포합니다.
+이 문서에서는 Azure 명령줄 인터페이스(CLI)의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 머신(VM)를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라 내에 VM을 배포합니다.
 
 > [!NOTE]
 Azure CLI 2.0을 사용하여 VM을 만들려면 [Azure CLI를 사용하여 VM 만들기](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
@@ -66,7 +66,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 * VM 이름
 * 위치(좋은 기본값은 `westus` 또는 `westeurope`입니다.)
 * linux(원하는 OS가 무엇인지 Azure에 알림)
-* username
+* 사용자 이름
 
 다음 예제는 추가 메시지 표시가 필요하지 않도록 모든 값을 지정합니다. `~/.ssh/id_rsa.pub`을 ssh-rsa 형식의 공개 키 파일로 포함하고 있으면 해당 파일은 있는 그대로 작동합니다.
 

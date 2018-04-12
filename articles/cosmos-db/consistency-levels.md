@@ -3,9 +3,8 @@ title: Azure Cosmos DB의 일관성 수준 | Microsoft Docs
 description: Azure Cosmos DB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 5가지 일관성 수준이 있습니다.
 keywords: 최종 일관성, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준
 Azure Cosmos DB는 처음부터 모든 데이터 모델에 대한 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 Azure Cosmos DB는 5가지 일관성 수준(강력, 제한된 부실, 세션, 일관적인 접두사 및 최종)을 제공합니다. 제한된 부실, 세션, 일관된 접두사 및 최종은 가능한 가장 일관성 높은 모델인 강력보다는 일관성이 낮기 때문에 "관대한 일관성 모델"로 간주됩니다. 

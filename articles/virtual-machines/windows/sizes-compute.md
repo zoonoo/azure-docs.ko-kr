@@ -1,13 +1,13 @@
 ---
-title: "Azure Windows VM 크기 - Compute에 최적화 | Microsoft Docs"
-description: "Azure의 Windows 가상 컴퓨터에 사용할 수 있는 다양한 Compute에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다."
+title: Azure Windows VM 크기 - Compute에 최적화 | Microsoft Docs
+description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 Compute에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 0f393f0c5ed297e12f60e378c54778bdb384d200
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 278644fe00b3710fb4959ccdeddc97afd9223601
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="compute-optimized-virtual-machine-sizes"></a>계산 최적화 가상 컴퓨터 크기
+# <a name="compute-optimized-virtual-machine-sizes"></a>계산 최적화 가상 머신 크기
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 

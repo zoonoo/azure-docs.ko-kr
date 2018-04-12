@@ -1,8 +1,7 @@
 ---
-title: "Azure AD에서 응급 액세스 관리 계정의 관리 | Microsoft Docs"
-description: "이 문서에서는 조직이 기존 Azure Active Directory 환경 내에서 권한 있는 액세스를 제한할 수 있도록 응급 액세스 계정을 사용하는 방법을 설명합니다."
+title: Azure AD에서 응급 액세스 관리 계정의 관리 | Microsoft Docs
+description: 이 문서에서는 조직이 기존 Azure Active Directory 환경 내에서 권한 있는 액세스를 제한할 수 있도록 응급 액세스 계정을 사용하는 방법을 설명합니다.
 services: active-directory
-keywords: "SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요."
 author: markwahl-msft
 ms.author: billmath
 ms.date: 12/13/2017
@@ -11,11 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5c256befba4c73527b529c953f7b9cd4d266450c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 관리 계정의 관리 
 

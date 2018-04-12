@@ -1,13 +1,13 @@
 ---
-title: "Azure 빠른 시작 - Windows VM 만들기 포털 | Microsoft Docs"
-description: "Azure 빠른 시작 - Windows VM 만들기 포털"
+title: Azure 빠른 시작 - Windows VM 만들기 포털 | Microsoft Docs
+description: Azure 빠른 시작 - Windows VM 만들기 포털
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ef2fdfc8f248f9ec5dd9fce9753548dfe802982a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fdee34b91dc6780764abf8b16d1b710c1f5397e5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Windows 가상 머신 만들기
 
 Azure Portal을 통해 Azure Virtual Machines를 만들 수 있습니다. 이 메서드는 가상 머신 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 가상 머신을 만들고 VM에 웹 서버를 설치하는 방법에 대해 단계별로 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 

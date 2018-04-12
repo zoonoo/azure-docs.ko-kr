@@ -1,11 +1,11 @@
 ---
-title: "부하 분산된 집합으로 MySQL 클러스터화 | Microsoft Docs"
-description: "Azure에서 클래식 배포 모델을 사용하여 만든 부하 분산된 고가용성 Linux MySQL 클러스터를 설정합니다."
+title: 부하 분산된 집합으로 MySQL 클러스터화 | Microsoft Docs
+description: Azure에서 클래식 배포 모델을 사용하여 만든 부하 분산된 고가용성 Linux MySQL 클러스터를 설정합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: bureado
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2671def47879e3d4eae000c9084cd458e29b933
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ Azure Portal에 로그인하고 **설정**을 선택하고 선호도 그룹을 �
 ### <a name="networks"></a>네트워크
 새 네트워크가 만들어지고 네트워크 내에 서브넷이 만들어집니다. 이 예제에서는 내부에 /24 서브넷 하나만 있는 10.10.10.0/24 네트워크를 사용합니다.
 
-### <a name="virtual-machines"></a>가상 컴퓨터
+### <a name="virtual-machines"></a>가상 머신
 첫 번째 Ubuntu 13.10 VM이 Endorsed Ubuntu Gallery 이미지를 사용하여 만들어지며 `hadb01`이라고 합니다. 새 클라우드 서비스가 hadb라는 프로세스에서 만들어집니다. 이 이름은 더 많은 리소스가 추가될 때 서비스에서 갖추게 될 공유 부하 분산 특성을 보여 줍니다. `hadb01`을 만드는 작업은 특별하지 않으며 포털을 사용하여 완료됩니다. SSH에 대한 끝점이 자동으로 만들어지고 새 네트워크가 선택됩니다. 이제 VM에 대한 가용성 집합을 만들 수 있습니다.
 
 첫 번째 VM을 만든 후에(기술적으로 클라우드 서비스를 만들 때) 두 번째 VM, `hadb02`를 만듭니다. 두 번째 VM의 경우 포털을 사용하여 갤러리에서 Ubuntu 13.10 VM을 사용하지만 새 클라우드 서비스가 아니라 기존의 `hadb.cloudapp.net` 클라우드 서비스를 사용합니다. 네트워크 및 가용성 집합도 자동으로 선택됩니다. SSH 끝점도 만들어집니다.

@@ -4,7 +4,7 @@ description: Azure의 Linux 가상 머신에 대한 두 가지 디버깅 기능 
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: bf8e1b338012898ed3de3f443cf492b6890af796
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 Linux 가상 머신 문제를 해결하는 방법
 

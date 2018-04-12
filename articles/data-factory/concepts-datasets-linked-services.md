@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: ''
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d88e4a068841f68feffb094b2aa07faaf5a6a8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory의 데이터 집합 및 연결된 서비스 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ Data Factory의 연결된 서비스는 다음과 같이 JSON 형식으로 정의
 이름 | 연결된 서비스의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 형식 | 연결된 서비스의 형식입니다. 예: AzureStorage(데이터 저장소) 또는 AzureBatch(계산). typeProperties에 대한 설명을 참조하세요. | 예 |
 typeProperties | 형식 속성은 각 데이터 저장소 또는 계산에 대해 다릅니다. <br/><br/> 지원되는 데이터 저장소 형식 및 해당 형식 속성은 [데이터 집합 형식](#dataset-type) 표를 참조하세요. 데이터 저장소 관련 형식 속성에 대해 알아보려면 데이터 저장소 커넥터 문서로 이동하세요. <br/><br/> 지원되는 계산 형식 및 해당 형식 속성은 [연결된 서비스 계산](compute-linked-services.md)을 참조하세요. | 예 |
-connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오
+connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요
 
 ## <a name="linked-service-example"></a>연결된 서비스 예제
 다음의 연결된 서비스는 Azure Storage 연결된 서비스입니다. 형식은 AzureStorage로 설정됩니다. Azure Storage 연결된 서비스의 형식 속성에는 연결 문자열이 포함됩니다. Data Factory 서비스는 이 연결 문자열을 사용하여 런타임에 데이터 저장소에 연결합니다. 
@@ -125,7 +125,7 @@ Data Factory의 데이터 집합은 다음과 같이 JSON 형식으로 정의됩
 자산 | 설명 | 필수 |
 -------- | ----------- | -------- |
 이름 | 데이터 집합의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
-형식 | 데이터 집합의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#dataset-types)을 참조하세요. | 예 |
+형식 | 데이터 집합의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#dataset-type)을 참조하세요. | 예 |
 structure | 데이터 집합의 스키마입니다. 자세한 내용은 [데이터 집합 구조](#dataset-structure)를 참조하세요. | 아니요 |
 typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식](#dataset-type)을 참조하세요. | 예 |
 
@@ -193,7 +193,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 이름 | 열의 이름입니다. | 예
 형식 | 열의 데이터 형식입니다. Data Factory는 **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** 값을 허용하는 중간 데이터 형식을 지원합니다. | 아니오
 culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 아니오
-format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아니오
+format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아니요
 
 ### <a name="example"></a>예
 다음 예제에서는 원본 Blob 데이터가 CSV 형식이며 userid, name 및 lastlogindate의 세 열을 포함한다고 가정합니다. 요일에 축약된 프랑스 이름을 사용하여 사용자 지정 날짜/시간 형식을 사용하는 Int64, String 및 Datetime 형식입니다.

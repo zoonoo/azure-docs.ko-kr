@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for Azure DNS Private Zone public preview notice
 ms.openlocfilehash: 28b828f48e90c1e273dc3626b2b0e70260d6eacd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 > [!IMPORTANT]
 > Azure DNS 사설 영역 기능은 현재 공개 미리 보기입니다. 
