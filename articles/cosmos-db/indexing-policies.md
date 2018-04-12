@@ -1,31 +1,34 @@
 ---
-title: "Azure Cosmos DB 인덱싱 정책 | Microsoft Docs"
-description: "Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고 자동 인덱싱 및 성능 향상을 위해 인덱싱 정책을 구성 및 변경하는 방법에 대해 알아봅니다."
-keywords: "인덱싱 작동 방식, 자동 인덱싱, 데이터베이스 인덱싱"
+title: Azure Cosmos DB 인덱싱 정책 | Microsoft Docs
+description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고 자동 인덱싱 및 성능 향상을 위해 인덱싱 정책을 구성 및 변경하는 방법에 대해 알아봅니다.
+keywords: 인덱싱 작동 방식, 자동 인덱싱, 데이터베이스 인덱싱
 services: cosmos-db
-documentationcenter: 
-author: arramac
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: rafats
+manager: kfile
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
 
 기본적으로 모든 Azure Cosmos DB 데이터가 인덱싱됩니다. 많은 고객이 Azure Cosmos DB를 사용하여 인덱싱의 모든 측면을 자동으로 처리할 수 있어 만족하지만, Azure Cosmos DB에서는 작성 중인 컬렉션에 대한 사용자 지정 *인덱싱 정책*을 지정할 수 있습니다. Azure Cosmos DB의 인덱싱 정책은 다른 데이터베이스 플랫폼에서 제공되는 보조 인덱스보다 유연하고 강력합니다. Azure Cosmos DB에서는 스키마 유연성을 유지하면서 인덱스의 모양을 디자인하고 사용자 지정할 수 있습니다. 
 
 Azure Cosmos DB 내에서 인덱싱이 작동하는 방식을 알아보려면, 인덱싱 정책을 관리할 때 인덱스 저장소 오버헤드, 쓰기 및 쿼리 처리량, 쿼리 일관성 간의 균형을 세밀하게 맞출 수 있음을 이해해야 합니다.  
+
+다음 비디오에서 Azure Cosmos DB 프로그램 관리자인 Andrew Liu는 Azure Cosmos DB 자동 인덱싱 기능을 및 Azure Cosmos DB 컨테이너에서 인덱싱 정책을 조정하고 구성하는 방법을 보여줍니다. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 이 문서에서는 Azure Cosmos DB 인덱싱 정책, 인덱싱 정책을 사용자 지정할 수 있는 방법 및 연관된 장단점을 자세히 살펴봅니다. 
 

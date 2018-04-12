@@ -1,11 +1,11 @@
 ---
-title: "VM 확장을 포함하는 Azure 리소스 그룹 내보내기 | Microsoft Docs"
-description: "가상 컴퓨터 확장을 포함하는 Resource Manager 템플릿을 내보냅니다."
+title: VM 확장을 포함하는 Azure 리소스 그룹 내보내기 | Microsoft Docs
+description: 가상 머신 확장을 포함하는 Resource Manager 템플릿을 내보냅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: danis
-ms.openlocfilehash: 739ae7995fca41fe8abb7cd54ccb72ff3bc43854
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2dc05fd21df3d408ed57badeec2b5c06e25bf50c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
-Azure 리소스 그룹을 새 Resource Manager 템플릿으로 내보낸 후 다시 배포할 수 있습니다. 내보내기 프로세스 중에 기존 리소스가 해석되고, 배포 시 비슷한 리소스 그룹을 생성하는 Resource Manager 템플릿이 만들어집니다. 가상 컴퓨터 확장을 포함하는 리소스 그룹에 대해 리소스 그룹 내보내기 옵션을 사용할 경우 확장 호환성 및 보호된 설정과 같은 몇 가지 항목을 고려해야 합니다.
+Azure 리소스 그룹을 새 Resource Manager 템플릿으로 내보낸 후 다시 배포할 수 있습니다. 내보내기 프로세스 중에 기존 리소스가 해석되고, 배포 시 비슷한 리소스 그룹을 생성하는 Resource Manager 템플릿이 만들어집니다. Virtual Machine 확장을 포함하는 리소스 그룹에 대해 리소스 그룹 내보내기 옵션을 사용할 경우 확장 호환성 및 보호된 설정과 같은 몇 가지 항목을 고려해야 합니다.
 
-이 문서에서는 지원되는 확장 목록을 비롯하여 가상 컴퓨터 확장과 관련된 리소스 그룹 내보내기 프로세스의 작동 방식과 보안 데이터 처리에 대해 자세히 설명합니다.
+이 문서에서는 지원되는 확장 목록을 비롯하여 가상 머신 확장과 관련된 리소스 그룹 내보내기 프로세스의 작동 방식과 보안 데이터 처리에 대해 자세히 설명합니다.
 
-## <a name="supported-virtual-machine-extensions"></a>지원되는 가상 컴퓨터 확장
+## <a name="supported-virtual-machine-extensions"></a>지원되는 Virtual Machine 확장
 
-여러 가상 컴퓨터 확장을 사용할 수 있습니다. 모든 확장을 "Automation 스크립트" 기능을 사용하여 Resource Manager 템플릿으로 내보낼 수 있는 것은 아닙니다. 가상 컴퓨터 확장이 지원되지 않는 경우 내보낸 템플릿에 수동으로 다시 배치해야 합니다.
+여러 Virtual Machine 확장을 사용할 수 있습니다. 모든 확장을 "Automation 스크립트" 기능을 사용하여 Resource Manager 템플릿으로 내보낼 수 있는 것은 아닙니다. 가상 머신 확장이 지원되지 않는 경우 내보낸 템플릿에 수동으로 다시 배치해야 합니다.
 
 Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 있습니다.
 
@@ -50,7 +50,7 @@ Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 �
 
 리소스 그룹을 다시 사용할 수 있는 템플릿으로 내보내려면 다음 단계를 완료합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인
 2. 허브 메뉴에서 리소스 그룹 클릭
 3. 목록에서 대상 리소스 그룹 선택
 4. 리소스 그룹 블레이드에서 Automation 스크립트 클릭
@@ -61,7 +61,7 @@ Azure Resource Manager Automation 스크립트는 Resource Manager 템플릿, �
 
 ## <a name="configure-protected-settings"></a>보호 설정 구성
 
-여러 Azure Virtual Machine 확장에는 자격 증명 및 구성 문자열과 같은 중요한 데이터를 암호화하는 보호 설정 구성이 포함됩니다. 보호 설정은 Automation 스크립트를 사용하여 내보낼 수 없습니다. 필요하면 보호 설정을 내보낸 템플릿에 다시 삽입해야 합니다.
+여러 Azure 가상 머신 확장에는 자격 증명 및 구성 문자열과 같은 중요한 데이터를 암호화하는 보호 설정 구성이 포함됩니다. 보호 설정은 Automation 스크립트를 사용하여 내보낼 수 없습니다. 필요하면 보호 설정을 내보낸 템플릿에 다시 삽입해야 합니다.
 
 ### <a name="step-1---remove-template-parameter"></a>1단계 - 템플릿 매개 변수 제거
 

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Azure Portal을 사용하여 VM 부하를 분산하는 공용 기본 부하 분산 장치 만들기
 
 부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. Azure Portal을 사용하여 가상 머신의 부하를 분산하는 부하 분산 장치를 만들 수 있습니다. 이 빠른 시작에서는 네트워크 리소스, 백 엔드 서버 및 공용 기본 부하 분산 장치를 만드는 방법을 보여줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
@@ -38,8 +38,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
 2. **부하 분산 장치 만들기** 페이지에서 부하 분산 장치에 다음 값을 입력합니다.
     - *myLoadBalancer* - 부하 분산 장치의 이름입니다.
-    - **공용** - 부하 분산 장치의 유형입니다. 
-     - *myPublicIP* - SKU를 사용하여 **기본**으로 만들고 **할당** 집합을 사용하여 **동적**으로 만들어야 하는 공용 IP입니다.
+    - **공용** - 부하 분산 장치의 유형입니다.
+    - *myPublicIP* - SKU를 사용하여 **기본**으로 만들고 **할당** 집합을 사용하여 **동적**으로 만들어야 하는 공용 IP입니다.
     - *myResourceGroupLB* - 새로 만드는 리소스 그룹의 이름입니다.
 3. **만들기**를 클릭하여 부하 분산 장치를 만듭니다.
    

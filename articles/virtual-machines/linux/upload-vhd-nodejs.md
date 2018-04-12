@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 1.0으로 사용자 지정 Linux 이미지 업로드 | Microsoft Docs"
-description: "Resource Manager 배포 모델 및 Azure CLI 1.0을 사용하여 사용자 지정 Linux 이미지로 Azure에 VHD(가상 하드 디스크)를 만들고 업로드합니다."
+title: Azure CLI 1.0으로 사용자 지정 Linux 이미지 업로드 | Microsoft Docs
+description: Resource Manager 배포 모델 및 Azure CLI 1.0을 사용하여 사용자 지정 Linux 이미지로 Azure에 VHD(가상 하드 디스크)를 만들고 업로드합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eb0cae2b70e0cbb9a4fb5fcab3a58d566d0f4d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기
-이 문서에서는 Resource Manager 배포 모델을 사용하여 VHD(가상 하드 디스크)를 Azure에 업로드하고 이 사용자 지정 이미지에서 Linux VM을 만드는 방법을 설명합니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 컴퓨터 (Vm)를 신속하게 만들 수 있습니다.
+이 문서에서는 Resource Manager 배포 모델을 사용하여 VHD(가상 하드 디스크)를 Azure에 업로드하고 이 사용자 지정 이미지에서 Linux VM을 만드는 방법을 설명합니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 머신 (Vm)를 신속하게 만들 수 있습니다.
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
@@ -129,7 +129,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-리소스 그룹은 가상 네트워킹 및 저장소와 같은 가상 컴퓨터를 지원하기 위해 논리적으로 모든 Azure 리소스를 모읍니다. [여기서 Azure 리소스 그룹](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지를 업로드하고 VM을 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 
+리소스 그룹은 가상 네트워킹 및 저장소와 같은 가상 머신을 지원하기 위해 논리적으로 모든 Azure 리소스를 모읍니다. [여기서 Azure 리소스 그룹](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지를 업로드하고 VM을 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 
 
 다음 예제에서는 `WestUS` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 

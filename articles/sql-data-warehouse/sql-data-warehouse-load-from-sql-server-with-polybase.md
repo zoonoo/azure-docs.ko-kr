@@ -1,11 +1,11 @@
 ---
-title: "SQL Server에서 Azure SQL Data Warehouse로 데이터 로드(PolyBase) | Microsoft Docs"
-description: "bcp를 사용하여 SQL Server에서 플랫 파일로 데이터를 내보내고 AZCopy를 사용하여 Azure Blob 저장소로 데이터를 가져오고, PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터를 수집합니다."
+title: SQL Server에서 Azure SQL Data Warehouse로 데이터 로드(PolyBase) | Microsoft Docs
+description: bcp를 사용하여 SQL Server에서 플랫 파일로 데이터를 내보내고 AZCopy를 사용하여 Azure Blob 저장소로 데이터를 가져오고, PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터를 수집합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 860c86e0-90f7-492c-9a84-1bdd3d1735cd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: f8c251fb9b8275eeea2940f8856669d2ef9f3549
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse에서 PolyBase를 사용하여 데이터 로드
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>1단계: Azure Blob 저장소에 샘플 데이터 추가
 데이터를 로드하려면, Azure Blob 저장소에 샘플 데이터를 넣어야 합니다. 이 단계에서는 Azure Blob 저장소를 샘플 데이터로 채웁니다. 나중에 PolyBase를 사용하여 SQL Data Warehouse 데이터베이스로 이 샘플 데이터를 로드하게 됩니다.
 
-### <a name="a-prepare-a-sample-text-file"></a>A. 샘플 텍스트 파일 준비
+### <a name="a-prepare-a-sample-text-file"></a>a. 샘플 텍스트 파일 준비
 샘플 텍스트 파일을 준비하려면:
 
 1. 메모장을 열고 새 파일로 다음 데이터 줄을 복사합니다. 이것을 로컬 temp 디렉터리에 %temp%\DimDate2.txt로 저장합니다.

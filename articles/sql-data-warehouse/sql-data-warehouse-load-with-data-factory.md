@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse에 데이터 로드 – Data Factory | Microsoft Docs"
-description: "이 자습서에서는 Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터를 로드하고 데이터 원본으로 SQL Server 데이터베이스를 사용합니다."
+title: Azure SQL Data Warehouse에 데이터 로드 – Data Factory | Microsoft Docs
+description: 이 자습서에서는 Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터를 로드하고 데이터 원본으로 SQL Server 데이터베이스를 사용합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Data Factory와 함께 SQL Data Warehouse로 데이터 로드
 
@@ -36,7 +36,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 - **Azure Storage 계정**이 필요합니다. 저장소 계정이 아직 없을 경우 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md)을 알아보세요. 최적의 성능을 위해 저장소 계정 및 데이터 웨어하우스를 동일한 Azure 지역에 배치합니다.
 
 ## <a name="configure-a-data-factory"></a>Data Factory 구성
-1. [Azure 포털][]에 로그인합니다.
+1. [Azure 포털][] 에 로그인합니다.
 2. 데이터 웨어하우스를 찾고 클릭하여 엽니다.
 3. 주 블레이드에서 **데이터 로드** > **Azure Data Factory**를 클릭합니다.
 
@@ -68,7 +68,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 2. **온-프레미스 SQL Server 데이터베이스 지정** 대화 상자가 나타납니다. 첫 번째 **연결 이름** 필드는 자동으로 입력됩니다. 두 번째 필드는 **게이트웨이** 이름을 요청합니다. 이미 게이트웨이가 있는 기존 Data Factory를 사용하는 경우 드롭다운 목록에서 게이트웨이를 선택하여 재사용할 수 있습니다. **게이트웨이 만들기** 링크를 클릭하여 데이터 관리 게이트웨이를 만듭니다.  
 
     > [!NOTE]
-    > 원본 데이터 저장소가 온-프레미스 또는 Azure IaaS 가상 컴퓨터에 있는 경우 데이터 관리 게이트웨이가 필요합니다. 게이트웨이는 Data Factory와 1-1 관계를 갖습니다. 다른 Data Factory에서는 사용할 수 없지만 동일한 Data Factory에서 여러 데이터 로드 작업으로 사용할 수 있습니다. 게이트웨이는 데이터 로드 작업을 실행할 때 여러 데이터 저장소에 연결하는 데 사용할 수 있습니다.
+    > 원본 데이터 저장소가 온-프레미스 또는 Azure IaaS 가상 머신에 있는 경우 데이터 관리 게이트웨이가 필요합니다. 게이트웨이는 Data Factory와 1-1 관계를 갖습니다. 다른 Data Factory에서는 사용할 수 없지만 동일한 Data Factory에서 여러 데이터 로드 작업으로 사용할 수 있습니다. 게이트웨이는 데이터 로드 작업을 실행할 때 여러 데이터 저장소에 연결하는 데 사용할 수 있습니다.
     >
     > 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](../data-factory/v1/data-factory-data-management-gateway.md) 문서를 참조하세요.
 
@@ -109,7 +109,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 
     ![맵 스키마](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. **다음**을 누릅니다.
+4. **다음**을 클릭합니다.
 
 ## <a name="configure-the-performance-settings"></a>성능 설정 구성
 성능 구성에서 [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly)를 사용하여 성능 기준에 맞게 데이터를 SQL Data Warehouse에 로드하기 전에 데이터 준비에 사용할 Azure Storage 계정을 구성합니다. 복사가 완료되면 저장소의 중간 데이터는 자동으로 정리됩니다.
@@ -154,7 +154,7 @@ Azure Data Factory 및 데이터 이동 기능에 대한 자세한 내용을 보
 
 - [Azure Data Factory 소개](../data-factory/introduction.md)
 - [복사 작업을 사용하여 데이터 이동](../data-factory/copy-activity-overview.md)
-- [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](../data-factory/connector-azure-sql-data-warehouse.md)
+- [Azure 데이터 팩터리를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](../data-factory/connector-azure-sql-data-warehouse.md)
 
 SQL Data Warehouse의 데이터를 탐색하려면 다음 문서를 참조하세요.
 

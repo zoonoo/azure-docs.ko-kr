@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Azure PowerShell을 사용하여 Windows Virtual Machine 모니터링 및 업데이트
 
@@ -238,7 +238,7 @@ VM을 중지하고 시작하면 활동 로그에 이벤트가 기록됩니다. *
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-Azure Automation에서 제공하는 업데이트 관리, 변경 내용 및 인벤토리 등의 솔루션을 사용하여 VM의 고급 모니터링을 수행할 수 있습니다. [Operations Management Suite](../../automation/automation-intro.md).
+[Azure Automation](../../automation/automation-intro.md)에서 제공하는 업데이트 관리, 변경 내용 및 인벤토리 등의 솔루션을 사용하여 VM의 고급 모니터링을 수행할 수 있습니다.
 
 Log Analytics 작업 영역에 액세스할 수 있는 경우, **설정**에서 **고급 설정**을 선택하여 작업 영역 키와 작업 영역 식별자를 찾을 수 있습니다. [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) 명령을 사용하여 Microsoft Monitoring Agent 확장을 VM에 추가합니다. 아래 샘플에서는 변수 값을 업데이트하여 Log Analytics 작업 영역 키와 작업 영역 ID를 표시합니다.
 

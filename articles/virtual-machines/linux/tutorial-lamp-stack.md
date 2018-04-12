@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Linux 가상 컴퓨터에 LAMP 배포 | Microsoft Docs"
-description: "자습서 - Azure에서 Linux VM에 LAMP 스택 설치"
+title: Azure의 Linux 가상 머신에 LAMP 배포 | Microsoft Docs
+description: 자습서 - Azure에서 Linux VM에 LAMP 스택 설치
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 21790a44ff60bd11202814efd5c0f32e8b614ec4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Azure VM에 LAMP 웹 서버 설치
 이 문서에서는 Azure의 Ubuntu VM에 Apache 웹 서버, MySQL 및 PHP(LAMP 스택)를 배포하는 방법을 설명합니다. NGINX 웹 서버를 선호하는 경우 [LEMP 스택](tutorial-lemp-stack.md) 자습서를 참조하세요. 작업에서 LAMP 서버를 보려면 필요에 따라 WordPress 사이트를 설치하고 구성할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.

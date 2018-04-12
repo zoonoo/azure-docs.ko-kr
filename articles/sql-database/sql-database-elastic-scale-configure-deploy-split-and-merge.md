@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: ed5545df8d09192eeed21dd2ac379e255b049e30
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 90f758bf5bc979dc4bc173b08dadaceeaa077317
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>분할/병합 서비스 배포
 분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다. [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)

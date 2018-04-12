@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory에서 조건부 액세스로 Azure Management에 대한 액세스 관리"
-description: "Azure AD에서 조건부 액세스를 사용하여 Azure Management에 대한 액세스를 관리하는 방법을 알아봅니다."
+title: Azure Active Directory에서 조건부 액세스로 Azure Management에 대한 액세스 관리
+description: Azure AD에서 조건부 액세스를 사용하여 Azure Management에 대한 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
 ms.openlocfilehash: 22d0e53c201853e2c316089479ffbd4d9e5d92be
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>조건부 액세스로 Azure Management에 대한 액세스 관리
 

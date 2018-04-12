@@ -1,13 +1,13 @@
 ---
-title: "Azure의 Linux 가상 컴퓨터에 LEMP 배포 | Microsoft Docs"
-description: "자습서 - Azure에서 Linux VM에 LEMP 스택 설치"
+title: Azure의 Linux 가상 머신에 LEMP 배포 | Microsoft Docs
+description: 자습서 - Azure에서 Linux VM에 LEMP 스택 설치
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Azure VM에 LEMP 웹 서버 설치
 이 문서에서는 Azure의 Ubuntu VM에 NGINX 웹 서버, MySQL 및 PHP(LEMP 스택)를 배포하는 방법을 설명합니다. LEMP 스택은 인기 있는 [LAMP 스택](tutorial-lamp-stack.md) 대신 사용할 수 있으며 Azure에도 설치할 수 있습니다. 작동 중인 LEMP 서버를 보려면 필요에 따라 WordPress 사이트를 설치하고 구성할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.

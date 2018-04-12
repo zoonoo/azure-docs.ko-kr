@@ -1,10 +1,10 @@
 ---
-title: "클래식 Azure VM에 로그온 | Microsoft Docs"
-description: "Azure Portal을 사용하여 클래식 배포 모델로 만든 Windows 가상 머신에 로그온할 수 있습니다."
+title: 클래식 Azure VM에 로그온 | Microsoft Docs
+description: Azure Portal을 사용하여 클래식 배포 모델로 만든 Windows 가상 머신에 로그온할 수 있습니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Azure 포털을 사용하여 Windows 가상 머신에 로그온
 Azure 포털에서 **연결** 단추를 사용하여 원격 데스크톱 세션을 시작하고 Windows VM에 로그온합니다.

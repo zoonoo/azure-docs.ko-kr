@@ -1,12 +1,11 @@
 ---
-title: "Azure Cosmos DB를 사용한 Java 응용 프로그램 개발 자습서 | Microsoft Docs"
-description: "이 Java 웹 응용 프로그램 자습서에서는 Azure Cosmos DB 및 SQL API를 사용하여 Azure Websites에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다."
-keywords: "응용 프로그램 개발, 데이터베이스 자습서, java 응용 프로그램, java 웹 응용 프로그램 자습서, azure, Microsoft azure"
+title: Azure Cosmos DB를 사용한 Java 응용 프로그램 개발 자습서 | Microsoft Docs
+description: 이 Java 웹 응용 프로그램 자습서에서는 Azure Cosmos DB 및 SQL API를 사용하여 Azure Websites에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
+keywords: 응용 프로그램 개발, 데이터베이스 자습서, java 응용 프로그램, java 웹 응용 프로그램 자습서, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
-manager: jhubbard
-editor: mimig
+manager: kfile
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2124e22ca5ab47b5e1836384132014cc0b356ff1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
@@ -29,8 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 이 Java 웹 응용 프로그램 자습서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스를 사용하여 Azure App Service Web Apps에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 항목에서는 다음 내용을 배웁니다.
 
@@ -49,7 +46,7 @@ ms.lasthandoff: 12/18/2017
 ## <a id="Prerequisites"></a>이 Java 웹 응용 프로그램 자습서의 필수 구성 요소
 이 응용 프로그램 개발 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-*  Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+*  Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -739,7 +736,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 3. Eclipse의 **파일** 메뉴에서 **가져오기**를 클릭합니다.
 4. **가져오기** 창에서 **Git**, **Git의 프로젝트**, **다음**을 차례로 클릭합니다.
 5. **리포지토리 원본 선택** 화면에서 **URI 복제**를 클릭합니다.
-6. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/java-todo-app.git을 입력하고 **다음**을 클릭합니다.
+6. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/java-todo-app.git를 입력한 다음, **다음**을 클릭합니다.
 7. **분기 선택** 화면에서 **마스터**가 선택되었는지 확인하고 **다음**을 클릭합니다.
 8. **로컬 대상** 화면에서 **찾아보기**를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **다음**을 클릭합니다.
 9. **프로젝트 가져오기에 사용할 마법사 선택** 화면에서 **기존 프로젝트 가져오기**가 선택되었는지 확인하고 **다음**을 클릭합니다.
@@ -754,6 +751,6 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 18. 화면 하단에 있는 **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버**를 마우스 오른쪽 단추로 클릭하고 **추가 및 제거**를 클릭합니다.
 19. **추가 및 제거** 창에서 **azure-documentdb-java-sample**을 **구성됨** 상자로 이동하고 **마침**을 클릭합니다.
 20. **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버**를 마우스 오른쪽 단추로 클릭하고 **다시 시작**을 클릭합니다.
-21. 브라우저에서 http://localhost:8080/azure-documentdb-java-sample/로 이동하고 작업 목록에 추가를 시작합니다. 기본 포트 값을 변경한 경우 8080을 선택한 값으로 변경합니다.
+21. 브라우저에서 http://localhost:8080/azure-documentdb-java-sample/로 이동하고 작업 목록에 추가하기 시작합니다. 기본 포트 값을 변경한 경우 8080을 선택한 값으로 변경합니다.
 22. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 응용 프로그램 배포](#Deploy)를 참조하세요.
 
