@@ -1,8 +1,8 @@
 ---
-title: "에너지 수요 예측 기술 가이드 | Microsoft Docs"
-description: "에너지 수요 예측을 위한 Microsoft Cortana Intelligence 솔루션 템플릿 기술 가이드입니다."
+title: 에너지 수요 예측 기술 가이드 | Microsoft Docs
+description: 에너지 수요 예측을 위한 Microsoft Cortana Intelligence 솔루션 템플릿 기술 가이드입니다.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yijichen
 manager: ilanr9
 editor: yijichen
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
 ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
@@ -53,8 +53,7 @@ ms.lasthandoff: 01/05/2018
 Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행하는 데 사용됩니다.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-
-            [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
 
 ## <a name="data-publishing"></a>**데이터 게시**
 ### <a name="azure-sql-database-service"></a>Azure SQL Database 서비스

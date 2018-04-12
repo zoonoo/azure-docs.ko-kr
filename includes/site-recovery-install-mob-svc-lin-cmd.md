@@ -22,7 +22,7 @@ Usage:
 ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 ```
 
-|매개 변수|형식|설명|가능한 값|
+|매개 변수|유형|설명|가능한 값|
 |-|-|-|-|
 |-r |필수|MS(Mobility Service) 설치 여부 또는 MT(MasterTarget) 설치 여부를 지정합니다.|MS </br> MT|
 |일시 중지되고 |옵션|Mobility Service가 설치되는 위치입니다.|/usr/local/ASR|
@@ -38,7 +38,7 @@ cd /usr/local/ASR/Vx/bin
 UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
 
-|매개 변수|형식|설명|가능한 값|
+|매개 변수|유형|설명|가능한 값|
 |-|-|-|-|
 |-i |필수|구성 서버의 IP|모든 유효한 IP 주소|
 |-P |필수|연결 암호가 저장되는 파일의 전체 파일 경로입니다.|모든 유효한 폴더|

@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법 | Microsoft Docs"
-description: "Azure API Management에서 기본 제공 역할을 사용하고 사용자 지정 역할을 만드는 방법에 대해 알아봅니다."
+title: Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법 | Microsoft Docs
+description: Azure API Management에서 기본 제공 역할을 사용하고 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
 Azure API Management는 Azure 역할 기반 액세스 제어(RBAC)를 사용하여 API Management 서비스 및 엔터티(예: API 및 정책)에 대한 세분화된 액세스 관리를 가능하게 합니다. 이 문서에서는 API Management에서 기본 제공 및 사용자 지정 역할에 대한 개요를 제공합니다. Azure Portal에서 액세스 관리에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)을 참조하세요.

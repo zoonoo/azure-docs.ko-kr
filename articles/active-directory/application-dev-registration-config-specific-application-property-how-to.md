@@ -1,11 +1,11 @@
 ---
-title: "사용자 지정 개발 응용 프로그램에 대한 특정 필드를 작성하는 방법 | Microsoft Docs"
-description: "사용자 지정 개발 응용 프로그램을 Azure AD에 등록할 때 특정 필드를 작성하는 방법에 관한 지침"
+title: 사용자 지정 개발 응용 프로그램에 대한 특정 필드를 작성하는 방법 | Microsoft Docs
+description: 사용자 지정 개발 응용 프로그램을 Azure AD에 등록할 때 특정 필드를 작성하는 방법에 관한 지침
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대한 특정 필드를 작성하는 방법
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 
 | 필드            | 설명                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| 이름             | 응용 프로그램 이름입니다. 최소 4자 이상이어야 합니다.                |
+| Name             | 응용 프로그램 이름입니다. 최소 4자 이상이어야 합니다.                |
 | 응용 프로그램 형식 | **웹앱/웹 API**: 웹 응용 프로그램, 웹 API 또는 둘 다를 나타내는 응용 프로그램 
 | |**네이티브**: 사용자 장치 또는 컴퓨터에 설치할 수 있는 응용 프로그램           |
 | 로그온 URL      | 사용자가 응용 프로그램을 사용하기 위해 로그인하는 URL                                  |

@@ -1,11 +1,11 @@
 ---
-title: "단일 비트 전송률 라이브 스트림을 보낼 Telestream Wirecast 인코더 구성 | Microsoft 문서"
-description: "이 항목에서는 Wirecast 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. "
+title: 단일 비트 전송률 라이브 스트림을 보낼 Telestream Wirecast 인코더 구성 | Microsoft 문서
+description: '이 항목에서는 Wirecast 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. '
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/08/2018
 
 이 자습서에서는 AMSE(Azure Media Services 탐색기) 도구를 사용하여 AMS(Azure Media Services)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure Portal을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 끝점이 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.

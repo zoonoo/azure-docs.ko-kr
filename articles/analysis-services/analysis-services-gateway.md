@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f38faf4d75125201ee209eb40c9f223a0487f042
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure 온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
 온-프레미스 데이터 게이트웨이는 클라우드에서 온-프레미스 데이터 원본과 Azure Analysis Services 서버 간의 보안 데이터 전송을 제공하여 둘을 연결합니다. 동일한 지역에서 여러 Azure Analysis Services 서버를 사용하는 것 외에도 최신 버전의 게이트웨이는 Azure Logic Apps, Power BI, Power Apps, Microsoft Flow와도 작동합니다. 단일 게이트웨이 통해 동일한 지역에서 여러 서비스를 연결할 수 있습니다. 

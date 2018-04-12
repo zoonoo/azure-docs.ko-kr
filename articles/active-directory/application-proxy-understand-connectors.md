@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 응용 프로그램 프록시 커넥터 이해 | Microsoft Docs"
-description: "Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다."
+title: Azure AD 응용 프로그램 프록시 커넥터 이해 | Microsoft Docs
+description: Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -85,7 +85,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 ## <a name="security-and-networking"></a>보안 및 네트워킹
 
-커넥터는 응용 프로그램 프록시 서비스로 요청을 전송할 수 있는 네트워크 어느 곳에나 설치할 수 있습니다. 중요한 것은 커넥터를 실행 중인 컴퓨터에 앱에 대한 액세스가 있는 것입니다. 회사 네트워크 내부 또는 클라우드에서 실행되는 가상 컴퓨터에 커넥터를 설치할 수 있습니다. 커넥터를 완충 영역(DMZ) 내에서 실행할 수는 있지만 꼭 그래야 하는 것은 아닙니다. 모든 트래픽이 아웃바운드이므로 네트워크 보안이 유지되기 때문입니다.
+커넥터는 응용 프로그램 프록시 서비스로 요청을 전송할 수 있는 네트워크 어느 곳에나 설치할 수 있습니다. 중요한 것은 커넥터를 실행 중인 컴퓨터에 앱에 대한 액세스가 있는 것입니다. 회사 네트워크 내부 또는 클라우드에서 실행되는 가상 머신에 커넥터를 설치할 수 있습니다. 커넥터를 완충 영역(DMZ) 내에서 실행할 수는 있지만 꼭 그래야 하는 것은 아닙니다. 모든 트래픽이 아웃바운드이므로 네트워크 보안이 유지되기 때문입니다.
 
 커넥터는 아웃바운드 요청만 보냅니다. 아웃바운드 트래픽은 응용 프로그램 프록시 서비스와 게시된 응용 프로그램으로 전송됩니다. 세션이 설정된 후에는 트래픽이 양방향으로 흐르므로 인바운드 포트를 열지 않아도 됩니다. 커넥터 간의 부하 분산을 설정하거나 방화벽을 통과하는 인바운드 액세스를 구성할 필요가 없습니다. 
 

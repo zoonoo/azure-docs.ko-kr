@@ -3,7 +3,7 @@ title: Azure AD Graph API 빠른 시작 | Microsoft Docs
 description: Azure Active Directory Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다.
 services: active-directory
 documentationcenter: n/a
-author: viv-liu
+author: mtillman
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-ms.author: viviali
+ms.date: 04/02/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 6869fc8ec582ea857128e91f1f127e9255e77865
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d195d808e07b872c11379f13b6e89794da39f70e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD Graph API 빠른 시작
 Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 응용 프로그램 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/hh974476.aspx)을 참조하세요. 

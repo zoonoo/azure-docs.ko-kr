@@ -1,12 +1,12 @@
 ---
-title: "Azure Data Lake U-SQL SDK를 사용하여 U-SQL 로컬 실행 및 테스트 규모 조정 | Microsoft Docs"
-description: "Azure Data Lake U-SQL SDK를 사용하여 로컬 워크스테이션의 명령줄 및 프로그래밍 인터페이스로 U-SQL 작업 로컬 실행 및 테스트 크기를 조정하는 방법을 알아봅니다."
+title: Azure Data Lake U-SQL SDK를 사용하여 U-SQL 로컬 실행 및 테스트 규모 조정 | Microsoft Docs
+description: Azure Data Lake U-SQL SDK를 사용하여 로컬 워크스테이션의 명령줄 및 프로그래밍 인터페이스로 U-SQL 작업 로컬 실행 및 테스트 크기를 조정하는 방법을 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 로컬 실행 및 테스트 규모 조정
 
@@ -337,13 +337,13 @@ LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래�
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|매개 변수|형식|설명|
+|매개 변수|유형|설명|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|출력 메시지의 경우 콘솔을 사용하도록 null로 설정|
 
 **속성**
 
-|속성|형식|설명|
+|자산|유형|설명|
 |--------|----|-----------|
 |AlgebraPath|string|대수 파일의 경로입니다(대수 파일은 컴파일 결과 중 하나임).|
 |CodeBehindReferences|string|스크립트에 추가 코드 숨김 참조가 있으면 경로를 ';'으로 구분합니다.|
@@ -369,7 +369,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **메서드**
 
-|메서드|설명|Return|매개 변수를 포함해야 합니다.|
+|방법|설명|Return|매개 변수|
 |------|-----------|------|---------|
 |public bool DoCompile()|U-SQL 스크립트를 컴파일합니다.|성공 시 True입니다.| |
 |public bool DoExec()|컴파일된 결과를 실행합니다.|성공 시 True입니다.| |

@@ -1,6 +1,6 @@
 ---
-title: "포함 파일"
-description: "포함 파일"
+title: 포함 파일
+description: 포함 파일
 services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 02/12/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 다음 표에는 Service Bus 메시징에 특정한 할당량 정보가 나와 있습니다. Service Bus에 대한 가격 책정 및 기타 할당량에 대한 정보는 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/) 개요를 참조하세요.
 

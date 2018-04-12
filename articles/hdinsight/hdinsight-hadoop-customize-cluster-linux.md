@@ -1,8 +1,8 @@
 ---
-title: "스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정 - Azure | Microsoft Docs"
-description: "스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터에 사용자 지정 구성 요소를 추가합니다. 스크립트 동작은 클러스터 구성을 사용자 지정하거나 다른 서비스 및 유틸리티(예: Hue, Solr 또는 R)를 추가하는 데 사용할 수 있는 Bash 스크립트입니다."
+title: 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정 - Azure | Microsoft Docs
+description: '스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터에 사용자 지정 구성 요소를 추가합니다. 스크립트 동작은 클러스터 구성을 사용자 지정하거나 다른 서비스 및 유틸리티(예: Hue, Solr 또는 R)를 추가하는 데 사용할 수 있는 Bash 스크립트입니다.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -160,13 +160,13 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 | Name | 스크립트 |
 | --- | --- |
-| **Azure Storage 계정 추가** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)를 참조하세요. |
-| **Hue 설치** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)을 참조하세요. |
-| **Presto 설치** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh. [HDInsight 클러스터에 Presto 설치 및 사용](hdinsight-hadoop-install-presto.md)을 참조하세요. |
-| **Solr 설치** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)을 참조하세요. |
-| **Giraph 설치** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)을 참조하세요. |
-| **Hive 라이브러리 사전 로드** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)를 참조하세요. |
-| **Mono 설치 또는 업데이트** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash. [HDInsight에서 Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md)를 참조하세요. |
+| **Azure Storage 계정 추가** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)를 참조하세요. |
+| **Hue 설치** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)을 참조하세요. |
+| **Presto 설치** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh [HDInsight 클러스터에 Presto 설치 및 사용](hdinsight-hadoop-install-presto.md)을 참조하세요. |
+| **Solr 설치** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)을 참조하세요. |
+| **Giraph 설치** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)을 참조하세요. |
+| **Hive 라이브러리 사전 로드** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)를 참조하세요. |
+| **Mono 설치 또는 업데이트** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash [HDInsight에서 Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md)를 참조하세요. |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>클러스터를 만드는 동안 스크립트 동작 사용
 
@@ -210,17 +210,19 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 스크립트 동작 사용
 
-스크립트 동작을 Azure Resource Manager 템플릿과 함께 사용할 수 있습니다. 예제를 보려면 [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/)을 참조하세요.
+스크립트 동작을 Azure Resource Manager 템플릿과 함께 사용할 수 있습니다. 예제는 [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/)에서 확인할 수 있습니다.
 
 이 예제에서는 스크립트 동작이 다음 코드를 사용하여 추가됩니다.
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 템플릿 배포 방법에 대한 내용은 다음 문서를 참조하세요.
 
@@ -305,15 +307,21 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 1. Azure Resource Manager 모드로 전환하려면 명령줄에 다음 명령을 사용합니다.
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. 다음 정보를 사용하여 Azure 구독에 인증합니다.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. 다음 명령을 사용하여 실행 중인 클러스터에 스크립트 작업을 적용합니다.
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     이 명령에 대한 매개 변수를 생략한 경우 해당 매개 변수를 묻는 메시지가 나타납니다. `-u`와 함께 지정한 스크립트에서 매개 변수를 허용하는 경우 `-p` 매개 변수를 지정할 수 있습니다.
 
@@ -337,7 +345,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>HDInsight .NET SDK에서 실행 중인 클러스터에 스크립트 동작 적용
 
-.NET SDK를 사용하여 클러스터에 스크립트를 적용하는 예제는 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)에서 확인할 수 있습니다.
+.NET SDK를 사용하여 클러스터에 스크립트를 적용하는 예는 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)에서 확인할 수 있습니다.
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>기록 보기, 스크립트 동업 승격 및 강등
 
@@ -429,7 +437,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 
 ### <a name="using-the-ambari-web-ui"></a>Ambari 웹 UI 사용
 
-1. 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
+1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
 
     메시지가 표시되면 클러스터의 관리자 계정 이름(관리자) 및 암호를 입력합니다. 웹 폼에서 관리자 자격 증명을 다시 입력해야 합니다.
 
@@ -493,7 +501,7 @@ __원인__: 이 오류는 HDInsight 클러스터에 포함된 Python Azure Stora
 
 __해결 방법__: 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결하고 다음 명령을 사용하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 
