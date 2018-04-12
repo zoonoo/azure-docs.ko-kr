@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL Database 응용 프로그램 성능을 개선하기 위해 일괄 처리를 사용하는 방법
 Azure SQL Database에 대한 일괄 처리 작업은 응용 프로그램의 성능 및 확장성을 상당히 향상시킵니다. 장점을 이해할 수 있도록, 이 문서의 첫 번째 부분에서는 SQL Database에 대한 순차적인 요청과 일괄 처리된 요청을 비교하는 샘플 테스트 결과를 설명합니다. 문서의 나머지 부분은 Azure 응용 프로그램에서 일괄 처리를 성공적으로 사용하는데 도움이 되는 기법, 시나리오, 고려 사항을 보여줍니다.

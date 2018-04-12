@@ -4,7 +4,7 @@ description: 자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2a8a6e7da89f864c1bb63bf5b26b297653ff4a94
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1207ae8160739bcf27a651880dd58ea6893ebf37
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -50,7 +50,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 
-| 형식 | VM 크기 | 최대 임시 디스크 크기(GB) |
+| 유형 | VM 크기 | 최대 임시 디스크 크기(GB) |
 |----|----|----|
 | [범용](sizes-general.md) | A 및 D 시리즈 | 800 |
 | [Compute에 최적화](sizes-compute.md) | F 시리즈 | 800 |
@@ -65,7 +65,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
 
-| 형식 | VM 크기 | VM당 최대 데이터 디스크 수 |
+| 유형 | VM 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](sizes-general.md) | A 및 D 시리즈 | 32 |
 | [Compute에 최적화](sizes-compute.md) | F 시리즈 | 32 |

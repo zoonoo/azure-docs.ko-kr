@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c18e5da04fd92fed2cb9e93d13b5f3ecdeaac1a1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리 액세스에 사용되는 자격 증명
 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)는 세 가지 다른 종류의 자격 증명을 사용하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에 액세스합니다. 필요에 따라서 가능한 한 액세스 수준이 가장 낮은 자격 증명을 사용합니다.

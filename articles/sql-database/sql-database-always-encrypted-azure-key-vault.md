@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3525355a7f997a5dcc54d14f216d0d647aef8407
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ee03ae8edf4402e64f6b671a478a357369e8780a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL Database의 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 

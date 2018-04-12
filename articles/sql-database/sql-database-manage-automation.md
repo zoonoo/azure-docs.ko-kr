@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0174b2b1dd5942e17ea60c2dce624c87fd1289c8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0f071c2ad5e79168d89361c89a005c247599655
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Automation을 사용하여 Azure SQL Database 관리
 이 가이드에서는 Azure Automation 서비스 및 이 서비스를 사용하여 Azure SQL 데이터베이스 관리를 간소화하는 방법을 소개합니다.

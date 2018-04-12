@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: e6a86a3571301f6fa2a356714721daa141e696bf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f5d0579cbb5f787ce08e2a2cea58d3c39a967970
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Elastic Database 작업 구성 요소 제거
 Azure Portal 또는 PowerShell을 사용하여 **Elastic Database 작업** 구성 요소를 제거할 수 있습니다.

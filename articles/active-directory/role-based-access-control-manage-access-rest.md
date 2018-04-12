@@ -1,11 +1,11 @@
 ---
-title: "REST를 사용한 역할 기반 액세스 제어 - Azure AD | Microsoft Docs"
-description: "REST API를 사용하여 역할 기반 액세스 제어 관리"
+title: REST를 사용한 역할 기반 액세스 제어 - Azure AD | Microsoft Docs
+description: REST API를 사용하여 역할 기반 액세스 제어 관리
 services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
 ms.workload: multiple
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
@@ -441,7 +441,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | properties.description |아니요 |문자열 |사용자 지정 역할에 대한 설명입니다. 최대 1024자입니다. |
 | properties.type |예 |문자열 |"CustomRole"로 설정합니다. |
 | properties.permissions.actions |예 |문자열[] |사용자 지정 역할이 권한을 부여하는 작업을 지정하는 동작 문자열의 배열입니다. |
-| properties.permissions.notActions |아니요 |문자열[] |사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
+| properties.permissions.notActions |아니오 |문자열[] |사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
 | properties.assignableScopes |예 |문자열[] |사용자 지정 역할을 사용할 수 있는 범위의 배열입니다. |
 
 ### <a name="response"></a>response
