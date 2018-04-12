@@ -1,11 +1,11 @@
 ---
-title: "사용할 Single Sign-On 방법을 결정하는 방법 | Microsoft Docs"
-description: "Azure AD에서 지원되는 Single Sign-On 모드 및 관심 있는 응용 프로그램에 대해 사용할 모드를 선택하는 방법을 이해합니다."
+title: 사용할 Single Sign-On 방법을 결정하는 방법 | Microsoft Docs
+description: Azure AD에서 지원되는 Single Sign-On 모드 및 관심 있는 응용 프로그램에 대해 사용할 모드를 선택하는 방법을 이해합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 4363f308f9bfa685b0f4e946cdd97d34b6ece197
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>사용할 Single Sign-On 방법을 결정하는 방법
 

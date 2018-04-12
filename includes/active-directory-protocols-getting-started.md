@@ -1,11 +1,11 @@
 ---
-title: "Azure AD .NET 프로토콜 개요 | Microsoft Docs"
-description: "Azure AD를 사용하여 테넌트에서 웹 응용 프로그램 및 Web API에 대한 액세스 권한을 부여하기 위해 HTTP 메시지를 사용하는 방법입니다."
+title: Azure AD .NET 프로토콜 개요 | Microsoft Docs
+description: Azure AD를 사용하여 테넌트에서 웹 응용 프로그램 및 Web API에 대한 액세스 권한을 부여하기 위해 HTTP 메시지를 사용하는 방법입니다.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>AD 테넌트에 응용 프로그램 등록
 먼저, 응용 프로그램을 Azure AD(Azure Active Directory) 테넌트에 등록해야 합니다. 그러면 응용 프로그램에 대한 응용 프로그램 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
 
-* [Azure 포털](https://portal.azure.com)에 로그인합니다.
+* [Azure Portal](https://portal.azure.com)에 로그인합니다.
 * 페이지의 오른쪽 위 모서리에 있는 사용자 계정을 클릭하여 Azure AD 테넌트를 선택합니다.
 * 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
 * **앱 등록**을 클릭하고 **추가**를 클릭합니다.

@@ -1,9 +1,9 @@
 ---
-title: "Azure Portal을 통해 Azure Cosmos DB 계정 관리 | Microsoft Docs"
-description: "Azure Portal을 통해 Azure Cosmos DB 계정을 관리하는 방법을 알아봅니다. Azure Portal을 사용하여 계정을 보기, 복사, 삭제 및 액세스하는 방법에 대한 지침을 찾습니다."
+title: Azure Portal을 통해 Azure Cosmos DB 계정 관리 | Microsoft Docs
+description: Azure Portal을 통해 Azure Cosmos DB 계정을 관리하는 방법을 알아봅니다. Azure Portal을 사용하여 계정을 보기, 복사, 삭제 및 액세스하는 방법에 대한 지침을 찾습니다.
 keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kirillg
 manager: jhubbard
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
 ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 관리하는 방법
 Azure Portal에서 전역 일관성을 설정하고, 키로 작업하고, Azure Cosmos DB 계정을 삭제하는 방법에 대해 알아봅니다.
@@ -84,7 +84,7 @@ Azure Cosmos DB 계정을 사용하는 웹 응용 프로그램이나 클라우�
 2. 리소스 메뉴에서 **키**(또는 MongoDB API 계정의 **연결 문자열**)를 클릭합니다.
 3. **기본 연결 문자열** 또는 **보조 연결 문자열** 상자 옆의 **복사** 단추를 클릭합니다. 
 
-[Azure Cosmos DB 데이터베이스 마이그레이션 도구](import-data.md)에서 연결 문자열을 사용하는 경우 연결 문자열 끝에 데이터베이스 이름을 추가합니다. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
+[Azure Cosmos DB 데이터베이스 마이그레이션 도구](import-data.md)에서 연결 문자열을 사용하는 경우 연결 문자열 끝에 데이터베이스 이름을 추가합니다. `AccountEndpoint=< >;AccountKey=< >;Database=< >`
 
 ## <a id="delete"></a> Azure Cosmos DB 계정 삭제
 Azure Portal에서 더 이상 사용하지 않는 Azure Cosmos DB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다.

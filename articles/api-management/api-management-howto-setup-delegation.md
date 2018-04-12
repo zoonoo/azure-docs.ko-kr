@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8c19111ed966ff89a2934dd5232625aab1f8b28b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 위임을 통해 개발자 로그인/등록 및 제품 구독을 처리하는 데 개발자 포털의 기본 제공된 기능이 아닌 기존 웹 사이트를 사용할 수 있습니다. 따라서 웹 사이트에서 사용자 데이터를 소유하고 이러한 단계에 대한 유효성 검사를 편리한 방식으로 수행할 수 있습니다.
@@ -173,7 +173,7 @@ var signature = digest.toString('base64');
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [SSO(Single-Sign-On) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[사용자를 만듭니다]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[사용자를 만듭니다]: https://docs.microsoft.com/en-us/rest/api/apimanagement/user/createorupdate
 [제품 구독을 위해 REST API를 호출]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [아래 제공된 예제 코드]: #delegate-example-code

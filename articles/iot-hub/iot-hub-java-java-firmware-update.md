@@ -3,7 +3,7 @@ title: Azure IoT Hub를 사용하여 장치 펌웨어 업데이트(Java/Java) | 
 description: 장치 펌웨어 업데이트를 시작하려면 Azure IoT Hub에서 장치 관리를 사용하는 방법입니다. Java용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 펌웨어 업데이트를 트리거하는 서비스 앱을 구현합니다.
 services: iot-hub
 documentationcenter: java
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
-ms.author: v-masebo
-ms.openlocfilehash: 19d9cc6722d65d8bcd76d73fda0f24a598479647
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;dobett
+ms.openlocfilehash: ff8fc5cc1623c570f79a8acfa0afbcf95450c1d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>장치 관리를 사용하여 장치 펌웨어 업데이트(Java/Java)를 시작합니다.
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

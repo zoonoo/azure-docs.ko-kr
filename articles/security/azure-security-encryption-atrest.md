@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure 미사용 데이터 암호화 | Microsoft Docs"
-description: "이 문서에서는 Microsoft Azure 미사용 데이터 암호화 개요, 전체 기능 및 일반적인 고려 사항을 제공합니다."
+title: Microsoft Azure 미사용 데이터 암호화 | Microsoft Docs
+description: 이 문서에서는 Microsoft Azure 미사용 데이터 암호화 개요, 전체 기능 및 일반적인 고려 사항을 제공합니다.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 Microsoft Azure에는 회사의 보안 및 규정 준수 요구 사항에 따라 데이터를 보호하는 여러 도구가 있습니다. 이 문서는 다음 내용을 집중적으로 다룹니다.
@@ -212,7 +212,7 @@ PaaS(Platform as a Service) 고객의 데이터는 일반적으로 응용 프로
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>IaaS 고객에 대한 미사용 데이터 암호화
 
-IaaS(Infrastructure as a Service) 고객은 다양한 서비스와 응용 프로그램을 사용할 수 있습니다. IaaS 서비스를 사용하면 Azure Disk Encryption을 사용하여 Azure 호스팅 가상 컴퓨터 및 VHD에서 미사용 데이터 암호화를 사용할 수 있습니다. 
+IaaS(Infrastructure as a Service) 고객은 다양한 서비스와 응용 프로그램을 사용할 수 있습니다. IaaS 서비스를 사용하면 Azure Disk Encryption을 사용하여 Azure 호스팅 가상 머신 및 VHD에서 미사용 데이터 암호화를 사용할 수 있습니다. 
 
 #### <a name="encrypted-storage"></a>암호화된 저장소
 
@@ -220,7 +220,7 @@ PaaS와 마찬가지로 IaaS 솔루션은 암호화된 미사용 데이터를 �
 
 #### <a name="encrypted-compute"></a>암호화된 계산
 
-미사용 데이터 암호화 솔루션을 완전하게 사용하려면 데이터가 암호화된 형식으로 저장되어야 합니다. 사용하고 있는 동안 메모리에 있는 데이터를 로드하는 서버에서 다양한 방법(예: Windows 페이지 파일, 크래시 덤프, 응용 프로그램에서 수행할 수 있는 로깅 등)으로 데이터를 로컬에 유지할 수 있습니다. 이러한 미사용 데이터가 암호화되어 있는지 확인하려면 IaaS 응용 프로그램이 Azure IaaS 가상 컴퓨터(Windows 또는 Linux) 및 가상 디스크에서 Azure Disk Encryption을 사용할 수 있습니다. 
+미사용 데이터 암호화 솔루션을 완전하게 사용하려면 데이터가 암호화된 형식으로 저장되어야 합니다. 사용하고 있는 동안 메모리에 있는 데이터를 로드하는 서버에서 다양한 방법(예: Windows 페이지 파일, 크래시 덤프, 응용 프로그램에서 수행할 수 있는 로깅 등)으로 데이터를 로컬에 유지할 수 있습니다. 이러한 미사용 데이터가 암호화되어 있는지 확인하려면 IaaS 응용 프로그램이 Azure IaaS 가상 머신(Windows 또는 Linux) 및 가상 디스크에서 Azure Disk Encryption을 사용할 수 있습니다. 
 
 #### <a name="custom-encryption-at-rest"></a>사용자 지정 미사용 데이터 암호화
 
@@ -266,7 +266,7 @@ SQL Azure 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](https
 | Backup                           |                | -                   | -                            | -                            | 예    |
 | **인텔리전스 및 분석**       |                |                     |                              |                              |        |
 | Azure 데이터 팩터리               |                | 예                 | -                            | -                            | -      |
-| Azure 기계 학습           |                | -                   | 미리 보기                      | -                            | -      |
+| Azure Machine Learning           |                | -                   | 미리 보기                      | -                            | -      |
 | Azure Stream Analytics           |                | 예                 | -                            | -                            | -      |
 | HDInsights(Azure Blob Storage)  |                | 예                 | -                            | -                            | -      |
 | HDInsights(Data Lake Storage)   |                | 예                 | -                            | -                            | -      |
@@ -276,7 +276,7 @@ SQL Azure 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](https
 | **IoT 서비스**                     |                |                     |                              |                              |        |
 | IoT 허브                          |                | -                   | -                            | -                            | 예    |
 | Service Bus                      |                | 예(프리미엄 계층)              | -                            | -                            | 예    |
-| Event Hubs(영문)                       |                | 예             | -                            | -                            | -      |
+| Event Hubs                       |                | 예             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>결론

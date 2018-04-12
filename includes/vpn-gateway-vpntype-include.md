@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5de227e5de5ef9b41f6e0f64db86b7195259f7d6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 * **정책 기반** : 정책 기반 VPN은 이전에 호출된 클래식 배포 모델에서 고정 라우팅 게이트웨이였습니다. 정책 기반 VPN은 온-프레미스 네트워크와 Azure VNet 간의 주소 접두사의 조합으로 구성된 IPsec 정책에 따라 IPsec 터널을 통해 패킷을 암호화하고 전달합니다. 정책(또는 트래픽 선택기)는 일반적으로 VPN 장치 구성에서 액세스 목록으로 정의됩니다. 정책 기반 VPN 유형에 대한 값은 *PolicyBased*입니다. PolicyBased VPN을 사용할 때는 다음과 같은 제한에 유의하세요.
   

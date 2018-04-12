@@ -1,11 +1,11 @@
 ---
-title: "Android용 Azure Authenticator | Microsoft Docs"
-description: "Microsoft Azure Authenticator 앱으로 로그인하여 회사 리소스에 액세스할 수 있습니다. Azure Authenticator 앱은 모바일 장치에 경고를 표시하여 보류 중인 2단계 인증 요청을 알립니다."
+title: Android용 Azure Authenticator | Microsoft Docs
+description: Microsoft Azure Authenticator 앱으로 로그인하여 회사 리소스에 액세스할 수 있습니다. Azure Authenticator 앱은 모바일 장치에 경고를 표시하여 보류 중인 2단계 인증 요청을 알립니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: b7ceca0d-5c9d-45c4-942c-b3a9b6bad36c
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Android용 Azure Authenticator
 IT 관리자가 Microsoft Azure Authenticator로 로그인하여 회사 리소스에 액세스하도록 권장했을 수도 있습니다. 이 응용 프로그램은 다음 두 가지 로그인 옵션을 제공합니다.

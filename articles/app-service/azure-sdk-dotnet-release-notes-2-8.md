@@ -1,10 +1,10 @@
 ---
-title: "Azure SDK for .NET 2.8 릴리스 정보"
-description: "Azure SDK for .NET 2.8 릴리스 정보"
+title: Azure SDK for .NET 2.8 릴리스 정보
+description: Azure SDK for .NET 2.8 릴리스 정보
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: de7207ff-ba4f-4008-9141-8742fcaa3254
 ms.service: app-service
 ms.devlang: multiple
@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 0b9f55d69c824e86245738a082f95fc529583f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK for .NET 2.8, 2.8.1, 2.8.2
 ## <a name="overview"></a>개요
@@ -53,8 +53,8 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 #### <a name="known-issues"></a>알려진 문제
 다음과 같이 알려진 문제는 다음 릴리스에서 해결된 예정입니다.
 
-* 비프로덕션 환경(예: Azure China 또는 Azure 스택 고객)에서는 앱 서비스 관련 클라우드 및 서버 탐색기 제스처가 작동하지 않습니다. 이러한 영향을 받는 지역의 고객은 Azure 포털에서 게시 프로필을 다운로드하면 게시 기능을 사용할 수 있습니다. 향후 릴리스에서 Azure China 및 스택 고객에 대한 "디버거 연결" 및 "스트리밍 로그 보기"와 같은 제스처가 복구됩니다. 
-* 배포하려는 App Insights 인스턴스가 미국 동부 이외의 지역에 있는 경우 앱 서비스를 만드는 동안 오류가 표시될 수 있습니다. 이러한 시나리오에서는 포털에서 앱 서비스를 만들고 게시 프로필을 다운로드하면 게시 시나리오를 사용할 수 있습니다. 
+* 비프로덕션 환경(예: Azure China 또는 Azure Stack 고객)에서는 App Service 관련 클라우드 및 서버 탐색기 제스처가 작동하지 않습니다. 이러한 영향을 받는 지역의 고객은 Azure 포털에서 게시 프로필을 다운로드하면 게시 기능을 사용할 수 있습니다. 향후 릴리스에서 Azure China 및 스택 고객에 대한 "디버거 연결" 및 "스트리밍 로그 보기"와 같은 제스처가 복구됩니다. 
+* 배포하려는 App Insights 인스턴스가 미국 동부 이외의 지역에 있는 경우 App Service를 만드는 동안 오류가 표시될 수 있습니다. 이러한 시나리오에서는 포털에서 App Service를 만들고 게시 프로필을 다운로드하면 게시 시나리오를 사용할 수 있습니다. 
 
 ### <a name="azure-hdinsight-tools"></a>Azure HDInsight 도구
 #### <a name="new-updates"></a>새 업데이트
@@ -65,9 +65,9 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 
 ## <a name="azure-sdk-for-net-281"></a>Azure SDK for .NET 2.8.1
 ### <a name="known-issues-for-visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 및 Visual Studio 2015에 대해 알려진 문제
-1. 트리거된 WebJob이 슬롯에 게시되면 오류가 표시되면서 예약이 설정되지 않지만 WebJob을 Azure에 푸시합니다. 예약된 작업이 필요한 고객은 Azure 포털을 사용하여 WebJob에 대해 예약을 설정할 수 있습니다. 
+1. 트리거된 WebJob이 슬롯에 게시되면 오류가 표시되면서 예약이 설정되지 않지만 WebJob을 Azure에 푸시합니다. 예약된 작업이 필요한 고객은 Azure Portal을 사용하여 WebJob에 대해 예약을 설정할 수 있습니다. 
 2. Python 고객에게 디버거 문제가 발생할 수 있습니다. 서비스 팀은 이 문제에 대한 픽스를 내놓고 있지만 고객이 영향을 받는 경우 포럼 또는 공지 블로그나 릴리스 정보 의견 섹션을 통해 Microsoft에 알려 주세요. 
-3. 특정 지역(예: 인도 남부)의 고객에게 앱 서비스 프로비저닝 오류가 발생합니다. 이는 포털과 일치하며 이 문제가 발생하는 고객은 Azure 포털을 사용하여 이러한 지역에 게시하기 위해 액세스를 요청할 수 있습니다. Azure 포털을 사용하여 이러한 지역에 대한 액세스를 요청하면 프로비저닝이 작동합니다. 
+3. 특정 지역(예: 인도 남부)의 고객에게 App Service 프로비저닝 오류가 발생합니다. 이는 포털과 일치하며 이 문제가 발생하는 고객은 Azure 포털을 사용하여 이러한 지역에 게시하기 위해 액세스를 요청할 수 있습니다. Azure 포털을 사용하여 이러한 지역에 대한 액세스를 요청하면 프로비저닝이 작동합니다. 
 
 ## <a name="azure-sdk-for-net-282"></a>Azure SDK for .NET 2.8.2
 2.8.2 도구를 설치한 후 고객에게 다음과 같은 문제가 발생할 수 있습니다.         

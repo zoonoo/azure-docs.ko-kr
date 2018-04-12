@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Gateway 리디렉션 개요 | Microsoft Docs"
-description: "Azure Application Gateway의 리디렉션 기능에 대해 알아봅니다."
+title: Azure Application Gateway 리디렉션 개요 | Microsoft Docs
+description: Azure Application Gateway의 리디렉션 기능에 대해 알아봅니다.
 services: application-gateway
 documentationcenter: na
 author: amsriva
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
 ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-gateway-redirect-overview"></a>Application Gateway 리디렉션 개요
 

@@ -34,7 +34,7 @@ IoT 허브를 만들었으므로 IoT 허브에 장치 및 응용 프로그램을
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 5. 장치를 만든 후에 **장치 탐색기** 창에서 장치를 엽니다.
 6. 연결 문자열의 기본 키를 기록해 둡니다.
 
