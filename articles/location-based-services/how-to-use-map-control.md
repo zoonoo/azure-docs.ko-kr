@@ -1,19 +1,18 @@
 ---
-title: "Azure Location Based Services 맵 컨트롤 사용 방법 | Microsoft Docs"
-description: "Azure Location Based Services 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리 사용 방법을 알아봅니다."
+title: Azure Location Based Services 맵 컨트롤 사용 방법 | Microsoft Docs
+description: Azure Location Based Services 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리 사용 방법을 알아봅니다.
 services: location-based-services
-keywords: "SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ee767c9461f79437ab49d2a919bb82e7de8feba7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Azure Location Based Services 맵 컨트롤 사용 방법
 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하면 맵 및 포함된 Azure Location Based Services 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다. 

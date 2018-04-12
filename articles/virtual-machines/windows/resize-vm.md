@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 PowerShell을 사용하여 Windows VM 크기 조정 | Microsoft Docs"
-description: "Azure Powershell을 사용하여 Resource Manager 배포 모델에서 만든 Windows 가상 머신의 크기를 조정합니다."
+title: Azure에서 PowerShell을 사용하여 Windows VM 크기 조정 | Microsoft Docs
+description: Azure Powershell을 사용하여 Resource Manager 배포 모델에서 만든 Windows 가상 머신의 크기를 조정합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: a3d4b6e5db8835b23b014b344f0c9daae68adc09
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 09a20892770ada7c67c43c20f3c4f36b5a76f09d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
 이 문서에서는 Azure Powershell을 사용하여 Resource Manager 배포 모델에서 만든 Windows VM의 크기를 조정하는 방법을 보여 줍니다.

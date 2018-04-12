@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/27/2018
+ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: cfc3fbf5432108222ee7941d92d78e49d3eaed78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 512b6cde1a1de70f020a9af1254d2bc8e78f1b5f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
 
@@ -78,7 +78,7 @@ az group create --name myResourceGroupVM --location eastus2
 가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 머신을 만듭니다. VM은 가용성 영역 *1*에서 생성됩니다. 기본적으로 VM은 *Standard_DS1_v2* 크기에서 생성됩니다.
 
 ```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
+az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. VM이 실행되고 있는 가용성 영역을 나타내는 `zones` 값을 기록해 둡니다. 

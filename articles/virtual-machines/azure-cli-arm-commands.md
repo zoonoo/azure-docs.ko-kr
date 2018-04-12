@@ -1,11 +1,11 @@
 ---
-title: "Resource Manager 모드에서 Azure CLI 명령 | Microsoft Docs"
-description: "리소스 관리자 배포 모델에서 리소스를 관리하는 Azure CLI(명령줄 인터페이스) 명령"
+title: Resource Manager 모드에서 Azure CLI 명령 | Microsoft Docs
+description: 리소스 관리자 배포 모델에서 리소스를 관리하는 Azure CLI(명령줄 인터페이스) 명령
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
@@ -1408,7 +1408,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 **네트워크 인터페이스를 관리하는 명령**
 
     network nic create [options] <resource-group> <name> <location>
-부하 분산 장치에 사용하거나 가상 컴퓨터에 연결할 수 있는 NIC(네트워크 인터페이스)라고 하는 리소스를 만듭니다.
+부하 분산 장치에 사용하거나 Virtual Machine에 연결할 수 있는 NIC(네트워크 인터페이스)라고 하는 리소스를 만듭니다.
 
     azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
 
@@ -1710,7 +1710,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 > 
 > 
 
-**계정 내에서 가상 컴퓨터 나열**
+**계정 내에서 가상 머신 나열**
 
     vm list [options]
 
@@ -1718,11 +1718,11 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm show [options] <resource-group> <name>
 
-**리소스 그룹 내 한 가상 컴퓨터 삭제**
+**리소스 그룹 내 한 가상 머신 삭제**
 
     vm delete [options] <resource-group> <name>
 
-**리소스 그룹 내 한 가상 컴퓨터 종료**
+**리소스 그룹 내 한 가상 머신 종료**
 
     vm stop [options] <resource-group> <name>
 
@@ -1730,11 +1730,11 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm restart [options] <resource-group> <name>
 
-**리소스 그룹 내 한 가상 컴퓨터 시작**
+**리소스 그룹 내 한 가상 머신 시작**
 
     vm start [options] <resource-group> <name>
 
-**리소스 그룹 내 한 가상 컴퓨터를 종료하고 컴퓨팅 리소스 해제**
+**리소스 그룹 내 한 가상 머신을 종료하고 컴퓨팅 리소스 해제**
 
     vm deallocate [options] <resource-group> <name>
 
@@ -1754,7 +1754,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm get-instance-view [options] <resource-group> <name>
 
-**가상 컴퓨터에서 원격 데스크톱 액세스 또는 SSH 설정을 다시 설정하고 관리자 또는 sudo 권한이 있는 계정의 암호를 다시 설정할 수 있습니다.**
+**Virtual Machine에서 원격 데스크톱 액세스 또는 SSH 설정을 다시 설정하고 관리자 또는 sudo 권한이 있는 계정의 암호를 다시 설정할 수 있습니다.**
 
     vm reset-access [options] <resource-group> <name>
 
@@ -1762,7 +1762,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm set [options] <resource-group> <name>
 
-**가상 컴퓨터 데이터 디스크를 관리하는 명령**
+**Virtual Machine 데이터 디스크를 관리하는 명령**
 
     vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]
     vm disk detach [options] <resource-group> <vm-name> <lun>
@@ -1773,7 +1773,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>
     vm extension get [options] <resource-group> <vm-name>
 
-**도커 가상 컴퓨터를 관리하는 명령**
+**도커 Virtual Machine을 관리하는 명령**
 
     vm docker create [options] <resource-group> <name> <location> <os-type>
 

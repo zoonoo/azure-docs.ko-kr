@@ -1,11 +1,11 @@
 ---
-title: "논리 앱에서 FTP 커넥터를 사용하는 방법 알아보기 | Microsoft Docs"
-description: "Azure 앱 서비스로 논리 앱을 만듭니다. FTP 서버에 연결하여 파일을 관리합니다. FTP 서버에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다."
+title: 논리 앱에서 FTP 커넥터를 사용하는 방법 알아보기 | Microsoft Docs
+description: Azure 앱 서비스로 논리 앱을 만듭니다. FTP 서버에 연결하여 파일을 관리합니다. FTP 서버에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
 ms.service: logic-apps
@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP 커넥터 시작
 FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리하고 파일을 만듭니다. 

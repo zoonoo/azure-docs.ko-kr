@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Linux VM용 SSH 키 쌍을 만드는 자세한 단계 | Microsoft Docs"
-description: "다양한 사용 사례에 대한 특정 인증서와 함께 Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 추가 단계에 대해 알아봅니다."
+title: Azure에서 Linux VM용 SSH 키 쌍을 만드는 자세한 단계 | Microsoft Docs
+description: 다양한 사용 사례에 대한 특정 인증서와 함께 Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 추가 단계에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Azure에서 Linux VM용 SSH 키 쌍 및 추가 인증서를 만드는 자세한 연습
-SSH 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Virtual Machines를 Azure에서 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. 암호는 추측할 수 있으며 철저한 무차별 암호 대입 시도로 인해 VM을 오픈하여 암호를 추측합니다. Azure CLI 또는 Resource Manager 템플릿을 사용하여 만든 VM은 배포의 일부로 SSH 공개 키를 포함할 수 있으며 SSH에 대한 암호 로그인을 사용하지 않도록 설정하는 게시 배포 구성 단계를 제거합니다. 이 문서에서는 Linux 가상 컴퓨터에서 사용 등을 위한 자세한 단계 및 인증서 생성에 대한 추가 예제를 제공합니다. SSH 키 쌍을 신속하게 만들고 사용하려면 [Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
+SSH 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Virtual Machines를 Azure에서 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. 암호는 추측할 수 있으며 철저한 무차별 암호 대입 시도로 인해 VM을 오픈하여 암호를 추측합니다. Azure CLI 또는 Resource Manager 템플릿을 사용하여 만든 VM은 배포의 일부로 SSH 공개 키를 포함할 수 있으며 SSH에 대한 암호 로그인을 사용하지 않도록 설정하는 게시 배포 구성 단계를 제거합니다. 이 문서에서는 Linux 가상 머신에서 사용 등을 위한 자세한 단계 및 인증서 생성에 대한 추가 예제를 제공합니다. SSH 키 쌍을 신속하게 만들고 사용하려면 [Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
 
 ## <a name="understanding-ssh-keys"></a>SSH 키 이해
 

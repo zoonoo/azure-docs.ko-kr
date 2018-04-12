@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 Azure VM에서 MSI를 구성하는 방법"
-description: "PowerShell을 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다."
+title: PowerShell을 사용하여 Azure VM에서 MSI를 구성하는 방법
+description: PowerShell을 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 42c361ac69122d00df290f4c3c2eb2cfeeb9eb47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>PowerShell을 사용하여 VM MSI(관리 서비스 ID) 구성
 
@@ -40,9 +40,9 @@ MSI 기반 VM을 만들려면:
 1. 다음 Azure VM 퀵 스타트 중 하나를 참조하여 필요한 섹션만 완료하세요("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기"). 
 
    > [!IMPORTANT] 
-   > "VM 만들기" 섹션으로 이동하려면 [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet 구문을 조금 수정합니다. 예를 들어 MSI를 사용하여 VM을 프로비전하려면 `-IdentityType "SystemAssigned"` 매개 변수를 추가해야 합니다.
+   > "VM 만들기" 섹션으로 이동하려면 [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet 구문을 조금 수정합니다. 예를 들어 MSI를 사용하여 VM을 프로비전하려면 `-AssignIdentity "SystemAssigned"` 매개 변수를 추가해야 합니다.
    >  
-   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
+   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -AssignIdentity "SystemAssigned" ...`
 
    - [PowerShell을 사용하여 Windows 가상 머신 만들기](../../virtual-machines/windows/quick-create-powershell.md)
    - [PowerShell을 사용하여 Linux 가상 머신 만들기](../../virtual-machines/linux/quick-create-powershell.md)
@@ -66,11 +66,11 @@ MSI 기반 VM을 만들려면:
    Login-AzureRmAccount
    ```
 
-2. 먼저 `Get-AzureRmVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 후에 MSI를 사용하도록 설정하려면 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet에서 `-IdentityType` 스위치를 사용합니다.
+2. 먼저 `Get-AzureRmVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 후에 MSI를 사용하도록 설정하려면 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet에서 `-AssignIdentity` 스위치를 사용합니다.
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
+   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity "SystemAssigned"
    ```
 
 3. [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet에서 `-Type` 매개 변수를 사용하여 MSI VM 확장을 추가합니다. VM 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 끝점에서 사용하는 포트를 지정합니다. 기존 VM의 위치와 일치하는 올바른 `-Location` 매개 변수를 지정해야 합니다.

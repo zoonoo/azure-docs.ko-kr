@@ -1,26 +1,26 @@
 ---
-title: "PowerShell 예제 모니터링 크기 조정 단일 Azure SQL Database | Microsoft Docs"
-description: "단일 Azure SQL Database를 모니터링하고 크기를 조정하는 Azure PowerShell 예제 스크립트"
+title: PowerShell 예제 모니터링 크기 조정 단일 Azure SQL Database | Microsoft Docs
+description: 단일 Azure SQL Database를 모니터링하고 크기를 조정하는 Azure PowerShell 예제 스크립트
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 12/14/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: adb2da80ecf0b0c8feb7ebd242b1e98a871aef77
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정
 

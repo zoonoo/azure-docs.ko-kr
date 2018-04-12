@@ -1,6 +1,6 @@
 ---
-title: "PHP에서 Azure Storage Table service 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs"
-description: "PHP에서 Table service API를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입, 삭제 및 쿼리하는 방법에 대해 알아봅니다."
+title: PHP에서 Azure Storage Table service 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
+description: PHP에서 Table service API를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입, 삭제 및 쿼리하는 방법에 대해 알아봅니다.
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>PHP에서 Azure Storage Table service 또는 Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -435,9 +435,6 @@ catch(ServiceException $e){
 * **addDeleteEntity** (deleteEntity 작업 추가)
 
 다음 예제에서는 **insertEntity** 및 **deleteEntity** 작업을 단일 요청으로 실행하는 방법을 보여 줍니다. 
-
-> [!NOTE]
-> Azure Cosmos DB는 아직 테이블에 대한 일괄 처리 작업을 지원하지 않습니다. 
 
 ```php
 require_once 'vendor/autoload.php';

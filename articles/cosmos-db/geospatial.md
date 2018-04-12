@@ -1,11 +1,10 @@
 ---
-title: "Azure Cosmos DB에서 지리 공간 데이터 작업 | Microsoft Docs"
-description: "Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다."
+title: Azure Cosmos DB에서 지리 공간 데이터 작업 | Microsoft Docs
+description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: monicar
+manager: kfile
 ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6a78426ed6b54f0227dbd89c150f23af712f1b35
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터 작업
 이 문서에서는 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.

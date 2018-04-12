@@ -1,13 +1,13 @@
 ---
-title: "Python을 사용하여 Azure에서 Windows VM 만들기 및 관리 | Microsoft Docs"
-description: "Python을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 설명합니다."
+title: Python을 사용하여 Azure에서 Windows VM 만들기 및 관리 | Microsoft Docs
+description: Python을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 설명합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d56143a470be4da1faaea949ea286fca1ffd319d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -145,7 +145,7 @@ compute_client = ComputeManagementClient(
     input('Resource group created. Press enter to continue...')
     ```
 
-[가용성 집합](tutorial-availability-sets.md)은 응용 프로그램에서 사용되는 가상 컴퓨터를 쉽게 유지 관리할 수 있도록 합니다.
+[가용성 집합](tutorial-availability-sets.md)은 응용 프로그램에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
 
 1. 가용성 집합을 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
    
@@ -171,9 +171,9 @@ compute_client = ComputeManagementClient(
     input('Availability set created. Press enter to continue...')
     ```
 
-[공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)는 가상 컴퓨터와 통신하는 데 필요합니다.
+[공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)는 가상 머신과 통신해야 합니다.
 
-1. 가상 컴퓨터에 대한 공용 IP 주소를 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
+1. 가상 머신에 대한 공용 IP 주소를 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
     ```python
     def create_public_ip_address(network_client):
@@ -199,7 +199,7 @@ compute_client = ComputeManagementClient(
     input('Press enter to continue...')
     ```
 
-가상 컴퓨터는 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)의 서브넷에 있어야 합니다.
+가상 머신은 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)의 서브넷에 있어야 합니다.
 
 1. 가상 네트워크를 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -297,9 +297,9 @@ compute_client = ComputeManagementClient(
     input('Press enter to continue...')
     ```
 
-모든 지원 리소스를 만들었으므로 가상 컴퓨터를 만들 수 있습니다.
+모든 지원 리소스를 만들었으므로 가상 머신을 만들 수 있습니다.
 
-1. 가상 컴퓨터를 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
+1. 가상 머신을 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
    
     ```python
     def create_vm(network_client, compute_client):  
@@ -348,7 +348,7 @@ compute_client = ComputeManagementClient(
     ```
 
     > [!NOTE]
-    > 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+    > 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 머신을 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 머신 탐색 및 선택](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
     > 
     > 
 
@@ -363,7 +363,7 @@ compute_client = ComputeManagementClient(
 
 ## <a name="perform-management-tasks"></a>관리 작업 수행
 
-가상 컴퓨터의 수명 주기 동안 가상 컴퓨터 시작, 중지 또는 삭제 등의 관리 작업을 실행하려고 할 수 있습니다. 또한 반복적이거나 복잡한 작업을 자동화하는 코드를 만들 수도 있습니다.
+가상 머신의 수명 주기 동안 가상 머신 시작, 중지 또는 삭제 등의 관리 작업을 실행하려고 할 수 있습니다. 또한 반복적이거나 복잡한 작업을 자동화하는 코드를 만들 수도 있습니다.
 
 ### <a name="get-information-about-the-vm"></a>VM 관련 정보 가져오기
 
@@ -430,7 +430,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="stop-the-vm"></a>VM을 중지합니다.
 
-가상 컴퓨터를 중지하고 해당 설정을 모두 그대로 유지하면 계속 요금이 청구될 수 있습니다. 그렇지 않으려면 가상 컴퓨터를 중지하고 할당을 해제합니다. 가상 컴퓨터를 할당을 해제하면 연결된 모든 리소스의 할당이 취소되고 대금 청구가 끝납니다.
+가상 머신을 중지하고 해당 설정을 모두 그대로 유지하면 계속 요금이 청구될 수 있습니다. 그렇지 않으려면 가상 머신을 중지하고 할당을 해제합니다. 가상 머신을 할당을 해제하면 연결된 모든 리소스의 할당이 취소되고 대금 청구가 끝납니다.
 
 1. 가상 컴퓨터를 할당 취소 없이 중지하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -439,7 +439,7 @@ compute_client = ComputeManagementClient(
         compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
     ```
 
-    가상 컴퓨터의 할당을 취소하려는 경우 power_off 호출을 이 코드로 변경합니다.
+    가상 머신의 할당을 취소하려는 경우 power_off 호출을 이 코드로 변경합니다.
 
     ```python
     compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
@@ -454,7 +454,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="start-the-vm"></a>VM 시작
 
-1. 가상 컴퓨터를 시작하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
+1. 가상 머신을 시작하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
     ```python
     def start_vm(compute_client):
@@ -470,9 +470,9 @@ compute_client = ComputeManagementClient(
 
 ### <a name="resize-the-vm"></a>VM 크기 조정
 
-가상 컴퓨터의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](sizes.md)를 참조하세요.
+가상 머신의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](sizes.md)를 참조하세요.
 
-1. 가상 컴퓨터의 크기를 변경하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
+1. 가상 머신의 크기를 변경하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
     ```python
     def update_vm(compute_client):
@@ -498,7 +498,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="add-a-data-disk-to-the-vm"></a>VM에 데이터 디스크 추가
 
-가상 컴퓨터에도 VHD로 저장되는 [데이터 디스크](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)가 하나 이상 있을 수 있습니다.
+가상 머신에도 VHD로 저장되는 [데이터 디스크](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)가 하나 이상 있을 수 있습니다.
 
 1. 가상 컴퓨터에 데이터 디스크를 추가하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다. 
 
@@ -544,7 +544,7 @@ compute_client = ComputeManagementClient(
 
 ## <a name="delete-resources"></a>리소스 삭제
 
-Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 항상 더 이상 필요하지 않은 리소스를 삭제하는 것이 좋습니다. 가상 컴퓨터 및 모든 지원 리소스를 삭제하려는 경우, 리소스 그룹을 삭제해야 합니다.
+Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 항상 더 이상 필요하지 않은 리소스를 삭제하는 것이 좋습니다. 가상 머신 및 모든 지원 리소스를 삭제하려는 경우, 리소스 그룹을 삭제해야 합니다.
 
 1. 리소스 그룹 및 모든 리소스를 삭제하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
    
@@ -565,7 +565,7 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 1. 콘솔 응용 프로그램을 실행하려면 Visual Studio에서 **시작**을 클릭합니다.
 
-2. 각 리소스의 상태가 반환된 후 **Enter** 키를 누릅니다. 상태 정보에 **Succeeded** 프로비저닝 상태가 표시됩니다. 가상 컴퓨터를 만든 후 만든 모든 리소스를 삭제할 기회가 있습니다. **Enter** 키를 눌러 리소스 삭제를 시작하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. Azure Portal이 열려 있는 경우 새 리소스를 보려면 블레이드를 새로 고쳐야 할 수 있습니다.  
+2. 각 리소스의 상태가 반환된 후 **Enter** 키를 누릅니다. 상태 정보에 **Succeeded** 프로비저닝 상태가 표시됩니다. 가상 머신을 만든 후 만든 모든 리소스를 삭제할 기회가 있습니다. **Enter** 키를 눌러 리소스 삭제를 시작하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. Azure Portal이 열려 있는 경우 새 리소스를 보려면 블레이드를 새로 고쳐야 할 수 있습니다.  
 
     이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 응용 프로그램이 종료된 후 모든 리소스 및 리소스 그룹을 삭제하려면 몇 분 정도 걸릴 수 있습니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Linux VM에서 사용자 지정 스크립트 실행 | Microsoft Docs"
-description: "사용자 지정 스크립트 확장을 사용하여 Linux VM 구성 작업 자동화"
+title: Azure의 Linux VM에서 사용자 지정 스크립트 실행 | Microsoft Docs
+description: 사용자 지정 스크립트 확장을 사용하여 Linux VM 구성 작업 자동화
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 53adef0f512c54e036a981dbaa0d08453db6b194
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 88f337df14b7e2647a76cce7ef91ec6f8950bbc6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 사용
 사용자 지정 스크립트 확장은 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 

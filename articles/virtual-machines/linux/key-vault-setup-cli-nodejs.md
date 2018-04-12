@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 1.0을 사용하여 Linux VM에 대한 Key Vault 설정 | Microsoft Docs"
-description: "Azure CLI 1.0을 사용하여 Azure Resource Manager에서 사용할 Key Vault를 설정하는 방법"
+title: Azure CLI 1.0을 사용하여 Linux VM에 대한 Key Vault 설정 | Microsoft Docs
+description: Azure CLI 1.0을 사용하여 Azure Resource Manager에서 사용할 Key Vault를 설정하는 방법
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bccdd5ab-5ccf-4760-9039-92c6eafb15bd
 ms.service: virtual-machines-linux
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9225429e878415334b0c8a66777902395606d63
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Azure Resource Manager에서 가상 컴퓨터에 대한 Key Vault 설정
-Azure Resource Manager 스택에서 암호/인증서는 Key Vault의 리소스 공급자가 제공하는 리소스로 모델링됩니다. Azure 주요 자격 증명 모음에 대한 자세한 내용을 보려면 [Azure 주요 자격 증명 모음이란?](../../key-vault/key-vault-whatis.md) 주요 자격 증명 모음을 Azure Resource Manager 가상 컴퓨터에서 사용하려면 주요 자격 증명에 대한 *EnabledForDeployment* 속성을 true로 설정해야 합니다. 다양한 클라이언트에서 이 작업을 수행할 수 있습니다. 이 문서에서는 Azure Virtual Machines에서 사용할 Key Vault를 설정하는 방법을 보여 줍니다.
+# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Azure Resource Manager에서 가상 머신에 대한 Key Vault 설정
+Azure Resource Manager 스택에서 암호/인증서는 Key Vault의 리소스 공급자가 제공하는 리소스로 모델링됩니다. Azure Key Vault에 대한 자세한 내용을 보려면 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md) 주요 자격 증명 모음을 Azure Resource Manager 가상 머신에서 사용하려면 주요 자격 증명에 대한 *EnabledForDeployment* 속성을 true로 설정해야 합니다. 다양한 클라이언트에서 이 작업을 수행할 수 있습니다. 이 문서에서는 Azure Virtual Machines에서 사용할 Key Vault를 설정하는 방법을 보여 줍니다.
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.

@@ -1,10 +1,10 @@
 ---
-title: "사용자 지정 Linux 가상 머신 만들기 | Microsoft Docs"
-description: "클래식 배포 모델을 사용하여 Azure Portal에서 사용자 지정 Linux 가상 머신을 만드는 방법을 알아봅니다."
+title: 사용자 지정 Linux 가상 머신 만들기 | Microsoft Docs
+description: 클래식 배포 모델을 사용하여 Azure Portal에서 사용자 지정 Linux 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: e82350f1895bd0c4bca8bb38cb5c32302623e9ff
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e84a39a2f9f62769ce2acfa74a38662aac5b2f4c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>Linux를 실행하는 사용자 지정 가상 머신 만들기
 > [!IMPORTANT] 

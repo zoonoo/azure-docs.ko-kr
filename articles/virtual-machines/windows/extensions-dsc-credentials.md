@@ -1,11 +1,11 @@
 ---
-title: "필요한 상태 구성을 사용하여 Azure에 자격 증명 전달 | Microsoft Docs"
-description: "PowerShell DSC(필요한 상태 구성)를 사용하여 Azure 가상 머신에 자격 증명을 안전하게 전달하는 방법을 알아봅니다."
+title: 필요한 상태 구성을 사용하여 Azure에 자격 증명 전달 | Microsoft Docs
+description: PowerShell DSC(필요한 상태 구성)를 사용하여 Azure 가상 머신에 자격 증명을 안전하게 전달하는 방법을 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: zjalexander
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: zachal,migreene
-ms.openlocfilehash: a0a565c0bb7e17315c7b0475f3213b620a3e2d6c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f372685692c2f02984bf0e0b8deeae27ce94422b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Azure DSCExtension 처리기에 자격 증명 전달
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

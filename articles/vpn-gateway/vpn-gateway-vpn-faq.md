@@ -1,24 +1,24 @@
 ---
 title: Azure VPN Gateway FAQ | Microsoft Docs
-description: "VPN Gateway FAQ. Microsoft Azure Virtual Network 프레미스 간 연결, 하이브리드 구성 연결 및 VPN Gateway에 대한 FAQ입니다."
+description: VPN Gateway FAQ. Microsoft Azure Virtual Network 프레미스 간 연결, 하이브리드 구성 연결 및 VPN Gateway에 대한 FAQ입니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/20/2017
-ms.author: cherylmc,yushwang,anzaman
-ms.openlocfilehash: 2b648caa51eb457a62e846b74f1b95ca84974635
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.date: 04/05/2018
+ms.author: cherylmc
+ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -74,7 +74,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 번호 Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 2. 게이트웨이를 삭제합니다.
-* [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure PowerShell - 클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [원하는 형식의 새 게이트웨이 만들기 및 VPN 설정 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)

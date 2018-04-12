@@ -4,7 +4,7 @@ description: PowerShell을 사용하여 빠르게 경로 기반 VPN 게이트웨
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 17e27ce81ea73b687f65dcd0a05573d28f109676
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 57da0d1f6878ce31f0e47680a4750a90115c93f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기
 
 이 문서는 PowerShell을 사용하여 경로 기반 Azure VPN Gateway를 빠르게 만드는 데 도움이 됩니다. VPN 게이트웨이는 온-프레미스 네트워크에 대한 VPN 연결을 만들 때 사용됩니다. VPN 게이트웨이를 사용하여 VNet을 연결할 수도 있습니다.
 
-이 문서의 단계에서는 VNet, 서브넷, 게이트웨이 서브넷 및 경로 기반 VPN 게이트웨이(가상 네트워크 게이트웨이)를 만듭니다. 게이트웨이 생성이 완료되면 연결을 만들 수 있습니다. 이러한 단계에는 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 문서의 단계에서는 VNet, 서브넷, 게이트웨이 서브넷 및 경로 기반 VPN 게이트웨이(가상 네트워크 게이트웨이)를 만듭니다. 게이트웨이 생성이 완료되면 연결을 만들 수 있습니다. 이러한 단계에는 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -94,7 +94,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 VPN 게이트웨이에는 동적으로 할당된 공용 IP 주소가 있어야 합니다. VPN 게이트웨이에 대한 연결을 만들 때 사용자가 지정한 IP 주소입니다. 다음 예제를 사용하여 공용 IP 주소를 요청합니다.
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>게이트웨이 IP 주소 구성 만들기
@@ -145,7 +145,7 @@ IpConfigurations       : [
                              },
                              "PublicIpAddress": {
                                "Id": "/subscriptions/<subscription ID>/resourceGroups/Te
-                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP"
+                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP"
                              },
                              "Name": "default",
                              "Etag": "W/\"0952d-9da8-4d7d-a8ed-28c8ca0413\"",
@@ -174,17 +174,17 @@ BgpSettings            : {
 VPN 게이트웨이의 공용 IP 주소를 보려면 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress) cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1
+Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
 예제 응답에서 IpAddress 값이 공용 IP 주소입니다.
 
 ```
-Name                     : VNet1GWPIP
+Name                     : VNet1GWIP
 ResourceGroupName        : TestRG1
 Location                 : eastus
 Id                       : /subscriptions/<subscription ID>/resourceGroups/TestRG1/provi
-                           ders/Microsoft.Network/publicIPAddresses/VNet1GWPIP
+                           ders/Microsoft.Network/publicIPAddresses/VNet1GWIP
 Etag                     : W/"5001666a-bc2a-484b-bcf5-ad488dabd8ca"
 ResourceGuid             : 3c7c481e-9828-4dae-abdc-f95b383
 ProvisioningState        : Succeeded

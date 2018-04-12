@@ -1,11 +1,11 @@
 ---
-title: "HPC 팩 클러스터에 버스트 노드 추가 | Microsoft Docs"
-description: "클라우드 서비스에서 실행되는 작업자 역할 인스턴스를 추가하여 요청에 따라 HPC Pack 클러스터를 확장하는 방법에 대해 알아봅니다."
+title: HPC 팩 클러스터에 버스트 노드 추가 | Microsoft Docs
+description: 클라우드 서비스에서 실행되는 작업자 역할 인스턴스를 추가하여 요청에 따라 HPC Pack 클러스터를 확장하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC 팩 클러스터에 주문형 "버스트" 노드 추가
 Azure에서 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 설정하는 경우 미리 구성된 계산 노드 VM을 유지하지 않고 클러스터 용량을 신속하게 확장 또는 축소할 수 있는 방법을 원할 것입니다. 이 문서에서는 "버스트" 노드(클라우드 서비스에서 실행되는 작업자 역할 인스턴스)를 Azure의 헤드 노드에 계산 리소스로 추가하는 방법을 보여줍니다. 
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![버스트 노드][burst]

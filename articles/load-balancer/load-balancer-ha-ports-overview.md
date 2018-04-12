@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -72,20 +72,20 @@ HA 포트 기능은 모든 글로벌 Azure 지역에서 사용할 수 있습니�
 
 그러나 이 HA 포트 규칙 외에 백 엔드 인스턴스에 대한 공용 Standard Load Balancer를 구성할 수 있습니다.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>내부 Standard Load Balancer의 단일 부동 IP(Direct Server Return) HA 포트 구성
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>내부 Standard Load Balancer의 단일 부동 IP(Direct Server Return) HA 포트 구성
 
 단일 프런트 엔드가 있고 **부동 IP**가 **사용**으로 설정된 **HA 포트**로 부하 분산 규칙을 사용하도록 부하 분산 장치를 유사하게 구성할 수 있습니다. 
 
 이 구성을 사용하면 다른 부동 IP 부하 분산 규칙 및/또는 공용 Load Balancer를 추가할 수 있습니다. 그러나 이 구성에서 비부동 IP HA 포트 부하 분산 구성을 사용할 수는 없습니다.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>내부 Standard Load Balancer의 다중 HA 포트 구성
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>내부 Standard Load Balancer의 다중 HA 포트 구성
 
 동일한 백 엔드 풀에 대해 둘 이상의 HA 포트를 구성해야 하는 시나리오의 경우 다음을 수행하면 됩니다. 
 - 단일 내부 Standard Load Balancer 리소스에 대해 둘 이상의 프런트 엔드 개인 IP 주소를 구성합니다.
 - 각 규칙에 대해 단일 고유 프런트 엔드 IP 주소를 선택하여 여러 부하 분산 규칙을 구성합니다.
 - **HA 포트** 옵션을 선택하고 모든 부하 분산 규칙에 대해 **부동 IP**를 **사용**으로 설정합니다.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>HA 포트가 있는 내부 Load Balancer 및 동일한 백 엔드 인스턴스의 공용 Load Balancer
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>HA 포트가 있는 내부 Load Balancer 및 동일한 백 엔드 인스턴스의 공용 Load Balancer
 
 HA 포트가 있는 단일 내부 Standard Load Balancer 외에 백 엔드 리소스에 대해 **하나**의 공용 Standard Load Balancer 리소스를 구성할 수 있습니다.
 

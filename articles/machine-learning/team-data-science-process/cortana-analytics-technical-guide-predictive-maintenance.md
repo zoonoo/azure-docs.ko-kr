@@ -1,8 +1,8 @@
 ---
-title: "Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 기술 가이드 | Microsoft Docs"
-description: "항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿에 대한 기술 지침"
+title: Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 기술 가이드 | Microsoft Docs
+description: 항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿에 대한 기술 지침
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
 ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/28/2017
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 사용자 지정 집계
 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 HDInsight를 사용하여 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행합니다.
 
-### <a name="azure-machine-learning"></a>Azure 기계 학습
+### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning 서비스](https://azure.microsoft.com/services/machine-learning/)(Azure Data Factory에서 오케스트레이션됨)로 수신된 입력을 사용하여 특정 항공기 엔진의 잔여 수명(RUL)을 예측합니다. 
 
 ## <a name="data-publishing"></a>데이터 게시
@@ -142,10 +142,10 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
 이 [파이프라인](../../data-factory/v1/data-factory-create-pipelines.md)은 ***MLScoringPipeline***에서 [Azure Machine Learning](#azure-machine-learning) 실험의 결과를 솔루션 템플릿 설치의 일부로 프로비전되는 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
 
-### <a name="azure-machine-learning"></a>Azure 기계 학습
-이 솔루션 템플릿에 사용된 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 실험은 항공기 엔진의 잔여 수명(RUL)을 제공합니다. 실험은 사용된 데이터 집합에 특정되며 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+이 솔루션 템플릿에 사용된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험은 항공기 엔진의 잔여 수명(RUL)을 제공합니다. 실험은 사용된 데이터 집합에 특정되며 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
 
-Azure 기계 학습 실험 생성 방법에 대한 정보는 [예측 유지 관리: 1/3단계, 데이터 준비 및 기능 엔지니어링](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)을 참조하세요.
+Azure Machine Learning 실험 생성 방법에 대한 정보는 [예측 유지 관리: 1/3단계, 데이터 준비 및 기능 엔지니어링](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)을 참조하세요.
 
 ## <a name="monitor-progress"></a>진행률 모니터링
 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
@@ -153,7 +153,7 @@ Azure 기계 학습 실험 생성 방법에 대한 정보는 [예측 유지 관�
 1. Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 Blob Storage 구성 요소를 클릭하고 오른쪽 패널에서 열기를 클릭하면 [Azure Portal](https://portal.azure.com/)로 이동합니다. Blob을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **maintenancesadata**를 클릭합니다. 다음 패널에 **rawdata** 폴더가 표시됩니다. rawdata 폴더 안에 hour=17, hour=18 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 csv 파일이 표시됩니다.
 2. 파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 쓰는 것입니다. 데이터를 SQL Database에 표시하려면 최대 3시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://portal.azure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png)을 찾아 클릭합니다. 그런 다음 데이터베이스 **pmaintenancedb**를 찾고 클릭합니다. 맨 아래의 다음 페이지에서 관리를 클릭합니다.
    
-    ![관리 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
+    ![관리 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)에서도 확인할 수 있습니다.
    
     여기에서는 새 쿼리를 클릭하고 행 수를 쿼리(예: PMResult의 select count(*))할 수 있습니다. 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 합니다.
 

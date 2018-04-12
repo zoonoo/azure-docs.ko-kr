@@ -1,11 +1,11 @@
 ---
-title: "Linux 기반 가상 머신 확장 관리 | Microsoft Docs"
-description: "클래식 배포 모델에서 Azure 가상 머신에 대한 확장을 추가, 찾기, 업데이트 및 제거하는 방법에 대해 설명합니다."
+title: Linux 기반 가상 머신 확장 관리 | Microsoft Docs
+description: 클래식 배포 모델에서 Azure 가상 머신에 대한 확장을 추가, 찾기, 업데이트 및 제거하는 방법에 대해 설명합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: squillace
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 1dd06f8a-96d7-4c8c-8a74-ad2c553a5f2a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: 047b807fdd5c45c310454b1c1dd5d942bb430b44
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 201a23d7ce9ec6edd74b7695bab3187212e1b042
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-virtual-machine-extensions"></a>가상 머신 확장 관리
 Azure의 Windows 또는 Linux Virtual Machines에서 VM 확장의 찾기, 추가, 수정 또는 제거 방법을 설명합니다.

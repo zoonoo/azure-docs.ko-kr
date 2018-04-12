@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 8000 시리즈 솔루션 개요 | Microsoft Docs"
-description: "StorSimple 계층화, 장치, 가상 장치, 서비스, 저장소 관리에 대해 설명하고 StorSimple에서 사용하는 주요 용어를 소개합니다."
+title: StorSimple 8000 시리즈 솔루션 개요 | Microsoft Docs
+description: StorSimple 계층화, 장치, 가상 장치, 서비스, 저장소 관리에 대해 설명하고 StorSimple에서 사용하는 주요 용어를 소개합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션
 ## <a name="overview"></a>개요
@@ -41,7 +41,7 @@ StorSimple은 [저장소 계층화](#automatic-storage-tiering) 를 사용하여
 | 저장소 비용 감소 |현재 요구에 맞게 충분한 로컬 또는 클라우드 저장소를 할당하고 필요한 경우 클라우드 저장소를 확장합니다. 동일한 데이터의 중복 버전을 제거하고(중복 제거) 압축을 사용하여 추가로 저장소 요구 사항 및 비용을 줄입니다. |
 | 단순화된 저장소 관리 |온-프레미스, 원격 서버와 클라우드에 저장된 데이터를 구성 및 관리하는 시스템 관리 도구를 제공합니다. 또한 Microsoft Management Console(MMC) 스냅인에서 백업 및 복원 기능을 관리할 수 있습니다.|
 | 향상된 재해 복구 및 규정 준수 |복구 시간을 확장할 필요가 없습니다. 대신, 필요할 때마다 데이터를 복원합니다. 즉, 정상 작업 중단을 최소화하면서 계속할 수 있습니다. 또한 백업 일정 및 데이터 보존 기간을 지정하는 정책을 구성할 수 있습니다. |
-| 데이터 이동성 |복구 및 마이그레이션을 위해 다른 사이트에서 Microsoft Azure 클라우드 서비스에 업로드된 데이터에 액세스할 수 있습니다. 또한 Microsoft Azure에서 실행 중인 가상 컴퓨터(VM)에서 StorSimple Cloud Appliance를 구성하도록 StorSimple을 사용할 수 있습니다. VM을 가상 장치 사용하여 테스트 또는 복구 목적으로 저장된 데이터에 액세스할 수 있습니다. |
+| 데이터 이동성 |복구 및 마이그레이션을 위해 다른 사이트에서 Microsoft Azure 클라우드 서비스에 업로드된 데이터에 액세스할 수 있습니다. 또한 Microsoft Azure에서 실행 중인 가상 머신(VM)에서 StorSimple Cloud Appliance를 구성하도록 StorSimple을 사용할 수 있습니다. VM을 가상 장치 사용하여 테스트 또는 복구 목적으로 저장된 데이터에 액세스할 수 있습니다. |
 | 비즈니스 연속성 |StorSimple 5000~7000 시리즈 사용자가 StorSimple 8000 시리즈 장치에 해당 데이터를 마이그레이션할 수 있습니다. |
 | Azure Government 포털의 가용성 |StorSimple은 Azure Government 포털에서 사용 가능합니다. 자세한 내용은 [정부 포털에서 온-프레미스 StorSimple 장치 배포](storsimple-8000-deployment-walkthrough-gov-u2.md)를 참조하세요. |
 | 데이터 보호 및 가용성 |StorSimple 8000 시리즈는 LRS(로컬 중복 저장소) 및 GRS(지역 중복 저장소) 외에도 ZRS(영역 중복 저장소)를 지원합니다. ZRS 세부 정보는 [Azure Storage 중복 옵션에 대한 기사](https://azure.microsoft.com/documentation/articles/storage-redundancy/) 를 참조하세요. |
@@ -83,15 +83,15 @@ StorSimple 장치에 클러스터링 및 자동 장애 조치에 대한 지원 �
 자세한 내용은 [StorSimple 하드웨어 구성 요소 및 상태](storsimple-8000-monitor-hardware-status.md)로 이동합니다.
 
 ## <a name="storsimple-cloud-appliance"></a>StorSimple Cloud Appliance
-StorSimple을 사용하여 물리적 하이브리드 저장소 장치의 아키텍처 및 기능을 복제하는 클라우드 어플라이언스를 만들 수 있습니다. StorSimple Cloud Appliance(StorSimple 가상 어플라이언스라고도 함)는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. (클라우드 어플라이언스는 Azure 가상 컴퓨터에만 만들 수 있습니다. StorSimple 장치 또는 온-프레미스 서버에 만들 수 없습니다.)
+StorSimple을 사용하여 물리적 하이브리드 저장소 장치의 아키텍처 및 기능을 복제하는 클라우드 어플라이언스를 만들 수 있습니다. StorSimple Cloud Appliance(StorSimple 가상 어플라이언스라고도 함)는 Azure 가상 머신의 단일 노드에서 실행됩니다. (클라우드 어플라이언스는 Azure 가상 머신에만 만들 수 있습니다. StorSimple 장치 또는 온-프레미스 서버에 만들 수 없습니다.)
 
 클라우드 어플라이언스에는 다음과 같은 기능이 있습니다.
 
-* 실제 기기처럼 동작하고 클라우드에서 가상 컴퓨터에 대한 iSCSI 인터페이스를 제공할 수 있습니다.
+* 실제 기기처럼 동작하고 클라우드에서 가상 머신에 대한 iSCSI 인터페이스를 제공할 수 있습니다.
 * 클라우드에서 개수에 제한 없이 클라우드 어플라이언스를 만들고 필요에 따라 설정 및 해제할 수 있습니다.
 * 재해 복구, 개발 및 테스트 시나리오에서 온-프레미스 환경을 시뮬레이션할 수 있고 백업에서 항목 수준의 검색에 도움이 될 수 있습니다.
 
-StorSimple Cloud Appliance는 8010 장치(이전의 1100 모델)와 8020 장치라는 두 가지 모델에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (로컬 계층에서 Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](../virtual-machines/windows/premium-storage.md)로 이동합니다.
+StorSimple Cloud Appliance는 8010 장치(이전의 1100 모델)와 8020 장치라는 두 가지 모델에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (로컬 계층에서 Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../virtual-machines/windows/premium-storage.md)로 이동합니다.
 
 StorSimple Cloud Appliance에 대한 자세한 내용은 [Azure에서 StorSimple Cloud Appliance 배포 및 관리](storsimple-8000-cloud-appliance-u2.md)로 이동합니다.
 
@@ -210,7 +210,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 | 공동 작업 |분산 파일 공유 |예 | |모든 버전 |
 | 공동 작업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 보관 |단순 파일 보관 |예 | |모든 버전 |
-| 가상화 |가상 컴퓨터 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
+| 가상화 |가상 머신 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 데이터베이스 |SQL |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 비디오 감시 |비디오 감시 |예* |StorSimple 장치가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 2 이상 |
 | Backup |기본 대상 백업 |예* |StorSimple 장치가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 3 이상 |

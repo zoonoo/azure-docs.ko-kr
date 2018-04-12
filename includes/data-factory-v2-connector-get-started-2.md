@@ -3,7 +3,7 @@
 -->
 다음 도구/SDK 중 하나를 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업으로 파이프라인을 만들려면 링크를 클릭하여 단계별 지침이 포함된 자습서로 이동합니다. 
 
-- [Azure 포털](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)

@@ -1,18 +1,18 @@
 ---
-title: "Azure Blob Storage 이벤트에 대응 | Microsoft Docs"
-description: "Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다."
+title: Azure Blob Storage 이벤트에 대응 | Microsoft Docs
+description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob 저장소 이벤트에 응답
 
@@ -39,7 +39,7 @@ Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscription
 Blob Storage 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다.  Blob Storage 이벤트는 eventType 속성이 "Microsoft.Storage"로 시작하는 것으로 식별할 수 있습니다.  
 Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../../event-grid/event-schema.md)에 설명되어 있습니다.  
 
-> |자산|형식|설명|
+> |자산|유형|설명|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |토픽|string|이벤트를 내보내는 저장소 계정의 전체 Azure Resource Manager ID입니다.|
 > |subject|string|이벤트 주체인 개체에 대한 상대 리소스 경로로, Azure RBAC용 저장소 계정, 서비스 및 컨테이너를 설명하는 데 사용하는 것과 동일한 확장 Azure Resource Manager 형식을 사용합니다.  이 형식은 대소문자가 구분되는 Blob 이름을 포함합니다.|

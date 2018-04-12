@@ -4,7 +4,7 @@ description: Azure Cosmos DB에서 수동 및 자동 장애 조치(failover)가 
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4a221a0d4f9ef6b6b32ed9b684939b9f277e2084
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>비즈니스 연속성을 위한 Azure Cosmos DB의 자동 지역별 장애 조치(failover)
 Azure Cosmos DB는 일관성, 가용성, 성능을 적절히 보증하면서 서로 간에 명확히 절충하는 완전 관리형 [다중 지역 데이터베이스 계정](distribute-data-globally.md)을 제공하여 글로벌 데이터 배포를 단순화합니다. Cosmos DB 계정은 고가용성, 짧은 대기 시간(한 자릿수 ms), [잘 정의된 일관성 수준](consistency-levels.md), multi-homing API를 사용한 투명한 지역별 장애 조치(failover) 및 전 세계적으로 처리량과 저장소를 탄력적으로 확장할 수 있는 기능을 제공합니다. 
@@ -86,7 +86,7 @@ DocumentClient usClient = new DocumentClient(
 
 **쓰기 지역에 가동 중단이 발생하면 어떻게 됩니까?**
 
-영향을 받은 지역이 현재 쓰기 지역이고 Azure Cosmos DB 계정에 대해 자동 장애 조치(Failover)가 사용되도록 설정되면 해당 지역은 자동으로 오프라인으로 표시됩니다. 그런 다음 대체 지역이 영향을 받은 Azure Cosmos DB 계정의 쓰기 지역으로 승격됩니다. Azure Portal을 통해 또는 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)으로 Azure Cosmos DB 계정에 대해 자동 장애 조치(Failover)를 사용하도록 설정하고 지역 선택 순서를 완전히 제어할 수 있습니다. 
+영향을 받은 지역이 현재 쓰기 지역이고 Azure Cosmos DB 계정에 대해 자동 장애 조치(Failover)가 사용되도록 설정되면 해당 지역은 자동으로 오프라인으로 표시됩니다. 그런 다음 대체 지역이 영향을 받은 Azure Cosmos DB 계정의 쓰기 지역으로 승격됩니다. Azure Portal을 통해 또는 [프로그래밍 방식](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)으로 Azure Cosmos DB 계정에 대해 자동 장애 조치(Failover)를 사용하도록 설정하고 지역 선택 순서를 완전히 제어할 수 있습니다. 
 
 ![Azure Cosmos DB의 장애 조치(failover) 우선 순위](./media/regional-failover/failover-priorities.png)
 
@@ -98,7 +98,7 @@ DocumentClient usClient = new DocumentClient(
 
 * 작동 중단 동안 읽기 지역에 복제되지 않은 이전 쓰기 지역의 데이터는 충돌 피드로 게시됩니다. 응용 프로그램은 충돌 피드를 읽고, 응용 프로그램별 논리에 따라 충돌을 해결하고, 업데이트된 데이터를 Azure Cosmos DB 계정에 적절히 다시 쓸 수 있습니다. 
 * 이전 쓰기 지역이 읽기 지역으로 다시 만들어진 후 자동으로 다시 온라인 상태로 전환됩니다. 
-* Azure Portal을 통해 또는 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 수동 장애 조치(Failover)를 수행하여 자동으로 온라인으로 다시 전환된 읽기 지역을 쓰기 지역으로 다시 구성할 수 있습니다.
+* Azure Portal을 통해 또는 [프로그래밍 방식](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 수동 장애 조치(Failover)를 수행하여 자동으로 온라인으로 다시 전환된 읽기 지역을 쓰기 지역으로 다시 구성할 수 있습니다.
 
 다음 코드 조각에서는 영향을 받는 지역이 가동 중단에서 복구된 후 충돌을 처리하는 방법을 보여 줍니다.
 
@@ -123,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>수동 장애 조치
 
-자동 장애(failover) 조치 외에도 지정된 Cosmos DB 계정의 현재 쓰기 지역을 기존 읽기 지역 중 하나로 직접 동적으로 변경할 수 있습니다. 수동 장애 조치는 Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 시작할 수 있습니다. 
+자동 장애(failover) 조치 외에도 지정된 Cosmos DB 계정의 현재 쓰기 지역을 기존 읽기 지역 중 하나로 직접 동적으로 변경할 수 있습니다. 수동 장애 조치는 Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 시작할 수 있습니다. 
 
 수동 장애 조치(failover)는 **데이터 무손실** 및 **가용성 무손실**을 보장하고 이전 쓰기 지역의 쓰기 상태를 지정된 Cosmos DB 계정의 새 쓰기 지역으로 정상적으로 전송합니다. 자동 장애 조치(failover)와 마찬가지로 Cosmos DB SDK는 수동 장애 조치 중에 쓰기 지역 변경을 자동으로 처리하고 호출이 자동으로 새 쓰기 지역으로 리디렉션되도록 합니다. 장애 조치를 관리하기 위해 응용 프로그램 코드 또는 구성을 변경할 필요가 없습니다. 
 

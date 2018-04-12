@@ -1,12 +1,12 @@
 ---
-title: "Backup Exec에서 백업 대상으로 StorSimple 8000 시리즈 구성 | Microsoft Docs"
-description: "Veritas Backup Exec을 사용한 StorSimple 백업 대상 구성에 대해 설명합니다."
+title: Backup Exec에서 백업 대상으로 StorSimple 8000 시리즈 구성 | Microsoft Docs
+description: Veritas Backup Exec을 사용한 StorSimple 백업 대상 구성에 대해 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec에서 백업 대상으로 StorSimple 구성
 
@@ -97,9 +97,9 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 **기본 및 보조 백업의 StorSimple 용량**
 
-| 백업 시나리오  | 로컬 저장소 용량  | 클라우드 저장소 용량  |
+| Backup 시나리오  | 로컬 저장소 용량  | 클라우드 저장소 용량  |
 |---|---|---|
-| 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 저장소에 최근 백업 저장 | 클라우드 용량에 적합한 백업 기록(RPO) |
+| 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 저장소에 최근 백업 저장 | 클라우드 용량에 적합한 Backup 기록(RPO) |
 | 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | 해당 없음  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
@@ -210,7 +210,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 -   StorSimple 볼륨에 Windows Server 인덱싱을 사용하지 않도록 설정합니다.
 -   StorSimple 볼륨에서가 아니라 원본 호스트에서 바이러스 백신 검사를 실행합니다.
 -   [작업 관리자]에서 기본 [Windows Server 유지 관리](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)를 해제합니다. 다음 방법 중 하나로 이 작업을 수행합니다.
-   - [Windows 작업 스케줄러]에서 [유지 관리 구성 도구]를 해제합니다.
+   - [Windows 작업 Scheduler]에서 [유지 관리 구성 도구]를 해제합니다.
    - Windows Sysinternals에서 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)을 다운로드합니다. PsExec을 다운로드한 후 관리자 권한으로 Azure PowerShell을 실행하고 다음을 입력합니다.
       ```powershell
       psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
@@ -229,7 +229,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
     -   Backup Exec 저장소 **블록 및 버퍼 크기**는 512KB로 설정합니다.
     -   Backup Exec 저장소 **버퍼링된 읽기 및 쓰기**로 설정합니다.
 -   StorSimple은 Backup Exec 전체 백업과 증분 백업을 지원합니다. 가상 백업과 차등 백업은 사용하지 않는 것이 좋습니다.
--   백업 데이터 파일에는 특정 작업에 대한 데이터만 포함되어야 합니다. 예를 들어 다른 작업에 미디어 추가가 허용되지 않습니다.
+-   Backup 데이터 파일에는 특정 작업에 대한 데이터만 포함되어야 합니다. 예를 들어 다른 작업에 미디어 추가가 허용되지 않습니다.
 -   작업 검증을 사용하지 않도록 설정합니다. 필요한 경우 최신 백업 작업 후에 검증을 예약해야 합니다. 이 작업이 백업 창에 주는 영향을 이해하는 것이 중요합니다.
 -   **저장소** > **사용자 디스크** > **세부 정보** > **속성**을 차례로 선택합니다. **디스크 공간 미리 할당**을 해제합니다.
 
@@ -250,7 +250,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 앞서의 가정에 따라 매월 및 매년 전체 백업에 대해 26TiB의 계층화된 StorSimple 볼륨을 만듭니다. 매일 증분 백업 각각에 대해 5TiB의 계층화된 StorSimple 볼륨을 만듭니다.
 
-| 백업 유형 보존 | 크기(TiB) | GFS 승수\* | 총 용량(TiB)  |
+| Backup 유형 보존 | 크기(TiB) | GFS 승수\* | 총 용량(TiB)  |
 |---|---|---|---|
 | 매주 전체 | 1 | 4  | 4 |
 | 매일 증분 | 0.5 | 20(주기는 월별 주 수와 동일함) | 12(추가 할당량의 경우 2) |
@@ -324,13 +324,13 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
     ![Backup Exec 관리 콘솔 - 호스트, 백업 및 디스크에 백업 선택](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
-2.  **백업 정의 속성** 대화 상자의 **백업**에서 **편집**을 선택합니다.
+2.  **Backup 정의 속성** 대화 상자의 **Backup**에서 **편집**을 선택합니다.
 
     ![Backup Exec 관리 콘솔 - 백업 정의 속성 대화 상자](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
 
 3.  RPO 및 RTO 요구 사항을 충족하고 Veritas 모범 사례를 준수하도록 전체 백업 및 증분 백업을 설정합니다.
 
-4.  **백업 옵션** 대화 상자에서 **저장소**를 선택합니다.
+4.  **Backup 옵션** 대화 상자에서 **Storage**를 선택합니다.
 
     ![Backup Exec 관리 콘솔 - 백업 옵션 저장소 대화 상자](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
 
@@ -363,9 +363,9 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 다음 표에서는 로컬 디스크 및 StorSimple 디스크에서 백업을 실행하도록 설정하는 방법을 보여 줍니다. 여기에는 개별 용량 및 전체 용량에 대한 요구 사항이 있습니다.
 
-### <a name="backup-configuration-and-capacity-requirements"></a>백업 구성 및 용량 요구 사항
+### <a name="backup-configuration-and-capacity-requirements"></a>Backup 구성 및 용량 요구 사항
 
-| 백업 유형 및 보존 | 구성된 저장소 | 크기(TiB) | GFS 승수 | 총 용량\*(TiB) |
+| Backup 유형 및 보존 | 구성된 저장소 | 크기(TiB) | GFS 승수 | 총 용량\*(TiB) |
 |---|---|---|---|---|
 | 1주차(전체 및 증분) |로컬 디스크(단기)| 1 | 1 | 1 |
 | StorSimple 2-4주 |StorSimple 디스크(장기) | 1 | 4 | 4 |
@@ -415,7 +415,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
     ![Backup Exec 관리 콘솔 - 백업 정의 속성 및 복제 옵션](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-7.  **백업** 열에서 새 단계를 추가합니다. 원본에 대해 **증분**을 사용합니다. 대상에 대해 증분 백업 작업이 보관되는 StorSimple 볼륨을 선택합니다. 1-6단계를 반복합니다.
+7.  **Backup** 열에서 새 단계를 추가합니다. 원본에 대해 **증분**을 사용합니다. 대상에 대해 증분 백업 작업이 보관되는 StorSimple 볼륨을 선택합니다. 1-6단계를 반복합니다.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple 클라우드 스냅숏
 
@@ -431,9 +431,9 @@ StorSimple 클라우드 스냅숏은 StorSimple 장치에 있는 데이터를 �
 > [!NOTE]
 > StorSimple 스냅숏을 삭제하기 전에 규정 준수 및 데이터 보존 영향을 신중하게 평가합니다. 사후 백업 스크립트를 실행하는 방법에 대한 자세한 내용은 [Backup Exec 설명서](https://www.veritas.com/support/en_US/15047.html)(영문)를 참조하세요.
 
-### <a name="backup-lifecycle"></a>백업 주기
+### <a name="backup-lifecycle"></a>Backup 주기
 
-![백업 주기 다이어그램](./media/storsimple-configure-backup-target-using-backup-exec/backuplifecycle.png)
+![Backup 주기 다이어그램](./media/storsimple-configure-backup-target-using-backup-exec/backuplifecycle.png)
 
 ### <a name="requirements"></a>요구 사항
 
@@ -468,11 +468,11 @@ StorSimple 장치에서 복원하면 모든 블록 저장소 장치에서 복원
 
 재해는 다양한 요인으로 발생할 수 있습니다. 다음 표에서는 일반적인 재해 복구 시나리오를 나열합니다.
 
-| 시나리오 | 영향 | 복구 방법 | 참고 사항 |
+| 시나리오 | 영향 | 복구 방법 | 메모 |
 |---|---|---|---|
-| StorSimple 장치 오류 | 백업 및 복원 작업이 중단됩니다. | 실패한 장치를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱싱 및 카탈로그 작업 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
-| Backup Exec 서버 오류 | 백업 및 복원 작업이 중단됩니다. | [BEDB(백업 Exec 데이터베이스)의 수동 백업 및 복원을 수행하는 방법](http://www.veritas.com/docs/000041083)에 설명된 대로 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 Backup Exec 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 Backup Exec 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그 작업이 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
-| 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | 백업 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
+| StorSimple 장치 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 장치를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱싱 및 카탈로그 작업 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
+| Backup Exec 서버 오류 | Backup 및 복원 작업이 중단됩니다. | [BEDB(Backup Exec 데이터베이스)의 수동 백업 및 복원을 수행하는 방법](http://www.veritas.com/docs/000041083)에 설명된 대로 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 Backup Exec 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 Backup Exec 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그 작업이 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
+| 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
 ## <a name="references"></a>참조
 

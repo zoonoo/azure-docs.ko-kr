@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager에서 Windows VM에 대한 Key Vault 설정 | Microsoft Docs"
-description: "Azure Resource Manager에서 사용할 주요 자격 증명 모음을 설정하는 방법"
+title: Azure Resource Manager에서 Windows VM에 대한 Key Vault 설정 | Microsoft Docs
+description: Azure Resource Manager에서 사용할 주요 자격 증명 모음을 설정하는 방법
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
 ms.service: virtual-machines-windows
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8f094bfb0f304123cbdf719bec22185431aca5a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 컴퓨터에 대한 주요 자격 증명 모음 설정
+# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 머신에 대한 주요 자격 증명 모음 설정
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Azure Resource Manager 스택에서 비밀/인증서는 주요 자격 증명 모음 리소스 공급자가 제공하는 리소스로 모델링됩니다. 주요 자격 증명 모음에 대한 자세한 내용을 보려면 [Azure 주요 자격 증명 모음이란?](../../key-vault/key-vault-whatis.md)
+Azure Resource Manager 스택에서 비밀/인증서는 주요 자격 증명 모음 리소스 공급자가 제공하는 리소스로 모델링됩니다. Key Vault에 대한 자세한 내용을 보려면 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)
 
 > [!NOTE]
-> 1. 주요 자격 증명 모음을 Azure Resource Manager 가상 컴퓨터에서 사용하려면 주요 자격 증명에 대한 **EnabledForDeployment** 속성을 true로 설정해야 합니다. 다양한 클라이언트에서 이 작업을 수행할 수 있습니다.
-> 2. 주요 자격 증명 모음은 가상 컴퓨터와 동일한 구독 및 위치에 만들어야 합니다.
+> 1. 주요 자격 증명 모음을 Azure Resource Manager 가상 머신에서 사용하려면 주요 자격 증명에 대한 **EnabledForDeployment** 속성을 true로 설정해야 합니다. 다양한 클라이언트에서 이 작업을 수행할 수 있습니다.
+> 2. 주요 자격 증명 모음은 Virtual Machine과 동일한 구독 및 위치에 만들어야 합니다.
 >
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>PowerShell을 사용하여 주요 자격 증명 모음 설정
-PowerShell을 사용하여 주요 자격 증명 모음을 만들려면 [Azure 주요 자격 증명 모음 시작](../../key-vault/key-vault-get-started.md#vault)을 참조하세요.
+PowerShell을 사용하여 주요 자격 증명 모음을 만들려면 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md#vault)을 참조하세요.
 
 새 주요 자격 증명의 경우 다음 PowerShell cmdlet을 사용할 수 있습니다.
 

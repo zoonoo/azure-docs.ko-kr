@@ -1,6 +1,6 @@
 ---
-title: ".NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합 만들기 | Microsoft Docs"
-description: ".NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합을 만드는 방법입니다."
+title: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합 만들기 | Microsoft Docs
+description: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합을 만드는 방법입니다.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 

@@ -1,11 +1,11 @@
 ---
-title: "클래식 Linux VM에 대한 질문과 대답 | Microsoft Docs"
-description: "클래식 배포 모델을 사용하여 만든 Azure Linux 가상 머신에 대해 가장 일반적인 질문에 대한 대답입니다."
+title: 클래식 Linux VM에 대한 질문과 대답 | Microsoft Docs
+description: 클래식 배포 모델을 사용하여 만든 Azure Linux 가상 머신에 대해 가장 일반적인 질문에 대한 대답입니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: b3f281a1-4abe-4e41-82e8-b2b854dd8c7a
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
-ms.openlocfilehash: dfb1960d2d2e5b3716d4791b7e025f50205699d4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: f654a4cd680abdb23d01a63a0b8243158ac541f1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="frequently-asked-question-about-azure-linux-virtual-machines-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Linux Virtual Machines에 대한 질문과 대답
 > [!IMPORTANT] 

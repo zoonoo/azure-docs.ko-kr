@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.openlocfilehash: 57461cf94898012619b865c455955f511e978995
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ec49d7e82da58c90e66f65a1a1d303ca9b3824f7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
@@ -159,7 +159,6 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
     > [!TIP]
     모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우에 [데이터 집합에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
-
 
     ![모듈을 두 번 클릭하여 주석 추가][add-comment]
     <br/>

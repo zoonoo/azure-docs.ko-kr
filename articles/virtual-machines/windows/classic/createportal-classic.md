@@ -1,10 +1,10 @@
 ---
-title: "사용자 지정 Windows 가상 컴퓨터 만들기 | Microsoft Docs"
-description: "클래식 배포 모델을 사용하여 Azure Portal에서 사용자 지정 Windows 가상 머신을 만드는 방법을 알아봅니다."
+title: 사용자 지정 Windows 가상 컴퓨터 만들기 | Microsoft Docs
+description: 클래식 배포 모델을 사용하여 Azure Portal에서 사용자 지정 Windows 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/17
 ms.author: cynthn
-ms.openlocfilehash: 471ea60adf2107795749c084772fa92ec2df445b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0ed150b1cce967bc0be614a24cc1d363a0209373
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Windows를 실행하는 사용자 지정 가상 머신 만들기
 > [!IMPORTANT]

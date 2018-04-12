@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 지원 약관 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 엔터프라이즈 저장소 고객에 대한 지원 옵션을 설명합니다."
+title: StorSimple 지원 약관 | Microsoft Docs
+description: StorSimple 8000 시리즈 엔터프라이즈 저장소 고객에 대한 지원 옵션을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: GabiSocoteanu
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 6753b52b02373d03a9ed5fec775c899a806aff3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-solution-support"></a>StorSimple 솔루션 지원
 
@@ -77,13 +77,13 @@ Microsoft는 StorSimple 엔터프라이즈 저장소 고객에게 유연한 지�
 
 <sup>6</sup> 하드웨어 보증 청구를 신속하게 처리하기 위해 결함 있는 부품을 받기 전에 교체 부품이 고객에게 배송됩니다. 고객은 결함 있는 부품을 적시에 반품 배송할 책임이 있습니다. 
 
-지원 계약이 만료된 경우, 지원 계약이 만료된 기간에 따라 갱신 처리가 완료된 후 부품이 배달되기까지 최대 3주가 소요될 수 있습니다. 계약이 처리될 때까지 계약의 로컬 재고 위치에 교체용 부품이 보충되지 않기 때문입니다.
+지원 계약이 만료된 경우 (지원 계약의 만료 후 경과된 기간에 따라) 갱신 처리가 완료된 후 부품이 배달되기까지 최대 3주가 소요될 수 있습니다. 계약이 처리될 때까지 계약의 현지 재고 위치에 교체용 부품이 공급되지 않기 때문입니다.
 
 ## <a name="local-language-support"></a>현지 언어 지원
 영어 외에도 업무 시간 중 일본어, 한국어, 대만어 및 중국어 번체로 현지 언어 지원이 제공됩니다.
 
 ## <a name="support-scope"></a>지원 범위 
-청구 및 구독 관리 관련 문제에 대한 지원은 모든 지원 수준에서 제공됩니다. StorSimple 지원을 받으려면 고객이 StorSimple 표준 또는 프리미엄 지원 계획에 등록해야 합니다. StorSimple 지원 팀은 StorSimple 솔루션에 영향을 주는 모든 문제를 해결할 책임이 있습니다. StorSimple과 직접적으로 관련되지 않은 Azure 관련 문제에 대한 지원을 받으려면 고객이 적절한 Azure 지원 계획에 등록해야 합니다. 자세한 내용은 [여기](https://azure.microsoft.com/en-us/support/plans/)를 참조하세요. 지원 팀은 Azure 지원에 대한 고객 자격에 따라 후속 조치를 위해 비 StorSimple 지원 사례를 Azure 팀에 안내합니다. 
+청구 및 구독 관리 관련 문제에 대한 지원은 모든 지원 수준에서 제공됩니다. StorSimple 지원을 받으려면 고객이 StorSimple 표준 또는 프리미엄 지원 계획에 등록해야 합니다. StorSimple 지원 팀은 StorSimple 솔루션에 영향을 주는 모든 문제를 해결할 책임이 있습니다. StorSimple과 직접적으로 관련되지 않은 Azure 관련 문제에 대한 지원을 받으려면 고객은 적절한 Azure 지원 계획에 등록해야 합니다. 자세한 내용은 [여기](https://azure.microsoft.com/en-us/support/plans/)를 참조하세요. 지원 팀은 고객의 Azure 지원에 대한 자격에 따라 StorSimple 이외의 지원 사례는 Azure 팀에 안내하여 후속 조치합니다. 
 
 
 | **심각도** |**고객의 상황**                                                                                                                                | 예상되는 Microsoft 응답 <sup>2                                                                                       | 예상되는 고객 응답                                                                                                                                                       |
@@ -102,7 +102,7 @@ StorSimple 지원을 받으려면 고객이 구독 기간에 대한 표준 또�
 ## <a name="renewal-policy"></a>갱신 정책
 
 
-StorSimple 8000 시리즈 저장소 배열을 구입하면 다음 EA 연주기일까지 지원이 제공됩니다. 고객은 EA 연주기일에 StorSimple 지원을 갱신해야 합니다. StorSimple 지원 계획 주문은 동시에 종료됩니다. 고객은 메일을 통해 StorSimple 8000 시리즈 저장소 배열의 임박한 지원 만료에 대한 알림을 받으며, Microsoft 계정/영업 팀 또는 Microsoft LSP(라이선스 솔루션 파트너)를 통해 StorSimple 지원을 갱신해야 합니다.
+StorSimple 8000 시리즈 저장소 배열을 구입하면 다음 EA 연주기일까지 지원이 제공됩니다. 고객은 EA 연주기일에 StorSimple 지원을 갱신해야 합니다. StorSimple 지원 계획 주문은 동시에 종료됩니다. 고객은 메일을 통해 만료가 임박한 StorSimple 8000 시리즈 저장소 배열의 지원에 대한 알림을 받으며, Microsoft 계정/영업 팀 또는 Microsoft LSP(라이선스 솔루션 파트너)를 통해 StorSimple 지원을 갱신해야 합니다.
 
 
 표준 Azure 지원은 StorSimple 하드웨어 지원을 포함하지 않습니다. 프리미어 또는 통합 Microsoft 지원이 적용되는 경우에도 표준 StorSimple 지원 갱신을 구입해야 합니다. 라이선스 수량이 어플라이언스 수와 같고, 모든 단위의 지원 계약 만료 날짜가 같은 경우 주문 단위 수량이 EA 연주기일까지 필요한 남은 지원 기간(월)인 필수 지원 SKU를 획득하면 EA 연주기일에 StorSimple 지원 갱신을 맞출 수 있습니다. 단위의 지원 계약 만료 날짜가 서로 다른 경우에는, 주문 단위 수량이 각 어플라이언스별 EA 연주기일까지 필요한 남은 지원 기간(월)인 지원 SKU로 각 어플라이언스를 처리해야 합니다. 

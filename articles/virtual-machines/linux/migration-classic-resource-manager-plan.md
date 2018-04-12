@@ -1,11 +1,11 @@
 ---
-title: "클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획 | Microsoft Docs"
-description: "클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획"
+title: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획 | Microsoft Docs
+description: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다. 
@@ -39,7 +39,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 1. 조직에 Azure Resource Manager가 필요한 이유는 무엇인가요?  업무적 측면에서 마이그레이션을 수행하는 이유는 무엇인가요?
 2. Azure Resource Manager에 대한 기술적인 이유는 무엇인가요?  추가로 활용하려는 Azure 서비스는 무엇인가요(있는 경우)?
-3. 마이그레이션에 포함되는 응용 프로그램(또는 가상 컴퓨터 집합)은 무엇인가요?
+3. 마이그레이션에 포함되는 응용 프로그램(또는 가상 머신 집합)은 무엇인가요?
 4. 마이그레이션 API로 지원되는 시나리오는 무엇인가요?  [지원되지 않는 기능 및 구성](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)을 검토하세요.
 5. 운영 팀이 이제 클래식 및 Azure Resource Manager에서 응용 프로그램/VM을 지원하나요?
 6. Azure Resource Manager에서는 VM 배포, 관리, 모니터링 및 보고 프로세스를 어떻게 변경하나요(변경할 수 있는 경우)?  배포 스크립트를 업데이트해야 하나요?
@@ -93,7 +93,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 - **ExpressRoute 회로 및 VPN**. 현재 권한 부여 링크가 있는 ExpressRoute 게이트웨이는 가동 중지 시간을 통해 마이그레이션할 수 있습니다. 해결 방법은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 및 연결된 가상 네트워크 마이그레이션](../../expressroute/expressroute-migration-classic-resource-manager.md)을 참조하세요.
 
-- **VM 확장** - 가상 컴퓨터 확장은 실행 중인 VM을 마이그레이션하는 데 있어 잠재적으로 가장 큰 장애물 중 하나입니다. VM 확장을 재구성하는 데 1-2일이 걸릴 수 있으므로 이에 따라 적절히 계획해야 합니다.  실행 중인 VM의 VM 확장 상태를 다시 보고하려면 작업 Azure 에이전트가 필요합니다. 실행 중인 VM의 상태가 나쁘다고 반환되면 마이그레이션이 중지됩니다. 에이전트 자체는 마이그레이션에 사용할 수 있도록 제대로 작동하지 않아도 되지만, VM에 확장이 있으면 마이그레이션을 진행하는 데 있어 작업 에이전트와 아웃바운드 인터넷 연결(DNS 사용)이 모두 필요합니다.
+- **VM 확장** - Virtual Machine 확장은 실행 중인 VM을 마이그레이션하는 데 있어 잠재적으로 가장 큰 장애물 중 하나입니다. VM 확장을 재구성하는 데 1-2일이 걸릴 수 있으므로 이에 따라 적절히 계획해야 합니다.  실행 중인 VM의 VM 확장 상태를 다시 보고하려면 작업 Azure 에이전트가 필요합니다. 실행 중인 VM의 상태가 나쁘다고 반환되면 마이그레이션이 중지됩니다. 에이전트 자체는 마이그레이션에 사용할 수 있도록 제대로 작동하지 않아도 되지만, VM에 확장이 있으면 마이그레이션을 진행하는 데 있어 작업 에이전트와 아웃바운드 인터넷 연결(DNS 사용)이 모두 필요합니다.
   - 마이그레이션 중에 DNS 서버에 대한 연결이 끊어지면, 마이그레이션을 준비하기 전에 먼저 모든 VM에서 BGInfo v1.\*을 제외한 모든 VM 확장을 제거한 다음, Azure Resource Manager 마이그레이션 후에 해당 확장을 VM에 다시 추가해야 합니다.  **이 작업은 실행 중인 VM에만 해당됩니다.**  VM의 할당 취소가 중지되면 VM 확장을 제거할 필요가 없습니다. **참고:** 다양한 확장 프로그램(예: Azure 진단 및 보안 센터 모니터링)은 마이그레이션 후에 다시 설치되므로 제거하더라도 문제가 되지 않습니다.
   - 또한 네트워크 보안 그룹이 아웃바운드 인터넷 액세스를 제한하지 않는지 확인합니다. 이는 일부 네트워크 보안 그룹 구성에서 발생할 수 있습니다. VM 확장을 Azure Resource Manager로 마이그레이션하려면 아웃바운드 인터넷 액세스(및 DNS)가 필요합니다. 
   - BGInfo 확장에는 두 가지 버전, 즉 v1과 v2가 있습니다.  Azure Portal이나 PowerShell을 사용하여 VM을 만들었으면 VM에 v1 확장이 있을 것입니다. 이 확장은 제거할 필요가 없으며, 마이그레이션 API에서 건너뜁니다(마이그레이션되지 않음). 그러나 새 Azure Portal을 사용하여 클래식 VM을 만든 경우 에이전트가 작동하고 아웃바운드 인터넷 액세스(및 DNS)가 있으면 Azure Resource Manager로 마이그레이션할 수 있는 JSON 기반 BGInfo v2 버전이 있을 것입니다. 
@@ -145,7 +145,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 - **프로비전 시간 초과 VM 상태** - VM이 **프로비전 시간 초과** 상태에 있으면 마이그레이션하기 전에 이 문제를 해결해야 합니다. 해결하는 유일한 방법은 VM을 프로비전 해제/다시 프로비전하여(삭제, 디스크 유지 및 VM 다시 만들기) 가동 중지 시간과 함께 하는 것입니다. 
 
-- **RoleStateUnknown VM 상태** - **작업 상태 알 수 없음** 오류 메시지로 인해 마이그레이션이 중지되면 포털을 사용하여 VM을 검사하고 실행 중인지 확인합니다. 이 오류는 일반적으로 몇 분 후에 자체적으로 해결되며(재구성 필요 없음), 종종 가상 컴퓨터 **시작**, **중지**, **다시 시작** 작업 중에 자주 나타나는 일시적인 유형입니다. **권장 사항:** 몇 분 후에 마이그레이션을 다시 시도합니다. 
+- **RoleStateUnknown VM 상태** - **작업 상태 알 수 없음** 오류 메시지로 인해 마이그레이션이 중지되면 포털을 사용하여 VM을 검사하고 실행 중인지 확인합니다. 이 오류는 일반적으로 몇 분 후에 자체적으로 해결되며(재구성 필요 없음), 종종 Virtual Machine **시작**, **중지**, **다시 시작** 작업 중에 자주 나타나는 일시적인 유형입니다. **권장 사항:** 몇 분 후에 마이그레이션을 다시 시도합니다. 
 
 - **패브릭 클러스터가 존재하지 않음** - 경우에 따라 뜻밖의 다양한 이유로 특정 VM을 마이그레이션할 수 없습니다. 이러한 알려진 사례 중 하나는 VM이 최근에(지난 1주일 이내) 만들어져 Azure Resource Manager 워크로드에 아직 준비되지 않은 Azure 클러스터를 배치한 경우입니다.  **패브릭 클러스터가 존재하지 않음**이라는 오류 메시지가 표시되고 VM을 마이그레이션할 수 없습니다. 머지 않아 클러스터에서 Azure Resource Manager를 사용할 수 있게 되므로 대개 며칠 정도 기다리면 이 특정 문제가 해결됩니다. 그러나 즉각적인 해결 방법 중 하나는 VM을 `stop-deallocate`한 다음, 마이그레이션을 계속 진행하고, 마이그레이션 후에 Azure Resource Manager에서 VM 백업을 시작하는 것입니다.
 

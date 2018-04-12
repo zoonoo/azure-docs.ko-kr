@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 HPC 팩 클러스터에 작업 제출 | Microsoft Docs"
-description: "Azure에서 HPC 팩 클러스터로 작업을 제출하기 위해 온-프레미스 컴퓨터를 설정하는 방법"
+title: Azure에서 HPC 팩 클러스터에 작업 제출 | Microsoft Docs
+description: Azure에서 HPC 팩 클러스터로 작업을 제출하기 위해 온-프레미스 컴퓨터를 설정하는 방법
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 78f6833c-4aa6-4b3e-be71-97201abb4721
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>온-프레미스 컴퓨터에서 Azure에 배포된 HPC 팩 클러스터로 HPC 작업 제출
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -138,9 +138,9 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
    
     a. 클라이언트 컴퓨터의 제어판에서 자격 증명 관리자를 시작합니다.
    
-    b. **Windows 자격 증명** > **일반 자격 증명 추가**를 클릭합니다.
+    나. **Windows 자격 증명** > **일반 자격 증명 추가**를 클릭합니다.
    
-    c. 구성한 클러스터 관리자 또는 다른 클러스터 사용자의 인터넷 주소(예: https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler 또는 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler)와 사용자 이름(&lt;도메인 이름&gt;\\&lt;사용자 이름&gt;) 및 암호를 지정합니다.
+    다. 구성한 클러스터 관리자 또는 다른 클러스터 사용자의 인터넷 주소(예: https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler 또는 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler)와 사용자 이름(&lt;도메인 이름&gt;\\&lt;사용자 이름&gt;) 및 암호를 지정합니다.
 2. 클라이언트 컴퓨터에서 HPC 작업 관리자를 시작합니다.
 3. **헤드 노드 선택** 대화 상자에서 Azure 헤드 노드의 URL을 입력합니다(예: https://&lt;HeadNodeDnsName&gt;.cloudapp.net 또는 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
    

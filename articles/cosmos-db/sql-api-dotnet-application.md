@@ -4,9 +4,8 @@ description: Azure Cosmos DB를 사용하여 MVC 웹 응용 프로그램을 만�
 keywords: ASP.NET MVC 자습서, 웹 응용 프로그램 개발, MVC 웹 응용 프로그램, ASP NET MVC 단계별 자습서
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: e4f9360bfde5f3212f0bbf184c52f59b2dd43d0b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1193ef84f8edf701f98e50d92a67426e36c40218
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발
 > [!div class="op_single_selector"]
@@ -45,7 +44,7 @@ Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리
 ## <a name="_Toc395637760"></a>이 데이터베이스 자습서의 필수 조건
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-* 활성 Azure 계정.  Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+* 활성 Azure 계정.  Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

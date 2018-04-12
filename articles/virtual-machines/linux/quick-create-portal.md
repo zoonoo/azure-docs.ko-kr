@@ -4,7 +4,7 @@ description: Azure 빠른 시작 - VM 만들기 포털
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 12/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d4bd596257b7430a03ec81a0f378286fda8cbace
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6585f28e2b70aee6efbfa99bf2ec4320d6d15382
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Linux 가상 머신 만들기
 
 Azure Portal을 통해 Azure Virtual Machines를 만들 수 있습니다. 이 메서드는 가상 머신 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 가상 머신을 만들고 VM에 웹 서버를 설치하는 방법에 대해 단계별로 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 

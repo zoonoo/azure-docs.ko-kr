@@ -4,8 +4,7 @@ description: 전 세계적으로 배포된 다중 모델 데이터베이스 서�
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: ''
+manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
 Azure는 어디에나 존재합니다. 전 세계 30개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 전 세계에서 사용되기 때문에 Azure가 개발자에게 제공하는 차별화된 이점 중 하나는 전 세계에 분산된 응용 프로그램을 간편하게 빌드, 배포 및 관리할 수 있다는 점입니다. 
@@ -36,7 +35,7 @@ Azure Cosmos DB의 턴키 전역 분산을 사용하면 개발자는 데이터�
 이 문서에서는 Azure Cosmos DB의 전역 분산 기능의 개요를 설명합니다. 또한 포괄적인 SLA를 제공하기 위한 Azure Cosmos DB 고유의 접근 방식을 설명합니다. 
 
 ## <a id="EnableGlobalDistribution"></a>턴키 전역 분산 활성화
-Azure Cosmos DB는 세계 규모의 응용 프로그램을 손쉽게 작성할 수 있도록 다음과 같은 기능을 제공합니다. 이러한 기능은 Azure Cosmos DB의 리소스 공급자 기반 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)와 Azure Portal을 통해 제공됩니다.
+Azure Cosmos DB는 세계 규모의 응용 프로그램을 손쉽게 작성할 수 있도록 다음과 같은 기능을 제공합니다. 이러한 기능은 Azure Cosmos DB의 리소스 공급자 기반 [REST API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)와 Azure Portal을 통해 제공됩니다.
 
 Azure Cosmos DB 프로그램 관리자인 Andrew Liu는 다음 비디오에서 턴키 글로벌 배포 기능을 보여줍니다.
 

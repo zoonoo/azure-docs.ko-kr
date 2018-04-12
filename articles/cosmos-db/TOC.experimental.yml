@@ -6,8 +6,6 @@ items:
     items:
       - name: Azure Cosmos DB 정보
         href: introduction.md
-      - name: 설명서 실험
-        href: experiment.experimental.md
   - name: 빠른 시작
     expanded: true
     items:
@@ -80,7 +78,7 @@ items:
       - name: 처리량
         href: request-units.md
       - name: TCO
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: 서버를 사용하지 않는 데이터베이스
         href: serverless-computing-database.md
       - name: 보안
@@ -200,6 +198,8 @@ items:
                 items:
                   - name: 성능 테스트
                     href: performance-testing.md
+                  - name: 비동기 Java용 성능 팁
+                    href: performance-tips-async-java.md
                   - name: .NET용 성능 팁
                     href: performance-tips.md
                   - name: Java용 성능 팁
@@ -217,17 +217,17 @@ items:
                   - name: Logic Apps를 통한 응용 프로그램 로깅
                     href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
                   - name: Azure Functions에 바인딩
-                    href: ../azure-functions/functions-bindings-documentdb.md
+                    href: ../azure-functions/functions-bindings-cosmosdb.md
                   - name: Azure Search와의 통합
-                    href: ../search/search-howto-index-documentdb.md
+                    href: ../search/search-howto-index-cosmosdb.md
                   - name: Azure Data Factory를 사용하여 데이터 이동
                     href: ../data-factory/connector-azure-cosmos-db.md
                   - name: Azure Stream Analytics로 실시간 데이터 분석
-                    href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+                    href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
                   - name: Logic Apps를 사용하여 변경된 HL7 FHIR 레코드 가져오기
                     href: change-feed-hl7-fhir-logic-apps.md
                   - name: 실시간 프로세스 센서 데이터
-                    href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+                    href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
                   - name: Power BI를 사용하여 데이터 시각화
                     href: powerbi-visualize.md
                   - name: 데이터 시각화에 ODBC 드라이버 활용
@@ -263,7 +263,7 @@ items:
               - name: 스키마와 관계 없는 인덱싱 문서
                 href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: SQL 실습
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
       - name: MongoDB API 문서
         items:
           - name: 개요

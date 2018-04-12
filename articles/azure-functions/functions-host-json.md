@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 03/23/2018
 
 |자산  |기본값 | 설명 |
 |---------|---------|---------| 
-|isEnabled|false|샘플링을 사용 여부를 설정합니다.| 
+|isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
 |maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
 
 ## <a name="eventhub"></a>eventHub

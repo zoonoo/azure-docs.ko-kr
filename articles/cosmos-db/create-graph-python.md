@@ -1,25 +1,24 @@
 ---
-title: "빠른 시작: Graph API와 Python - Azure Cosmos DB | Microsoft Docs"
-description: "이 빠른 시작은 Azure Portal 및 Python과 함께 Azure Cosmos DB Graph API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다."
+title: '빠른 시작: Graph API와 Python - Azure Cosmos DB | Microsoft Docs'
+description: 이 빠른 시작은 Azure Portal 및 Python과 함께 Azure Cosmos DB Graph API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다.
 services: cosmos-db
 documentationcenter: python
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: bb39cc25cc1c431c7ab98bfc3ed816934cb03e45
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: aa1d70d33e1f9cefee4d06ea182ffb3fc960e07a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Python 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 

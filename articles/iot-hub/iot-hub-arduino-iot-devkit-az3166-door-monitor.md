@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: e0882a6c87454498d0d1370ee244bfffc137aafb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="door-monitor"></a>문 모니터링          
 
@@ -44,7 +44,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 
 활성 Azure 구독. 구독이 없으면 다음과 같은 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azureinfo.microsoft.com/us-freetrial.html)을 활성화합니다.
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/en-us/free/)을 활성화합니다.
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>Azure에서 SendGrid 서비스 배포

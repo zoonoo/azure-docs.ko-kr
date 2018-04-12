@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>로그 검색 포털을 사용하여 Azure Log Analytics에서 로그 검색 만들기
 

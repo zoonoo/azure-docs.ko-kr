@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 Linux VM에 정책을 사용하여 보안 적용 | Microsoft Docs"
-description: "Azure Resource Manager Linux 가상 컴퓨터에 정책을 적용하는 방법"
+title: Azure에서 Linux VM에 정책을 사용하여 보안 적용 | Microsoft Docs
+description: Azure Resource Manager Linux Virtual Machine에 정책을 적용하는 방법
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 06778ab4-f8ff-4eed-ae10-26a276fc3faa
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 72abb01a3ce7f4dea2ee97219e9a406c69cda7c5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 12066fe622ec3ed2eded74ecf7b791689ed873d5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Linux VM에 정책 적용
 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 Virtual Machines에 대해 원하는 동작을 정의하는 방법을 설명합니다.
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 정책에 대한 소개는 [Azure Policy란?](../../azure-policy/azure-policy-introduction.md)을 참조하세요.
 
 ## <a name="permitted-virtual-machines"></a>허용되는 Virtual Machines
-조직에 대한 가상 컴퓨터가 응용 프로그램과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Ubuntu 14.04.2-LTS Virtual Machines만 만들 수 있도록 허용합니다.
+조직에 대한 가상 머신이 응용 프로그램과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Ubuntu 14.04.2-LTS Virtual Machines만 만들 수 있도록 허용합니다.
 
 ```json
 {
@@ -178,9 +178,9 @@ ms.lasthandoff: 11/15/2017
 }
 ```
 
-## <a name="virtual-machine-extensions"></a>가상 컴퓨터 확장 
+## <a name="virtual-machine-extensions"></a>Virtual Machine 확장 
 
-특정 유형의 확장을 사용하지 못하게 하고자 할 수 있습니다. 예를 들어 한 확장이 특정 사용자 지정 가상 컴퓨터 이미지와 호환되지 않을 수 있습니다. 다음 예제에서는 특정 확장을 차단하는 방법을 보여 줍니다. 게시자 및 유형을 사용하여 차단할 확장을 판단합니다.
+특정 유형의 확장을 사용하지 못하게 하고자 할 수 있습니다. 예를 들어 한 확장이 특정 사용자 지정 가상 머신 이미지와 호환되지 않을 수 있습니다. 다음 예제에서는 특정 확장을 차단하는 방법을 보여 줍니다. 게시자 및 유형을 사용하여 차단할 확장을 판단합니다.
 
 ```json
 {

@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Hub 장치 쌍 속성(Python) 사용 | Microsoft Docs"
-description: "Azure IoT Hub 장치 쌍을 사용하여 장치를 구성하는 방법입니다. Python용 Azure IoT SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 장치 쌍으로 장치 구성을 수정하는 서비스 앱을 구현합니다."
+title: Azure IoT Hub 장치 쌍 속성(Python) 사용 | Microsoft Docs
+description: Azure IoT Hub 장치 쌍을 사용하여 장치를 구성하는 방법입니다. Python용 Azure IoT SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 장치 쌍으로 장치 구성을 수정하는 서비스 앱을 구현합니다.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0bcec50-26e6-40f0-8096-733b2f3071ec
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2018
-ms.author: v-masebo
-ms.openlocfilehash: d0d5a30a76068eb3212124fd14e7ea1616b75708
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: e6f4aa61e37769dc4851f8284d07a7991ee38c91
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>desired 속성을 사용하여 장치 구성(Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]

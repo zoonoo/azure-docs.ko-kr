@@ -1,12 +1,12 @@
 ---
-title: "Chef를 사용하여 Azure 가상 컴퓨터 배포 | Microsoft Docs"
-description: "Chef를 사용하여 자동화된 가상 컴퓨터 배포 및 Microsoft Azure에서 구성하는 방법을 알아봅니다."
+title: Chef를 사용하여 Azure 가상 머신 배포 | Microsoft Docs
+description: Chef를 사용하여 자동화된 가상 머신 배포 및 Microsoft Azure에서 구성하는 방법에 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: diegoviso
-manager: timlt
+manager: jeconnoc
 tags: azure-service-management,azure-resource-manager
-editor: 
+editor: ''
 ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 9dabf666c633b59c7d1f9478b0e9cfe9d313e129
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36293c41219a1b42d75850fa66d3c631637bb855
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화
+# <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 머신 배포 자동화
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구입니다.
@@ -190,7 +190,7 @@ C:\chef\cookbooks\webserver\recipes\default.rb를 수정하고 다음 줄을 추
 
 ![][9]
 
-## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Knife Azure를 사용하여 가상 컴퓨터 배포
+## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Knife Azure를 사용하여 가상 머신 배포
 이제 Azure 가상 머신을 배포하고 IIS 웹 서비스 및 기본 웹 페이지를 설치할 “Webserver” Cookbook을 적용합니다.
 
 이 작업을 수행하려면 **knife azure server create** 명령을 사용합니다.
