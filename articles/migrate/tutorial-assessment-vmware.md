@@ -1,17 +1,17 @@
 ---
-title: "Azure Migrate를 사용하여 Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가 | Microsoft Docs"
-description: "Azure Migrate 서비스를 사용하여 Azure로의 마이그레이션에 대한 온-프레미스 VMware VM을 검색하고 평가하는 방법에 설명합니다."
+title: Azure Migrate를 사용하여 Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가 | Microsoft Docs
+description: Azure Migrate 서비스를 사용하여 Azure로의 마이그레이션에 대한 온-프레미스 VMware VM을 검색하고 평가하는 방법에 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d70b4ea2d45c38fa53ab3c00f76c00ef6f3d7663
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -84,7 +84,15 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 생성된 해시는 이러한 설정에 일치해야 합니다.
+    
+    OVA 버전 1.0.9.7의 경우
 
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+    
     OVA 버전 1.0.9.5의 경우
 
     **알고리즘** | **해시 값**
@@ -151,7 +159,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
 
     > [!NOTE]
-    > 프록시 주소는 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 입력되어야 합니다. HTTP 프록시만 지원됩니다.
+    > 프록시 주소는 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 입력해야 합니다. HTTP 프록시만 지원됩니다.
 
     - 수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
     - VMware PowerCLI를 다운로드하여 설치합니다.

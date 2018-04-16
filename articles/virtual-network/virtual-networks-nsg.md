@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
 
@@ -127,7 +127,7 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 | PowerShell     | [예](virtual-networks-create-nsg-classic-ps.md) | [예](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [예](virtual-networks-create-nsg-classic-cli.md) | [예](tutorial-filter-network-traffic-cli.md) |
 | Azure CLI **V2**   | 아니요 | [예](tutorial-filter-network-traffic-cli.md) |
-| Azure Resource Manager 템플릿   | 아니요  | [예](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager 템플릿   | 아니오  | [예](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>계획
 NSG를 구현하기 전에 아래 질문에 답변해야 합니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center 빠른 시작 - Security Center에 Windows 컴퓨터 온보딩 | Microsoft Docs"
-description: "이 빠른 시작은 Windows 컴퓨터에서 Microsoft Monitoring Agent를 프로비전하는 방법을 보여 줍니다."
+title: Azure Security Center 빠른 시작 - Security Center에 Windows 컴퓨터 온보딩 | Microsoft Docs
+description: 이 빠른 시작은 Windows 컴퓨터에서 Microsoft Monitoring Agent를 프로비전하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Windows 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Microsoft Monitoring Agent를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -62,7 +62,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 2. **Welcome** 페이지에서 **다음**을 선택합니다.
 3. **사용 조건** 페이지에서 라이선스를 읽고 **동의함**을 선택합니다.
 4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지하고 **다음**을 선택합니다.
-5. **에이전트 설치 옵션** 페이지에서 Azure Log Analytics(OMS)에 에이전트를 연결하도록 선택한 후 **다음**을 선택합니다.
+5. **에이전트 설치 옵션** 페이지에서 Azure Log Analytics에 에이전트를 연결하도록 선택한 후 **다음**을 선택합니다.
 6. **Azure Log Analytics** 페이지에서 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여 넣습니다.
 7. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 **Azure Cloud** 드롭다운 목록에서 **Azure 미국 정부**를 선택합니다.  컴퓨터가 프록시 서버를 통해 Log Analytics 서비스와 통신해야 하는 경우 **고급**을 선택하고 프록시 서버의 URL 및 포트 번호를 제공합니다.
 8. 필요한 구성 설정 제공을 완료한 후 **다음**을 선택합니다.

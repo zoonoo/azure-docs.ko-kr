@@ -1,36 +1,37 @@
 ---
-title: Azure Virtual Network 만들기 - 포털 | Microsoft Docs
-description: Azure Portal을 사용하여 가상 네트워크를 만드는 방법을 빠르게 알아봅니다. 가상 네트워크를 사용하면 가상 머신과 같은 Azure 리소스에서 서로 인터넷을 통해 개별적으로 통신할 수 있습니다.
+title: 가상 네트워크 만들기 - 빠른 시작 - Azure Portal | Microsoft Docs
+description: 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 가상 네트워크를 사용하면 가상 머신과 같은 Azure 리소스에서 서로 인터넷을 통해 개별적으로 통신할 수 있습니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: ''
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: c8f2cbe6b7377772e019a4ff90f91355ba0815ae
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: mvc
+ms.openlocfilehash: 7107dc72686004141d8bea0083089cba065a9f4c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-a-virtual-network-using-the-azure-portal"></a>Azure 포털을 사용하여 가상 네트워크 만들기
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기
 
-가상 네트워크를 사용하면 VM(가상 머신)과 같은 Azure 리소스에서 서로 인터넷을 통해 개별적으로 통신할 수 있습니다. 이 문서에서는 가상 네트워크를 만드는 방법을 설명합니다. 가상 네트워크를 만든 후에 두 개의 VM을 가상 네트워크에 배포합니다. 그런 다음, 인터넷에서 하나의 VM에 연결하고 두 VM 간에 개별적으로 통신합니다.
+가상 네트워크를 사용하면 VM(가상 머신)과 같은 Azure 리소스에서 서로 인터넷을 통해 개별적으로 통신할 수 있습니다. 이 빠른 시작에서는 가상 네트워크를 만드는 방법을 알아봅니다. 가상 네트워크를 만든 후에 두 개의 VM을 가상 네트워크에 배포합니다. 그런 다음, 인터넷에서 하나의 VM에 연결하고 두 VM 간에 개별적으로 통신합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -90,7 +91,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 4. **확인**을 선택합니다.
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
 
-## <a name="communicate-privately-between-vms"></a>VM 간 개별적 통신
+## <a name="communicate-between-vms"></a>VM 간 통신
 
 1. PowerShell에서 `ping myvm2`를 입력합니다. ping에서 ICMP(Internet Control Message Protocol)를 사용하고 ICMP는 기본적으로 Windows 방화벽을 통해 허용되지 않으므로 ping이 실패합니다.
 2. 나중의 단계에서 *myVm2*를 통해 *myVm1*을 ping할 수 있게 하려면, PowerShell에서 다음과 같이 Windows 방화벽을 통한 ICMP 인바운드를 허용하는 명령을 입력합니다.
@@ -117,9 +118,6 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 기본 가상 네트워크와 두 개의 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 VM 및 다른 VM 간에 개별적으로 통신했습니다. 가상 네트워크 설정에 대한 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
+이 빠른 시작에서는 기본 가상 네트워크와 두 개의 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 VM 및 다른 VM 간에 개별적으로 통신했습니다. 가상 네트워크 설정에 대한 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
 
-기본적으로 Azure는 가상 머신 간에 무제한 개별 통신을 허용하지만, 인터넷에서 Linux VM에 대한 인바운드 원격 데스크톱 연결만 허용합니다. VM 간에 다양한 유형의 네트워크 통신을 허용하거나 제한하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
-
-> [!div class="nextstepaction"]
-> [네트워크 트래픽 필터링](virtual-networks-create-nsg-arm-pportal.md)
+기본적으로 Azure는 가상 머신 간에 무제한 개별 통신을 허용하지만, 인터넷에서 Linux VM에 대한 인바운드 원격 데스크톱 연결만 허용합니다. VM 간에 다양한 유형의 네트워크 통신을 허용하거나 제한하는 방법을 알아보려면 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md) 자습서를 계속 진행하세요.

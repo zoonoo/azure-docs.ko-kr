@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 86fb0ae7c9ee5a2856c81603a4e08ae7016b022f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
 
@@ -45,6 +45,11 @@ ms.lasthandoff: 04/03/2018
 * [Python 설치](https://www.python.org/downloads/)
 * [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python) 다운로드 및 설치
 * (선택 사항) [Fiddler](https://www.telerik.com/download/fiddler) 다운로드 및 설치
+
+# <a name="java-tabjava"></a>[Java](#tab/java)
+
+* 명령줄에서 작동할 수 있게 [Maven](http://maven.apache.org/download.cgi) 설치 및 구성
+* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 설치 및 구성
 
 ---
 
@@ -95,6 +100,13 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 ```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+
+# <a name="java-tabjava"></a>[Java](#tab/java)
+[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 응용 프로그램이 포함되어 있습니다.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
 ---
 
 
@@ -135,15 +147,20 @@ Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다
  
 다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.  
 
+# <a name="java-tabjava"></a>[Java](#tab/java)
+다운로드한 응용 프로그램 폴더로 범위가 지정된 터미널 또는 명령 프롬프트를 열어 응용 프로그램을 실행할 수 있습니다. 여기에서 `mvn compile exec:java`를 입력하여 응용 프로그램을 실행합니다. 그런 다음, 응용 프로그램은 **HelloWorld.png** 이미지를 디렉터리에서 저장소 계정으로 업로드하고, 이미지가 보조 RA-GRS 끝점에 복제되었는지 확인합니다. 검사가 완료되면 다운로드하는 끝점을 다시 보고하는 동안 응용 프로그램은 이미지를 반복해서 다운로드하기 시작합니다.
+
+Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 각 다시 시도 사이에 대기할 시간(초)을 지정합니다. **BlobRequestOptions**의 **LocationMode** 속성은 **PRIMARY\_THEN\_SECONDARY**로 설정됩니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
+
 ---
 
-### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
+## <a name="understand-the-sample-code"></a>샘플 코드 이해
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
+### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -169,34 +186,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.  
-
-```python
-def retry_callback(retry_context):
-    global retry_count
-    retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
-    sys.stdout.flush()
-
-    # Check if we have more than n-retries in which case switch to secondary
-    if retry_count >= retry_threshold:
-
-        # Check to see if we can fail over to secondary.
-        if blob_client.location_mode != LocationMode.SECONDARY:
-            blob_client.location_mode = LocationMode.SECONDARY
-            retry_count = 0
-        else:
-            raise Exception("Both primary and secondary are unreachable. "
-                            "Check your application's network connection.")
-```
-
----
-
-
 ### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
- 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
 이미지 다운로드가 성공하면 `OperationContextRequestCompleted` 이벤트 처리기가 호출됩니다. 응용 프로그램에서 보조 끝점을 사용하고 있는 경우 응용 프로그램은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 응용 프로그램은 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)를 `PrimaryThenSecondary`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 응용 프로그램은 기본 끝점에서 읽기를 계속합니다.
  
@@ -219,6 +209,31 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
+### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
+
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
+
 이미지 다운로드가 성공하면 `response_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에서 보조 끝점을 사용하고 있는 경우 응용 프로그램은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 응용 프로그램은 [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python)를 `PRIMARY`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 응용 프로그램은 기본 끝점에서 읽기를 계속합니다.
 
 ```python
@@ -234,7 +249,20 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+# <a name="java-tabjava"></a>[Java](#tab/java)
+
+**BlobRequestOptions**의 **LocationMode** 속성이 **PRIMARY\_THEN\_SECONDARY**로 설정된 경우 Java를 사용하여 콜백 처리기를 정의할 필요가 없습니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
+
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
 ---
+
 
 ## <a name="next-steps"></a>다음 단계
 

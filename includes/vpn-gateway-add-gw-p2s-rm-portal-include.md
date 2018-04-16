@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8a5d05342a1db5f27d115364798885a278d09fc0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cd17826afece44eff9f4a4c403b077dc78fd1c9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. 포털의 왼쪽에서 **+ 리소스 만들기**를 클릭하고 검색에서 '가상 네트워크 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 페이지의 페이지 하단에서 **만들기**를 클릭하여 **가상 네트워크 게이트웨이 만들기** 페이지를 엽니다.
 2. **가상 네트워크 게이트웨이 만들기** 페이지에서 가상 네트워크 게이트웨이의 값을 채웁니다.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - 먼저 **게이트웨이 IP 구성 만들기**를 클릭하여 '공용 IP 주소 선택' 페이지를 열고 **+새로 만들기**를 클릭하여 '공용 IP 주소 만들기' 페이지를 엽니다.
     - 다음으로 공용 IP 주소의 **이름**을 입력합니다. 다른 것으로 변경할 구체적인 이유가 없으면 SKU를 **기본**으로 둔 후, 변경 내용을 저장하려면 이 페이지 아래쪽에 있는 **확인**을 클릭합니다.
 
-      ![공용 IP 만들기](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "PIP 만들기")
+      ![공용 IP 주소 요청](./media/vpn-gateway-add-gateway-portal-include/public-ip-address-name.png "공용 IP 주소 요청")
 
 4. 설정을 확인합니다. 게이트웨이를 대시보드에 표시하려면 페이지 아래쪽에서 **대시보드에 고정**을 선택할 수 있습니다. 
 5. **만들기**를 클릭하여 VPN Gateway를 만들기 시작합니다. 설정을 확인하면 대시보드에 "가상 네트워크 게이트웨이 배포" 타일이 표시됩니다. 하나의 게이트웨이를 만드는 데 최대 45분이 걸릴 수 있습니다. 완료 상태를 확인하기 위해 포털 페이지를 새로 고쳐야 할 수 있습니다.

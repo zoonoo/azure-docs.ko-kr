@@ -5,14 +5,14 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/23/2018
+ms.date: 04/05/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee94025a12a004fda806183c47d5a336b958478
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
@@ -118,25 +118,48 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
 ## <a name="send-an-event-to-your-topic"></a>토픽에 이벤트 보내기
 
-먼저, 토픽에 대한 URL 및 키를 가져오겠습니다. `<topic_name>`의 항목 이름을 사용합니다.
+Azure CLI 또는 PowerShell을 사용하여 사용자 지정 항목에 테스트 이벤트를 보냅니다.
+
+첫 번째 예제에서는 Azure CLI를 사용합니다. 항목에 대한 URL 및 키와 샘플 이벤트 데이터를 가져옵니다. `<topic_name>`의 항목 이름을 사용합니다. 전체 이벤트를 보려면 `echo "$body"`를 사용합니다. JSON의 `data` 요소는 이벤트의 페이로드입니다. 모든 잘 구성된(Well-Formed) JSON은 이 필드에 배치될 수 있습니다. 또한 고급 라우팅 및 필터링을 위해 제목 필드를 사용할 수 있습니다. CURL은 HTTP 요청을 보내는 유틸리티입니다.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
-```
 
-다음 예제에서는 샘플 이벤트 데이터를 가져옵니다.
-
-```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+
+curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-전체 이벤트를 보려면 `echo "$body"`를 사용합니다. JSON의 `data` 요소는 이벤트의 페이로드입니다. 모든 잘 구성된(Well-Formed) JSON은 이 필드에 배치될 수 있습니다. 또한 고급 라우팅 및 필터링을 위해 제목 필드를 사용할 수 있습니다.
+두 번째 예제에서는 PowerShell을 사용하여 비슷한 단계를 수행합니다.
 
-CURL은 HTTP 요청을 보내는 유틸리티입니다. 이 문서에서는 사용자 지정 항목에 이벤트를 보내는 데 CURL을 사용합니다. 
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 
-```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+$eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
+$eventDate = Get-Date -Format s
+
+#Construct body using Hashtable
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
 이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 이벤트 데이터를 보려면 로그를 검토합니다.

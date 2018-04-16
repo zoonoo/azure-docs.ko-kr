@@ -1,12 +1,12 @@
 ---
-title: "Linux의 App Service 소개 | Microsoft Docs"
-description: "Linux의 Azure App Service에 대해 알아봅니다."
+title: Linux의 App Service 소개 | Microsoft Docs
+description: Linux의 Azure App Service에 대해 알아봅니다.
 keywords: azure app service, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 465e3d2c0c2b7c5d811441ede20adb9da2dbe847
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: df97d2020309fa9af7f67170729ce9c2d723572d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -33,9 +33,23 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 | 언어 | 지원되는 버전 |
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Java * | 8.0 |
 | PHP | 5.6, 7.0 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
+
+* 미리 보기 기능 지원
+
+### <a name="preview-supported-java-runtimes"></a>미리 보기: 지원되는 Java 런타임
+
+Linux의 App Service에서 지원되는 Java 런타임은 다음과 같습니다.
+
+| 런타임 | 버전 |
+|---|---|
+| Apache Tomcat | 8.5 |
+| Apache Tomcat | 9.0 |
+
+자세한 내용은 [Linux의 App Service에서 Java 웹앱 만들기](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java)를 참조하세요.
 
 ## <a name="deployments"></a>배포
 

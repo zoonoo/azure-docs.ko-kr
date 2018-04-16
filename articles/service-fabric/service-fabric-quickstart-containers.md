@@ -12,28 +12,28 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47a4e75699e024dae367524f16eb23fb72043ef5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>빠른 시작: Azure에서 Service Fabric Windows 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 응용 프로그램에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server 2016 Nano 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
 
-![IIS 기본 웹 페이지][iis-default]
+![IIS default web page][iis-default]
 
-이 빠른 시작을 사용하여 다음을 수행하는 방법을 알아봅니다.
-> [!div class="checklist"]
-> * Docker 이미지 컨테이너 패키징
-> * 통신 구성
-> * Service Fabric 응용 프로그램 빌드 및 패키징
-> * Azure에 컨테이너 응용 프로그램 배포
+이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
+
+* Docker 이미지 컨테이너 패키징
+* 통신 구성
+* Service Fabric 응용 프로그램 빌드 및 패키징
+* Azure에 컨테이너 응용 프로그램 배포
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구속([체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있음)
@@ -210,16 +210,16 @@ Thumbprint                                Subject
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
-> [!div class="checklist"]
-> * Docker 이미지 컨테이너 패키징
-> * 통신 구성
-> * Service Fabric 응용 프로그램 빌드 및 패키징
-> * Azure에 컨테이너 응용 프로그램 배포
 
-* [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.
-* [컨테이너에서 .NET 응용 프로그램 배포](service-fabric-host-app-in-a-container.md) 자습서를 참조합니다.
-* Service Fabric [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.
-* GitHub에서 [Service Fabric 컨테이너 코드 샘플](https://github.com/Azure-Samples/service-fabric-containers)을 확인합니다.
+* Docker 이미지 컨테이너 패키징
+* 통신 구성
+* Service Fabric 응용 프로그램 빌드 및 패키징
+* Azure에 컨테이너 응용 프로그램 배포
+
+Service Fabric에서 Windows 컨테이너 작업에 대해 자세히 알아보려면 Windows 컨테이너 앱에 대한 자습서를 계속 진행합니다.
+
+> [!div class="nextstepaction"]
+> [Windows 컨테이너 앱 만들기](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

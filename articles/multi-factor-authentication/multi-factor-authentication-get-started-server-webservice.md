@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA 서버 모바일 앱 웹 서비스 | Microsoft Docs"
-description: "Microsoft Authenticator 앱은 추가적인 대역외 인증 옵션을 제공합니다.  이 옵션을 사용하면 MFA 서버는 사용자에게 푸시 알림을 사용할 수 있습니다."
+title: Azure MFA 서버 모바일 앱 웹 서비스 | Microsoft Docs
+description: Microsoft Authenticator 앱은 추가적인 대역외 인증 옵션을 제공합니다.  이 옵션을 사용하면 MFA 서버는 사용자에게 푸시 알림을 사용할 수 있습니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ca5c7bcc82f0a77276f4f39a02d8abf2f47bc10
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 모바일 앱 인증 활성화
 
@@ -29,11 +29,13 @@ Microsoft Authenticator 앱은 추가적인 대역외 확인 옵션을 제공합
 
 사용자 환경에 따라 Azure Multi-factor Authentication 서버와 동일한 서버 또는 다른 인터넷 연결 서버에서 모바일 앱 웹 서비스를 배포하는 것이 좋습니다.
 
+MFA 서버 버전 8.0 이상을 설치한 경우 아래 단계의 대부분은 필요하지 않습니다. 모바일 앱 인증은 [모바일 앱 구성](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server)의 단계에 따라 설정할 수 있습니다.
+
 ## <a name="requirements"></a>요구 사항
 
 Microsoft Authenticator 앱을 사용하려면 앱이 모바일 앱 웹 서비스와 성공적으로 통신할 수 있도록 하기 위해 다음 사항이 필요합니다.
 
-* Azure Multi-Factor Authentication 서버 v6.0 이상
+* Azure Multi-Factor Authentication 서버 v6.x 이상
 * Microsoft® [IIS(인터넷 정보 서비스) 7.x 이상](http://www.iis.net/)이 실행되는 인터넷 연결 웹 서버에 모바일 앱 웹 서비스 설치
 * ASP.NET v4.0.30319가 설치, 등록되고 허용됨으로 설정
 * 필요한 역할 서비스에는 ASP.NET 및 IIS 6 메타베이스 호환성이 포함됩니다.
@@ -48,6 +50,7 @@ Microsoft Authenticator 앱을 사용하려면 앱이 모바일 앱 웹 서비�
 
 모바일 앱 웹 서비스를 설치하기 전에 다음 세부 사항을 고려해야 합니다.
 
+* v8.0 이상에서는 모바일 앱 웹 서비스를 설치할 필요가 없습니다. [모바일 앱 구성](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server)의 단계만 완료하십시오.
 * "PhoneFactor Admins" 그룹의 일부인 서비스 계정이 있어야 합니다. 이 계정은 사용자 포털 설치에 사용되는 것과 동일할 수 있습니다.
 * 인터넷 연결 웹 서버에서 웹 브라우저를 열고 web.config 파일에 입력된 웹 서비스 SDK의 URL로 이동하는 것이 좋습니다. 브라우저가 웹 서비스로 성공적으로 이동될 수 있으면 자격 증명을 묻는 메시지가 표시됩니다. web.config 파일에 입력된 사용자 이름 및 암호를 파일에 표시된 그대로 입력합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 * 역방향 프록시 또는 방화벽이 모바일 앱 웹 서비스 웹 서버를 차단하고 있으며 SSL 오프로드를 수행하는 경우 모바일 앱 웹 서비스 web.config 파일을 편집하여 모바일 앱 웹 서비스가 https 대신 http를 사용할 수 있습니다. 모바일 앱에서 방화벽/역방향 프록시에 SSL은 여전히 필요합니다. 다음 키를 \<appSettings\> 섹션에 추가합니다.
@@ -80,25 +83,24 @@ IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면
 
    * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 키를 찾고 **value=""**를 **value="DOMAIN\User"**로 변경합니다. 여기서 DOMAIN\User는 "PhoneFactor Admins" 그룹의 일부인 서비스 계정입니다.
    * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 키를 찾고 **value=""**를 **value="Password"**로 변경합니다. 여기서 암호는 이전 줄에 입력한 서비스 계정의 암호입니다.
-   * **pfMobile App Web Service_pfwssdk_PfWsSdk** 설정을 찾고 **http://localhost:4898/PfWsSdk.asmx**의 값을 웹 서비스 SDK URL(예: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)로 변경합니다.
+   * **pfMobile App Web Service_pfwssdk_PfWsSdk** 설정을 찾아서 **http://localhost:4898/PfWsSdk.asmx**의 값을 웹 서비스 SDK URL(예: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx))로 변경합니다.
    * Web.Config 파일을 저장하고 메모장을 닫습니다.
 
    > [!NOTE]
    > 이 연결에 SSL이 사용되므로 **IP 주소가 아니라** **FQDN(정규화된 도메인 이름)**으로 웹 서비스 SDK를 참조해야 합니다. SSL 인증서는 FQDN에 대해 발급되었으며 사용된 URL은 인증서의 이름과 일치해야 합니다.
 
 7. 모바일 앱 웹 서비스가 설치된 웹 사이트가 공개적으로 서명된 인증서에 아직 바인딩되지 않았으면 서버에 인증서를 설치하고 IIS 관리자를 연 다음 웹 사이트에 인증서를 바인딩합니다.
-8. 모든 컴퓨터에서 웹 브라우저를 열고 모바일 앱 웹 서비스가 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
+8. 컴퓨터에서 웹 브라우저를 열고 모바일 앱 웹 서비스가 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService))로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 9. 웹 서비스 SDK에서 사용할 수 있는 방법에 대한 자세한 내용은 MFA 서버 도움말 파일을 참조하세요.
+10. 모바일 앱 웹 서비스가 설치되었으므로 포털을 사용하도록 Azure Multi-Factor Authentication 서버를 구성해야 합니다.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 모바일 앱 설정 구성
-
-모바일 앱 웹 서비스가 설치되었으므로 포털을 사용하도록 Azure Multi-Factor Authentication 서버를 구성해야 합니다.
 
 1. Multi-Factor Authentication 서버 콘솔에서 사용자 포털 아이콘을 클릭합니다. 사용자가 자신의 인증 방법을 제어할 수 있도록 허용되면 설정 탭의 **사용자가 방법을 선택할 수 있도록 허용**에서 **모바일 앱**을 선택합니다. 이 기능을 사용하지 않으면 최종 사용자는 지원 센터에 문의하여 Mobile App에 대한 정품 인증을 완료해야 합니다.
 2. **사용자가 모바일 앱을 활성화할 수 있도록 허용** 상자를 선택합니다.
 3. **사용자 등록 허용** 상자를 선택합니다.
 4. **Mobile App** 아이콘을 클릭합니다.
-5. **모바일 앱 웹 서비스 URL** 필드에서 MultiFactorAuthenticationMobileAppWebServiceSetup64를 설치할 때 생성된 가상 디렉터리로 사용되는 URL(예: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/)을 입력합니다.
+5. v8.0 이상을 사용 중인 경우 다음 단계를 건너뜁니다. **모바일 앱 웹 서비스 URL:** 필드에서 MultiFactorAuthenticationMobileAppWebServiceSetup64를 설치할 때 생성된 가상 디렉터리로 사용되는 URL(예: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/))을 입력합니다.
 6. **계정 이름** 필드를 이 계정의 모바일 응용 프로그램에서 표시할 회사 또는 조직 이름으로 채웁니다.
    ![MFA 서버 구성 Mobile App 설정](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 

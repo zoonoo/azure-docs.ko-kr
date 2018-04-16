@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -49,6 +49,8 @@ Azure 가상 네트워크가 ExpressRoute를 통해 구성된 경우에도 인�
 
 이러한 두 가지 사항을 변경하면 App Service Environment 서브넷에서 발생하는 인터넷용 트래픽이 ExpressRoute 연결로 강제 전송되지 않습니다.
 
+네트워크가 온-프레미스에서 트래픽을 라우팅한 경우 서브넷을 만들어서 ASE를 호스팅하고 ASE를 배포하기 전에 UDR을 구성해야 합니다.  
+
 > [!IMPORTANT]
 > UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선하도록 충분히 구체적이어야 합니다. 이전 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용합니다. 따라서 더 구체적인 주소 범위를 사용하는 경로 보급 알림으로 인해 주소 범위가 잘못 재정의될 가능성이 있습니다.
 >
@@ -56,13 +58,16 @@ Azure 가상 네트워크가 ExpressRoute를 통해 구성된 경우에도 인�
 
 ![직접 인터넷 액세스][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>서비스 끝점을 사용하여 ASE 구성
+
+## <a name="configure-your-ase-with-service-endpoints"></a>서비스 끝점을 사용하여 ASE 구성 ##
 
 SQL Azure 및 Azure Storage로 이동 하는 트랙픽을 제외하고 ASE에서 모든 아웃바운드 트래픽을 라우팅하려면 다음 단계를 수행합니다.
 
 1. 경로 테이블을 만들고 ASE 서브넷에 할당합니다. [App Service Environment 관리 주소][management]에서 지역과 일치하는 주소를 찾으세요. 인터넷의 다음 홉 형식을 사용해 이런 주소에 대한 경로를 만듭니다. 이 과정은 App Service Environment 인바운드 관리 트래픽이 전송된 동일한 주소에서 응답해야 하기 때문에 필요합니다.   
 
-2. Azure SQL를 통해 서비스 끝점 그리고 ASE 서브넷을 통해 Azure Storage를 사용하도록 설정
+2. Azure SQL를 통해 서비스 끝점 그리고 ASE 서브넷을 통해 Azure Storage를 사용하도록 설정합니다.  이 단계를 완료한 후에 강제 터널링을 사용하여 VNet을 구성할 수 있습니다.
+
+온-프레미스에서 모든 트래픽을 라우팅하도록 이미 구성된 가상 네트워크의 ASE를 만들려면 리소스 관리자 템플릿을 사용하여 ASE를 만들어야 합니다.  포털을 사용하여 기존 서브넷에 ASE를 만들 수는 없습니다.  온-프레미스에서 아웃바운드 트래픽을 라우팅하도록 이미 구성된 VNet에 ASE를 배포하는 경우 리소스 관리자 템플릿을 사용하여 ASE를 만들어야 합니다. 여기에서는 기존 서브넷을 지정하도록 허용할 수 있습니다. 템플릿 사용하여 ASE를 배포하는 방법에 대한 세부 정보는 [템플릿을 사용하여 App Service 환경 만들기][template]를 참고하세요.
 
 서비스 끝점을 사용하면 Azure 가상 네트워크 및 서브넷의 집합에 다중 테넌트 서비스에 대한 액세스를 제한할 수 있습니다. 서비스 끝점에 대한 자세한 내용은 [Virtual Network 서비스 끝점][serviceendpoints] 설명서에서 확인할 수 있습니다. 
 
@@ -70,7 +75,7 @@ SQL Azure 및 Azure Storage로 이동 하는 트랙픽을 제외하고 ASE에서
 
 Azure SQL 인스턴스를 통해 서브넷에서 서비스 끝점이 사용되는 경우 해당 서브넷에서 연결된 모든 Azure SQL 인스턴스는 서비스 끝점을 사용할 수 있어야 합니다. 동일한 서브넷에서 여러 Azure SQL 인스턴스에 액세스하려는 경우 다른 Azure SQL 인스턴스가 아닌 한 Azure SQL 인스턴스에서 서비스 끝점을 사용할 수 없습니다.  Azure Storage는 Azure SQL과 동일하게 동작하지 않습니다.  Azure Storage를 통해 서비스 끝점을 사용하는 경우 사용자의 서브넷에서 해당 리소스에 대한 액세스를 잠글 수 있지만 서비스 끝점을 사용할 수 없는 경우에도 여전히 다른 Azure Storage 계정에 액세스할 수 있습니다.  
 
-네트워크 필터 어플라이언스를 사용해 강제 터널링을 구성하는 경우 ASE에는 Azure SQL 및 Azure Storage 외에도 많은 종속성이 있습니다. 트래픽 또는 ASE가 제대로 작동하도록 허용해야 합니다.
+네트워크 필터 어플라이언스를 사용해 강제 터널링을 구성하는 경우 ASE에는 Azure SQL 및 Azure Storage 외에도 종속성이 있습니다. 해당 종속성에 트래픽을 허용하지 않으면 ASE가 제대로 작동하지 않습니다.
 
 ![서비스 끝점을 통한 강제 터널링][2]
 

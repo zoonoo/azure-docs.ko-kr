@@ -1,6 +1,6 @@
 ---
-title: "Azure 모니터링 데이터 보관 | Microsoft Docs"
-description: "Azure 내의 로그 및 메트릭 데이터를 저장소 계정에 보관합니다."
+title: Azure 모니터링 데이터 보관 | Microsoft Docs
+description: Azure 내의 로그 및 메트릭 데이터를 저장소 계정에 보관합니다.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure 모니터링 데이터 보관
 
@@ -22,15 +22,15 @@ Azure 환경의 여러 계층에서 Azure Storage 계정에 보관할 수 있는
 
 > [!div class="checklist"]
 > * 모니터링 데이터를 저장할 저장소 계정을 만듭니다.
-> * 구독 로그를 해당 계정으로 라우팅합니다. 
-> * 리소스 데이터를 해당 계정으로 라우팅합니다. 
-> * 가상 머신(게스트 OS) 데이터를 해당 계정으로 라우팅합니다. 
-> * 모니터링 데이터를 확인합니다. 
-> * 리소스 정리 
+> * 구독 로그를 해당 계정으로 라우팅합니다.
+> * 리소스 데이터를 해당 계정으로 라우팅합니다.
+> * 가상 머신(게스트 OS) 데이터를 해당 계정으로 라우팅합니다.
+> * 모니터링 데이터를 확인합니다.
+> * 리소스 정리
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
@@ -69,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. 왼쪽 탐색 목록에 있는 **모니터** 단추를 클릭한 후 **진단 설정**에서 다음을 수행합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다. 이 목록에 리소스가 없는 경우 계속 진행하기 전에 [논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 진단 설정을 구성할 수 있는 리소스를 포함할 수 있습니다.
 
 2. 목록에서 리소스를 클릭한 다음 **진단 켜기**를 클릭합니다.
-   
+
    ![진단 켜기](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    이미 구성된 설정이 있는 경우 대신 기존 설정과 **진단 설정 추가** 단추를 확인합니다. 이 단추를 클릭합니다.
@@ -87,12 +87,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 5. **로그** 및 **메트릭** 아래의 상자를 모두 선택합니다. 리소스 종류에 따라 이러한 옵션 중 하나를 포함할 수 있습니다. 이 확인란에 따라 선택한 대상(이 경우, 저장소 계정)으로 보내지는 해당 리소스 종류에서 사용할 수 있는 로그 및 메트릭 데이터의 범주가 달라집니다.
 
    ![진단 설정 범주](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
+
 6. **보존 기간(일)** 슬라이더를 30으로 설정합니다. 이 슬라이더는 저장소 계정에 모니터링 데이터를 보존할 일 수를 설정합니다. Azure Monitor는 지정된 일 수보다 오래된 데이터를 자동으로 삭제합니다. 보존 기간을 0일로 설정하면 데이터를 무기한 저장합니다.
 
 7. **저장**을 클릭합니다.
 
 이제 리소스의 모니터링 데이터가 저장소 계정으로 이동합니다.
+
+> [!NOTE]
+> 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
+>
+> *예*: 이벤트 허브의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 이벤트 허브의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+>
+>
 
 ## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>저장소 계정에 가상 머신(게스트 OS) 데이터 라우팅
 
@@ -113,7 +120,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 6. 진단 설정이 올바르게 저장되었으면 **개요** 탭에 수집되는 데이터 목록과 데이터가 저장된 위치가 표시됩니다. **성능 카운터** 섹션을 클릭하여 수집되는 Windows 성능 카운터 집합을 검토합니다.
 
    ![성능 카운터 설정](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
+
 7. **로그** 탭을 클릭하고 응용 프로그램 및 시스템 로그에서 **정보** 수준 로그에 대한 확인란을 선택합니다.
 
    ![로그 설정](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
@@ -166,16 +173,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 저장소 계정에 보관할 Azure 환경(구독, 리소스 및 게스트 OS)에서 모니터링 데이터를 설정하는 방법을 배웠습니다. 
+이 자습서에서는 저장소 계정에 보관할 Azure 환경(구독, 리소스 및 게스트 OS)에서 모니터링 데이터를 설정하는 방법을 배웠습니다.
 
 
 > [!div class="checklist"]
 > * 모니터링 데이터를 저장할 저장소 계정을 만듭니다.
-> * 구독 로그를 해당 계정으로 라우팅합니다. 
-> * 리소스 데이터를 해당 계정으로 라우팅합니다. 
-> * 가상 머신(게스트 OS) 데이터를 해당 계정으로 라우팅합니다. 
-> * 모니터링 데이터를 확인합니다. 
-> * 리소스 정리 
+> * 구독 로그를 해당 계정으로 라우팅합니다.
+> * 리소스 데이터를 해당 계정으로 라우팅합니다.
+> * 가상 머신(게스트 OS) 데이터를 해당 계정으로 라우팅합니다.
+> * 모니터링 데이터를 확인합니다.
+> * 리소스 정리
 
 데이터를 좀 더 잘 활용하고 추가 정보를 얻기 위해 Log Analytics로 데이터를 보낼 수도 있습니다.
 

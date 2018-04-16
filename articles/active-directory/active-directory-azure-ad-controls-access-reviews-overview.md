@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 액세스 검토 | Microsoft Docs"
-description: "Azure Active Directory 액세스 검토를 사용하여 조직의 거버넌스, 위험 관리 및 준수 이니셔티브를 충족할 수 있도록 그룹 멤버 자격 및 응용 프로그램 액세스를 제어할 수 있습니다."
+title: Azure AD 액세스 검토 | Microsoft Docs
+description: Azure Active Directory 액세스 검토를 사용하여 조직의 거버넌스, 위험 관리 및 준수 이니셔티브를 충족할 수 있도록 그룹 멤버 자격 및 응용 프로그램 액세스를 제어할 수 있습니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 40c3cfaf723a22013c93e0efae3d074e98643742
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c5d09b6f17fe8ae9be73d23d7aef6beae2ae43c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Azure AD 액세스 검토(미리 보기)
+# <a name="azure-ad-access-reviews"></a>Azure AD 액세스 검토
 
-Azure AD(Azure Active Directory) 액세스 검토를 사용하면 조직에서 그룹 멤버 자격을 효율적으로 관리하고 엔터프라이즈 응용 프로그램에 액세스할 수 있습니다. 
+Azure AD(Azure Active Directory) 액세스 검토를 사용하면 조직에서 그룹 멤버 자격을 효율적으로 관리하고 엔터프라이즈 응용 프로그램에 액세스하고 권한 있는 역할을 할당할 수 있습니다. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>액세스 검토로 가능한 작업은 무엇인가요?
    
@@ -30,6 +30,8 @@ Azure AD(Azure Active Directory) 액세스 검토를 사용하면 조직에서 �
 - 액세스 검토를 사용하여 응용 프로그램 및 그룹 멤버 자격에 대한 직원 액세스를 다시 인증할 수 있습니다.
    
 - 조직과 관련된 프로그램에 액세스 검토 컨트롤을 수집하여 준수 또는 위험 감지 응용 프로그램에 대한 검토를 추적할 수 있습니다.
+
+- 전역 관리자와 같은 Azure AD 역할 또는 Azure 구독 역할에 할당된 관리 사용자의 역할 할당을 다시 확인할 수 있습니다.  이 기능은 Azure AD Privileged Identity Management에 포함되어 있습니다.
     
 
 ## <a name="next-steps"></a>다음 단계
