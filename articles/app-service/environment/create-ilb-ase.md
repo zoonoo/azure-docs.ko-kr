@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -63,7 +63,7 @@ ILB ASE를 만들려면
 
 4. VNet을 선택하거나 만듭니다.
 
-5. 기존 VNet을 선택한 경우 ASE를 보유하는 서브넷을 만들어야 합니다. ASE의 향후 증가에 맞게 충분히 큰 서브넷 크기를 설정해야 합니다. `/25` 크기를 사용하는 것이 좋습니다. 그러면 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 선택할 수 있는 최소 크기는 `/28`입니다. 인프라에서 요구하면 이 크기는 최대 11개의 인스턴스로 확장될 수 있습니다.
+5. 기존 VNet을 선택한 경우 ASE를 보유하는 서브넷을 만들어야 합니다. ASE의 향후 증가에 맞게 충분히 큰 서브넷 크기를 설정해야 합니다. `/25` 크기를 사용하는 것이 좋습니다. 그러면 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 선택할 수 있는 최소 크기는 `/28`입니다. 인프라에서 요구하면 이 크기는 최대 3개의 인스턴스로 확장될 수 있습니다.
 
     * App Service 계획에서 기본 최대 100개를 초과합니다.
 
@@ -81,7 +81,7 @@ ILB ASE를 만들려면
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   앱의 사용자 지정 도메인 이름 및 ASE에서 사용하는 도메인 이름은 겹칠 수 없습니다. _contoso.com_이라는 도메인 이름의 ILB ASE의 경우 앱에 다음과 비슷한 사용자 지정 도메인 이름을 사용할 수 없습니다.
+   웹앱에 기존 DNS 이름을 매핑할 수 있는 사용자 지정 도메인 이름이라는 기능이 있습니다. 해당 기능은 [웹앱에 기존 DNS 이름 매핑][customdomain] 문서에서 자세히 알아볼 수 있습니다. 앱의 사용자 지정 도메인 이름 및 ASE에서 사용하는 도메인 이름은 겹칠 수 없습니다. _contoso.com_이라는 도메인 이름의 ILB ASE의 경우 앱에 다음과 비슷한 사용자 지정 도메인 이름을 사용할 수 없습니다.
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ WAF 장치를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 �
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

@@ -1,17 +1,17 @@
 ---
-title: Azure Resource Manager vCPU 할당량 증가 요청 | Microsoft Docs
-description: Azure Resource Manager vCPU 할당량 증가 요청
+title: "Azure Resource Manager vCPU 할당량 증가 요청 | Microsoft Docs"
+description: "Azure Resource Manager vCPU 할당량 증가 요청"
 author: ganganarayanan
 ms.author: gangan
-ms.date: 3/15/2018
+ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: a42fa8e4e8dae140db4fcc8977bda335455b97a1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU 할당량 증가 요청
 
@@ -24,22 +24,21 @@ SKU 제품군에 대해 알아보려면 [Virtual Machines 가격 책정](http://
 > [!NOTE]
 > Azure Portal에서 [지원 요청을 만드는](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 방법 알아보기
 
-1. **구독**을 선택합니다.
+1. 새 지원 요청 페이지에서 문제 유형은 "할당량"으로 할당량 유형은 "코어"로 선택합니다.
 
-   ![구독](./media/resource-manager-core-quotas-request/subscriptions.png)
+    ![할당량 기본 사항 블레이드](./media/resource-manager-core-quotas-request/Basics-blade.png)
 
-2. 할당량을 늘려야 하는 구독을 선택합니다.
+2. 배포 모델을 "Resource Manager"로 선택하고 위치를 선택합니다.
 
-   ![구독 선택](./media/resource-manager-core-quotas-request/select-subscription.png)
+    ![할당량 문제 블레이드](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. **사용량 + 할당량**을 선택합니다.
+3. 증가가 필요한 SKU 제품군을 선택합니다.
 
-   ![사용량 + 할당량 선택](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+    ![SKU 시리즈 선택됨](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. 오른쪽 위 모서리에서 **증가 요청**을 선택합니다.
+4. 구독에 대한 새 한도를 입력합니다.
 
-   ![증가 요청](./media/resource-manager-core-quotas-request/request-increase.png)
+    ![SKU 새 할당량 요청](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-5. 따옴표 형식으로 **코어**를 선택합니다. 
-
-   ![양식 작성](./media/resource-manager-core-quotas-request/forms.png)
+- 줄을 제거하려면 SKU 제품군 드롭다운에서 SKU 선택을 해제하거나 삭제 "x" 아이콘을 클릭합니다.
+각 SKU 제품군에 대해 원하는 할당량을 입력한 다음 문제 단계 페이지에서 "다음"을 클릭하여 지원 요청 만들기를 계속합니다.

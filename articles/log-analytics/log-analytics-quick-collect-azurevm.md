@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ff610c4efa9db16ca8a1e151b36e0e08dfe30d69
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3b21a3ae5940cd736fe23b76e7ede9dc0061b711
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Virtual Machines에 대한 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
@@ -37,7 +37,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
   * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
   * **리소스 그룹**에 대해 하나 이상의 Azure Virtual Machines를 포함하는 기존 리소스 그룹을 선택합니다.  
   * VM이 배포된 **위치**를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
-  * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 세 가지 가격 책정 계층 중에 선택하는 옵션이 제공됩니다.  이 빠른 시작에서는 무료 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
+  * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
@@ -45,19 +45,12 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 정보가 확인되고 작업 영역이 만들어지는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
->[!NOTE]
->2018년 4월 2일 이후에 만들어진 새 구독과 연결되는 새 작업 영역을 만드는 경우 자동으로 *PerGB2018* 가격 책정 계획이 사용됩니다.  이 계획은 Application Insights 및 Log Analytics 리소스에 걸쳐 매월 데이터 5GB를 무료로 제공합니다. 가격 책정 모델에 대한 자세한 내용은 [Log Analytics 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
->
-
 ## <a name="enable-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 사용
 Azure에 이미 배포된 Windows 및 Linux 가상 머신에 대해, Log Analytics VM 확장을 사용하여 Log Analytics 에이전트를 설치합니다.  이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
 
 >[!NOTE]
 >Linux용 OMS 에이전트는 여러 Log Analytics 작업 공간에 보고하도록 구성할 수 없습니다. 
 
-Azure Government 클라우드에서 작업 영역을 만든 경우 포털의 Log Analytics 리소스 페이지 맨 위에는 업그레이드를 위해 사용자를 초대하는 배너가 표시될 수 있습니다.  이 빠른 시작 가이드에서는 업그레이드가 필요하지 않습니다.<br>
-
-![Azure Portal의 Log Analytics 업그레이드 알림](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png)에서도 확인할 수 있습니다.    
 1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 이전에 만든 *DefaultLAWorkspace*를 선택합니다.
 3. 왼쪽 메뉴의 작업 영역 데이터 원본에서 **가상 머신**를 클릭합니다.  
@@ -93,10 +86,6 @@ Log Analytics는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를
 
 1. Azure Portal에서 Log Analytics로 이동한 후 앞서 만든 작업 영역을 선택합니다.
 2. **로그 검색** 타일을 클릭하고 로그 검색 창의 쿼리 필드에 `Perf`를 입력한 후 Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 클릭합니다.<br> ![Log Analytics 로그 검색 쿼리 예제](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >Azure Government 클라우드에서 작업 영역을 만들 경우 `Type=Perf` 쿼리를 사용합니다.  
-   >
 
 예를 들어 다음 그림의 쿼리는 78,000개의 성능 레코드를 반환했습니다.  결과는 훨씬 더 적습니다.<br> ![Log Analytics 로그 검색 결과](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

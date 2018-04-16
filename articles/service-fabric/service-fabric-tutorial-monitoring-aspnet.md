@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>자습서: Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 이 자습서는 시리즈의 4부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다. 
@@ -89,8 +89,12 @@ NuGet을 설정하는 단계는 다음과 같습니다.
 1. 솔루션 탐색기의 맨 위에서 **솔루션 ‘Voting’**을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리...**를 클릭합니다.
 2. “NuGet - 솔루션” 창의 맨 위 탐색 메뉴에서 **찾아보기**를 클릭하고 검색 표시줄 옆에 있는 **시험판 포함** 상자를 선택합니다.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
+
+>[!NOTE]
+>Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnistics.Internal 패키지를 설치해야 할 수도 있습니다.
+
 4. 오른쪽에서 응용 프로그램의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
-    ![AI 등록 완료](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. 팝업되는 *변경 내용 검토* 대화 상자에서 **확인**을 클릭하고 *라이선스 승인*을 적용합니다. 서비스에 NuGet 추가가 완료됩니다.
 6. 이제 두 서비스에서 원격 분석 이니셜라이저를 설정해야 합니다. 이렇게 하려면 *VotingWeb.cs* 및 *VotingData.cs*를 엽니다. 둘 다에 대해 다음 두 단계를 수행합니다.
     1. 각 *\<ServiceName>.cs*의 맨 위에 두 개의 *using* 문을 추가합니다.
@@ -114,6 +118,7 @@ NuGet을 설정하는 단계는 다음과 같습니다.
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -137,6 +142,19 @@ NuGet을 설정하는 단계는 다음과 같습니다.
         .Build();
     ```
 
+위와 같이 `UseApplicationInsights()` 메서드가 두 파일 모두에서 호출되는 지 다시 확인합니다. 
+
+>[!NOTE]
+>이 샘플 앱은 서비스 통신을 위해 http를 사용합니다. Service Remoting V2로 앱을 개발하는 경우 위에 나온 것과 같은 위치에 다음 코드 줄을 추가해야 합니다.
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 이제 응용 프로그램을 배포할 준비가 되었습니다. 맨 위에서 **시작**(또는 **F5**)을 클릭하면 Visual Studio가 응용 프로그램을 빌드 및 패키지하고 로컬 클러스터를 설정한 다음 응용 프로그램을 배포합니다. 
 
 응용 프로그램 배포가 완료되면 Voting Sample 단일 페이지 응용 프로그램을 볼 수 있는 [localhost:8080](localhost:8080)으로 이동합니다. 다른 몇 가지 선택 항목에 응답하여 일부 샘플 데이터와 원격 분석을 만듭니다.
@@ -147,9 +165,7 @@ NuGet을 설정하는 단계는 다음과 같습니다.
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>Application Insights에서 원격 분석 및 앱 지도 보기 
 
-Azure Portal의 Application Insights 리소스로 이동한 다음 리소스의 왼쪽 탐색 모음에서 *구성* 아래의 **미리 보기**를 클릭합니다. 사용 가능한 미리 보기 목록에서 *다중 역할 Application Map*을 **설정**합니다.
-
-![AI AppMap 활성화](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+Azure Portal에서 Application Insights 리소스로 이동합니다.
 
 **개요**를 클릭하여 리소스의 방문 페이지로 돌아갑니다. 그런 다음 맨 위의 **검색**을 클릭하여 추적이 들어오는 것을 확인합니다. 추적이 Application Insights에 나타나는 데 몇 분 정도 걸립니다. 아무것도 표시되지 않는 경우 잠시 기다렸다가 맨 위의 **새로 고침** 단추를 누릅니다.
 ![AI see traces](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -160,9 +176,9 @@ Azure Portal의 Application Insights 리소스로 이동한 다음 리소스의 
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-또한 앱 지도를 활성화했으므로 *개요* 페이지에서 **앱 지도** 아이콘을 클릭하면 연결된 서비스가 모두 표시됩니다.
+또한 개요 페이지의 왼쪽 메뉴에서 *응용 프로그램 맵*을 클릭하거나 **앱 맵** 아이콘을 클릭하여 연결된 두 서비스가 보이는 앱 맵으로 이동할 수 있습니다.
 
-![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 앱 지도는 특히 함께 작동하는 여러 서비스를 추가할 때 응용 프로그램 토폴로지를 더 잘 이해하는 데 유용할 수 있습니다. 또한 요청 성공률에 대한 기본 데이터를 제공하며, 오류가 발생할 수 있는 위치를 파악하기 위해 실패한 요청을 진단하는 데 유용할 수 있습니다. 앱 지도를 사용하는 방법에 대한 자세한 내용은 [Application Insights의 응용 프로그램 맵](../application-insights/app-insights-app-map.md)을 참조하세요.
 

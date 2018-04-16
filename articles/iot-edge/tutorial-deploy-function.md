@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f1c6b5cd07752c6b29234a365b3298d76b639b3a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Azure 함수를 IoT Edge 모듈로 배포 - 미리 보기
 비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 “[Windows][lnk-tutorial1-win] 또는 [Linux][lnk-tutorial1-lin]에서 시뮬레이트된 장치에 Azure IoT Edge 배포” 자습서에서 만든 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
@@ -95,8 +95,7 @@ ms.lasthandoff: 04/03/2018
                 // Copy the properties of the original message into the new Message object
                 foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
                 // Add a new property to the message to indicate it is an alert
                 filteredMessage.Properties.Add("MessageType", "Alert");
                 // Send the message        
@@ -136,10 +135,13 @@ ms.lasthandoff: 04/03/2018
    ```
    이 명령에서 사용할 사용자 이름, 암호 및 로그인 서버를 찾으려면 [Azure Portal](https://portal.azure.com))로 이동합니다. **모든 리소스**에서 Azure Container Registry에 대한 타일을 클릭하여 속성을 연 다음 **액세스 키**를 클릭합니다. **사용자 이름**, **암호** 및 **로그인 서버** 필드의 값을 복사합니다. 
 
-2. VS Code 탐색기에서 **module.json** 파일을 마우스 오른쪽 단추로 클릭하고 **Build and Push IoT Edge module Docker image**(IoT Edge 모듈 Docker 이미지 빌드 및 푸시)를 클릭합니다. VS Code 창의 맨 위에 있는 팝업 드롭다운 상자에서 컨테이너 플랫폼을 선택합니다. Linux 컨테이너의 경우 **amd64**, Windows 컨테이너의 경우 **windows-amd64**를 선택합니다. 그러면 VS Code가 함수 코드를 컨테이너화한 후 사용자가 지정한 컨테이너 레지스트리로 푸시합니다.
+2. **module.json**을 엽니다. 선택적으로 `"version"`을 eg **"1.0"**으로 업데이트할 수 있습니다. 또한 `dotnet new aziotedgefunction`의 `-r` 매개 변수에 입력한 리포지토리의 이름이 표시됩니다.
 
+3. **module.json** 파일을 저장합니다.
 
-3. VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주소를 가져올 수 있습니다. 빌드 및 푸시 정의에 대한 자세한 내용은 `module.json` 파일을 참조하세요.
+4. VS Code 탐색기에서 **module.json** 파일을 마우스 오른쪽 단추로 클릭하고 **Build and Push IoT Edge module Docker image**(IoT Edge 모듈 Docker 이미지 빌드 및 푸시)를 클릭합니다. VS Code 창의 맨 위에 있는 팝업 드롭다운 상자에서 컨테이너 플랫폼을 선택합니다. Linux 컨테이너의 경우 **amd64**, Windows 컨테이너의 경우 **windows-amd64**를 선택합니다. 그러면 VS Code가 함수 코드를 컨테이너화한 후 사용자가 지정한 컨테이너 레지스트리로 푸시합니다.
+
+5. VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주소를 가져올 수 있습니다. 빌드 및 푸시 정의에 대한 자세한 내용은 `module.json` 파일을 참조하세요.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Edge 장치에 레지스트리 자격 증명 추가
 Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 자격 증명을 추가합니다. 이렇게 하면 컨테이너를 끌어오기 위한 런타임 액세스 권한이 제공됩니다. 

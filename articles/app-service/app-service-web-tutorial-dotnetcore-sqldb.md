@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드 | Microsoft Docs"
-description: "SQL Database에 연결하여 Azure App Service에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다."
+title: Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드 | Microsoft Docs
+description: SQL Database에 연결하여 Azure App Service에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d7f7407a385dd38989eaca2b81f66600c82cac2e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2fb966d92dec713d5bf5ca48e8d15ae489227739
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>자습서: Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
 
 > [!NOTE]
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_에서 App Service를 배포하려면 [Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드](./containers/tutorial-dotnetcore-sqldb-app.md)를 참조하세요.

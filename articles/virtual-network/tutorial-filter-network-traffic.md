@@ -1,6 +1,6 @@
 ---
-title: 네트워크 트래픽 필터링 - Azure PowerShell | Microsoft Docs
-description: 이 문서에서는 PowerShell을 사용하 여 네트워크 보안 그룹을 통해 서브넷에 네트워크 트래픽을 필터링하는 방법에 대해 알아봅니다.
+title: 네트워크 트래픽 필터링 - 자습서 - Azure PowerShell | Microsoft Docs
+description: 이 자습서에서는 PowerShell을 사용하 여 네트워크 보안 그룹을 통해 서브넷에 네트워크 트래픽을 필터링하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -11,21 +11,21 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 53406150cfc2ec4229ecd9cf3356ad03d60f8e7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: 8e04ed7ad16b673597b62d947c3f782ee0d27c7c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>자습서: PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
-네트워크 보안 그룹을 통해 가상 네트워크 서브넷에서 네트워크 트래픽을 인바운드 및 아웃바운드로 필터링할 수 있습니다. 네트워크 보안 그룹에는 IP 주소, 포트, 프로토콜에 따라 네트워크 트래픽을 필터링하는 보안 규칙이 포함됩니다. 보안 규칙은 서브넷에 배포된 리소스에 적용됩니다. 이 문서에서는 다음 방법을 설명합니다.
+네트워크 보안 그룹을 통해 가상 네트워크 서브넷에서 네트워크 트래픽을 인바운드 및 아웃바운드로 필터링할 수 있습니다. 네트워크 보안 그룹에는 IP 주소, 포트, 프로토콜에 따라 네트워크 트래픽을 필터링하는 보안 규칙이 포함됩니다. 보안 규칙은 서브넷에 배포된 리소스에 적용됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 보안 그룹 및 보안 규칙 만들기
@@ -33,13 +33,13 @@ ms.lasthandoff: 04/03/2018
 > * 서브넷에 VM(가상 머신) 배포
 > * 트래픽 필터 테스트
 
-원하는 경우 [Azure CLI](tutorial-filter-network-traffic-cli.md)를 사용하여 이 문서를 완료할 수 있습니다.
+원하는 경우 [Azure CLI](tutorial-filter-network-traffic-cli.md)를 사용하여 이 자습서를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -47,7 +47,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문
 
 ### <a name="create-application-security-groups"></a>응용 프로그램 보안 그룹 만들기
 
-먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)으로 이 문서에서 만든 모든 리소스에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 리소스 그룹을 만듭니다. 
+먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)으로 이 자습서에서 만든 모든 리소스에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 리소스 그룹을 만듭니다. 
 
 
 ```azurepowershell-interactive
@@ -98,7 +98,7 @@ $mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-이 문서에서 RDP(포트 3389)는 *myAsgMgmtServers* VM에 대해 인터넷에 노출되어 있습니다. 프로덕션 환경에서는 포트 3389를 인터넷에 노출하는 대신 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [개인](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
+이 자습서에서 RDP(포트 3389)는 *myAsgMgmtServers* VM에 대해 인터넷에 노출되어 있습니다. 프로덕션 환경에서는 포트 3389를 인터넷에 노출하는 대신 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [개인](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -233,7 +233,7 @@ New-AzureRmVM `
   -VM $mgmtVmConfig
 ```
 
-가상 머신을 만드는 데 몇 분 정도 걸립니다. Azure가 VM 만들기를 완료할 때까지 다음 단계를 진행하지 않습니다.
+가상 머신을 만드는 데 몇 분 정도 걸립니다. Azure에서 VM 만들기가 완료될 때까지 다음 단계를 진행하지 않습니다.
 
 ## <a name="test-traffic-filters"></a>트래픽 필터 테스트
 
@@ -297,9 +297,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 네트워크 보안 그룹을 만들어 가상 네트워크 서브넷에 연결했습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md) 및 [네트워크 보안 그룹 관리](virtual-network-manage-nsg-arm-ps.md)를 참조하세요.
+이 자습서에서는 네트워크 보안 그룹을 만들어 가상 네트워크 서브넷에 연결했습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md) 및 [네트워크 보안 그룹 관리](virtual-network-manage-nsg-arm-ps.md)를 참조하세요.
 
-기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 경로 테이블을 만드는 방법을 알아보련 다음 문서를 진행하세요.
+기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 경로 테이블을 만드는 방법을 알아보려면 다음 자습서를 진행하세요.
 
 > [!div class="nextstepaction"]
 > [경로 테이블 만들기](./tutorial-create-route-table-portal.md)

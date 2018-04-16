@@ -10,11 +10,11 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
 
@@ -179,9 +179,9 @@ route delete <destination_ip>
 > * [Fiddler](#simulate-a-failure-with-fiddler) 또는 [잘못된 고정 경로](#simulate-a-failure-with-an-invalid-static-route)를 사용하여 실패를 시뮬레이션합니다. 
 > * 기본 끝점 복원 시뮬레이션
 
-미리 작성된 저장소 샘플을 보려면 이 링크를 따라 이동합니다.
+RA-GRS 저장소의 작동 방식(및 관련 위험)에 대한 자세한 내용을 보려면 다음 아티클을 참고하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Storage 스크립트 샘플](storage-samples-blobs-cli.md)
+> [RA-GRS를 사용하여 HA 앱 디자인](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

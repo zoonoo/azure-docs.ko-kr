@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 88b95c28cd64afb97fb34d2bced09161c3aa9312
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -94,8 +94,9 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 
 다음 리소스를 사용하여 Security Center에서 이러한 기능을 사용하는 방법을 알아봅니다.
 
-비디오   
+동영상  
 * [Azure Security Center – Just-In-Time VM 액세스](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center - 적응형 응용 프로그램 컨트롤](https://youtu.be/wWWekI1Y9ck)
 
 문서    
 * [Just-In-Time을 사용하여 가상 머신 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
@@ -105,6 +106,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 
 * [Security Center 실습 교육](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Security Center의 WAF(웹 응용 프로그램 방화벽) 권장 플레이 북](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
+* [Azure Security Center 플레이북: 보안 경고](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Security Center 설명서 페이지](https://docs.microsoft.com/azure/security-center/)
@@ -115,6 +117,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [네트워크 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS 권장 사항](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [규정 준수](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [이제 OMS 고객은 Azure Security Center를 사용하여 하이브리드 클라우드 워크로드를 보호할 수 있습니다.](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>커뮤니티 리소스
 

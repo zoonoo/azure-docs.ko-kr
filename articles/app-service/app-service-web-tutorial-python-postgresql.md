@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Python 및 PostgreSQL 웹앱 빌드 | Microsoft Docs"
-description: "PostgreSQL 데이터베이스에 연결하여 Azure에서 Python 앱이 작동하도록 하는 방법에 대해 알아봅니다."
+title: Azure에서 Python 및 PostgreSQL 웹앱 빌드 | Microsoft Docs
+description: PostgreSQL 데이터베이스에 연결하여 Azure에서 Python 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Azure에서 Python 및 PostgreSQL 웹앱 빌드
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>자습서: Azure에서 Python 및 PostgreSQL 웹앱 빌드
 
 > [!NOTE]
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드](./containers/tutorial-docker-python-postgresql-app.md)를 참조하세요.

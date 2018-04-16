@@ -1,28 +1,28 @@
 ---
-title: "Azure Location Based Services를 통한 대화형 검색 | Microsoft Docs"
-description: "Azure 빠른 시작 - Azure Location Based Services(미리 보기)를 사용하여 데모 대화형 맵 검색 시작"
+title: Azure Location Based Services를 통한 대화형 검색 | Microsoft Docs
+description: Azure 빠른 시작 - Azure Location Based Services(미리 보기)를 사용하여 데모 대화형 맵 검색 시작
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a61d56f8e649d60dacff8f9849ab7e26363e119
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Azure Location Based Services(미리 보기)를 사용하여 데모 대화형 맵 검색 시작
 
-이 문서에서는 Azure Maps를 사용하여 대화형 검색을 수행하는 Azure LBS(Location Based Services)의 기능을 보여 줍니다. 또한 자체 LBS 계정을 만들고 데모 웹 응용 프로그램에 사용할 계정 키를 가져오는 방법도 안내합니다. 
+이 아티클에서는 대화형 검색을 수행하는 Azure LBS(Location Based Services)의 기능을 보여줍니다. 또한 자체 LBS 계정을 만들고 데모 웹 응용 프로그램에 사용할 계정 키를 가져오는 방법도 안내합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
@@ -40,14 +40,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 5. 계정을 만든 후에는 해당 계정을 열고 계정의 **설정**으로 이동합니다. **키**를 클릭하여 Azure Location Based Services 계정의 기본 및 보조 키를 가져옵니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다. 
 
-## <a name="download-the-demo-application-for-azure-maps"></a>Azure Maps의 데모 응용 프로그램 다운로드
+## <a name="download-the-demo-application"></a>데모 응용 프로그램 다운로드
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장하고 텍스트 편집기에서 엽니다.
 3. `<insert-key>` 문자열을 검색하여 이전 섹션에서 구한 **기본 키** 값으로 바꿉니다. 
 
 
-## <a name="launch-the-demo-application-for-azure-maps"></a>Azure Maps의 데모 응용 프로그램 시작
+## <a name="launch-the-demo-application-for"></a>데모 응용 프로그램 시작 위치
 
 1. 원하는 브라우저에서 **AzureMapDemo.html** 파일을 엽니다.
 2. 로스앤젤레스의 지도를 관찰합니다. 도시는 *AzureMapDemo.html*에서 **center**라는 JavaScript 변수에 지정된 `[longitude, latitude]` 값 쌍으로 결정됩니다. 이 좌표를 원하는 도시로 변경할 수 있습니다. 예를 들어 뉴욕의 좌표는 *[-74.0060, 40.7128]*입니다.

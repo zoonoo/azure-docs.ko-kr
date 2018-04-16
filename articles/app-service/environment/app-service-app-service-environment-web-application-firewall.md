@@ -1,8 +1,8 @@
 ---
-title: "App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성"
-description: "App Service Environment의 앞에 웹 응용 프로그램 방화벽을 구성하는 방법에 알아봅니다."
+title: App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성
+description: App Service Environment의 앞에 웹 응용 프로그램 방화벽을 구성하는 방법에 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,25 +12,28 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
-[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용 가능한 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 웹 응용 프로그램 방화벽은 SQL 주입, 교차 사이트 스크립팅, 맬웨어 업로드와 DDos 응용 프로그램 및 다른 공격을 막는 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램 보안을 도와줍니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다.
+
+WAF(웹 응용 프로그램 방화벽)를 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. DLP(데이터 손실 방지)를 위해 백 엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다. Azure에서는 [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 WAF 기능을 제공합니다.  Application Gateway와 App Service 환경을 통합하는 방법을 보려면 [Application Gateway와 ILB ASE 통합](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) 문서를 참고하세요.
+
+Azure Application Gateway 외에도 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용할 수 있는 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 여러 마켓플레이스 옵션이 있습니다. 이 문서의 나머지 부분에서는 Barracuda WAF 장치와 App Service 환경을 통합하는 방법에 중점을 둡니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>설정
 이 문서에서는 Barracuda WAF의 다중 부하 분산 인스턴스 뒤의 App Service Environment를 구성하여 WAF의 트래픽만이 App Service Environment에 도달할 수 있게 하고 DMZ로부터는 접근할 수 없습니다. Azure Traffic Manager를 Azure 데이터 센터와 지역 간의 작업 부하를 위해 Barracuda WAF 앞에 놓겠습니다. 설치 프로그램의 높은 수준의 다이어그램은 다음 이미지와 비슷합니다.
 
-![아키텍처][Architecture] 
+![건축][Architecture] 
 
 > [!NOTE]
 > [App Service 환경에 대한 ILB 지원](app-service-environment-with-internal-load-balancer.md)의 도입으로 DMZ에서 ASE에 액세스할 수 없고 개인 네트워크에만 사용할 수 있도록 구성할 수 있습니다. 
@@ -41,7 +44,7 @@ ms.lasthandoff: 12/04/2017
 App Service Environment를 구성하려면 해당 제목의 [설명서](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. App Service Environment를 만들면 Web Apps, API Apps 및 [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md)를 다음 섹션에서 구성할 WAF로 보호 받는 환경에서 만들 수 있습니다.
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Barracuda WAF 클라우드 서비스를 구성합니다.
-Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대한 [자세한 문서](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) 가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
+Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [자세한 문서](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) 가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
 
 ### <a name="adding-endpoints-to-cloud-service"></a>클라우드 서비스에 끝점 추가
 클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com/) 을 사용하여 다음 이미지처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
@@ -62,7 +65,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 
 ![관리 끝점 추가][AddManagementEndpoint]
 
-브라우저를 사용하여 클라우드 서비스에서 관리 끝점으로 이동 합니다. 클라우드 서비스 이름이 test.cloudapp.net 이라면 http://test.cloudapp.net:8000 로 이동하여 이 끝점에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
+브라우저를 사용하여 클라우드 서비스에서 관리 끝점으로 이동 합니다. Cloud Service 이름이 test.cloudapp.net이라면 http://test.cloudapp.net:8000으로 이동하여 이 끝점에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
 
 ![관리 로그인 페이지][ManagementLoginPage]
 

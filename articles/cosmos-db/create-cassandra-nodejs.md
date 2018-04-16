@@ -1,11 +1,10 @@
 ---
-title: "빠른 시작: Cassandra API와 Node.js - Azure Cosmos DB | Microsoft Docs"
-description: "이 빠른 시작은 Node.js와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여줍니다."
+title: '빠른 시작: Cassandra API와 Node.js - Azure Cosmos DB | Microsoft Docs'
+description: 이 빠른 시작은 Node.js와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여줍니다.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: govindk
-ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: sngun
+ms.openlocfilehash: e2f2064de5dc29ef290e6dc6dd7df6ae0a466f92
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>빠른 시작: Node.js 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -181,7 +180,7 @@ Azure Cosmos DB Cassandra API 미리 보기 프로그램에 액세스합니다. 
     
 ## <a name="use-the-x509-certificate"></a>X509 인증서 사용 
 
-1. Baltimore CyberTrust Root를 추가해야 하는 경우 일련 번호 02:00:00:b9 및 SHA1 지문 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74가 포함되어 있습니다. https://cacert.omniroot.com/bc2025.crt에서 다운로드하고 확장명이 .cer인 로컬 파일에 저장할 수 있습니다. 
+1. Baltimore CyberTrust Root를 추가해야 하는 경우 일련 번호는 02:00:00:b9이고, SHA1 지문은 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74입니다. https://cacert.omniroot.com/bc2025.crt에서 다운로드하고 확장명이 .cer인 로컬 파일에 저장할 수 있습니다. 
 
 2. uprofile.js를 열고 새 인증서를 가리키도록 'path\to\cert'를 변경합니다. 
 

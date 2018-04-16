@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage를 사용하여 클라우드의 응용 프로그램 데이터에 대한 액세스 보호 | Microsoft Docs"
-description: "SAS 토큰, 암호화 및 HTTPS를 사용하여 클라우드의 응용 프로그램 데이터에 대한 액세스 보호"
+title: Azure Storage를 사용하여 클라우드의 응용 프로그램 데이터에 대한 액세스 보호 | Microsoft Docs
+description: SAS 토큰, 암호화 및 HTTPS를 사용하여 클라우드의 응용 프로그램 데이터에 대한 액세스 보호
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 응용 프로그램 데이터에 대한 액세스 보호
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="set-container-public-access"></a>컨테이너 공용 액세스 설정
 
-자습서 시리즈의 이 부분에서는 썸네일에 액세스하기 위해 SAS 토큰을 사용합니다. 이 단계에서는 _thumbs_ 컨테이너에 대한 공용 액세스를 `off`로 설정합니다.
+자습서 시리즈의 이 부분에서는 썸네일에 액세스하기 위해 SAS 토큰을 사용합니다. 이 단계에서는 _thumbnails_ 컨테이너에 대한 공용 액세스를 `off`로 설정합니다.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -42,7 +42,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 

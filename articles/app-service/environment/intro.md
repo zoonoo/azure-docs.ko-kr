@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Environment 소개"
-description: "Azure App Service Environment에 대한 간략한 개요"
+title: Azure App Service Environment 소개
+description: Azure App Service Environment의 간략한 개요
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>App Service Environment 소개 #
+# <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  
 ## <a name="overview"></a>개요 ##
 
@@ -43,7 +43,7 @@ ASE는 단일 고객의 응용 프로그램만을 실행하도록 격리되며 �
 
 ## <a name="dedicated-environment"></a>전용 환경 ##
 
-ASE는 단일 구독에 단독으로 전용되어 100개 인스턴스를 호스팅할 수 있습니다. 단일 App Service 계획의 100개 인스턴스부터 100개의 단일 인스턴스 App Service 계획까지 가능하며 모든 항목은 이 두 계획 사이에 있습니다.
+ASE는 단일 구독에 단독으로 전용되어 100개의 App Service 계획 인스턴스를 호스팅할 수 있습니다. 단일 App Service 계획의 100개 인스턴스부터 100개의 단일 인스턴스 App Service 계획까지 가능하며 모든 항목은 이 두 계획 사이에 있습니다.
 
 ASE는 프런트 엔드 및 작업자로 구성됩니다. 프런트 엔드는 ASE 내의 앱 요청에 대한 자동 부하 분산 및 HTTP/HTTPS 종료를 담당합니다. 프런트 엔드는 ASE의 App Service 계획이 스케일 아웃됨에 따라 자동으로 추가됩니다.
 

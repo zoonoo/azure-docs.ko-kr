@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 Java 및 MySQL 웹앱 빌드"
-description: "Azure MySQL 데이터베이스 서비스에 연결되는 Java 앱이 Azure App Service에서 작동되도록 하는 방법을 알아봅니다."
+title: Azure에서 Java 및 MySQL 웹앱 빌드
+description: Azure MySQL 데이터베이스 서비스에 연결되는 Java 앱이 Azure App Service에서 작동되도록 하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure에서 Java 및 MySQL 웹앱 빌드
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>자습서: Azure에서 Java 및 MySQL 웹앱 빌드
 
 > [!NOTE]
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Azure에 컨테이너화된 Spring Boot 앱 배포](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin)를 참조하세요.
@@ -137,7 +137,7 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>MySQL 서버 만들기
 
-Cloud Shell에서 [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL(미리 보기)의 서버를 만듭니다. `<mysql_server_name>` 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다. 이 이름은 MySQL 서버의 호스트 이름인 `<mysql_server_name>.mysql.database.azure.com`에 속하므로 전역적으로 고유해야 합니다. 또한 `<admin_user>` 및 `<admin_password>`를 고유한 값으로 바꿉니다.
+Cloud Shell에서 [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL에 서버를 만듭니다. `<mysql_server_name>` 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다. 이 이름은 MySQL 서버의 호스트 이름인 `<mysql_server_name>.mysql.database.azure.com`에 속하므로 전역적으로 고유해야 합니다. 또한 `<admin_user>` 및 `<admin_password>`를 고유한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -168,7 +168,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> MySQL용 Azure 데이터베이스(미리 보기)는 현재 Azure 서비스에서 자동으로 연결되지 않습니다. Azure의 IP 주소는 동적으로 할당되므로 지금은 모든 IP 주소를 사용하도록 설정하는 것이 좋습니다. 서비스가 미리 보기를 계속 제공하고 있으며, 데이터베이스를 보호하기 위한 더 나은 방법이 제공될 예정입니다.
+> Azure Database for MySQL는 현재 Azure 서비스에서 자동으로 연결되지 않습니다. Azure의 IP 주소는 동적으로 할당되므로 지금은 모든 IP 주소를 사용하도록 설정하는 것이 좋습니다. 데이터베이스를 보호하기 위해 더 나은 방법을 사용하도록 설정합니다.
 
 ## <a name="configure-the-azure-mysql-database"></a>Azure MySQL 데이터베이스 구성
 
