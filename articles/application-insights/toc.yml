@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: 깔때기
               href: usage-funnels.md
+            - name: 코호트
+              href: app-insights-usage-cohorts.md
             - name: 영향
               href: app-insights-usage-impact.md
             - name: 보존

@@ -16,8 +16,8 @@
 ## 관리
 ### [고대비 켜기 및 테마 변경](azure-portal-change-theme-high-contrast.md)
 ### [포털을 사용하여 리소스 관리](../azure-resource-manager/resource-group-portal.md)
-### [역할 기반 액세스 제어로 액세스 관리](../active-directory/role-based-access-control-configure.md)
-### [역할 기반 액세스 제어로 대시보드 공유](azure-portal-dashboard-share-access.md)
+### [역할 기반 Access Control로 액세스 관리](../role-based-access-control/role-assignments-portal.md)
+### [역할 기반 Access Control로 대시보드 공유](azure-portal-dashboard-share-access.md)
 ### [태그를 사용하여 리소스 구성](../azure-resource-manager/resource-group-using-tags.md)
 ### [리소스 확장](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [새 Azure 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)
