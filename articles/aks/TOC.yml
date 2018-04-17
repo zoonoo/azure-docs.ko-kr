@@ -83,6 +83,8 @@
           href: openfaas.md
         - name: AKS에서 Spark 작업 실행
           href: spark-job.md
+        - name: AKS에서 GPU 사용
+          href: gpu-cluster.md
     - name: Kubernetes 기본 사항
       items:
         - name: Kubernetes 대시보드 사용

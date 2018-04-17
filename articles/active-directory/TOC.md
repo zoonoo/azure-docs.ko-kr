@@ -56,6 +56,7 @@
 #### [초대 전자 메일](active-directory-b2b-invitation-email.md)
 #### [초대 상환](active-directory-b2b-redemption-experience.md)
 #### [초대 없이 B2B 사용자 추가](active-directory-b2b-add-user-without-invite.md)
+#### [초대 허용 또는 차단](active-directory-b2b-allow-deny-list.md)
 #### [B2B에 대한 조건부 액세스](active-directory-b2b-mfa-instructions.md)
 #### [B2B 공유 정책](active-directory-b2b-delegate-invitations.md)
 #### [역할에 B2B 사용자 추가](active-directory-b2b-add-guest-to-role.md)
@@ -327,9 +328,6 @@
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)
 #### [FAQ](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [암호 없이 인증](active-directory-azureadjoin-passport.md)
-#### [비즈니스용 Windows Hello 사용](active-directory-azureadjoin-passport-deployment.md)
 ### 인증서 기반 인증
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

@@ -6,8 +6,6 @@ items:
     items:
       - name: Azure Cosmos DB 정보
         href: introduction.md
-      - name: 설명서 실험
-        href: experiment.md
   - name: 빠른 시작
     expanded: true
     items:
@@ -185,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: SQL 실습
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: 분할
+              - name: SQL 데이터 분할
                 href: sql-api-partition-data.md
               - name: '저장 프로시저, 트리거 및 UDF'
                 href: programming.md
@@ -288,6 +286,8 @@ items:
             items:
               - name: Gremlin 지원
                 href: gremlin-support.md
+              - name: 그래프 분할
+                href: graph-partitioning.md
           - name: 테이블 API
             items:
               - name: 테이블 개발
@@ -330,8 +330,6 @@ items:
             href: geospatial.md
           - name: 인덱싱
             href: indexing-policies.md
-          - name: Visual Studio에서 연결된 서비스
-            href: connected-service.md
       - name: 관리
         items:
           - name: 비용 효율적인 읽기 및 쓰기
@@ -396,7 +394,7 @@ items:
           - name: 데이터 시각화에 ODBC 드라이버 활용
             href: odbc-driver.md
           - name: SQL API에 Spring Boot Starter 사용
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: 참고 자료
     items:
       - name: 코드 샘플

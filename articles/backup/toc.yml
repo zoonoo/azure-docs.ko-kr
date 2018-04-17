@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: Azure 파일 공유 백업 FAQ
           href: backup-azure-files-faq.md
-        - name: Azure 파일 공유 백업 문제 해결
-          href: troubleshoot-azure-files.md
     - name: Azure VM
       items:
         - name: VM 준비
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: 문제 해결
       items:
-        - name: Azure Portal에서 Azure VM 백업 문제
+        - name: IaaS VM 백업 오류 메시지
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Azure VM Backup 실패: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과'
+        - name: Azure Backup(MARS) 에이전트 또는 VM 확장 시간 초과
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Azure Backup에서 파일 및 폴더의 느린 백업
+        - name: 파일 및 폴더 백업이 느림
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Azure Backup Server 문제 해결
+        - name: Azure Backup 서버
           href: backup-azure-mabs-troubleshoot.md
-        - name: System Center Data Protection Manager 문제 해결
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Azure Backup Agent 문제 해결
+        - name: Azure Backup(MARS) 에이전트
           href: backup-azure-mars-troubleshoot.md
+        - name: Azure 파일 공유 백업
+          href: troubleshoot-azure-files.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell
