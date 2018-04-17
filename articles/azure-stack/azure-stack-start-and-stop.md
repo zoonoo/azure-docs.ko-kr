@@ -1,28 +1,28 @@
 ---
-title: "시작 및 중지 Azure 스택 | Microsoft Docs"
-description: "Azure 스택 종료 및 시작 하는 방법에 알아봅니다."
+title: 시작 및 중지 Azure 스택 | Microsoft Docs
+description: Azure 스택 종료 및 시작 하는 방법에 알아봅니다.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: mabrigg
-ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 04/09/2018
+ms.author: jeffgilb
+ms.reviewer: misainat
+ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 및 중지 Azure 스택
-
-*적용 대상: Azure 스택 통합 시스템 (1712 이상 버전)*
+올바르게 종료 하 고 Azure 스택 서비스를 다시 시작이 문서의 절차를 따라야 합니다. 
 
 ## <a name="stop-azure-stack"></a>Azure 스택 중지 
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/25/2018
 > [!Note]  
 > 제조업체 (OEM) Azure 스택 하드웨어를 제공 하는 지침에 따라 실제 노드 전원 상태를 확인할 수 있습니다. 
 
-## <a name="start-azure-stack"></a>Start Azure Stack 
+## <a name="start-azure-stack"></a>Azure 스택 시작 
 
 Azure 스택 다음 단계를 시작 합니다. Azure 스택 중지 하는 방법에 관계 없이 다음이 단계를 수행 합니다.
 
@@ -86,4 +86,4 @@ Azure 스택 다음 단계를 시작 합니다. Azure 스택 중지 하는 방�
 
 ## <a name="next-steps"></a>다음 단계 
 
-Azure 스택 진단 도구에 대 한 자세한 정보 및 로깅 문제점, 참조 [Azure 스택 진단 도구입니다. Azure 스택 진단 도구입니다. Azure 스택 진단 도구입니다. Azure 스택 진단 도구입니다.
+Azure 스택 진단 도구에 대 한 자세한 정보 및 로깅 문제점, 참조 [Azure 스택 진단 도구](azure-stack-diagnostics.md)합니다.

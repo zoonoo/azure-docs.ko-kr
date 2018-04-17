@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 저장소 계정을 관리 | Microsoft Docs"
-description: "찾기, 관리, 복구 및 저장소 계정은 Azure 스택 회수 하는 방법을 알아봅니다"
+title: Azure 스택 저장소 계정을 관리 | Microsoft Docs
+description: 찾기, 관리, 복구 및 저장소 계정은 Azure 스택 회수 하는 방법을 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure 스택에서 저장소 계정을 관리합니다
 찾아를 복구 하 고 비즈니스 요구에 따라 저장소 용량을 회수 스택 Azure에서에서 저장소 계정을 관리 하는 방법을 알아봅니다.
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/08/2018
 ## <a name="find"></a>저장소 계정 찾기
 하 여 Azure 스택의 지역에서 저장소 계정 목록을 볼 수 있습니다.
 
-1. 인터넷 브라우저에서 https://adminportal.local.azurestack.external로 이동 합니다.
+1. 인터넷 브라우저에서로 이동 https://adminportal.local.azurestack.external합니다.
 2. (배포 중에 제공한 자격 증명을 사용 하 여) 클라우드 연산자로 스택 Azure 관리 포털에 로그인
 3. 기본 대시보드-찾습니다는 **지역 관리** 나열 하 고 탐색, 예를 들어 영역을 클릭 **(로컬**).
    
@@ -99,11 +99,11 @@ Azure 스택에서 작업을 수행 하는 간단한 방법이 있습니다.
   계정 삭제 한 계정의 이미 가비지 수집 되었을 때 계정 목록에 나타나지 않을 수 있습니다. 이 경우 복구할 수 없습니다. 참조 [용량을 회수](#reclaim) 이 항목의 합니다.
 
 ## <a name="set-the-retention-period"></a>보존 기간 설정
-보존 기간 설정을 삭제 한 계정의 잠재적으로는 복구할 수 (0부터 9999 한 일에서 시간 기간을 지정 하는 클라우드 연산자 수 있습니다. 기본 보존 기간을 15 일로 설정 됩니다. 값을 삭제 한 계정의 즉시 보존 벗어났습니다 및 주기적 가비지 수집에 대 한 표시 "0"으로 설정 합니다.
+보존 기간 설정을 삭제 한 계정의 잠재적으로는 복구할 수 (0부터 9999 한 일에서 시간 기간을 지정 하는 클라우드 연산자 수 있습니다. 기본 보존 기간은 0 일로 설정 됩니다. 값을 삭제 한 계정의 즉시 보존 벗어났습니다 및 주기적 가비지 수집에 대 한 표시 "0"으로 설정 합니다.
 
 **변경 하려면 보존 기간:**
 
-1. 인터넷 브라우저에서 https://adminportal.local.azurestack.external로 이동 합니다.
+1. 인터넷 브라우저에서로 이동 https://adminportal.local.azurestack.external합니다.
 2. (배포 중에 제공한 자격 증명을 사용 하 여) 클라우드 연산자로 스택 Azure 관리 포털에 로그인
 3. 기본 대시보드-찾습니다는 **지역 관리** 나열 하 고 탐색-예를 들어 영역을 클릭 **(로컬**).
 4. 선택 **저장소** 에서 **리소스 공급자** 목록입니다.

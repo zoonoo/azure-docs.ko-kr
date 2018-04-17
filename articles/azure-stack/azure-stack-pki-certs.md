@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure 스택 공개 키 인프라에 대 한 인증서 요구 사항
+# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure 스택 공개 키 인프라 인증서 요구 사항
 
 Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 외부에서 액세스할 수 있는 공용 IP 주소를 사용 하는 공용 인프라 네트워크를 있습니다. Azure 스택 배포 하는 동안 이러한 Azure 스택 공개 인프라 끝점에 대 한 적절 한 DNS 이름으로 PKI 인증서가 필요 합니다. 이 문서에 대 한 정보를 제공합니다.
 
@@ -67,7 +67,7 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | 공용 포털 | portal.&lt;region>.&lt;fqdn> | 포털 | &lt;region>.&lt;fqdn> |
 | 관리 포털 | adminportal.&lt;region>.&lt;fqdn> | 포털 | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager Public | management.&lt;region>.&lt;fqdn> | Azure 리소스 관리자 | &lt;region>.&lt;fqdn> |
+| Azure 리소스 관리자 공개 | management.&lt;region>.&lt;fqdn> | Azure 리소스 관리자 | &lt;region>.&lt;fqdn> |
 | Azure 리소스 관리자 관리 | adminmanagement.&lt;region>.&lt;fqdn> | Azure 리소스 관리자 | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | *.table.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Table Storage | table.&lt;region>.&lt;fqdn> |
@@ -81,7 +81,7 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 |-----|-----|-----|-----|
 |공용 포털|portal.*&lt;region>.&lt;fqdn>*|포털|*&lt;region>.&lt;fqdn>*|
 |관리 포털|adminportal.*&lt;region>.&lt;fqdn>*|포털|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Public|management.*&lt;region>.&lt;fqdn>*|Azure 리소스 관리자|*&lt;region>.&lt;fqdn>*|
+|Azure 리소스 관리자 공개|management.*&lt;region>.&lt;fqdn>*|Azure 리소스 관리자|*&lt;region>.&lt;fqdn>*|
 |Azure 리소스 관리자 관리|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure 리소스 관리자|*&lt;region>.&lt;fqdn>*|
 |ACS<sup>1</sup>|다중 하위 도메인 와일드 카드 인증서가 두 개에 대 한 주체 대체 이름:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
 |KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(와일드 카드 SSL 인증서 포함)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|

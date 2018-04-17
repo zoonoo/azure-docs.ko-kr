@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/12/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b09799fe102522e1ad91f4983cf4f5fa8122b2c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell에 대 한 API 버전 프로필을 사용 하 여
 
@@ -34,15 +34,10 @@ API 버전 프로필에는 Azure 및 Azure 스택 간에 버전 간 차이점을
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-미리 보기; AzureRM.Bootstrapper 모듈은 세부 정보 및 기능은 변경 적용 됩니다. 를 다운로드 하 여 PowerShell 갤러리에서이 모듈의 최신 버전을 설치 하려면 다음 cmdlet을 실행 합니다.
-
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
 
 ## <a name="install-a-profile"></a>프로필 설치
 
-사용 하 여는 **설치 AzureRmProfile** 사용 하 여 cmdlet는 **2017-03-09-프로필** API 버전 프로필을 Azure 스택에서 필요한 AzureRM 모듈을 설치 합니다. 이 API 버전 프로필을 사용 하 여 Azure 스택 연산자 모듈이 설치 되지 않은 하며 별도로의 3 단계에서에서 지정한 대로 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md) 문서.
+사용 하 여는 **설치 AzureRmProfile** 사용 하 여 cmdlet는 **2017-03-09-프로필** API 버전 프로필을 Azure 스택에서 필요한 AzureRM 모듈을 설치 합니다. 이 API 버전 프로필 Azure 스택 연산자 모듈이 설치 되지 않습니다. 설치 해야 별도로의 3 단계에서에서 지정한 대로 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md) 문서.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile

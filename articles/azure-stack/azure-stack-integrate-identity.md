@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure 스택 데이터 센터 통합-Identity
 Id 공급자와 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택을 배포할 수 있습니다. Azure 스택을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 Azure 스택 연결이 끊어진된 모드에서 배포는 라고도 합니다.
@@ -65,7 +65,7 @@ Requirements:
 
 |매개 변수|설명|예|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Active Directory 포리스트 대상의 FQDN<br>와 통합|Contoso.com|
+|CustomADGlobalCatalog|Active Directory 포리스트 대상의 FQDN<br>와 통합|contoso.com|
 |CustomADAdminCredentials|LDAP 읽기 권한이 있는 사용자|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>기존 Active directory에서 (선택 사항) 사용자 계정 만들기
@@ -104,7 +104,7 @@ Requirements:
 
 Azure 스택에서 그래프 서비스는 대상 Active Directory와 통신 하는 다음 프로토콜 및 포트를 사용 합니다.
 
-|유형|포트|프로토콜|
+|type|포트|프로토콜|
 |---------|---------|---------|
 |LDAP|389|TCP 및 UDP|
 |LDAP SSL|636|TCP|
@@ -262,6 +262,9 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    > Windows Server 2012 또는 2012 R2 AD FS를 사용 하는 경우 발급 권한 부여 규칙을 구성 하려면 AD FS MMC 스냅인을 사용 해야 합니다.
 
 4. Internet Explorer 또는 Microsoft Edge 브라우저를 사용 하 여 Azure 스택 액세스할 때 토큰 바인딩을 무시 해야 합니다. 그렇지 않으면 로그인 시도 실패 합니다. AD FS 인스턴스 또는 팜 구성원에서 다음 명령을 실행 합니다.
+
+   > [!note]  
+   > Windows Server 2012 또는 2012 R2 AD FS를 사용 하는 경우이 단계는 적용 되지 않습니다. 이 명령은 건너뛰고 계속 해 서의 통합에 안전 합니다.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

@@ -55,11 +55,11 @@
         - name: Azure 스택 배포 PKI 요구 사항
           href: azure-stack-pki-certs.md
           items:
-            - name: Azure 스택 PKI 인증서 가져오기
+            - name: PKI 인증서를 생성 합니다.
               href: azure-stack-get-pki-certs.md
             - name: Azure 스택 PKI 인증서를 준비 합니다.
               href: azure-stack-prepare-pki-certs.md
-            - name: Azure 스택 PKI 인증서의 유효성을 검사합니다
+            - name: PKI 인증서의 유효성을 검사합니다
               href: azure-stack-validate-pki-certs.md
         - name: Id 통합
           href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: Azure 스택에 대 한 유효성 검사
           href: azure-stack-diagnostic-test.md
-        - name: Azure Stack Development Kit 재배포
-          href: azure-stack-redeploy.md
 - name: 참조
   items:
     - name: Azure Stack PowerShell

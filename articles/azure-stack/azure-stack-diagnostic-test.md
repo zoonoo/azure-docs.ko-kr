@@ -1,6 +1,6 @@
 ---
-title: "Azure 스택에서 유효성 검사 테스트를 실행 | Microsoft Docs"
-description: "Azure 스택에서 진단 로그 파일을 수집 하는 방법"
+title: Azure 스택에서 유효성 검사 테스트를 실행 | Microsoft Docs
+description: Azure 스택에서 진단 로그 파일을 수집 하는 방법
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure 스택에 대 한 유효성 검사 테스트를 실행 합니다.
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/08/2018
  
 Azure 스택의 상태를 확인할 수 있습니다. 문제가 있는 경우에 Microsoft 고객 서비스 지원에 문의 합니다. 지원 요청 관리 노드에서 AzureStack 테스트를 실행할 수 있습니다. 유효성 검사 테스트 실패를 파악합니다. 지원 수 다음 자세한 로그를 분석, 오류가 발생 하는 영역에 집중 및 작동 하는 문제를 해결 합니다.
 
-## <a name="run-test-azurestack"></a>Run Test-AzureStack
+## <a name="run-test-azurestack"></a>AzureStack 테스트 실행
 
 문제가 발생 하는 경우 Microsoft 고객 서비스 지원에 문의 한 후 실행 **테스트 AzureStack 실행**합니다.
 
@@ -33,7 +33,8 @@ Azure 스택의 상태를 확인할 수 있습니다. 문제가 있는 경우에
 2. 연락처 Microsoft 고객 서비스 지원 합니다.
 3. 실행 **테스트 AzureStack** 에서 권한 있는 끝점입니다.
     1. 권한 있는 끝점에 액세스 합니다. 자세한 내용은 [권한 있는 끝점을 사용 하 여 Azure 스택의](azure-stack-privileged-endpoint.md)합니다. 
-    2. 로 로그인 **AzureStack\CloudAdmin** 관리 호스트에 있습니다.
+    2. ASDK에서 로그인 관리 호스트으로 **AzureStack\CloudAdmin**합니다.  
+    통합된 된 시스템에서 권한 있는--끝점을 OEM 하드웨어 공급 업체에서 제공 하는 관리에 대 한 IP 주소를 사용 해야 합니다.
     3. 관리자 권한으로 PowerShell을 엽니다.
     4. 실행: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. 실행: `Test-AzureStack`

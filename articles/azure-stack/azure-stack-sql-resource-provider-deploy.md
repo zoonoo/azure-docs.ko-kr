@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd3618367f91fe043cc8412481b38a9c996a5275
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -81,7 +81,7 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
 
     - 단일 인증서 파일만 DependencyFilesLocalPath 매개 변수가 가리키는 디렉터리에 존재할 수 있습니다.
 
-    - 파일 이름에 특수 문자가 없어야 합니다.
+    - 파일 이름은 특수 문자 또는 공백을 사용할 수 없습니다.
 
 
 5. 열기는 **새** 관리자 권한 (관리자) PowerShell 콘솔 및 파일의 압축을 푼 디렉터리로 변경 합니다. 시스템에 이미 로드 되어 있는 잘못 된 PowerShell 모듈에서 발생할 수 있는 문제를 방지 하기 위해 새 창을 사용 합니다.
@@ -231,7 +231,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
  ```
 
-### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parameters
+### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 매개 변수
 명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않고 또는 모든 매개 변수 유효성 검사에 실패 하는 경우 필수 매개 변수를 제공 하 라는 메시지가 표시 됩니다.
 
 | 매개 변수 이름 | 설명 | 주석 또는 default 값 |

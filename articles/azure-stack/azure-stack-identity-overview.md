@@ -1,12 +1,12 @@
 ---
-title: "Azure 스택 대 한 id의 개요 | Microsoft Docs"
-description: "Azure 스택 함께 사용할 수 있습니다 id 시스템에 알아봅니다."
+title: Azure 스택 대 한 id의 개요 | Microsoft Docs
+description: Azure 스택 함께 사용할 수 있습니다 id 시스템에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: ''
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure 스택 대 한 id의 개요
 
@@ -52,12 +52,12 @@ Azure 스택 환경에 따라 옵션에 대 한 자세한 내용은 다음 문�
 만들고 사용자 및 그룹 관리 사용 하면 id 솔루션에 따라 다릅니다. 
 
 사용자 계정 Azure 스택: 
-- 만든는  *username@domain*  형식입니다. AD FS 사용 하는 AD FS 사용자 계정에 매핑되지만 Active Directory 인스턴스를 지원 하지 않습니다는  *\<도메인 >\<별칭 >* 형식입니다. 
+- 만든는 *username@domain* 형식입니다. AD FS 사용 하는 AD FS 사용자 계정에 매핑되지만 Active Directory 인스턴스를 지원 하지 않습니다는  *\<도메인 >\<별칭 >* 형식입니다. 
 - 다단계 인증을 사용 하도록를 설정할 수 있습니다. 
 - 처음 등록할 수 있는, 디렉터리인 해당 조직의 디렉터리에 제한 됩니다.
 - 온-프레미스 디렉터리에서 가져올 수 있습니다. 자세한 내용은 참조 [Azure Active Directory와 온-프레미스 디렉터리 통합](/azure/active-directory/connect/active-directory-aadconnect)합니다. 
 
-조직의 테 넌 트 포털에 로그인 할 때 사용 된  *https://portal.local.azurestack.external*  URL입니다. 
+조직의 테 넌 트 포털에 로그인 할 때 사용 된 *https://portal.local.azurestack.external* URL입니다. 
 
 ### <a name="guest-users"></a>게스트 사용자
 게스트 사용자는 디렉터리에 대 한 액세스 권한이 부여 된 다른 디렉터리 테 넌 트의 사용자 계정입니다. 게스트 사용자를 지원 하기 위해 Azure AD를 사용 하 고 다중 테 넌 트에 대 한 지원을 사용 하도록 합니다. 지원이 활성화 된 디렉터리 테 넌 트의 협력 외부 조직에 매핑함으로써 리소스에 액세스할 수 있는 게스트 사용자를 초대할 수 있습니다. 
@@ -148,7 +148,7 @@ Id 공급자를 사용 하 여 인증 하 고 JSON 웹 토큰을 수신 하는 �
 1.  **Id 시스템 (인증 기관)에 대 한 URL**: id 공급자를 연결할 수 있는 URL입니다. 예를 들어 *https://login.windows.net*입니다. 
 2.  **Azure 리소스 관리자에 대 한 앱 ID URI**:에 대 한 Azure 리소스 관리자에 등록 된 id 공급자의 고유 식별자입니다. 각 Azure 스택 설치에 고유한 이기도합니다.
 3.  **자격 증명**: id 공급자와 인증을 사용 하는 자격 증명입니다. 
-4.  **Azure 리소스 관리자에 대 한 URL**: URL이 Azure 리소스 관리자 서비스의 위치입니다. 예를 들어  *https://management.azure.com*  또는  *https://management.local.azurestack.external* 합니다.
+4.  **Azure 리소스 관리자에 대 한 URL**: URL이 Azure 리소스 관리자 서비스의 위치입니다. 예를 들어 *https://management.azure.com* 또는 *https://management.local.azurestack.external*합니다.
 
 보안 주체 (클라이언트, 응용 프로그램 또는 사용자)는 리소스에 액세스 하려면 인증 요청, 요청 포함 되어야 합니다.
 - 사용자의 자격 증명입니다.
@@ -169,9 +169,9 @@ Azure 리소스 관리자를 사용 하는 모든 유효성 검사 완료 되 �
 
 ### <a name="use-role-based-access-control"></a>역할 기반 Access Control 사용  
 역할 기반 액세스 제어 (RBAC) Azure 스택의 Microsoft Azure의 구현은 일치 합니다. 사용자, 그룹 및 응용 프로그램에서 RBAC에 적절 한 역할을 할당 하 여 리소스에 대 한 액세스를 관리할 수 있습니다. Azure 스택 함께 RBAC를 사용 하는 방법에 대 한 내용은 다음 문서를 참조 합니다.
-- [Azure 포털에서 역할 기반 액세스 제어를 시작 하려면](/azure/active-directory/role-based-access-control-what-is)합니다.
-- [역할 기반 액세스 제어를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하려면](/azure/active-directory/role-based-access-control-configure)합니다.
-- [신속히 알아봅니다 액세스 제어에 대 한 사용자 지정 역할 만들기](/azure/active-directory/role-based-access-control-custom-roles)합니다.
+- [Azure Portal에서 역할 기반 액세스 제어로 시작합니다](/azure/role-based-access-control/overview).
+- [역할 기반 액세스 제어를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하려면](/azure/role-based-access-control/role-assignments-portal)합니다.
+- [신속히 알아봅니다 액세스 제어에 대 한 사용자 지정 역할 만들기](/azure/role-based-access-control/custom-roles)합니다.
 - [역할 기반 액세스 제어 관리](azure-stack-manage-permissions.md) Azure 스택의 합니다.
 
 

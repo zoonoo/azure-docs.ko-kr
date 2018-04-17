@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에서 다중 테 넌 트를 사용 하도록 설정 | Microsoft Docs"
-description: "Azure 스택에서 여러 Azure Active Directory 디렉터리를 지원 하는 방법을 알아봅니다"
+title: Azure 스택에서 다중 테 넌 트를 사용 하도록 설정 | Microsoft Docs
+description: Azure 스택에서 여러 Azure Active Directory 디렉터리를 지원 하는 방법을 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Azure 스택에서 다중 테 넌 트를 사용 하도록 설정
 
@@ -91,7 +91,7 @@ Register-AzSWithMyDirectoryTenant `
 ## <a name="direct-users-to-sign-in"></a>사용자가 로그인 하려면
 과 메리 온보드 Mary의 디렉터리에 단계를 완료 했으므로 Mary는 Fabrikam의 사용자가 로그인 할를 보낼 수 있습니다.  Fabrikam 사용자 (즉, fabrikam.onmicrosoft.com 접미사와 함께 사용자)에 방문 하 여 로그인 https://portal.local.azurestack.external합니다.  
 
-Mary는이 모든 초보자 [외래 주체](../active-directory/active-directory-understanding-resource-access.md) Fabrikam 디렉터리 (즉, fabrikam.onmicrosoft.com 접미사 없이 Fabrikam 디렉터리의 사용자)에 사용 하 여 로그인을 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.  이 URL을 사용 하지 않으면 해당 기본 디렉터리 (Fabrikam)에 전송 되 고 관리자가 동의 하지 한다는 오류가 표시 있습니다.
+Mary는이 모든 초보자 [외래 주체](../role-based-access-control/rbac-and-directory-admin-roles.md) Fabrikam 디렉터리 (즉, fabrikam.onmicrosoft.com 접미사 없이 Fabrikam 디렉터리의 사용자)에 사용 하 여 로그인을 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.  이 URL을 사용 하지 않으면 해당 기본 디렉터리 (Fabrikam)에 전송 되 고 관리자가 동의 하지 한다는 오류가 표시 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

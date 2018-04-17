@@ -57,6 +57,8 @@
       href: asdk-register.md
     - name: Azure 스택 원격 분석 설정 구성
       href: asdk-telemetry.md
+    - name: 시작 및 중지는 ASDK
+      href: asdk-start-stop.md
     - name: 문제 해결
       href: asdk-troubleshooting.md
 - name: 참조

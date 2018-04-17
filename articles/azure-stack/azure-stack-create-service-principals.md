@@ -1,6 +1,6 @@
 ---
-title: "Azure 스택에 대 한 서비스 사용자를 만들 | Microsoft Docs"
-description: "Azure 리소스 관리자의 역할 기반 액세스 제어를 사용한 리소스에 대 한 액세스 관리를 사용할 수 있는 새 서비스 사용자를 만드는 방법을 설명 합니다."
+title: Azure 스택에 대 한 서비스 사용자를 만들 | Microsoft Docs
+description: Azure 리소스 관리자의 역할 기반 액세스 제어를 사용한 리소스에 대 한 액세스 관리를 사용할 수 있는 새 서비스 사용자를 만드는 방법을 설명 합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 833efa7f24d01346525af3dd9ca37012ab0ba3c4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure 스택에 응용 프로그램 액세스 권한을 제공합니다
 
@@ -41,7 +41,7 @@ Azure 스택, 배포 방법에 따라 사용자는 서비스를 만들어 시작
 
 Azure AD id 저장소로 사용 하 여 Azure 스택을 배포한 경우에 Azure에 대해 수행 하는 것 처럼 서비스 사용자를 만들 수 있습니다.  이 여기서 포털을 통해 단계를 수행 하는 방법을 보여 줍니다.  확인 해야 하는 [필요한 Azure AD 권한](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) 시작 하기 전에.
 
-### <a name="create-service-principal"></a>서비스 사용자 만들기
+### <a name="create-service-principal"></a>서비스 주체 만들기
 이 섹션에서는 Azure ad 응용 프로그램을 나타내는 응용 프로그램 (서비스 주체)을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
@@ -111,7 +111,7 @@ Requirements:
 
 2. 자동화 완료 된 후에 SPN을 사용 하려면 필요한 세부 정보 표시 됩니다. 
 
-   예:
+   예: 
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -136,7 +136,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>서비스 사용자 역할을 할당 합니다.
-구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 
