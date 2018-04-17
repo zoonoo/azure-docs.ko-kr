@@ -1,26 +1,25 @@
 ---
-title: "Azure SQL Data Warehouse 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "SQL Data Warehouse를 사용하여 방대한 병렬 처리와 SQL Server를 결합하는 방법에 대해 알아봅니다. 설명서에서는 데이터를 로드, 분석, 관리 및 내보내는 방법을 보여 줍니다."
+title: Azure SQL Data Warehouse 설명서 - 자습서, 개념 | Microsoft Docs
+description: 방대한 병렬 처리와 SQL 관계형 데이터베이스를 결합하는 Azure SQL Data Warehouse를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 문서는 데이터 웨어하우스를 사용하여 데이터를 설계, 로드, 관리 및 분석하는 방법을 보여줍니다.
 services: sql-data-warehouse
-author: czeumault
-manager: carolz
+author: hirokib
+manager: craigg-msft
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 47807360dd58f0c19360d90ed66f726d8922be1e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.component: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 42db87fd64bca58ee3e86589acdc85107e057665
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>SQL Data Warehouse 설명서
 
-방대한 병렬 처리와 SQL Server 관계형 데이터베이스를 결합하는 SQL Data Warehouse를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 웨어하우스에 데이터를 로드한 다음 분석, 관리 및 내보내는 방법을 보여 줍니다.
+방대한 병렬 처리와 SQL 관계형 데이터베이스를 결합하는 Azure SQL Data Warehouse를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 문서는 데이터 웨어하우스를 사용하여 데이터를 설계, 로드, 관리 및 분석하는 방법을 보여줍니다. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -82,7 +81,7 @@ ms.lasthandoff: 11/13/2017
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: b20283e1189e4f1a3555e2dd8d25972c9a677cd6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-management---monitoring"></a>Azure Government - 모니터링
 
@@ -40,17 +40,28 @@ Azure의 모니터링은 Azure 관리의 측면 중 하나입니다.  이 아티
 
 
 ## <a name="configure"></a>구성
-구성이란 응용 프로그램 및 리소스의 초기 배포 및 구성과 패치 및 업데이트를 사용하여 진행 중인 유지 관리를 가리킵니다.  스크립트 및 정책을 통해 이러한 작업의 자동화를 사용하면 중복성을 줄여서 시간과 노력을 최소화하고 정확도 및 효율성을 증가시킬 수 있습니다.  [Azure Automation](..\automation\automation-intro.md)에서는 구성 작업을 자동화하는 일련의 서비스를 제공합니다.  프로세스를 자동화하는 Runbook 외에도 구성 및 업데이트 관리를 제공합니다. 여기에서 정책을 통해 구성을 관리하고 업데이트를 식별하고 배포할 수 있습니다.
+구성은 응용 프로그램 및 리소스의 초기 배포 및 구성 그리고 패치 및 업데이트를 통한 지속적인 유지 관리를 참조합니다.  정책 및 스크립트를 통해 이러한 태스크의 Automation을 사용하면 중복을 제거하고 시간과 노력을 최소화하고 정확성과 효율성을 증가할 수 있습니다.  [Azure Automation](..\automation\automation-intro.md)에서는 구성 작업을 자동화하는 일련의 서비스를 제공합니다.  프로세스 자동화를 위한 Runbook 외에도 구성과 업데이트 관리를 제공해 정책을 통해 구성을 관리하고 업데이트를 식별하고 배포하는 데 도움이 됩니다.
 
 ## <a name="govern"></a>거버넌스
-거버넌스는 Azure의 응용 프로그램 및 리소스에 대한 제어를 유지 관리하는 메커니즘 및 프로세스를 제공합니다.  여기에는 이니셔티브를 계획하고 전략적 우선 순위를 설정하는 작업이 포함됩니다.  Azure의 거버넌스는 주로 두 가지 서비스를 통해 구현됩니다.  [Azure Policy](../azure-policy/azure-policy-introduction.md)를 사용하면 리소스에 대해 다양한 규칙과 작업을 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지하는 정책 정의를 만들고, 할당하고, 관리할 수 있습니다. [Cloudyn에서 개발한 Azure Cost Management](../cost-management/overview.md)를 사용하면 Azure 리소스와 AWS 및 Google을 포함한 다른 클라우드 공급자에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다.
+거버넌스는 Azure에서 응용 프로그램 및 리소스에 대한 제어를 유지 관리하는 프로세스와 메커니즘을 제공합니다.  거버넌스에는 이니셔티브 계획과 전략적 우선 순위 설정이 필요합니다.  Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다.  [Azure Policy](../azure-policy/azure-policy-introduction.md)는 리소스에 대해 다양한 규칙과 작업을 적용하는 정책 정의를 만들고 할당하고 관리할 수 있어 이러한 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. [Cloudyn에서 개발한 Azure Cost Management](../cost-management/overview.md)를 사용하면 Azure 리소스와 AWS 및 Google을 포함한 다른 클라우드 공급자에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다.
 
 ## <a name="secure"></a>보안
-응용 프로그램, 리소스 및 데이터의 보안 관리에는 위협 평가하고 보안 데이터 수집 및 분석하고 응용 프로그램과 리소스가 안전하게 구성 및 디자인되도록 보장하는 조합이 필요합니다.  보안 모니터링 및 위협 분석은 [Azure Security Center](../security-center/security-center-intro.md)에서 제공하며 하이브리드 클라우드 워크로드에 대한 통합 보안 관리 및 고급 위협 방지가 포함됩니다.  또한 Azure의 보안에 포괄적인 정보 및 Azure 리소스를 안전하게 구성하는 지침은 [Azure 보안 소개](../security/azure-security.md)를 참조해야 합니다.
+응용 프로그램, 리소스 및 데이터의 보안 관리에는 위협 평가하고 보안 데이터 수집 및 분석하고 응용 프로그램과 리소스가 안전하게 구성 및 디자인되도록 보장하는 조합이 필요합니다.  보안 모니너링과 위협 분석은 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 포함하는 [Azure Security Center](../security-center/security-center-intro.md)에서 제공합니다.  또한 Azure에서의 보안 및 안전한 Azure 리소스 구성에 대한 지침에 대한 종합 정보는 [Azure 보안 소개](../security/azure-security.md)를 참조하면 됩니다.
 
 
 ## <a name="protect"></a>보호
-보호란 사용자 제어할 수 없는 중단이 발생한 경우에도 응용 프로그램 및 데이터를 항상 사용할 수 있도록 보장하는 것을 가리킵니다.  Azure의 보호는 두 가지 서비스에서 제공됩니다.  [Azure Backup](../backup/backup-introduction-to-azure-backup.md)은 클라우드 또는 온-프레미스에서 데이터의 백업 및 복구를 제공합니다.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md)를 통해 재해 발생 시 비즈니스 연속성 및 즉시 복구를 제공하여 응용 프로그램의 고가용성을 보장합니다.
+보호는 사용자의 제어를 벗어나 중단된 경우에도 응용 프로그램 및 데이터를 항상 사용할 수 있도록 보장하는 것을 가리킵니다.  Azure의 보호는 두 가지 서비스에서 제공됩니다.  [Azure Backup](../backup/backup-introduction-to-azure-backup.md)은 클라우드 또는 온-프레미스에서 데이터의 백업 및 복구를 제공합니다.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md)는 재해 시 즉각적인 복구와 사업의 연속성을 제공하여 응용 프로그램의 고가용성을 보장합니다.
 
 ## <a name="migrate"></a>마이그레이션 
-마이그레이션이란 현재 온-프레미스에서 실행하는 워크로드를 Azure 클라우드로 전환하는 것을 가리킵니다.  [Azure Migrate](../migrate/migrate-overview.md)는 Azure에 대한 온-프레미스 가상 머신의 성능 기반 크기 및 비용 예상을 비롯한 마이그레이션 적합성을 평가할 수 있는 서비스입니다.  Azure Site Recovery를 통해 [온-프레미스에서](../site-recovery/migrate-tutorial-on-premises-azure.md) 또는 [Amazon Web Services에서](../site-recovery/migrate-tutorial-aws-azure.md) 가상 머신의 실제 마이그레이션을 수행할 수 있습니다.  [Azure 데이터베이스 마이그레이션](../dms/dms-overview.md)은 여러 데이터베이스 원본을 Azure 데이터 플랫폼으로 마이그레이션하는 데 도움이 됩니다.
+마이그레이션이란 현재 온-프레미스에서 실행하는 워크로드를 Azure 클라우드로 전환하는 것을 가리킵니다.  [Azure 마이그레이션](../migrate/migrate-overview.md)은 온-프레미스 가상 머신의 성능 기반 크기 조정 및 비용 예측을 포함해 Azure에 대한 마이그레이션 적합성을 평가하는 데 도움이 되는 서비스입니다.  Azure Site Recovery를 통해 [온-프레미스에서](../site-recovery/migrate-tutorial-on-premises-azure.md) 또는 [Amazon Web Services에서](../site-recovery/migrate-tutorial-aws-azure.md) 가상 머신의 실제 마이그레이션을 수행할 수 있습니다.  [Azure 데이터베이스 마이그레이션](../dms/dms-overview.md)은 여러 데이터베이스 원본을 Azure 데이터 플랫폼으로 마이그레이션하는 데 도움이 됩니다.
+
+
+## <a name="operations-management-suite"></a>Operations Management Suite
+Azure 관리와 관련된 이전 기술 문서에는 다음 Azure 관리 서비스의 번들인 OMS(Operations Management Suite)가 포함되었습니다.
+
+- Azure Automation
+- Azure Backup
+- Log Analytics
+- Site Recovery
+
+Azure의 완전한 관리가 다른 서비스를 포함하도록 확장되었기 때문에 기술 문서에서 이 번들을 설명하는 것은 생략하겠습니다. OMS의 일부인 서비스가 변경되지 않았기 때문에 각각의 서비스는 여전히 Azure 응용 프로그램과 리소스 관리에 중요한 역할을 합니다. 수행해야 하는 관리 작업과 각 작업에 대해 함께 작동하는 여러 Azure 서비스에 중점을 두어야 합니다.

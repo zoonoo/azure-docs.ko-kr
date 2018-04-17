@@ -201,6 +201,8 @@
       items:
         - name: 클러스터 보안
           href: service-fabric-cluster-security.md
+        - name: 확장
+          href: service-fabric-cluster-scaling.md
         - name: Linux와 Windows 간의 기능 차이점
           href: service-fabric-linux-windows-differences.md
         - name: Azure의 클러스터
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: 볼륨 및 로깅 드라이버
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: 컨테이너 로그 보기
+              href: service-fabric-containers-view-logs.md
             - name: 컨테이너 내 서비스
               href: service-fabric-services-inside-containers.md
             - name: 컨테이너 네트워킹 모드
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: 보안 클러스터에 연결
           href: service-fabric-connect-to-secure-cluster.md
-        - name: 클러스터 노드 패치
+        - name: 클러스터 노드 패치(Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: 클러스터 노드 패치(Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: 모니터링 및 진단
       items:
         - name: OMS를 사용하여 분석

@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: 모니터링 및 문제 해결
           items:
-            - name: Azure에 대한 장애 조치(failover) 문제 해결
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Hyper-V 복제 문제 해결
+              href: hyper-v-azure-troubleshoot.md
             - name: Azure Site Recovery 모니터링
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Hyper-V에서 보조로

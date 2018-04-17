@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1- .NET을 사용하여 DB 설계
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - SQL Server DB로 마이그레이션
+    - name: 2 - DMS를 사용하여 SQL Server DB로 마이그레이션
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - SQL DB 보안
       href: sql-database-security-tutorial.md
     - name: 4 - 지역 분산 데이터베이스 구현
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - 관리되는 인스턴스 만들기
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - 관리되는 인스턴스에 백업 복원
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - DMS를 사용하여 관리되는 인스턴스로 마이그레이션
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: 분석용 ETL
               href: saas-tenancy-tenant-analytics.md
+            - name: 지역 복원을 사용하여 재해 복구
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: 데이터베이스 지역 복제를 사용하여 재해 복구
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: 다중 테넌트 데이터베이스
           items:
             - name: 예제 앱 배포

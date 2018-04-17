@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: 방법 가이드
   items:
-    - name: 장치 등록 관리
-      items:
-        - name: Azure Portal을 사용하여 장치 등록 관리
-          href: how-to-manage-enrollments.md
-        - name: 서비스 SDK를 사용하여 장치 등록 관리
-          href: how-to-manage-enrollments-sdks.md
-    - name: 장치 액세스 철회
-      href: how-to-revoke-device-access-portal.md
-    - name: 장치 프로비전 해제
-      href: how-to-unprovision-devices.md
-    - name: X.509 CA 인증서에서 소유 증명 수행
-      href: how-to-verify-certificates.md
-    - name: SDK로 HSM 사용
-      href: use-hsm-with-sdk.md
-    - name: 프로비전 서비스에 대한 액세스 제어
-      href: how-to-control-access.md
-    - name: Azure CLI를 사용하여 장치 프로비전 서비스 관리
-      href: how-to-manage-dps-with-cli.md
-    - name: SDK 도구를 사용하여 개발
-      href: how-to-use-sdk-tools.md
-    - name: MXChip IoT DevKit에 연결
+    - name: IoT 허브에 MXChip IoT DevKit 연결
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: 장치 프로비전 구성 관리
+      items:
+        - name: 확인된 CA 인증서 구성
+          href: how-to-verify-certificates.md
+        - name: 프로비전 해제 관리
+          href: how-to-unprovision-devices.md
+        - name: 등록 취소 관리
+          href: how-to-revoke-device-access-portal.md
+        - name: 등록 관리 - 포털
+          href: how-to-manage-enrollments.md
+        - name: 등록 관리 - 서비스 SDK
+          href: how-to-manage-enrollments-sdks.md
+    - name: 장치 프로비저닝 서비스 관리
+      items:
+        - name: Azure CLI를 사용하여 장치 프로비저닝 서비스 구성
+          href: how-to-manage-dps-with-cli.md
+        - name: 프로비저닝 서비스 API에 대한 액세스 제어
+          href: how-to-control-access.md
+    - name: SDK를 통한 증명 메커니즘 사용
+      href: use-hsm-with-sdk.md
+    - name: 개발에 SDK 도구 사용
+      href: how-to-use-sdk-tools.md
 - name: 참고 자료
   items:
     - name: REST (영문)

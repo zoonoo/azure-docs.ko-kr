@@ -21,7 +21,7 @@
       href: automation-tutorial-update-management.md
     - name: Runbook에서 등록 업데이트 및 변경 내용 추적
       href: automation-onboard-solutions.md
-    - name: VM에서 소프트웨어 식별
+    - name: 사용자 환경에서 소프트웨어 식별
       href: automation-tutorial-installed-software.md
     - name: VM에서 변경 내용 문제 해결
       href: automation-tutorial-troubleshoot-changes.md

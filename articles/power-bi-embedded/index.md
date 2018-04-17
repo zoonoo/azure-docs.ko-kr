@@ -1,22 +1,22 @@
 ---
-title: "Azure Power BI Embedded 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "앱에 Power BI 데이터 시각화 및 대화형 보고서를 포함하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
+title: Azure Power BI Embedded 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 앱에 Power BI 데이터 시각화 및 대화형 보고서를 포함하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
 services: power-bi-embedded
-author: czeumault
-manager: carolz
+author: markingmyname
+manager: kfile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/28/2017
-ms.author: carolz
-ms.openlocfilehash: d8e1fafe9b3fecc9822ef6f25d8c527eebe586cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0ba30c72fd23526d4c4da964bcd3e37f3e507dea
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 설명서
 
@@ -99,7 +99,7 @@ Power BI embedded를 사용하여 응용 프로그램에 데이터 시각화 및
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -134,6 +134,7 @@ Power BI embedded를 사용하여 응용 프로그램에 데이터 시각화 및
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
+                        <p><a href="https://docs.microsoft.com/en-us/rest/api/power-bi-embedded/">Azure Resource Manager REST API 참조</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">REST API 참조</a></p>
                     </div>
                 </div>
