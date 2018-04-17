@@ -23,7 +23,7 @@
       href: container-service-tutorial-kubernetes-scale.md
     - name: 6 - 응용 프로그램 업데이트
       href: container-service-tutorial-kubernetes-app-update.md
-    - name: 7 - OMS로 모니터링
+    - name: 7 - Log Analytics로 모니터링
       href: container-service-tutorial-kubernetes-monitor.md
 - name: 개념
   items:
@@ -45,7 +45,7 @@
       href: container-service-scale.md
     - name: 모니터
       items:
-        - name: OMS로 모니터링
+        - name: Log Analytics로 모니터링
           href: container-service-kubernetes-oms.md
         - name: Datadog로 모니터링
           href: container-service-kubernetes-datadog.md

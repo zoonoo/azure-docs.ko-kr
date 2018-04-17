@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Azure Container Service(AKS)
 metadata:
-  document_id: null
-  title: 'Azure Container Service(AKS) 설명서 - 자습서, API 참조 | Microsoft Docs'
-  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: Azure Container Service(AKS) 설명서 - 자습서, API 참조 | Microsoft Docs
+  meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
   manager: carolz
@@ -14,42 +14,47 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: a381697e27a2d85d99fcbb1eb54bd7c0ab7d743a
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/16/2018
 abstract:
-  description: 'Azure Container Service(AKS)는 호스팅된 Kubernetes 환경을 관리하여 컨테이너 오케스트레이션 전문성 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.'
+  description: Azure Container Service(AKS)는 호스팅된 Kubernetes 환경을 관리하여 컨테이너 오케스트레이션 전문성 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
 sections:
-  - title: 5분 빠른 시작
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: AKS 클러스터를 배포하는 방법을 알아봅니다.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: AKS 클러스터를 배포하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/media/index/ContainerService.svg
-            text: AKS 클러스터 만들기
-            href: /azure/aks/kubernetes-walkthrough
-  - title: 단계별 자습서
+    - image:
+        src: /azure/media/index/ContainerService.svg
+      text: AKS 클러스터 만들기
+      href: /azure/aks/kubernetes-walkthrough
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: AKS 클러스터에서 응용 프로그램을 배포하고 관리하며 업데이트하는 방법을 알아봅니다.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: AKS 클러스터에서 응용 프로그램을 배포하고 관리하며 업데이트하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">응용 프로그램에서 컨테이너 이미지 만들기</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Azure Container Registry에 컨테이너 이미지 업로드</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">AKS 클러스터 배포</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Kubernetes에서 컨테이너 이미지 실행</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-scale">응용 프로그램 및 Kubernetes 인프라 크기 조정</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Kubernetes에서 실행 중인 응용 프로그램 업데이트</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">OMS로 Kubernetes 모니터링</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">AKS 클러스터 업그레이드</a>
-  - title: 참조
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">응용 프로그램에서 컨테이너 이미지 만들기</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Azure Container Registry에 컨테이너 이미지 업로드</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">AKS 클러스터 배포</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Kubernetes에서 컨테이너 이미지 실행</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-scale">응용 프로그램 및 Kubernetes 인프라 크기 조정</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Kubernetes에서 실행 중인 응용 프로그램 업데이트</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Log Analytics를 사용하여 Kubernetes 모니터링</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">AKS 클러스터 업그레이드</a>
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령 줄
-            html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/aks">REST API</a></p>
+    - title: 명령 줄
+      html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+    - title: REST (영문)
+      html: <p><a href="/rest/api/aks">REST API</a></p>

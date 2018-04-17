@@ -24,7 +24,7 @@
 ###[Azure CLI를 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [보안(RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[역할 할당을 사용하여 리소스 관리](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[역할 할당을 사용하여 리소스 관리](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [가상 머신](azure-operations-guide.md#azure-virtual-machines)
 ### [Windows용 VM 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
