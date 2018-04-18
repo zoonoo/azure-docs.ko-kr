@@ -9,23 +9,20 @@ ms.author: xshi
 ms.date: 3/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8da16ffe72ad265f0201c2fe7e00e585dfa255e8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8c266a01375bf74fd4df9290255e84bc28e6089c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge에서 Azure Functions 디버그
 
 이 문서에서는 [Visual Studio Code](https://code.visualstudio.com/)를 주 개발 도구로 사용하여 IoT Edge에서 Azure Functions를 디버그하기 위한 자세한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 컴퓨터로 사용한다고 가정합니다. IoT Edge 장치가 다른 물리적 장치가 될 수도 있고, 개발 컴퓨터에서 IoT Edge 장치를 시뮬레이트할 수도 있습니다.
+이 문서에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 컴퓨터로 사용한다고 가정합니다. IoT Edge 장치가 다른 물리적 장치가 될 수도 있고, 개발 컴퓨터에서 IoT Edge 장치를 시뮬레이트할 수도 있습니다.
 
-이 설명서를 시작하기 전에 다음 자습서를 완료했는지 확인합니다.
-- [Visual Studio Code에서 여러 모듈을 사용하여 IoT Edge 솔루션 개발](tutorial-multiple-modules-in-vscode.md)
-
-이전 자습서를 완료하면 다음 항목이 준비될 것입니다.
+이 문서의 지침을 수행하기 전에 [Visual Studio Code에서 여러 모듈을 사용하여 IoT Edge 솔루션 개발](tutorial-multiple-modules-in-vscode.md)의 단계를 완료합니다. 그 후 다음 항목을 준비해야 합니다.
 - 개발 컴퓨터에서 실행 중인 로컬 Docker 레지스트리. 프로토타입 및 테스트 목적에는 로컬 Docker 레지스트리를 사용하는 것이 좋습니다. 각 모듈 폴더의 `module.json` 파일에서 컨테이너 레지스트리를 업데이트할 수 있습니다.
 - Azure Function 모듈 하위 폴더를 포함하는 IoT Edge 솔루션 프로젝트 작업 영역
 - 함수 코드가 포함된 `run.csx` 파일
@@ -59,8 +56,6 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 디버깅을 위해 Azure 함수를 만들고 IoT Edge에 배포한 후 VS Code에서 디버깅을 시작했습니다. 다음 자습서 중 하나를 계속 진행하면 VS Code에 Azure IoT Edge를 개발하는 다른 시나리오에 대해 자세히 알아볼 수 있습니다. 
 
-> [!div class="nextstepaction"]
-> [Visual Studio Code에서 여러 모듈을 사용하여 IoT Edge 솔루션 개발](tutorial-multiple-modules-in-vscode.md)
+[Visual Studio Code를 사용하여 Azure IoT Edge에서 C# 모듈 디버그](how-to-vscode-debug-csharp-module.md)
 

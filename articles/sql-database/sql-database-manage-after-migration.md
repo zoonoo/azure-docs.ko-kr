@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
-기존의 자체 관리되고 자체 제어되는 환경에서 PaaS 환경으로 이동은 언뜻 보면 매우 어려울 것 같을 수 있습니다. 앱 개발자 또는 DBA는 응용 프로그램을 언제나 사용 가능하고, 성능이 뛰어나고, 안전하고, 복원력이 있게 유지하는 데 도움이 되는 플랫폼의 코어 기능을 알아야 할 것입니다. 이 문서의 목적이 바로 그것입니다. 이 문서는 리소스를 간결하게 구성하며 SQL Database의 주요 기능을 사용하여 클라우드에서 응용 프로그램을 효율적으로 실행되도록 관리 및 유지하고 최적의 결과를 달성하는 최선의 방법에 관한 몇몇 지침을 제공합니다. 이 문서의 대표적인 대상 독자는 다음과 같은 작업을 수행하는 사용자입니다.
+기존의 자체 관리되고 자체 제어되는 환경에서 PaaS 환경으로 이동은 언뜻 보면 매우 어려울 것 같을 수 있습니다. 앱 개발자 또는 DBA는 응용 프로그램을 언제나 사용 가능하고, 성능이 뛰어나고, 안전하고, 복원력이 있게 유지하는 데 도움이 되는 플랫폼의 코어 기능을 알아야 할 것입니다. 이 문서의 목적이 바로 그것입니다. 이 문서는 리소스를 간결하게 구성하며 SQL Database의 주요 기능을 사용하여 클라우드에서 응용 프로그램을 효율적으로 실행되도록 관리 및 유지하고 최적의 결과를 달성하는 최선의 방법에 관한 몇몇 지침을 제공합니다. 이 문서의 대표적인 대상 독자는 다음과 같은 작업을 수행하는 사용자입니다. 
 - Azure SQL DB로 응용 프로그램 마이그레이션 평가 - 응용 프로그램 현대화.
 - 응용 프로그램을 마이그레이션하는 과정에 있는 경우 - 상시적인 마이그레이션 시나리오.
 - 최근에 Azure SQL DB로 마이그레이션을 완료한 경우 - 클라우드의 새 DBA.
@@ -127,7 +127,7 @@ SQL Database에서 기본적으로 저장소 하위 시스템에 있는 데이�
 |**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|종단간|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니오|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
@@ -218,7 +218,7 @@ SQL Database에서는 플랫폼의 지능적인 정보를 활용하여 성능을
 
 성능 문제 해결의 경우 응용 프로그램 성능에 영향을 주는 것이 문제 해결을 지원하는 응용 프로그램 또는 데이터베이스뿐인지 여부를 식별하는 것이 중요합니다. 성능 문제는 응용 프로그램 레이어에 있는 경우가 많습니다. 즉, 아키텍처 또는 데이터 액세스 패턴이 문제일 수 있습니다. 예를 들어 네트워크 대기 시간에 중요한 대화 응용 프로그램이 있다고 생각해 보겠습니다. 이 경우 응용 프로그램은 응용 프로그램과 서버 사이를 오가는 짧은 요청("대화")이 많이 있고 혼잡한 네트워크에서는 이러한 왕복이 빠르게 증가하므로 문제가 발생합니다. 이 경우 성능을 개선하려면 [일괄 쿼리](sql-database-performance-guidance.md#batch-queries)를 사용할 수 있습니다. 일괄 처리를 사용하면 이제 요청이 일괄 처리되므로 크게 도움이 되며, 따라서 왕복 대기 시간을 줄이고 응용 프로그램 성능을 개선하는 데 도움이 됩니다. 
 
-또한 데이터베이스의 전반적인 성능이 저하되는 것을 발견한 경우 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) alc [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링하여 CPU, I/O 및 메모리 사용을 이해할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 워크로드 수요의 증가 및 감소를 기반으로 성능 수준 및/또는 서비스 계층을 변경해야 할 수 있습니다. 
+또한 데이터베이스의 전반적인 성능이 저하되는 것을 발견한 경우 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링하여 CPU, IO 및 메모리 사용을 이해할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 워크로드 수요의 증가 및 감소를 기반으로 성능 수준 및/또는 서비스 계층을 변경해야 할 수 있습니다. 
 
 성능 문제 조정에 대한 포괄적인 권장 사항은 [데이터베이스 조정](sql-database-performance-guidance.md#tune-your-database)을 참조하세요.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 규칙 엔진 기능
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
@@ -28,7 +28,6 @@ ms.lasthandoff: 03/23/2018
 ## <a name="access-features"></a>액세스 기능
 
 이러한 기능은 콘텐츠에 대한 액세스를 제어하도록 설계되었습니다.
-
 
 Name | 목적
 -----|--------
@@ -312,7 +311,7 @@ Prebuf 초|이 옵션을 대역폭이 제한될 때까지 POP가 대기하는 �
 
 주요 정보:
 
-- 쿼리 문자열 매개 변수 이름을 둘 이상 지정합니다. 단일 공백으로 각 매개 변수 이름을 구분합니다.
+- 하나 이상의 쿼리 문자열 매개 변수 이름을 지정하고, 각 매개 변수 이름은 단일 공백으로 구분합니다.
 - 이 기능은 cache-key에서 쿼리 문자열 매개 변수를 포함할지 또는 제외할지 여부를 결정합니다. 다음 표에 각 옵션에 대한 추가 정보가 제공됩니다.
 
 유형|설명
@@ -325,6 +324,9 @@ Prebuf 초|이 옵션을 대역폭이 제한될 때까지 POP가 대기하는 �
 규칙 엔진을 사용하면 쿼리 문자열 캐싱이 구현되는 방식을 사용자 지정할 수 있습니다. 예를 들어 특정 위치 또는 파일 형식에서만 쿼리 문자열 캐싱을 수행하도록 지정할 수 있습니다.
 
 Query-String Caching 페이지에서 "no-cache" 쿼리 문자열 캐싱 동작을 복제하려면 URL 쿼리 와일드카드 일치 조건과 Bypass Cache 기능이 포함된 규칙을 만듭니다. URL 쿼리 와일드카드 일치 조건은 별표(*)로 설정합니다.
+
+>[!IMPORTANT] 
+> 이 계정의 모든 경로에 대해 토큰 권한 부여를 사용하도록 설정하면 표준 캐시 모드만 쿼리 문자열 캐시에 사용할 수 있습니다. 자세한 내용은 [쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어](cdn-query-string-premium.md)를 참조하세요.
 
 #### <a name="sample-scenarios"></a>샘플 시나리오
 
@@ -1054,10 +1056,12 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 ### <a name="token-auth-denial-code"></a>토큰 인증 거부 코드
 **목적:** 토큰 기반 인증에 따라 요청을 거부할 때 사용자에게 반환할 응답 형식을 결정합니다.
 
-사용 가능한 응답 코드는 다음과 같습니다.
+토큰 인증 거부 코드는 항상 일치 조건과 함께 사용할 수 없습니다. 대신 **관리** 포털의 **토큰 인증** 페이지에 있는 **사용자 지정 거부 처리** 섹션을 사용합니다. 자세한 내용은 [토큰 인증을 사용하여 Azure CDN 자산 보안 유지](cdn-token-auth.md)를 참조하세요.
+
+사용 가능한 응답 코드는 다음 표에 나열됩니다.
 
 응답 코드|응답 이름|설명
-----------------|-----------|--------
+-------------|-------------|--------
 301|영구적으로 이동됨|권한이 없는 사용자를 Location 헤더에 지정된 URL로 리디렉션합니다.
 302|있음|권한이 없는 사용자를 Location 헤더에 지정된 URL로 리디렉션합니다. 리디렉션을 수행하는 업계 표준 방식입니다.
 307|임시 리디렉션|권한이 없는 사용자를 Location 헤더에 지정된 URL로 리디렉션합니다.

@@ -1,21 +1,21 @@
 ---
-title: OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링 | Microsoft Docs
-description: OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기)를 모니터링하는 방법을 알아봅니다.
+title: Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링 | Microsoft Docs
+description: Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기)를 모니터링하는 방법을 알아봅니다.
 services: sql-database
-ms.date: 11/07/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>OMS Log Analytics를 사용하여 SQL 데이터 동기화(미리 보기) 모니터링 
+# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화(미리 보기) 모니터링 
 
 이전에는 SQL 데이터 동기화 활동 로그를 확인하고 오류와 경고를 검색하기 위해 Azure Portal에서 수동으로 SQL 데이터 동기화를 확인하거나 PowerShell 또는 REST API를 사용해야 했습니다. 이 문서의 단계에 따라 데이터 동기화 모니터링 환경을 향상시키는 사용자 지정 솔루션을 구성합니다. 시나리오에 맞게 이 솔루션을 사용자 지정할 수 있습니다.
 
@@ -23,27 +23,27 @@ SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화(미�
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>모든 동기화 그룹에 대한 모니터링 대시보드 
 
-문제를 확인하기 위해 더 이상 각 동기화 그룹의 로그를 개별적으로 검색할 필요가 없습니다. 사용자 지정 OMS(Operations Management Suite) 보기를 사용하여 구독 중 하나의 모든 동기화 그룹을 한 곳에서 모니터링할 수 있습니다. 이 보기는 SQL 데이터 동기화 고객에게 중요한 정보를 표시합니다.
+문제를 확인하기 위해 더 이상 각 동기화 그룹의 로그를 개별적으로 검색할 필요가 없습니다. 사용자 지정 Log Analytics 보기를 사용하여 한 곳에서 구독의 모든 동기화 그룹을 모니터링할 수 있습니다. 이 보기는 SQL 데이터 동기화 고객에게 중요한 정보를 표시합니다.
 
 ![데이터 동기화 모니터링 대시보드](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>자동화된 전자 메일 알림
 
-Azure Portal이나 PowerShell 또는 REST API를 통해 로그를 수동으로 확인할 필요가 없습니다. [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)를 사용하면 오류가 발생할 때 경고를 볼 필요가 있는 사람들의 전자 메일 주소로 직접 전송되는 경고를 만들 수 있습니다.
+Azure Portal이나 PowerShell 또는 REST API를 통해 로그를 수동으로 확인할 필요가 없습니다. [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)를 사용하면 오류가 발생할 때 경고를 볼 필요가 있는 사람들의 이메일 주소로 직접 전송되는 경고를 만들 수 있습니다.
 
 ![데이터 동기화 전자 메일 알림](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>이런 모니터링 기능은 어떻게 설정하나요? 
 
-다음 작업을 수행하면 한 시간 이내에 SQL 데이터 동기화에 대한 사용자 지정 OMS 모니터링 솔루션을 구현합니다.
+다음 작업을 수행하면 한 시간 이내에 SQL 데이터 동기화에 대한 사용자 지정 Log Analytics 모니터링 솔루션을 구현합니다.
 
 세 가지 구성 요소를 구성해야 합니다.
 
--   SQL 데이터 동기화 로그 데이터를 OMS에 제공하는 PowerShell Runbook
+-   SQL 데이터 동기화 로그 데이터를 Log Analytics에 제공하는 PowerShell Runbook
 
--   전자 메일 알림에 대한 OMS Log Analytics 경고
+-   이메일 알림에 대한 Log Analytics 경고
 
--   OMS 모니터링 보기
+-   모니터링을 위한 Log Analytics 보기
 
 ### <a name="samples-to-download"></a>다운로드할 샘플
 
@@ -51,7 +51,7 @@ Azure Portal이나 PowerShell 또는 REST API를 통해 로그를 수동으로 �
 
 -   [데이터 동기화 로그 PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [데이터 동기화 로그 OMS 보기](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [데이터 동기화 Log Analytics 보기](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -59,11 +59,11 @@ Azure Portal이나 PowerShell 또는 REST API를 통해 로그를 수동으로 �
 
 -   Azure Automation 계정
 
--   OMS 작업 영역과 연결된 Log Analytics
+-   Log Analytics 작업 영역
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>SQL 데이터 동기화 로그를 가져오는 PowerShell Runbook 
 
-Azure Automation에서 호스팅되는 PowerShell Runbook을 사용하여 SQL 데이터 동기화 로그 데이터를 끌어와서 OMS로 보냅니다. 샘플 스크립트가 포함되어 있습니다. 필수 구성 요소로서 Azure Automation 계정이 있어야 합니다. 그런 다음 Runbook을 만들고 실행 일정을 예약해야 합니다. 
+Azure Automation에서 호스팅되는 PowerShell Runbook을 사용하여 SQL 데이터 동기화 로그 데이터를 끌어와서 Log Analytics로 보냅니다. 샘플 스크립트가 포함되어 있습니다. 필수 구성 요소로서 Azure Automation 계정이 있어야 합니다. 그런 다음 Runbook을 만들고 실행 일정을 예약해야 합니다. 
 
 ### <a name="create-a-runbook"></a>Runbook 만들기
 
@@ -121,9 +121,9 @@ Runbook 일정을 예약하려면 다음을 수행합니다.
 
 자동화가 예상대로 실행되는지를 모니터링하려면 자동화 계정의 **개요**에서 **모니터링** 아래의 **작업 통계**보기를 찾습니다. 이 보기를 쉽게 볼 수 있도록 대시보드에 고정합니다. 성공적인 Runbook 실행은 "완료"로 표시되고, 실패한 실행은 "실패"로 표시됩니다.
 
-## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>전자 메일 알림에 대한 OMS 로그 판독기 경고 만들기
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>이메일 알림에 대한 Log Analytics 독자 경고 만들기
 
-OMS Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 필수 구성 요소로서 Log Analytics를 OMS 작업 영역과 연결해야 합니다.
+Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 필수 구성 요소로서 Log Analytics를 Log Analytics 작업 영역과 연결해야 합니다.
 
 1.  OMS 포털에서 **로그 검색**을 선택합니다.
 
@@ -179,7 +179,7 @@ OMS 보기를 구성하려면 다음을 수행합니다.
 
 **Azure Automation:** 사용량에 따라 Azure Automation 계정에 발생하는 비용이 있을 수 있습니다. 매월 작업 실행 시간의 첫 번째 500분에 대해서는 무료입니다. 대부분의 경우 이 솔루션은 한 달에 500분 미만으로 사용해야 합니다. 요금 부과를 방지하려면 2시간 이상의 간격으로 Runbook을 실행하도록 예약합니다. 자세한 내용은 [Automation 가격](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 
-**OMS Log Analytics:** 사용량에 따라 OMS와 관련된 비용이 있을 수 있습니다. 체험 계층에서는 매일 500MB의 데이터를 수집할 수 있습니다. 대부분의 경우 이 솔루션은 하루에 500MB 미만으로 데이터를 수집해야 합니다. 사용량을 줄이려면 Runbook에 포함된 실패 전용 필터링을 사용합니다. 하루에 500MB를 초과하여 사용하는 경우 유료 계층으로 업그레이드하여 제한 도달 시 분석이 중지되는 위험을 방지합니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
+**Log Analytics:** 사용량에 따라 Log Analytics와 관련된 비용이 있을 수 있습니다. 체험 계층에서는 매일 500MB의 데이터를 수집할 수 있습니다. 대부분의 경우 이 솔루션은 하루에 500MB 미만으로 데이터를 수집해야 합니다. 사용량을 줄이려면 Runbook에 포함된 실패 전용 필터링을 사용합니다. 하루에 500MB를 초과하여 사용하는 경우 유료 계층으로 업그레이드하여 제한 도달 시 분석이 중지되는 위험을 방지합니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
 ## <a name="code-samples"></a>코드 샘플
 
@@ -187,7 +187,7 @@ OMS 보기를 구성하려면 다음을 수행합니다.
 
 -   [데이터 동기화 로그 PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [데이터 동기화 로그 OMS 보기](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [데이터 동기화 Log Analytics 보기](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.

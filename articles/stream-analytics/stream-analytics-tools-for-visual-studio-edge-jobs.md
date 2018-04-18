@@ -1,26 +1,21 @@
 ---
-title: Visual Studio용 Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스 설정 | Microsoft Docs
-description: Stream Analytics Edge 작업을 작성하고, 디버그하고, 만들 수 있는 Visual Studio용 Stream Analytics 도구를 개발하는 자습서입니다.
-keywords: Visual Studio, NuGet, DevOps, Edge 작업, Stream Analytics
-documentationcenter: ''
+title: Visual Studio용 Azure Stream Analytics 도구에서의 Edge 작업
+description: 이 문서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics Edge 작업을 작성하고, 디버그하고, 만드는 방법에 대해 알아봅니다.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-ms.openlocfilehash: c6e1d0693035ef343e20cee4b09f0669e089afee
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
+ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="develop-stream-analytics-edge-jobs-by-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
 
 이 자습서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics Edge 작업을 작성하고, 디버그하고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 장치에 배포할 수 있습니다. 
 

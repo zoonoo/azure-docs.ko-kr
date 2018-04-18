@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher로 네트워크 연결 모니터링
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/03/2018
 
 * 연결을 모니터링하려는 지역의 Network Watcher 인스턴스. 아직 없는 경우 [Azure Network Watcher 인스턴스 만들기](network-watcher-create.md)의 단계를 완료하여 만듭니다.
 * 모니터링하는 VM입니다. VM을 만드는 방법을 알아보려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM 만들기를 참조하세요.
-* 연결을 모니터링할 VM에 `AzureNetworkWatcherExtension`을 설치합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하고, Linux VM에서 확장을 설치하려면 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하세요.
+* 연결을 모니터링할 VM에 `AzureNetworkWatcherExtension`을 설치합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하고, Linux VM에서 확장을 설치하려면 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하세요. 확장은 모니터링하려는 대상 엔드포인트에서 필요하지 않습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 

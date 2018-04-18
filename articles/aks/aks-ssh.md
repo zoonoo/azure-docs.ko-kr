@@ -1,95 +1,77 @@
 ---
-title: "AKS(Azure Container Service) 클러스터 노드에 대한 SSH 연결 만들기"
-description: "AKS(Azure Container Service) 클러스터 노드를 사용하는 SSH 연결을 만듭니다."
+title: AKS(Azure Container Service) 클러스터 노드에 대한 SSH 연결 만들기
+description: AKS(Azure Container Service) 클러스터 노드를 사용하는 SSH 연결을 만듭니다.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/28/2018
+ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 00affc3d1c02c477826261aeac6e092934037e81
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>AKS(Azure Container Service) 클러스터 노드에 대한 SSH 연결 만들기
 
 경우에 따라 유지 관리, 로그 수집 또는 기타 문제 해결 작업을 위해 AKS(Azure Container Service) 노드에 액세스해야 할 수도 있습니다. AKS 노드는 인터넷에 노출되지 않습니다. 이 문서에서 설명하는 단계를 사용하여 AKS 노드를 사용하는 SSH 연결을 만듭니다.
 
-## <a name="configure-ssh-access"></a>SSH 액세스 구성
+## <a name="get-aks-node-address"></a>AKS 노드 주소 가져오기
 
- SSH를 특정 노드에 연결하려면 `hostNetwork` 액세스가 있는 Pod를 만듭니다. 또한 Pod 액세스를 위한 서비스도 만듭니다. 이 구성은 권한이 부여되며 사용한 후에 제거해야 합니다.
+`az vm list-ip-addresses` 명령을 사용하여 AKS 클러스터 노드의 IP 주소를 가져옵니다. 리소스 그룹 이름을 AKS 리소스 그룹의 이름으로 바꿉니다.
 
-`aks-ssh.yaml`이라는 파일을 만들고 이 매니페스트에 복사합니다. 노드 이름을 대상 AKS 노드의 이름으로 업데이트합니다.
+```console
+$ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-ssh
-spec:
-  selector:
-    app: aks-ssh
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 22
-    targetPort: 22
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: aks-ssh
-  labels:
-    app: aks-ssh
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-ssh
-  template:
-    metadata:
-      labels:
-        app: aks-ssh
-    spec:
-      containers:
-      - name: alpine
-        image: alpine:latest
-        ports:
-        - containerPort: 22
-        command: ["/bin/sh", "-c", "--"]
-        args: ["while true; do sleep 30; done;"]
-      hostNetwork: true
-      nodeName: aks-nodepool1-42032720-0
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-42032720-0  10.240.0.6
+aks-nodepool1-42032720-1  10.240.0.5
+aks-nodepool1-42032720-2  10.240.0.4
 ```
 
-매니페스트를 실행하여 Pod와 서비스를 만듭니다.
+## <a name="create-ssh-connection"></a>SSH 연결 만들기
 
-```azurecli-interactive
-$ kubectl apply -f aks-ssh.yaml
+`debian` 컨테이너 이미지를 실행하고 여기에 터미널 세션을 연결합니다. 그러면 컨테이너를 사용하여 AKS 클러스터의 노드가 있는 SSH 세션을 만들 수 있습니다.
+
+```console
+kubectl run -it --rm aks-ssh --image=debian
 ```
 
-노출된 서비스의 외부 IP 주소를 가져옵니다. IP 주소 구성을 완료하는 데 1분 정도 걸릴 수 있습니다. 
+컨테이너에 SSH 클라이언트를 설치합니다.
 
-```azurecli-interactive
-$ kubectl get service
-
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
-aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
+```console
+apt-get update && apt-get install openssh-client -y
 ```
 
-ssh 연결을 만듭니다. 
+두 번째 터미널을 열고, 모든 Pod를 나열하여 새로 만든 Pod 이름을 가져옵니다.
 
-AKS 클러스터에 대한 기본 사용자 이름은 `azureuser`입니다. 클러스터를 만들 때 이 계정을 변경한 경우 적절한 관리 사용자 이름으로 바꿉니다. 
+```console
+$ kubectl get pods
 
-키가 `~/ssh/id_rsa`에 없으면 `ssh -i` 인수를 사용하여 올바른 위치를 제공합니다.
+NAME                       READY     STATUS    RESTARTS   AGE
+aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
+```
 
-```azurecli-interactive
-$ ssh azureuser@13.92.154.191
+SSH 키를 Pod에 복사하고, Pod 이름을 적절한 값으로 바꿉니다.
+
+```console
+kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+```
+
+사용자 읽기 전용이 되도록 `id_rsa` 파일을 업데이트합니다.
+
+```console
+chmod 0600 id_rsa
+```
+
+이제 AKS 노드에 대한 SSH 연결을 만듭니다. AKS 클러스터에 대한 기본 사용자 이름은 `azureuser`입니다. 클러스터를 만들 때 이 계정을 변경한 경우 적절한 관리 사용자 이름으로 바꿉니다.
+
+```console
+$ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -114,8 +96,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## <a name="remove-ssh-access"></a>SSH 액세스 제거
 
-작업이 완료되면 SSH 액세스 Pod와 서비스를 삭제합니다.
-
-```azurecli-interactive
-kubectl delete -f aks-ssh.yaml
-```
+완료되면 SSH 세션을 종료한 다음, 대화형 컨테이너 세션을 종료합니다. 이 작업은 AKS 클러스터에서 SSH 액세스에 사용되는 Pod를 삭제합니다.

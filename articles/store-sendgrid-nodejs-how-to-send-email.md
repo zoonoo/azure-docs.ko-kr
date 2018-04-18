@@ -1,11 +1,11 @@
 ---
-title: "SendGrid 메일 서비스를 사용하는 방법(Node.js) | Microsoft Docs"
-description: "Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다."
-services: 
+title: SendGrid 메일 서비스를 사용하는 방법(Node.js) | Microsoft Docs
+description: Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다.
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Node.js에서 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -60,7 +60,7 @@ SendGrid 모듈을 사용하여 전자 메일 메시지를 만들려면 먼저 E
         text: 'This is a sample email message.'
     });
 
-또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예:
+또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예: 
 
     html: This is a sample <b>HTML<b> email message.
 
@@ -78,7 +78,7 @@ Email 함수를 사용하여 전자 메일 메시지를 만든 후에는 SendGri
     });
 
 > [!NOTE]
-> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예:  
+> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예:   
 > 
 > `````
 > sendgrid.send({
@@ -161,7 +161,7 @@ SendGrid는 필터 사용을 통해 추가 전자 메일 기능을 제공합니�
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>방법: 전자 메일 속성 업데이트
-일부 전자 메일 속성을 **set*Property***를 사용하여 덮어쓰거나 **add*Property***를 사용하여 추가할 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
+일부 이메일 속성은 **set*Property***를 사용하여 덮어쓰거나 **add*Property***를 사용하여 추가할 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
 
     email.addTo('jeff@contoso.com');
 
@@ -180,7 +180,7 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 
 * SendGrid Node.js 모듈 리포지토리: [sendgrid-nodejs][sendgrid-nodejs]
 * SendGrid API 설명서: <https://sendgrid.com/docs>
-* Azure 고객을 위한 SendGrid 특가 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Azure 고객을 위한 SendGrid 특별 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

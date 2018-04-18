@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -49,7 +49,7 @@ Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 [
 
 확장은 패키지 이름이 일반적으로 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)로 시작하는 NuGet 패키지로 제공됩니다.  바인딩 확장을 설치하고 등록하는 방법은 함수를 개발하는 방법에 따라 달라집니다. 
 
-+ [Visual Studio 또는 VS Code를 사용하여 C#에서 로컬로](#precompiled-functions-c)
++ [Visual Studio 또는 VS Code를 사용하여 C#에서 로컬로](#local-c-development-using-visual-studio-or-vs-code)
 + [Azure Functions 핵심 도구를 사용하여 로컬로](#local-development-azure-functions-core-tools)
 + [Azure Portal에서](#azure-portal-development) 
 

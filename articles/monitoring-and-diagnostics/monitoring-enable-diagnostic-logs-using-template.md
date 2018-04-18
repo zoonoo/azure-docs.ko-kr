@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 Event Hubs로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
@@ -40,7 +40,7 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 ## <a name="non-compute-resource-template"></a>비-Compute 리소스 템플릿
 비-Compute 리소스 템플릿의 경우 두 가지 작업을 수행해야 합니다.
 
-1. 저장소 계정 이름, 이벤트 허브 권한 부여 규칙 ID 및/또는 OMS Log Analytics 작업 영역 ID(저장소 계정에 진단 로그 보관 활성화, Event Hubs에 로그 스트리밍 및/또는 Log Analytics에 로그 보내기)에 대한 매개 변수 blob에 매개 변수를 추가합니다.
+1. 저장소 계정 이름, 이벤트 허브 권한 부여 규칙 ID 및/또는 Log Analytics 작업 영역 ID(저장소 계정에 진단 로그 보관 활성화, Event Hubs에 로그 스트리밍 및/또는 Log Analytics에 로그 보내기)에 대한 매개 변수 blob에 매개 변수를 추가합니다.
    
     ```json
     "settingName": {

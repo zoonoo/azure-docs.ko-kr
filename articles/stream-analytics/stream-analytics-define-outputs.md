@@ -1,41 +1,36 @@
 ---
-title: 'Stream Analytics 출력: 저장소에 대한 옵션, 분석 | Microsoft Docs'
+title: Azure Stream Analytics 작업에서 출력 형식
 description: 분석 결과에 대한 Power BI를 포함하는 Stream Analytics 데이터 출력 옵션을 대상으로 하는 방법을 알아봅니다.
-keywords: 데이터 변환, 분석 결과, 데이터 저장소 옵션
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Stream Analytics 출력: 저장소에 대한 옵션, 분석
-Stream Analytics 작업을 작성할 때는 결과 데이터가 소비되는 방식을 고려해야 합니다. Stream Analytics 작업의 결과를 어떻게 볼 수 있고 저장할 수 있습니까?
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Stream Analytics 출력: 저장소에 대한 옵션 및 분석
+Stream Analytics 작업을 작성할 때는 결과 데이터가 소비되는 방식을 고려해야 합니다. Stream Analytics 작업의 결과를 어떻게 볼 수 있고 어느 위치에 저장할 수 있을까요?
 
-다양한 응용 프로그램 패턴을 사용할 수 있도록 Azure Stream Analytics는 출력을 저장하고 분석 결과를 표시하는 다양한 방법을 제공합니다. 따라서 간편하게 작업 출력을 확인하고, 데이터 웨어 하우징 및 기타 용도로 작업 출력을 유연하게 사용하고 저장할 수 있습니다. 작업에서 구성된 모든 출력은 작업 시작 및 이벤트 전송이 시작되기 전에 존재해야 합니다. 예를 들어, 출력으로 Blob 저장소를 사용한 경우, 작업은 저장소 계정을 자동으로 만들지 않습니다. Stream Analytics 작업이 시작되기 전에 저장소 계정을 만듭니다.
+다양한 응용 프로그램 패턴을 사용할 수 있도록 Azure Stream Analytics는 출력을 저장하고 분석 결과를 표시하는 다양한 방법을 제공합니다. 따라서 간편하게 작업 출력을 확인하고, 데이터 웨어 하우징 및 기타 용도로 작업 출력을 유연하게 사용하고 저장할 수 있습니다. 작업에서 구성된 모든 출력은 작업 시작 및 이벤트 전송이 시작되기 전에 존재해야 합니다. 예를 들어, 출력으로 Blob 저장소를 사용하는 경우, 작업은 저장소 계정을 자동으로 만들지 않습니다. Stream Analytics 작업이 시작되기 전에 저장소 계정을 만듭니다.
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Stream Analytics는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)를 지원합니다. 이 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다. 또한 Stream Analytics에는 Data Lake 저장소에 액세스할 수 있는 권한이 필요합니다. 권한 부여 및 Data Lake Store 미리 보기에 등록하는 방법에 대한 세부 정보는 (필요한 경우) [Data Lake 출력 문서](stream-analytics-data-lake-output.md)에서 설명합니다.
 
-### <a name="authorize-an-azure-data-lake-store"></a>Azure Data Lake 저장소 권한 부여
+### <a name="authorize-an-azure-data-lake-store"></a>Azure Data Lake Store 권한 부여
 Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기존 Data Lake Store에 대한 연결 권한을 부여하라는 메시지가 나타납니다.  
 
-![Data Lake 저장소 권한 부여](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+![Data Lake Store 권한 부여](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 아래와 같이 Data Lake 저장소 출력에 대한 속성을 완료합니다.
 
-![Data Lake 저장소 권한 부여](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+![Data Lake Store 권한 부여](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 다음 테이블에 Data Lake 저장소 출력을 만드는 데 필요한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -84,22 +79,22 @@ Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기�
 </tbody>
 </table>
 
-### <a name="renew-data-lake-store-authorization"></a>Data Lake 저장소 권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에 Data Lake Store 계정을 다시 인증해야 합니다.
+### <a name="renew-data-lake-store-authorization"></a>Data Lake Store 권한 부여 갱신
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에는 Data Lake Store 계정을 다시 인증해야 합니다.
 
-![Data Lake 저장소 권한 부여](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Data Lake Store 권한 부여](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 를 사용할 수 있습니다. Azure SQL Database의 기존 테이블에 Stream Analytics 작업을 기록합니다.  테이블 스키마가 작업에서 출력되는 필드 및 해당 유형과 정확히 일치해야 합니다. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) 를 SQL Database 출력 옵션을 통한 출력으로 지정할 수도 있습니다(미리 보기 기능). 다음 테이블은 SQL Database 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 를 사용할 수 있습니다. Azure SQL Database의 기존 테이블에 Stream Analytics 작업을 기록합니다.  테이블 스키마는 작업에서 출력되는 필드 및 해당 형식과 정확히 일치해야 합니다. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) 를 SQL Database 출력 옵션을 통한 출력으로 지정할 수도 있습니다(미리 보기 기능). 다음 테이블은 SQL Database 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
 | 속성 이름 | 설명 |
 | --- | --- |
-| 출력 별칭 |쿼리 출력을 이 데이터베이스로 보내기 위해 쿼리에서 사용되는 이름입니다. |
+| 출력 별칭 |쿼리 출력을 이 데이터베이스로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 데이터베이스 |출력을 보내는 데이터베이스의 이름 |
 | 서버 이름 |SQL Database 서버 이름 |
-| 사용자 이름 |데이터베이스에 쓸 수 있는 액세스 권한이 있는 사용자 이름 |
+| 사용자 이름 |데이터베이스에 쓸 수 있는 액세스 권한이 있는 사용자 이름입니다. |
 | 암호 |데이터베이스에 연결하는 암호 |
-| 테이블 |출력을 기록되는 테이블 이름입니다. 테이블 이름은 대/소문자를 구분하며 이 테이블의 스키마는 작업 출력에서 생성되는 필드 및 형식의 수와 정확하게 일치해야 합니다. |
+| 테이블 |출력을 기록되는 테이블 이름입니다. 테이블 이름은 대/소문자를 구분하며 이 테이블의 스키마는 작업 출력에서 생성되는 필드의 수 및 해당 형식과 정확히 일치해야 합니다. |
 
 > [!NOTE]
 > 현재, Stream Analytics의 작업 출력에 대해 Azure SQL Database 제품을 사용할 수 있습니다. 그러나 데이터베이스가 연결된 SQL Server를 실행하는 Azure Virtual Machine은 지원되지 않습니다. 후속 릴리스에서는 변경될 수 있습니다.
@@ -119,7 +114,7 @@ Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기�
 </tr>
 <tr>
 <td>출력 별칭</td>
-<td>쿼리 출력을 이 Blob 저장소로 보내기 위해 쿼리에서 사용되는 이름입니다.</td>
+<td>쿼리 출력을 이 Blob 저장소로 보내기 위해 쿼리에서 사용되는 식별 이름입니다.</td>
 </tr>
 <tr>
 <td>Storage 계정</td>
@@ -174,13 +169,13 @@ BLOB 저장소를 출력으로 사용하면 다음과 같은 경우 BLOB에 새 
 * 출력 시간이 경로 접두사 패턴을 사용하여 분할되고 쿼리가 다음 시간으로 이동할 때 새 BLOB이 사용되는 경우
 
 ## <a name="event-hub"></a>이벤트 허브
-[Event Hubs](https://azure.microsoft.com/services/event-hubs/)는 확장성이 뛰어난 게시-구독 이벤트 수집기입니다. 초당 수 백만의 이벤트를 수집할 수 있습니다. 출력으로 Event Hub를 사용하는 한 가지 예는 Stream Analytics 작업의 출력이 다른 스트리밍 작업의 입력이 되는 경우입니다.
+[Event Hubs](https://azure.microsoft.com/services/event-hubs/)는 확장성이 뛰어난 게시-구독 이벤트 수집기입니다. 초당 수 백만의 이벤트를 수집할 수 있습니다. 출력으로 이벤트 허브를 사용하는 한 가지 예는 Stream Analytics 작업의 출력이 다른 스트리밍 작업의 입력이 되는 경우입니다.
 
 이벤트 허브 데이터 스트림을 출력으로 구성하는 데 필요한 몇 개의 매개 변수가 있습니다.
 
 | 속성 이름 | 설명 |
 | --- | --- |
-| 출력 별칭 |쿼리 출력을 이 이벤트 허브로 보내기 위해 쿼리에서 사용되는 이름입니다. |
+| 출력 별칭 |쿼리 출력을 이 이벤트 허브로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | Service Bus 네임스페이스 |Service Bus 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 Event Hub를 만들 때 Service Bus 네임스페이스도 만들었습니다. |
 | 이벤트 허브 |이벤트 허브 출력의 이름 |
 | 이벤트 허브 정책 이름 |이벤트 허브 구성 탭에서 만들 수 있는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
@@ -208,7 +203,7 @@ Power BI 계정의 인증을 설정하면 사용자가 Power BI 출력에 대한
 
 | 속성 이름 | 설명 |
 | --- | --- |
-| 출력 별칭 |쿼리 출력을 이 PowerBI 출력으로 보내기 위해 쿼리에서 사용되는 이름입니다. |
+| 출력 별칭 |쿼리 출력을 이 PowerBI 출력으로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 작성하지 않으려면 "내 작업 영역"을 선택할 수 있습니다.  기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
 | 데이터 집합 이름 |Power BI 출력에 사용할 데이터 집합 이름을 제공합니다. |
 | 테이블 이름 |Power BI 출력의 데이터 집합 아래에 테이블 이름을 제공합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다. |
@@ -216,7 +211,7 @@ Power BI 계정의 인증을 설정하면 사용자가 Power BI 출력에 대한
 Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure Stream Analytics 및 Power BI](stream-analytics-power-bi-dashboard.md) 문서를 참조하세요.
 
 > [!NOTE]
-> Power BI 대시보드에 명시적으로 데이터 집합 및 테이블을 만들지 마세요. 작업을 시작하고 작업이 Power BI에 출력을 펌프하기 시작하는 경우 데이터 집합 및 테이블은 자동으로 채워집니다. 작업 쿼리가 결과를 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않은 것입니다. 이 Stream Analytics 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
+> Power BI 대시보드에 명시적으로 데이터 집합 및 테이블을 만들지 마세요. 작업을 시작하고 작업이 Power BI에 출력을 보내기 시작하면 데이터 집합 및 테이블은 자동으로 채워집니다. 한편, 작업 쿼리에서 결과를 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않습니다. 이 Stream Analytics 작업에서 제공한 것과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어쓰므로 주의합니다.
 > 
 > 
 
@@ -240,7 +235,7 @@ float | Double
 ### <a name="schema-update"></a>스키마 업데이트
 Stream Analytics는 출력의 첫 번째 이벤트 집합을 기반으로 데이터 모델 스키마를 유추합니다. 나중에 필요한 경우 데이터 모델 스키마는 들어오는 이벤트에 맞게 업데이트되며 이는 원래 스키마에 맞지 않을 수 있습니다.
 
-행에서 동적 스키마를 업데이트하지 않으려면 `SELECT *` 쿼리는 피해야 합니다. 잠재적으로 성능에 미치는 영향 외에도 결과에 소요되는 시간의 불확실해질 수도 있습니다. Power BI 대시보드에 표시될 정확한 필드를 선택해야 합니다. 또한 데이터 값은 선택한 데이터 형식을 준수해야 합니다.
+행에서 동적 스키마를 업데이트하지 않으려면 `SELECT *` 쿼리는 피해야 합니다. 성능이 저하될 가능성이 있을 뿐만 아니라, 결과 생성에 소요되는 시간이 불확실해질 수도 있습니다. Power BI 대시보드에 표시될 정확한 필드를 선택해야 합니다. 또한 데이터 값은 선택한 데이터 형식을 준수해야 합니다.
 
 
 이전/현재 | Int64 | 문자열 | DateTime | Double
@@ -252,7 +247,7 @@ DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
 
 ### <a name="renew-power-bi-authorization"></a>Power BI 권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에 Power BI 계정을 다시 인증해야 합니다. MFA(Multi-Factor Authentication)가 AAD(Azure Active Directory) 테넌트에 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에는 Power BI 계정을 다시 인증해야 합니다. MFA(Multi-Factor Authentication)가 AAD(Azure Active Directory) 테넌트에 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
 
   ![Power BI 새로 고침 토큰 오류](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
@@ -267,7 +262,7 @@ DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
 | 속성 이름 | 설명 |
 | --- | --- |
-| 출력 별칭 |쿼리 출력을 이 테이블 저장소로 보내기 위해 쿼리에서 사용되는 이름입니다. |
+| 출력 별칭 |쿼리 출력을 이 테이블 저장소로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | Storage 계정 |출력을 보내는 저장소 계정의 이름 |
 | Storage 계정 키 |저장소 계정과 연결된 선택키입니다. |
 | 테이블 이름 |테이블의 이름입니다. 테이블이 존재하지 않는 경우 만들어집니다. |
@@ -282,7 +277,7 @@ DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
 | 속성 이름 | 설명 |
 | --- | --- |
-| 출력 별칭 |쿼리 출력을 이 Service Bus 큐로 보내기 위해 쿼리에서 사용되는 이름입니다. |
+| 출력 별칭 |쿼리 출력을 이 Service Bus 큐로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | Service Bus 네임스페이스 |Service Bus 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. |
 | 큐 이름 |Service Bus 큐 이름 |
 | 큐 정책 이름 |또한 큐를 만들 때 큐 구성 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
@@ -299,7 +294,7 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 
 | 속성 이름 | 설명 |
 | --- | --- |
-| 출력 별칭 |쿼리 출력을 이 Service Bus 토픽으로 보내기 위해 쿼리에서 사용되는 이름입니다. |
+| 출력 별칭 |쿼리 출력을 이 Service Bus 토픽으로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | Service Bus 네임스페이스 |Service Bus 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 Event Hub를 만들 때 Service Bus 네임스페이스도 만들었습니다. |
 | 토픽 이름 |토픽은 이벤트 허브 및 큐와 유사한 메시징 엔터티입니다. 다양한 장치 및 서비스에서 이벤트 스트림을 수집하도록 설계됩니다. 토픽을 만들 때 특정 이름도 지정됩니다. 토픽에 전송된 메시지는 구독이 생성되지 않으면 사용할 수 없으므로 토픽에 대해 구독이 하나 이상 있어야 합니다. |
 | 토픽 정책 이름 |또한 토픽을 만들 때 토픽 구성 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
@@ -309,7 +304,7 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 | 구분 기호 |CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)는 세계적으로 분산된 다중 모델 데이터베이스 서비스로써 스키마 중립적 데이터 모델, 낮은 대기 시간 보장 및 업계 최고의 포괄적인 SLA를 통해 전 세계에 다양한 쿼리 및 자동 인덱싱을 제공합니다.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)는 세계적으로 분산된 다중 모델 데이터베이스 서비스로서, 제한없는 탄력적 크기 조정을 전 세계적으로 제공하고 스키마 제약 없는 데이터 모델에 대한 자동 인덱싱 및 다양한 쿼리, 낮은 대기 시간 보장과 업계 최고의 포괄적인 SLA를 제공합니다.
 
 아래 목록에는 Azure Cosmos DB 출력을 만들기 위한 속성 이름 및 해당 설명이 나와 있습니다.
 
@@ -320,7 +315,7 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 * **컬렉션 이름 패턴** – 사용될 컬렉션에 대한 컬렉션 이름이나 패턴입니다. 컬렉션 이름 형식은 선택적 {partition} 토큰을 사용하여 구성할 수 있으며 파티션은 0부터 시작합니다. 다음은 유효한 입력 샘플입니다.  
   1\) MyCollection – "MyCollection"이라는 이름의 컬렉션이 있어야 합니다.  
   2\) MyCollection{partition} – "MyCollection0”, “MyCollection1”, “MyCollection2” 등의 컬렉션이 있어야 합니다.  
-* **파티션 키** – 선택 사항. 컬렉션 이름 패턴에 partition 토큰을 사용하는 경우에만 필요합니다. 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 단일 컬렉션 출력의 경우 임의의 출력 열(예: PartitionId)이 사용될 수 있습니다.  
+* **파티션 키** – 선택 사항. 컬렉션 이름 패턴에 파티션 토큰을 사용하는 경우에만 필요합니다. 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 컬렉션 출력이 하나일 경우 모든 임의의 출력 열(예: PartitionId)을 사용할 수 있습니다.  
 * **문서 ID** – 선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.  
 
 ## <a name="azure-functions-in-preview"></a>Azure Functions(미리 보기)
@@ -332,7 +327,7 @@ Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합�
 | --- | --- |
 | 함수 앱 |Azure Functions 앱의 이름 |
 | 함수 |Azure Functions 앱의 함수 이름 |
-| 최대 일괄 처리 크기 |이 속성은 Azure 함수에 전송될 각 출력 일괄 처리의 최대 크기를 설정하는 데 사용할 수 있습니다. 기본적으로 이 값은 256KB입니다. |
+| 최대 일괄 처리 크기 |이 속성을 사용하여 Azure 함수에 전송될 각 출력 일괄 처리의 최대 크기를 설정할 수 있습니다. 기본적으로 이 값은 256KB입니다. |
 | 최대 일괄 처리 수  |이름으로 알 수 있듯이 이 속성을 사용하면 Azure Functions로 전송되는 각 일괄 처리의 최대 이벤트 수를 지정할 수 있습니다. 기본 최대 일괄 처리 수 값은 100입니다. |
 | 키 |다른 구독에서 Azure 함수를 사용하려는 경우 함수에 액세스하기 위한 키를 제공하여 이렇게 할 수 있습니다. |
 
@@ -342,7 +337,7 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, Stream Analytics에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.

@@ -1,26 +1,21 @@
 ---
-title: Stream Analytics을 위한 JSON 출력 | Microsoft Docs
-description: 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 위해 Stream Analytics에서 JSON 출력의 대상을 Azure Cosmos DB로 지정할 수 있는 방법을 알아봅니다.
-keywords: JSON 출력
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Cosmos DB에 Azure Stream Analytics 출력
+description: 이 문서에서는 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 위해 Azure Stream Analytics를 사용하여 JSON 출력에 대한 Azure Cosmos DB에 출력을 저장하는 방법을 알아봅니다.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Stream Analytics에서 JSON 출력의 대상을 Azure Cosmos DB로 지정
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
 
 Cosmos DB에 대해 잘 모를 경우 먼저 [Azure Cosmos DB의 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 살펴보세요. 
@@ -35,7 +30,7 @@ Stream Analytics의 Azure Cosmos DB 출력을 사용하면 스트림 처리 결�
 아래에서는 Cosmos DB 컬렉션 옵션 중 일부를 자세히 설명합니다.
 
 ## <a name="tune-consistency-availability-and-latency"></a>일관성, 가용성 및 대기 시간 조정
-Cosmos DB를 사용하면 응용 프로그램 요구 사항에 맞게 데이터베이스 및 컬렉션을 미세 조정하고, 일관성, 가용성 및 대기 시간 간의 균형을 유지할 수 있습니다. 시나리오에서 읽기 및 쓰기 대기 시간에 대해 필요로 하는 읽기 일관성 수준에 따라 데이터베이스 계정에 대한 일관성 수준을 선택할 수 있습니다. 또한 기본적으로 Cosmos DB는 컬렉션에 대한 각 CRUD 작업에서 동기 인덱싱을 지원합니다. 이는 Cosmos DB에서 쓰기/읽기 성능을 제어하는 또 다른 유용한 옵션입니다. 이 항목에 대한 자세한 내용은 [데이터베이스 및 쿼리 일관성 수준 변경](../cosmos-db/consistency-levels.md) 문서를 검토하세요.
+Cosmos DB를 사용하면 응용 프로그램 요구 사항에 맞게 데이터베이스 및 컬렉션을 미세 조정하고, 일관성, 가용성 및 대기 시간 간의 균형을 유지할 수 있습니다. 시나리오에서 읽기 및 쓰기 대기 시간에 대해 필요로 하는 읽기 일관성 수준에 따라 데이터베이스 계정에 대한 일관성 수준을 선택할 수 있습니다. 또한 기본적으로 Cosmos DB는 컬렉션에 대한 각 CRUD 작업에서 동기 인덱싱을 지원합니다. 이는 Cosmos DB에서 쓰기/읽기 성능을 제어하는 또 다른 유용한 옵션입니다. 자세한 내용은 [데이터베이스 및 쿼리 일관성 수준 변경](../cosmos-db/consistency-levels.md) 문서를 검토하세요.
 
 ## <a name="upserts-from-stream-analytics"></a>Stream Analytics에서 Upsert
 Stream Analytics를 Cosmos DB와 통합하면 지정된 문서 ID 열에 따라 Cosmos DB 컬렉션에 레코드를 삽입하거나 업데이트할 수 있습니다. 이를 *Upsert*라고도 합니다.

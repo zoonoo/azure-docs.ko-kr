@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: 08906939ecc80999de94ad7e7141081f959fb6f2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ca4a6cb886b0453848dc7b29e15de2063878a65d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure 및 Jenkins
 
@@ -31,7 +31,7 @@ Azure에서 Jenkins를 호스트하여 빌드 자동화를 중앙 집중화하�
 - [Azure 가상 머신](/azure/virtual-machines/linux/overview). VM에서 Jenkins 인스턴스를 만들려면 [자습서](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)를 참조하세요.
 - [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)에서 실행 중인 Kubernetes 클러스터에서 [방법](/azure/container-service/kubernetes/container-service-kubernetes-jenkins)을 참조하세요.
 
-[Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview) 및 [Azure CLI](/cli/azure)를 사용하여 Azure Jenkins 배포를 모니터링 및 관리합니다.
+[Log Analytics](/azure/log-analytics/log-analytics-overview) 및 [Azure CLI](/cli/azure)를 사용하여 Azure Jenkins 배포를 모니터링 및 관리합니다.
 
 ## <a name="scale-your-build-automation-on-demand"></a>요청 시 빌드 자동화 규모 조정
 

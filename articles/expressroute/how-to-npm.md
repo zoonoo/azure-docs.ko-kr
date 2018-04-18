@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
-NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레미스 위치(지점 등) 간의 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다. NPM은 Microsoft OMS(Operations Management Suite)에 속합니다. 현재 NPM은 개인 피어링을 사용하도록 구성된 ExpressRoute 회로에 대한 네트워크 성능을 모니터링할 수 있는 ExpressRoute 확장을 제공합니다. ExpressRoute에 대한 NPM을 구성하면 네트워크 문제를 감지하여 파악하고 제거할 수 있습니다.
+NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레미스 위치(지점 등) 간의 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다. NPM은 Log Analytics의 일부입니다. 현재 NPM은 개인 피어링을 사용하도록 구성된 ExpressRoute 회로에 대한 네트워크 성능을 모니터링할 수 있는 ExpressRoute 확장을 제공합니다. ExpressRoute에 대한 NPM을 구성하면 네트워크 문제를 감지하여 파악하고 제거할 수 있습니다.
 
 다음을 수행할 수 있습니다.
 
@@ -72,11 +72,11 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 1. [Azure Portal](https://portal.azure.com)에서 Vnet이 ExpressRoute 회로에 연결된 구독을 선택합니다. 그런 후 **Marketplace**의 서비스 목록에서 ‘네트워크 성능 모니터’를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
 
->[!NOTE]
->새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.  기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [자세한 정보...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.  기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [자세한 정보...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **OMS 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
 3. **OMS 작업 영역** 페이지에서 **새로 만들기**를 선택하고 다음 설정을 구성합니다.
 
@@ -86,15 +86,15 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
   * 위치 - [지원되는 지역](#regions)을 선택해야 합니다.
   * 가격 책정 계층 - '무료'를 선택합니다.
   
-  >[!NOTE]
-  >ExpressRoute 회로는 전 세계 어디에나 둘 수 있으며, 작업 영역과 동일한 지역에 있지 않아도 됩니다.
-  >
+    >[!NOTE]
+    >ExpressRoute 회로는 전 세계 어디에나 둘 수 있으며, 작업 영역과 동일한 지역에 있지 않아도 됩니다.
+    >
   
-  ![작업 영역](.\media\how-to-npm\4.png)<br><br>
+    ![작업 영역](.\media\how-to-npm\4.png)<br><br>
 4. **확인**을 클릭하여 설정 템플릿을 저장 및 배포합니다. 템플릿의 유효성이 확인되면 **만들기**를 클릭하여 작업 영역을 배포합니다.
 5. 작업 영역이 배포된 후 만든 **NetworkMonitoring(name)** 리소스로 이동합니다. 설정이 유효한지 확인한 후 **솔루션에 추가 구성이 필요합니다.**를 클릭합니다.
 
-  ![추가 구성](.\media\how-to-npm\5.png)
+   ![추가 구성](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>2단계: 에이전트 설치 및 구성
 
@@ -126,9 +126,9 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 2. **Welcome** 페이지에서 **다음**을 클릭합니다.
 3. **사용 조건** 페이지에서 라이선스를 읽고 **동의함**을 클릭합니다.
 4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지하고 **다음**을 클릭합니다.
-5. **에이전트 설치 옵션** 페이지에서 Azure Log Analytics(OMS) 또는 Operations Manager에 에이전트를 연결하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
+5. **에이전트 설치 옵션** 페이지에서 Azure Log Analytics 또는 Operations Manager에 에이전트를 연결하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
 
-  * **Azure Log Analytics(OMS)**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여 넣습니다. 그런 후 **다음**을 클릭합니다.
+  * **Azure Log Analytics**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다. 그런 후 **다음**을 클릭합니다.
 
     ![ID 및 키](.\media\how-to-npm\8.png)
   * **Operations Manager**에 연결할 경우 **관리 그룹 구성** 페이지에서 **관리 그룹 이름**, **관리 서버** 및 **관리 서버 포트**를 입력합니다. 그런 후 **다음**을 클릭합니다.
@@ -139,7 +139,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
     ![계좌](.\media\how-to-npm\10.png)
 6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
-8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Operational Insights(OMS)에 연결되었는지 확인합니다. OMS에 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지가 표시됩니다.
+8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Azure Log Analytics(OMS)에 연결되었는지 확인합니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지가 표시됩니다.
 
 9. 모니터링해야 하는 각 VNET에 대해 이 작업을 반복합니다.
 
@@ -162,8 +162,8 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 1. 모니터링 에이전트가 있는 서버에서 **제어판**을 엽니다.
 2. **Microsoft Monitoring Agent**를 엽니다.
-3. **Azure Log Analytics(OMS)** 탭을 클릭합니다.
-4. **상태** 열에는 Operations Management Suite 서비스에 성공적으로 연결된 에이전트가 표시됩니다.
+3. **Azure Log Analytics** 탭을 클릭합니다.
+4. **상태** 열에는 Log Analytics에 성공적으로 연결된 에이전트가 표시됩니다.
 
   ![status](.\media\how-to-npm\12.png)
 

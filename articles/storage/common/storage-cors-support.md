@@ -1,6 +1,6 @@
 ---
-title: "CORS(Cross-Origin Resource Sharing) 지원 | Microsoft Docs"
-description: "Microsoft Azure 저장소 서비스에 대해 CORS 지원을 사용하도록 설정하는 방법을 설명합니다."
+title: CORS(Cross-Origin Resource Sharing) 지원 | Microsoft Docs
+description: Microsoft Azure Storage 서비스에 대해 CORS 지원을 사용하도록 설정하는 방법을 설명합니다.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure 저장소 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
+# <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure Storage 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
 2013-08-15 버전부터 Azure 저장소 서비스는 Blob, 테이블, 큐 및 파일 서비스에 대해 CORS(원본 간 리소스 공유)를 지원합니다. CORS는 특정 도메인에서 실행되는 웹 응용 프로그램이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 웹 브라우저는 웹 페이지가 다른 도메인의 API를 호출할 수 없도록 하는 [동일 원본 정책](http://www.w3.org/Security/wiki/Same_Origin_Policy)이라는 보안 제한을 구현합니다. CORS는 특정 도메인(원본 도메인)에서 다른 도메인의 API를 호출할 수 있는 안전한 방법을 제공합니다. CORS에 대한 자세한 내용은 [CORS 사양](http://www.w3.org/TR/cors/)을 참조하세요.
 
 [Blob 서비스 속성 설정](https://msdn.microsoft.com/library/hh452235.aspx), [큐 서비스 속성 설정](https://msdn.microsoft.com/library/hh452232.aspx) 및 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)을 호출하여 각 저장소 서비스에 대해 CORS 규칙을 개별적으로 설정할 수 있습니다. 서비스에 대해 CORS 규칙을 설정하고 나면 다른 도메인에서 해당 서비스에 대해 수행하는 적절하게 인증된 요청을 평가하여 지정된 규칙에 따라 해당 요청이 허용되는지 여부를 결정합니다.
@@ -52,7 +52,7 @@ OPTIONS 요청에 필수 CORS 헤더(Origin 및 Access-Control-Request-Method �
 
 실제 요청은 저장소 서비스에 대한 일반 요청으로 처리됩니다. Origin 헤더가 있는 요청은 CORS 요청이며, 서비스에서는 일치하는 CORS 규칙이 있는지를 확인합니다. 일치하는 규칙이 있으면 Access-Control 헤더가 응답에 추가되어 클라이언트로 다시 전송됩니다. 일치하는 규칙이 없으면 CORS Access-Control 헤더가 반환되지 않습니다.
 
-## <a name="enabling-cors-for-the-azure-storage-services"></a>Azure 저장소 서비스에 대해 CORS 사용
+## <a name="enabling-cors-for-the-azure-storage-services"></a>Azure Storage 서비스에 대해 CORS 사용
 CORS 규칙은 서비스 수준에서 설정되므로 Blob, 큐, 테이블 등의 각 서비스에 대해 개별적으로 CORS를 사용하거나 사용하지 않도록 설정해야 합니다. 기본적으로 CORS는 각 서비스에 대해 사용하지 않도록 설정됩니다. CORS를 사용하도록 설정하려면 버전 2013-08-15 이상을 사용하여 적절한 서비스 속성을 설정한 후에 CORS 규칙을 서비스 속성에 추가해야 합니다. 서비스에 대해 CORS를 사용하거나 사용하지 않도록 설정하고 CORS 규칙을 설정하는 방법에 대한 자세한 내용은 [Blob 서비스 속성 설정](https://msdn.microsoft.com/library/hh452235.aspx), [큐 서비스 속성 설정](https://msdn.microsoft.com/library/hh452232.aspx) 및 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)을 참조하세요.
 
 서비스 속성 설정 작업을 통해 지정한 단일 CORS 규칙의 샘플은 다음과 같습니다.
@@ -71,7 +71,7 @@ CORS 규칙은 서비스 수준에서 설정되므로 Blob, 큐, 테이블 등�
 
 아래에는 CORS 규칙에 포함된 각 요소에 대한 설명이 나와 있습니다.
 
-* **허용된 원본**: CORS를 통해 저장소 서비스에 대한 요청을 수행하도록 허용되는 원본 도메인입니다. 원본 도메인에서 요청이 시작됩니다. 이 원본은 사용자가 서비스로 보내는 원본과 대/소문자까지 정확하게 일치해야 합니다. 와일드카드 문자 '*'를 사용하여 모든 원본 도메인이 CORS를 통해 요청을 수행하도록 허용할 수도 있습니다. 위의 예제에서는 [http://www.contoso.com](http://www.contoso.com) 및 [http://www.fabrikam.com](http://www.fabrikam.com) 도메인이 CORS를 사용하여 서비스에 대한 요청을 수행할 수 있습니다.
+* **허용된 원본**: CORS를 통해 저장소 서비스에 대한 요청을 수행하도록 허용되는 원본 도메인입니다. 원본 도메인에서 요청이 시작됩니다. 이 원본은 사용자가 서비스로 보내는 원본과 대/소문자까지 정확하게 일치해야 합니다. 와일드카드 문자 '*'를 사용하여 모든 원본 도메인이 CORS를 통해 요청을 수행하도록 허용할 수도 있습니다. 위의 예에서 도메인 [http://www.contoso.com](http://www.contoso.com) 및 [http://www.fabrikam.com](http://www.fabrikam.com)은 CORS를 사용하여 서비스에 대한 요청을 만들 수 있습니다.
 * **허용되는 메서드**: 원본 도메인이 CORS 요청에 사용할 수 있는 메서드(HTTP 요청 동사)입니다. 위의 예제에서는 PUT 및 GET 요청만 허용됩니다.
 * **허용되는 헤더**: 원본 도메인이 CORS 요청에 대해 지정할 수 있는 요청 헤더입니다. 위 예제에서는 x-ms-meta-data, x-ms-meta-target 및 x-ms-meta-abc로 시작하는 모든 메타데이터 헤더를 지정할 수 있습니다. 와일드카드 문자 '*'는 지정한 접두사로 시작하는 모든 헤더가 허용됨을 나타냅니다.
 * **표시되는 헤더**: CORS 요청에 대한 응답에 포함하여 전송할 수 있으며 브라우저에서 요청 발급자에 대해 표시할 수 있는 응답 헤더입니다. 위의 예제에서 브라우저는 x-ms-meta로 시작하는 모든 헤더를 표시하도록 지정됩니다.
@@ -86,7 +86,7 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 * 허용되는 헤더, 표시되는 헤더 또는 허용되는 원본의 길이는 256자를 초과할 수 없습니다.
 * 허용되는 헤더와 표시되는 헤더는 다음 헤더 중 하나일 수 있습니다.
   * 리터럴 헤더 **x-ms-meta-processed**와 같은 정확한 헤더 이름을 입력합니다. 요청에 대해 최대 64개의 리터럴 헤더를 지정할 수 있습니다.
-  * 접두사 헤더 **x-ms-meta-data**와 같은 헤더 접두사를 입력합니다. 이러한 방식으로 접두사를 지정하면 지정된 접두사로 시작하는 모든 헤더가 허용되거나 표시됩니다. 요청에 대해 최대 2개의 접두사 헤더를 지정할 수 있습니다.
+  * **x-ms-meta-data***와 같은 헤더의 접두사가 제공되는 접두사 헤더입니다. 이러한 방식으로 접두사를 지정하면 지정된 접두사로 시작하는 모든 헤더가 허용되거나 표시됩니다. 요청에 대해 최대 2개의 접두사 헤더를 지정할 수 있습니다.
 * **허용되는 헤더** 요소에 지정된 메서드(HTTP 동사)는 Azure 저장소 서비스 API에서 지원하는 메서드를 따라야 합니다. 지원되는 메서드는 DELETE, GET, HEAD, MERGE, POST, OPTIONS, PUT입니다.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>CORS 규칙 평가 논리 이해
@@ -131,7 +131,7 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 
 다음으로는 아래 CORS 요청을 살펴보세요.
 
-| 요청 |  |  | 응답 |  |
+| 요청 |  |  | response |  |
 | --- | --- | --- | --- | --- |
 | **메서드** |**원본** |**요청 헤더** |**일치하는 규칙** |**결과** |
 | **PUT** |http://www.contoso.com |x-ms-blob-콘텐츠-유형 |첫 번째 규칙 |성공 |
@@ -152,9 +152,9 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 ## <a name="understanding-how-the-vary-header-is-set"></a>Vary 헤더 설정 방법 이해
 표준 HTTP/1.1 헤더인 *Vary* 헤더는 요청을 처리하기 위해 서버에서 선택한 기준을 브라우저나 사용자 에이전트에 알려주는 요청 헤더 필드 집합으로 구성됩니다. *Vary* 헤더는 주로 프록시, 브라우저 및 CDN에서 캐싱용으로 사용하며 응답을 캐시할 방법을 결정하는 데 사용됩니다. 자세한 내용은 [Vary 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)사양을 참조하세요.
 
-브라우저 또는 다른 사용자 에이전트가 CORS 요청에서 응답을 캐시할 때는 원본 도메인이 허용되는 원본으로 캐시됩니다. 캐시가 활성 상태인 동안 두 번째 도메인에서 저장소 리소스에 대해 같은 요청을 실행하면 사용자 에이전트가 캐시된 원본 도메인을 검색합니다. 일반적인 경우에는 요청이 성공하지만, 이 경우에는 두 번째 도메인이 캐시된 도메인과 일치하지 않으므로 요청이 실패합니다. Azure 저장소에서 Vary 헤더를 **Origin** 으로 설정하여 요청된 도메인이 캐시된 원본과 다를 때 서비스로 후속 CORS 요청을 보내도록 사용자 에이전트에 명령하는 경우도 있습니다.
+브라우저 또는 다른 사용자 에이전트가 CORS 요청에서 응답을 캐시할 때는 원본 도메인이 허용되는 원본으로 캐시됩니다. 캐시가 활성 상태인 동안 두 번째 도메인에서 저장소 리소스에 대해 같은 요청을 실행하면 사용자 에이전트가 캐시된 원본 도메인을 검색합니다. 일반적인 경우에는 요청이 성공하지만, 이 경우에는 두 번째 도메인이 캐시된 도메인과 일치하지 않으므로 요청이 실패합니다. Azure Storage에서 Vary 헤더를 **Origin** 으로 설정하여 요청된 도메인이 캐시된 원본과 다를 때 서비스로 후속 CORS 요청을 보내도록 사용자 에이전트에 명령하는 경우도 있습니다.
 
-Azure 저장소는 다음과 같은 경우 실제 GET/HEAD 요청에 대한 *Vary* 헤더를 **Origin** 으로 설정합니다.
+Azure Storage는 다음과 같은 경우 실제 GET/HEAD 요청에 대한 *Vary* 헤더를 **Origin** 으로 설정합니다.
 
 * 요청 원본이 CORS 규칙에 의해 정의된 허용되는 원본과 정확하게 일치하는 경우. 두 원본이 정확하게 일치하려면 CORS 규칙에 와일드카드 문자 '*'가 포함되지 않아야 합니다.
 * 요청 원본과 일치하는 규칙은 없지만 저장소 서비스에 대해 CORS를 사용하도록 설정한 경우
@@ -165,16 +165,16 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 
 다음 표에는 Azure 저장소가 앞에서 설명한 사례를 기준으로 하여 GET/HEAD 요청에 응답하는 방법이 나와 있습니다.
 
-| 요청 | 계정 설정 및 규칙 평가 결과 |  |  | 응답 |  |  |
+| 요청 | 계정 설정 및 규칙 평가 결과 |  |  | response |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **요청한 Origin 헤더 유무** |**이 서비스에 대한 CORS 규칙 지정 여부** |**모든 원본(*)을 허용하는 일치 규칙 유무** |**원본이 정확하게 일치하는지 확인하는 일치 규칙 유무** |**응답의 Vary 헤더가 Origin으로 설정되어 있는지 여부** |**응답의 Access-Control-Allowed-Origin 유무:"*"** |**응답의 Access-Control-Exposed-Headers 유무** |
-| 아니요 |아니요 |아니요 |아니요 |아니요 |아니요 |아니요 |
-| 아니요 |예 |아니요 |아니요 |예 |아니요 |아니요 |
-| 아니요 |예 |예 |아니요 |아니요 |예 |예 |
-| 예 |아니요 |아니요 |아니요 |아니요 |아니요 |아니요 |
-| 예 |예 |아니요 |예 |예 |아니요 |예 |
-| 예 |예 |아니요 |아니요 |예 |아니요 |아니요 |
-| 예 |예 |예 |아니요 |아니요 |예 |예 |
+| **요청한 Origin 헤더 유무** |**이 서비스에 대한 CORS 규칙 지정 여부** |**모든 원본(*)을 허용하는 일치 규칙 유무** |**원본이 정확하게 일치하는지 확인하는 일치 규칙 유무** |**응답의 Vary 헤더가 Origin으로 설정되어 있는지 여부** |**응답의 Access-Control-Allowed-Origin 유무: "*"** |**응답의 Access-Control-Exposed-Headers 유무** |
+| 아니오 |아니요 |아니요 |아니요 |아니요 |아니요 |아니요 |
+| 아니요 |예 |아니오 |아니요 |예 |아니오 |아니요 |
+| 아니요 |예 |예 |아니오 |아니요 |예 |예 |
+| 예 |아니오 |아니요 |아니요 |아니요 |아니요 |아니요 |
+| 예 |예 |아니오 |예 |예 |아니요 |예 |
+| 예 |예 |아니오 |아니요 |예 |아니오 |아니요 |
+| 예 |예 |예 |아니오 |아니요 |예 |예 |
 
 ## <a name="billing-for-cors-requests"></a>CORS 요청에 대한 청구
 [Blob 서비스 속성 설정](https://msdn.microsoft.com/library/hh452235.aspx), [큐 서비스 속성 설정](https://msdn.microsoft.com/library/hh452232.aspx) 또는 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)을 호출하여 계정의 저장소 서비스에 대해 CORS를 사용하도록 설정한 경우 실행 전 요청이 성공하면 요금이 청구됩니다. 비용을 최소화하려면 사용자 에이전트가 요청을 캐시하도록 CORS 규칙의 **MaxAgeInSeconds** 요소를 큰 값으로 설정하는 것이 좋습니다.

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -126,7 +126,7 @@ vCenter에 연결되면 검색할 범위를 선택할 수 있습니다. 범위�
 
 1. 범위는 데이터센터, 폴더 또는 ESXi 호스트일 수 있습니다. 
 2. 범위는 한 번에 하나만 선택할 수 있습니다. 가상 머신을 더 많이 선택하려면 검색 하나를 완료하고 새 범위로 검색 프로세스를 다시 시작합니다.
-3. 가상 머신이 1000개 미만인 범위만 선택할 수 있습니다. 가상 머신이 1000개가 넘는 범위를 선택하면 폴더를 만들어서 범위를 작은 단위로 분할해야 합니다. 그런 다음, 작은 폴더에 대해 독립적인 검색을 실행해야 합니다.
+3. *가상 머신이 1500대 미만*인 범위만 선택할 수 있습니다.
 
 ## <a name="specify-migration-project"></a>마이그레이션 프로젝트 지정
 
@@ -197,6 +197,16 @@ Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 �
 5. Setup.ps1 단추를 마우스 오른쪽 단추로 클릭하고 PowerShell과 함께 실행을 선택하고 화면의 지시를 따라 업데이트를 설치합니다.
 
 ### <a name="list-of-updates"></a>업데이트 목록
+
+#### <a name="upgrade-to-version-1097"></a>버전 1.0.9.7로 업그레이드
+
+버전 1.0.9.7 다운로드 [패키지](https://aka.ms/migrate/col/upgrade_9_7)로 업그레이드하는 경우
+
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>버전 1.0.9.5로 업그레이드
 

@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드
 
@@ -121,7 +121,8 @@ Azure Marketplace를 통해 IT 전문가 및 클라우드 개발자가 IaaS, Saa
 체험 수준 또는 트랜잭션 수준의 참여가 용이하지 않을 경우 나에게 연락을 사용합니다. 이 방식은 마켓에 솔루션을 내놓은 게시자가 기본 거래를 통해 비즈니스 수익을 창출할 수 있는 잠재 고객을 바로 입수할 수 있다는 장점이 있습니다. 그러나 다른 제공 유형에 비해 고객 참여가 제한된다는 단점이 있습니다.
 
 >[!IMPORTANT]
->나에게 연락 열거 유형은 권장하지 않습니다. 체험 환경을 확보할 방법이 있는 상황에서만 사용해야 합니다. 체험 및 트랜잭션 제공 시 고객 참여가 가장 좋습니다. 어떤 유형이든 체험 환경이 있는 경우 온보딩 프로세스가 해당 시나리오에 따라 이러한 옵션 중 하나를 안내합니다.
+<<<<<<< HEAD 체험 및 트랜잭션 제안에는 고객 참여가 가장 좋습니다. 나에게 연락의 값은 사용자가 받는 잠재 고객이므로, 이 종류의 목록을 선택하는 경우 잠재 고객 대상이 구성되어 있고 잠재 고객을 최대화할 준비가 되었는지 확인합니다. ======= 나에게 연락 항목 종류는 권장되지 않습니다. 체험 환경을 확보할 방법이 있는 상황에서만 사용해야 합니다. 체험 및 트랜잭션 제공 시 고객 참여가 가장 좋습니다. 어떤 유형이든 체험 환경이 있는 경우 온보딩 프로세스가 해당 시나리오에 따라 이러한 옵션 중 하나를 안내합니다.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 제품이 주로 전문 서비스(예: 평가, 구현, 워크샵)로 이루어져 있는 경우 컨설팅 서비스 제공 유형을 사용합니다. 제공 범위, 기간 및 가격은 고정되어야 하며, 단일 고객을 위한 것이어야 하고, 현장에서 수행되어야 합니다.
 
@@ -457,7 +458,7 @@ Azure Marketplace 또는 AppSource 게시자가 되면 회사가 Microsoft와 �
 
 #### <a name="sign-in-to-the-cloud-partner-portal"></a>Cloud 파트너 포털에 로그인합니다.
 
-추천 양식이 승인되었다는 승인을 Marketplace 팀에서 받았고 [Microsoft 파트너 네트워크](https://partner.microsoft.com/en-us/membership/) 및 [Microsoft 개발자 센터](https://dev.windows.com)(필요한 경우)에 등록되면 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 액세스하기 위한 계정이 생성됩니다. 추천 승인 이메일에는 최초 로그인 자격 증명이 포함됩니다. 
+추천 양식이 승인되었다는 승인을 Marketplace 팀에서 받았고 [Microsoft 파트너 네트워크](https://partner.microsoft.com/en-us/membership/) 및 [Microsoft 개발자 센터](https://dev.windows.com)(필요한 경우)에 등록되면 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 액세스하기 위한 계정이 생성됩니다. 추천 승인 전자 메일에는 최초 로그인 자격 증명이 포함됩니다. 
 
 Marketplace 계정(Microsoft ID)을 사용하여 게시자 프로필에 액세스할 수 있습니다. Cloud 파트너 포털에 연결된 후에 게시를 위한 마지막 단계는 Microsoft 파트너 네트워크 및 개발자 센터 계정(필요한 경우)을 해당 Marketplace 게시자 프로필에 연결하는 것입니다. 이 작업은 화면 아래쪽의 단추를 통해 Cloud 파트너 포털의 게시자 프로필에서 수행할 수 있습니다.
 
@@ -471,15 +472,15 @@ Azure Marketplace에 대한 지원 옵션 목록은 다음과 같습니다.
 **Azure Marketplace 일반 질의**
 |지원 채널 |설명 |
 |---------|---------|
-|이메일: cloudmarketplace@microsoft.com     |  온보딩 지원 배포 목록입니다. 온보딩 요청, 검색 세션 설정 및 파트너와의 아키텍처 디자인 세션에 사용됩니다.        |
+|전자 메일: cloudmarketplace@microsoft.com     |  온보딩 지원 배포 목록입니다. 온보딩 요청, 검색 세션 설정 및 파트너와의 아키텍처 디자인 세션에 사용됩니다.        |
 
 **Azure Marketplace 게시 지원**
 
 |지원 채널  |설명  |
 |---------|---------|
-|이메일: azurecertified@microsoft.com |   파트너의 Azure Marketplace 게시 응용 프로그램을 지원합니다. 태평양 표준 시간대의 근무 시간입니다.      |
-|이메일: AzureMarketOnboard@microsoft.com |   Azure Marketplace 솔루션 추천 양식 및 프로세스에 대한 지원입니다. 태평양 표준 시간대의 근무 시간입니다.      |
-|이메일: Amp-testdrive@microsoft.com |   시험 사용에 대한 온보딩 액세스입니다. 태평양 표준 시간대의 근무 시간입니다. | 
+|전자 메일: azurecertified@microsoft.com |   파트너의 Azure Marketplace 게시 응용 프로그램을 지원합니다. 태평양 표준 시간대의 근무 시간입니다.      |
+|전자 메일: AzureMarketOnboard@microsoft.com |   Azure Marketplace 솔루션 추천 양식 및 프로세스에 대한 지원입니다. 태평양 표준 시간대의 근무 시간입니다.      |
+|전자 메일: Amp-testdrive@microsoft.com |   시험 사용에 대한 온보딩 액세스입니다. 태평양 표준 시간대의 근무 시간입니다. | 
 
 **Azure Marketplace 포털 지원**
 
@@ -501,9 +502,9 @@ Azure Marketplace에 대한 지원 옵션 목록은 다음과 같습니다.
 
 |지원 채널  |설명  |
 |---------|---------|
-|이메일: cosell@microsoft.com    |  온보딩 프로세스 및 공동 판매 프로그램 관련 질문에 대한 지원입니다. 태평양 표준 시간대를 기준으로 합니다.        |
-|이메일: gtm@microsoft.com    |  Go-to-market의 혜택 및 프로그램 질문에 대한 지원입니다. 태평양 표준 시간대의 근무 시간입니다.        |
-|이메일: CEBrand@Microsoft.com     |  Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다.       |
+|전자 메일: cosell@microsoft.com    |  온보딩 프로세스 및 공동 판매 프로그램 관련 질문에 대한 지원입니다. 태평양 표준 시간대를 기준으로 합니다.        |
+|전자 메일: gtm@microsoft.com    |  Go-to-market의 혜택 및 프로그램 질문에 대한 지원입니다. 태평양 표준 시간대의 근무 시간입니다.        |
+|전자 메일: CEBrand@Microsoft.com     |  Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다.       |
 
 ## <a name="guidelines-and-how-tos"></a>지침 및 방법
 
@@ -534,7 +535,7 @@ Azure Marketplace에 대한 지원 옵션 목록은 다음과 같습니다.
 1. [등록 페이지](https://signup.live.com/signup)로 이동하고**새 이메일 주소 얻기**를 선택합니다.
 
 
-2. 새 이메일 주소를 만들고 암호를 입력합니다. 그러면 outlook.com 서비스에서 새 Microsoft ID 및 이메일 사서함이 둘 다 만들어집니다. 계정이 생성될 때까지 등록 프로세스를 계속 진행합니다.
+2. 새 전자 메일 주소를 만들고 암호를 입력합니다. 그러면 outlook.com 서비스에서 새 Microsoft ID 및 이메일 사서함이 둘 다 만들어집니다. 계정이 생성될 때까지 등록 프로세스를 계속 진행합니다.
 
    >[!IMPORTANT]
    >개발자 센터에 등록하는 데 사용할 이메일 ID 또는 배포 목록이 Microsoft 계정으로 등록되었는지 확인합니다. (개인에 대한 종속성을 제거하기 위해 배포 목록을 사용하는 것이 좋습니다.) 그렇지 않으면 [지금 등록하세요](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).

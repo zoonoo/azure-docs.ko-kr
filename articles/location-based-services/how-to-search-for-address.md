@@ -1,18 +1,17 @@
 ---
-title: "Azure Location Based Services(미리 보기) 검색 서비스 | Microsoft Docs"
-description: "Azure Location Based Services(미리 보기) 검색 서비스를 사용하여 주소를 검색하는 방법 알아보기"
+title: Azure Location Based Services(미리 보기) 검색 서비스 | Microsoft Docs
+description: Azure Location Based Services(미리 보기) 검색 서비스를 사용하여 주소를 검색하는 방법 알아보기
 services: location-based-services
-keywords: "SEO champ를 조회하지 않고 키워드를 추가하거나 편집하지 마십시오."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure Location Based Services(미리 보기) 검색 서비스를 사용하여 주소를 검색하는 방법
 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니스 목록 및 기타 지리 정보를 검색할 수 있는 API의 RESTful 세트입니다. 검색 서비스는 특정 주소, 교차로, 지리적 특징 또는 관심 지점(POI)에 위도/경고를 할당합니다. 검색 서비스 API에서 반환된 위도 및 경도를 Route 및 Traffic Flow API 등의 다른 Azure Location Based Services에 매개 변수로 사용할 수 있습니다.
@@ -44,7 +43,7 @@ ms.lasthandoff: 03/08/2018
     | 요청 URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | 권한 부여 | 인증 없음 |
 
-    URL 경로의 **json** 특성은 응답 형식을 결정합니다. 이 문서 전체에서 편의성과 가독성을 위해 json을 사용합니다. [Location Based Services Functional API 참조](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy)의 **유사 항목 검색 가져오기** 정의에서 사용 가능한 응답 형식을 찾을 수 있습니다.
+    URL 경로의 **json** 특성은 응답 형식을 결정합니다. 이 문서 전체에서 편의성과 가독성을 위해 json을 사용합니다. [Location Based Services Functional API 참조](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy))의 **유사 항목 검색 가져오기** 정의에서 사용 가능한 응답 형식을 찾을 수 있습니다.
 
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
 

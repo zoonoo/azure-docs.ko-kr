@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Environment에 대한 네트워킹 고려 사항"
-description: "ASE 네트워크 트래픽 및 ASE를 사용하여 NSG 및 UDR을 설정하는 방법을 설명합니다."
+title: Azure App Service Environment에 대한 네트워킹 고려 사항
+description: ASE 네트워크 트래픽 및 ASE를 사용하여 NSG 및 UDR을 설정하는 방법을 설명합니다.
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -175,31 +175,10 @@ NSG를 정의한 후 ASE가 있는 서브넷에 할당합니다. ASE VNet 또는
 
 ## <a name="routes"></a>경로 ##
 
-경로는 강제 터널링이 무엇인지, 어떻게 처리하는지에 대한 중요한 측면입니다. Azure Virtual Network에서 라우팅은 LPM(Longest Prefix Match)을 기반으로 수행됩니다. LPM 일치가 동일한 경로가 두 개 이상 있으면 다음 순서대로 해당 원점에 따라 경로가 선택됩니다.
+강제 터널링은 아웃바운드 트래픽이 인터넷으로 직접 가지는 않지만 ExpressRoute 게이트웨이 또는 가상 어플라이언스와 같은 다른 곳으로 이동하도록 VNet에서 경로를 설정하는 경우입니다.  이러한 방식으로 ASE를 구성해야 하는 경우 [강제 터널링을 사용하여 App Service 환경 구성][forcedtunnel]의 문서를 참조하세요.  이 문서에서는 ExpressRoute 및 강제 터널링 작업에 사용할 수 있는 옵션을 알려줍니다.
 
-- UDR(사용자 정의 경로)
-- BGP 경로(ExpressRoute를 사용하는 경우)
-- 시스템 경로
-
-가상 네트워크의 라우팅에 대한 자세한 내용은 [사용자 정의된 경로 및 IP 전달][UDRs]을 참조하세요.
-
-ASE가 시스템을 관리하는 데 사용하는 Azure SQL Database에는 방화벽이 있습니다. 이 방화벽은 통신이 ASE 공용 VIP에서 시작되어야 하도록 요구합니다. ASE에서 SQL Database로의 연결은 ExpressRoute 연결을 통해 다른 IP 주소로 전송되는 경우 거부됩니다.
-
-들어오는 관리 요청에 대한 회신이 ExpressRoute로 전송되는 경우에는 회신 주소가 원래 대상과 달라집니다. 이러한 주소 불일치로 인해 TCP 통신이 중단됩니다.
-
-VNet이 ExpressRoute로 구성된 상태로 ASE가 작동하도록 하기 위해 수행할 수 있는 가장 쉬운 방법은 다음과 같습니다.
-
--   _0.0.0.0/0_을 보급하도록 ExpressRoute를 구성합니다. 기본적으로 ExpressRoute는 온-프레미스의 모든 아웃바운드 트래픽을 강제로 터널링합니다.
--   UDR를 만듭니다. 그리고 주소 접두사가 _0.0.0.0/0_이며 다음 홉 형식이 _인터넷_인 ASE가 포함된 서브넷에 UDR을 적용합니다.
-
-이러한 두 가지 사항을 변경하면 ASE 서브넷에서 발생하는 인터넷용 트래픽이 ExpressRoute로 강제 전송되지 않으며 ASE가 정상적으로 작동합니다. 
-
-> [!IMPORTANT]
-> UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선하도록 충분히 구체적이어야 합니다. 이전 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용합니다. 따라서 더 구체적인 주소 범위를 사용하는 경로 보급 알림으로 인해 주소 범위가 잘못 재정의될 가능성이 있습니다.
->
-> 공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 ASE가 지원되지 않습니다. 공용 피어링이 구성된 ExpressRoute 구성은 Microsoft에서 경로 보급 알림을 받습니다. 보급 알림에는 대규모 Microsoft Azure IP 주소 범위 집합이 포함되어 있습니다. 개인 피어링 경로에서 주소 범위를 교차 보급하는 경우 ASE 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 강제 터널링됩니다. 이 네트워크 흐름은 현재 ASE에서 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로의 교차 보급 경로를 중지합니다.
-
-UDR를 만들려면 다음 단계를 수행합니다.
+포털에서 ASE를 만들 때 ASE를 사용하여 만든 서브넷에 경로 테이블의 집합도 만듭니다.  이러한 경로는 단순히 아웃바운드 트래픽을 인터넷에 직접 보내도록 합니다.  
+동일한 경로를 수동으로 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal로 이동합니다. **네트워킹** > **경로 테이블**을 선택합니다.
 
@@ -217,17 +196,15 @@ UDR를 만들려면 다음 단계를 수행합니다.
 
     ![NSG 및 경로][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>ExpressRoute와 통합된 기존 Azure Virtual Networks에 배포 ###
+## <a name="service-endpoints"></a>서비스 엔드포인트 ##
 
-ExpressRoute와 통합된 VNet에 ASE를 배포하려면 ASE를 배포할 서브넷을 미리 구성합니다. 그런 다음 Resource Manager 템플릿을 사용하여 ASE를 배포합니다. ASE를 이미 구성된 ExpressRoute가 있는 VNet에 만들려면 다음을 수행합니다.
+서비스 끝점을 사용하면 Azure 가상 네트워크 및 서브넷의 집합에 다중 테넌트 서비스에 대한 액세스를 제한할 수 있습니다. 서비스 끝점에 대한 자세한 내용은 [Virtual Network 서비스 끝점][serviceendpoints] 설명서에서 확인할 수 있습니다. 
 
-- ASE를 호스팅하는 서브넷을 만듭니다.
+리소스에서 서비스 끝점을 사용하는 경우 다른 모든 경로에 우선해 만든 경로가 있습니다. 강제 터널링된 ASE를 통해 서비스 끝점을 사용하는 경우 Azure SQL 및 Azure Storage 관리 트래픽은 강제 터널링되지 않습니다. 
 
-    > [!NOTE]
-    > ASE 이외의 항목을 서브넷에 포함해서는 안 됩니다. 향후 확장이 가능한 주소 공간을 선택해야 합니다. 이 설정은 나중에 변경할 수 없습니다. 주소 128개를 포함할 수 있는 `/25` 크기를 사용하는 것이 좋습니다.
+Azure SQL 인스턴스를 통해 서브넷에서 서비스 끝점이 사용되는 경우 해당 서브넷에서 연결된 모든 Azure SQL 인스턴스는 서비스 끝점을 사용할 수 있어야 합니다. 동일한 서브넷에서 여러 Azure SQL 인스턴스에 액세스하려는 경우 다른 Azure SQL 인스턴스가 아닌 한 Azure SQL 인스턴스에서 서비스 끝점을 사용할 수 없습니다. Azure Storage는 Azure SQL과 동일하게 동작하지 않습니다. Azure Storage를 통해 서비스 끝점을 사용하는 경우 사용자의 서브넷에서 해당 리소스에 대한 액세스를 잠글 수 있지만 서비스 끝점을 사용할 수 없는 경우에도 여전히 다른 Azure Storage 계정에 액세스할 수 있습니다.  
 
-- 앞에서 설명한 대로 UDR(예: 경로 테이블)을 만들고 서브넷에서 UDR을 설정합니다.
-- [Resource Manager 템플릿을 사용하여 ASE 만들기][MakeASEfromTemplate]에서 설명한 대로 Resource Manager 템플릿을 사용하여 ASE를 만듭니다.
+![서비스 엔드포인트][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ ExpressRoute와 통합된 VNet에 ASE를 배포하려면 ASE를 배포할 서브
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ ExpressRoute와 통합된 VNet에 ASE를 배포하려면 ASE를 배포할 서브
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

@@ -1,24 +1,19 @@
 ---
-title: Azure Stream Analytics에서 쿼리 병렬 처리 사용 | Microsoft Docs
-description: 입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
-keywords: 데이터 스트리밍, 스트리밍 데이터 처리, 분석 조정
+title: Azure Stream Analytics에서 쿼리 병렬 처리 및 크기 조정 사용
+description: 이 문서에서는 입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 설명합니다.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -50,7 +45,7 @@ Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 �
 -   IoT Hub(파티션 키를 명시적으로 설정해야 함)
 -   Service Bus
 
-PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-step-query-with-a-grouping-key)에 설명된 대로 입력은 여전히 분할할 수 있습니다. 
+PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-step-query-with-different-partition-by-values)에 설명된 대로 입력은 여전히 분할할 수 있습니다. 
 
 파티션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -65,7 +60,7 @@ PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니�
 
 2. 데이터가 입력 측에 배치되면 쿼리가 분할되었는지 확인해야 합니다. 그러려면 모든 단계에서 **PARTITION BY**를 사용해야 합니다. 여러 단계가 허용되지만 모두 동일한 키로 분할되어야 합니다. 현재는 작업을 완전히 병렬로 처리하기 위해 분할 키를 **PartitionId**로 설정해야 합니다.  
 
-3. 대부분의 출력은 분할을 활용할 수 있지만 분할을 지원하지 않는 출력 형식을 사용하는 경우 작업이 완벽하게 병렬 처리되지 않습니다. 자세한 내용은 [출력 섹션](#Outputs)을 참조하세요.
+3. 대부분의 출력은 분할을 활용할 수 있지만 분할을 지원하지 않는 출력 형식을 사용하는 경우 작업이 완벽하게 병렬 처리되지 않습니다. 자세한 내용은 [출력 섹션](#outputs)을 참조하세요.
 
 4. 입력 파티션 수가 출력 파티션 수와 같아야 합니다. Blob Storage 출력은 현재 파티션을 지원하지 않습니다. 하지만 업스트림 쿼리의 분할 스키마를 상속하므로 문제되지 않습니다. 다음은 완전한 병렬 작업을 허용하는 파티션 값의 예입니다.  
 
@@ -221,7 +216,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

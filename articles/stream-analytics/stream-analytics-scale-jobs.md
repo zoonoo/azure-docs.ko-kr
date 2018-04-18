@@ -1,31 +1,25 @@
 ---
-title: 처리량을 높이기 위한 Stream Analytics 작업 크기 조정 | Microsoft Docs
-description: 입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
-keywords: 데이터 스트리밍, 스트리밍 데이터 처리, 분석 조정
+title: Azure Stream Analytics 작업에서 강화 및 확장
+description: 이 아티클에서는 입력 데이터를 분할하고, 쿼리를 조정하고, 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 설명합니다.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>처리량을 높이기 위한 Azure Stream Analytics 작업 크기 조정
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>처리량을 높이도록 Azure Stream Analytics 작업 크기 조정
 이 문서에서는 Streaming Analytics 작업에 대한 처리량을 증가시키기 위해 Stream Analytics 쿼리를 조정하는 방법을 보여 줍니다. 다음 가이드를 사용하여 더 높은 부하를 처리하고 더 많은 시스템 리소스(예: 추가 대역폭, 추가 CPU 리소스, 추가 메모리)를 활용하도록 작업 크기를 조정할 수 있습니다.
 전제 조건으로 다음 문서를 읽을 필요가 있습니다.
 -   [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md)
 -   [병렬 처리 가능한 작업 만들기](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>사례 1 - 쿼리가 기본적으로 여러 입력 파티션 간에 완전히 병렬 처리 가능한 경우
 쿼리가 기본적으로 여러 입력 파티션 간에 완전히 병렬 처리가 가능하면 다음 단계를 따를 수 있습니다.
@@ -40,7 +34,6 @@ ms.lasthandoff: 03/30/2018
 >[!Note]
 > 적절한 스트리밍 단위 수를 선택합니다. Stream Analytics는 각 6개의 SU가 추가될 때마다 처리 노드를 만들기 때문에 노드 수를 입력 파티션 수의 제수로 사용하여 파티션을 노드 간에 균일하게 분산하는 것이 가장 좋습니다.
 > 예를 들어 6개 SU 작업이 4MB/s 처리 속도를 달성할 수 있다고 측정했고, 입력 파티션 수는 4개입니다. 약 8MB/s의 처리 속도를 얻기 위해서는 12개 SU, 16MB/s의 처리 속도를 얻기 위해서는 24개 SU의 작업을 선택하여 실행할 수 있습니다. 그런 후 입력 속도의 함수로서, 작업에 대한 SU 수를 특정 값으로 늘려야 하는 시기를 결정할 수 있습니다.
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>사례 2 - 쿼리가 병렬 처리하기 쉽지 않은 경우
@@ -150,7 +143,7 @@ Stream Analytics 작업의 크기를 조정하는 방법을 이해하기 위해 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

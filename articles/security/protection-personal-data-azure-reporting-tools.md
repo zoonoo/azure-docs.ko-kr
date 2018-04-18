@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Azure 보고 도구로 개인 데이터의 문서 보호
 
@@ -95,13 +95,13 @@ Azure Active Directory에서 제공되는 보고서에 대한 자세한 내용�
 
 #### <a name="how-do-i-use-log-analytics"></a>Log Analytics를 사용하려면 어떻게 할까요?
 
-Log Analytics는 OMS 포털 또는 Azure Portal을 통해 모든 웹 브라우저에서 액세스할 수 있습니다. Log Analytics는 리포지토리의 데이터를 신속하게 검색하고 통합할 수 있는 쿼리 언어를 포함합니다. 로그 검색을 만들고 저장하여 포털에서 데이터를 직접 분석할 수 있습니다.
+Log Analytics는 OMS 포털 또는 Azure Portal을 통해 모든 웹 브라우저에서 액세스할 수 있습니다. Log Analytics는 Log Analytics 작업 영역의 데이터를 신속하게 검색하고 통합할 수 있는 쿼리 언어를 포함합니다. 로그 검색을 만들고 저장하여 포털에서 데이터를 직접 분석할 수 있습니다.
 
 Azure Portal에서 Log Analytics 작업 영역을 만들려면 다음을 수행합니다.
 
 1. Marketplace의 서비스 목록에서 **Log Analytics**를 선택합니다.
 
-2. **만들기**를 선택한 후 OMS 작업 영역 이름을 지정하고 구독, 리소스 그룹, 위치 및 가격 책정 계층을 선택합니다.
+2. **만들기**를 선택한 후 Log Analytics 작업 영역 이름을 지정하고 구독, 리소스 그룹, 위치 및 가격 책정 계층을 선택합니다.
 
 3. **확인**을 클릭하면 작업 영역 목록이 표시됩니다.
 

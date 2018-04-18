@@ -1,5 +1,5 @@
 ---
-title: ILB App Service Environment와 Application Gateway 통합
+title: ILB App Service Environment와 Azure Application Gateway 통합
 description: ILB App Service Environment의 앱을 Application Gateway와 통합하는 방법에 대한 연습
 services: app-service
 documentationcenter: na
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>ILB App Service Environment와 Application Gateway 통합 #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
 
 [App Service Environment](./intro.md)는 고객의 Azure 가상 네트워크 서브넷에 Azure App Service를 배포한 환경입니다. 앱 액세스를 위해 공용 또는 개인 끝점으로 배포할 수 있습니다. 개인 끝점(즉, 내부 부하 분산 장치)을 사용하여 App Service Environment를 배포하는 것을 ILB App Service Environment라고 합니다.  
 
-Azure Application Gateway는 7계층 부하 분산, SSL 오프로딩 및 WAF(웹 응용 프로그램 방화벽) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 응용 프로그램 끝점으로 라우팅할 수 있습니다. 
+웹 응용 프로그램 방화벽을 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. Azure 마켓플레이스에서 WAF 장치를 얻을 수 있거나 [Azure Application Gateway][appgw]를 사용할 수 있습니다.
 
-여기서는 WAF가 구성된 Application Gateway를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
+Azure Application Gateway는 7계층 부하 분산, SSL 오프로딩 및 WAF(웹 응용 프로그램 방화벽) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 응용 프로그램 끝점으로 라우팅할 수 있습니다. 여기서는 WAF가 구성된 Application Gateway를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
 
 Application Gateway와 ILB App Service Environment의 통합은 앱 수준입니다. ILB App Service Environment에서 Application Gateway를 구성하는 경우 ILB App Service Environment의 특정 앱에 대해 이를 구성합니다. 이 기술을 사용하면 단일 ILB App Service Environment에서 안전한 다중 테넌트 응용 프로그램을 호스트할 수 있습니다.  
 
@@ -33,7 +33,7 @@ Application Gateway와 ILB App Service Environment의 통합은 앱 수준입니
 
 이 연습에서는 다음을 수행합니다.
 
-* Application Gateway를 만듭니다.
+* Azure Application Gateway를 만듭니다.
 * ILB App Service Environment의 앱을 가리키도록 Application Gateway를 구성합니다.
 * 사용자 지정 도메인 이름을 적용하도록 앱을 구성합니다.
 * Application Gateway를 가리키는 공용 DNS 호스트 이름을 편집합니다.
@@ -49,7 +49,7 @@ Application Gateway를 ILB App Service Environment와 통합하려면 다음이 
 
     ![ILB App Service Environment에서 사용하는 IP 주소의 예제 목록][9]
     
-* 나중에 응용 프로그램 게이트웨이를 가리키는 데 사용되는 공용 DNS 이름 
+* 나중에 Application Gateway를 가리키는 데 사용되는 공용 DNS 이름 
 
 ILB App Service Environment를 만드는 방법에 대한 자세한 내용은 [ILB App Service Environment 만들기 및 사용][ilbase]을 참조하세요.
 
@@ -65,7 +65,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
 2. **기본 사항** 영역에서 다음을 수행합니다.
 
-   a. **이름**에 응용 프로그램 게이트웨이의 이름을 입력합니다.
+   a. **이름**에 Application Gateway의 이름을 입력합니다.
 
    나. **계층**에 대해 **WAF**를 선택합니다.
 
@@ -75,7 +75,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    e. **위치**에 대해 App Service Environment 가상 네트워크의 위치를 선택합니다.
 
-   ![새 응용 프로그램 게이트웨이 만들기의 기본 사항][2]
+   ![새 Application Gateway 만들기 기본 사항][2]
 
 3. **설정** 영역에서 다음을 수행합니다.
 
@@ -91,7 +91,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    f. **웹 응용 프로그램 방화벽**에 대해 방화벽을 사용하도록 설정하고, **검색** 또는 **방지**에 대해서도 적합하게 설정할 수 있습니다.
 
-   ![새 응용 프로그램 게이트웨이 만들기 설정][3]
+   ![새 Application Gateway 만들기 설정][3]
     
 4. **요약** 섹션에서 설정을 검토하고 **확인**을 선택합니다. Application Gateway에서 설정을 완료하는 데 30분 정도 걸릴 수 있습니다.  
 

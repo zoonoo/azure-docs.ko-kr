@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure VM(Virtual Machines)의 SAP HANA 고가용성
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/29/2018
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -155,15 +156,36 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
         1. 새 상태 프로브의 이름 입력(예: hana-hp)
         1. 프로토콜로 TCP를 선택하고 포트 625**03**을 선택한 다음 간격은 5, 비정상 임계값은 2로 유지
         1. 확인 클릭
-    1. 부하 분산 규칙 만들기
+    1. SAP HANA 1.0: 부하 분산 규칙 만들기
         1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정한 다음, 추가 클릭
         1. 새 부하 분산 장치 규칙의 이름 입력(예: hana-lb-3**03**15)
+        1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: hana-frontend)
+        1. 프로토콜 TCP를 유지하고 포트 3**03**15 입력
+        1. 유휴 상태 시간 제한을 30분으로 증가
+        1. **부동 IP를 사용하도록 설정**
+        1. 확인 클릭
+        1. 포트 3**03**17에 대해 다음 단계 반복
+    1. SAP HANA 2.0: 시스템 데이터베이스에 대한 부하 분산 규칙 만들기
+        1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정한 다음, 추가 클릭
+        1. 새 부하 분산 장치 규칙의 이름 입력(예: hana-lb-3**03**13)
         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: hana-frontend)
         1. 프로토콜 TCP를 유지하고 포트 3**03**13 입력
         1. 유휴 상태 시간 제한을 30분으로 증가
         1. **부동 IP를 사용하도록 설정**
         1. 확인 클릭
-        1. 포트 3**03**15 및 3**03**17에 대해 위 단계 반복
+        1. 3**03**14 포트에 대해 위 단계 반복
+    1. SAP HANA 2.0: 첫 번째 테넌트 데이터베이스에 대한 부하 분산 규칙 만들기
+        1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정한 다음, 추가 클릭
+        1. 새 부하 분산 장치 규칙의 이름 입력(예: hana-lb-3**03**40)
+        1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: hana-frontend)
+        1. 프로토콜로 TCP를 유지하고 3**03**40 포트 입력
+        1. 유휴 상태 시간 제한을 30분으로 증가
+        1. **부동 IP를 사용하도록 설정**
+        1. 확인 클릭
+        1. 3**03**41 및 3**03**42 포트에 대해 위 단계 반복
+
+SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드의 [테넌트 데이터베이스에 연결](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 챕터 또는 [SAP Note 2388694][2388694]를 참조하세요.
+
 
 ## <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 

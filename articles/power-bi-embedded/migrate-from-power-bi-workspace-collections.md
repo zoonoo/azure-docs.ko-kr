@@ -1,12 +1,12 @@
 ---
-title: "Power BI 작업 영역 컬렉션 콘텐츠를 Power BI Embedded로 마이그레이션하는 방법 | Microsoft Docs"
-description: "Power BI 작업 영역 컬렉션에서 Power BI Embedded로 마이그레이션을 수행하고 앱에서 개선된 포함 기능을 활용하는 방법을 알아봅니다."
+title: Power BI 작업 영역 컬렉션 콘텐츠를 Power BI Embedded로 마이그레이션하는 방법 | Microsoft Docs
+description: Power BI 작업 영역 컬렉션에서 Power BI Embedded로 마이그레이션을 수행하고 앱에서 개선된 포함 기능을 활용하는 방법을 알아봅니다.
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
 ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Power BI 작업 영역 컬렉션 콘텐츠를 Power BI Embedded로 마이그레이션하는 방법
 
@@ -117,13 +117,13 @@ Power BI 작업 영역 컬렉션에서 Power BI Embedded로의 콘텐츠 복사�
 
 **흐름**
 
-1. GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources를 호출하고 수신된 연결 문자열을 저장합니다.
+1. GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources를 호출하고 수신하는 연결 문자열을 저장합니다.
 2. Power BI 작업 영역 컬렉션 작업 영역에서 PBIX 다운로드 API를 호출합니다.
 3. PBIX를 저장합니다.
 4. Power BI Embedded 작업 영역에 대한 PBIX 가져오기를 호출합니다.
-5. POST  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections를 호출하여 연결 문자열을 업데이트합니다.
-6. GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources를 호출하여 GW ID 및 데이터 원본 ID를 가져옵니다.
-7. PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}를 호출하여 사용자 자격 증명을 업데이트합니다.
+5. 호출하여 연결 문자열 업데이트 - POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
+6. 호출하여 GW ID 및 데이터 원본 ID 가져오기 - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
+7. 호출하여 사용자의 자격 증명 업데이트 - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
 
 #### <a name="old-dataset-and-reports"></a>이전 데이터 집합 및 보고서
 

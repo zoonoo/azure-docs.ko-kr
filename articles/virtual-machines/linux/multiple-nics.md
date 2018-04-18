@@ -1,11 +1,11 @@
 ---
-title: "여러 NIC를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Docs"
-description: "Azure CLI 2.0 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 있는 Linux VM을 만드는 방법을 알아봅니다."
+title: 여러 NIC를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Docs
+description: Azure CLI 2.0 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 있는 Linux VM을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d981ffc9a0053ed8bf2d49f386f7c1c82d50c907
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 머신)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결되어 있는 VM을 만드는 방법과 기존 VM에서 NIC를 추가 또는 제거하는 방법을 자세히 설명합니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
@@ -100,6 +100,8 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
+
 ## <a name="add-a-nic-to-a-vm"></a>VM에 NIC 추가
 이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI 2.0을 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](change-vm-size.md)할 수 있습니다.
 
@@ -135,6 +137,8 @@ az vm nic add \
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
+
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="remove-a-nic-from-a-vm"></a>VM에서 NIC 제거
 기존 VM에사 NIC를 제거하려면 먼저 [az vm deallocate](/cli/azure/vm#az_vm_deallocate)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
@@ -179,6 +183,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 [Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)의 전체 예제를 읽어볼 수 있습니다.
 
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>여러 NIC에 대한 게스트 OS 구성
 Linux VM에 여러 NIC를 추가하는 경우 라우팅 규칙을 만들어야 합니다. 이러한 규칙을 통해 VM은 특정 NIC에 속하는 트래픽을 보내고 받을 수 있습니다. 그렇지 않은 경우 예를 들어 *eth1*에 속한 트래픽을 정의된 기본 경로로 올바르게 처리할 수 없습니다.
@@ -190,7 +195,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-네트워크 스택이 활성화되어 있는 동안 변경 내용을 영구적으로 적용하려면 */etc/sysconfig/network-scipts/ifcfg-eth0* 및 */etc/sysconfig/network-scipts/ifcfg-eth1*을 편집합니다. *"NM_CONTROLLED=yes"* 행을 *"NM_CONTROLLED=no"*로 바꿉니다. 이 단계를 수행하지 않으면 추가 규칙/라우팅이 자동으로 적용되지 않습니다.
+네트워크 스택이 활성화되어 있는 동안 변경 내용을 영구적으로 적용하려면 */etc/sysconfig/network-scripts/ifcfg-eth0* 및 */etc/sysconfig/network-scripts/ifcfg-eth1*을 편집합니다. *"NM_CONTROLLED=yes"* 행을 *"NM_CONTROLLED=no"*로 바꿉니다. 이 단계를 수행하지 않으면 추가 규칙/라우팅이 자동으로 적용되지 않습니다.
  
 다음으로, 라우팅 테이블을 확장합니다. 다음과 같이 설정되었다고 가정해 보겠습니다.
 

@@ -1,24 +1,19 @@
 ---
-title: Azure Stream Analytics로 이벤트 순서 및 지연 처리 | Microsoft Docs
-description: Stream Analytics가 데이터 스트림의 잘못된 순서 또는 지연 이벤트에 어떻게 작동하는지 알아봅니다.
-keywords: 순서 비지정, 지연, 이벤트
-documentationcenter: ''
+title: Azure Stream Analytics에서 이벤트 순서 및 지연 처리
+description: 이 아티클에서는 Stream Analytics가 데이터 스트림의 잘못된 순서 또는 지연 이벤트를 처리하는 방법을 알아봅니다.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics 이벤트 순서 고려 사항
 
@@ -132,7 +127,7 @@ Azure Stream Analytics는 [TIMESTAMP BY OVER](https://msdn.microsoft.com/library
 * 여러 타임라인을 결합하는 경우 원본 또는 파티션 중 하나에서 데이터가 부족할 경우 추가 지연 도착 허용 시간만큼 출력이 지연될 수 있습니다.
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics 소개](stream-analytics-introduction.md)

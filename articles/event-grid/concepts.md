@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 개념"
-description: "Azure Event Grid 및 해당 개념을 설명합니다. Event Grid의 몇 가지 주요 구성 요소를 정의합니다."
+title: Azure Event Grid 개념
+description: Azure Event Grid 및 해당 개념을 설명합니다. Event Grid의 몇 가지 주요 구성 요소를 정의합니다.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -32,9 +32,11 @@ Azure Event Grid의 주요 개념은 다음과 같습니다.
 
 시스템 토픽은 Azure 서비스에서 제공하는 기본 제공 항목입니다. 사용자 지정 토픽은 응용 프로그램 및 타사 토픽입니다.
 
+응용 프로그램을 디자인할 때 관련된 이벤트의 각 범주에 대한 사용자 지정 항목을 만듭니다. 사용자 계정을 수정하고 주문을 처리하는 것과 관련된 이벤트를 보내는 응용 프로그램을 예로 들 수 있습니다. 이벤트 처리기가 이벤트의 두 범주 모두를 원할 가능성은 낮습니다. 두 개의 사용자 지정 토픽을 만들고 이벤트 처리기가 관심 있는 토픽에 구독할 수 있도록 합니다. 사용자 지정 토픽을 구독하는 경우 이벤트 처리기는 이벤트 유형별로 필터링할 수 있습니다.
+
 ## <a name="event-subscriptions"></a>이벤트 구독
 
-구독은 구독자가 받고자 하는 토픽의 이벤트를 Event Grid에 지시합니다.  또한 구독에는 이벤트가 구독자에게 어떻게 배달되는지에 대한 정보가 포함됩니다.
+구독은 구독자가 받고자 하는 토픽의 이벤트를 Event Grid에 지시합니다. 또한 구독에는 이벤트가 구독자에게 어떻게 배달되는지에 대한 정보가 포함됩니다.
 
 ## <a name="event-handlers"></a>이벤트 처리기
 

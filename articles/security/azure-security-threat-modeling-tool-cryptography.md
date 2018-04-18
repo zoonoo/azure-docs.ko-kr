@@ -1,6 +1,6 @@
 ---
-title: "암호화 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "위협 모델링 도구에 노출되는 위협 완화"
+title: 암호화 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 | 제품/서비스 | 문서 |
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | <p>제품에서는 승인된 난수 발생기를 사용해야 합니다. 따라서 의사 난수 함수(예: rand C 런타임 함수, System.Random .NET Framework 클래스 또는 GetTickCount 시스템 함수)는 이러한 코드에 절대로 사용할 수 없습니다. 이중 타원 곡선 난수 생성기(DUAL_EC_DRBG) 알고리즘의 사용은 금지됩니다.</p><ul><li>**CNG -** BCryptGenRandom(호출자가 0보다 큰 IRQL[즉 PASSIVE_LEVEL]에서 실행되지 않는 한 BCRYPT_USE_SYSTEM_PREFERRED_RNG 플래그를 사용하는 것이 좋음)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64 -** RtlGenRandom(새 구현에서는 BCryptGenRandom 또는 CryptGenRandom을 사용해야 함) * rand_s * SystemPrng(커널 모드의 경우)</li><li>**.NET -** RNGCryptoServiceProvider 또는 RNGCng</li><li>**Windows 스토어 앱-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom 또는 .GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t *bytes )</li><li>**Apple OS X (<10.7)-** /dev/random을 사용하여 난수를 검색합니다.</li><li>**Java(Google Android Java 코드 포함) -** java.security.SecureRandom 클래스입니다. Android 4.3(Jelly Bean)의 경우 개발자는 Android 권장 해결 방법을 수행하고 /dev/urandom 또는/dev/random에서 엔트로피를 사용하여 명시적으로 PRNG를 초기화하도록 응용 프로그램을 업데이트해야 합니다.</li></ul>|
+| **단계** | <p>제품에서는 승인된 난수 발생기를 사용해야 합니다. 따라서 의사 난수 함수(예: rand C 런타임 함수, System.Random .NET Framework 클래스 또는 GetTickCount 시스템 함수)는 이러한 코드에 절대로 사용할 수 없습니다. 이중 타원 곡선 난수 생성기(DUAL_EC_DRBG) 알고리즘의 사용은 금지됩니다.</p><ul><li>**CNG -** BCryptGenRandom(호출자가 0보다 큰 IRQL[즉 PASSIVE_LEVEL]에서 실행되지 않는 한 BCRYPT_USE_SYSTEM_PREFERRED_RNG 플래그를 사용하는 것이 좋음)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64 -** RtlGenRandom(새 구현에서는 BCryptGenRandom 또는 CryptGenRandom을 사용해야 함) * rand_s * SystemPrng(커널 모드의 경우)</li><li>**.NET -** RNGCryptoServiceProvider 또는 RNGCng</li><li>**Windows 스토어 앱-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom 또는 .GenerateRandomNumber</li><li>**Apple OS X(10.7+)/iOS(2.0+)-** int SecRandomCopyBytes(SecRandomRef random, size_t count, uint8_t \*bytes )</li><li>**Apple OS X(<10.7)-** /dev/random을 사용하여 난수를 검색합니다.</li><li>**Java(Google Android Java 코드 포함) -** java.security.SecureRandom 클래스입니다. Android 4.3(Jelly Bean)의 경우 개발자는 Android 권장 해결 방법을 수행하고 /dev/urandom 또는/dev/random에서 엔트로피를 사용하여 명시적으로 PRNG를 초기화하도록 응용 프로그램을 업데이트해야 합니다.</li></ul>|
 
 ## <a id="stream-ciphers"></a>대칭 스트림 암호화 사용 금지
 
@@ -172,9 +172,9 @@ ms.lasthandoff: 10/11/2017
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 장치 OS - Windows IoT Core, 장치 연결 - Azure IoT 장치 SDK |
 | **참조**              | [Windows IoT Core의 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)(영문), [Windows IoT Core에서 TPM 설정](https://developer.microsoft.com/windows/iot/win10/setuptpm)(영문), [Azure IoT 장치 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
-| **단계** | 대칭 또는 인증서 개인 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 저장소에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 usr을 지원하며, https://developer.microsoft.com/windows/iot/win10/tpm에는 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
+| **단계** | 대칭 또는 인증서 개인 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 저장소에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://developer.microsoft.com/windows/iot/win10/tpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 TpmDevice myDevice = new TpmDevice(0);
 // Use logical device 0 on the TPM 

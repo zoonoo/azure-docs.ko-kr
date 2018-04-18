@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.openlocfilehash: 76ed4dac40872bf6db07b26c5805a4db62dc9dfc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 80889ac29b6d92f17fb9c9c693fa733085ce7f1c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: 소셜 ID가 있는 사용자 마이그레이션
 ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 있는 사용자 계정도 마이그레이션해야 합니다. 이 문서에서는 Facebook, LinkedIn, Microsoft 및 Google 계정 등의 기존 소셜 ID 계정을 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서는 페더레이션 ID에도 해당되지만 이러한 마이그레이션은 일반성이 떨어집니다.
@@ -43,7 +43,7 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
     ]
     ```
 
-* ID 공급자에 따라 **소셜 사용자 ID**는 주어진 사용자 `per application` 또는 개발 계정의 고유한 값입니다. 소셜 공급자가 이전에 할당한 ID와 동일한 응용 프로그램 ID로 Azure AD B2C 정책을 구성합니다. `within the same development account`의 다른 응용 프로그램이 할당한 ID를 사용합니다.
+* ID 공급자에 따라 **소셜 사용자 ID**는 응용 프로그램 또는 개발 계정마다 주어진 사용자에 대한 고유한 값입니다. 소셜 공급자가 이전에 할당한 ID와 동일한 응용 프로그램 ID로 Azure AD B2C 정책을 구성합니다. 또는 동일한 개발 계정 내의 다른 응용 프로그램입니다.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Graph API를 사용하여 사용자 마이그레이션
 [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 Azure AD B2C 사용자 계정을 만듭니다. Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 응용 프로그램 및 인증을 등록합니다. 응용 프로그램 자격 증명은 응용 프로그램 ID 및 응용 프로그램 비밀입니다. 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다. [사용자 마이그레이션](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) 문서의 1단계를 수행합니다.

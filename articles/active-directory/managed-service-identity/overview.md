@@ -1,24 +1,24 @@
 ---
-title: "Azure Active Directory용 MSI(관리 서비스 ID)"
-description: "Azure 리소스용 관리 서비스 ID에 대해 대략적으로 설명합니다."
+title: Azure Active Directory용 MSI(관리 서비스 ID)
+description: Azure 리소스용 관리 서비스 ID에 대해 대략적으로 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 2d711d4fa48a1d10d4c37b9591a66e5b746f1ca7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Azure 리소스용 MSI(관리 서비스 ID)
 
@@ -38,7 +38,7 @@ Azure Virtual Machines에서 관리 서비스 ID가 작동하는 방식의 예�
 2. Azure Resource Manager가 Azure AD에서 VM의 ID를 나타내는 서비스 주체를 만듭니다. 서비스 주체는 이 구독이 신뢰하는 Azure AD 테넌트에서 작성됩니다.
 3. Azure Resource Manager가 VM의 MSI VM 확장에서 서비스 주체 세부 정보를 구성합니다.  이 단계에서는 확장에서 사용하는 클라이언트 ID와 인증서가 Azure AD에서 액세스 토큰을 가져오도록 구성합니다.
 4. 이제 VM의 서비스 주체 ID가 확인되었으므로 Azure 리소스 액세스 권한을 해당 ID에 부여할 수 있습니다.  예를 들어 코드가 Azure Resource Manager를 호출해야 하는 경우 Azure AD에서 RBAC(역할 기반 액세스 제어)를 사용하여 VM 서비스 주체에 적절한 역할을 할당합니다.  코드가 Key Vault를 호출해야 하는 경우에는 Key Vault의 특정 비밀이나 키 액세스 권한을 코드에 부여합니다.
-5. VM에서 실행되는 코드가 MSI VM 확장에서 호스트되는 로컬 끝점(http://localhost:50342/oauth2/token)에서 토큰을 요청합니다.  리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. 예를 들어 코드가 Azure Resource Manager에 인증하도록 하려면 resource=https://management.azure.com/을 사용합니다.
+5. VM에서 실행되는 코드가 MSI VM 확장이 호스팅하는 로컬 엔드포인트의 토큰을 요청합니다. http://localhost:50342/oauth2/token  리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. 예를 들어 코드가 Azure Resource Manager에 인증하도록 하려면 resource=https://management.azure.com/을 사용합니다.
 6. MSI VM 확장은 구성된 클라이언트 ID 및 인증서를 사용하여 Azure AD에서 액세스 토큰을 요청합니다.  Azure AD가 JWT(JSON Web Token) 액세스 토큰을 반환합니다.
 7. 코드가 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다.
 
@@ -62,7 +62,7 @@ Azure Virtual Machines에서 관리 서비스 ID가 작동하는 방식의 예�
 |                    | [ VM 관리 서비스 ID를 사용하여 SAS를 통해 Azure Storage 액세스](tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Linux VM 관리 서비스 ID 및 Azure Key Vault를 사용한 비 Azure AD 리소스 액세스](tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
-| Azure Function     | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
+| Azure 기능    | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Azure Service Bus를 통한 관리 서비스 ID 사용](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Azure Event Hubs를 통한 관리 서비스 ID 사용](../../event-hubs/event-hubs-managed-service-identity.md) |
 
@@ -78,8 +78,10 @@ Azure Virtual Machines에서 관리 서비스 ID가 작동하는 방식의 예�
 | ------- | ------ | ---- | --------- | ----------- |
 | Azure Virtual Machines | 미리 보기 | 2017년 9월 | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure 리소스 관리자 템플릿](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | 미리 보기 | 2017년 9월 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure 기능 | 미리 보기 | 2017년 9월 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Functions<sup>1</sup> | 미리 보기 | 2017년 9월 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | 미리 보기 | 2017년 11월 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+
+<sup>1</sup> Azure Functions 지원을 통해 사용자 코드에서 ID를 사용할 수 있지만 트리거와 바인딩에는 연결 문자열이 여전히 필요할 수 있습니다.
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure AD 인증을 지원하는 Azure 서비스
 

@@ -1,23 +1,23 @@
 ---
-title: "Azure Cosmos DB의 20일 팁 | Microsoft Docs"
-description: "Simona Cotin의 Azure Cosmos DB의 20일 팁 시리즈의 팁을 모두 한 곳에서 찾아보세요."
+title: Azure Cosmos DB의 20일 팁 | Microsoft Docs
+description: Simona Cotin의 Azure Cosmos DB의 20일 팁 시리즈의 팁을 모두 한 곳에서 찾아보세요.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB의 20일 팁
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-2-seeing-is-believing"></a>팁 2: 보이는 것이 믿는 것
 
-보이는 것이 믿는 것입니다. Azure Portal에서 #cosmosDB 시각적 인터페이스를 사용하여 DB를 검사하고 쿼리하세요. [https://aka.ms/jprf75](https://aka.ms/jprf75)
+보이는 것이 믿는 것입니다. Azure Portal에서 #cosmosDB 시각적 개체 인터페이스를 사용하여 DB를 검사하고 쿼리하세요. [https://aka.ms/jprf75](https://aka.ms/jprf75)
 
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-4-gremlin-graph-support"></a>팁 4: Gremlin 그래프 지원
 
-팁 4: gremlin은 흥미로운 것입니까? #cosmosdb는 Gremlin도 좋아합니다! Azure Portal [https://aka.ms/tfmi37](https://aka.ms/tfmi37)을 사용하여 그래프 DB 보기, 쿼리 및 편집  
+팁 4: gremlin은 흥미로운 것입니까? #cosmosdb는 Gremlin도 좋아합니다! Azure Portal을 사용하여 그래프 DB 보기, 쿼리 및 편집 [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
 
 > [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-5-try-azure-cosmos-db-free"></a>팁 5: 무료로 Azure Cosmos DB 사용해 보기
 
-팁 5: 무료로 Azure #CosmosDB를 사용해 보려고 합니까? 등록 또는 신용 카드 없이 [https://aka.ms/d81vxr](https://aka.ms/d81vxr)로 이동하여 코딩을 시작합니다!  
+팁 5: 무료로 Azure #CosmosDB를 사용해 보려고 합니까? 등록 또는 신용 카드가 필요하지 않습니다. [https://aka.ms/d81vxr](https://aka.ms/d81vxr)로 이동하여 코딩을 시작합니다!  
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>팁 8: SQL API를 사용하여 Node.js 앱 빌드
 
-팁 8: SQL API 및 Azure #CosmosDB를 사용하여 @nodejs 앱을 빌드합니다. 자세한 정보: 문서 페이지 [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+팁 8: SQL API 및 Azure #CosmosDB를 사용하여 @nodejs 앱을 빌드합니다. 문서 페이지([https://aka.ms/Bd77a8](https://aka.ms/Bd77a8))에서 자세한 정보를 알아보세요.  
 
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-9-query-using-mongodb-in-nodejs"></a>팁 9: Node.js에서 MongoDB를 사용하여 쿼리
 
-팁 9: Node.js에서 MongoDB API를 사용하여 Azure #CosmosDB를 쿼리합니다. 자세한 정보: 문서 페이지 [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+팁 9: Node.js에서 MongoDB API를 사용하여 Azure #CosmosDB를 쿼리합니다. 문서 페이지([https://aka.ms/Dert0r](https://aka.ms/Dert0r))에서 자세한 정보를 알아보세요.  
 
 ![MongoDB를 사용하여 쿼리](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-14-use-cases"></a>팁 14: 사용 사례
 
-팁 14: 일반적인 Azure #CosmosDB 사용 사례가 궁금하세요? [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00)에서 IoT, 게임 및 소셜 앱에 대해 자세히 알아봅니다.
+팁 14: 일반적인 Azure #CosmosDB 사용 사례가 궁금하세요? [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00)에서 IoT, 게임 및 소셜 앱에 대해 자세히 알아보세요.
 
 문서: [일반적인 Azure Cosmos DB 사용 사례](https://aka.ms/Ihpf00)
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-15-vs-code-integration"></a>팁 15: VS 코드 통합
 
-팁 15: @code를 나가지 않고 새 Azure #CosmosDB 계정을 만듭니다. [https://aka.ms/Wy547u](https://aka.ms/Wy547u)에서 확장 설치 
+팁 15: @code를 나가지 않고 새 Azure #CosmosDB 계정을 만듭니다. [https://aka.ms/Wy547u](https://aka.ms/Wy547u)에서 확장을 설치하세요. 
 
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>팁 16: 함수 및 Twilio 데모
 
-팁 16: 유용한 데모! Azure #cosmosDB, 함수 및 @twilio를 통합하여 DB 변경 시 SMS를 보냅니다. [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d)에서 문서를 참조하세요. 
+팁 16: 유용한 데모! Azure #cosmosDB, 함수 및 @twilio를 통합하여 DB 변경 시 SMS를 보냅니다. [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d)에 있는 문서를 참조하세요. 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>팁 17: Mongoose 판별자 사용
 
-팁 17: Mongoose 판별자를 사용하여 단일 #CosmosDB 컬렉션에 여러 엔터티를 저장하여 비용 최적화 [https://aka.ms/M488jm](https://aka.ms/M488jm)
+팁 17: Mongoose 판별자를 사용하여 단일 #CosmosDB 컬렉션에 여러 엔터티를 저장하여 비용을 최적화합니다. [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
 블로그: [Anthony Chu의 Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection(Mongoose 판별자를 사용하여 단일 Cosmos DB 컬렉션에 여러 엔터티 저장)](https://aka.ms/M488jm)
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-18-request-units"></a>팁 18: 요청 단위
 
-팁 18: RU(요청 단위)란 무엇이며, Azure #CosmosDB에서 어떻게 구성하는지에 대해 알아봅니다. [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn)에서 문서를 참조하세요. 
+팁 18: RU(요청 단위)란 무엇이며, Azure #CosmosDB에서 어떻게 구성하는지에 대해 알아봅니다. [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn)에 있는 문서에서 자세한 내용을 확인하세요. 
 
 문서: [Azure Cosmos DB의 요청 단위](https://aka.ms/Kt2nbn)
 

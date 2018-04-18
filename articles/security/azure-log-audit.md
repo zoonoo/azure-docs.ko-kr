@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 ## <a name="introduction"></a>소개
@@ -74,7 +74,7 @@ Azure에서는 모든 Azure 서비스에 대해 광범위한 로깅을 생성합
 |[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|저장소 로깅을 수행하고, Storage 계정에 대한 메트릭 데이터를 제공합니다.|추적 요청에 대한 정보를 제공하고, 사용 추세를 분석하며, 저장소 계정으로 문제를 진단합니다.|    REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG(네트워크 보안 그룹) 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 형식이며, 규칙에 따라 아웃바운드 및 인바운드 흐름을 보여 줍니다.|네트워크 보안 그룹을 통한 수신 및 송신 IP 트래픽에 대한 정보를 보여 줍니다.|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|로그, 예외 및 사용자 지정 진단|    여러 플랫폼의 웹 개발자를 위한 APM(Application Performance Management) 서비스| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|데이터 처리/보안 경고| Azure Security Center 경고, OMS 경고| 보안 정보 및 경고입니다.|   REST API, JSON|
+|데이터 처리/보안 경고| Azure Security Center 경고, Log Analytics 경고|   보안 정보 및 경고입니다.|   REST API, JSON|
 
 ### <a name="activity-log"></a>활동 로그
 [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독에 대한 [제어 평면 이벤트](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/)를 보고하기 때문에 이전에는 "감사 로그" 또는 "작업 로그"로 알려져 있었습니다. 활동 로그를 사용하면 구독의 리소스에서 수행한 모든 쓰기 작업(PUT, POST, DELETE)에 대한 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업은 포함되지 않습니다.
@@ -114,7 +114,7 @@ Azure 진단 로그는 PowerShell, CLI(명령줄 인터페이스) 및 REST API�
 
 -   타사 서비스 또는 사용자 지정 분석 솔루션(예: [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/))에서 수집하도록 [Event Hubs로 스트리밍합니다](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs).
 
--   [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)를 사용하여 분석합니다.
+-   [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)를 사용하여 분석
 
 **지원되는 서비스, 진단 로그용 스키마 및 지원되는 리소스 종류별 로그 범주**
 
@@ -131,8 +131,7 @@ Azure 진단 로그는 PowerShell, CLI(명령줄 인터페이스) 및 REST API�
 |Key Vault|[Azure Key Vault 로깅](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[검색 트래픽 분석 설정 및 사용](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
 |Data Lake Store|[Azure Data Lake Store에 대한 진단 로그에 액세스](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|감사|
-|Data Lake Analytics
-|[Azure Data Lake Analytics에 대한 진단 로그에 액세스](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|감사|
+|Data Lake Analytics|[Azure Data Lake Analytics에 대한 진단 로그에 액세스](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|감사|
 |||Microsoft.DataLakeAnalytics/accounts|요청|
 |||Microsoft.DataLakeStore/accounts|요청|
 |Logic Apps|[Logic Apps B2B 사용자 지정 추적 스키마](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
@@ -334,11 +333,11 @@ Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 �
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Log Analytics는 클라우드 및 온-프레미스 환경의 리소스로 생성된 데이터를 수집 및 분석할 수 있게 하는 [OMS(Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 서비스입니다. 통합 검색 및 사용자 지정 대시보드를 사용하여 실제 위치에 관계없이 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 정보를 제공합니다.
+Log Analytics는 클라우드 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집 및 분석하도록 도와주는 Azure의 서비스입니다. 통합 검색 및 사용자 지정 대시보드를 사용하여 실제 위치에 관계없이 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 정보를 제공합니다.
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-Log Analytics의 중심에는 Azure 클라우드에서 호스팅되는 OMS 리포지토리가 있습니다. 데이터 원본을 구성하고 구독에 솔루션을 추가하면 연결된 원본에서 리포지토리로 데이터가 수집됩니다. 데이터 원본 및 솔루션은 각각 고유한 속성 집합을 가진 서로 다른 레코드 유형을 만들지만 리포지토리에 대한 쿼리에서 여전히 함께 분석할 수 있습니다. 따라서 동일한 도구 및 메서드를 사용하여 다양한 원본에서 수집된 여러 종류의 데이터로 작업할 수 있습니다.
+Log Analytics의 핵심은 Azure 클라우드에서 호스트되는 Log Analytics 작업 영역입니다. 데이터 원본을 구성하고 구독에 솔루션을 추가하면 연결된 원본에서 작업 영역으로 데이터가 수집됩니다. 데이터 원본 및 솔루션은 각각 고유한 속성 집합을 가진 서로 다른 레코드 유형을 만들지만 작업 영역에 대한 쿼리에서 여전히 함께 분석할 수 있습니다. 따라서 동일한 도구 및 메서드를 사용하여 다양한 원본에서 수집된 여러 종류의 데이터로 작업할 수 있습니다.
 
 연결된 원본은 Log Analytics에서 수집된 데이터를 생성하는 컴퓨터 및 기타 리소스입니다. 여기에는 직접 연결되어 있는 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 및 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) 컴퓨터에 설치된 에이전트 또는 [연결된 System Center Operations Manager 관리 그룹](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)의 에이전트가 포함될 수 있습니다. 또한 Log Analytics는 [Azure 저장소](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)에서 데이터를 수집할 수도 있습니다.
 

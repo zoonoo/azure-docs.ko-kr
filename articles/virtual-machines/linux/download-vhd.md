@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Linux VHD 다운로드 | Microsoft Docs"
-description: "Azure CLI 및 Azure Portal을 사용하여 Linux VHD를 다운로드합니다."
+title: Azure에서 Linux VHD 다운로드 | Microsoft Docs
+description: Azure CLI 및 Azure Portal을 사용하여 Linux VHD를 다운로드합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -35,10 +35,10 @@ Azure에서 VM(가상 머신)은 운영 체제, 응용 프로그램 및 데이�
 
 VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계를 완료합니다.
 
-1. VM의 SSH, 계정 이름 및 공용 IP 주소를 사용하여 연결하고 프로비전 해제합니다. +user 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. 계정 자격 증명을 VM에 굽는 경우 이 +user 매개 변수를 그대로 둡니다. 다음 예제는 마지막 프로비전된 사용자 계정을 제거합니다.
+1. VM의 SSH, 계정 이름 및 공용 IP 주소를 사용하여 연결하고 프로비전 해제합니다. [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 공용 IP 주소를 찾을 수 있습니다. +user 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. 계정 자격 증명을 VM에 굽는 경우 이 +user 매개 변수를 그대로 둡니다. 다음 예제는 마지막 프로비전된 사용자 계정을 제거합니다.
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```

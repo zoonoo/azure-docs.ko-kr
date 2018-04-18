@@ -1,12 +1,12 @@
 ---
-title: "BizTalk Services에서 Azure Logic Apps로 앱 이동 | Microsoft Docs"
-description: "Azure BizTalk Services(MABS)를 Azure Logic Apps로 이동 또는 마이그레이션"
+title: BizTalk Services에서 Azure Logic Apps로 앱 이동 | Microsoft Docs
+description: Azure BizTalk Services(MABS)를 Azure Logic Apps로 이동 또는 마이그레이션
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jonfancey
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: 6e00e62e60c059a16731a77e529b4b93f50802e9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps로 이동
 
@@ -130,7 +130,7 @@ BizTalk Services와는 달리 이러한 작업은 전송 프로토콜에서 분�
 
 ## <a name="manage-and-monitor"></a>관리 및 모니터링
 
-BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps는 [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md) 및 [Operations Management Suite B2B 솔루션](../logic-apps/logic-apps-monitor-b2b-message.md)을 통해 더 풍부한 추적 및 모니터링 기능을 제공하며, 이동 중인 경우에는 사물을 주시하는 모바일 앱을 포함합니다.
+BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps는 [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md)을 통해 더 풍부한 추적 및 모니터링 기능을 제공하며, 이동 중인 경우에는 사물을 주시하는 모바일 앱을 포함합니다.
 
 ## <a name="high-availability"></a>고가용성
 

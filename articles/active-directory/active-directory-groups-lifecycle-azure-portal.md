@@ -16,11 +16,11 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 95593eaacd73316ab527ffda8f977fbf0eb15558
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: aa8551db8c3982fa61b3d4731a8aac3e2832f1b1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -66,7 +66,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 ![만료 전자 메일 알림](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
 
-**그룹 갱신** 알림 전자 메일에서 그룹 소유자는 액세스 패널의 그룹 세부 정보 페이지에 직접 액세스할 수 있습니다. 여기에 사용자는 그룹에 대해 마지막 갱신 시간, 예상 만료 시간, 그룹 갱신 능력 등에 대한 자세한 정보를 얻을 수 있습니다. 이제 그룹 세부 정보 페이지에는 Office 365 그룹 리소스에 대한 링크가 포함되어 있으므로 그룹 소유자는 해당 그룹의 콘텐츠 및 활동을 편리하게 볼 수 있습니다.
+**그룹 갱신** 알림 이메일에서 그룹 소유자는 액세스 패널의 그룹 세부 정보 페이지에 직접 액세스할 수 있습니다. 여기에 사용자는 그룹에 대해 마지막 갱신 시간, 예상 만료 시간, 그룹 갱신 능력 등에 대한 자세한 정보를 얻을 수 있습니다. 이제 그룹 세부 정보 페이지에는 Office 365 그룹 리소스에 대한 링크가 포함되어 있으므로 그룹 소유자는 해당 그룹의 콘텐츠 및 활동을 편리하게 볼 수 있습니다.
 
 그룹이 만료되면 그룹은 만료 날짜 1일 후에 삭제됩니다. Office 365 그룹의 만료 및 후속 삭제에 대해 알려주는 이와 같은 전자 메일 알림은 Office 365 그룹 소유자에게 전송됩니다.
 

@@ -1,30 +1,30 @@
 ---
-title: "Apache Kafka에 대한 로그 분석 - Azure HDInsight | Microsoft Docs"
-description: "Operations Management Suite를 사용하여 Azure HDInsight의 Apache Kafka 클러스터에서 로그를 분석하는 방법을 알아봅니다."
+title: Apache Kafka에 대한 Log Analytics - Azure HDInsight | Microsoft Docs
+description: Log Analytics를 사용하여 Azure HDInsight의 Apache Kafka 클러스터에서 로그를 분석하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
-Microsoft Operations Management Suite를 사용하여 HDInsight에서 Apache Kafka에 의해 생성된 로그를 분석하는 방법을 알아봅니다.
+Log Analytics를 사용하여 HDInsight의 Apache Kafka에서 생성된 로그를 분석하는 방법을 알아봅니다.
 
-## <a name="enable-oms-for-kafka"></a>Kafka에 OMS를 사용하도록 설정
+## <a name="enable-log-analytics-for-kafka"></a>Kafka용 Log Analytics 사용
 
 Log Analytics for HDInsight를 사용하도록 설정하는 단계는 모든 HDInsight 클러스터에서 동일합니다. 다음 링크를 사용하여 필요한 서비스를 만들고 구성하는 방법을 이해하세요.
 
@@ -32,22 +32,22 @@ Log Analytics for HDInsight를 사용하도록 설정하는 단계는 모든 HDI
 
 2. HDInsight 클러스터에서 Kafka를 만듭니다. 자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md) 문서를 참조하세요.
 
-3. 로그 분석을 사용하도록 Kafka 클러스터를 구성합니다. 자세한 내용은 [Log Analytics를 사용하여 HDInsight 모니터링](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 문서를 참조하세요.
+3. Log Analytics를 사용하도록 Kafka 클러스터를 구성합니다. 자세한 내용은 [Log Analytics를 사용하여 HDInsight 모니터링](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 문서를 참조하세요.
 
     > [!NOTE]
-    > `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet을 통해 로그 분석을 사용하도록 클러스터를 구성할 수도 있습니다. 이 cmdlet을 사용하려면 다음과 같은 정보가 필요합니다.
+    > `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet을 통해 Log Analytics를 사용하도록 클러스터를 구성할 수도 있습니다. 이 cmdlet을 사용하려면 다음과 같은 정보가 필요합니다.
     >
     > * HDInsight 클러스터 이름.
-    > * 로그 분석에 대한 작업 영역 ID. 로그 분석 작업 영역에 대한 OMS 작업 영역에서 작업 영역 ID를 찾을 수 있습니다.
-    > * OMS 연결의 기본 키. 기본 키를 찾으려면 로그 분석 인스턴스를 선택한 다음 __OMS 포털__을 선택합니다. OMS 포털에서 __설정__, __연결된 원본__, __Linux 서버__를 차례로 선택합니다.
+    > * Log Analytics에 대한 작업 영역 ID. Log Analytics 작업 영역에서 작업 영역 ID를 찾을 수 있습니다.
+    > * Log Analytics 연결의 기본 키. 기본 키를 찾으려면 Log Analytics 인스턴스를 선택한 다음, __OMS 포털__을 선택합니다. OMS 포털에서 __설정__, __연결된 원본__, __Linux 서버__를 차례로 선택합니다.
 
 
 > [!IMPORTANT]
-> 로그 분석에 데이터를 사용할 수 있을 때까지 약 20분 정도 걸릴 수 있습니다.
+> Log Analytics에 데이터를 사용할 수 있을 때까지 약 20분 정도 걸릴 수 있습니다.
 
 ## <a name="query-logs"></a>쿼리 로그
 
-1. [Azure Portal](https://portal.azure.com)에서 로그 분석 작업 영역을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Log Analytics 작업 영역을 선택합니다.
 
 2. __로그 검색__을 선택합니다. 여기서 Kafka에서 수집한 데이터를 검색할 수 있습니다. 다음은 검색 예제입니다.
 
@@ -72,7 +72,7 @@ Log Analytics for HDInsight를 사용하도록 설정하는 단계는 모든 HDI
  
  ## <a name="next-steps"></a>다음 단계
 
-로그 분석에 대한 자세한 내용은 [Log Analytics 작업 영역 시작](../../log-analytics/log-analytics-get-started.md) 문서를 참조하세요.
+Log Analytics에 대한 자세한 내용은 [Log Analytics 작업 영역 시작](../../log-analytics/log-analytics-get-started.md) 문서를 참조하세요.
 
 Kafka 작업에 대한 자세한 내용은 다음 문서를 참조하세요.
 

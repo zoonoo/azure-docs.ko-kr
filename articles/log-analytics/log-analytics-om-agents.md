@@ -1,11 +1,11 @@
 ---
-title: "Log Analytics에 Operations Manager 연결 | Microsoft Docs"
-description: "System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 OMS 작업 영역으로 Operations Manager를 통합할 수 있습니다."
+title: Log Analytics에 Operations Manager 연결 | Microsoft Docs
+description: System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 OMS 작업 영역으로 Operations Manager를 통합할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Log Analytics에 Operations Manager 연결
 System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 OMS 작업 영역으로 Operations Manager를 통합할 수 있습니다.  이렇게 하면 Operations Manager를 계속해서 사용하는 동안 OMS의 기회를 활용하여 다음 작업을 할 수 있습니다.
 
 * Operations Manager를 사용하여 IT 서비스의 상태 모니터링 계속
 * 인시던트 및 문제 관리를 지원하는 ITSM 솔루션과 통합 유지 관리
-* 온-프레미스 및 Operations Manager로 모니터링하는 공용 클라우드 IaaS 가상 컴퓨터에 배포된 에이전트의 수명 주기 관리
+* 온-프레미스 및 Operations Manager로 모니터링하는 공용 클라우드 IaaS 가상 머신에 배포된 에이전트의 수명 주기 관리
 
 System Center Operations Manager와 통합하면 Operations Manager에서 데이터 수집, 저장 및 분석에 OMS의 속도 및 효율성을 사용하여 서비스 작업 전략에 값이 추가됩니다.  OMS를 통해 기존 문제 관리 프로세스를 지원하기 위해 오류 문제를 식별하고 재발을 표시하도록 상호 연결하고 작업할 수 있습니다.   의미 있는 방식으로 이 데이터를 노출하는 다양한 대시보드 및 보고 기능으로 성능, 이벤트 및 경고 데이터를 검사하는 검색 엔진의 유연성은 Operations Manager를 제공하는 OMS의 강점을 보여 줍니다.
 
@@ -58,7 +58,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| 예|  
 |\*.ods.opinsights.azure.com| 443| 예|  
-|* .azure-automation.net | 443| 예|  
+|*.azure-automation.net | 443| 예|  
 |**OMS에 대한 Operations Manager 콘솔**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -101,7 +101,7 @@ OMS 작업 영역과 통합을 구성한 후 OMS와의 연결을 설정하고 �
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 2. Operations Management Suite를 확장한 다음 **연결**을 클릭합니다.
 3. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다.
-4. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80 )한 다음 **마침**을 클릭합니다.
+4. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80)한 다음, **마침**을 클릭합니다.
 
 프록시 서버에 인증이 필요한 경우 다음 단계를 수행하여 관리 그룹에서 OMS에 보고하는 관리되는 컴퓨터에 전파해야 하는 자격 증명 및 설정을 구성합니다.
 

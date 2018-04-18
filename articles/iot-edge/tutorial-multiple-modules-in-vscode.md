@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Visual Studio Code - 미리 보기의 여러 모듈을 사용하여 IoT Edge 솔루션 개발
-Visual Studio Code의 여러 모듈을 사용하여 IoT Edge 솔루션을 개발할 수 있습니다. 이 자습서에서는 Visual Studio Code에서 시뮬레이션된 IoT Edge 장치의 센서 데이터를 단순히 파이프하는 IoT Edge 솔루션을 만들고 업데이트 및 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Visual Studio Code의 여러 모듈을 사용하여 IoT Edge 솔루션을 개발할 수 있습니다. 이 문서에서는 Visual Studio Code에서 시뮬레이션된 IoT Edge 장치의 센서 데이터를 파이프하는 IoT Edge 솔루션을 만들고 업데이트 및 배포하는 과정을 안내합니다. 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * Visual Studio Code를 사용하여 IoT Edge 솔루션 만들기
-> * VS Code를 사용하여 작업 중인 IoT Edge 솔루션에 새 모듈을 추가할 수 있습니다. 
-> * IoT Edge 장치에 IoT Edge 솔루션(여러 모듈) 배포
-> * 생성된 데이터 보기
+* Visual Studio Code를 사용하여 IoT Edge 솔루션 만들기
+* VS Code를 사용하여 작업 중인 IoT Edge 솔루션에 새 모듈을 추가할 수 있습니다. 
+* IoT Edge 장치에 IoT Edge 솔루션(여러 모듈) 배포
+* 생성된 데이터 보기
 
 ## <a name="prerequisites"></a>필수 조건
 * 아래 자습서 완료
@@ -67,8 +66,7 @@ Visual Studio Code의 여러 모듈을 사용하여 IoT Edge 솔루션을 개발
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 C# 모듈을 사용하여 IoT Edge 솔루션을 만든 다음, 나중에 함수 모듈을 추가하고 솔루션의 경로를 업데이트하고 빌드하여 시뮬레이션된 IoT Edge 장치에 배포했습니다. 다음 자습서 중 하나를 계속 진행하면 VS Code에 Azure IoT Edge를 개발하는 다른 시나리오에 대해 자세히 알아볼 수 있습니다.
+다음 문서 중 하나를 계속 진행하면 Visual Studio Code에서 Azure IoT Edge를 개발하는 다른 시나리오에 대해 자세히 알아볼 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [VS Code에서 C# 모듈 디버그](how-to-vscode-debug-csharp-module.md)
-> [VS Code에서 C# 함수 디버그](how-to-vscode-debug-azure-function.md)
+* [VS Code에서 C# 모듈 디버그](how-to-vscode-debug-csharp-module.md)
+* [VS Code에서 C# 함수 디버그](how-to-vscode-debug-azure-function.md)

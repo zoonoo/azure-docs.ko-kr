@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: e09fe4fd48d1806e2194ed3065e7c2edbe2d1aa5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Azure Monitor 시작
 Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 플랫폼 서비스입니다. Azure에서 Azure Monitor를 통해 리소스의 메트릭과 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다. Azure Portal, [Monitor PowerShell Cmdlet](insights-powershell-samples.md), [플랫폼 간 CLI](insights-cli-samples.md) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx)를 사용하여 데이터 작업을 수행할 수 있습니다. 이 문서에서는 데모용 포털을 사용하여 Azure Monitor의 몇 가지 주요 구성 요소에 대해 살펴봅니다.
@@ -37,9 +37,9 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
     [**활동 로그**](monitoring-overview-activity-logs.md)는 구독에서 리소스에 대해 수행한 모든 작업을 설명합니다. 구독에서 활동 로그를 통해 리소스에 수행된 만들기, 업데이트 또는 삭제 작업에 대해 ‘누가, 무엇을, 언제’를 판단할 수 있습니다. 예를 들어 활동 로그를 통해 웹앱이 중지된 시기와 웹앱을 중지한 사람을 알 수 있습니다. 활동 로그 이벤트는 90일 동안 플랫폼에 저장되어 쿼리에서 사용할 수 있습니다.
 
     ![활동 로그](./media/monitoring-get-started/monitor-act-log-blade.png)
-    
+
     공통 필터에 대한 쿼리를 만들어 저장한 다음 가장 중요한 쿼리를 포털 대시보드에 고정하면 기준에 부합하는 이벤트가 발생할 경우 항상 알 수 있습니다.
-4. 지난 주의 특정 리소스 그룹에 대해 보기를 필터링한 다음 **저장** 단추를 클릭합니다. 쿼리에 이름을 지정합니다. 
+4. 지난 주의 특정 리소스 그룹에 대해 보기를 필터링한 다음 **저장** 단추를 클릭합니다. 쿼리에 이름을 지정합니다.
 
     ![활동 로그 쿼리 저장](./media/monitoring-get-started/monitor-act-log-save.png)
 5. 이제 **고정** 단추를 클릭합니다.
@@ -63,6 +63,7 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
    > 일부 메트릭은 리소스에 대해 [Application Insights](../application-insights/app-insights-overview.md) 및/또는 Windows/Linux Azure 진단 확장을 사용하도록 설정한 경우에만 사용할 수 있습니다.
    >
    >
+
 9. 차트가 만족스러우면 **고정** 단추를 사용하여 대시보드에 고정합니다.
 10. **모니터**로 돌아가서 **진단 로그**를 클릭합니다.
 
@@ -71,6 +72,13 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
     [**진단 로그**](monitoring-overview-of-diagnostic-logs.md)는 특정 리소스의 작업 관련 데이터를 제공하는 *리소스에서* 내보낸 로그입니다. 예를 들어 네트워크 보안 그룹 규칙 카운터와 논리 앱 워크플로 로그는 모두 진단 로그의 형식입니다. 이러한 로그는 저장소 계정에 저장되고, 이벤트 허브로 스트리밍되며, [Log Analytics](../log-analytics/log-analytics-overview.md)로 보낼 수 있습니다. Log Analytics는 고급 검색 및 경고를 위한 Microsoft의 운영 인텔리전스 제품입니다.
 
     포털에서는 구독의 모든 리소스 목록을 확인 및 필터링하여 활성화된 진단 로그 유무를 파악할 수 있습니다.
+    > [!NOTE]
+    > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
+    >
+    > *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+    >
+    >
+
 11. 진단 로그 페이지에서 리소스를 클릭합니다. 진단 로그가 저장소 계정에 저장된 경우 직접 다운로드할 수 있는 시간별 로그 목록이 표시됩니다.
 
     ![하나의 리소스에 대한 진단 로그](./media/monitoring-get-started/monitor-diaglogs-detail.png)
@@ -84,8 +92,8 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
 
     ![공용 경고 블레이드](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    여기서 Azure 리소스에 대한 모든 [**클래식 경고**](monitoring-overview-alerts.md)를 관리할 수 있습니다. 여기에는 메트릭, 활동 로그 이벤트, Application Insights 웹 테스트(위치) 및 Application Insights 사전 진단에 대한 경고가 포함됩니다. 경고는 작업 그룹에 연결됩니다. [작업 그룹](monitoring-action-groups.md)에서는 경고가 발생한 경우 사용자에게 알려주거나 특정 작업을 수행하는 방법을 제공합니다. 
-    
+    여기서 Azure 리소스에 대한 모든 [**클래식 경고**](monitoring-overview-alerts.md)를 관리할 수 있습니다. 여기에는 메트릭, 활동 로그 이벤트, Application Insights 웹 테스트(위치) 및 Application Insights 사전 진단에 대한 경고가 포함됩니다. 경고는 작업 그룹에 연결됩니다. [작업 그룹](monitoring-action-groups.md)에서는 경고가 발생한 경우 사용자에게 알려주거나 특정 작업을 수행하는 방법을 제공합니다.
+
 13. 경고를 만들려면 **메트릭 경고 추가** 를 클릭합니다.
 
     ![메트릭 경고 추가](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -93,7 +101,7 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
     그런 다음 대시보드에 경고를 고정하여 언제든 간편하게 상태를 확인할 수 있습니다.
 
     이제 Azure Monitor에는 1분마다 낮은 빈도로 평가할 수 있는 [**최신 경고**](https://aka.ms/azuremonitor/near-real-time-alerts)가 있습니다.
-    
+
 14. 모니터 섹션에는 [Application Insights](../application-insights/app-insights-overview.md) 응용 프로그램 및 [Log Analytics](../log-analytics/log-analytics-overview.md) 관리 솔루션에 대한 링크도 포함됩니다. 이러한 다른 Microsoft 제품은 Azure Monitor와 자연스럽게 통합됩니다.
 15. Application Insights나 Log Analytics를 사용하지 않을 경우 기존 모니터링, 로깅, 경고 제품과 Azure Monitor를 함께 사용할 수 있습니다. 통합 방법에 대한 지침 및 전체 목록은 [파트너 페이지](monitoring-partners.md) 를 참조하세요.
 
@@ -102,6 +110,4 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
 ![Azure Monitor 대시보드](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [모든 Azure 모니터링 도구 개요](monitoring-overview.md)를 참고하여 Azure Monitor가 작동하는 방식을 이해합니다. 
-
-
+* [모든 Azure 모니터링 도구 개요](monitoring-overview.md)를 참고하여 Azure Monitor가 작동하는 방식을 이해합니다.

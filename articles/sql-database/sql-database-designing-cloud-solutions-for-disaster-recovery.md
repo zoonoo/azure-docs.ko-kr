@@ -8,21 +8,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 항상 사용 가능한 서비스 디자인
 
 Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배포하는 경우 [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하여 지역 오류 및 심각한 서비스 중단에 대한 복원 기능을 제공합니다. 또한 보조 데이터베이스로 신속히 복구할 수 있습니다. 이 문서에서는 일반적인 응용 프로그램 패턴에 초점을 맞추고 각 옵션의 이점 및 장단점을 설명합니다. 탄력적 풀의 활성 지역 복제에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
 
 > [!NOTE]
-> Premium 데이터베이스 및 풀을 사용하는 경우 영역 중복 배포 구성(현재 미리 보기로 제공됨)으로 변환하여 지역별 중단 시 복원력을 높일 수 있습니다. [영역 중복 데이터베이스](sql-database-high-availability.md)를 참조하세요.  
+> 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스 및 탄력적 풀을 사용하는 경우 영역 중복 배포 구성(현재 미리 보기 상태임)으로 변환하여 지역 중단 시 탄력적으로 복원할 수 있습니다. [영역 중복 데이터베이스](sql-database-high-availability.md)를 참조하세요.  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>시나리오 1: 두 Azure 지역을 사용하여 가동 중지 시간을 최소화하고 비즈니스 연속성 유지
 이 시나리오에서는 응용 프로그램에 다음과 같은 특징이 있습니다. 

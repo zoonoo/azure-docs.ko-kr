@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 9d13541444f487ad6afb9f59c6c6ac646091d42c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>DTU(데이터베이스 트랜잭션 단위) 및 eDTU(탄력적 데이터베이스 트랜잭션 단위)
 이 문서에서는 DTU(데이터베이스 트랜잭션 단위) 및 eDTU(탄력적 데이터베이스 트랜잭션 단위)와 최대 DTU 또는 eDTU를 적중하는 경우 발생하는 상황에 대해 설명합니다.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>DTU(데이터베이스 트랜잭션 단위)란?
-[서비스 계층](sql-database-single-database-resources.md) 내 특정 성능 수준에서 단일 Azure SQL Database의 경우 Microsoft는 해당 데이터베이스(Azure 클라우드의 다른 데이터베이스와는 무관)에 대해 특정 수준의 리소스를 보장하며 예측 가능한 성능 수준을 제공합니다. 이 리소스 양은 DTU(데이터베이스 트랜잭션 단위) 수로 계산되며 CPU, 메모리, I/O(데이터 및 트랜잭션 로그 I/O)의 혼합된 측정치입니다. 이러한 리소스 간의 비율은 원래 실제 OLTP 워크로드에 맞게 디자인된 [OLTP 벤치마크 워크로드](sql-database-benchmark-overview.md)에 따라 결정됩니다. 워크로드가 이러한 리소스의 양을 초과하면 처리량이 제한되어 성능이 느려지고 시간이 초과됩니다. 워크로드에서 사용되는 리소스는 Azure 클라우드의 다른 SQL Database에 사용할 수 있는 리소스에 영향을 주지 않고, 다른 워크로드에서 사용되는 리소스는 사용자의 SQL Database에 사용할 수 있는 리소스에 영향을 주지 않습니다.
+[서비스 계층](sql-database-single-database-resources.md) 내 특정 성능 수준에서 단일 Azure SQL Database의 경우 Microsoft는 해당 데이터베이스(Azure 클라우드의 다른 데이터베이스와는 무관)에 대해 특정 수준의 리소스를 보장하며 예측 가능한 성능 수준을 제공합니다. 이 리소스의 양은 DTU(데이터베이스 트랜잭션 단위)의 수로 계산되며 계산, 저장소 및 IO 리소스를 번들로 묶은 측정값입니다. 이러한 리소스 간의 비율은 원래 실제 OLTP 워크로드에 맞게 디자인된 [OLTP 벤치마크 워크로드](sql-database-benchmark-overview.md)에 따라 결정됩니다. 워크로드가 이러한 리소스의 양을 초과하면 처리량이 제한되어 성능이 느려지고 시간이 초과됩니다. 워크로드에서 사용되는 리소스는 Azure 클라우드의 다른 SQL Database에 사용할 수 있는 리소스에 영향을 주지 않고, 다른 워크로드에서 사용되는 리소스는 사용자의 SQL Database에 사용할 수 있는 리소스에 영향을 주지 않습니다.
 
 ![경계 상자](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
@@ -28,7 +28,7 @@ DTU는 다른 성능 수준 및 서비스 계층에서 Azure SQL Database 간의
 
 워크로드의 리소스(DTU) 소비에 대해 더 자세히 이해하려면 [Azure SQL Database Query Performance Insight](sql-database-query-performance.md)를 사용하여 다음을 수행합니다.
 
-- 향상된 성능을 위해 잠재적으로 조정될 수 있는 CPU/기간/실행 횟수별 최상위 쿼리를 식별합니다. 예를 들어 I/O 집약적인 쿼리는 [메모리 내 최적화 기술](sql-database-in-memory.md)을 사용하여 특정 서비스 계층 및 성능 수준에서 사용 가능한 메모리를 보다 효율적으로 사용할 수 있는 이점이 있습니다.
+- 향상된 성능을 위해 잠재적으로 조정될 수 있는 CPU/기간/실행 횟수별 최상위 쿼리를 식별합니다. 예를 들어 IO를 많이 사용하는 쿼리는 [메모리 내 최적화 기술](sql-database-in-memory.md)을 사용하여 특정 서비스 계층 및 성능 수준에서 사용 가능한 메모리를 보다 효율적으로 사용할 수 있는 이점이 있습니다.
 - 쿼리에 대한 세부 정보로 드릴다운하고, 해당 텍스트 및 리소스 사용률에 대한 기록을 확인합니다.
 - [SQL Database Advisor](sql-database-advisor.md)에서 수행한 작업을 표시하는 성능 조정 권장 사항에 액세스합니다.
 
@@ -52,9 +52,9 @@ DTU는 다른 성능 수준 및 서비스 계층에서 Azure SQL Database 간의
 풀은 특정 사용 패턴을 가진 많은 데이터베이스에 적합합니다. 주어진 데이터 베이스에 대해, 이 패턴은 상대적으로 사용률 급증이 드물고 평균 사용률이 낮음으로 규정됩니다. SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 리소스 사용률을 자동으로 평가하고 Azure Portal의 적절한 풀 구성을 권장합니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)를 참조하세요.
 
 ## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>내 최대 DTU에 도달한 경우 어떻게 되나요?
-선택한 서비스 계층/성능 수준에 허용되는 최대 한도까지 데이터베이스 워크로드를 실행하는 데 필요한 리소스를 제공하도록 성능 수준이 보정 및 제어됩니다. 워크로드가 CPU/데이터 IO/로그 IO 한도 중 하나에서 한도에 도달할 경우 최대 허용 수준에서 계속 리소스를 수신하지만 쿼리의 대기 시간이 증가할 가능성이 큽니다. 속도 저하가 너무 심해서 쿼리 시간 초과가 시작되지 않으면 이러한 한도에 오류가 발생하지는 않지만 워크로드에서 작업 속도가 느려집니다. 허용되는 최대 동시 사용자 세션/요청(작업자 스레드) 제한에 도달하면 명시적 오류가 표시됩니다. 메모리, 데이터 I/O 및 트랜잭션 로그 I/O가 아닌 CPU 리소스의 제한 사항에 대한 자세한 내용은 [Azure SQL Database 리소스 제한]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) 을 참조하세요.
+선택한 서비스 계층/성능 수준에 허용되는 최대 한도까지 데이터베이스 워크로드를 실행하는 데 필요한 리소스를 제공하도록 성능 수준이 보정 및 제어됩니다. 워크로드가 CPU/데이터 IO/로그 IO 한도 중 하나에서 한도에 도달할 경우 최대 허용 수준에서 계속 리소스를 수신하지만 쿼리의 대기 시간이 증가할 가능성이 큽니다. 속도 저하가 너무 심해서 쿼리 시간 초과가 시작되지 않으면 이러한 한도에 오류가 발생하지는 않지만 워크로드에서 작업 속도가 느려집니다. 허용되는 최대 동시 사용자 세션/요청(작업자 스레드) 제한에 도달하면 명시적 오류가 표시됩니다. CPU, 메모리, 데이터 IO 및 트랜잭션 로그 IO 이외의 리소스 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 제한]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* 단일 데이터베이스 및 탄력적 풀에 대해 사용할 수 있는 DTU 및 eDTU와 CPU, 메모리, 데이터 I/O, 트랜잭션 로그 I/O 이외 리소스의 제한에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+* 단일 데이터베이스 및 탄력적 풀에 대해 사용할 수 있는 DTU 및 eDTU와 CPU, 메모리, 데이터 IO, 트랜잭션 로그 IO 이외의 리소스 제한에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 * [SQL Database Query Performance Insight](sql-database-query-performance.md) 를 참조하여 DTU 소비를 이해합니다.
 * DTU 혼합을 결정하는 데 사용되는 OLTP 벤치마크 워크로드의 방법론을 이해하려면 [SQL Database 벤치마크 개요](sql-database-benchmark-overview.md) 를 참조하세요.

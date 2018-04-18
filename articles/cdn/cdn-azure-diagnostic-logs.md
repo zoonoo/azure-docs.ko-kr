@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -26,7 +26,7 @@ Azure 진단 로그를 통해 이제 핵심 분석을 보고 다음을 포함한
 
  - Azure Storage 계정
  - Azure Event Hubs
- - [OMS Log Analytics 리포지토리](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Log Analytics 작업 영역](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 이 기능은 Verizon(표준 및 프리미엄) 및 Akamai(표준) CDN 프로필에 속하는 모든 CDN 끝점에 사용할 수 있습니다. 
 
@@ -34,7 +34,7 @@ Azure 진단 로그를 사용하면 사용자 지정 방식으로 사용할 수 
 
 - 데이터를 Blob Storage로 내보내고, CSV로 내보낸 후 Excel에서 그래프를 생성합니다.
 - 데이터를 Event Hubs로 내보내고 다른 Azure 서비스의 데이터와 상관 관계를 설정합니다.
-- 데이터를 Log Analytics로 내보내고, 고유한 OMS 작업 공간에서 데이터를 봅니다.
+- 데이터를 Log Analytics로 내보내고, 고유한 Log Analytics 작업 공간에서 데이터를 봅니다.
 
 다음 그림에서는 데이터에 대한 일반적인 CDN 핵심 분석 뷰를 보여 줍니다.
 
@@ -68,9 +68,9 @@ CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계�
 
 *그림 2 - Azure Storage로 로깅*
 
-### <a name="logging-with-oms-log-analytics"></a>OMS Log Analytics로 로깅
+### <a name="logging-with-log-analytics"></a>Log Analytics로 로깅
 
-OMS 로그 분석을 사용하여 로그를 저장하려면 아래 단계를 따르세요.
+Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅니다.
 
 1. **진단 로그** 블레이드에서 **Log Analytics에 보내기**를 선택합니다. 
 
@@ -84,7 +84,7 @@ OMS 로그 분석을 사용하여 로그를 저장하려면 아래 단계를 따
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. 새로운 OMS 작업 영역 이름을 입력합니다. OMS 작업 영역 이름은 고유해야 하며 문자, 숫자 및 하이픈만 포함해야 합니다. 공백 및 밑줄은 사용할 수 없습니다. 
+4. 새 Log Analytics 작업 영역 이름을 입력합니다. Log Analytics 작업 영역 이름은 고유해야 하며 문자, 숫자 및 하이픈만 포함해야 합니다. 공백 및 밑줄은 사용할 수 없습니다. 
 5. 그런 다음 기존 구독, 리소스 그룹(새로운 또는 기존), 위치 및 가격 책정 계층을 선택합니다. 이 구성을 대시보드에 고정하는 옵션이 있습니다. **확인**을 클릭하여 구성을 완료합니다.
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ OMS 로그 분석을 사용하여 로그를 저장하려면 아래 단계를 따
 
 6. **저장**을 클릭합니다.
 
-7. 새 OMS 작업 영역을 보려면 Azure Portal 대시보드로 이동하여 로그 분석 작업 영역의 이름을 클릭합니다. OMS 포털 타일을 클릭하여 OMS 리포지토리에서 작업 영역을 봅니다. 
+7. 새 Log Analytics 작업 영역을 보려면 Azure Portal 대시보드로 이동하여 로그 분석 작업 영역의 이름을 클릭합니다. OMS 포털 타일을 클릭하여 Log Analytics 영역을 봅니다. 
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    이제 OMS 리포지토리에 데이터를 기록 준비가 되었습니다. 해당 데이터를 사용하려면 이 문서의 후반부에서 다루고 있는 [OMS 솔루션](#consuming-oms-log-analytics-data)을 사용해야 합니다.
+    Log Analytics 작업 영역에서 데이터를 기록할 준비가 되었습니다. 해당 데이터를 사용하려면 이 문서의 후반부에서 다루고 있는 [Log Analytics 솔루션](#consuming-diagnostics-logs-from-a-log-analytics-workspace)을 사용해야 합니다.
 
 로그 데이터 지연에 대한 자세한 내용은 [로그 데이터 지연](#log-data-delays)을 참조하세요.
 
@@ -123,7 +123,7 @@ Storage 계정에서 진단 로그를 사용하도록 설정하려면 다음 명
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-OMS 작업 영역에서 진단 로그를 사용하도록 설정하려면이 명령을 사용합니다.
+Log Analytics 작업 영역에서 진단 로그를 활성화하려면 이 명령을 사용합니다.
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -179,16 +179,16 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 4.  도구를 실행합니다.
 5.  결과 CSV 파일은 분석 데이터를 간단한 평면 계층으로 표시합니다.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>OMS Log Analytics 리포지토리에서 진단 로그 사용
-Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 OMS(Operations Management Suite)의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Log Analytics 작업 영역에서 진단 로그 사용
+Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 Azure의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. 
 
-Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure OMS Log Analytics 리포지토리에 대한 [로깅을 사용하도록 설정](#enable-logging-with-azure-storage)해야 합니다.
+Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure Log Analytics 작업 영역에 대한 [로깅을 사용하도록 설정](#enable-logging-with-azure-storage)해야 합니다.
 
-### <a name="using-the-oms-repository"></a>OMS 리포지토리 사용
+### <a name="using-the-log-analytics-workspace"></a>Log Analytics 작업 영역 사용
 
  다음 다이어그램에서는 리포지토리의 입력 및 출력의 아키텍처를 보여 줍니다.
 
-![OMS Log Analytics 리포지토리](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Log Analytics 작업 영역](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *그림 3 - Log Analytics 리포지토리*
 
@@ -196,7 +196,7 @@ Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure OMS Log
 
 각 솔루션의 맨 아래에서 **지금 신청** 링크를 클릭하여 Azure Marketplace에서 관리 솔루션을 설치할 수 있습니다.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>OMS CDN 관리 솔루션 추가
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Log Analytics CDN 관리 솔루션 추가
 
 관리 솔루션을 추가하려면 아래 단계를 따르세요.
 
@@ -219,7 +219,7 @@ Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure OMS Log
 
     ![모두 표시](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  **만들기**를 클릭하면 새 OMS 작업 영역을 만들거나 기존 작업 영역을 사용할지 묻습니다. 
+6.  **만들기**를 클릭하면 새 Log Analytics 작업 영역을 만들거나 기존 작업 영역을 사용할지 묻습니다. 
 
     ![모두 표시](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure OMS Log
 
     만든 Log Analytics 작업 영역을 클릭하여 작업 영역으로 이동합니다. 
 
-11. **OMS 포털** 타일을 클릭하여 OMS 포털에서 새 솔루션을 확인합니다.
+11. **OMS 포털** 타일을 클릭하여 새 솔루션을 확인합니다.
 
     ![모두 표시](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. 이제 OMS 포털은 다음 화면과 같이 표시됩니다.
+12. 이제 포털은 다음 화면과 같이 표시됩니다.
 
     ![모두 표시](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure OMS Log
 
 ### <a name="offers-and-pricing-tiers"></a>제품 및 가격 책정 계층
 
-[여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에서 OMS 관리 솔루션에 대한 제품 및 가격 책정 계층을 볼 수 있습니다.
+[여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에서 관리 솔루션에 대한 제품 및 가격 책정 계층을 볼 수 있습니다.
 
 ### <a name="customizing-views"></a>뷰 사용자 지정
 
-**뷰 디자이너**를 사용하여 데이터에 대한 뷰를 사용자 지정할 수 있습니다. 디자인을 시작하려면 OMS 작업 영역으로 이동한 후 **뷰 디자이너** 타일을 클릭합니다.
+**뷰 디자이너**를 사용하여 데이터에 대한 뷰를 사용자 지정할 수 있습니다. 디자인을 시작하려면 Log Analytics 작업 영역으로 이동한 후 **뷰 디자이너** 타일을 클릭합니다.
 
 ![뷰 디자이너](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -296,27 +296,27 @@ Verizon 로그 데이터는 1시간 지연되고, 끝점 전파가 완료된 후
 | RequestCountHttpStatus4xx |4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수               | 예   |예   |
 | RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수              | 예  |예   |
 | RequestCountHttpStatusOthers |  다른 모든 HTTP 코드의 수(2xx-5xx 이외) | 예  |예   |
-| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수              |아니오   |예   |
-| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수              |아니요   |예   |
+| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수              |아니요   |예   |
+| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수              |아니오   |예   |
 | RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수              |아니오   |예   |
-| RequestCountHttpStatus304 |  304 HTTP 코드 응답을 생성한 모든 요청의 수             |아니오   |예   |
-| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수              |아니요   |예   |
+| RequestCountHttpStatus304 |  304 HTTP 코드 응답을 생성한 모든 요청의 수             |아니요   |예   |
+| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수              |아니오   |예   |
 | RequestCountCacheHit |캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다.               | 예  |아니오   |
 | RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었습니다.              |예   | 아니오  |
-| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수              |예   | 아니요  |
+| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수              |예   | 아니오  |
 | RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수                |예   |아니오   |
-| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수              |예   | 아니오  |
+| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수              |예   | 아니요  |
 | EgressTotal | 아웃바운드 데이터 전송(GB)              |예   |예   |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송*(GB)            |예   |아니요   |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송*(GB)            |예   |아니오   |
 | EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)              |예   |아니오   |
-| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   | 아니요  |
-| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   |  아니요 |
+| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   | 아니오  |
+| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   |  아니오 |
 | EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)                |예   |아니오   |
 | EgressCacheHit |  CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송  |예   |  아니오 |
 | EgressCacheMiss | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송              |예   |  아니요 |
-| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송                |예   |아니요   |
+| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송                |예   |아니오   |
 | EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다.                   |예   | 아니오  |
-| EgressCacheOthers |  다른 캐시 시나리오에 대한 아웃바운드 데이터 전송             |예   | 아니오  |
+| EgressCacheOthers |  다른 캐시 시나리오에 대한 아웃바운드 데이터 전송             |예   | 아니요  |
 
 * 아웃바운드 데이터 전송은 CDN POP 서버에서 클라이언트로 전달되는 트래픽을 나타냅니다.
 
@@ -410,7 +410,7 @@ Verizon 로그 데이터는 1시간 지연되고, 끝점 전파가 완료된 후
 
 * [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN 보조 포털을 통한 핵심 분석](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
