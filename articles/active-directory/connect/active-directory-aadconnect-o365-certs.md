@@ -1,8 +1,8 @@
 ---
-title: "Office 365 및 Azure AD 사용자를 위한 인증서 갱신 | Microsoft Docs"
-description: "이 문서에서는 Office 365 사용자가 인증서 갱신에 대해 알리는 전자 메일을 받는 경우 문제를 해결하는 방법에 대해 설명합니다."
+title: Office 365 및 Azure AD 사용자를 위한 인증서 갱신 | Microsoft Docs
+description: 이 문서에서는 Office 365 사용자가 인증서 갱신에 대해 알리는 전자 메일을 받는 경우 문제를 해결하는 방법에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -87,11 +87,11 @@ AD FS에서 구성된 인증서 및 지정된 도메인에 대한 Azure AD 트�
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3단계: 인증서가 만료되려고 하는지 확인
 Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서 "이후가 아님" 아래에 있는 날짜를 확인합니다. 날짜가 30일 이내인 경우 조치를 취해야 합니다.
 
-| AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 동작 |
+| AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 조치 |
 |:---:|:---:|:---:|:---:|:---:|
 | 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
 | 예 |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
-| 아니요 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 아니오 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 \[-] 중요하지 않습니다.
 
@@ -111,8 +111,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 여기서 `(your_FS_name) `은 fs.contoso.com과 같이 조직에서 사용하는 페더레이션 서비스 호스트 이름으로 대체됩니다.  두 설정을 모두 확인할 수 있는 경우 그 밖에 다른 작업을 수행할 필요는 없습니다.  
 
-예: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
+예제: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## 수동으로 토큰 서명 인증서 갱신 <a name="manualrenew"></a>
 토큰 서명 인증서를 수동으로 갱신하도록 선택할 수 있습니다. 예를 들어, 다음과 같은 경우 수동 갱신에 대 한 더 적합할 수 있습니다.
 
@@ -152,8 +151,8 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 1. Windows PowerShell용 Microsoft Azure Active Directory 모듈을 엽니다.
 2. $cred=Get-Credential을 실행합니다. 이 cmdlet에서 자격 증명을 물어보면 클라우드 서비스 관리자 계정 자격 증명을 입력합니다.
 3. Connect-MsolService –Credential $cred를 실행합니다. 이 cmdlet을 실행하면 클라우드 서비스에 연결됩니다. 도구를 통해 설치되는 추가 cmdlet을 실행하려면 먼저 클라우드 서비스에 연결되는 컨텍스트를 만들어야 합니다.
-4. AD FS 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 Set-MSOLAdfscontext -Computer <AD FS primary server>을 실행합니다. 여기서 <AD FS primary server>는 기본 AD FS 서버의 내부 FQDN 이름입니다. 이 cmdlet은 AD FS에 연결되는 컨텍스트를 만듭니다.
-5. Update-MSOLFederatedDomain –DomainName <domain>을 실행합니다. 이 cmdlet은 AD FS에서 클라우드 서비스로 설정을 업데이트하고 둘 사이의 트러스트 관계를 구성합니다.
+4. AD FS 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 Set-MSOLAdfscontext -Computer &lt;AD FS 주 서버&gt;를 실행합니다. 여기서 &lt;AD FS 주 서버&gt;는 기본 AD FS 서버의 내부 FQDN 이름입니다. 이 cmdlet은 AD FS에 연결되는 컨텍스트를 만듭니다.
+5. Update-MSOLFederatedDomain –DomainName &lt;도메인&gt;을 실행합니다. 이 cmdlet은 AD FS에서 클라우드 서비스로 설정을 업데이트하고 둘 사이의 트러스트 관계를 구성합니다.
 
 > [!NOTE]
 > contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 **SupportMultipleDomain** 스위치를 사용해야 합니다. 자세한 내용은 [여러 최상위 도메인에 대한 지원](active-directory-aadconnect-multiple-domains.md)을 참조하세요.

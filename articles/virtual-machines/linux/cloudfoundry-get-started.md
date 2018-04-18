@@ -1,13 +1,13 @@
 ---
-title: "Microsoft Azure의 Cloud Foundry 시작 | Microsoft Docs"
-description: "Microsoft Azure에서 OSS 또는 Pivotal Cloud Foundry 실행"
+title: Microsoft Azure의 Cloud Foundry 시작 | Microsoft Docs
+description: Microsoft Azure에서 OSS 또는 Pivotal Cloud Foundry 실행
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 94fbde7707ea9a91076780fdefc3f5a827e0e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25cb758d6d897e03884f77459620e69600a78511
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -41,7 +41,7 @@ Microsoft는 다음과 같은 커뮤니티 채널을 통해 OSS CF에 대한 최
 - [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) 및 [Service Broker](https://github.com/Azure/meta-azure-service-broker/issues)에 대한 GitHub Issues
 
 >[!NOTE]
-> Cloud Foundry를 실행하는 가상 컴퓨터와 같은 Azure 리소스에 대한 지원 수준은 Azure 지원 계약을 기반으로 합니다. 최선의 커뮤니티 지원은 Cloud Foundry에 해당하는 구성 요소에만 적용됩니다.
+> Cloud Foundry를 실행하는 가상 머신과 같은 Azure 리소스에 대한 지원 수준은 Azure 지원 계약을 기반으로 합니다. 최선의 커뮤니티 지원은 Cloud Foundry에 해당하는 구성 요소에만 적용됩니다.
 
 ### <a name="pivotal-cloud-foundry"></a>Pivotal Cloud Foundry
 

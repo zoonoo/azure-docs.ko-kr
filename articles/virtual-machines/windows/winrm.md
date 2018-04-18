@@ -1,11 +1,11 @@
 ---
-title: "Azure VM에 대한 WinRM 액세스 설정 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 만든 Azure 가상 컴퓨터에 대한 WinRM 액세스를 설정합니다."
+title: Azure VM에 대한 WinRM 액세스 설정 | Microsoft Docs
+description: Resource Manager 배포 모델에서 만든 Azure 가상 머신에 대한 WinRM 액세스를 설정합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 컴퓨터에 대한 WinRM 액세스 설정
+# <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>Azure 서비스 관리 및 Azure Resource Manager의 WinRM
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
@@ -88,7 +88,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 Microsoft.Compute 리소스 공급자는 VM을 프로비전하는 동안 주요 자격 증명 모음 내에 포함된 암호에 대한 URL이 필요합니다. 이룰 통해 Microsoft.Compute 리소스 공급자는 암호를 다운로드하고 VM에서 해당 인증서를 만들 수 있습니다.
 
 > [!NOTE]
-> 암호의 URL에는 버전도 포함되어야 합니다. 예제 URL은 아래의 https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve 같은 형태
+> 암호의 URL에는 버전도 포함되어야 합니다. 예를 들어 URL은 다음 https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve과 같습니다.
 > 
 > 
 

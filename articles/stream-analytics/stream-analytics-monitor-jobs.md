@@ -1,24 +1,19 @@
 ---
-title: 프로그래밍 방식으로 Stream Analytics에서 작업 모니터링| Microsoft Docs
-description: REST API, Azure SDK 또는 PowerShell을 통해 생성된 Stream Analytics 작업을 프로그래밍 방식으로 모니터링하는 방법에 대해 알아봅니다.
-keywords: .net 모니터, 작업 모니터, 응용 프로그램 모니터링
+title: Azure Stream Analytics 작업을 프로그래밍 방식으로 모니터링 및 관리
+description: 이 문서에서는 REST API, Azure SDK 또는 PowerShell을 통해 생성된 Stream Analytics 작업을 프로그래밍 방식으로 모니터링하는 방법에 대해 설명합니다.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: a619120b2d30284633ba5248edd0b82bb1bf656b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>프로그래밍 방식으로 Stream Analytics 작업 모니터 만들기
 
@@ -174,7 +169,7 @@ ms.lasthandoff: 03/30/2018
 
 ## <a name="get-support"></a>지원 받기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

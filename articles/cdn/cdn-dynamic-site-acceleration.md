@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -152,7 +152,7 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
 고정 자산과 동적 자산이 혼합된 웹 사이트가 있는 경우 최상의 성능을 얻기 위해서는 하이브리드 접근 방식을 취하는 것이 가장 좋습니다. 
 
-**Verizon Standard의 Azure CDN** 및 **Akamai Standard의 Azure CDN** 프로필의 경우, [캐싱 규칙](cdn-caching-rules.md)을 사용하여 특정 DSA 끝점에 대한 캐싱을 설정할 수 있습니다.
+**Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필의 경우, [캐싱 규칙](cdn-caching-rules.md)을 사용하여 특정 DSA 엔드포인트에 대한 캐싱을 설정할 수 있습니다.
 
 캐싱 규칙에 액세스하려면
 
@@ -164,7 +164,7 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
 2. DSA 끝점에 대한 캐싱을 설정하려면 전역 또는 사용자 지정 캐싱 규칙을 만듭니다. 
 
-**Verizon의 Azure CDN Premium** 프로필만 [규칙 엔진](cdn-rules-engine.md)을 사용하여 특정 DSA 끝점에 대한 캐싱을 설정합니다. 생성되는 모든 규칙은 DSA에 최적화된 프로필의 해당 끝점에만 영향을 줍니다. 
+**Verizon의 Azure CDN 프리미엄** 프로필만 [규칙 엔진](cdn-rules-engine.md)을 사용하여 특정 DSA 엔드포인트에 대한 캐싱을 설정합니다. 생성되는 모든 규칙은 DSA에 최적화된 프로필의 해당 끝점에만 영향을 줍니다. 
 
 규칙 엔진에 액세스하려면
     

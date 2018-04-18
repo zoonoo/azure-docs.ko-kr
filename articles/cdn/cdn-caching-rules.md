@@ -4,7 +4,7 @@ description: 'CDN 캐싱 규칙을 사용하여 전역적으로 그리고 조건
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 60693b919fad6808bfe60b504d2a70caf80fbe48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어
 
 > [!NOTE] 
-> 캐싱 규칙은 **Verizon 표준의 Azure CDN** 및 **Akamai 표준의 Azure CDN**에만 사용할 수 있습니다. **Verizon 프리미엄의 Azure CDN**은 유사한 기능을 위해 **관리** 포털에서 [Azure CDN 규칙 엔진](cdn-rules-engine.md)을 사용할 수 있습니다.
+> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준**에만 사용할 수 있습니다. **Verizon의 Azure CDN 프리미엄**은 유사한 기능을 위해 **관리** 포털에서 [Azure CDN 규칙 엔진](cdn-rules-engine.md)을 사용할 수 있습니다.
  
 Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 제어하는 방법이 두 가지입니다. 
 

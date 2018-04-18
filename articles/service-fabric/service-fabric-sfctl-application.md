@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure Service Fabric CLI- sfctl 응용프로그램 | Microsoft Docs"
-description: "Service Fabric CLI sfctl 응용프로그램 명령을 설명합니다."
+title: Microsoft Azure Service Fabric CLI- sfctl 응용프로그램 | Microsoft Docs
+description: Service Fabric CLI sfctl 응용프로그램 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 응용 프로그램 및 응용 프로그램 종류를 만들고, 삭제하고, 관리합니다.
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/27/2018
 | --debug              | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h            | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o          | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:     json.|
-| --query              | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query              | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose            | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-delete"></a>sfctl application delete
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/27/2018
 | --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:        json.|
-| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
@@ -117,7 +117,7 @@ Microsoft Azure Service Fabric 노드에서 배포된 응용 프로그램에 대
 | --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:        json.|
-| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-health"></a>sfctl application health
@@ -143,7 +143,7 @@ Microsoft Azure Service Fabric 응용 프로그램의 상태를 반환합니다.
 | --debug                                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query                                 | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+| --query                                 | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/을 참조하세요.|
 | --verbose                               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -166,7 +166,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --debug                      | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                    | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                  | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.             기본값: json.|
-| --query                      | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+| --query                      | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/을 참조하세요.|
 | --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
@@ -192,7 +192,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --debug                      | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                    | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                  | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.             기본값: json.|
-| --query                      | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                      | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-load"></a>sfctl application load
@@ -212,7 +212,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 |--debug                    | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
     --help -h                  | 이 도움말 메시지 및 종료를 표시합니다.|
     --output -o                | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-    --query                    | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+    --query                    | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/을 참조하세요.|
     --verbose                  | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -235,15 +235,13 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --debug                           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                         | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                       | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                  기본값: json.|
-| --query                           | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+| --query                           | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/을 참조하세요.|
 | --verbose                         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
 외부 저장소의 .SFPKG 패키지를 사용하거나 이미지 저장소의 응용 프로그램 패키지를 사용하는 클러스터를 통해 Service Fabric 응용 프로그램 유형을 프로비전하거나 등록합니다.
 
-클러스터를 통해 Service Fabric 응용 프로그램 유형을 프로비전합니다. 이것이 있어야 새로운 응용 프로그램을 인스턴스화할 수 있습니다. 프로비전 작업은 relativePathInImageStore 또는 외부 SFPKG의 URI를 사용하여 지정된 응용 프로그램 패키지에서 수행할 수 있습니다. 외부 프로비전이 설정되지 않은 경우 이 명령은 이미지 저장소
-
-프로비전을 수행합니다.
+클러스터를 통해 Service Fabric 응용 프로그램 유형을 프로비전합니다. 이것이 있어야 새로운 응용 프로그램을 인스턴스화할 수 있습니다. 프로비전 작업은 relativePathInImageStore 또는 외부 SFPKG의 URI를 사용하여 지정된 응용 프로그램 패키지에서 수행할 수 있습니다. 외부 프로비전이 설정되어 있지 않으면 이 명령은 이미지 저장소에서 응용 프로그램 패키지를 프로비전합니다.
         
 
 
@@ -266,7 +264,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --debug                              | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                            | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                          | 출력 형식.  허용되는 값: json, jsonc, 테이블,                     tsv.  기본값: json.|
-| --query                              | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+| --query                              | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/을 참조하세요.|
 | --verbose                            | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
@@ -293,7 +291,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 | --debug                        | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                      | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                    | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.               기본값: json.|
-| --query                        | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                        | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose                      | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
@@ -317,7 +315,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 | --debug                           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                         | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                       | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                  기본값: json.|
-| --query                           | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+| --query                           | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/을 참조하세요.|
 | --verbose                         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
@@ -354,7 +352,7 @@ Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 업그레�
 | --debug                     | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                   | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                 | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.            기본값: json.|
-| --query                     | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                     | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose                   | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-upload"></a>sfctl application upload
@@ -377,7 +375,7 @@ Microsoft Azure Service Fabric 응용 프로그램 패키지를 이미지 저장
 | --debug       | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h     | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o   | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query       | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+| --query       | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/을 참조하세요.|
 | --verbose     | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계

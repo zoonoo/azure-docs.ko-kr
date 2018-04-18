@@ -1,11 +1,11 @@
 ---
-title: "Media Encoder Standard 스키마 | Microsoft 문서"
-description: "이 문서에서는 Media Encoder Standard 형식 및 코덱에 대한 개요를 제공합니다."
+title: Media Encoder Standard 스키마 | Microsoft 문서
+description: 이 문서에서는 Media Encoder Standard 형식 및 코덱에 대한 개요를 제공합니다.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.openlocfilehash: e936f5c47abe5bb5531f9af3be48662ea2f48c97
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 스키마
 이 문서에서는 [Media Encoder Standard 기본 설정](media-services-mes-presets-overview.md)의 기반이 되는 XML 스키마의 일부 요소와 형식에 대해 설명하며, 요소 및 해당 유효 값에 대한 설명도 제공합니다.  
@@ -27,13 +27,13 @@ ms.lasthandoff: 01/08/2018
 인코딩 기본 설정을 정의합니다.  
 
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |루트 요소로서 입력 원본을 인코딩할 것임을 나타냅니다. |
 | **Outputs** |[Outputs](media-services-mes-schema.md#Output) |원하는 출력 파일의 컬렉션입니다. |
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **버전**<br/><br/> 필수 |**xs: decimal** |기본 설정 버전입니다. 적용되는 제한 사항으로 xs:fractionDigits value="1" 및 xs:minInclusive value="1"이 있습니다(예: **version="1.0"**). |
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/08/2018
 다음 요소의 시퀀스를 포함합니다.  
 
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |H.264 비디오 인코딩 설정입니다. |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |AAC 오디오 인코딩 설정입니다. |
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs: boolean** |현재는 1 패스 인코딩만 지원됩니다. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs: time** |IDR 프레임 사이의 고정 간격을 초 단위로 결정합니다. 이를 GOP 기간이라고도 합니다. 인코더가 이 값에서 벗어날 수 있는지 여부를 제어하려면 **SceneChangeDetection**을 참조하세요. |
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/08/2018
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |출력 비디오 레이어의 컬렉션입니다. |
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | 입력에 비디오가 없으면 인코더가 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하려면 Condition="InsertBlackIfNoVideoBottomLayerOnly"(최저 비트 전송률에서만 비디오 삽입) 또는 Condition="InsertBlackIfNoVideo"(모든 출력 비트 전송률에서 비디오 삽입)를 사용합니다. 자세한 내용은 [이](media-services-advanced-encoding-with-mes.md#no_video) 문서를 참조하세요.|
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/08/2018
 기본적으로 오디오만 포함하며 비디오는 없는 입력을 인코더로 보내면 출력 자산에는 오디오 데이터만 들어 있는 파일이 포함됩니다. 일부 플레이어는 해당 출력 스트림을 처리할 수 없습니다. 해당 시나리오에서는 H264Video의 **InsertBlackIfNoVideo** 특성 설정을 사용하여 인코더가 출력에 비디오 트랙을 추가하도록 강제 지정할 수 있습니다. 자세한 내용은 [이](media-services-advanced-encoding-with-mes.md#no_video) 문서를 참조하세요.
               
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |H264 레이어의 컬렉션입니다. |
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 01/08/2018
 > 
 
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **프로필**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** |**xs: string** 값으로, **Auto**, **Baseline**, **Main**, **High** 중 하나일 수 있습니다. |
 | **Level**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** | |
@@ -103,17 +103,17 @@ ms.lasthandoff: 01/08/2018
  AAC에 대한 자세한 내용은 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)를 참조하세요.  
 
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **프로필**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |**AACLC**, **HEAACV1** 또는 **HEAACV2** 값 중 하나일 수 있습니다. |
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Condition** |**xs: string** |입력에 오디오가 없을 때 조용한 오디오 트랙을 포함하는 자산을 생성하도록 인코더를 적용하려면 "InsertSilenceIfNoAudio" 값을 지정합니다.<br/><br/> 기본적으로 비디오만 포함하며 오디오는 없는 입력을 인코더로 보내면 출력 자산에는 비디오 데이터만 들어 있는 파일이 포함됩니다. 일부 플레이어는 해당 출력 스트림을 처리할 수 없습니다. 이 시나리오에서는 이 설정을 사용하여 출력에 조용한 오디오 트랙을 추가하는 인코더를 강제할 수 있습니다. |
 
 ### <a name="groups"></a>그룹
-| 참조 | 설명 |
+| 참고 자료 | 설명 |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |각 프로필에 대해 설정할 수 있는 적절한 채널 수, 샘플링 속도 및 비트 전송률을 확인하려면 [AudioGroup](media-services-mes-schema.md#AudioGroup)에 대한 설명을 참조하세요. |
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 01/08/2018
 각 프로필에 유효한 값에 대한 자세한 내용은 뒤에 나오는 "오디오 코덱 세부 정보" 표를 참조하세요.  
 
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Channels**<br/><br/> minOccurs="0" |**xs: int** |인코딩된 오디오 채널 수입니다. 유효한 옵션은 1, 2, 5, 6, 8입니다.<br/><br/> 기본값: 2 |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |Hz 단위로 지정된 오디오 샘플링 속도입니다. |
@@ -137,14 +137,14 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |프레젠테이션 시작 시간을 지정합니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. |
 | **Duration** |**xs:duration** |프레젠테이션 지속 시간을 지정합니다 (예: 비디오의 오버레이 모양). |
 
 ## <a name="Output"></a> Output
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **FileName** |**xs:string** |출력 파일 이름입니다.<br/><br/> 다음 표에 설명된 매크로를 사용하여 출력 파일 이름을 작성할 수 있습니다. 예: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="Video"></a> Video(Codec에서 상속되는 복합 형식)
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **시작** |**xs:string** | |
 | **Step** |**xs:string** | |
@@ -186,7 +186,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="FormatGroup"></a> FormatGroup(그룹)
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -194,74 +194,74 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Quality**<br/><br/> minOccurs="0" |**xs:int** |유효한 값: 1(최저)-100(최고) |
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage(Video에서 상속되는 복합 형식)
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="JpgImage"></a> JpgImage(Video에서 상속되는 복합 형식)
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="PngImage"></a> PngImage(Video에서 상속되는 복합 형식)
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 

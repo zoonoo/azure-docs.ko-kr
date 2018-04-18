@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: ae726b141f5f44b1eb0887cbd988881e41e163c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터
 
@@ -134,7 +134,7 @@ RTMP 단순 모드의 경우 Media Services는 다음 형식의 "onAdCue"라는 
 
 스파스 트랙 조각은 동영상 조각 상자(‘moof’) 및 미디어 데이터 상자('mdat')로 구성됩니다.
 
-MovieFragmentBox('moof') 상자에는 [FMP4]에서 정의한 대로 다음 필드가 있는 **TrackFragmentExtendedHeaderBox('uuid')** 상자가 포함되어야 합니다.
+MovieFragmentBox('moof') 상자에는 [MS-SSTR]에서 정의한 대로 다음 필드가 있는 **TrackFragmentExtendedHeaderBox('uuid')** 상자가 포함되어야 합니다.
 
 | **필드 이름**         | **필드 형식**          | **필수 여부** | **설명**                                                                               |
 |------------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------|
@@ -177,7 +177,7 @@ MediaDataBox('mdat') 상자의 형식은 다음과 같아야 합니다.
 
 ## <a name="31-smooth-streaming-delivery"></a>3.1 부드러운 스트리밍 배달
 
-[FMP4] 및 [MS-SSTR] 사양의 스파스 트랙 처리 세부 정보를 참조하세요.
+[MS-SSTR]에서 스파스 트랙 처리 세부 정보를 참조하세요.
 
 #### <a name="smooth-client-manifest-example"></a>Smooth 클라이언트 매니페스트 예제
 ~~~ xml
@@ -407,13 +407,11 @@ DASHEventMessageBox의 필드는 아래와 같이 정의됩니다.
 
 **[AMF0]** ["동작 메시지 형식 AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[FMP4]** [IIS 부드러운 스트리밍 파일/통신 형식 사양](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7bAC5A31A4-E455-4000-96E1-AB17BD083144%7d&file=IIS%20Smooth%20Streaming%20File%20Format%20Specification%20-%20v%202%203%2001%20latest%20draft.docx&action=default)
-
-**[LIVE-FMP4]** [Azure Media Services 조각난 MP4 라이브 수집 사양](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7b5CEE1122-AA28-4368-BC8E-9C0048BF1529%7d&file=AMS%20F-MP4%20Live%20Ingest%20Specification.docx&action=default)
+**[LIVE-FMP4]** [Azure Media Services 조각난 MP4 라이브 수집 사양](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]** ISO/IEC 14496-12: 12부 ISO 기본 미디어 파일 형식, 제4판, 2012년 7월 15일
 
-**[RTMP]** ["Adobe 실시간 메시징 프로토콜", 2012년 12월 21일](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf) 
+**[RTMP]** ["Adobe 실시간 메시징 프로토콜", 2012년 12월 21일](https://www.adobe.com/devnet/rtmp.html) 
 
 ------------------------------------------
 

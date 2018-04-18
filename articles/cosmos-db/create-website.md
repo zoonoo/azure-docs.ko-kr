@@ -1,11 +1,10 @@
 ---
-title: "템플릿을 사용하여 웹앱 배포 - Azure Cosmos DB | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, Azure App Service Web Apps 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다."
+title: 템플릿을 사용하여 웹앱 배포 - Azure Cosmos DB | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, Azure App Service Web Apps 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: cosmos-db, app-service\web
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89513d6c1b9aa9f4709359d6d7681bff9c291618
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 468edd78e0ef8e13b2783485004a9db21906f1fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
@@ -77,7 +76,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment6.png)
 7. 배포가 완료되면 리소스 그룹 창이 열립니다.
    ![리소스 그룹 창 스크린샷](./media/create-website/TemplateDeployment7.png)  
-8. 응용 프로그램을 사용하려면 웹앱 URL로 이동합니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net이 됨).  다음과 같은 웹 응용 프로그램이 표시됩니다.
+8. 응용 프로그램을 사용하려면 웹앱 URL로 이동합니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net)이 됨).  다음과 같은 웹 응용 프로그램이 표시됩니다.
    
    ![샘플 Todo 응용 프로그램](./media/create-website/image2.png)
 9. 계속해서 웹앱에서 몇 가지 작업을 만든 다음, Azure Portal의 리소스 그룹 창으로 돌아옵니다. 리소스 목록에서 Azure Cosmos DB 계정 리소스를 클릭한 다음 **데이터 탐색기**를 클릭합니다.

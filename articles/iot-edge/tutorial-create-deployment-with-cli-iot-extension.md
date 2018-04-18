@@ -1,21 +1,21 @@
 ---
-title: "Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 장치 배포 | Microsoft Docs"
-description: "Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 장치 배포"
+title: Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 장치 배포 | Microsoft Docs
+description: Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 장치 배포
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 장치 배포
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/09/2018
 
 Azure CLI 2.0을 사용하면 Azure IoT Hub 리소스, 장치 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 장치 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI 2.0을 강화합니다.
 
-이 자습서에서는 먼저 Azure CLI 2.0 및 IoT 확장을 설치하는 단계를 완료합니다. 그런 후 사용 가능한 CLI 명령을 사용하여 IoT Edge 장치에 모듈을 배포하는 방법을 배웁니다.
+이 문서에서는 Azure CLI 2.0 및 IoT 확장을 설정합니다. 그런 후 사용 가능한 CLI 명령을 사용하여 IoT Edge 장치에 모듈을 배포하는 방법을 배웁니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

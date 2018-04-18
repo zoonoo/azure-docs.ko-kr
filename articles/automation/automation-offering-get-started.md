@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fcbbc2532e5cb9963922b4987ba0c7080fdb170
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Azure Automation 시작
 
@@ -33,11 +33,11 @@ Automation 샌드박스는 모듈, 저장소, 메모리, 네트워크 통신 및
 
 여러 Hybrid Runbook Worker를 배포할 수 있습니다. Hybrid Runbook Worker를 사용하여 Runbook 및 부하 분산 Runbook 작업에 고가용성을 제공합니다. 경우에 따라 특정 작업 또는 환경에 맞게 Runbook 작업을 수행할 수 있습니다. Hybrid Runbook Worker의 Microsoft Monitoring Agent는 443 TCP 포트를 통해 Automation 서비스와의 통신을 시작합니다. Hybrid Runbook Worker에는 인바운드 방화벽 요구 사항이 없습니다.  
 
-Hybrid Runbook Worker에서 실행되는 Runbook을 통해 사용자 환경의 다른 컴퓨터 또는 서비스에 대한 관리 작업을 수행할 수 있습니다. 또한 이 시나리오에서는 Runbook에서 다른 포트에 액세스해야 할 수도 있습니다. IT 보안 정책을 통해 네트워크의 컴퓨터에서 인터넷에 연결할 수 없는 경우 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 검토합니다. OMS(Operations Management Suite) 게이트웨이는 Hybrid Runbook Worker에 대한 프록시로 작동합니다. 작업 상태를 수집하고 Automation 계정에서 구성 정보를 받습니다.
+Hybrid Runbook Worker에서 실행되는 Runbook을 통해 사용자 환경의 다른 컴퓨터 또는 서비스에 대한 관리 작업을 수행할 수 있습니다. 또한 이 시나리오에서는 Runbook에서 다른 포트에 액세스해야 할 수도 있습니다. IT 보안 정책을 통해 네트워크의 컴퓨터에서 인터넷에 연결할 수 없는 경우 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 검토합니다. OMS 게이트웨이는 Hybrid Runbook Worker에 대한 프록시로 작동합니다. 작업 상태를 수집하고 Automation 계정에서 구성 정보를 받습니다.
 
 Hybrid Runbook Worker에서 실행되는 Runbook은 컴퓨터에 속한 로컬 시스템 계정의 컨텍스트에서 실행됩니다. 로컬 Windows 컴퓨터에서 관리 작업을 수행할 때 보안 컨텍스트를 사용하는 것이 좋습니다. Runbook에서 로컬 컴퓨터 외부에 있는 리소스에 대한 작업이 실행되도록 하려면 Automation 계정에 보안 자격 증명 자산을 정의해야 합니다. Runbook에서 보안 자격 증명 자산에 액세스하고 이러한 자산을 사용하여 외부 리소스를 인증할 수 있습니다. Runbook에 [자격 증명](automation-credentials.md), [인증서](automation-certificates.md) 및 [연결](automation-connections.md) 자산을 사용할 수 있습니다. 자격 증명을 지정하는 데 사용할 수 있는 cmdlet이 포함된 자산을 사용하여 인증합니다.
 
-Azure Automation에 저장된 DSC 구성을 가상 머신에 적용할 수 있습니다. 다른 실제 및 가상 머신은 자동화 DSC 풀 서버에서 구성을 요청할 수 있습니다. 온-프레미스 실제 또는 가상 Windows 및 Linux 시스템의 구성을 관리하기 위해 자동화 DSC 풀 서버를 지원하는 인프라를 배포할 필요가 없습니다. 자동화 DSC를 사용하여 관리할 각 시스템에서 아웃바운드 인터넷 액세스만 필요합니다. 통신은 443 TCP 포트를 통해 OMS 서비스에 발생합니다.   
+Azure Automation에 저장된 DSC 구성을 가상 머신에 적용할 수 있습니다. 다른 실제 및 가상 머신은 자동화 DSC 풀 서버에서 구성을 요청할 수 있습니다. 온-프레미스 실제 또는 가상 Windows 및 Linux 시스템의 구성을 관리하기 위해 자동화 DSC 풀 서버를 지원하는 인프라를 배포할 필요가 없습니다. 자동화 DSC를 사용하여 관리할 각 시스템에서 아웃바운드 인터넷 액세스만 필요합니다. 통신은 443 TCP 포트를 통해 Log Analytics 서비스에 발생합니다.   
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -125,9 +125,9 @@ RBAC는 Resource Manager와 함께 사용되어 Azure AD 사용자 계정 및 �
 Azure 실행 계정 및 클래식 실행 계정과 관련하여 [Automation 실행 계정 업데이트](automation-create-runas-account.md)에서는 기존 Automation 계정을 포털의 실행 계정으로 업데이트하는 방법에 대해 설명합니다. 또한 Automation 계정이 처음부터 실행 계정 또는 클래식 실행 계정으로 구성되지 않은 경우 PowerShell을 사용하는 방법에 대해서도 설명합니다. 엔터프라이즈 CA(인증 기관)에서 발급한 인증서를 사용하여 실행 계정 및 클래식 실행 계정을 만들 수 있습니다. 이 구성을 사용하여 계정을 만드는 방법을 알아보려면 [Automation 실행 계정 업데이트](automation-create-runas-account.md)를 검토하세요.     
  
 ## <a name="network-planning"></a>네트워크 계획
-Hybrid Runbook Worker에서 OMS에 연결하고 등록하려면 이 섹션에서 설명하는 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다. 이는 [Microsoft Monitoring Agent에서 OMS에 연결하는 데 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agent.md)에 추가됩니다. 
+Hybrid Runbook Worker에서 Log Analytics에 연결하고 등록하려면 이 섹션에서 설명하는 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다. 이는 [Microsoft Monitoring Agent에서 Log Analytics에 연결하는 데 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agent.md)에 추가됩니다. 
 
-에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
+에이전트와 Log Analytics 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
 
 Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 포트와 URL이 필요합니다.
 
@@ -167,36 +167,36 @@ Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 �
 
 |방법 | 설명 |
 |-------|-------------|
-| Azure Marketplace에서 **Automation & Control** 선택 | Azure Marketplace 제품은 동일한 리소스 그룹과 지역에 연결된 Automation 계정 및 OMS 작업 영역을 만듭니다. OMS와 통합하면 Log Analytics를 사용하여 시간이 지남에 따라 Runbook 작업 상태 및 작업 스트림을 모니터링하고 분석할 수 있는 이점이 있습니다. 또한 Log Analytics의 고급 기능을 사용하여 문제를 보고하거나 조사할 수 있습니다. 기본적으로 사용되는 **변경 내용 추적** 및 **업데이트 관리** 솔루션도 배포합니다. |
-| Marketplace에서 **Automation** 선택 | OMS 작업 영역에 연결되지 않은 새 또는 기존 리소스 그룹에 Automation 계정을 만듭니다. **Automation & Control** 제품에서 사용 가능한 솔루션은 포함되지 않습니다. Automation을 소개하는 기본 구성입니다. Runbook 및 DSC 구성을 작성하는 방법 및 서비스 기능을 사용하는 방법을 알아볼 수 있습니다. |
-| **관리** 솔루션 선택 | [업데이트 관리](../operations-management-suite/oms-solution-update-management.md), [작업 시간 외 VM 시작/중지](automation-solution-vm-management.md) 또는 [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)을 포함하여 **관리** 솔루션을 선택하면, 솔루션에서 기존 Automation 계정 및 OMS 작업 영역을 선택하라는 메시지를 표시합니다. 솔루션에서 구독에 솔루션을 배포하는 데 필요한 Automation 계정 및 OMS 작업 영역을 만드는 옵션을 제공합니다. |
+| Azure Marketplace에서 **Automation & Control** 선택 | Azure Marketplace 제품은 동일한 리소스 그룹과 지역에 연결된 Automation 계정 및 Log Analytics 작업 영역을 만듭니다. Log Analytics와 통합하면 이를 사용하여 시간이 지남에 따라 Runbook 작업 상태 및 작업 스트림을 모니터링하고 분석할 수 있는 이점이 있습니다. 또한 Log Analytics의 고급 기능을 사용하여 문제를 보고하거나 조사할 수 있습니다. 기본적으로 사용되는 **변경 내용 추적** 및 **업데이트 관리** 솔루션도 배포합니다. |
+| Marketplace에서 **Automation** 선택 | Log Analytics 작업 영역에 연결되지 않은 새 또는 기존 리소스 그룹에 Automation 계정을 만듭니다. **Automation & Control** 제품에서 사용 가능한 솔루션은 포함되지 않습니다. Automation을 소개하는 기본 구성입니다. Runbook 및 DSC 구성을 작성하는 방법 및 서비스 기능을 사용하는 방법을 알아볼 수 있습니다. |
+| **관리** 솔루션 선택 | [업데이트 관리](../operations-management-suite/oms-solution-update-management.md), [작업 시간 외 VM 시작/중지](automation-solution-vm-management.md) 또는 [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)을 포함하여 **관리** 솔루션을 선택하면, 솔루션에서 기존 Automation 계정 및 Log Analytics 작업 영역을 선택하라는 메시지를 표시합니다. 솔루션에서 구독에 솔루션을 배포하는 데 필요한 Automation 계정 및 Log Analytics 작업 영역을 만드는 옵션을 제공합니다. |
 
-### <a name="create-an-automation-account-thats-integrated-with-oms"></a>OMS와 통합된 Automation 계정 만들기
-Automation을 등록하려면 Marketplace에서 **Automation & Control** 제품을 선택하는 것이 좋습니다. 이 방법을 사용하면 Automation 계정이 만들어지고 OMS 작업 영역과의 통합이 설정됩니다. 또한 제품과 함께 사용할 수 있는 관리 솔루션을 설치하는 옵션도 제공됩니다.  
+### <a name="create-an-automation-account-thats-integrated-with-log-analytics"></a>Log Analytics와 통합된 Automation 계정 만들기
+Automation을 등록하려면 Marketplace에서 **Automation & Control** 제품을 선택하는 것이 좋습니다. 이 방법을 사용하면 Automation 계정이 만들어지고 Log Analytics 작업 영역과의 통합이 설정됩니다. 또한 제품과 함께 사용할 수 있는 관리 솔루션을 설치하는 옵션도 제공됩니다.  
 
-[독립 실행형 Automation 계정 만들기](automation-create-standalone-account.md)에서는 **Automation & Control** 제품을 등록하여 Automation 계정 및 OMS 작업 영역을 만드는 과정을 단계별로 설명합니다. 서비스를 테스트하거나 미리 보기 위해 독립 실행형 Automation 계정을 만드는 방법을 알아볼 수 있습니다.  
+[독립 실행형 Automation 계정 만들기](automation-create-standalone-account.md)에서는 **Automation & Control** 제품을 등록하여 Automation 계정 및 Log Analytics 작업 영역을 만드는 과정을 단계별로 설명합니다. 서비스를 테스트하거나 미리 보기 위해 독립 실행형 Automation 계정을 만드는 방법을 알아볼 수 있습니다.  
 
-**Automation & Control** Marketplace 제품을 사용하여 Automation 계정 및 OMS 작업 영역을 만들려면 다음을 수행합니다.
+**Automation & Control** Marketplace 제품을 사용하여 Automation 계정 및 Log Analytics 작업 영역을 만들려면 다음을 수행합니다.
 
 1. 구독 관리자 역할의 멤버 및 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
 2. **새로 만들기**를 선택합니다.<br><br> ![Azure Portal에서 새로 만들기 선택](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. **Automation**을 검색합니다. 검색 결과에서 **Automation & Control**을 선택합니다.<br><br> ![Azure Marketplace에서 Automation & Control 검색 및 선택](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
 4. 제품에 대한 설명을 검토하고 **만들기**를 선택합니다.  
-5. **Automation & Control**에서 **OMS 작업 영역**을 선택합니다. **OMS 작업 영역**에서 Automation 계정이 있는 Azure 구독에 연결된 OMS 작업 영역을 선택합니다. OMS 작업 영역이 없으면 **새 작업 영역 만들기**를 선택합니다. **OMS 작업 영역**에서 다음을 수행합니다. 
+5. **Automation & Control**에서 **OMS 작업 영역**을 선택합니다. **OMS 작업 영역**에서 Automation 계정이 있는 Azure 구독에 연결된 Log Analytics 작업 영역을 선택합니다. Log Analytics 작업 영역이 없으면 **새 작업 영역 만들기**를 선택합니다. **OMS 작업 영역**에서 다음을 수행합니다. 
   1. **OMS 작업 영역**에 대해 새 작업 영역의 이름을 입력합니다.
   2. **구독**에 대해 연결할 구독을 선택합니다. 기본 선택 항목이 사용하려는 구독이 아니면 드롭다운 목록에서 구독을 선택합니다.
   3. **리소스 그룹**에 대해 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.  
   4. **위치**에 대해 지역을 선택합니다. 자세한 내용은 [Azure Automation을 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요. 솔루션은 체험 계층 및 노드당(OMS) 계층이라는 두 계층으로 제공됩니다. 체험 계층에서는 매일 수집되는 데이터의 양, 보존 기간 및 Runbook 작업 런타임 시간(분)이 제한됩니다. 노드당(OMS) 계층에서는 매일 수집되는 데이터의 양이 제한되지 않습니다.  
-  5. **Automation 계정**을 선택합니다.  OMS 작업 영역을 새로 만드는 경우 새 OMS 작업 영역과 연결되는 Automation 계정도 만들어야 합니다. Azure 구독, 리소스 그룹 및 지역을 포함합니다. 
+  5. **Automation 계정**을 선택합니다.  Log Analytics 작업 영역을 새로 만드는 경우 새 Log Analytics 작업 영역과 연결되는 Automation 계정도 만들어야 합니다. Azure 구독, 리소스 그룹 및 지역을 포함합니다. 
     1. **Automation 계정 만들기**를 선택합니다.
     2. **Automation 계정**의 **이름** 필드에서 Automation 계정의 이름을 입력합니다.
-    다른 모든 옵션은 선택한 OMS 작업 영역을 기반으로 자동으로 채워집니다. 이러한 옵션은 수정할 수 없습니다. 
+    다른 모든 옵션은 선택한 Log Analytics 작업 영역을 기반으로 자동으로 채워집니다. 이러한 옵션은 수정할 수 없습니다. 
     3. Azure 실행 계정은 제품에 대한 기본 인증 방법입니다. **확인**을 선택하면 구성 옵션의 유효성이 검사되고 Automation 계정이 만들어집니다. 진행률을 추적하려면 메뉴에서 **알림**을 선택합니다. 
-    4. 그렇지 않으면, 기존 Automation 실행 계정을 선택합니다. 선택한 계정은 다른 OMS 작업 영역에 아직 연결할 수 없습니다. 이 경우 알림 메시지가 표시됩니다. 계정이 이미 OMS 작업 영역에 연결되어 있으면 다른 Automation 실행 계정을 선택하거나 하나를 새로 만듭니다.
+    4. 그렇지 않으면, 기존 Automation 실행 계정을 선택합니다. 선택한 계정은 다른 Log Analytics 작업 영역에 아직 연결할 수 없습니다. 이 경우 알림 메시지가 표시됩니다. 계정이 이미 Log Analytics 작업 영역에 연결되어 있으면 다른 Automation 실행 계정을 선택하거나 하나를 새로 만듭니다.
     5. 필요한 정보를 입력하거나 선택한 후 **만들기**를 선택합니다. 정보가 확인되고 Automation 계정 및 실행 계정이 만들어집니다. **OMS 작업 영역** 창으로 자동으로 돌아갑니다.  
 6. **OMS 작업 영역** 창에서 필요한 정보를 입력하거나 선택한 후 **만들기**를 선택합니다.  정보가 확인되고 작업 영역이 만들어집니다. 진행률을 추적하려면 메뉴에서 **알림**을 선택합니다. **솔루션 추가** 창으로 돌아갑니다.  
 7. **Automation & Control** 설정에서 미리 선택된 권장 솔루션을 설치할지 확인합니다. 기본 옵션을 변경하면 나중에 솔루션을 개별적으로 설치할 수 있습니다.  
-8. Automation 및 OMS 작업 영역 등록을 진행하려면 **만들기**를 선택합니다. 모든 설정의 유효성이 검사된 다음, Azure에서 구독에 제품을 배포하려고 합니다. 이 프로세스에는 몇 초 정도 걸릴 수 있습니다. 진행률을 추적하려면 메뉴에서 **알림**을 선택합니다. 
+8. Automation 및 Log Analytics 작업 영역 등록을 진행하려면 **만들기**를 선택합니다. 모든 설정의 유효성이 검사된 다음, Azure에서 구독에 제품을 배포하려고 합니다. 이 프로세스에는 몇 초 정도 걸릴 수 있습니다. 진행률을 추적하려면 메뉴에서 **알림**을 선택합니다. 
 
 제품이 등록되면 다음 작업을 수행할 수 있습니다.
 * Runbook 만들기를 시작합니다.

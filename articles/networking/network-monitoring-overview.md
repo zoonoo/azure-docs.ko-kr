@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -60,9 +60,11 @@ ExpressRoute를 위한 NPM은 개인 피어링 연결에 대한 종합적인 Exp
 
 * 구독에 연결된 ER 회로의 자동 검색
 * 온-프레미스에서 클라우드 응용 프로그램까지 네트워크 토폴로지 검색
-* 용량 계획, 사용률 분석
+* Virtual Network당 용량 계획, 사용률 분석, 대역폭 사용률
 * 기본 및 보조 경로에서 모니터링 및 경고
 * VNet에 대한 연결에서 성능 저하 감지
+
+![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -116,7 +118,6 @@ DNS 관리자 용으로 구축된 이 솔루션은 DNS 로그를 수집, 분석 
 관련 링크:
 * [블로그 게시물](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [설명서](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>다음 단계
+## <a name="miscellaneous"></a>기타
 
-* [네트워크 성능 모니터 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
+* [새로운 가격 책정](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

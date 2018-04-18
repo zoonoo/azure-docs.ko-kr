@@ -1,24 +1,19 @@
 ---
-title: 'Azure Stream Analytics: 스트리밍 단위 이해 및 조정 | Microsoft Docs'
-description: Azure Stream Analytics에서 성능 영향을 미치는 요소를 이해합니다.
-keywords: 스트리밍 단위, 쿼리 성능
+title: Azure Stream Analytics에서 스트리밍 단위 이해 및 조정
+description: 이 문서에서는 Azure Stream Analytics에서 성능에 영향을 주는 스트리밍 단위 설정 및 다른 요소에 대해 설명합니다.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 4312b5f5a64048ad697ae398697da1c59a75e75c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ede0c0aa7b0e795760123246366f947889224b2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -121,7 +116,7 @@ UDF 함수를 추가하면 Azure Stream Analytics가 JavaScript 런타임을 메
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics에서 병렬 처리 가능 쿼리 만들기](stream-analytics-parallelization.md)

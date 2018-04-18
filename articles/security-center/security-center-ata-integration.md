@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fb32fc55288229fb1d09dce98b6092d38c10abf2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Azure Security Center에 Microsoft Advanced Threat Analytics 연결
 이 문서는 Microsoft Advanced Threat Analytics와 Azure Security Center 간에 통합을 구성하는 데 도움이 됩니다.
@@ -58,7 +58,7 @@ ATA을 이미 설치했으며 온-프레미스에서 제대로 작동된다고 �
 
     ![직접 에이전트](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. ATA 센터에 이 에이전트를 설치합니다. 설치하는 동안 **Azure Log Analytics(OMS)에 에이전트 연결** 옵션을 선택하고 요청 시 *작업 영역 ID* 및 *기본 키*를 제공합니다.
+12. ATA 센터에 이 에이전트를 설치합니다. 설치하는 동안 **Azure Log Analytics에 에이전트 연결** 옵션을 선택하고 요청 시 *작업 영역 ID* 및 *기본 키*를 제공합니다.
 
 
 설치를 완료하면 통합이 완료되며 ATA에서 Security Center로 전송된 새 경고를 **검색** 결과에서 볼 수 있습니다. 해당 솔루션은 **보안 솔루션** 페이지의 **연결된 솔루션**에 표시됩니다. 

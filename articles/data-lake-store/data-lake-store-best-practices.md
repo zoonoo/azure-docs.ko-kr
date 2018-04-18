@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store를 사용하는 모범 사례
 이 문서에서는 Azure Data Lake Store 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Store의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Store 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Store를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Store에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 
@@ -99,7 +99,7 @@ Data Lake Store를 사용하여 데이터를 복원하는 경우 HA/DR 요구 �
 |  |Distcp  |Azure 데이터 팩터리  |AdlCopy  |
 |---------|---------|---------|---------|
 |**크기 조정 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
-|**델타 복사 지원**     |   예      | 아니요         | 아니요         |
+|**델타 복사 지원**     |   예      | 아니요         | 아니오         |
 |**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
 |**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
 |**OS 지원**     |Hadoop을 실행하는 모든 OS         | 해당 없음          | 윈도우 10         |
@@ -129,7 +129,7 @@ Data Lake Store는 자세한 진단 로그 및 감사 기능을 제공합니다.
 
 ### <a name="export-data-lake-store-diagnostics"></a>Data Lake Store 진단 내보내기 
 
-Data Lake Store에서 검색 가능한 로그에 액세스하는 가장 빠른 방법 중 하나는 Data Lake Store 계정에 대한 **진단** 블레이드 아래에서 **OMS(Operations Management Suite)**로 로그를 전달하도록 설정하는 것입니다. 이렇게 하면 15분 간격으로 트리거되는 경고 옵션(이메일/웹후크)과 함께 시간 및 콘텐츠 필터를 사용하여 들어오는 로그에 즉시 액세스할 수 있습니다. 지침은 [Azure Data Lake Store에 대한 진단 로그에 액세스](data-lake-store-diagnostic-logs.md)를 참조하세요. 
+Data Lake Store에서 검색 가능한 로그에 액세스하는 가장 빠른 방법 중 하나는 Data Lake Store 계정에 대한 **진단** 블레이드 아래에서 **Log Analytics**로 로그를 전달하도록 설정하는 것입니다. 이렇게 하면 15분 간격으로 트리거되는 경고 옵션(이메일/웹후크)과 함께 시간 및 콘텐츠 필터를 사용하여 들어오는 로그에 즉시 액세스할 수 있습니다. 지침은 [Azure Data Lake Store에 대한 진단 로그에 액세스](data-lake-store-diagnostic-logs.md)를 참조하세요. 
 
 실시간으로 더 많이 경고하고 로그를 기록할 위치를 더 많이 제어하려면 개별적으로 또는 시간 범위에 대해 콘텐츠를 분석하여 실시간 알림을 큐에 전송할 수 있는 Azure EventHub로 로그를 내보내는 것이 좋습니다. [Logic App](../connectors/connectors-create-api-azure-event-hubs.md)과 같은 별도의 응용 프로그램에서 적절한 채널로 경고를 사용하고 전달할 수 있을 뿐만 아니라 NewRelic, Datadog 또는 AppDynamics와 같은 모니터링 도구에 메트릭을 제출할 수도 있습니다. 또는 ElasticSearch와 같은 타사 도구를 사용하는 경우, 로그를 Blob Storage로 내보내고 [Azure Logstash 플러그 인](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)을 사용하여 데이터를 ELK(Elasticsearch, Kibana 및 Logstash) 스택으로 사용할 수 있습니다.
 
@@ -139,7 +139,7 @@ Data Lake Store 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-속성이 설정되고 노드가 다시 시작되면 Data Lake Store 진단이 노드의 YARN 로그(/tmp/<user>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 동일한 정보는 OMS에서나 로그가 Data Lake Store 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달되는 위치에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Store를 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
+속성이 설정되고 노드가 다시 시작되면 Data Lake Store 진단이 노드의 YARN 로그(/tmp/<user>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 동일한 정보는 Log Analytics에서나 로그가 Data Lake Store 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달되는 위치에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Store를 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
 
 ### <a name="run-synthetic-transactions"></a>가상 트랜잭션 실행 
 

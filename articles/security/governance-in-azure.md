@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 거버넌스 | Microsoft Docs"
-description: "응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다."
+title: Azure에서 거버넌스 | Microsoft Docs
+description: 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="governance-in-azure"></a>Azure에서 거버넌스
 
@@ -88,7 +88,7 @@ Azure에서 정보 보안 정책 및 작업 연속성의 구현을 감독하도�
 
 구독은 리소스 사용량의 보고 및 청구 방식을 제어합니다. 구독은 별도의 청구 및 지불을 설정할 수 있습니다. 앞에서 언급한 대로 하나의 Azure 계정에 여러 구독이 있을 수 있습니다. 구독은 회사에서 여러 부서의 Azure 리소스 사용량을 결정하는 데 사용할 수 있습니다.
 
-예를 들어 회사에 IT, HR 및 마케팅 부서가 있는 경우 이러한 부서는 서로 다른 프로젝트를 실행합니다. 각 부서별 가상 컴퓨터와 같은 Azure 리소스의 사용량에 따라 각각 청구할 수 있습니다. 이런 방법으로 각 부서의 재정을 제어할 수 있습니다.
+예를 들어 회사에 IT, HR 및 마케팅 부서가 있는 경우 이러한 부서는 서로 다른 프로젝트를 실행합니다. 각 부서별 가상 머신과 같은 Azure 리소스의 사용량에 따라 각각 청구할 수 있습니다. 이런 방법으로 각 부서의 재정을 제어할 수 있습니다.
 
 Azure 구독은 세 개의 매개 변수를 설정합니다.
 
@@ -149,7 +149,7 @@ Azure가 처음으로 릴리스되었을 때 구독에 대한 액세스 제어�
 
 [Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출되고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure 역할 기반 Access Control(RBAC)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
-예를 들어 RBAC를 사용하여 한 명의 직원은 구독의 가상 컴퓨터를 관리하도록 하고, 다른 직원은 동일한 구독 내에서 SQL 데이터베이스를 관리하도록 할 수 있습니다.
+예를 들어 RBAC를 사용하여 한 명의 직원은 구독의 가상 머신을 관리하도록 하고, 다른 직원은 동일한 구독 내에서 SQL 데이터베이스를 관리하도록 할 수 있습니다.
 
 Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
 
@@ -159,13 +159,13 @@ Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할�
 
 - **읽기 권한자** 는 기존 Azure 리소스를 볼 수 있습니다.
 
-Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 가상 컴퓨터 참여자 역할을 사용하면 사용자가 가상 컴퓨터를 만들고 관리할 수 있습니다. 가상 컴퓨터가 연결된 가상 네트워크 또는 서브넷에 액세스할 권한을 부여하지 않습니다.
+Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 Virtual Machine 참여자 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 가상 머신이 연결된 가상 네트워크 또는 서브넷에 액세스할 권한을 부여하지 않습니다.
 
 [RBAC 기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다.
 
 특정 범위에서 사용자, 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 액세스 권한을 부여합니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다. 부모 범위에서 할당된 역할은 역할 내에 포함된 하위 항목에 대한 액세스를 부여합니다.
 
-예를 들어 리소스 그룹에 액세스할 수 있는 사용자는 웹 사이트, 가상 컴퓨터 및 서브넷을 포함하여 그 안에 포함된 모든 리소스를 관리할 수 있습니다.
+예를 들어 리소스 그룹에 액세스할 수 있는 사용자는 웹 사이트, 가상 머신 및 서브넷을 포함하여 그 안에 포함된 모든 리소스를 관리할 수 있습니다.
 
 Azure RBAC는 Azure 포털 및 Azure Resource Manager API에서 Azure 리소스의 관리 작업만을 지원합니다. Azure 리소스의 모든 데이터 수준 작업에 대한 권한을 부여할 수 있는 것은 아닙니다. 예를 들어 Storage 계정 관리 권한을 부여할 수 있지만 Storage 계정 내의 blob 또는 테이블에 대한 관리 권한은 부여할 수 없습니다. 마찬가지로 SQL 데이터베이스를 관리할 수 있지만 그 안의 테이블은 관리할 수 없습니다.
 
@@ -203,7 +203,7 @@ Resource Manager를 통해 리소스를 관리, 청구 또는 자연스런 선�
 
 템플릿에 대한 권장 사항은 [Azure Resource Manager 템플릿 생성 모범 사례](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)를 참조하세요.
 
-리소스가 올바른 순서로 생성되도록 Azure Resource Manager가 종속성을 분석합니다. 한 리소스가 다른 리소스(예: 디스크에 대한 저장소 계정을 필요로 하는 가상 컴퓨터)의 값에 의존하는 경우 종속성을 설정합니다.
+리소스가 올바른 순서로 생성되도록 Azure Resource Manager가 종속성을 분석합니다. 한 리소스가 다른 리소스(예: 디스크에 대한 저장소 계정을 필요로 하는 가상 머신)의 값에 의존하는 경우 종속성을 설정합니다.
 
 >[!Note]
 >자세한 정보는 [Azure 리소스 관리자 템플릿에서 종속성 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies)를 참조하세요.
@@ -263,7 +263,7 @@ Azure Portal을 통해 태그가 지정된 리소스를 볼 수도 있습니다.
 
 리소스 잠금은 현재 두 가지 값(CanNotDelete 및 ReadOnly)을 지원합니다. CanNotDelete는 적절한 권한이 있는 사용자가 계속해서 리소스를 읽거나 수정할 수 있지만 삭제할 수 없음을 의미합니다. ReadOnly는 권한이 있는 사용자가 리소스를 삭제 또는 수정할 수 없음을 의미합니다.
 
-Resource Manager 잠금은 <https://management.azure.com>에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database에 대한 읽기 전용 잠금을 사용하면 데이터베이스를 삭제하거나 수정하지 못하지만, 데이터베이스에서 데이터를 만들기, 업데이트 또는 삭제하지 못합니다.
+Resource Manager 잠금은 <https://management.azure.com>에 전송된 작업으로 구성되는 관리 평면에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database에 대한 읽기 전용 잠금을 사용하면 데이터베이스를 삭제하거나 수정하지 못하지만, 데이터베이스에서 데이터를 만들기, 업데이트 또는 삭제하지 못합니다.
 
 **ReadOnly**를 적용하면 읽기 작업처럼 보이는 일부 작업에 추가 작업이 필요하기 때문에 예기치 않은 결과가 발생할 수 있습니다. 예를 들어 저장소 계정에 **ReadOnly** 잠금을 설정하면 모든 사용자가 키를 나열하지 않도록 방지합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다.
 
@@ -335,7 +335,7 @@ VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독
 
 - **인터넷 연결**: VNet에 연결되는 모든 Azure VM(Virtual Machines) 및 Cloud Services 역할 인스턴스는 기본적으로 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수 있습니다.
 
-- **Azure 리소스 연결**: Cloud Services 및 VM과 같은 Azure 리소스를 동일한 VNet에 연결할 수 있습니다. 리소스는 서로 다른 서브넷에 있더라도 개인 IP 주소를 사용하여 서로 연결할 수 있습니다. Azure는 서브넷, VNet 및 온-프레미스 네트워크 간에 기본 라우팅을 제공하므로 경로를 구성하고 관리할 필요가 없습니다.
+- **Azure 리소스 연결**: Cloud Services 및 VM과 같은 Azure 리소스를 동일한 VNet에 연결할 수 있습니다. 리소스는 서로 다른 서브넷에 있더라도 사설 IP 주소를 사용하여 서로 연결할 수 있습니다. Azure는 서브넷, VNet 및 온-프레미스 네트워크 간에 기본 라우팅을 제공하므로 경로를 구성하고 관리할 필요가 없습니다.
 
 - **VNet 연결**: VNet을 서로 연결하여 어떤 VNet에 연결된 리소스도 다른 VNet의 모든 리소스와 통신하도록 할 수 있습니다.
 
@@ -347,7 +347,7 @@ VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독
 
 ## <a name="network-access-controls"></a>네트워크 액세스 제어
 
-[네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)은 방화벽과 유사하며 리소스가 네트워크를 통해 "통신"하는 방식에 대한 규칙을 제공합니다. 서브넷(또는 가상 컴퓨터)이 인터넷 또는 동일한 가상 네트워크의 다른 서브넷에 연결할 수 있는지 여부와 그 방식에 대한 세분화된 제어를 제공합니다.
+[네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)은 방화벽과 유사하며 리소스가 네트워크를 통해 "통신"하는 방식에 대한 규칙을 제공합니다. 서브넷(또는 가상 머신)이 인터넷 또는 동일한 가상 네트워크의 다른 서브넷에 연결할 수 있는지 여부와 그 방식에 대한 세분화된 제어를 제공합니다.
 
 NSG(네트워크 보안 그룹)에는 VNet(Azure Virtual Network)에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다.
 
@@ -396,13 +396,13 @@ Azure Security Center는 Azure 구독 내에 모든 리소스에 대한 모범 �
 >[!Note]
 > 권장 사항을 적용하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](https://docs.microsoft.com/azure/security-center/security-center-recommendations)을 참조하세요.
 
-Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 제공하며 위협에 경고하기 위해 Virtual Machines에서 데이터를 수집합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집을 사용하는 것이 좋지만 보안 센터 정책에서 [데이터 수집을 사용하지 않도록 설정](https://docs.microsoft.com/azure/security-center/security-center-faq) 하여 옵트아웃(opt out)할 수 있습니다.
+Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 제공하며 위협에 경고하기 위해 Virtual Machines에서 데이터를 수집합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 머신에서 데이터 수집을 활성화합니다. 데이터 수집을 사용하는 것이 좋지만 보안 센터 정책에서 [데이터 수집을 사용하지 않도록 설정](https://docs.microsoft.com/azure/security-center/security-center-faq) 하여 옵트아웃(opt out)할 수 있습니다.
 
 마지막으로, Azure Security Center는 Microsoft 파트너와 독립 소프트웨어 공급업체가 기능을 강화하기 위해 Azure Security Center에 연결하는 소프트웨어를 만들 수 있는 개방형 플랫폼입니다.
 
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
-- VM(가상 컴퓨터)(Cloud Services 포함)
+- VM(가상 머신)(Cloud Services 포함)
 
 - Azure Virtual Networks
 
@@ -410,33 +410,33 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 
 - VM 및 [App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)에서 웹 응용 프로그램 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-OMS 소프트웨어 개발 및 서비스 팀의 정보 보안 및 [거버넌스 프로그램](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md)은 비즈니스 요구 사항을 지원하며 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/) 및 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)에 설명된 법률 및 규정을 준수합니다. 여기에는 OMS가 보안 요구 사항을 정하고 보안 컨트롤을 식별하며 위험을 관리 및 모니터링하는 방식도 설명되어 있습니다. 정책, 표준, 절차, 지침을 매년 검토합니다.
+Log Analytics 소프트웨어 개발 및 서비스 팀의 정보 보안 및 [거버넌스 프로그램](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md)은 비즈니스 요구 사항을 지원하며 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/) 및 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)에 설명된 법률 및 규정을 준수합니다. 여기에는 Log Analytics가 보안 요구 사항을 설정하고 보안 컨트롤을 식별하며 위험을 관리 및 모니터링하는 방식도 설명되어 있습니다. 정책, 표준, 절차, 지침을 매년 검토합니다.
 
-각 OMS 개발 팀원은 공식적인 애플리케이션 보안 교육을 이수합니다. 내부적으로는 소프트웨어 개발에 대한 버전 관리 시스템을 사용합니다. 각 소프트웨어 프로젝트는 버전 관리 시스템으로 보호됩니다.
+각 Log Analytics 개발 팀 멤버는 공식적인 응용 프로그램 보안 교육을 이수합니다. 내부적으로는 소프트웨어 개발에 대한 버전 관리 시스템을 사용합니다. 각 소프트웨어 프로젝트는 버전 관리 시스템으로 보호됩니다.
 
-Microsoft에는 Microsoft의 모든 서비스를 감독 및 평가하는 보안 및 규정 준수 팀이 있습니다. 이 팀은 정보 보안 책임자로 구성되어 있으며 OMS를 개발하는 엔지니어링 부서와 독립적입니다. 보안 책임자는 자체 관리 체임이 있으며 제품과 서비스에 대한 독립적 평가를 실시하여 보안과 규정 준수를 보장합니다.
+Microsoft에는 Microsoft의 모든 서비스를 감독 및 평가하는 보안 및 규정 준수 팀이 있습니다. 이 팀은 정보 보안 책임자로 구성되어 있으며 Log Analytics를 개발하는 엔지니어링 부서와 관련이 없습니다. 보안 책임자는 자체 관리 체임이 있으며 제품과 서비스에 대한 독립적 평가를 실시하여 보안과 규정 준수를 보장합니다.
 
-OMS(Operations Management Suite)는 처음부터 클라우드에서 설계된 관리 서비스 컬렉션입니다. OMS 구성 요소는 온-프레미스 리소스를 배포하고 관리하는 대신 Azure에서 전적으로 호스트됩니다. 구성 작업이 최소화되어 문자 그대로 몇 분 안에 실행할 수 있습니다.
+Azure는 처음부터 클라우드에서 설계된 관리 서비스 컬렉션을 제공합니다. 이러한 구성 요소는 온-프레미스 리소스를 배포하고 관리하는 대신 Azure에서 전적으로 호스트됩니다. 구성 작업이 최소화되어 문자 그대로 몇 분 안에 실행할 수 있습니다.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-클라우드에서 OMS 서비스를 실행한다고 해서 온-프레미스 환경을 효과적으로 관리할 수 없다는 것은 아닙니다.
+클라우드에서 Log Analytics 서비스를 실행한다고 해서 온-프레미스 환경을 효과적으로 관리할 수 없는 것은 아닙니다.
 
 데이터 센터의 Windows 또는 Linux 컴퓨터에 에이전트를 배치하면 에이전트에서 Log Analytics로 데이터를 보내 클라우드 또는 온-프레미스 서비스에서 수집한 다른 모든 데이터와 함께 분석할 수 있습니다. 온-프레미스 리소스의 백업 및 고가용성을 위해 Azure Backup 및 Azure Site Recovery를 통해 클라우드를 활용할 수 있습니다.
 
 클라우드의 Runbook은 일반적으로 온-프레미스 리소스에 액세스할 수 없지만, 하나 이상의 컴퓨터에 에이전트를 설치하여 데이터 센터에서 Runbook을 호스팅할 수도 있습니다. runbook을 시작할 때 클라우드에서 실행할 것인지 아니면 로컬 작업자에서 실행할 것인지 지정하기만 하면 됩니다.
 
-OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
+Log Analytics의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure 작업 관리자는 관리 솔루션을 제공하여 해당 기능을 확장합니다. [관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)은 하나 이상의 OMS 서비스를 활용하여 관리 시나리오를 구현하는 미리 패키지된 논리 집합입니다.
+Azure 작업 관리자는 관리 솔루션을 제공하여 해당 기능을 확장합니다. [관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)은 하나 이상의 관리 서비스를 활용하여 관리 시나리오를 구현하는 미리 패키지된 논리 집합입니다.
 
 ![Azure 작업 관리](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-사용자가 간편하게 Azure 구독에 추가하여 OMS 투자 가치를 높일 수 있도록 Microsoft와 파트너의 여러 솔루션이 제공됩니다.
+Azure 구독에 쉽게 추가할 수 있는 Microsoft와 파트너의 다양한 솔루션을 사용할 수 있기 때문에 Log Analytics에 대한 투자 가치를 높일 수 있습니다.
 
 파트너는 자체 솔루션을 만들어 응용 프로그램과 서비스를 지원하고, Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에게 제공할 수 있습니다.
 
@@ -455,7 +455,7 @@ Azure 작업 관리자는 관리 솔루션을 제공하여 해당 기능을 확�
 >[!Note]
 > [Application Insights에서 경고 설정](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 및 [모든 웹 사이트의 가용성 및 응답성 모니터링](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)을 참조하세요.
 
-- Log Analytics(Operations Management Suite): Log Analytics에 대한 작업 및 진단 로그를 라우팅할 수 있습니다. Operations Management Suite에서는 메트릭, 로그 및 기타 경고 유형을 지원합니다.
+- 활동 로그 및 진단 로그를 Log Analytics로 라우팅할 수 있으며, 메트릭, 로그 및 기타 경고 유형이 허용됩니다.
 
 >[!Note]
 > 자세한 내용은 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)의 경고를 참조하세요.

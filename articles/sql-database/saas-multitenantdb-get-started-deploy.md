@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/23/2018
 
 이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다. *Ann Finley*라는 사람의 경우 다음을 제안합니다.
 - ‘사용자’: **af1**(Ann Finley의 이니셜과 숫자입니다. *앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
-- ‘리소스 그룹’: **wingtip-dpt-af1**(wingtip-dpt는 테넌트별 데이터베이스 앱임을 나타냅니다. *사용자 이름 af1을 추가하면 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.)*
+- *리소스 그룹:* **wingtip-mt-af1** *(wingtip-mt는 분할된 다중 테넌트 앱임을 나타냅니다. 사용자 이름 af1을 추가하면 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.)*
 
 이제 이름을 선택하고, 기록합니다. 
 

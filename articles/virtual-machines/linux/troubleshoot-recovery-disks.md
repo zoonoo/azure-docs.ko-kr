@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 2.0을 사용하여 Linux 문제 해결 VM 사용 | Microsoft Docs"
-description: "Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제를 해결하는 방법 알아보기"
+title: Azure CLI 2.0을 사용하여 Linux 문제 해결 VM 사용 | Microsoft Docs
+description: Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제를 해결하는 방법 알아보기
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
 Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI 2.0을 사용하는 방법을 자세히 설명합니다. [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
@@ -59,7 +59,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-URI는 **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**와 비슷합니다.
+URI는 **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**과 비슷합니다.
 
 ## <a name="delete-existing-vm"></a>기존 VM 삭제
 가상 하드 디스크와 VM은 Azure의 두 가지 별개의 리소스입니다. 가상 하드 디스크에는 운영 체제 자체, 응용 프로그램 및 구성이 저장됩니다. VM 자체는 크기 또는 위치를 정의하고 가상 하드 디스크 또는 가상 네트워크 인터페이스 카드(NIC)와 같은 리소스를 참조하는 메타데이터일 뿐입니다. 각 가상 하드 디스크에는 VM에 연결할 때 할당된 임대가 있습니다. VM을 실행하는 동안에도 데이터 디스크를 연결하고 분리할 수 있지만, VM 리소스를 삭제하지 않는 한 OS 디스크를 분리할 수 없습니다. 해당 VM이 중지 및 할당 취소된 상태에 있을 때에도 임대는 OS 디스크와 VM을 계속 연결합니다.
@@ -151,7 +151,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    기존 가상 하드 디스크의 이름을 적어둡니다. 예를 들어, **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**라는 URI를 사용하는 디스크의 이름은 **myVHD**입니다. 
+    기존 가상 하드 디스크의 이름을 적어둡니다. 예를 들어 URI(**https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**)를 포함하는 디스크의 이름은 **myVHD**입니다. 
 
     [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach) VM에서 데이터 디스크를 분리합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVMRecovery`에서 디스크 `myVHD`을 분리합니다.
 

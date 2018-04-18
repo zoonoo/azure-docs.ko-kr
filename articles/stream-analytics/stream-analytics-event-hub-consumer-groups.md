@@ -1,24 +1,19 @@
 ---
-title: 이벤트 허브 수신자를 사용하여 Azure Stream Analytics 디버그 | Microsoft Docs
+title: Azure Stream Analytics에서 이벤트 허브 수신자 문제 해결
 description: Stream Analytics 작업에서 Event Hubs 소비자 그룹을 고려하는 것에 대한 모범 사례를 쿼리합니다.
-keywords: 이벤트 허브 제한, 소비자 그룹
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 48fa5d0274549aa35e67526a758eef1f34198a6a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 20614986fc6c6afa9a92d163bf973a148e0517c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>이벤트 허브 수신자를 사용하여 Azure Stream Analytics 디버그
 
@@ -79,7 +74,7 @@ FROM data
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics 소개](stream-analytics-introduction.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 ## <a name="about-this-list"></a>다음 목록 정보
@@ -27,9 +27,11 @@ API를 가져올 때 성공하기 위해 먼저 해결해야 하는 몇 가지 �
 ## <a name="open-api"> </a>Open API/Swagger
 Open API 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 디자이너를 사용하거나(Design - Front End - Open API Specification Editor) <a href="http://www.swagger.io">Swagger Editor</a>와 같은 타사 도구를 사용하여 유효성을 검사해야 합니다.
 
-* **호스트 이름** APIM에는 호스트 이름 특성이 필요합니다.
-* **기본 경로** APIM에는 기본 경로 특성이 필요합니다.
-* **구성표** APIM에는 구성표 배열이 필요합니다.
+* OpenAPI에 대해 JSON 형식만 지원됩니다.
+* **$ref** 속성을 사용하여 참조된 스키마는 다른 **$ref** 속성을 포함할 수 없습니다.
+* **$ref** 포인터는 외부 파일을 참조할 수 없습니다.
+* **x-ms-paths** 및 **x-servers**는 지원되는 유일한 확장명입니다.
+* 사용자 지정 확장명은 가져오기 시 무시되고 내보내기에 대해 저장되거나 보존되지 않습니다.
 
 > [!IMPORTANT]
 > OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)를 참조하세요.

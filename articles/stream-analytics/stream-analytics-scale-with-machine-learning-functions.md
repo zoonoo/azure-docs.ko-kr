@@ -1,27 +1,22 @@
 ---
-title: Azure Stream Analytics 및 AzureML 함수를 사용한 작업 크기 조정 | Microsoft Docs
-description: Azure Machine Learning 함수를 사용할 때 Stream Analytics 작업의 크기를 적절하게 조정하는 방법(분할, SU 수량 등)에 대해 알아봅니다.
-keywords: ''
-documentationcenter: ''
+title: Azure Stream Analytics에서 Machine Learning 함수 크기 조정
+description: 이 아티클에서는 분할 및 스트림 단위를 구성하여 Microsoft Azure Machine Learning 함수를 사용하는 Stream Analytics 작업의 크기를 조정하는 방법을 설명합니다.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정
-Stream Analytics 작업을 설정하고 그 작업을 통해 몇 가지 샘플 데이터를 실행하면 아주 간단한 경우가 종종 있습니다. 더 큰 데이터 볼륨으로 같은 작업을 실행해야 할 때 어떻게 해야 할까요? 크기를 조정할 수 있도록 Stream Analytics 작업을 구성하는 방법을 이해해야 합니다. 이 문서에서는 Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기를 조정하는 방법을 집중적으로 다루겠습니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
+Stream Analytics 작업을 설정하고 이를 통해 몇 가지 샘플 데이터를 실행하는 작업은 간단합니다. 더 큰 데이터 볼륨으로 같은 작업을 실행해야 할 때 어떻게 해야 할까요? 크기를 조정할 수 있도록 Stream Analytics 작업을 구성하는 방법을 이해해야 합니다. 이 문서에서는 Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기를 조정하는 방법을 집중적으로 다루겠습니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Stream Analytics의 Azure Machine Learning 함수란 무엇입니까?
 Stream Analytics의 Machine Learning 함수는 Stream Analytics 쿼리 언어에 일반 함수 호출처럼 사용할 수 있습니다. 그러나 내부를 들여다보면, 함수 호출이 실제로는 Azure Machine Learning 웹 서비스 요청입니다. Machine Learning 웹 서비스는 같은 웹 서비스 API 호출의 여러 행을 "배치로 처리"하여 전체적인 처리량을 개선할 수 있으며, 이러한 배치를 미니 배치라고 부릅니다. 자세한 내용은 [Stream Analytics의 Azure Machine Learning 함수](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) 및 [Azure Machine Learning 웹 서비스](../machine-learning/studio/consume-web-services.md) 문서를 참조하세요.
@@ -111,7 +106,7 @@ Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 �
 2. 실행 중인 Stream Analytics 작업에 허용되는 대기 시간(따라서 Machine Learning 웹 서비스 요청의 배치 크기)
 3. 프로비전된 Stream Analytics SU 및 Machine Learning 웹 서비스 요청 수(추가 함수 관련 비용)
 
-이 예에서는 완전하게 분할된 Stream Analytics 쿼리가 사용되었습니다. 보다 복잡한 쿼리가 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 에서 Stream Analytics 팀에게 추가 도움을 받을 수 있습니다.
+이 예에서는 완전하게 분할된 Stream Analytics 쿼리가 사용되었습니다. 보다 복잡한 쿼리가 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) 에서 Stream Analytics 팀에게 추가 도움을 받을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.

@@ -1,13 +1,29 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/03/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/05/2018
+---
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 지역당 저장소 계정 수 | 200<sup>1</sup> |
 | 최대 저장소 계정 용량 | 500TiB<sup>2</sup> |
 | 저장소 계정당 Blob 컨테이너, Blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지의 최대 수 | 제한 없음 |
 | 저장소 계정당 최대 요청 속도 | 초당 20,000개 요청<sup>2</sup> |
-| 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 지역) | RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 10Gbps, LRS<sup>2</sup>를 사용하는 경우 20Gbps |
-| 저장소 계정당 최대 송신<sup>3</sup> 속도(미국 지역) | RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 20Gbps, LRS<sup>2</sup>를 사용하는 경우 30Gbps |
-| 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 이외 지역) | RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 5Gbps, LRS<sup>2</sup>를 사용하는 경우 10Gbps |
-| 저장소 계정당 최대 송신<sup>3</sup> 속도(미국 이외 지역) | RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 10Gbps, LRS<sup>2</sup>를 사용하는 경우 15Gbps |
+| 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 지역) | RA-GRS/GRS를 사용하는 경우 10Gbps, LRS/ZRS의 경우 20Gbps<sup>4</sup> |
+| 저장소 계정당 최대 송신<sup>3</sup> 속도(미국 지역) | RA-GRS/GRS를 사용하는 경우 20Gbps, LRS/ZRS의 경우 30Gbps<sup>4</sup> |
+| 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 이외 지역) | RA-GRS/GRS를 사용하는 경우 5Gbps, LRS/ZRS의 경우 10Gbps<sup>4</sup> |
+| 저장소 계정당 최대 송신<sup>3</sup> 속도(미국 이외 지역) | RA-GRS/GRS를 사용하는 경우 10Gbps, LRS/ZRS의 경우 15Gbps<sup>4</sup> |
 
 <sup>1</sup> 표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 Storage 계정을 250개까지 승인할 수 있습니다. 
 

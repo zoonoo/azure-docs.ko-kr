@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
@@ -104,8 +104,8 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |탄력적 풀이 저장소 용량 한도에 도달했습니다. 탄력적 풀의 저장소 사용량은 (%d)MB를 초과할 수 없습니다. |MB 단위의 탄력적 풀 공간 한도. |탄력적 풀이 저장소 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. |가능하다면 탄력적 풀의 DTU를 늘려 저장소 용량 한도를 확장하거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 저장소를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
-| 10929 |EX_USER |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 도움은 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요. 그렇지 않으면 나중에 다시 시도하세요. |데이터베이스당 DTU 최소값, 데이터베이스당 DTU 최대값 |탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU를 늘려 작업자 한도를 확대하거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
+| 1132 |EX_RESOURCE |탄력적 풀이 저장소 용량 한도에 도달했습니다. 탄력적 풀의 저장소 사용량은 (%d)MB를 초과할 수 없습니다. |MB 단위의 탄력적 풀 공간 한도. |탄력적 풀이 저장소 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. |가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에 저장소를 추가하여 저장소 용량 한도를 늘리거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 저장소를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
+| 10929 |EX_USER |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 도움은 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요. 그렇지 않으면 나중에 다시 시도하세요. |데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값 |탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
 | 40844 |EX_USER |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다. |데이터베이스 이름, 데이터베이스 버전, 서버 이름 |탄력적 풀에 있는 프리미엄이 아닌 데이터베이스에 대해 StartDatabaseCopy 명령이 발급되었습니다. |서비스 예정 |
 | 40857 |EX_USER |서버: '%ls'에서 탄력적 풀을 찾을 수 없음, 탄력적 풀 이름: '%ls'. |서버 이름, 탄력적 풀 이름 |지정한 탄력적 풀이 지정한 서버에 존재하지 않습니다. |유효한 탄력적 풀 이름을 입력하세요. |
 | 40858 |EX_USER |탄력적 풀 '%ls'이(가) 서버 '%ls'에 이미 있습니다. |탄력적 풀 이름, 서버 이름 |지정한 탄력적 풀이 지정한 논리 서버에 이미 있습니다. |새 탄력적 풀 이름을 입력하세요. |

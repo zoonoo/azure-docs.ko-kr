@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 앱 복원"
-description: "백업에서 앱을 복원하는 방법에 대해 알아봅니다."
+title: Azure에서 앱 복원
+description: 백업에서 앱을 복원하는 방법에 대해 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
 이 문서에서는 이전에 백업한 [Azure App Service](../app-service/app-service-web-overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](web-sites-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
-- [Azure Database for MySQL(미리 보기)](https://azure.microsoft.com/en-us/services/mysql)
-- [Azure Database for PostgreSQL(미리 보기)](https://azure.microsoft.com/en-us/services/postgres)
+- [Azure Database for MySQL)](https://azure.microsoft.com/en-us/services/mysql)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgres)
 - [MySQL 인앱](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 백업에서 복원하는 방식은 **표준** 및 **프리미엄** 계층에서 실행되는 앱에 사용할 수 있습니다. 앱 확장에 대한 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요. **프리미엄** 계층을 사용하면 **표준** 계층보다 더 많은 매일 백업을 수행할 수 있습니다.

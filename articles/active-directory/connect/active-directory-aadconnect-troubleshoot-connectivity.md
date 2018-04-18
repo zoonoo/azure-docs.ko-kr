@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: 연결 문제 해결 | Microsoft Docs"
-description: "Azure AD Connect의 연결 문제를 해결하는 방법을 설명합니다."
+title: 'Azure AD Connect: 연결 문제 해결 | Microsoft Docs'
+description: Azure AD Connect의 연결 문제를 해결하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -66,7 +66,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 ![Microsoft 계정이 사용됨](./media/active-directory-aadconnect-troubleshoot-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>MFA 끝점에 연결할 수 없음
-끝점 **https://secure.aadcdn.microsoftonline-p.com**에 연결할 수 없고 전역 관리자가 MFA를 사용하도록 설정한 경우 이 오류가 표시됩니다.  
+엔드포인트 **https://secure.aadcdn.microsoftonline-p.com**에 연결할 수 없고 전역 관리자가 MFA를 사용하도록 설정한 경우 이 오류가 표시됩니다.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 * 이 오류가 표시되는 경우 끝점 **secure.aadcdn.microsoftonline-p.com**이 프록시에 추가되어 있는지 확인합니다.
@@ -101,7 +101,7 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect와 Azure AD 간의 통신 패턴
 위의 모든 단계를 수행했는데도 여전히 연결할 수 없다면 이제 네트워크 로그를 살펴봅니다. 이 섹션에는 일반적이고 성공적인 연결 패턴이 나와 있습니다. 네트워크 로그를 읽고 있는 중이라면 무시해도 되는 지엽적인 내용도 나옵니다.
 
-* https://dc.services.visualstudio.com이 호출됩니다. 설치가 성공하는 데 프록시에 이 URL이 열려 있을 필요는 없으므로 이러한 호출은 무시해도 됩니다.
+* https://dc.services.visualstudio.com에 대한 호출이 있습니다. 설치가 성공하는 데 프록시에 이 URL이 열려 있을 필요는 없으므로 이러한 호출은 무시해도 됩니다.
 * DNS 확인에서 microsoftonline.com이 아닌 DNS 이름 공간 nsatc.net 및 기타 네임스페이스에 있어야 하는 실제 호스트가 나열됩니다. 그러나 실제 서버 이름에 대한 웹 서비스를 요청하지 않으므로 이러한 URL을 프록시에 추가할 필요가 없습니다.
 * 끝점 adminwebservice 및 provisioningapi는 검색 끝점이며 사용할 실제 끝점을 찾는 데 사용됩니다. 이러한 끝점은 사용자의 하위 지역에 따라 다릅니다.
 

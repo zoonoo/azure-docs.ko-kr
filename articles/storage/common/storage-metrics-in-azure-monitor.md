@@ -1,12 +1,12 @@
 ---
-title: "Azure Monitor의 Azure Storage 메트릭 | Microsoft Docs"
-description: "Azure Monitor에서 제공하는 새 메트릭에 대해 알아봅니다."
+title: Azure Monitor의 Azure Storage 메트릭 | Microsoft Docs
+description: Azure Monitor에서 제공하는 새 메트릭에 대해 알아봅니다.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Storage 메트릭(미리 보기)
 
@@ -28,7 +28,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com), Azure Monitor API(REST 및 .Net) 그리고 Operation Management Suite 및 Event Hub 같은 분석 솔루션에서 메트릭에 액세스할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)을 참조하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com), Azure Monitor API(REST 및 .Net) 및 분석 솔루션(예: Log Analytics 및 Event Hub)에서 메트릭에 액세스할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)을 참조하세요.
 
 메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)에서 이렇게 구성합니다.
 
@@ -141,7 +141,7 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 
 ## <a name="billing-for-metrics"></a>메트릭에 대한 청구
 
-Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 또는 고급 분석을 위해 OMS에 메트릭 데이터를 스트리밍할 경우 OMS(Operation Management Suite)에서 요금을 청구합니다.
+Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 또는 고급 분석을 위해 Log Analytics에 메트릭 데이터를 스트리밍할 경우 Log Analytics에서 요금을 청구합니다.
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Azure Storage의 서비스에 대한 리소스 ID 이해
 
@@ -243,7 +243,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 트랜잭션 메트릭을 
 | 송신 | 송신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
 | SuccessServerLatency | Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 시간입니다. 이 값은 SuccessE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
 | SuccessE2ELatency | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| Availability | 저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 총 청구 가능 요청 값을 적용 가능한 요청 수(예기치 않은 오류를 발생시킨 요청 포함)로 나누어서 계산합니다. 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다. <br/><br/> 단위: % <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 99.99 |
+| 가용성 | 저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 총 청구 가능 요청 값을 적용 가능한 요청 수(예기치 않은 오류를 발생시킨 요청 포함)로 나누어서 계산합니다. 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다. <br/><br/> 단위: % <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 99.99 |
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
@@ -254,7 +254,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | BlobType | Blob 메트릭용 Blob 형식만. 지원 되는 값은 **BlockBlob** 및 **PageBlob**입니다. 추가 Blob는 BlockBlob에 포함됩니다. |
 | ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외하고 모든 다른 서버 쪽 오류 </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. (아직 지원되지 않음) </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> ThrottlingError: 클라이언트 쪽 및 서버 쪽 제한 오류의 합계(ServerBusyError 및 ClientThrottlingError가 지원된 후 제거될 예정임) </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>  ClientThrottlingError: 클라이언트 쪽 제한 오류(아직 지원되지 않음) </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상되는 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외하고 모든 다른 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청|
 | GeoType | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값은 기본 및 보조를 포함합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
-| ApiName | 작업 이름입니다. 예: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)를 참조하세요. |
+| ApiName | 작업 이름입니다. 예:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)를 참조하세요. |
 
 메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공**을 포함한 **ResponseType** 차원을 필터링해야 합니다. 또는 블록 Blob에 대한 **BlobCount** 값을 조사하는 경우 **BlockBlob**을 포함한 **BlobType** 차원을 필터링해야 합니다.
 

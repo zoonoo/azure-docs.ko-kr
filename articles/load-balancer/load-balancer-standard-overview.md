@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -43,7 +43,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 ## <a name="why-use-standard-load-balancer"></a>표준 Load Balancer를 사용해야 하는 이유
 
-소규모 배포에서부터 크고 복잡한 다중 영역 아키텍처까지 전체 가상 데이터 센터 범위에 표준 Load Balancer를 사용할 수 있습니다.
+표준 Load Balancer를 사용하면 크고 복잡한 다중 영역 아키텍처에 대한 소규모 배포에 맞게 응용 프로그램의 크기를 조정하고 고가용성을 만들 수 있습니다.
 
 표준 Load Balancer 및 기본 Load Balancer 간의 차이점에 대한 개요는 아래 표를 검토하세요.
 

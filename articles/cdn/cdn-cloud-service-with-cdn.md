@@ -1,6 +1,6 @@
 ---
-title: "Azure CDN과 Azure 클라우드 서비스 통합 | Microsoft Docs"
-description: "통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 알아봅니다."
+title: Azure CDN과 Azure 클라우드 서비스 통합 | Microsoft Docs
+description: 통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 알아봅니다.
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro"></a> Azure CDN과 클라우드 서비스 통합
 클라우드 서비스는 Azure CDN과 통합되어 클라우드 서비스의 위치에 있는 모든 콘텐츠를 제공할 수 있습니다. 이 접근 방식을 통해 다음과 같은 장점을 얻을 수 있습니다.
@@ -146,11 +146,11 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-**http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동한 경우 브라우저에 따라 게시한 웹앱에서 제공한 bootstrap.css를 다운로드하거나 열라는 메시지가 표시됩니다.
+**http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동하는 경우 브라우저에 따라 게시된 웹앱에서 제공되는 bootstrap.css를 다운로드 또는 열라는 메시지가 표시됩니다.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-마찬가지로 CDN 끝점에서 **http://*&lt;서비스 이름>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예: 
+마찬가지로 CDN 엔드포인트에서 **http://*&lt;서비스 이름>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예: 
 
 * /Script 경로의 .js 파일
 * /Content 경로의 모든 콘텐츠 파일

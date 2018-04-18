@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 356c1343443b33e565c65ef0693b8d8455ff1d1b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>OMS 포털에서 Azure로 경고 확장(복사)
 OMS(Operations Management Suite) 포털만 Log Analytics 경고를 표시합니다.  새 경고 환경은 이제 Microsoft Azure의 다양한 서비스와 부분에서 경고 환경을 통합했습니다. Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능한 새 환경은 활동 로그 경고, 메트릭 경고, Log Analytics의 로그 경고 및 Application Insights를 포함합니다. 
@@ -30,12 +30,13 @@ Azure Portal을 벗어날 필요가 없는 것에서 발생하는 이점 이외�
 
 - 250개의 경고를 생성 및 볼 수 있는 OMS 포털에서와 달리 Azure Alerts에서는 이 제한 사항이 존재하지 않습니다.
 - Azure 경고에서는 OMS 포털을 사용하는 경우의 Log Analytics 경고뿐만 아니라 모든 경고 유형을 관리, 열거 및 볼 수 있습니다.
-- Azure Alerts는 각 경고에 대해 SMS, 음성 통화, Automation Runbook, 웹후크, ITSM 커넥터 등을 포함하여 둘 이상의 작업을 가질 수 있도록 하는 [작업 그룹](monitoring-action-groups.md)을 활용합니다. 가능한 작업의 수 및 형식 모두에서 Log Analytics 경고가 제한됨
+- [Azure Monitor 역할](monitoring-roles-permissions-security.md)을 사용하여 모니터링 및 경고에 대한 사용자 액세스 제어
+- Azure Alerts는 각 경고에 대해 SMS, 음성 통화, Automation Runbook, 웹후크, ITSM 커넥터 등을 포함하여 둘 이상의 작업을 가질 수 있도록 하는 [작업 그룹](monitoring-action-groups.md)을 활용합니다. 
 
 ## <a name="process-of-extending-your-alerts"></a>경고 확장의 프로세스
 OMS 포털에서 Azure로 경고를 확장하는 프로세스는 어떠한 방법으로도 경고 정의, 쿼리 또는 구성 변경을 포함하지 **않습니다**. Azure에서 필요한 유일한 변경은 이메일 알림, 웹후크 통화, 자동화 Runbook 실행 또는 ITSM 도구에 연결과 같은 모든 작업은 작업 그룹을 통해 수행된다는 것입니다. 따라서 적절한 작업 그룹이 경고와 연결된 경우 Azure로 확장됩니다.
 
-확장 프로세스는 비파괴적이며 방해하지 않으므로 Microsoft는 **2018년 4월 23일**부터 OMS 포털에서 생성된 경고를 Azure 경고로 자동으로 확장합니다. 이 날부터 Microsoft는 Azure로 경고 확장 일정을 시작하고 OMS 포털에 있는 모든 경고를 점진적으로 Azure Portal에서 관리할 수 있도록 합니다. 
+확장 프로세스는 비파괴적이며 방해하지 않으므로 Microsoft는 **2018년 5월 14일**부터 OMS 포털에서 생성된 경고를 Azure 경고로 자동으로 확장합니다. 이 날부터 Microsoft는 Azure로 경고 확장 일정을 시작하고 OMS 포털에 있는 모든 경고를 점진적으로 Azure Portal에서 관리할 수 있도록 합니다. 
 
 Log Analytics 작업 영역의 경고가 Azure로 확장에 대한 일정을 예약하면 계속해서 작동하고 어떤 방식으로든 모니터링을 손상하지 **않습니다**. 예약된 경우 경고는 일시적으로 수정/편집이 가능하지 않을 수 있지만 새 Azure 경고는 이 짧은 시간에 만들어지도록 계속할 수 있습니다. 이 짧은 기간 동안 경고의 모든 편집 또는 생성이 OMS 포털에서 수행되는 경우 사용자는 Azure Log Analytics 또는 Azure Alerts로 계속하는 옵션을 갖습니다.
 
@@ -55,7 +56,12 @@ OMS 사용자가 Azure 경고로 쉽게 전달할 수 있도록 Microsoft는 경
 
  ![Azure로 확장된 후 경고를 나열하는 OMS 포털](./media/monitor-alerts-extend/PostExtendList.png)
 
-OMS 포털에서 수행된 편집 또는 생성과 같은 경고에 대한 모든 작업의 경우 사용자는 Azure Alerts로 투명하게 연결됩니다. 경고 생성은 이전과 같이 경고가 Azure로 확장된 후 약간의 변경으로 기존 [Log Analytics API](../log-analytics/log-analytics-api-alerts.md)에서 계속됩니다. 작업 그룹은 일정에 연결되어야 합니다.
+OMS 포털에서 수행된 편집 또는 생성과 같은 경고에 대한 모든 작업의 경우 사용자는 Azure Alerts로 투명하게 연결됩니다. 
+
+> [!NOTE]
+> OMS의 경고에 대한 추가 또는 편집 작업 시 사용자가 Azure로 투명하게 이동되므로 사용자는 [Azure Monitor 및 Azure 경고를 사용하기에 적절한 권한](monitoring-roles-permissions-security.md)으로 올바르게 매핑됩니다.
+
+경고 생성은 이전과 같이 경고가 Azure로 확장된 후 약간의 변경으로 기존 [Log Analytics API](../log-analytics/log-analytics-api-alerts.md)에서 계속됩니다. 작업 그룹은 일정에 연결되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

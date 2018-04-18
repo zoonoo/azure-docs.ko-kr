@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: c2e11d89f35915ef0a0c1e1f544b0be8df0473de
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>OMS에서 Azure로 경고를 확장(복사)하는 방법
-**2018년 4월23일**부터 [Microsoft OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에 구성된 경고를 사용하는 모든 고객은 Azure로 확장됩니다. Azure로 확장되는 경고는 OMS의 경우와 동일하게 동작합니다. 모니터링 기능은 그대로 유지됩니다. OMS에서 생성된 경고를 Azure로 확장하면 많은 이점이 있습니다. OMS에서 Azure로 경고를 확장할 때의 이점 및 확장 프로세스에 대한 자세한 내용은 [OMS에서 Azure로 경고 확장](monitoring-alerts-extend.md)을 참조하세요.
+**2018년 5월14일**부터 [Microsoft OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에 구성된 경고를 사용하는 모든 고객은 Azure로 확장됩니다. Azure로 확장되는 경고는 OMS의 경우와 동일하게 동작합니다. 모니터링 기능은 그대로 유지됩니다. OMS에서 생성된 경고를 Azure로 확장하면 많은 이점이 있습니다. OMS에서 Azure로 경고를 확장할 때의 이점 및 확장 프로세스에 대한 자세한 내용은 [OMS에서 Azure로 경고 확장](monitoring-alerts-extend.md)을 참조하세요.
 
 OMS에서 Azure로 경고를 즉시 이동하려는 고객은 설명된 옵션 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
@@ -157,8 +157,87 @@ POST가 성공하면 다음과 함께 200 정상 응답이 반환합니다.
 ```
 버전 2에 지시된 대로 경고가 Azure로 확장되었다는 표시. 이 버전은 경고가 Azure로 확장되었는지만 확인하며, [Log Analytics 검색 API](../log-analytics/log-analytics-api-alerts.md)에서 사용되는지 여부에는 관여하지 않습니다. 경고가 성공적으로 Azure로 확장되면 GET 중 제공된 모든 이메일 주소는 수행된 변경 내용의 세부 정보가 있는 보고서를 전송합니다.
 
+또한 마지막으로, 지정된 작업 영역의 모든 경고가 Azure로 확장되도록 이미 예약된 경우 POST에 대한 응답은 403 사용 권한 없음입니다. 확장 프로세스가 중단된 경우 오류 메시지를 보거나 이해하려면 GET 호출을 수행하고 요약과 함께 반환될 경우 오류 메시지를 볼 수 있습니다.
 
-또한 마지막으로, 지정된 작업 영역에 있는 모든 경고가 Azure로 확장되도록 이미 예약된 경우 POST에 대한 응답은 403 사용할 수 없음입니다.
+```json
+{
+    "version": 1,
+    "message": "OMS was unable to extend your alerts into Azure, Error: The subscription is not registered to use the namespace 'microsoft.insights'. OMS will schedule extending your alerts, once remediation steps illustrated in the troubleshooting guide are done.",
+    "recipients": [
+       "john.doe@email.com",
+       "jane.doe@email.com"
+     ],
+    "migrationSummary": {
+        "alertsCount": 2,
+        "actionGroupsCount": 2,
+        "alerts": [
+            {
+                "alertName": "DemoAlert_1",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_1"
+            },
+            {
+                "alertName": "DemoAlert_2",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_2"
+            }
+        ],
+        "actionGroups": [
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                "actions": {
+                    "emailIds": [
+                        "JohnDoe@mail.com"
+                    ],
+                    "webhookActions": [
+                        {
+                            "name": "Webhook_1",
+                            "serviceUri": "http://test.com"
+                        }
+                    ],
+                    "itsmAction": {}
+                }
+            },
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                 "actions": {
+                    "emailIds": [
+                        "test1@mail.com",
+                          "test2@mail.com"
+                    ],
+                    "webhookActions": [],
+                    "itsmAction": {
+                        "connectionId": "<Guid>",
+                        "templateInfo":"{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{\\\"contact_type\\\":\\\"email\\\",\\\"impact\\\":\\\"3\\\",\\\"urgency\\\":\\\"2\\\",\\\"category\\\":\\\"request\\\",\\\"subcategory\\\":\\\"password\\\"}\",\"CreateOneWIPerCI\":false}"
+                    }
+                }
+            }
+        ]
+    }
+}              
+
+```
+
+## <a name="troubleshooting"></a>문제 해결 
+OMS에서 Azure로 경고를 확장하는 과정에서 시스템이 필요한 [작업 그룹](monitoring-action-groups.md)을 만들지 못하도록 하는 문제가 발생하는 경우가 종종 있습니다. 이런 경우 경고 섹션의 배너 및 API에 대한 GET 호출을 통해 OMS 포털에 오류 메시지가 표시됩니다.
+
+다음은 각 오류에 대한 수정 단계입니다.
+1. **오류: 구독이 'microsoft.insights' 네임스페이스를 사용하도록 등록되어 있지 않습니다.** ![등록 오류 메시지가 있는 OMS 포털 경고 설정 페이지](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+
+    a. OMS 작업 영역과 관련된 구독 - Azure Monitor(microsoft.insights) 기능을 사용하도록 등록되지 않았습니다. 이로 인해 OMS는 Azure Monitor 및 Azure 경고로 경고를 확장할 수 없습니다.
+    
+    나. 해결하려면 PowerShell, Azure CLI 또는 Azure Portal을 사용하여 구독에 microsoft.insights(Azure 모니터 및 알림)를 등록하십시오. 자세히 알아보려면 [리소스 공급자 등록 시 오류 해결](../azure-resource-manager/resource-manager-register-provider-errors.md)에 대한 문서를 참조하세요.
+    
+    다. 문서에 설명된 단계에 따라 해결되면 OMS는 다음날 예정된 실행 시간 내에 Azure로 경로를 확장합니다. 작업이나 시작이 필요하지 않습니다.
+2. **Error: Scope Lock is present at subscription/resource group level for write operations**(오류: 쓰기 작업에 대한 구독/리소스 그룹 수준에 범위 잠금이 있습니다.) ![범위 잠금 오류 메시지가 있는 OMS 포털 경고 설정 페이지](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. 범위 잠금이 활성화되어 Log Analytics(OMS) 작업 영역이 포함된 구독 또는 리소스 그룹의 새로운 변경이 제한되면, 시스템에서 경고가 Azure로 확장되지 못하고 필요한 작업 그룹이 만들어지지 않습니다.
+    
+    나. 해결하려면 Azure Portal, Powershell, Azure CLI 또는 API를 사용하여 작업 영역이 포함된 구독 또는 리소스 그룹에서 *ReadOnly* 잠금을 삭제하십시오. 자세히 알아보려면 [리소스 잠금 사용](../azure-resource-manager/resource-group-lock-resources.md)에 대한 문서를 참조하세요. 
+    
+    다. 문서에 설명된 단계에 따라 해결되면 OMS는 다음날 예정된 실행 시간 내에 Azure로 경로를 확장합니다. 작업이나 시작이 필요하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

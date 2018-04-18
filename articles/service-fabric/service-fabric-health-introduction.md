@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric의 상태 모니터링 | Microsoft Docs"
-description: "클러스터 및 응용 프로그램과 서비스 모니터링을 제공하는 Azure 서비스 패브릭 상태 모니터링 모델 소개."
+title: Service Fabric의 상태 모니터링 | Microsoft Docs
+description: 클러스터 및 응용 프로그램과 서비스 모니터링을 제공하는 Azure 서비스 패브릭 상태 모니터링 모델 소개.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
@@ -211,7 +211,7 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
 * **설명**. 보고자가 상태 이벤트에 대한 세부 정보를 제공하도록 허용하는 문자열. **SourceId**, **속성** 및 **HealthState**는 보고서를 완벽하게 설명해야 합니다. 설명을 통해 보고서에 대한 알기 쉬운 정보를 추가하면 관리자와 사용자가 상태 보고서를 손쉽게 이해할 수 있습니다.
 * **HealthState**. 보고서의 성능 상태를 설명하는 [열거형](service-fabric-health-introduction.md#health-states) . 허용되는 값은 정상, 경고 및 오류입니다.
 * **TimeToLive**. 상태 보고서가 유효 상태를 유지하는 기간. **RemoveWhenExpired**와 연결되어 있으므로 Health 스토어에서 만료된 이벤트를 평가하는 방법을 알 수 있습니다. 기본적으로 이 값은 무한대이고 보고서는 영원히 유효합니다.
-* **RemoveWhenExpired**. 부울. true로 설정되면 만료된 상태 보고서가 Health 스토어에서 자동으로 제거되며 엔터티 상태 평가에는 영향을 주지 않습니다. 보고서가 지정된 기간만 유효하고 보고자가 해당 보고서를 명시적으로 지울 필요가 없을 때 사용됩니다. Health 스토어에서 보고서를 삭제하는 데도 사용되며 예를 들어, Watchdog이 변경되어 이전 소스와 속성으로 보고서를 보내는 것을 중지합니다. RemoveWhenExpired와 함께 간략한 TimeToLive로 보고서를 보내 Health 스토어에서 이전 상태를 정리할 수 있습니다. 이 값을 false로 설정하면 만료된 보고서가 상태 평가에서 오류로 처리됩니다. false 값은 소스에서 이 속성에 대해 주기적으로 보고해야 함을 Health 스토어에 알려주는 것입니다. 그렇지 않은 경우 Watchdog에 문제가 있는 것입니다. Watchdog 상태는 이벤트를 오류로 간주하여 캡처됩니다.
+* **RemoveWhenExpired**. 부울입니다. true로 설정되면 만료된 상태 보고서가 Health 스토어에서 자동으로 제거되며 엔터티 상태 평가에는 영향을 주지 않습니다. 보고서가 지정된 기간만 유효하고 보고자가 해당 보고서를 명시적으로 지울 필요가 없을 때 사용됩니다. Health 스토어에서 보고서를 삭제하는 데도 사용되며 예를 들어, Watchdog이 변경되어 이전 소스와 속성으로 보고서를 보내는 것을 중지합니다. RemoveWhenExpired와 함께 간략한 TimeToLive로 보고서를 보내 Health 스토어에서 이전 상태를 정리할 수 있습니다. 이 값을 false로 설정하면 만료된 보고서가 상태 평가에서 오류로 처리됩니다. false 값은 소스에서 이 속성에 대해 주기적으로 보고해야 함을 Health 스토어에 알려주는 것입니다. 그렇지 않은 경우 Watchdog에 문제가 있는 것입니다. Watchdog 상태는 이벤트를 오류로 간주하여 캡처됩니다.
 * **SequenceNumber**. 계속 증가되어야 하는 양의 정수로, 보고서의 순서를 나타냅니다. Health 스토어에서 네트워크 지연 또는 기타 문제 때문에 늦게 수신된 기한 경과된 보고서를 감지하는 데 사용됩니다. 시퀀스 번호가 동일한 엔터티, 소스 및 속성에 대해 가장 최근에 적용된 번호보다 작거나 같은 경우, 보고서는 거부됩니다. 시퀀스 번호를 지정하지 않으면 자동으로 생성됩니다. 상태 전환에 대해 보고하는 경우에만 시퀀스 번호를 부여해야 합니다. 이 경우 소스는 전송할 보고서를 기억해야 하며 장애 조치(failover)를 위해 복구에 대한 정보를 유지해야 합니다.
 
 SourceId, 엔터티 식별자, 속성 및 HealthState의 4가지 정보는 모든 상태 보고서에서 필요합니다. SourceId 문자열은 접두사 "**System.**"으로 시작할 수 없습니다. 이 접두사는 시스템 보고서용으로 예약되어 있습니다. 동일한 엔터티인 경우 동일한 소스 및 속성에 대해 하나의 보고서만 있습니다. 동일한 소스와 속성에 대한 여러 보고서는 상태 클라이언트(배치 처리된 경우) 또는 Health 스토어 중 한 군데에서 서로 재정의됩니다. 교체는 시퀀스 번호를 기준으로 수행됩니다. 최신 보고서(높은 시퀀스 번호)가 오래된 보고서를 대체합니다.

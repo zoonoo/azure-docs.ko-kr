@@ -1,12 +1,13 @@
 ---
 title: 네트워크 트래픽 라우팅 - Azure CLI | Microsoft Docs
-description: Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽을 라우팅하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽을 라우팅하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -16,26 +17,25 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
-기본적으로 Azure에서는 가상 네트워크 내의 모든 서브넷 간에 트래픽을 자동으로 라우팅합니다. 고유의 라우팅을 만들어 Azure의 기본 라우팅을 재정의할 수 있습니다. 사용자 지정 경로를 만드는 기능은 예를 들어 NVA(네트워크 가상 어플라이언스)를 통해 서브넷 간 트래픽을 라우팅하려는 경우에 유용합니다. 이 문서에서는 다음 방법을 알아봅니다.
+기본적으로 Azure에서는 가상 네트워크 내의 모든 서브넷 간에 트래픽을 자동으로 라우팅합니다. 고유의 라우팅을 만들어 Azure의 기본 라우팅을 재정의할 수 있습니다. 사용자 지정 경로를 만드는 기능은 예를 들어 NVA(네트워크 가상 어플라이언스)를 통해 서브넷 간 트래픽을 라우팅하려는 경우에 유용합니다. 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 경로 테이블 만들기
-> * 경로 만들기
-> * 여러 서브넷이 있는 가상 네트워크 만들기
-> * 서브넷에 경로 테이블 연결
-> * 트래픽을 라우팅하는 NVA 만들기
-> * 다른 서브넷에 VM(가상 머신) 배포
-> * NVA를 통해 한 서브넷에서 다른 서브넷으로 트래픽 라우팅
+* 경로 테이블 만들기
+* 경로 만들기
+* 여러 서브넷이 있는 가상 네트워크 만들기
+* 서브넷에 경로 테이블 연결
+* 트래픽을 라우팅하는 NVA 만들기
+* 다른 서브넷에 VM(가상 머신) 배포
+* NVA를 통해 한 서브넷에서 다른 서브넷으로 트래픽 라우팅
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -120,7 +120,7 @@ az network vnet subnet update \
 
 NVA는 라우팅, 방화벽 또는 WAN 최적화와 같은 네트워크 기능을 수행하는 VM입니다.
 
-[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 *DMZ* 서브넷에서 NVA를 만듭니다. VM을 만들 때 Azure는 기본적으로 VM에 공용 IP 주소를 만들고 할당합니다. `--public-ip-address ""` 매개 변수는 Azure가 VM에 공용 IP 주소를 만들고 할당하지 못하도록 지시합니다. VM을 인터넷에서 연결할 필요가 없기 때문입니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 *DMZ* 서브넷에서 NVA를 만듭니다. VM을 만들 때 Azure는 기본적으로 VM에 공용 IP 주소를 만들고 할당합니다. VM이 인터넷에서 연결될 필요가 없으므로 `--public-ip-address ""` 매개 변수는 Azure에서 VM에 공용 IP 주소를 만들고 할당하지 못하도록 지시합니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
 
 ```azure-cli-interactive
 az vm create \
@@ -215,7 +215,7 @@ ssh azureuser@<publicIpAddress>
 
 암호를 입력하라는 메시지가 표시되면 [가상 머신 만들기](#create-virtual-machines)에서 선택한 암호를 입력합니다.
 
-*myVmPrivate* VM에서 경로 추적을 설치하려면 다음 명령을 사용합니다.
+다음 명령을 사용하여 *myVmPrivate* VM에 경로 추적을 설치합니다.
 
 ```bash 
 sudo apt-get install traceroute
@@ -242,7 +242,7 @@ traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 ssh azureuser@myVmPublic
 ```
 
-*myVmPublic* VM에서 경로 추적을 설치하려면 다음 명령을 사용합니다.
+다음 명령을 사용하여 *myVmPublic* VM에 경로 추적을 설치합니다.
 
 ```bash 
 sudo apt-get install traceroute
@@ -275,9 +275,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 경로 테이블을 만들고 서브넷에 연결했습니다. 공용 서브넷에서 개인 서브넷으로 트래픽을 라우팅하는 간단한 NVA를 만들었습니다. 이제 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)에서 방화벽 및 WAN 최적화 같은 네트워크 기능을 수행하는 다양한 미리 구성된 NVA를 배포합니다. 프로덕션에 사용할 경로 테이블을 배포하기 전에 [Azure에서 라우팅](virtual-networks-udr-overview.md), [경로 테이블 관리](manage-route-table.md) 및 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)에 대해 자세히 알아두는 것이 좋습니다.
+이 문서에서는 경로 테이블을 만들고 서브넷에 연결했습니다. 공용 서브넷에서 개인 서브넷으로 트래픽을 라우팅하는 간단한 NVA를 만들었습니다. 이제 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)에서 방화벽 및 WAN 최적화 같은 네트워크 기능을 수행하는 다양한 미리 구성된 NVA를 배포합니다. 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md) 및 [경로 테이블 관리](manage-route-table.md)를 참조하세요.
 
-가상 네트워크 내에서 여러 Azure 리소스를 배포할 수 있는 반면, 일부 Azure PaaS 서비스에 대한 리소스는 가상 네트워크에 배포할 수 없습니다. 하지만 일부 Azure PaaS 서비스의 리소스에 대한 액세스를 가상 네트워크 서브넷의 트래픽만으로 제한할 수 있습니다. 다음 자습서에서 Azure PaaS 리소스에 대한 네트워크 액세스를 제한하는 방법에 대해 알아보세요.
-
-> [!div class="nextstepaction"]
-> [PaaS 리소스에 대한 네트워크 액세스 제한](tutorial-restrict-network-access-to-resources-cli.md)
+가상 네트워크 내에서 여러 Azure 리소스를 배포할 수 있는 반면, 일부 Azure PaaS 서비스에 대한 리소스는 가상 네트워크에 배포할 수 없습니다. 하지만 일부 Azure PaaS 서비스의 리소스에 대한 액세스를 가상 네트워크 서브넷의 트래픽만으로 제한할 수 있습니다. 방법을 알아보려면 [PaaS 리소스에 대한 네트워크 액세스 제한](tutorial-restrict-network-access-to-resources-cli.md)을 참조하세요.

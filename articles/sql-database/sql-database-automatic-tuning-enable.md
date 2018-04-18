@@ -7,13 +7,13 @@ manager: drasumic
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-automatic-tuning"></a>자동 조정 사용
 
@@ -22,7 +22,7 @@ Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드�
 ## <a name="enable-automatic-tuning-on-server"></a>서버에서 자동 조정 사용
 서버 수준에서 "Azure 기본값"에서 자동 조정 구성을 상속하거나 구성을 상속하지 않도록 선택할 수 있습니다. Azure 기본값은 FORCE_LAST_GOOD_PLAN이 활성화되었고, CREATE_INDEX가 활성화되었으며 DROP_INDEX는 비활성화되었습니다.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>이메일 알림 자동 조정 구성
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>이메일 알림 자동 조정 구성
 
 [이메일 알림 자동 조정](sql-database-automatic-tuning-email-notifications.md)을 참조하세요.
 

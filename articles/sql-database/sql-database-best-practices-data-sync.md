@@ -1,18 +1,18 @@
 ---
-title: "Azure SQL 데이터 동기화(미리 보기) 모범 사례 | Microsoft Docs"
-description: "Azure SQL 데이터 동기화(미리 보기)의 구성 및 실행에 대한 모범 사례를 알아봅니다."
+title: Azure SQL 데이터 동기화(미리 보기) 모범 사례 | Microsoft Docs
+description: Azure SQL 데이터 동기화(미리 보기)의 구성 및 실행에 대한 모범 사례를 알아봅니다.
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기)에 대한 모범 사례 
 
@@ -212,7 +212,7 @@ SQL 데이터 동기화(미리 보기)에 대한 자세한 내용은 다음 항�
 
 -   [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)
 -   [Azure SQL 데이터 동기화(미리 보기) 설정](sql-database-get-started-sql-data-sync.md)
--   [OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링](sql-database-sync-monitor-oms.md)
+-   [Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링](sql-database-sync-monitor-oms.md)
 -   [Azure SQL 데이터 동기화(미리 보기) 문제 해결](sql-database-troubleshoot-data-sync.md)  
 -   SQL 데이터 동기화(미리 보기) 구성 방법을 보여주는 전체 PowerShell 예제:  
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)  

@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 03/28/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 설계
 
@@ -47,8 +47,9 @@ PolyBase는 T-SQL 언어를 통해 데이터베이스 외부의 데이터에 액
 PolyBase로 데이터를 로드하려면 다음 로드 옵션 중 하나를 사용할 수 있습니다.
 
 - [T-SQL을 이용한 PolyBase](load-data-from-azure-blob-storage-using-polybase.md): Azure Blob 저장소 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다. 
-- [SSIS를 이용한 PolyBase](sql-data-warehouse-load-from-sql-server-with-integration-services.md): 원본 데이터가 SQL Server(SQL Server 온-프레미스 또는 클라우드)에 있을 경우 효과적입니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다. 
-- [ADF(Azure Data Factory)를 이용한 PolyBase](sql-data-warehouse-load-with-data-factory.md): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다. 
+- [SSIS를 이용한 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse): 원본 데이터가 SQL Server(SQL Server 온-프레미스 또는 클라우드)에 있을 경우 효과적입니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다. 
+- [ADF(Azure Data Factory)를 이용한 PolyBase](sql-data-warehouse-load-with-data-factory.md): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다. ADF를 사용하여 JSON 데이터를 구문 분석하여SQL Data Warehouse에 로드할 수 있습니다.
+- [PolyBase와 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)는 Azure Data Lake Store에서 SQL Data Warehouse로 데이터를 전송합니다. Azure DataBricks를 사용하여 JSON 데이터를 구문 분석하여 해당 데이터를 SQL Data Warehouse에 로드할 수 있습니다. 
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 외부 파일 형식
 

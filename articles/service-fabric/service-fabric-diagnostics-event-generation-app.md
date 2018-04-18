@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>응용 프로그램 및 서비스 수준 로깅
 
@@ -36,10 +36,11 @@ Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSo
 
 코드를 계측하는 방법을 신중하게 계획해야 합니다. 올바른 계측 계획을 사용하면 잠재적인 코드 기반의 불안정을 피한 다음 코드를 다시 계측할 수 있습니다. 위험을 줄이기 위해 Microsoft ASP.NET Core의 일부인 [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/)과 같은 계측 라이브러리를 선택할 수 있습니다. ASP.NET Core에는 기존 코드에 미치는 영향을 최소화하면서 선택한 공급자와 함께 사용할 수 있는 [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) 인터페이스가 있습니다. Windows 및 Linux의 ASP.NET Core 및 전체 .NET Framework의 코드를 사용하여 계측 코드를 표준화할 수 있습니다.
 
-## <a name="choosing-a-logging-provider"></a>로깅 공급자 선택
+## <a name="application-insights-sdk"></a>Application Insights SDK
 
-응용 프로그램이 높은 성능에 의존하는 경우 일반적으로 **EventSource**를 사용하는 것이 적합합니다. **EventSource**는 *일반적으로* ASP.NET Core 로깅이나 사용 가능한 타사 솔루션보다 더 적은 리소스를 사용하는 한편 더 효율적으로 수행합니다.  이는 대부분의 서비스에서 문제가 되지 않지만, 성능 지향적인 서비스인 경우 **EventSource**를 사용하는 것이 더 나은 선택일 수 있습니다. 그러나 구조적 로깅과 동일한 이점을 얻으려면 엔지니어링 팀에서 **EventSource**에 많이 투자해야 합니다. 가능하다면 신속하게 몇 가지 로깅 옵션의 프로토타입을 제작하여 요구 사항에 가장 부합하는 것을 선택합니다.
+Application Insights에는 즉시 사용이 가능한 Service Fabric과의 통합이 있습니다. 사용자는 AI Service Fabric NuGet 패키지를 추가하고 Azure Portal에서 볼 수 있도록 만들어지고 수집된 데이터 및 로그를 받습니다. 또한 사용자는 해당 응용 프로그램을 진단 및 디버그하고 응용 프로그램에서 가장 많이 사용되는 서비스 및 부분을 추적하기 위해 고유한 원격 분석을 추가하는 것이 좋습니다. SDK에서 [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) 클래스는 응용 프로그램에서 원격 분석을 추적하는 여러 방법을 제공합니다. [.NET 응용 프로그램 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)에 대한 자습서에서 Application Insights를 계측하고 응용 프로그램에 추가하는 방법의 예를 확인합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 및 서비스를 계측할 로깅 공급자를 선택한 후에는 분석 플랫폼으로 보낼 수 있도록 로그 및 이벤트를 집계해야 합니다. 권장 옵션을 더 잘 이해하려면 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [WAD](service-fabric-diagnostics-event-aggregation-wad.md)를 참조하세요.
+응용 프로그램 및 서비스를 계측할 로깅 공급자를 선택한 후에는 분석 플랫폼으로 보낼 수 있도록 로그 및 이벤트를 집계해야 합니다. 권장 옵션을 더 잘 이해하려면 [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [WAD](service-fabric-diagnostics-event-aggregation-wad.md)를 참조하세요.

@@ -1,10 +1,10 @@
 ---
-title: "VM 확장을 사용하여 Linux VM 모니터링 | Microsoft Docs"
-description: "Linux 진단 확장을 사용하여 Azure Linux VM의 성능 및 진단 데이터를 모니터링하는 방법을 알아봅니다."
+title: VM 확장을 사용하여 Linux VM 모니터링 | Microsoft Docs
+description: Linux 진단 확장을 사용하여 Azure Linux VM의 성능 및 진단 데이터를 모니터링하는 방법을 알아봅니다.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링
 
@@ -64,11 +64,11 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 * **Azure Linux 에이전트 버전 2.0.6 이상**.
 
   대부분의 Azure VM Linux 갤러리 이미지에는 2.0.6 이후 버전이 포함되어 있습니다. **WAAgent -version** 을 실행하여 VM에 설치된 버전을 확인할 수 있습니다. VM 2.0.6보다 이전 버전을 실행하는 경우 다음 [GitHub의 이러한 지침](https://github.com/Azure/WALinuxAgent "지침") 을 따라 이를 업데이트할 수 있습니다.
-* **Azure CLI**. [CLI 설치 지침](../../../cli-install-nodejs.md) 을 따라 컴퓨터에 Azure CLI 환경을 설정합니다. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예:
+* **Azure CLI**. [CLI 설치 지침](../../../cli-install-nodejs.md) 을 따라 컴퓨터에 Azure CLI 환경을 설정합니다. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예: 
 
   * 자세한 도움말 정보는 **azure vm extension set –help** 를 실행합니다.
   * Azure에 로그인하려면 **azure login** 을 실행합니다.
-  * Azure에 있는 모든 가상 컴퓨터를 나열하려면 **azure vm list** 를 실행합니다.
+  * Azure에 있는 모든 가상 머신을 나열하려면 **azure vm list** 를 실행합니다.
 * 데이터를 저장할 저장소 계정입니다. 데이터를 저장소에 업로드하려면 이전에 생성된 저장소 계정 이름과 선택키가 있어야 합니다.
 
 ## <a name="use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension"></a>Azure CLI 명령을 사용하여 Linux 진단 확장을 사용하도록 설정
@@ -88,7 +88,7 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
         "storageAccountKey" : "the key of the account"
     }
 
-2단계. **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**을 실행합니다.
+2단계. **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2* --private-config-path PrivateConfig.json**을 실행합니다.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>시나리오 2. 성능 모니터 메트릭 사용자 지정
 
@@ -151,16 +151,16 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 ## <a name="review-your-data"></a>데이터 검토
 
-성능 및 진단 데이터는 Azure 저장소 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 저장소 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure 테이블 저장소를 사용하는 방법](../../../cosmos-db/table-storage-how-to-use-ruby.md) 을 검토하세요.
+성능 및 진단 데이터는 Azure Storage 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 저장소 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure Table Storage를 사용하는 방법](../../../cosmos-db/table-storage-how-to-use-ruby.md) 을 검토하세요.
 
 또한 다음 UI 도구를 사용하여 데이터에 액세스할 수 있습니다.
 
 1. Visual Studio 서버 탐색기. 저장소 계정으로 이동합니다. VM을 약 5분 정도 실행하고 나면 "LinuxCpu", "LinuxDisk", "LinuxMemory" 및 "Linuxsyslog" 등 네 개의 기본 테이블이 나타납니다. 데이터를 볼 테이블 이름을 두 번 클릭합니다.
-1. [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure 저장소 탐색기")에 지정된 모든 시스템 데이터.
+1. [Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure Storage 탐색기")에 지정된 모든 시스템 데이터.
 
 ![이미지](./media/diagnostic-extension/no1.png)
 
-(시나리오 2와 3에 설명된 대로) FileCfg 또는 perfCfg를 사용하도록 설정한다면, 기본이 아닌 데이터를 Visual Studio 서버 탐색기 및 Azure 저장소 탐색기를 사용하여 볼 수 있습니다.
+(시나리오 2와 3에 설명된 대로) FileCfg 또는 perfCfg를 사용하도록 설정한다면, 기본이 아닌 데이터를 Visual Studio 서버 탐색기 및 Azure Storage 탐색기를 사용하여 볼 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 

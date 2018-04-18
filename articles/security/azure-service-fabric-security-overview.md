@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 보안 개요 | Microsoft Docs"
-description: "이 문서는 Azure Service Fabric 보안의 개요를 제공합니다."
+title: Azure Service Fabric 보안 개요 | Microsoft Docs
+description: 이 문서는 Azure Service Fabric 보안의 개요를 제공합니다.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9b6c2463c2a782f463e64d6e350a565fa7898b63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 보안 개요
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다.
@@ -104,7 +104,7 @@ Windows Server 2012 R2 및 Active Directory가 있는 독립 실행형 Windows S
 
 -   **이벤트 집계**: 생성된 이벤트를 표시하려면 먼저 수집하고 집계해야 합니다. 일반적으로 [Azure 진단](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad)(에이전트 기반 로그 수집과 유사) 또는 [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow)(프로세스 내 로그 수집)를 사용하는 것이 좋습니다.
 
--   **분석**: 분석하고 표시할 수 있도록 이벤트를 특정 형식으로 시각화하고 액세스할 수 있어야 합니다. 데이터 모니터링 및 진단의 분석 및 시각화에 대한 여러 가지 플랫폼이 있습니다. 권장되는 두 가지는 Service Fabric과 더 잘 통합되는 [Operations Management Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) 및 [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)입니다.
+-   **분석**: 분석하고 표시할 수 있도록 이벤트를 특정 형식으로 시각화하고 액세스할 수 있어야 합니다. 데이터 모니터링 및 진단의 분석 및 시각화에 대한 여러 가지 플랫폼이 있습니다. 권장되는 두 가지는 Service Fabric과 더 잘 통합되는 [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) 및 [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)입니다.
 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)로도 Service Fabric 클러스터의 기반이 되는 다양한 Azure 리소스를 모니터링할 수 있습니다.
 

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Batch 솔루션의 진단 평가 및 모니터링에 대한 로그 이벤트
 
@@ -97,7 +97,7 @@ Azure Storage 계정에 진단 로그를 저장하는 것 외에도 [Azure Event
   Batch 진단 이벤트를 확장성 높은 데이터 수집 서비스인 Event Hubs에 스트림합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다.
 * [Log Analytics를 사용하여 Azure 진단 로그 분석 ](../log-analytics/log-analytics-azure-storage.md)
   
-  OMS(Operations Management Suite) 포털에서 분석할 수 있게 진단 로그를 Log Analytics로 보내거나, Power BI 또는 Excel에서의 분석을 위해 내보냅니다.
+  Azure Portal에서 분석할 수 있게 진단 로그를 Log Analytics로 보내거나, Power BI 또는 Excel에서의 분석을 위해 내보냅니다.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

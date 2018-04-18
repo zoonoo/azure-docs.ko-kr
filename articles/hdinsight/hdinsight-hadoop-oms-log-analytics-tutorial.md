@@ -1,8 +1,8 @@
 ---
-title: "Log Analytics를 사용하여 Azure HDInsight 클러스터 모니터링 | Microsoft Docs"
-description: "Azure Log Analytics를 사용하여 HDInsight 클러스터에서 실행되는 작업을 모니터링하는 방법을 알아봅니다."
+title: Log Analytics를 사용하여 Azure HDInsight 클러스터 모니터링 | Microsoft Docs
+description: Azure Log Analytics를 사용하여 HDInsight 클러스터에서 실행되는 작업을 모니터링하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c43b9aabda56e1204870575e86934bf93d05882
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be71b065999c30546432895804df8633da21b43e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 사용하여 HDInsight 클러스터 모니터링
 
 Azure Log Analytics를 사용하여 HDInsight에서 Hadoop 클러스터 작업을 모니터링하는 방법을 알아봅니다.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. 
+[Log Analytics](../log-analytics/log-analytics-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독** - 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
 
-* **Azure HDInsight 클러스터**. Azure Operations Management Suite는 현재 다음 HDInsight 클러스터 유형에서 사용할 수 있습니다.
+* **Azure HDInsight 클러스터**. Log Analytics는 현재 다음 HDInsight 클러스터 유형에서 사용할 수 있습니다.
 
     * Hadoop은
     * HBase

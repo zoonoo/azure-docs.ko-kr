@@ -41,7 +41,7 @@ Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 �
 
 기본을 계속 사용할 수 있는 경우의 옵션:
 
-- 모든 OU를 동기화하지는 않으려면 기본을 계속 사용하고 마지막 페이지에서 **동기화 프로세스 시작...***을 선택 취소합니다. 그런 후 설치 마법사를 다시 실행하고 [구성 옵션](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)에서 OU를 변경한 후 예약된 동기화를 사용하도록 설정합니다.
+- 모든 OU를 동기화하지는 않으려면 기본을 계속 사용하고 마지막 페이지에서 **동기화 프로세스 시작...**\*을 선택 취소합니다. 그런 후 설치 마법사를 다시 실행하고 [구성 옵션](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)에서 OU를 변경한 후 예약된 동기화를 사용하도록 설정합니다.
 - Azure AD Premium에서 비밀번호 쓰기 저장 등의 기능 중 하나를 사용하려고 합니다. 먼저 기본 방법을 진행하여 초기 설치를 완료합니다. 그런 후 설치 마법사를 다시 실행하고 [구성 옵션](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)을 변경합니다.
 
 ## <a name="custom"></a>사용자 지정

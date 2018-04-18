@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: c42986e4cdae1d5156863d92eb946220805f7b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="march-guest-os"></a>게스트 OS 3월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 18-03 | [4088787], [4088776] |Windows 10 보안 |5.17 |2018년 3월 13일 |
+| Rel 18-03 | [4088878], [4088880], [4088879] |Windows 보안 전용 |2.72, 3.59, 4.52 |2018년 3월 13일 |
+| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |2018년 3월 13일 |
+| Rel 18-03 | [4074595] |깜박임 |3.59, 4.52, 5.17 |2018년 3월 13일 |
+| 해당 없음 | [4074598] |2월 비보안 롤업 |2.72 |2018년 2월 13일 |
+| 해당 없음 | [4074593] |2월 비보안 롤업 |3.59 |2018년 2월 13일 |
+| 해당 없음 | [4074594] |2월 비보안 롤업 |4.52 |2018년 2월 13일 |
+| 해당 없음 | [4074837] |표준 시간대 업데이트 |2.72, 3.59, 4.52 |2018년 2월 13일 |
+
 
 ## <a name="february-guest-os"></a>게스트 OS 2월
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -601,6 +614,17 @@ ms.lasthandoff: 03/23/2018
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 
+[4088787]: http://support.microsoft.com/kb/4088787
+[4088776]: http://support.microsoft.com/kb/4088776 
+[4088878]: http://support.microsoft.com/kb/4088878
+[4088880]: http://support.microsoft.com/kb/4088880
+[4088879]: http://support.microsoft.com/kb/4088879
+[4089187]: http://support.microsoft.com/kb/4089187
+[4088785]: http://support.microsoft.com/kb/4088785
+[4074598]: http://support.microsoft.com/kb/4074598
+[4074593]: http://support.microsoft.com/kb/4074593
+[4074594]: http://support.microsoft.com/kb/4074594
+[4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
 [4074588]: http://support.microsoft.com/kb/4074588 

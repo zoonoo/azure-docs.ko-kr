@@ -1,11 +1,11 @@
 ---
-title: "보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지 | Microsoft Docs"
-description: "토큰 인증을 사용하여 Azure CDN 자산에 대한 액세스 보안을 유지하는 방법을 알아봅니다."
+title: 보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지 | Microsoft Docs
+description: 토큰 인증을 사용하여 Azure CDN 자산에 대한 액세스 보안을 유지하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: aaec713a7680aeda8317f5af41b9b99bcbdca4b7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>토큰 인증을 사용하여 Azure Content Delivery Network 자산 보안 유지
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>개요
 
-토큰 인증은 Azure CDN(Content Delivery Network)이 권한 없는 클라이언트에 자산을 제공하지 못하도록 할 수 있는 메커니즘입니다. 토큰 인증은 일반적으로 다른 웹 사이트(예: 메시지 보드)에서 권한 없이 사용자의 자산을 사용하는 콘텐츠 "핫링크"를 방지하기 위해 수행되며, 핫링크는 콘텐츠 배달 비용에 영향을 줄 수 있습니다. CDN에서 토큰 인증을 사용하도록 설정하면 CDN에서 콘텐츠를 전송하기 전에 요청이 CDN 에지 서버에서 인증됩니다. 
+토큰 인증은 Azure CDN(Content Delivery Network)이 권한 없는 클라이언트에 자산을 제공하지 못하도록 할 수 있는 메커니즘입니다. 토큰 인증은 일반적으로 다른 웹 사이트(예: 메시지 보드)에서 권한 없이 사용자의 자산을 사용하는 콘텐츠 *핫링크*를 방지하기 위해 수행됩니다. 핫링크는 콘텐츠 배달 비용에 영향을 줄 수 있습니다. CDN에서 토큰 인증을 사용하도록 설정하면 CDN에서 콘텐츠를 전송하기 전에 요청이 CDN 에지 서버에서 인증됩니다. 
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -42,6 +42,9 @@ ms.lasthandoff: 11/21/2017
 
 자세한 내용은 [토큰 인증 설정](#setting-up-token-authentication)에서 각 매개 변수에 대한 자세한 구성 예를 참조하세요.
 
+>[!IMPORTANT] 
+> 이 계정의 모든 경로에 대해 토큰 권한 부여를 사용하도록 설정하면 표준 캐시 모드만 쿼리 문자열 캐시에 사용할 수 있습니다. 자세한 내용은 [쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어](cdn-query-string-premium.md)를 참조하세요.
+
 ## <a name="reference-architecture"></a>참조 아키텍처
 
 다음 워크플로 다이어그램은 CDN이 토큰 인증을 사용하여 웹앱 작업을 하는 방법을 설명합니다.
@@ -56,11 +59,11 @@ ms.lasthandoff: 11/21/2017
 
 ## <a name="setting-up-token-authentication"></a>토큰 인증 설정
 
-1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동한 다음 **관리** 단추를 클릭하여 보조 포털을 시작합니다.
+1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동한 다음, **관리**를 선택하여 보조 포털을 시작합니다.
 
     ![CDN 프로필 관리 단추](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. **HTTP Large**를 가리키고 플라이아웃에서 **토큰 인증**을 클릭합니다. 그런 다음 암호화 키와 암호화 매개 변수를 다음과 같이 설정할 수 있습니다.
+2. **HTTP Large**를 가리킨 다음, 플라이아웃에서 **토큰 인증**을 선택합니다. 그런 다음 암호화 키와 암호화 매개 변수를 다음과 같이 설정할 수 있습니다.
 
     1. 하나 이상의 암호화 키를 만듭니다. 암호화 키는 대/소문자를 구분하고 모든 영숫자 조합을 포함할 수 있습니다. 공백을 비롯한 다른 형식의 문자는 허용되지 않습니다. 최대 길이는 250자입니다. 암호화 키가 임의의 값이 되도록 하려면 [OpenSSL 도구](https://www.openssl.org/)를 사용하여 만드는 것이 좋습니다. 
 
@@ -68,7 +71,7 @@ ms.lasthandoff: 11/21/2017
 
        ```rand -hex <key length>```
 
-       예:
+       예: 
 
        ```OpenSSL> rand -hex 32``` 
 
@@ -76,7 +79,7 @@ ms.lasthandoff: 11/21/2017
     
     2. **기본 키** 상자에 고유한 암호화 키를 입력하고 선택적으로 **백업 키** 상자에 백업 키를 입력합니다.
 
-    3. 해당 **최소 암호화 버전** 목록에서 각 키에 최소 암호화 버전을 선택하고 **업데이트**를 클릭합니다.
+    3. 해당 **최소 암호화 버전** 목록에서 각 키에 사용할 최소 암호화 버전을 선택한 다음, **업데이트**를 클릭합니다.
        - **V2**: 버전 2.0과 3.0 토큰을 생성하는 데 키를 사용할 수 있음을 나타냅니다. 레거시 버전 2.0 암호화 키에서 버전 3.0 키로 전환하는 경우에만 이 옵션을 사용합니다.
        - **V3**: 버전 3.0 토큰을 생성하는 데에만 키를 사용할 수 있음을 나타냅니다.
 
@@ -110,7 +113,7 @@ ms.lasthandoff: 11/21/2017
        >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
        >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
        >       </ul></li>
-       >       <li>입력 값 `/pictures/`: `/pictures/` 경로가 포함된 요청만 허용됩니다. 예: `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+       >       <li>입력 값 `/pictures/`: `/pictures/` 경로가 포함된 요청만 허용됩니다. 예: `http://www.mydomain.com/pictures/city/strasbourg.png`</li>
        >       <li>입력 값 `/pictures/city/strasbourg.png`: 이 특정 경로 및 자산에 대한 요청만 허용됩니다.</li>
        >    </ul>
        > </tr>
@@ -156,27 +159,29 @@ ms.lasthandoff: 11/21/2017
     
     6. **암호화 버전** 목록에서 버전 2에 **V2** 또는 버전 3에 **V3**라는 암호화 버전을 선택합니다(권장됨). 
 
-    7. **암호화**를 클릭하여 토큰을 생성합니다.
+    7. **암호화**를 선택하여 토큰을 생성합니다.
 
-    토큰을 생성하면 **생성된 토큰** 상자에 표시됩니다. 토큰을 사용하려면 쿼리 문자열로 URL 경로의 파일 끝에 추가합니다. 예: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    토큰을 생성하면 **생성된 토큰** 상자에 표시됩니다. 토큰을 사용하려면 쿼리 문자열로 URL 경로의 파일 끝에 추가합니다. 예: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`
         
-    8. 필요에 따라 토큰의 매개 변수를 볼 수 있도록 암호 해독 도구로 토큰을 테스트합니다. **암호를 해독할 토큰** 상자에 토큰 값을 붙여넣습니다. **암호를 해독할 키** 목록에서 암호화 키 사용을 선택한 다음 **암호 해독**을 클릭합니다.
+    8. 필요에 따라 토큰의 매개 변수를 볼 수 있도록 암호 해독 도구로 토큰을 테스트합니다. **암호를 해독할 토큰** 상자에 토큰 값을 붙여넣습니다. **해독할 키** 목록에서 사용할 암호화 키를 선택한 다음, **암호 해독**을 선택합니다.
 
     토큰의 암호를 해독한 후에 해당 매개 변수는 **원래 매개 변수** 상자에 표시됩니다.
 
-    9. 필요에 따라 요청이 거부될 때 반환되는 응답 코드 유형을 사용자 지정할 수 있습니다. **사용**을 선택하고 **응답 코드** 목록에서 응답 코드를 선택합니다. **헤더 이름**이 자동으로 **위치**로 설정됩니다. **저장**을 클릭하여 새 응답 코드를 구현합니다. 특정 응답 코드의 경우 **헤더 값** 상자에 오류 페이지의 URL도 입력해야 합니다. **403** 응답 코드(사용할 수 없음)가 기본적으로 선택됩니다. 
+    9. 필요에 따라 요청이 거부될 때 반환되는 응답 코드 유형을 사용자 지정할 수 있습니다. **사용**을 선택하고 **응답 코드** 목록에서 응답 코드를 선택합니다. **헤더 이름**이 자동으로 **위치**로 설정됩니다. **저장**을 선택하여 새 응답 코드를 구현합니다. 특정 응답 코드의 경우 **헤더 값** 상자에 오류 페이지의 URL도 입력해야 합니다. **403** 응답 코드(사용할 수 없음)가 기본적으로 선택됩니다. 
 
-3. **HTTP Large** 아래에서 **규칙 엔진**을 클릭합니다. 규칙 엔진을 사용하여 기능을 적용할 경로를 정의하고, 토큰 인증 기능을 사용하도록 설정하고, 기능과 관련된 추가 토큰 인증을 사용하도록 설정합니다. 자세한 내용은 [규칙 엔진 참조](cdn-rules-engine-reference.md)를 참조하세요.
+3. **HTTP Large**에서 **규칙 엔진**을 선택합니다. 규칙 엔진을 사용하여 기능을 적용할 경로를 정의하고, 토큰 인증 기능을 사용하도록 설정하고, 기능과 관련된 추가 토큰 인증을 사용하도록 설정합니다. 자세한 내용은 [규칙 엔진 참조](cdn-rules-engine-reference.md)를 참조하세요.
 
     1. 기존 규칙을 선택하거나 새 규칙을 만들어 토큰 인증을 적용할 자산 또는 경로를 정의합니다. 
-    2. 규칙에서 토큰 인증을 사용하도록 설정하려면 **기능** 목록에서 **[토큰 인증](cdn-rules-engine-reference-features.md#token-auth)**을 선택한 다음 **사용**을 선택합니다. 규칙을 업데이트하는 경우 **업데이트**를 클릭하고 규칙을 만드는 경우 **추가**를 클릭합니다.
+    2. 규칙에서 토큰 인증을 사용하도록 설정하려면 **기능** 목록에서 **[토큰 인증](cdn-rules-engine-reference-features.md#token-auth)**을 선택한 다음 **사용**을 선택합니다. 규칙을 업데이트하는 경우 **업데이트**를 선택하고, 규칙을 만드는 경우 **추가**를 선택합니다.
         
     ![CDN 규칙 엔진 토큰 인증 사용 예제](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. 규칙 엔진에서 추가 토큰 인증 관련 기능을 사용하도록 설정할 수도 있습니다. 다음 기능 중 하나를 사용하도록 설정하려면 **기능** 목록에서 해당 기능을 선택한 다음 **사용**을 선택합니다.
     
     - **[토큰 인증 거부 코드](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: 요청이 거부되는 경우 사용자에게 반환할 응답 형식을 결정합니다. 여기서 설정된 규칙은 토큰 기반 인증 페이지의 **사용자 지정 거부 처리** 섹션에 설정된 응답 코드를 재정의합니다.
+
     - **[토큰 인증 URL 대/소문자 무시](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: 토큰 유효성을 검사하는 데 사용되는 URL의 대/소문자 구분 여부를 결정합니다.
+
     - **[토큰 인증 매개 변수](cdn-rules-engine-reference-features.md#token-auth-parameter)**: 요청된 URL에 표시되는 토큰 인증 쿼리 문자열 매개 변수의 이름을 바꿉니다. 
         
     ![CDN 규칙 엔진 토큰 인증 설정 예제](./media/cdn-token-auth/cdn-rules-engine2.png)
@@ -188,9 +193,9 @@ ms.lasthandoff: 11/21/2017
    - C#
    - PHP
    - Perl
-   - Java
-   - Python 
+   - 자바
+   - 파이썬 
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 기능 및 공급자 가격 책정
 
-기능에 대한 정보는 [CDN 개요](cdn-overview.md)를 참조하세요. 가격 책정에 대한 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
+기능에 대한 정보는 [Azure CDN 제품 기능](cdn-features.md)을 참조하세요. 가격 책정에 대한 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.

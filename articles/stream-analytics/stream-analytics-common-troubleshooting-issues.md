@@ -1,24 +1,19 @@
 ---
-title: Azure Stream Analytics에서 잘못된 형식의 입력 이벤트 문제 해결 | Microsoft Docs
+title: Azure Stream Analytics에서 잘못된 형식의 입력 이벤트 문제 해결
 description: 입력 데이터에서 Stream Analytics 작업에 문제를 일으키는 이벤트를 알아내는 방법
-keywords: ''
-documentationcenter: ''
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
 manager: Kfile
-ms.assetid: ''
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: sngun
-ms.openlocfilehash: 6b6c154568fe97b7495ae70dc162dc475169afea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fcbb03b4d9aed797cf99c374661c743d39f81276
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Stream Analytics의 일반적인 문제 및 문제를 해결하는 단계
 
@@ -55,6 +50,6 @@ Azure SQL Database를 Stream Analytics 작업에 대한 출력으로 구성하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

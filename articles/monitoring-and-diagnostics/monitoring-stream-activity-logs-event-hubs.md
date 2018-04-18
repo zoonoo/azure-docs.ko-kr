@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: 4b2d9866839f943f65beb271d44bc691441b0fb3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8a599558fc35ca2bf48ce2a5f11ec4978bf10277
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 Event Hubs로 스트림
 다음을 수행하여 모든 응용 프로그램에 거의 실시간으로 [Azure 활동 로그](monitoring-overview-activity-logs.md)를 스트리밍할 수 있습니다.
@@ -56,38 +56,48 @@ Event Hubs 네임스페이스가 없는 경우 먼저 만들어야 합니다. �
 
    > [!WARNING]  
    > **모든 지역** 이외의 지역을 선택하면 수신해야 하는 중요 이벤트가 누락될 수 있습니다. 활동 로그는 글로벌(비지역) 로그이므로 대부분의 이벤트에는 연결된 지역이 없습니다. 
-   > 
+   >
 
 4. **저장**을 선택하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
 5. 여러 구독이 있는 경우 이 작업을 반복하고 모든 데이터를 동일한 Event Hub로 보냅니다.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet을 통해
-로그 프로필이 이미 있는 경우 먼저 해당 프로필을 제거해야 합니다.
+로그 프로필이 이미 있으면 먼저 기존 로그 프로필을 제거한 다음, 새 로그 프로필을 생성해야 합니다.
 
-1. `Get-AzureRmLogProfile`을 사용하여 로그 프로필이 있는지 확인합니다.
-2. 있는 경우 `Remove-AzureRmLogProfile` 를 사용하여 제거합니다.
-3. `Set-AzureRmLogProfile` 을 사용하여 프로필을 만듭니다.
+1. `Get-AzureRmLogProfile`를 사용하여 로그 프로필이 있는지 확인합니다.  로그 프로필이 존재하는 경우 *이름* 속성에 있습니다.
+2. *name* 속성의 값을 사용하여 로그 프로필을 제거하려면 `Remove-AzureRmLogProfile`을 사용합니다.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. `Add-AzureRmLogProfile`을 사용하여 새 로그 프로필을 만듭니다.
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-Service Bus 규칙 ID는 `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 
 
 ### <a name="via-azure-cli"></a>Azure CLI를 통해
-로그 프로필이 이미 있는 경우 먼저 해당 프로필을 제거해야 합니다.
+로그 프로필이 이미 있으면 먼저 기존 로그 프로필을 제거한 다음, 새 로그 프로필을 생성해야 합니다.
 
-1. `azure insights logprofile list`를 사용하여 로그 프로필이 있는지 확인합니다.
-2. 있는 경우 `azure insights logprofile delete` 를 사용하여 제거합니다.
-3. `azure insights logprofile add` 을 사용하여 프로필을 만듭니다.
+1. `az monitor log-profiles list`를 사용하여 로그 프로필이 있는지 확인합니다.
+2. *name* 속성의 값을 사용하여 로그 프로필을 제거하려면 `az monitor log-profiles delete --name "<log profile name>`을 사용합니다.
+3. `az monitor log-profiles create`를 사용하여 새 로그 프로필을 만듭니다.
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-Service Bus 규칙 ID는 `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다.
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>Event Hubs에서 로그 데이터 사용
 활동 로그에 대한 스키마는 [Azure 활동 로그로 구독 활동 모니터링](monitoring-overview-activity-logs.md)에서 사용할 수 있습니다. 각 이벤트는 *레코드*라는 JSON Blob의 배열입니다.

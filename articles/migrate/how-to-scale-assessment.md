@@ -1,16 +1,16 @@
 ---
-title: "Azure Migrate를 사용하여 검색 및 평가 크기 조정 | Microsoft Docs"
-description: "Azure Migrate 서비스를 사용하여 많은 수의 온-프레미스 컴퓨터를 평가하는 방법을 설명합니다."
+title: Azure Migrate를 사용하여 검색 및 평가 크기 조정 | Microsoft Docs
+description: Azure Migrate 서비스를 사용하여 많은 수의 온-프레미스 컴퓨터를 평가하는 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 03/05/2018
 
 | **엔터티** | **컴퓨터 제한** |
 | ---------- | ----------------- |
-| Project    | 1,500              | 
-| 검색  | 1,500              |
-| 평가 | 1,500               |
+| Project    | 1,500             |
+| 검색  | 1,500             |
+| 평가 | 1,500             |
 
 <!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
@@ -40,12 +40,12 @@ ms.lasthandoff: 03/05/2018
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
--->
+      -->
 
 ## <a name="plan-multiple-discoveries"></a>여러 검색 계획
 
 하나 이상의 프로젝트에 여러 검색 작업을 수행하기 위해 동일한 Azure Migrate Collector를 사용할 수 있습니다. 이러한 계획 고려 사항을 고려하세요.
- 
+
 - Azure Migrate Collector를 사용하여 검색할 때 vCenter Server 폴더, 데이터 센터, 클러스터 또는 호스트로 검색 범위를 설정할 수 있습니다.
 - 둘 이상의 검색을 수행하려면 vCenter Server에서 검색할 VM이 1,500대 컴퓨터 제한을 지원하는 폴더, 데이터 센터, 클러스터 또는 호스트에 위치하는지 확인합니다.
 - 평가 목적을 위해 동일한 프로젝트 및 평가 내에서 컴퓨터 간 상호 종속성을 유지하는 것이 좋습니다. vCenter Server에서 종속 컴퓨터가 평가를 위해 동일한 폴더, 데이터 센터 또는 클러스터에 있는지 확인합니다.
@@ -73,18 +73,28 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 2. **컴퓨터 검색**에서 **다운로드**를 선택하여 OVA 파일을 다운로드합니다.
 3. **프로젝트 자격 증명 복사**에서 프로젝트에 대한 ID 및 키를 복사합니다. 수집기를 구성하는 경우 필요합니다.
 
-   
+
 ### <a name="verify-the-collector-appliance"></a>수집기 어플라이언스를 확인합니다.
 
 배포하기 전에 OVA 파일이 안전한지 확인합니다.
 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
+
 2. 다음 명령을 실행하여 OVA에 대한 해시를 생성합니다.
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
    사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
 3. 생성된 해시가 다음 설정과 일치하는지 확인합니다.
+
+    OVA 버전 1.0.9.7의 경우
+
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
     OVA 버전 1.0.9.5의 경우
 
@@ -109,7 +119,7 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
     MD5 | 71139e24a532ca67669260b3062c3dad
     SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
     SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
- 
+
     OVA 버전 1.0.8.49의 경우
 
     **알고리즘** | **해시 값**
@@ -136,11 +146,11 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 
 2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.
 3. **이름** 및 **위치**에서 수집기 VM에 대한 익숙한 이름과 VM이 호스트될 인벤토리 개체를 지정합니다.
-5. **호스트/클러스터**에서 수집기 VM이 실행될 호스트 또는 클러스터를 지정합니다.
-7. 저장소에서 수집기 VM에 대한 저장소 대상을 지정합니다.
-8. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
-9. **네트워크 매핑**에서 수집기 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure로 전송하려면 네트워크에 인터넷 연결이 필요합니다. 
-10. 설정을 검토하고 확인한 다음 **마침**을 선택합니다.
+4. **호스트/클러스터**에서 수집기 VM이 실행될 호스트 또는 클러스터를 지정합니다.
+5. 저장소에서 수집기 VM에 대한 저장소 대상을 지정합니다.
+6. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
+7. **네트워크 매핑**에서 수집기 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure로 전송하려면 네트워크에 인터넷 연결이 필요합니다. 
+8. 설정을 검토하고 확인한 다음 **마침**을 선택합니다.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>각 프로젝트에 대한 ID 및 키 식별
 
@@ -157,16 +167,16 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 
 다음 표에 특정 카운터가 수집되지 않은 경우 영향을 받는 평가 결과가 나열되어 있습니다.
 
-|카운터                                  |Level    |장치 단위 수준  |영향 평가                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |해당 없음                |권장되는 VM 크기 및 비용                    |
-|mem.usage.average                        | 1       |해당 없음                |권장되는 VM 크기 및 비용                    |
-|virtualDisk.read.average                 | 2       |2                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|virtualDisk.write.average                | 2       |2                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|net.received.average                     | 2       |3                 |VM 크기 및 네트워크 비용                        |
-|net.transmitted.average                  | 2       |3                 |VM 크기 및 네트워크 비용                        |
+| 카운터                                 | Level | 장치 단위 수준 | 영향 평가                    |
+| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
+| cpu.usage.average                       | 1     | 해당 없음               | 권장되는 VM 크기 및 비용         |
+| mem.usage.average                       | 1     | 해당 없음               | 권장되는 VM 크기 및 비용         |
+| virtualDisk.read.average                | 2     | 2                | 디스크 크기, 저장소 비용 및 VM 크기 |
+| virtualDisk.write.average               | 2     | 2                | 디스크 크기, 저장소 비용 및 VM 크기 |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | 디스크 크기, 저장소 비용 및 VM 크기 |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | 디스크 크기, 저장소 비용 및 VM 크기 |
+| net.received.average                    | 2     | 3                | VM 크기 및 네트워크 비용             |
+| net.transmitted.average                 | 2     | 3                | VM 크기 및 네트워크 비용             |
 
 > [!WARNING]
 > 방금 더 높은 통계 수준을 설정한 경우 성능 카운터를 생성하는 데 하루가 걸립니다. 따라서 하루 뒤에 검색을 실행하는 것이 좋습니다.
@@ -175,28 +185,28 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 
 수행해야 하는 각 검색마다 수집기를 실행하여 필요한 범위에서 VM을 검색합니다. 검색을 차례로 실행합니다. 동시 검색은 지원되지 않으며, 각 검색은 다른 범위에 있어야 합니다.
 
-1. vSphere 클라이언트 콘솔에서 VM을 마우스 오른쪽 단추로 클릭하고 **콘솔 열기**를 클릭합니다.
-2. 어플라이언스에 대한 언어, 표준 시간대 및 기본 암호를 제공합니다.
-3. 바탕 화면에서 **수집기 실행** 바로 가기를 선택합니다.
-4. Azure Migrate Collector에서 **필수 조건 설정**을 열고 다음을 수행합니다.
+1.  vSphere 클라이언트 콘솔에서 VM을 마우스 오른쪽 단추로 클릭하고 **콘솔 열기**를 클릭합니다.
+2.  어플라이언스에 대한 언어, 표준 시간대 및 기본 암호를 제공합니다.
+3.  바탕 화면에서 **수집기 실행** 바로 가기를 선택합니다.
+4.  Azure Migrate Collector에서 **필수 조건 설정**을 열고 다음을 수행합니다.
 
-   a. 사용 조건에 동의하고 타사 정보를 읽습니다.
+    a. 사용 조건에 동의하고 타사 정보를 읽습니다.
 
-   수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
-   
-   나. VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 선택하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
+    수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
 
-   수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
+    나. VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 선택하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
 
-   다. VMware PowerCLI를 다운로드하여 설치합니다.
+    수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
 
-5. **vCenter Server 세부 정보 지정**에서 다음을 수행합니다.
+    다. VMware PowerCLI를 다운로드하여 설치합니다.
+
+5.  **vCenter Server 세부 정보 지정**에서 다음을 수행합니다.
     - vCenter Server의 이름(FQDN) 또는 IP 주소를 지정합니다.
     - **사용자 이름** 및 **암호**에서, 수집기가 vCenter Server에서 VM을 검색하기 위해 사용할 읽기 전용 계정 자격 증명을 지정합니다.
     - **범위 선택**에서 VM 검색에 대한 범위를 선택합니다. 수집기는 지정된 범위 내의 VM만 검색할 수 있습니다. 범위를 특정 폴더, 데이터 센터 또는 클러스터로 설정할 수 있습니다. VM은 1,000대 미만이어야 합니다. 
 
-6. **마이그레이션 프로젝트 지정**에서 프로젝트에 대한 ID 및 키를 지정합니다. 해당 항목을 복사하지 않은 경우 수집기 VM에서 Azure Portal을 엽니다. 프로젝트의 **개요** 페이지에서 **컴퓨터 검색**을 선택하고 값을 복사합니다.  
-7. **컬렉션 진행률 보기**에서 검색 프로세스를 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다.
+6.  **마이그레이션 프로젝트 지정**에서 프로젝트에 대한 ID 및 키를 지정합니다. 해당 항목을 복사하지 않은 경우 수집기 VM에서 Azure Portal을 엽니다. 프로젝트의 **개요** 페이지에서 **컴퓨터 검색**을 선택하고 값을 복사합니다.  
+7.  **컬렉션 진행률 보기**에서 검색 프로세스를 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다.
 
 
 ### <a name="verify-vms-in-the-portal"></a>포털에서 VM 확인

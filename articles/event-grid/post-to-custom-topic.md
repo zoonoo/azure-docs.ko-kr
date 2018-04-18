@@ -1,18 +1,18 @@
 ---
-title: "사용자 지정 Azure Event Grid 토픽에 이벤트 게시"
-description: "Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법 설명"
+title: 사용자 지정 Azure Event Grid 토픽에 이벤트 게시
+description: Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법 설명
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
 
@@ -91,8 +91,34 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 }]
 ```
 
+## <a name="response"></a>response
+
+항목 엔드포인트에 게시한 후 응답을 수신합니다. 응답은 표준 HTTP 응답 코드입니다. 몇 가지 일반적인 응답은 다음과 같습니다.
+
+|결과  |response  |
+|---------|---------|
+|성공  | 200 정상  |
+|잘못된 엔드포인트 | 404 찾을 수 없음 |
+|잘못된 액세스 키 | 401 권한 없음 |
+|이벤트 데이터의 형식이 잘못되었습니다. | 400 잘못된 요청 |
+
+오류의 경우 메시지 본문에 다음과 같은 형식이 있습니다.
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-* 사용자 지정 이벤트 라우팅에 대한 소개는 [Azure CLI 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md) 또는 [Azure PowerShell 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart-powershell.md)을 참조하세요.
+* 이벤트 배달 모니터링에 대한 정보는 [Event Grid 메시지 배달 모니터링](monitor-event-delivery.md)을 참조하세요.
 * 인증 키에 대한 자세한 내용은 [Event Grid 보안 및 인증](security-authentication.md)을 참조하세요.
 * Azure Event Grid 구독을 만드는 방법에 대한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조하세요.

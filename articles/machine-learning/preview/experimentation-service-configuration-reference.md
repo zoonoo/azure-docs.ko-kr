@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8ea7e7453ba49b17560b7c2147dd6c71c6c1a7a0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
 
@@ -64,7 +64,7 @@ dependencies:
      # a package hosted in a public URL endpoint
      - https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp35-cp35m-win_amd64.whl
      
-     # a wheel file available locally on disk (this only works if you are executing against local target)
+     # a wheel file available locally on disk (this only works if you are executing against local Docker target)
      - C:\temp\my_private_python_pkg.whl
 ```
 
@@ -190,7 +190,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun**: 이 플래그는 실험 서비스에 대해 Azure ML Workbench 실행 기록 인프라에서 실행을 추적할지 여부를 지정합니다. 기본값은 _true_입니다. 
 
-**UseSampling**: _UseSampling_은 실행을 위해 데이터 소스에 대한 활성 샘플 데이터 집합을 사용하는지 여부를 지정합니다. _False_로 설정하면 데이터 소스는 데이터 소스에서 읽은 전체 데이터를 수집하고 사용합니다. _True_로 설정하면 활성 샘플을 사용합니다. 사용자는 **DataSourceSettings"를 사용하여 활성 샘플을 재정의하고자 하는 경우 사용할 특정 샘플 데이터 집합을 지정할 수 있습니다. 
+**UseSampling**: _UseSampling_은 실행을 위해 데이터 소스에 대한 활성 샘플 데이터 집합을 사용하는지 여부를 지정합니다. _False_로 설정하면 데이터 소스는 데이터 소스에서 읽은 전체 데이터를 수집하고 사용합니다. _True_로 설정하면 활성 샘플을 사용합니다. 사용자는 **DataSourceSettings**를 사용하여 활성 샘플을 재정의하고자 하는 경우 사용할 특정 샘플 데이터 집합을 지정할 수 있습니다. 
 
 **DataSourceSettings**: 이 구성 섹션은 데이터 소스 설정을 지정합니다. 이 섹션에서 사용자는 실행의 일부로 사용하는 특정 데이터 소스의 기존 데이터 샘플을 지정합니다. 
 

@@ -4,7 +4,7 @@ description: 캐싱은 데이터에 대한 향후 요청에 신속하게 액세�
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>캐싱 작동 방식
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="cache-directive-headers"></a>캐시 지시문 헤더
 
 > [!IMPORTANT]
-> 기본적으로 DSA에 최적화된 Azure CDN 엔드포인트는 캐시 지시문 헤더를 무시하고 캐싱을 바이패스합니다. **Verizon 표준의 Azure CDN** 및 **Akamai 표준의 Azure CDN** 프로필의 경우 캐싱을 사용하도록 설정하는 [CDN 캐싱 규칙](cdn-caching-rules.md)을 사용하여 Azure CDN 엔드포인트가 이러한 헤더를 처리하는 방식을 조정할 수 있습니다. **Verizon 프리미엄의 Azure CDN** 프로필의 경우 [규칙 엔진](cdn-rules-engine.md)을 사용하여 캐싱을 사용하도록 설정합니다.
+> 기본적으로 DSA에 최적화된 Azure CDN 엔드포인트는 캐시 지시문 헤더를 무시하고 캐싱을 바이패스합니다. **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필의 경우 캐싱을 사용하도록 설정하는 [CDN 캐싱 규칙](cdn-caching-rules.md)을 사용하여 Azure CDN 엔드포인트가 이러한 헤더를 처리하는 방식을 조정할 수 있습니다. **Verizon의 Azure CDN 프리미엄** 프로필의 경우 [규칙 엔진](cdn-rules-engine.md)을 사용하여 캐싱을 사용하도록 설정합니다.
 
 Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTTP 캐시 지시문 헤더를 지원합니다.
 

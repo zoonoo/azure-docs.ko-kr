@@ -1,31 +1,29 @@
 ---
-title: "Azure Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅 | Microsoft Docs"
-description: "Azure Event Grid를 사용하여 Blob 저장소 이벤트를 구독합니다."
+title: Azure Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅 | Microsoft Docs
+description: Azure Event Grid를 사용하여 Blob 저장소 이벤트를 구독합니다.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f0764ebc423cfb5323f2b634ce5a5ecbe075135c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Azure CLI로 Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 Blob 저장소 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
-일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 그러나 이 문서에서 보여 주는 간소화하기 위해 메시지만 수집하는 URL로 이벤트를 보냅니다. [RequestBin](https://requestb.in/) 또는 [Hookbin](https://hookbin.com/)에서 타사 도구를 사용하여 이 URL을 만듭니다.
+일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 그러나 이 문서에서 보여 주는 간소화하기 위해 메시지만 수집하는 URL로 이벤트를 보냅니다. [Hookbin](https://hookbin.com/)에서 타사 도구를 사용하여 이 URL을 만듭니다.
 
 > [!NOTE]
-> 처리량이 높은 경우에는 **RequestBin** 및 **Hookbin** 사용이 적합하지 않습니다. 이 도구는 순전히 시연을 위해서만 사용되었습니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
+> 처리량이 높은 경우에는 **Hookbin** 사용이 적합하지 않습니다. 이 도구는 순전히 시연을 위해서만 사용됩니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
 
 이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 끝점으로 보내졌음을 알 수 있습니다.
-
-![이벤트 데이터](./media/storage-blob-event-quickstart/request-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,11 +66,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. RequestBin 및 Hookbin은 타사 도구로, 이 도구를 통해 엔드포인트를 만들고 이 엔드포인트에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭하거나 [Hookbin](https://hookbin.com/)으로 이동하고 **새 끝점 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. Hookbin은 타사 도구로, 이 도구를 통해 엔드포인트를 만들고 이 엔드포인트에 전송된 요청을 볼 수 있습니다. [Hookbin](https://hookbin.com/)으로 이동하여 **새 엔드포인트 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
 
 ## <a name="subscribe-to-your-storage-account"></a>저장소 계정 구독
 
-토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 저장소 계정을 구독하고 RequestBin 또는 Hookbin의 URL을 이벤트 알림에 대한 끝점으로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 고유한 이름으로 바꾸고, `<endpoint_URL>`을 이전 섹션의 값으로 바꿉니다. 구독할 때 끝점을 지정하면 Event Grid에서 해당 끝점으로 이벤트 라우팅을 처리합니다. `<resource_group_name>` 및 `<storage_account_name>`에는 앞에서 만든 값을 사용합니다.  
+토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 저장소 계정을 구독하고 Hookbin의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 고유한 이름으로 바꾸고, `<endpoint_URL>`을 이전 섹션의 값으로 바꿉니다. 구독할 때 끝점을 지정하면 Event Grid에서 해당 끝점으로 이벤트 라우팅을 처리합니다. `<resource_group_name>` 및 `<storage_account_name>`에는 앞에서 만든 값을 사용합니다.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)

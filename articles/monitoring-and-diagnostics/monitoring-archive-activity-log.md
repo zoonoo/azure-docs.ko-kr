@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
 이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
@@ -43,29 +43,43 @@ ms.lasthandoff: 03/28/2018
 5. **저장**을 클릭합니다.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>PowerShell을 통해 활동 로그 보관
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
-```
+
+   ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your storage account belongs to>"
+   $storageAccountName = "<your storage account name>"
+
+   # Build the storage account Id from the settings above
+   $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   ```
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| StorageAccountId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. [이 페이지를 방문](https://azure.microsoft.com/en-us/regions)하거나 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)를 사용하여 모든 지역의 목록을 볼 수 있습니다. |
-| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| StorageAccountId |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. `(Get-AzureRmLocation).Location`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
+| RetentionInDays |아니오 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
+| 범주 |아니오 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다.  지정하지 않으면 가능한 모든 값을 가정합니다. |
 
 ## <a name="archive-the-activity-log-via-cli"></a>CLI를 통해 활동 로그 보관
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
-```
+
+   ```azurecli-interactive
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
+   ```
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
 | 이름 |예 |로그 프로필의 이름입니다. |
-| storageId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. [이 페이지를 방문](https://azure.microsoft.com/en-us/regions)하거나 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)를 사용하여 모든 지역의 목록을 볼 수 있습니다. |
-| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
+| days |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다.  0이면 활성화된 매개 변수를 true로 설정해야 합니다. |
+|사용 | 예 |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
+| 범주 |예 |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>활동 로그의 저장소 스키마
 보관을 설정한 후 활동 로그 이벤트가 발생하는 즉시 저장소 계정에 저장소 컨테이너가 만들어집니다. 컨테이너 내의 Blob은 활동 로그 및 진단 로그와 동일한 형식을 따릅니다. 해당 Blob의 구조는 다음과 같습니다.

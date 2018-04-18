@@ -1,12 +1,12 @@
 ---
-title: "Azure Monitor의 Azure Relay 메트릭(미리 보기) | Microsoft Docs"
-description: "Azure 모니터링을 사용하여 Azure Relay 모니터링"
+title: Azure Monitor의 Azure Relay 메트릭(미리 보기) | Microsoft Docs
+description: Azure 모니터링을 사용하여 Azure Relay 모니터링
 services: service-bus-relay
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b919f1fb0799ec497742115b2611f34872af2027
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Relay 메트릭(미리 보기)
 
@@ -44,7 +44,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ## <a name="billing"></a>결제
 
-Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 OMS에 메트릭 데이터를 스트리밍할 경우 OMS(Operation Management Suite)에서 요금을 청구합니다.
+Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 Log Analytics에 메트릭 데이터를 스트리밍할 경우 Log Analytics에서 요금을 청구합니다.
 
 다음 메트릭은 서비스의 상태에 대한 개요를 제공합니다. 
 

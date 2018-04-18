@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 9d4e42df3137108248a043bb0d9def181d766c7a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -24,7 +24,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | vCore 메모리 | 기초 | 2x 기본 | 2x 범용 |
-| 저장소 크기 | 5GB-1TB | 5GB-1TB | 5GB-1TB |
+| 저장소 크기 | 5GB-1TB | 5GB-2TB | 5GB-2TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -46,9 +46,9 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |:---|:----------:|:--------------------:|
 | 미국 중부 |  | X |
 | 미국 동부 | X | X |
-| 미국 동부 2 | X |  |
+| 미국 동부 2 | X | X |
 | 미국 중북부 | X |  |
-| 미국 중남부 | X |  |
+| 미국 중남부 | X | X |
 | 미국 서부 | X | X |
 | 미국 서부 2 |  | X |
 | 캐나다 중부 | X | X |
@@ -63,8 +63,8 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | 오스트레일리아 동부 |  | X |
 | 인도 중부 | X |  |
 | 인도 서부 | X |  |
-| 일본 동부 | X |  |
-| 일본 서부 | X |  |
+| 일본 동부 | X | X |
+| 일본 서부 | X | X |
 | 한국 남부 |  | X |
 
 가격 책정 계층에 따라 각 vCore는 특정 양의 메모리로 프로비전됩니다. 서버에 대한 vCore 수를 늘리거나 줄이면 이에 비례하여 메모리도 늘어나거나 줄어듭니다. 범용 계층은 기본 계층에 비해 vCore당 두 배의 메모리를 제공하고, 메모리 최적화 계층은 범용 계층에 비해 두 배의 메모리를 제공합니다.
@@ -76,7 +76,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |    | **Basic** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| 저장소 크기 | 5GB-1TB | 5GB-1TB | 5GB-1TB |
+| 저장소 크기 | 5GB-1TB | 5GB-2TB | 5GB-2TB |
 | 저장소 증분 크기 | 1 GB | 1 GB | 1 GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS | 3IOPS/GB<br/>최소 100IOPS |
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 진단 로그에 액세스
 Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
@@ -47,7 +47,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
         
         * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
-        * Azure Log Analytics 서비스를 사용하여 생성된 로그 데이터를 분석하려면 **Log Analytics으로 전송** 옵션을 선택합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Operations Management Suite 작업 영역에 세부 정보를 제공해야 합니다. Log Analytics를 사용하는 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 및 분석](../log-analytics/log-analytics-tutorial-viewdata.md)을 참조하세요.
+        * Azure Log Analytics 서비스를 사용하여 생성된 로그 데이터를 분석하려면 **Log Analytics으로 전송** 옵션을 선택합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Log Analytics 작업 영역에 세부 정보를 제공해야 합니다. Log Analytics를 사용하는 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 및 분석](../log-analytics/log-analytics-tutorial-viewdata.md)을 참조하세요.
      
    * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.
    * 데이터를 유지해야 하는 일 수를 지정합니다. Azure Storage 계정을 사용하여 로그 데이터를 보관하는 경우에만 보존 기능이 적용됩니다.

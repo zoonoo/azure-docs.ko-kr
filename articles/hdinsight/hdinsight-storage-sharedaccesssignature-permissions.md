@@ -1,8 +1,8 @@
 ---
-title: "공유 액세스 서명을 사용하여 액세스 제한 - Azure HDInsight | Microsoft Docs"
-description: "공유 액세스 서명을 사용하여 Azure 저장소 Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다."
+title: 공유 액세스 서명을 사용하여 액세스 제한 - Azure HDInsight | Microsoft Docs
+description: 공유 액세스 서명을 사용하여 Azure 저장소 Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
 ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -44,7 +44,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
     > [!IMPORTANT]
     > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-* [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일입니다. 이 리포지토리에는 다음 항목이 포함됩니다.
+* [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일 이 리포지토리에는 다음 항목이 포함됩니다.
 
   * HDInsight에 사용할 저장소 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Visual Studio 프로젝트
   * HDInsight에 사용할 저장소 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Python 스크립트
@@ -196,7 +196,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 기존 Linux 기반 클러스터가 있는 경우 다음 단계에 따라 **core-site** 구성에 SAS를 추가할 수 있습니다.
 
-1. 클러스터에 대한 Ambari 웹 UI를 엽니다. 이 페이지의 주소는 https://YOURCLUSTERNAME.azurehdinsight.net입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 관리자 이름(admin)과 암호를 사용하여 클러스터를 인증합니다.
+1. 클러스터에 대한 Ambari 웹 UI를 엽니다. 이 페이지에 대한 주소는 https://YOURCLUSTERNAME.azurehdinsight.net입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 관리자 이름(admin)과 암호를 사용하여 클러스터를 인증합니다.
 
 2. Ambari 웹 UI의 왼쪽에서 **HDFS** 를 선택한 다음 페이지 중간에서 **Configs** 탭을 선택합니다.
 

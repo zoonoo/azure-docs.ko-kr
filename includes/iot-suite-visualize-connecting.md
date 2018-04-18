@@ -26,7 +26,7 @@
 
 1. 장치에서 호출할 수 있는 메서드의 목록을 표시하려면 **일정**을 선택합니다. 메서드를 여러 장치에서 실행되도록 예약하기 위해 목록에서 여러 장치를 선택할 수 있습니다. **일정** 패널은 선택한 모든 장치에 공통적인 메서드의 유형을 표시합니다.
 
-1. **FirmwareUpdate**를 선택하고 작업 이름을 **UpdatePhysicalChiller**라고 설정합니다. **펌웨어 버전**을 **2.0.0**으로 설정하고 **펌웨어 URI**를 **http://contoso.com/updates/firmware.bin**으로 설정한 다음, **적용**을 선택합니다.
+1. **FirmwareUpdate**를 선택하고 작업 이름을 **UpdatePhysicalChiller**라고 설정합니다. **펌웨어 버전**을 **2.0.0**으로 설정하고, **펌웨어 URI**를 **http://contoso.com/updates/firmware.bin**으로 설정한 다음, **적용**을 선택합니다.
 
     ![펌웨어 업데이트 예약](media/iot-suite-visualize-connecting/deviceschedule.png)
 

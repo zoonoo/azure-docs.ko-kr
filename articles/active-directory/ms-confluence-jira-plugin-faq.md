@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Active Directory Single Sign-On 플러그 인 FAQ | Microsoft Docs
-description: Azure Active Directory 및 JIRA에 대한 Microsoft Azure Active Directory Single Sign-On 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
+title: Azure Active Directory SSO 플러그 인에 대한 FAQ | Microsoft Docs
+description: Azure Active Directory와 Jira/Confluence 간 Single Sign-On 구성에 대한 질문과 대답에 대한 답을 가져옵니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,70 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 571fbd5078f66375f6e81cba2a790121366f9d60
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="microsoft-azure-active-directory-single-sign-on-plugin-faq"></a>Microsoft Azure Active Directory Single Sign-On 플러그 인 FAQ 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO 플러그 인에 대한 FAQ 
 
-## <a name="1-whats-the-microsoft-sso-add-on"></a>1. Microsoft SSO 추가 기능이란?
+## <a name="what-does-the-plug-in-do"></a>플러그 인은 무엇을 수행하나요?
 
-이 추가 기능은 Atlassian의 JIRA(JIRA Core, JIRA Software, JIRA Service Desk 포함) 및 Confluence 온-프레미스 소프트웨어에 대한 Single Sign On 기능을 제공합니다. 추가 기능은 IdP로 Azure AD와 함께 작동합니다.
+플러그 인은 Atlassian Jira(Jira Core, Jira Software, Jira Service Desk 포함) 및 Confluence 온-프레미스 소프트웨어에 대한 SSO(Single Sign-On) 기능을 제공합니다. 플러그 인은 IdP(ID 공급자)로 Azure AD(Azure Active Directory)와 함께 작동합니다.
 
-## <a name="2-add-on-works-with-which-atlassian-products"></a>2. 추가 기능은 Atlassian 제품과 함께 작동하나요?
+## <a name="which-atlassian-products-does-the-plug-in-work-with"></a>플러그 인과 함께 작동하는 Atlassian 제품은 무엇인가요?
 
-현재 추가 기능은 JIRA 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
+플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
 
-## <a name="3-does-this-add-on-work-on-cloud-version"></a>3. 이 추가 기능은 클라우드 버전에서 작동하나요?
+## <a name="does-the-plug-in-work-on-cloud-versions"></a>플러그 인은 클라우드 버전에서 작동하나요?
 
-번호 JIRA 및 Confluence 온-프레미스 버전만 지원됩니다.
+번호 플러그 인은 Jira 및 Confluence의 온-프레미스 버전만을 지원합니다.
 
-## <a name="4-which-versions-of-jira-and-confluence-are-supported"></a>4. 지원되는 JIRA 및 Confluence 버전은 무엇인가요?
+## <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
-아래는 지원되는 버전 목록입니다.
+플러그 인에서는 이러한 버전을 지원합니다.
 
-* JIRA Core 및 Software: 6.0 ~ 7.2.2 
-* JIRA 서비스 데스크: 3.0 ~ 3.2 
+* Jira Core 및 소프트웨어: 6.0 ~ 7.2.2 
+* Jira Service Desk: 3.0 ~ 3.2 
 * Confluence: 5.0 ~ 5.10
 
-## <a name="5-is-this-add-on-free-or-paid"></a>5. 이 추가 기능은 무료인가요 아니면 유료인가요?
+## <a name="is-the-plug-in-free-or-paid"></a>플러그 인은 무료인가요, 유료인가요?
 
-이 추가 기능은 무료이며 Atlassian 마켓플레이스에서 설치할 수 있습니다.
+무료 추가 기능입니다. Atlassian Marketplace에서 설치할 수 있습니다.
 
-## <a name="6-do-i-need-to-restart-jiraconfluence-once-i-deploy-the-add-on"></a>6. 추가 기능을 배포한 후 JIRA/Confluence를 다시 시작해야 하나요?
+## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>플러그 인을 배포한 후 Jira 또는 Confluence를 다시 시작해야 하나요?
 
-추가 기능 배포 후 다시 시작할 필요가 없습니다. 배포 후 즉시 추가 기능을 사용할 수 있습니다.
+다시 시작할 필요가 없습니다. 플러그 인 사용을 즉시 시작할 수 있습니다.
 
-## <a name="7-how-do-i-get-support-for-the-add-on"></a>7. 추가 기능에 대한 지원을 받으려면 어떻게 하나요?
+## <a name="how-do-i-get-support-for-the-plug-in"></a>플러그 인에 대한 지원을 받으려면 어떻게 하나요?
 
-<email>로 연락을 주시면 <> 시간 내에 대답해 드립니다. 또한 Azure Portal 채널을 통해 Microsoft 지원 티켓을 발급할 수 있습니다. 평일 오전 <>시부터 오후 <>시 사이에 <Number>으로 전화를 주셔도 됩니다.
+[Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 연락합니다. 팀은 24-48 업무 시간 안에 응답합니다. 
 
-## <a name="8-would-this-add-on-work-on-mac-or-ubuntu-installation-of-jira-and-confluence"></a>8. 이 추가 기능은 JIRA 및 Confluence에 설치된 Mac 또는 Ubuntu에서 작동하나요?
+또한 Azure Portal 채널을 통해 Microsoft 지원 티켓을 발급할 수 있습니다.
 
-이 추가 기능은 JIRA 및 Confluence에 설치된 64비트 Windows 서버에서만 테스트를 거쳤습니다.
+## <a name="would-the-plug-in-work-on-a-mac-or-ubuntu-installation-of-jira-and-confluence"></a>플러그 인은 Jira 및 Confluence에 설치된 Mac 또는 Ubuntu에서 작동하나요?
 
-## <a name="9-does-this-add-on-work-with-other-idps-than-azure-ad"></a>9. 이 추가 기능은 Azure AD 이외의 다른 IdP와 함께 작동하나요?
+플러그 인은 Jira 및 Confluence에 설치된 64비트 Windows 서버에서만 테스트를 거쳤습니다.
 
-번호 이 추가 기능은 Azure AD와만 함께 작동합니다.
+## <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>플러그 인은 Azure AD 이외에 IdP와 함께 작동하나요?
 
-## <a name="10-what-version-of-saml-does-the-add-on-work-with"></a>10. 이 추가 기능과 함께 작동하는 SAML 버전은 무엇인가요?
+번호 Azure AD와만 함께 작동합니다.
 
-이 추가 기능은 SAML 2.0과 함께 작동합니다.
+## <a name="what-version-of-saml-does-the-plug-in-work-with"></a>플러그 인과 함께 작동하는 SAML 버전은 무엇인가요?
 
-## <a name="11-does-the-add-on-do-use-provisioning-as-well"></a>11. 이 추가 기능은 프로비전도 사용하나요?
+SAML 2.0과 함께 작동합니다.
 
-번호 현재 이 추가 기능은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 응용 프로그램에서 사용자를 프로비전해야 합니다.
+## <a name="does-the-plug-in-do-user-provisioning"></a>플러그 인은 사용자 프로비저닝을 수행하나요?
 
-## <a name="12-are-cluster-versions-of-jira-and-confluence-supported-by-add-on"></a>12. 이 추가 기능이 JIRA 및 Confluence의 클러스터 버전을 지원하나요?
+번호 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 응용 프로그램에서 사용자를 프로비전해야 합니다.
 
-번호 이 추가 기능은 JIRA 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
+## <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
-## <a name="13-would-this-plugin-work-with-http-version-of-jira-and-confluence"></a>13. 이 플러그 인은 JIRA 및 Confluence의 HTTP 버전과 함께 작동하나요?
+번호 플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
 
-번호 이 추가 기능은 HTTPS가 설정된 설치 버전에서만 작동합니다.
+## <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>플러그 인은 Jira 및 Confluence의 HTTP 버전과 함께 작동하나요?
 
-## <a name="14-do-i-need-to-buy-license-of-the-add-on"></a>14. 추가 기능 라이선스를 구입해야 하나요?
-
-이 추가 기능은 무료입니다.
+번호 플러그 인은 HTTPS가 설정된 설치 버전에서만 작동합니다.

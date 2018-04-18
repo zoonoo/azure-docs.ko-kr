@@ -1,40 +1,40 @@
 ---
 title: PaaS 리소스에 대한 네트워크 액세스 제한 - Azure CLI | Microsoft Docs
-description: Azure CLI를 사용하여 가상 네트워크 서비스 끝점으로 Azure Storage 및 Azure SQL Database와 같은 Azure 리소스에 대한 네트워크 액세스를 제한하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트를 통해 Azure Storage 및 Azure SQL Database와 같은 Azure 리소스에 대한 네트워크 액세스를 제한하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c0c6a802c931b71f5be8b01c610cf0810b0b4d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 끝점으로 PaaS 리소스에 대한 네트워크 액세스 제한
 
 가상 네트워크 서비스 끝점을 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 끝점은 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 개인 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 끝점을 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 하나의 서브넷이 있는 가상 네트워크 만들기
-> * 서브넷을 추가하고 서비스 끝점을 사용하도록 설정
-> * Azure 리소스를 만들고 서브넷에서만 네트워크 액세스 허용
-> * 각 서브넷에 VM(가상 머신) 배포
-> * 서브넷에서 리소스에 대한 액세스 확인
-> * 서브넷 및 인터넷에서 리소스에 대한 액세스가 거부되는지 확인
+* 하나의 서브넷이 있는 가상 네트워크 만들기
+* 서브넷을 추가하고 서비스 끝점을 사용하도록 설정
+* Azure 리소스를 만들고 서브넷에서만 네트워크 액세스 허용
+* 각 서브넷에 VM(가상 머신) 배포
+* 서브넷에서 리소스에 대한 액세스 확인
+* 서브넷 및 인터넷에서 리소스에 대한 액세스가 거부되는지 확인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -82,7 +82,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-to-and-from-subnet"></a>서브넷에 대한 네트워크 액세스 제한
+## <a name="restrict-network-access-for-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
 
 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNsgPrivate*라는 네트워크 보안 그룹을 만듭니다.
 
@@ -311,7 +311,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 자습서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행하기 전에 `<storage-account-name>`을 계정 이름으로, `<storage-account-key>`를 [저장소 계정 만들기](#create-a-storage-account)에서 검색한 키로 바꿉니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행하기 전에 `<storage-account-name>`을 계정 이름으로, `<storage-account-key>`를 [저장소 계정 만들기](#create-a-storage-account)에서 검색한 키로 바꿉니다.
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -341,9 +341,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 가상 네트워크 서브넷에 대해 서비스 끝점을 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 끝점을 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 프로덕션 가상 네트워크에서 서비스 끝점을 만들기 전에 [서비스 끝점](virtual-network-service-endpoints-overview.md)을 완전히 숙지하는 것이 좋습니다.
+이 문서에서는 가상 네트워크 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 끝점을 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 엔드포인트에 대한 자세한 내용은 [서비스 엔드포인트 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
 
-계정에 여러 개의 가상 네트워크가 있는 경우 각 가상 네트워크 내의 리소스가 서로 통신할 수 있도록 두 개의 가상 네트워크를 함께 연결하는 것이 좋습니다. 가상 네트워크를 연결하는 방법을 알아보려면 다음 자습서로 이동합니다.
-
-> [!div class="nextstepaction"]
-> [가상 네트워크 연결](./tutorial-connect-virtual-networks-cli.md)
+계정에 여러 개의 가상 네트워크가 있는 경우 각 가상 네트워크 내의 리소스가 서로 통신할 수 있도록 두 개의 가상 네트워크를 함께 연결하는 것이 좋습니다. 방법을 알아보려면 [가상 네트워크 연결](tutorial-connect-virtual-networks-cli.md)을 참조하세요.

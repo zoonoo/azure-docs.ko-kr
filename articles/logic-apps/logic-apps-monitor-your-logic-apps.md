@@ -1,11 +1,11 @@
 ---
-title: "상태 확인, 로깅 설정 및 경고 받기 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱에 대한 상태 및 성능 모니터링, 진단 데이터 로그 및 경고 설정"
+title: 상태 확인, 로깅 설정 및 경고 받기 - Azure Logic Apps | Microsoft Docs
+description: 논리 앱에 대한 상태 및 성능 모니터링, 진단 데이터 로그 및 경고 설정
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -76,9 +76,9 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>논리 앱에 대한 진단 로깅 켜기
 
-런타임 세부 정보 및 이벤트로 보다 풍부한 디버깅은 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 진단 로깅을 설정할 수 있습니다. Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지할 수 있도록 돕는 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)의 서비스입니다. 
+런타임 세부 정보 및 이벤트로 보다 풍부한 디버깅은 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 진단 로깅을 설정할 수 있습니다. Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하도록 돕는 Azure의 서비스입니다. 
 
-시작하기 전에 OMS 작업 영역이 필요합니다. [OMS 작업 영역을 만드는 방법](../log-analytics/log-analytics-get-started.md)에 대해 알아봅니다.
+시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾고 선택합니다. 
 
@@ -90,16 +90,16 @@ ms.lasthandoff: 02/28/2018
 
    ![진단 로그 설정](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. 이제 표시된 것처럼 로깅에 대한 OMS 작업 영역 및 이벤트 범주를 선택합니다.
+4. 이제 표시된 것처럼 로깅에 대한 Log Analytics 작업 영역 및 이벤트 범주를 선택합니다.
 
    1. **Log Analytics에 보내기**를 선택합니다. 
    2. **Log Analytics** 아래에서 **구성**을 선택합니다. 
-   3. **OMS 작업 영역** 아래에서 로깅에 사용할 OMS 작업 영역을 선택합니다.
+   3. **OMS 작업 영역** 아래에서 로깅에 사용할 Log Analytics 작업 영역을 선택합니다.
    4. **로그** 아래에서 **WorkflowRuntime** 범주를 선택합니다.
    5. 메트릭 간격을 선택합니다.
    6. 완료하면 **저장**을 선택합니다.
 
-   ![로깅에 대한 OMS 작업 영역 및 데이터 선택](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![로깅에 대한 Log Analytics 작업 영역 및 데이터 선택](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 이제 트리거 이벤트, 실행 이벤트 및 작업 이벤트에 대한 이벤트 및 기타 데이터를 찾을 수 있습니다.
 
@@ -113,23 +113,23 @@ ms.lasthandoff: 02/28/2018
 
    !["Log Analytics" 선택](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. **Log Analytics** 아래에서 OMS 작업 영역을 찾고 선택합니다. 
+2. **Log Analytics** 아래에서 Log Analytics 작업 영역을 찾고 선택합니다. 
 
-   ![OMS 작업 영역 선택](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Log Analytics 작업 영역 선택](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. **관리** 아래에서 **OMS 포털**을 선택합니다.
 
    !["OMS 포털" 선택](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. OMS 홈페이지에서 **로그 검색**을 선택합니다.
+4. 홈페이지에서 **로그 검색**을 선택합니다.
 
-   ![OMS 홈페이지에서 "로그 검색" 선택](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![홈페이지에서 "로그 검색" 선택](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    또는
 
-   ![OMS 홈 메뉴에서 "로그 검색" 선택](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![메뉴에서 "로그 검색" 선택](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. 검색 상자에 찾으려는 필드를 지정하고 **Enter** 키를 누릅니다. 입력을 시작할 때 OMS는 사용할 수 있는 가능한 일치 및 작업을 보여 줍니다. 
+5. 검색 상자에 찾으려는 필드를 지정하고 **Enter** 키를 누릅니다. 입력을 시작할 때 사용할 수 있는 가능한 일치 및 작업이 표시됩니다. 
 
    예를 들어 발생한 상위 10개의 이벤트를 찾으려면 이 검색 쿼리: **search Category == "WorkflowRuntime" | limit 10**을 입력하고 선택합니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "템플릿으로 워크플로 만들기 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱 템플릿을 사용하여 신속하게 워크플로 빌드"
+title: 템플릿으로 워크플로 만들기 - Azure Logic Apps | Microsoft Docs
+description: 논리 앱 템플릿을 사용하여 신속하게 워크플로 빌드
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>미리 빌드된 템플릿에서 논리 앱 워크플로 만들기
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    | **구독** | *your-Azure-subscription-name* | 사용할 Azure 구독을 선택합니다. | 
    | **리소스 그룹** | *your-Azure-resource-group-name* | 이 논리 앱에 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만들거나 선택하고 이 앱과 연결된 모든 리소스를 구성합니다. | 
    | **위치**: | *your-Azure-datacenter-region* | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다(예: 미국 서부). | 
-   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 통해 논리 앱에 [진단 로깅](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app)을 설정합니다. 이미 [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 작업 영역이 있어야 합니다. | 
+   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 통해 논리 앱에 [진단 로깅](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app)을 설정합니다. Log Analytics 작업 영역이 이미 있어야 합니다. | 
    |||| 
 
 4. 준비가 되면 **대시보드에 고정**을 선택합니다. 이런 방식으로 논리 앱은 자동으로 Azure 대시보드에 표시되고 배포 후에 열립니다. **만들기**를 선택합니다.

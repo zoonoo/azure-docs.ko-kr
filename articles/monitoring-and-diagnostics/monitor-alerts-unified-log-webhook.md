@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/23/2018
 | 검색 간격 시작 시간 |#searchintervalstarttimeutc |UTC 형식의 쿼리에 대한 시작 시간입니다. 
 | SearchQuery |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | SearchResults |"IncludeSearchResults": true|“IncludeSearchResults”:true를 사용자 지정 JSON 웹후크 정의에 최상위 속성으로 추가할 경우 쿼리에서 JSON 테이블로 반환되는 레코드이며, 처음 1,000개 레코드로 제한됩니다. |
-| WorkspaceID |#workspaceid |Log Analytics(OMS) 작업 영역의 ID입니다. |
+| WorkspaceID |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
 | 응용 프로그램 UI |#applicationid |Application Insight 앱의 ID입니다. |
 | 구독 ID |#subscriptionid |Application Insights에서 사용되는 Azure 구독의 ID입니다. 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/23/2018
 이 섹션에서는 페이로드가 표준인 경우와 사용자 지정인 경우를 포함하여 로그 경고에 대한 웹후크의 샘플 페이로드를 보여 줍니다.
 
 > [!NOTE]
-> 이전 버전과의 호환성을 보장하기 위해 Azure Log Analytics를 사용하는 경고에 대한 표준 웹후크 페이로드는 [OMS 경고 관리](../log-analytics/log-analytics-alerts-creating.md)와 같습니다. 그러나 [Application Insights](../application-insights/app-insights-analytics.md)를 사용하는 로그 경고에 대한 표준 웹후크 페이로드는 작업 그룹 스키마를 기반으로 합니다.
+> 이전 버전과의 호환성을 보장하기 위해 Azure Log Analytics를 사용하는 경고에 대한 표준 웹후크 페이로드는 [Log Analytics 경고 관리](../log-analytics/log-analytics-alerts-creating.md)와 같습니다. 그러나 [Application Insights](../application-insights/app-insights-analytics.md)를 사용하는 로그 경고에 대한 표준 웹후크 페이로드는 작업 그룹 스키마를 기반으로 합니다.
 
 ### <a name="standard-webhook-for-log-alerts"></a>로그 경고에 대한 표준 웹후크 
 이 두 가지 예제에서 모두, 열과 행이 각각 두 개만 포함된 더미 페이로드를 언급했습니다.

@@ -1,10 +1,10 @@
 ---
-title: "Azure Virtual Machines에 대한 공통 PowerShell 명령 | Microsoft Docs"
-description: "Azure에서 Windows VM 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령"
+title: Azure Virtual Machines에 대한 공통 PowerShell 명령 | Microsoft Docs
+description: Azure에서 Windows VM 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ba3839a2-f3d5-4e19-a5de-95bfb1c0e61e
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 7744f0bef5969a41130c09635d608df1a2952993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f84473e73a32da43cc6cc80b21deb49ab4f3ceb9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Azure Virtual Machines를 만들고 관리하기 위한 공통 PowerShell 명령
 
-이 문서에서는 Azure 구독에서 가상 컴퓨터를 만들고 관리하는 데 사용할 수 있는 몇 가지 Azure PowerShell 명령을 다룹니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 **Get-Help** *명령*을 사용할 수 있습니다.
+이 문서에서는 Azure 구독에서 가상 머신을 만들고 관리하는 데 사용할 수 있는 몇 가지 Azure PowerShell 명령을 다룹니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 **Get-Help** *명령*을 사용할 수 있습니다.
 
 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 이 문서에 나오는 둘 이상의 명령을 실행하는 경우 다음과 같은 변수가 유용할 수 있습니다.
 
-- $location - 가상 컴퓨터의 위치입니다. [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation)을 사용하여 사용자의 [지리적 하위 지역](https://azure.microsoft.com/regions/)을 찾을 수 있습니다.
+- $location - 가상 머신의 위치입니다. [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation)을 사용하여 사용자의 [지리적 하위 지역](https://azure.microsoft.com/regions/)을 찾을 수 있습니다.
 - $myResourceGroup - 가상 컴퓨터를 포함하는 리소스 그룹의 이름입니다.
 - $myVM - 가상 컴퓨터의 이름입니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-| 작업 | 명령 |
+| Task | 명령 |
 | ---- | ------- |
 | VM 구성 만들기 |$vm = [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) -VMName $myVM -VMSize "Standard_D1_v1"<BR></BR><BR></BR>VM 구성은 VM에 대한 설정을 정의하거나 업데이트하는 데 사용 됩니다. 구성은 VM의 이름 및 [크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 초기화합니다. |
 | 구성 설정 추가 |$vm = [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) -VM $vm -Windows -ComputerName $myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>[자격 증명](https://technet.microsoft.com/library/hh849815.aspx)을 포함하는 운영 체제 설정은 New-AzureRmVMConfig를 사용하여 이전에 만든 구성 개체에 추가됩니다. |
@@ -48,21 +48,21 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="get-information-about-vms"></a>VM에 대한 정보 가져오기
 
-| 작업 | 명령 |
+| Task | 명령 |
 | ---- | ------- |
 | 구독에서 Vm 나열 |[Get AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) |
 | 리소스 그룹에서 Vm 나열 |Get-AzureRmVM -ResourceGroupName $myResourceGroup<BR></BR><BR></BR>구독에서 리소스 그룹 목록을 가져오려면 [Get AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup)을 사용할 수 있습니다. |
-| VM 관련 정보 가져오기 |Get-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM |
+| VM에 대한 정보 가져오기 |Get-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM |
 
 ## <a name="manage-vms"></a>VM 관리
-| 작업 | 명령 |
+| Task | 명령 |
 | --- | --- |
 | VM 시작 |[Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | VM 중지 |[Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | 실행 중인 VM 다시 시작 |[Restart-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/restart-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | VM 삭제 |[Remove-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | VM 일반화 |[Set-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM -Generalized<BR></BR><BR></BR>이 명령을 Save-AzureRmVMImage를 실행하기 전에 실행합니다. |
-| VM 캡처 |[Save-AzureRmVMImage](https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvmimage) -ResourceGroupName $myResourceGroup -VMName $myVM -DestinationContainerName "myImageContainer" -VHDNamePrefix "myImagePrefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>가상 컴퓨터를 [준비하여 종료하고 일반화하여](prepare-for-upload-vhd-image.md) 이미지를 만드는 데 사용해야 합니다. 이 명령을 실행하기 전에 Set-AzureRmVm을 실행합니다. |
+| VM 캡처 |[Save-AzureRmVMImage](https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvmimage) -ResourceGroupName $myResourceGroup -VMName $myVM -DestinationContainerName "myImageContainer" -VHDNamePrefix "myImagePrefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>가상 머신을 [준비하여 종료하고 일반화하여](prepare-for-upload-vhd-image.md) 이미지를 만드는 데 사용해야 합니다. 이 명령을 실행하기 전에 Set-AzureRmVm을 실행합니다. |
 | VM 업데이트 |[Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Get-AzureRmVM을 사용하여 현재 VM 구성을 가져오고, VM 개체에서 구성 설정을 변경한 후, 이 명령을 실행합니다. |
 | VM에 데이터 디스크 추가 |[Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk) -VM $vm -Name "myDataDisk" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>VM 개체를 가져오려면 Get-AzureRmVM을 사용합니다. LUN 번호 및 디스크 크기를 지정합니다. VM에 구성 변경을 적용하려면 Update-AzureRmVM을 실행합니다. 추가한 디스크가 초기화되지 않았습니다. |
 | VM에서 데이터 디스크 제거 |[Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) -VM $vm -Name "myDataDisk"<BR></BR><BR></BR>VM 개체를 가져오려면 Get-AzureRmVM을 사용합니다. VM에 구성 변경을 적용하려면 Update-AzureRmVM을 실행합니다. |

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
@@ -69,6 +69,23 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 
 ![Single Sign-On](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
+
+vCore 기반 구매 모델은 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소의 크기를 조정할 수 있습니다. 또한 vCore 모델은 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.
+
+가상 코어는 하드웨어 세대 중에서 선택할 수 있는 옵션과 함께 제공되는 논리 CPU를 나타냅니다.
+- 4세대 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며,
+- 5세대 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다.
+
+다음 표는 계산, 메모리, 저장소 및 I/O 리소스의 최적 구성을 선택하는 방법을 이해하는 데 도움이 됩니다.
+
+||4세대|5세대|
+|----|------|-----|
+|하드웨어|Intel E5-2673 v3(Haswell) 2.4 GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어)|Intel E5-2673 v4(Broadwell) 2.3 GHz 프로세서, 고속 eNVM SSD, vCore = 1LP(하이퍼스레드)|
+|성능 수준|8, 16, 24개 vCore|8, 16, 24, 32, 40개 vCore|
+|메모리|vCore당 7GB|vCore당 5.5GB|
+||||
+
 ## <a name="managed-instance-service-tier"></a>관리되는 인스턴스 서비스 계층
 
 관리되는 인스턴스는 처음에는 일반적인 가용성 및 공통 IO 대기 시간 요구 사항을 가진 응용 프로그램을 위해 설계된 단일 서비스 계층(범용)에서 사용할 수 있습니다.
@@ -89,11 +106,11 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 
 |기능 | 설명|
 |---|---|
-| vCore 수* | 8, 16, 24|
+| vCore 수* | 8, 16, 24개(4세대)<br>8, 16, 24, 32, 40개(5세대)|
 | SQL Server 버전/빌드 | SQL Server(최신 버전 사용 가능) |
 | 최소 저장소 크기 | 32GB |
 | 최대 저장소 크기 | 8 TB |
-| 데이터베이스당 최대 저장소 | 4 TB |
+| 데이터베이스당 최대 저장소 | 8 TB |
 | 예상 저장소 IOPS | 데이터 파일당 500-7500 IOPS(데이터 파일에 따라 다름). [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) 보기 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
 | 데이터베이스당 로그 파일(로그) 수 | 1 | 
@@ -102,11 +119,11 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 | 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
 | 자동 소프트웨어 패치 | 예 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니오 |
+| VNet - 클래식 배포 모델 | 아니요 |
 | 포털 지원 | 예|
 |||
 
-\* 가상 코어는 하드웨어 세대를 선택할 수 있는 옵션이 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다.  
+\* 가상 코어는 하드웨어 세대를 선택할 수 있는 옵션이 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. 
 
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수 
 
@@ -152,7 +169,7 @@ SQL Database를 사용하면 [Azure Active Directory 통합](sql-database-aad-au
 SQL 데이터베이스 인증은 사용자가 데이터베이스에 연결할 때 자신의 ID를 증명하는 방법을 나타냅니다. SQL Database는 두 가지 인증 유형을 지원합니다.  
 
 - SQL 인증은 사용자 이름과 암호를 사용합니다.
-- Azure Active Directory 인증은 Azure Active Directory에서 관리하는 ID를 사용하고 관리되고 통합된 도메인을 지원합니다.  
+- Azure Active Directory 인증은 Azure Active Directory에서 관리하는 ID를 사용하고 관리되고 통합된 도메인을 지원합니다. 
 
 ### <a name="authorization"></a>권한 부여
 
@@ -160,11 +177,11 @@ SQL 데이터베이스 인증은 사용자가 데이터베이스에 연결할 �
 
 ## <a name="database-migration"></a>데이터베이스 마이그레이션 
 
-관리되는 인스턴스는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스를 마이그레이션하는 사용자 시나리오를 대상으로 합니다.  관리되는 인스턴스는 여러 데이터베이스 마이그레이션 옵션을 지원합니다. 
+관리되는 인스턴스는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스를 마이그레이션하는 사용자 시나리오를 대상으로 합니다. 관리되는 인스턴스는 여러 데이터베이스 마이그레이션 옵션을 지원합니다. 
 
 ### <a name="data-migration-service"></a>데이터 마이그레이션 서비스
 
-Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다.   이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션으로는 Azure VM의 Azure SQL Database, 관리되는 인스턴스, SQL Server가 있습니다. [DMS를 사용하여 온-프레미스 데이터베이스를 관리되는 인스턴스로 마이그레이션하는 방법](https://aka.ms/migratetoMIusingDMS)을 참조하세요.  
+Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션으로는 Azure VM의 Azure SQL Database, 관리되는 인스턴스, SQL Server가 있습니다. [DMS를 사용하여 온-프레미스 데이터베이스를 관리되는 인스턴스로 마이그레이션하는 방법](https://aka.ms/migratetoMIusingDMS)을 참조하세요. 
 
 ### <a name="backup-and-restore"></a>Backup 및 복원  
 
@@ -174,7 +191,7 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 
 관리되는 인스턴스의 목표는 서비스의 일반 공급이 시작될 때까지 단계별로 제공되는 온-프레미스 SQL Server와 거의 100% 호환되는 노출 영역 호환성을 제공하는 것입니다. 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.
  
-관리되는 인스턴스는 SQL 2008 데이터베이스와 호환됩니다.  SQL 2005 데이터베이스 서버에서 직접 마이그레이션할 수 있으며, 마이그레이션된 SQL 2005 데이터베이스의 호환성 수준은 SQL 2008로 업데이트됩니다. 
+관리되는 인스턴스는 SQL 2008 데이터베이스와 호환됩니다. SQL 2005 데이터베이스 서버에서 직접 마이그레이션할 수 있으며, 마이그레이션된 SQL 2005 데이터베이스의 호환성 수준은 SQL 2008로 업데이트됩니다. 
  
 다음 다이어그램은 관리되는 인스턴스의 노출 영역 호환성을 설명합니다.  
 
@@ -182,7 +199,7 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>SQL Server 온-프레미스와 관리되는 인스턴스의 주요 차이점 
 
-관리되는 인스턴스는 클라우드에서 항상 최신 상태로 유지되는 이점이 있습니다. 즉, 온-프레미스 SQL Server의 일부 기능이 사용되지 않거나 사용 중지되거나 대체될 수 있습니다.  특정 기능이 약간 다른 방식으로 작동하거나 사용자에게 전체 제어 권한이 없는 환경에서 서비스가 실행되면 이 사실을 도구에서 인식해야 하는 경우가 있습니다. 
+관리되는 인스턴스는 클라우드에서 항상 최신 상태로 유지되는 이점이 있습니다. 즉, 온-프레미스 SQL Server의 일부 기능이 사용되지 않거나 사용 중지되거나 대체될 수 있습니다. 특정 기능이 약간 다른 방식으로 작동하거나 사용자에게 전체 제어 권한이 없는 환경에서 서비스가 실행되면 이 사실을 도구에서 인식해야 하는 경우가 있습니다. 
 
 - 고가용성은 기본적으로 제공되며 미리 구성되어 있습니다. Always On 고가용성 기능은 SQL IaaS 구현과 동일한 방식으로 노출되지 않습니다. 
 - 자동 백업 및 특정 시점 복원. 고객은 자동 백업 체인을 방해하지 않는 `copy-only` 백업을 시작할 수 있습니다. 
@@ -192,7 +209,7 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
  
 ### <a name="managed-instance-administration-features"></a>관리되는 인스턴스 관리 기능  
 
-관리되는 인스턴스는 시스템 관리자가 비즈니스에 가장 중요한 문제에만 집중할 수 있게 해줍니다. 많은 시스템 관리자/DBA 활동을 수행할 필요가 없거나 아주 간단합니다. OS/RDBMS 설치 및 패치, 동적 인스턴스 크기 조정 및 구성, 백업, 데이터베이스 복제(시스템 데이터베이스 포함), 고가용성 구성, 상태 및 성능 모니터링 데이터 스트림 구성 등을 예로 들 수 있습니다.  
+관리되는 인스턴스는 시스템 관리자가 비즈니스에 가장 중요한 문제에만 집중할 수 있게 해줍니다. 많은 시스템 관리자/DBA 활동을 수행할 필요가 없거나 아주 간단합니다. OS/RDBMS 설치 및 패치, 동적 인스턴스 크기 조정 및 구성, 백업, 데이터베이스 복제(시스템 데이터베이스 포함), 고가용성 구성, 상태 및 성능 모니터링 데이터 스트림 구성 등을 예로 들 수 있습니다. 
 
 > [!IMPORTANT]
 > 지원되는 기능, 부분적으로 지원되는 기능 및 지원되지 않는 기능 목록은 [SQL Database 기능](sql-database-features.md)을 참조하세요. 관리되는 인스턴스와 SQL Server의 T-SQL 차이점 목록은 SQL Server의 [관리되는 인스턴스 T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md)을 참조하세요.

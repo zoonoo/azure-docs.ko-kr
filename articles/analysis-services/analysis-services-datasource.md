@@ -1,25 +1,25 @@
 ---
-title: "Azure Analysis Services에서 지원되는 데이터 원본 | Microsoft Docs"
-description: "Azure Analysis Services의 데이터 모델에 지원되는 데이터 원본에 대해 설명합니다."
+title: Azure Analysis Services에서 지원되는 데이터 원본 | Microsoft Docs
+description: Azure Analysis Services의 데이터 모델에 지원되는 데이터 원본에 대해 설명합니다.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 04/05/2018
 ms.author: owend
-ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 16bf333fe18c912db7cb81e74fce29960b0728d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -31,14 +31,12 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 |---------|---------|---------|
 |Azure SQL Database     |   예      |    예      |
 |Azure SQL Data Warehouse     |   예      |   예       |
-|Azure Blob Storage*     |   예       |    아니요      |
+|Azure Blob Storage*     |   예       |    아니오      |
 |Azure Table Storage*    |   예       |    아니오      |
-|Azure Cosmos DB(베타)*     |  예        |  아니오        |
-|Azure Data Lake Store*     |   예       |    아니요      |
+|Azure Cosmos DB*     |  예        |  아니오        |
+|Azure Data Lake Store*     |   예       |    아니오      |
 |Azure HDInsight HDFS*     |     예     |   아니요       |
-|Azure HDInsight Spark(베타)*     |   예       |   아니요       |
-|Azure Database for MySQL(미리 보기)*     |   예       |   아니요      |
-|Azure Database for PostgreSQL(미리 보기)*     | 예         |  아니오       |
+|Azure HDInsight Spark*     |   예       |   아니오       |
 ||||
 
 \* 테이블 형식 1400 모델에만 해당합니다.

@@ -1,11 +1,11 @@
 ---
-title: "Linux 가상 머신에 Apache Tomcat 설치 | Microsoft Docs"
-description: "Linux를 실행하는 Azure Virtual Machines를 사용하여 Apache Tomcat7을 설치하는 방법에 대해 알아봅니다."
+title: Linux 가상 머신에 Apache Tomcat 설치 | Microsoft Docs
+description: Linux를 실행하는 Azure Virtual Machines를 사용하여 Apache Tomcat7을 설치하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Azure를 사용하여 Linux 가상 머신에 Tomcat7 설치
 Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 함)은 ASF(Apache Software Foundation)에서 개발한 오픈 소스 웹 서버 및 서블릿 컨테이너입니다. Tomcat은 Sun Microsystems의 Java Servlet 및 JSP(JavaServer Pages) 사양을 구현합니다. Tomcat은 Java 코드를 실행할 수 있는 순수한 Java HTTP 웹 서버 환경을 제공합니다. 가장 단순한 구성의 경우 Tomcat은 단일 운영 체제 프로세스로 실행됩니다. 이 프로세스에서는 JVM(Java Virtual Machine)을 실행합니다. 브라우저에서 Tomcat으로 전송되는 모든 HTTP 요청은 Tomcat 프로세스에서 별도의 스레드로 처리됩니다.  
@@ -54,7 +54,7 @@ SSH는 시스템 관리자에게 중요한 도구입니다. 그러나 사람이 
 
 SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
-1. PuTTYgen을 다운로드하고 설치합니다(다운로드 위치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)).
+1. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 위치에서 PuTTYgen을 다운로드 및 설치합니다.
 2. Puttygen.exe를 실행합니다.
 3. **생성** 을 클릭하여 키를 생성합니다. 이 과정에서 창의 빈 영역 위로 마우스를 이동하여 임의성을 높일 수 있습니다.  
    ![새 키 생성 단추를 보여 주는 PuTTY 키 생성기 스크린샷][1]
@@ -90,9 +90,9 @@ Azure의 끝점은 공용 및 개인 포트와 함께 TCP 또는 UDP 프로토�
 
    1. 끝점의 경우 **끝점**에 끝점 이름을 입력한 다음 **공용 포트**에 80을 입력합니다.  
 
-      80으로 설정하면 Tomcat에 액세스하는 데 사용되는 URL에 포트 번호를 포함할 필요가 없습니다. 예를 들면 http://tomcatdemo.cloudapp.net과 같습니다.    
+      80으로 설정하면 Tomcat에 액세스하는 데 사용되는 URL에 포트 번호를 포함할 필요가 없습니다. 예: http://tomcatdemo.cloudapp.net    
 
-      다른 값(예: 81)으로 설정하면 Tomcat에 액세스할 수 있도록 URL에 포트 번호를 추가해야 합니다. 예를 들면 http://tomcatdemo.cloudapp.net:81/과 같습니다.
+      다른 값(예: 81)으로 설정하면 Tomcat에 액세스할 수 있도록 URL에 포트 번호를 추가해야 합니다. 예: http://tomcatdemo.cloudapp.net:81/
    2. **개인 포트**에 8080을 입력합니다. 기본적으로 Tomcat은 8080 TCP 포트에서 수신 대기합니다. Tomcat의 기본 수신 대기 포트를 변경한 경우 **개인 포트**를 Tomcat 수신 대기 포트와 같도록 업데이트해야 합니다.  
       ![추가 명령, 공용 포트 및 개인 포트를 보여 주는 UI 스크린샷][7]
 4. **확인** 을 클릭하여 가상 머신에 끝점을 추가합니다.
@@ -184,7 +184,7 @@ Oracle JDK를 설치한 경우 다음과 같은 메시지가 표시됩니다. ![
 Tomcat7을 사용하지 않는 경우 이 명령의 적절한 변형을 사용합니다.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Tomcat7 설치가 성공적인지 확인
-Tomcat7이 성공적으로 설치되었는지 확인하려면 Tomcat 서버의 DNS 이름을 찾습니다. 이 문서의 예제 URL은 http://tomcatexample.cloudapp.net/입니다. 다음과 같은 메시지가 표시되면 Tomcat7이 제대로 설치된 것입니다.
+Tomcat7이 성공적으로 설치되었는지 확인하려면 Tomcat 서버의 DNS 이름을 찾습니다. 이 문서의 URL 예제는 http://tomcatexample.cloudapp.net/입니다. 다음과 같은 메시지가 표시되면 Tomcat7이 제대로 설치된 것입니다.
 ![Tomcat7 설치 성공 메시지][16]
 
 ### <a name="install-other-tomcat7-components"></a>기타 Tomcat7 구성 요소 설치
@@ -231,7 +231,7 @@ Tomcat 사용자 구성 파일을 편집하여 관리자 자격 증명을 설정
 
     sudo /etc/init.d/tomcat7 restart  
 
-브라우저를 열고 URL로 **http://<your tomcat server DNS name>/manager/html**을 입력합니다. 이 문서의 예제에 나와 있는 URL은 http://tomcatexample.cloudapp.net/manager/html입니다.  
+브라우저를 열고 URL로 **http://<your tomcat server DNS name>/manager/html**을 입력합니다. 이 문서의 예제에서 URL은 http://tomcatexample.cloudapp.net/manager/html입니다.  
 
 연결되면 다음과 유사한 페이지가 표시됩니다.  
 ![Tomcat 웹 응용 프로그램 관리자의 스크린샷][18]

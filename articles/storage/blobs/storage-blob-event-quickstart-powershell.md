@@ -8,24 +8,22 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5524732185d7b80ebf16a9bce6de9ca0183c27e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Powershell로 Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure PowerShell을 사용하여 Blob 저장소 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
-일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 그러나 이 문서의 예제를 간소화하기 위해 메시지만 수집하는 URL로 이벤트를 보냅니다. [RequestBin](https://requestb.in/) 또는 [Hookbin](https://hookbin.com/)에서 타사 도구를 사용하여 이 URL을 만듭니다.
+일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 그러나 이 문서의 예제를 간소화하기 위해 메시지만 수집하는 URL로 이벤트를 보냅니다. [Hookbin](https://hookbin.com/)에서 타사 도구를 사용하여 이 URL을 만듭니다.
 
 > [!NOTE]
-> 처리량이 높은 경우에는 **RequestBin** 및 **Hookbin** 사용이 적합하지 않습니다. 이 도구는 순전히 시연을 위해서만 사용되었습니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
+> 처리량이 높은 경우에는 **Hookbin** 사용이 적합하지 않습니다. 이 도구는 순전히 시연을 위해서만 사용됩니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
 
 이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 끝점으로 보내졌음을 알 수 있습니다.
-
-![이벤트 데이터](./media/storage-blob-event-quickstart/request-result.png)
 
 ## <a name="setup"></a>설정
 
@@ -84,7 +82,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. RequestBin 및 Hookbin은 타사 도구로, 이 도구를 통해 끝점을 만들고 이 끝점에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭하거나 [Hookbin](https://hookbin.com/)으로 이동하고 **새 끝점 만들기**를 클릭합니다. 다음 스크립트에서 저장소 URL을 복사하고 `<bin URL>`을 바꿉니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. Hookbin은 타사 도구로, 이 도구를 통해 엔드포인트를 만들고 이 엔드포인트에 전송된 요청을 볼 수 있습니다. [Hookbin](https://hookbin.com/)으로 이동하여 **새 엔드포인트 만들기**를 클릭합니다. 다음 스크립트에서 저장소 URL을 복사하고 `<bin URL>`을 바꿉니다.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -92,7 +90,7 @@ $binEndPoint = "<bin URL>"
 
 ## <a name="subscribe-to-your-storage-account"></a>저장소 계정 구독
 
-토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 저장소 계정을 구독하고 RequestBin 또는 Hookbin의 URL을 이벤트 알림에 대한 끝점으로 전달합니다. 
+토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 저장소 계정을 구독하고 Hookbin의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

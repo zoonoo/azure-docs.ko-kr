@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -22,7 +22,7 @@ Azure SQL Database의 메모리 내 기술을 사용하여 트랜잭션(OLTP(온
 메모리 내 OLTP가 성능을 크게 향상시키는 방법의 두 가지 예는 다음과 같습니다.
 
 - 메모리 내 OLTP를 사용하여 [Quorum Business Solutions은 DTU를 70%까지 개선하면서 작업량을 두 배로 늘릴 수 있었습니다](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - 여기서 DTU는 *데이터베이스 처리량 단위*를 의미하며 리소스 소비량의 측정값을 포함합니다.
+    - 여기서 DTU는 *데이터베이스 트랜잭션 단위*를 의미하며 리소스 소비량의 측정값을 포함합니다.
 - 다음 [Azure SQL Database의 메모리 내 OLTP 동영상](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)은 샘플 워크로드에서 리소스 소비가 크게 향상되었음을 보여 줍니다.
     - 자세한 내용은 [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)을 참조하세요.
 
@@ -36,7 +36,7 @@ Azure SQL Database의 메모리 내 기술을 사용하여 트랜잭션(OLTP(온
 
 Azure SQL Database에는 다음과 같은 메모리 내 기술이 있습니다.
 
-- *메모리 내 OLTP*은 처리량을 증가시키고 트랜잭션 처리에 대한 대기 시간을 감소시킵니다. 메모리 내 OLTP를 활용하는 시나리오는 거래와 게임, 이벤트 또는 IoT 장치의 데이터 수집, 캐싱, 데이터 부하 및 임시 테이블과 테이블 변수 시나리오와 같은 처리량 많은 트랜잭션을 처리하는 경우입니다.
+- *메모리 내 OLTP*는 트랜잭션을 증가시키고 트랜잭션 처리에 대한 대기 시간을 감소시킵니다. 메모리 내 OLTP를 활용하는 시나리오는 거래와 게임, 이벤트 또는 IoT 장치의 데이터 수집, 캐싱, 데이터 부하 및 임시 테이블과 테이블 변수 시나리오와 같은 처리량 많은 트랜잭션을 처리하는 경우입니다.
 - *클러스터형 Columnstore 인덱스*는 저장소 공간을 최대 10배로 감소시키고 보고 및 분석 쿼리에 대한 성능을 향상시킵니다. 데이터베이스에 있는 더 많은 데이터에 적합한 데이터 마트에서 팩트 테이블과 함께 이 기능을 사용하여 성능을 향상시킬 수 있습니다. 운영 데이터베이스에 있는 기록 데이터와 함께 이 기능을 사용하여 최대 10배 더 많은 데이터를 보관하고 쿼리할 수도 있습니다.
 - HTAP에 대한 *비클러스터형 Columnstore 인덱스*를 통해 비용이 많이 드는 ETL(추출, 변형 및 로드) 프로세스를 실행하거나 데이터 웨어하우스를 채울 때까지 기다릴 필요 없이 운영 데이터베이스를 직접 쿼리하여 비즈니스에 대한 실시간 정보를 얻을 수 있습니다. 비클러스터형 Columnstore 인덱스를 사용하면 운영 워크로드에 미치는 영향을 줄이는 동시에 OLTP 데이터베이스에 대한 분석 쿼리를 매우 빠르게 실행할 수 있습니다.
 - columnstore 인덱스가 있는 메모리 최적화 테이블 조합도 포함할 수 있습니다. 이러한 조합을 사용하면 트랜잭션 처리를 매우 빠르게 수행하고 동일한 데이터에서 분석 쿼리를 매우 신속하게 *동시* 실행할 수 있습니다.
@@ -71,7 +71,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 메모리 내 OLTP는 사용자 데이터를 저장하는 데 사용되는 메모리 최적화 테이블을 포함합니다. 이러한 테이블은 메모리에 적합해야 합니다. SQL Database 서비스에 직접 메모리를 관리하기 때문에 사용자 데이터에 대한 할당량의 개념이 있습니다. 이 개념은 *메모리 내 OLTP 저장소*라고 합니다.
 
-지원되는 독립 실행형 데이터베이스 가격 책정 계층 및 탄력적 풀 가격 책정 계층은 각각 일정량의 메모리 내 OLTP 저장소를 포함합니다. 작성할 때 모든 125개의 DTU(데이터베이스 트랜잭션 단위) 또는 eDTU(Elastic Database 트랜잭션 단위)에 대해 기가바이트 단위의 저장소를 가져옵니다. 자세한 내용은 [리소스 제한](sql-database-resource-limits.md)을 참조하세요.
+지원되는 독립 실행형 데이터베이스 가격 책정 계층 및 탄력적 풀 가격 책정 계층은 각각 일정량의 메모리 내 OLTP 저장소를 포함합니다. [DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md) 및 [vCore 기반 리소스 제한](sql-database-vcore-resource-limits.md)을 참조하세요.
 
 메모리 내 OLTP 저장소 제한 계산 시 포함되는 항목은 다음과 같습니다.
 
@@ -87,8 +87,8 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 탄력적 풀을 사용하여 메모리 내 OLTP 저장소는 풀에 있는 모든 데이터베이스에서 공유됩니다. 따라서 한 데이터베이스의 사용량은 다른 데이터베이스에 영향을 줄 수 있습니다. 두 가지 해결 방법이 있습니다.
 
-- 데이터베이스의 최대 eDTU를 전체 풀의 eDTU 수보다 낮게 구성합니다. 이 최대값은 풀에 있는 모든 데이터베이스에서 메모리 내 OLTP 저장소 사용률을 eDTU 수에 해당하는 크기로 제한합니다.
-- 최소 eDTU를 0보다 크게 구성합니다. 이 최소값은 풀에 있는 각 데이터베이스가 구성된 최소 eDTU에 해당하는 사용 가능한 메모리 내 OLTP 저장소의 양을 사용할 수 있도록 보장합니다.
+- 데이터베이스의 `Max-eDTU` 또는 `MaxvCore`를 전체 풀의 eDTU 또는 vCore 수보다 낮게 구성합니다. 이 최대값은 풀에 있는 모든 데이터베이스에서 메모리 내 OLTP 저장소 사용률을 eDTU 수에 해당하는 크기로 제한합니다.
+- `Min-eDTU` 또는 `MinvCore`를 0보다 크게 구성합니다. 이 최소값은 풀에 있는 각 데이터베이스가 구성된 `Min-eDTU` 또는 `vCore`에 해당하는 사용 가능한 메모리 내 OLTP 저장소의 양을 사용할 수 있도록 보장합니다.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>columnstore 인덱스의 데이터 크기 및 저장소
 
@@ -152,7 +152,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 #### <a name="installation-steps"></a>설치 단계
 
-1. [Azure Portal](https://portal.azure.com/)에서 서버에 Premium 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
 
 2. SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 

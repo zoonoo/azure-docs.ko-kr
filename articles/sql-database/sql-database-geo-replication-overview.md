@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>개요: 장애 조치 그룹 및 활성 지역 복제
 활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전이 발생하거나 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다. 장애 조치는 사용자의 응용 프로그램에서 수동으로 시작되어야 합니다. 장애 조치 후 새 주 데이터베이스에는 다른 연결 끝점이 있습니다. 
@@ -69,7 +70,7 @@ Azure SQL Database 자동 장애 조치 그룹(미리 보기 상태)은 규모�
    >
 
 * **탄력적 풀 데이터베이스 지원**: 모든 탄력적 풀의 모든 데이터베이스에 대해 활성 지역 복제를 구성할 수 있습니다. 보조 데이터베이스는 또 다른 탄력적 풀에 있어도 됩니다. 일반 데이터베이스의 경우 서비스 계층이 같은 한, 보조 데이터베이스가 탄력적 풀일 수 있고 그 반대도 가능합니다. 
-* **보조 데이터베이스의 구성 가능한 성능 수준**: 기본 및 보조 데이터베이스에는 동일한 서비스 계층(Basic, Standard, Premium)이 있어야 합니다. 보조 데이터베이스는 기본에 비해 낮은 성능 수준(DTU)으로 만들 수 있습니다. 데이터베이스 쓰기 활동이 많은 응용 프로그램에는 이 방법을 권장하지 않습니다. 복제 지연이 증가하고, 그로 인해 장애 조치(failover) 후 후속 데이터 손실의 위험이 높기 때문입니다. 뿐만 아니라 장애 조치(failover) 후 새로운 주 데이터베이스가 더 높은 성능 수준으로 업그레이드될 때까지 응용 프로그램 성능이 영향을 받습니다. Azure Portal의 로그 IO 백분율 차트는 복제 부하를 유지하는 데 필요한 보조 데이터베이스의 최소 성능 수준을 예상하는 데 유용하게 사용할 수 있습니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  SQL Database 성능 수준에 대한 자세한 내용은 [SQL Database 옵션 및 성능](sql-database-service-tiers.md)을 참조하세요. 
+* **보조 데이터베이스의 구성 가능한 성능 수준**: 기본 및 보조 데이터베이스에는 동일한 서비스 계층이 있어야 합니다. 보조 데이터베이스는 기본에 비해 낮은 성능 수준(DTU)으로 만들 수 있습니다. 데이터베이스 쓰기 활동이 많은 응용 프로그램에는 이 방법을 권장하지 않습니다. 복제 지연이 증가하고, 그로 인해 장애 조치(failover) 후 후속 데이터 손실의 위험이 높기 때문입니다. 뿐만 아니라 장애 조치(failover) 후 새로운 주 데이터베이스가 더 높은 성능 수준으로 업그레이드될 때까지 응용 프로그램 성능이 영향을 받습니다. Azure Portal의 로그 IO 백분율 차트는 복제 부하를 유지하는 데 필요한 보조 데이터베이스의 최소 성능 수준을 예상하는 데 유용하게 사용할 수 있습니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  SQL Database 성능 수준에 대한 자세한 내용은 [SQL Database 서비스 계층이란](sql-database-service-tiers.md)을 참조하세요. 
 * **사용자 제어 장애 조치(failover) 및 장애 복구**: 보조 데이터베이스는 응용 프로그램 또는 사용자에 의해 언제든지 주 데이터베이스 역할로 전환될 수 있습니다. 실제로 가동이 중단되면 보조 데이터베이스를 즉시 주 데이터베이스로 승격하는 "계획되지 않음" 옵션을 사용해야 합니다. 중지된 주 데이터베이스가 복구되어 작동 가능한 상태가 되면 시스템에서는 복구된 주 데이터베이스를 자동으로 보조 데이터베이스로 표시하고 새로운 주 데이터베이스와 함께 최신 상태로 전환합니다. 주 데이터베이스가 가장 최근의 변경 사항을 보조 데이터베이스로 복제하기 전에 중단될 경우 비동기 복제의 특성상 계획되지 않은 장애 조치(failover)가 진행되는 동안 소량의 데이터가 손실될 수 있습니다. 보조 데이터베이스가 여러 개 있는 주 데이터베이스가 중단되면 시스템에서 사용자의 개입 없이 자동으로 복제 관계를 다시 구성하고 남아 있는 보조 데이터베이스를 새로 승격되는 주 데이터베이스에 연결합니다. 장애 조치(failover)를 일으킨 작동 중단 상황이 완화된 후에는 응용 프로그램을 주 지역으로 반환하는 것이 바람직할 수 있습니다. 장애 조치(failover)를 수행하려면 “계획됨” 옵션을 사용하여 명령을 호출해야 합니다. 
 * **자격 증명과 방화벽 규칙의 동기화 유지**: 지역에서 복제된 데이터베이스에 [데이터베이스 방화벽 규칙](sql-database-firewall-configure.md)을 사용할 것을 권장합니다. 데이터베이스 방화벽 규칙을 데이터베이스와 함께 복제하면 모든 보조 데이터베이스가 주 데이터베이스와 동일한 방화벽 규칙을 갖기 때문입니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
 

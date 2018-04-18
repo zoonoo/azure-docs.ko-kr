@@ -1,12 +1,12 @@
 ---
-title: "Azure 서버를 사용하지 않음 개요 | Microsoft Docs"
-description: "인프라에 대한 염려 없이 클라우드에서 강력한 솔루션을 만듭니다."
-keywords: 
+title: Azure 서버를 사용하지 않음 개요 | Microsoft Docs
+description: 인프라에 대한 염려 없이 클라우드에서 강력한 솔루션을 만듭니다.
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>함수 및 Logic Apps로 Azure 서버를 사용하지 않음 개요
 
@@ -45,7 +45,7 @@ Logic Apps를 시작하려면 [첫 번째 논리 앱 만들기](quickstart-creat
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Azure에서 서버를 사용하지 않는 응용 프로그램을 빌드 및 배포하려면 어떻게 해야 합니까?
 
-Azure는 서버를 사용하지 않는 앱의 개발, 배포 및 관리에 대한 풍부한 도구 집합을 제공합니다.  앱은 Azure Portal에서 직접 빌드하거나 [Visual Studio의 도구](logic-apps-serverless-get-started-vs.md)를 사용하여 빌드할 수 있습니다.  응용 프로그램이 개발되면 [즉시 배포](logic-apps-create-deploy-template.md)될 수 있습니다.  Azure는 또한 서버를 사용하지 않는 앱에 대한 모니터링을 제공합니다.  이 모니터링은 API 또는 SDK를 통해 Azure Portal에서 액세스하거나 OMS 및 Application Insights에 대해 통합된 도구를 사용하여 액세스할 수 있습니다.
+Azure는 서버를 사용하지 않는 앱의 개발, 배포 및 관리에 대한 풍부한 도구 집합을 제공합니다.  앱은 Azure Portal에서 직접 빌드하거나 [Visual Studio의 도구](logic-apps-serverless-get-started-vs.md)를 사용하여 빌드할 수 있습니다.  응용 프로그램이 개발되면 [즉시 배포](logic-apps-create-deploy-template.md)될 수 있습니다.  Azure는 또한 서버를 사용하지 않는 앱에 대한 모니터링을 제공합니다.  이 모니터링은 API 또는 SDK를 통해 Azure Portal에서 액세스하거나 Log Analytics 및 Application Insights에 대해 통합된 도구를 사용하여 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

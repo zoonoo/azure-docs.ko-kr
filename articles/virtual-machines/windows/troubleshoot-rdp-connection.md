@@ -5,7 +5,7 @@ keywords: 원격 데스크톱 오류,원격 데스크톱 연결 오류,VM에 연
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결
 Windows 기반 Azure VM(가상 머신)에 RDP(원격 데스크톱 프로토콜) 연결은 여러 이유로 실패하여 VM에 액세스하지 못할 수 있습니다. 이러한 문제는 VM의 원격 데스크톱 서비스, 네트워크 연결 또는 호스트 컴퓨터의 원격 데스크톱 클라이언트에서 발생할 수 있습니다. 이 문서는 RDP 연결 문제를 해결하기 위한 가장 일반적인 방법 중 일부를 안내합니다. 
@@ -94,6 +94,10 @@ Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법
     ![Azure Portal에서 VM 다시 배포](./media/troubleshoot-rdp-connection/redeploy-vm.png)
    
     이 작업이 완료되면 임시 디스크 데이터가 손실되고 VM과 연결된 동적 IP 주소가 업데이트됩니다.
+
+9. **라우팅을 확인**합니다. Network Watcher의 [다음 홉](../../network-watcher/network-watcher-check-next-hop-portal.md) 기능을 사용하여 트래픽이 가상 머신으로 들어가거나 나가도록 라우팅하는 데 경로가 방해가 되지 않는지 확인합니다. 네트워크 인터페이스의 유효 경로를 모두 볼 수 있도록 유효 경로를 검토할 수도 있습니다. 자세한 내용은 [유효 경로를 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)을 참조하세요.
+
+10. 온-프레미스 방화벽 또는 컴퓨터의 방화벽이 Azure로 아웃바운드 TCP 3389 트래픽을 허용하는지 확인합니다.
 
 RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어볼 수 있습니다.
 
@@ -180,6 +184,10 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
+6. **라우팅을 확인**합니다. Network Watcher의 [다음 홉](../../network-watcher/network-watcher-check-next-hop-portal.md) 기능을 사용하여 트래픽이 가상 머신으로 들어가거나 나가도록 라우팅하는 데 경로가 방해가 되지 않는지 확인합니다. 네트워크 인터페이스의 유효 경로를 모두 볼 수 있도록 유효 경로를 검토할 수도 있습니다. 자세한 내용은 [유효 경로를 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)을 참조하세요.
+
+7. 온-프레미스 방화벽 또는 컴퓨터의 방화벽이 Azure로 아웃바운드 TCP 3389 트래픽을 허용하는지 확인합니다.
+
 RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어볼 수 있습니다.
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 VM 문제 해결
@@ -217,6 +225,8 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     Azure Portal에서 VM을 선택하고 **개요** 탭을 클릭합니다. **다시 시작** 단추를 클릭합니다.
    
     ![Azure Portal에서 VM을 다시 시작합니다.](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+
+7. 온-프레미스 방화벽 또는 컴퓨터의 방화벽이 Azure로 아웃바운드 TCP 3389 트래픽을 허용하는지 확인합니다.
 
 RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어볼 수 있습니다.
 

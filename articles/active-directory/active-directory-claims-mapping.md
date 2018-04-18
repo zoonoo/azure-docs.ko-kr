@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory의 클레임 매핑(공개 미리 보기)
 
@@ -234,7 +234,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 응용 프로그램 
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>클레임 매핑 정책 속성
-클레임 매핑 정책의 속성을 사용하여 내보내지는 클레임과 데이터가 소싱되는 위치를 제어합니다. 정책을 설정하지 않으면 시스템은 핵심 클레임 집합, 기본 클레임 집합 및 응용 프로그램이 수신하도록 선택한 선택적 클레임이 포함된 토큰을 발급합니다.
+클레임 매핑 정책의 속성을 사용하여 내보내지는 클레임과 데이터가 소싱되는 위치를 제어합니다. 정책을 설정하지 않으면 시스템은 핵심 클레임 집합, 기본 클레임 집합 및 응용 프로그램이 수신하도록 선택한 [선택적 클레임](develop/active-directory-optional-claims.md)이 포함된 토큰을 발급합니다.
 
 ### <a name="include-basic-claim-set"></a>기본 클레임 집합 포함
 

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드와 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -166,7 +166,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 -   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL 데이터 동기화 모범 사례](sql-database-best-practices-data-sync.md)
--   [OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+-   [Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 -   [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 
 -   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:

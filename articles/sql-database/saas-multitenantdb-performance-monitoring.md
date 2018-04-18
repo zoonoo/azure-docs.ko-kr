@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -49,7 +49,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 
 [Azure Portal](https://portal.azure.com)은 대부분의 리소스에 대한 기본 제공 모니터링 및 경고를 제공합니다. SQL Database의 경우 데이터베이스에 대한 모니터링 및 경고가 가능합니다. 이 기본 제공 모니터링 및 경고는 리소스별로 다르므로 소수의 리소스에 사용하면 편리하지만 많은 리소스에 작업하는 경우 편리하지 않을 수 있습니다.
 
-여러 리소스로 작업하는 대규모 시나리오의 경우 [Log Analytics(OMS)](https://azure.microsoft.com/services/log-analytics/)를 사용할 수 있습니다. 이것은 여러 서비스에서 원격 분석을 수집하고 쿼리 및 경고 설정에 사용할 수 있는 Log Analytics 작업 영역에서 수집된 원격 분석에 대한 분석을 제공하는 개별 Azure 서비스입니다.
+여러 리소스로 작업하는 대규모 시나리오의 경우 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)를 사용할 수 있습니다. 이것은 여러 서비스에서 원격 분석을 수집하고 쿼리 및 경고 설정에 사용할 수 있는 Log Analytics 작업 영역에서 수집된 원격 분석에 대한 분석을 제공하는 개별 Azure 서비스입니다.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
 

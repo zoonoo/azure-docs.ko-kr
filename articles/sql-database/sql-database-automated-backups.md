@@ -2,19 +2,20 @@
 title: Azure SQL Database 자동, 지역 중복 백업 | Microsoft Docs
 description: SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소를 사용하여 지리적 중복을 제공합니다.
 services: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: Active
-ms.date: 07/05/2017
-ms.author: carlrab
-ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -22,7 +23,7 @@ SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS
 
 ## <a name="what-is-a-sql-database-backup"></a>SQL Database 백업이란?
 
-SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](https://msdn.microsoft.com/library/ms175526.aspx) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 일반적으로 트랜잭션 로그 백업은 데이터베이스 활동의 성능 수준 및 양에 따른 빈도로 5 - 10분마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
+SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 목적으로 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](https://msdn.microsoft.com/library/ms175526.aspx) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 일반적으로 트랜잭션 로그 백업은 데이터베이스 활동의 성능 수준 및 양에 따른 빈도로 5 - 10분마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
 
 
 이러한 백업을 사용하여 다음을 수행할 수 있습니다.
@@ -30,7 +31,7 @@ SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsof
 * 보존 기간 내 지정 시간으로 데이터베이스를 복원합니다. 이 작업으로 원본 데이터베이스와 같은 서버에 새 데이터베이스가 만들어집니다.
 * 삭제된 시간 또는 보존 기간 내 임의 시간으로 삭제된 데이터베이스를 복원합니다. 삭제된 데이터베이스는 원래 데이터베이스가 생성되었던 동일한 서버에만 복원할 수 있습니다.
 * 데이터베이스를 다른 지리적 지역으로 복원합니다. 이렇게 하면 서버 및 데이터베이스에 액세스할 수 없는 경우 지리적 재해로부터 복구할 수 있습니다. 그러면 전 세계 어디에서든 기존 서버에 새 데이터베이스가 만들어집니다. 
-* Azure Recovery Services 자격 증명 모음에 저장된 특정 백업에서 데이터베이스를 복원합니다. 그러면 이전 버전의 데이터베이스를 복원하여 규정 준수 요청을 충족하고 이전 버전의 응용 프로그램을 실행할 수 있습니다. [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+* 장기 보존 정책을 사용하여 데이터베이스를 구성한 경우 특정 장기 백업에서 데이터베이스를 복원합니다. 그러면 이전 버전의 데이터베이스를 복원하여 규정 준수 요청을 충족하고 이전 버전의 응용 프로그램을 실행할 수 있습니다. [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 * 복원을 수행하려면 [백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 
 > [!NOTE]
@@ -49,10 +50,14 @@ SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsof
 * 기본 서비스 계층은 7일입니다.
 * 표준 서비스 계층은 35일입니다.
 * 프리미엄 서비스 계층은 35일입니다.
+* 범용 계층은 최대 35일로 구성할 수 있음(기본적으로 7일)*
+* 중요 비즈니스용 계층(미리 보기)은 최대 35일로 구성할 수 있음(기본적으로 7일)*
 
-데이터베이스를 표준 또는 프리미엄 서비스 계층에서 기본 계층으로 다운그레이드하면 백업이 7일 동안 저장됩니다. 7일보다 오래된 모든 기존 백업은 더 이상 사용할 수 없게 됩니다. 
+\* 미리 보기 동안에는 백업 보존 기간을 구성할 수 없으며 7일로 고정됩니다.
 
-데이터베이스를 기본 서비스 계층에서 표준 또는 프리미엄으로 업그레이드하면 SQL Database가 기존 백업을 35일 동안 보관합니다. 새 백업이 발생하면 새 백업을 35일 동안 보관합니다.
+더 긴 백업 보존이 있는 데이터베이스를 더 짧은 보존이 있는 데이터베이스로 변환하는 경우 대상 계층의 보존 기간보다 오래된 기존의 모든 백업을 더 이상 사용할 수 없습니다.
+
+더 짧은 보존 기간이 있는 데이터베이스를 더 긴 기간이 있는 데이터베이스로 업그레이드하는 경우 SQL Database는 더 긴 보존 기간에 도달할 때까지 기존 백업을 유지합니다. 
 
 데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 보관합니다. 예를 들어 보존 기간이 7일인 기본 데이터베이스를 삭제한다고 가정해 봅시다. 4일 된 백업은 앞으로 3일 동안 더 보관됩니다.
 
@@ -61,17 +66,17 @@ SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsof
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>백업 보존 기간을 확장하는 방법
-응용 프로그램에 더 긴 기간 동안 백업을 사용할 수 있어야 하는 경우 개별 데이터베이스(LTR 정책)에 대해 장기 백업 보존 정책을 구성하여 기본 제공 보존 기간을 연장할 수 있습니다. 기본 제공 보존 기간은 35일에서 최대 10년까지 연장할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
-Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추가했으면 매주 전체 데이터베이스 백업이 사용자 고유의 Azure Backup Service Vault로 자동으로 복사됩니다. TDE를 사용하여 암호화된 데이터베이스는 미사용 시 자동으로 암호화됩니다.  Services Vault는 타임 스탬프 또는 LTR 정책에 따라 만료된 백업을 자동으로 삭제합니다.  따라서 백업 일정을 관리할 필요가 없으며 이전 파일의 정리를 걱정할 필요가 없습니다. 복원 API는 자격 증명 모음이 SQL Database와 동일한 구독 내에만 있다면 자격 증명 모음에 저장된 백업을 지원합니다. Azure Portal 또는 PowerShell을 사용하여 이러한 백업에 액세스할 수 있습니다.
+응용 프로그램에 최대 PITR 백업 보존 기간보다 더 긴 기간 동안 백업을 사용할 수 있어야 하는 경우 개별 데이터베이스(LTR 정책)에 대해 장기 백업 보존 정책을 구성할 수 있습니다. 기본 제공 보존 기간은 최대 35일에서 최대 10년까지 연장할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
-> [!TIP]
-> 사용 방법 가이드는 [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)(Azure SQL Database 장기 백업 보존 관리에서 구성 및 복원)을 참조하세요.
->
+Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추가하면 매주 전체 데이터베이스 백업이 장기 보존(LTR 저장소)에 대한 별도의 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. TDE를 사용하여 암호화된 데이터베이스는 미사용 시 자동으로 암호화됩니다. SQL Database는 해당 타임스탬프 및 LTR 정책에 따라 만료된 백업을 자동으로 삭제합니다. 정책을 설정한 후 백업 일정을 관리할 필요가 없으며 이전 파일의 정리를 걱정할 필요가 없습니다. Azure Portal 또는 PowerShell을 사용하여 이러한 백업을 보고, 복원하거나 삭제할 수 있습니다.
 
 ## <a name="are-backups-encrypted"></a>백업이 암호화되나요?
 
 Azure SQL Database에 TDE를 사용할 때 백업이 암호화됩니다. 모든 새 Azure SQL Database는 기본적으로 사용한 TDE로 구성됩니다. TDE에 대한 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
+
+## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>자동 백업은 GDPR과 호환되나요?
+백업이 GDPR(일반 데이터 보호 규정)이 적용되는 개인 데이터를 포함하는 경우 무단 액세스로부터 데이터를 보호하기 위해 향상된 보안 조치를 적용해야 합니다. GDPR을 준수하기 위해 백업에 액세스하지 않고 데이터 소유자의 데이터 요청을 관리하는 방법이 필요합니다.  단기 백업의 경우 한 가지 솔루션은 데이터 액세스 요청을 완료하도록 허용된 시간인 30일 아래로 백업 창을 줄이는 것이 될 수 있습니다.  장기 백업이 필요한 경우 백업에 "pseudonymized" 데이터만 저장하는 것이 좋습니다. 예를 들어 사용자에 대한 데이터를 삭제하거나 업데이트해야 하는 경우 기존 백업을 삭제하거나 업데이트할 필요가 없습니다. [GDPR 규정 준수에 대한 데이터 거버넌스](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html)에서 GDPR 모범 사례에 대한 자세한 정보를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

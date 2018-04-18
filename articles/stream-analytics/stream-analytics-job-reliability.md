@@ -1,22 +1,19 @@
 ---
-title: Azure Stream Analytics 작업과 관련한 서비스 중단 방지 | Microsoft Docs
-description: Stream Analytics 작업 업그레이드의 복원력을 높이기 위한 지침.
+title: Azure Stream Analytics 작업에서 서비스 중단 방지
+description: 이 문서는 Stream Analytics 작업 업그레이드의 복원력을 높이기 위한 지침을 설명합니다.
 services: stream-analytics
-documentationCenter: ''
 author: jseb225
-manager: ryanw
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
+manager: kfile
 ms.author: jeanb
-ms.openlocfilehash: 9f5306e4cbcfc2b554a688e2d502cc4b40845d60
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 47ccfe99d2ee6576dbb70324eb383f52d2a1b2e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>서비스 업데이트 도중 Stream Analytics 작업 안정성 보장
 

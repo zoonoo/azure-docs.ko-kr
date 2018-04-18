@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 이 문서에서는 Microsoft Azure의 메트릭에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -47,7 +47,7 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 
 * 메트릭이 사용자가 설정한 임계값을 초과하면 **알림을 보내거나 자동 조치를 취하는 메트릭 경고 규칙**을 구성할 수 있습니다. 자동 크기 조정은 웹 사이트나 계산 리소스에서 들어오는 요청이나 부하에 부합하게 리소스 크기를 조정할 수 있는 특수 자동 작업입니다. 임계값을 초과하는 메트릭을 기준으로 자동 크기 조정 설정 규칙을 확대 또는 축소하도록 구성할 수 있습니다.
 
-* 모든 메트릭 Application Insights 또는 Log Analytics(OMS)를 **라우팅**하여 리소스로부터 받은 메트릭 데이터에 대한 인스턴스 분석, 검색 및 사용자 지정 경고를 사용할 수 있습니다. 메트릭을 Event Hub로 스트리밍하고 거의 실시간에 가까운 분석을 위해 Azure Stream Analytics나 사용자 지정 앱으로 라우팅할 수 있습니다. 진단 설정을 사용하여 Event Hub 스트리밍을 설정합니다.
+* 모든 메트릭 Application Insights 또는 Log Analytics를 **라우팅**하여 리소스로부터 받은 메트릭 데이터에 대한 인스턴스 분석, 검색 및 사용자 지정 경고를 사용할 수 있습니다. 메트릭을 Event Hub로 스트리밍하고 거의 실시간에 가까운 분석을 위해 Azure Stream Analytics나 사용자 지정 앱으로 라우팅할 수 있습니다. 진단 설정을 사용하여 Event Hub 스트리밍을 설정합니다.
 
 * 장기 보존을 위해 **메트릭을 저장소에 보관**하거나 오프라인 보고에 사용합니다. 리소스에 대한 진단 설정을 구성할 때 메트릭을 Azure Blob Storage로 라우팅할 수 있습니다.
 
@@ -100,11 +100,18 @@ Azure Monitor API를 통해 Azure Metrics에 액세스할 수 있습니다. 메�
 Azure Monitor REST API 사용에 대한 자세한 연습은 [Azure Monitor REST API 연습](monitoring-rest-api-walkthrough.md)을 참조하세요.
 
 ## <a name="export-metrics"></a>메트릭 내보내기
-**모니터** 탭의 **진단 설정** 블레이드로 이동하여 메트릭의 내보내기 옵션을 확인할 수 있습니다. 이 문서의 앞에서 설명한 사용 사례에 대해 Blob 저장소, Azure Event Hubs 또는 OMS로 라우팅할 메트릭(및 진단 로드)을 선택할 수 있습니다.
+**모니터** 탭의 **진단 설정** 블레이드로 이동하여 메트릭의 내보내기 옵션을 확인할 수 있습니다. 이 아티클의 앞에서 설명한 사용 사례에 대해 Blob Storage, Azure Event Hubs 또는 Log Analytics로 라우팅할 메트릭(및 진단 로드)을 선택할 수 있습니다.
 
  ![Azure Monitor에서 메트릭에 대한 내보내기 옵션](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 Resource Manager 템플릿, [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md) 또는 [REST APIs](https://msdn.microsoft.com/library/dn931943.aspx)를 통해 이 항목을 구성할 수 있습니다.
+
+> [!NOTE]
+> 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
+>
+> *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+>
+>
 
 ## <a name="take-action-on-metrics"></a>메트릭에 대한 작업
 메트릭 데이터에 대해 알림을 받거나 자동 작업을 수행하려면 자동 크기 조정 설정에서 알림 규칙을 구성하면 됩니다.

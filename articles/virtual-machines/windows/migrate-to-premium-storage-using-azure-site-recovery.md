@@ -1,12 +1,12 @@
 ---
-title: "Azure Site Recovery를 사용하여 Windows VM을 Azure Premium Storage로 마이그레이션 | Microsoft Docs"
-description: "Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다."
+title: Azure Site Recovery를 사용하여 Windows VM을 Azure Premium Storage로 마이그레이션 | Microsoft Docs
+description: Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -80,7 +80,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 ### <a name="step-1-create-a-recovery-services-vault"></a>1단계: Recovery Services 자격 증명 모음 만들기
 
 1. [Azure 포털](https://portal.azure.com)을 엽니다.
-2. **리소스 만들기** > **관리** > **Backup** 및 **Site Recovery(OMS)**를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다. 
+2. **리소스 만들기** > **관리** > **Backup 및 Site Recovery(OMS)**를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다. 
 3. VM이 복제될 지역을 지정합니다. 동일한 지역에 마이그레이션하려는 경우 원본 VM 및 원본 저장소 계정이 있는 영역을 선택합니다. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>2단계: 보호 목표 선택 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 응용 프로그램의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 응용 프로그램 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI 2.0을 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
@@ -367,7 +367,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="scenarios"></a>시나리오
 
 ### <a name="application-updates"></a>응용 프로그램 업데이트
-응용 프로그램이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 응용 프로그램이 업데이트됩니다. 예를 들어, 새 버전의 스크립트를 사용자 지정 스크립트 확장에서 실행되도록 하려면 새 스크립트를 가리키도록 *fileUris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행하도록 *forceUpdateTag*를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *forceUpdateTag*에 대한 자세한 내용은 [확장에 대한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조하세요.
+응용 프로그램이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 응용 프로그램이 업데이트됩니다. 예를 들어, 새 버전의 스크립트를 사용자 지정 스크립트 확장에서 실행되도록 하려면 새 스크립트를 가리키도록 *fileUris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행하도록 *forceUpdateTag*를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *forceUpdateTag*에 대한 자세한 내용은 [확장에 대한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조하세요. *forceUpdateTag*는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
 
 응용 프로그램을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.
 

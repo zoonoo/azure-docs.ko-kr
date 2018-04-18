@@ -1,23 +1,19 @@
 ---
-title: Azure Stream Analytics JavaScript 사용자 정의 함수 | Microsoft Docs
-description: JavaScript 사용자 정의 함수로 고급 쿼리 역학 수행
-keywords: javascript, 사용자 정의 함수, udf
+title: Azure Stream Analytics에서 JavaScript 사용자 정의 함수
+description: 이 아티클에서는 Azure Stream Analytics에서 JavaScript 사용자 정의 함수로 고급 쿼리 역학을 수행하는 방법을 설명합니다.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure Stream Analytics JavaScript 사용자 정의 함수
 Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합(**String**, **RegExp**, **Math**, **Array**, **Date**)을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
@@ -138,7 +134,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>도움말 보기
-추가 도움이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 도움이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

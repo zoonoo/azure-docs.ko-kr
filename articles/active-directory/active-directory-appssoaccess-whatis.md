@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까? | Microsoft Docs"
-description: "Azure Active Directory를 사용하여 비즈니스에 필요한 모든 SaaS 및 웹 응용 프로그램에 Single Sign-On을 사용하도록 설정합니다."
+title: Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까? | Microsoft Docs
+description: Azure Active Directory를 사용하여 비즈니스에 필요한 모든 SaaS 및 웹 응용 프로그램에 Single Sign-On을 사용하도록 설정합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
@@ -68,7 +68,7 @@ Azure AD는 SAML 2.0, WS-Federation 또는 OpenID Connect 프로토콜을 지원
 Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반 앱에 암호 기반 Single Sign-On을 지원할 수 있습니다. 사용자 지정 브라우저 플러그인을 사용하여, AAD는 디렉터리에서 사용자 이름 및 암호와 같은 응용 프로그램 자격 증명을 안전하게 검색하고 이러한 자격 증명을 사용자 대신 응용 프로그램의 로그인 페이지에 입력함으로써 사용자의 로그인 프로세스를 자동화합니다. 두 가지 사용 사례가 있습니다. 
 
 1. **관리자의 자격 증명 관리** – 관리자가 응용 프로그램 자격 증명을 만들고 관리하며, 그러한 자격 증명을 응용 프로그램에 액세스해야 하는 사용자나 그룹에 할당할 수 있습니다. 이러한 경우 최종 사용자가 자격 증명을 알 필요가 없지만 해당 액세스 패널에서 클릭하거나 제공된 링크를 통해 응용 프로그램에 Single Sign-On 액세스할 수 있습니다. 이 경우 관리자가 자격 증명의 수명 주기를 관리할 수 있으며, 최종 사용자의 편의를 위해 사용자가 앱 특정 암호를 기억하거나 관리할 필요가 없습니다. 자격 증명은 자동 로그인 프로세스 중에 최종 사용자에게 난독 처리되지만 기술적으로 웹 디버깅 도구를 사용하여 사용자가 찾아낼 수 있습니다. 따라서 사용자와 관리자는 사용자가 직접 자격 증명을 제시하는 것과 동일한 보안 정책을 따라야 합니다. 관리자가 제공한 자격 증명은 소셜 미디어나 문서 공유 응용 프로그램과 같이 많은 사용자가 공유하는 계정 액세스를 제공할 때 유용합니다.
-2. **사용자의 자격 증명 관리** – 관리자가 응용 프로그램을 최종 사용자나 그룹에 할당할 수 있고, 최종 사용자가 자신의 액세스 패널에 있는 응용 프로그램에 처음 액세스할 때 고유한 자격 증명을 직접 입력하도록 할 수 있습니다. 이렇게 하면 최종 사용자가 응용 프로그램에 액세스할 때마다 앱 특정 암호를 계속 입력하지 않아도 되므로 편리합니다. 이 사용 사례를 자격 증명을 관리하는 중간 단계로 사용할 수 있으므로 관리자가 이후에 사용자의 앱 액세스 환경을 변경하지 않고 응용 프로그램에 대한 새 자격 증명을 설정할 수 있습니다.
+2. **사용자의 자격 증명 관리** – 관리자가 응용 프로그램을 최종 사용자나 그룹에 할당할 수 있고, 최종 사용자가 자신의 액세스 패널에 있는 응용 프로그램에 처음 액세스할 때 고유한 자격 증명을 직접 입력하도록 할 수 있습니다. 이렇게 하면 최종 사용자가 응용 프로그램에 액세스할 때마다 앱 특정 암호를 계속 입력하지 않아도 되므로 편리합니다. 사용자는 필요에 따라 해당 암호를 업데이트 또는 삭제하여 계속해서 관리할 수 있습니다. 이 사용 사례를 자격 증명을 관리하는 중간 단계로 사용할 수 있으므로 관리자가 이후에 사용자의 앱 액세스 환경을 변경하지 않고 응용 프로그램에 대한 새 자격 증명을 설정할 수 있습니다.
 
 두 경우 모두 자격 증명이 암호화된 상태로 디렉터리에 저장되며, 자동화된 로그인 프로세스 중에 HTTPS를 통해서만 전달됩니다. Azure AD는 암호 기반 Single Sign-On을 사용하여, 페더레이션 프로토콜을 지원할 수 없는 앱을 위한 편리한 ID 액세스 관리 솔루션을 제공합니다.
 
@@ -151,7 +151,7 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 조직에 배포할 방법을 선택하는 것은 여러분의 몫입니다. 
 
 ### <a name="azure-ad-access-panel"></a>Azure AD 액세스 패널
-액세스 패널 https://myapps.microsoft.com 은 Azure Active Directory에 회사 계정이 있는 최종 사용자가, Azure AD 관리자에 의해 액세스 권한이 부여된 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![Azure AD 액세스 패널](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 

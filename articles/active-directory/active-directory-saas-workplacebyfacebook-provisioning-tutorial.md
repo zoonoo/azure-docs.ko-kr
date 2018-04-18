@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workplace by Facebook 구성 | Microsoft Docs"
-description: "Azure Active Directory와 Workplace by Facebook 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workplace by Facebook 구성 | Microsoft Docs'
+description: Azure Active Directory와 Workplace by Facebook 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
@@ -75,7 +75,7 @@ Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook
 
     ![프로비전](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. **관리자 자격 증명** 섹션 아래에 Workplace by Facebook 관리자의 비밀 토큰을 입력하고 테넌트 URL을 `https://www.facebook.com/scim/v1/`로 설정합니다.
+5. **관리자 자격 증명** 섹션 아래에 Workplace by Facebook 관리자에서 액세스 토큰을 입력하고 테넌트 URL을 `https://www.facebook.com/scim/v1/`로 설정합니다. 작업 공간에 대한 액세스 토큰을 만드는 방법은 이러한 [지침](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps)을 참조하세요. 
 
 6. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Workplace by Facebook 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 Workplace by Facebook 계정에 팀 관리자 권한이 있는지 확인합니다.
 
