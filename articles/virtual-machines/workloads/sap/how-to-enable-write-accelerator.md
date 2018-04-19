@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>SAP 배포용 Azure Write Accelerator
 Azure Write Accelerator는 M 시리즈 VM 전용으로 출시되는 기능입니다. Azure Write Accelerator는 Azure에서 M 시리즈를 제외한 다른 VM 시리즈와 함께 사용할 수 없습니다. 이름에서 알 수 있듯이 이 기능은 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 향상시키기 위한 것입니다. 
@@ -28,10 +28,11 @@ Azure Write Accelerator는 M 시리즈 VM 전용으로 출시되는 기능입니
 >[!NOTE]
 > 이 시점에서 Azure Write Accelerator는 공개 미리 보기 상태이며 Azure 구독 ID의 허용 목록이 필요합니다
 
-Azure Write Accelerator 기능은 다음 지역에서 공개 미리 보기로 사용할 수 있습니다.
+Azure Write Accelerator 기능은 다음 지역에서 공개 미리 보기로 M 시리즈 배포에 지원됩니다.
 
 - 미국 서부2
 - 서부 유럽
+- 동남아시아
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Azure Write Accelerator 사용 계획
 Azure Write Accelerator는 DBMS의 트랜잭션 로그 또는 다시 실행 로그를 포함하는 볼륨에 사용해야 합니다. DBMS의 데이터 볼륨에는 Azure Write Accelerator를 사용하지 않는 것이 좋습니다. Azure Write Accelerator를 사용하려면 Premium Storage에 사용할 수 있는 추가 읽기 캐싱 없이 Azure Premium Storage VHD를 탑재해야 하기 때문입니다. 이러한 유형의 캐싱을 활용하면 기존 데이터베이스에서 더 큰 이점을 얻을 수 있습니다. Write Accelerator는 쓰기 작업에만 영향을 주고 읽기 속도는 향상시키지 않으므로, SAP에 지원되는 디자인은 SAP 지원 데이터베이스의 트랜잭션 로그 또는 다시 실행 로그 드라이브에 대해 Write Accelerator를 사용하는 것입니다. 
@@ -54,15 +55,16 @@ Azure Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage V
 > Windows 디스크 또는 볼륨 관리자, Windows Storage Spaces, Windows SOFS(스케일 아웃 파일 서버), Linux LVM 또는 MDADM이 있는 여러 디스크로 만들어진 볼륨에 속하지 않은 기존 Azure 디스크에 Azure Write Accelerator를 사용하도록 설정하려면 Azure 디스크에 액세스하는 작업을 종료해야 합니다. 반드시 Azure 디스크를 사용하는 데이터베이스 응용 프로그램을 종료해야 합니다.
 
 > [!IMPORTANT]
-> VM의 Azure 운영 체제 디스크에 Write Accelerator를 사용하도록 설정하면 해당 VM이 다시 부팅됩니다. 
+> VM의 Azure VM 운영 체제 디스크에 Write Accelerator를 사용하도록 설정하면 해당 VM이 다시 부팅됩니다. 
 
 SAP 관련 VM 구성에서는 운영 디스크에 Azure Write Accelerator를 사용하도록 설정할 필요가 없습니다
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Azure Write Accelerator 사용 시 제한 사항
 Azure 디스크/VHD에 Azure Write Accelerator를 사용하는 경우 적용되는 제한 사항은 다음과 같습니다.
 
-- 프리미엄 디스크 캐싱을 '없음'으로 설정해야 합니다. 다른 모든 캐싱 모드는 지원되지 않습니다.
+- 프리미엄 디스크 캐싱을 '없음' 또는 '읽기 전용'으로 설정해야 합니다. 다른 모든 캐싱 모드는 지원되지 않습니다.
 - Write Accelerator를 사용하도록 설정된 디스크의 스냅숏은 아직 지원되지 않습니다. 이 제한 사항은 가상 머신의 모든 디스크에 대해 응용 프로그램 일치 스냅숏을 수행하는 Azure Backup 서비스 기능을 차단합니다.
+- 더 작은 I/O 크기는 가속화된 경로를 사용합니다. 데이터가 대량으로 로드되거나 여러 DBMS의 트랜잭션 로그 버퍼가 저장소에 유지되기 전에 더 많이 채워지는 워크로드 상황에서 디스크에 기록된 I/O는 가속화된 경로를 사용하지 않을 수 있습니다.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>특정 디스크에 대한 Write Accelerator 사용
@@ -289,7 +291,7 @@ armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>
 
 ```
 
-다음 단계는 JSON 파일을 업데이트하고 'log1'이라는 디스크에서 Write Accelerator를 사용하도록 설정하는 것입니다. 이 작업은 디스크의 캐시 항목 뒤에 있는 JSON 파일에 이 특성을 추가하여 수행할 수 있습니다. 
+다음 단계는 JSON 파일을 업데이트하고 'log1'이라는 디스크에서 Write Accelerator를 사용하도록 설정하는 것입니다. 이 단계는 디스크의 캐시 항목 뒤에 있는 JSON 파일에 이 특성을 추가하여 수행할 수 있습니다. 
 
 ```
         {

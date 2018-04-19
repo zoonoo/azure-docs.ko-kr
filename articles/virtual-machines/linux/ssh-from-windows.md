@@ -1,11 +1,11 @@
 ---
-title: "Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs"
-description: "Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 머신에 연결하는 방법에 대해 알아봅니다."
+title: Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs
+description: Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 머신에 연결하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fcc2365c3b41fb69492aa68bf7c48c2d3b8ee5f3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Azure는 최소한 2048비트, **ssh-rsa** 형식 공개 및 개인 키 서식�
 ## <a name="install-git-for-windows"></a>Windows용 Git 설치
 이전 섹션에서는 Windows용 `openssl` 도구가 포함된 다수의 패키지를 나열했습니다. 이 도구는 공용 및 개인 키를 만드는 데 필요합니다. 다음 예제에서는 선호하는 패키지를 선택할 수도 있겠지만 **Windows 용 Git**를 설치하고 사용하는 방법에 대해 자세히 설명합니다. **Windows 용 Git**를 사용하면 Linux VM을 사용할 때 유용할 수도 있는 몇 가지 추가 오픈 소스 소프트웨어([OSS](https://en.wikipedia.org/wiki/Open-source_software)) 도구와 유틸리티에 액세스할 수 있습니다.
 
-1. [https://git-for-windows.github.io/](https://git-for-windows.github.io/) 위치에서 **Windows 용 Git**를 다운로드하고 설치합니다.
+1. [https://git-for-windows.github.io/](https://git-for-windows.github.io/)에서 **Windows용 Git**을 다운로드하고 설치합니다.
 2. 자격 증명을 별도로 변경할 필요가 없으면 설치 과정에서 기본 옵션을 적용합니다.
 3. **시작 메뉴** > **Git** > **Git Bash**에서 **Git Bash**를 실행합니다. 콘솔에서 다음 예와 비슷한 모양으로 보여 줍니다.
 
@@ -137,7 +137,7 @@ PuTTY는 Windows용 공용 SSH 클라이언트입니다. 원하는 SSH 클라이
     ```bash
     chmod 0600 myPrivateKey_rsa
     ```
-2. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 위치에서 PuTTYgen을 다운로드하고 실행합니다.
+2. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 PuTTYgen을 다운로드하고 실행합니다.
 3. 메뉴에서 **파일** > **개인 키 로드**를 클릭합니다.
 4. 개인 키(이전 예제의 `myPrivateKey_rsa`)를 찾습니다. **Git Bash**를 시작할 때의 기본 디렉터리는 `C:\Users\%username%`입니다. **모든 파일 (\*.\*)**을 표시하도록 파일 필터를 변경합니다.
 
@@ -168,7 +168,7 @@ PuTTY는 Windows용 공용 SSH 클라이언트입니다. 원하는 SSH 클라이
 ## <a name="use-putty-to-ssh-to-a-linux-machine"></a>Linux 컴퓨터의 SSH에 Putty 사용
 다시금 말하지만 PuTTY는 Windows용 공용 SSH 클라이언트입니다. 원하는 SSH 클라이언트를 무료로 사용할 수 있습니다. 다음 단계에서는 개인 키를 사용하여 SSH 사용 Azure VM에서 인증하는 방법에 대해 자세히 설명합니다. 이러한 단계는 SSH 연결을 인증하기 위해 개인 키를 로드해야 하는 점에서 다른 SSH 키 클라이언트에서 수행하는 단계들과 비슷합니다.
 
-1. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 위치에서 putty를 다운로드하고 실행합니다.
+1. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 PuTTY를 다운로드하고 실행합니다.
 2. 다음과 같이 Azure 포털에서 VM의 호스트 이름 또는 IP 주소를 입력합니다.
 
     ![새 PuTTY 연결 열기](./media/ssh-from-windows/putty-new-connection.png)
