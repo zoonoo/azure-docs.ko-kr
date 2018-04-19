@@ -1,12 +1,12 @@
 ---
-title: "Azure 네트워크 보안 | Microsoft Docs"
-description: "응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다."
+title: Azure 네트워크 보안 | Microsoft Docs
+description: 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-network-security"></a>Azure 네트워크 보안
 
@@ -53,7 +53,7 @@ Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요�
 
 ![Azure 네트워킹의 전반적 이해](media/azure-network-security/azure-network-security-fig-1.png)
 
-[Azure 네트워크 인프라](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines)를 사용하면 Azure 리소스와 VNet(가상 네트워크)을 서로 안전하게 연결할 수 있습니다. VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 클라우드 네트워크를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
+[Azure 네트워크 인프라](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines)를 사용하면 Azure 리소스와 VNet(가상 네트워크)을 서로 안전하게 연결할 수 있습니다. VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독 전용 Azure 클라우드 네트워크를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
 
 Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 응용 프로그램이 여러 데이터 센터에서 실행되는 경우 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하여 사용자 요청을 적절하게 여러 응용 프로그램 인스턴스에 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
 
@@ -75,7 +75,7 @@ Azure는 네트워크 보안 논의가 이루어지는 많은 네트워킹 구�
 
 ### <a name="basic-network-connectivity"></a>기본 네트워크 연결
 
-[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다. VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. VNet은 구독 전용 Azure 네트워크 인프라의 논리적 격리입니다. 사이트 간 VPN 및 전용 [WAN 링크](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 사용하여 VNet을 서로 연결하고 온-프레미스 네트워크에 연결할 수도 있습니다.
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다. VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, VNet은 구독 전용 Azure 네트워크 인프라의 논리적 격리입니다. 사이트 간 VPN 및 전용 [WAN 링크](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 사용하여 VNet을 서로 연결하고 온-프레미스 네트워크에 연결할 수도 있습니다.
 
 ![기본 네트워크 연결](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -87,11 +87,11 @@ Azure Virtual Network는 Microsoft Hyper-V 또는 VMware 등의 고유한 가상
 
 VNet을 서로 연결하여 VNet에 연결된 리소스가 VNet을 통해 서로 통신하도록 할 수 있습니다. 다음 옵션 중 하나 또는 둘 다를 사용하여 VNet을 서로 연결할 수 있습니다.
 
-- **피어링:** 같은 Azure 지역 내 다른 Azure VNet에 연결되어 있는 리소스가 서로 통신할 수 있도록 합니다. VNet 내의 대역폭 및 대기 시간은 리소스가 동일한 VNet에 연결된 경우와 같습니다. 피어링에 대한 자세히 내용은 [가상 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
+- **피어링:** 같은 Azure 지역 내의 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. VNet 내의 대역폭 및 대기 시간은 리소스가 동일한 VNet에 연결된 경우와 같습니다. 피어링에 대한 자세히 내용은 [가상 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
 
  ![피어링](media/azure-network-security/azure-network-security-fig-3.png)
 
-- **VNet 간 연결:** 리소스가 같거나 다른 Azure 위치 내의 다른 Azure VNet에 연결될 수 있습니다. 피어링과 달리 트래픽이 Azure VPN Gateway를 통과해야 하기 때문에 VNet 간에 대역폭이 제한됩니다.
+- **VNet 간 연결:** 같거나 서로 다른 Azure 지역에서 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. 피어링과 달리, 트래픽이 Azure VPN Gateway를 통과해야 하기 때문에 VNet 간에 대역폭이 제한됩니다.
 
 ![VNet 간 연결](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -100,7 +100,7 @@ VNet 간 연결을 사용하여 VNet을 연결하는 방법에 대한 자세한 
 
 #### <a name="azure-virtual-network-capabilities"></a>Azure Virtual Network 기능:
 
-아시다시피 Azure Virtual Network는 안전한 방법으로 다른 네트워크 리소스에 연결할 수 있도록 네트워크에 연결하기 위한 가상 컴퓨터를 제공합니다. 그러나 기본적인 연결 기능 외에도 다양한 기능을 제공합니다. Azure Virtual Network 서비스의 다음 기능은 Azure Virtual Network의 보안 특성을 보여 줍니다.
+아시다시피 Azure Virtual Network는 안전한 방법으로 다른 네트워크 리소스에 연결할 수 있도록 네트워크에 연결하기 위한 가상 머신을 제공합니다. 그러나 기본적인 연결 기능 외에도 다양한 기능을 제공합니다. Azure Virtual Network 서비스의 다음 기능은 Azure Virtual Network의 보안 특성을 보여 줍니다.
 
 -   격리
 
@@ -128,7 +128,7 @@ Azure는 VNet에 연결되는 VM 및 [Cloud Services](https://azure.microsoft.co
 
 -   VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
 
--   Azure 제공 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다. VNet의 이름 확인에 대한 자세한 내용은 [VM 및 Cloud Services의 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)을 참조하세요.
+-   Azure에서 제공되는 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다. VNet의 이름 확인에 대한 자세한 내용은 [VM 및 Cloud Services의 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)을 참조하세요.
 
 **인터넷 연결**
 
@@ -142,7 +142,7 @@ VNet에 연결된 모든 리소스는 기본적으로 인터넷에 아웃바운�
 
 Cloud Services 및 VM과 같은 [Azure 리소스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 동일한 VNet에 연결할 수 있습니다. 리소스는 서로 다른 서브넷에 있더라도 개인 IP 주소를 사용하여 서로 연결할 수 있습니다. Azure는 서브넷, VNet 및 온-프레미스 네트워크 간에 기본 라우팅을 제공하므로 경로를 구성하고 관리할 필요가 없습니다.
 
-VM(Virtual Machines), Cloud Services, App Service 환경 및 가상 컴퓨터 확장 집합과 같은 일부 Azure 리소스를 VNet에 연결할 수 있습니다. VM은 NIC(네트워크 인터페이스)를 통해 VNet 내의 서브넷에 연결합니다. NIC에 대한 자세한 내용은 [네트워크 인터페이스](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)를 참조하세요.
+VM(Virtual Machines), Cloud Services, App Service Environment 및 Virtual Machine Scale Sets와 같은 일부 Azure 리소스를 VNet에 연결할 수 있습니다. VM은 NIC(네트워크 인터페이스)를 통해 VNet 내의 서브넷에 연결합니다. NIC에 대한 자세한 내용은 [네트워크 인터페이스](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)를 참조하세요.
 
 **VNet 연결**
 
@@ -152,7 +152,7 @@ VNet을 서로 연결하여 VNet에 연결된 리소스가 VNet을 통해 서로
 
 - **피어링:** 같은 Azure 지역 내 다른 Azure VNet에 연결되어 있는 리소스가 서로 통신할 수 있도록 합니다. VNet 내의 대역폭 및 대기 시간은 리소스가 동일한 VNet에 연결된 경우와 같습니다. 피어링에 대한 자세한 내용은 [Virtual Network 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
 
-- **VNet 간 연결:** 리소스가 같거나 다른 Azure 위치 내의 다른 Azure VNet에 연결될 수 있습니다. 피어링과 달리 트래픽이 Azure VPN Gateway를 통과해야 하기 때문에 VNet 간에 대역폭이 제한됩니다. VNet 간 연결을 사용하여 VNet을 연결하는 방법을 알아보세요. 자세한 내용은 [VNet 간 연결 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+- **VNet 간 연결:** 같거나 서로 다른 Azure 지역에서 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. 피어링과 달리 트래픽이 Azure VPN Gateway를 통과해야 하기 때문에 VNet 간에 대역폭이 제한됩니다. VNet 간 연결을 사용하여 VNet을 연결하는 방법을 알아보세요. 자세한 내용은 [VNet 간 연결 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 **온-프레미스 연결**
 
@@ -162,7 +162,7 @@ VNet을 네트워크와 Azure 간의 개인 네트워크 연결을 통해 또는
 
 - **지점-사이트 간 VPN(가상 사설망):** 네트워크에 연결된 단일 PC와 VNet 간에 설정됩니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 이 연결은 SSTP 프로토콜을 사용하여 PC 및 VNet 간에 인터넷을 통한 암호화된 통신을 제공합니다. 트래픽이 인터넷을 통과하므로 지점 및 사이트 간 VPN의 대기 시간은 예측할 수 없습니다.
 
-- **사이트 간 VPN:** VPN 장치 와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형에서는 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 장치와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
+- **사이트 간 VPN:** VPN 장치와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형에서는 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 장치와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
 
 - **Azure ExpressRoute:** ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 사설 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
 
@@ -180,9 +180,9 @@ VM 및 Cloud Services 역할 인스턴스 [네트워크 트래픽](https://docs.
 
 자체 경로를 구성하여 또는 네트워크 게이트웨이 통해 BGP 경로를 사용하여 Azure의 기본 라우팅을 선택적으로 재정의할 수 있습니다.
 
-Azure는 VNet의 모든 서브넷에 연결된 리소스가 기본적으로 서로 통신할 수 있도록 하는 경로 테이블을 만듭니다. 다음 옵션 중 하나 또는 둘 다를 구현하여 Azure에서 생성되는 기본 경로를 재정의할 수 있습니다.
+Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수 있도록 하는 경로 테이블을 기본적으로 생성합니다. 다음 옵션 중 하나 또는 둘 다를 구현하여 Azure에서 생성되는 기본 경로를 재정의할 수 있습니다.
 
-- **사용자 정의 경로:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로로 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 정의 경로에 대해 자세히 알아보려면 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
+- **사용자 정의 경로:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로를 포함한 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 정의 경로에 대해 자세히 알아보려면 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
 
 - **BGP 경로:** Azure VPN Gateway 또는 ExpressRoute 연결을 사용하여 온-프레미스 네트워크에 VNet을 연결하는 경우 VNet으로 BGP 경로를 전파할 수 있습니다.
 
@@ -291,7 +291,7 @@ NSG는 알고 있어야 하는 몇 가지 기본 제공 규칙을 제공합니�
 
 #### <a name="system-routes-and-user-defined-routes"></a>시스템 경로 및 사용자 정의 경로
 
-Azure에서 VNet(가상 네트워크)에 VM(가상 컴퓨터)을 추가하면 네트워크를 통해 다른 VM과 통신할 수 있는지 자동으로 확인할 수 있습니다. 서로 다른 서브넷에 있는 VM 간에도 게이트웨이를 지정할 필요가 없습니다.
+Azure에서 VNet(가상 네트워크)에 VM(가상 머신)을 추가하면 네트워크를 통해 다른 VM과 통신할 수 있는지 자동으로 확인할 수 있습니다. 서로 다른 서브넷에 있는 VM 간에도 게이트웨이를 지정할 필요가 없습니다.
 
 VM에서 공용 인터넷에 통신하는 경우는 물론, Azure와 사용자 고유의 데이터 센터 간 하이브리드 연결이 있는 경우 사용자의 온-프레미스 네트워크에 통신하는 경우에도 마찬가지입니다 .
 
@@ -365,7 +365,7 @@ Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기
 
 -   Multi-Factor Authentication
 
-#### <a name="application-gateway"></a>프런트 엔드
+#### <a name="application-gateway"></a>응용 프로그램 게이트웨이
 
 [Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)는 ADC(응용 프로그램 배달 컨트롤러)를 서비스로 제공하는 전용 가상 어플라이언스입니다.
 
@@ -392,7 +392,7 @@ Application Gateway WAF는 탐지 또는 방지 모드에서 실행할 수 있�
 
 JSON 형식 로그는 고객의 저장소 계정으로 직접 이동됩니다. 이러한 로그를 완전히 제어하고 자체 보존 정책을 적용할 수 있습니다.
 
-[Azure 로그 통합](https://aka.ms/AzLog)을 사용하여 이러한 로그를 분석 시스템으로 수집할 수도 있습니다. 또한 WAF 로그는 [OMS(Operations Management Suite )](https://www.microsoft.com/cloud-platform/operations-management-suite)와 통합되므로 OMS 로그 분석을 사용하여 정교하고 세분화된 쿼리를 실행할 수 있습니다.
+[Azure 로그 통합](https://aka.ms/AzLog)을 사용하여 이러한 로그를 분석 시스템으로 수집할 수도 있습니다. 또한 WAF 로그는 [Log Analytics](../log-analytics/log-analytics-overview.md)와 통합되므로 Log Analytics를 사용하여 정교하고 세분화된 쿼리를 실행할 수 있습니다.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure WAF(웹 응용 프로그램 방화벽)
 
@@ -425,11 +425,11 @@ Microsoft Azure를 사용하여 네트워크 트래픽을 분산하는 다양한
 
 Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
--   가상 컴퓨터에 들어오는 인터넷 트래픽을 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
+-   들어오는 인터넷 트래픽을 가상 머신에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
--   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합.
+-   가상 네트워크의 가상 머신 간, 클라우드 서비스의 가상 머신 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 머신 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합.
 
--   외부 트래픽을 특정 가상 컴퓨터에 전달합니다.
+-   외부 트래픽을 특정 가상 머신에 전달합니다.
 
 클라우드의 모든 리소스에는 인터넷에서 연결할 수 있는 공용 IP 주소가 필요합니다. Azure의 클라우드 인프라는 리소스에 대해 라우팅할 수 없는 IP 주소를 사용합니다. 공용 IP 주소를 통한 NAT(Network Address Translation)를 사용하여 인터넷과 통신합니다.
 
@@ -475,7 +475,7 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 
 Microsoft Azure를 운영하는 사용자와 프로세스가 이 플랫폼에서 가장 중요한 보안 역할을 할 것입니다. 이 섹션에서는 보안, 연속성 및 개인 정보 보호를 강화하고 유지하는 데 도움이 되는 Microsoft의 글로벌 데이터 센터 인프라의 기능에 대해 설명합니다.
 
-응용 프로그램에 대한 인프라는 일반적으로 가상 컴퓨터, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
+응용 프로그램에 대한 인프라는 일반적으로 가상 머신, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
 
 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
@@ -534,13 +534,13 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 Network Watcher [가변 패킷 캡처](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)를 사용하면 가상 컴퓨터 간에 트래픽을 추적하는 패킷 캡처 세션을 만들 수 있습니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버깅할 수 있습니다.
 
-패킷 캡처는 Network Watcher를 통해 원격으로 시작되는 가상 컴퓨터 확장입니다. 이 기능은 원하는 가상 컴퓨터에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다. 포털, PowerShell, CLI 또는 REST API를 통해 패킷 캡처를 트리거할 수 있습니다. 패킷 캡처를 트리거하는 방식에 대한 한 가지 예는 Virtual Machine 경고를 사용하는 것입니다.
+패킷 캡처는 Network Watcher를 통해 원격으로 시작되는 가상 머신 확장입니다. 이 기능은 원하는 가상 머신에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다. 포털, PowerShell, CLI 또는 REST API를 통해 패킷 캡처를 트리거할 수 있습니다. 패킷 캡처를 트리거하는 방식에 대한 한 가지 예는 Virtual Machine 경고를 사용하는 것입니다.
 
 #### <a name="ip-flow-verify"></a>IP 흐름 확인
 
 [IP 흐름 확인](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview)은 5개 튜플 정보에 따라 가상 컴퓨터 간 패킷이 허용되거나 거부되는지를 확인합니다. 이 정보는 방향, 프로토콜, 로컬 IP, 원격 IP, 로컬 포트 및 원격 포트로 구성됩니다. 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙의 이름이 반환됩니다. 모든 원본 또는 대상 IP를 선택할 수 있는 동안 이 기능을 통해 관리자는 인터넷 간 및 온-프레미스 환경 간 연결 문제를 신속하게 진단할 수 있습니다.
 
-IP 흐름 확인은 가상 컴퓨터의 네트워크 인터페이스를 대상으로 합니다. 그런 다음 해당 네트워크 인터페이스 간에서 구성된 설정에 따라 트래픽 흐름이 확인됩니다. 이 기능은 네트워크 보안 그룹에서 규칙이 가상 컴퓨터 간의 수신 또는 송신 트래픽을 차단하는 경우를 확인하는 데 유용합니다.
+IP 흐름 확인은 가상 머신의 네트워크 인터페이스를 대상으로 합니다. 그런 다음 해당 네트워크 인터페이스 간에서 구성된 설정에 따라 트래픽 흐름이 확인됩니다. 이 기능은 네트워크 보안 그룹에서 규칙이 가상 머신 간의 수신 또는 송신 트래픽을 차단하는 경우를 확인하는 데 유용합니다.
 
 #### <a name="next-hop"></a>다음 홉
 
@@ -550,7 +550,7 @@ Azure 네트워크 패브릭에서 라우팅되는 패킷의 [다음 홉](https:
 
 #### <a name="security-group-view"></a>보안 그룹 보기
 
-VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다. 네트워크 보안 그룹은 서브넷 수준 또는 NIC 수준에서 연결됩니다. 서브넷 수준에서 연결되는 경우 서브넷의 모든 VM 인스턴스에 적용됩니다. 네트워크 [보안 그룹 보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview)는 가상 컴퓨터에 대한 NIC 및 서브넷 수준에서 연결된 모든 구성된 NSG 및 규칙을 반환하여 구성을 이해하기 쉽게 합니다. 또한 VM의 각 NIC에 대해 유효 보안 규칙이 반환됩니다. 네트워크 보안 그룹 보기를 사용하여 열린 포트와 같은 네트워크 취약점에 대해 VM을 평가할 수 있습니다. 또한 네트워크 보안 그룹이 [구성된 보안 규칙 및 유효 보안 규칙 간의 비교](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell)에 따라 예상대로 작동하는지 검증할 수도 있습니다.
+VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다. 네트워크 보안 그룹은 서브넷 수준 또는 NIC 수준에서 연결됩니다. 서브넷 수준에서 연결되는 경우 서브넷의 모든 VM 인스턴스에 적용됩니다. 네트워크 [보안 그룹 보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview)는 가상 머신에 대한 NIC 및 서브넷 수준에서 연결된 모든 구성된 NSG 및 규칙을 반환하여 구성을 이해하기 쉽게 합니다. 또한 VM의 각 NIC에 대해 유효 보안 규칙이 반환됩니다. 네트워크 보안 그룹 보기를 사용하여 열린 포트와 같은 네트워크 취약점에 대해 VM을 평가할 수 있습니다. 또한 네트워크 보안 그룹이 [구성된 보안 규칙 및 유효 보안 규칙 간의 비교](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell)에 따라 예상대로 작동하는지 검증할 수도 있습니다.
 
 #### <a name="nsg-flow-logging"></a>NSG 흐름 로깅
 
@@ -606,7 +606,7 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 [OMS(Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 클라우드 및 온-프레미스 환경을 모니터링하여 가용성 및 성능을 유지하는 Azure의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.
 
 Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔루션을 제공합니다.
 
