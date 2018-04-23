@@ -61,7 +61,7 @@
 # 관련 항목
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 # 리소스
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)

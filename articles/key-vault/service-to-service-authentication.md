@@ -1,22 +1,22 @@
 ---
-title: ".NET을 사용하여 Azure Key Vault에 서비스 간 인증"
-description: "Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 .NET으로 Azure Key Vault에 인증합니다."
-keywords: "Azure Key Vault 인증 로컬 자격 증명"
+title: .NET을 사용하여 Azure Key Vault에 서비스 간 인증
+description: Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 .NET으로 Azure Key Vault에 인증합니다.
+keywords: Azure Key Vault 인증 로컬 자격 증명
 author: lleonard-msft
 manager: mbaldwin
 services: key-vault
 ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: 
-ms.service: microsoft-keyvault
-ms.technology: 
+ms.prod: ''
+ms.service: key-vault
+ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -28,7 +28,7 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 
 `Microsoft.Azure.Services.AppAuthentication` 라이브러리는 자동으로 인증을 관리하므로 순서대로 수행하면 자격 증명 대신 솔루션에 다시 초점을 맞출 수 있습니다.
 
-`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용한 로컬 개발을 지원합니다. Azure App Services 또는 Azure VM(가상 컴퓨터)에 배포하는 경우 라이브러리는 자동으로 MSI([관리 서비스 ID](/azure/active-directory/msi-overview))를 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 MSI를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)을 직접 사용할 수도 있습니다.
+`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용한 로컬 개발을 지원합니다. Azure App Services 또는 Azure VM(Virtual Machine)에 배포하는 경우 라이브러리는 자동으로 MSI([관리 서비스 ID](/azure/active-directory/msi-overview))를 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 MSI를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)을 직접 사용할 수도 있습니다.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>라이브러리 사용

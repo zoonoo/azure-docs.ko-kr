@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 자습서 단원 1: 새 테이블 형식 모델 프로젝트 만들기 | Microsoft Docs"
-description: "새 Azure Analysis Services 자습서 프로젝트를 만드는 방법을 설명합니다."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services 자습서 단원 1: 새 테이블 형식 모델 프로젝트 만들기 | Microsoft Docs'
+description: 새 Azure Analysis Services 자습서 프로젝트를 만드는 방법을 설명합니다.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 73764e7595d5b0bbc55ee9242e86ba19d5f80254
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-tabular-model-project"></a>테이블 형식 모델 프로젝트 만들기
 
@@ -27,7 +20,7 @@ ms.lasthandoff: 01/09/2018
   
 이 단원을 완료하기 위한 예상 시간: **10분**  
   
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>필수 조건  
 이 항목은 테이블 형식 모델 작성 자습서의 첫 번째 단원입니다. 이 단원을 완료하기 위해 마련해야 하는 몇 가지 필수 구성 요소가 있습니다. 자세한 내용은 [Azure Analysis Services - Adventure Works 자습서](../tutorials/aas-adventure-works-tutorial.md)를 참조하세요.  
   
 ## <a name="create-a-new-tabular-model-project"></a>새 테이블 형식 모델 프로젝트 만들기  

@@ -421,6 +421,8 @@
           href: troubleshoot-activation-problems.md
         - name: 할당 오류
           href: allocation-failure.md
+        - name: 할당 오류 - 클래식 VM
+          href: allocation-failure-classic.md
         - name: VM 재배포
           href: redeploy-to-new-node.md
         - name: 일반적인 오류 메시지

@@ -1,25 +1,23 @@
 ---
-title: "Blob Storage에 Azure Search 추가 | Microsoft Docs"
-description: "Azure 검색 HTTP REST API를 사용하여 코드에 인덱스를 만듭니다."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
+title: Blob Storage에 Azure Search 추가 | Microsoft Docs
+description: Azure Search HTTP REST API를 사용하여 코드에 인덱스를 만듭니다.
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: ashmaka
-ms.openlocfilehash: 15469e8a2d28bdf00d6e8d8c9f823c51975ee90e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
+ms.openlocfilehash: 64032f59bad05746a07faadae6b0275eb4921b92
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Azure Search로 Blob Storage 검색
 
 Azure Blob Storage에 저장된 다양한 콘텐츠 형식에서 검색하면 어려운 문제를 해결할 수 있습니다. 그러나 Azure Search를 사용하면 단 몇 번의 클릭으로 Blob의 콘텐츠에 인덱스를 만들고 검색할 수 있습니다. Blob Storage를 통해 검색하려면 Azure Search 서비스를 프로비전해야 합니다. Azure Search의 다양한 서비스 한도 및 가격 책정 계층은 [가격 책정 페이지](https://aka.ms/azspricing)에서 확인할 수 있습니다.
 
-## <a name="what-is-azure-search"></a>Azure 검색이란?
+## <a name="what-is-azure-search"></a>Azure Search란?
 [Azure Search](https://aka.ms/whatisazsearch)는 개발자가 강력한 전체 텍스트 검색 환경을 웹 및 모바일 응용 프로그램에 손쉽게 추가할 수 있도록 하는 검색 서비스입니다. 서비스 형태인 Azure Search는 [99.9% 작동 시간 SLA](https://aka.ms/azuresearchsla)를 제공하면서 검색 인프라를 관리할 필요가 없습니다.
 
 ## <a name="index-and-search-enterprise-document-formats"></a>인덱스 및 검색 엔터프라이즈 문서 형식

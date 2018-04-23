@@ -1,23 +1,23 @@
 ---
-title: "Azure ID 이해 | Microsoft Docs"
-description: "조직에 대한 최상의 ID 관리 결정을 내리기 위해 Microsoft Azure ID 솔루션 용어, 개념 및 권장 사항에 대해 기본적으로 이해합니다."
-keywords: 
+title: Azure ID 이해 | Microsoft Docs
+description: 조직에 대한 최상의 ID 관리 결정을 내리기 위해 Microsoft Azure ID 솔루션 용어, 개념 및 권장 사항에 대해 기본적으로 이해합니다.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure ID 솔루션 이해
 Microsoft Azure AD(Azure Active Directory)는 디렉터리 서비스, ID 관리 및 응용 프로그램 액세스 관리를 제공하는 ID 및 액세스 관리 클라우드 솔루션입니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에 있는 수천 개의 사전 통합된 상용 및 사용자 지정 앱에 대해 신속하게 [SSO(single sign-on)를 사용](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)합니다. 이러한 앱은 대부분 Office 365, Salesforce.com, Box, ServiceNow 및 Workday와 같이 이미 사용하고 있는 앱들입니다.
@@ -53,7 +53,7 @@ Microsoft Azure는 개별 조직의 요구 사항에 맞게 다양한 수준의 
 |-----|-----|
 |[Azure 구독과 Azure Active Directory의 연관 관계](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |모든 Azure 구독은 사용자, 서비스 및 장치를 인증하는 Azure AD 디렉터리와 신뢰 관계가 있습니다. *여러 구독은 동일한 Azure AD 디렉터리를 트러스트할 수 있지만 구독은 단일 Azure AD 디렉터리만을 신뢰합니다*. 이 트러스트 관계는 구독이 다른 Azure 리소스(웹 사이트, 데이터베이스 등)와 갖는 관계와 다르며 구독의 하위 리소스와 더 유사합니다. 구독이 만료되면 Azure AD가 아닌 구독과 연결된 리소스에 대한 액세스도 중지됩니다. 하지만 Azure AD 디렉터리는 Azure에 남아 있으므로 해당 디렉터리와 다른 구독을 연결하여 테넌트 리소스를 계속 관리할 수 있습니다.|
 |[Azure AD 라이선스 작동 방식](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Enterprise Mobility Suite, Azure AD Premium 또는 Azure AD Basic을 구매 또는 활성화하면 디렉터리의 유효 기간 및 선불 라이선스를 포함하여 디렉터리가 구독으로 업데이트됩니다. 구독이 활성화되면 Azure AD 전역 관리자가 서비스를 관리하고 허가된 사용자가 사용할 수 있습니다. 할당되거나 사용 가능한 라이선스 수를 포함한 구독 정보는 **Azure Active Directory** > **라이선스** 블레이드의 Azure Portal에서 사용할 수 있습니다. 또한 이 탭은 사용자 라이선스 할당을 관리하기에 가장 적합한 위치이기도 합니다.|
-|[Azure Portal의 역할 기반 Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure 역할 기반 Access Control(RBAC)을 통해 Azure 리소스에 대한 세밀한 액세스 관리를 제공할 수 있습니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC를 사용하여 모든 리소스 그룹(소유자, 참가자, 판독기)에 적용되는 세 가지 기본 역할을 기반으로 필요한 정확한 사용 권한을 직원에게 제공할 수 있습니다. 최대 2,000개의 고유한 [사용자 지정 RBAC 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)을 만들어 특정 요구 사항을 충족할 수도 있습니다. |
+|[Azure Portal의 역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)|Azure 역할 기반 Access Control(RBAC)을 통해 Azure 리소스에 대한 세밀한 액세스 관리를 제공할 수 있습니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC를 사용하여 모든 리소스 그룹(소유자, 참가자, 판독기)에 적용되는 세 가지 기본 역할을 기반으로 필요한 정확한 사용 권한을 직원에게 제공할 수 있습니다. 최대 2,000개의 고유한 [사용자 지정 RBAC 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 만들어 특정 요구 사항을 충족할 수도 있습니다. |
 |[하이브리드 ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|하이브리드 ID는 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)를 사용하는 Azure AD에서 온-프레미스 AD DS(Windows Server Active Directory)를 통합하여 이뤄집니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 온-프레미스 앱이나 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 하이브리드 ID를 사용하여 ID 및 액세스를 위해 효과적으로 클라우드로 온-프레미스 환경을 확장합니다.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Windows Server AD DS와 Azure AD 간의 차이
@@ -61,7 +61,7 @@ Azure AD(Azure Active Directory)와 온-프레미스 Active Directory(Active Dir
 
 Windows 2000 Server와 함께 처음 도입된 온-프레미스 Windows Server AD DS(Active Directory Domain Services)에 익숙한 경우 ID 서비스의 기본 개념을 이해할 것입니다. 하지만 Azure AD가 클라우드에서 단지 도메인 컨트롤러에 그치지 않는다는 것을 이해해야 합니다. 이 기능은 Azure에서 IDaaS(identity as a service)를 제공하는 완전히 새로운 방법으로써 클라우드 기반 기능을 완전히 포용하고 최신 위협으로부터 조직을 보호한다는 완전히 새로운 사고 방식이 필요합니다. 
 
-AD DS는 Windows Server의 서버 역할로, 물리적 컴퓨터 또는 가상 컴퓨터에 배포할 수 있습니다. 또한 X.500 기반 계층 구조를 갖습니다. DNS를 사용하여 개체를 찾고, LDAP를 사용하여 상호 작용할 수 있으며 인증에는 Kerberos를 주로 사용합니다. Active Directory에서는 컴퓨터가 도메인에 가입될 수 있을 뿐 아니라 OU(조직 구성 단위) 및 GPO(그룹 정책 개체)를 사용할 수 있으며 도메인 간에 트러스트가 형성됩니다.
+AD DS는 Windows Server의 서버 역할로, 물리적 컴퓨터 또는 가상 머신에 배포할 수 있습니다. 또한 X.500 기반 계층 구조를 갖습니다. DNS를 사용하여 개체를 찾고, LDAP를 사용하여 상호 작용할 수 있으며 인증에는 Kerberos를 주로 사용합니다. Active Directory에서는 컴퓨터가 도메인에 가입될 수 있을 뿐 아니라 OU(조직 구성 단위) 및 GPO(그룹 정책 개체)를 사용할 수 있으며 도메인 간에 트러스트가 형성됩니다.
 
 IT는 AD DS를 사용하여 몇 년 간 자신의 보안 경계를 보호했지만 경계 없는 기업 지원 ID에는 직원, 고객 및 파트너에게 새로운 컨트롤 평면이 필요합니다. Azure AD는 ID 제어 평면입니다. 보안은 사용자(온-프레미스 또는 클라우드)에게 하나의 일반적인 ID를 제공하여 Azure AD가 회사 리소스 및 액세스를 보호한 클라우드에 대한 회사 방화벽 이상의 개념입니다. 이 기능은 사용자가 거의 모든 장치에서 업무를 수행할 수 있도록 필요한 앱에 안전하게 액세스할 수 있는 유연성을 제공합니다. 기계 학습 기능 및 심층 보고가 지원되는 완벽한 위험 기반 데이터 보호 컨트롤을 제공하여 IT에서 회사 데이터를 안전하게 보호할 수 있도록 합니다.
 
@@ -78,7 +78,7 @@ Azure AD는 다중 고객 공용 디렉터리 서비스이므로, Azure AD 내�
 Microsoft Azure에서는 온-프레미스나 클라우드 또는 양쪽 어딘가에서 완벽하게 유지되는지 여부에 따라 사용자의 ID를 관리하는 여러 가지 방법을 제공합니다. 이러한 옵션에는 Azure의 DIY(do-it-yourself) AD DS, Azure AD(Azure Active Directory), 하이브리드 ID 및 Azure AD Domain Services가 포함됩니다.
 
 ### <a name="do-it-yourself-diy-ad-ds"></a>DIY(do-it-yourself) AD DS
-클라우드에서 일부가 필요한 회사의 경우 Azure에서 **DIY(do-it-yourself) AD DS**를 사용할 수 있습니다. 이 옵션은 Azure에서 가상 컴퓨터(VM)로 배포하기에 적합한 많은 Windows Server AD DS 시나리오를 지원합니다. 예를 들어, 원격 네트워크에 연결되어 있는 멀리 떨어진 데이터 센터에서 실행하는 도메인 컨트롤러로 Azure VM을 만들 수 있습니다. 여기에서 VM은 원격 사용자의 인증 요청을 지원하고 인증 성능을 향상시킬 수 있게 됩니다. 이 옵션은 적은 수의 도메인 컨트롤러와 Azure의 단일 가상 네트워크를 호스트하여 다른 비용이 드는 재해 복구 사이트에 비해 비교적 저렴한 대안으로 적합합니다. 마지막으로 Azure에서 SharePoint와 같은 Windows Server AD DS가 필요하지만 온-프레미스 네트워크 또는 회사 Windows Server Active Directory에 의존하지 않는 응용 프로그램을 배포해야 할 수도 있습니다. 이 경우 SharePoint 서버 팜의 요구 사항을 충족하기 위해 Azure에서 분리된 포리스트를 배포할 수 있습니다. 또한 온-프레미스 네트워크와 회사 Active Directory에 대한 연결이 필요한 네트워크 응용 프로그램을 배포하도록 지원됩니다.
+클라우드에서 일부가 필요한 회사의 경우 Azure에서 **DIY(do-it-yourself) AD DS**를 사용할 수 있습니다. 이 옵션은 Azure에서 가상 머신(VM)로 배포하기에 적합한 많은 Windows Server AD DS 시나리오를 지원합니다. 예를 들어, 원격 네트워크에 연결되어 있는 멀리 떨어진 데이터 센터에서 실행하는 도메인 컨트롤러로 Azure VM을 만들 수 있습니다. 여기에서 VM은 원격 사용자의 인증 요청을 지원하고 인증 성능을 향상시킬 수 있게 됩니다. 이 옵션은 적은 수의 도메인 컨트롤러와 Azure의 단일 가상 네트워크를 호스트하여 다른 비용이 드는 재해 복구 사이트에 비해 비교적 저렴한 대안으로 적합합니다. 마지막으로 Azure에서 SharePoint와 같은 Windows Server AD DS가 필요하지만 온-프레미스 네트워크 또는 회사 Windows Server Active Directory에 의존하지 않는 응용 프로그램을 배포해야 할 수도 있습니다. 이 경우 SharePoint 서버 팜의 요구 사항을 충족하기 위해 Azure에서 분리된 포리스트를 배포할 수 있습니다. 또한 온-프레미스 네트워크와 회사 Active Directory에 대한 연결이 필요한 네트워크 응용 프로그램을 배포하도록 지원됩니다.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
 **Azure AD 독립 실행형**은 완전한 클라우드 기반 IDaaS(Identity and access management as a Service) 솔루션입니다. Azure AD는 강력한 기능을 제공하여 사용자 및 그룹을 관리할 수 있습니다. Office 365와 같은 Microsoft 웹 서비스와 다양한 타사 SaaS(Software as-a Service) 응용 프로그램을 포함한 온-프레미스 및 클라우드 응용 프로그램에 대한 안전한 액세스를 돕습니다. Azure AD는 Free, Basic 및 Premium의 세 가지 버전으로 제공됩니다. Azure AD는 조직 효율성을 향상시키고 Azure Machine Learning 및 기타 고급 보안 기능에서 보호되는 새 컨트롤 평면에 대한 경계 방화벽 너머로 보안을 확장합니다.
@@ -101,7 +101,7 @@ Microsoft Azure에서는 온-프레미스나 클라우드 또는 양쪽 어딘�
 |조직이 온-프레미스 Windows Server Active Directory에 대규모로 투자했지만 ID를 클라우드로 확장하려고 합니다.| 가장 널리 사용되는 Azure ID 솔루션은 [하이브리드 ID](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview)입니다. 이미 온-프레미스 AD DS에 투자한 경우 Azure AD Connect를 사용하여 ID를 클라우드로 쉽게 확장할 수 있습니다.|
 |클라우드에서 비즈니스가 시작되었지만 온-프레미스 ID 솔루션에는 투자하지 않았습니다.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)는 온-프레미스에 투자하지 않은 클라우드 전용 비즈니스에 적합합니다.|
 |앱 개발 및 테스트를 위한 온-프레미스 ID 요구를 충족하는 간단한 Azure VM 구성 및 제어가 필요합니다.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)는 간단한 Azure VM 구성 컨트롤에서 AD DS를 사용하거나 레거시 디렉터리 인식 온-프레미스 응용 프로그램을 개발하거나 클라우드로 마이그레이션하는 경우에 적합합니다.|  
-|사용자는 Azure에서 적은 수의 가상 컴퓨터를 지원해야 하지만 회사는 여전히 과도하게 온-프레미스 Active Directory(AD DS)에 투자하고 있습니다.|[DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx)를 사용하여 적은 수의 가상 컴퓨터를 지원하고 온-프레미스 AD DS에 대해 대규모로 투자해야 하는 경우 Azure VM을 사용합니다. |
+|사용자는 Azure에서 적은 수의 가상 머신을 지원해야 하지만 회사는 여전히 과도하게 온-프레미스 Active Directory(AD DS)에 투자하고 있습니다.|[DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx)를 사용하여 적은 수의 가상 머신을 지원하고 온-프레미스 AD DS에 대해 대규모로 투자해야 하는 경우 Azure VM을 사용합니다. |
 
 ## <a name="where-can-i-learn-more"></a>자세한 내용을 알아보려면 어떤 정보를 참조해야 하나요?
 Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소스를 온라인으로 제공합니다. 다음은 시작에 대한 기사 목록입니다.

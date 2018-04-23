@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 서버에서 샘플 테이블 형식 모델 추가 | Microsoft Docs"
-description: "Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 서버에서 샘플 테이블 형식 모델 추가 | Microsoft Docs
+description: Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.reviewer: minewiskan
+ms.openlocfilehash: 27353ff8c05f44b76304279e09a8a8d817041d78
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-sample-model"></a>자습서: 샘플 모델 추가
 
@@ -32,7 +25,7 @@ ms.lasthandoff: 03/02/2018
 - Azure Analysis Services 서버
 - 서버 관리자 권한
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 

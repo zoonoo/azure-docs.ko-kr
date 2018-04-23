@@ -368,15 +368,17 @@
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Azure-SSIS 통합 런타임을 위한 Enterprise Edition 프로비전
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: VNET에 Azure-SSIS 통합 런타임 조인
+        - name: VNET에 Azure SSIS 통합 런타임 조인
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Azure-SSIS 통합 런타임 관리
+        - name: Azure SSIS 통합 런타임 관리
           href: manage-azure-ssis-integration-runtime.md
         - name: Azure-SSIS 통합 런타임의 성능 설정 구성
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
+        - name: SSIS 작업을 사용하여 SSIS 패키지 실행
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
-        - name: Azure-SSIS 통합 런타임 예약
+        - name: Azure-SSIS Integration Runtime 예약
           href: how-to-schedule-azure-ssis-integration-runtime.md
         - name: Azure-SSIS 통합 런타임을 위한 라이선스 구성 요소 개발
           href: how-to-develop-azure-ssis-ir-licensed-components.md

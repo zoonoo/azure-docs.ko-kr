@@ -1,26 +1,26 @@
 ---
-title: "Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기 | Microsoft Docs"
-description: "이 문서에서는 규정 비준수 리소스를 식별하는 정책 정의를 만드는 단계를 안내합니다."
+title: Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기 | Microsoft Docs
+description: 이 문서에서는 규정 비준수 리소스를 식별하는 정책 정의를 만드는 단계를 안내합니다.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2018
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e5b27bdc2aef15b619022d1c08fa3e6dccaa5736
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. 이 빠른 시작은 Managed Disks를 사용하지 않는 가상 머신을 식별하는 정책 할당 만들기 과정을 단계별로 안내합니다.
 
 이 프로세스가 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당의 *비규격*입니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
@@ -71,15 +71,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 기존 리소스에 대해 조건을 평가한 결과 이것이 사실로 확인된 경우 해당 리소스는 정책 비준수 항목으로 표시됩니다. 위의 예제 이미지는 비준수 리소스를 보여 줍니다. 다음 표에서는 서로 다른 정책 작업이 함께 조건 평가를 수행하여 준수 상태를 파악하는지 나타냅니다. Azure Portal에서는 평가 논리는 표시되지 않지만 준수 상태 결과가 표시됩니다. 규정 준수 상태 결과는 준수 또는 비준수입니다.
 
-|리소스  |정책의 조건 평가 결과가 다음과 같은 경우  |정책의 작업   |규정 준수 상태  |
-|-----------|---------|---------|---------|
-|exists     |True     |거부     |비준수 |
-|exists     |False    |거부     |준수     |
-|exists     |True     |추가   |비준수 |
-|exists     |False    |추가   |준수     |
-|exists     |True     |감사    |비준수 |
-|exists     |False    |감사    |비준수 |
+| **리소스 상태** | **작업** | **정책 평가** | **규정 준수 상태** |
+| --- | --- | --- | --- |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
 
+\* Append, DeployIfNotExist 및 AuditIfNotExist 동작은 IF 문이 TRUE가 될 것을 요구합니다. 또한 이러한 작업은 비준수가 되려면 존재 조건이 FALSE가 될 것을 요구합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 컬렉션의 다른 가이드는 이 빠른 시작에 기반하여 작성되었습니다. 후속 자습서를 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 Azure Portal에서 삭제합니다.

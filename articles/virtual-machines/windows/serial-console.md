@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>가상 머신 직렬 콘솔(미리 보기) 
 
@@ -33,7 +33,7 @@ Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍�
 ## <a name="prerequisites"></a>필수 조건 
 
 * 가상 머신에 [부트 진단](boot-diagnostics.md)을 사용하도록 설정되어 있어야 합니다. 
-* 직렬 콘솔을 사용하는 계정에는 VM에 대한 [참가자 역할](../../active-directory/role-based-access-built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
+* 직렬 콘솔을 사용하는 계정에는 VM에 대한 [참가자 역할](../../role-based-access-control/built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
 
 ## <a name="open-the-serial-console"></a>직렬 콘솔 열기
 가상 머신의 직렬 콘솔은 [Azure Portal](https://portal.azure.com)을 통해서만 액세스할 수 있습니다. 다음은 포털을 통해 가상 머신의 직렬 콘솔에 액세스하는 단계입니다. 
@@ -51,7 +51,7 @@ Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍�
 ## <a name="serial-console-security"></a>직렬 콘솔 보안 
 
 ### <a name="access-security"></a>액세스 보안 
-직렬 콘솔에 대한 액세스는 가상 머신에 대해 [VM 참가자](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) 이상의 액세스가 있는 사용자로 제한됩니다. AAD 테넌트에 Multi-Factor Authentication이 필요한 경우에는 직렬 콘솔에 대한 액세스 권한에도 MFA가 필요합니다. 해당 액세스가 [Azure Portal](https://portal.azure.com)을 통해 진행되기 때문입니다.
+직렬 콘솔에 대한 액세스는 가상 머신에 대해 [VM 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 이상의 액세스가 있는 사용자로 제한됩니다. AAD 테넌트에 Multi-Factor Authentication이 필요한 경우에는 직렬 콘솔에 대한 액세스 권한에도 MFA가 필요합니다. 해당 액세스가 [Azure Portal](https://portal.azure.com)을 통해 진행되기 때문입니다.
 
 ### <a name="channel-security"></a>채널 보안
 주고 받는 모든 데이터는 전송 중에 암호화됩니다.
@@ -572,7 +572,7 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 
 문제                           |   해결 방법 
 :---------------------------------|:--------------------------------------------|
-가상 머신 확장 집합 인스턴스 직렬 콘솔에 옵션이 없습니다. | 미리 보기 단계에서는 가상 시스템 확장 집합 인스턴스의 직렬 콘솔에 대한 액세스가 지원되지 않습니다.
+가상 머신 확장 집합 인스턴스 직렬 콘솔에 옵션이 없습니다. | 미리 보기 단계에서는 가상 머신 확장 집합 인스턴스의 직렬 콘솔에 대한 액세스가 지원되지 않습니다.
 연결 배너가 표시된 후 Enter를 눌러도 로그인 프롬프트가 표시되지 않습니다. | [Enter를 누르면 아무 작업도 수행되지 않습니다.](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 Windows VM에 연결할 때 상태 정보만 표시됩니다.| [Windows 상태 신호](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
 커널 디버깅을 사용할 수 있으면 SAC 프롬프트에 입력할 수 없음 | VM에 RDP하고 관리자 권한 명령 프롬프트에서 `bcdedit /debug {current} off`을 실행합니다. RDP할 수 없는 경우 대신 `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`을 이용하여 데이터 디스크로 연결하는 동안 다른 Azure VM에 OS 디스크를 연결하고 수정한 다음, 다시 디스크를 교체합니다.

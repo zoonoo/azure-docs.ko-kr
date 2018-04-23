@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e9e5ad496362bf958dfe39b73ecd209f7b8aa284
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e5c99552b74861db6018093dccf736d08374204f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -96,7 +96,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 하이브리드 환경 관리에 대한 정보 및 Azure AD Connect에 제공되는 Single Sign-On 옵션에 대한 개요 |[Azure AD Connect의 사용자 로그온 옵션](active-directory-aadconnect-user-signin.md) |
 | 온-프레미스 Active Directory 및 Azure Active Directory로 환경을 관리하기 위한 일반적인 지침  |[Azure AD 하이브리드 ID 설계 고려 사항](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md) |
 | 암호 동기화를 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Azure AD Connect와 암호 동기화 구현](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[암호 동기화 문제 해결](https://support.microsoft.com/en-us/kb/2855271) |
-| 비밀번호 쓰기 저장을 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Azure AD에서 암호 관리 시작](active-directory-passwords-getting-started.md)<br /><br />[비밀번호 쓰기 저장 문제 해결](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| 비밀번호 쓰기 저장을 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Azure AD에서 암호 관리 시작](authentication/quickstart-sspr.md)<br /><br />[비밀번호 쓰기 저장 문제 해결](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 타사 ID 공급자를 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Single Sign-On을 사용하도록 설정하는 데 사용할 수 있는 호환 가능한 타사 ID 공급자 목록](https://aka.ms/ssoproviders) |
 | Windows 10 사용자가 Azure AD 조인을 통해 Single Sign-On의 이점을 얻을 수 있는 방법 |[Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md) |
 

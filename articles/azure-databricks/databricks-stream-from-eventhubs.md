@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e4c424bb26a3b268ec893ca40dcdce7d7469217
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
 
@@ -173,6 +173,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 **SendTweetsToEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Event Hubs 네임스페이스 및 Twitter 응용 프로그램에 대한 값으로 바꿉니다. 이 노트북은 "Azure" 키워드가 있는 트윗을 Event Hubs에 실시간으로 스트리밍합니다.
 
+```scala
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
@@ -242,6 +243,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+```
 
 노트북을 실행하려면 **Shift+Enter**를 누릅니다. 아래 코드 조각과 같은 출력이 표시됩니다. 출력의 각 이벤트는 "Azure"라는 용어가 포함된 Event Hubs로 수집되는 트윗입니다.
 
@@ -264,6 +266,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 **ReadTweetsFromEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Azure Event Hubs의 값으로 바꿉니다. 이 노트북은 **SendTweetsToEventHub** 노트북을 사용하여 이전에 Event Hubs로 스트리밍한 트윗을 읽습니다.
 
+```scala
     import org.apache.spark.eventhubs._
 
     // Build connection string with the above information
@@ -282,6 +285,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 다음과 같은 출력을 얻습니다.
 
@@ -312,6 +316,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 출력은 이진 모드이므로 다음 코드 조각을 사용하여 문자열로 변환합니다.
 
+```scala
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
 
@@ -328,6 +333,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     messages.printSchema
 
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 이제 출력은 다음 코드 조각과 비슷합니다.
 

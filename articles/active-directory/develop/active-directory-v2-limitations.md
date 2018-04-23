@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 끝점 제한 사항 | Microsoft Docs"
-description: "Azure AD v2.0 끝점의 제한 사항 목록입니다."
+title: Azure Active Directory v2.0 끝점 제한 사항 | Microsoft Docs
+description: Azure AD v2.0 끝점의 제한 사항 목록입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>v2.0 끝점을 사용해야 하나요?
 Azure Active Directory와 통합되는 응용 프로그램을 빌드할 때 v2.0 끝점 및 인증 프로토콜이 사용자 요구를 충족하는지 결정해야 합니다. Azure Active Directory의 원래 끝점은 계속해서 완전히 지원되며 v2.0보다 더 많은 기능이 제공되는 측면이 있습니다. 그러나 v2.0 끝점은 개발자에게 [상당한 혜택을 소개](active-directory-v2-compare.md)합니다.
@@ -84,15 +84,6 @@ v2.0 끝점을 사용하여 [OAuth 2.0으로 보안이 유지되는 Web API를 �
 또한 특정 응용 프로그램에 대해 20개의 회신 URL만 있습니다.
 
 응용 프로그램 등록 포털에 앱을 등록하는 방법을 알아보려면 [v2.0 끝점을 사용하여 앱을 등록하는 방법](active-directory-v2-app-registration.md)을 참조하세요.
-
-## <a name="restrictions-on-services-and-apis"></a>서비스 및 API에 대한 제한 사항
-현재 v2.0 끝점은 응용 프로그램 등록 포털에 등록되고 [지원되는 인증 흐름](active-directory-v2-flows.md) 목록에 속하는 경우 앱에 대한 로그인을 지원합니다. 그러나 이러한 앱은 매우 제한된 리소스 집합에 대한 OAuth 2.0 액세스 토큰만 획득할 수 있습니다. V2.0 끝점은 다음에 대한 액세스 토큰만 발급합니다.
-
-* 토큰을 요청한 앱. 논리 앱이 여러 구성 요소나 계층으로 이루어진 경우 앱은 자신에 대한 액세스 토큰을 획득할 수 있습니다. 이 시나리오의 작동 방식을 확인하려면 [시작](active-directory-appmodel-v2-overview.md#getting-started) 자습서를 확인하세요.
-* Outlook 메일, 일정 및 연락처 REST API는 모두 https://outlook.office.com에 있습니다. 이러한 API에 액세스하는 앱을 작성하는 방법을 알아보려면 [Office 시작](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 자습서를 참조하세요.
-* Microsoft Graph API. [Microsoft Graph](https://graph.microsoft.io) 및 사용 가능한 데이터에 대해 자세히 알아볼 수 있습니다.
-
-현재 다른 서비스는 지원되지 않습니다. 조만간 사용자 고유의 사용자 지정 작성 Web API 및 서비스 지원뿐 아니라 더 많은 Microsoft 온라인 서비스가 추가될 예정입니다.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>라이브러리 및 SDK에 대한 제한 사항
 현재 v2.0 끝점에 대한 라이브러리 지원은 제한적입니다. 프로덕션 응용 프로그램에서 v2.0 끝점을 사용하려는 경우 다음 옵션이 있습니다.

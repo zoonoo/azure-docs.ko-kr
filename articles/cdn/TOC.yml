@@ -14,6 +14,8 @@
   items:
     - name: 사용자 지정 도메인 추가
       href: cdn-map-content-to-custom-domain.md
+    - name: 사용자 지정 도메인에 HTTPS 구성
+      href: cdn-custom-ssl.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -38,10 +40,6 @@
               href: cdn-sas-storage-support.md
         - name: 크로스-원본 자원 공유
           href: cdn-cors.md
-        - name: CDN 끝점에 사용자 지정 도메인 추가
-          href: cdn-map-content-to-custom-domain.md
-        - name: 사용자 지정 도메인에 HTTPS 구성
-          href: cdn-custom-ssl.md
     - name: 콘텐츠 최적화
       items:
         - name: 최적화 개요
@@ -137,6 +135,11 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: 규칙 엔진 기능
           href: cdn-rules-engine-reference-features.md
+    - name: Verizon별 HTTP 헤더
+      href: cdn-verizon-http-headers.md
+      items:
+        - name: X-EC-Debug 헤더
+          href: cdn-http-debug-headers.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET

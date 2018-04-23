@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory 시작 | Microsoft Docs"
-description: "Azure Active Diretory에서 라이선스 받기, 도메인 이름 추가, 사용자 지정 로그인 페이지 만들기 및 셀프 서비스 암호 재설정 추가"
-keywords: 
+title: Azure Active Directory 시작 | Microsoft Docs
+description: Azure Active Diretory에서 라이선스 받기, 도메인 이름 추가, 사용자 지정 로그인 페이지 만들기 및 셀프 서비스 암호 재설정 추가
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Azure AD 시작
 인증된 사용자에게만 응용 프로그램 및 서비스의 고가용성을 보장하기 위해 최신 ID 관리에는 확장 가능하고 일관된 안정성이 필요합니다. 사용자의 ID 관리 요구를 적절하게 지원하기 위해 IT 부서에는 승인된 공용 SaaS(software as a service) 앱에 대한 액세스를 제공하는 방법, 내부 기간 업무 앱을 호스트하는 방법 및 온-프레미스 앱 개발 및 사용을 강화하는 방법이 필요합니다. 이러한 요구 사항은 모두 클라우드 기반 ID 관리 솔루션의 필요성을 의미합니다.      
@@ -81,7 +81,7 @@ Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에
 **Azure Active Directory** > **라이선스** > **모든 제품** 아래에서 사용할 수 있도록 할당된 라이선스를 검토합니다.
 
 ## <a name="configure-self-service-password-reset"></a>셀프 서비스 암호 재설정 구성
-IT 관리자는 [SSPR(셀프 서비스 암호 재설정)](active-directory-passwords-getting-started.md)을 사용하여 사용자에게 해당 암호 또는 계정을 재설정하거나 잠금 해제할 수 있도록 할 수 있습니다. 이 시스템에는 오용 또는 남용에 대해 경고하는 알림과 함께 사용자가 언제 시스템을 사용하는지 추적하는 구체적인 보고서가 포함되어 있습니다.
+IT 관리자는 [SSPR(셀프 서비스 암호 재설정)](authentication/quickstart-sspr.md)을 사용하여 사용자에게 해당 암호 또는 계정을 재설정하거나 잠금 해제할 수 있도록 할 수 있습니다. 이 시스템에는 오용 또는 남용에 대해 경고하는 알림과 함께 사용자가 언제 시스템을 사용하는지 추적하는 구체적인 보고서가 포함되어 있습니다.
 
 ### <a name="verification-step"></a>확인 단계
 **Azure Active Directory** > **암호 재설정** 아래에서 사용된 SSPR 속성을 검토하여 적절한 사용자 및 그룹 할당이 이루어졌는지 확인합니다. 

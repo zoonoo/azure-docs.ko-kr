@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
-RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../active-directory/role-based-access-control-configure.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 응용 프로그램에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
+RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../role-based-access-control/role-assignments-portal.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 응용 프로그램에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
 
 ## <a name="roles-in-automation-accounts"></a>Automation 계정의 역할
 Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 액세스를 허용합니다. 다음은 Automation 계정에서 지원하는 기본 제공 역할입니다.
@@ -307,7 +307,7 @@ Automation 운영자 역할이 할당된 사용자가 할당된 Automation 계�
 ![Webhook에 대한 액세스 없음](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Azure PowerShell을 사용하여 Automation 계정에 대한 RBAC를 구성합니다.
-다음 [Azure PowerShell cmdlet](../active-directory/role-based-access-control-manage-access-powershell.md)을 사용하여 Automation 계정에 역할 기반 액세스를 구성할 수도 있습니다.
+다음 [Azure PowerShell cmdlet](../role-based-access-control/role-assignments-powershell.md)을 사용하여 Automation 계정에 역할 기반 액세스를 구성할 수도 있습니다.
 
 • [Get AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) 에는 Azure Active Directory에서 사용할 수 있는 모든 RBAC 역할이 나열됩니다. 이 명령과 **이름** 속성을 함께 사용하여 특정 역할에서 수행하는 모든 작업을 나열할 수 있습니다.
 
@@ -380,7 +380,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 앞의 예제에서 **로그인 ID**, **구독 ID**, **리소스 그룹 이름** 및 **Automation 계정 이름**을 계정 세부 정보로 바꿉니다. 사용자 역할 할당을 계속 제거하기 전에 확인하라는 메시지가 표시되면 **예** 를 선택합니다.   
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Automation에 RBAC를 구성하는 다양한 방법에 대한 자세한 내용은 [Azure PowerShell로 RBAC 관리](../active-directory/role-based-access-control-manage-access-powershell.md)를 참조하세요.
+* Azure Automation에 RBAC를 구성하는 다양한 방법에 대한 자세한 내용은 [Azure PowerShell로 RBAC 관리](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)
 * 다른 runbook 형식에 대한 자세한 내용은 [Azure Automation Runbook 형식](automation-runbook-types.md)
 

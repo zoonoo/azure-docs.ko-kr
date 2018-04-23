@@ -1,5 +1,5 @@
 ---
-title: "Azure의 IaaS 작업에 대한 보안 모범 사례 | Microsoft Docs"
+title: Azure의 IaaS 작업에 대한 보안 모범 사례 | Microsoft Docs
 description: " Azure IaaS로 작업을 마이그레이션하면 설계를 다시 평가할 기회를 얻게 됩니다. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -56,7 +56,7 @@ PAW 방법은 개별적으로 할당된 관리 계정을 사용하는 체계적�
 
 Multi-Factor Authentication을 사용하는 가장 쉬운 방법은 Windows, IOS 및 Android를 실행하는 모바일 장치에서 사용할 수 있는 Microsoft Authenticator 모바일 앱입니다. 최신 버전의 Windows 10과 Azure AD(Azure Active Directory)와의 온-프레미스 Active Directory 통합을 사용하는 경우 Azure 리소스에 대한 원활한 Single Sign-On을 위해 [비즈니스용 Windows Hello](../active-directory/active-directory-azureadjoin-passport-deployment.md)를 사용할 수 있습니다. 이 경우 Windows 10 장치는 인증을 위한 2단계 방법으로 사용됩니다.
 
-Azure 구독을 관리하는 계정과 가상 컴퓨터에 로그인할 수 있는 계정의 경우 Multi-Factor Authentication을 사용하면 암호만 사용하는 것보다 훨씬 높은 수준의 보안이 보장됩니다. 다른 형식의 2단계 인증을 사용하는 것도 가능하지만 아직 프로덕션 환경이 아니라면 배포하기가 복잡할 수 있습니다.
+Azure 구독을 관리하는 계정과 가상 머신에 로그인할 수 있는 계정의 경우 Multi-Factor Authentication을 사용하면 암호만 사용하는 것보다 훨씬 높은 수준의 보안이 보장됩니다. 다른 형식의 2단계 인증을 사용하는 것도 가능하지만 아직 프로덕션 환경이 아니라면 배포하기가 복잡할 수 있습니다.
 
 다음 스크린샷은 Azure Multi-Factor Authentication에 사용할 수 있는 일부 옵션을 보여 줍니다.
 
@@ -83,7 +83,7 @@ Azure 구독을 관리할 수 있는 계정을 보호하는 것은 매우 중요
 
 실습 및 개발 환경에서 Azure를 사용하면 조직은 하드웨어 조달로 인한 시간 지연을 해소하여 테스트 및 개발을 민첩하게 진행할 수 있습니다. 아쉽게도 Azure에 익숙하지 못할 수도 있고 빠르게 채택하려고 하지 않을 수도 있으므로 관리자는 별 제한 없이 권한을 할당받을 수 있습니다. 이러한 위험으로 인해 조직은 의도치 않게 내부 공격에 노출될 수 있습니다. 일부 사용자는 필요한 것보다 더 많은 권한을 부여받을 수 있습니다.
 
-[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 서비스는 [Azure 역할 기반 Access Control(RBAC)](../active-directory/role-based-access-control-what-is.md)을 사용합니다. RBAC를 사용하면 팀 내의 책임을 사용자가 작업을 수행하는 데 필요한 액세스 권한 수준만 부여되는 역할로 구분할 수 있습니다. RBAC에는 미리 정의된 역할(소유자, 실습 사용자 및 참가자)이 제공됩니다. 이러한 역할을 사용하여 외부 파트너에게 권한을 할당하고 공동 작업을 간소화할 수도 있습니다.
+[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 서비스는 [Azure 역할 기반 Access Control(RBAC)](../role-based-access-control/overview.md)을 사용합니다. RBAC를 사용하면 팀 내의 책임을 사용자가 작업을 수행하는 데 필요한 액세스 권한 수준만 부여되는 역할로 구분할 수 있습니다. RBAC에는 미리 정의된 역할(소유자, 실습 사용자 및 참가자)이 제공됩니다. 이러한 역할을 사용하여 외부 파트너에게 권한을 할당하고 공동 작업을 간소화할 수도 있습니다.
 
 DevTest Lab에서는 RBAC를 사용하므로 추가 [사용자 지정 역할](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md)을 만들 수도 있습니다. DevTest Lab은 권한 관리를 간소화할 뿐만 아니라 환경이 프로비전되는 프로세스도 간소화합니다. 또한 개발 및 테스트 환경에서 작업하는 팀의 전형적인 문제점들을 처리하는 데도 도움이 됩니다. 몇 가지 준비가 필요하지만 장기적으로는 팀에 훨씬 편리한 결과를 가져옵니다.
 
@@ -98,13 +98,13 @@ Azure DevTest Lab의 기능은 다음과 같습니다.
 
 ![DevTest Lab을 사용하여 실습 만들기](./media/azure-security-iaas/devtestlabs.png)
 
-DevTest Lab 사용과 관련된 추가 비용은 없습니다. 실습, 정책, 템플릿 및 아티팩트를 생성하는 것은 무료입니다. 가상 컴퓨터, 저장소 계정 및 가상 네트워크와 같은 실험 내에서 사용하는 Azure 리소스에 대해서만 비용을 지불합니다.
+DevTest Lab 사용과 관련된 추가 비용은 없습니다. 실습, 정책, 템플릿 및 아티팩트를 생성하는 것은 무료입니다. 가상 머신, 저장소 계정 및 가상 네트워크와 같은 실험 내에서 사용하는 Azure 리소스에 대해서만 비용을 지불합니다.
 
 
 
 ## <a name="control-and-limit-endpoint-access"></a>끝점 액세스 제어 및 제한
 
-Azure에서 실습 또는 프로덕션 시스템을 호스트할 경우 인터넷에서 시스템에 액세스할 필요가 없습니다. 기본적으로 새 Windows 가상 컴퓨터에는 인터넷에서 액세스할 수 있는 RDP 포트가 있으며 Linux 가상 컴퓨터에는 SSH 포트가 열려 있습니다. 무단 액세스 위험을 최소화하려면 '노출된 끝점을 제한'하는 단계를 수행해야 합니다.
+Azure에서 실습 또는 프로덕션 시스템을 호스트할 경우 인터넷에서 시스템에 액세스할 필요가 없습니다. 기본적으로 새 Windows 가상 머신에는 인터넷에서 액세스할 수 있는 RDP 포트가 있으며 Linux 가상 머신에는 SSH 포트가 열려 있습니다. 무단 액세스 위험을 최소화하려면 '노출된 끝점을 제한'하는 단계를 수행해야 합니다.
 
 Azure에는 관리 끝점에 대한 액세스를 제한하는 데 도움이 되는 기술이 있습니다. Azure에서는 [NSG](../virtual-network/virtual-networks-nsg.md)(네트워크 보안 그룹)을 사용할 수 있습니다. 배포에 Azure Resource Manager를 사용할 경우 NSG가 모든 네트워크에서 관리 끝점(RDP 또는 SSH)으로의 액세스를 제한합니다. NSG와 관련해서는 라우터 ACL을 떠올려보세요. 라우터 ACL을 사용하여 Azure 네트워크의 다양한 세그먼트 간에 진행되는 네트워크 통신을 엄격히 제어할 수 있습니다. 이러한 방식은 경계 네트워크 또는 기타 격리된 네트워크에서 네트워크를 만드는 것과 비슷합니다. 트래픽을 검사하지는 않지만 네트워크 구분에 도움이 됩니다.
 
@@ -162,7 +162,7 @@ Azure Storage 암호화를 계속 진행하기 전에 다음 두 가지 제한 �
 IaaS 배포에서는 작업 환경의 기타 서버 또는 워크스테이션과 마찬가지로, 배포하는 시스템의 관리도 사용자가 책임져야 합니다. 패치, 보안 강화, 권한 할당 및 시스템 유지 관리와 관련된 기타 작업도 모두 사용자의 책임입니다. 온-프레미스 리소스와 긴밀하게 통합되는 시스템의 경우 바이러스 백신, 맬웨어 방지, 패치 및 백업 등을 위해 온-프레미스에서 사용하는 것과 동일한 도구 및 절차를 사용할 수도 있습니다.
 
 ### <a name="harden-systems"></a>시스템 보안 강화
-Azure IaaS의 모든 가상 컴퓨터는 설치된 응용 프로그램에 필요한 서비스 끝점만 노출되도록 보안을 강화해야 합니다. Windows 가상 컴퓨터의 경우 [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) 솔루션에 대한 기준으로 Microsoft에서 게시하는 권장 지침을 따르세요.
+Azure IaaS의 모든 가상 머신은 설치된 응용 프로그램에 필요한 서비스 끝점만 노출되도록 보안을 강화해야 합니다. Windows 가상 머신의 경우 [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) 솔루션에 대한 기준으로 Microsoft에서 게시하는 권장 지침을 따르세요.
 
 Security Compliance Manager는 무료 도구입니다. 그룹 정책 및 System Center Configuration Manager를 사용하여 데스크톱, 기존 데이터 센터, 사설 및 공용 클라우드를 빠르게 구성하고 관리할 수 있습니다.
 
@@ -175,7 +175,7 @@ Security Compliance Manager를 사용하여 두 가지 방법으로 컴퓨터의
 
 ### <a name="install-and-manage-antimalware"></a>맬웨어 설치 및 관리
 
-프로덕션 환경과는 별도로 호스트되는 환경의 경우 가상 컴퓨터 및 클라우드 서비스를 보호하는 데 사용할 수 있는 맬웨어 방지 확장이 있습니다. 이 확장은 [Azure Security Center](../security-center/security-center-intro.md)에 통합됩니다.
+프로덕션 환경과는 별도로 호스트되는 환경의 경우 가상 머신 및 클라우드 서비스를 보호하는 데 사용할 수 있는 맬웨어 방지 확장이 있습니다. 이 확장은 [Azure Security Center](../security-center/security-center-intro.md)에 통합됩니다.
 
 
 [Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고, 제외 이벤트 컬렉션 및 [PowerShell 지원](https://msdn.microsoft.com/library/dn771715.aspx)과 같은 기능이 포함됩니다.
@@ -183,7 +183,7 @@ Security Compliance Manager를 사용하여 두 가지 방법으로 컴퓨터의
 ![Azure 맬웨어 방지](./media/azure-security-iaas/azantimalware.png)
 
 ### <a name="install-the-latest-security-updates"></a>최신 보안 업데이트 설치
-고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure 호스트 가상 컴퓨터가 인터넷에 액세스할 수 있어야 하는 응용 프로그램 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 타사 응용 프로그램의 취약점을 패치하지 않을 경우 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
+고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure 호스트 가상 머신이 인터넷에 액세스할 수 있어야 하는 응용 프로그램 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 타사 응용 프로그램의 취약점을 패치하지 않을 경우 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
 
 ### <a name="deploy-and-test-a-backup-solution"></a>백업 솔루션 배포 및 테스트
 
@@ -196,10 +196,10 @@ Azure로 이동되는 프로덕션 작업은 가능한 경우 기존 백업 솔�
 
 [Security Center](../security-center/security-center-intro.md)는 Azure 리소스의 보안 상태를 지속적으로 평가하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
 
-예를 들면 다음과 같습니다.
+이러한 예로 다음이 포함됩니다.
 
 - 맬웨어 방지 프로그램을 프로비전하여 악성 소프트웨어 식별 및 제거 지원
-- 네트워크 보안 그룹 및 가상 컴퓨터에 대한 트래픽 제어 규칙 구성
+- 네트워크 보안 그룹 및 가상 머신에 대한 트래픽 제어 규칙 구성
 - 웹 응용 프로그램 방화벽을 프로비전하여 웹 응용 프로그램의 대상이 되는 공격에 대한 방어 지원
 - 누락된 시스템 업데이트 배포
 - 권장 기준과 일치하지 않는 OS 구성 해결

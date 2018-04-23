@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 웹 디자이너를 사용하여 테이블 형식 모델 만들기 | Microsoft Docs"
-description: "Azure Portal에서 웹 디자이너를 사용하여 Azure Analysis Services 테이블 형식 모델을 만드는 방법을 알아봅니다."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 웹 디자이너를 사용하여 테이블 형식 모델 만들기 | Microsoft Docs
+description: Azure Portal에서 웹 디자이너를 사용하여 Azure Analysis Services 테이블 형식 모델을 만드는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.reviewer: minewiskan
+ms.openlocfilehash: 30a7f78e7bf13e6e6197e95b266dfd0d6b8f83c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Azure Portal에서 모델 만들기
 
@@ -33,7 +26,7 @@ Azure Portal의 Azure Analysis Services 웹 디자이너(미리 보기) 기능�
 - 데이터 원본으로 Azure SQL Database, Azure SQL Data Warehouse 또는 Power BI Desktop(.pbix) 파일. Power BI Desktop 파일로 만드는 새 모델은 Azure SQL Database, Azure SQL Data Warehouse, Oracle 및 Teradata 데이터 원본을 지원합니다.
 - Azure SQL Database 또는 Azure SQL Data Warehouse 데이터 원본에 연결하기 위한 SQL Server 계정 및 암호.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 

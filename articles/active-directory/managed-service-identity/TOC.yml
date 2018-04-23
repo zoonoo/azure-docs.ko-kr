@@ -9,6 +9,34 @@
               href: tutorial-windows-vm-access-arm.md
             - name: Linux VM
               href: tutorial-linux-vm-access-arm.md
+    - name: 자습서
+      items:
+        - name: Windows VM/VMSS
+          items:
+            - name: Azure Data Lake Store 액세스
+              href: tutorial-windows-vm-access-datalake.md
+            - name: 액세스 키를 사용하여 Azure Storage 액세스
+              href: tutorial-windows-vm-access-storage.md
+            - name: SAS를 사용하여 Azure Storage 액세스
+              href: tutorial-windows-vm-access-storage-sas.md
+            - name: Azure SQL 액세스
+              href: tutorial-windows-vm-access-sql.md
+            - name: Azure Key Vault 액세스
+              href: tutorial-windows-vm-access-nonaad.md
+            - name: Azure Cosmos DB 액세스
+              href: tutorial-windows-vm-access-cosmos-db.md
+        - name: Linux VM/VMSS
+          items:
+            - name: Azure Data Lake Store 액세스
+              href: tutorial-linux-vm-access-datalake.md
+            - name: 액세스 키를 사용하여 Azure Storage 액세스
+              href: tutorial-linux-vm-access-storage-access-key.md
+            - name: SAS를 사용하여 Azure Storage 액세스
+              href: tutorial-linux-vm-access-storage-sas.md
+            - name: Azure Key Vault 액세스
+              href: tutorial-linux-vm-access-nonaad.md
+            - name: Azure Cosmos DB 액세스
+              href: tutorial-linux-vm-access-cosmos-db.md
     - name: Azure VM에 대한 MSI 구성
       items:
         - name: Azure Portal 사용
@@ -45,30 +73,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Azure SDK와 함께 사용
           href: how-to-use-vm-sdk.md
-    - name: Windows VM/VMSS 관리 ID 사용
-      items:
-        - name: Azure Data Lake Store 액세스
-          href: tutorial-windows-vm-access-datalake.md
-        - name: Azure SQL 액세스
-          href: tutorial-windows-vm-access-sql.md
-        - name: 액세스 키를 사용하여 Azure Storage 액세스
-          href: tutorial-windows-vm-access-storage.md
-        - name: SAS를 사용하여 Azure Storage 액세스
-          href: tutorial-windows-vm-access-storage-sas.md
-        - name: Azure Key Vault 액세스
-          href: tutorial-windows-vm-access-nonaad.md
-    - name: Linux VM/VMSS 관리 ID 사용
-      items:
-        - name: Azure Data Lake Store 액세스
-          href: tutorial-linux-vm-access-datalake.md
-        - name: 액세스 키를 사용하여 Azure Storage 액세스
-          href: tutorial-linux-vm-access-storage.md
-        - name: SAS를 사용하여 Azure Storage 액세스
-          href: tutorial-linux-vm-access-storage-sas.md
-        - name: Azure Key Vault 액세스
-          href: tutorial-linux-vm-access-nonaad.md
-        - name: Azure Cosmos DB 액세스
-          href: tutorial-linux-vm-access-cosmos-db.md
     - name: FAQ 및 알려진 문제
       href: known-issues.md
     - name: 참고 자료

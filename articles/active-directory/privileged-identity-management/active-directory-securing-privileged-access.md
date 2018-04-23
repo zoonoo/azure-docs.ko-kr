@@ -1,8 +1,8 @@
 ---
-title: "Azure AD에서 권한 있는 액세스 보안 | Microsoft Docs"
-description: "Azure, Azure Active Directory 및 Microsoft Online Services에서 권한 있는 액세스 보안에 대한 접근 방법을 설명하는 항목입니다."
+title: Azure AD에서 권한 있는 액세스 보안 | Microsoft Docs
+description: Azure, Azure Active Directory 및 Microsoft Online Services에서 권한 있는 액세스 보안에 대한 접근 방법을 설명하는 항목입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f49d5a629b9643df81253c57ee8e3458b43b0c59
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Azure AD에서 권한 있는 액세스 보안
 최신 조직에서 비즈니스 자산 보호를 위해 중요한 첫 번째 단계는 권한 있는 액세스 보안입니다. 권한 있는 계정은 IT 시스템을 운영하고 관리하는 계정입니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 합니다. 권한 있는 액세스를 보호하려면 계정과 시스템을 악의적 사용자에게 노출될 위험으로부터 격리해야 합니다.
@@ -63,7 +63,7 @@ Azure Multi-Factor Authentication의 작동 방식에 대한 개요는 다음 �
 조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다.
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md) 사용
+* [Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md) 사용
 * [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) 사용
 * [Azure AD ID 보호](../active-directory-identityprotection.md) 사용
 * [조건부 액세스 제어](../active-directory-conditional-access-azure-portal.md) 사용

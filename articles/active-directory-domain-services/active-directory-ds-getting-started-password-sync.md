@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 5d65ce4c199c9ddc54e0120fe1c456a95a34f649
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4122052e48e57a27492433d01ee93536a9bbcf35
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 암호 해시 동기화 사용
 이전 작업에서 Azure AD(Azure Active Directory) 테넌트에 대해 Azure Active Directory Domain Services를 사용하도록 설정했습니다. 다음 작업은 NTLM(NT LAN Manager) 및 Kerberos 인증에 필요한 암호 해시를 Azure AD Domain Services로 동기화하도록 설정하는 것입니다. 암호 해시 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/03/2018
     !["암호 변경" 클릭](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!TIP]
-   > **암호 변경** 옵션이 [액세스 패널] 창에 표시되지 않으면 조직이 [Azure AD에서 암호 관리](../active-directory/active-directory-passwords-getting-started.md)를 구성했는지 확인합니다.
+   > **암호 변경** 옵션이 [액세스 패널] 창에 표시되지 않으면 조직이 [Azure AD에서 암호 관리](../active-directory/authentication/quickstart-sspr.md)를 구성했는지 확인합니다.
    >
    >
 4. **암호 변경** 페이지에서 기존(이전) 암호를 입력하고 새 암호를 입력한 다음 확인합니다.
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md)
-* [Azure AD에서 암호 관리 시작](../active-directory/active-directory-passwords-getting-started.md)
+* [Azure AD에서 암호 관리 시작](../active-directory/authentication/quickstart-sspr.md)
 * [동기화된 Azure AD 테넌트의 Azure Active Directory Domain Services에 암호 해시 동기화 사용](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Azure Active Directory Domain Services 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 * [Windows 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)

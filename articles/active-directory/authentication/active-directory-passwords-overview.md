@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 810c585e104f6b7bc63222594375527c45c6082d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정
 
@@ -42,7 +42,7 @@ Azure AD SSPR을 사용하면 다음과 같은 이점이 제공됩니다.
 * **이동성 공급** - 사용자가 어디에서든 암호를 재설정할 수 있습니다
 * 보안 정책에 대한 **제어를 유지**할 수 있습니다. 관리자가 현재 가지고 있는 정책을 지속적으로 시행할 수 있습니다.
 
-[빠른 시작 설명서](../active-directory-passwords-getting-started.md)를 참고하여 Azure AD SSPR을 시작하고 사용자가 암호를 스스로 재설정할 수 있도록 구성하세요.
+[빠른 시작 설명서](quickstart-sspr.md)를 참고하여 Azure AD SSPR을 시작하고 사용자가 암호를 스스로 재설정할 수 있도록 구성하세요.
 
 ## <a name="azure-ad-sspr-availability"></a>Azure AD SSPR 사용 가능 여부
 
@@ -65,7 +65,7 @@ Azure AD SSPR은 사용 중인 구독에 따라 다음과 같이 세 가지 등�
 
 ## <a name="next-steps"></a>다음 단계
 
-* SSPR을 시작할 준비가 되었나요? [Azure AD 셀프 서비스 암호 재설정을 설정](../active-directory-passwords-getting-started.md)해 보세요.
+* SSPR을 시작할 준비가 되었나요? [Azure AD 셀프 서비스 암호 재설정을 설정](quickstart-sspr.md)해 보세요.
 * [출시 가이드](howto-sspr-deployment.md)의 지침을 참고하여 사용자를 위한 성공적인 SSPR 배포를 계획해 보세요.
 * [암호 재설정 또는 변경](../active-directory-passwords-update-your-own-password.md)
 * [셀프 서비스 암호 재설정 등록](../active-directory-passwords-reset-register.md)

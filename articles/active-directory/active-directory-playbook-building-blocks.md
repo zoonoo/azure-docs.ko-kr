@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -380,8 +380,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 테넌트에서 셀프 서비스 암호 관리 사용. | [IT 관리자에 대한 Azure Active Directory 암호 재설정](active-directory-passwords-update-your-own-password.md) |
-| 온-프레미스에서 암호를 관리하도록 암호 쓰기 저장 사용. 이 작업에는 특정 Azure AD Connect 버전이 필요합니다. | [암호 쓰기 저장 필수 구성 요소](active-directory-passwords-writeback.md) |
-| 이 기능을 사용할 PoC 사용자를 식별하고 보안 그룹의 구성원인지 확인. 사용자는 기능을 완전히 소개할 수 있는 관리자가 아닌 사용자여야 합니다. | [사용자 지정: Azure AD 암호 관리: 암호 재설정에 대한 액세스 제한](active-directory-passwords-writeback.md) |
+| 온-프레미스에서 암호를 관리하도록 암호 쓰기 저장 사용. 이 작업에는 특정 Azure AD Connect 버전이 필요합니다. | [암호 쓰기 저장 필수 구성 요소](authentication/howto-sspr-writeback.md) |
+| 이 기능을 사용할 PoC 사용자를 식별하고 보안 그룹의 구성원인지 확인. 사용자는 기능을 완전히 소개할 수 있는 관리자가 아닌 사용자여야 합니다. | [사용자 지정: Azure AD 암호 관리: 암호 재설정에 대한 액세스 제한](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>단계
@@ -412,7 +412,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | MFA를 사용할 POC 사용자 식별  |  |
-| MFA 챌린지를 위한 수신 상태가 좋은 전화  | [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md) |
+| MFA 챌린지를 위한 수신 상태가 좋은 전화  | [Azure Multi-Factor Authentication 정의](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>단계
 
@@ -421,7 +421,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | Azure AD 관리 포털에서 “사용자 및 그룹” 블레이드로 이동합니다. | [Azure AD Management Portal: Users and groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/)(Azure AD 관리 포털: 관리 포털) |
 | “모든 사용자” 블레이드를 선택합니다. |  |
 | 위쪽 막대에서 “Multi-Factor Authentication” 단추를 선택합니다. | Azure MFA 포털에 대한 직접 URL: https://aka.ms/mfaportal |
-| “사용자” 설정에서 PoC 사용자를 선택하고 MFA에 대해 사용하도록 설정합니다. | [Azure Multi-Factor Authentication의 사용자 상태](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| “사용자” 설정에서 PoC 사용자를 선택하고 MFA에 대해 사용하도록 설정합니다. | [Azure Multi-Factor Authentication의 사용자 상태](authentication/howto-mfa-userstates.md) |
 | PoC 사용자로 로그인하고 증명 프로세스를 진행합니다.  |  |
 
 ### <a name="considerations"></a>고려 사항
@@ -457,7 +457,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 ### <a name="considerations"></a>고려 사항
 
-페더레이션을 사용 중이면 온-프레미스 IdP(ID 공급자)를 사용하여 클레임을 통해 내부/외부 회사 네트워크 상태를 알릴 수 있습니다. 대규모 조직에서 평가 및 관리하기 복잡할 수 있는 IP 주소 목록을 관리할 필요 없이 이 기술을 사용할 수 있습니다. 이 경우 “네트워크 로밍” 시나리오(사용자가 내부 네트워크에서 로그인하고 로그인된 동안 커피숍 등의 위치 전환)에 대한 계정이 필요하고 의미를 이해해야 합니다. 참고 항목: [Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지: 페더레이션 사용자를 위한 신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+페더레이션을 사용 중이면 온-프레미스 IdP(ID 공급자)를 사용하여 클레임을 통해 내부/외부 회사 네트워크 상태를 알릴 수 있습니다. 대규모 조직에서 평가 및 관리하기 복잡할 수 있는 IP 주소 목록을 관리할 필요 없이 이 기술을 사용할 수 있습니다. 이 경우 “네트워크 로밍” 시나리오(사용자가 내부 네트워크에서 로그인하고 로그인된 동안 커피숍 등의 위치 전환)에 대한 계정이 필요하고 의미를 이해해야 합니다. 참고 항목: [Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지: 페더레이션 사용자를 위한 신뢰할 수 있는 IP](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>PIM(Privileged Identity Management)
 

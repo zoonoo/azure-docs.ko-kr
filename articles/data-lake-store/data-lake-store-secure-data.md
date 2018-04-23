@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에 저장된 데이터 보호
 Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계로 이루어진 방법입니다.  사용자 및 보안 그룹의 데이터에 대한 액세스를 완전히 가능하게 하려면 RBAC(역할 기반 액세스 제어) 및 ACL(액세스 제어 목록) 모두를 설정해야 합니다.
 
-1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure Portal에서 RBAC(역할 기반 액세스 제어)를 구현하는데 사용됩니다. 자세한 내용은 [Microsoft Azure의 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.
+1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure Portal에서 RBAC(역할 기반 액세스 제어)를 구현하는데 사용됩니다. 자세한 내용은 [Microsoft Azure의 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 2. AAD 보안 그룹을 Azure 데이터 레이크 저장소 계정에 할당합니다. 이는 포털에서 데이터 레이크 저장소 계정에 대한 액세스 및 포털 또는 API에서 포털 및 관리 작업을 제어합니다.
 3. AAD 보안 그룹을 데이터 레이크 저장소 파일 시스템에 액세스 제어 목록(ACL)으로 할당합니다.
 4. 또한 Data Lake 저장소의 데이터에 액세스할 수 있는 클라이언트에 대한 IP 주소 범위를 설정할 수도 있습니다.

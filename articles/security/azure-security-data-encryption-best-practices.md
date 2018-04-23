@@ -1,6 +1,6 @@
 ---
-title: "데이터 보안 및 암호화 모범 사례 | Microsoft Docs"
-description: "이 문서에서는 기본 제공 Azure 기능을 사용한 데이터 보안 및 암호화 모범 사례를 제공합니다."
+title: 데이터 보안 및 암호화 모범 사례 | Microsoft Docs
+description: 이 문서에서는 기본 제공 Azure 기능을 사용한 데이터 보안 및 암호화 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 클라우드의 데이터를 보호하기 위한 핵심 중 하나는 데이터에서 발생 가능한 상태 그리고 해당 상태에 어떤 컨트롤을 제공할 것인지 설명하는 것입니다. Azure 데이터 보안 및 암호화 모범 사례를 위해 다음과 같은 데이터 상태와 관련된 권장 사항이 제공됩니다.
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/22/2017
 
 * Multi-Factor Authentication 적용
 * RBAC(역할 기반 액세스 제어) 사용
-* Azure 가상 컴퓨터 암호화
+* Azure 가상 머신 암호화
 * 하드웨어 보안 모델 사용
 * 보안 워크스테이션을 사용하여 관리
 * SQL 데이터 암호화 활성화
@@ -58,19 +58,19 @@ Microsoft Azure의 데이터 액세스 및 제어에서 첫 번째 단계는 사
 
 인증 제어를 온-프레미스에 유지하려는 조직이 선택할 수 있는 대안 중 하나는 MFA 온-프레미스라고도 하는 [Azure Multi-factor Authentication 서버](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)를 사용하는 것입니다. 이 방법을 사용하면 여전히 Multi-factor Authentication을 적용하면서도 MFA 서버를 온-프레미스에 유지할 수 있습니다.
 
-Azure MFA에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)을 참조하세요.
+Azure MFA에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../active-directory/authentication/howto-mfa-getstarted.md)을 참조하세요.
 
 ## <a name="use-role-based-access-control-rbac"></a>RBAC(역할 기반 Access Control) 사용
 [알아야 할 필요성](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한합니다. 이는 데이터 액세스에 대한 보안 정책을 적용하려는 조직에 필수적입니다. Azure 역할 기반 Access Control(RBAC)을 사용하여 특정 범위에서 사용자, 그룹 및 응용 프로그램에 권한을 할당할 수 있습니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다.
 
-Azure의 [기본 제공 RBAC 역할](../active-directory/role-based-access-built-in-roles.md)을 활용하여 사용자에게 권한을 할당할 수 있습니다. Storage 계정을 관리해야 하는 클라우드 운영자를 위한 *Storage 계정 참여자* 및 *클래식 Storage 계정 참여자* 역할을 사용하여 클래식 Storage 계정을 관리하는 방법을 고려해 볼 수 있습니다. VM 및 저장소 계정을 관리해야 하는 클라우드 운영자의 경우 *가상 컴퓨터 참여자* 역할에 계정을 추가하는 방법을 고려해 보세요.
+Azure의 [기본 제공 RBAC 역할](../role-based-access-control/built-in-roles.md)을 활용하여 사용자에게 권한을 할당할 수 있습니다. Storage 계정을 관리해야 하는 클라우드 운영자를 위한 *Storage 계정 참여자* 및 *클래식 Storage 계정 참여자* 역할을 사용하여 클래식 Storage 계정을 관리하는 방법을 고려해 볼 수 있습니다. VM 및 저장소 계정을 관리해야 하는 클라우드 운영자의 경우 *Virtual Machine 참여자* 역할에 계정을 추가하는 방법을 고려해 보세요.
 
 RBAC 같은 기능을 활용하여 데이터 액세스 제어를 적용하지 않는 조직은 사용자에게 필요 이상으로 많은 권한을 부여하게 될 수 있습니다. 그로 인해 일부 사용자가 원래는 액세스할 수 없어야 하는 데이터에 액세스할 수 있게 되어 데이터 손상이 발생할 수 있습니다.
 
-Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md) 문서를 참조하세요.
+Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md) 문서를 참조하세요.
 
 ## <a name="encrypt-azure-virtual-machines"></a>Azure Virtual Machines 암호화
-여러 조직에서 [미사용 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. Azure 디스크 암호화를 사용하면 IT 관리자가 Windows 및 Linux IaaS 가상 컴퓨터(VM) 디스크를 암호화할 수 있습니다. Azure 디스크 암호화는 업계 표준인 Windows의 BitLocker 기능과 Linux의 DM-Crypt 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다.
+여러 조직에서 [미사용 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. Azure 디스크 암호화를 사용하면 IT 관리자가 Windows 및 Linux IaaS Virtual Machine(VM) 디스크를 암호화할 수 있습니다. Azure 디스크 암호화는 업계 표준인 Windows의 BitLocker 기능과 Linux의 DM-Crypt 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다.
 
 Azure 디스크 암호화를 활용하여 데이터를 보호하면 조직의 보안 및 규정 준수 요구 사항을 충족하는 데 도움이 됩니다. 조직에서는 암호화를 사용하여 데이터 무단 액세스와 관련된 위험을 완화하는 방법도 고려해야 합니다. 또한 민감한 데이터를 드라이브에 기록하기 전에 드라이브를 암호화하는 것이 좋습니다.
 
@@ -89,7 +89,7 @@ Azure 디스크 암호화에 대한 자세한 내용은 [Windows 및 Linux IaaS 
 ## <a name="use-hardware-security-modules"></a>하드웨어 보안 모듈 사용
 산업 암호화 솔루션은 비밀 키를 사용하여 데이터를 암호화합니다. 따라서 이러한 키를 안전하게 보관해야 합니다. 키 관리는 데이터 보호의 필수 요소입니다. 왜냐하면 키는 데이터 암호화에 사용되는 비밀 키를 저장하는 데 활용되기 때문입니다.
 
-Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 가상 컴퓨터 디스크의 모든 데이터가 Azure Storage에서 안전하게 암호화되도록 하는 동시에 Key Vault 구독의 암호 및 디스크 암호화 키를 제어하고 관리하도록 도와줍니다. Azure Key Vault를 사용하여 키 및 정책 사용을 감사해야 합니다.
+Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 가상 머신 디스크의 모든 데이터가 Azure Storage에서 안전하게 암호화되도록 하는 동시에 Key Vault 구독의 암호 및 디스크 암호화 키를 제어하고 관리하도록 도와줍니다. Azure Key Vault를 사용하여 키 및 정책 사용을 감사해야 합니다.
 
 데이터 암호화에 사용된 비밀 키를 보호하는 적절한 보안 컨트롤이 없으면 여러 가지 위험에 노출됩니다. 공격자가 비밀 키에 대한 액세스 권한을 획득하면 데이터를 해독하여 잠재적으로 기밀 정보에 액세스할 수 있게 됩니다.
 

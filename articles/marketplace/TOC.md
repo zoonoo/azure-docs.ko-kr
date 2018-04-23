@@ -1,6 +1,8 @@
 # [Azure Marketplace 설명서](index.md)
 ## [Azure Marketplace 및 AppSource 게시자 가이드](marketplace-publishers-guide.md)
 ## [Azure Marketplace로 비즈니스 확장](grow-your-business-azure-marketplace.md)
+## [Appsource란?](marketplace-what-is-appsource.md)
+## [AppSource를 사용하여 비즈니스 확장](marketplace-grow-your-business-with-appsource.md)
 ## [Azure Marketplace 컨설팅 서비스](consulting-services.md)
 ## [Azure Marketplace SaaS 응용 프로그램 기술 게시 가이드](marketplace-saas-applications-technical-publishing-guide.md)
 ## [클라우드 파트너 포털](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)
@@ -20,7 +22,7 @@
 #### 네트워크
 ##### [PublicIPAddressCombo](../managed-applications/microsoft-network-publicipaddresscombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [VirtualNetworkCombo](../managed-applications/microsoft-network-virtualnetworkcombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-#### 저장소
+#### Storage
 ##### [MultiStorageAccountCombo](../managed-applications/microsoft-storage-multistorageaccountcombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [StorageAccountSelector](../managed-applications/microsoft-storage-storageaccountselector.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ## 리소스

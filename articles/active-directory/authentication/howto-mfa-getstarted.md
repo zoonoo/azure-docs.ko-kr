@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: joflore
-ms.openlocfilehash: e6210cf7ece0aa0cdeec8f95b74910893c22b1bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7ae9ad5429c9bdfe8fba2648f8b7a3390705b23
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication 시작
 이 문서에서는 클라우드에서 Azure Multi-Factor Authentication을 사용하기 시작하는 방법에 대해 설명합니다.
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="turn-on-two-step-verification-for-users"></a>사용자에 대한 2단계 확인을 설정합니다.
 
-[사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md)에 나열된 절차 중 하나를 사용하여 Azure MFA를 사용합니다. 모든 로그인에 대해 2단계 인증을 적용하거나 문제가 될 때만 2단계 인증을 요구하는 조건부 액세스 정책을 만들도록 선택할 수 있습니다.
+[사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md)에 나열된 절차 중 하나를 사용하여 Azure MFA를 사용합니다. 모든 로그인에 대해 2단계 인증을 적용하거나 문제가 될 때만 2단계 인증을 요구하는 조건부 액세스 정책을 만들도록 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드에서 Azure Multi-Factor Authentication을 설정했으므로 배포를 구성 및 설정할 수 있습니다. 자세한 내용은 [Azure Multi-Factor Authentication 구성](howto-mfa-mfasettings.md)을 참조하세요.
