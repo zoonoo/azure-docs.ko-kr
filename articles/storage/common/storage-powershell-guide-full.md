@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: ae1c6628492de208f7c11e0b4e9d3133774ae184
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -36,7 +36,7 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 
 이 문서에서는 저장소 분석을 사용하고 액세스하는 방법, 데이터 평면 cmdlet을 사용하는 방법, China 클라우드, German 클라우드 및 Government 클라우드 같은 Azure 독립 클라우드에 액세스하는 방법 등, 저장소에 대한 몇 가지 다른 PowerShell 문서에 대한 링크를 제공합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 연습에는 Azure PowerShell 모듈 버전 4.4 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
@@ -46,10 +46,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>구독의 저장소 계정 나열

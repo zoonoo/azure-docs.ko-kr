@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>처리량을 높이도록 Azure Stream Analytics 작업 크기 조정
 이 문서에서는 Streaming Analytics 작업에 대한 처리량을 증가시키기 위해 Stream Analytics 쿼리를 조정하는 방법을 보여 줍니다. 다음 가이드를 사용하여 더 높은 부하를 처리하고 더 많은 시스템 리소스(예: 추가 대역폭, 추가 CPU 리소스, 추가 메모리)를 활용하도록 작업 크기를 조정할 수 있습니다.

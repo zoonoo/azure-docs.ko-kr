@@ -1,6 +1,6 @@
 ---
-title: "여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
+title: 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
+description: Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: ed385eac624f5c59981c01ee70ba2a1700a78653
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be3ecf1d1ce292df47cbe117390e863f4bd4d5b1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기
 
@@ -33,11 +33,11 @@ Azure PowerShell을 사용하여 [응용 프로그램 게이트웨이](applicati
 
 ![다중 사이트 라우팅 예](./media/application-gateway-create-multisite-azureresourcemanager-powershell/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -257,7 +257,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com.
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
 
 ![응용 프로그램 게이트웨이에서 contoso 사이트 테스트](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 

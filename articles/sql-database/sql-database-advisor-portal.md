@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -21,7 +21,7 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 
 ## <a name="viewing-recommendations"></a>권장 사항 보기
 
-성능 권장 사항을 보고 적용하려면 Azure에서 올바른 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) 권한이 필요합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
+성능 권장 사항을 보고 적용하려면 Azure에서 올바른 [역할 기반 액세스 제어](../role-based-access-control/overview.md) 권한이 필요합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
 
 다음 단계를 사용하여 Azure Portal에서 성능 권장 사항을 찾을 수 있습니다.
 
@@ -154,5 +154,5 @@ Azure SQL Database는 SQL Database 성능을 향상하기 위한 권장 사항�
 ## <a name="additional-resources"></a>추가 리소스
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)
+* [역할 기반 액세스 제어](../role-based-access-control/overview.md)
 

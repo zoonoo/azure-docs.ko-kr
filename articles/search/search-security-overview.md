@@ -1,24 +1,17 @@
 ---
 title: Azure Search에서 데이터 및 작업 보호 | Microsoft Docs
 description: Azure Search 보안은 Azure Search 필터에서 사용자 및 그룹 보안 식별자를 통해 SOC 2 규정 준수, 암호화, 인증 및 ID 액세스를 기반으로 합니다.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
-ms.assetid: ''
 ms.service: search
-ms.devlang: ''
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3985e4fff5eb1eb0c80b267dd8983488d10cb4e5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Azure Search의 보안 및 제어된 액세스
 
@@ -51,7 +44,7 @@ Microsoft 데이터 센터는 업계 최고의 물리적 보안을 제공하고 
 일부 보안 메커니즘은 Azure Stack에서 사용할 수 있으므로 사용자가 만든 Azure Search 리소스에 자동으로 사용할 수 있습니다.
 
 + [삭제를 방지하기 위해 구독 또는 리소스 수준 잠금](../azure-resource-manager/resource-group-lock-resources.md)
-+ [정보 및 관리 작업에 대한 액세스를 제어하는 RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)
++ [정보 및 관리 작업에 대한 액세스를 제어하는 RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)
 
 모든 Azure 서비스는 모든 서비스에서 일관된 수준의 액세스를 설정하기 위해 RBAC(역할 기반 액세스 제어)를 지원합니다. 예를 들어 관리 키와 같은 중요한 데이터는 소유자 및 참가자 역할에서만 확인할 수 있는 반면 서비스 상태는 역할에 관계없이 모든 구성원이 확인할 수 있습니다. RBAC는 소유자, 참가자 및 독자 역할을 제공합니다. 기본적으로 모든 서비스 관리자는 소유자 역할의 구성원입니다.
 

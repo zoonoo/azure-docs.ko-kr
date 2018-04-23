@@ -1,11 +1,11 @@
 ---
-title: "비즈니스용 Windows Hello 및 Azure AD를 통해 암호 없이 ID 인증 | Microsoft Docs"
-description: "비즈니스용 Windows Hello의 개요와 비즈니스용 Windows Hello를 배포하는 방법에 대한 추가 정보를 제공합니다."
+title: 비즈니스용 Windows Hello 및 Azure AD를 통해 암호 없이 ID 인증 | Microsoft Docs
+description: 비즈니스용 Windows Hello의 개요와 비즈니스용 Windows Hello를 배포하는 방법에 대한 추가 정보를 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: f907bb90-8776-46ca-9e12-279949af66ff
 ms.service: active-directory
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 ms.openlocfilehash: 22534cc5f7f2de235bc1f1212c63ea227083c5a4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>비즈니스용 Windows Hello를 통해 암호 없이 ID 인증
 암호만을 사용하는 현재 인증 방법은 사용자의 안전을 유지하는 데 충분하지 않습니다. 사용자는 암호를 다시 사용하고 잊기도 합니다. 암호는 깨질 수도 있고, 피싱될 수도 있고, 공격에 취약하고, 추측될 수도 있습니다. 기억하기 어려울 수도 있고 “[Pass the Hash](https://technet.microsoft.com/dn785092.aspx)”와 같은 공격에 취약하기도 합니다.

@@ -1,12 +1,12 @@
 ---
-title: "Azure 공용 클라우드에서 격리 | Microsoft Docs"
-description: "응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다."
+title: Azure 공용 클라우드에서 격리 | Microsoft Docs
+description: 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -40,7 +40,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 
 ### <a name="abstract"></a>요약
 
-Microsoft Azure를 사용하면 공유된 실제 인프라에서 응용 프로그램과 가상 컴퓨터(VM)를 실행할 수 있습니다. 클라우드 환경에서 응용 프로그램을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 응용 프로그램과 VM을 실행할 위험이 있습니다.
+Microsoft Azure를 사용하면 공유된 실제 인프라에서 응용 프로그램과 가상 머신(VM)를 실행할 수 있습니다. 클라우드 환경에서 응용 프로그램을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 응용 프로그램과 VM을 실행할 위험이 있습니다.
 
 이 문서에서는 Microsoft Azure에서 악의적인 사용자와 악의적이지 않은 사용자를 모두 격리하는 방법을 설명하고, 설계자에게 다양한 격리 옵션을 제공하여 클라우드 솔루션을 설계하는 데 유용한 정보를 제공합니다. 이 백서에서는 Azure 플랫폼 및 고객 관련 보안 제어 기술에 중점을 두는 반면, SLA, 가격 책정 모델 및 DevOps 구현 방법에 대한 고려 사항은 다루지 않습니다.
 
@@ -52,7 +52,7 @@ Microsoft Azure를 사용하면 공유된 실제 인프라에서 응용 프로�
 각 Azure AD 디렉터리는 고유하며 다른 Azure AD 디렉터리와 구분됩니다. 회사 사무실 건물이 해당 조직에게만 속하는 안전한 자산인 것처럼 Azure AD 디렉터리도 조직에서만 사용하기 위해 자산을 보호하도록 설계되었습니다. Azure AD 아키텍처는 고객 데이터 및 ID 정보가 함께 혼합되지 않도록 격리합니다. 즉, 한 Azure AD 디렉터리의 사용자 및 관리자가 실수로 또는 악의적으로 다른 디렉터리의 데이터에 액세스할 수 없습니다.
 
 ### <a name="azure-tenancy"></a>Azure 테넌트
-Azure 테넌트(Azure 구독)는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)에서 "고객/청구" 관계 및 고유한 [테넌트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
+Azure 테넌트(Azure 구독)는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)에서 "고객/청구" 관계 및 고유한 [테넌트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
 
 사용자, 그룹 및 해당 디렉터리에서 응용 프로그램은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
 
@@ -80,7 +80,7 @@ Azure Active Directory는 테넌트에서만 소유하고 관리하는 컨테이
 여러 Azure Active Directory 테넌트의 메타데이터가 동일한 물리적 디스크에 저장되어있는 경우에도 디렉터리 서비스에서 정의된 것 이외의 컨테이너 간에는 아무 관계가 없으므로 디렉터리 서비스에서 테넌트를 결정합니다.
 
 ### <a name="azure-role-based-access-control-rbac"></a>RBAC(역할 기반 Access Control)
-[RBAC(역할 기반 Access Control)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)는 Azure에 세분화된 액세스 관리를 제공하여 Azure 구독 내에서 사용할 수 있는 다양한 구성 요소를 공유할 수 있게 합니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
+[RBAC(역할 기반 Access Control)](https://docs.microsoft.com/azure/role-based-access-control/overview)는 Azure에 세분화된 액세스 관리를 제공하여 Azure 구독 내에서 사용할 수 있는 다양한 구성 요소를 공유할 수 있게 합니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
 Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
 
@@ -92,9 +92,9 @@ Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할�
 
 ![Azure 역할 기반 Access Control](./media/azure-isolation/azure-isolation-fig3.png)
 
-Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 가상 컴퓨터 참여자 역할을 사용하면 사용자가 가상 컴퓨터를 만들고 관리할 수 있습니다. 가상 컴퓨터가 연결되는 Azure Virtual Network 또는 서브넷에 대한 액세스 권한을 부여하지 않습니다.
+Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 Virtual Machine 참여자 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 가상 머신이 연결되는 Azure Virtual Network 또는 서브넷에 대한 액세스 권한을 부여하지 않습니다.
 
-[RBAC 기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)을 빌드하는 방법을 참조하세요.
+[RBAC 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 빌드하는 방법을 참조하세요.
 
 Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 - Azure AD는 호스팅되는 위치에 관계 없이 SaaS 응용 프로그램에 SSO를 사용할 수 있게 합니다. 응용 프로그램 일부는 Azure AD를 사용하여 페더레이션되고 나머지는 암호 SSO를 사용합니다. 또한 페더레이션된 응용 프로그램은 사용자 프로비전 및 [암호 보관](https://www.techopedia.com/definition/31415/password-vault)을 지원할 수도 있습니다.
@@ -105,7 +105,7 @@ Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 
 - [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)은 사용자에게 모바일 앱, 전화 통화 또는 문자 메시지를 사용하여 로그인을 검증하도록 요구하는 다단계 인증 서비스입니다. Azure AD와 함께 사용할 수 있으며 Azure Multi-Factor Authentication 서버를 통해 온-프레미스 리소스의 보안을 유지하도록 도와주며, SDK를 사용하여 사용자 지정 응용 프로그램 및 디렉터리와도 사용될 수 있습니다.
 
-- [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/)를 사용하면 도메인 컨트롤러를 배포하지 않고도 Azure 가상 컴퓨터가 도메인에 가입될 수 있습니다. 이러한 가상 컴퓨터에 회사 Active Directory 자격 증명을 사용하여 로그인하고 모든 Azure Virtual Machines에 보안 기준을 적용하도록 그룹 정책을 사용하여 도메인에 가입된 가상 컴퓨터를 관리할 수 있습니다.
+- [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/)를 사용하면 도메인 컨트롤러를 배포하지 않고도 Azure 가상 머신이 도메인에 가입될 수 있습니다. 이러한 가상 머신에 회사 Active Directory 자격 증명을 사용하여 로그인하고 모든 Azure Virtual Machines에 보안 기준을 적용하도록 그룹 정책을 사용하여 도메인에 가입된 가상 머신을 관리할 수 있습니다.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)는 수억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스를 제공합니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 소비자는 기존 소셜 계정을 사용하거나 자격 증명을 만들어 사용자 지정할 수 있는 환경을 통해 모든 응용 프로그램에 로그인할 수 있습니다.
 
@@ -126,7 +126,7 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 계산 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
-Azure의 계산 플랫폼은 Hyper-V 가상 컴퓨터에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 끝점)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
+Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 끝점)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
 
 
 ![루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리](./media/azure-isolation/azure-isolation-fig4.jpg)
@@ -134,21 +134,21 @@ Azure의 계산 플랫폼은 Hyper-V 가상 컴퓨터에서 모든 고객 코드
 
 또한 각 노드에는 호스트 OS를 실행하는 특별한 하나의 루트 VM도 있습니다. 중요한 경계는 하이퍼바이저와 루트 OS에서 관리하는 게스트 VM/루트 VM 간 및 게스트 VM 간을 격리하는 것입니다. 하이퍼바이저/루트 OS 페어링은 수십 년간의 Microsoft 운영 체제 보안 경험과 Microsoft Hyper-V의 최신 학습을 활용하여 강력한 게스트 VM 격리를 제공합니다.
 
-Azure 플랫폼은 가상화된 환경을 사용합니다. 사용자 인스턴스는 물리적 호스트 서버에 대한 액세스 권한이 없는 독립 실행형 가상 컴퓨터로 작동하고, 이러한 격리는 실제 프로세서(링 0/링 3) 권한 수준을 사용하여 적용됩니다.
+Azure 플랫폼은 가상화된 환경을 사용합니다. 사용자 인스턴스는 물리적 호스트 서버에 대한 액세스 권한이 없는 독립 실행형 가상 머신으로 작동하고, 이러한 격리는 실제 프로세서(링 0/링 3) 권한 수준을 사용하여 적용됩니다.
 
 링 0는 사용 권한이 가장 많고 3은 가장 적습니다. 게스트 OS는 권한이 낮은 링 1에서 실행되고 응용 프로그램은 권한이 가장 낮은 링 3에서 실행합니다. 실제 리소스의 가상화는 게스트 OS와 하이퍼바이저 간에 명확한 분리를 이끌어 내고 둘 사이에 추가 보안 분리가 발생합니다.
 
-Azure 하이퍼바이저는 마이크로 커널처럼 작동하고 VMBus라는 공유 메모리 인터페이스를 사용하여 게스트 가상 컴퓨터에서 호스트에 모든 하드웨어 액세스 요청을 처리하도록 전달합니다. 이렇게 하면 사용자가 시스템에 원시 읽기/쓰기/실행 액세스를 가져오는 것을 방지하고 시스템 리소스를 공유할 위험을 완화합니다.
+Azure 하이퍼바이저는 마이크로 커널처럼 작동하고 VMBus라는 공유 메모리 인터페이스를 사용하여 게스트 가상 머신에서 호스트에 모든 하드웨어 액세스 요청을 처리하도록 전달합니다. 이렇게 하면 사용자가 시스템에 원시 읽기/쓰기/실행 액세스를 가져오는 것을 방지하고 시스템 리소스를 공유할 위험을 완화합니다.
 
 ### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>고급 VM 배치 알고리즘 및 측면 채널 공격으로부터 보호
 VM 간 공격에는 두 가지 단계가 포함됩니다. 먼저 교착 상태가 발생한 VM 중 하나와 동일한 호스트에 악의적 사용자가 제어하는 VM을 배치하고, 다음으로 격리 경계를 위반하여 중요한 공격 대상 정보를 훔치거나 탐욕이나 파괴 행위로 성능에 영향을 미치는 것입니다. Microsoft Azure는 고급 VM 배치 알고리즘을 사용하고 시끄러운 이웃 VM을 포함하여 알려진 모든 측면 채널 공격으로부터 보호함으로써 두 단계를 모두 보호합니다.
 
 ### <a name="the-azure-fabric-controller"></a>Azure 패브릭 컨트롤러
-Azure 패브릭 컨트롤러는 테넌트 워크로드에 대한 인프라 리소스를 할당하는 일을 담당하고 호스트에서 가상 컴퓨터에 단방향 통신을 관리합니다. Azure 패브릭 컨트롤러의 VM 배치 알고리즘은 매우 정교하며 물리적 호스트 수준으로 예측하는 것이 거의 불가능합니다.
+Azure 패브릭 컨트롤러는 테넌트 워크로드에 대한 인프라 리소스를 할당하는 일을 담당하고 호스트에서 가상 머신에 단방향 통신을 관리합니다. Azure 패브릭 컨트롤러의 VM 배치 알고리즘은 매우 정교하며 물리적 호스트 수준으로 예측하는 것이 거의 불가능합니다.
 
 ![Azure 패브릭 컨트롤러](./media/azure-isolation/azure-isolation-fig5.png)
 
-Azure 하이퍼바이저는 가상 컴퓨터 간의 메모리 및 프로세스 분리를 적용하고 네트워크 트래픽을 게스트 OS 테넌트로 안전하게 라우팅합니다. 이렇게 하면 VM 수준에서 측면 채널 공격의 가능성과 해당 공격을 제거합니다.
+Azure 하이퍼바이저는 가상 머신 간의 메모리 및 프로세스 분리를 적용하고 네트워크 트래픽을 게스트 OS 테넌트로 안전하게 라우팅합니다. 이렇게 하면 VM 수준에서 측면 채널 공격의 가능성과 해당 공격을 제거합니다.
 
 Azure에서 루트 VM은 FA(패브릭 에이전트)를 호스팅하는 루트 OS라고 하는 확정된 운영 체제를 실행하기 때문에 특별합니다. 이에 따라 FA는 고객 VM의 게스트 OS 내에서 GA(게스트 에이전트)를 관리합니다. FA는 저장소 노드도 관리합니다.
 
@@ -164,15 +164,15 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 격리는 게스트 VM/루트 VM 간과 게스트 VM 간으로 확장됩니다. 또한 Compute 노드는 보호를 강화하기 위해 저장소 노드로부터 격리됩니다.
 
 
-하이퍼바이저 및 호스트 OS는 네트워크 패킷 필터를 제공하여 신뢰할 수 없는 가상 컴퓨터에서 스푸핑된 트래픽을 생성하거나, 해당 주소로 지정되지 않은 트래픽을 받거나, 보호된 인프라 끝점으로 트래픽을 보내거나, 부적절한 브로드캐스트 트래픽을 보내거나 받을 수 없도록 합니다.
+하이퍼바이저 및 호스트 OS는 네트워크 패킷 필터를 제공하여 신뢰할 수 없는 가상 머신에서 스푸핑된 트래픽을 생성하거나, 해당 주소로 지정되지 않은 트래픽을 받거나, 보호된 인프라 끝점으로 트래픽을 보내거나, 부적절한 브로드캐스트 트래픽을 보내거나 받을 수 없도록 합니다.
 
 
 ### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>패브릭 컨트롤러 에이전트에서 VM을 격리하도록 구성되는 추가 규칙
-기본적으로 가상 컴퓨터를 만들 때 모든 트래픽을 차단한 다음, 패브릭 컨트롤러 에이전트에서 규칙과 예외를 추가하여 권한이 부여된 트래픽을 허용하도록 패킷 필터를 구성합니다.
+기본적으로 가상 머신을 만들 때 모든 트래픽을 차단한 다음, 패브릭 컨트롤러 에이전트에서 규칙과 예외를 추가하여 권한이 부여된 트래픽을 허용하도록 패킷 필터를 구성합니다.
 
 프로그래밍되는 규칙에는 다음 두 가지 범주의 규칙이 있습니다.
 
--   **컴퓨터 구성 또는 인프라 규칙**: 기본적으로 모든 통신이 차단됩니다. 가상 컴퓨터가 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 컴퓨터에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 컴퓨터로 트래픽을 보낼 수도 있습니다. 가상 컴퓨터의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
+-   **컴퓨터 구성 또는 인프라 규칙**: 기본적으로 모든 통신이 차단됩니다. 가상 머신이 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 머신에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 머신으로 트래픽을 보낼 수도 있습니다. 가상 머신의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
 
 -   **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(Access Control 목록)을 정의합니다.
 
@@ -231,10 +231,10 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 
 -   [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) 는 휴지 상태의 암호화 기능을 제공합니다.
 
--   [Azure 디스크 암호화](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 를 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
+-   [Azure 디스크 암호화](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 를 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
 #### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
-VM(가상 컴퓨터)에 대해 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)를 사용하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직의 보안 및 규정 준수 요구 사항을 처리할 수 있습니다.
+VM(가상 머신)에 대해 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)를 사용하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직의 보안 및 규정 준수 요구 사항을 처리할 수 있습니다.
 
 Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 기반으로 하고, Linux 솔루션은 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 기반으로 합니다.
 
@@ -329,7 +329,7 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 ![네트워킹 격리](./media/azure-isolation/azure-isolation-fig13.png)
 
-**트래픽 격리:** [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 Azure 플랫폼의 트래픽 격리 경계입니다. 두 Virtual Network를 같은 고객이 만들었다 하더라도, 한 Virtual Network의 VM(가상 컴퓨터)은 다른 가상 네트워크의 VM과 직접 통신할 수 없습니다. 격리는 고객 VM과 통신이 가상 네트워크 안에서 비공개 상태를 유지하는 데 있어 중요한 속성입니다.
+**트래픽 격리:** [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 Azure 플랫폼의 트래픽 격리 경계입니다. 두 Virtual Network를 같은 고객이 만들었다 하더라도, 한 Virtual Network의 VM(가상 머신)은 다른 가상 네트워크의 VM과 직접 통신할 수 없습니다. 격리는 고객 VM과 통신이 가상 네트워크 안에서 비공개 상태를 유지하는 데 있어 중요한 속성입니다.
 
 [서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets)은 IP 범위를 기반으로 하는 가상 네트워크에서 추가 격리 계층을 제공합니다. 가상 네트워크의 IP 주소를 사용하면 조직과 보안을 위해 가상 네트워크를 여러 서브넷으로 분할할 수 있습니다. VNet 내부의 서브넷(같은 또는 다른)에 배포된 VM 및 PaaS 역할 인스턴스는 추가 구성 없이 서로 통신할 수 있습니다. 또한 NSG의 ACL(액세스 제어 목록)에 구성된 규칙을 기반으로 하여 VM 인스턴스에 대한 네트워크 트래픽을 허용하거나 거부하도록 [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg)를 구성할 수도 있습니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다.
 

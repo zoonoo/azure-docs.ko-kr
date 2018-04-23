@@ -134,24 +134,24 @@
 #### [인증서 사용](active-directory-reporting-api-with-certificates.md)
 
 ## 암호 관리
-### [암호 개요](active-directory-passwords-overview.md)
+### [암호 개요](authentication/active-directory-passwords-overview.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
 #### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
-### [SSPR 작동 방법](active-directory-passwords-how-it-works.md)
-### [SSPR 배포 가이드](active-directory-passwords-best-practices.md)
+### [SSPR 작동 방법](authentication/concept-sspr-howitworks.md)
+### [SSPR 배포 가이드](authentication/howto-sspr-deployment.md)
 ### [SSPR 및 Windows 10](active-directory-passwords-login.md)
-### [SSPR 정책](active-directory-passwords-policy.md)
-### [SSPR 사용자 지정](active-directory-passwords-customize.md)
-### [SSPR 데이터 요구 사항](active-directory-passwords-data.md)
-### [SSPR 보고](active-directory-passwords-reporting.md)
+### [SSPR 정책](authentication/concept-sspr-policy.md)
+### [SSPR 사용자 지정](authentication/concept-sspr-customization.md)
+### [SSPR 데이터 요구 사항](authentication/howto-sspr-authenticationdata.md)
+### [SSPR 보고](authentication/howto-sspr-reporting.md)
 ### IT 관리자: 암호 재설정
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-### [라이선스 SSPR](active-directory-passwords-licensing.md)
+### [라이선스 SSPR](authentication/concept-sspr-licensing.md)
 ### [비밀번호 쓰기 저장](active-directory-passwords-writeback.md)
-### [문제 해결](active-directory-passwords-troubleshoot.md)
-### [FAQ](active-directory-passwords-faq.md)
+### [문제 해결](authentication/active-directory-passwords-troubleshoot.md)
+### [FAQ](authentication/active-directory-passwords-faq.md)
 
 
 ## 장치 관리

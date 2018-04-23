@@ -2,23 +2,19 @@
 title: DMV를 사용하여 작업 모니터링 | Microsoft Docs
 description: DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 3bd7431b9371b1de762558b8bd3c4ed0ed360495
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 887fa4b9f950531438986269d041189d45cdecb2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
 이 문서에서는 동적 관리 뷰(DMV)를 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 Azure SQL Data Warehouse에서 쿼리 실행을 조사하는 것이 포함됩니다.

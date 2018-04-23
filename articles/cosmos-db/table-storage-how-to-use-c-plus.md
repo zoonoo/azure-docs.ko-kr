@@ -3,22 +3,21 @@ title: C++로 Azure Table Storage 또는 Azure Cosmos DB를 사용하는 방법 
 description: Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jahogg
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
-ms.author: mimig
-ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 60c419a45e795d5968b58fbb6b469d06750a0679
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>C++로 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -30,11 +29,15 @@ ms.lasthandoff: 03/16/2018
 > [!NOTE]
 > 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp/)를 통해 사용 가능합니다.
 > 
-> 
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-c-application"></a>C++ 응용 프로그램 만들기
 이 가이드에서는 C++ 응용 프로그램 내에서 실행할 수 있는 저장소 기능을 사용합니다. 이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.  

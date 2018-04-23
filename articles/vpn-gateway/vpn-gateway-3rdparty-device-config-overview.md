@@ -1,12 +1,12 @@
 ---
-title: "Azure VPN Gateway에 연결하기 위한 파트너 VPN 장치 구성 | Microsoft Docs"
-description: "이 문서에서는 Azure VPN Gateway에 연결하기 위한 파트너 VPN 장치 구성에 대한 개요를 제공합니다."
+title: Azure VPN Gateway에 연결하기 위한 파트너 VPN 장치 구성 | Microsoft Docs
+description: 이 문서에서는 Azure VPN Gateway에 연결하기 위한 파트너 VPN 장치 구성에 대한 개요를 제공합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9ca3937d688170798c42fce45dbcd7711773d1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>파트너 VPN 장치 구성의 개요
 이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 장치를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 장치 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.
@@ -40,7 +40,7 @@ Azure VPN Gateway는 표준 IPsec/IKE 프로토콜 도구 모음을 사용하여
 | **매개 변수**                | **값**                    |
 | ---                          | ---                          |
 | 가상 네트워크 주소 접두사        | 10.11.0.0/16<br>10.12.0.0/16 |
-| Azure VPN 게이트웨이 IP         | Azure VPN 게이트웨이 IP         |
+| Azure VPN 게이트웨이 IP         | Azure VPN Gateway IP         |
 | 온-프레미스 주소 접두사 | 10.51.0.0/16<br>10.52.0.0/16 |
 | 온-프레미스 VPN 장치 IP    | 온-프레미스 VPN 장치 IP    |
 | *가상 네트워크 BGP ASN                | 65010                        |
@@ -84,7 +84,7 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 

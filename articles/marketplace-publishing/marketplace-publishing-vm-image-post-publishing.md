@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: mbaldwin;
 ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Azure Marketplace의 가상 머신 제품에 대한 프로덕션 이후 가이드
 이 문서에서는 Azure Marketplace의 라이브 가상 머신 제품을 업데이트하는 방법을 설명합니다. 기존 제품에 하나 이상의 새로운 SKU를 추가하는 과정을 설명합니다. 또한 Marketplace에서 라이브 가상 머신 제품 또는 SKU를 제거하는 과정을 설명합니다.

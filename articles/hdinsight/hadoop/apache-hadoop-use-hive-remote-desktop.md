@@ -1,8 +1,8 @@
 ---
-title: "HDInsight에서 Hadoop Hive 및 원격 데스크톱 사용 - Azure | Microsoft Docs"
-description: "원격 데스크톱을 사용하여 HDInsight의 Hadoop 클러스터에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 실행하는 방법을 배웁니다."
+title: HDInsight에서 Hadoop Hive 및 원격 데스크톱 사용 - Azure | Microsoft Docs
+description: 원격 데스크톱을 사용하여 HDInsight의 Hadoop 클러스터에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 실행하는 방법을 배웁니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 8c228e35-d58a-4f22-917a-1d20c9da89b4
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: ded90b0f94e545b4066a0220afffae26f1cd15ee
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 70eab088ce87d8a62d3f258b70aaec5e2e147d0e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

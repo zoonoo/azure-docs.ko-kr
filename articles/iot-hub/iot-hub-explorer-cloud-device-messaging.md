@@ -3,7 +3,7 @@ title: iothub-explorer로 Azure IoT Hub 클라우드 장치 메시지 관리 | M
 description: iothub-explorer CLI 도구를 사용하여 Azure IoT Hub에서 D2C(장치-클라우드) 메시지를 모니터링하고 C2D(클라우드-장치) 메시지를 보내는 방법에 대해 알아봅니다.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: iothub explorer, 클라우드 장치 메시지, IoT Hub 클라우드-장치 메시지, 클라우드-장치 메시지
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: xshi
-ms.openlocfilehash: 7e74c08849ae2f98d3189c0cd3d340874ea085ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: ed15f7749676d8a7f0c2ef8b23e238f7bc90e341
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>iothub-explorer를 사용하여 장치와 IoT Hub 간에 메시지 보내기 및 받기
 

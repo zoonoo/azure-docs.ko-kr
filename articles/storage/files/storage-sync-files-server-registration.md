@@ -1,8 +1,8 @@
 ---
-title: "Azure File Sync(미리 보기)로 등록된 서버 관리 | Microsoft Docs"
-description: "Azure 파일 동기화 저장소 동기화 서비스에서 Windows Server를 등록 및 등록 취소하는 방법을 알아봅니다."
+title: Azure File Sync(미리 보기)로 등록된 서버 관리 | Microsoft Docs
+description: Azure 파일 동기화 저장소 동기화 서비스에서 Windows Server를 등록 및 등록 취소하는 방법을 알아봅니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure File Sync(미리 보기)로 등록된 서버 관리
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -139,7 +139,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Login-AzureRmAccount
+$accountInfo = Connect-AzureRmAccount
 Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"

@@ -1,24 +1,24 @@
 ---
-title: "Azure Site Recovery를 사용하여 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery 기능을 사용하여 다중 계층 SharePoint 응용 프로그램을 복제하는 방법을 설명합니다."
+title: Azure Site Recovery를 사용하여 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 기능을 사용하여 다중 계층 SharePoint 응용 프로그램을 복제하는 방법을 설명합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2017
+ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 재해 복구를 위해 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs
 

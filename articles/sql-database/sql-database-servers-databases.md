@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
 
@@ -46,7 +46,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 상위 리소스입니다.
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 네임스페이스를 제공합니다.
 - 강력한 수명 의미 체계를 가진 논리 컨테이너로서 서버를 삭제하고 포함된 데이터베이스, 탄력적 풀, 데이터 웨어하우스를 삭제합니다.
-- [Azure RBAC(역할 기반 액세스 제어)](/active-directory/role-based-access-control-what-is)에 포함됩니다. 서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스는 서버에서 액세스 권한을 상속합니다.
+- [Azure RBAC(역할 기반 액세스 제어)](/azure/role-based-access-control/overview)에 포함됩니다. 서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스는 서버에서 액세스 권한을 상속합니다.
 - Azure 리소스를 관리하기 위한 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 ID 상위 요소입니다(데이터베이스 및 풀은 URL 구성표 참조).
 - 지역에 리소스 배치
 - 데이터베이스 액세스에 대한 연결 끝점을 제공합니다(<serverName>.database.windows.net).
@@ -79,9 +79,8 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
 > [!IMPORTANT]
 > 데이터베이스의 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
->
 
-관리되는 인스턴스를 만들려면 [관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
+관리되는 인스턴스를 만들려면 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 
 ### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
 

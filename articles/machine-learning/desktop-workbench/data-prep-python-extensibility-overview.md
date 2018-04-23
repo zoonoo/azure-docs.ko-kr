@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 데이터 준비에서 Python 확장성 사용 | Microsoft Docs"
-description: "이 문서에서는 Python 코드를 사용하여 데이터 준비의 기능을 확장하는 방법에 대한 개요 및 몇 가지 자세한 예제를 제공합니다."
+title: Azure Machine Learning 데이터 준비에서 Python 확장성 사용 | Microsoft Docs
+description: 이 문서에서는 Python 코드를 사용하여 데이터 준비의 기능을 확장하는 방법에 대한 개요 및 몇 가지 자세한 예제를 제공합니다.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
 기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 

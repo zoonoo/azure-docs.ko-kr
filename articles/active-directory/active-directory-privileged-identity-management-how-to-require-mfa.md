@@ -1,11 +1,11 @@
 ---
-title: "다단계 인증을 요구하는 방법 | Microsoft Docs"
-description: "Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID에 대해 MFA(Multi-Factor Authentication)를 요구하는 방법을 알아봅니다."
+title: 다단계 인증을 요구하는 방법 | Microsoft Docs
+description: Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID에 대해 MFA(Multi-Factor Authentication)를 요구하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 42552b4b8a7b2704a94786518f411f922dbd6a81
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management에서 MFA를 요구하는 방법
 모든 관리자에 대해 Multi-Factor Authentication(MFA)을 요구하는 것이 좋습니다. 이렇게 하면 손상된 암호로 인한 공격의 위험이 줄어듭니다.
@@ -41,9 +41,9 @@ ms.lasthandoff: 12/11/2017
 ## <a name="how-azure-ad-pim-validates-mfa"></a>Azure AD PIM에서 MFA의 유효성을 검사하는 방법
 사용자가 역할을 활성화할 때 MFA 유효성을 검사하는 두 가지 방법이 있습니다.
 
-가장 간단한 옵션은 권한 있는 역할을 활성화하는 사용자에 대해 Azure MFA를 사용하는 것입니다. 이렇게 하려면 먼저 해당 사용자에게 사용이 허가되었는지와 Azure MFA에 등록되었는지 확인합니다. 이 방법에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)을 참조하세요. 이러한 사용자가 로그인할 때 MFA를 적용하도록 Azure AD를 구성하는 것이 좋지만 필수 사항은 아닙니다. MFA 검사가 Azure AD PIM 자체에서도 수행되기 때문입니다.
+가장 간단한 옵션은 권한 있는 역할을 활성화하는 사용자에 대해 Azure MFA를 사용하는 것입니다. 이렇게 하려면 먼저 해당 사용자에게 사용이 허가되었는지와 Azure MFA에 등록되었는지 확인합니다. 이 방법에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](authentication/howto-mfa-getstarted.md)을 참조하세요. 이러한 사용자가 로그인할 때 MFA를 적용하도록 Azure AD를 구성하는 것이 좋지만 필수 사항은 아닙니다. MFA 검사가 Azure AD PIM 자체에서도 수행되기 때문입니다.
 
-또는 사용자가 온-프레미스를 인증하는 경우 MFA에 대해 책임지는 ID 공급자를 사용할 수 있습니다. 예를 들어 Azure AD에 액세스하기 전에 스마트 카드 기반 인증을 요구하도록 AD 페더레이션 서비스를 구성한 경우 [Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md) 에 포함된 지침을 참조하여 Azure AD로 클레임을 보내도록 AD FS를 구성합니다. 사용자가 역할을 활성화하려고 할 때 Azure AD PIM은 해당 클레임을 받으면 사용자에 대해 MFA의 유효성이 이미 검사되었다는 것을 허용합니다.
+또는 사용자가 온-프레미스를 인증하는 경우 MFA에 대해 책임지는 ID 공급자를 사용할 수 있습니다. 예를 들어 Azure AD에 액세스하기 전에 스마트 카드 기반 인증을 요구하도록 AD 페더레이션 서비스를 구성한 경우 [Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안](authentication/howto-mfa-adfs.md) 에 포함된 지침을 참조하여 Azure AD로 클레임을 보내도록 AD FS를 구성합니다. 사용자가 역할을 활성화하려고 할 때 Azure AD PIM은 해당 클레임을 받으면 사용자에 대해 MFA의 유효성이 이미 검사되었다는 것을 허용합니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계

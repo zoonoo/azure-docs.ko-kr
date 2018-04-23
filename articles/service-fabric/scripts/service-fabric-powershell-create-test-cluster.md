@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a03362ebd4b8502f12b7c7bb9aadc558f6a073d2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 169f68d179c7f895078fe649d0e2a69e58d148cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-three-node-test-service-fabric-cluster"></a>3노드 테스트 Service Fabric 클러스터 만들기
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/23/2018
 
 이 명령은 자체 서명된 인증서를 만들고, 동일한 리소스 그룹에서 클러스터로 만들어지는 새로운 키 자격 증명 모음에 업로드합니다. 인증서는 로컬 디렉터리에도 복사됩니다.  *-OS* 매개 변수를 설정하여 클러스터 노드에서 실행되는 Windows 또는 Linux 버전을 선택합니다.  필요에 따라 매개 변수를 사용자 지정합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다. 
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 

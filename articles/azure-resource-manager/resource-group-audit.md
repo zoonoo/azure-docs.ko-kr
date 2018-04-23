@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd11ec7c8a32792853e60b4bb14d4ed52f53f4a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>리소스에 대한 작업을 감사하기 위해 활동 로그 보기
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2018
 * 작업의 상태
 * 작업을 조사하는 데 도움이 될 수 있는 기타 속성 값
 
-활동 로그에는 리소스에서 수행된 모든 쓰기 작업(PUT, POST, DELETE)이 포함됩니다. 읽기 작업(GET)은 포함되지 않습니다. 리소스 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../active-directory/role-based-access-control-resource-provider-operations.md)을 참조하세요. 감사 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
+활동 로그에는 리소스에서 수행된 모든 쓰기 작업(PUT, POST, DELETE)이 포함됩니다. 읽기 작업(GET)은 포함되지 않습니다. 리소스 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요. 감사 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
 활동 로그는 90일 동안 유지됩니다. 시작 날짜가 90보다 더 오래되지 않은 경우 날짜 범위에 대해 쿼리할 수 있습니다.
 
@@ -154,8 +154,8 @@ ms.lasthandoff: 04/06/2018
 ## <a name="next-steps"></a>다음 단계
 
 * Power BI와 함께 Azure 활동 로그를 사용하면 구독의 작업을 면밀하게 살펴볼 수 있습니다. [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)을 참조하세요.
-* 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.
+* 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 * 배포 작업을 보는 명령에 대해 자세히 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
-* 각 Microsoft Azure Resource Manager 공급자에 대해 사용 가능한 작업의 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)을 참조하세요.
+* 각 Microsoft Azure Resource Manager 공급자에 대해 사용 가능한 작업의 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요.
 

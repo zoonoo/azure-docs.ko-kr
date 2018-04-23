@@ -1,8 +1,8 @@
 ---
-title: "HDInsight의 Hive 및 Java UDF(사용자 정의 함수) - Azure | Microsoft Docs"
-description: "Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다."
+title: HDInsight의 Hive 및 Java UDF(사용자 정의 함수) - Azure | Microsoft Docs
+description: Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: cc6b63f40dd4323ecdf0dfb75c7c8036cbc7b0b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ef8b8630c60b209295b844f7e1b67f8631524aff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>HDInsight에서 Hive와 함께 Java UDF 사용
 

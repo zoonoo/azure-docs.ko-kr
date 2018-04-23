@@ -1,11 +1,11 @@
 ---
-title: "Azure DevTest Labs FAQ | Microsoft 문서"
-description: "Azure DevTest Labs에 대한 일반적인 질문에 대한 답을 찾습니다."
+title: Azure DevTest Labs FAQ | Microsoft 문서
+description: Azure DevTest Labs에 대한 일반적인 질문에 대한 답을 찾습니다.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -55,7 +55,7 @@ DevTest Labs는 무료 서비스입니다. 즉 DevTest Labs에서 랩을 만들�
 
 **보안**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs의 다른 보안 수준은 무엇인가요?
-보안 액세스는 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-built-in-roles.md)를 통해 결정됩니다. 액세스의 작동 방식을 알아보기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 알아보는 데 도움을 줍니다.
+보안 액세스는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/built-in-roles.md)를 통해 결정됩니다. 액세스의 작동 방식을 알아보기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 알아보는 데 도움을 줍니다.
 
 * **사용 권한**: 특정 작업에 대해 정의된 액세스입니다. 예로 모든 VM에 대한 읽기 액세스가 있습니다.
 * **역할**: 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 집합입니다. 예를 들어 구독 소유자 역할이 있는 사용자는 구독 내의 모든 리소스에 대한 액세스를 보유합니다.
@@ -159,7 +159,7 @@ Azure Portal의 랩에서 VM을 삭제할 수 있습니다. 또한 PowerShell �
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

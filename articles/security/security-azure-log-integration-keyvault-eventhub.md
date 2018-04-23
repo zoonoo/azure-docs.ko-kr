@@ -1,28 +1,28 @@
 ---
-title: "Event Hubs를 사용하여 Azure Key Vault의 로그 통합 | Microsoft Docs"
-description: "Azure 로그 통합을 사용하여 Key Vault 로그를 SIEM에 제공하는 데 필요한 단계를 안내하는 자습서"
+title: Event Hubs를 사용하여 Azure Key Vault의 로그 통합 | Microsoft Docs
+description: Azure 로그 통합을 사용하여 Key Vault 로그를 SIEM에 제공하는 데 필요한 단계를 안내하는 자습서
 services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 로그 통합 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
 Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보안 정보 및 이벤트 관리) 시스템에 제공할 수 있습니다. 이 자습서는 Azure 로그 통합을 사용하여 Azure Event Hubs를 통해 획득한 로그를 처리하는 방법의 예제를 보여 줍니다.
 
 >[!IMPORTANT]
->Azure 로그를 통합하는 기본 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 그러나 SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않는 경우 이러한 커넥터를 사용할 수 있을 때까지 Azure Log Integration을 임시 솔루션으로 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
+>Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않은 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
 
  
 이 자습서를 사용하여 예제 단계를 따르고 각 단계가 솔루션을 어떻게 지원하는지 이해하면 Azure 로그 통합 및 Event Hubs가 연동하는 방식에 익숙해질 수 있습니다. 그런 다음 여기서 학습한 내용을 바탕으로 회사 고유의 요구 사항을 지원하기 위한 자신만의 단계를 만들 수 있습니다.
@@ -81,14 +81,14 @@ Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보
 
    ![로드된 모듈 목록](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. `Login-AzureRmAccount` 명령을 입력합니다. 로그인 창에서 이 자습서에 사용할 구독에 대한 자격 증명 정보를 입력합니다.
+3. `Connect-AzureRmAccount` 명령을 입력합니다. 로그인 창에서 이 자습서에 사용할 구독에 대한 자격 증명 정보를 입력합니다.
 
    >[!NOTE]
    >이 컴퓨터에서 Azure에 처음 로그인하는 경우 Microsoft에서 PowerShell 사용 데이터를 수집하도록 허용하라는 메시지가 표시됩니다. 이 기능은 Azure PowerShell을 개선하는 데 사용되므로, 이 데이터 수집을 사용하도록 설정하는 것이 좋습니다.
 
 4. 인증에 성공하면 로그인되고 다음 스크린샷의 정보가 표시됩니다. 구독 ID 및 구독 이름을 메모해 두세요. 이후 단계를 완료하는 데 필요합니다.
 
-   ![PowerShell 창](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
+   ![PowerShell 창](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
 5. 나중에 사용할 값을 저장하는 변수를 만듭니다. 다음 각 PowerShell 줄을 입력합니다. 환경에 맞게 값을 조정해야 할 수도 있습니다.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(구독 이름은 다를 수 있습니다. 이는 이전 명령의 출력에서 볼 수 있습니다.)
     - ```$location = 'West US'```(이 변수는 리소스를 만들 위치를 전달하는 데 사용됩니다. 이 변수를 선택한 위치로 변경할 수 있습니다.)

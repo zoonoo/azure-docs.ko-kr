@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Team Data Science Process를 사용하여 단어 포함으로 Twitter 감정 예측
 
-이 문서에서는 [Azure Machine Learning](../preview/index.yml)을 통해 Twitter 감정을 예측하기 위해 _Word2Vec_ 단어 포함 알고리즘과 _SSWE(감성 관련 단어 포함)_ 알고리즘을 사용하여 효과적으로 공동 작업하는 방법을 보여 줍니다. Twitter 감정 극성을 예측하는 방법에 대한 자세한 내용은 GitHub의 [MachineLearningSamples-TwitterSentimentPrediction 리포지토리](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction)를 참조하세요. 데이터 과학 프로젝트에서 효과적인 팀 공동 작업을 촉진하는 핵심은 확정된 데이터 과학 수명 주기를 통해 프로젝트의 구조 및 문서화를 표준화하는 것입니다. [TDSP(Team Data Science Process)](overview.md)는 이러한 유형의 구조화된 [수명 주기](lifecycle.md)를 제공합니다. 
+이 문서에서는 [Azure Machine Learning](../service/index.yml)을 통해 Twitter 감정을 예측하기 위해 _Word2Vec_ 단어 포함 알고리즘과 _SSWE(감성 관련 단어 포함)_ 알고리즘을 사용하여 효과적으로 공동 작업하는 방법을 보여 줍니다. Twitter 감정 극성을 예측하는 방법에 대한 자세한 내용은 GitHub의 [MachineLearningSamples-TwitterSentimentPrediction 리포지토리](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction)를 참조하세요. 데이터 과학 프로젝트에서 효과적인 팀 공동 작업을 촉진하는 핵심은 확정된 데이터 과학 수명 주기를 통해 프로젝트의 구조 및 문서화를 표준화하는 것입니다. [TDSP(Team Data Science Process)](overview.md)는 이러한 유형의 구조화된 [수명 주기](lifecycle.md)를 제공합니다. 
 
-_TDSP 템플릿_을 사용하여 데이터 과학 프로젝트를 만들면 Azure Machine Learning 프로젝트에 대한 표준화된 프레임워크가 제공됩니다. 이전에 TDSP 팀은 [TDSP 프로젝트 구조 및 템플릿에 대한 GitHub 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 릴리스했습니다. 이제 [Azure Machine Learning용 TDSP 템플릿](https://github.com/amlsamples/tdsp)으로 인스턴스화된 Machine Learning 프로젝트를 사용하도록 설정됩니다. 지침은 Azure Machine Learning에서 [TDSP 템플릿으로 TDSP 구조 프로젝트](../preview/how-to-use-tdsp-in-azure-ml.md)를 사용하는 방법을 참조하세요. 
+_TDSP 템플릿_을 사용하여 데이터 과학 프로젝트를 만들면 Azure Machine Learning 프로젝트에 대한 표준화된 프레임워크가 제공됩니다. 이전에 TDSP 팀은 [TDSP 프로젝트 구조 및 템플릿에 대한 GitHub 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 릴리스했습니다. 이제 [Azure Machine Learning용 TDSP 템플릿](https://github.com/amlsamples/tdsp)으로 인스턴스화된 Machine Learning 프로젝트를 사용하도록 설정됩니다. 지침은 Azure Machine Learning에서 [TDSP 템플릿으로 TDSP 구조 프로젝트](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md)를 사용하는 방법을 참조하세요. 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Twitter 감정 극성 샘플
@@ -131,7 +131,7 @@ SSWE 기능이 있는 그라데이션 부스팅 모델은 AUC(곡선 아래 면�
 
 ![Kubernetes 대시보드](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-운영화 프로세스에 대한 자세한 내용은 [웹 서비스로 Azure Machine Learning 모델 배포](../preview/model-management-service-deploy.md)를 참조하세요.
+운영화 프로세스에 대한 자세한 내용은 [웹 서비스로 Azure Machine Learning 모델 배포](../desktop-workbench/model-management-service-deploy.md)를 참조하세요.
 
 ## <a name="conclusion"></a>결론
 
@@ -143,8 +143,8 @@ SSWE 기능이 있는 그라데이션 부스팅 모델은 AUC(곡선 아래 면�
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Azure Machine Learning에서 TDSP(Team Data Science Process)를 사용하는 방법](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Azure Machine Learning용 TDSP 프로젝트 템플릿](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](../preview/index.yml)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [UCI ML 리포지토리의 미국 소득 데이터 집합](https://archive.ics.uci.edu/ml/datasets/adult)
-* [TDSP 템플릿을 사용하여 생명 공학 엔터티 인식](../preview/scenario-tdsp-biomedical-recognition.md)
+* [TDSP 템플릿을 사용하여 생명 공학 엔터티 인식](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas 외 공저, "단어와 구문의 분산된 표현 및 합성성 - 신경 정보 처리 시스템의 발전" 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu 외 공저, "Twitter 감정 분류에 대한 감정 관련 단어 포함 학습" ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

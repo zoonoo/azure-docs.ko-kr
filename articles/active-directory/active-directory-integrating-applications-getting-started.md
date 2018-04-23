@@ -1,11 +1,11 @@
 ---
-title: "앱과 Azure AD 통합 시작 | Microsoft Docs"
-description: "이 문서는 온-프레미스 응용 프로그램 및 클라우드 응용 프로그램과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다."
+title: 앱과 Azure AD 통합 시작 | Microsoft Docs
+description: 이 문서는 온-프레미스 응용 프로그램 및 클라우드 응용 프로그램과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>응용 프로그램과 Azure Active Directory 통합 시작 가이드
 ## <a name="overview"></a>개요
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/16/2018
 * 통합하기 전에 사용자/그룹 데이터베이스를 정리해야 합니까?  (매우 중요한 질문입니다. 쓰레기를 넣고 쓰레기를 얻는 현상.)
 
 ### <a name="access-management-inventory"></a>액세스 관리 인벤토리
-* 응용 프로그램에 대한 사용자 액세스를 현재 어떻게 관리합니까? 변경해야 합니까?  예를 들어 [RBAC](role-based-access-control-configure.md) 와 같이 액세스를 관리하는 다른 방법을 고려한 적이 있습니까?
+* 응용 프로그램에 대한 사용자 액세스를 현재 어떻게 관리합니까? 변경해야 합니까?  예를 들어 [RBAC](../role-based-access-control/role-assignments-portal.md) 와 같이 액세스를 관리하는 다른 방법을 고려한 적이 있습니까?
 * 누구에게 어떤 액세스가 필요합니까?
 
 아마 이러한 모든 질문에 대한 답변은 없겠지만 괜찮습니다.  이 가이드는 이러한 일부 질문에 대답하고 합리적인 결정을 내릴 수 있습니다.

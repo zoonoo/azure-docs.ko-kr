@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a56ff1d70d56b742966c9980f01b4de03f7f30b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Azure SQL Database DTU 기반 리소스 모델 제한
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/05/2018
 ### <a name="standard-service-tier"></a>표준 서비스 계층
 | **성능 수준** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| 최대 DTU** | 10 | 20 | 50 | 100 |
+| 최대 DTU | 10 | 20 | 50 | 100 |
 | 포함된 저장소(GB) | 250 | 250 | 250 | 250 |
 | 최대 저장소(GB) 옵션* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | 최대 메모리 내 OLTP 저장소(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/05/2018
 ### <a name="standard-service-tier-continued"></a>표준 서비스 계층(계속)
 | **성능 수준** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| 최대 DTU** | 200 | 400 | 800 | 1600 | 3000 |
+| 최대 DTU | 200 | 400 | 800 | 1600 | 3000 |
 | 포함된 저장소(GB) | 250 | 250 | 250 | 250 | 250 |
 | 최대 저장소(GB) 옵션* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | 최대 메모리 내 OLTP 저장소(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |해당 없음 |
@@ -78,8 +78,6 @@ ms.lasthandoff: 04/05/2018
 >
 >\* 프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 > 
->\*\* 표준에서 200DTU 이상으로 시작하는 데이터베이스당 최대 DTU는 미리 보기 상태입니다.
->
 
 
 ## <a name="single-database-change-storage-size"></a>단일 데이터베이스: 저장소 크기 변경

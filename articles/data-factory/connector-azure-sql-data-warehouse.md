@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 서비스 주체를 �
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             },
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
@@ -347,13 +347,13 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | 형식 | 복사 작업 싱크의 형식 속성은 **SqlDWSink**로 설정해야 합니다. | 예 |
 | allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **SQL Data Warehouse로 데이터를 로드하는 데 PolyBase를 사용하는 것이 좋습니다.** 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True**(기본값) 및 **False**입니다.  |아니오 |
 | polyBaseSettings |**allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |아니오 |
-| rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2, ...입니다. |아니오 |
-| rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다.<br/><br/>허용되는 값은 **값**(기본값) 및 **백분율**입니다. |아니오 |
+| rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2, ...입니다. |아니요 |
+| rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다.<br/><br/>허용되는 값은 **값**(기본값) 및 **백분율**입니다. |아니요 |
 | rejectSampleValue |PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2, ...입니다. |예. **rejectType**이 **백분율**인 경우 |
-| useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True**, **False**(기본값)입니다. |아니오 |
+| useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True**, **False**(기본값)입니다. |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니오 |
-| preCopyScript |각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요 |(#repeatability-during-copy). |쿼리 문입니다. |아니오 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니요 |
+| preCopyScript |각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니오 |(#repeatability-during-copy). |쿼리 문입니다. |아니요 |
 
 **예제:**
 

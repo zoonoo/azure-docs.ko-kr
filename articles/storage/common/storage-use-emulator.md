@@ -1,8 +1,8 @@
 ---
-title: "개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs"
-description: "Azure Storage 에뮬레이터는 Azure Storage 응용 프로그램에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다."
+title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs
+description: Azure Storage 에뮬레이터는 Azure Storage 응용 프로그램에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -27,7 +27,7 @@ Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐
 ## <a name="get-the-storage-emulator"></a>저장소 에뮬레이터 가져오기
 저장소 에뮬레이터는 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 제공됩니다. [독립 실행형 설치 관리자](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)(직접 다운로드)를 사용하여 저장소 에뮬레이터를 설치할 수도 있습니다. 저장소 에뮬레이터를 설치하려면 컴퓨터에 대한 관리자 권한이 있어야 합니다.
 
-저장소 에뮬레이터는 현재 Windows에서만 실행됩니다. Linux용 저장소 에뮬레이터를 고려 중인 경우 커뮤니티에서 유지 관리하는 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/arafato/azurite)가 하나의 옵션이 될 수 있습니다.
+저장소 에뮬레이터는 현재 Windows에서만 실행됩니다. Linux용 저장소 에뮬레이터를 고려 중인 경우 커뮤니티에서 유지 관리하는 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/azure/azurite)가 하나의 옵션이 될 수 있습니다.
 
 > [!NOTE]
 > 저장소 에뮬레이터의 어느 한 버전으로 작성한 데이터에 다른 버전으로 반드시 액세스할 수 있는 것은 아닙니다. 장기간 보존하려는 데이터는 저장소 에뮬레이터가 아닌 Azure Storage 계정에 저장하는 것이 좋습니다.

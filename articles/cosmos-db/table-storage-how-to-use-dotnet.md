@@ -3,9 +3,8 @@ title: .NET을 사용하여 Azure 테이블 저장소 시작 | Microsoft Docs
 description: Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>.NET을 사용하여 Azure 테이블 저장소 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -49,11 +48,8 @@ Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, �
 ### <a name="more-samples"></a>추가 샘플
 Table Storage를 사용하는 추가 예제는 [.NET에서 Azure Table Storage 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
-
-Azure Table Storage 또는 Azure Cosmos DB를 사용하여 테이블을 작업할 수 있습니다. 서비스 간의 차이점은 [테이블 제품](table-introduction.md#table-offerings)에서 확인할 수 있습니다. 사용하려는 서비스에 대해 계정을 만들어야 합니다. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 첫 번째 Azure Storage 계정을 가장 쉽게 만드는 방법은 [Azure Portal](https://portal.azure.com)을 사용하는 것입니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하십시오.
@@ -63,8 +59,7 @@ Azure Table Storage 또는 Azure Cosmos DB를 사용하여 테이블을 작업�
 또한 이번에 저장소 계정을 만들지 않으려는 경우 Azure 저장소 에뮬레이터를 사용하여 로컬 환경에서 코드를 실행하고 테스트할 수 있습니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
-
-Azure Cosmos DB Table API 계정을 만드는 지침은 [테이블 API 계정 만들기](create-table-dotnet.md#create-a-database-account)를 참조하세요.
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 다음으로 이 가이드에 코드 예제를 사용할 준비가 되도록 Visual Studio에서 개발 환경을 설정합니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 ## <a name="introduction"></a>소개
@@ -101,7 +101,7 @@ Azure Portal, [CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli),
 
 -   로그 프로필을 사용하여 활동 로그를 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)로 내보냅니다.
 
-하나의 내보내는 로그와 동일한 구독에 있지 않은 저장소 계정 또는 [Event Hub 네임스페이스](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)를 사용할 수 있습니다. 설정을 구성하는 사용자는 두 구독 모두에 대해 적절한 [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 액세스 권한을 가지고 있어야 합니다.
+하나의 내보내는 로그와 동일한 구독에 있지 않은 저장소 계정 또는 [Event Hub 네임스페이스](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)를 사용할 수 있습니다. 설정을 구성하는 사용자는 두 구독 모두에 대해 적절한 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 액세스 권한을 가지고 있어야 합니다.
 ### <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 Azure 진단 로그는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보냅니다. 이러한 로그의 내용은 리소스 종류(예를 들어 [Windows 이벤트 시스템 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)는 VM에 대한 진단 로그의 한 범주이며, [Blob, 테이블 및 큐 로그](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)는 저장소 계정에 대한 진단 로그의 범주임)에 따라 다르며, 구독에 있는 리소스에서 수행된 작업에 대한 정보를 제공하는 활동 로그와는 다릅니다.
 

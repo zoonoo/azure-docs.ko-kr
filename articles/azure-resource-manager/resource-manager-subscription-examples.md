@@ -1,6 +1,6 @@
 ---
-title: "구독 관리에 대한 시나리오 및 예제 | Microsoft Docs"
-description: "일반적인 시나리오에서 Azure 구독 관리를 구현하는 방법에 대한 예제를 제공합니다."
+title: 구독 관리에 대한 시나리오 및 예제 | Microsoft Docs
+description: 일반적인 시나리오에서 Azure 구독 관리를 구현하는 방법에 대한 예제를 제공합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Azure 엔터프라이즈 스캐폴드 구현 예제
 이 항목에서는 기업에서 [Azure 엔터프라이즈 스캐폴드](resource-manager-subscription-governance.md)에 대한 권장 사항을 구현하는 방법에 대한 예를 제공합니다. Contoso라는 가상의 회사를 사용하여 일반적인 시나리오의 모범 사례를 보여 줍니다.
@@ -43,7 +43,7 @@ Contoso는 전 세계 개발자가 사용할 소스 코드 관리 시스템(BitB
 ### <a name="naming-standards--resource-groups"></a>이름 지정 표준 및 리소스 그룹
 Dave는 모든 사업부 간에 일반적인 개발자 도구를 지원하는 구독을 만듭니다. 구독과 리소스 그룹(응용 프로그램 및 네트워크용)에 대해 의미 있는 이름을 만들어야 합니다. 다음 구독 및 리소스 그룹을 만듭니다.
 
-| 항목 | 이름 | 설명 |
+| 항목 | Name | 설명 |
 | --- | --- | --- |
 | 구독 |Contoso ETS DeveloperTools Production |일반적인 개발자 도구 지원 |
 | 리소스 그룹 |bitbucket-prod-rg |응용 프로그램 웹 서버 및 데이터베이스 서버 포함 |
@@ -56,16 +56,16 @@ Dave는 구독에 대해 다음 역할을 할당합니다.
 
 | 역할 | 할당 대상 | 설명 |
 | --- | --- | --- |
-| [소유자](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso AD에서 관리되는 ID |이 ID는 Contoso의 ID 관리 도구를 통해 JIT(Just-in-Time) 액세스로 제어되며, 구독 소유자 액세스를 완전히 감사할 수 있도록 합니다. |
-| [보안 관리자](../active-directory/role-based-access-built-in-roles.md#security-manager) |보안 및 위험 관리 부서 |이 역할을 통해 사용자는 Azure Security Center와 리소스 상태를 살펴볼 수 있습니다. |
-| [네트워크 참여자](../active-directory/role-based-access-built-in-roles.md#network-contributor) |네트워크 팀 |이 역할을 통해 Contoso 네트워크 팀에서 사이트 간 VPN 및 Virtual Network를 관리할 수 있습니다. |
-| *사용자 지정 역할* |응용 프로그램 소유자 |Dave는 리소스 그룹 내에서 리소스를 수정하는 기능이 부여된 역할을 만듭니다. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요. |
+| [소유자](../role-based-access-control/built-in-roles.md#owner) |Contoso AD에서 관리되는 ID |이 ID는 Contoso의 ID 관리 도구를 통해 JIT(Just-in-Time) 액세스로 제어되며, 구독 소유자 액세스를 완전히 감사할 수 있도록 합니다. |
+| [보안 관리자](../role-based-access-control/built-in-roles.md#security-manager) |보안 및 위험 관리 부서 |이 역할을 통해 사용자는 Azure Security Center와 리소스 상태를 살펴볼 수 있습니다. |
+| [네트워크 참여자](../role-based-access-control/built-in-roles.md#network-contributor) |네트워크 팀 |이 역할을 통해 Contoso 네트워크 팀에서 사이트 간 VPN 및 Virtual Network를 관리할 수 있습니다. |
+| *사용자 지정 역할* |응용 프로그램 소유자 |Dave는 리소스 그룹 내에서 리소스를 수정하는 기능이 부여된 역할을 만듭니다. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요. |
 
 ### <a name="policies"></a>정책
 Dave는 구독에서 리소스 관리를 위해 다음을 요구 사항으로 포함합니다.
 
 * 개발 도구는 전 세계 개발자는 지원하므로 사용자가 어느 지역에서든 리소스를 만들 수 있도록 하고 싶습니다. 하지만 리소스가 생성되는 위치를 알아야 합니다.
-* 그는 비용에 대해 고민합니다. 따라서 응용 프로그램 소유자가 불필요하게 비용이 드는 가상 컴퓨터를 만들지 않도록 하려고 합니다.  
+* 그는 비용에 대해 고민합니다. 따라서 응용 프로그램 소유자가 불필요하게 비용이 드는 가상 머신을 만들지 않도록 하려고 합니다.  
 * 이 응용 프로그램은 많은 사업부의 개발자에게 제공되므로 각 리소스에 사업부 및 응용 프로그램 소유자로 태그를 지정하고자 합니다. ETS는 다음 태그를 사용하여 적절한 팀에 요금을 청구할 수 있습니다.
 
 그는 다음과 같은 [Azure 정책](../azure-policy/azure-policy-introduction.md)을 만듭니다.
@@ -73,7 +73,7 @@ Dave는 구독에서 리소스 관리를 위해 다음을 요구 사항으로 �
 | 필드 | 결과 | 설명 |
 | --- | --- | --- |
 | 위치 |감사 |모든 지역에서 리소스 생성 감사 |
-| type |deny |G-시리즈 가상 컴퓨터 생성 거부 |
+| 형식 |deny |G-시리즈 가상 머신 생성 거부 |
 | tags |deny |응용 프로그램 소유자 태그 필요 |
 | tags |deny |비용 센터 태그 필요 |
 | tags |추가 |태그 이름 **BusinessUnit** 및 태그 값 **ETS**를 모든 리소스에 추가 |
@@ -94,7 +94,7 @@ Contoso ETS 정보 보안 및 위험 관리 팀은 응용 프로그램을 Azure�
 
 그는 다음 리소스를 만듭니다.
 
-| 리소스 종류 | 이름 | 설명 |
+| 리소스 종류 | Name | 설명 |
 | --- | --- | --- |
 | Virtual Network |internal-vnet |BitBucket 응용 프로그램에 사용되며 ExpressRoute를 통해 Contoso의 회사 네트워크에 연결됩니다.  서브넷(`bitbucket`)에서 응용 프로그램에 특정 IP 주소 공간을 제공합니다. |
 | Virtual Network |external-vnet |공용 끝점이 필요한 미래의 응용 프로그램에 사용할 수 있습니다. |
@@ -123,13 +123,13 @@ Contoso IT 서비스 관리를 위해서는 위협을 신속하게 파악하고 
 ### <a name="azure-subscriptions"></a>Azure 구독
 Dave는 Azure Enterprise Portal에 로그인하여 공급망 부서가 이미 있는지 확인합니다.  하지만 이 프로젝트는 Azure에서 공급망 팀을 위한 첫 번째 개발 프로젝트이므로 Dave는 Alice 개발 팀을 위해 새 계정이 필요하다는 것을 알게 됩니다.  Alice 팀을 위한 "R&D" 계정을 만들고 Alice에게 액세스 권한을 할당해 줍니다. Alice는 Azure Portal을 통해 로그인하고 두 개의 구독을 만듭니다. 하나는 개발 서버를 보유하고 하나는 프로덕션 서버를 보유합니다.  다음 구독을 만들 때 이전에 설정한 이름 지정 표준을 따릅니다.
 
-| 구독 용도 | 이름 |
+| 구독 용도 | Name |
 | --- | --- |
 | 개발 |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
 | 프로덕션 |Contoso SupplyChain Operations LoyaltyCard Production |
 
 ### <a name="policies"></a>정책
-Dave와 Alice는 응용 프로그램에 대해 논의하고 이 응용 프로그램이 북아메리카 지역의 고객에게만 서비스되는지 확인합니다.  Alice와 팀은 응용 프로그램을 만들기 위해 Azure의 응용 프로그램 서비스 환경과 Azure SQL을 사용하기로 합니다. 개발 중에 가상 컴퓨터를 만들어야 할 수 있습니다.  Alice는 개발자에게 ETS 지원 없이 문제를 탐색 및 확인하는 데 필요한 리소스가 있는지 확인합니다.
+Dave와 Alice는 응용 프로그램에 대해 논의하고 이 응용 프로그램이 북아메리카 지역의 고객에게만 서비스되는지 확인합니다.  Alice와 팀은 응용 프로그램을 만들기 위해 Azure의 응용 프로그램 서비스 환경과 Azure SQL을 사용하기로 합니다. 개발 중에 가상 머신을 만들어야 할 수 있습니다.  Alice는 개발자에게 ETS 지원 없이 문제를 탐색 및 확인하는 데 필요한 리소스가 있는지 확인합니다.
 
 **개발 구독**을 위해 다음 정책을 만듭니다.
 
@@ -143,7 +143,7 @@ Dave와 Alice는 응용 프로그램에 대해 논의하고 이 응용 프로그
 
 | 필드 | 결과 | 설명 |
 | --- | --- | --- |
-| 위치 |deny |미국 데이터 센터 외부에서 리소스를 만드는 것을 모두 거부합니다. |
+| location |deny |미국 데이터 센터 외부에서 리소스를 만드는 것을 모두 거부합니다. |
 | tags |deny |응용 프로그램 소유자 태그 필요 |
 | tags |deny |부서 태그가 필요합니다. |
 | tags |추가 |프로덕션 환경을 나타내는 각 리소스 그룹에 태그를 추가합니다. |
@@ -164,13 +164,13 @@ Contoso ETS 정보 보안 및 위험 관리 팀은 응용 프로그램을 Azure�
 
 **개발 구독**을 위해 다음을 만듭니다.
 
-| 리소스 종류 | 이름 | 설명 |
+| 리소스 종류 | Name | 설명 |
 | --- | --- | --- |
 | Virtual Network |internal-vnet |Contoso 로열티 카드 개발 환경을 제공하고 ExpressRoute를 통해 Contoso의 회사 네트워크에 연결됩니다. |
 
 **프로덕션 구독**을 위해 다음을 만듭니다.
 
-| 리소스 종류 | 이름 | 설명 |
+| 리소스 종류 | Name | 설명 |
 | --- | --- | --- |
 | Virtual Network |external-vnet |로열티 카드 응용 프로그램을 호스트하고 Contoso의 ExpressRoute에 직접 연결되지 않습니다. 코드는 소스 코드 시스템을 통해 PaaS 서비스에 직접 푸시됩니다. |
 | 네트워크 보안 그룹 |loyaltycard-nsg |TCP 443에서 인바운드 통신만 허용하여 이 워크로드의 공격 취약성이 최소화되도록 합니다.  또한 Contoso는 웹 응용 프로그램 방화벽을 사용하여 추가 보호를 조사하고 있습니다. |

@@ -12,21 +12,21 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 7f78e54b16da024c233a7943e82fd50f41c5503a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d0956a4e7e6f9cd6a1b075efc2b87c27d3660233
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>Azure PowerShell을 사용하여 응용 프로그램 게이트웨이 만들기
 
 Azure PowerShell을 사용하여 명령줄 또는 스크립트에서 응용 프로그램 게이트웨이를 만들거나 관리할 수 있습니다. 이 빠른 시작에서는 네트워크 리소스, 백 엔드 서버 및 응용 프로그램 게이트웨이를 만드는 방법을 보여 줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -65,7 +65,7 @@ New-AzureRmPublicIpAddress `
 
 ### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
 
-[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 네트워크 인터페이스를 만듭니다. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)를 사용하여 가상 머신 구성을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. 사용자 이름으로 *azureuser*를 입력하고, 암호로 *Azure123456!*를 입력합니다. [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 머신을 만듭니다.
+[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 네트워크 인터페이스를 만듭니다. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)를 사용하여 가상 머신 구성을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. 사용자 이름으로 *azureuser*를 입력하고, 암호로 *Azure123456!*를 암호 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 머신을 만듭니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
@@ -210,5 +210,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그런 다음, 이러한 리소스를 사용하여 응용 프로그램 게이트웨이를 만들었습니다. 응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 사용법 문서를 참조하세요.
+이 빠른 시작에서는 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그런 다음, 이러한 리소스를 사용하여 응용 프로그램 게이트웨이를 만들었습니다. 응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 방법 문서를 참조하세요.
 

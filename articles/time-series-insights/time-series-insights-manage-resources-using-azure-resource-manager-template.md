@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Azure Time Series Insights 환경을 관리하는 방법 | Microsoft Docs"
-description: "이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 Azure Time Series Insights 환경을 관리하는 방법을 설명합니다."
+title: Azure Resource Manager 템플릿을 사용하여 Azure Time Series Insights 환경을 관리하는 방법 | Microsoft Docs
+description: 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 Azure Time Series Insights 환경을 관리하는 방법을 설명합니다.
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
@@ -153,7 +153,7 @@ GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://raw.gith
 PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Azure 계정에 로그온하라는 메시지가 표시됩니다. 로그온한 후 다음 명령을 실행하여 사용 가능한 구독을 확인합니다.
@@ -266,7 +266,8 @@ Outputs                 :
 
 GitHub에서 빠른 시작 템플릿의 홈페이지에는 **Azure에 배포** 단추도 포함됩니다. 이 단추를 클릭하면 Azure Portal에서 사용자 지정 배포 페이지를 엽니다. 이 페이지의 [필수 매개 변수](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) 또는 [선택적 매개 변수](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) 테이블에서 각 매개 변수에 대한 값을 입력하거나 선택할 수 있습니다. 설정을 입력한 후에 **구매** 단추를 클릭하면 템플릿 배포를 시작합니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>다음 단계

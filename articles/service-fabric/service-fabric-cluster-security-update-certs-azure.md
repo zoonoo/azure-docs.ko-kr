@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 65ade0f2526bf444c2205c74cce0e20be540998d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e2d9732dca7b0506a3307fc8aa1674d0d379c67f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
@@ -197,7 +197,7 @@ Resource Manager 템플릿 매개 변수 파일을 편집하고 secCertificateTh
 - Azure 계정에 로그인하고 특정 Azure 구독을 선택합니다. 이 단게는 둘 이상의 Azure 구독에 대해 액세스 권한이 있는 사용자들을 위한 중요한 단계입니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
 
 ```

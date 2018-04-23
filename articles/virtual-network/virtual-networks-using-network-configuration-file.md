@@ -1,11 +1,11 @@
 ---
-title: "Azure Virtual Network(클래식) 구성 - 네트워크 구성 파일 | Microsoft Docs"
-description: "네트워크 구성 파일을 내보내고, 변경하며, 가져와서 가상 네트워크(클래식)를 만들고 수정하는 방법을 알아봅니다."
+title: Azure Virtual Network(클래식) 구성 - 네트워크 구성 파일 | Microsoft Docs
+description: 네트워크 구성 파일을 내보내고, 변경하며, 가져와서 가상 네트워크(클래식)를 만들고 수정하는 방법을 알아봅니다.
 services: virtual-network
-documentationcenter: 
-author: jimdial
-manager: timlt
-editor: 
+documentationcenter: ''
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: c29b9059-22b0-444e-bbfe-3e35f83cde2f
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/23/2017
-ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: genli
+ms.custom: ''
+ms.openlocfilehash: 4349f6ef28ef8667802a81df1fee133ff3f56e51
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 가상 네트워크(클래식) 구성
 > [!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
-title: "Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화"
-description: "Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화"
+title: Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화
+description: Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화
 
@@ -211,7 +211,7 @@ Storage
 
 **리소스 관리**: VM, VNet 및 부하 분산 장치와 같은 Azure 리소스는 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource)으로 함께 그룹화하여 관리됩니다. 리소스 기반 액세스 제어 역할을 각 리소스 그룹에 할당하여 권한 있는 사용자에 대한 액세스만을 제한할 수 있습니다.
 
-**액세스 제어 제한**: RBAC([역할 기반 액세스 제어](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure))를 사용하여 [사용자 정의 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)을 사용하는 응용 프로그램의 리소스를 관리합니다. RBAC를 사용하여 DevOps가 각 계층에서 수행할 수 있는 작업을 제한할 수 있습니다. 사용 권한을 부여할 때 [최소 권한의 원칙](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)을 사용합니다. 모든 관리 작업을 기록하고 정기 감사를 수행하여 구성 변경을 계획했는지 확인합니다.
+**액세스 제어 제한**: RBAC([역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal))를 사용하여 [사용자 정의 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 사용하는 응용 프로그램의 리소스를 관리합니다. RBAC를 사용하여 DevOps가 각 계층에서 수행할 수 있는 작업을 제한할 수 있습니다. 사용 권한을 부여할 때 [최소 권한의 원칙](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)을 사용합니다. 모든 관리 작업을 기록하고 정기 감사를 수행하여 구성 변경을 계획했는지 확인합니다.
 
 **인터넷 액세스**: 이 참조 아키텍처는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 인터넷 연결 게이트웨이 및 부하 분산 장치로 활용합니다. 또한 일부 고객은 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 대신 네트워킹 보안의 추가 계층에 타사 네트워크 가상 어플라이언스를 사용할 수 있습니다.
 

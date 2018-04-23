@@ -1,24 +1,18 @@
 ---
-title: "Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드 | Microsoft Docs"
-description: "Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드"
-services: search
-documentationcenter: 
+title: Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드 | Microsoft Docs
+description: Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드
 author: brjohnstmsft
-manager: pablocas
-editor: 
-ms.assetid: 6183fa6c-48bb-4af7-adae-4be3bc43c3ed
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2e8d5dd7f54e3435d1d94f34a5d4556690bfba8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드
 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)의 2015-02-28 또는 2015-02-28-Preview 버전을 사용하는 경우 이 문서를 통해 일반적으로 다음 API 버전인 2016-09-01을 사용하기 위해 응용 프로그램을 업그레이드할 수 있습니다.
@@ -66,5 +60,5 @@ Azure Search 서비스 REST API 사용에 대한 자세한 정보가 필요한 �
 
 Azure Search에 대한 귀하의 피드백을 환영합니다. 문제가 발생하면 [Azure Search MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) 또는 [StackOverflow](http://stackoverflow.com/)를 통해 자유롭게 도움을 요청하세요. StackOverflow에서 Azure Search에 대한 질문이 있는 경우, `azure-search`를 사용하여 태그하세요.
 
-Azure 검색을 이용해 주셔서 감사합니다!
+Azure Search를 이용해 주셔서 감사합니다!
 

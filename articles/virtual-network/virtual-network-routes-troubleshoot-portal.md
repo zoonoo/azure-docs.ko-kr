@@ -1,11 +1,11 @@
 ---
-title: "경로 문제 해결 - 포털 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure Resource Manager 배포 모델에서 경로 문제를 해결하는 방법에 알아봅니다."
+title: 경로 문제 해결 - 포털 | Microsoft Docs
+description: Azure Portal을 사용하여 Azure Resource Manager 배포 모델에서 경로 문제를 해결하는 방법에 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 67da2eae5ea04962cd5adeff8edd070c1a3cf95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 문제 해결
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ VNet(*VNet1*, 접두사: 10.9.0.0/16)에 연결된 VM(*VM1*)이 새로 피어링
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>가상 머신에 대한 유효 경로 보기
 VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
-1. Azure Portal(https://portal.azure.com)에 로그인합니다. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
+1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
 2. **모든 서비스**를 클릭한 다음, 표시되는 목록에서 **가상 머신**을 클릭합니다.
 3. 표시되는 목록에서 문제를 해결할 VM을 선택합니다. 그러면 옵션을 포함하는 VM 블레이드가 나타납니다.
 4. **문제 진단 및 해결**을 클릭하고 일반적인 문제를 선택합니다. 이 예제에서는 **Windows VM에 연결할 수 없습니다.** 가 선택됩니다.
@@ -96,7 +96,7 @@ VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합�
 ### <a name="view-effective-routes-for-a-network-interface"></a>네트워크 인터페이스에 대한 유효 경로 보기
 특정 네트워크 인터페이스(NIC)에 대해 네트워크 트래픽 흐름이 영향을 받을 경우 NIC에 대한 유효 경로의 전체 목록을 직접 볼 수 있습니다. NIC에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
-1. Azure Portal(https://portal.azure.com)에 로그인합니다.
+1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 2. **모든 서비스**를 클릭한 다음, **네트워크 인터페이스**를 클릭합니다.
 3. 목록에서 NIC의 이름을 검색하거나 나타나는 목록에서 선택합니다. 이 예제에서는 **VM1-NIC1** 이 선택됩니다.
 4. 다음 그림과 같이 **네트워크 인터페이스** 블레이드에서 **유효 경로**를 선택합니다.
@@ -116,7 +116,7 @@ VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합�
 
 경로 테이블에 대한 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
-1. Azure Portal(https://portal.azure.com)에 로그인합니다.
+1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 2. **모든 서비스**를 클릭한 다음, **경로 테이블**을 클릭합니다.
 3. 목록에서 보려는 경로 테이블을 검색하고 선택합니다. 이 예제에서는 **UDRouteTable** 이 선택됩니다. 다음 그림과 같이 선택한 경로 테이블에 대한 블레이드가 나타납니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a4e19f232abce8701e6d2e12a876c55079b91a2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 다중 NIC가 있는 Linux 가상 머신 만들기
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 머신)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 빠른 명령을 제공합니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
@@ -163,7 +163,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-[Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)의 전체 예제를 읽어볼 수 있습니다.
+[Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/template-samples.md)의 전체 예제를 읽어볼 수 있습니다.
 
 Linux VM에 여러 NIC를 추가하는 경우 라우팅 규칙을 만들어야 합니다. 이러한 규칙을 통해 VM은 특정 NIC에 속하는 트래픽을 보내고 받을 수 있습니다. 그러지 않으면, 예를 들어 eth1에 속한 트래픽을 정의된 기본 경로에서 올바르게 처리할 수 없습니다. 이 라우팅 문제를 해결하려면 [여러 NIC에 대한 게스트 OS 구성](multiple-nics.md#configure-guest-os-for-multiple-nics)을 참조하세요.
 

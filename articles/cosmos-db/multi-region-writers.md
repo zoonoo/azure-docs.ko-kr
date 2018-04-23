@@ -3,7 +3,7 @@ title: Azure Cosmos DB를 사용하는 다중 마스터 데이터베이스 아�
 description: Azure Cosmos DB로 여러 지리적 지역에서 로컬 읽기 및 쓰기가 가능한 응용 프로그램 아키텍처를 디자인하는 방법을 알아봅니다.
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: SnehaGunda
 manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
-ms.author: arramac
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 941af42561afbdf91cb3529fd51971ee88fafdbc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5e8853d521173a9a8d3c925361e43ce469471918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 다중 마스터 전역 복제 데이터베이스 아키텍처
 Azure Cosmos DB는 턴키 [전역 복제](distribute-data-globally.md)를 지원하므로 워크로드 어디서나 여러 지역에 데이터를 분산할 수 있으며 액세스 대기 시간이 짧습니다. 이 모델은 한 지역에 기록기가 있고 다른 (읽기) 지역에 지리적으로 분산된 판독기가 있는 게시자/소비자 워크로드에 주로 사용됩니다. 

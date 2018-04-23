@@ -1,5 +1,21 @@
--- 제목: ‘자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인’: 이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다.
-services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 04/01/2018
+---
+title: '자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인'
+description: 이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다.
+services: postgresql
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
+editor: jasonwhowell
+ms.service: postgresql
+ms.custom: mvc
+ms.devlang: azure-cli
+ms.topic: tutorial
+ms.date: 04/01/2018
+ms.openlocfilehash: acba480631ba69a81da3029aadfb9cb51797549a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
@@ -27,31 +43,6 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>확장 추가
-다음 명령을 사용하여 업데이트된 Azure Database for PostgreSQL 관리 확장을 추가합니다.
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-올바른 확장 버전이 설치되어 있는지 확인합니다. 
-```azurecli-interactive
-az extension list
-```
-
-반환된 JSON에는 다음이 포함되어야 합니다. 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-0.0.5 버전이 반환되지 않으면 다음을 실행하여 확장을 업데이트합니다. 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기

@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: 01634be8c59433bc3f4b7283f7da38e8c248e80e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 69302a0291b267bd4d46ab9387d296673da17025
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: 기존 Node.js MongoDB 웹앱 마이그레이션 
 
@@ -45,13 +45,25 @@ Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-git bash와 같은 git 터미널 창을 열고 `cd`를 수행하여 작업 디렉터리로 이동합니다.  
+다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](http://meanjs.org/) 응용 프로그램이 들어 있습니다.
 
-다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](http://meanjs.org/) 응용 프로그램이 들어 있습니다. 
+1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
-```bash
-git clone https://github.com/prashanthmadi/mean
-```
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 새 폴더로 변경합니다.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다. 
+
+    ```bash
+    git clone https://github.com/prashanthmadi/mean
+    ```
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
 
@@ -232,10 +244,7 @@ git commit -m "configured MongoDB connection string"
 ```
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 앱을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
-
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
-2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

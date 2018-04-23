@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: cbb9a47b878471e6efd5f4e280f44c6c8fe78df4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2201fa48c84aec2c291d8df7e16293a41720ce3e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다.
@@ -35,7 +35,7 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 먼저 [최신 Azure PowerShell](/powershell/azure/overview)을 설치하고 구독에 로그인했는지 확인합니다.
 
 ```powershell
-Login-AzureRMAccount
+Connect-AzureRmAccount
 ```
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`이 포함됩니다.

@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: devtiw
+ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 및 Linux IaaS VM용 Azure 디스크 암호화
 Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하기 위해 노력하고 있으며 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 광범위한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있도록 합니다. 또한 Azure 고객에게 비즈니스 요구에 가장 잘 맞는 솔루션을 선택할 수 있는 유연성을 제공합니다. 이 문서에는 "Windows 및 Linux IaaS VM용 Azure 디스크 암호화"라는 새로운 기술 솔루션을 소개하여 조직의 보안 및 규정 준수 약정에 따라 데이터를 보호하도록 합니다. 이 문서에서는 지원되는 시나리오와 사용자 환경을 비롯하여 Azure 디스크 암호화 기능을 사용하는 방법에 대한 자세한 지침을 제공합니다.
@@ -720,7 +720,7 @@ Azure 관리 디스크 ARM 템플릿을 사용하여 암호화된 Linux IaaS VM 
 
 1. Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. 여러 구독이 있고 사용할 구독을 지정하려면 다음을 입력하여 계정에 대한 구독을 확인합니다.
 

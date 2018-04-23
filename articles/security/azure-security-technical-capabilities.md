@@ -1,12 +1,12 @@
 ---
-title: "Azure 보안 기술 기능 | Microsoft Docs"
-description: "응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다."
+title: Azure 보안 기술 기능 | Microsoft Docs
+description: 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 
@@ -166,7 +166,7 @@ Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 
 
 또한 구독은 디렉터리와 연결되어 있습니다. 디렉터리는 사용자 집합을 정의합니다. 사용자 집합은 디렉터리를 만든 회사 또는 학교 사용자이거나 외부 사용자(즉, Microsoft 계정)일 수 있습니다. 구독은 서비스 관리자(SA) 또는 CA(공동 관리자)로 할당된 해당 디렉터리 사용자의 하위 집합에서 액세스할 수 있습니다. 유일한 예외는 레거시의 이유로 Microsoft 계정(이전의 Windows Live ID)이 디렉터리에 없는 SA 또는 CA로 할당될 수 있다는 점입니다.
 
-보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. [Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.
+보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. [Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.
 
 ![보안 리소스 액세스 ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 

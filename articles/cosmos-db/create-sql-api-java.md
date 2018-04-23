@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5be05ebd201796707934eac665793dd2c1dc8f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 문서 데이터베이스 만들기
 
@@ -54,43 +54,11 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>샘플 데이터 추가
 
-이제 데이터 탐색기를 사용하여 새 컬렉션에 데이터를 추가할 수 있습니다.
-
-1. **항목** 컬렉션을 확장하고 **문서** > **새 문서**를 클릭합니다.
-
-   ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. 이제 다음과 같은 구조를 사용하여 컬렉션에 문서를 추가하고 **저장**을 클릭합니다. 코드 상자의 **복사** 단추를 사용하여 json을 클립보드에 복사합니다.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Azure Portal의 데이터 탐색기에서 Json 데이터를 복사하고 저장을 클릭합니다.](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  `id`를 2로 변경하는 하나 이상의 문서를 만들고 저장하며 다른 속성을 적합하게 변경합니다. Azure Cosmos DB가 데이터에 어떠한 스키마도 적용하지 않으므로 새 문서는 사용자가 원하는 어떠한 구조든 가질 수 있습니다.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>데이터 쿼리
 
-이제 데이터 탐색기에서 쿼리를 사용하여 데이터를 검색하고 필터링할 수 있습니다.
-
-1. 기본적으로 쿼리가 `SELECT * FROM c`로 설정되어 있는지 확인합니다. 이 기본 쿼리는 컬렉션에서 모든 문서를 검색하고 표시합니다. 
-
-    ![데이터 탐색기에서 기본 쿼리는 `SELECT * FROM c`입니다.](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. 계속해서 **문서** 탭에서 **필터 편집** 단추를 클릭하고, 쿼리 조건자 상자에 `ORDER BY c._ts DESC`를 추가하고, **필터 적용**을 클릭하여 쿼리를 변경합니다.
-
-    ![ORDER BY c._ts DESC를 추가하고 필터 적용을 클릭하여 기본 쿼리를 변경합니다.](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-이 수정된 쿼리는 해당 타임스탬프에 따라 내림차순으로 문서를 나열합니다. 따라서 이제 두 번째 문서가 첫 번째로 나열됩니다. SQL 구문에 익숙한 경우 이 상자에 지원되는 [SQL 쿼리](sql-api-sql-query.md)를 입력할 수 있습니다. 
-
-그러면 데이터 탐색기에서 작업을 완료합니다. 코드를 사용하는 작업으로 이동하기 전에 서버 쪽 비즈니스 논리를 수행하고 처리량을 확장할 수 있도록 데이터 탐색기를 사용하여 저장 프로시저, UDF 및 트리거를 만들 수도 있습니다. 데이터 탐색기는 API에서 사용할 수 있는 모든 기본 제공 프로그래밍 방식 데이터 액세스를 표시하지만 Azure Portal의 데이터에도 쉽게 액세스할 수 있습니다.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 

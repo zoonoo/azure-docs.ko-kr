@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps에 대한 워크플로 정의 언어 스키마
 
@@ -44,12 +44,12 @@ ms.lasthandoff: 04/06/2018
   
 |요소 이름|필수|설명|  
 |------------------|--------------|-----------------|  
-|$schema|아니요|정의 언어의 버전을 설명하는 JSON 스키마 파일의 위치를 지정합니다. 정의를 외부에서 참조할 때 이 위치가 필요합니다. 이 문서의 위치는 다음과 같습니다. <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
+|$schema|아니오|정의 언어의 버전을 설명하는 JSON 스키마 파일의 위치를 지정합니다. 정의를 외부에서 참조할 때 이 위치가 필요합니다. 이 문서의 위치는 다음과 같습니다. <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
 |contentVersion|아니오|정의 버전을 지정합니다. 정의를 사용하여 워크플로를 배포할 때 이 값을 사용하여 올바른 정의가 사용되는지 확인할 수 있습니다.|  
-|매개 변수|아니요|정의에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 최대 50개의 매개 변수를 정의할 수 있습니다.|  
+|매개 변수|아니오|정의에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 최대 50개의 매개 변수를 정의할 수 있습니다.|  
 |트리거|아니오|워크플로를 시작하는 트리거에 대한 정보를 지정합니다. 최대 10개의 트리거를 정의할 수 있습니다.|  
 |actions|아니요|흐름이 실행될 때 수행할 작업을 지정합니다. 최대 250개의 작업을 정의할 수 있습니다.|  
-|outputs|아니오|배포된 리소스에 대한 정보를 지정합니다. 최대 10개의 출력을 정의할 수 있습니다.|  
+|outputs|아니요|배포된 리소스에 대한 정보를 지정합니다. 최대 10개의 출력을 정의할 수 있습니다.|  
   
 ## <a name="parameters"></a>매개 변수
 
@@ -72,8 +72,8 @@ ms.lasthandoff: 04/06/2018
 |------------------|--------------|-----------------|  
 |형식|예|**형식**: string <p> **선언**: `"parameters": {"parameter1": {"type": "string"}}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: securestring <p> **선언**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: int <p> **선언**: `"parameters": {"parameter1": {"type": "int"}}` <p> **사양**: `"parameters": {"parameter1": {"value" : 5}}` <p> **형식**: bool <p> **선언**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **사양**: `"parameters": {"parameter1": { "value": true }}` <p> **형식**: array <p> **선언**: `"parameters": {"parameter1": {"type": "array"}}` <p> **사양**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **형식**: object <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **형식**: secureobject <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **참고:** `securestring` 및 `secureobject` 형식은 `GET` 작업에서 반환되지 않습니다. 모든 암호, 키 및 비밀은 이 형식을 사용해야 합니다.|  
 |defaultValue|아니오|리소스를 만들 때 값이 지정되지 않으면 매개 변수에 대한 기본값을 지정합니다.|  
-|allowedValues|아니오|매개 변수에 대해 허용된 값 배열을 지정합니다.|  
-|metadata|아니요|Visual Studio 또는 다른 도구에서 사용하는 읽을 수 있는 설명이나 디자인 시간 데이터와 같은 매개 변수에 대한 추가 정보를 지정합니다.|  
+|allowedValues|아니요|매개 변수에 대해 허용된 값 배열을 지정합니다.|  
+|metadata|아니오|Visual Studio 또는 다른 도구에서 사용하는 읽을 수 있는 설명이나 디자인 시간 데이터와 같은 매개 변수에 대한 추가 정보를 지정합니다.|  
   
 이 예제에서는 작업의 본문 섹션에 매개 변수를 사용하는 방법을 보여 줍니다.  
   
@@ -132,8 +132,8 @@ ms.lasthandoff: 04/06/2018
 |----------------|------------|  
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
-|"\@@\"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
-|\" \@\"|' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
+|"@@"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
+|\" \@\"|\'  \@ \'를 포함하는 2개 문자열이 반환됩니다.|  
   
 *문자열 보간*을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 

@@ -1,11 +1,11 @@
 ---
-title: "마이그레이션: 데이터 웨어하우스 마이그레이션 유틸리티 | Microsoft Docs"
-description: "SQL Data Warehouse로 마이그레이션합니다."
+title: '마이그레이션: 데이터 웨어하우스 마이그레이션 유틸리티 | Microsoft Docs'
+description: SQL Data Warehouse로 마이그레이션합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 4d7ad981-ef31-4513-b337-50bdc4709c09
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>데이터 웨어하우스 마이그레이션 유틸리티(미리 보기)
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 이 도구는 스키마 및 데이터 마이그레이션 외에도, 효율적인 마이그레이션을 방해하는 대상 및 소스 간 비호환성을 요약하는 호환성 보고서를 생성하는 옵션을 제공합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 설치를 위한 필수 요소로 마이그레이션 스크립트를 실행하기 위한 BCP 명령줄 유틸리티와 호환성 보고서를 보기 위한 Office가 필요합니다 다운로드한 실행 파일을 실행하면 도구를 설치하기 전에 표준 EULA에 동의하라는 메시지가 표시됩니다.
 
 또한 마이그레이션 유틸리티를 실행하려면 마이그레이션하려는 데이터베이스에서 CREATE DATABASE, ALTER ANY DATABASE 또는 VIEW ANY DEFINITION 권한 중 하나가 있어야 합니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 2479701174086ddf680e0ecb1da4a9d13b32b76e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -139,7 +139,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 1. Azure Portal에서 응용 프로그램에서 사용되는 Batch 계정으로 이동합니다.
 2. Batch 계정의 **설정** 블레이드에서 **Access Control(IAM)**을 선택합니다.
 3. **추가** 단추를 클릭합니다. 
-4. **역할** 드롭다운에서 응용 프로그램에 대한 _참가자_ 또는 _읽기 권한자_ 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.  
+4. **역할** 드롭다운에서 응용 프로그램에 대한 _참가자_ 또는 _읽기 권한자_ 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.  
 5. **선택** 필드에서 응용 프로그램의 이름을 입력합니다. 목록에서 응용 프로그램을 선택하고 **저장**을 클릭합니다.
 
 이제 액세스 제어 설정에서 RBAC 역할이 할당된 응용 프로그램이 표시됩니다. 

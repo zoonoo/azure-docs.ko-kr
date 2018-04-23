@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -72,7 +72,7 @@ Azure RBAC 역할의 경우 구독 관리자, 리소스 소유자 또는 리소�
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management 개요(진입점)
 
-Azure AD Privileged Identity Management는 Azure AD 디렉터리 역할 및 Azure Resources(미리 보기)에 대한 역할을 관리할 수 있도록 지원합니다. Azure 리소스에 대한 역할 기능은 Azure AD의 관리 역할과 다릅니다. Azure 리소스 역할은 할당된 리소스 및 리소스 계층 구조의 모든 하위 리소스(상속이라고도 함)에 대한 세부적인 권한을 제공합니다. [RBAC, 리소스 계층 구조 및 상속에 대해 자세히 알아보세요](role-based-access-control-configure.md). Azure AD 디렉터리 역할과 Azure Resources(미리 보기)에 대한 PIM은 모두 [PIM 개요] 진입점 왼쪽 탐색 메뉴의 [관리] 섹션 아래에 있는 해당 링크에 액세스하여 관리할 수 있습니다.
+Azure AD Privileged Identity Management는 Azure AD 디렉터리 역할 및 Azure Resources(미리 보기)에 대한 역할을 관리할 수 있도록 지원합니다. Azure 리소스에 대한 역할 기능은 Azure AD의 관리 역할과 다릅니다. Azure 리소스 역할은 할당된 리소스 및 리소스 계층 구조의 모든 하위 리소스(상속이라고도 함)에 대한 세부적인 권한을 제공합니다. [RBAC, 리소스 계층 구조 및 상속에 대해 자세히 알아보세요](../role-based-access-control/role-assignments-portal.md). Azure AD 디렉터리 역할과 Azure Resources(미리 보기)에 대한 PIM은 모두 [PIM 개요] 진입점 왼쪽 탐색 메뉴의 [관리] 섹션 아래에 있는 해당 링크에 액세스하여 관리할 수 있습니다.
 
 PIM은 왼쪽 탐색 메뉴의 [작업] 섹션에서 역할을 활성화하고 보류 중인 활성화/요청 및 Azure AD 디렉터리 역할에 대해 보류 중인 승인을 보는 데 편리한 액세스를 제공하고, 보류 중인 응답을 검토합니다.
 

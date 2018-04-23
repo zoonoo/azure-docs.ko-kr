@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: e0c32510ee49b95bc3606ea1efff7e2a6f72799b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -157,7 +157,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 Azure PowerShell이 설치되어 있는지 확인합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 ```PowerShell-interactive
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 

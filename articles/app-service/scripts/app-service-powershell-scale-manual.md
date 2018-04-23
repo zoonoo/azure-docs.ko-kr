@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - 수동으로 웹앱 크기 조정 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - 수동으로 웹앱 크기 조정"
+title: Azure PowerShell 스크립트 샘플 - 수동으로 웹앱 크기 조정 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 수동으로 웹앱 크기 조정
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.service: app-service
@@ -16,17 +16,17 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e99dfc02b6ab4123cd5f95997285dca5cb686380
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f46a7be718070b0a823dde75e3335e9454ba44b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="scale-a-web-app-manually"></a>수동으로 웹앱 크기 조정
 
 이 시나리오에서는 리소스 그룹, App Service 계획 및 웹앱을 만드는 방법을 알아봅니다. 그런 다음 단일 인스턴스에서 여러 인스턴스로 App Service 계획의 크기를 조정합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`을 실행하여 Azure와 연결합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -44,7 +44,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service 계획을 만듭니다. |

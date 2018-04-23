@@ -1,12 +1,12 @@
 ---
-title: "Azure Storage에서 보안 전송 필요 | Microsoft Docs"
-description: "Azure Storage에 대한 \"보안 전송 필요\" 기능과 이 기능을 사용하도록 설정하는 방법에 대해 알아봅니다."
+title: Azure Storage에서 보안 전송 필요 | Microsoft Docs
+description: Azure Storage에 대한 "보안 전송 필요" 기능과 이 기능을 사용하도록 설정하는 방법에 대해 알아봅니다.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 
@@ -66,7 +66,7 @@ Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정�
 
 이 샘플에는 Azure PowerShell 모듈 버전 4.1 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
-`Login-AzureRmAccount`를 실행하여 Azure와 연결합니다.
+`Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.
 
  다음 명령줄을 사용하여 설정을 확인합니다.
 

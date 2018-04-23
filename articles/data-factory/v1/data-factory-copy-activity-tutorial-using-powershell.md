@@ -1,11 +1,11 @@
 ---
-title: "자습서: Azure PowerShell을 사용하여 데이터를 이동하는 파이프라인 만들기 | Microsoft Docs"
-description: "이 자습서에서는 Azure PowerShell을 사용하여 복사 작업을 사용하는 Azure Data Factory 파이프라인을 만듭니다."
+title: '자습서: Azure PowerShell을 사용하여 데이터를 이동하는 파이프라인 만들기 | Microsoft Docs'
+description: 이 자습서에서는 Azure PowerShell을 사용하여 복사 작업을 사용하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dc9476e6a9ee4f4832862ad45dc5a9fbae6ccce6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 09698f06ebbc39d9913c0cbd43ad29c1f0dae9c8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 데이터를 이동하는 Data Factory 파이프라인 만들기
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -80,7 +80,7 @@ ms.lasthandoff: 03/02/2018
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```   
    
     다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.

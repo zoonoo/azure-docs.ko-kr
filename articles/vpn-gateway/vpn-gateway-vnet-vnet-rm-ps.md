@@ -1,11 +1,11 @@
 ---
-title: "VNet-VNet 연결을 사용하여 Azure 가상 네트워크를 다른 VNet에 연결: PowerShell | Microsoft Docs"
-description: "VNet-VNet 연결 및 PowerShell을 사용하여 가상 네트워크를 서로 연결합니다."
+title: 'VNet-VNet 연결을 사용하여 Azure 가상 네트워크를 다른 VNet에 연결: PowerShell | Microsoft Docs'
+description: VNet-VNet 연결 및 PowerShell을 사용하여 가상 네트워크를 서로 연결합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8f2ecf4f10c5506b79adb033c67c41a4b1e17777
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a96326e23a2ed913ccab8a23666a4f408157d3da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 이 문서의 단계는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -153,7 +153,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 2. 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   계정에 대한 구독을 확인합니다.
@@ -349,7 +349,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
 2. 구독 5에 연결. PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 샘플을 사용합니다.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   계정에 대한 구독을 확인합니다.

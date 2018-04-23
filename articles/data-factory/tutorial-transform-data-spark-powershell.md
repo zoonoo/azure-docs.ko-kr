@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: f01580dce4c7fda2f3d254a7c34399044a97317b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 861fe113ef9edd4417580821ef42fc913a4cb961
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Spark 작업 및 주문형 HDInsight 연결된 서비스를 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -207,7 +207,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 

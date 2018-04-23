@@ -1,11 +1,11 @@
 ---
-title: "역할을 사용하여 Azure 청구에 대한 액세스 관리 | Microsoft Docs"
-description: 
-services: 
-documentationcenter: 
+title: 역할을 사용하여 Azure 청구에 대한 액세스 관리 | Microsoft Docs
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure의 요금 청구 정보에 대한 액세스 관리
 
-구독에는 사용자 역할, 즉 계정 관리자, 서비스 관리자, 공동 관리자, 소유자, 참가자, 읽기 권한자 및 청구 읽기 권한자 중 하나를 할당하여 팀의 구성원에게 Azure 청구 정보에 대한 액세스 권한을 부여할 수 있습니다. 이러한 사용자는 [Azure Portal](https://portal.azure.com/)에서 청구 정보에 액세스할 수 있게 되며 [청구 API](billing-usage-rate-card-overview.md)를 사용하여 청구서 및 사용량 정보를 프로그래밍 방식으로 가져올 수 있습니다(옵트인한 경우). 역할을 부여할 수 있는 사람, 역할로 수행할 수 있는 작업에 대한 자세한 내용은 [Azure RBAC의 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+구독에는 사용자 역할, 즉 계정 관리자, 서비스 관리자, 공동 관리자, 소유자, 참가자, 읽기 권한자 및 청구 읽기 권한자 중 하나를 할당하여 팀의 구성원에게 Azure 청구 정보에 대한 액세스 권한을 부여할 수 있습니다. 이러한 사용자는 [Azure Portal](https://portal.azure.com/)에서 청구 정보에 액세스할 수 있게 되며 [청구 API](billing-usage-rate-card-overview.md)를 사용하여 청구서 및 사용량 정보를 프로그래밍 방식으로 가져올 수 있습니다(옵트인한 경우). 역할을 부여할 수 있는 사람, 역할로 수행할 수 있는 작업에 대한 자세한 내용은 [Azure RBAC의 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 ## <a name="opt-in"></a> 추가 사용자가 청구서에 액세스할 수 있도록 허용
 
@@ -76,6 +76,6 @@ ms.lasthandoff: 10/11/2017
 
 계정 관리자만 Azure 센터에 로그인할 수 있습니다. 계정 관리자는 구독의 법적 소유자입니다. 다른 사람에게 [구독 소유권이 양도](billing-subscription-transfer.md)되지 않은 한, 기본적으로 Azure 구독에 등록했거나 구입한 사람이 계정 관리자입니다. 계정 관리자는 구독을 만들고, 구독을 취소하고, 구독에 대한 청구 주소를 변경하고, 구독에 대한 액세스 정책을 관리할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

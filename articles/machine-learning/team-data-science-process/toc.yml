@@ -51,10 +51,10 @@
         - name: 감정 분류
           href: predict-twitter-sentiment.md
         - name: US 수입 분류
-          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: 생명 공학 엔터티 인식
-          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
     - name: PySpark 및 Scala를 사용하는 Spark
       href: walkthroughs-spark.md
@@ -82,7 +82,7 @@
 - name: 방법
   items:
     - name: Azure ML에서 TDSP 사용
-      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
       maintainContext: true
     - name: 데이터 과학 환경 설정
       href: environment-setup.md
@@ -246,7 +246,7 @@
               items:
                 - name: 개요
                   href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: 건축
+                - name: 아키텍처
                   href: cortana-analytics-architecture-predictive-maintenance.md
                 - name: 기술 가이드
                   href: cortana-analytics-technical-guide-predictive-maintenance.md

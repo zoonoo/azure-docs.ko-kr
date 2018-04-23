@@ -1,8 +1,8 @@
 ---
-title: "PowerShell에서 Mahout HDInsight를 사용하여 추천 생성 - Azure | Microsoft Docs"
-description: "Apache Mahout Machine Learning 라이브러리를 사용하여 클라이언트에서 실행 중인 PowerShell에서 HDInsight(Hadoop)로 영화 추천을 생성하는 방법을 알아봅니다."
+title: PowerShell에서 Mahout HDInsight를 사용하여 추천 생성 - Azure | Microsoft Docs
+description: Apache Mahout Machine Learning 라이브러리를 사용하여 클라이언트에서 실행 중인 PowerShell에서 HDInsight(Hadoop)로 영화 추천을 생성하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: a2477b0a7c9c76f8ce4a183f4d699ddf4c291023
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 0c35d1affe2499d44cb1810ae51f2fe6f06bc90f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>HDInsight(PowerShell)의 Hadoop 및 Apache Mahout을 사용하여 영화 추천 생성
 
@@ -150,7 +148,7 @@ Mahout 작업을 실행할 때 오류를 방지하려면 실행 사이에 임시
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 # Get cluster info

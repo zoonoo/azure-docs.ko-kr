@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 대한 VNet 구성
 
@@ -92,7 +92,7 @@ Azure 가상 네트워크를 만드는 작업은 관리되는 인스턴스를 �
 
 ## <a name="create-the-required-route-table-and-associate-it"></a>필수 경로 테이블 만들기 및 연결
 
-1. Azure Portal에 로그인합니다.  
+1. Azure Portal에 로그인  
 2. 찾은 다음, **경로 테이블**을 클릭하고, 경로 테이블 페이지에서 **만들기**를 클릭합니다.
 
    ![경로 테이블 만들기 양식](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
@@ -145,5 +145,5 @@ VNet을 만들면 관리되는 인스턴스를 만들 준비가 되었습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - 개요는 [관리되는 인스턴스란?](sql-database-managed-instance.md)을 참조하세요.
-- VNet을 만들고, 관리되는 인스턴스를 만들고, 데이터베이스 백업에서 데이터베이스를 복원하는 방법을 보여주는 자습서는 [Azure SQL Database 관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
+- VNet을 만들고, 관리되는 인스턴스를 만들고, 데이터베이스 백업에서 데이터베이스를 복원하는 방법을 보여주는 자습서는 [Azure SQL Database 관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 - DNS 문제는 [사용자 지정 DNS 구성](sql-database-managed-instance-custom-dns.md)을 참조하세요.

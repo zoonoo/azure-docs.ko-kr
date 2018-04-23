@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA 서버로 PhoneFactor 업그레이드 | Microsoft Docs"
-description: "이전 phonefactor agent에서 업그레이드하는 경우 Azure MFA 서버로 시작합니다."
+title: Azure MFA 서버로 PhoneFactor 업그레이드 | Microsoft Docs
+description: 이전 phonefactor agent에서 업그레이드하는 경우 Azure MFA 서버로 시작합니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: joflore
 ms.openlocfilehash: a3451adfe19d547812b1450a9028a48a5fe2d727
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
 PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication 서버로 업그레이드하려면 PhoneFactor Agent 및 연결된 구성 요소를 먼저 삭제합니다. 그런 다음 Multi-Factor Authentication 서버 및 연결된 구성 요소를 설치할 수 있습니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Azure에서 거버넌스
 
@@ -147,7 +147,7 @@ Azure가 처음으로 릴리스되었을 때 구독에 대한 액세스 제어�
 
 이제 더 이상 구독 수를 늘리지 않아도 됩니다. 역할 기반 액세스 제어를 통해 사용자에게 표준 역할(예: 일반적인 "읽기" 및 "쓰기" 유형 역할). 사용자 지정 역할을 정의할 수도 있습니다.
 
-[Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출되고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure 역할 기반 Access Control(RBAC)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
+[Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출되고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure 역할 기반 Access Control(RBAC)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
 예를 들어 RBAC를 사용하여 한 명의 직원은 구독의 가상 머신을 관리하도록 하고, 다른 직원은 동일한 구독 내에서 SQL 데이터베이스를 관리하도록 할 수 있습니다.
 
@@ -161,7 +161,7 @@ Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할�
 
 Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 Virtual Machine 참여자 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 가상 머신이 연결된 가상 네트워크 또는 서브넷에 액세스할 권한을 부여하지 않습니다.
 
-[RBAC 기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다.
+[RBAC 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다.
 
 특정 범위에서 사용자, 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 액세스 권한을 부여합니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다. 부모 범위에서 할당된 역할은 역할 내에 포함된 하위 항목에 대한 액세스를 부여합니다.
 
@@ -169,9 +169,9 @@ Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합�
 
 Azure RBAC는 Azure 포털 및 Azure Resource Manager API에서 Azure 리소스의 관리 작업만을 지원합니다. Azure 리소스의 모든 데이터 수준 작업에 대한 권한을 부여할 수 있는 것은 아닙니다. 예를 들어 Storage 계정 관리 권한을 부여할 수 있지만 Storage 계정 내의 blob 또는 테이블에 대한 관리 권한은 부여할 수 없습니다. 마찬가지로 SQL 데이터베이스를 관리할 수 있지만 그 안의 테이블은 관리할 수 없습니다.
 
-RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 정보를 원하는 경우 [역할 기반 Access Control란](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)을 참조하세요.
+RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 정보를 원하는 경우 [역할 기반 Access Control란](https://docs.microsoft.com/azure/role-based-access-control/overview)을 참조하세요.
 
-또한 특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 Access Control(RBAC)에서 [사용자 지정 역할을 만들 수 있습니다](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) 및 [REST API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다.
+또한 특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 Access Control(RBAC)에서 [사용자 지정 역할을 만들 수 있습니다](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 및 [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다.
 
 각 구독 내에서 최대 2000개의 역할 할당을 부여할 수 있습니다.
 
@@ -271,7 +271,7 @@ Resource Manager 잠금은 <https://management.azure.com>에 전송된 작업으
 
 또 다른 예로 App Service 리소스에 ReadOnly 잠금을 설정하면 해당 상호 작용이 쓰기 권한을 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
 
-역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)을 참조하세요.
+역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 참조하세요.
 
 부모 범위에서 잠금을 적용하면 해당 범위 내 모든 리소스가 동일한 잠금을 상속합니다. 나중에 추가하는 리소스도 부모의 잠금을 상속합니다. 상속의 가장 제한적인 잠금이 우선 적용됩니다.
 

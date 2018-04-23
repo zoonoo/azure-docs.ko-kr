@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
-ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -61,15 +61,19 @@ ms.lasthandoff: 04/06/2018
 
 예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다.  이 웹후크가 호출하는 서비스는 이 매개 변수를 예상합니다.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 이 예제 페이로드는 웹후크에 보낼 때 다음과 같은 내용으로 확인될 수 있습니다.
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 사용자 지정 페이로드에 검색 결과를 포함하려면 **IncudeSearchResults**가 json 페이로드에 최상위 속성으로 설정되어 있는지 확인합니다. 
 
@@ -85,7 +89,8 @@ ms.lasthandoff: 04/06/2018
 #### <a name="log-alert-for-azure-log-analytics"></a>Azure Log Analytics에 대한 로그 경고
 다음은 Log Analytics 기반 경고에 사용할 경우 *사용자 지정 JSON 옵션이 없는* 표준 웹후크 작업의 샘플 페이로드입니다.
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ ms.lasthandoff: 04/06/2018
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ ms.lasthandoff: 04/06/2018
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ ms.lasthandoff: 04/06/2018
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights에 대한 로그 경고
 다음은 Application Insights 기반 로그 경고에 사용할 경우 *사용자 지정 JSON 옵션이 없는* 표준 웹후크의 샘플 페이로드입니다.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ ms.lasthandoff: 04/06/2018
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ ms.lasthandoff: 04/06/2018
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,10 +156,11 @@ ms.lasthandoff: 04/06/2018
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > Application Insights에 대한 로그 경고는 현재 공개 미리 보기로 제공되며 기능 및 사용자 환경은 변경될 수 있습니다.
@@ -163,14 +168,16 @@ ms.lasthandoff: 04/06/2018
 #### <a name="log-alert-with-custom-json-payload"></a>사용자 지정 JSON 페이로드가 있는 로그 경고
 예를 들어 경고 이름과 검색 결과만 포함하는 사용자 지정 페이로드를 만들려면 다음을 사용할 수 있습니다. 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 다음은 로그 경고에 대한 사용자 지정 웹후크 작업의 샘플 페이로드입니다.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -180,7 +187,7 @@ ms.lasthandoff: 04/06/2018
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -191,8 +198,7 @@ ms.lasthandoff: 04/06/2018
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>다음 단계

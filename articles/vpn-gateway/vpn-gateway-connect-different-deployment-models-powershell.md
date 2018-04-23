@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: PowerShell | Microsoft Docs"
-description: "VPN Gateway 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만듭니다."
+title: 'Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: PowerShell | Microsoft Docs'
+description: VPN Gateway 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만듭니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65faf1a4f78244d9fdd03b6415bf2cadac923504
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -176,7 +176,7 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
 1. PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정이 다운로드됩니다.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ``` 
    
   Azure 구독 목록을 가져옵니다.

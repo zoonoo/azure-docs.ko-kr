@@ -1,8 +1,8 @@
 ---
-title: "Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그 | Microsoft Docs"
-description: "YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 Azure HDInsight의 Spark 클러스터에서 실행 중인 작업을 추적하고 디버깅합니다."
+title: Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그 | Microsoft Docs
+description: YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 Azure HDInsight의 Spark 클러스터에서 실행 중인 작업을 추적하고 디버깅합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 59af05a7-2bd9-44b0-b55f-2438d294198b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 5606df8770cf611d7d278800c9871bee17c5b895
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ddf8cd38b4d62dc206a9f27e0620f8c7b232ec3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
@@ -111,10 +109,8 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 
 ### <a name="for-data-analysts"></a>데이터 분석가
 
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight에서 Spark를 사용하는 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)
 * [분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용](apache-spark-deep-learning-caffe.md)

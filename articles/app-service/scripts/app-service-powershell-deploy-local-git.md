@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6846d9d25fb4b6b884e39676f8dbaa6c2899436b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a295d346d589af2beea190921a1cf64596781d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>웹앱 만들기 및 로컬 Git 리포지토리의 코드 배포
 
 이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 로컬 Git 리포지토리에서 웹앱 코드를 배포합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 최신 Azure PowerShell을 업데이트한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다. 또한 응용 프로그램 코드는 로컬 Git 리포지토리로 커밋될 수 있어야 합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 최신 Azure PowerShell을 업데이트한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다. 또한 응용 프로그램 코드는 로컬 Git 리포지토리로 커밋될 수 있어야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

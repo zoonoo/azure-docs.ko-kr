@@ -1,26 +1,24 @@
 ---
-title: "Azure HDInsight에서 비대화형 인증 .NET 응용 프로그램 만들기 | Microsoft Docs"
-description: "Azure HDInsight에서 비대화형 인증 .NET HDInsight 응용 프로그램을 만드는 방법을 알아봅니다."
+title: Azure HDInsight에서 비대화형 인증 .NET 응용 프로그램 만들기 | Microsoft Docs
+description: Azure HDInsight에서 비대화형 인증 .NET HDInsight 응용 프로그램을 만드는 방법을 알아봅니다.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 응용 프로그램 만들기
 Microsoft .NET Azure HDInsight 응용 프로그램은 응용 프로그램 자체의 ID(비대화형) 또는 응용 프로그램에 로그인한 사용자의 ID(대화형)로 실행할 수 있습니다. 이 문서에서는 비대화형 인증 .NET 응용 프로그램을 만들어 Azure에 연결하고 HDInsight를 관리하는 방법을 보여 줍니다. 대화형 응용 프로그램의 샘플은 [Azure HDInsight에 연결](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)을 참조하세요. 
@@ -35,7 +33,7 @@ Microsoft .NET Azure HDInsight 응용 프로그램은 응용 프로그램 자체
 * HDInsight 클러스터. [시작 자습서](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) 참조
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Azure AD 응용 프로그램에 역할 할당
-Azure AD 응용 프로그램에 [역할](../active-directory/role-based-access-built-in-roles.md)을 할당하여 작업을 수행할 권한을 부여합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대한 읽기 권한자 역할에 응용 프로그램을 추가하면 응용 프로그램에서 리소스 그룹과 포함된 모든 리소스를 읽을 수 있습니다. 이 자습서에서는 리소스 그룹 수준의 범위를 설정합니다. 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+Azure AD 응용 프로그램에 [역할](../role-based-access-control/built-in-roles.md)을 할당하여 작업을 수행할 권한을 부여합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대한 읽기 권한자 역할에 응용 프로그램을 추가하면 응용 프로그램에서 리소스 그룹과 포함된 모든 리소스를 읽을 수 있습니다. 이 자습서에서는 리소스 그룹 수준의 범위를 설정합니다. 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 **Azure AD 응용 프로그램에 소유자 역할을 추가하려면**
 
@@ -127,4 +125,4 @@ Azure AD 응용 프로그램에 [역할](../active-directory/role-based-access-b
 ## <a name="next-steps"></a>다음 단계
 * [Azure Portal에서 Azure Active Directory 응용 프로그램 및 서비스 주체를 만듭니다](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * [Azure Resource Manager를 사용하여 서비스 주체를 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)하는 방법을 알아봅니다.
-* [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)에 대해 알아봅니다.
+* [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)에 대해 알아봅니다.

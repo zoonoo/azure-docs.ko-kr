@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -71,7 +69,7 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
    
    ![클러스터 이름을 확장하여 리소스 표시](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>클러스터 연결
+<h2 id="linkcluster">클러스터 연결</h2>
 Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
 1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse 성능 계층 | Microsoft Docs"
-description: "Azure SQL Data Warehouse에서 사용할 수 있는 탄력성 및 계산에 최적화됨 성능 계층을 소개합니다."
+title: Azure SQL Data Warehouse 성능 계층 | Microsoft Docs
+description: Azure SQL Data Warehouse에서 사용할 수 있는 탄력성 및 계산에 최적화됨 성능 계층을 소개합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL Data Warehouse 성능 계층(미리 보기)
 SQL Data Warehouse는 분석 워크로드에 최적화된 두 개의 성능 계층을 제공합니다. 이 문서에서는 워크로드에 가장 적합한 성능 계층을 선택하는 데 도움이 되도록 성능 계층의 개념에 대해 설명합니다. 

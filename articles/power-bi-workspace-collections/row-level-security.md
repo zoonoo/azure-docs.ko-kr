@@ -1,12 +1,12 @@
 ---
-title: "Power BI 작업 영역 컬렉션으로 행 수준 보안"
-description: "Power BI 작업 영역 컬렉션으로 행 수준 보안에 대한 세부 정보"
+title: Power BI 작업 영역 컬렉션으로 행 수준 보안
+description: Power BI 작업 영역 컬렉션으로 행 수준 보안에 대한 세부 정보
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 8c3ce8bc69a098d3133f27a2604f9d564693ea54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 행 수준 보안
 
@@ -38,7 +38,7 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 
 **규칙** – 역할에는 규칙이 있고 해당 규칙은 데이터에 적용할 실제 필터입니다. "Country = USA"처럼 간단하거나 훨씬 동적일 수 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 

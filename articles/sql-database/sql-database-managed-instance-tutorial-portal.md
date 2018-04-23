@@ -12,10 +12,10 @@ ms.date: 03/14/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 관리되는 인스턴스 만들기
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/16/2018
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 > [!IMPORTANT]
-> 현재 관리되는 인스턴스를 사용할 수 있는 지역 목록은 [Azure SQL Database 관리되는 인스턴스를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조합니다.
+> 관리되는 인스턴스를 현재 사용할 수 있는 지역 목록은 [Azure SQL Database 관리되는 인스턴스를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조하세요.
  
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

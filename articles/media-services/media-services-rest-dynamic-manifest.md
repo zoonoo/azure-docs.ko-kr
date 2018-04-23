@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Services REST API로 필터 생성 | Microsoft Docs"
-description: "이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 Media Services가 동적 매니페스트를 생성하여 이루어집니다."
+title: Azure Media Services REST API로 필터 생성 | Microsoft Docs
+description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 Media Services가 동적 매니페스트를 생성하여 이루어집니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 98df3b6592ed865fc0eb4b942d298b26e930365f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ce234d23c30f08f2c98c855b148bc98e90d118cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure Media Services REST API로 필터 생성
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
@@ -115,7 +115,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
@@ -165,7 +165,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     Host: media.windows.net 
 
@@ -176,7 +176,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -188,7 +188,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000
 
@@ -210,7 +210,7 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -250,7 +250,7 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -288,7 +288,7 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN>  
     x-ms-version: 2.17 
     Host: media.windows.net 
 
@@ -302,7 +302,7 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     Host: media.windows.net 
 

@@ -1,26 +1,23 @@
 ---
-title: "딥 다이브 분석 - 고급 분석 - Azure HDInsight | Microsoft Docs"
-description: "고급 분석에서 알고리즘을 사용하여 빅 데이터를 처리하는 방법을 알아봅니다."
+title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight | Microsoft Docs
+description: 고급 분석에서 알고리즘을 사용하여 빅 데이터를 처리하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 61a00c902be5cd3e37dabba09c15f9226e5e88b4
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -132,10 +129,8 @@ Hive 및 Azure Machine Learning
 Spark 및 MLLib
 
 * [HDInsight에서 Spark를 사용하는 기계 학습](../../machine-learning/team-data-science-process/spark-overview.md)
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 딥 러닝, Cognitive Toolkit 등
 

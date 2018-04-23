@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 계층 암호 보안 | Microsoft Docs"
-description: "Azure AD가 강력한 암호를 적용하고 사이버 범죄자로부터 사용자 암호를 보호하는 방법을 설명합니다."
+title: Azure AD 계층 암호 보안 | Microsoft Docs
+description: Azure AD가 강력한 암호를 적용하고 사이버 범죄자로부터 사용자 암호를 보호하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 암호 보호에 대한 다중 계층 접근 방법
 
@@ -84,4 +84,4 @@ Azure Active Directory의 암호 재설정에 대한 자세한 내용은 [IT 전
 
 * [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md)
 * [Azure ID 관리의 기본 항목](fundamentals-identity.md)
-* [암호 재설정 활동에 대한 보고서](active-directory-passwords-reporting.md)
+* [암호 재설정 활동에 대한 보고서](authentication/howto-sspr-reporting.md)

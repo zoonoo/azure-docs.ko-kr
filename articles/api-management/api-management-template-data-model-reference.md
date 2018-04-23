@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 템플릿 데이터 모델 참조 | Microsoft Docs"
-description: "Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현에 대해 알아봅니다."
+title: Azure API Management 템플릿 데이터 모델 참조 | Microsoft Docs
+description: Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
 이 항목에서는 Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현을 설명합니다.  
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="API"></a> API  
  `API` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |id|string|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 API를 고유하게 식별합니다. 값은 `{id}`가 API 식별자인 `apis/{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |이름|string|API 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="APISummary"></a> API 요약  
  `API summary` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |id|string|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 API를 고유하게 식별합니다. 값은 `{id}`가 API 식별자인 `apis/{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |이름|string|API 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Application"></a> 응용 프로그램  
  `application` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Id|string|응용 프로그램의 고유 식별자입니다.|  
 |제목|string|응용 프로그램의 제목입니다.|  
@@ -94,16 +94,16 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Attachment"></a> 첨부 파일  
  `attachment` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |UniqueId|string|첨부 파일의 고유한 식별자입니다.|  
 |Url|string|리소스의 URL입니다.|  
-|형식|string|첨부 파일의 형식입니다.|  
+|type|string|첨부 파일의 형식입니다.|  
 |ContentType|string|첨부 파일의 미디어 형식입니다.|  
   
 ##  <a name="Sample"></a> 코드 샘플  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |title|string|작업의 이름입니다.|  
 |snippet|string|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Comment"></a> 주석  
  `API` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Id|number|주석의 ID입니다.|  
 |CommentText|string|주석의 본문입니다. HTML을 포함할 수 있습니다.|  
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Issue"></a> 문제  
  `issue` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Id|string|문제의 고유한 식별자입니다.|  
 |ApiID|string|이 문제가 보고된 API에 대한 ID입니다.|  
@@ -147,7 +147,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Filtering"></a> 필터링  
  `filtering` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |패턴|string|검색 용어가 없는 경우 현재 검색 용어 또는 `null`입니다.|  
 |Placeholder|string|지정된 검색 용어가 없는 경우 검색 상자에 표시할 텍스트입니다.|  
@@ -155,7 +155,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Header"></a> 헤더  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
-|자산|설명|형식|  
+|자산|설명|type|  
 |--------------|-----------------|----------|  
 |이름|string|매개 변수 이름입니다.|  
 |description|string|매개 변수 설명입니다.|  
@@ -168,7 +168,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="HTTPRequest"></a> HTTP 요청  
  이 섹션에서는 `request` 표현을 설명합니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |description|string|작업 요청 설명입니다.|  
 |헤더|[헤더](#Header) 엔터티의 배열입니다.|요청 헤더입니다.|  
@@ -178,7 +178,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="HTTPResponse"></a> HTTP 응답  
  이 섹션에서는 `response` 표현을 설명합니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |statusCode|양의 정수|작업 응답 상태 코드입니다.|  
 |description|string|작업 응답 설명입니다.|  
@@ -187,7 +187,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Operation"></a> 작업  
  `operation` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |id|string|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 작업을 고유하게 식별합니다. 값은 `{aid}`가 API 식별자이고 `{id}`가 작업 식별자인 `apis/{aid}/operations/{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |이름|string|작업의 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
@@ -202,7 +202,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Menu"></a> 작업 메뉴  
  `operation menu` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |ApiId|string|현재 API의 ID입니다.|  
 |CurrentOperationId|string|현재 작업의 ID입니다.|  
@@ -212,7 +212,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="MenuItem"></a> 작업 메뉴 항목  
  `operation menu item` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Id|string|작업의 ID입니다.|  
 |제목|string|작업에 대한 설명입니다.|  
@@ -221,7 +221,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Paging"></a> 페이징  
  `paging` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Page|number|현재 페이지 번호입니다.|  
 |PageSize|number|단일 페이지에 표시될 최대 결과입니다.|  
@@ -232,7 +232,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Parameter"></a> 매개 변수  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
-|자산|설명|형식|  
+|자산|설명|type|  
 |--------------|-----------------|----------|  
 |이름|string|매개 변수 이름입니다.|  
 |description|string|매개 변수 설명입니다.|  
@@ -245,7 +245,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Product"></a> 제품  
  `product` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Id|string|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 제품을 고유하게 식별합니다. 값은 `{pid}`가 제품 식별자인 `products/{pid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |제목|string|제품의 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
@@ -258,7 +258,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Provider"></a> 공급자  
  `provider` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |properties|문자열 사전|이 인증 공급자에 대한 속성입니다.|  
 |AuthenticationType|string|공급자 유형입니다. (Azure Active Directory, Facebook 로그인, Google 계정, Microsoft 계정, Twitter).|  
@@ -267,7 +267,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Representation"></a> 표현  
  이 섹션에서는 `representation`을 설명합니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |contentType|string|이 표현에 대한 등록된 또는 사용자 지정 콘텐츠 형식을 지정합니다(예: `application/xml`).|  
 |샘플|string|표현의 예제입니다.|  
@@ -275,7 +275,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="Subscription"></a> 구독  
  `subscription` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Id|string|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 구독을 고유하게 식별합니다. 값은 `{sid}`가 구독 식별자인 `subscriptions/{sid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |ProductId|string|구독된 제품의 제품 리소스 식별자입니다. 값은 `{pid}`가 제품 식별자인 `products/{pid}` 형식의 유효한 상대 URL입니다.|  
@@ -301,7 +301,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="SubscriptionSummary"></a> 구독 요약  
  `subscription summary` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Id|string|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 구독을 고유하게 식별합니다. 값은 `{sid}`가 구독 식별자인 `subscriptions/{sid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |DisplayName|string|구독의 표시 이름|  
@@ -309,7 +309,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="UserAccountInfo"></a> 사용자 계정 정보  
  `user account info` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |FirstName|string|이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |LastName|string|성입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
@@ -322,7 +322,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="UseSignIn"></a> 사용자 로그인  
  `user sign in` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |Email|string|메일 주소입니다. 비어 있지 않아야 하며 서비스 인스턴스 내에서 고유해야 합니다. 최대 길이는 254자입니다.|  
 |암호|string|사용자 계정 암호입니다.|  
@@ -340,7 +340,7 @@ ms.lasthandoff: 02/21/2018
 ##  <a name="UserSignUp"></a> 사용자 등록  
  `user sign up` 엔터티에는 다음과 같은 속성이 있습니다.  
   
-|자산|형식|설명|  
+|자산|type|설명|  
 |--------------|----------|-----------------|  
 |PasswordConfirm|부울|[등록](api-management-page-controls.md#sign-up)등록 제어에서 사용되는 값입니다.|  
 |암호|string|사용자 계정 암호입니다.|  

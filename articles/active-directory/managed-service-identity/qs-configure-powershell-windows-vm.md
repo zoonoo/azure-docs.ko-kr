@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a29af17c97b106860c3b4adbad5e8002d2a91651
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>PowerShell을 사용하여 VM MSI(관리 서비스 ID) 구성
 
@@ -60,10 +60,10 @@ MSI 기반 VM을 만들려면:
 
 기존 Virtual Machine에서 MSI를 사용하도록 설정해야 하는 경우 다음을 수행합니다.
 
-1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”:
+1. `Connect-AzureRmAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. 먼저 `Get-AzureRmVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 후에 MSI를 사용하도록 설정하려면 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet에서 `-AssignIdentity` 스위치를 사용합니다.
@@ -84,10 +84,10 @@ MSI 기반 VM을 만들려면:
 
 MSI가 더 이상 필요하지 않은 Virtual Machine이 있으면 `RemoveAzureRmVMExtension` cmdlet을 사용하여 해당 VM에서 MSI를 제거할 수 있습니다.
 
-1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”:
+1. `Connect-AzureRmAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. 확장을 추가할 때 사용한 것과 같은 이름을 지정하고 `-Name` 스위치를 [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet과 함께 사용:

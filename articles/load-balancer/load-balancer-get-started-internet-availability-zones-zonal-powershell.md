@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6fb783b79f0e4fd1c453695c1ebd360b91962f41
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbb4176ac61cf707b28cddc98db80a1188be3cc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Azure PowerShell을 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 공용 Load Balancer Standard 만들기
 
@@ -32,10 +32,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기

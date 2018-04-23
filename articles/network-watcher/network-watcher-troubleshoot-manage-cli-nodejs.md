@@ -1,11 +1,11 @@
 ---
-title: "Azure Virtual Network 게이트웨이 및 연결 문제 해결 - Azure CLI 1.0 | Microsoft Docs"
-description: "이 페이지에서는 Azure Network Watcher 문제 해결 Azure CLI 1.0을 사용하는 방법을 설명합니다."
+title: Azure Virtual Network 게이트웨이 및 연결 문제 해결 - Azure CLI 1.0 | Microsoft Docs
+description: 이 페이지에서는 Azure Network Watcher 문제 해결 Azure CLI 1.0을 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2acbc47970acf0eb2aa1aea8535d7157bc73cbb6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ac5ce43d5ec992d8ec1bc5d7c787b1ca071eda98
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>Azure Network Watcher Azure CLI 1.0을 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
@@ -103,4 +103,4 @@ Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침�
 
 ## <a name="next-steps"></a>다음 단계
 
-VPN 연결을 중지하도록 설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
+VPN 연결을 중지하도록 설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.

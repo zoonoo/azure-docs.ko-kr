@@ -1,23 +1,18 @@
 ---
-title: "Azure Search .NET Management SDK 버전 2로 업그레이드 | Microsoft Docs"
-description: "Azure Search .NET Management SDK 버전 2로 업그레이드"
-services: search
-documentationcenter: 
+title: Azure Search .NET Management SDK 버전 2로 업그레이드 | Microsoft Docs
+description: Azure Search .NET Management SDK 버전 2로 업그레이드
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+ms.author: brjohnst
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: brjohnst
-ms.openlocfilehash: ade32dcb4e0885c251c17fad46fb753b6134d027
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3ed4279b71887e96e8f4c468d9c16cf7e9ad1d88
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Azure Search .NET Management SDK 버전 2로 업그레이드
 버전 1.0.2 또는 이전 버전의 [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk)를 사용하는 경우 이 문서를 통해 버전 2로 응용 프로그램을 업그레이드할 수 있습니다.

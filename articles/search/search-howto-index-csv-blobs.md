@@ -1,24 +1,18 @@
 ---
-title: "Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱 | Microsoft Docs"
-description: "Azure Search를 사용하여 CSV Blob을 인덱싱하는 방법 알아보기"
-services: search
-documentationcenter: 
+title: Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱 | Microsoft Docs
+description: Azure Search를 사용하여 CSV Blob을 인덱싱하는 방법 알아보기
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f4c1238b5ff03d9fc52238660134fde774b3474e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱
 기본적으로 [Azure Search Blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 단일 텍스트 청크로 구분된 텍스트 Blob을 구문 분석합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어 다음 구분된 텍스트가 제공됩니다. 

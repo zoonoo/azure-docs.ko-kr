@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치 관리
 
@@ -74,7 +74,7 @@ Azure Portal을 사용하여 장치를 관리하려면 해당 장치가 Azure AD
 
 - **사용자가 장치를 Azure AD에 등록할 수 있습니다.** - 장치를 Azure AD에 [등록](device-management-introduction.md#azure-ad-registered-devices)할 수 있게 하려면 이 설정을 구성해야 합니다. **없음**을 선택하는 경우 장치가 Azure AD 조인 또는 하이브리드 Azure AD 조인 장치가 아닌 경우 등록할 수 없습니다. Office 365용 Microsoft Intune 또는 MDM(모바일 장치 관리)에 등록하려면 먼저 장치를 등록해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음**은 사용할 수 없습니다.
 
-- **장치에 연결하려면 Multi-factor Auth 필요** - 사용자가 Azure AD에 장치를 [조인](device-management-introduction.md#azure-ad-joined-devices)하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 장치를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 장치를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../multi-factor-authentication/multi-factor-authentication-get-started.md)을 참조하세요. 
+- **장치에 연결하려면 Multi-factor Auth 필요** - 사용자가 Azure AD에 장치를 [조인](device-management-introduction.md#azure-ad-joined-devices)하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 장치를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 장치를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](authentication/concept-mfa-whichversion.md)을 참조하세요. 
 
 - **최대 장치 수** - 이 설정을 사용하여 Azure AD에서 사용자가 보유할 수 있는 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 장치 중 하나 이상이 제거될 때까지 장치를 더 추가할 수 없습니다. 장치 견적은 현재 Azure AD에 조인되었거나 Azure AD에 등록된 모든 장치에 대해 계산됩니다. 기본값은 **20**입니다.
 

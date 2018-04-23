@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 응용 프로그램
 
@@ -107,7 +107,7 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
 
 여러 권한 부여를 추가할 수 있습니다. AD 사용자 그룹을 만들고 **PrincipalId**에서 해당 ID를 지정하는 것이 좋습니다. 이러한 방식으로 SKU를 업데이트할 필요 없이 사용자 그룹에 더 많은 사용자를 추가할 수 있습니다.
 
-RBAC에 대한 자세한 내용은 [Azure Portal에서 RBAC 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
+RBAC에 대한 자세한 내용은 [Azure Portal에서 RBAC 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 ## <a name="marketplace-form"></a>Marketplace 양식
 

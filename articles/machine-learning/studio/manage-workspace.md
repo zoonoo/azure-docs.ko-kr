@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 4d971d75424f85bb07c0be779b9dfedb1ef41c1e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5561ac0089225ae2d06e51a90fa2081e409ce41
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 관리
 
@@ -49,7 +49,7 @@ Azure Portal에서 작업 영역을 관리하려면:
 > [!NOTE]
 > 새로운 웹 서비스를 배포 또는 관리하려면 웹 서비스가 배포된 구독에 대한 참여자 또는 관리자 역할을 할당받아야 합니다. Machine Learning 작업 영역에 다른 사용자를 초대하는 경우 구독에 대한 참여자 또는 관리자 역할을 할당해야 해당 사용자가 웹 서비스를 배포하거나 관리할 수 있습니다. 
 > 
->액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기](../../active-directory/role-based-access-control-manage-assignments.md)를 참조하세요.
+>액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기](../../role-based-access-control/role-assignments-users.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Resource Manager 템플릿을 사용하여 Machine Learning을 배포](deploy-with-resource-manager-template.md)하는 방법에 대해 자세히 알아봅니다. 

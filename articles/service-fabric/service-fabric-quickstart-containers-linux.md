@@ -12,14 +12,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 1b65f54547821654f35571c55f61074a0106a292
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 65f048d67ef5f250691700a382e781814c57e8a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>빠른 시작: Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 

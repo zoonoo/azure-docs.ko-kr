@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 65c40885a8dde2e07deb2a4f94a3dc6a05ef78d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28128e07b4beb03b1a8ecdd8546d54c19145689f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -81,7 +81,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
     다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 

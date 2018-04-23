@@ -3,7 +3,7 @@ title: Azure Resource Manager 템플릿을 사용하여 Device Provisioning 설�
 description: Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub Device Provisioning 서비스 설정
 services: iot-dps
 keywords: ''
-author: JimacoMS2
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 389691bddf1a7d6cab0845ca0a0cf1bde1152507
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8fc014efab898bf0ab3d8cd5eaa83dce53ee275b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 빠른 시작에서는 Azure CLI를 로컬에서 실행해야 합니다. Azure CLI 버전 2.0 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 참조하세요.
 
 

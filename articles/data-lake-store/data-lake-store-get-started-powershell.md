@@ -1,8 +1,8 @@
 ---
-title: "PowerShell을 사용하여 Azure Data Lake Store 시작 | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다."
+title: PowerShell을 사용하여 Azure Data Lake Store 시작 | Microsoft Docs
+description: Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 31c98b930ccb8203316e3a3b13c3c0dc7d74dd9c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 57b7755bda499cd7113f84d9950b1b06175e11b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 시작
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake Store에 대한 자세한 내용은 [Data Lake Store 개요](data-lake-store-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure PowerShell 1.0 이상**. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
@@ -42,7 +42,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 계정을 �
 1. 바탕 화면에서 새 Windows PowerShell 창을 엽니다. 다음 코드 조각을 입력하여 Azure 계정에 로그인하고 구독을 설정한 다음 Data Lake Store 공급자를 등록합니다. 로그인하라는 메시지가 표시되면 구독 관리자/소유자 중 하나로 로그인해야 합니다.
 
         # Log in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription

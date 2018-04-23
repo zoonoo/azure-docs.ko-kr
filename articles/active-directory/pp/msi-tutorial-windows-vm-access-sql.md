@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL 액세스
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-다음으로 그룹에 VM의 MSI를 추가합니다.  Azure PowerShell를 사용하여 알 수 있는 MSI의 **ObjectId**가 필요합니다.  먼저 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 다운로드합니다. 그런 후 `Login-AzureRmAccount`를 사용하여 로그인하고 다음 명령을 실행하여 다음을 수행합니다.
+다음으로 그룹에 VM의 MSI를 추가합니다.  Azure PowerShell를 사용하여 알 수 있는 MSI의 **ObjectId**가 필요합니다.  먼저 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 다운로드합니다. 그런 후 `Connect-AzureRmAccount`를 사용하여 로그인하고 다음 명령을 실행하여 다음을 수행합니다.
 - 여러 구독이 있는 경우 세션 컨텍스트가 원하는 Azure 구독으로 설정되어 있는지 확인합니다.
 - Azure 구독의 사용 가능한 리소스를 나열하고 올바른 리소스 그룹 및 VM 이름을 확인합니다.
 - 적절한 `<RESOURCE-GROUP>` 및 `<VM-NAME>` 값을 사용하여 MSI VM의 속성을 가져옵니다.

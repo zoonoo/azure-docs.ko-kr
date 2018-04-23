@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Azure Virtual Network 계획 및 디자인
 실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](quick-create-portal.md)을 알아보는 것이 좋습니다.
@@ -87,12 +87,12 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서에서 네트워킹 제한을 검토하여 디자인이 제한과 충돌하지 않는지 확인합니다. 일부 제한은 지원 티켓을 열어 늘릴 수 있습니다.
 
 ### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
-[Azure RBAC](../active-directory/role-based-access-built-in-roles.md) 를 사용하여 Azure의 다른 리소스에 대해 다양한 사용자가 보유할 수 있는 액세스 수준을 제어할 수 있습니다. 그러면 사용자 요구에 따라 팀에서 수행한 작업을 분리할 수 있습니다.
+[Azure RBAC](../role-based-access-control/built-in-roles.md) 를 사용하여 Azure의 다른 리소스에 대해 다양한 사용자가 보유할 수 있는 액세스 수준을 제어할 수 있습니다. 그러면 사용자 요구에 따라 팀에서 수행한 작업을 분리할 수 있습니다.
 
 가상 네트워크 관점에서 **네트워크 참여자** 역할의 사용자는 Azure 리소스 관리자 가상 네트워크 리소스에 대한 모든 권한을 가집니다. 마찬가지로, **클래식 네트워크 참여자** 역할의 사용자는 클래식 가상 네트워크 리소스에 대해 모든 권한을 가집니다.
 
 > [!NOTE]
-> [자신의 역할을 만들어](../active-directory/role-based-access-control-configure.md) 관리 요구를 분리할 수도 있습니다.
+> [자신의 역할을 만들어](../role-based-access-control/role-assignments-portal.md) 관리 요구를 분리할 수도 있습니다.
 >
 >
 

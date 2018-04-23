@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 자습서 단원 8: 큐브 뷰 만들기 | Microsoft Docs"
-description: "Azure Analysis Services 자습서 프로젝트에서 큐브 뷰를 만드는 방법을 설명합니다."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services 자습서 단원 8: 큐브 뷰 만들기 | Microsoft Docs'
+description: Azure Analysis Services 자습서 프로젝트에서 큐브 뷰를 만드는 방법을 설명합니다.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 190a9c998bceb97f8446265809b8d2c3bdc76abc
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: bb6599fefaa03e2ca0fec2788dca27240dbad8c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-perspectives"></a>큐브 뷰 만들기
 
@@ -31,7 +24,7 @@ ms.lasthandoff: 01/09/2018
   
 이 단원을 완료하기 위한 예상 시간: **5분**  
   
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>필수 조건  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 7: 핵심 성과 지표 만들기](../tutorials/aas-lesson-7-create-key-performance-indicators.md)를 완료해야 합니다.  
   
 ## <a name="create-perspectives"></a>큐브 뷰 만들기  

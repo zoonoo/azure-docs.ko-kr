@@ -1,12 +1,12 @@
 ---
-title: "Power BI 작업 영역 컬렉션에서 데이터 원본에 연결 | Microsoft Docs"
-description: "Power BI 작업 영역 컬렉션 내에서 데이터 원본에 연결하는 방법을 알아봅니다."
+title: Power BI 작업 영역 컬렉션에서 데이터 원본에 연결 | Microsoft Docs
+description: Power BI 작업 영역 컬렉션 내에서 데이터 원본에 연결하는 방법을 알아봅니다.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 24600c4343e3bfebe14f25020c5a7ba02d15af64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5a154c4899db974645bb7ade028d8bd8f267aad7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-a-data-source"></a>데이터 원본에 연결
 
@@ -44,7 +44,7 @@ Power BI 작업 영역 컬렉션을 사용하면 클라우드 데이터 원본�
 
 **DirectQuery**
 * Azure SQL 데이터베이스
-* Azure SQL 데이터 웨어하우스
+* Azure SQL Data Warehouse
 
 **가져오기**
 

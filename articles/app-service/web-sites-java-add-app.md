@@ -1,29 +1,28 @@
 ---
-title: "Azure 앱 서비스 웹 앱에 Java 응용 프로그램 추가"
-description: "이 자습서에서는 페이지 또는 응용 프로그램을 Java를 사용하도록 이미 구성된 Azure 앱 서비스 웹 앱의 인스턴스를 추가하는 방법을 보여줍니다."
+title: Azure App Service Web Apps에 Java 응용 프로그램 추가
+description: 이 자습서에서는 페이지 또는 응용 프로그램을 Java를 사용하도록 이미 구성된 Azure App Service Web Apps의 인스턴스를 추가하는 방법을 보여줍니다.
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 ms.assetid: 9b46528b-e2d0-4f26-b8d7-af94bd8c31ef
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: 1309985d7f1b93230b38ada2ee2687b1db10a791
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71009370282fcfbd71c00b30d4ea22802035714d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Azure 앱 서비스 웹 앱에 Java 응용 프로그램 추가
+# <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Azure App Service Web Apps에 Java 응용 프로그램 추가
 [Azure 앱 서비스에서 Java 웹 앱 만들기](app-service-web-get-started-java.md)에 설명된 대로 [Azure App Service][Azure App Service]에서 Java 웹 앱을 초기화하면, **webapps** 폴더에 WAR을 배치하여 응용 프로그램을 업로드할 수 있습니다.
 
-**webapps** 폴더의 탐색 경로는 웹 앱 인스턴스 설정 방법에 따라 다릅니다.
+**webapps** 폴더의 탐색 경로는 Web Apps 인스턴스 설정 방법에 따라 다릅니다.
 
 * Azure Marketplace를 사용하여 웹앱을 설정한 경우 **webapps** 폴더의 경로는 **d:\home\site\wwwroot\bin\application\_server\webapps**의 형식이며, 여기서 **application\_server**는 Web Apps 인스턴스에 적용되는 응용 프로그램 서버의 이름입니다. 
 * Azure 구성 UI를 사용하여 웹앱을 설정한 경우 **webapps** 폴더의 경로는 **d:\home\site\wwwroot\webapps**의 형식입니다. 

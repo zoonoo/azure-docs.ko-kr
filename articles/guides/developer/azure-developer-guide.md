@@ -1,12 +1,12 @@
 ---
-title: "Azure 개발자를 위한 시작 가이드 | Microsoft Docs"
-description: "이 항목은 개발 요구 사항에 맞는 Microsoft Azure Platform을 사용하여 시작하려는 개발자를 위한 중요한 정보를 제공합니다."
-services: 
-cloud: 
-documentationcenter: 
+title: Azure 개발자를 위한 시작 가이드 | Microsoft Docs
+description: 이 항목은 개발 요구 사항에 맞는 Microsoft Azure Platform을 사용하여 시작하려는 개발자를 위한 중요한 정보를 제공합니다.
+services: ''
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: erikre
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -295,7 +295,7 @@ Azure 리소스에 대한 액세스를 허용하는 경우 항상 사용자에�
 
     >**사용 시기**: 사용자 및 그룹에 대한 세분화된 액세스 관리가 필요한 경우
 
-    >**시작하기**: 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../../active-directory/role-based-access-control-what-is.md)을 참조하세요.
+    >**시작하기**: 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../../role-based-access-control/overview.md)을 참조하세요.
 
 -   **서비스 주체 개체**: 사용자 계정 및 그룹에 대한 액세스 권한을 제공할 뿐만 아니라 동일한 액세스 권한을 서비스 주체에게 부여할 수 있습니다.
 

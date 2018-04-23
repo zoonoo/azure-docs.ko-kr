@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -85,16 +85,16 @@ RBAC를 사용하여 Azure Storage 계정 관리 작업에 액세스하는 작�
 * PowerShell 또는 Azure CLI를 사용하여 누가 어떤 사용자에게 어떤 종류의 액세스 권한을 어떤 범위까지 부여/해지했는지에 대한 보고서를 만들 수 있습니다.
 
 #### <a name="resources"></a>리소스
-* [Azure Active Directory 역할 기반 Access Control](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)
 
   이 문서에서는 Azure Active Directory 역할 기반 Access Control 및 작동 방식에 대해 설명합니다.
-* [RBAC: 기본 제공 역할](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
 
   이 문서에서는 RBAC에서 사용할 수 있는 기본 제공 역할의 모든 사항을 자세히 설명합니다.
 * [리소스 관리자 배포 및 클래식 배포 이해](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   이 문서에서는 리소스 관리자 배포 및 기존 배포 모델에 대해 설명하고 리소스 관리자를 사용할 때와 리소스 그룹을 사용할 때의 이점에 대해서도 설명합니다. Resource Manager 모델에서 Azure Compute, 네트워크 및 Storage 공급자가 작동하는 방식에 대해 설명합니다.
-* [REST API를 사용하여 역할 기반 Access Control 관리](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [REST API를 사용하여 역할 기반 Access Control 관리](../../role-based-access-control/role-assignments-rest.md)
 
   이 문서에서는 REST API를 사용하여 RBAC를 관리하는 방법을 보여 줍니다.
 * [Azure Storage 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/azure/mt163683.aspx)

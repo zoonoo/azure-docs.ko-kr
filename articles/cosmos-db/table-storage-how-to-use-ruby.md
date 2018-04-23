@@ -3,8 +3,8 @@ title: Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용
 description: Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 documentationcenter: ruby
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mimig
-ms.openlocfilehash: 104d793826116462f71e4889386906256b2df8f8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 19ffdab40b3032421612ef4ba1b840eeb0d2e62b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,9 +27,14 @@ ms.lasthandoff: 03/08/2018
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure Table service 및 Azure Cosmos DB Table API를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Ruby로 작성되었으며 [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table)를 사용합니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리**등의 시나리오를 다룹니다.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Storage 또는 Azure Cosmos DB에 대한 액세스 추가
 Azure Storage 또는 Azure Cosmos DB를 사용하려면 Table REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.

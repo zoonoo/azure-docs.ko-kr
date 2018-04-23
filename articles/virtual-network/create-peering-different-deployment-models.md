@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: e1dfd7ec4a2475142423f00a457a909989a36bea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be7db6f8a69731dec83ba94aecc272bc1df17892
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 04/03/2018
 
     > [!WARNING]
     > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크가 변경될 수 있습니다. 이전 가상 네트워크만 추가하고, 구독에서 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다. 
-5. `login-azurermaccount` 명령을 입력하여 Azure에 로그인하고 가상 네트워크(리소스 관리자)를 만듭니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요.
+5. `Connect-AzureRmAccount` 명령을 입력하여 Azure에 로그인하고 가상 네트워크(리소스 관리자)를 만듭니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요.
 6. 리소스 그룹 및 가상 네트워크(리소스 관리자)를 만듭니다. 스크립트 복사하여 PowerShell에 붙여 넣고 `Enter`를 누릅니다.
 
     ```powershell

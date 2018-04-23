@@ -1,11 +1,11 @@
 ---
-title: "Media Services Operations REST API 개요 | Microsoft Docs"
-description: "Media Services REST API 개요"
+title: Media Services Operations REST API 개요 | Microsoft Docs
+description: Media Services REST API 개요
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;johndeu
-ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 472408f1c367984d5f4e0e435366c4a0af2e5b34
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -42,7 +42,7 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {
@@ -54,7 +54,7 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Media Services에서 지원하는 표준 HTTP 요청 헤더
 Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해야 하는 필수 헤더 집합이 있으며 포함할 수도 있는 선택적 헤더 집합도 있습니다. 아래 표에서는 필수 헤더를 나열합니다.
 
-| 헤더 | 형식 | 값 |
+| 헤더 | type | 값 |
 | --- | --- | --- |
 | 권한 부여 |전달자 |전달자는 승인된 유일한 권한 부여 메커니즘입니다. 이 값은 Azure Active Directory에서 제공한 액세스 토큰도 포함해야 합니다. |
 | x-ms-version |10진수 |2.17(또는 최신 버전)|
@@ -68,7 +68,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 
 다음은 선택적 헤더의 집합입니다.
 
-| 헤더 | 형식 | 값 |
+| 헤더 | type | 값 |
 | --- | --- | --- |
 | Date |RFC 1123 날짜 |요청 타임스탬프 |
 | 수락 |콘텐츠 형식 |다음과 같은 응답에 대해 요청된 콘텐츠 형식:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Blob 인출과 같이 다른 콘텐츠 유형이 응답에 있을 수 있습니다. 여기서 성공적인 응답은 Blob 스트림을 페이로드로 포함합니다. |
@@ -77,15 +77,15 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 | Accept-Charset |"UTF-8"과 같은 문자 집합 유형 |기본값은 UTF-8입니다. |
 | X-HTTP-Method |HTTP 메서드 |PUT 또는 DELETE와 같이 HTTP 메서드를 지원하지 않는 클라이언트나 방화벽이 GET 호출을 통해 터널링된 이러한 메서드를 사용하도록 허용합니다. |
 | 콘텐츠 형식 |콘텐츠 형식 |PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다. |
-| client-request-id |String |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
+| client-request-id |문자열 |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
-| 헤더 | 형식 | 값 |
+| 헤더 | type | 값 |
 | --- | --- | --- |
-| request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
-| client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
+| request-id |문자열 |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
+| client-request-id |문자열 |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
 | Date |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
 | 콘텐츠 형식 |다름 |응답 본문의 콘텐츠 형식입니다. |
 | Content-Encoding |다름 |Gzip 또는 deflate를 적절하게 합니다. |

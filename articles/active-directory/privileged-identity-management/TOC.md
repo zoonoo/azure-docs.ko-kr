@@ -5,7 +5,7 @@
 ## [Azure Resources용 PIM](azure-pim-resource-rbac.md)
 ## [PIM 승인 워크플로](azure-ad-pim-approval-workflow.md)
 ## [역할](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Privileged Identity Management 승인 워크플로](azure-ad-pim-approval-workflow.md)
+
 
 
 # 시작하기

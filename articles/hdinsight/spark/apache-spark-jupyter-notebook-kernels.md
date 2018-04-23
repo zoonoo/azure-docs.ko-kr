@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 | Microsoft Docs"
-description: "Azure HDInsight에서 Spark 클러스터와 함께 Jupyter 노트북에 사용할 수 있는 PySpark, PySpark3 및 Spark 커널에 대해 알아봅니다."
-keywords: "spark의 jupyter 노트북, jupyter spark"
+title: Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 | Microsoft Docs
+description: Azure HDInsight에서 Spark 클러스터와 함께 Jupyter 노트북에 사용할 수 있는 PySpark, PySpark3 및 Spark 커널에 대해 알아봅니다.
+keywords: spark의 jupyter 노트북, jupyter spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 58a0bf27109af3131bd102fd43e9367d267525f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 
 
@@ -161,10 +159,8 @@ Spark HDInsight 클러스터의 Jupyter 노트북은 Google Chrome에서만 지�
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

@@ -1,31 +1,25 @@
 ---
-title: "Azure SQL Data Warehouse에 연결 - SSMS | Microsoft Docs"
-description: "SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다."
+title: Azure SQL Data Warehouse에 연결 - SSMS | Microsoft Docs
+description: SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.
 services: sql-data-warehouse
-documentationcenter: 
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 599ab5489c297cc64cb0da58164efb82dec59f48
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SSM(SQL Server Management Studio)를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * 
-            [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)

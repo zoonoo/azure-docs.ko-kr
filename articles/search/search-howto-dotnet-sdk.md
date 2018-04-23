@@ -1,24 +1,18 @@
 ---
-title: ".NET 응용 프로그램에서 Azure Search를 사용하는 방법 | Microsoft Docs"
-description: ".NET 응용 프로그램에서 Azure Search를 사용하는 방법"
-services: search
-documentationcenter: 
+title: .NET 응용 프로그램에서 Azure Search를 사용하는 방법 | Microsoft Docs
+description: .NET 응용 프로그램에서 Azure Search를 사용하는 방법
 author: brjohnstmsft
 manager: jlembicz
-editor: 
-ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 67d56b89ece9baf92d033708981b1d83d4f757a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>.NET 응용 프로그램에서 Azure Search를 사용하는 방법
 이 문서는 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 준비하여 실행하기 위한 연습입니다. Azure Search를 사용하여 응용 프로그램에서 풍부한 검색 환경을 구현하는 .NET SDK를 사용할 수 있습니다.

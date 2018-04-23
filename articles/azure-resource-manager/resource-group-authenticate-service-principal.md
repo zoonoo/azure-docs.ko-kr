@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>자체 서명된 인증서를 사용하여 서비스 주체 만들기
 
-다음 예제는 간단한 시나리오를 다룹니다. [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal)을 사용하여 자체 서명된 인증서로 서비스 주체를 만들고, [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용하여 [참가자](../active-directory/role-based-access-built-in-roles.md#contributor) 역할을 서비스 주체에 할당합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)를 사용합니다.
+다음 예제는 간단한 시나리오를 다룹니다. [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal)을 사용하여 자체 서명된 인증서로 서비스 주체를 만들고, [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용하여 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할을 서비스 주체에 할당합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)를 사용합니다.
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -75,7 +75,7 @@ Param (
  [String] $ApplicationDisplayName
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
@@ -150,7 +150,7 @@ Param (
  )
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -170,7 +170,7 @@ Param (
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>인증 기관의 인증서를 사용하여 서비스 주체 만들기
 
-다음 예제에서는 인증 기관에서 발급한 인증서를 사용하여 서비스 주체를 만듭니다. 지정된 Azure 구독에 할당 범위가 지정됩니다. [참가자](../active-directory/role-based-access-built-in-roles.md#contributor) 역할에 서비스 주체를 추가합니다. 역할 할당 중에 오류가 발생하는 경우 할당을 다시 시도합니다.
+다음 예제에서는 인증 기관에서 발급한 인증서를 사용하여 서비스 주체를 만듭니다. 지정된 Azure 구독에 할당 범위가 지정됩니다. [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할에 서비스 주체를 추가합니다. 역할 할당 중에 오류가 발생하는 경우 할당을 다시 시도합니다.
 
 ```powershell
 Param (
@@ -187,7 +187,7 @@ Param (
  [String] $CertPlainPassword
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -Subscription $SubscriptionId
  
@@ -239,7 +239,7 @@ Param (
   -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId

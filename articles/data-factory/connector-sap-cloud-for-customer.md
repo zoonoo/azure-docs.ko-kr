@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 571c77a0de4bb30f5476f1bc79a7d4bd8d1cd322
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 300ae2a9dd788ea7d0259d9ae9a6f4d52494836e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Cloud for Customer(C4C) 간에 데이터 복사
 
@@ -116,7 +116,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **SapCloudForCustomerSource**로 설정해야 합니다.  | 예 |
-| 쿼리 | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아니오 |
+| 쿼리 | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아니요 |
 
 특정 날짜에 대한 데이터를 가져오는 샘플 쿼리: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -141,7 +141,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
         ],
         "typeProperties": {
             "source": {
-                "type": "SAPC4CSource",
+                "type": "SapCloudForCustomerSource",
                 "query": "<custom query e.g. $top=10>"
             },
             "sink": {

@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 079eb7b89ff3d6c1e4ec0de6136cd934ba3a1f70
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby 앱 만들기
 
@@ -53,34 +53,6 @@ rails server
 ```
 
 웹 브라우저를 사용하여 `http://localhost:3000`으로 이동한 후 앱을 로컬로 테스트합니다.
-
-![Hello-world](./media/quickstart-ruby/hello-world.png)
-
-## <a name="modify-app-to-display-welcome-message"></a>앱을 수정하여 환영 메시지 표시
-
-환영 메시지를 표시하도록 응용 프로그램을 수정합니다. 먼저, `hello`라는 경로를 포함하도록 *~/workspace/ruby-docs-hello-world/config/routes.rb* 파일을 수정하여 경로를 설정해야 합니다.
-
-  ```ruby
-  Rails.application.routes.draw do
-      #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-      root 'application#hello'
-  end
-  ```
-
-브라우저에 HTML로 메시지를 반환하도록 응용 프로그램의 컨트롤러를 변경합니다. 
-
-편집할 수 있게 *~/workspace/hello-world/app/controllers/application_controller.rb*를 엽니다. 다음 코드 샘플과 같이 보이도록 `ApplicationController` 클래스를 수정합니다.
-
-  ```ruby
-  class ApplicationController > ActionController :: base
-    protect_from_forgery with: :exception
-    def hello
-      render html: "Hello, world from Azure Web App on Linux!"
-    end
-  end
-  ```
-
-이제 앱이 구성되었습니다. 웹 브라우저를 사용하여 `http://localhost:3000`으로 이동한 후 루트 방문 페이지를 확인합니다.
 
 ![Hello World가 구성됨](./media/quickstart-ruby/hello-world-configured.png)
 

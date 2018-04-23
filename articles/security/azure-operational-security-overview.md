@@ -1,12 +1,12 @@
 ---
-title: "Azure 운영 보안 개요 | Microsoft Docs"
-description: "이 문서에서는 Azure 운영 보안 기능에 대한 개요를 제공합니다."
+title: Azure 운영 보안 개요 | Microsoft Docs
+description: 이 문서에서는 Azure 운영 보안 기능에 대한 개요를 제공합니다.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크입니다.
@@ -65,7 +65,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 -   중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공
 -   Salesforce, Google Apps, Box, Concur 등을 포함하여 응용 프로그램 갤러리에서 [수천 개의 응용 프로그램](https://azure.microsoft.com/marketplace/active-directory/) 에 대한 통합된 액세스 관리를 지원합니다.
 
-또한 Azure AD는 [다단계 인증](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [장치 등록]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [셀프 서비스 암호 관리](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [권한 있는 계정 관리](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [역할 기반 액세스 제어](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is), [응용 프로그램 사용 모니터링](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [광범위한 감사](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs) 및 [보안 모니터링 및 경고](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)를 포함하여 완벽한 [ID 관리 기능](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) 제품군을 갖추고 있습니다.
+또한 Azure AD는 [다단계 인증](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [장치 등록]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [셀프 서비스 암호 관리](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [권한 있는 계정 관리](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview), [응용 프로그램 사용 모니터링](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [광범위한 감사](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs) 및 [보안 모니터링 및 경고](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)를 포함하여 완벽한 [ID 관리 기능](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) 제품군을 갖추고 있습니다.
 
 Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 모든 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있습니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
@@ -80,7 +80,7 @@ Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 
 -   디스크 암호화 유효성 검사
 -   네트워크 기반 공격
 
-Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)을 제공하는 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 사용합니다.
+Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 제공하는 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받을 때 리소스와 관련된 항목만 볼 수 있습니다.
 

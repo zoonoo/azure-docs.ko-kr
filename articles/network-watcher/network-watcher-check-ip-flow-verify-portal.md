@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher IP 흐름 확인을 사용하여 트래픽 확인 - Azure Portal | Microsoft Docs"
-description: "이 문서에서는 가상 머신 간에 트래픽을 허용하는지 아니면 거부하는지를 확인하는 방법을 설명합니다."
+title: Azure Network Watcher IP 흐름 확인을 사용하여 트래픽 확인 - Azure Portal | Microsoft Docs
+description: 이 문서에서는 가상 머신 간에 트래픽을 허용하는지 아니면 거부하는지를 확인하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e0e3e9a8-70eb-409a-a744-0ce9deb27148
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8333ccfd1e4cc917c8af4b3006292e43b77ecc7f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b6d929f025c8b95709b7c0eb28ee78310e5f12a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Azure Network Watcher의 구성 요소인 IP 흐름 확인을 사용하여 VM 간에 트래픽을 허용하는지 아니면 거부하는지를 확인합니다.
 
@@ -59,7 +59,7 @@ Network Watcher로 이동하고 **IP 흐름 확인**을 클릭합니다. 트래�
 
 ## <a name="next-steps"></a>다음 단계
 
-트래픽이 차단되지 않아야 하는데 차단된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 정의된 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
+트래픽이 차단되지 않아야 하는데 차단된 경우 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하여 정의된 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png

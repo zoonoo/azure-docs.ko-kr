@@ -71,14 +71,12 @@ items:
     items:
       - name: 글로벌 분포
         href: distribute-data-globally.md
-      - name: 일관성
-        href: consistency-levels.md
       - name: 분할
         href: partition-data.md
       - name: 처리량
         href: request-units.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
+      - name: 일관성
+        href: consistency-levels.md
       - name: 서버를 사용하지 않는 데이터베이스
         href: serverless-computing-database.md
       - name: 보안
@@ -86,10 +84,10 @@ items:
         items:
           - name: 휴지 상태의 암호화
             href: database-encryption-at-rest.md
-          - name: 방화벽 지원
-            href: firewall-support.md
           - name: 데이터에 대한 액세스 보안
             href: secure-access-to-data.md
+      - name: TCO
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: 사용 사례
         href: use-cases.md
         items:
@@ -180,7 +178,7 @@ items:
                     href: sql-api-sql-query-metrics.md
               - name: 인덱스
                 href: indexing-policies.md
-              - name: 데이터 분할
+              - name: SQL 데이터 분할
                 href: sql-api-partition-data.md
               - name: '저장 프로시저, 트리거 및 UDF'
                 href: programming.md
@@ -233,7 +231,7 @@ items:
                   - name: 데이터 시각화에 ODBC 드라이버 활용
                     href: odbc-driver.md
                   - name: SQL API에 Spring Boot Starter 사용
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           - name: 참고 자료
             items:
               - name: 비동기 Java
@@ -346,6 +344,8 @@ items:
                 href: tutorial-global-distribution-graph.md
           - name: 방법 가이드
             items:
+              - name: 그래프 분할
+                href: graph-partitioning.md
               - name: 통합
                 items:
                   - name: Spark GraphX에 연결
@@ -434,6 +434,8 @@ items:
         href: manage-account.md
       - name: 처리량
         href: set-throughput.md
+      - name: 방화벽 지원
+        href: firewall-support.md
       - name: 메트릭
         href: use-metrics.md
       - name: 모니터 SLA
@@ -466,5 +468,3 @@ items:
         href: faq.md
       - name: 야구를 통해 설명하는 데이터 일관성
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: Azure Cosmos DB 문제 해결
-        href: troubleshoot-azure-cosmosdb.md

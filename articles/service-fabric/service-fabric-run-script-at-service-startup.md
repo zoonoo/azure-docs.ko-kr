@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
 ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
 Service Fabric 서비스 실행 파일이 시작되기 전에 일부 구성 또는 설치 작업을 실행해야 할 수도 있습니다.  예를 들어 환경 변수를 구성합니다. 서비스 실행 파일이 서비스의 서비스 매니페스트에서 시작되기 전에 실행할 스크립트를 지정할 수 있습니다. 서비스 설치 진입점에 대한 RunAs 정책을 구성하면 설치 실행 파일 실행에 사용되는 계정을 변경할 수 있습니다.  별도의 설치 진입점을 통해 짧은 기간 동안 높은 권한의 구성을 실행할 수 있으므로 오랜 기간 동안 높은 권한으로 서비스 호스트 실행 파일을 실행할 필요가 없습니다.

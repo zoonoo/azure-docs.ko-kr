@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: afb0b40ad23fa8ec5468f10027710294b5e67aab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8c032cdbf3549cdce435c8179777083d653fb058
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>PowerShell을 사용하여 Linux 가상 머신 만들기
 
@@ -35,10 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기

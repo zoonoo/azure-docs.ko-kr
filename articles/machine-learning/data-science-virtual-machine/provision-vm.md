@@ -3,26 +3,26 @@ title: Azure에서 Windows 데이터 과학 Virtual Machine 프로비전 | Micro
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft 데이터 과학 Virtual Machine은 데이터 분석 및 기계 학습에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치 및 구성된 Microsoft Azure VM(가상 머신) 이미지입니다. 포함된 도구는 다음과 같습니다.
 
-* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Azure Machine Learning](../service/index.yml) Workbench
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Enthought Python 배포
 * Jupyter Notebook(R, Python, PySpark 커널 포함)
@@ -192,7 +192,7 @@ Azure Machine Learning Workbench는 데스크톱 응용 프로그램 및 명령�
 학습 및 탐색을 계속하려면 다음 단계는 다음과 같습니다. 
 
 * 시작 메뉴를 클릭하여 메뉴에 나열된 도구를 확인하여 데이터 과학 VM에 다양한 데이터 과학 도구를 탐색합니다.
-* Azure Machine Learning Services 및 Workbench에 대해 자세히 알아보려면 [빠른 시작 및 자습서 페이지](../preview/index.yml)를 참조하세요. 
+* Azure Machine Learning Services 및 Workbench에 대해 자세히 알아보려면 [빠른 시작 및 자습서 페이지](../service/index.yml)를 참조하세요. 
 * 엔터프라이즈 규모로 데이터 분석을 지원하는 R의 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**로 이동하세요.  
 * 문서 참조: [데이터 과학 Virtual Machine으로 할 수 있는 10가지 일](http://aka.ms/dsvmtenthings)
 * 체계적으로 [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.

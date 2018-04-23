@@ -1,24 +1,24 @@
 ---
-title: "Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기 | Microsoft Docs"
-description: "HTTP 트리거 포함 Azure Functions를 사용하여 Azure Cosmos DB를 쿼리하는 방법에 대해 알아봅니다."
+title: Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기 | Microsoft Docs
+description: HTTP 트리거 포함 Azure Functions를 사용하여 Azure Cosmos DB를 쿼리하는 방법에 대해 알아봅니다.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기
 
@@ -56,11 +56,11 @@ Azure Cosmos DB는 스키마가 없고 서버를 사용하지 않으며 전 세�
 
    ![NuGet 패키지 업데이트](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. **찾아보기** 탭에서 **azure.graphs**를 입력하여 **Microsoft.Azure.Graphs** 패키지를 찾은 다음 **설치**를 클릭합니다. 이 패키지는 Graph API.NET 클라이언트 SDK를 포함합니다.
+    나. **찾아보기** 탭에서 **azure.graphs**를 입력하여 **Microsoft.Azure.Graphs** 패키지를 찾은 다음 **설치**를 클릭합니다. 이 패키지는 Graph API.NET 클라이언트 SDK를 포함합니다.
 
    ![Graph API 설치](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
-    c. **찾아보기** 탭에서 **mono.csharp**를 입력하여 **Mono.CSharp** 패키지를 찾은 다음 **설치**를 클릭합니다.
+    다. **찾아보기** 탭에서 **mono.csharp**를 입력하여 **Mono.CSharp** 패키지를 찾은 다음 **설치**를 클릭합니다.
 
    ![Mono.CSharp 설치](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
@@ -69,7 +69,7 @@ Azure Cosmos DB는 스키마가 없고 서버를 사용하지 않으며 전 세�
    그런 다음 약간의 코드를 작성해야 하므로 새 **Azure Function** 항목을 프로젝트에 추가합니다. 
 
     a. **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 차례로 선택합니다.   
-    b. **새 항목 추가** 대화 상자에서 **Visual C# 항목**을 선택하고 **Azure Function**을 선택하고 프로젝트 이름으로 **Search**를 입력한 다음 **추가**를 클릭합니다.  
+    나. **새 항목 추가** 대화 상자에서 **Visual C# 항목**을 선택하고 **Azure Function**을 선택하고 프로젝트 이름으로 **Search**를 입력한 다음 **추가**를 클릭합니다.  
  
    ![Search라는 새 함수 만들기](./media/tutorial-functions-http-trigger/05-add-function.png)
 
@@ -225,9 +225,9 @@ Azure Function의 유효성이 확인되고 올바르게 작동하는 것으로 
    
     a. **앱 이름**에서 함수에 고유 이름을 지정합니다.
 
-    b. **구독**에서 사용할 Azure 구독을 선택합니다.
+    나. **구독**에서 사용할 Azure 구독을 선택합니다.
    
-    c. **리소스 그룹**에서 새 리소스 그룹을 만들고 앱 이름과 같은 이름을 사용합니다.
+    다. **리소스 그룹**에서 새 리소스 그룹을 만들고 앱 이름과 같은 이름을 사용합니다.
    
     d. 서버를 사용하지 않는 Azure Function에 대해 종량제 청구 방법을 사용하려고 하므로, **앱 서비스 계획**에 대해 **새로 만들기**를 클릭하여 새 사용량 기반 App Service 계획을 만듭니다. **App Service 계획 구성** 페이지에서 기본값을 사용한 다음 **확인**을 클릭합니다.
    

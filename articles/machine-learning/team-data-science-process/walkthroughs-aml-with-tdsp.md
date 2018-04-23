@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 PySpark 및 Scala를 사용하여 HDInsight Spark 연습 | Microsoft Docs"
-description: "예측 분석을 수행하기 위해 Azure HDInsight Spark에서 PySpark 및 Scala 사용을 보여 주는 Team Data Science Process의 예제입니다."
+title: Azure에서 PySpark 및 Scala를 사용하여 HDInsight Spark 연습 | Microsoft Docs
+description: 예측 분석을 수행하기 위해 Azure HDInsight Spark에서 PySpark 및 Scala 사용을 보여 주는 Team Data Science Process의 예제입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 30204d1859cd72e5fb821d2f027b82c4eacaa5fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 Team Data Science 구조화 프로젝트
 
@@ -28,12 +28,12 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="classify-uci-incomes-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 UCI 소득 분류
 
-Azure Machine Learning Workbench에서 TDSP 프로젝트를 만드는 방법을 보여주는 자습서는 [Team Data Science Process 자습서: Azure Machine Learning Workbench의 UCI 소득 분류](../preview/scenario-tdsp-classifying-us-incomes.md)를 참조하세요. 
+Azure Machine Learning Workbench에서 TDSP 프로젝트를 만드는 방법을 보여주는 자습서는 [Team Data Science Process 자습서: Azure Machine Learning Workbench의 UCI 소득 분류](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md)를 참조하세요. 
 
 
 ## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>심층 학습에 자연어 처리를 사용한 생명 공학 엔터티 인식
 
-Azure Machine Learning Workbench에서 TDSP 인스턴스화 프로젝트를 사용하는 샘플은 [심층 학습에 자연어 처리를 사용하는 생명 공학 엔터티 인식](../preview/scenario-tdsp-biomedical-recognition.md)을 참조하세요.
+Azure Machine Learning Workbench에서 TDSP 인스턴스화 프로젝트를 사용하는 샘플은 [심층 학습에 자연어 처리를 사용하는 생명 공학 엔터티 인식](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

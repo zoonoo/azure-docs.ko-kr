@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: f1b9ef9a78715c08c5361e4bab6a31384c5c98d3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 관련된 문서에서 Azure AD B2C(Azure Active Directory B2C)와 상호 작용하는 [RESTful 서비스를 만듭니다](active-directory-b2c-custom-rest-api-netfw.md).
 
 이 문서에서는 클라이언트 인증서를 사용하여 Azure 웹앱(RESTful API)에 대한 액세스를 제한하는 방법에 대해 알아봅니다. 이 메커니즘은 TLS 상호 인증 또는 *클라이언트 인증서 인증*이라고 합니다. Azure AD B2C와 같은 적절한 인증서를 가진 서비스만이 서비스에 액세스할 수 있습니다.

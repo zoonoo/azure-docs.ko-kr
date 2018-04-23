@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 9ac14125b837f45634870941e72ea63e9921ca70
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6336d99df1bbdd71c66a9757af1d9fb356a91bf6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-custom-roles-to-target-pim-settings"></a>대상 PIM 설정에 사용자 지정 역할 사용
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="create-the-custom-role"></a>사용자 지정 역할 만들기
 
-[이 가이드를 사용하여 리소스에 대한 사용자 지정 역할을 만듭니다](../role-based-access-control-custom-roles.md).
+[이 가이드를 사용하여 리소스에 대한 사용자 지정 역할을 만듭니다](../../role-based-access-control/custom-roles.md).
 
 복제하려는 기본 제공 역할을 쉽게 기억할 수 있도록 설명이 포함된 이름을 사용합니다.
 

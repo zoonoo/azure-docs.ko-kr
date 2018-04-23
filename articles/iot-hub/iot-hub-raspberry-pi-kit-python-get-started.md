@@ -1,24 +1,24 @@
 ---
-title: "Raspberry Pi-클라우드(Python) - Raspberry Pi를 Azure IoT Hub에 연결 | Microsoft Docs"
-description: "이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Raspberry Pi을 설정하고 Raspberry Pi용 Azure IoT Hub에 연결하는 방법을 알아봅니다."
+title: Raspberry Pi-클라우드(Python) - Raspberry Pi를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Raspberry Pi을 설정하고 Raspberry Pi용 Azure IoT Hub에 연결하는 방법을 알아봅니다.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드"
+tags: ''
+keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2017
-ms.author: xshi
-ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 7069748c10f7c98f80fadc008f43a3aa02f7ac0e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>Raspberry Pi를 Azure IoT Hub에 연결(Python)
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 * 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 * Windows 또는 Linux를 실행하는 Mac 또는 PC.
-* 인터넷 연결.
+* 인터넷 연결
 * 16GB 이상의 microSD 카드.
 * 운영 체제 이미지를 microSD 카드에 굽기 위한 USB-SD 어댑터 또는 microSD 카드.
 * 6피트 마이크로 USB 케이블과 5볼트 2암페어 전원 공급 장치.

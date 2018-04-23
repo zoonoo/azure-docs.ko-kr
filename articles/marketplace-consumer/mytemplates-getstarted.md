@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Azure Portal에서 개인 템플릿을 사용하여 시작
 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 템플릿은 배포를 정의하는 데 사용된 선언적 템플릿입니다. 솔루션에 대해 배포할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
@@ -103,7 +103,7 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 ![템플릿 배포](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>템플릿 리소스 공유
-**템플릿** 리소스를 동료와 공유할 수 있습니다. 공유는 [Azure에서 모든 리소스에 대한 역할 할당](../active-directory/role-based-access-control-configure.md)과 유사하게 동작합니다. **템플릿** 소유자는 템플릿 리소스와 상호 작용할 수 있는 다른 사용자에게 사용 권한을 제공합니다. **템플릿**을 공유하는 개인 또는 사용자 그룹은 Resource Manager 템플릿 및 해당 갤러리 속성을 볼 수 있습니다.
+**템플릿** 리소스를 동료와 공유할 수 있습니다. 공유는 [Azure에서 모든 리소스에 대한 역할 할당](../role-based-access-control/role-assignments-portal.md)과 유사하게 동작합니다. **템플릿** 소유자는 템플릿 리소스와 상호 작용할 수 있는 다른 사용자에게 사용 권한을 제공합니다. **템플릿**을 공유하는 개인 또는 사용자 그룹은 Resource Manager 템플릿 및 해당 갤러리 속성을 볼 수 있습니다.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Microsoft.Gallery 리소스에 대한 액세스 제어
 | 역할 | 권한 |

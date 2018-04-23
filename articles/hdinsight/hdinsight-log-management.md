@@ -1,26 +1,24 @@
 ---
-title: "HDInsight 클러스터에 대한 로그 관리 - Azure HDInsight | Microsoft Docs"
-description: "HDInsight 활동 로그 파일의 형식, 크기 및 보존 정책을 결정합니다."
+title: HDInsight 클러스터에 대한 로그 관리 - Azure HDInsight | Microsoft Docs
+description: HDInsight 활동 로그 파일의 형식, 크기 및 보존 정책을 결정합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: a161a5c639ff02e1e8a2ea987d9f913ff41c5618
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 

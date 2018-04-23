@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services에서 데이터베이스 역할 및 사용자 관리 | Microsoft Docs"
-description: "Azure의 Analysis Services 서버에서 데이터베이스 역할 및 사용자를 관리하는 방법을 알아봅니다."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services에서 데이터베이스 역할 및 사용자 관리 | Microsoft Docs
+description: Azure의 Analysis Services 서버에서 데이터베이스 역할 및 사용자를 관리하는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 

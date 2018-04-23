@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1f52079e00c7c5f4e70acf8c86f648ed9281744e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Azure CLI를 사용하여 가상 머신 제어
 
@@ -43,15 +43,15 @@ az group create --name myResourceGroup --location "East US"
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-조직의 사용자에게 이러한 리소스에 대한 적절한 수준의 액세스 권한이 있는지 확인하려고 합니다. 사용자에게 무제한 액세스 권한은 부여하지 않으면서 동시에 사용자가 작업을 수행할 수 있는지 확인해야 합니다. [역할 기반 액세스 제어](../../active-directory/role-based-access-control-what-is.md)를 통해 범위에서 특정 작업을 완료할 수 있는 권한이 있는 사용자를 관리할 수 있습니다.
+조직의 사용자에게 이러한 리소스에 대한 적절한 수준의 액세스 권한이 있는지 확인하려고 합니다. 사용자에게 무제한 액세스 권한은 부여하지 않으면서 동시에 사용자가 작업을 수행할 수 있는지 확인해야 합니다. [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 통해 범위에서 특정 작업을 완료할 수 있는 권한이 있는 사용자를 관리할 수 있습니다.
 
 역할 할당을 만들고 제거하려면 사용자에게 `Microsoft.Authorization/roleAssignments/*` 액세스가 있어야 합니다. 이 액세스는 소유자 또는 사용자 액세스 관리자 역할을 통해 부여됩니다.
 
 가상 머신 솔루션을 관리하기 위해서는 일반적으로 필요한 액세스 권한을 제공하는 세 가지 리소스 특정 역할이 있습니다.
 
-* [Virtual Machine 참여자](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [네트워크 참여자](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage 계정 참여자](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [네트워크 참여자](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage 계정 참여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../../active-directory/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
 

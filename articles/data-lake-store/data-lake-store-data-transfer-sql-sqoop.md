@@ -1,8 +1,8 @@
 ---
-title: "Sqoop를 사용하여 Data Lake Store와 Azure SQL 데이터베이스 간에 데이터 복사 | Microsoft 문서"
-description: "Sqoop를 사용하여 Azure SQL Database와 Data Lake 저장소 간에 데이터 복사"
+title: Sqoop를 사용하여 Data Lake Store와 Azure SQL 데이터베이스 간에 데이터 복사 | Microsoft 문서
+description: Sqoop를 사용하여 Azure SQL Database와 Data Lake 저장소 간에 데이터 복사
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 2611b50114a9fae003fe6e77300780a9af0698cc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 2e68f74976c25a5c2db32867dabca147f5c30e80
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Sqoop를 사용하여 Data Lake 저장소와 Azure SQL 데이터베이스 간에 데이터 복사
 Apache Sqoop를 사용하여 Azure SQL Database와 Data Lake 저장소 간에 데이터를 가져오고 내보내는 방법을 알아봅니다.
@@ -28,7 +28,7 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Data Lake 저장소 간에 �
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html)는 Data Lake Store와 같은 빅 데이터 리포지토리와 관계형 데이터베이스 간에 데이터를 전송하도록 설계된 도구입니다. 이 도구를 사용하여 Azure SQL Database와 같은 RDBMS(관계형 데이터베이스 관리 시스템)에서 Data Lake 저장소로 데이터를 가져올 수 있습니다. 그런 다음 빅 데이터 워크로드를 사용하여 데이터를 변환 및 분석한 후 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 Azure SQL Database를 관계형 데이터베이스로 사용하여 데이터를 가져오고 내보낼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -48,7 +48,7 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Data Lake 저장소 간에 �
         [ID] [int] NOT NULL,
         [FName] [nvarchar](50) NOT NULL,
         [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+         CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED
             (
                    [ID] ASC
             )
@@ -61,7 +61,7 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Data Lake 저장소 간에 �
         [ID] [int] NOT NULL,
         [FName] [nvarchar](50) NOT NULL,
         [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+         CONSTRAINT [PK_Table_2] PRIMARY KEY CLUSTERED
             (
                    [ID] ASC
             )

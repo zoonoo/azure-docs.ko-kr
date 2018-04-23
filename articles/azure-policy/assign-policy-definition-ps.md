@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 3/30/2018
+ms.date: 04/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 19fbc76b5037543b822e0e353c7ce8b337eab8ed
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5fa6db380d790e002aa43b19fe77f4fc3c39b7da
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>빠른 시작: Azure RM PowerShell 모듈을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -43,11 +43,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "<resourceGroupName>"
-
-$definition = Get-AzureRmPolicyDefinition -Name "Audit Virtual Machines without Managed Disks"
-
-New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
-
+$definition = Get-AzureRmPolicyDefinition | where {$_.properties.displayName -eq "Audit VMs that do not use managed disks"}
+New-AzureRMPolicyAssignment -Name "Audit Virtual Machines without Managed Disks" -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
 ```
 
 이전 명령은 다음 정보를 사용합니다.

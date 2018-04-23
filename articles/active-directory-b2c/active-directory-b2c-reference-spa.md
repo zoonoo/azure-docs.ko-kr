@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3347eac16e447091ffcaaf403e1291e2c7175a2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 앱 로그인
-
-> [!NOTE]
-> 이 기능은 미리 보기로 제공됩니다.
-> 
 
 대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 프레임워크로도 작성되는 앱은 종종 AngularJS, Ember.js 또는 Durandal과 같은 프레임워크를 사용하여 작성됩니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증에 대한 몇 가지 추가 과제가 있습니다.
 

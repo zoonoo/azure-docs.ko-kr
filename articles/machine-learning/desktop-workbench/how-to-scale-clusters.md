@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
 ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>클러스터 크기를 조정하여 웹 서비스 처리량 관리
 
@@ -83,7 +83,7 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 예를 들어 `autoscale-min-replicas`를 5로 설정하면 5개의 복제본이 만들어집니다. 웹 서비스에 대한 최적 수에 도달하려면 이 수를 10과 같은 값으로 설정하고 503 오류 메시지의 수를 모니터링합니다. 그에 따라 해당 수를 조정합니다.
 
 
-| 매개 변수 이름 | 형식 | 설명 |
+| 매개 변수 이름 | type | 설명 |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | 부울 | 자동 크기 조정의 사용 여부를 지정합니다. 기본값: true |
 | `autoscale-min-replicas` | 정수 | Pod의 최소 수를 지정합니다. 0 이상이어야 합니다. 기본값: 1 |

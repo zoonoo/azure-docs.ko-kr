@@ -13,13 +13,18 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b91b76d049d1a7f299b7890665dd9281e08321e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 04cab032995731b4e473793eff4b1a3fcd46496a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>호환되지 않는 행을 건너뛰어 복사 작업에 내결함성 추가
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [버전 1 - GA](data-factory-copy-activity-fault-tolerance.md)
+> * [버전 2 - 미리 보기](../copy-activity-fault-tolerance.md)
+
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2 복사 작업의 내결함성](../copy-activity-fault-tolerance.md)을 참조하세요.
 
@@ -67,9 +72,9 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | 복사 중 호환되지 않는 행을 건너뛸지 여부를 설정합니다. | True<br/>False(기본값) | 아니요 |
+| **enableSkipIncompatibleRow** | 복사 중 호환되지 않는 행을 건너뛸지 여부를 설정합니다. | True<br/>False(기본값) | 아니오 |
 | **redirectIncompatibleRowSettings** | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아니오 |
-| **linkedServiceName** | 건너뛰는 행을 포함하는 로그를 저장하는 Azure Storage의 연결된 서비스입니다. | 로그 파일을 저장하는 데 사용할 저장소 인스턴스를 참조하는 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스의 이름입니다. | 아니오 |
+| **linkedServiceName** | 건너뛰는 행을 포함하는 로그를 저장하는 Azure Storage의 연결된 서비스입니다. | 로그 파일을 저장하는 데 사용할 저장소 인스턴스를 참조하는 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스의 이름입니다. | 아니요 |
 | **path** | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 Blob Storage 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니오 |
 
 ## <a name="monitoring"></a>모니터링

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 6a72cc1829b7b8a5c7c588543d0b5c91f9f36bf5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c41b2c297d8d89554950e8c77201ff5bedf743e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>자습서: Elium과 Azure Active Directory 통합
 
@@ -117,7 +117,7 @@ Elium에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. ` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. `https://<platform-domain>/login/saml2/metadata`에서 다운로드할 수 있는 **SP 메타데이터 파일**(이 자습서의 뒷부분에서 설명함)에서 이러한 값을 얻을 수 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. `https://<platform-domain>.elium.com/login/saml2/metadata`에서 다운로드할 수 있는 **SP 메타데이터 파일**(이 자습서의 뒷부분에서 설명함)에서 이러한 값을 얻을 수 있습니다.
 
 5. Elium 응용 프로그램에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다.
 

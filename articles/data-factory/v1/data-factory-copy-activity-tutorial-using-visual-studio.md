@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c25bd85c362e7055109e0a2a178a417ef110899a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e82c73c1d2984631e8d2dd2eb0f93c9751a1cf1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="prerequisites"></a>필수 조건
 1. [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.       
-2. 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
+2. 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다. 
    * Visual Studio 2013 또는 Visual Studio 2015
    * Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.

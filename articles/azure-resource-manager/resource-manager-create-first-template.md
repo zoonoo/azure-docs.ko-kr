@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 38ed7040c4f1497192c8c37887dc6281aa7935ea
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>첫 번째 Azure Resource Manager 템플릿을 만들고 배포
 이 항목에서는 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 안내합니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요. 기존 리소스가 있고 해당 리소스에 대한 템플릿을 가져오려는 경우 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
@@ -79,7 +79,7 @@ ms.lasthandoff: 04/03/2018
 * PowerShell의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

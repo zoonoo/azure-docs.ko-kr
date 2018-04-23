@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB MongoDB API를 사용하여 웹앱 빌드 | Microsoft Docs"
-description: "MongoDB API를 사용하여 온라인 데이터베이스 웹앱을 만드는 Azure Cosmos DB 자습서입니다."
-keywords: "MongoDB 예제"
+title: Azure Cosmos DB MongoDB API를 사용하여 웹앱 빌드 | Microsoft Docs
+description: MongoDB API를 사용하여 온라인 데이터베이스 웹앱을 만드는 Azure Cosmos DB 자습서입니다.
+keywords: MongoDB 예제
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+editor: ''
+documentationcenter: ''
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: f7aed1c69e930bdd5e5b451fa2726a75b78515eb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a8e19bacdbde938758bf41ed7f209521f513aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: .NET을 사용하여 MongoDB 앱에 연결
 
@@ -40,7 +40,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.  
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 > [!TIP]
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="set-up-your-mongodb-app"></a>MongoDB 앱 설치
 
-최소한의 수정으로 [가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure에서 웹앱 만들기](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) 자습서를 사용하여 MongoDB API 계정에 연결되는 MongoDB 응용 프로그램을 빠르게 설치할 수 있습니다(로컬로 또는 Azure 웹앱에 게시됨).  
+최소한의 수정으로 [가상 머신에서 실행되는 MongoDB에 연결되는 Azure에서 웹앱 만들기](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) 자습서를 사용하여 MongoDB API 계정에 연결되는 MongoDB 응용 프로그램을 빠르게 설치할 수 있습니다(로컬로 또는 Azure 웹앱에 게시됨).  
 
 1. 한 번 수정하여 자습서를 수행합니다.  Dal.cs 코드를 다음으로 바꿉니다.
 
@@ -221,7 +221,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > [!div class="checklist"]
 > * Azure Cosmos DB 계정 만들기 
 > * 연결 문자열 업데이트
-> * 가상 컴퓨터에 MongoDB 앱 만들기
+> * 가상 머신에 MongoDB 앱 만들기
 
 다음 자습서로 진행하여 MongoDB 데이터를 Azure Cosmos DB로 가져올 수 있습니다.  
 

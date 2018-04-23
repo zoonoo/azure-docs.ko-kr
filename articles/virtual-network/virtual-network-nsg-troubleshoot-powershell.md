@@ -1,11 +1,11 @@
 ---
-title: "네트워크 보안 그룹 문제 해결 - PowerShell | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다."
+title: 네트워크 보안 그룹 문제 해결 - PowerShell | Microsoft Docs
+description: Azure PowerShell을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Azure PowerShell을 사용하여 네트워크 보안 그룹 문제 해결
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ VM *VM1*은 *WestUS-VNet1*이라는 VNet 내에 있는 *Subnet1* 서브넷의 �
 ## <a name="detailed-troubleshooting-steps"></a>자세한 문제 해결 단계
 VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 
-1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell을 사용하는 데 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서를 읽어보세요. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
+1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell을 사용하는 데 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서를 읽어보세요. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
 2. 다음 명령을 입력하여 리소스 그룹 *RG1*의 NIC *VM1-NIC1*에 적용되는 모든 NSG 규칙을 반환합니다.
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

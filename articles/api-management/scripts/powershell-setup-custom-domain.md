@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - 사용자 지정 도메인 설정 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - 사용자 지정 도메인 설정"
+title: Azure PowerShell 스크립트 샘플 - 사용자 지정 도메인 설정 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 사용자 지정 도메인 설정
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cc30dfc93fde25b4d52c29377988260009f53360
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ea2e222b66c911f30972ad58e7506eb1bf736e30
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-custom-domain"></a>사용자 지정 도메인 설정
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/15/2017
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

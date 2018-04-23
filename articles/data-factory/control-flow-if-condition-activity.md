@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 537032ade9e6569def84499ca6d2d937f77312e3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db012097011d57434e35ef395ebe69a2156c92f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
 If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다. 
@@ -252,7 +252,7 @@ ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합�
 이러한 명령에서는 JSON 파일이 C:\ADF 폴더에 저장되어 있다고 가정합니다. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

@@ -10,20 +10,18 @@ ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebb9fab63d57f880e8b556bf6e3a1c9c8934527d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
-HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대해 모든 액세스 권한을 갖습니다. blob 컨테이너에서 공유 액세스 서명을 사용하여 데이터에 대한 액세스를 제한할 수 있습니다. 예를 들어 데이터에 대한 읽기 전용 액세스 권한을 제공할 수 있습니다. 공유 액세스 서명(SAS)은 데이터에 대한 액세스를 제한할 수 있는 Azure 저장소 계정의 기능입니다. 예를 들어 데이터에 대한 읽기 전용 액세스를 제공합니다.
+HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대해 모든 액세스 권한을 갖습니다. blob 컨테이너에서 공유 액세스 서명을 사용하여 데이터에 대한 액세스를 제한할 수 있습니다. 공유 액세스 서명(SAS)은 데이터에 대한 액세스를 제한할 수 있는 Azure 저장소 계정의 기능입니다. 예를 들어 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
 > [!IMPORTANT]
 > Apache Ranger를 사용하는 솔루션의 경우 도메인에 가입된 HDInsight를 사용하는 것이 좋습니다. 자세한 내용은 [도메인에 가입된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md) 문서를 참조하세요.
@@ -165,7 +163,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 1. 프롬프트에서 다음 명령을 사용하여 Azure 구독에 대해 인증합니다.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     메시지가 표시되면 Azure 구독 계정으로 로그인합니다.

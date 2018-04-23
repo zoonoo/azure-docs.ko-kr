@@ -1,24 +1,24 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 메시징 네임스페이스 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 Service Bus 메시징 네임스페이스 만들기"
+title: Azure Resource Manager 템플릿을 사용하여 Service Bus 메시징 네임스페이스 만들기 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 Service Bus 메시징 네임스페이스 만들기
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: e7e811b86d1ea0454b964fb297cb05b6a4734abd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 
@@ -117,8 +117,7 @@ Service Bus 가격에 대한 자세한 내용은 [Service Bus 가격 및 대금 
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
+            "name": "Standard",
         },
         "properties": {
         }

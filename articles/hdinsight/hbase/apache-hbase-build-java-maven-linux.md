@@ -1,25 +1,23 @@
 ---
-title: "Java HBase 클라이언트 - Azure HDInsight | Microsoft Docs"
-description: "Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure HDInsight의 HBase에 배포하는 방법에 대해 알아봅니다."
+title: Java HBase 클라이언트 - Azure HDInsight | Microsoft Docs
+description: Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure HDInsight의 HBase에 배포하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
-editor: 
+editor: ''
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 82fffa23a7688b66be486cc3147c134fa849a33e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 응용 프로그램 빌드
 
@@ -576,7 +574,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
         $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
+            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
         }
     }
 

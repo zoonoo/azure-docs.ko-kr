@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure Cloud Services FAQ에 대한 구성 및 관리 문제 | Microsoft Docs"
-description: "이 문서는 Microsoft Azure Cloud Services의 구성 및 관리에 대한 질문과 대답을 나열합니다."
+title: Microsoft Azure Cloud Services FAQ에 대한 구성 및 관리 문제 | Microsoft Docs
+description: 이 문서는 Microsoft Azure Cloud Services의 구성 및 관리에 대한 질문과 대답을 나열합니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -201,7 +201,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Cloud Services에 역할 기반 액세스를 구현하려면 어떻게 할까요?
 Cloud Services는 Azure Resource Manager 기반 서비스가 아니므로 RBAC(역할 기반 Access Control) 모델을 지원하지 않습니다.
 
-[Azure RBAC와 클래식 구독 관리자 비교](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators)를 참조하세요.
+[Azure RBAC와 클래식 구독 관리자 비교](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators)를 참조하세요.
 
 ## <a name="remote-desktop"></a>원격 데스크톱
 

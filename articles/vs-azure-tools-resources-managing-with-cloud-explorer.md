@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: 676feb0b01ec5622feff4351ade54e9856e54b13
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: f5205bb158141a3f8e0296fefe2528d1bc5ea64c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Visual Studio 클라우드 탐색기에서 Azure 계정과 연결된 리소스 관리
 클라우드 탐색기를 사용하여 Azure 리소스 및 리소스 그룹을 보고, 해당 속성을 검사하고, Visual Studio 내에서 핵심 개발자 진단 작업을 수행할 수 있습니다. 
 
-[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서와 마찬가지로 클라우드 탐색기는 Azure Resource Manager 스택을 토대로 구축되었습니다. 따라서 클라우드 탐색기는 Azure 리소스 그룹과 같은 리소스 및 논리 앱과 API 앱과 같은 Azure 서비스를 이해하고 RBAC([역할 기반 액세스 제어](active-directory/role-based-access-control-configure.md))를 지원합니다. 
+[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서와 마찬가지로 클라우드 탐색기는 Azure Resource Manager 스택을 토대로 구축되었습니다. 따라서 클라우드 탐색기는 Azure 리소스 그룹과 같은 리소스 및 논리 앱과 API 앱과 같은 Azure 서비스를 이해하고 RBAC([역할 기반 액세스 제어](role-based-access-control/role-assignments-portal.md))를 지원합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 워크로드**가 선택된 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 또는 [Microsoft Azure SDK for .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657)가 있는 이전 버전의 Visual Studio

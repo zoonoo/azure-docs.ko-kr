@@ -1,8 +1,8 @@
 ---
-title: "Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs"
-description: "Data Lake Analytics 계정, 데이터 원본, 작업 및 카탈로그 항목을 관리하는 방법을 알아봅니다. "
+title: Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs
+description: 'Data Lake Analytics 계정, 데이터 원본, 작업 및 카탈로그 항목을 관리하는 방법을 알아봅니다. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: matt1883
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 69530ab2ad795eaf611cb749d8c439ab07cafeac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -50,16 +50,16 @@ $location = "<Location>"
 구독 ID를 사용하여 로그인합니다.
 
 ```powershell
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 ```
 
 구독 이름을 사용하여 로그인합니다.
 
 ```
-Login-AzureRmAccount -SubscriptionName $subname 
+Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-`Login-AzureRmAccount` cmdlet은 항상 자격 증명을 묻는 메시지를 표시합니다. 다음 cmdlet을 사용하면 메시지가 표시되지 않게 할 수 있습니다.
+`Connect-AzureRmAccount` cmdlet은 항상 자격 증명을 묻는 메시지를 표시합니다. 다음 cmdlet을 사용하면 메시지가 표시되지 않게 할 수 있습니다.
 
 ```powershell
 # Save login session information
@@ -604,7 +604,7 @@ $deploymentName = "MyDataLakeAnalyticsDeployment"
 $armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
 
 # Log in to Azure
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $rg -Location $location

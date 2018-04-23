@@ -22,7 +22,7 @@
 1. 리소스 관리 모드에서 Microsoft Azure 계정에 로그인하고 다음과 같이 구독을 선택합니다.
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. 다음과 같이 리소스 그룹 이름 및 VM 이름을 설정합니다.
@@ -65,7 +65,7 @@
 1. 리소스 관리 모드에서 Microsoft Azure 계정에 로그인하고 다음과 같이 구독을 선택합니다.
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. 다음과 같이 리소스 그룹 이름 및 VM 이름을 설정합니다.
@@ -109,7 +109,7 @@
 관리되지 않는 디스크:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 관리 디스크:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

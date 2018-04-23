@@ -1,25 +1,25 @@
 ---
-title: "Azure의 MongoDB, React 및 Node.js 자습서 | Microsoft Docs"
-description: "이 동영상 기반 자습서 시리즈에서 MongoDB에 사용하는 것과 정확히 동일한 API를 사용하여 Azure Cosmos DB의 React 및 Node.js를 사용하여 MongoDB 앱을 만드는 방법을 알아봅니다."
+title: Azure의 MongoDB, React 및 Node.js 자습서 | Microsoft Docs
+description: 이 동영상 기반 자습서 시리즈에서 MongoDB에 사용하는 것과 정확히 동일한 API를 사용하여 Azure Cosmos DB의 React 및 Node.js를 사용하여 MongoDB 앱을 만드는 방법을 알아봅니다.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 96cd397a7f04fe579b9c6331423abe107ad1c6d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c2cb4b30cb056303c07d5e82861e4022489c7072
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React 및 Azure Cosmos DB에서 MongoDB 앱 만들기  
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/05/2017
 Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자습서 비디오 시리즈](tutorial-develop-mongodb-nodejs.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* [Node.JS](https://www.nodejs.org)
+* [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>완료된 프로젝트
 [GitHub에서](https://github.com/Azure-Samples/react-cosmosdb) 완성된 응용 프로그램을 가져옵니다.

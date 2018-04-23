@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management에서 요청 추적을 사용하여 API 디버그 | Microsoft Docs"
-description: "이 자습서의 단계에 따라 Azure API Management의 요청 처리 단계를 검사하는 방법을 알아봅니다."
+title: Azure API Management에서 요청 추적을 사용하여 API 디버그 | Microsoft Docs
+description: 이 자습서의 단계에 따라 Azure API Management의 요청 처리 단계를 검사하는 방법을 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7b9bec7927169b9d820c095a7d11705264e7dcfe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4db89b52a3fa9585572322d546d87513da41c3f0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>요청 추적을 사용하여 API 디버그
 
@@ -35,8 +35,6 @@ ms.lasthandoff: 12/04/2017
 
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="trace-a-call"></a>호출 추적
 

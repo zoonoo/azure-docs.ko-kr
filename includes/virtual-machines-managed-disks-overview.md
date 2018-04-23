@@ -24,7 +24,7 @@ Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 데이터 
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
-[Azure 역할 기반 Access Control(RBAC)](../articles/active-directory/role-based-access-control-what-is.md)을 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
+[Azure 역할 기반 Access Control(RBAC)](../articles/role-based-access-control/overview.md)을 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ### <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원
 Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며 즉, 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../articles/backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 현재 Azure Backup에서는 최대 1TB의 데이터 디스크 크기를 백업하도록 지원합니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
@@ -104,8 +104,7 @@ Managed Disks와 관련하여 논의할 두 종류의 암호화가 있습니다.
 
 ### <a name="storage-service-encryption-sse"></a>SSE(Storage 서비스 암호화)
 
-[Azure Storage 서비스 암호화](../articles/storage/common/storage-service-encryption.md)를 사용하여 미사용 암호화를 제공하고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. SSE는 Managed Disks를 사용할 수 있는 모든 지역에서 모든 Managed Disks, 스냅숏 및 이미지에 기본적으로 사용됩니다. 2017년 6월 10일부터 기존 관리 디스크에 기록된 모든 새 관리 디스크/스냅숏/이미지 및 새 데이터는 기본으로 Microsoft에서 관리되는 키로 자동으로 미사용 암호화됩니다. Azure Blob 및 파일용 암호화에 대한 고유 키를 가져오도록 선택할 수 있습니다. 테이블 및 큐에 대한 암호화는 항상 Microsoft 관리 키를 사용합니다.
-Storage 서비스 암호화를 사용하도록 설정하더라도 이후 새 데이터만이 암호화되고 이 Storage 계정의 기존 파일은 배경 암호화 프로세스에 의해 소급해 암호화됩니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
+[Azure Storage 서비스 암호화](../articles/storage/common/storage-service-encryption.md)를 사용하여 미사용 암호화를 제공하고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. SSE는 Managed Disks를 사용할 수 있는 모든 지역에서 모든 Managed Disks, 스냅숏 및 이미지에 기본적으로 사용됩니다. 2017년 6월 10일부터 기존 관리 디스크에 기록된 모든 새 관리 디스크/스냅숏/이미지 및 새 데이터는 기본으로 Microsoft에서 관리되는 키로 자동으로 미사용 암호화됩니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
 
 
 ### <a name="azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)

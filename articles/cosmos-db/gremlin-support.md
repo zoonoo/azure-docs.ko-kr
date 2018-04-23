@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop](http://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리를 수행하기 위한 Graph API인 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
@@ -153,12 +153,6 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | 자산 | 설명 |
 | --- | --- |
 | 값 | 속성의 값입니다.
-
-## <a name="gremlin-partitioning"></a>Gremlin 분할
-
-Azure Cosmos DB에서 그래프는 저장소 및 처리량(정규화된 초당 요청 수로 표현) 측면에서 독립적으로 확장될 수 있는 컨테이너 내에 저장됩니다. 각 컨테이너는 관련 데이터에 대한 논리적 파티션 경계를 결정하는 선택 사항이면서 권장되는 파티션 키 속성을 정의해야 합니다. 모든 꼭짓점/에지에는 해당 파티션 키 값 내의 엔터티에 대해 고유한 `id` 속성이 있어야 합니다. 자세한 내용은 [Azure Cosmos DB의 분할](partition-data.md)에 나와 있습니다.
-
-Gremlin 작업은 Azure Cosmos DB에서 여러 파티션에 걸쳐 분산된 그래프 데이터에 원활하게 작동합니다. 그러나 그래프에 대해 일반적으로 쿼리에서 필터로 사용되고, 많은 고유 값을 가지고, 이러한 값에 대해 비슷한 액세스 빈도를 갖는 파티션 키를 선택하는 것이 좋습니다. 
 
 ## <a name="gremlin-steps"></a>Gremlin 단계
 이제 Azure Cosmos DB에서 지원되는 Gremlin 단계를 살펴보겠습니다. Gremlin에 대한 전체 참조는 [TinkerPop 참조](http://tinkerpop.apache.org/docs/current/reference)를 참조하세요.

@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - API 가져오기 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - API 가져오기"
+title: Azure PowerShell 스크립트 샘플 - API 가져오기 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - API 가져오기
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: e718b7a38ae2db21c544912deb381ec5a7d2b52f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 36e787fc3e638dd45c1a48313c31da1e5d346b18
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="import-an-api"></a>API 가져오기
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/04/2017
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

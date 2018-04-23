@@ -1,24 +1,24 @@
 ---
-title: "웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하게 저장 | Microsoft Docs"
-description: "ASP.NET Core Key Vault Provider, 사용자 비밀 또는 .NET 4.7.1을 사용하여 Azure 자격 증명 또는 타사 API와 같은 비밀 응용 프로그램 설정을 안전하게 저장하는 방법"
+title: 웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하게 저장 | Microsoft Docs
+description: ASP.NET Core Key Vault Provider, 사용자 비밀 또는 .NET 4.7.1을 사용하여 Azure 자격 증명 또는 타사 API와 같은 비밀 응용 프로그램 설정을 안전하게 저장하는 방법
 services: visualstudio
-documentationcenter: 
+documentationcenter: ''
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
-ms.service: 
+editor: ''
+ms.assetid: ''
+ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eee882dc52ffc37067916dac29324efe0bc95b03
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하게 저장
 
@@ -145,7 +145,7 @@ ASP.NET Core 섹션의 지침에 따라 프로젝트의 Key Vault를 구성합�
 
 1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
 ```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
 ```
 
 2. Web.config에 Key Vault 구성 빌더를 정의합니다. 이 섹션을 *appSettings* 섹션 앞에 배치합니다. Key Vault가 공용 Azure에 있는 경우 *vaultName*이 Key Vault 이름이 되도록 바꾸거나 독립적 클라우드를 사용하는 경우 전체 URI를 대체합니다.

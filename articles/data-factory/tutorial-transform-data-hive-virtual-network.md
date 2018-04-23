@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: fda9cab53290d7af69e243ce47df702b25d1de67
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e9f8ae08a98ecb192fefed310b2392f9a90c7363
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 

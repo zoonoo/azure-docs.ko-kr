@@ -1,32 +1,28 @@
 ---
-title: "빠른 시작: Azure SQL Data Warehouse에서 계산 능력 확장 - Azure Portal | Microsoft Docs"
-description: "계산 능력을 관리하는 Azure 포털 작업 DWU를 조정하여 계산 리소스 크기를 조정합니다. 또는 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
+title: '빠른 시작: Azure SQL Data Warehouse에서 계산 능력 확장 - Azure Portal | Microsoft Docs'
+description: Azure Portal에서 Azure SQL Data Warehouse의 계산 능력을 조정합니다. 더 나은 성능을 위해 계산 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/31/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: quickstart
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: d93ea939a938fa88615161d3d048ee1881dd319a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse의 계산 능력 조정
 
-Azure Portal에서 Azure SQL Data Warehouse의 계산 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
+Azure Portal에서 Azure SQL Data Warehouse의 계산 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절약을 위해 다시 축소할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 

@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 * Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx) 가 활성 상태여야 합니다. 쿼리 저장소가 실행되지 않는 경우 저장소를 켜라는 포털 메시지가 표시됩니다.
 
 ## <a name="permissions"></a>권한
-Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) 권한이 필요합니다. 
+Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../role-based-access-control/overview.md) 권한이 필요합니다. 
 
 * 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다. 
 * 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.

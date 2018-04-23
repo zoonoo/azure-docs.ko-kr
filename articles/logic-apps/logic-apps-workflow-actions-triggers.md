@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>논리 앱 워크플로의 트리거 및 작업
 
@@ -120,10 +120,10 @@ ms.lasthandoff: 03/16/2018
 | ------------ | -------- | ---- | ----------- | 
 | frequency | 예 | 문자열 | 트리거 발생 빈도의 시간 단위입니다. 값으로 "second", "minute", "hour", "day", "week" 또는 "month" 중 하나만 사용합니다. | 
 | interval | 예 | 정수  | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 "월"이면 되풀이 간격은 6개월마다입니다. | 
-| timeZone | 아니요 | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 지정합니다. | 
-| startTime | 아니요 | 문자열 | 시작 날짜 및 시간을 다음 형식으로 지정합니다. <p>YYYY-MM-DDThh:mm:ss(표준 시간대를 지정하는 경우) <p>또는 <p>YYYY-MM-DDThh:mm:ssZ(표준 시간대를 지정하지 않는 경우) <p>예를 들어 2017년 9월 18일, 오후 2시를 원할 경우 "2017-09-18T14:00:00"을 지정하고 "태평양 표준시"와 같은 표준 시간대를 지정합니다. 또는 표준 시간대 없이 "2017-09-18T14:00:00Z"를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜/시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜/시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 지정하지 않으면 공백 없이 맨 끝에 문자 "Z"를 추가해야 합니다. 이 "Z"는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간이 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. 시작 날짜 및 시간에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요. | 
+| timeZone | 아니오 | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 지정합니다. | 
+| startTime | 아니오 | 문자열 | 시작 날짜 및 시간을 다음 형식으로 지정합니다. <p>YYYY-MM-DDThh:mm:ss(표준 시간대를 지정하는 경우) <p>또는 <p>YYYY-MM-DDThh:mm:ssZ(표준 시간대를 지정하지 않는 경우) <p>예를 들어 2017년 9월 18일, 오후 2시를 원할 경우 "2017-09-18T14:00:00"을 지정하고 "태평양 표준시"와 같은 표준 시간대를 지정합니다. 또는 표준 시간대 없이 "2017-09-18T14:00:00Z"를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜/시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜/시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 지정하지 않으면 공백 없이 맨 끝에 문자 "Z"를 추가해야 합니다. 이 "Z"는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간이 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. 시작 날짜 및 시간에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요. | 
 | weekDays | 아니요 | 문자열 또는 문자열 배열 | `frequency`에 대해 “Week”를 지정하는 경우 워크플로를 실행하려는 경우 하나 이상의 요일을 쉼표로 구분해서 지정할 수 있습니다. 예를 들면 "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"와 같이 지정합니다. | 
-| hours | 아니오 | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~23 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 시간으로 지정할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
+| hours | 아니요 | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~23 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 시간으로 지정할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
 | minutes | 아니요 | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~59 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 분으로 지정할 수 있습니다. <p>예를 들어 분 표시로 "30"을 지정하고, 앞에 나온 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
 ||||| 
 
@@ -194,10 +194,10 @@ ms.lasthandoff: 03/16/2018
 | ------------ | -------- | ---- | ----------- | 
 | 메서드 | 예 | 문자열 | HTTP 메서드 "GET", "POST", "PUT", "DELETE", "PATCH" 또는 "HEAD" 중 하나를 사용합니다. | 
 | uri | 예| 문자열 | 트리거가 확인하는 HTTP 또는 HTTPS 끝점입니다. 최대 문자열 크기: 2KB | 
-| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니요 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니요 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| retryPolicy | 아니오 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
 | 인증 | 아니요 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. <p>스케줄러 이외에도 지원되는 속성이 하나 더 있습니다. `authority` 기본적으로 지정되지 않은 경우 이 값은 `https://login.windows.net`이지만 `https://login.windows\-ppe.net`과 등의 다른 값을 사용할 수 있습니다. | 
 ||||| 
 
@@ -216,8 +216,8 @@ HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 �
 | response | 필수 | 설명 | 
 | -------- | -------- | ----------- |  
 | 상태 코드 | 예 | 상태 코드 200("OK")이면 실행됩니다. 다른 상태 코드이면 실행이 진행되지 않습니다. | 
-| Retry-after 헤더 | 아니요 | 논리 앱이 끝점을 다시 폴링할 때까지의 시간(초)입니다. | 
-| 위치 헤더 | 아니요 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
+| Retry-after 헤더 | 아니오 | 논리 앱이 끝점을 다시 폴링할 때까지의 시간(초)입니다. | 
+| 위치 헤더 | 아니오 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
 |||| 
 
 다른 요청 유형의 동작에 대한 예제는 다음과 같습니다.
@@ -233,7 +233,7 @@ HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 �
 
 다음은 HTTP 트리거 출력입니다. 
   
-| 요소 이름 | 형식 | 설명 |
+| 요소 이름 | type | 설명 |
 | ------------ | ---- | ----------- |
 | headers | Object | HTTP 응답의 헤더입니다. | 
 | 본문 | Object | HTTP 응답의 본문입니다. | 
@@ -269,8 +269,8 @@ HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 �
 | ------------ | -------- | ---- | ----------- | 
 | host | 예 | Object | API 앱의 호스트된 게이트웨이 및 ID | 
 | 메서드 | 예 | 문자열 | HTTP 메서드 "GET", "POST", "PUT", "DELETE", "PATCH" 또는 "HEAD" 중 하나를 사용합니다. | 
-| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니요 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
 | retryPolicy | 아니요 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
 | 인증 | 아니요 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. | 
@@ -296,7 +296,7 @@ HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 �
 
 API Connection 트리거의 출력은 다음과 같습니다.
   
-| 요소 이름 | 형식 | 설명 |
+| 요소 이름 | type | 설명 |
 | ------------ | ---- | ----------- |
 | headers | Object | HTTP 응답의 헤더입니다. | 
 | 본문 | Object | HTTP 응답의 본문입니다. | 
@@ -363,7 +363,7 @@ HTTPWebhook 트리거는 `Request` 트리거와 비슷한 엔드포인트를 제
 
 다음은 HTTPWebhook 트리거에 대한 출력으로, 들어오는 요청의 콘텐츠입니다.
   
-| 요소 이름 | 형식 | 설명 |
+| 요소 이름 | type | 설명 |
 | ------------ | ---- | ----------- |
 | headers | Object | HTTP 응답의 헤더입니다. | 
 | 본문 | Object | HTTP 응답의 본문입니다. | 
@@ -548,10 +548,10 @@ HTTP 작업은 지정된 엔드포인트를 호출하고 응답을 확인하여 
 | ------------ | -------- | ---- | ----------- | 
 | 메서드 | 예 | 문자열 | HTTP 메서드 "GET", "POST", "PUT", "DELETE", "PATCH" 또는 "HEAD" 중 하나를 사용합니다. | 
 | uri | 예| 문자열 | 트리거가 확인하는 HTTP 또는 HTTPS 끝점입니다. 최대 문자열 크기: 2KB | 
-| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
 | headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니요 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| 본문 | 아니요 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
+| retryPolicy | 아니오 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
 | operationsOptions | 아니요 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
 | 인증 | 아니오 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. <p>스케줄러 이외에도 지원되는 속성이 하나 더 있습니다. `authority` 기본적으로 지정되지 않은 경우 이 값은 `https://login.windows.net`이지만 `https://login.windows\-ppe.net`과 등의 다른 값을 사용할 수 있습니다. | 
 ||||| 
@@ -654,10 +654,10 @@ HTTP 작업 및 APIConnection 작업은 *다시 시도 정책*을 지원합니�
 | 경로 | 예 | 문자열 | API 작업의 경로입니다. | 
 | 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
 | headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니요 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니오 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
-| operationsOptions | 아니오 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
-| 인증 | 아니요 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
+| retryPolicy | 아니요 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| operationsOptions | 아니요 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
+| 인증 | 아니오 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
 ||||| 
 
 다시 시도 정책은 모든 연결 예외 외에도 HTTP 상태 코드 408, 429 및 5xx로 지정되는 일시적인 오류에 적용됩니다. 여기에 표시된 것처럼 `retryPolicy` 개체를 사용하여 이 정책을 정의할 수 있습니다.
@@ -706,11 +706,11 @@ APIConnectionWebhook 작업은 Microsoft에서 관리하는 커넥터를 참조�
 | host | 예 | Object | `runtimeUrl` 및 연결 개체에 대한 참조 등 커넥터 정보를 나타냅니다. | 
 | 경로 | 예 | 문자열 | API 작업의 경로입니다. | 
 | 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니요 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니요 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니요 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
-| operationsOptions | 아니요 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
-| 인증 | 아니오 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
+| retryPolicy | 아니오 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| operationsOptions | 아니오 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
+| 인증 | 아니요 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
 ||||| 
 
 ## <a name="response-action"></a>응답 작업  
@@ -793,10 +793,10 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | 요소 이름 | 필수 | 형식 | 설명 | 
 | ------------ | -------- | ---- | ----------- |  
 | function id | 예 | 문자열 | 호출하려는 Azure 함수의 리소스 ID입니다. | 
-| 메서드 | 아니오 | 문자열 | 함수를 호출하는 데 사용되는 HTTP 메서드입니다. 지정하지 않으면 "POST"가 기본 메서드입니다. | 
-| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| 메서드 | 아니요 | 문자열 | 함수를 호출하는 데 사용되는 HTTP 메서드입니다. 지정하지 않으면 "POST"가 기본 메서드입니다. | 
+| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
 | headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니요 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
+| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
 |||||
 
 논리 앱을 저장하면 Azure Logic Apps 엔진에서 참조된 함수에 대해 몇 가지 검사를 수행합니다.
@@ -855,7 +855,7 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | runStatus | 예 | 문자열 | 대상 실행의 상태로, `Failed` 또는 `Cancelled`입니다. |
 | runError | 아니오 | Object | 오류 세부 정보입니다. `runStatus`가 `Failed`로 설정된 경우에만 지원됩니다. |
 | runError code | 아니요 | 문자열 | 실행의 오류 코드입니다. |
-| runError message | 아니요 | 문자열 | 실행의 오류 메시지입니다. | 
+| runError message | 아니오 | 문자열 | 실행의 오류 메시지입니다. | 
 ||||| 
 
 ## <a name="query-action"></a>쿼리 작업
@@ -903,8 +903,8 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | ---- | -------- | ---- | ----------- | 
 | from | 예 | 배열 | 원본 배열입니다. `from` 속성 값이 빈 배열인 경우 출력도 빈 테이블입니다. | 
 | format | 예 | 문자열 | 원하는 테이블 형식이며, "CSV" 또는 "HTML" 중 하나입니다. | 
-| 열 | 아니요 | 배열 | 원하는 테이블 열입니다. 기본 테이블 모양을 재정의하는 데 사용합니다. | 
-| 열 머리글 | 아니요 | 문자열 | 열 머리글입니다. | 
+| 열 | 아니오 | 배열 | 원하는 테이블 열입니다. 기본 테이블 모양을 재정의하는 데 사용합니다. | 
+| 열 머리글 | 아니오 | 문자열 | 열 머리글입니다. | 
 | 열 값 | 예 | 문자열 | 열 값입니다. | 
 ||||| 
 
@@ -992,7 +992,7 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | ------------ | -------- | ---- | ----------- | 
 | until | 아니요 | Object | 특정 시점에 따른 대기 시간입니다. | 
 | until timestamp | 예 | 문자열 | 대기가 만료되는 [UTC 날짜/시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 특정 시점입니다. | 
-| interval | 아니요 | Object | 간격 단위 및 수에 따른 대기 시간입니다. | 
+| interval | 아니오 | Object | 간격 단위 및 수에 따른 대기 시간입니다. | 
 | interval unit | 예 | 문자열 | 시간 단위입니다. 값으로 "second", "minute", "hour", "day", "week" 또는 "month" 중 하나만 사용합니다. | 
 | interval count | 예 | 정수  | 대기 기간에 사용되는 간격 단위 수를 나타내는 양의 정수입니다. | 
 ||||| 
@@ -1029,8 +1029,8 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | ------------ | -------- | ---- | ----------- |  
 | host id | 예 | 문자열| 호출할 워크플로의 리소스 ID입니다. | 
 | host triggerName | 예 | 문자열 | 호출할 트리거의 이름입니다. | 
-| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니요 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
 ||||| 
 
@@ -1078,7 +1078,7 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | ---- | -------- | ---- | ----------- | 
 | actions | 예 | Object | `expression`이 `true`로 평가될 때 실행할 내부 작업입니다. | 
 | 식 | 예 | 문자열 | 평가할 식 |
-| else | 아니요 | Object | `expression`이 `false`로 평가될 때 실행할 내부 작업입니다. |
+| else | 아니오 | Object | `expression`이 `false`로 평가될 때 실행할 내부 작업입니다. |
 ||||| 
 
 예: 
@@ -1121,7 +1121,7 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | 비교 함수가 지원됩니다. 이 예제에서는 action1의 출력이 임계값보다 큰 경우에만 작업이 실행됩니다. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | 중첩된 부울 식을 만들기 위한 논리 함수가 지원됩니다. 이 예제에서는 action1의 출력이 임계값보다 크거나 100 미만인 경우에 작업이 실행됩니다. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | 배열에 항목이 있는지 여부를 확인하려면 배열 함수를 사용할 수 있습니다. 이 예제에서는 errors 배열이 비어 있는 경우에 작업이 실행됩니다. | 
-| `"expression": "parameters('hasSpecialAction')"` | 이 식은 오류를 발생시키고 유효한 조건이 아닙니다. 조건에서 \"\@\" 기호를 사용해야 합니다. | 
+| `"expression": "parameters('hasSpecialAction')"` | 이 식은 오류를 발생시키고 유효한 조건이 아닙니다. 조건에서 "@" 기호를 사용해야 합니다. | 
 ||| 
 
 ## <a name="switch-action"></a>Switch 작업
@@ -1161,7 +1161,7 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
 | cases | 예 | Object | 식 결과에 따라 실행되는 내부 작업 집합을 포함합니다. | 
 | case | 예 | 문자열 | 결과와 일치하는 값 | 
 | actions | 예 | Object | 식 결과와 일치하는 케이스에 대해 실행되는 내부 작업 | 
-| 기본값 | 아니요 | Object | 결과와 일치하는 케이스가 없는 경우 실행되는 내부 작업 | 
+| 기본값 | 아니오 | Object | 결과와 일치하는 케이스가 없는 경우 실행되는 내부 작업 | 
 ||||| 
 
 예: 
@@ -1221,7 +1221,7 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
 | ---- | -------- | ---- | ----------- | 
 | actions | 예 | Object | 루프 내에서 실행될 내부 작업입니다. | 
 | foreach | 예 | 문자열 | 반복할 배열입니다. | 
-| operationOptions | 아니요 | 문자열 | 동작 사용자 지정에 대한 작업 옵션을 지정합니다. 기본 동작이 병렬인 반복을 순차적으로 실행하기 위해 현재 `Sequential`만 지원합니다. |
+| operationOptions | 아니오 | 문자열 | 동작 사용자 지정에 대한 작업 옵션을 지정합니다. 기본 동작이 병렬인 반복을 순차적으로 실행하기 위해 현재 `Sequential`만 지원합니다. |
 ||||| 
 
 예: 
@@ -1283,7 +1283,7 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
 | 식 | 예 | 문자열 | 각 반복 후마다 평가할 식 | 
 | limit | 예 | Object | 루프에 대한 제한입니다. 하나 이상의 제한을 정의해야 합니다. | 
 | count | 아니오 | 정수  | 수행할 반복 수에 대한 제한 | 
-| 시간 제한 | 아니오 | 문자열 | 루프가 실행될 기간을 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 시간 초과 제한입니다. |
+| 시간 제한 | 아니요 | 문자열 | 루프가 실행될 기간을 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 시간 초과 제한입니다. |
 ||||| 
 
 예: 

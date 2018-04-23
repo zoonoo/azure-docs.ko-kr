@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fc3dca82bea17b44f66b433f59e5861da3bb0ca2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>개요: 장애 조치 그룹 및 활성 지역 복제
 활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전이 발생하거나 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다. 장애 조치는 사용자의 응용 프로그램에서 수동으로 시작되어야 합니다. 장애 조치 후 새 주 데이터베이스에는 다른 연결 끝점이 있습니다. 
@@ -131,7 +131,7 @@ DR 지역의 응용 프로그램이 다른 연결 문자열을 사용하지 않�
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>장애 조치(failover) 그룹 및 활성 지역 복제를 프로그래밍 방식으로 관리
 앞에서 설명한 대로 자동 장애 조치 그룹(미리 보기 상태)과 활성 지역 복제는 Azure PowerShell 및 REST API를 사용하여 프로그래밍 방식으로 관리할 수도 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다.
 
-**Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 집합을 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
+**Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 집합을 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../role-based-access-control/overview.md)을 참조하세요.
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Transact-SQL을 사용하여 SQL Database 장애 조치(failover) 관리
 

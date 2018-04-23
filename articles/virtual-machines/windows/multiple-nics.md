@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>여러 NIC가 있는 Windows 가상 컴퓨터 만들기 및 관리
 Azure의 VM(가상 머신)에는 여러 가상 NIC(네트워크 인터페이스 카드)가 연결될 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 방법을 설명합니다. 또한 기존 VM에서 NIC를 추가하거나 제거하는 방법을 알아봅니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
@@ -235,7 +235,7 @@ Azure Resource Manager 템플릿은 여러 NIC를 만드는 것과 같이 배포
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-[Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)의 전체 예제를 읽어볼 수 있습니다.
+[Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/template-samples.md)의 전체 예제를 읽어볼 수 있습니다.
 
 [여러 NIC에 대한 운영 체제 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 OS에 보조 NIC에 대한 경로를 추가합니다.
 

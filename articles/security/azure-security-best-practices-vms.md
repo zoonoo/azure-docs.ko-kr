@@ -1,11 +1,11 @@
 ---
-title: "Azure Virtual Machine 보안 모범 사례"
-description: "이 문서는 Azure의 가상 머신에 사용할 다양한 보안 모범 사례를 제공합니다."
+title: Azure Virtual Machine 보안 모범 사례
+description: 이 문서는 Azure의 가상 머신에 사용할 다양한 보안 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
@@ -49,14 +49,14 @@ ms.lasthandoff: 01/09/2018
 
 VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정할 수 있게 하는 것입니다. [Azure 정책](../azure-policy/azure-policy-introduction.md)을 사용하여 조직의 리소스 표기 규칙을 정하고 사용자 지정된 정책을 생성하며 이러한 규칙을 [리소스 그룹](../azure-resource-manager/resource-group-overview.md) 등의 리소스에 적용할 수 있습니다.
 
-리소스 그룹에 속한 VM에서 기본적으로 해당 정책을 상속합니다. VM을 관리하는 데 이 방법을 권장하지만 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 사용하여 개별 VM 정책에 대한 액세스를 제어할 수도 있습니다.
+리소스 그룹에 속한 VM에서 기본적으로 해당 정책을 상속합니다. VM을 관리하는 데 이 방법을 권장하지만 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용하여 개별 VM 정책에 대한 액세스를 제어할 수도 있습니다.
 
 VM 액세스를 제어하는 데 리소스 관리자 정책 및 RBAC를 사용하면 VM의 전반적인 보안을 향상시킬 수 있습니다. VM을 동일한 수명 주기로 동일한 리소스 그룹으로 통합하는 것이 좋습니다. 리소스 그룹을 사용하여 리소스에 대한 비용 청구를 배포, 모니터링 및 롤업할 수 있습니다. 사용자가 VM에 액세스하고 VM을 설정하도록 활성화하려면 [최소 권한 접근 방식](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)을 사용합니다. 또한 권한을 사용자에게 할당할 때 다음 기본 제공 Azure 역할을 사용하도록 계획합니다.
 
-- [Virtual Machine 참여자](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): VM을 관리할 수 있으나 해당 컴퓨터가 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없습니다.
-- [클래식 Virtual Machine 참여자](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): 클래식 배포 모델을 사용하여 만든 VM을 관리할 수 있으나 VM이 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없습니다.
-- [보안 관리자](../active-directory/role-based-access-built-in-roles.md#security-manager): 보안 구성 요소, 보안 정책 및 VM을 관리할 수 있습니다.
-- [DevTest 실습 사용자](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): 모든 항목을 볼 수 있으며 VM을 연결, 시작, 다시 시작 및 종료할 수 있습니다.
+- [Virtual Machine 참여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM을 관리할 수 있으나 해당 컴퓨터가 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없습니다.
+- [클래식 Virtual Machine 참여자](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): 클래식 배포 모델을 사용하여 만든 VM을 관리할 수 있으나 VM이 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없습니다.
+- [보안 관리자](../role-based-access-control/built-in-roles.md#security-manager): 보안 구성 요소, 보안 정책 및 VM을 관리할 수 있습니다.
+- [DevTest 실습 사용자](../role-based-access-control/built-in-roles.md#devtest-labs-user): 모든 항목을 볼 수 있으며 VM을 연결, 시작, 다시 시작 및 종료할 수 있습니다.
 
 관리자 간 계정 및 암호를 공유하거나, 여러 사용자 계정 또는 서비스, 특히 소셜 미디어 또는 기타 비 관리 작업에 암호를 다시 사용하지 마세요. 이상적으로는, VM을 안전하게 설정하기 위해 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 템플릿을 사용해야 합니다. 이 접근 방식을 사용하면 배포 선택을 강화하고 배포 전체에서 보안 설정을 적용할 수 있습니다.
 

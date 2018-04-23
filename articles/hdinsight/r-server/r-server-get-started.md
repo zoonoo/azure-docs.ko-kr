@@ -1,13 +1,13 @@
 ---
 title: HDInsight에서 R Server 시작 - Azure | Microsoft Docs
 description: R Server를 포함하는 HDInsight 클러스터에서 Apache Spark를 만들고 클러스터에 R 스크립트를 제출하는 방법을 알아봅니다.
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: get-started-article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: f4265ce7370542d8253222a5e268ea9cde7fd36e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d6910ab257312626ca25126721410edeed6cdeae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 R Server 클러스터 시작
 
@@ -236,5 +236,5 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 * [Visual Studio용 R 도구에서 작업 제출](r-server-submit-jobs-r-tools-vs.md)
 * [HDInsight에서 R Server 클러스터 관리](r-server-hdinsight-manage.md)
 * [HDInsight에서 R Server 클러스터 조작](r-server-operationalize.md)
-* [HDInsight에서 R Server 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight의 R Server 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
 * [HDInsight에서 R Server 클러스터를 위한 Azure Storage 옵션](r-server-storage.md)

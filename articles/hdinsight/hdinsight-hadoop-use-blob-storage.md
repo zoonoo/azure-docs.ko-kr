@@ -1,9 +1,9 @@
 ---
-title: "HDFS 호환 가능 Azure Storage에서 데이터 쿼리 - Azure HDInsight | Microsoft Docs"
-description: "Azure Storage 및 Azure Data Lake Store에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다."
-keywords: "Blob 저장소, HDFS, 구조적 데이터, 비구조적 데이터, Data Lake Store, Hadoop 입력, Hadoop 출력, Hadoop 저장소, HDFS 입력, HDFS 출력, HDFS 저장소, WASB Azure"
+title: HDFS 호환 가능 Azure Storage에서 데이터 쿼리 - Azure HDInsight | Microsoft Docs
+description: Azure Storage 및 Azure Data Lake Store에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다.
+keywords: Blob 저장소, HDFS, 구조적 데이터, 비구조적 데이터, Data Lake Store, Hadoop 입력, Hadoop 출력, Hadoop 저장소, HDFS 입력, HDFS 출력, HDFS 저장소, WASB Azure
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 7e60e33330357d08d69e3372fd3eea1aadb4a141
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 60b9f7f7a60872bd7d151d7ec890ba3a77be9263
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -40,8 +40,8 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장�
 > | ------- | ------- | ------- |
 > | 범용 Storage 계정 | Standard | __예__ |
 > | &nbsp; | Premium | 아니요 |
-> | Blob Storage 계정 | 핫 | 아니요 |
-> | &nbsp; | 쿨 | 아니요 |
+> | Blob Storage 계정 | 핫 | 아니오 |
+> | &nbsp; | 쿨 | 아니오 |
 
 기본 Blob 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 저장소 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
@@ -126,7 +126,7 @@ Blob을 사용하려면 먼저 [Azure Storage 계정][azure-storage-create]을 �
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
 
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionID
 
     # Create resource group
@@ -220,7 +220,7 @@ URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 S
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
     # Use Add-AzureAccount if you haven't connected to your Azure subscription
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
     Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
 
     Write-Host "Create a context object ... " -ForegroundColor Green

@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory에서 조건부 액세스 시작 | Microsoft Docs"
-description: "위치 조건을 사용하여 조건부 액세스를 테스트합니다."
+title: Azure Active Directory에서 조건부 액세스 시작 | Microsoft Docs
+description: 위치 조건을 사용하여 조건부 액세스를 테스트합니다.
 services: active-directory
-keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
-documentationcenter: 
+keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Azure Active Directory에서 조건부 액세스 시작
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-많은 조직의 일반적 요구 사항 중 하나는 회사 인트라넷에서 수행되지 않는 앱 액세스를 위해 다단계 인증만 필요하다는 것입니다. Azure Active Directory를 사용하면 위치 기반 조건부 액세스 정책을 구성하여 이 목표를 쉽게 달성할 수 있습니다. 여기서는 관련 정책 구성에 대한 자세한 지침을 제공합니다. 정책은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 활용하여 회사 인트라넷과 다른 모든 위치 간에 시도되는 액세스를 구별합니다.
+많은 조직의 일반적 요구 사항 중 하나는 회사 인트라넷에서 수행되지 않는 앱 액세스를 위해 다단계 인증만 필요하다는 것입니다. Azure Active Directory를 사용하면 위치 기반 조건부 액세스 정책을 구성하여 이 목표를 쉽게 달성할 수 있습니다. 여기서는 관련 정책 구성에 대한 자세한 지침을 제공합니다. 정책은 [신뢰할 수 있는 IP](authentication/howto-mfa-mfasettings.md#trusted-ips)를 활용하여 회사 인트라넷과 다른 모든 위치 간에 시도되는 액세스를 구별합니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/16/2018
 
 - 신뢰할 수 있는 IP 구성
 
-신뢰할 수 있는 IP에 대한 자세한 내용은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.
+신뢰할 수 있는 IP에 대한 자세한 내용은 [신뢰할 수 있는 IP](authentication/howto-mfa-mfasettings.md#trusted-ips)를 참조하세요.
 
 
 ## <a name="policy-configuration-steps"></a>정책 구성 단계

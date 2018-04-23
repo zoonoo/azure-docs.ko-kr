@@ -1,5 +1,5 @@
 ---
-title: "ID 관리에 도움이 되는 Azure 보안 기능 | Microsoft Docs"
+title: ID 관리에 도움이 되는 Azure 보안 기능 | Microsoft Docs
 description: " 이 문서는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공합니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 응용 프로그램 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 921d7eef90a86216dc13804d3dc4dd216247fb87
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 1338f9e5c4a0e21dadbd5ae6f51b12c8f1dd44a3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 응용 프로그램 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 은 수천 개의 클라우드 앱에 Single Sign-On(SaaS)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
@@ -76,7 +76,7 @@ Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
-* [Azure Multi-Factor Authentication 작동 방법](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [Azure Multi-Factor Authentication 작동 방법](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>보안 모니터링, 경고 및 기계 학습 기반 보고서
 일치하지 않는 액세스 패턴을 식별하는 보안 모니터링 및 경고 및 기계 학습 기반 보고서로 비즈니스를 보호할 수 있습니다. Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 볼 수 있습니다 이 정보를 사용하면 디렉터리 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다.
@@ -133,7 +133,7 @@ Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다
 
 자세한 정보:
 
-* [Azure AD 권한 있는 ID 관리](../active-directory/active-directory-privileged-identity-management-configure.md)
+* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
 * [Azure AD Privileged Identity Management의 역할](../active-directory/active-directory-privileged-identity-management-roles.md)
 * [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
 

@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 자습서 단원 3: 날짜 테이블로 표시 | Microsoft Docs"
-description: "Azure Analysis Services 자습서 프로젝트에서 날짜 테이블로 표시하는 방법을 설명합니다."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services 자습서 단원 3: 날짜 테이블로 표시 | Microsoft Docs'
+description: Azure Analysis Services 자습서 프로젝트에서 날짜 테이블로 표시하는 방법을 설명합니다.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 25e4475c77a25e4dcdcb90729f8633656bb186ff
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 1b7f6252faef02676be6ccb22653f5d4805020df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mark-as-date-table"></a>날짜 테이블로 표시
 
@@ -33,7 +26,7 @@ DAX 시간 인텔리전스 함수를 사용할 때마다, 나중에 측정값을
   
 이 단원을 완료하기 위한 예상 시간: **3분**  
   
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>필수 조건  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 2: 데이터 가져오기](../tutorials/aas-lesson-2-get-data.md)를 완료해야 합니다. 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>FullDateAlternateKey 열 이름을 바꾸려면

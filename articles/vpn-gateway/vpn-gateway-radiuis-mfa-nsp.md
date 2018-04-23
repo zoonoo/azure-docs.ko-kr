@@ -1,25 +1,25 @@
 ---
-title: "Multi-Factor Authentication을 위해 NPS 서버에서 보안 Azure VPN Gateway RADIUS 인증 | Microsoft Docs"
-description: "Multi-Factor Authentication을 위한 NPS 서버와 Azure 게이트웨이 RADIUS 인증 통합에 대해 설명합니다."
+title: Multi-Factor Authentication을 위해 NPS 서버에서 보안 Azure VPN Gateway RADIUS 인증 | Microsoft Docs
+description: Multi-Factor Authentication을 위한 NPS 서버와 Azure 게이트웨이 RADIUS 인증 통합에 대해 설명합니다.
 services: vpn-gateway
 documentationcenter: na
 author: ahmadnyasin
 manager: willchen
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: f0d95cc0dabb253a72afdbc1bc518df882c4d861
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 39ee42d41b41cf7c1844a49286746080db71e973
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
 
@@ -50,7 +50,7 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
  
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>2단계 Azure MFA용 NPS 구성
 
-1. NPS 서버에서 [Azure MFA용 NPS 확장을 설치](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension)합니다.
+1. NPS 서버에서 [Azure MFA용 NPS 확장을 설치](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension)합니다.
 2. NSP 콘솔을 열고 **RADUIS 클라이언트**를 마우스 오른쪽 단추로 클릭한 후 **새로 만들기**를 선택합니다. 다음 설정을 지정하여 RADUIS 클라이언트를 만듭니다.
 
     - **식별 이름**: 이름을 입력합니다.
@@ -81,4 +81,4 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
-- [기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+- [기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합](../active-directory/authentication/howto-mfa-nps-extension.md)

@@ -1,27 +1,25 @@
 ---
-title: "Hadoop - Microsoft Avro Library에서 데이터 직렬화 - Azure | Microsoft Docs"
-description: "Microsoft Avro Library를 사용하여 메모리, 데이터베이스 또는 파일에 유지하기 위해 HDInsight의 Hadoop에서 데이터를 직렬화 및 역직렬화하는 방법을 알아보세요."
+title: Hadoop - Microsoft Avro Library에서 데이터 직렬화 - Azure | Microsoft Docs
+description: Microsoft Avro Library를 사용하여 메모리, 데이터베이스 또는 파일에 유지하기 위해 HDInsight의 Hadoop에서 데이터를 직렬화 및 역직렬화하는 방법을 알아보세요.
 keywords: avro,hadoop avro
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b4bd615a8a64070a9b246cb8fe8635cc89108cf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro 라이브러리로 Hadoop의 데이터 직렬화
 

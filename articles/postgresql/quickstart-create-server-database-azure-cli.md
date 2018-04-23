@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 9b92e00f7082921586e8b8d8461ddf718ca30aeb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: daa7ea345abb6228bee2d1ca5bfcc3850aaff9c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 만들기
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에서 PostgreSQL용 Azure Database 서버를 만드는 방법을 살펴봅니다.
@@ -41,30 +41,6 @@ az account set --subscription <subscription id>
 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 고유한 이름을 제공해야 합니다. 다음 예제는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## <a name="add-the-extension"></a>확장 추가
-다음 명령을 사용하여 업데이트된 Azure Database for PostgreSQL 관리 확장을 추가합니다.
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-올바른 확장 버전이 설치되어 있는지 확인합니다. 
-```azurecli-interactive
-az extension list
-```
-
-반환된 JSON에는 다음이 포함되어야 합니다. 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-0.0.5 버전이 반환되지 않으면 다음을 실행하여 확장을 업데이트합니다. 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기

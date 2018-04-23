@@ -1,6 +1,6 @@
 ---
-title: "Always On 가용성 그룹 수신기 구성 - Microsoft Azure | Microsoft 문서"
-description: "하나 이상의 IP 주소를 갖는 내부 부하 분산 장치를 사용하여 Azure Resource Manager 모델에서 가용성 그룹 수신기를 구성합니다."
+title: Always On 가용성 그룹 수신기 구성 - Microsoft Azure | Microsoft 문서
+description: 하나 이상의 IP 주소를 갖는 내부 부하 분산 장치를 사용하여 Azure Resource Manager 모델에서 가용성 그룹 수신기를 구성합니다.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -48,10 +48,10 @@ SQL Server 액세스를 허용하도록 Windows 방화벽을 구성합니다. �
 > 
 > 
 
-다음 PowerShell 스크립트는 내부 부하 분산 장치를 만들고, 부하 분산 규칙을 구성하고, 부하 분산 장치에 대한 IP 주소를 설정합니다. 이 스크립트를 실행하려면 Windows PowerShell ISE를 열고 스크립트 창으로 스크립트를 붙여 넣습니다. `Login-AzureRMAccount`를 사용하여 PowerShell에 로그인합니다. 여러 Azure 구독이 있는 경우 `Select-AzureRmSubscription ` 사용하여 구독을 설정합니다. 
+다음 PowerShell 스크립트는 내부 부하 분산 장치를 만들고, 부하 분산 규칙을 구성하고, 부하 분산 장치에 대한 IP 주소를 설정합니다. 이 스크립트를 실행하려면 Windows PowerShell ISE를 열고 스크립트 창으로 스크립트를 붙여 넣습니다. `Connect-AzureRmAccount`를 사용하여 PowerShell에 로그인합니다. 여러 Azure 구독이 있는 경우 `Select-AzureRmSubscription ` 사용하여 구독을 설정합니다. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -112,7 +112,7 @@ foreach($VMName in $VMNames)
 다음 스크립트는 기존 부하 분산 장치에 새 IP 주소를 추가합니다. ILB는 부하 분산 프런트 엔드 포트에 대해 수신기 포트를 사용합니다. 이 포트는 SQL Server에서 수신 대기 중인 포트일 수 있습니다. SQL Server의 기본 인스턴스의 경우 포트는 1433입니다. 가용성 그룹에 대한 부하 분산 규칙에는 부동 IP(Direct Server Return)가 필요하므로 백 엔드 포트는 프런트 엔드 포트와 동일합니다. 사용자 환경에 맞게 변수를 업데이트합니다. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name

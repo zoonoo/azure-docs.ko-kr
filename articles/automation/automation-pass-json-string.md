@@ -9,11 +9,11 @@ ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: dd90c15ca70b08a010215a10f35abb3706825dea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 43f11b6e89b45fae94d0f7b10f0348468593956e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Azure Automation Runbook에 JSON 개체 전달
 
@@ -60,7 +60,7 @@ Param(
 
 # Connect to Azure account   
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Convert object to actual JSON
@@ -79,7 +79,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
 1. Azure에 로그인합니다.
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
     Azure 자격 증명을 입력하라는 메시지가 표시됩니다.
 1. JSON 파일의 내용을 가져와 문자열로 변환합니다.

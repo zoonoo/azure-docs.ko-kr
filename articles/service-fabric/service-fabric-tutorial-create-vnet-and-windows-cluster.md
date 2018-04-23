@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b9bf9d8fcb64191295a88f5ac9ccf62d5e22eb18
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b85c3030984758a0c425fb526a32fcd8eff974c9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
 이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 Windows를 실행 중인 Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.  Azure CLI를 사용하여 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
@@ -154,7 +154,7 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # sign in to your Azure account and select your subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 
@@ -184,7 +184,7 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # sign in to your Azure account and select your subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 

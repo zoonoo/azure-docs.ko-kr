@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/16/2018
 2. **디렉터리 변경**을 클릭합니다.
 
     ![디렉터리 변경 단추를 보여 주는 스크린샷](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. 경고를 검토합니다. 구독 디렉터리가 변경되면 액세스 권한이 할당된 모든 [RBAC(역할 기반 액세스 제어)](role-based-access-control-configure.md) 사용자 및 모든 구독 관리자의 액세스 권한이 손실됩니다.
+3. 경고를 검토합니다. 구독 디렉터리가 변경되면 액세스 권한이 할당된 모든 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 사용자 및 모든 구독 관리자의 액세스 권한이 손실됩니다.
 4. 디렉터리를 선택합니다.
 
     ![디렉터리 변경 UI를 보여 주는 스크린샷](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/16/2018
 
 * 새 Azure AD 디렉터리를 무료로 만드는 방법에 대해 자세히 알아보려면 [Azure Active Directory 테넌트를 얻는 방법](develop/active-directory-howto-tenant.md)을 참조하세요.
 * Azure 구독에 대한 청구 소유권 이전에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)을 참조하세요.
-* Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](active-directory-understanding-resource-access.md)
+* Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

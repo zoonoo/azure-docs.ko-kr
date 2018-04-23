@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
@@ -71,7 +71,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>권한 및 사용자 지정 RBAC 역할 모니터링
-위의 기본 제공 역할이 팀의 정확한 요구에 부합하지 못할 경우 더 세밀하게 지정한 권한을 갖는 [사용자 지정 RBAC 역할](../active-directory/role-based-access-control-custom-roles.md) 을 만들 수 있습니다. 다음은 공통 Azure 모니터 RBAC 작업과 그에 대한 설명입니다.
+위의 기본 제공 역할이 팀의 정확한 요구에 부합하지 못할 경우 더 세밀하게 지정한 권한을 갖는 [사용자 지정 RBAC 역할](../role-based-access-control/custom-roles.md) 을 만들 수 있습니다. 다음은 공통 Azure 모니터 RBAC 작업과 그에 대한 설명입니다.
 
 | 작업 | 설명 |
 | --- | --- |
@@ -125,7 +125,7 @@ New-AzureRmRoleDefinition -Role $role
 
 * 모니터링 데이터에는 단일 전용 저장소 계정을 사용합니다. 모니터링 데이터를 여러 저장소 계정으로 분리해야 할 경우, 모니터링 데이터와 비 모니터링 데이터 간에 저장소 계정을 공유하여 사용하지 않습니다. 모니터링 데이터에 대한 액세스 권한만 필요한 대상(예: 타사 SIEM)에게 부주의하게 비 모니터링 데이터에 대한 액세스 권한을 줄 가능성이 있기 때문입니다.
 * 같은 이유로 모든 진단 설정에서 단일 전용 Service Bus 또는 Event Hub 네임스페이스를 사용합니다.
-* 별도의 리소스 그룹을 유지하여 모니터링 관련 저장소 계정이나 이벤트 허브에 대한 액세스를 제한하고, 모니터링 역할에 [범위를 사용하여](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) 액세스를 해당 리소스 그룹으로만 한정합니다.
+* 별도의 리소스 그룹을 유지하여 모니터링 관련 저장소 계정이나 이벤트 허브에 대한 액세스를 제한하고, 모니터링 역할에 [범위를 사용하여](../role-based-access-control/overview.md#basics-of-access-management-in-azure) 액세스를 해당 리소스 그룹으로만 한정합니다.
 * 사용자가 모니터링 데이터 액세스만 필요할 경우 구독에서 이벤트 허브나 저장소 계정에 ListKeys 권한을 부여해서는 안 됩니다. 그 대신 리소스나 리소스 그룹(전용 모니터링 리소스 그룹이 있는 경우) 범위에서 사용자에게 해당 건한을 부여합니다.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>모니터링 관련 저장소 계정에 대한 액세스 제한
@@ -178,6 +178,6 @@ New-AzureRmRoleDefinition -Role $role
    ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Resource Manager의 RBAC 및 권한에 대해 읽기](../active-directory/role-based-access-control-what-is.md)
+* [Resource Manager의 RBAC 및 권한에 대해 읽기](../role-based-access-control/overview.md)
 * [Azure의 모니터링 개요 읽기](monitoring-overview.md)
 

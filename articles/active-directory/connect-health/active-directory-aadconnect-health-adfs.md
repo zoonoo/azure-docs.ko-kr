@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
@@ -127,7 +127,7 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 
 > [!NOTE]
 > 이 보고서를 사용하려면 AD FS 감사를 사용하도록 설정해야 합니다. 자세한 내용은 [AD FS 감사 사용](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오. <br />
-> 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader) 권한이 필요합니다.  
+> 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) 권한이 필요합니다.  
 > 
 
 ### <a name="what-is-in-the-report"></a>보고서에 포함된 내용

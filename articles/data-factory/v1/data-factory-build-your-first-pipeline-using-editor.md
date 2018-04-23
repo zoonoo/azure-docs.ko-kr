@@ -1,11 +1,11 @@
 ---
-title: "첫 번째 데이터 팩터리(Azure 포털) 빌드 | Microsoft Docs"
-description: "이 자습서에서는 Azure Portal의 Data Factory Editor를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
+title: 첫 번째 데이터 팩터리(Azure 포털) 빌드 | Microsoft Docs
+description: 이 자습서에서는 Azure Portal의 Data Factory Editor를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 75139e39c3391a7662e3d02ee8d56463ac9fcc7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
-> * [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Azure Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -80,7 +80,7 @@ ms.lasthandoff: 03/02/2018
 8. **만들기**를 선택합니다.
 
    > [!IMPORTANT]
-   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
+   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
    >
    >
 9. 대시보드에서 **Data Factory 배포 중** 상태의 다음과 같은 타일이 표시됩니다.    

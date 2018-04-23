@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center FAQ(질문과 대답) | Microsoft Docs"
-description: "이 FAQ는 Azure Security Center에 대한 질문에 답변합니다."
+title: Azure Security Center FAQ(질문과 대답) | Microsoft Docs
+description: 이 FAQ는 Azure Security Center에 대한 질문에 답변합니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -44,7 +44,7 @@ Security Center는 두 계층으로 제공됩니다.
 **표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층은 처음 60일 동안 무료입니다. 60일을 넘어 서비스를 계속 사용하는 경우 서비스 요금이 자동으로 청구되기 시작합니다.  업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다.
 
 ## <a name="permissions"></a>권한
-Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../active-directory/role-based-access-control-configure.md)를 사용합니다.
+Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받을 때 리소스와 관련된 항목만 볼 수 있습니다.
 

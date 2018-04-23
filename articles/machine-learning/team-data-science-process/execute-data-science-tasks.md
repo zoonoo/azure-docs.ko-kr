@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev
-ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0e0c04e48a551db6d7d7cd221a35e267dc0a63f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
 일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 **IDEAR(대화형 데이터 탐색, 분석 및 보고)** 및 **AMAR(자동 모델링 및 보고)** 유틸리티를 사용하여 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 생성 등과 같은 여러 가지 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 또한 다양한 도구 키트 및 다음과 같은 데이터 플랫폼을 사용하여 프로덕션 환경에서 모델을 배포하는 옵션도 개괄적으로 설명합니다.
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [ML 서비스 포함 SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/28/2018
 
 데이터 과학자는 다양한 방법으로, 예를 들어 Python(예: matplotlib) 또는 R(예: ggplot 또는 lattice)과 함께 사용할 수 있는 라이브러리 및 패키지를 사용하여 탐색 및 보고를 수행할 수 있습니다. 데이터 과학자는 해당 코드를 사용자 지정하여 특정 시나리오의 데이터 탐색 요구에 맞출 수 있습니다. 구조화된 데이터를 다루기 위한 요구는 텍스트나 이미지 등 구조화되지 않은 데이터의 경우와 다릅니다. 
 
-Azure Machine Learning Workbench 같은 제품은 또한 기능 생성을 포함하여 데이터 랭글링 및 탐색을 위한 [고급 데이터 준비](../preview/tutorial-bikeshare-dataprep.md)도 제공합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
+Azure Machine Learning Workbench 같은 제품은 또한 기능 생성을 포함하여 데이터 랭글링 및 탐색을 위한 [고급 데이터 준비](../desktop-workbench/tutorial-bikeshare-dataprep.md)도 제공합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
 
 이 단계가 종료할 때의 결과물은 데이터 탐색 보고서입니다. 보고서는 모델링 및 데이터가 모델링 단계로 진행하는 데 적합한지 여부를 평가에 사용할 데이터의 매우 포괄적인 뷰를 제공해야 합니다. 반자동화 탐색, 모델링 및 보고에 대해 다음 섹션에서 설명하는 TDSP(팀 데이터 과학 프로세스) 유틸리티도 표준화된 데이터 탐색 및 모델링 보고서를 제공합니다. 
 
@@ -75,7 +75,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 ### <a name="model-management"></a>모델 관리
 복수의 모델을 작성한 후에는 일반적으로 모델을 등록하고 관리하기 위한 시스템이 있어야 합니다. 일반적으로 스크립트 또는 API와 백 엔드 데이터베이스 또는 버전 관리 시스템의 조합이 필요합니다. 이러한 관리 작업에 대해 고려할 수 있는 몇 가지 옵션은 같습니다.
 
-1. [Azure Machine Learning 모델 관리 서비스](../preview/index.yml)
+1. [Azure Machine Learning 모델 관리 서비스](../service/index.yml)
 2. [MIT의 ModelDB](https://mitdbg.github.io/modeldb/) 
 3. [모델 관리 시스템으로 SQL Server 사용](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
@@ -88,7 +88,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 모델을 프로덕션으로 전환하기 위한 여러 접근법과 플랫폼이 있습니다. 다음은 몇 가지 옵션입니다.
 
 
-- [Azure Machine Learning에서 배포 모델링](../preview/model-management-overview.md)
+- [Azure Machine Learning에서 배포 모델링](../desktop-workbench/model-management-overview.md)
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 520427b99c05fcbc8125bdbde7d8eb56e7487292
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Azure Machine Learning 웹 서비스 매개 변수 사용
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
@@ -52,8 +52,8 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
    * **데이터 대상 지정**에서 "Azure Blob Storage"를 선택합니다.
    * **인증 유형 지정**에서 "계정"을 선택합니다.
    * Azure Blob 저장소에 대한 계정 정보를 입력합니다. 
-     <p />
-3. **컨테이너 매개 변수로 시작하는 blob에 대한 경로**의 오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
+
+3. **컨테이너로 시작하는 Blob 경로 매개 변수**오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
    
    ![웹 서비스 매개 변수 아이콘][icon]
    

@@ -1,8 +1,8 @@
 ---
-title: "HDInsight에서 Hadoop Oozie 사용 | Microsoft Docs"
-description: "빅데이터 서비스인 HDInsight에서 Hadoop Oozie를 사용하는 방법을 알아봅니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다."
+title: HDInsight에서 Hadoop Oozie 사용 | Microsoft Docs
+description: 빅데이터 서비스인 HDInsight에서 Hadoop Oozie를 사용하는 방법을 알아봅니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 73d8a26945be05ac0131148b5c0ffdd5f8053bcd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e9be2649421ca5280fc93199a7e6d2d81295d5d7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -244,7 +242,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
         Select-AzureRmSubscription -SubscriptionId $subscriptionID
     }
     #endregion

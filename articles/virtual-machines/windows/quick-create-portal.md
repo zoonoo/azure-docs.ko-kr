@@ -3,7 +3,7 @@ title: Azure 빠른 시작 - Windows VM 만들기 포털 | Microsoft Docs
 description: Azure 빠른 시작 - Windows VM 만들기 포털
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/11/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdee34b91dc6780764abf8b16d1b710c1f5397e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 42e17e2eb4ef64f8d0e80713041d22e6fe182538
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Windows 가상 머신 만들기
 

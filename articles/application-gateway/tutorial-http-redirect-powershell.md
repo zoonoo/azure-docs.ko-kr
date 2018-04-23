@@ -1,6 +1,6 @@
 ---
-title: "HTTP 및 HTTPS 간의 리디렉션으로 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 HTTP에서 HTTPS로 리디렉션된 트래픽으로 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
+title: HTTP 및 HTTPS 간의 리디렉션으로 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
+description: Azure PowerShell을 사용하여 HTTP에서 HTTPS로 리디렉션된 트래픽으로 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: a831171b267cca1ffdbf8eef33baafa71dd9bd79
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d67ed204ee263c139b09232b63ad18a85af1e82e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 응용 프로그램 게이트웨이 만들기
 
@@ -30,9 +30,9 @@ Azure PowerShell을 사용하여 SSL 종료를 위한 인증서로 [응용 프�
 > * 수신기 및 리디렉션 규칙 추가
 > * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Login-AzureRmAccount`를 실행하여 Azure에 연결해야 합니다.
+이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Connect-AzureRmAccount`를 실행하여 Azure에 연결해야 합니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -320,7 +320,7 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
 
-[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 응용 프로그램 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http://52.170.203.149
+[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 응용 프로그램 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

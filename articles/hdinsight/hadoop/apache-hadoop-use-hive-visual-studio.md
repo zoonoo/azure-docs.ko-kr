@@ -1,8 +1,8 @@
 ---
-title: "Visual Studio용 Data Lake(Hadoop) 도구를 사용한 Hive - Azure HDInsight | Microsoft Docs"
-description: "Azure HDInsight의 Apache Hadoop에서 Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다."
+title: Visual Studio용 Data Lake(Hadoop) 도구를 사용한 Hive - Azure HDInsight | Microsoft Docs
+description: Azure HDInsight의 Apache Hadoop에서 Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 410c2ee581a98a44e7c3c98e680686e5a1eae34e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1e72fbc084e76a11d28185ac2c49165280fc9e5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 Hive 쿼리 실행
 

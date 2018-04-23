@@ -9,10 +9,10 @@ ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
 ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 GPU 최적화 VM 크기는 단일 또는 여러 NVIDIA GPU에서 사용 가능한 특수한 가상 머신입니다. 이러한 크기는 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 GPU, vCPU, 데이터 디스크 및 NIC의 수 및 형식에 대한 정보를 제공합니다. 
 

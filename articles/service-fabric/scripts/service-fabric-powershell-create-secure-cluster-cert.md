@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터 만들기 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터 만들기"
+title: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터 만들기 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터 만들기
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 01/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b0d33b714092a826012677c95124d74bf2c72999
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 
 이 샘플 스크립트는 X.509 인증서를 사용하여 보호되는 5노드 Service Fabric 클러스터로 만듭니다.  이 명령은 자체 서명된 인증서를 만들고 새로운 Key Vault에 업로드합니다. 인증서는 로컬 디렉터리에도 복사됩니다.  *-OS* 매개 변수를 설정하여 클러스터 노드에서 실행되는 Windows 또는 Linux 버전을 선택합니다.  필요에 따라 매개 변수를 사용자 지정합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다. 
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 

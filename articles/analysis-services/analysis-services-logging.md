@@ -1,25 +1,18 @@
 ---
 title: Azure Analysis Services에 대한 진단 로깅 | Microsoft Docs
 description: Azure Analysis Services에 진단 로깅을 설정하는 방법을 알아봅니다.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: ''
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: minewiskan
+ms.openlocfilehash: 396ee2fc132abb5fbfd29bf5fffe9b1388b9a964
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
@@ -210,7 +203,7 @@ Log Analytics를 확인하세요. 여기에서는 수집된 데이터에 대한 
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell은 이 계정과 연관된 모든 구독을 가져와서 기본적으로 첫 번째 구독을 사용합니다.

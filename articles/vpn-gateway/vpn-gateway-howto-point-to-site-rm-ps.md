@@ -1,11 +1,11 @@
 ---
-title: "지점 및 사이트 간 및 네이티브 Azure 인증서 인증을 사용하여 Azure Virtual Network에 컴퓨터 연결: PowerShell | Microsoft Docs"
-description: "P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows 및 Mac OS X 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 PowerShell을 사용합니다."
+title: '지점 및 사이트 간 및 네이티브 Azure 인증서 인증을 사용하여 Azure Virtual Network에 컴퓨터 연결: PowerShell | Microsoft Docs'
+description: P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows 및 Mac OS X 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 PowerShell을 사용합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: ab171a97855090302148651e8e9c3d0d8b91a33a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 42afdee5ac58db005a7ecfb6388c88a974704a03
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/22/2018
 ![Azure VNet-지점 및 사이트 간 연결 다이어그램에 컴퓨터 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
 지점 및 사이트 간 네이티브 Azure 인증서 인증 연결은 이 연습에서 구성하는 다음 항목을 사용합니다.
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/22/2018
 1. 상승된 권한으로 PowerShell 콘솔을 열고 Azure 계정에 로그인합니다. 이 cmdlet은 로그인 자격 증명을 요구하는 메시지를 표시합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 2. Azure 구독 목록을 가져옵니다.
 

@@ -1,24 +1,24 @@
 ---
-title: "REST를 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs"
-description: "이 자습서에서는 REST API를 사용한 Azure Media Services로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
+title: REST를 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs
+description: 이 자습서에서는 REST API를 사용한 Azure Media Services로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: 844e6756316aad13918c2a16391f33b2941de7dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 343e1506f25059054c9456fc19ea556d7a17500a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="prerequisites"></a>필수 조건
 Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 조건이 필요합니다.
 
-* Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * Media Services REST API를 사용하여 개발하는 방법을 이해합니다. 자세한 내용은 [Media Services REST API 개요](media-services-rest-how-to-use.md)를 참조하세요
 * HTTP 요청 및 응답을 보낼 수 있도록 선택한 응용 프로그램입니다. 이 자습서에서는 [Fiddler](http://www.telerik.com/download/fiddler)를 사용합니다.
@@ -105,7 +105,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. **자산*
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -159,7 +159,7 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드 한 후 **MERGE** H
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
@@ -221,7 +221,7 @@ blob 저장소에 모든 파일을 업로드하기 전에 자산에 쓰기 위�
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
@@ -282,7 +282,7 @@ SAS 로케이터에 대한 자세한 내용은 [이 블로그](http://southworks
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
@@ -331,14 +331,14 @@ SAS 로케이터에 대한 자세한 내용은 [이 블로그](http://southworks
 AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure Storage REST API를 사용하여 Azure Blob Storage 컨테이너에 업로드됩니다. 블록 blob으로 파일을 업로드해야 합니다. 페이지 blob은 Azure Media Services에서 지원되지 않습니다.  
 
 > [!NOTE]
-> 이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. 예: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 을 참조하세요. . 을 참조하세요.
+> 이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. 예를 들어 https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다.
 >
 >
 
 Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
 ### <a name="update-the-assetfile"></a>AssetFile 업데이트
-이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 예:
+이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 예: 
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -346,7 +346,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -374,7 +374,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -393,7 +393,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -424,7 +424,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -471,7 +471,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     Content-Type: application/json;odata=verbose
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
@@ -595,7 +595,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-2233-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908022&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=RYXOraO6Z%2f7l9whWZQN%2bypeijgHwIk8XyikA01Kx1%2bk%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
 
@@ -632,7 +632,7 @@ Media Services를 사용하면 CancelJob 함수를 통해 실행 중인 작업�
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.2
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908753&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=kolAgnFfbQIeRv4lWxKSFa4USyjWXRm15Kd%2bNd5g8eA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
 
 
@@ -654,7 +654,7 @@ Media Services를 사용하면 CancelJob 함수를 통해 실행 중인 작업�
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -733,7 +733,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
     Expect: 100-continue
@@ -756,7 +756,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-b1ae-2233-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
     Expect: 100-continue
@@ -816,13 +816,13 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 AccessPolicy와 로케이터를 설정했으면 Azure Storage REST API를 사용하여 파일을 다운로드할 수 있습니다.  
 
 > [!NOTE]
-> 다운로드하려는 파일의 파일 이름을 이전 섹션에서 받은 로케이터 **경로** 값에 추가해야 합니다. 예: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 을 참조하세요. . 을 참조하세요.
+> 다운로드하려는 파일의 파일 이름을 이전 섹션에서 받은 로케이터 **경로** 값에 추가해야 합니다. 예를 들어 https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다.
 >
 >
 
 Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
-이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 예:    
+이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 예:     
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -849,7 +849,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs
     Content-Length: 182
     Expect: 100-continue

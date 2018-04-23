@@ -1,13 +1,13 @@
 ---
-title: "Azure Virtual Machine Scale Sets 암호화 디스크 | Microsoft Docs"
-description: "가상 머신 확장 집합에서 연결된 디스크를 암호화하는 방법을 알아봅니다."
+title: Azure Virtual Machine Scale Sets 암호화 디스크 | Microsoft Docs
+description: 가상 머신 확장 집합에서 연결된 디스크를 암호화하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)은 Azure Disk Encryption(ADE)을 지원합니다.  Azure Disk Encryption은 Windows 및 Linux 가상 머신 확장 집합에 대해 활성화할 수 있으며, 업계 표준 암호화 기술을 사용하여 확장 집합 미사용 데이터를 안전하게 보호합니다. 자세한 내용은 Windows 및 Linux Virtual Machines용 Azure Disk Encryption을 참조하세요.
@@ -42,7 +42,7 @@ Linux 확장 집합 데이터 디스크 암호화에 대한 종단 간 배치 �
 가상 머신 확장 집합용 Azure Disk Encryption 미리 보기를 사용하려면 다음과 같은 PowerShell 명령을 사용하여 사용자가 구독을 직접 등록해야 합니다. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

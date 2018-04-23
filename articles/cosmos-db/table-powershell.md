@@ -1,12 +1,12 @@
 ---
-title: "PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure Cosmos DB Table API 작업을 수행하는 방법"
+title: PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행 | Microsoft Docs
+description: PowerShell을 사용하여 Azure Cosmos DB Table API 작업을 수행하는 방법
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행 
 
@@ -55,10 +55,10 @@ Install-Module AzureRmStorageTable
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-table-or-reference-a-table"></a>테이블 만들기 또는 테이블 참조

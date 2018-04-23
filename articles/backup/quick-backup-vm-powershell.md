@@ -1,13 +1,13 @@
 ---
-title: "Azure 빠른 시작 - PowerShell을 사용하여 VM 백업 | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 가상 머신을 백업하는 방법을 알아봅니다."
+title: Azure 빠른 시작 - PowerShell을 사용하여 VM 백업 | Microsoft Docs
+description: Azure PowerShell을 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 55de58770bd91e000c12b42c8eeac92fb8c0a710
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91303368f96b477f0756e4d3b9d19601797f0ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure PowerShell 모듈에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. [Azure CLI](quick-backup-vm-cli.md) 또는 [Azure Portal](quick-backup-vm-portal.md)에서 이러한 단계를 수행할 수도 있습니다.
@@ -31,10 +31,10 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Azure Backup을 처음 사용할 때에는 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider)를 사용하여 구독에서 Azure Recovery Services 공급자를 등록해야 합니다.

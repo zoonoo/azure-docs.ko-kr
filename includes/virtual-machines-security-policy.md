@@ -28,7 +28,7 @@ VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-[RBAC(역할 기반 액세스 제어)](../articles/active-directory/role-based-access-control-what-is.md)를 사용하면 팀 내에서 업무를 분리하고 VM에서 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. [Azure CLI](https://docs.microsoft.com/cli/azure/role) 또는[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md)을 사용하여 [Azure Portal](../articles/active-directory/role-based-access-control-configure.md)에서 VM에 대한 액세스 제어를 구성할 수 있습니다.
+[RBAC(역할 기반 액세스 제어)](../articles/role-based-access-control/overview.md)를 사용하면 팀 내에서 업무를 분리하고 VM에서 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. [Azure CLI](https://docs.microsoft.com/cli/azure/role) 또는[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md)을 사용하여 [Azure Portal](../articles/role-based-access-control/role-assignments-portal.md)에서 VM에 대한 액세스 제어를 구성할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

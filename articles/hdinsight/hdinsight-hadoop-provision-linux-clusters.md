@@ -1,9 +1,9 @@
 ---
-title: "Hadoop, Spark, Kafka, HBase 또는 R Server에 대한 클러스터 설정 - Azure HDInsight | Microsoft Docs"
-description: "브라우저, Azure CLI, Azure PowerShell, REST 또는 SDK에서 Hadoop, Kafka, Spark, HBase, R Server 또는 HDInsight의 Storm 클러스터를 설정합니다."
-keywords: "hadoop 클러스터 설정, kafka 클러스터 설정, spark 클러스터 설정, hadoop에서 클러스터란"
+title: Hadoop, Spark, Kafka, HBase 또는 R Server에 대한 클러스터 설정 - Azure HDInsight | Microsoft Docs
+description: 브라우저, Azure CLI, Azure PowerShell, REST 또는 SDK에서 Hadoop, Kafka, Spark, HBase, R Server 또는 HDInsight의 Storm 클러스터를 설정합니다.
+keywords: hadoop 클러스터 설정, kafka 클러스터 설정, spark 클러스터 설정, hadoop에서 클러스터란
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,14 @@ ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 54c88b25911ddfa4ed9ecf6ea4b28278c2d9aac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -40,7 +38,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 | 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK) | 
 | --- |:---:|:---:|:---:|:---:|
-| [Azure 포털](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure 데이터 팩터리](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI(버전 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -154,7 +152,7 @@ Oozie 사용 시 성능을 높이려면 사용자 지정 Metastore를 사용합�
 ### <a name="number-of-nodes-for-each-cluster-type"></a>각 클러스터 유형에 대한 노드 수
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| 형식 | 노드 | 다이어그램 |
+| type | 노드 | 다이어그램 |
 | --- | --- | --- |
 | Hadoop은 |헤드 노드(2), 데이터 노드(1+) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

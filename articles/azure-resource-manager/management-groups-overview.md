@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 31e71f153c7bbf76b0f06f8f17a74c43cc1b1c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성 
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 ![트리](media/management-groups/MG_overview.png)
 
-부서별로 그룹화된 계층을 만들면 *상속*하는 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md) 역할을 해당 관리 그룹에 속한 부서에 할당할 수 있습니다. 관리 그룹을 사용하면 역할을 한 번만 할당하면 되므로 워크로드를 줄이고 오류 위험을 낮출 수 있습니다. 
+부서별로 그룹화된 계층을 만들면 *상속*하는 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md) 역할을 해당 관리 그룹에 속한 부서에 할당할 수 있습니다. 관리 그룹을 사용하면 역할을 한 번만 할당하면 되므로 워크로드를 줄이고 오류 위험을 낮출 수 있습니다. 
 
 ### <a name="important-facts-about-management-groups"></a>관리 그룹에 대한 중요 한 사실
 - 단일 디렉터리에서 지원할 수 있는 관리 그룹 수는 10,000개입니다. 
@@ -55,7 +55,7 @@ REST API를 사용하여 구독에 대한 정보를 가져오면 액세스할 �
 
 ## <a name="root-management-group-for-each-directory"></a>각 디렉터리에 대한 루트 관리 그룹
 
-각 디렉터리에는 "루트" 관리 그룹이라고 하는 단일 최상위 관리 그룹이 부여됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 이 루트 관리 그룹은 전역 정책 및 RBAC 할당을 디렉터리 수준에서 적용하는 것을 허용합니다. 디렉터리 관리자는 처음에 이 루트 그룹의 소유자가 되도록 [자신을 승격해야 합니다](../active-directory/role-based-access-control-tenant-admin-access.md). 관리자는 그룹의 소유자가 되면 계층 구조를 관리할 다른 디렉터리 사용자 또는 그룹에 모든 RBAC 역할을 할당할 수 있습니다.  
+각 디렉터리에는 "루트" 관리 그룹이라고 하는 단일 최상위 관리 그룹이 부여됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 이 루트 관리 그룹은 전역 정책 및 RBAC 할당을 디렉터리 수준에서 적용하는 것을 허용합니다. 디렉터리 관리자는 처음에 이 루트 그룹의 소유자가 되도록 [자신을 승격해야 합니다](../role-based-access-control/elevate-access-global-admin.md). 관리자는 그룹의 소유자가 되면 계층 구조를 관리할 다른 디렉터리 사용자 또는 그룹에 모든 RBAC 역할을 할당할 수 있습니다.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>루트 관리 그룹에 대한 중요한 사실
 - 기본적으로 Azure Active Directory ID에 루트 관리 그룹의 이름 및 ID가 제공됩니다. 표시 이름은 언제든지 Azure Portal 내에서 다른 이름을 표시하도록 업데이트할 수 있습니다. 
@@ -67,9 +67,9 @@ REST API를 사용하여 구독에 대한 정보를 가져오면 액세스할 �
   
 ## <a name="management-group-access"></a>관리 그룹 액세스
 
-Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)를 지원합니다. 이러한 권한은 해당 계층 구조에 있는 자식 리소스에 상속됩니다.   
+Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 지원합니다. 이러한 권한은 해당 계층 구조에 있는 자식 리소스에 상속됩니다.   
 
-[기본 제공 RBAC 역할](../active-directory/role-based-access-control-what-is.md#built-in-roles)을 관리 그룹에 할당할 수 있지만, 다음과 같은 네 가지 역할이 주로 사용됩니다. 
+[기본 제공 RBAC 역할](../role-based-access-control/overview.md#built-in-roles)을 관리 그룹에 할당할 수 있지만, 다음과 같은 네 가지 역할이 주로 사용됩니다. 
 - **소유자** 는 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다. 
 - **참가자**는 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수 없습니다.
 - **리소스 정책 참가자**는 리소스의 디렉터리에 정책을 만들고 관리할 수 있습니다.     

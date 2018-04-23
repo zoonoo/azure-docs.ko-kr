@@ -1,25 +1,19 @@
 ---
-title: "Azure Search 서비스의 사용량 및 통계 모니터링 | Microsoft Docs"
-description: "Microsoft Azure에서 호스팅되는 Search 서비스인 Azure Search에 대해 리소스 소비 및 인덱스 크기를 추적합니다."
-services: search
-documentationcenter: 
+title: Azure Search 서비스의 사용량 및 통계 모니터링 | Microsoft Docs
+description: Microsoft Azure에서 호스팅되는 Search 서비스인 Azure Search에 대해 리소스 소비 및 인덱스 크기를 추적합니다.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b8c07d5965876cba45f03fa8c5ffb473c6ca3bc2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Azure Search 서비스 모니터링
 
@@ -96,10 +90,10 @@ PowerShell 또는 Azure CLI를 사용하려면 [여기](https://docs.microsoft.c
 각 Blob는 **레코드** 라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다.
 각 Blob에는 같은 시간 중에 발생한 모든 작업에 대한 레코드가 포함됩니다.
 
-| 이름 | 형식 | 예 | 참고 사항 |
+| Name | type | 예 | 메모 |
 | --- | --- | --- | --- |
-| 실시간 |datetime |"2015-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| 실시간 |Datetime |"2015-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |string |"Query.Search" |작업 이름 |
 | operationVersion |string |"2015-02-28" |사용된 api-version |
 | 카테고리 |string |"OperationLogs" |constant |
@@ -109,7 +103,7 @@ PowerShell 또는 Azure CLI를 사용하려면 [여기](https://docs.microsoft.c
 | properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 **속성 스키마**
-| 이름 | 형식 | 예 | 참고 사항 |
+| Name | type | 예 | 메모 |
 | --- | --- | --- | --- |
 | 설명 |string |"GET /indexes('content')/docs" |작업의 끝점 |
 | 쿼리 |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |쿼리 매개 변수 |
@@ -117,11 +111,11 @@ PowerShell 또는 Azure CLI를 사용하려면 [여기](https://docs.microsoft.c
 | IndexName |string |"testindex" |작업과 연결된 인덱스의 이름 |
 
 #### <a name="metrics-schema"></a>메트릭 스키마
-| 이름 | 형식 | 예 | 참고 사항 |
+| Name | type | 예 | 메모 |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |string |"Latency" |메트릭 이름 |
-| 실시간 |datetime |"2015-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
+| 실시간 |Datetime |"2015-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
 | average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
 | minimum |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
 | maximum |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |

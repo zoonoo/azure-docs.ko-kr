@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: ca3292f1b89fc461950a47116126b6f5338fb381
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ce03ee0e0936cea4b96e48fbc949f40ee0fe83a0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 네트워킹 구성 문제 해결
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 네트워크 관련 구성 오류를 해결하고 문제를 해결합니다.
@@ -61,7 +61,7 @@ PowerShell을 사용하여 새 NSG를 만들려면 다음 단계를 사용합니
 
   ```PowerShell
   # Log in to your Azure subscription.
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. 세 가지 규칙으로 NSG를 만듭니다. 다음 스크립트는 Azure AD Domain Services를 실행하는 데 필요한 포트에 대한 액세스를 허용하는 NSG에 대한 세 가지 규칙을 정의합니다. 그런 다음, 이 스크립트는 해당 규칙을 포함하는 새 NSG를 만듭니다. 가상 네트워크에 배포된 워크로드에 필요한 경우 동일한 형식을 사용하여 다른 인바운드 트래픽을 허용하는 규칙을 더 추가합니다.
@@ -123,7 +123,7 @@ $VnetName = "exampleVnet"
 $SubnetName = "exampleSubnet"
 
 # Log in to your Azure subscription.
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
 $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD -Description "Allow synchronization with Azure AD" `

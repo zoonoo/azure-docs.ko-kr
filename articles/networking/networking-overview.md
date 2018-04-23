@@ -1,13 +1,13 @@
 ---
-title: "Azure 네트워킹 | Microsoft Docs"
-description: "Azure 네트워킹 서비스와 기능에 대해 알아봅니다."
+title: Azure 네트워킹 | Microsoft Docs
+description: Azure 네트워킹 서비스와 기능에 대해 알아봅니다.
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Azure 네트워킹
 
@@ -138,7 +138,7 @@ Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터
 - **진단 로그:** 정기적이고 자동적인 이벤트가 네트워크 리소스에서 만들어지고 Azure Storage 계정에 기록되어 Azure Event Hub 또는 Azure Log Analytics로 전송됩니다. 진단 로그는 리소스 상태에 대한 정보를 제공하며, Load Balancer(인터넷 연결), 네트워크 보안 그룹, 경로 및 Application Gateway에서 사용할 수 있습니다. 진단 로그에 대한 자세한 내용은 [진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **메트릭:** 메트릭은 리소스에 대해 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. 현재 메트릭은 Application Gateway에서 사용할 수 있습니다. 메트릭에 대해 자세히 알아보려면 [메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 읽어보세요.
 - **문제 해결:** Azure Portal에서 문제 해결 정보에 직접 액세스할 수 있습니다. 정보를 통해 ExpressRoute, VPN Gateway, Application Gateway, 네트워크 보안 로그, 경로, DNS, Load Balancer 및 Traffic Manager에서 발생하는 일반적인 문제를 진단할 수 있습니다.
-- **RBAC(역할 기반 액세스 제어):** RBAC(역할 기반 액세스 제어)를 사용하여 네트워킹 리소스를 만들고 관리할 수 있는 사용자를 제어합니다. [RBAC 시작](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 RBAC에 대해 자세히 알아봅니다. 
+- **RBAC(역할 기반 액세스 제어):** RBAC(역할 기반 액세스 제어)를 사용하여 네트워킹 리소스를 만들고 관리할 수 있는 사용자를 제어합니다. [RBAC 시작](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 RBAC에 대해 자세히 알아봅니다. 
 - **패킷 캡처:** Azure Network Watcher 서비스는 VM 내에서 확장을 통해 VM에 대한 패킷 캡처를 실행하는 기능을 제공합니다. 이 기능은 Linux 및 Windows VM에서 사용할 수 있습니다. 패킷 캡처에 대한 자세한 내용은 [패킷 캡처 개요](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **IP 흐름 확인:** Network Watcher를 사용하면 Azure VM과 원격 리소스 간에 IP 흐름을 확인하여 패킷을 허용할지 아니면 거부할지를 결정할 수 있습니다. 이 기능은 관리자에게 신속하게 연결 문제를 진단하는 기능을 제공합니다. IP 흐름을 확인하는 방법에 대한 자세한 내용은 [IP 흐름 확인 개요](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **VPN 연결 문제 해결:** Network Watcher의 VPN 문제 해결사 기능은 연결 또는 게이트웨이를 쿼리하고 리소스의 상태를 확인하는 기능을 제공합니다. VPN 연결 문제를 해결하는 방법에 대한 자세한 내용은 [VPN 연결 문제 해결 개요](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.

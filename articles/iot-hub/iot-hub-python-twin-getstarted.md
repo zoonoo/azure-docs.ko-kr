@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: d5b606532ac445b03527c5027dc3b434d88b6b1f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: kgremban
+ms.openlocfilehash: 44b913d5f30a8465219a6793f48d82cfe39d12b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>장치 쌍 시작(Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -242,7 +242,7 @@ ms.lasthandoff: 04/05/2018
 1. 장치 앱 실행
    
     ```cmd/sh
-    python ReportConnectivity.js
+    python ReportConnectivity.py
     ```
    
     장치 쌍이 업데이트되었다는 확인 메시지가 표시됩니다.
@@ -252,7 +252,7 @@ ms.lasthandoff: 04/05/2018
 6. 장치가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. 뒤로 돌아가서 쿼리를 다시 실행합니다.
    
     ```cmd/sh
-    python AddTagsAndQuery.js
+    python AddTagsAndQuery.py
     ```
    
     이번에는 **{장치 ID}**가 두 쿼리 결과에 모두 나타나야 합니다.

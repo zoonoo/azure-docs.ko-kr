@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fb3b78cd91a1554e278230cd85e5f4da8d43a26a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -420,7 +420,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -1233,7 +1233,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(failover) 클러스터
 
   _**그림 38:** 클러스터를 다시 구성했는지 확인_
 
-Windows 장애 조치(failover) 클러스터를 성공적으로 설치한 후 장애 조치(failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경할 매개 변수는 https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ 블로그에 설명되어 있습니다. ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
+Windows 장애 조치(failover) 클러스터를 성공적으로 설치한 후 장애 조치(failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경될 매개 변수는 이 블로그에 나와 있습니다. https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 

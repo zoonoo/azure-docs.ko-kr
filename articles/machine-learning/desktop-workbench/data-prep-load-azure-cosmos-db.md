@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning Workbench에서 Azure Cosmos DB에 데이터 원본으로 연결 | Microsoft Docs"
-description: "이 문서에서는 Azure Machine Learning Workbench를 통해 Azure Cosmos DB에 연결하는 방법의 예제를 제공합니다."
+title: Azure Machine Learning Workbench에서 Azure Cosmos DB에 데이터 원본으로 연결 | Microsoft Docs
+description: 이 문서에서는 Azure Machine Learning Workbench를 통해 Azure Cosmos DB에 연결하는 방법의 예제를 제공합니다.
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -8,15 +8,15 @@ manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
 ms.openlocfilehash: d36b394a528dc4bc1b6e0a9e0e5dbde728cbee1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Azure Cosmos DB에 데이터 원본으로 연결
 이 문서에는 Azure Machine Learning Workbench에서 Cosmos DB에 연결할 수 있는 python 샘플이 포함되어 있습니다.

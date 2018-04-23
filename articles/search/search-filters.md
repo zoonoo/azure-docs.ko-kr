@@ -1,24 +1,17 @@
 ---
-title: "Azure Search의 필터 | Microsoft Docs"
-description: "Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search에서 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 언어, 지리적 위치 또는 숫자 값별로 필터링합니다."
-services: search
-documentationcenter: 
+title: Azure Search의 필터 | Microsoft Docs
+description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search에서 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 언어, 지리적 위치 또는 숫자 값별로 필터링합니다.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/19/2017
 ms.author: heidist
-ms.openlocfilehash: 2e8721684b1d4ed0e7392d85ea1df0f595860a05
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 867a0eab20c7827ca99dc4b4371dfb2d551180b3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filters-in-azure-search"></a>Azure Search의 필터 
 

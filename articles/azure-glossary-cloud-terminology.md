@@ -1,12 +1,12 @@
 ---
-title: "Azure 용어집- Azure 사전 | Microsoft Docs"
-description: "Azure 플랫폼에 대한 클라우드 용어를 이해하려면 Azure 용어집을 사용합니다. 이 간단한 Azure 사전에서 Azure의 일반적인 클라우드 용어에 대한 정의를 제공합니다."
-keywords: "Azure 사전, 클라우드 용어, Azure 용어집, 용어 정의, 클라우드 용어"
+title: Azure 용어집- Azure 사전 | Microsoft Docs
+description: Azure 플랫폼에 대한 클라우드 용어를 이해하려면 Azure 용어집을 사용합니다. 이 간단한 Azure 사전에서 Azure의 일반적인 클라우드 용어에 대한 정의를 제공합니다.
+keywords: Azure 사전, 클라우드 용어, Azure 용어집, 용어 정의, 클라우드 용어
 services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -111,7 +111,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 
 ## <a name="role"></a>role
 사용자, 그룹 및 서비스에 할당할 수 있는 액세스를 제어하는 방법입니다. 역할은 Azure 리소스에서 만들기, 관리 및 읽기와 같은 작업을 수행할 수 있습니다.  
-[RBAC: 기본 제공 역할](active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+[RBAC: 기본 제공 역할](role-based-access-control/built-in-roles.md)을 참조하세요.
 
 ## <a name="sla"></a>SLA(서비스 수준 계약)
 작동 시간 및 연결에 대한 Microsoft의 정책을 설명하는 계약입니다. 각 Azure 서비스에는 특정 SLA가 있습니다.  

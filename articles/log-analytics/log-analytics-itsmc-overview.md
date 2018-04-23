@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: c39cf464a7e838fecf7ebd4a3cbb08612388a5fa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -262,7 +262,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 원본
 - 할당 대상
 - 제목
-- 유형
+- type
 - Category
 - 시스템 상태
 - 에스컬레이션
@@ -314,7 +314,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  유형 |
+| Type_s|  type |
 | Category_s|  Category |
 | CRState_s|  시스템 상태|
 | Urgency_s|  긴급도 |

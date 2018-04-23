@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 7a0104e68b07dbdff5483b771429fb9bc19a523f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 04/03/2018
     > [!WARNING]
     > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크가 변경될 수 있습니다. 이전 가상 네트워크만 추가하고, 구독에서 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다. 
 
-5. `login-azurermaccount` 명령을 입력하여, 리소스 관리자 명령을 사용하기 위해 사용자 B로 사용자 B의 구독에 로그인합니다.
+5. `Connect-AzureRmAccount` 명령을 입력하여, 리소스 관리자 명령을 사용하기 위해 사용자 B로 사용자 B의 구독에 로그인합니다.
 6. 사용자 A 권한을 가상 네트워크 B에 할당합니다. 다음 스크립트를 복사하여 PC의 텍스트 편집기에 붙여 넣고 `<SubscriptionB-id>`는 구독 B의 ID로 교체합니다. 구독 ID를 모를 경우 `Get-AzureRmSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. Azure는 이름이 *Default-Networking*인 리소스 그룹에 4단계에서 만든 가상 네트워크(클래식)를 만들었습니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
     
     ```powershell 
@@ -214,7 +214,7 @@ ms.lasthandoff: 04/03/2018
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. 사용자 B로 Azure에서 로그아웃하고 `login-azurermaccount` 명령을 입력하여 사용자 A의 구독에 사용자 A로 로그인합니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
+7. 사용자 B로 Azure에서 로그아웃하고 `Connect-AzureRmAccount` 명령을 입력하여 사용자 A의 구독에 사용자 A로 로그인합니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 8. 다음 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 눌러 가상 네트워크(리소스 관리자)를 만듭니다.
 
     ```powershell

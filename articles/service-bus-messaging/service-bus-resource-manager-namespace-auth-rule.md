@@ -1,24 +1,24 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 권한 부여 규칙 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기"
+title: Azure Resource Manager 템플릿을 사용하여 Service Bus 권한 부여 규칙 만들기 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: e29045f43f5b80ffc66d7b10bac39f3d8d03ae3c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/11/2017
 
 ## <a name="parameters"></a>매개 변수
 
-Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
+Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마세요. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
 템플릿은 다음 매개 변수를 정의합니다.
 
@@ -107,8 +107,7 @@ Service Bus 네임스페이스에 있는 큐의 이름입니다.
             "location": "[variables('location')]",
             "kind": "Messaging",
             "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
+                "name": "Standard",
             },
             "resources": [
                 {

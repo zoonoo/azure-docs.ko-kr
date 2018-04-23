@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric 클러스터 보안 | Microsoft Docs"
-description: "Azure Service Fabric 클러스터에 대한 보안 시나리오 및 이를 구현하는 데 사용할 수 있는 다양한 기술에 대해 알아봅니다."
+title: Azure Service Fabric 클러스터 보안 | Microsoft Docs
+description: Azure Service Fabric 클러스터에 대한 보안 시나리오 및 이를 구현하는 데 사용할 수 있는 다양한 기술에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: aljo
+ms.openlocfilehash: f60b428ba7fe93713af68851a3e9d246a3b1641b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 Azure 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 사용자는 권한이 없는 사용자가 연결되는 것을 방지하기 위해 클러스터를 보호해야 합니다. 보안 클러스터는 클러스터에서 프로덕션 워크로드를 실행하는 경우에 특히 중요합니다. 보안이 되지 않은 클러스터를 만들 수 있지만 클러스터가 공용 인터넷에 관리 끝점을 노출하는 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다. 보호되지 않은 클러스터는 프로덕션 워크로드에 지원되지 않습니다. 

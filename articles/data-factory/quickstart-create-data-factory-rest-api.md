@@ -13,11 +13,11 @@ ms.devlang: rest-api
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6b3045e0c91fca384728b12b1ab6b93518a5e690
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7c5f36fec870a81e023c4cde74c9e878f2f544f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 

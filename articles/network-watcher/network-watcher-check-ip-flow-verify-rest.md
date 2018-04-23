@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher IP 흐름 확인을 사용하여 트래픽 확인 - REST | Microsoft Docs"
-description: "이 문서에서는 가상 머신 간에 트래픽을 허용하는지 아니면 거부하는지를 확인하는 방법을 설명합니다."
+title: Azure Network Watcher IP 흐름 확인을 사용하여 트래픽 확인 - REST | Microsoft Docs
+description: 이 문서에서는 가상 머신 간에 트래픽을 허용하는지 아니면 거부하는지를 확인하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c3d38f776db63e777174b7dca8b09a0d19c387e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Azure Network Watcher의 구성 요소인 IP 흐름 확인을 사용하여 트래픽을 허용하는지 아니면 거부하는지를 확인합니다.
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](network-watcher-check-ip-flow-verify-portal.md)
+> - [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
@@ -48,7 +48,7 @@ PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩�
 * IP 흐름 확인 호출
 * 결과 확인
 
-## <a name="log-in-with-armclient"></a>ARMClient로 로그인
+## <a name="log-in-with-armclient"></a>ARMClient에 로그인
 
 ```PowerShell
 armclient login
@@ -165,7 +165,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="next-steps"></a>다음 단계
 
-트래픽이 차단되지 않아야 하는데 차단된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 네트워크 보안 그룹에 대해 자세히 알아봅니다.
+트래픽이 차단되지 않아야 하는데 차단된 경우 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하여 네트워크 보안 그룹에 대해 자세히 알아봅니다.
 
 
 

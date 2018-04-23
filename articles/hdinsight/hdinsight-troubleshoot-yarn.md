@@ -1,25 +1,23 @@
 ---
-title: "Azure HDInsight를 사용한 YARN 문제 해결 | Microsoft Docs"
-description: "Apache Hadoop YARN 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다."
-keywords: "Azure HDInsight, YARN, FAQ, 문제 해결 가이드, 일반적인 질문"
+title: Azure HDInsight를 사용한 YARN 문제 해결 | Microsoft Docs
+description: Apache Hadoop YARN 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
+keywords: Azure HDInsight, YARN, FAQ, 문제 해결 가이드, 일반적인 질문
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: F76786A9-99AB-4B85-9B15-CA03528FC4CD
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 338d678fb31a86046b8bc6424d0e8aac2de1a0c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 YARN 문제 해결
 

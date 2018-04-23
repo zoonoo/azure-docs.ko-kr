@@ -1,12 +1,12 @@
 ---
-title: "Azure Storage를 사용하여 PaaS 응용 프로그램 보안 | Microsoft Docs"
+title: Azure Storage를 사용하여 PaaS 응용 프로그램 보안 | Microsoft Docs
 description: " PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure Storage 보안 모범 사례에 대해 알아봅니다. "
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안
 이 문서에서는 PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
@@ -40,13 +40,13 @@ Azure 저장소 서비스는 Blob 저장소, 테이블 저장소, 큐 저장소 
 
 - 저장소 암호화:
    - 고가치 데이터에 대한 클라이언트 쪽 암호화
-   - 가상 컴퓨터에 대한 Azure Disk Encryption
+   - 가상 머신에 대한 Azure Disk Encryption
    - Storage 서비스 암호화
 
 ## <a name="access-protection"></a>액세스 보호
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>저장소 계정 키 대신 공유 액세스 서명 사용
 
-일반적으로 Windows Server 또는 Linux 가상 컴퓨터를 실행하는 IaaS 솔루션에서 파일은 액세스 제어 메커니즘을 사용하여 노출 및 변조 위협으로부터 보호됩니다. Windows에서는 [ACL(액세스 제어 목록)](../virtual-network/virtual-networks-acl.md), Linux에서는 [chmod](https://en.wikipedia.org/wiki/Chmod)를 사용할 수 있습니다. 기본적으로 이 작업은 사용자 고유의 데이터 센터에 있는 서버에서 파일을 보호하는 경우에 수행하는 작업입니다.
+일반적으로 Windows Server 또는 Linux 가상 머신을 실행하는 IaaS 솔루션에서 파일은 액세스 제어 메커니즘을 사용하여 노출 및 변조 위협으로부터 보호됩니다. Windows에서는 [ACL(액세스 제어 목록)](../virtual-network/virtual-networks-acl.md), Linux에서는 [chmod](https://en.wikipedia.org/wiki/Chmod)를 사용할 수 있습니다. 기본적으로 이 작업은 사용자 고유의 데이터 센터에 있는 서버에서 파일을 보호하는 경우에 수행하는 작업입니다.
 
 PaaS는 다릅니다. Microsoft Azure에서 파일을 저장하는 가장 일반적인 방법 중 하나는 [Azure Blob Storage](../storage/storage-dotnet-how-to-use-blobs.md)를 사용하는 것입니다. Blob Storage 및 기타 파일 저장소 간의 차이점은 파일 I/O 및 함께 수반되는 보호 방법입니다.
 
@@ -75,16 +75,16 @@ SAS를 사용하여 Storage 계정 키를 제공하지 않고도 공유하려는
 
 앞에서 SAS(공유 액세스 서명)를 사용하여 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 개체에 대한 제한된 액세스 권한을 부여하는 방법을 살펴보았습니다. 저장소 계정에 대한 특정 작업 관련 위험이 SAS의 이점을 능가하는 경우도 있습니다. 다른 방법으로 액세스를 관리하는 것이 더 간단한 경우도 있습니다.
 
-액세스를 관리하는 또 다른 방법은 Azure RBAC([역할 기반 Access Control](../active-directory/role-based-access-control-what-is.md))를 사용하는 것입니다. RBAC를 사용하는 경우 알아야 할 사항 및 최소 권한 보안 원칙에 따라 직원들에게 필요한 정확한 권한을 부여하는 데 주안점을 둡니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. 이는 데이터 액세스에 대한 보안 정책을 적용하려는 조직에 필수적입니다.
+액세스를 관리하는 또 다른 방법은 Azure RBAC([역할 기반 Access Control](../role-based-access-control/overview.md))를 사용하는 것입니다. RBAC를 사용하는 경우 알아야 할 사항 및 최소 권한 보안 원칙에 따라 직원들에게 필요한 정확한 권한을 부여하는 데 주안점을 둡니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. 이는 데이터 액세스에 대한 보안 정책을 적용하려는 조직에 필수적입니다.
 
-Azure의 기본 제공 RBAC 역할을 활용하여 사용자에게 권한을 할당할 수 있습니다. Storage 계정을 관리해야 하는 클라우드 운영자를 위한 Storage 계정 참여자 및 클래식 Storage 계정 참여자 역할을 사용하여 클래식 Storage 계정을 관리하는 방법을 고려해 볼 수 있습니다. VM을 관리해야 하지만 VM이 연결된 가상 네트워크 또는 저장소 계정은 관리할 필요가 없는 클라우드 운영자의 경우 가상 컴퓨터 참여자 역할에 추가하는 것이 좋습니다.
+Azure의 기본 제공 RBAC 역할을 활용하여 사용자에게 권한을 할당할 수 있습니다. Storage 계정을 관리해야 하는 클라우드 운영자를 위한 Storage 계정 참여자 및 클래식 Storage 계정 참여자 역할을 사용하여 클래식 Storage 계정을 관리하는 방법을 고려해 볼 수 있습니다. VM을 관리해야 하지만 VM이 연결된 가상 네트워크 또는 저장소 계정은 관리할 필요가 없는 클라우드 운영자의 경우 Virtual Machine 참여자 역할에 추가하는 것이 좋습니다.
 
 RBAC 같은 기능을 활용하여 데이터 액세스 제어를 적용하지 않는 조직은 사용자에게 필요 이상으로 많은 권한을 부여하게 될 수 있습니다. 그로 인해 일부 사용자가 원래는 액세스할 수 없어야 하는 데이터에 액세스할 수 있게 되어 데이터 손상이 발생할 수 있습니다.
 
 RBAC에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)
-- [Azure 역할 기반 액세스 제어의 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)
+- [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)
+- [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md)
 - [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md): RBAC를 사용하여 저장소 계정을 보호하는 방법
 
 ## <a name="storage-encryption"></a>저장소 암호화
@@ -97,7 +97,7 @@ RBAC에 대한 자세한 내용은 다음을 참조하세요.
 클라이언트 쪽 암호화는 Java 및 .NET 저장소 클라이언트 라이브러리에 기본적으로 제공되어 있습니다.  클라이언트 응용 프로그램 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](../storage/storage-client-side-encryption.md)를 참조하세요.
 
 ### <a name="azure-disk-encryption-for-vms"></a>VM에 대한 Azure Disk Encryption
-Azure Disk Encryption은 Windows 및 Linux IaaS 가상 컴퓨터 디스크를 암호화할 수 있도록 하는 기능입니다. Azure 디스크 암호화는 업계 표준인 Windows의 BitLocker 기능과 Linux의 DM-Crypt 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 또한 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 Azure Key Vault에 통합되어 있습니다. 이 솔루션은 가상 컴퓨터 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
+Azure Disk Encryption은 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있도록 하는 기능입니다. Azure 디스크 암호화는 업계 표준인 Windows의 BitLocker 기능과 Linux의 DM-Crypt 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 또한 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 Azure Key Vault에 통합되어 있습니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
 
 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](azure-security-disk-encryption.md)을 참조하세요.
 

@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법
 "어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 얻은 답변으로 무슨 작업을 수행할지에 따라 다릅니다.

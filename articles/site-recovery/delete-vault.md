@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 62792747b4efe2de4c22af6f0886503d7d63ed44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Site Recovery 자격 증명 모음 삭제
 종속성으로 인해 Azure Site Recovery 자격 증명 모음을 삭제하지 못할 수 있으며, VMWare에서 Azure로, Hyper-V(System Center Virtual Machine Manager 있음 및 없음)에서 Azure로 및 Azure Backup과 같은 Site Recovery 시나리오에 따라 수행해야 하는 작업이 달라집니다. Azure Backup에서 사용되는 자격 증명 모음을 삭제하려면 [Azure에서 백업 자격 증명 모음 삭제](../backup/backup-azure-delete-vault.md)를 참조하세요.
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/08/2018
 
 보호된 항목이 있더라도 Site Recovery 자격 증명 모음을 삭제하려면 다음 명령을 사용합니다.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 

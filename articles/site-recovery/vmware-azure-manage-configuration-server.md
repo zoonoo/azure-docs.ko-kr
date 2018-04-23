@@ -1,17 +1,17 @@
 ---
-title: "Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 관리 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다."
+title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: ddb1c9426874634fea54f1b67509d4ac2af70eba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware VM에 대해 구성 서버 관리
 
@@ -112,7 +112,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)합니다.
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. 자격 증명 모음 구독을 선택합니다.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

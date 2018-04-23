@@ -1,25 +1,23 @@
 ---
-title: "성능을 위한 Spark 작업 최적화 - Azure HDInsight | Microsoft Docs"
-description: "최상의 Spark 클러스터 성능을 얻기 위한 일반적인 전략을 보여 줍니다."
+title: 성능을 위한 Spark 작업 최적화 - Azure HDInsight | Microsoft Docs
+description: 최상의 Spark 클러스터 성능을 얻기 위한 일반적인 전략을 보여 줍니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 64ddb70f071a9fadc6fef64dcd3506c6d6255481
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 381f9ef2dac2c1dfdada32a917626b17c5969a98
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="optimize-spark-jobs"></a>Spark 작업 최적화
 

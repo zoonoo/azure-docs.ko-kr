@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -79,14 +79,14 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 ## <a name="roles"></a>역할
 
 
-청사진에서는 병원 관리 및 환자 치료 측면에서 관리 사용자(운영자)에 대한 두 가지 역할 및 사용자에 대한 세 가지 역할을 정의하고 있습니다. 여섯 번째 역할은 감사자가 HIPAA 및 다른 규정 준수를 평가하도록 정의됩니다. Azure RBAC(역할 기반 액세스 제어)를 사용하면 기본 제공 역할 및 사용자 지정 역할을 통해 솔루션의 각 사용자에 대해 정확하게 초점을 맞춘 액세스 관리를 수행할 수 있습니다. RBAC, 역할 및 권한에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) 및 [Azure 역할 기반 액세스 제어의 기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.
+청사진에서는 병원 관리 및 환자 치료 측면에서 관리 사용자(운영자)에 대한 두 가지 역할 및 사용자에 대한 세 가지 역할을 정의하고 있습니다. 여섯 번째 역할은 감사자가 HIPAA 및 다른 규정 준수를 평가하도록 정의됩니다. Azure RBAC(역할 기반 액세스 제어)를 사용하면 기본 제공 역할 및 사용자 지정 역할을 통해 솔루션의 각 사용자에 대해 정확하게 초점을 맞춘 액세스 관리를 수행할 수 있습니다. RBAC, 역할 및 권한에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](https://docs.microsoft.com/azure/role-based-access-control/overview) 및 [Azure 역할 기반 액세스 제어의 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조하세요.
 
 ### <a name="site-administrator"></a>사이트 관리자
 
 
 사이트 관리자는 고객의 Azure 구독에 대한 책임이 있습니다. 전체적인 배포를 제어하지만 환자 레코드에는 액세스할 수 없습니다.
 
--   기본 역할 할당: [소유자](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   기본 역할 할당: [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   사용자 지정 역할 할당: 해당 없음
 
@@ -97,7 +97,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 데이터베이스 분석가는 SQL Server 인스턴스와 데이터베이스를 관리합니다.
 환자 레코드에는 액세스할 수 없습니다.
 
--   기본 역할 할당: [SQL DB 참가자](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [SQL Server 참가자](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   기본 역할 할당: [SQL DB 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   사용자 지정 역할 할당: 해당 없음
 
@@ -108,7 +108,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 데이터 과학자는 Azure Machine Learning 서비스를 운영합니다. 데이터를 가져오고, 내보내고, 관리하고, 보고서를 실행할 수 있습니다. 데이터 과학자는 환자 데이터에 액세스할 수 있지만 관리자 권한은 없습니다.
 
--   기본 제공 역할 할당: [저장소 계정 참가자](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   기본 제공 역할 할당: [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   사용자 지정 역할 할당: 해당 없음
 
@@ -138,7 +138,7 @@ CMIO는 의료 조직의 정보학/기술과 의료 전문가 간의 격차를 �
 
 솔루션의 규정 준수를 평가하며, 네트워크에 직접 액세스할 수 없습니다.
 
--   기본 제공 역할 할당: [구독자](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   기본 제공 역할 할당: [구독자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   사용자 지정 역할 할당: 해당 없음
 
@@ -222,7 +222,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 -   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 미치는 잠재적인 취약성을 검색하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 응답을 구성하며, 의심스러운 인시던트를 조사하고, 이를 해결하기 위해 적절한 조치를 수행합니다.
 
--   [Azure RBAC(Role-based Access Control)](/azure/active-directory/role-based-access-control-configure)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며, Azure Key Vault 액세스는 사이트 관리자로 제한됩니다. 강력한 암호(12자 이상, 하나 이상의 대/소문자, 숫자 및 특수 문자 포함)가 필요합니다.
+-   [Azure RBAC(Role-based Access Control)](/azure/role-based-access-control/role-assignments-portal)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며, Azure Key Vault 액세스는 사이트 관리자로 제한됩니다. 강력한 암호(12자 이상, 하나 이상의 대/소문자, 숫자 및 특수 문자 포함)가 필요합니다.
 
 -   배포 시 -enableMFA 스위치를 사용하도록 설정되면 다단계 인증이 지원됩니다.
 
@@ -230,7 +230,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **역할:**
 
--   솔루션에서 [기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 사용하여 리소스에 대한 액세스를 관리합니다.
+-   솔루션에서 [기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 사용하여 리소스에 대한 액세스를 관리합니다.
 
 -   기본적으로 특정 기본 제공 역할이 모든 사용자에게 할당됩니다.
 
@@ -356,7 +356,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 
 -   Machine Learning 웹 서비스에 대해 [로깅을 사용하도록 설정](/azure/machine-learning/studio/web-services-logging)됩니다.
-- [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) Workbench를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다. [Workbench를 통합](/azure/machine-learning/preview/using-git-ml-project)하면 실험 관리를 간소화할 수 있습니다.
+- [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다. [Workbench를 통합](/azure/machine-learning/desktop-workbench/using-git-ml-project)하면 실험 관리를 간소화할 수 있습니다.
 
 ## <a name="security"></a>보안
 

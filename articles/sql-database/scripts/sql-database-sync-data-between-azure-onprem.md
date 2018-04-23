@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5f10bc981581de12b816a45a6c6d704c42024b67
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bef2e3088bf3f3d32f59b382792608fbf3a03a60
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell을 사용하여 SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 
 이 샘플에는 Azure PowerShell 모듈 버전 4.2 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요.
  
-`Login-AzureRmAccount`를 실행하여 Azure와 연결합니다.
+`Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.
 
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)를 참조하세요.
 
@@ -101,7 +101,7 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
 
-add-azurermaccount 
+Connect-AzureRmAccount 
 select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.

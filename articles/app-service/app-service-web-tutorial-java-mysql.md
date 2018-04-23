@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 31951b609f7d819b532e6fa8cb02c702e9457253
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>자습서: Azure에서 Java 및 MySQL 웹앱 빌드
 
@@ -161,14 +161,11 @@ MySQL 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표�
 
 ### <a name="configure-server-firewall"></a>서버 방화벽 구성
 
-Cloud Shell에서 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다. 
+Cloud Shell에서 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
-
-> [!NOTE]
-> Azure Database for MySQL는 현재 Azure 서비스에서 자동으로 연결되지 않습니다. Azure의 IP 주소는 동적으로 할당되므로 지금은 모든 IP 주소를 사용하도록 설정하는 것이 좋습니다. 데이터베이스를 보호하기 위해 더 나은 방법을 사용하도록 설정합니다.
 
 ## <a name="configure-the-azure-mysql-database"></a>Azure MySQL 데이터베이스 구성
 

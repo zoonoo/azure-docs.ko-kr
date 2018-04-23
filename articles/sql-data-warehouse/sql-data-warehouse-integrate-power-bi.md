@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse와 함께 Power BI 사용 | Microsoft Docs"
-description: "솔루션 개발을 위한 Azure SQL Data Warehouse와 함께 Power BI 사용을 위한 팁"
+title: SQL Data Warehouse와 함께 Power BI 사용 | Microsoft Docs
+description: 솔루션 개발을 위한 Azure SQL Data Warehouse와 함께 Power BI 사용을 위한 팁
 services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>SQL Data Warehouse와 함께 Power BI 사용
 Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 사용자는 Power BI의 분석 기능과 함께 강력한 논리 푸시 다운을 활용할 수 있습니다.  직접 연결을 사용하여 쿼리는 데이터를 탐색할 때 실시간으로 Azure SQL Data Warehouse로 다시 전송됩니다.  SQL Data Warehouse의 크기와 결합되어 사용자는 테라바이트 규모의 데이터에 대해 동적 보고서를 몇 분 내에 만들 수 있습니다.  또한 Power BI 단추에서 열기 소개를 사용하면 사용자는 Azure의 다른 부분에서 정보를 수집하지 않고 Power BI를 직접 SQL Data Warehouse에 연결할 수 있습니다.

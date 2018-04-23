@@ -1,25 +1,25 @@
 ---
-title: "ESP8266에서 클라우드로 - Sparkfun ESP8266 Thing Dev를 Azure IoT Hub에 연결 | Microsoft Docs"
-description: "이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Sparkfun ESP8266 Thing Dev를 설정하고 해당 Azure IoT Hub에 연결하는 방법을 알아봅니다."
+title: ESP8266에서 클라우드로 - Sparkfun ESP8266 Thing Dev를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Sparkfun ESP8266 Thing Dev를 설정하고 해당 Azure IoT Hub에 연결하는 방법을 알아봅니다.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: e6837d0312217d8e27e3639b8220f5016a2505a6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Sparkfun ESP8266 Thing Dev를 클라우드의 Azure IoT Hub에 연결
 
@@ -133,7 +133,7 @@ Ubuntu를 사용하는 경우 일반 사용자에게 Sparkfun ESP8266 Thing Dev�
 
 1. 명령 프롬프트 또는 터미널 창을 엽니다.
 1. 응용 프로그램 예제를 저장하려는 폴더로 이동합니다.
-1. 다음 명령을 실행합니다.
+1. 다음 명령 실행:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-SparkFun-ThingDev-client-app.git

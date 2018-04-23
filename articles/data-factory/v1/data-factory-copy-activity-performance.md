@@ -14,13 +14,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [버전 1 - GA](data-factory-copy-activity-performance.md)
+> * [버전 2 - 미리 보기](../copy-activity-performance.md)
+
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2의 복사 작업 성능 및 조정 가이드](../copy-activity-performance.md)를 참조하세요.
 

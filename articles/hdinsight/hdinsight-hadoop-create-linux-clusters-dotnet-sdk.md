@@ -1,8 +1,8 @@
 ---
-title: ".NET를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs"
-description: "HDInsight .NET SDK를 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법을 알아봅니다."
+title: .NET를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs
+description: HDInsight .NET SDK를 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: a2258aa6df04f213652f6ce460b8cf0e7e3969e5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: eda1f0e434c59a2a1c7bb63d92ce7b1fa5b42344
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -396,8 +394,7 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](spark/apache-spark-create-standalone-application.md)
 * [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](spark/apache-spark-livy-rest-interface.md)
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](spark/apache-spark-use-bi-tools.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
 ### <a name="run-jobs"></a>작업 실행
 * [.NET SDK를 사용하여 HDInsight에서 Hive 작업 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [.NET SDK를 사용하여 HDInsight에서 Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

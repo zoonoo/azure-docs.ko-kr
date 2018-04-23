@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
-ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f6f10649670dac523289724603e2aecaf17fa67d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/05/2018
 
 1. [이러한 지침](../azure-resource-manager/resource-group-authenticate-service-principal.md) 에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
 2. 리소스 그룹을 만듭니다([방법은 여기에서 확인](../azure-resource-manager/resource-group-template-deploy-portal.md)).
-3. Azure RBAC를 사용하여 서비스 주체 계정 'DNS 영역 참가자' 권한을 리소스 그룹에 부여합니다([방법은 다음과 같음](../active-directory/role-based-access-control-configure.md)).
+3. Azure RBAC를 사용하여 서비스 주체 계정 'DNS 영역 참가자' 권한을 리소스 그룹에 부여합니다([방법은 다음과 같음](../role-based-access-control/role-assignments-portal.md)).
 4. Azure DNS SDK 샘플 프로젝트를 사용하는 경우 'program.cs' 파일을 다음과 같이 편집합니다.
 
    * 1단계에서 사용한 대로 tenatId, clientId(계정 ID라고도 함), 비밀(서비스 주체 계정 암호) 및 subscriptionId에 대한 올바른 값을 삽입합니다.

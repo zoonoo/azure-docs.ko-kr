@@ -1,11 +1,11 @@
 ---
-title: "Azure Virtual Network 게이트웨이 및 연결 문제 해결 - 포털 | Microsoft Docs"
-description: "이 페이지에서는 Azure Network Watcher 문제 해결 포털을 사용하는 방법을 설명합니다."
+title: Azure Virtual Network 게이트웨이 및 연결 문제 해결 - 포털 | Microsoft Docs
+description: 이 페이지에서는 Azure Network Watcher 문제 해결 포털을 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: becc4f799e34aabba5c703f09e51a4b7d497c45a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Azure Portal에서 Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
@@ -74,7 +74,7 @@ Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련
 
 ## <a name="next-steps"></a>다음 단계
 
-VPN 연결을 중지하도록 설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
+VPN 연결을 중지하도록 설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
 
 
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png

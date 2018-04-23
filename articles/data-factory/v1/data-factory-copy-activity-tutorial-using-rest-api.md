@@ -1,11 +1,11 @@
 ---
-title: "자습서: REST API를 사용하여 Azure Data Factory 파이프라인 만들기 | Microsoft Docs"
-description: "이 자습서에서는 REST API를 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다."
+title: '자습서: REST API를 사용하여 Azure Data Factory 파이프라인 만들기 | Microsoft Docs'
+description: 이 자습서에서는 REST API를 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0b7383c8b984c5f9e9600c0f04be703f6bc20711
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7576589e7be1668d94e80bbe63453a41fe6b85fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/02/2018
   1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
     
     ```PowerShell 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```   
   2. 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 

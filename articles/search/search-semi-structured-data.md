@@ -1,18 +1,17 @@
 ---
-title: "Azure 클라우드 저장소에서 반구조화된 데이터 검색"
-description: "Azure Search를 사용하여 반구조화된 BLOB 데이터 검색."
+title: Azure 클라우드 저장소에서 반구조화된 데이터 검색
+description: Azure Search를 사용하여 반구조화된 BLOB 데이터 검색.
 author: roygara
-manager: timlt
+manager: cgronlun
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f05e9dd12a838199b23deddb4f6c4fb4c2fced08
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>2부: 클라우드 저장소에 반구조화된 데이터 검색
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 01/13/2018
 > [!NOTE]
 > 이 자습서에서는 현재 Azure Search의 미리 보기 기능인 JSON 배열 지원을 사용합니다. 포털에서는 사용할 수 없습니다. 이러한 이유로 이 기능을 제공하는 미리 보기 REST API와 API를 호출하는 REST 클라이언트 도구가 사용됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 저장소 계정 및 검색 서비스 만들기를 제공하는 [이전 자습서](../storage/blobs/storage-unstructured-search.md) 완료.
 

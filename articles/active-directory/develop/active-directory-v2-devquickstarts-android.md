@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 Android 앱 | Microsoft Docs"
-description: "개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하고 타사 라이브러리를 사용하여 Graph API를 호출하는 Android 앱을 빌드하는 방법입니다."
+title: Azure Active Directory v2.0 Android 앱 | Microsoft Docs
+description: 개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하고 타사 라이브러리를 사용하여 Graph API를 호출하는 Android 앱을 빌드하는 방법입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>v2.0 끝점을 사용하는 Graph API와 함께 타사 라이브러리를 사용하여 Android 앱에 로그인 추가
 Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준을 사용합니다. 개발자는 서비스와 통합하려는 모든 라이브러리를 사용할 수 있습니다. 개발자가 플랫폼을 다른 라이브러리와 함께 사용할 수 있도록 돕기 위해, 타사 라이브러리를 Microsoft ID 플랫폼에 연결하도록 구성하는 방법을 설명하는 이와 같은 연습 몇 가지를 작성했습니다. [RFC6749 OAuth2 사양](https://tools.ietf.org/html/rfc6749) 을 구현하는 대부분의 라이브러리는 Microsoft ID 플랫폼에 연결할 수 있습니다.

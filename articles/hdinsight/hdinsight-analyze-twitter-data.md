@@ -1,25 +1,23 @@
 ---
-title: "HDInsight의 Hadoop을 사용하여 Twitter 데이터 분석 - Azure | Microsoft Docs"
-description: "Hive를 사용하여 HDInsight의 Hadoop에서 Twitter 데이터를 분석해 특정 단어의 사용 빈도를 확인하는 방법에 대해 알아봅니다."
+title: HDInsight의 Hadoop을 사용하여 Twitter 데이터 분석 - Azure | Microsoft Docs
+description: Hive를 사용하여 HDInsight의 Hadoop에서 Twitter 데이터를 분석해 특정 단어의 사용 빈도를 확인하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다.
@@ -38,7 +36,7 @@ ms.lasthandoff: 11/03/2017
     Windows PowerShell 스크립트를 실행하기 전에 다음과 같은 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     여러 Azure 구독이 있는 경우 다음 cmdlet을 사용하여 현재 구독을 설정합니다.
@@ -77,13 +75,13 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
 **Twitter 응용 프로그램을 만들려면**
 
-1. [https://apps.twitter.com/](https://apps.twitter.com/)(영문)에 로그인합니다. Twitter 계정이 없는 경우 **Sign up now** 링크를 클릭합니다.
+1. [https://apps.twitter.com/](https://apps.twitter.com/)에 로그인합니다. Twitter 계정이 없는 경우 **Sign up now** 링크를 클릭합니다.
 2. **Create New App**을 클릭합니다.
 3. **Name**, **Description**, **Website**를 입력합니다. **Website** 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
    | 필드 | 값 |
    | --- | --- |
-   |  이름 |MyHDInsightApp |
+   |  Name |MyHDInsightApp |
    |  설명 |MyHDInsightApp |
    |  Website |http://www.myhdinsightapp.com |
 4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
@@ -122,7 +120,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -396,7 +394,7 @@ HiveQL 스크립트는 다음을 수행합니다.
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID

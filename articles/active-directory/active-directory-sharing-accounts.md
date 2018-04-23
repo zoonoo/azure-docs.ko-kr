@@ -1,11 +1,11 @@
 ---
-title: "Azure AD를 사용한 계정 공유 | Microsoft Docs"
-description: "Azure Active Directory를 통해 조직이 온-프레미스 앱과 소비자 클라우드 서비스에 대해 안전하게 계정을 공유할 수 있는 방법을 설명합니다."
+title: Azure AD를 사용한 계정 공유 | Microsoft Docs
+description: Azure Active Directory를 통해 조직이 온-프레미스 앱과 소비자 클라우드 서비스에 대해 안전하게 계정을 공유할 수 있는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b6a83d91ec5d8466669655d6c3bd7ae7b42dd2f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c0687a2d0dd9bb42f566daf3835c1c3130054e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 ## <a name="overview"></a>개요
@@ -69,7 +69,7 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 * [그룹 기반 할당](active-directory-accessmanagement-group-saasapps.md)을 사용하고 옵션을 선택하여 공유 자격 증명 입력
 * 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 응용 프로그램에서는 [Azure AD 자동 암호 롤오버](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](../multi-factor-authentication/multi-factor-authentication-get-started.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](active-directory-accessmanagement-self-service-group-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
+또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](authentication/concept-mfa-whichversion.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](active-directory-accessmanagement-self-service-group-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)

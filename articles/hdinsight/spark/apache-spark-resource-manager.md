@@ -1,8 +1,8 @@
 ---
-title: "Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 | Microsoft Docs"
-description: "성능 향상을 위해 Azure HDInsight에서 Spark 클러스터용 리소스를 관리하는 방법을 알아봅니다."
+title: Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 | Microsoft Docs
+description: 성능 향상을 위해 Azure HDInsight에서 Spark 클러스터용 리소스를 관리하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 914811812b7e01f7b58f92c85cb5a16580c45796
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: afefec77d9d79ad97fa351bc8b0710894c242d76
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
 
@@ -164,10 +162,8 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 
 ### <a name="for-data-analysts"></a>데이터 분석가
 
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight에서 Spark를 사용하는 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)
 * [분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용](apache-spark-deep-learning-caffe.md)

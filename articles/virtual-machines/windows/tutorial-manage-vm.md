@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cce3fd003888c76490cb402b658f5c3aa76ab11e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리
 
@@ -36,7 +36,7 @@ Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -167,7 +167,7 @@ New-AzureRmVm `
 ### <a name="vm-sizes"></a>VM 크기
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
-| 유형                     | 일반적인 크기           |    설명       |
+| type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 응용 프로그램 및 데이터 솔루션에 적합합니다.  |
 | [Compute에 최적화](sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 응용 프로그램, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: eff58d77b2f79581ee0f611ca25d6cbbc258e996
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93b63e7c657282fc0ef285054ba90c9d6bc310b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -72,7 +72,7 @@ ms.lasthandoff: 03/23/2018
 6. **새 데이터 팩터리** 페이지에서 **만들기**를 클릭합니다.
 
    > [!IMPORTANT]
-   > 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
+   > 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
    >
    >
 7. 만들기가 완료되면 다음 이미지에서 보여준 대로 **데이터 팩터리** 페이지가 표시됩니다.

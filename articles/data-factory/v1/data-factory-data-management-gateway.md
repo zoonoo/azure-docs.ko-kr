@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9ed679c555d9bb363ffb4d896e791dcbd1b90f8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -484,7 +484,7 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
 2. 다음 명령을 실행하고 Azure 자격 증명을 입력하여 Azure 계정에 로그인합니다.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. 다음과 같이 **New-AzureRmDataFactoryGateway** cmdlet를 사용하여 논리 게이트웨이를 만듭니다.
 

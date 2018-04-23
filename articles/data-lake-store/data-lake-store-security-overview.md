@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store의 보호
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Store는 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Store의 보안 기능에 대해 알아봅니다.
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="authorization-and-access-control"></a>권한 부여 및 액세스 제어
 사용자가 Azure Data Lake Store에 액세스할 수 있도록 Azure Active Directory가 사용자를 인증한 후 권한 부여로 Data Lake Store에 대한 액세스 권한을 제어합니다. Data Lake Store는 다음과 같은 방식으로 계정 관련 작업과 데이터 관련 작업에 대한 권한 부여를 구분합니다.
 
-* [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) )
+* [역할 기반 액세스 제어](../role-based-access-control/overview.md) )
 * 저장소에서 데이터에 액세스하기 위한 POSIX ACL
 
 ### <a name="rbac-for-account-management"></a>계정 관리를 위한 RBAC

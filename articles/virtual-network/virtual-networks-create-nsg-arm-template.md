@@ -1,6 +1,6 @@
 ---
-title: "네트워크 보안 그룹 만들기 - Azure Resource Manager 템플릿| Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다."
+title: 네트워크 보안 그룹 만들기 - Azure Resource Manager 템플릿| Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네트워크 보안 그룹 만들기
 
@@ -151,7 +151,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Azure CLI를 사용하여 ARM 템플릿 배포
 Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
     ```azurecli
@@ -162,7 +162,7 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 
         info:    New mode is arm
 
-3. 위에서 다운로드하고 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포하기 위해 **`azure group deployment create`** cmdlet을 실행합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+3. **`azure group deployment create`** cmdlet을 실행하여 위에서 다운로드하고 수정한 템플릿 및 매개 변수 파일을 사용해 새 VNet을 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
     ```azurecli
     azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'

@@ -11,6 +11,8 @@
   items:
     - name: 만들기 및 연결 - 포털
       href: create-data-warehouse-portal.md
+    - name: 만들기 - PowerShell
+      href: create-data-warehouse-powershell.md
     - name: 계산 일지 중지 및 다시 시작
       items:
         - name: 포털

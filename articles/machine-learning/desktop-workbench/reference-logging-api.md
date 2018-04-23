@@ -1,6 +1,6 @@
 ---
-title: "Azure ML 로깅 API 참조 | Microsoft Docs"
-description: "로깅 API 참조."
+title: Azure ML 로깅 API 참조 | Microsoft Docs
+description: 로깅 API 참조.
 services: machine-learning
 author: akshaya-a
 ms.author: akannava
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="logging-api-reference"></a>로깅 API 참조
 
@@ -39,7 +39,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-기본적으로 모든 메트릭은 제출이 프로그램 실행을 방해하지 않도록 비동기로 제출됩니다. 다수의 메트릭이 에지 케이스로 전송되는 경우 이로 인해 순서 지정에 문제가 발생할 수 있습니다. 예를 들어 두 개의 메트릭이 동시에 기록되지만 정확한 순서가 유지되기를 사용자가 원하는 경우가 있습니다. 또 다른 경우는 빠르게 실패할 가능성이 있는 것으로 알려진 코드를 실행하기 전에 메트릭을 추적해야 하는 경우입니다. 두 경우 모두 진행하기 전에 메트릭이 완전히 기록될 때까지 _대기_하는 것이 솔루션입니다.
+기본적으로 모든 메트릭은 제출이 프로그램 실행을 방해하지 않도록 비동기로 제출됩니다. 다수의 메트릭이 에지 케이스로 전송되는 경우 이로 인해 순서 지정에 문제가 발생할 수 있습니다. 예를 들어 두 개의 메트릭이 동시에 기록되지만 정확한 순서가 유지되기를 사용자가 원하는 경우가 있습니다. 또 다른 경우는 페일 패스트할 가능성이 있는 것으로 알려진 코드를 실행하기 전에 메트릭을 추적해야 하는 경우입니다. 두 경우 모두 진행하기 전에 메트릭이 완전히 기록될 때까지 _대기_하는 것이 솔루션입니다.
 
 ```python
 # blocking call

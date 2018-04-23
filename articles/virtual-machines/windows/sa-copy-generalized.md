@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bacf59cd7be637110125a51b64c708e755a8958d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법
 
@@ -62,7 +62,7 @@ Azure PowerShell 버전 1.0.x 이상을 설치해야 합니다. PowerShell을 �
 1. Azure PowerShell을 열고 Azure 계정에 로그인합니다.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     Azure 계정 자격 증명을 입력하기 위한 팝업 창이 열립니다.

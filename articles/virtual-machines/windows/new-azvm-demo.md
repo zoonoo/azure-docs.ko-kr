@@ -1,13 +1,13 @@
 ---
-title: "Azure Cloud Shell에서 간소화된 New-AzureRMVM cmdlet을 사용하여 Windows VM 만들기 | Microsoft Docs"
-description: "Azure Cloud Shell에서 간소화된 New-AzureRMVM cmdlet을 사용하여 Windows 가상 머신을 만드는 방법을 빠르게 이해합니다."
+title: Azure Cloud Shell에서 간소화된 New-AzureRMVM cmdlet을 사용하여 Windows VM 만들기 | Microsoft Docs
+description: Azure Cloud Shell에서 간소화된 New-AzureRMVM cmdlet을 사용하여 Windows 가상 머신을 만드는 방법을 빠르게 이해합니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,22 +16,22 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 94eb6232cf59d502a9d70545785c3788398f4d27
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Cloud Shell에서 간소화된 New-AzureRMVM cmdlet을 사용하여 Windows 가상 머신 만들기 
 
 [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet은 PowerShell을 사용하여 새 VM을 만드는 간소화된 집합의 매개 변수를 추가했습니다. 이 항목에서는 최신 버전의 New-AzureVM cmdlet이 사전 설치된 Azure Cloud Shell에서 PowerShell을 사용하여 새 VM을 만드는 방법을 보여줍니다. 스마트 기본값을 사용하여 필요한 모든 리소스를 자동으로 만드는 간소화된 매개 변수 집합을 사용합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 [!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 5.1.1 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 5.1.1 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-the-vm"></a>VM 만들기
 

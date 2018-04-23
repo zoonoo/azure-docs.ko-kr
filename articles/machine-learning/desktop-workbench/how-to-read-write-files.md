@@ -1,6 +1,6 @@
 ---
-title: "큰 데이터 파일 읽기 및 쓰기 | Microsoft Docs"
-description: "Azure Machine Learning 실험에서 큰 파일을 읽고 씁니다."
+title: 큰 데이터 파일 읽기 및 쓰기 | Microsoft Docs
+description: Azure Machine Learning 실험에서 큰 파일을 읽고 씁니다.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
 ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>변경 내용을 유지하고 큰 파일 사용
 Azure Machine Learning 실험 서비스를 사용하여 다양한 실행 대상을 구성할 수 있습니다. 로컬 컴퓨터 또는 로컬 컴퓨터의 Docker 컨테이너처럼 로컬인 대상도 있고, 원격 컴퓨터 또는 HDInsight 클러스터의 Docker 컨테이너처럼 원격인 대상도 있습니다. 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experimentation-service-configuration.md)를 참조하세요. 

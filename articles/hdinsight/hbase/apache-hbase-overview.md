@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight의 HBase란? | Microsoft Docs"
-description: "Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다."
-keywords: "BigTable, NoSQL, HBase란?, Apache HBase, HBase, HBase 개요"
+title: Azure HDInsight의 HBase란? | Microsoft Docs
+description: Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다.
+keywords: BigTable, NoSQL, HBase란?, Apache HBase, HBase, HBase 개요
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -11,17 +11,15 @@ editor: cgronlun
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b1453828c61d9944938b695b329aebec5ab06e4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36c6a16520d78d4fa2465a1fdea585a3b3c88cd7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>HDInsight의 HBase: Hadoop에 BigTable 같은 기능을 제공하는 NoSQL 데이터베이스
 Apache HBase는 Hadoop을 기반으로 하고 Google BigTable 이후에 모델링된 오픈 소스 NoSQL 데이터베이스입니다. HBase는 열 패밀리로 구성된 스키마 없는 데이터베이스에서 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공합니다.

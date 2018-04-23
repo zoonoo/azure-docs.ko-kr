@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2018
+ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c98712b8fb2f8d6a85906b2c78fb678fc0f970b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -67,7 +67,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 ## <a name="mode"></a>Mode
 
 **mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
-* `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다. 
+* `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다.
 * `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
 
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정해야 합니다. 정책 정의에 **모드** 값이 포함되어 있지 않으면 이전 버전과의 호환성을 위해 `indexed`로 기본값이 설정됩니다.

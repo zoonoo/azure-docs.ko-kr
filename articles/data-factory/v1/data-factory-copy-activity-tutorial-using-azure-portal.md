@@ -1,11 +1,11 @@
 ---
-title: "자습서: 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 (Azure Portal) | Microsoft Docs"
-description: "이 자습서에서는 Azure Portal을 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다."
+title: '자습서: 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 (Azure Portal) | Microsoft Docs'
+description: 이 자습서에서는 Azure Portal을 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7f42cfda1684b7ff5bd2a1655154b6a11d4ffd31
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4e8de6b229fe027e43a2b13f2a7ad54b7c3eaf2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Portal을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/02/2018
    6. **만들기**를 클릭합니다.
       
       > [!IMPORTANT]
-      > 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
+      > 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
       > 
       > 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.                
       > 

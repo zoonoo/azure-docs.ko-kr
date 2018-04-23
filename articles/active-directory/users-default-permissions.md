@@ -1,24 +1,24 @@
 ---
-title: "Azure Active Directory의 기본 사용자 권한 비교 | Microsoft Docs"
-description: "멤버, 게스트, 앱 소유자 및 그룹 소유자 권한 비교"
+title: Azure Active Directory의 기본 사용자 권한 비교 | Microsoft Docs
+description: 멤버, 게스트, 앱 소유자 및 그룹 소유자 권한 비교
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한
 
@@ -77,6 +77,6 @@ When a user adds a new enterprise application, they are automatically added as a
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)
-* Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](active-directory-understanding-resource-access.md)
+* Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)
 * [사용자 관리](active-directory-create-users.md)

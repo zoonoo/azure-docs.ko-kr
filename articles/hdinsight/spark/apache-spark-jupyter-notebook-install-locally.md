@@ -1,8 +1,8 @@
 ---
-title: "Jupyter를 로컬로 설치하고 Azure HDInsight Spark 클러스터에 연결 | Microsoft Docs"
-description: "컴퓨터에 로컬로 Jupyter 노트북을 설치하고 Azure HDInsight에서 Apache Spark 클러스터에 연결하는 방법을 알아봅니다."
+title: Jupyter를 로컬로 설치하고 Azure HDInsight Spark 클러스터에 연결 | Microsoft Docs
+description: 컴퓨터에 로컬로 Jupyter 노트북을 설치하고 Azure HDInsight에서 Apache Spark 클러스터에 연결하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 5549c175c280961b09f5996e3387a50dae31222f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eea61586054f34142d77f16333fe70a66d95d529
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -148,10 +146,8 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

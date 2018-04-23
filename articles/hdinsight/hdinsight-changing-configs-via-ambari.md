@@ -1,24 +1,22 @@
 ---
-title: "Ambari로 클러스터 구성 최적화 - Azure HDInsight | Microsoft Docs"
-description: "Ambari 웹 UI를 사용하여 HDInsight 클러스터를 구성하고 최적화합니다."
-documentationcenter: 
+title: Ambari로 클러스터 구성 최적화 - Azure HDInsight | Microsoft Docs
+description: Ambari 웹 UI를 사용하여 HDInsight 클러스터를 구성하고 최적화합니다.
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -186,7 +184,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 | Gzip | Gzip | DEFLATE | .gz | 아니요 |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
-| Snappy | 해당 없음 | Snappy | Snappy | 아니요 |
+| Snappy | 해당 없음 | Snappy | Snappy | 아니오 |
 
 일반적으로 분할 가능한 압축 방법이 있는 것이 중요합니다. 그렇지 않으면 매우 적은 수의 매퍼가 생성됩니다. 입력 데이터가 텍스트인 경우 `bzip2`가 최고 옵션입니다. ORC 형식의 경우 Snappy가 가장 빠른 압축 옵션입니다.
 

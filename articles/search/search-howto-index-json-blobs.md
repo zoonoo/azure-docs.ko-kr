@@ -1,31 +1,25 @@
 ---
-title: "Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱"
-description: "Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱"
-services: search
-documentationcenter: 
+title: Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
+description: Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2dac2c5980970946a6b9c26ee6ee8ac0f0344144
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: eea20deddb91642db62855c743c0f6e31a9960ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 Azure Blob Storage의 JSON Blob에서 구조화된 콘텐츠를 추출하도록 Azure Search Blob 인덱서를 구성하는 방법을 보여줍니다.
 
 Azure Blob Storage에서 JSON Blob은 일반적으로 단일 JSON 문서 또는 JSON 배열입니다. Azure Search에서 Blob 인덱서는 요청에 대한 **parsingMode** 매개 변수를 설정하는 방법에 따라 생성을 구문 분석할 수 있습니다.
 
-| JSON 문서 | parsingMode | 설명 | Availability |
+| JSON 문서 | parsingMode | 설명 | 가용성 |
 |--------------|-------------|--------------|--------------|
 | Blob 당 하나 | `json` | JSON Blob을 텍스트의 단일 청크로 구문 분석합니다. 각 JSON Blob은 단일 Azure Search 문서가 됩니다. | 일반적으로 [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) 및 [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API 모두에서 사용할 수 있습니다. |
 | Blob 당 여러 개 | `jsonArray` | Blob에서 JSON 배열을 구문 분석합니다. 여기서 배열의 각 요소는 별도의 Azure Search 문서가 됩니다.  | 미리 보기에서 [REST api-version=`2016-09-01-Preview`](search-api-2016-09-01-preview.md) 및 [.NET SDK 미지 보기](https://aka.ms/search-sdk-preview)입니다. |

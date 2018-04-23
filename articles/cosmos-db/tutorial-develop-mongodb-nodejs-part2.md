@@ -1,25 +1,25 @@
 ---
-title: "Azure에 대한 MongoDB, Angular 및 노드 자습서 - 2부 | Microsoft Docs"
-description: "MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 2부"
+title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 2부 | Microsoft Docs
+description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 2부
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 2ebc6b2584240b7ae450bde3fda4fe8e81d0d903
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9d3c3209807a201f11d4d0a4ddd905f332a3951f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 2부: Angular CLI를 사용하여 Node.js Express 앱 만들기 
 

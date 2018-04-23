@@ -1,11 +1,11 @@
 ---
-title: "종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs"
-description: "키 회전 및 Key Vault 로그의 모니터링을 통해 설정을 가져오는 데 이 방법을 사용합니다."
+title: 종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs
+description: 키 회전 및 Key Vault 로그의 모니터링을 통해 설정을 가져오는 데 이 방법을 사용합니다.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
-ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: stgriffi
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정
 ## <a name="introduction"></a>소개
@@ -38,7 +38,7 @@ Key Vault를 만든 후에는 키와 비밀을 저장하는 데 Key Vault를 사
 응용 프로그램을 통해 Azure Key Vault에서 비밀을 검색하려면 먼저 비밀을 만들어 Key Vault에 업로드해야 합니다. 이렇게 하려면 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. PowerShell이 이 계정과 연결된 모든 구독을 가져옵니다. PowerShell은 기본적으로 첫 번째 구독을 사용합니다.
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

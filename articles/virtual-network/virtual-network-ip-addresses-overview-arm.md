@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d50333888592d2d3e13c40c07a7e58f8676df075
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -124,8 +124,8 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 | --- | --- | --- | --- |
 | 가상 머신 |Linux |예 |예 |
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
-| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |아니요 |
-| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |예 |아니요 |
+| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |아니오 |
+| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |예 |아니오 |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -182,5 +182,4 @@ IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-portal.md)
-* [템플릿을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-template.md)
 * [Azure 포털을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-arm-pportal.md)

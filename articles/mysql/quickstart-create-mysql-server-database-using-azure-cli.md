@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 96cf7409d4fbaa7c9c633ebd5aabbb15f30c9a5c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: afab8eb981f59a4ab2ba5528e0518e370d8e05fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기 
 이 빠른 시작에서는 약 5분 안에 Azure CLI를 사용하여 Azure 리소스 그룹에서 MySQL용 Azure Database 서버를 만드는 방법을 살펴봅니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다.
@@ -38,31 +38,6 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>확장 추가
-다음 명령을 사용하여 업데이트된 Azure Database for MySQL 관리 확장을 추가합니다.
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-올바른 확장 버전이 설치되어 있는지 확인합니다. 
-```azurecli-interactive
-az extension list
-```
-
-반환된 JSON에는 다음이 포함되어야 합니다. 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-0.0.5 버전이 반환되지 않으면 다음을 실행하여 확장을 업데이트합니다. 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기

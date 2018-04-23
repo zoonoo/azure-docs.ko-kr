@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 ### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Azure 계정에 로그인 및 구독 선택
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
 2. 계정에 대한 구독을 확인합니다.
 

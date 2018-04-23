@@ -1,11 +1,11 @@
 ---
-title: "첫 번째 데이터 팩터리(Resource Manager 템플릿) 빌드 | Microsoft 문서"
-description: "이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
+title: 첫 번째 데이터 팩터리(Resource Manager 템플릿) 빌드 | Microsoft 문서
+description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7ef516f80bb626a012a6141bc06382057385e635
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d3297cc1dbbbfb99272a1374f060adaf59024810
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure 리소스 관리자 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
-> * [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -315,7 +315,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 1. **Azure PowerShell** 을 시작하고 다음 명령을 실행합니다. 
    * 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```  
    * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
     ```PowerShell

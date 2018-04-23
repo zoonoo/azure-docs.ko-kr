@@ -1,26 +1,19 @@
 ---
-title: "Azure Search에 SQL VM 연결 | Microsoft Docs"
-description: "암호화된 연결을 사용하도록 설정하고 Azure 검색의 인덱서에서 Azure VM(가상 컴퓨터)의 SQL Server로의 연결을 허용하도록 방화벽을 구성합니다."
-services: search
-documentationcenter: 
+title: Azure Search에 SQL VM 연결 | Microsoft Docs
+description: 암호화된 연결을 사용하도록 설정하고 Azure Search의 인덱서에서 Azure VM(가상 머신)의 SQL Server로의 연결을 허용하도록 방화벽을 구성합니다.
 author: HeidiSteen
-manager: pablocas
-editor: 
-ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
+manager: cgronlun
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f9f429a8a18a6e0722e1cb5e190104665305e06
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure 검색 인덱서로부터 SQL Server로의 연결 구성
+# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성
 [인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)에 설명된 것처럼 Azure Search에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 몇 가지 보안 관련 필수 구성 요소에 유의해야 합니다. 
 
 **작업 기간:** 약 30분, VM에 인증서를 이미 설치했다고 가정합니다.
@@ -50,13 +43,13 @@ Azure Search에는 공용 인터넷 연결을 통한 모든 인덱서 요청에 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>VM에서 SQL Server 연결을 구성합니다.
 Azure Search에 필요한 암호화된 연결을 설정한 후 Azure VM에서 SQL Server에 고유한 추가 구성 단계가 있습니다. 아직 수행하지 않은 경우 다음 단계로 이 문서 중 하나를 사용하여 구성을 완료합니다.
 
-* **Resource Manager** VM인 경우 [Azure에서 Resource Manager를 사용하여 SQL Server 가상 컴퓨터에 연결](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md)을 참조하세요. 
-* **클래식** VM인 경우 [Azure 클래식에서 SQL Server 가상 컴퓨터에 연결](../virtual-machines/windows/classic/sql-connect.md)을 참조하세요.
+* **Resource Manager** VM인 경우 [Azure에서 Resource Manager를 사용하여 SQL Server Virtual Machine에 연결](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md)을 참조하세요. 
+* **클래식** VM인 경우 [Azure 클래식에서 SQL Server Virtual Machine에 연결](../virtual-machines/windows/classic/sql-connect.md)을 참조하세요.
 
 특히 "인터넷을 통한 연결"의 각 문서에서 해당 섹션을 검토하세요.
 
 ## <a name="configure-the-network-security-group-nsg"></a>NSG(네트워크 보안 그룹) 구성
-Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 해당 Azure 끝점 또는 ACL(액세스 제어 목록)을 구성하는 것은 특별하지 않습니다. 이전에 이러한 구성을 수행하여 자체 응용 프로그램 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure 검색을 연결하는 것과는 다릅니다. 
+Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 해당 Azure 끝점 또는 ACL(Access Control 목록)을 구성하는 것은 특별하지 않습니다. 이전에 이러한 구성을 수행하여 자체 응용 프로그램 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure Search를 연결하는 것과는 다릅니다. 
 
 아래 링크는 VM 배포를 위한 NSG 구성에 대한 지침을 제공합니다. 이러한 지침에 따라 IP 주소를 기반으로 Azure SEarch 끝점을 ACL로 작성합니다.
 
@@ -82,9 +75,9 @@ IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용�
 
 세 번째 실행 가능한(특별히 안전하지 않음) 방법은 검색 서비스가 프로비전되는 Azure 지역의 IP 주소 범위를 지정하는 것입니다. 공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다. 
 
-#### <a name="include-the-azure-search-portal-ip-addresses"></a>Azure 검색 포털 IP 주소 포함
+#### <a name="include-the-azure-search-portal-ip-addresses"></a>Azure Search 포털 IP 주소 포함
 Azure 포털을 사용하여 인덱서를 만드는 경우, 생성 중에 Azure Search 포털 논리도 SQL Azure VM에 액세스할 수 있어야 합니다. `stamp2.search.ext.azure.com`을 ping하여 Azure Search 포털 IP 주소를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-구성이 해결되면 이제 Azure VM의 SQL Server를 Azure Search 인덱서에 대한 데이터 원본으로 지정할 수 있습니다. 자세한 내용은 [인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) 을 참조하세요.
+구성이 해결되면 이제 Azure VM의 SQL Server를 Azure Search 인덱서에 대한 데이터 원본으로 지정할 수 있습니다. 자세한 내용은 [인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) 을 참조하세요.
 

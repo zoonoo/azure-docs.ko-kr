@@ -1,26 +1,24 @@
 ---
-title: "Kafka와 함께 Apache Spark 스트리밍 - Azure HDInsight | Microsoft Docs"
-description: "Spark Apache Spark를 사용하여 DStreams로 Apache Kafka에(서) 데이터를 스트리밍하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다."
-keywords: "kafka 예제,kafka zookeeper,spark 스트리밍 kafka,spark 스트리밍 kafka 예제"
+title: Kafka와 함께 Apache Spark 스트리밍 - Azure HDInsight | Microsoft Docs
+description: Spark Apache Spark를 사용하여 DStreams로 Apache Kafka에(서) 데이터를 스트리밍하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
+keywords: kafka 예제,kafka zookeeper,spark 스트리밍 kafka,spark 스트리밍 kafka 예제
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 8c9a901b8922bf349959438487c88e3df4f2ebea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>HDInsight의 Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
@@ -49,7 +47,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**에 있습니다.
+    Azure Resource Manager 템플릿의 위치는 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**입니다.
 
     > [!WARNING]
     > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
@@ -87,7 +85,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 ## <a name="use-the-notebooks"></a>노트북 사용
 
-이 문서에서 설명하는 예제 코드는 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka)에서 제공됩니다.
+이 문서에 설명된 예제에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka)에서 지원됩니다.
 
 이 예제를 완료하려면 `README.md`의 단계를 따르세요.
 

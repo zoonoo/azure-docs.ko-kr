@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0a508f6430bd97e7c76aee686f4837acf246ad3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -33,8 +33,8 @@ ms.lasthandoff: 03/29/2018
 
 * 빠른 시작 또는 첫 번째 자습서에서 만든 Azure IoT Edge 장치
 * IoT Edge 장치를 연결할 IoT Hub용 IoT Hub 연결 문자열
-* Azure Machine Learning 계정입니다. 계정을 만들려면 [Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
-* 컴퓨터에 있는 Azure ML용 모듈 관리입니다. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration)의 지침을 따릅니다.
+* Azure Machine Learning 계정입니다. 계정을 만들려면 [Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
+* 컴퓨터에 있는 Azure ML용 모듈 관리입니다. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration)의 지침을 따릅니다.
 
 Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다. 
 

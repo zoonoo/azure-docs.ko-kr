@@ -1,8 +1,8 @@
 ---
-title: "HDInsight에서 Curl을 통해 Hadoop Hive 사용 - Azure | Microsoft Docs"
-description: "원격으로 Curl을 사용하여 HDInsight에 Pig 작업을 제출하는 방법에 대해 알아봅니다."
+title: HDInsight에서 Curl을 통해 Hadoop Hive 사용 - Azure | Microsoft Docs
+description: 원격으로 Curl을 사용하여 HDInsight에 Pig 작업을 제출하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: dfe9efdb57a0ce2506abd251267f39020568d081
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8a7627e35a39dd4c9c94d273aa9f02c977dc88bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 

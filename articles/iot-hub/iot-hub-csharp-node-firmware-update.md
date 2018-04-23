@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: juanpere
-ms.openlocfilehash: e54ba3e3015c7175814c7f4e3330ad2de3819136
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4f0428fc2cddee0181705cad9675cc31fc38b753
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>장치 관리를 사용하여 장치 펌웨어 업데이트(.NET/Node)를 시작합니다.
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -71,7 +71,6 @@ IoT hub 허브를 만들고 IoT Hub 연결 문자열을 확보하려면 [장치 
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
-        static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
 1. **Program** 클래스에 다음 메서드를 추가합니다.

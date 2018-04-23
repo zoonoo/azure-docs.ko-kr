@@ -1,8 +1,8 @@
 ---
-title: "IntelliJ용 Azure 도구 키트: HDInsight Spark에서 원격으로 응용 프로그램 디버그 | Microsoft Docs"
-description: "IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 VPN을 통해 HDInsight 클러스터에서 실행 중인 Spark 응용 프로그램을 원격으로 디버그하는 방법을 알아봅니다."
+title: 'IntelliJ용 Azure 도구 키트: HDInsight Spark에서 원격으로 응용 프로그램 디버그 | Microsoft Docs'
+description: IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 VPN을 통해 HDInsight 클러스터에서 실행 중인 Spark 응용 프로그램을 원격으로 디버그하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6ca69ccab6c9b526c86f6f7a8998089e52c6c939
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 HDInsight에서 원격으로 Spark 응용 프로그램 디버그
 

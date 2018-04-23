@@ -1,6 +1,6 @@
 ---
-title: "SSL 종료로 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 응용 프로그램 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다."
+title: SSL 종료로 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
+description: Azure PowerShell을 사용하여 응용 프로그램 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,15 +11,15 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 4972597e8e2db36be47c86b9aa1e592d94d4c2fe
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3a10cf99c34ea32168c04588777f75c7e18a7b45
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Azure PowerShell을 사용하여 SSL 종료로 응용 프로그램 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 백엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 [SSL 종료](application-gateway-backend-ssl.md)용 인증서가 있는 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 수 있습니다. 이 예제의 확장 집합에는 응용 프로그램 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스가 포함되어 있습니다. 
+Azure PowerShell을 사용하여 백엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 [SSL 종료](application-gateway-backend-ssl.md)용 인증서가 있는 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 수 있습니다. 이 예제의 확장 집합에는 응용 프로그램 게이트웨이의 기본 백 엔드 풀에 추가된 두 개의 가상 머신 인스턴스가 있습니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -27,11 +27,11 @@ Azure PowerShell을 사용하여 백엔드 서버에 [가상 머신 확장 집�
 > * 자체 서명된 인증서 만들기
 > * 네트워크 설정
 > * 인증서가 있는 응용 프로그램 게이트웨이 만들기
-> * 기본 백 엔드 풀로 가상 머신 확장 집합 만들기
+> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -73,7 +73,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*이라는 서브넷을 구성합니다. 서브넷 구성으로 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 응용 프로그램 게이트웨이 및 연결된 리소스에 네트워크 연결을 제공하는 데 사용됩니다.
+[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*이라는 서브넷을 구성합니다. 서브넷 구성으로 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 응용 프로그램 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```powershell
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -97,9 +97,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프런트 엔드 포트 만들기
+### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration)을 사용하여 응용 프로그램 게이트웨이에 이전에 만든 *myAGSubnet*을 연결합니다. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig)를 사용하여 응용 프로그램 게이트웨이에 *myAGPublicIPAddress*를 할당합니다.
+[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration)을 사용하여 이전에 응용 프로그램 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig)를 사용하여 응용 프로그램 게이트웨이에 *myAGPublicIPAddress*를 할당합니다.
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -189,7 +189,7 @@ $appgw = New-AzureRmApplicationGateway `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이의 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
+이 예제에서는 응용 프로그램 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `

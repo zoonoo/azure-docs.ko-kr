@@ -1,8 +1,8 @@
 ---
-title: "PowerShell을 사용하여 Azure Active Directory Domain Services 사용 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure Active Directory Domain Services 사용"
+title: PowerShell을 사용하여 Azure Active Directory Domain Services 사용 | Microsoft Docs
+description: PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: a456a6265400abe1d3a3620df74e41d8b4399b97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22be243b9da5afd93744ca9410b63a8ec936088a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 이 문서에서는 PowerShell을 사용하여 Azure AD(Azure Active Directory) Domain Services를 사용하도록 설정하는 방법을 보여 줍니다.
@@ -161,7 +161,7 @@ $AzureLocation = "westus"
 Connect-AzureAD
 
 # Login to your Azure subscription.
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
@@ -221,7 +221,7 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 > [!WARNING]
 > **관리되는 도메인을 프로비전한 후 추가 구성 단계를 잊지 말고 진행합니다.**
 > 관리되는 도메인이 프로비전되면 다음 작업을 완료해야 합니다.
-> * 가상 컴퓨터가 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
+> * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
 * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정합니다.
 >
 

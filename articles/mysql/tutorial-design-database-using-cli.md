@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 0c1c9364d6d7071e0aa454889417eeec3807f406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a06374119851560d517704b817fb9bf18728059
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인
 
@@ -48,30 +48,6 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## <a name="add-the-extension"></a>확장 추가
-다음 명령을 사용하여 업데이트된 Azure Database for MySQL 관리 확장을 추가합니다.
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-올바른 확장 버전이 설치되어 있는지 확인합니다. 
-```azurecli-interactive
-az extension list
-```
-
-반환된 JSON에는 다음이 포함되어야 합니다. 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-0.0.5 버전이 반환되지 않으면 다음을 실행하여 확장을 업데이트합니다. 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기

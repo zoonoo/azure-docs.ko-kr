@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >
     >대규모 응용 프로그램을 테스트할 때에는 Docker에 할당된 리소스를 늘리는 것이 좋습니다. 이렇게 하려면 **Docker 아이콘**을 선택한 다음, **고급**을 선택하여 코어 및 메모리 수를 조정합니다.
 
-2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `.Dockerfile` 파일을 만듭니다.
+2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -86,7 +86,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >[!TIP]
     > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
 
-3. `.Dockerfile`에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고 `.Dockerfile`을 보관하는 디렉터리에 `cd`한 후 다음을 실행합니다.
+3. `Dockerfile`에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고 `Dockerfile`을 보관하는 디렉터리에 `cd`한 후 다음을 실행합니다.
 
     ```bash 
     docker build -t mysfcluster .

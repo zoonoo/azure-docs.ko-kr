@@ -3,7 +3,7 @@
 
 * 변환하면 되돌릴 수 없습니다. 
 
-* [가상 머신 참가자](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) 역할이 있는 사용자는 VM 크기를 변경할 수 없습니다. (사전 변환이 가능하기 때문입니다.) 이는 관리 디스크가 있는 VM의 경우 사용자에게 OS 디스크에 대한 Microsoft.Compute/disks/write 권한이 있어야 하기 때문입니다.
+* [가상 머신 참가자](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할이 있는 사용자는 VM 크기를 변경할 수 없습니다. (사전 변환이 가능하기 때문입니다.) 이는 관리 디스크가 있는 VM의 경우 사용자에게 OS 디스크에 대한 Microsoft.Compute/disks/write 권한이 있어야 하기 때문입니다.
 
 * 변환을 테스트해야 합니다. 프로덕션에서 마이그레이션을 수행하기 전에 테스트 가상 머신을 마이그레이션합니다.
 

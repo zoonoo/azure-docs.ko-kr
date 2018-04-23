@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory에서 온-프레미스 조건부 액세스 설정 | Microsoft Docs"
-description: "Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다."
+title: Azure Active Directory에서 온-프레미스 조건부 액세스 설정 | Microsoft Docs
+description: Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -89,7 +89,7 @@ Azure Active Directory 테넌트에 Azure Active Directory 장치 등록 서비�
 | "Azure AD Connect에서 장치 쓰기 저장 사용"의 2부를 완료합니다. 완료한 후에 이 가이드로 돌아옵니다. |[Azure AD Connect에서 장치 쓰기 저장 사용](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[선택 사항] 4부: Multi-Factor Authentication 사용
-Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 것이 좋습니다. Multi-Factor Authentication을 요구하려면 [사용자를 위한 Multi-Factor Authentication 보안 솔루션 선택](../multi-factor-authentication/multi-factor-authentication-get-started.md)을 참조하세요. 여기에는 각 솔루션에 대한 설명, 선택한 솔루션을 구성하는 데 도움이 되는 링크가 포함되어 있습니다.
+Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 것이 좋습니다. Multi-Factor Authentication을 요구하려면 [사용자를 위한 Multi-Factor Authentication 보안 솔루션 선택](authentication/concept-mfa-whichversion.md)을 참조하세요. 여기에는 각 솔루션에 대한 설명, 선택한 솔루션을 구성하는 데 도움이 되는 링크가 포함되어 있습니다.
 
 ## <a name="part-5-verification"></a>5부: 확인
 이제 배포가 완료되었으므로 몇 가지 시나리오를 체험할 수 있습니다. 다음 링크를 사용하여 서비스를 시험해 보고 기능을 익혀 보세요.

@@ -1,13 +1,13 @@
 ---
-title: "여러 온-프레미스 정책 기반 VPN 장치에 Azure VPN Gateway 연결: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 장치에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다."
+title: '여러 온-프레미스 정책 기반 VPN 장치에 Azure VPN Gateway 연결: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 장치에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dc2dc660262cec892270f8d6e70691fdd169a5c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 장치에 Azure VPN Gateway 연결
 
@@ -113,7 +113,7 @@ Resource Manager cmdlet을 사용하려면 PowerShell 모드로 전환해야 합
 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 샘플을 사용합니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```

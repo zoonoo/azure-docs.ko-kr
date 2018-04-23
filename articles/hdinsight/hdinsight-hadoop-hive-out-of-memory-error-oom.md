@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight에서 Hive 메모리 부족 오류 수정 | Microsoft Docs"
-description: "HDInsight에서 Hive 메모리 부족 오류를 수정합니다. 고객 시나리오는 많은 대형 테이블 간 쿼리입니다."
-keywords: "메모리 부족 오류, OOM, Hive 설정"
+title: Azure HDInsight에서 Hive 메모리 부족 오류 수정 | Microsoft Docs
+description: HDInsight에서 Hive 메모리 부족 오류를 수정합니다. 고객 시나리오는 많은 대형 테이블 간 쿼리입니다.
+keywords: 메모리 부족 오류, OOM, Hive 설정
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: ea83a6b4fa3399ae6a30157c720005683d445d8a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d34ef0828b64ea32adbef8c49cdad1d3bcce6268
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 메모리 부족 오류 수정
 

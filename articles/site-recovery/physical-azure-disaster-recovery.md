@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 Azure에 물리적 온-프레미스 서버에 대한 재해 복구 설정 | Microsoft Docs"
-description: "Azure Site Recovery 서비스를 사용하여 Azure에 온-프레미스 Windows 및 Linux 서버에 대한 재해 복구를 설정하는 방법을 알아봅니다."
+title: Azure Site Recovery를 사용하여 Azure에 물리적 온-프레미스 서버에 대한 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 Azure에 온-프레미스 Windows 및 Linux 서버에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -54,7 +54,7 @@ Microsoft [Azure 계정](http://azure.microsoft.com/)을 얻습니다.
 Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합니다.
 
 - Azure에 컴퓨터를 복제하는 데 필요한 [권한](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)을 검토합니다.
-- [역할 기반 액세스](../active-directory/role-based-access-control-configure.md) 권한을 확인하고 수정합니다. 
+- [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md) 권한을 확인하고 수정합니다. 
 
 
 

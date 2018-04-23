@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/16/2018
 ms.author: jingwang
 ms.openlocfilehash: 3b92aed83e01d223b33f269f0202355836f806c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -138,11 +138,11 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 | typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | 예 |
 | 원본 | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
 | 싱크 | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
-| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아니오 |
+| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아니요 |
 | cloudDataMovementUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다.<br/><br/>자세한 내용은 [클라우드 데이터 이동 단위](copy-activity-performance.md)를 참조하세요. | 아니오 |
 | parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아니오 |
 | enableStaging<br/>stagingSettings | 데이터를 직접 원본에서 싱크로 복사하는 대신 aa BLOB Storage에서 중간 데이터를 준비하도록 선택합니다.<br/><br/>유용한 시나리오 및 구성 상세 정보는 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요. | 아니오 |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 데이터를 원본에서 싱크로 복사할 때 호환되지 않는 행을 처리하는 방법을 선택합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조하세요. | 아니오 |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 데이터를 원본에서 싱크로 복사할 때 호환되지 않는 행을 처리하는 방법을 선택합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조하세요. | 아니요 |
 
 ## <a name="monitoring"></a>모니터링
 

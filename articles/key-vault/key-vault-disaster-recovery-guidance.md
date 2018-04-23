@@ -1,11 +1,11 @@
 ---
-title: "Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 | Microsoft Docs"
-description: "Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다."
+title: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 | Microsoft Docs
+description: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: adamglick
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: sumedhb;aglick
-ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: aglick
+ms.openlocfilehash: 11c2fe5d4b84f99c3b0e303d1abeea73442f57aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 응용 프로그램에서 키 및 암호를 사용할 수 있도록 해주는 여러 계층의 중복성이 있습니다.

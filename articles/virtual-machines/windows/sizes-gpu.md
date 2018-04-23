@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
 ms.openlocfilehash: d7f4bbe5e9950f864c6998b6a7c8844503083559
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 

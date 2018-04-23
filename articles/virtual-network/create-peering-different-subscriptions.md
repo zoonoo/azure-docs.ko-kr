@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 45856f759b7d11a7712a032a00d2d1a4fb2043d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독 
 
@@ -179,7 +179,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 1. 최신 버전의 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 모듈을 설치합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 2. PowerShell 세션을 시작합니다.
-3. PowerShell에서 `login-azurermaccount` 명령을 입력하여 Azure에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
+3. PowerShell에서 `Connect-AzureRmAccount` 명령을 입력하여 Azure에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 4. 리소스 그룹 및 가상 네트워크 A를 만듭니다. 다음 스크립트를 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 A의 ID로 바꿉니다. 구독 ID를 모르는 경우 `Get-AzureRmSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
 
     ```powershell

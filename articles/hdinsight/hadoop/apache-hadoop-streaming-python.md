@@ -1,27 +1,27 @@
 ---
-title: "HDInsight에서 Python MapReduce 작업 개발 - Azure | Microsoft Docs"
-description: "MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 Java 이외의 언어로 작성하기 위해 MapReduce용 스트리밍 API를 제공합니다."
+title: HDInsight에서 Python MapReduce 작업 개발 - Azure | Microsoft Docs
+description: MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 Java 이외의 언어로 작성하기 위해 MapReduce용 스트리밍 API를 제공합니다.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 2563927684720a0be1144fa51aea7b9dae4abe7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b5e19f81c3e869347f21ab3c70a70016196b946d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 MapReduce 프로그램 개발
 

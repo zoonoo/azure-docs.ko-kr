@@ -1,9 +1,9 @@
 ---
-title: "조직에서 비즈니스용 Microsoft Windows Hello 사용 | Microsoft Docs"
-description: "조직에서 Microsoft Passport를 사용하도록 설정하는 배포 지침입니다."
+title: 조직에서 비즈니스용 Microsoft Windows Hello 사용 | Microsoft Docs
+description: 조직에서 Microsoft Passport를 사용하도록 설정하는 배포 지침입니다.
 services: active-directory
-documentationcenter: 
-keywords: "Microsoft Passport 구성, 비즈니스용 Microsoft Windows Hello 배포"
+documentationcenter: ''
+keywords: Microsoft Passport 구성, 비즈니스용 Microsoft Windows Hello 배포
 author: MarkusVi
 manager: mtillman
 tags: azure-classic-portal
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>조직에서 비즈니스용 Microsoft Windows Hello 사용
 [Windows 10 도메인에 가입된 장치와 Azure Active Directory를 연결한](active-directory-azureadjoin-devices-group-policy.md) 후에 조직에서 비즈니스용 Microsoft Windows Hello를 사용하도록 설정하려면 다음을 수행합니다.

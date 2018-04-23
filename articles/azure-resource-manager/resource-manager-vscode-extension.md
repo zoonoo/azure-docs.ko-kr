@@ -1,8 +1,8 @@
 ---
-title: "VS Code 확장을 포함한 Azure Resource Manager 템플릿 | Microsoft Docs"
-description: "Azure Resource Manager 도구 확장을 사용하여 Resource Manager 템플릿에서 사용합니다."
+title: VS Code 확장을 포함한 Azure Resource Manager 템플릿 | Microsoft Docs
+description: Azure Resource Manager 도구 확장을 사용하여 Resource Manager 템플릿에서 사용합니다.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 0dd48146624052fbd00093066d79067b75e33c92
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 9d15d3e48f7e952e1454718759f4770be0d8d135
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Visual Studio Code 확장을 사용하여 Azure Resource Manager 템플릿 만들기
 이 문서에서는 Visual Studio Code에서 Azure Resource Manager 도구 확장을 설치하고 사용하는 이점을 설명합니다. 확장하지 않고 VS Code에서 Resource Manager 템플릿을 만들 수 있지만 확장은 템플릿을 개발을 간소화하는 자동 완성 옵션을 제공합니다. 템플릿에서 사용할 수 있는 템플릿 함수, 매개 변수 및 변수를 제공합니다.
@@ -261,7 +261,7 @@ Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure 
 * PowerShell의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

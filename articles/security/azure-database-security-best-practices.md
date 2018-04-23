@@ -1,12 +1,12 @@
 ---
-title: "Azure 데이터베이스 보안 모범 사례 | Microsoft Docs"
-description: "이 문서에서는 Azure 데이터베이스 보안을 위한 일단의 모범 사례를 제공합니다."
+title: Azure 데이터베이스 보안 모범 사례 | Microsoft Docs
+description: 이 문서에서는 Azure 데이터베이스 보안을 위한 일단의 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 데이터베이스 보안 모범 사례
 
@@ -53,7 +53,7 @@ Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 응용 프로�
 
 Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL Database에 액세스하려면 클라이언트 컴퓨터 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 다른 응용 프로그램에 필요하지 않은 경우 방화벽 규칙을 사용하여 1433 TCP 포트에서 인바운드 연결을 차단합니다.
 
-연결 프로세스의 일부로 Azure 가상 컴퓨터에서 연결은 각 작업자 역할에 대한 고유한 다른 IP 주소 및 포트에 리디렉션됩니다. 포트 번호의 범위는 11000~11999입니다. TCP 포트에 대한 자세한 내용은 [ADO.NET 4.5 및 SQL Database2에 대한 1433 이외의 포트](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12)를 참조하세요.
+연결 프로세스의 일부로 Azure 가상 머신에서 연결은 각 작업자 역할에 대한 고유한 다른 IP 주소 및 포트에 리디렉션됩니다. 포트 번호의 범위는 11000~11999입니다. TCP 포트에 대한 자세한 내용은 [ADO.NET 4.5 및 SQL Database2에 대한 1433 이외의 포트](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12)를 참조하세요.
 
 > [!Note]
 > SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 참조하세요.
@@ -112,7 +112,7 @@ TDE를 사용하여 데이터베이스를 암호화하는 경우 [BPE(버퍼 풀
 보안 관리자나 데이터베이스 관리자처럼 권한이 부여된 사용자는 TDE를 사용하여 데이터베이스를 암호화된 경우에도 데이터에 액세스할 수 있으므로 아래 권장 사항을 준수해야 합니다.
 
 -   데이터베이스 수준 SQL 인증을 사용해야 합니다.
--   [RBAC 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)을 사용하는 Azure AD 인증을 사용해야 합니다.
+-   [RBAC 역할](https://docs.microsoft.com/azure/role-based-access-control/overview)을 사용하는 Azure AD 인증을 사용해야 합니다.
 -   사용자와 응용 프로그램이 인증에 별도의 계정을 사용해야 합니다. 이렇게 하면 사용자와 응용 프로그램에 부여되는 사용 권한을 제한하고 악의적인 활동의 위험을 줄일 수 있습니다.
 -   고정된 데이터베이스 역할(예: db_datareader 또는 db_datawriter)을 사용하여 데이터베이스 수준 보안을 구현하거나 응용 프로그램에 대한 사용자 지정 역할을 만들어 선택한 데이터베이스 개체에 명시적 권한을 부여할 수 있습니다.
 

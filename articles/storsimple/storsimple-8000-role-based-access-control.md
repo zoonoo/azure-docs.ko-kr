@@ -1,12 +1,12 @@
 ---
-title: "StorSimple에 역할 기반 액세스 제어 사용 | Microsoft Docs"
-description: "StorSimple 컨텍스트에서 Azure RBAC(역할 기반 액세스 제어)를 사용하는 방법에 대해 설명합니다."
+title: StorSimple에 역할 기반 액세스 제어 사용 | Microsoft Docs
+description: StorSimple 컨텍스트에서 Azure RBAC(역할 기반 액세스 제어)를 사용하는 방법에 대해 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: d040849360a47c611d44b3a5d7649c685dcc8068
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 412098ad6b8a6620b165b6cecaa0d0b3ee05f63e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
-이 문서는 StorSimple 장치에 RBAC(역할 기반 액세스 제어)를 사용하는 방법에 대해 간략히 설명합니다. RBAC는 Azure에 대한 정밀 액세스 관리를 제공합니다. RBAC를 사용하여 모든 사람들에게 무제한 액세스 권한을 주는 대신 StorSimple 사용자가 작업을 수행하는 데 필요한 만큼의 액세스 권한을 부여합니다. Azure에서 액세스 관리의 기초에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
+이 문서는 StorSimple 장치에 RBAC(역할 기반 액세스 제어)를 사용하는 방법에 대해 간략히 설명합니다. RBAC는 Azure에 대한 정밀 액세스 관리를 제공합니다. RBAC를 사용하여 모든 사람들에게 무제한 액세스 권한을 주는 대신 StorSimple 사용자가 작업을 수행하는 데 필요한 만큼의 액세스 권한을 부여합니다. Azure에서 액세스 관리의 기초에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 이 문서는 Azure Portal에서 실행되는 업데이트 3.0 이상을 실행하는 StorSimple 8000 시리즈 장치에 적용됩니다.
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/12/2017
 
 RBAC는 역할을 기반으로 할당할 수 있습니다. 이 역할은 환경에서 사용할 수 있는 리소스를 기준으로 특정 권한 수준을 보장합니다. StorSimple 사용자는 기본 제공 또는 사용자 지정의 두 가지 유형 중에서 역할을 선택할 수 있습니다.
 
-* **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../active-directory/role-based-access-control-what-is.md#built-in-roles)을 참조하세요.
+* **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/overview.md#built-in-roles)을 참조하세요.
 
-* **사용자 지정 역할** - 기본 제공 역할이 요구 사항에 맞지 않을 경우 StorSimple에 대해 사용자 지정 RBAC 역할을 만들 수 있습니다. 사용자 지정 RBAC 역할을 만들려면 기본 제공 역할을 시작하고 편집한 다음 환경에서 다시 가져옵니다. 역할의 다운로드 및 업로드는 Azure PowerShell 또는 Azure CLI를 사용하여 관리합니다. 자세한 내용은 [역할 기반 액세스 제어의 기본 제공 역할](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요.
+* **사용자 지정 역할** - 기본 제공 역할이 요구 사항에 맞지 않을 경우 StorSimple에 대해 사용자 지정 RBAC 역할을 만들 수 있습니다. 사용자 지정 RBAC 역할을 만들려면 기본 제공 역할을 시작하고 편집한 다음 환경에서 다시 가져옵니다. 역할의 다운로드 및 업로드는 Azure PowerShell 또는 Azure CLI를 사용하여 관리합니다. 자세한 내용은 [역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
 Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 다른 역할을 보려면 StorSimple 장치 관리자 서비스로 이동한 다음 **액세스 제어(IAM) > 역할**로 이동하십시오.
 
@@ -45,7 +45,7 @@ Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 �
 
 2. Azure에 로그인합니다.
 
-    `Login-AzureRMAccount`
+    `Connect-AzureRmAccount`
 
 3. Reader 역할을 컴퓨터에서 JSON 템플릿으로 내보냅니다.
 
@@ -108,12 +108,12 @@ Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 �
 
 ![RBAC 역할 보기](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-자세한 내용을 보려면 [PowerShell을 사용하여 사용자 지정 RBAC 역할 만들기](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell)로 이동합니다.
+자세한 내용을 보려면 [PowerShell을 사용하여 사용자 지정 RBAC 역할 만들기](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell)로 이동합니다.
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>PowerShell을 통해 사용자 지정 역할 생성을 위한 샘플 출력
 
 ```
-PS C:\WINDOWS\system32> Login-AzureRMAccount
+PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
 Environment           : AzureCloud
 Account               : john.doe@contoso.com
@@ -153,7 +153,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>사용자 지정 역할에 사용자 추가
 
-역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용을 보려면 [리소스 계층 및 액세스 권한 상속(영문)](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance)으로 이동하세요.
+역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용을 보려면 [리소스 계층 및 액세스 권한 상속(영문)](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance)으로 이동하세요.
 
 1. **액세스 제어(IAM)**로 이동합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
 
@@ -186,5 +186,5 @@ PS C:\WINDOWS\system32>
 
 ## <a name="next-steps"></a>다음 단계
 
-[내부 및 외부 사용자에 대한 사용자 지정 역할 할당](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md) 방법에 대해 배웁니다.
+[내부 및 외부 사용자에 대한 사용자 지정 역할 할당](../role-based-access-control/role-assignments-external-users.md) 방법에 대해 배웁니다.
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d4931c710bebc5e6c3ee23fb58e1432bb86da4a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 대부분의 Azure Automation Runbook에는 사용자에게 표시되는 오류 메시지와 같은 일종의 출력 형식 또는 다른 워크플로에서 사용할 복합 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
@@ -33,29 +33,32 @@ ms.lasthandoff: 03/23/2018
 
 [쓰기 출력](http://technet.microsoft.com/library/hh849921.aspx) 을 사용하거나 runbook에서 자체 줄에 개체를 배치하여 출력 스트림에 데이터를 쓸 수 있습니다.
 
-    #The following lines both write an object to the output stream.
-    Write-Output –InputObject $object
-    $object
+```PowerShell
+#The following lines both write an object to the output stream.
+Write-Output –InputObject $object
+$object
+```
 
 ### <a name="output-from-a-function"></a>함수에서 출력
 Runbook에 포함된 함수에 출력 스트림을 작성하는 경우 출력은 runbook에 다시 전달됩니다. runbook이 해당 출력을 변수에 할당하면 출력 스트림에 기록되지 않습니다. 함수 내에서 다른 스트림에 기록하면 Runbook의 해당하는 스트림에 기록됩니다.
 
 다음과 같은 샘플 Runbook을 고려해 보세요.
 
-    Workflow Test-Runbook
-    {
-        Write-Verbose "Verbose outside of function" -Verbose
-        Write-Output "Output outside of function"
-        $functionOutput = Test-Function
-        $functionOutput
+```PowerShell
+Workflow Test-Runbook
+{
+  Write-Verbose "Verbose outside of function" -Verbose
+  Write-Output "Output outside of function"
+  $functionOutput = Test-Function
+  $functionOutput
 
-    Function Test-Function
-     {
-        Write-Verbose "Verbose inside of function" -Verbose
-        Write-Output "Output inside of function"
-      }
-    }
-
+  Function Test-Function
+  {
+    Write-Verbose "Verbose inside of function" -Verbose
+    Write-Output "Output inside of function"
+  }
+}
+```
 
 Runbook 작업에 대한 출력 스트림은 다음과 같습니다.
 
@@ -81,13 +84,15 @@ Runbook을 게시하고 시작하기 전에 자세한 정보 표시 스트림 �
 
 다음 샘플 runbook은 문자열 개체를 출력하고 해당 출력 형식의 선언을 포함합니다. Runbook이 특정 유형의 배열을 출력하면 형식의 배열과 달리 형식을 지정해야 합니다.
 
-    Workflow Test-Runbook
-    {
-       [OutputType([string])]
+```PowerShell
+Workflow Test-Runbook
+{
+  [OutputType([string])]
 
-       $output = "This is some string output."
-       Write-Output $output
-    }
+  $output = "This is some string output."
+  Write-Output $output
+}
+ ```
 
 그래픽 또는 그래픽 PowerShell 워크플로 Runbook에서 출력 형식을 선언하려면 **입력 및 출력** 메뉴 옵션을 선택하고 출력 형식 이름을 입력할 수 있습니다. 부모 Runbook에서 참조하는 경우 쉽게 식별할 수 있도록 전체 .NET 클래스 이름을 사용하는 것이 좋습니다. Runbook의 데이터 버스에 대한 해당 클래스의 모든 속성을 노출하고 Runbook의 다른 활동에 대한 값으로 조건부 논리, 로깅 및 참조에 사용하는 경우 유연성 향상을 제공합니다.<br> ![Runbook 입력 및 출력 옵션](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
@@ -115,11 +120,13 @@ Runbook을 게시하고 시작하기 전에 자세한 정보 표시 스트림 �
 
 [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 또는 [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet를 사용하여 경고 또는 오류 메시지를 만듭니다. 또한 활동은 이러한 스트림에 쓸 수 있습니다.
 
-    #The following lines create a warning message and then an error message that will suspend the runbook.
+```PowerShell
+#The following lines create a warning message and then an error message that will suspend the runbook.
 
-    $ErrorActionPreference = "Stop"
-    Write-Warning –Message "This is a warning message."
-    Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+$ErrorActionPreference = "Stop"
+Write-Warning –Message "This is a warning message."
+Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+```
 
 ### <a name="verbose-stream"></a>자세한 정보 표시 스트림
 자세한 정보 표시 메시지 스트림은Runbook 작업에 대한 일반 정보입니다. [디버그 스트림](#Debug) 을 runbook에서 사용할 수 없기 때문에 디버그 정보에 자세한 정보 표시 메시지를 사용해야 합니다. 기본적으로 게시된 Runbook에서 자세한 정보 표시 메시지는 작업 기록에 저장되지 않습니다. 자세한 정보 표시 메시지를 저장하기 위해 Azure Portal에 있는 Runbook의 구성 탭에서 게시된 Runbook을 상세 레코드 기록으로 구성합니다. 대부분의 경우 성능상의 이유로 runbook에 대한 자세한 정보 표시 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다.
@@ -128,9 +135,11 @@ Runbook을 게시하고 시작하기 전에 자세한 정보 표시 스트림 �
 
 [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet를 사용하여 자세한 정보 표시 메시지를 만듭니다.
 
-    #The following line creates a verbose message.
+```PowerShell
+#The following line creates a verbose message.
 
-    Write-Verbose –Message "This is a verbose message."
+Write-Verbose –Message "This is a verbose message."
+```
 
 ### <a name="debug-stream"></a>디버그 스트림
 디버그 스트림은 대화형 사용자로 사용하기 위한 것이며 runbook에서 사용하지 않아야 합니다.
@@ -168,24 +177,25 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](https://msdn.microsoft.c
 
 다음 예제는 샘플 runbook를 시작한 다음 완료되기를 기다립니다. 완료되면 해당 출력 스트림을 작업에서 수집합니다.
 
-    $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+```PowerShell
+$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
-    $doLoop = $true
-    While ($doLoop) {
-       $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
-       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
-       $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
-    }
+$doLoop = $true
+While ($doLoop) {
+  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
+  $status = $job.Status
+  $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
+}
 
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
-    
-    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
-    
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+
+# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+``` 
 
 ### <a name="graphical-authoring"></a>그래픽 작성
 그래픽 Runbook의 경우 추가 로깅은 작업 수준 추적의 형식으로 사용할 수 있습니다. 추적에는 기본 추적과 자세히 추적이 있습니다. 기본 추적에서는 작업의 시도 횟수 및 시작 시간과 같이 Runbook의 각 작업의 시작 및 종료 시간과 작업 다시 시도와 관련된 정보를 볼 수 있습니다. 자세히 추적에서는 기본 추적 외에도 각 작업에 대한 입력 및 출력 데이터를 얻습니다. 현재 추적 레코드는 자세한 정보 표시 스트림을 사용하여 기록되므로 추적을 사용하도록 설정할 경우 자세한 정보 로깅을 사용하도록 설정해야 합니다. 추적을 사용하는 그래픽 Runbook의 경우 기본 추적이 같은 용도로 사용되고 자세한 정보를 제공하기 때문에 진행률 레코드를 기록할 필요가 없습니다.

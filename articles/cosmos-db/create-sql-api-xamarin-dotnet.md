@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 1fec2604dc2aee412e73f5ca332d2852bf7e58bd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ca6780f9cec478cf9ed756aaefc7f6c059b6316a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Xamarin을 사용하여 할 일 앱 빌드
 
@@ -50,40 +50,29 @@ Mac을 사용하는 경우 **무료** [Mac용 Visual Studio](https://www.visuals
 
 ## <a name="add-sample-data"></a>샘플 데이터 추가
 
-이제 데이터 탐색기를 사용하여 새 컬렉션에 데이터를 추가할 수 있습니다.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
-1. 데이터 탐색기에서 **작업** 데이터베이스를 확장하고, **항목** 컬렉션을 확장하고, **문서**를 클릭한 다음, **새 문서**를 클릭합니다.
+## <a name="query-your-data"></a>데이터 쿼리
 
-   ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-
-2. 이제 다음과 같은 구조를 사용하여 컬렉션에 문서를 추가 합니다.
-
-     ```json
-     {
-         "id": "1",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "completed": false
-     }
-     ```
-
-3. **문서** 탭에 Json을 추가했으면 **저장**을 클릭합니다.
-
-    ![Azure Portal의 데이터 탐색기에서 Json 데이터를 복사하고 저장을 클릭합니다.](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-save-document.png)
-
-4. `id` 속성에 대한 고유한 값을 삽입하는 경우 둘 이상의 문서를 만들고 저장하며 다른 속성을 적합하게 변경합니다. Azure Cosmos DB가 데이터에 어떠한 스키마도 적용하지 않으므로 새 문서는 사용자가 원하는 어떠한 구조든 가질 수 있습니다.
-
-     이제 데이터 탐색기에서 쿼리를 사용하여 데이터를 검색할 수 있습니다. 기본적으로 데이터 탐색기에서는 `SELECT * FROM c`를 사용하여 컬렉션의 모든 문서를 검색하지만, `SELECT * FROM c ORDER BY c._ts DESC` 등의 다른 [SQL 쿼리](sql-api-sql-query.md)로 변경하면 타임스탬프 기준으로 내림차순으로 모든 문서를 반환할 수 있습니다.
-
-     또한 서버 쪽 비즈니스 논리를 수행하고 처리량을 확장할 수 있도록 데이터 탐색기를 사용하여 저장 프로시저, UDF 및 트리거를 만들 수도 있습니다. 데이터 탐색기는 API에서 사용할 수 있는 모든 기본 제공 프로그래밍 방식 데이터 액세스를 표시하지만 Azure Portal의 데이터에도 쉽게 액세스할 수 있습니다.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
 이제 Github에서 Xamarin SQL API 앱을 복제하고, 코드를 검토하고, API 키를 가져오고, 실행하겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.
 
-1. git bash와 같은 git 터미널 창을 열고 `cd`를 수행하여 작업 디렉터리로 이동합니다.
+1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
-2. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다.
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 새 폴더로 변경합니다.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다.
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
@@ -246,10 +235,7 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 앱을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
-
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.
-2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure Portal에서 함수 앱 만들기 | Microsoft Docs"
-description: "포털의 Azure App Service에서 새 함수 앱을 만듭니다."
+title: Azure Portal에서 함수 앱 만들기 | Microsoft Docs
+description: 포털의 Azure App Service에서 새 함수 앱을 만듭니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 4716d29a7b8c0830e2311398f033f8358ef24529
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure Portal에서 함수 앱 만들기
 
@@ -51,7 +51,7 @@ App Service에서 함수 앱을 만들 때 Blob, 큐 및 Table Storage를 지원
 >[!NOTE]
 >소비 호스팅 계획을 사용할 경우 함수 코드 및 바인딩 구성 파일은 기본 저장소 계정의 Azure File Storage에 저장됩니다. 기본 저장소 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
 
-저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요. 
+저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#azure-storage-services)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

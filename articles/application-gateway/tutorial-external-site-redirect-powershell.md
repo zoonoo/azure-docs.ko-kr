@@ -1,6 +1,6 @@
 ---
-title: "외부 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs"
-description: "Azure Powershell을 사용하여 웹 트래픽을 외부 사이트로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
+title: 외부 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
+description: Azure Powershell을 사용하여 웹 트래픽을 외부 사이트로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: davidmu
-ms.openlocfilehash: b3639e1aecc2e78e8b107d7af12ca77118f55651
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 430c8b64a9e9bafb655357f4ceadd8980c1de3bd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 외부 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기
 
@@ -27,11 +27,11 @@ Azure PowerShell을 사용하여 [응용 프로그램 게이트웨이](applicati
 > * 수신기 및 리디렉션 규칙 만들기
 > * 응용 프로그램 게이트웨이 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.openlocfilehash: 95f6e3d6d9db5a88b5b974daf6e36573b60878a5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 > [!div class="op_single_selector"]
 > * [비동기 Java](performance-tips-async-java.md)
@@ -75,7 +75,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 7. **이름 기반 주소 지정 사용**
 
-    링크를 생성하는 데 사용된 모든 리소스의 ResourceId를 검색하지 않도록 링크 형식이 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`인 SelfLinks(\_self) 대신 링크 형식이 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`인 이름 기반 주소 지정을 사용합니다. 또한 이러한 리소스는 (동일한 이름을 사용하여) 다시 생성되므로 이를 캐싱하는 것이 별 도움이 되지 않을 수도 있습니다.
+    링크를 생성하는 데 사용된 모든 리소스의 ResourceId를 검색하지 않도록 링크 형식이 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`인 SelfLinks(\_self) 대신 링크 형식이 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`인 이름 기준 주소를 사용합니다. 또한 이러한 리소스는 (동일한 이름을 사용하여) 다시 생성되므로 이를 캐싱하는 것이 별 도움이 되지 않을 수도 있습니다.
 
    <a id="tune-page-size"></a>
 8. **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**

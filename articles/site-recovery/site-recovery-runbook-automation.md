@@ -1,11 +1,11 @@
 ---
-title: "Azure Site Recovery에서 복구 계획에 Azure Automation Runbook 추가 | Microsoft Docs"
-description: "Azure Site Recovery가 Azure Automation을 사용하여 복구 계획을 확장하는 데 어떻게 도움이 되는지 알아봅니다. Azure로 복구하는 동안 복잡한 작업을 완료하는 방법을 알아봅니다."
+title: Azure Site Recovery에서 복구 계획에 Azure Automation Runbook 추가 | Microsoft Docs
+description: Azure Site Recovery가 Azure Automation을 사용하여 복구 계획을 확장하는 데 어떻게 도움이 되는지 알아봅니다. Azure로 복구하는 동안 복잡한 작업을 완료하는 방법을 알아봅니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: gauravd
-editor: 
+editor: ''
 ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
 ms.devlang: powershell
@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 942c7f13c5cb37017f8907c9f0c94493af53d008
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 이 문서에서는 Azure Site Recovery를 Azure Automation에 통합하여 복구 계획을 확장하는 방법을 설명합니다. 복구 계획으로 Site Recovery로 보호되는 VM의 복구를 오케스트레이션할 수 있습니다. 복구 계획은 보조 클라우드로 복제 및 Azure로의 복제 모두에서 작동합니다. 복구 계획을 통해 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. VM을 Azure로 장애 조치(failover)하는 경우 Azure Automation과 통합하면 복구 계획이 확장됩니다. 이를 통해 강력한 자동화 작업을 제공하는 Runbook을 실행할 수 있습니다.
@@ -200,7 +200,7 @@ workflow AddPublicIPAndNSG {
 1. PowerShell에서 Azure 구독에 로그인합니다.
 
     ```
-    login-azurermaccount
+    Connect-AzureRmAccount
     $sub = Get-AzureRmSubscription -Name <SubscriptionName>
     $sub | Select-AzureRmSubscription
     ```

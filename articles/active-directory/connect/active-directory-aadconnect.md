@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Azure Active Directory와 온-프레미스 디렉터리 통합
 Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 이 항목은 계획, 배포 및 운영 단계를 안내합니다. 이 영역과 관련된 항목으로 연결되는 링크 컬렉션입니다.
 
 > [!IMPORTANT]
 > [Azure AD Connect는 온-프레미스 디렉터리를 Azure AD와 Office 365에 연결하는 가장 좋은 방법입니다. 이제 이러한 도구가 사용되지 않으며 2017년 4월 13일부터 더 이상 지원되지 않으므로 Microsoft Azure Active Directory 동기화(DirSync) 또는 Azure AD Sync에서 Azure AD Connect로 지금 업그레이드하는 것이 좋습니다.](active-directory-aadconnect-dirsync-deprecated.md)  추가 정보:
+
+
+
 > 
 > - 사용자를 Azure AD와 동기화하는 기능은 **무료**이며 고객에게 유료 구독이 없어도 됩니다.
 >- 동기화된 사용자에게는 *어떠한* 라이선스도 **자동으로 부여되지 않습니다**. 관리자는 계속해서 모든 라이선스 할당을 제어합니다. 
@@ -51,6 +54,10 @@ Azure Active Directory Connect는 동기화 서비스, 선택적인 Active Direc
 * 상태 모니터링 - Azure AD Connect Health는 강력한 모니터링을 제공하고 Azure 포털에서 중앙 위치를 제공하여 이 활동을 볼 수 있습니다. 자세한 내용은 [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md)를 참조하세요.
 
 ## <a name="install-azure-ad-connect"></a>Azure AD Connect 설치
+
+> [!IMPORTANT]
+> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 동작 중 하나는 Azure AD Connect 동기화의 불일치하거나 지원되지 않는 상태가 될 수 있습니다. 결과적으로, Microsoft는 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
+
 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
 
 | 해결 방법 | 시나리오 |

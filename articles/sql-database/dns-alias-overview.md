@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik
-ms.openlocfilehash: c2a2bce3b385bd5700bf327f283289cf4d94b057
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1793f44026db55d17fabde5fb92bc46795109418
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 
@@ -63,7 +63,7 @@ SQL Database 서버에 대한 각 DNS 별칭에는 다음 속성이 적용됩니
 - *어떤 지역에도 바인딩되지 않음:* DNS 별칭은 지역에 바인딩되지 않습니다. DNS 별칭을 지리적 지역에 있는 Azure SQL Database 서버를 참조하도록 업데이트할 수 있습니다.
     - 그러나 다른 서버를 참조하도록 별칭을 업데이트할 경우 두 서버 모두 동일한 Azure *구독*에 있어야 합니다.
 
-- *사용 권한:* DNS 별칭을 관리하려면 *서버 참가자* 권한 이상이 있어야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
+- *사용 권한:* DNS 별칭을 관리하려면 *서버 참가자* 권한 이상이 있어야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 
 

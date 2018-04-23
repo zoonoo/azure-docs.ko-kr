@@ -2,23 +2,19 @@
 title: Columnstore 인덱스 성능 향상 - Azure SQL Data Warehouse | Microsoft Docs
 description: 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화합니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: be167e298a4c0e76d7cf3bb638838047d4e9bcee
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
@@ -139,7 +135,7 @@ OPTION (MAXDOP 1);
 DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼리에 사용 가능한 메모리 양을 결정합니다. 로드 쿼리에 대한 메모리 부여를 늘리려면 DWU 수를 늘리거나 리소스 클래스 수를 늘리면 됩니다.
 
 - DWU 수를 늘리려면 [성능을 조정하려면 어떻게 해야 합니까?](quickstart-scale-compute-portal.md)를 참조하세요.
-- 쿼리에 대한 리소스 클래스를 변경하려면 [사용자 리소스 클래스 변경 예제](resource-classes-for-workload-management.md#assigning-resource-classes)를 참조하세요.
+- 쿼리에 대한 리소스 클래스를 변경하려면 [사용자 리소스 클래스 변경 예제](resource-classes-for-workload-management.md#change-a-users-resource-class)를 참조하세요.
 
 예를 들어 DWU 100에서는 smallrc 리소스 클래스의 사용자는 배포당 100MB의 메모리를 사용할 수 있습니다. 자세한 내용은 [SQL Data Warehouse의 동시성](resource-classes-for-workload-management.md)을 참조하세요.
 

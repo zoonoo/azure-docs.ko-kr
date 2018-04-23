@@ -1,11 +1,11 @@
 ---
-title: "CLI 2.0을 사용하여 Azure AD 앱 만들기 및 Azure Media Services API 액세스 구성 | Microsoft Docs"
-description: "이 항목에서는 CLI 2.0을 사용하여 Azure AD 앱을 만들고 Azure Media Services API에 액세스하도록 구성하는 방법을 보여 줍니다."
+title: CLI 2.0을 사용하여 Azure AD 앱 만들기 및 Azure Media Services API 액세스 구성 | Microsoft Docs
+description: 이 항목에서는 CLI 2.0을 사용하여 Azure AD 앱을 만들고 Azure Media Services API에 액세스하도록 구성하는 방법을 보여 줍니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b640455b151d0e5d4701b8c076ee1a587b92f5b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>CLI 2.0을 사용하여 AAD 앱 만들기 및 Azure Media Services API 액세스 구성
 
@@ -61,7 +61,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 
 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 참조하세요.
 
-또한 [Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리](../active-directory/role-based-access-control-manage-access-azure-cli.md)도 참조하세요. 
+또한 [Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리](../role-based-access-control/role-assignments-cli.md)도 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

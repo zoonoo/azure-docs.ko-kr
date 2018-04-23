@@ -1,24 +1,18 @@
 ---
-title: "Azure Search 서비스 REST API 버전 2016-09-01-Preview | Microsoft Docs"
-description: "Azure Search 서비스 REST API 버전 2016-09-01-Preview에는 동의어 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
-services: search
-documentationcenter: na
+title: Azure Search 서비스 REST API 버전 2016-09-01-Preview | Microsoft Docs
+description: Azure Search 서비스 REST API 버전 2016-09-01-Preview에는 동의어 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다.
 author: mhko
 manager: jlembicz
-editor: 
-ms.assetid: 3dba3bf8-9c83-42f6-82bc-04727bd11037
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: search
+ms.topic: reference
 ms.date: 10/25/2017
 ms.author: nateko
-ms.openlocfilehash: 082c207f892fcc277d30d66c6165dd9920d3ab27
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bbfdb2641d68f1262cc6293462c7022701357374
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-search-service-rest-api-version-2016-09-01-preview"></a>Azure Search 서비스 REST API 버전: 2016-09-01-Preview
 이 문서는 `api-version=2016-09-01-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2016-09-01](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.

@@ -3,8 +3,8 @@ title: Azure Cosmos DB 진단 로깅 | Microsoft Docs
 description: 이 자습서를 사용하여 Azure Cosmos DB 로깅을 시작할 수 있습니다.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
-ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
 
@@ -140,7 +140,7 @@ Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShe
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell은 이 계정과 연관된 모든 구독을 가져와서 기본적으로 첫 번째 구독을 사용합니다.

@@ -1,26 +1,24 @@
 ---
-title: "기계 학습 개요 - Azure HDInsight | Microsoft Docs"
-description: "HDInsight의 기계 학습 옵션에 대해 설명합니다."
+title: 기계 학습 개요 - Azure HDInsight | Microsoft Docs
+description: HDInsight의 기계 학습 옵션에 대해 설명합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: ff99a7a60573cad5e6dd30d4ca48903423e9f87f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -60,10 +58,8 @@ Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 �
 
 ### <a name="scenarios"></a>시나리오
 
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](spark/apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Mahout을 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Hive 및 Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
 * [Hive 및 Azure Machine Learning 종단 간 시나리오](../machine-learning/team-data-science-process/hive-walkthrough.md)

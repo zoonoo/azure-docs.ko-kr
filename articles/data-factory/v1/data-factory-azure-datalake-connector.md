@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Store 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -283,7 +283,7 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **recursive** |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니오 |
+| **recursive** |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니요 |
 
 
 **AzureDataLakeStoreSink**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.

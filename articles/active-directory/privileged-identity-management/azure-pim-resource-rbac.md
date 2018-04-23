@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pim-for-azure-resources"></a>Azure Resource용 PIM
 
@@ -43,7 +43,7 @@ Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사�
 - 보안 관리자 등
 
 >[!NOTE]
-소유자 또는 사용자 액세스 관리자 역할에 할당된 사용자 또는 그룹 구성원 및 Azure AD에서 구독 관리를 사용할 수 있는 전역 관리자는 리소스 관리자입니다. 이러한 관리자는 Azure Resources용 PIM을 사용하여 역할을 할당하고, 역할 설정을 구성하며, 액세스를 검토할 수 있습니다. [Azure 리소스에 대한 기본 제공 역할](../role-based-access-built-in-roles.md) 목록을 참조하세요.
+소유자 또는 사용자 액세스 관리자 역할에 할당된 사용자 또는 그룹 구성원 및 Azure AD에서 구독 관리를 사용할 수 있는 전역 관리자는 리소스 관리자입니다. 이러한 관리자는 Azure Resources용 PIM을 사용하여 역할을 할당하고, 역할 설정을 구성하며, 액세스를 검토할 수 있습니다. [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 목록을 참조하세요.
 
 ## <a name="tasks"></a>작업
 
@@ -193,6 +193,6 @@ Azure 리소스용 PIM을 사용하면 리소스 역할 할당에 대한 JEA(Jus
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대한 기본 제공 역할](../role-based-access-built-in-roles.md)
+- [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
 - [여기서 Azure AD 역할 활성화](../active-directory-privileged-identity-management-how-to-activate-role.md)에 대해 자세히 알아보세요.
 - [PIM 승인 워크플로](azure-ad-pim-approval-workflow.md)

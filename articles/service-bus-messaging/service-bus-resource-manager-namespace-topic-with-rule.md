@@ -1,24 +1,24 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 토픽 구독 및 규칙 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기"
+title: Azure Resource Manager 템플릿을 사용하여 Service Bus 토픽 구독 및 규칙 만들기 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9e0aaf58-0214-4bca-bd00-d29c08f9b1bc
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: 50fd07e4c979cfb415589ba721adb7998cfbe7bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 
@@ -118,7 +118,6 @@ Service Bus 네임스페이스에서 만든 규칙(필터)의 이름입니다.
         "location": "[variables('location')]",
         "sku": {
             "name": "Standard",
-            "tier": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",

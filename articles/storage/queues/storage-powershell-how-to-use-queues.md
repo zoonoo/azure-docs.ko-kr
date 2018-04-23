@@ -1,12 +1,12 @@
 ---
-title: "PowerShell을 사용하여 Azure Queue Storage에서 작업 수행 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure Queue Storage에서 작업을 수행하는 방법"
+title: PowerShell을 사용하여 Azure Queue Storage에서 작업 수행 | Microsoft Docs
+description: PowerShell을 사용하여 Azure Queue Storage에서 작업을 수행하는 방법
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
@@ -38,10 +38,10 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>위치의 목록 검색

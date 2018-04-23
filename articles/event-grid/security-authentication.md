@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -154,7 +154,7 @@ Azure Event Grid는 다음 작업을 지원합니다.
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-마지막 세 가지 작업에서는 일반 읽기 작업에서 필터링을 가져오는 비밀 정보를 잠재적으로 반환합니다. 이러한 작업에 대한 액세스를 제한하는 것이 좋습니다. [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [Azure CLI(명령줄 인터페이스)](../active-directory/role-based-access-control-manage-access-azure-cli.md) 및 [REST API](../active-directory/role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다.
+마지막 세 가지 작업에서는 일반 읽기 작업에서 필터링을 가져오는 비밀 정보를 잠재적으로 반환합니다. 이러한 작업에 대한 액세스를 제한하는 것이 좋습니다. [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI(명령줄 인터페이스)](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다.
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>RBAC(역할 기반 액세스 확인) 적용
 

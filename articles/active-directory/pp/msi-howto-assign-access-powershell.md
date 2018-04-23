@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 MSI에 Azure 리소스 액세스 권한을 할당하는 방법"
-description: "PowerShell을 사용하여 특정 리소스에 MSI를 할당하고 다른 리소스에 대한 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다."
+title: PowerShell을 사용하여 MSI에 Azure 리소스 액세스 권한을 할당하는 방법
+description: PowerShell을 사용하여 특정 리소스에 MSI를 할당하고 다른 리소스에 대한 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c9f146e829e463fbdaf1bcff8747ffc5dd055ecb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ac8cca1e80defca33a879db5d4c160362314931a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>PowerShell을 사용하여 MSI(관리 서비스 ID)에 리소스 액세스 권한 할당
 
@@ -36,10 +36,10 @@ MSI를 사용하여 Azure 리소스를 구성한 후에는 모든 보안 주체�
 
 [Azure VM](msi-qs-configure-powershell-windows-vm.md)과 같은 Azure 리소스에서 MSI를 사용하도록 설정한 후에 다음을 수행합니다.
 
-1. `Login-AzureRmAccount` cmdlet을 사용하여 Azure에 로그인합니다. MSI를 구성한 Azure 구독과 연결된 계정을 사용하세요.
+1. `Connect-AzureRmAccount` cmdlet을 사용하여 Azure에 로그인합니다. MSI를 구성한 Azure 구독과 연결된 계정을 사용하세요.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. 이 예제에서는 Azure VM에 저장소 계정 액세스 권한을 제공합니다. 먼저 [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm)을 사용하여 MSI를 사용하도록 설정할 때 만든 VM "myVM"의 서비스 주체를 가져옵니다. 그런 다음 [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)를 사용하여 저장소 계정 "myStorageAcct"에 대한 "Reader" 액세스 권한을 VM에 제공합니다.
 

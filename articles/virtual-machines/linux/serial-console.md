@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>가상 머신 직렬 콘솔(미리 보기) 
 
@@ -32,7 +32,7 @@ Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍�
 ## <a name="prerequisites"></a>필수 조건 
 
 * 가상 머신에 [부트 진단](boot-diagnostics.md)을 사용하도록 설정되어 있어야 합니다. 
-* 직렬 콘솔을 사용하는 계정에는 VM에 대한 [참가자 역할](../../active-directory/role-based-access-built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
+* 직렬 콘솔을 사용하는 계정에는 VM에 대한 [참가자 역할](../../role-based-access-control/built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
 * Linux 배포판 설정에 대한 자세한 내용은 [Linux용 직렬 콘솔 액세스](#accessing-serial-console-for-linux)를 참조하세요.
 
 
@@ -56,7 +56,7 @@ Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍�
 ## <a name="serial-console-security"></a>직렬 콘솔 보안 
 
 ### <a name="access-security"></a>액세스 보안 
-직렬 콘솔에 대한 액세스는 가상 머신에 대해 [VM 참가자](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) 이상의 액세스가 있는 사용자로 제한됩니다. AAD 테넌트에 Multi-Factor Authentication이 필요한 경우에는 직렬 콘솔에 대한 액세스 권한에도 MFA가 필요합니다. 해당 액세스가 [Azure Portal](https://portal.azure.com)을 통해 진행되기 때문입니다.
+직렬 콘솔에 대한 액세스는 가상 머신에 대해 [VM 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 이상의 액세스가 있는 사용자로 제한됩니다. AAD 테넌트에 Multi-Factor Authentication이 필요한 경우에는 직렬 콘솔에 대한 액세스 권한에도 MFA가 필요합니다. 해당 액세스가 [Azure Portal](https://portal.azure.com)을 통해 진행되기 때문입니다.
 
 ### <a name="channel-security"></a>채널 보안
 주고 받는 모든 데이터는 전송 중에 암호화됩니다.
@@ -71,7 +71,7 @@ Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍�
 한 사용자가 직렬 콘솔에 연결되어 있을 때 다른 사용자가 같은 가상 머신에 대한 액세스를 성공적으로 요청한 경우에는, 첫 번째 사용자의 연결이 끊기고 두 번째 사용자가 연결됩니다. 이것은 첫 번째 사용자가 자리에서 일어나서 물리적 콘솔을 떠나고 새로운 사용자가 자리에 앉는 것과 유사한 방식입니다.
 
 >[!CAUTION] 
-즉, 연결이 끊긴 사용자는 로그아웃되지 않습니다! 연결 해제 시 로그아웃을 강제 적용하는 기능은(SIGHUP 또는 유사한 메커니즘을 통해) 아직 계획 중입니다. Windows의 경우 SAC에 자동 시간 제한을 사용하도록 설정되어 있지만 Linux에서는 터미널 시간 제한 설정을 구성할 수 있습니다. 이렇게 하려면 콘솔에 로그인할 때 사용한 사용자의 .bash_profile 또는 .profile에 `export TMOUT=600`을 추가하여 10분 후에 세션 시간이 초과되도록 합니다.
+즉, 연결이 끊긴 사용자는 로그아웃되지 않습니다. 연결 해제 시 로그아웃을 강제 적용하는 기능은(SIGHUP 또는 유사한 메커니즘을 통해) 아직 계획 중입니다. Windows의 경우 SAC에 자동 시간 제한을 사용하도록 설정되어 있지만 Linux에서는 터미널 시간 제한 설정을 구성할 수 있습니다. 이렇게 하려면 콘솔에 로그인할 때 사용한 사용자의 .bash_profile 또는 .profile에 `export TMOUT=600`을 추가하여 10분 후에 세션 시간이 초과되도록 합니다.
 
 ### <a name="disable-feature"></a>기능 사용 중지
 특정 VM의 부트 진단 설정을 비활성화하여 VM의 직렬 콘솔 기능을 비활성화할 수 있습니다.
@@ -124,11 +124,11 @@ Azure에서 사용 가능한 Oracle Linux 이미지는 콘솔 액세스가 기�
 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 
 
 ## <a name="errors"></a>오류
-대부분의 오류는 본래 일시적이며 연결을 다시 시도하면 문제가 해결됩니다. 아래 테이블에는 오류 및 해결 방법 목록이 있습니다. 
+대부분의 오류는 본래 일시적이며 연결을 다시 시도하면 문제가 해결됩니다. 아래 표에는 오류 및 해결 방법 목록이 있습니다. 
 
 오류                            |   해결 방법 
 :---------------------------------|:--------------------------------------------|
-'<VMNAME>'에 대한 부트 진단 설정을 검색할 수 없습니다. 직렬 콘솔을 사용하려면 부트 진단이 VM에 활성화되어 있는지 확인하십시오. | VM에 [부트 진단](boot-diagnostics.md)이 활성화되어 있는지 확인합니다. 
+'<VMNAME>'에 대한 부트 진단 설정을 검색할 수 없습니다. 직렬 콘솔을 사용하려면 부트 진단이 VM에 활성화되어 있는지 확인하세요. | VM에 [부트 진단](boot-diagnostics.md)이 사용되도록 설정되어 있는지 확인합니다. 
 VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 연결을 다시 시도합니다. | 직렬 콘솔에 액세스하려면 가상 머신이 시작된 상태여야 합니다.
 직렬 콘솔 VM을 사용하는 데 필요한 권한이 없습니다. VM 참가자 역할 이상의 권한이 있는지 확인합니다.| 직렬 콘솔 액세스에는 특정 권한이 필요합니다. 자세한 내용은 [액세스 요구 사항](#prerequisites)을 참조하세요.
 부트 진단 저장소 계정인 '<STORAGEACCOUNTNAME>'에 대한 리소스 그룹을 확인할 수 없습니다. 이 VM에 부트 진단이 활성화되어 있고 저장소 계정에 액세스 권한이 있는지 확인합니다. | 직렬 콘솔 액세스에는 특정 권한이 필요합니다. 자세한 내용은 [액세스 요구 사항](#prerequisites)을 참조하세요.
@@ -145,7 +145,7 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. https://aka.ms/serialconsolefeedback으로 이동하여 피드백을 제공해 주세요. 또는(대안으로) azserialhelp@microsoft.com을 통해서 또는 http://feedback.azure.com의 가상 머신 범주에 피드백을 보내주세요.
+a. 으로 이동하여 피드백을 제공해 주세요https://aka.ms/serialconsolefeedback. 또는(대안으로) azserialhelp@microsoft.com을 통해서 또는 http://feedback.azure.com의 가상 머신 범주에 피드백을 보내주세요.
 
 **Q. ”기존 콘솔의 OS 유형 Windows가 요청된 Linux의 OS 유형과 충돌됩니다”라는 오류가 발생합니다**.
 

@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Data Warehouse란? | Microsoft Docs"
-description: "페타바이트 볼륨의 관계형 및 비관계형 데이터를 처리할 수 있는 엔터프라이즈급 분산 데이터베이스입니다. 몇 초 만에 확장, 축소 및 일시 중지가 가능한 업계 최초의 클라우드 데이터 웨어하우스입니다."
+title: Azure SQL Data Warehouse란? | Microsoft Docs
+description: 페타바이트 볼륨의 관계형 및 비관계형 데이터를 처리할 수 있는 엔터프라이즈급 분산 데이터베이스입니다. 몇 초 만에 확장, 축소 및 일시 중지가 가능한 업계 최초의 클라우드 데이터 웨어하우스입니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: 57b94a57ae0279a391cb4269f7b1625499748bae
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse란?
 
@@ -37,13 +32,6 @@ SQL Data Warehouse는 열 형식 저장소를 사용하여 관계 테이블에 �
 
 분석 결과는 전 세계 보고 데이터베이스 또는 응용 프로그램으로 이동할 수 있습니다. 그러면 비즈니스 분석가가 합리적인 비즈니스 결정을 내리기 위한 정보를 파악할 수 있습니다.
 
-## <a name="optimization-choices"></a>최적화 선택
-
-SQL Data Warehouse는 크기에 상관 없이 데이터 요구 사항에 맞도록 유연하게 설계된 [성능 계층](performance-tiers.md)을 제공합니다. 탄력성 또는 계산에 최적화된 데이터 웨어하우스를 선택할 수 있습니다. 
-
-- **탄력성에 최적화됨 성능 계층**은 아키텍처의 계산 및 저장소 계층을 구분합니다. 이 옵션은 단기간의 많은 작업을 지원하기 위해 자주 크기를 조정하여 계산과 저장소 간의 분리를 활용할 수 있는 워크로드에 적합합니다. 이 계산 계층은 대부분의 고객 워크로드를 지원할 수 있는 가장 낮은 가격대 및 규모를 제공합니다.
-
-- **계산에 최적화됨 성능 계층**은 최신 Azure 하드웨어를 사용하여 가장 자주 액세스되는 데이터를 CPU에 가깝게 원하는 위치에 정확하게 유지하는 새 NVMe 반도체 디스크 캐시를 제공합니다. 모든 IO가 계산 계층에 로컬로 보관되므로 이 성능 계층은 자동으로 저장소를 계층화하여 복잡한 쿼리에서 뛰어난 성능을 제공합니다. 또한 columnstore가 SQL Data Warehouse에 무제한으로 데이터를 저장할 수 있도록 향상되었습니다. 계산에 최적화됨 성능 계층은 가장 높은 수준의 확장성을 제공하여 30,000cDWU(계산 데이터 웨어하우스 단위)까지 강화할 수 있습니다. 연속적이고 매우 빠른 성능을 요구하는 워크로드의 경우 이 계층을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][create a SQL Data Warehouse] 및 [샘플 데이터 로드][load sample data]에 대해 신속히 알아봅니다. Azure를 처음 사용하는 경우 새 용어를 발견하면 [Azure 용어집][Azure glossary]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL Data Warehouse 리소스를 살펴봅니다.  

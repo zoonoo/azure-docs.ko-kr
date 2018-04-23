@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure Cost Management로 Azure 구독 및 계정 활성화
 
@@ -29,7 +29,7 @@ Azure Resource Manager 자격 증명을 추가하거나 업데이트하면 Azure
 - Azure AD 테넌트로 CloudynCollector 응용 프로그램을 등록하는 사용 권한.
 - 응용 프로그램을 Azure 구독에서의 역할에 할당하는 기능.
 
-Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계정에 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
+Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계정에 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../role-based-access-control/built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
 
 계정이 **참가자** 역할에 할당된 경우 응용프로그램을 할당할 적절한 사용 권한이 없습니다. Azure 구독에 CloudynCollector 응용 프로그램을 할당하려고 하면 오류가 발생합니다.
 

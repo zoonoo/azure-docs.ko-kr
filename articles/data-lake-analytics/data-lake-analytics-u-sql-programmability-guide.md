@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드 | Microsoft Docs"
-description: "클라우드 기반 빅 데이터 플랫폼을 만들 수 있는 Azure Data Lake의 서비스 집합에 대해 알아봅니다."
+title: Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드 | Microsoft Docs
+description: 클라우드 기반 빅 데이터 플랫폼을 만들 수 있는 Azure Data Lake의 서비스 집합에 대해 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: a241199ff8441d76d48d297b69af05a604d2a423
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -37,7 +37,7 @@ U-SQL은 빅 데이터 유형의 워크로드를 위해 설계된 쿼리 언어�
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
-    ) AS D( customer, amount );
+    ) AS D( customer, amount, date );
 
 @results =
   SELECT

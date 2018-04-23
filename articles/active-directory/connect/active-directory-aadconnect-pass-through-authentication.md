@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 - *멋진 사용자 환경*
   - 사용자는 온-프레미스와 클라우드 기반 응용 프로그램에 로그인하는 데 동일한 암호를 사용합니다.
   - 사용자는 암호 관련 문제를 해결하기 위해 IT 기술 지원팀과 소통하는 데 더 적은 시간을 보냅니다.
-  - 사용자는 클라우드에서 [셀프 서비스 암호 관리](../active-directory-passwords-overview.md) 작업을 완료할 수 있습니다.
+  - 사용자는 클라우드에서 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md) 작업을 완료할 수 있습니다.
 - *손쉬운 배포 및 관리*
   - 복잡한 온-프레미스 배포 또는 네트워크 구성에 대한 필요가 없습니다.
   - 온-프레미스에 설치되는 간단한 에이전트만 필요합니다.
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 - 모든 웹 브라우저 기반 응용 프로그램 및 [최신 인증](https://aka.ms/modernauthga)을 사용하는 Microsoft Office 클라이언트 응용 프로그램에 사용자 로그인을 지원합니다.
 - 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
 - 기능은 MFA(Multi-Factor Authentication)와 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 원활하게 작동하여 사용자를 보호합니다.
-- 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../active-directory-passwords-overview.md)와 통합되었습니다.
+- 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md)와 통합되었습니다.
 - AD 포리스트 간에 포리스트 트러스트가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
 - [Azure AD Connect](active-directory-aadconnect.md)를 통해 사용하도록 설정할 수 있습니다.

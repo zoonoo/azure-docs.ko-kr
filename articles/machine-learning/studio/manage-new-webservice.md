@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: d558db176f2fa6888ead1dd3228f31d942049fc4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c02ded6605b6374e0e37462205f8390f54b24b58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
@@ -43,7 +43,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
 
-액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기](../../active-directory/role-based-access-control-manage-assignments.md)를 참조하세요.
+액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기](../../role-based-access-control/role-assignments-users.md)를 참조하세요.
 
 
 ## <a name="manage-new-web-services"></a>새 웹 서비스 관리

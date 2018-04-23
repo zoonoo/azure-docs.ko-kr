@@ -1,11 +1,11 @@
 ---
-title: "클라우드 솔루션 공급자용 Azure ExpressRoute | Microsoft Docs"
-description: "이 문서에서는 Azure 서비스 및 ExpressRoute를 자신의 제품에 통합하려는 클라우드 서비스 공급자에 대한 정보를 제공합니다."
+title: 클라우드 솔루션 공급자용 Azure ExpressRoute | Microsoft Docs
+description: 이 문서에서는 Azure 서비스 및 ExpressRoute를 자신의 제품에 통합하려는 클라우드 서비스 공급자에 대한 정보를 제공합니다.
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. ExpressRoute는 Azure에서 고속의 개인 통신 링크입니다. 
@@ -65,7 +65,7 @@ Connect-To 모델에서 서비스 공급자는 고객의 네트워크를 통해 
 
 이러한 두 옵션 간의 선택은 고객의 요구 사항 및 현재 Azure 서비스를 제공해야 하는지에 따라 결정합니다. 이러한 모델 및 연결된 역할 기반 액세스 제어, 네트워킹, ID 디자인 패턴에 대한 자세한 내용은 다음 링크에서 자세히 설명합니다.
 
-* **역할 기반 Access Control(RBAC)** - RBAC는 Azure Active Directory를 기반으로 합니다.  Azure RBAC에 대한 자세한 내용은 [여기](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+* **역할 기반 Access Control(RBAC)** - RBAC는 Azure Active Directory를 기반으로 합니다.  Azure RBAC에 대한 자세한 내용은 [여기](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 * **네트워킹** – Microsoft Azure의 다양한 네트워킹 항목에 대해 다룹니다.
 * **Azure AD(Azure Active Directory)** – Azure AD는 Microsoft Azure 및 타사 SaaS 응용 프로그램에 대한 ID 관리를 제공합니다. Azure AD에 대한 자세한 내용은 [여기](https://azure.microsoft.com/documentation/services/active-directory/)를 참조하세요.  
 

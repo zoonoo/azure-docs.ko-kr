@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 14abd3f069cb5cd49265a6b27e4b1c4363a21441
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f3462bfda5437ed66f58025deb98e4dbb3860f1d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
 Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다. 
@@ -60,7 +60,7 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 이름 | `Until` 작업의 이름입니다. | 문자열 | 예
 형식 | **Until**로 설정해야 합니다. | 문자열 | 예
 식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
-시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니오
+시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니요
 활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
 
 ## <a name="example-1"></a>예 1
@@ -253,7 +253,7 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 이러한 명령에서는 JSON 파일이 C:\ADF 폴더에 저장되어 있다고 가정합니다. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

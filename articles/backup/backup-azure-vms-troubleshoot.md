@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 89535fc22faccfb184d9b56a6138337877957829
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93eb9a65e9d5733963f7d6269a06d5f3cde5e256
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래 표에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -45,7 +45,6 @@ ms.lasthandoff: 03/23/2018
 | 가상 머신에는 가상 머신 에이전트가 존재하지 않습니다. 필수 구성 요소 및 VM 에이전트를 설치하고 작업을 다시 시작하세요. |[자세히 알아보세요](#vm-agent) . |
 | VSS 기록기가 오류 상태이므로 스냅숏 작업이 실패함 |오류 상태인 VSS(볼륨 섀도 복사본 서비스) 기록기를 다시 시작해야 합니다. 이를 위해 관리자 권한 명령 프롬프트에서 _vssadmin list writers_를 실행합니다. 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. “[1] 안정” 상태가 아닌 모든 VSS 기록기는 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 다시 시작합니다.<br> _net stop serviceName_ <br> _net start serviceName_|
 | 구성의 구문 분석 실패로 인해 스냅숏 작업이 실패함 |이 문제는 MachineKeys 디렉터리 _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_에 대한 권한 변경 때문에 발생합니다. <br>아래 명령을 실행하고 MachineKeys 디렉터리에 대한 권한이 기본 권한인지 확인합니다.<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> 기본 권한은 다음과 같습니다.<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>MachineKeys 디렉터리에 대해 기본값과 다른 권한이 표시되면 아래 단계에 따라 권한을 수정하고, 인증서를 삭제한 후 백업을 트리거하세요.<ol><li>MachineKeys 디렉터리에 대한 권한을 수정합니다.<br>디렉터리에 대해 탐색기 보안 속성 및 고급 보안 설정을 사용하여 권한을 기본값으로 다시 설정하고, 디렉터리에서 추가(기본값 이외) 사용자 개체를 제거하고, 'Everyone ' 권한이 다음에 대해 특수한 액세스 권한을 갖는지 확인합니다.<br>-폴더 나열/데이터 읽기 <br>-특성 읽기 <br>-확장된 특성 읽기 <br>-파일 만들기/데이터 쓰기 <br>-폴더 만들기/데이터 추가<br>-특성 쓰기<br>-확장된 특성 쓰기<br>- 읽기 권한<br><br><li>‘Issued To’ 필드 = "Windows Azure Service Management for Extensions" 또는 "Windows Azure CRP Certificate Generator"가 지정된 인증서를 모두 삭제합니다.<ul><li>[인증서(로컬 컴퓨터) 콘솔 열기](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>‘Issued To’ 필드 = "Windows Azure Service Management for Extensions" 또는 "Windows Azure CRP Certificate Generator"가 지정된 인증서를 모두 삭제합니다(개인 -> 인증서).</ul><li>VM 백업을 트리거합니다. </ol>|
-| 가상 머신이 BEK만으로 암호화되었기 때문에 유효성 검사에 실패했습니다. BEK와 KEK 모두로 암호화된 가상 머신에서만 백업을 사용할 수 있습니다. |이 경우 가상 시스템을 BitLocker 암호화 키와 키 암호화 키를 모두 사용하여 암호화해야 합니다. 그런 후에 백업을 사용하도록 설정해야 합니다. |
 | Azure Backup 서비스에는 암호화된 Virtual Machines의 백업을 위한 Key Vault에 대해 충분한 권한이 없습니다. |Backup 서비스에는 [PowerShell 설명서](backup-azure-vms-automation.md)의 **백업 사용** 섹션에 설명된 단계를 사용하여 PowerShell에서 이러한 권한을 제공해야 합니다. |
 |COM+ 오류로 인해 스냅숏 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다. | "COM+ 시스템 응용 프로그램" Windows 서비스를 시작하세요(관리자 권한 명령 프롬프트에서 _net start COMSysApp_). <br>시작하는 동안 실패하면 아래 단계를 수행하세요.<ol><li> "Distributed Transaction Coordinator" 서비스의 로그온 계정이 "Network Service"인지 확인합니다. 그렇지 않으면 "Network Service"로 변경하고 이 서비스를 다시 시작한 후 "COM+ 시스템 응용 프로그램" 서비스를 시작합니다.<li>여전히 시작할 수 없으면 아래 단계에 따라 "Distributed Transaction Coordinator" 서비스를 제거한 후 설치합니다.<br> - MSDTC 서비스 중지<br> - 명령 프롬프트 열기(cmd) <br> - “msdtc -uninstall” 명령 실행 <br> - “msdtc -install” 명령 실행 <br> - MSDTC 서비스 시작<li>Windows 서비스 "COM+ 시스템 응용 프로그램"을 시작한 후 포털에서 백업을 트리거합니다.</ol> |
 |  COM+ 오류로 인해 스냅숏 작업이 실패했습니다. | 권장 조치는 Windows 서비스 "COM+ 시스템 응용 프로그램"을 다시 시작하는 것입니다(관리자 권한 명령 프롬프트에서 _net start COMSysApp_ 실행). 문제가 지속되면 VM을 다시 시작합니다. VM을 다시 시작해도 문제가 해결되지 않으면 [VMSnapshot 확장을 제거](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)하고 수동으로 백업을 트리거합니다. |

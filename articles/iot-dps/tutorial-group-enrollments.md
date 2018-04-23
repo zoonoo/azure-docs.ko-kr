@@ -3,7 +3,7 @@ title: Java 및 등록 그룹을 사용하여 Azure IoT Hub에 시뮬레이션�
 description: Azure 자습서 - IoT Hub Device Provisioning Service용 Java 장치 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 services: iot-dps
 keywords: ''
-author: msebolt
+author: bryanla
 ms.author: v-masebo
 ms.date: 01/04/2018
 ms.topic: tutorial
@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0ebf71a68f00b9766e14ea775fa2b1e9f15a201b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 장치 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 03/02/2018
 
 1. 다음과 같은 방식으로 등록 그룹 정보를 입력합니다.
 
-    - 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_ (프로비전 서비스 전역 엔드포인트)를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` 를 편집합니다. **_{deviceName}-public.pem_** 파일을 열고 이 값을 _클라이언트 인증서_ 로 포함합니다. **_{deviceName}-all.pem_** 파일을 열고 _-----BEGIN PRIVATE KEY-----_ 의 텍스트를 _-----END PRIVATE KEY-----_ 로 복사합니다.  이를 _클라이언트 인증서 개인 키_로 사용합니다.
+    - 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_ (프로비전 서비스 전역 엔드포인트)를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` 를 편집합니다. **_{deviceName}-public.pem_** 파일을 열고 이 값을 _클라이언트 인증서_ 로 포함합니다. **_{deviceName}-all.pem_** 파일을 열고 _-----BEGIN PRIVATE KEY-----_의 텍스트를 _-----END PRIVATE KEY-----_로 복사합니다.  이를 _클라이언트 인증서 개인 키_로 사용합니다.
 
         ```java
         private static final String idScope = "[Your ID scope here]";

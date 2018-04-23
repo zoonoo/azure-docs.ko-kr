@@ -14,30 +14,30 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 8d70f36c5e434a26fce4d6b4bd1ddefc22234ab5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 580dc7414baea80ef005826d27fb5f2d35ee8895
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>개발자용 Azure Active Directory
-Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 계정으로 사용자를 안전하게 로그인하는 앱을 빌드할 수 있는 클라우드 ID 서비스입니다. Azure AD는 단일 테넌트 및 기간 업무 앱을 모두 빌드하는 개발자와 다중 테넌트 앱을 개발하는 개발자를 지원합니다. 기본 로그인 외에도, Azure AD는 앱에서 [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) 같은 Microsoft API와 Azure AD 플랫폼에서 빌드되는 사용자 지정 API를 호출하는 것을 허용합니다.  이 설명서에서는 OAuth2.0 및 OpenID Connect 같은 산업 표준 프로토콜을 사용하여 응용 프로그램에 Azure AD 지원을 추가하는 방법을 보여줍니다. 
+Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 계정으로 사용자를 안전하게 로그인하는 앱을 빌드할 수 있는 클라우드 ID 서비스입니다. Azure AD는 단일 테넌트 및 기간 업무 앱을 모두 빌드하는 개발자와 다중 테넌트 앱을 개발하는 개발자를 지원합니다. 기본 로그인 외에도, Azure AD는 앱에서 [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) 같은 Microsoft API와 Azure AD 플랫폼에서 빌드되는 사용자 지정 API를 호출하는 것을 허용합니다.  이 설명서에서는 OAuth2.0 및 OpenID Connect 같은 산업 표준 프로토콜을 사용하여 응용 프로그램에 Azure AD 지원을 추가하는 방법을 보여줍니다.
 
 > [!NOTE]
-> 이 페이지의 콘텐츠는 대부분 Microsoft 회사 또는 학교 계정만 지원하는 Azure AD v1 엔드포인트에 집중합니다. 소비자 또는 개인 Microsoft 계정에 로그인하려면 [Azure AD v2.0 엔드포인트](active-directory-appmodel-v2-overview.md)에 대한 추가 정보를 참조하세요. Azure AD v2.0 엔드포인트는 Azure AD 계정(회사 및 학교)과 개인용 Microsoft 계정으로 두 사용자를 모두 로그인해야 하는 앱을 위한 통합 개발자 환경을 제공합니다. 
+> 이 페이지의 콘텐츠는 대부분 Microsoft 회사 또는 학교 계정만 지원하는 Azure AD v1 엔드포인트에 집중합니다. 소비자 또는 개인 Microsoft 계정에 로그인하려면 [Azure AD v2.0 엔드포인트](active-directory-appmodel-v2-overview.md)에 대한 추가 정보를 참조하세요. Azure AD v2.0 엔드포인트는 Azure AD 계정(회사 및 학교)과 개인용 Microsoft 계정으로 두 사용자를 모두 로그인해야 하는 앱을 위한 통합 개발자 환경을 제공합니다.
 
 | | |
 | --- | --- |
 |[인증 기본 사항](active-directory-authentication-scenarios.md) | Azure AD를 사용하는 인증에 대한 소개입니다. |
 |[응용 프로그램 유형](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |                                
-                                                                              
+
 ## <a name="get-started"></a>시작하기
 아래에 제공된 설정은 ADAL(Azure Active Directory 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. MSAL(Microsoft 인증 라이브러리) 사용에 대한 내용은 [Azure AD v2.0 엔드포인트](active-directory-appmodel-v2-overview.md)에 대한 설명서를 참조하세요.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
 | <center>![모바일 데스크톱 앱](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />모바일 데스크톱 앱</center> | [개요](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET(WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[.NET(UWP)](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md) |
-| <center>![웹앱](./media/active-directory-developers-guide/Web_app.png)<br />웹앱</center> | [개요](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |  |
+| <center>![웹앱](./media/active-directory-developers-guide/Web_app.png)<br />웹앱</center> | [개요](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) | |
 | <center>![단일 페이지 앱](./media/active-directory-developers-guide/SPA.png)<br />단일 페이지 앱</center> | [개요](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![Web API](./media/active-directory-developers-guide/Web_API.png)<br />Web API</center> | [개요](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
 | <center>![서비스 간](./media/active-directory-developers-guide/Service_App.png)<br />서비스 간</center> | [개요](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |

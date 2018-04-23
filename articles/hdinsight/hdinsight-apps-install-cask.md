@@ -12,19 +12,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4b83f2a2228ef0dd7fa56b5a71b267d1e4302620
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9eef1760b7cee3bbdf33122514669b38b0b4d9db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>게시된 응용 프로그램 설치 - CDAP(Cask Data Application Platform)
 
-이 문서에서는 게시된 Hadoop 응용 프로그램 [CDAP](http://cask.co/products/cdap/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼의 개요 및 사용 가능한 ISV(독립 소프트웨어 공급업체) 게시 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 게시된 Hadoop 응용 프로그램 [CDAP](http://cask.co/products/cdap/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-cdap"></a>CDAP 정보
 
@@ -56,7 +54,7 @@ CDAP는 응용 프로그램을 통해 이동하는 데이터를 시각적으로 
 
 ## <a name="prerequisites"></a>필수 조건
 
-새 HDInsight 클러스터 또는 기존 클러스터에 이 앱을 설치하려면 다음과 같이 구성해야 합니다.
+새 HDInsight 클러스터 또는 기존 클러스터에 이 앱을 설치하려면 다음 구성이 필요합니다.
 
 * 클러스터 계층: 표준
 * 클러스터 유형: HBase
@@ -133,8 +131,8 @@ CDAP는 응용 프로그램을 통해 이동하는 데이터를 시각적으로 
 ## <a name="next-steps"></a>다음 단계
 
 * [Cask 설명서](http://cask.co/resources/documentation/).
-* [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight로 게시 취소된 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
+* [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight에 게시되지 않은 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
 * [HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법을 알아봅니다.
 * [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 정의하는 방법을 알아봅니다.
-* [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
-* [HDInsight에서 비어 있는 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 응용 프로그램을 테스트 및 호스팅하는 방법을 알아봅니다.
+* [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 동작을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
+* [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 응용 프로그램을 테스트 및 호스팅하는 방법을 알아봅니다.

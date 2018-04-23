@@ -1,8 +1,8 @@
 ---
-title: "Azure 포털을 사용하여 Azure 리소스 관리 | Microsoft Docs"
-description: "Azure 포털 및 Azure 리소스 관리자를 사용하여 리소스를 관리합니다. 대시보드를 사용하여 리소스를 모니터링하는 방법을 보여줍니다."
+title: Azure 포털을 사용하여 Azure 리소스 관리 | Microsoft Docs
+description: Azure 포털 및 Azure 리소스 관리자를 사용하여 리소스를 관리합니다. 대시보드를 사용하여 리소스를 모니터링하는 방법을 보여줍니다.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>포털을 통해 Azure 리소스 관리
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/16/2017
 
 ![리소스 관리](./media/resource-group-portal/manage-resources.png)
 
-이러한 옵션에서 가상 컴퓨터를 시작 및 중지하거나 가상 컴퓨터의 속성을 다시 구성하는 등의 작업을 수행할 수 있습니다.
+이러한 옵션에서 가상 머신을 시작 및 중지하거나 가상 머신의 속성을 다시 구성하는 등의 작업을 수행할 수 있습니다.
 
 ## <a name="move-resources"></a>리소스 이동
 다른 리소스 그룹 또는 다른 구독으로 리소스를 이동해야 하는 경우에는 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
@@ -127,6 +127,6 @@ ms.lasthandoff: 11/16/2017
 * 활동 로그를 보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
 * 배포에 대한 세부 정보를 보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](resource-group-template-deploy-portal.md)를 참조하세요.
-* 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+* 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
 

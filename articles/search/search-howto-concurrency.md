@@ -1,25 +1,17 @@
 ---
-title: "Azure Search에서 리소스에 대한 동시 쓰기를 관리하는 방법"
-description: "Azure Search 인덱스, 인덱서, 데이터 원본을 업데이트나 삭제하는 중에 충돌이 발생하지 않도록 하려면 낙관적 동시성을 사용합니다."
-services: search
-documentationcenter: 
+title: Azure Search에서 리소스에 대한 동시 쓰기를 관리하는 방법
+description: Azure Search 인덱스, 인덱서, 데이터 원본을 업데이트나 삭제하는 중에 충돌이 발생하지 않도록 하려면 낙관적 동시성을 사용합니다.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 
+manager: cgronlun
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: aee1b7376d4829e3e2f5a232525e3c3cb4df9d8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26c285a016443bd67eb8dca008510debe82bcc32
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search에서 동시성을 관리하는 방법
 

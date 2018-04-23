@@ -3,7 +3,7 @@ title: C# 및 Resource Manager 템플릿을 사용하여 VM 배포 | Microsoft D
 description: C# 및 Resource Manager 템플릿을 사용하여 Azure VM을 배포하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: davidmu
-ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 이 문서에서는 C#을 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 보여줍니다. 만든 템플릿은 단일 서브넷을 사용하는 새 가상 네트워크에서 Windows Server를 실행하는 단일 가상 머신을 배포합니다.

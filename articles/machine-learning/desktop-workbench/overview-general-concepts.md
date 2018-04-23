@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 미리 보기 기능에 대한 개념적 개요 | Microsoft Docs"
-description: "구독, 계정, 작업 영역, 프로젝트 등과 같은 Azure Machine Learning 미리 보기 기능에 대한 개념적 개요입니다."
+title: Azure Machine Learning 미리 보기 기능에 대한 개념적 개요 | Microsoft Docs
+description: 구독, 계정, 작업 영역, 프로젝트 등과 같은 Azure Machine Learning 미리 보기 기능에 대한 개념적 개요입니다.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ms.openlocfilehash: ea9da6f23fd08c09f9e805519487648480816f35
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - 개념
 
@@ -39,16 +39,14 @@ ms.lasthandoff: 12/18/2017
 - **실험:** Azure ML의 단일 진입점에서 실행할 수 있는 하나 이상의 소스 코드 파일입니다. 데이터 수집, 기능 엔지니어링, 모델 학습 또는 모델 평가와 같은 작업을 포함할 수 있습니다. Azure ML은 현재 Python 또는 PySpark 실험만 지원합니다.
 
 
-- 
-            **모델:** Azure Machine Learning에서 기계 학습 실험의 결과를 나타냅니다. 데이터에 올바르게 적용되면 예측된 값을 생성하는 방법입니다. 모델은 테스트 환경 또는 프로덕션 환경에 배포할 수 있으며, 새 데이터에 대한 점수를 매기는 데 사용됩니다. 프로덕션 환경에서 모델은 성능 및 데이터 드리프트를 모니터링하고 필요에 따라 다시 학습될 수 있습니다. 
+- **모델:** Azure Machine Learning에서 기계 학습 실험의 결과를 나타냅니다. 데이터에 올바르게 적용되면 예측된 값을 생성하는 방법입니다. 모델은 테스트 환경 또는 프로덕션 환경에 배포할 수 있으며, 새 데이터에 대한 점수를 매기는 데 사용됩니다. 프로덕션 환경에서 모델은 성능 및 데이터 드리프트를 모니터링하고 필요에 따라 다시 학습될 수 있습니다. 
 
 - **계산 대상:** 실험을 실행하기 위해 구성하는 계산 리소스입니다. 로컬 컴퓨터(Windows 또는 macOS)이거나 로컬 컴퓨터, Azure의 Linux VM 또는 HDInsight Spark 클러스터에서 실행되는 Docker 컨테이너일 수 있습니다.
 
 
 - **실행:** 실험 서비스는 실행을 계산 대상의 실험 실행 수명으로 정의합니다. Azure ML은 각 실행에 대한 정보를 자동으로 캡처하고, 실행 기록의 형태로 특정 실험의 전체 기록을 제공합니다.
 
-- 
-            **환경:** Azure Machine Learning에서 모델을 배포하고 관리하는 데 사용되는 특정 컴퓨팅 리소스를 나타냅니다. 컨텍스트 및 구성에 따라 로컬 컴퓨터, Azure의 Linux VM 또는 Azure Container Service에서 실행되는 Kubernetes 클러스터일 수 있습니다. 모델은 이러한 환경에서 실행되는 Docker 컨테이너에 호스팅되며 REST API 끝점으로 공개됩니다.
+- **환경:** Azure Machine Learning에서 모델을 배포하고 관리하는 데 사용되는 특정 컴퓨팅 리소스를 나타냅니다. 컨텍스트 및 구성에 따라 로컬 컴퓨터, Azure의 Linux VM 또는 Azure Container Service에서 실행되는 Kubernetes 클러스터일 수 있습니다. 모델은 이러한 환경에서 실행되는 Docker 컨테이너에 호스팅되며 REST API 끝점으로 공개됩니다.
 
 
 - **관리되는 모델:** 모델 관리를 사용하면 모델을 웹 서비스로 배포하고, 다양한 버전의 모델을 관리하며, 해당 성능 및 메트릭을 모니터링할 수 있습니다. 관리되는 모델은 Azure Machine Learning 모델 관리 계정에 등록됩니다.

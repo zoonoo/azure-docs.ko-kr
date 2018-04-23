@@ -1,11 +1,11 @@
 ---
-title: "사용자 지정 프로브 만들기 - Azure Application Gateway - PowerShell | Microsoft Docs"
-description: "리소스 관리자에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다."
+title: 사용자 지정 프로브 만들기 - Azure Application Gateway - PowerShell | Microsoft Docs
+description: 리소스 관리자에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
 documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Azure Resource Manager에 대해 PowerShell을 사용하여 Azure Application Gateway에 대한 사용자 지정 프로브 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -39,10 +39,10 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="sign-in-and-create-resource-group"></a>로그인하여 리소스 그룹 만들기
 
-1. `Login-AzureRmAccount`을 사용하여 인증합니다.
+1. `Connect-AzureRmAccount`을 사용하여 인증합니다.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. 계정에 대한 구독을 가져옵니다.
@@ -84,7 +84,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
-미국 서부 지역에 리소스 그룹 **appgw-rg**에서 공용 IP 리소스 **publicIP01**을 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  응용 프로그램 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
+미국 서부 지역의 리소스 그룹 **appgw-rg**에 공용 IP 리소스 **publicIP01**을 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  응용 프로그램 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic

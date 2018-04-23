@@ -1,8 +1,8 @@
 ---
-title: "Azure HDInsight의 HBase에서 Apache Phoenix 및 SQLLine 사용 | Microsoft Docs"
-description: "HDInsight에서 Apache Phoenix를 사용하는 방법을 알아봅니다. 또한 컴퓨터에 SQLLine을 설치 및 설정하여 HDInsight의 HBase 클러스터에 연결하는 방법도 알아봅니다."
+title: Azure HDInsight의 HBase에서 Apache Phoenix 및 SQLLine 사용 | Microsoft Docs
+description: HDInsight에서 Apache Phoenix를 사용하는 방법을 알아봅니다. 또한 컴퓨터에 SQLLine을 설치 및 설정하여 HDInsight의 HBase 클러스터에 연결하는 방법도 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 12791da56f32ffffa4b1131c408829f50f6e9124
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 64700567b8acf816f42e6bf8cdc5386b6c65fe3f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용
 Azure HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하는 방법 및 SQLLine을 사용하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [Phoenix 문법(영문)](http://phoenix.apache.org/language/index.html)을 참조하세요.

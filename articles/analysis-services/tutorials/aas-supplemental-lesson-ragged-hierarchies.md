@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 자습서 추가 단원: 불규칙한 계층 구조 | Microsoft Docs"
-description: "Azure Analysis Services 자습서에서 불규칙한 계층 구조를 수정하는 방법을 설명합니다."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services 자습서 추가 단원: 불규칙한 계층 구조 | Microsoft Docs'
+description: Azure Analysis Services 자습서에서 불규칙한 계층 구조를 수정하는 방법을 설명합니다.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 955bc57bbf5f8bc3f0d91350f885d5dc77db93a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>추가 단원 - 불규칙한 계층 구조
 
@@ -31,7 +24,7 @@ ms.lasthandoff: 01/09/2018
   
 이 단원을 완료하기 위한 예상 시간: **20분**  
   
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>필수 조건  
 이 추가 단원 항목은 테이블 형식 모델링 자습서에 포함됩니다. 이 추가 단원의 작업을 수행하기 전에 이전의 모든 단원을 완료하거나 완료된 Adventure Works Internet Sales 샘플 모델 프로젝트가 있어야 합니다. 
 
 자습서의 일부로 AW Internet Sales 프로젝트를 만들었으면 모델에는 아직 데이터 또는 불규칙한 계층 구조가 포함되지 않습니다. 이 추가 단원을 완료하려면 먼저 몇 가지 테이블을 더 추가하고, 관계, 계산된 열, 측정값 및 새 조직 계층 구조를 만들어서 문제를 만들어야 합니다. 이 부분에는 약 15분 정도 걸립니다. 그런 다음 몇 분 안에 문제를 해결합니다.  
@@ -50,11 +43,11 @@ ms.lasthandoff: 01/09/2018
 
     | 표 1           | 열       | 필터 방향   | 표 2     | 열      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | 적용    |
-    | FactResellerSales | DueDate      | 기본값            | DimDate     | Date        | 아니요     |
-    | FactResellerSales | ShipDateKey  | 기본값            | DimDate     | Date        | 아니요     |
-    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | 적용    |
-    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | 적용    |
+    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | 예    |
+    | FactResellerSales | DueDate      | 기본값            | DimDate     | Date        | 아니오     |
+    | FactResellerSales | ShipDateKey  | 기본값            | DimDate     | Date        | 아니오     |
+    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | 예    |
+    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | 예    |
 
 5. **DimEmployee** 테이블에서 다음 [계산된 열](../tutorials/aas-lesson-5-create-calculated-columns.md)을 만듭니다. 
 

@@ -1,25 +1,18 @@
 ---
 title: Azure Search의 서비스 제한 사항 | Microsoft Docs
 description: 용량 계획에 사용되는 서비스 제한 및 Azure Search에 대한 요청 및 응답의 최대 제한입니다.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
+manager: cgronlun
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: 77ea75bf66f4b6ae6ec7d6ede4364db6b7fa82a0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 23f67099bff7cdadcee44eed50e9944ecf7c5672
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크로드 및 인덱스, 문서, 기타 개체의 수량에 대한 최대 제한은 Azure Search를 **무료**, **기본** 또는 **표준** 가격 책정 계층 중 [어디에 프로비전하는지](search-create-service-portal.md)에 따라 달라집니다.

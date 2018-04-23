@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -233,7 +233,7 @@ Traffic Manager 프로필의 Azure 지역 외부에서 호스팅되는 외부 �
 
 Azure Web Apps의 경우 여러 구독에서 끝점을 사용하는 것은 가능하지 않습니다. Azure Web Apps은 Web Apps와 함께 사용되는 모든 사용자 지정 도메인 이름을 단일 구독 내에서만 사용할 것을 요구합니다. 여러 구독에서 동일한 도메인 이름을 가지고 Web Apps를 사용하는 것은 불가능합니다.
 
-다른 끝점 형식의 경우 Traffic Manager를 둘 이상의 구독에서 끝점과 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 끝점에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 끝점을 Traffic Manager에 추가할 수 있습니다. 이러한 권한은 [Azure Resource Manager 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-configure.md)를 사용하여 부여될 수 있습니다.
+다른 끝점 형식의 경우 Traffic Manager를 둘 이상의 구독에서 끝점과 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 끝점에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 끝점을 Traffic Manager에 추가할 수 있습니다. 이러한 권한은 [Azure Resource Manager 역할 기반 액세스 제어(RBAC)](../role-based-access-control/role-assignments-portal.md)를 사용하여 부여될 수 있습니다.
 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?

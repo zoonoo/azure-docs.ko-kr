@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/06/2018
 먼저 Azure 구독에 로그인합니다.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 로그인 화면이 표시됩니다. 로그인하면 계정, 테넌트 ID 및 기본 구독 ID가 표시됩니다. 모든 Azure cmdlet은 기본 구독의 컨텍스트에서 작동합니다. 액세스할 수 있는 구독 목록을 보려면 다음 명령을 사용합니다.

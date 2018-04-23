@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management에서 수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행 | Microsoft Docs"
-description: "이 자습서의 단계에 따라 API Management에서 수정 버전을 사용하여 작업을 중단하지 않는 변경을 수행하는 방법에 대해 알아봅니다."
+title: Azure API Management에서 수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행 | Microsoft Docs
+description: 이 자습서의 단계에 따라 API Management에서 수정 버전을 사용하여 작업을 중단하지 않는 변경을 수행하는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 50d7ac17faebb34f1a1f9a3259aa0196950391d9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: b4812ea8d93e4bfb784370e3a3196a5d20e47519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행
 API가 준비되어 개발자들이 사용하기 시작하면 대개 API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. Azure API Management에서 **수정 버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) 및 [Azure API Management를 사용한 API 버전 관리](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)를 참조하세요.
@@ -37,8 +37,6 @@ API가 준비되어 개발자들이 사용하기 시작하면 대개 API 호출�
 
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-a-new-revision"></a>새 수정 버전 추가
 

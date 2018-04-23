@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 에뮬레이터 인증서 내보내기 | Microsoft Docs"
-description: "Windows 인증서 저장소를 사용하지 않는 언어와 런타임으로 개발할 때는 SSL 인증서를 내보내고 관리해야 합니다. 이 게시물에서는 단계별 지침을 제공합니다."
+title: Azure Cosmos DB 에뮬레이터 인증서 내보내기 | Microsoft Docs
+description: Windows 인증서 저장소를 사용하지 않는 언어와 런타임으로 개발할 때는 SSL 인증서를 내보내고 관리해야 합니다. 이 게시물에서는 단계별 지침을 제공합니다.
 services: cosmos-db
-documentationcenter: 
-keywords: "Azure Cosmos DB 에뮬레이터"
+documentationcenter: ''
+keywords: Azure Cosmos DB 에뮬레이터
 author: voellm
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 

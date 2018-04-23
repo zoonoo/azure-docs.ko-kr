@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결 - REST | Microsoft Docs"
-description: "REST를 사용하여 Azure Network Watcher에서 Virtual Network 게이트웨이 및 연결 문제를 해결하는 방법을 설명합니다."
+title: Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결 - REST | Microsoft Docs
+description: REST를 사용하여 Azure Network Watcher에서 Virtual Network 게이트웨이 및 연결 문제를 해결하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 086a853d0849ee22f992c9d3265f6988bcc7bd83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a916a261c310a2a9b4cc777fe17db794fed26cbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
@@ -329,4 +329,4 @@ Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침�
 
 ## <a name="next-steps"></a>다음 단계
 
-VPN 연결을 중지하도록 설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
+VPN 연결을 중지하도록 설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.

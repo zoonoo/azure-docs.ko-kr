@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: bradsev
-ms.openlocfilehash: ddb45dd5fae0fbdecebbc262d7bac78ff2b10f21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 681f227a04802c4e27e42083c1eb63f620a8fc77
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-models-in-production"></a>프로덕션 환경에서 모델 배포
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/28/2018
 모델을 프로덕션으로 전환하기 위한 여러 접근법과 플랫폼이 있습니다. 다음은 몇 가지 옵션입니다.
 
 
-- [Azure Machine Learning에서 배포 모델링](../preview/model-management-overview.md)
+- [Azure Machine Learning에서 배포 모델링](../desktop-workbench/model-management-overview.md)
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

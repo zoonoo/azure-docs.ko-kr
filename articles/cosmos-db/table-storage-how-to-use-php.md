@@ -3,22 +3,21 @@ title: PHP에서 Azure Storage Table service 또는 Azure Cosmos DB Table API를
 description: PHP에서 Table service API를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입, 삭제 및 쿼리하는 방법에 대해 알아봅니다.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>PHP에서 Azure Storage Table service 또는 Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,23 +26,18 @@ ms.lasthandoff: 04/06/2018
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure Storage Table service 및 Azure Cosmos DB Table API를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [Azure Storage Table PHP Client Library][download]를 사용합니다. 여기에서 다루는 시나리오에는 **테이블 만들기 및 삭제** 및 **테이블에서 엔터티 삽입, 삭제 및 쿼리**가 포함됩니다. Azure Table service에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 
-Azure Table Storage 또는 Azure Cosmos DB Table API 를 사용하여 테이블을 작업할 수 있습니다. 서비스 간의 차이점은 [테이블 제품](table-introduction.md#table-offerings)에서 확인할 수 있습니다. 사용하려는 서비스에 대해 계정을 만들어야 합니다. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 
-첫 번째 저장소 계정을 가장 쉽게 만드는 방법은 [Azure Portal](https://portal.azure.com)을 사용하는 것입니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하십시오.
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-[Azure PowerShell](../storage/common/storage-powershell-guide-full.md) 또는 [Azure CLI](../storage/common/storage-azure-cli.md)를 사용하여 저장소 계정을 만들 수도 있습니다.
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
 
-또한 이번에 저장소 계정을 만들지 않으려는 경우 Azure Storage 에뮬레이터를 사용하여 로컬 환경에서 코드를 실행하고 테스트할 수 있습니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
-
-### <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
-
-Azure Cosmos DB 계정을 만드는 지침은 [Table API 계정 만들기](create-table-dotnet.md#create-a-database-account)를 참조하세요.
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>PHP 응용 프로그램 만들기
 

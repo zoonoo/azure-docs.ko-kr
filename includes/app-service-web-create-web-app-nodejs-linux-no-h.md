@@ -8,18 +8,21 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 668878838e0201da827df007d03a71427260ae53
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0323738573969953628d7db687b0af0e6fa58fc4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 `myAppServicePlan` App Service 계획에서 [웹앱](../articles/app-service/containers/app-service-linux-intro.md)을 만듭니다. 
 
 Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용할 수 있습니다. 다음 예에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `NODE|6.9`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)를 실행합니다. 
 
 ```azurecli-interactive
+# Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
+# PowerShell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
 ```
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.

@@ -1,10 +1,10 @@
 ---
-title: "Azure의 IP 주소 유형(클래식) | Microsoft Docs"
-description: "Azure에서 공용 및 개인 IP 주소(기본)에 대해 알아봅니다."
+title: Azure의 IP 주소 유형(클래식) | Microsoft Docs
+description: Azure에서 공용 및 개인 IP 주소(기본)에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
-ms.author: jdial
-ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.author: genli
+ms.openlocfilehash: f9e36abd44c2012d96a6ead8659197dcf66c6032
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure의 IP 주소 유형 및 할당 방법
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
@@ -89,12 +89,12 @@ Azure [응용 프로그램 게이트웨이](../application-gateway/application-g
 ### <a name="at-a-glance"></a>개요
 아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 공용 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
 
-| 리소스 | 동적 | 정적 | 여러 IP 주소 |
+| 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
 | 클라우드 서비스 |예 |예 |예 |
-| IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니요 |아니요 |
-| VPN 게이트웨이 |예 |아니요 |아니요 |
-| 응용 프로그램 게이트웨이 |예 |아니요 |아니요 |
+| IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니오 |아니오 |
+| VPN 게이트웨이 |예 |아니오 |아니오 |
+| 응용 프로그램 게이트웨이 |예 |아니오 |아니요 |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -106,7 +106,7 @@ Azure 클래식 배포 모델에서 개인 IP 주소는 다음의 Azure 리소�
 * 응용 프로그램 게이트웨이
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VM 및 PaaS 역할 인스턴스
-클래식 배포 모델을 사용하여 만든 가상 컴퓨터(VM)는 항상 PaaS 역할 인스턴스와 유사한 클라우드 서비스에 배치됩니다. 따라서 개인 IP 주소의 동작은 이러한 리소스와 비슷합니다.
+클래식 배포 모델을 사용하여 만든 가상 머신(VM)는 항상 PaaS 역할 인스턴스와 유사한 클라우드 서비스에 배치됩니다. 따라서 개인 IP 주소의 동작은 이러한 리소스와 비슷합니다.
 
 클라우드 서비스를 배포할 수 있는 방법이 두 가지라는 점을 알아두는 것이 중요합니다.
 
@@ -139,10 +139,10 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 ### <a name="at-a-glance"></a>개요
 아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 개인 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
 
-| 리소스 | 동적 | 정적 | 여러 IP 주소 |
+| 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
 | VM(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |예 |예 |
-| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |아니요 |아니요 |
+| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |아니오 |아니오 |
 | 내부 부하 분산 장치 프런트 엔드 |예 |예 |예 |
 | 응용 프로그램 게이트웨이 프런트 엔드 |예 |예 |예 |
 

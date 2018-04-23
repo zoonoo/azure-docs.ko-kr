@@ -1,8 +1,8 @@
 ---
-title: "Mahout 및 HDInsight(SSH)를 사용하여 추천 생성 - Azure | Microsoft Docs"
-description: "Apache Mahout 기계 학습 라이브러리를 사용하여 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다."
+title: Mahout 및 HDInsight(SSH)를 사용하여 추천 생성 - Azure | Microsoft Docs
+description: Apache Mahout 기계 학습 라이브러리를 사용하여 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 4674008523704b9b1fb86de8606641f6140e2910
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 357df033c4d3fd0da84ea595d68802546aee3e9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>HDInsight(SSH)의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
 

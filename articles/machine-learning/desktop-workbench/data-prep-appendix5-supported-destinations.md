@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 데이터 준비에서 사용 가능한 지원되는 데이터 대상 및 출력 | Microsoft Docs"
-description: "이 문서에서는 Azure Machine Learning 데이터 준비에 사용 가능한 지원되는 대상 및 출력의 전체 목록을 제공합니다."
+title: Azure Machine Learning 데이터 준비에서 사용 가능한 지원되는 데이터 대상 및 출력 | Microsoft Docs
+description: 이 문서에서는 Azure Machine Learning 데이터 준비에 사용 가능한 지원되는 대상 및 출력의 전체 목록을 제공합니다.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 5451a5f525da845f97141a97241efb53ec42ff58
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-data-exports-for-this-preview"></a>이 미리 보기에 대해 지원되는 데이터 내보내기 
 여러 다른 형식으로 내보내는 것이 가능합니다. 이러한 형식을 이용하여 데이터 준비 결과를 Machine Learning 워크플로의 나머지 부분에 통합하기 전에 데이터 준비 중간 결과를 유지할 수 있습니다.

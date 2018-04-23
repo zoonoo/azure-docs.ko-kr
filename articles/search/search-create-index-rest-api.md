@@ -1,25 +1,19 @@
 ---
-title: "인덱스 만들기(REST API - Azure Search) | Microsoft Docs"
-description: "Azure Search HTTP REST API를 사용하여 코드에 인덱스를 만듭니다."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
+title: 인덱스 만들기(REST API - Azure Search) | Microsoft Docs
+description: Azure Search HTTP REST API를 사용하여 코드에 인덱스를 만듭니다.
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
 tags: azure-portal
-ms.assetid: ac6c5fba-ad59-492d-b715-d25a7a7ae051
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c03f3130dcdb2393d684b22b7ff728ae55f04e67
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -27,7 +21,7 @@ ms.lasthandoff: 12/18/2017
 > * [개요](search-what-is-an-index.md)
 > * [포털](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
+> * [REST (영문)](search-create-index-rest-api.md)
 >
 >
 

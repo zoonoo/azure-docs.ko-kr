@@ -1,11 +1,9 @@
 ---
-title: "Azure Cosmos DB에 대한 일반적인 사용 사례 및 시나리오 | Microsoft Docs"
-description: "Azure Cosmos DB의 5가지 상위 사용 사례인 사용자 생성 콘텐츠, 이벤트 로깅, 카탈로그 데이터, 사용자 기본 설정 데이터 및 IoT(사물 인터넷)에 대해 알아봅니다."
+title: Azure Cosmos DB에 대한 일반적인 사용 사례 및 시나리오 | Microsoft Docs
+description: Azure Cosmos DB의 5가지 상위 사용 사례인 사용자 생성 콘텐츠, 이벤트 로깅, 카탈로그 데이터, 사용자 기본 설정 데이터 및 IoT(사물 인터넷)에 대해 알아봅니다.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: c85aa1a010ea9ccac807d676fd69473de07abca9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 응용 프로그램을 개발할 때 시작점 역할을 합니다.   

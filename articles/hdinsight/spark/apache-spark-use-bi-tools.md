@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight에서 데이터 시각화 도구를 사용하는 Spark BI | Microsoft Docs"
-description: "HDInsight 클러스터에서 Apache Spark BI를 사용하는 분석에 대해 데이터 시각화 도구 사용"
-keywords: "apache spark bi,spark bi, spark 데이터 시각화, spark 비즈니스 인텔리전스"
+title: Azure HDInsight에서 데이터 시각화 도구를 사용하는 Spark BI | Microsoft Docs
+description: HDInsight 클러스터에서 Apache Spark BI를 사용하는 분석에 대해 데이터 시각화 도구 사용
+keywords: apache spark bi,spark bi, spark 데이터 시각화, spark 비즈니스 인텔리전스
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI
 

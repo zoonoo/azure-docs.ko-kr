@@ -1,12 +1,12 @@
 ---
-title: "Log Analytics로 Azure PaaS 리소스 메트릭 수집 | Microsoft Docs"
-description: "Log Analytics에서 보존 및 분석을 위해 PowerShell을 사용하여 Azure PaaS 리소스 메트릭 컬렉션을 사용하도록 설정하는 방법을 알아봅니다."
+title: Log Analytics로 Azure PaaS 리소스 메트릭 수집 | Microsoft Docs
+description: Log Analytics에서 보존 및 분석을 위해 PowerShell을 사용하여 Azure PaaS 리소스 메트릭 컬렉션을 사용하도록 설정하는 방법을 알아봅니다.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics로 Azure PaaS 리소스 메트릭의 수집 구성
 
@@ -57,7 +57,7 @@ Azure 진단으로 메트릭을 수집하고 Log Analytics에 직접 보내도�
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. `Login-AzureRmAccount`를 실행하여 Azure와 연결합니다.   
+3. `Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.   
 4. 매개 변수 없이 `.\Enable-AzureRmDiagnostics.ps1` 스크립트를 실행하여 구독의 특정 리소스에서 데이터 수집을 사용하도록 설정하거나 `-ResourceGroup <myResourceGroup>` 매개 변수를 사용하여 특정 리소스 그룹의 리소스를 지정합니다.   
 5. 구독이 둘 이상 있는 경우 올바른 값을 입력하여 목록에서 적절한 구독을 선택합니다.<br><br> ![스크립트에서 반환된 구독 선택](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> 그렇지 않으면 사용 가능한 단일 구독이 자동으로 선택됩니다.
 6. 그런 다음 스크립트는 구독에 등록된 Log Analytics 작업 영역 목록을 반환합니다.  목록에서 적절한 항목을 선택합니다.<br><br> ![스크립트에서 반환된 작업 영역 선택](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

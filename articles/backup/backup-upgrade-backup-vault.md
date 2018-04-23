@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup의 Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드 | Microsoft Docs"
-description: "Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하여 리소스 관리자 VM 백업, 보안 향상, VMware VM 백업, Windows Server 시스템 상태 백업 등의 새로운 기능 얻기"
+title: Azure Backup의 Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드 | Microsoft Docs
+description: Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하여 리소스 관리자 VM 백업, 보안 향상, VMware VM 백업, Windows Server 시스템 상태 백업 등의 새로운 기능 얻기
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 업그레이드된 Backup 자격 증명 모음 
 이 문서에서는 Recovery Services 자격 증명 모음이 제공하는 것, 기존 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것과 관련한 질문과 대답, 업그레이드 후 단계에 대한 개요를 제공합니다. Recovery Services 자격 증명 모음은 백업 데이터를 보관하는 Backup 자격 증명 모음에 해당하는 Azure Resource Manager입니다. 일반적으로 데이터는 온-프레미스 또는 Azure에서 VM(가상 머신), 워크로드, 서버 또는 워크스테이션에 대한 구성 정보 또는 데이터의 사본입니다.
@@ -34,7 +34,7 @@ Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델에 기
 
 - **하이브리드 IT 환경을 위한 중심 모니터링**: Recovery Services 자격 증명 모음에서 [Azure IaaS VM](backup-azure-manage-vms.md)뿐만 아니라 중앙 포털에서 [온-프레미스 자산](backup-azure-manage-windows-server.md#manage-backup-items)도 모니터링할 수 있습니다. [자세히 알아보기](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **RBAC(역할 기반 Access Control)**: RBAC는 Azure에서 세밀한 액세스 관리 제어를 제공합니다. [Azure는 다양한 기본 제공 역할을 제공](../active-directory/role-based-access-built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. Recovery Services 자격 증명 모음은 RBAC와 호환되어 백업을 제한하고 정의된 집합의 사용자 역할에 대한 액세스를 복원합니다. [자세히 알아보기](backup-rbac-rs-vault.md)
+- **RBAC(역할 기반 Access Control)**: RBAC는 Azure에서 세밀한 액세스 관리 제어를 제공합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. Recovery Services 자격 증명 모음은 RBAC와 호환되어 백업을 제한하고 정의된 집합의 사용자 역할에 대한 액세스를 복원합니다. [자세히 알아보기](backup-rbac-rs-vault.md)
 
 - **Azure Virtual Machines의 모든 구성 보호**: Recovery Services 자격 증명 모음은 프리미엄 디스크, Managed Disks 및 암호화된 VM을 비롯한 Resource Manager 기반 VM을 보호합니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하면 서비스 관리자 기반 VM을 Resource Manager 기반 VM으로 업그레이드할 수 있습니다. 자격 증명 모음을 업그레이드하는 동안 서비스 관리자 기반 VM 복구 지점을 유지하고 업그레이드된(Resource Manager 사용 가능) VM에 대한 보호를 구성할 수 있습니다. [자세히 알아보기](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6d9fbfd07de9a5d536cf458dc478aade851d4b23
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 
@@ -55,7 +55,7 @@ Azure Managed Disks는 저장소 계정을 관리하지 않아도 되기 때문�
 
 이 섹션을 통해 VM 및 디스크 유형에 대한 최선의 결정을 내릴 수 있습니다.
 
-관리되지 않는 디스크에서 관리 디스크로 마이그레이션하려는 경우 [Virtual Machine Contributor](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) 역할의 사용자는 VM 크기를 변경할 수 없습니다(사전 변환이 가능하기 때문). 이는 관리 디스크가 있는 VM의 경우 사용자에게 OS 디스크에 대한 Microsoft.Compute/disks/write 권한이 있어야 하기 때문입니다.
+관리되지 않는 디스크에서 관리 디스크로 마이그레이션하려는 경우 [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할의 사용자는 VM 크기를 변경할 수 없습니다(사전 변환이 가능하기 때문). 이는 관리 디스크가 있는 VM의 경우 사용자에게 OS 디스크에 대한 Microsoft.Compute/disks/write 권한이 있어야 하기 때문입니다.
 
 ### <a name="location"></a>위치
 

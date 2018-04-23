@@ -1,8 +1,8 @@
 ---
-title: "오프라인 방법을 사용하여 Data Lake Store에 대량 데이터 업로드| Microsoft 문서"
-description: "AdlCopy 도구를 사용하여 Azure Storage Blobs에서 Data Lake Store로 데이터를 복사합니다."
+title: 오프라인 방법을 사용하여 Data Lake Store에 대량 데이터 업로드| Microsoft 문서
+description: AdlCopy 도구를 사용하여 Azure Storage Blobs에서 Data Lake Store로 데이터를 복사합니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee6f4ab1ac5892536d7f419c198158dc34d6f49e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Azure Import/Export 서비스를 사용하여 Data Lake Store에 오프라인 데이터 복사
 이 문서에서는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md)와 같은 오프라인 복사 방법을 사용하여 대량 데이터 집합(200GB 초과)을 Azure Data Lake Store에 복사하는 방법을 알아봅니다. 특히 이 문서에서 예제로 사용하는 파일의 크기는 디스크에서 339,420,860,416바이트(약 319GB)입니다. 이 파일을 319GB.tsv라고 하겠습니다.
@@ -195,7 +195,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

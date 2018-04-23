@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - FTP를 사용하여 웹앱에 파일 업로드 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - FTP를 사용하여 웹앱에 파일 업로드"
+title: Azure PowerShell 스크립트 샘플 - FTP를 사용하여 웹앱에 파일 업로드 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - FTP를 사용하여 웹앱에 파일 업로드
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 96b99110b63b037746fcc40eb15db5d718eb71a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a8a86fc0d655ae3881613ef89a31b8cf85219d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>FTP를 사용하여 웹앱에 파일 업로드
 
 이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 FTP([WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)을 통해)를 사용하여 웹앱 코드를 배포합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`을 실행하여 Azure와 연결합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -Name $webappname -Force
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service 계획을 만듭니다. |

@@ -1,31 +1,25 @@
 ---
-title: "Azure SQL Data Warehouse - VSTS에 연결 | Microsoft Azure"
-description: "Visual Studio를 사용하여 SQL Data Warehouse를 쿼리합니다."
+title: Azure SQL Data Warehouse - VSTS에 연결 | Microsoft Azure
+description: Visual Studio를 사용하여 SQL Data Warehouse를 쿼리합니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 1e44c6c3c47034a892753c69c5ef22a5eac18c0d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 360f54b88346b0ba986ea482f15c9214c9f90df1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * 
-            [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)

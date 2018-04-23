@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 28caca06dd756732314f758e6acb4629f857dd91
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: be2ec6df33f5756dc080195bfad32e0c9079453c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Azure에 일반화된 VHD를 업로드하여 새 VM 만들기
 
@@ -74,7 +74,7 @@ PowerShell 버전 1.4 이상을 아직 설치하지 않은 경우 [Azure PowerSh
 1. Azure PowerShell을 열고 Azure 계정에 로그인합니다. Azure 계정 자격 증명을 입력하기 위한 팝업 창이 열립니다.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 2. 사용 가능한 구독에 대한 구독을 ID를 가져옵니다.
    

@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 개발자 포털에서 페이지 스타일 사용자 지정 | Microsoft Docs"
-description: "이 빠른 시작의 단계에 따라 Azure API Management 개발자 포털에 있는 요소의 스타일을 사용자 지정합니다."
+title: Azure API Management 개발자 포털에서 페이지 스타일 사용자 지정 | Microsoft Docs
+description: 이 빠른 시작의 단계에 따라 Azure API Management 개발자 포털에 있는 요소의 스타일을 사용자 지정합니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 15012317d3d0a4d3e50d56966bf8d26b0ef48118
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 
@@ -40,8 +40,6 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 3가지 �
 
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="customize-the-developer-portal"></a>개발자 포털 사용자 지정
 

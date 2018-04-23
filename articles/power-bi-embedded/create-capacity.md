@@ -1,24 +1,24 @@
 ---
-title: "Azure Portal에서 Power BI Embedded 용량 만들기 | Microsoft Docs"
-description: "이 문서에서는 Microsoft Azure에서 Power BI Embedded 용량을 만드는 방법을 안내합니다."
+title: Azure Portal에서 Power BI Embedded 용량 만들기 | Microsoft Docs
+description: 이 문서에서는 Microsoft Azure에서 Power BI Embedded 용량을 만드는 방법을 안내합니다.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Azure Portal에서 Power BI Embedded 용량 만들기
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/free/)으로 이동하여 계정을 만들 수 있습니다.
-* **Azure Active Directory**: 구독이 AAD(Azure Active Directory) 테넌트와 연결되어야 합니다. 또한 ***해당 테넌트의 계정으로 Azure에 로그인해야 합니다***. Microsoft 계정은 지원되지 않습니다. 자세한 내용은 인증 및 사용자 권한을 참조하세요.
+* **Azure Active Directory**: 구독이 AAD(Azure Active Directory) 테넌트와 연결되어야 합니다. 또한 ***해당 테넌트의 계정으로 Azure에 로그인해야 합니다***. Microsoft 계정은 지원되지 않습니다. 자세한 내용은 [인증 및 사용자 권한](../analysis-services/analysis-services-manage-users.md)을 참조하세요.
 * **Power BI 테넌트:** AAD 테넌트의 계정 하나 이상이 Power BI에 등록되어야 합니다.
 * **리소스 그룹**: 기존 리소스 그룹을 사용하거나 [새 리소스 그룹을 만듭니다](../azure-resource-manager/resource-group-overview.md).
 

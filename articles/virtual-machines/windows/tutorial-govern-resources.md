@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 제어
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 로컬 설치의 경우 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)하여 새 Azure Active Directory 그룹을 만들어야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 로컬 설치의 경우 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)하여 새 Azure Active Directory 그룹을 만들어야 합니다.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -43,15 +43,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-조직의 사용자에게 이러한 리소스에 대한 적절한 수준의 액세스 권한이 있는지 확인하려고 합니다. 사용자에게 무제한 액세스 권한은 부여하지 않으면서 동시에 사용자가 작업을 수행할 수 있는지 확인해야 합니다. [역할 기반 액세스 제어](../../active-directory/role-based-access-control-what-is.md)를 통해 범위에서 특정 작업을 완료할 수 있는 권한이 있는 사용자를 관리할 수 있습니다.
+조직의 사용자에게 이러한 리소스에 대한 적절한 수준의 액세스 권한이 있는지 확인하려고 합니다. 사용자에게 무제한 액세스 권한은 부여하지 않으면서 동시에 사용자가 작업을 수행할 수 있는지 확인해야 합니다. [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 통해 범위에서 특정 작업을 완료할 수 있는 권한이 있는 사용자를 관리할 수 있습니다.
 
 역할 할당을 만들고 제거하려면 사용자에게 `Microsoft.Authorization/roleAssignments/*` 액세스가 있어야 합니다. 이 액세스는 소유자 또는 사용자 액세스 관리자 역할을 통해 부여됩니다.
 
 가상 머신 솔루션을 관리하기 위해서는 일반적으로 필요한 액세스 권한을 제공하는 세 가지 리소스 특정 역할이 있습니다.
 
-* [Virtual Machine 참여자](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [네트워크 참여자](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage 계정 참여자](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [네트워크 참여자](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage 계정 참여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../../active-directory/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3733531efb18a1fc14998af8bad2f61f22032048
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d362d8167cdfb772c70b02cc57bb49d3c2eb01d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -133,7 +133,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 2. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 Azure 사용자 이름 및 암호를 입력합니다.
        
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
 
 3. 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.

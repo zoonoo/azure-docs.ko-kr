@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52843c926248627e4e530612cfe9326d4302eb95
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Mobile Engagement REST API를 사용한 인증
 > [!IMPORTANT]
@@ -67,7 +67,7 @@ PowerShell 스크립트를 사용하여 설정을 수행하려면 다음 지침�
         Import-Module Azure
 3. 다음 명령을 실행하여 PowerShell에서 Azure Resource Manager에 로그인합니다. Azure 계정에 대한 사용자 이름과 암호를 입력합니다. 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. 구독이 여러 개인 경우 다음 단계를 수행합니다.
 
     a. 모든 구독 목록을 가져옵니다. 그런 다음 사용하려는 구독의 **SubscriptionId**를 복사합니다. 이 구독에는 Mobile Engagement 앱이 있어야 합니다. 이 앱을 사용하여 API와 상호 작용할 것입니다. 

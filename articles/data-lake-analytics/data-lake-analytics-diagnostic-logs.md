@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Lake Analytics에 대한 진단 로그 보기 | Microsoft Docs"
-description: "Azure Data Lake Analytics에 대한 진단 로그를 설정하고 액세스하는 방법을 이해합니다. "
+title: Azure Data Lake Analytics에 대한 진단 로그 보기 | Microsoft Docs
+description: 'Azure Data Lake Analytics에 대한 진단 로그를 설정하고 액세스하는 방법을 이해합니다. '
 services: data-lake-analytics
-documentationcenter: 
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.service: data-lake-analytics
 ms.devlang: na
@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
-ms.author: larryfr
-ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -130,7 +129,7 @@ ms.lasthandoff: 02/13/2018
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
 
-| Name | 형식 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 식별자 |
@@ -144,7 +143,7 @@ ms.lasthandoff: 02/13/2018
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
 
-| Name | 형식 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | path |문자열 |작업이 수행된 경로 |
@@ -182,7 +181,7 @@ ms.lasthandoff: 02/13/2018
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
 
-| Name | 형식 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 식별자 |
@@ -200,7 +199,7 @@ ms.lasthandoff: 02/13/2018
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
 
-| Name | 형식 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | JobId |문자열 |작업에 할당된 ID |
 | JobName |문자열 |작업에 대해 제공된 이름 |

@@ -1,8 +1,8 @@
 ---
-title: "Data Lake Store와 관련된 데이터 시나리오 | Microsoft 문서"
-description: "데이터를 Data Lake 저장소에 수집, 처리, 다운로드 및 시각화할 수 있는 다양한 시나리오 및 도구 이해"
+title: Data Lake Store와 관련된 데이터 시나리오 | Microsoft 문서
+description: 데이터를 Data Lake 저장소에 수집, 처리, 다운로드 및 시각화할 수 있는 다양한 시나리오 및 도구 이해
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f8cd666af9e05b543b6794612ec5acf6f8a27756
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake 저장소 사용
 빅 데이터 처리에는 네 가지 주요 단계가 있습니다.
@@ -131,4 +131,4 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 ![Data Lake Store에서 데이터 시각화](./media/data-lake-store-data-scenarios/visualize-data.png "Data Lake Store에서 데이터 시각화")
 
 * 먼저 [Azure Data Factory를 사용하여 Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 이동](../data-factory/copy-activity-overview.md)할 수 있습니다.
-* 그 후에는 [Power BI를 Azure SQL Data Warehouse와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) 하여 데이터를 시각적으로 표현할 수 있습니다.
+* 그 후에는 [Power BI를 Azure SQL Data Warehouse와 통합](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) 하여 데이터를 시각적으로 표현할 수 있습니다.

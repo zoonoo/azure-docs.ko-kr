@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 Azure AD 앱 만들기 및 Azure Media Services API 액세스 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure AD(Azure Active Directory) 앱을 만들고 Azure Media Services API에 액세스하도록 설정하는 방법을 알아봅니다."
+title: PowerShell을 사용하여 Azure AD 앱 만들기 및 Azure Media Services API 액세스 | Microsoft Docs
+description: PowerShell을 사용하여 Azure AD(Azure Active Directory) 앱을 만들고 Azure Media Services API에 액세스하도록 설정하는 방법을 알아봅니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: eea0f3a03dd77ce56484f32b192299bd97c05300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 734f40e7fad993783999dfec00a4213e34da801b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>PowerShell을 사용하여 Azure Media Services API와 함께 사용할 Azure AD 앱 만들기
 
@@ -26,14 +26,14 @@ PowerShell 스크립트를 사용하여 Azure Media Services 리소스에 액세
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작하세요. 
-- 미디어 서비스 계정. 자세한 내용은 [Azure Portal에서 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
+- Media Services 계정. 자세한 내용은 [Azure Portal에서 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 - Azure PowerShell 버전 0.8.8 이상. 자세한 내용은 [Azure PowerShell 사용 방법](https://docs.microsoft.com/powershell/azure/overview)을 참조하세요.
 - Azure Resource Manager cmdlet.  
 
 ## <a name="create-an-azure-ad-app-by-using-powershell"></a>PowerShell을 사용하여 Azure AD 앱 만들기  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Import-Module AzureRM.Resources
 Set-AzureRmContext -SubscriptionId $SubscriptionId
 $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
@@ -55,7 +55,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-- [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Azure PowerShell을 사용하여 역할 기반 Access Control 관리](../role-based-access-control/role-assignments-powershell.md)
 - [인증서를 사용하여 디먼 앱을 수동으로 구성하는 방법](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
 ## <a name="next-steps"></a>다음 단계

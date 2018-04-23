@@ -1,8 +1,8 @@
 ---
-title: "Azure HDInsight의 Spark에서 Jupyter와 함께 사용자 지정 Maven 패키지 사용 | Microsoft Docs"
-description: "HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 사용자 지정 Maven 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다."
+title: Azure HDInsight의 Spark에서 Jupyter와 함께 사용자 지정 Maven 패키지 사용 | Microsoft Docs
+description: HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 사용자 지정 Maven 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 93b29480b51f7a664411ffa92ed07c26b2ebafca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dfecdd5c9399c1bd6eb021f097481e3c73f699ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook과 함께 외부 패키지 사용
 > [!div class="op_single_selector"]
@@ -106,10 +104,8 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 클러스터 크기 조정 | Microsoft Docs"
-description: "이 자습서에서는 Service Fabric 클러스터 크기를 신속하게 조정하는 방법을 알아봅니다."
+title: Azure Service Fabric 클러스터 크기 조정 | Microsoft Docs
+description: 이 자습서에서는 Service Fabric 클러스터 크기를 신속하게 조정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 크기 조정
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/24/2018
 Azure 명령을 실행하기 전에 Azure 계정에 로그인하고 구독을 선택합니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

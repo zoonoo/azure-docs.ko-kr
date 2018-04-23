@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae21fc7ab016071d075324bf813243cef58dcd04
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Container Registry 만들기
 
@@ -25,10 +25,10 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기

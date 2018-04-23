@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>클라우드 컴퓨팅 및 Microsoft Azure 소개
 
@@ -323,7 +323,7 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 -   **Storage 계정 참가자**: 이 역할을 가진 사용자는 Storage 계정을 관리할 수 있지만 Storage 계정에 대한 액세스는 관리할 수 없습니다.
 
-자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../active-directory/role-based-access-control-configure.md)를 참조하세요.
+자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 모델 관리 설치 및 구성 | Microsoft Docs"
-description: "이 문서에서는 Azure Machine Learning에서 모델 관리를 설치 및 구성할 때 수행되는 단계 및 개념을 설명합니다."
+title: Azure Machine Learning 모델 관리 설치 및 구성 | Microsoft Docs
+description: 이 문서에서는 Azure Machine Learning에서 모델 관리를 설치 및 구성할 때 수행되는 단계 및 개념을 설명합니다.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -38,7 +38,7 @@ Workbench에서 CLI(명령줄 인터페이스)를 사용하려면 **파일** -] 
 
 ### <a name="installing-or-updating-on-windows"></a>Windows에서 설치(또는 업데이트)
 
-https://www.python.org/ 에서 Python을 설치합니다. pip를 설치하도록 선택했는지 확인합니다.
+https://www.python.org/에서 Python을 설치합니다. pip를 설치하도록 선택했는지 확인합니다.
 
 관리자 권한으로 실행을 사용하여 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
@@ -83,7 +83,7 @@ CLI를 사용하여 모델을 웹 서비스로 배포합니다. 웹 서비스는
 시작하려면 배포 환경을 설치해야 합니다. 환경 설치는 일회성 작업입니다. 설치가 완료되면 후속 배포에서 해당 환경을 다시 사용할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 환경 설치를 완료한 경우:
-- Azure에 로그인하라는 메시지가 표시됩니다. 로그인하려면 웹 브라우저를 사용하여 https://aka.ms/devicelogin 페이지를 열고 인증을 위해 제공된 코드를 입력합니다.
+- Azure에 로그인하라는 메시지가 표시됩니다. 로그인하려면 웹 브라우저를 사용하여 https://aka.ms/devicelogin 페이지를 열고 제공된 코드를 입력하여 인증하세요.
 - 인증 프로세스 중에 인증하기 위한 계정을 입력하라는 메시지가 표시됩니다. 중요: 유효한 Azure 구독 및 계정에서 리소스를 만들 수 있는 충분한 권한이 있는 계정을 선택합니다. 로그인이 완료되면 구독 정보가 표시되며 선택한 계정으로 계속 작업할지 묻는 메시지가 표시됩니다.
 
 ### <a name="environment-setup"></a>환경 설정

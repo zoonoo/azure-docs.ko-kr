@@ -3,22 +3,23 @@ title: Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이
 description: Linux 데이터 과학 VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: gokuma
+ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.

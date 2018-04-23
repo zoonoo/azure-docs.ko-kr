@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -232,7 +232,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 관리자 권한으로 PowerShell 콘솔을 열고 Azure 계정에 로그인합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정이 다운로드됩니다. 다음 cmdlet은 Resource Manager 배포 모델의 Azure 계정에 대한 로그인 자격 증명을 묻습니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Azure 구독 목록을 가져옵니다.

@@ -1,11 +1,11 @@
 ---
-title: "다중 NIC이 있는 개인 VM 만들기 - Azure Resource Manager 템플릿 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 다중 NIC이 있는 개인 VM을 만듭니다."
+title: 다중 NIC이 있는 개인 VM 만들기 - Azure Resource Manager 템플릿 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 다중 NIC이 있는 개인 VM을 만듭니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 486f7dd5-cf2f-434c-85d1-b3e85c427def
 ms.service: virtual-network
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 85bfa264c6cf2b0586816a47b3ab72f3aee8ec96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-multiple-nics-using-a-template"></a>템플릿을 사용하여 다중 NIC이 있는 VM 만들기
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -282,7 +282,7 @@ TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Azure CLI를 사용하여 템플릿 배포
 Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
     ```azurecli

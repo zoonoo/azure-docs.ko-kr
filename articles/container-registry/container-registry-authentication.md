@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Registry로 인증"
-description: "Azure Active Directory 서비스 주체 직접 및 레지스트리 로그인을 비롯하여 Azure Container Registry에 대한 인증 옵션입니다."
+title: Azure Container Registry로 인증
+description: Azure Active Directory 서비스 주체 직접 및 레지스트리 로그인을 비롯하여 Azure Container Registry에 대한 인증 옵션입니다.
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 
@@ -31,11 +31,11 @@ Azure Container Registry는 인증되지 않은 Docker 작업 또는 익명 액�
 az acr login --name <acrName>
 ```
 
-`az acr login`을 사용하여 로그인하는 경우 CLI는 `az login`을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다. 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 제공합니다.
+`az acr login`을 사용하여 로그인하는 경우 CLI는 `az login`을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다. 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 제공합니다.
 
 ## <a name="service-principal"></a>서비스 주체
 
-레지스트리에 [서비스 주체](../active-directory/develop/active-directory-application-objects.md)를 할당할 수 있으며 응용 프로그램 또는 서비스는 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 주체는 레지스트리에 [역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 허용하며 사용자는 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 응용 프로그램에 대한 다양한 액세스를 정의할 수 있습니다.
+레지스트리에 [서비스 주체](../active-directory/develop/active-directory-application-objects.md)를 할당할 수 있으며 응용 프로그램 또는 서비스는 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 주체는 레지스트리에 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 허용하며 사용자는 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 응용 프로그램에 대한 다양한 액세스를 정의할 수 있습니다.
 
 사용 가능한 역할은 다음과 같습니다.
 

@@ -1,11 +1,11 @@
 ---
 title: "문제 해결: 'Active Directory' 항목이 없거나 사용할 수 없음 | Microsoft Docs"
-description: "Azure 관리 포털에 Active Directory 메뉴 항목이 표시되지 않을 경우 수행할 작업입니다."
+description: Azure 관리 포털에 Active Directory 메뉴 항목이 표시되지 않을 경우 수행할 작업입니다.
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>문제 해결: 'Active Directory' 항목이 없거나 사용할 수 없음
 Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분 "Azure 관리 포털로 이동한 다음 **Active Directory**를 클릭합니다."로 시작합니다. 하지만 Active Directory 확장 또는 메뉴 항목이 표시되지 않거나 **사용할 수 없음**으로 표시되는 경우 어떻게 해야 하나요? 이 항목은 도움을 주기 위해 작성되었습니다. **Active Directory** 가 표시되지 않거나 사용할 수 없는 조건 및 계속 진행하는 방법을 설명합니다.
@@ -39,7 +39,7 @@ Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분
 * Azure 테넌트에 ACS(Azure AD Access Control) 네임스페이스가 하나 이상 있습니다. 자세한 내용은 [Access Control 네임스페이스](https://msdn.microsoft.com/library/azure/gg185908.aspx)를 참조하세요.
   
     또는
-* Azure 테넌트에 Azure Multi-Factor Authentication 공급자가 하나 이상 있습니다. 자세한 내용은 [Azure Multi-Factor Authentication 공급자 관리](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)를 참조하세요.
+* Azure 테넌트에 Azure Multi-Factor Authentication 공급자가 하나 이상 있습니다. 자세한 내용은 [Azure Multi-Factor Authentication 공급자 관리](authentication/howto-mfa-getstarted.md)를 참조하세요.
 
 Access Control 네임스페이스 또는 Multi-Factor Authentication 공급자를 만들려면 **+새로 만들기** > **App Services** > **Active Directory**를 클릭합니다.
 

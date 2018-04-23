@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 4baf691268fdb11f769a39144c2b5461ee9c2362
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB 소개: MongoDB API
 
@@ -73,5 +73,5 @@ Azure Cosmos DB MongoDB API에 대한 정보는 전체 Azure Cosmos DB 설명서
 * [Azure Cosmos DB로 Studio 3T(MongoChef) 사용](mongodb-mongochef.md) 자습서를 따라 Studio 3T에서 Azure Cosmos DB 데이터베이스와 MongoDB 앱 간에 연결을 만드는 방법을 알아봅니다.
 * [MongoDB에 대한 프로토콜 지원을 사용하여 데이터를 Azure Cosmos DB로 마이그레이션](mongodb-migrate.md) 자습서를 따라 데이터를 MongoDB API 데이터베이스로 가져옵니다.
 * [Robomongo](mongodb-robomongo.md)를 사용하여 MongoDB API 계정에 연결합니다.
-* [GetLastRequestStatistics 명령 및 Azure Portal 메트릭](request-units.md#GetLastRequestStatistics)을 사용하여 작업에서 사용하는 RU 수에 대해 알아봅니다.
+* [GetLastRequestStatistics 명령 및 Azure Portal 메트릭](set-throughput.md#GetLastRequestStatistics)을 사용하여 작업에서 사용하는 RU 수에 대해 알아봅니다.
 * [전역에 분산되는 앱에 대한 읽기 기본 설정을 구성](../cosmos-db/tutorial-global-distribution-mongodb.md)하는 방법을 알아봅니다.

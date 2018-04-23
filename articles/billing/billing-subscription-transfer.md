@@ -1,12 +1,12 @@
 ---
-title: "Azure 구독 소유권을 다른 계정에 양도 | Microsoft Docs"
-description: "다른 사용자에게 Azure 구독을 전송하는 방법과 프로세스에 대한 몇 가지 질문과 대답(FAQ)을 제공합니다."
-keywords: "azure 구독 양도,azure 구독 양도,azure 구독을 다른 계정으로 양도,azure 구독 소유자 변경,azure 구독을 다른 계정으로 양도"
-services: 
-documentationcenter: 
+title: Azure 구독 소유권을 다른 계정에 양도 | Microsoft Docs
+description: 다른 사용자에게 Azure 구독을 전송하는 방법과 프로세스에 대한 몇 가지 질문과 대답(FAQ)을 제공합니다.
+keywords: azure 구독 양도,azure 구독 양도,azure 구독을 다른 계정으로 양도,azure 구독 소유자 변경,azure 구독을 다른 계정으로 양도
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/02/2018
 
 > [!IMPORTANT]
 > 
-> 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다.
+> 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Azure 구독의 소유권 양도
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/02/2018
 
    > [!IMPORTANT]
    > 
-   > 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다.
+   > 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다.
 
    ![구독 양도 대화 상자](./media/billing-subscription-transfer/image2.PNG)
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/02/2018
 
 1. 이제 계정 관리자가 되었습니다. 서비스 관리자, 공동 관리자 및 다른 RBAC 역할을 검토하고 업데이트합니다. 자세한 내용은 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 1. 다음을 비롯한 이 구독의 서비스와 연결된 자격 증명을 업데이트합니다.
-   1. 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../cloud-services/cloud-services-certs-create.md)를 참조하세요.
+   1. 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. 저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
    1. Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명. 
 1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 [이 구독에 대한 청구 경고를 업데이트](billing-set-up-alerts.md)합니다. 
@@ -115,7 +115,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>모든 것이 양도되나요? 양도 항목에 리소스 그룹, VM, 디스크 및 기타 실행 중인 서비스가 포함되나요?
 
-VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도됩니다. 그러나 설정한 [관리자 역할](billing-add-change-azure-subscription-administrator.md) 및 [RBAC(역할 기반 Access Control)](../active-directory/role-based-access-control-configure.md) 정책은 다른 디렉터리 간에 양도되지 않습니다. 또한 [앱 등록](../active-directory//develop/active-directory-integrating-applications.md) 및 다른 테넌트 관련 서비스는 양도되지 않습니다.
+VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도됩니다. 그러나 설정한 [관리자 역할](billing-add-change-azure-subscription-administrator.md) 및 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 정책은 다른 디렉터리 간에 양도되지 않습니다. 또한 [앱 등록](../active-directory//develop/active-directory-integrating-applications.md) 및 다른 테넌트 관련 서비스는 양도되지 않습니다.
 
 ### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
@@ -133,7 +133,7 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 구독을 다른 테넌트에 양도하는 경우, 이전 테넌트와 연결된 사용자는 구독에 액세스할 수 없게 됩니다. 사용자가 더 이상 서비스 관리자 또는 공동 관리자가 아닌 경우에도 다른 보안 메커니즘을 통해 다음 항목을 포함하여 구독에 액세스할 수도 있습니다.
 
-* 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../cloud-services/cloud-services-certs-create.md)를 참조하세요.
+* 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](../cloud-services/cloud-services-certs-create.md)를 참조하세요.
 * 저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
 * Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명.
 
@@ -172,6 +172,6 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 구독 소유권을 양도할 수 없는 경우 리소스를 수동으로 마이그레이션할 수 있습니다. [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

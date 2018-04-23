@@ -1,26 +1,24 @@
 ---
-title: "HDInsight에서 Hadoop 작업 제출 | Microsoft Docs"
-description: "Azure HDInsight에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다."
+title: HDInsight에서 Hadoop 작업 제출 | Microsoft Docs
+description: Azure HDInsight에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: f6173fed78345a2339e9bf40f414202c0ce62c0b
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 568ecc83dcca91e50f67bf8d84806a6ca110c812
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업 제출
 

@@ -1,22 +1,22 @@
 ---
-title: "PowerShell을 사용하여 Azure API Management 인스턴스 만들기 | Microsoft Docs"
-description: "이 자습서의 단계에 따라 새 Azure API Management 인스턴스를 만듭니다."
+title: PowerShell을 사용하여 Azure API Management 인스턴스 만들기 | Microsoft Docs
+description: 이 자습서의 단계에 따라 새 Azure API Management 인스턴스를 만듭니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: d33a37002f1e3a2684d4b93682dbd48327f3312b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4037666081395abc18543fc4dc8d26d40024e1ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>새 Azure API Management 서비스 인스턴스 만들기
 
@@ -28,11 +28,11 @@ Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내�
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal( http://portal.azure.com )에 로그인합니다.
+Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기

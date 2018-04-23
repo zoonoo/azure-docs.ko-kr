@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 90bbcc865f13a1d048ea12fdccd3ca848cf362ba
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 [관련된 Azure AD B2C 문서](active-directory-b2c-custom-rest-api-netfw.md)에서 인증하지 않고 Azure AD B2C(Azure Active Directory B2C) 사용자 경험에 통합되는 RESTful 서비스(Web API)를 만듭니다. 
 
 이 문서에서는 B2C를 포함하여 확인된 사용자만이 API에 액세스할 수 있도록 RESTful 서비스에 HTTP 기본 인증을 추가합니다. HTTP 기본 인증을 사용하여 사용자 지정 정책에서 사용자 자격 증명(앱 ID 및 앱 암호)를 설정합니다. 

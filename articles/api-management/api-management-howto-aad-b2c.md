@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory B2C를 사용하여 개발자 계정에 권한 부여 - Azure API Management | Microsoft Docs"
-description: "API Management에서 Azure Active Directory B2C를 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아보세요."
+title: Azure Active Directory B2C를 사용하여 개발자 계정에 권한 부여 - Azure API Management | Microsoft Docs
+description: API Management에서 Azure Active Directory B2C를 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아보세요.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: d843757c2ed63c4f8cff09d809c2de382b2aeb59
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 1268905d8a992d0cac65174142f6a3870f38f0d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 > [!WARNING]
 > Azure Active Directory B2C 통합은 [개발자 및 프리미엄](https://azure.microsoft.com/en-us/pricing/details/api-management/) 계층에서만 사용 가능합니다.

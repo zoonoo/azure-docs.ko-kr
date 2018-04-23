@@ -3,7 +3,7 @@ title: Azure Service Fabric 클러스터 노드에 원격 연결 | Microsoft Doc
 description: 확장 집합 인스턴스(Service Fabric 클러스터 노드)에 원격으로 연결하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: 8c7d5446429089a0fc931175b55e81e1ad0c97a0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: aljo
+ms.openlocfilehash: 68e3b8ae5bdaa3ad9f1c470294ef5c3bcf0c1893
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 머신 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
 Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러스터 노드 형식은 [가상 머신별 규모를 설정](service-fabric-cluster-nodetypes.md)합니다.  특정 확장 집합 인스턴스(또는 클러스터 노드)에 원격 연결할 수 있습니다.  단일 인스턴스 VM과 달리 확장 집합 인스턴스는 고유한 가상 IP 주소가 없습니다. 따라서 특정 인스턴스에 원격으로 연결하는 데 사용할 수 있는 IP 주소 및 포트를 찾는 것이 어려울 수 있습니다.

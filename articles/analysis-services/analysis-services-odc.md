@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 서버에 연결할 .odc 파일 만들기 | Microsoft Docs"
-description: "Azure의 Analysis Services 서버에서 데이터에 연결하고 가져오기 위한 Office 데이터 연결 파일을 만드는 방법에 대해 알아봅니다."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 서버에 연결할 .odc 파일 만들기 | Microsoft Docs
+description: Azure의 Analysis Services 서버에서 데이터에 연결하고 가져오기 위한 Office 데이터 연결 파일을 만드는 방법에 대해 알아봅니다.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 3d5158af0c49fca5c26ad8f4027654d7bf68d575
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 4cf7257f5eb51f82bb129aa57231339a28991193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-office-data-connection-file"></a>Office 데이터 연결 파일 만들기
 

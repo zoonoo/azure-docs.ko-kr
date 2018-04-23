@@ -1,23 +1,18 @@
 ---
-title: "Azure Search의 다중 테넌트 모델링 | Microsoft Docs"
-description: "Azure Search를 사용할 때의 다중 테넌트 SaaS 응용 프로그램에 대한 일반적인 디자인 패턴에 대해 알아봅니다."
-services: search
-manager: jhubbard
+title: Azure Search의 다중 테넌트 모델링 | Microsoft Docs
+description: Azure Search를 사용할 때의 다중 테넌트 SaaS 응용 프로그램에 대한 일반적인 디자인 패턴에 대해 알아봅니다.
+manager: jlembicz
 author: ashmaka
-documentationcenter: 
-ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 99be323b72326a9d912fa28cd63999ecd98a671b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure Search에 대한 디자인 패턴
 다중 테넌트 응용 프로그램은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 응용 프로그램입니다. 이 문서에서는 Azure Search를 사용하여 작성된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.

@@ -1,11 +1,11 @@
 ---
-title: "고급 미디어 인코더 Premium 워크플로 자습서"
-description: "이 문서는 미디어 인코더 Premium 워크플로를 사용한 고급 작업을 수행하는 방법 및 워크플로 디자이너르 사용한 복잡한 워크플로를 만드는 방법을 보여주는 연습을 포함합니다."
+title: 고급 미디어 인코더 Premium 워크플로 자습서
+description: 이 문서는 미디어 인코더 Premium 워크플로를 사용한 고급 작업을 수행하는 방법 및 워크플로 디자이너르 사용한 복잡한 워크플로를 만드는 방법을 보여주는 연습을 포함합니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: xstof
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: 8b714fcf001a6830cffe4df8c152dab40834c7c4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
 ## <a name="overview"></a>개요

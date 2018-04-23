@@ -1,27 +1,20 @@
 ---
-title: "Azure Search의 Lucene 쿼리 예제 | Microsoft Docs"
-description: "Lucene은 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드카드 검색에 대해 구문을 쿼리합니다."
-services: search
-documentationcenter: 
+title: Azure Search의 Lucene 쿼리 예제 | Microsoft Docs
+description: Lucene은 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드카드 검색에 대해 구문을 쿼리합니다.
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf033d7549f3a1213d7a2b2c3694ae7415643eb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene은 Azure 검색에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
+# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene은 Azure Search에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
 Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 사용하거나, [Azure 검색의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)를 대신 사용할 수 있습니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 등의 더 복잡한 쿼리 구조를 지원합니다.
 
 이 문서에서는 전체 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행할 수 있습니다.
@@ -33,7 +26,7 @@ Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https:/
 이러한 쿼리를 실행하려면 쿼리 예제 URL을 마우스 오른쪽 단추로 클릭하여 별도의 브라우저 창에서 JSFiddle을 엽니다.
 
 > [!NOTE]
-> 다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 집합에 기반하여 사용 가능한 작업으로 구성된 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공하는 샌드박스 서비스에 있습니다. 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure 검색이 필요하지 않습니다.
+> 다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 집합에 기반하여 사용 가능한 작업으로 구성된 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공하는 샌드박스 서비스에 있습니다. 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure Search가 필요하지 않습니다.
 >
 
 
@@ -65,7 +58,7 @@ Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https:/
 
 이 경우에 위치 필드에서 두 개의 다른 도시를 검색하고 있으므로 두 문자열이 단일 엔터티로 평가되길 원하는 경우 여러 문자열을 인용 부호로 묶어야 합니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
 
-**fieldname:searchterm** 에서 지정된 필드는 검색 가능 필드이어야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 서비스 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 를 참조하세요.
+**fieldname:searchterm** 에서 지정된 필드는 검색 가능 필드이어야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure Search 서비스 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
 **예제 2** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭합니다. 이 쿼리는 junior가 아닌 senior라는 용어가 포함된 직함을 검색합니다.
 
@@ -131,8 +124,8 @@ musicstoreindex 예제에서 **genre** 와 같이, 특정 필드에서 일치 �
 ## <a name="next-steps"></a>다음 단계
 코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로 **queryType**을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
 
-* [.NET SDK를 사용하여 Azure 검색 인덱스 쿼리](search-query-dotnet.md)
-* [REST API를 사용하여 Azure 검색 인덱스 쿼리](search-query-rest-api.md)
+* [.NET SDK를 사용하여 Azure Search 인덱스 쿼리](search-query-dotnet.md)
+* [REST API를 사용하여 Azure Search 인덱스 쿼리](search-query-rest-api.md)
 
 ## <a name="see-also"></a>참고 항목
 

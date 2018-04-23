@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric 클러스터 업그레이드 | Microsoft Docs"
-description: "클러스터 업데이트 모드 설정, 인증서 업그레이드, 응용 프로그램 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?"
+title: Azure Service Fabric 클러스터 업그레이드 | Microsoft Docs
+description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 응용 프로그램 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/10/2017
-ms.author: chackdan
-ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: aljo
+ms.openlocfilehash: 22dae85c4125c54003f65aba3ef112ffcec9b76d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드
 > [!div class="op_single_selector"]

@@ -9,10 +9,10 @@ ms.date: 03/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9cdb608505e594e0020eb33abc869c6bf4b6b263
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 | **공급업체** | **장치 패밀리** | **펌웨어 버전** |
 | --- | --- | --- |

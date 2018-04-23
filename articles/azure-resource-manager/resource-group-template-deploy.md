@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb4ebe0b1c0e4799aea6401b068d881e5aa47026
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8af5c124332fcc0c919b419f68235c52456c01cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/03/2018
 
 배포하는 Resource Manager 템플릿은 컴퓨터의 로컬 파일 또는 GitHub와 같은 저장소에 있는 외부 파일일 수도 있습니다. 이 문서에서 배포하는 템플릿은 [샘플 템플릿](#sample-template) 섹션 또는 [GitHub의 저장소 계정 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)으로 사용할 수 있습니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell 모듈을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell 모듈을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다.
 
 <a id="deploy-local-template" />
 
@@ -43,7 +43,7 @@ Azure에 리소스를 배포할 때 다음을 수행합니다.
 다음 예제에서는 리소스 그룹을 만들고 로컬 컴퓨터에서 템플릿을 배포합니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

@@ -1,26 +1,24 @@
 ---
-title: "Apache Hive 및 Pig를 포함하는 Python UDF - Azure HDInsight | Microsoft Docs"
-description: "HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법, Azure에서의 Hadoop 기술 스택에 대해 알아봅니다."
+title: Apache Hive 및 Pig를 포함하는 Python UDF - Azure HDInsight | Microsoft Docs
+description: HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법, Azure에서의 Hadoop 기술 스택에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c508ffcdd5cccaad5c7b0717d33e2ea1449ab522
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수) 사용
 

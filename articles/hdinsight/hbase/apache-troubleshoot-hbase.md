@@ -1,23 +1,21 @@
 ---
-title: "Azure HDInsight를 사용한 HBase 문제 해결 | Microsoft Docs"
-description: "HBase 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다."
+title: Azure HDInsight를 사용한 HBase 문제 해결 | Microsoft Docs
+description: HBase 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinver
 manager: ashitg
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 04d8e37791c12078754a661f7a1aa8a76a6b3c44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 HBase 문제 해결
 
@@ -56,7 +54,7 @@ HBase Master UI에서 모든 영역 서버 중 부하가 분산되지 않은 영
 5. Ambari UI에서 활성 HBase Master 서비스를 다시 시작합니다.
 6. `hbase hbck -fixAssignments` 명령을 다시 실행합니다.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>클러스터에서 HDFS 안전 모드를 사용하지 않는 방법
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>클러스터에서 HDFS 안전 모드 사용 안 함을 적용하는 방법
 
 ### <a name="issue"></a>문제
 

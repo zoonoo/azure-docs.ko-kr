@@ -1,8 +1,8 @@
 ---
-title: "Azure 대시보드를 프로그래밍 방식으로 만들기 | Microsoft Docs"
-description: "이 문서에서는 Azure 대시보드를 프로그래밍 방식으로 만다는 방법을 설명합니다."
+title: Azure 대시보드를 프로그래밍 방식으로 만들기 | Microsoft Docs
+description: 이 문서에서는 Azure 대시보드를 프로그래밍 방식으로 만다는 방법을 설명합니다.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3d72c8b026dd7c72be01aabcb47e76174d7afd6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -55,7 +55,7 @@ Azure에서 공유 대시보드는 가상 머신 및 저장소 계정과 같은 
 
 ![공유 명령](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-[공유] 명령을 클릭하면 게시할 구독 및 리소스 그룹을 선택하라는 대화 상자가 표시됩니다. 선택한 구독 및 리소스 그룹에 대해 [쓰기 액세스 권한이 있어야](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 합니다.
+[공유] 명령을 클릭하면 게시할 구독 및 리소스 그룹을 선택하라는 대화 상자가 표시됩니다. 선택한 구독 및 리소스 그룹에 대해 [쓰기 액세스 권한이 있어야](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 합니다.
 
 ![공유 및 액세스](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

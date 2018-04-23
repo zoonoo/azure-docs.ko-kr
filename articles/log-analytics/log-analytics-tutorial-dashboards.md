@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics 데이터의 대시보드 만들기 및 공유 | Microsoft Docs"
-description: "이 자습서는 Log Analytics 대시보드가 저장된 모든 로그 검색을 시각화하여 환경을 보는 단일 렌즈를 제공하는 방법을 이해하는 데 도움이 됩니다."
+title: Azure Log Analytics 데이터의 대시보드 만들기 및 공유 | Microsoft Docs
+description: 이 자습서는 Log Analytics 대시보드가 저장된 모든 로그 검색을 시각화하여 환경을 보는 단일 렌즈를 제공하는 방법을 이해하는 데 도움이 됩니다.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
@@ -31,10 +31,10 @@ Log Analytics 대시보드를 통해 저장된 모든 로그 검색을 시각화
 > * 공유 대시보드에 로그 검색 추가 
 > * 공유 대시보드에서 타일 사용자 지정
 
-이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](log-analytics-quick-collect-azurevm.md) 기존 가상 컴퓨터가 있어야 합니다.  
+이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](log-analytics-quick-collect-azurevm.md) 기존 가상 머신이 있어야 합니다.  
  
 ## <a name="log-in-to-azure-portal"></a>Azure Portal에 로그인
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다. 
 
 ## <a name="create-a-shared-dashboard"></a>공유 대시보드 만들기
 
@@ -48,7 +48,7 @@ Azure Log Analytics의 원격 분석을 포함하여, 모든 Azure 리소스에�
 
 대시보드를 만들 때 기본적으로 비공개입니다. 즉, 볼 수 있는 유일한 사람은 사용자입니다. 다른 사람이 볼 수 있도록 하려면 다른 대시보드 명령 옆에 나타나는 **공유** 단추를 사용합니다.<br> ![Azure Portal에서 새 대시보드 공유](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 편의를 위해 포털의 게시 환경에서는 **대시보드**라는 리소스 그룹에 대시보드를 배치한 위치의 패턴을 안내합니다.  선택한 구독을 확인한 후 **게시**를 클릭합니다.  대시보드에 표시되는 정보에 대한 액세스는 [Azure 리소스 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)로 제어합니다.   
+게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 편의를 위해 포털의 게시 환경에서는 **대시보드**라는 리소스 그룹에 대시보드를 배치한 위치의 패턴을 안내합니다.  선택한 구독을 확인한 후 **게시**를 클릭합니다.  대시보드에 표시되는 정보에 대한 액세스는 [Azure 리소스 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)로 제어합니다.   
 
 ## <a name="visualize-a-log-search"></a>로그 검색 시각화
 

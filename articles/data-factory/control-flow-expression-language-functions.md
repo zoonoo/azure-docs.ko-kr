@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,8 +51,8 @@ ms.lasthandoff: 03/28/2018
 |----------------|------------|  
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
-|\"\@\@\"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
-|\" \@\"|\' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
+|"@@"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
+|\" \@\"|' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
   
  *문자열 보간*이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis 캐시 구성 방법
 이 항목에서는 Azure Redis Cache 인스턴스에 대해 사용할 수 있는 구성을 설명합니다. 또한 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -79,7 +79,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 ### <a name="access-control-iam"></a>액세스 제어(IAM)
 
-**액세스 제어(IAM)** 섹션에서는 Azure Portal의 RBAC(역할 기반 액세스 제어)에 대한 지원을 제공합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+**액세스 제어(IAM)** 섹션에서는 Azure Portal의 RBAC(역할 기반 액세스 제어)에 대한 지원을 제공합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ### <a name="tags"></a>태그들
 
