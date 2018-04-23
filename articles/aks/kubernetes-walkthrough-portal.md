@@ -25,7 +25,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure Portal][auzre portal]에 로그인합니다.
+http://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 
@@ -239,7 +239,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 > [AKS 자습서][aks-tutorial]
 
 <!-- LINKS - external -->
-[auzre portal]: https://portal.azure.com
+[azure portal]: https://portal.azure.com
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
