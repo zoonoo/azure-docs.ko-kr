@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: bf09e4b7866a2320b1a26c7164565d5c2f9c4d0a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 47e05c5acbcd0c36efb7fcef2f0997aac4f46470
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성 
 
@@ -24,7 +24,7 @@ Azure SQL Database 다단계 인증에 대한 개요는 [SQL Database 및 SQL Da
 ## <a name="configuration-steps"></a>구성 단계
 
 1. **Azure Active Directory 구성** - 자세한 내용은 [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 고유한 도메인 이름 추가](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure는 이제 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) 및 [Windows PowerShell을 사용하여 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
-2. **MFA 구성** - 단계별 지침은 [Azure Multi-factor Authentication(MFA)이란?](../multi-factor-authentication/multi-factor-authentication.md), [Azure SQL Database 및 데이터웨어 하우스에서의 조건부 액세스(MFA)](sql-database-conditional-access.md)를 참조하세요. 전체 조건부 액세스에는 Premium Azure AD(Active Directory)가 필요합니다. 표준 Azure AD에서는 제한된 MFA가 제공됩니다.
+2. **MFA 구성** - 단계별 지침은 [Azure Multi-factor Authentication(MFA)이란?](../active-directory/authentication/multi-factor-authentication.md), [Azure SQL Database 및 데이터웨어 하우스에서의 조건부 액세스(MFA)](sql-database-conditional-access.md)를 참조하세요. 전체 조건부 액세스에는 Premium Azure AD(Active Directory)가 필요합니다. 표준 Azure AD에서는 제한된 MFA가 제공됩니다.
 3. **Azure AD 인증을 위해 SQL Database 또는 SQL Data Warehouse 구성** - 단계별 지침은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md)을 참조하세요.
 4. **SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS를 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 이 항목의 모든 기능에서는 2017년 7월 버전 17.2 이상을 사용합니다.  
 

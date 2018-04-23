@@ -3,16 +3,17 @@ title: Azure Search를 사용하여 Azure Table Storage 인덱싱
 description: Azure Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 알아봅니다.
 author: chaosrealm
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 317b76809bb7dc47f607687efe2311727859214a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6a065454e274abc9c032b0ac69f42dd72f059443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search를 사용하여 Azure Table Storage 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 보여 줍니다.

@@ -3,16 +3,17 @@ title: Azure Search의 전체 텍스트 검색 엔진(Lucene) 아키텍처 | Mic
 description: Azure Search에 관련된 전체 텍스트 검색에 대한 Lucene 쿼리 처리 및 문서 검색 개념을 설명합니다.
 manager: jlembicz
 author: yahnoosh
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: 7cc4e19fd23095982d59578f7393e17b7f003757
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d05aade97ea5713b63b921d9e39d4df0c30b8fa0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 

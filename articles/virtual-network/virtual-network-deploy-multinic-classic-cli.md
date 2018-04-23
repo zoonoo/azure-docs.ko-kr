@@ -3,7 +3,7 @@ title: 다중 NIC가 있는 VM(클래식) 만들기 - Azure CLI 1.0 | Microsoft 
 description: Azure CLI(명령줄 인터페이스) 1.0을 사용하여 다중 NIC가 있는 VM(클래식)을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2631e531368df4f00d7ffd8fef585038658797b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 다중 NIC가 있는 VM(클래식) 만들기
 

@@ -1,9 +1,9 @@
 ---
-title: "2단계 인증 문제 해결 | Microsoft Docs"
-description: "이 문서는 Azure 다단계 인증에 문제가 있는 경우 수행할 작업에 대한 정보를 제공합니다."
+title: 2단계 인증 문제 해결 | Microsoft Docs
+description: 이 문서는 Azure 다단계 인증에 문제가 있는 경우 수행할 작업에 대한 정보를 제공합니다.
 services: multi-factor-authentication
-keywords: "다단계 인증 클라이언트, 인증 문제, 상관관계 ID"
-documentationcenter: 
+keywords: 다단계 인증 클라이언트, 인증 문제, 상관관계 ID
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-help-with-two-step-verification"></a>2단계 인증에 관한 도움말 얻기
 이 문서는 2단계 인증과 관련하여 가장 많이 하는 질문에 대한 답변입니다. 
@@ -86,7 +86,7 @@ ms.lasthandoff: 12/11/2017
 종종 잘못된 셀 신호로 인해 지연된 경우 스마트폰에서 [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하는 것이 좋습니다. 앱은 로그인하는 데 사용할 수 있는 임의의 보안 코드를 생성할 수 있고 이러한 코드는 셀 신호 또는 인터넷 연결이 필요하지 않습니다.
 
 ## <a name="app-passwords-are-not-working"></a>앱 암호가 작동하지 않는 경우
-먼저 앱 암호를 올바르게 입력했는지 확인합니다. 2단계 인증을 지원하지 않는 이전 데스크톱 응용 프로그램의 경우에만 생성된 앱 암호가 사용자의 일반 암호를 대체합니다. 계속 작동하지 않으면 로그인을 시도하고 [새 앱 암호를 생성](multi-factor-authentication-end-user-app-passwords.md)합니다.  계속 작동하지 않으면 회사 지원 서비스에 문의하여 [사용자의 기존 앱 암호를 삭제](../multi-factor-authentication-manage-users-and-devices.md)하도록 요청하면 새 암호를 만들 수 있습니다.
+먼저 앱 암호를 올바르게 입력했는지 확인합니다. 2단계 인증을 지원하지 않는 이전 데스크톱 응용 프로그램의 경우에만 생성된 앱 암호가 사용자의 일반 암호를 대체합니다. 계속 작동하지 않으면 로그인을 시도하고 [새 앱 암호를 생성](multi-factor-authentication-end-user-app-passwords.md)합니다.  계속 작동하지 않으면 회사 지원 서비스에 문의하여 [사용자의 기존 앱 암호를 삭제](../../active-directory/authentication/howto-mfa-userdevicesettings.md)하도록 요청하면 새 암호를 만들 수 있습니다.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>문제에 대한 답변을 찾을 수 없는 경우
 이러한 문제 해결 단계를 시도했는데도 문제가 계속되는 경우 회사 지원 서비스에 문의하세요. 그러면 도움을 받을 수 있습니다.

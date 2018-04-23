@@ -1,9 +1,9 @@
 ---
-title: "Xamarin.Android 앱에 대한 Notification Hubs 시작 | Microsoft Docs"
-description: "이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다."
+title: Xamarin.Android 앱에 대한 Notification Hubs 시작 | Microsoft Docs
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 1cb6fbc82c493e17815dc60ddcff183a47513bc6
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 7fee7813bbdcf902d5f5ae2d0af7540c8899ad25
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Xamarin.Android 앱에 대한 Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -95,6 +95,20 @@ ms.lasthandoff: 01/25/2018
 3. **Xamarin.Firebase.Messaging**을 검색하여 프로젝트에 추가합니다.
 
 ### <a name="set-up-notification-hubs-in-your-project"></a>프로젝트에서 알림 허브 설정
+
+#### <a name="registering-with-firebase-cloud-messaging"></a>Firebase Cloud Messaging 등록
+
+**AndroidManifest.xml** 파일을 열고 다음 `<receiver>` 요소를 `<application>` 요소로 삽입합니다.
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
 1. Android 앱 및 알림 허브에 대해 다음 정보를 수집합니다.
    
    * **연결 문자열 수신 대기**: [Azure Portal]의 대시보드에서 **연결 문자열 보기**를 선택합니다. 이 값에 대해 *DefaultListenSharedAccessSignature* 연결 문자열을 복사합니다.

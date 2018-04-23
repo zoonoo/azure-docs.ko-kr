@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: be167e298a4c0e76d7cf3bb638838047d4e9bcee
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3bbcf7b637a0f32751dc15664a1b7479e65503eb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
@@ -149,11 +149,3 @@ DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼
 
 SQL Data Warehouse의 성능을 향상시키기 위해 여러 가지 방법을 찾으려면 [성능 개요](sql-data-warehouse-overview-manage-user-queries.md)를 참조하세요.
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

@@ -12,10 +12,10 @@ ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
 ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 응용 프로그램에서 스키마 관리
 
@@ -172,5 +172,5 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 > * 모든 테넌트 데이터베이스에서 참조 데이터 업데이트하기
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기
 
-다음 단계로 [임시 보고 자습서](saas-multitenantdb-adhoc-reporting.md)를 참고하여 여러 테넌트 데이터베이스에서 분산 쿼리를 실행하는 방법을 알아보세요.
+다음 단계로 [임시 보고 자습서] (saas-multitenantdb-adhoc-reporting.md) 를 참고하여 여러 테넌트 데이터베이스에서 분산 쿼리를 실행하는 방법을 알아보세요.
 

@@ -25,6 +25,7 @@
 ## [호환성 수준](stream-analytics-compatibility-level.md)
 ## [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)
 ## [이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)
+## [검사점 및 재생](stream-analytics-concepts-checkpoint-replay.md)
 
 # 방법 가이드
 
@@ -68,7 +69,7 @@
 
 ## 문제 해결
 ### [문제 해결 단계](stream-analytics-troubleshooting-guide.md)
-### [일반적인 문제 해결 문제](stream-analytics-common-troubleshooting-issues.md)
+### [일반적인 문제](stream-analytics-common-troubleshooting-issues.md)
 ### [작업 다이어그램](stream-analytics-job-diagram-with-metrics.md)
 ### [진단 로그](stream-analytics-job-diagnostic-logs.md)
 ### [리소스 상태 확인](stream-analytics-resource-health.md)
@@ -92,18 +93,10 @@
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest)
 ## [피드백 포럼](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
-## [가격](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
-## [릴리스 정보](stream-analytics-release-notes.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [고객 사례 연구](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [백서 - 실시간 이벤트 처리](stream-analytics-real-time-event-processing-reference-architecture.md)
-## [Storm 및 Stream Analytics 비교](stream-analytics-comparison-storm.md)
-
-
-
-
-
-

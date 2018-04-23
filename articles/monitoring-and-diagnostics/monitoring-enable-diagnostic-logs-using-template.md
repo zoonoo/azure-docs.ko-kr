@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1963c4d7b2e895032862fae896c6d9ff7cf80806
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 Event Hubs로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
@@ -116,7 +116,7 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
     ]
     ```
 
-진단 설정에 대한 속성 Blob는 [이 문서에 설명된 형식](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate)을 따릅니다. `metrics` 속성을 추가하면 [리소스는 Azure Monitor 메트릭스를 지원합니다](monitoring-supported-metrics.md)를 표시하고 리소스 메트릭을 이러한 동일한 출력으로 보낼 수도 있습니다.
+진단 설정에 대한 속성 Blob는 [이 문서에 설명된 형식](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)을 따릅니다. `metrics` 속성을 추가하면 [리소스는 Azure Monitor 메트릭스를 지원합니다](monitoring-supported-metrics.md)를 표시하고 리소스 메트릭을 이러한 동일한 출력으로 보낼 수도 있습니다.
 
 다음은 Logic App을 만들고 Event Hubs로 스트리밍 및 저장소 계정에 저장을 설정하는 전체 예제입니다.
 

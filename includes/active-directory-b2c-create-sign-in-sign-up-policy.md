@@ -1,5 +1,3 @@
-응용 프로그램에 로그인을 사용하려면 로그인 정책을 만들어야 합니다. 이 정책은 로그인하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 로그인을 수신하는 토큰의 콘텐츠를 설명합니다.
-
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 설정의 정책 섹션에서 **등록 또는 로그인 정책**을 선택하고 **+ 추가**를 클릭합니다.

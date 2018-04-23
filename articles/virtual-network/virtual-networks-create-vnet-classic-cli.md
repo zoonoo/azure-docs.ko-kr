@@ -3,7 +3,7 @@ title: Azure CLI를 사용하여 가상 네트워크 만들기 | Microsoft Docs
 description: ARM(Azure 리소스 관리자)에서 Azure CLI를 사용하여 가상 네트워크를 만드는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: ''
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: a41e2de0e9def82510a6b5d28c8f5a2fcc333e6e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9d254fa17ae2b45a5771777bc7cedf9fa90d9815
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크(클래식) 만들기
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

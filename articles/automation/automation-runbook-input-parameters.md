@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2ce87c300d3e9092794e6e437dc9919c7eb0f3c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19b0e17807adc0e7a4522fd13cd85779cdbcafd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -28,7 +28,7 @@ Azure Automation에서 PowerShell 및 [PowerShell 워크플로 Runbook](automati
 
 | **속성** | **설명** |
 |:--- |:--- |
-| 형식 |필수 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .NET 형식이 유효합니다. |
+| type |필수 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .NET 형식이 유효합니다. |
 | Name |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
 | 필수 |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을 **$true**로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을 **$false**로 설정한 경우 값은 선택 사항입니다. |
 | 기본값 |선택 사항입니다. Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 기본값을 매개 변수에 대해 설정할 수 있으며 필수 설정에 관계 없이 자동으로 매개 변수를 선택적으로 만듭니다. |
@@ -37,16 +37,16 @@ Windows PowerShell은 유효성 검사, 별칭, 매개 변수 설정과 같이 �
 
 PowerShell 워크플로 Runbook의 매개 변수 정의에는 다음과 같은 일반 형식이 있으며 여러 매개 변수는 쉼표로 구분됩니다.
 
-   ```powershell
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     )
-   ```
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name2 = <Default value>
+)
+```
 
 > [!NOTE]
 > 매개 변수를 정의할 때 **필수** 특성을 지정하지 않으면 기본적으로 매개 변수는 선택 사항으로 간주됩니다. 또한 PowerShell 워크플로 Runbook의 매개 변수에 대한 기본값을 설정하는 경우 **필수** 특성 값과 관계 없이 PowerShell에서 선택적 매개 변수로 처리됩니다.
@@ -61,13 +61,16 @@ PowerShell 워크플로 Runbook의 매개 변수 정의에는 다음과 같은 �
 
 Runbook에 object 형식 입력 매개 변수가 있는 경우 값에 전달하려면 (이름, 값) 쌍이 있는 PowerShell 해시 테이블을 사용합니다. 예를 들어 Runbook에 다음 매개 변수가 있는 경우
 
-     [Parameter (Mandatory = $true)]
-     [object] $FullName
+```powershell
+[Parameter (Mandatory = $true)]
+[object] $FullName
+```
 
 매개 변수에 다음 값을 전달할 수 있습니다.
 
-    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-
+```powershell
+@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+```
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>그래픽 Runbook에서 입력 매개 변수 구성
 
@@ -89,7 +92,7 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
    |:--- |:--- |
    | Name |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
    | 설명 |선택 사항입니다. 입력 매개 변수의 목적에 대한 설명입니다. |
-   | 형식 |선택 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 지원되는 매개 변수 형식은 **문자열**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** 및 **개체**입니다. 데이터 형식이 선택되어 있지 않으면 **문자열**에 대한 기본값으로 지정됩니다. |
+   | type |선택 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 지원되는 매개 변수 형식은 **문자열**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** 및 **개체**입니다. 데이터 형식이 선택되어 있지 않으면 **문자열**에 대한 기본값으로 지정됩니다. |
    | 필수 |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. **예**를 선택한 경우 Runbook이 시작될 때 값을 지정해야 합니다. **아니오**를 선택한 경우 Runbook이 시작될 때 값이 필요하지 않고 기본값이 설정됩니다. |
    | 기본값 |선택 사항입니다. Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 필수가 아닌 매개 변수에 기본값을 설정할 수 있습니다. 기본값을 설정하려면 **사용자 지정**을 선택합니다. Runbook이 시작될 때 다른 값을 지정하지 않으면 이 값을 사용합니다. 기본값을 제공하지 않으려는 경우 **없음** 을 선택합니다. |
    
@@ -146,7 +149,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   
   **예제:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
@@ -155,7 +158,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   
   **예제:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
   
   Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
@@ -170,7 +173,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 
 * **Azure Resource Manager 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.  
   
-  ```
+  ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -189,7 +192,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   ```
 * **Azure 클래식 배포 모델 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.
   
-  ```      
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -209,7 +212,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   
   이 메서드를 시작하려면 사전을 만들어 Runbook 매개 변수, **VMName**, **resourceGroupName** 그리고 해당 값을 저장합니다. 그런 다음 Runbook을 시작합니다. 다음은 위에 정의된 메서드를 호출하기 위한 C# 코드 조각입니다.
   
-  ```
+  ```csharp
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
   // Add parameters to the dictionary.
@@ -239,7 +242,7 @@ Runbook 작업에 매개 변수를 전달하기 위해 요청 본문을 사용�
 
 이전에 **VMName** 및 **resourceGroupName**을 매개 변수로 만든 **Get-AzureVMTextual** Runbook을 시작하려는 경우 요청 본문에 다음 JSON 형식을 사용합니다.
 
-   ```
+   ```json
     {
       "properties":{
         "runbook":{

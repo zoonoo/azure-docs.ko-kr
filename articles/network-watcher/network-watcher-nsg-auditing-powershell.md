@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher 보안 그룹 보기를 사용하여 NSG 감사 자동화 | Microsoft Docs"
-description: "이 페이지에서는 네트워크 보안 그룹의 감사를 구성하는 방법에 대한 설명을 제공합니다."
+title: Azure Network Watcher 보안 그룹 보기를 사용하여 NSG 감사 자동화 | Microsoft Docs
+description: 이 페이지에서는 네트워크 보안 그룹의 감사를 구성하는 방법에 대한 설명을 제공합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Azure Network Watcher 보안 그룹 보기를 사용하여 NSG 감사 자동화
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 시나리오에서는 가상 컴퓨터에서 반환된 보안 그룹 보기 결과를 알려진 적합한 기준선과 비교합니다.
+이 시나리오에서는 가상 머신에서 반환된 보안 그룹 보기 결과를 알려진 적합한 기준선과 비교합니다.
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
 
@@ -39,8 +39,8 @@ ms.lasthandoff: 10/11/2017
 이 시나리오에서는 다음을 수행합니다.
 
 - 알려진 적합한 규칙 집합 검색
-- Rest API로 가상 컴퓨터 검색
-- 가상 컴퓨터에 대한 보안 그룹 보기 가져오기
+- Rest API로 가상 머신 검색
+- 가상 머신에 대한 보안 그룹 보기 가져오기
 - 응답 평가
 
 ## <a name="retrieve-rule-set"></a>규칙 집합 검색
@@ -131,7 +131,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="get-a-vm"></a>VM 확인
 
-`Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet을 실행하려면 가상 컴퓨터가 필요합니다. 다음 예제는 VM 개체를 가져옵니다.
+`Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet을 실행하려면 가상 머신이 필요합니다. 다음 예제는 VM 개체를 가져옵니다.
 
 ```powershell
 $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>다음 단계
 
-설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
+설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
 
 
 

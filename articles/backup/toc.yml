@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: 리소스 관리자 템플릿
+      href: backup-rm-template-samples.md
 - name: 개념
   items:
     - name: FAQ
@@ -100,7 +102,7 @@
         - name: VM 백업
           items:
             - name: Recovery Services 자격 증명 모음에 Azure VM 백업
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: 암호화된 VM 백업
               href: backup-azure-vms-encryption.md
             - name: VM을 만드는 동안 VM 백업 사용
@@ -179,9 +181,9 @@
           href: backup-azure-delete-vault.md
     - name: 문제 해결
       items:
-        - name: IaaS VM 백업 오류 메시지
+        - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
-        - name: Azure Backup(MARS) 에이전트 또는 VM 확장 시간 초과
+        - name: Azure Backup 에이전트 또는 VM 확장 시간 초과
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: 파일 및 폴더 백업이 느림
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -189,16 +191,22 @@
           href: backup-azure-mabs-troubleshoot.md
         - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Azure Backup(MARS) 에이전트
+        - name: Azure Backup 에이전트
           href: backup-azure-mars-troubleshoot.md
-        - name: Azure 파일 공유 백업
+        - name: Azure 파일 공유
           href: troubleshoot-azure-files.md
 - name: 참고 자료
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: Azure CLI 2.0
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST - 백업
+      href: /rest/api/backup/
+    - name: REST - Recovery Services 자격 증명 모음
+      href: /rest/api/recoveryservices/
 - name: 리소스
   items:
     - name: Azure 로드맵

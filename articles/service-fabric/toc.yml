@@ -89,7 +89,7 @@
       href: service-fabric-application-scenarios.md
     - name: 패턴 및 시나리오
       href: service-fabric-patterns-and-scenarios.md
-    - name: 건축
+    - name: 아키텍처
       href: service-fabric-architecture.md
     - name: 용어
       href: service-fabric-technical-overview.md
@@ -129,7 +129,7 @@
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
-            - name: 건축
+            - name: 아키텍처
               href: service-fabric-reliable-actors-platform.md
             - name: 서비스 수준 기능 구현
               href: service-fabric-reliable-actors-using.md
@@ -214,7 +214,7 @@
         - name: 클러스터 리소스 관리자
           href: service-fabric-cluster-resource-manager-introduction.md
           items:
-            - name: 건축
+            - name: 아키텍처
               href: service-fabric-cluster-resource-manager-architecture.md
             - name: 클러스터 설명
               href: service-fabric-cluster-resource-manager-cluster-description.md
@@ -238,6 +238,8 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: 서비스 이동
               href: service-fabric-cluster-resource-manager-movement-cost.md
+            - name: 자동 확장 서비스
+              href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: 모니터링 및 진단
       items:
         - name: 모니터링 개요
@@ -261,8 +263,6 @@
           href: service-fabric-health-introduction.md
         - name: 보고서 상태 이벤트
           href: service-fabric-report-health.md
-        - name: OMS로 모니터링
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: API Management와 통합
       href: service-fabric-api-management-overview.md
 - name: 방법 가이드
@@ -405,6 +405,10 @@
               href: service-fabric-securing-containers.md
             - name: Windows 컨테이너용 gMSA 설정
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: 정기적으로 백업 구성(Azure의 클러스터)
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: 정기적으로 백업 구성(독립 실행형 클러스터)
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: 이전 Java 응용 프로그램을 마이그레이션하여 Maven 지원
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Windows/VS 개발 환경에서 작업
@@ -555,6 +559,8 @@
               href: service-fabric-diagnostics-oms-setup.md
             - name: OMS 에이전트 추가
               href: service-fabric-diagnostics-oms-agent.md
+            - name: OMS로 모니터링
+              href: service-fabric-diagnostics-event-analysis-oms.md
             - name: 모니터 컨테이너
               href: service-fabric-diagnostics-oms-containers.md
         - name: Application Insights를 사용하여 분석

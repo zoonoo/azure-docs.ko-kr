@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store의 보호
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Store는 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Store의 보안 기능에 대해 알아봅니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/16/2018
 각 Azure 구독은 Azure Active Directory의 인스턴스와 연결될 수 있습니다. 사용자 및 Azure Active Directory 서비스에서 정의된 서비스 ID는 Azure 포털, 명령줄 도구를 사용하거나 Azure Data Lake Store SDK를 사용하여 조직이 빌드하는 클라이언트 응용 프로그램을 통해 Data Lake Store 계정에 액세스할 수 있습니다. 중앙 집중식 액세스 제어 메커니즘으로 Azure Active Directory를 사용하는 주요 이점은 다음과 같습니다.
 
 * 단순화된 ID 수명 주기 관리. 디렉터리에서 계정을 삭제하거나 비활성화하여 사용자 또는 서비스(서비스 주체 ID)를 신속하게 만들고 해지할 수 있습니다.
-* 다단계 인증. [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) 은 사용자 로그인 및 트랜잭션에 대해 추가 보안 계층을 제공합니다.
+* 다단계 인증. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 은 사용자 로그인 및 트랜잭션에 대해 추가 보안 계층을 제공합니다.
 * OAuth 또는 OpenID와 같은 표준 개방형 프로토콜을 통해 모든 클라이언트에서 인증.
 * 엔터프라이즈 디렉터리 서비스 및 클라우드 ID 공급자와 페더레이션.
 

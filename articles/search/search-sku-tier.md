@@ -1,6 +1,7 @@
 ---
 title: Azure Search에 대한 SKU 또는 가격 책정 계층 선택 | Microsoft Docs
 description: Azure Search는 무료, 기본 및 표준 SKU로 프로비전할 수 있습니다. 여기서 표준은 다양한 리소스 구성 및 용량 수준으로 사용 가능합니다.
+services: search
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -8,11 +9,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 498ceb4a5d9e0bb9c8c5b5711c8c2687df3a3409
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Azure Search에 대한 SKU 또는 가격 책정 계층 선택
 Azure Search에서는 특정 가격 책정 계층 또는 SKU에서 [서비스가 프로비전](search-create-service-portal.md)됩니다. 선택 사항에는 **무료**, **기본**, **표준**이 있으며 **표준**은 여러 구성 및 용량으로 사용 가능합니다.

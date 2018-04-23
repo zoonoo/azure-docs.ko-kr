@@ -3,15 +3,16 @@ title: Azure Search을 위한 검색 트래픽 분석 | Microsoft Docs
 description: Microsoft Azure에서 Azure Search를 위한 검색 트래픽 분석 및 클라우드 호스트된 Search 서비스를 사용하여 사용자와 데이터를 이해할 수 있습니다.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2017
 ms.author: heidist
-ms.openlocfilehash: 10963d1e022fc2aa574c88e994c4d8593b4d4de1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>검색 트래픽 분석이란
 검색 트래픽 분석은 Search 서비스에 대한 피드백 루프를 구현하기 위한 패턴입니다. 이 패턴은 필요한 데이터 및 여러 플랫폼에서 서비스를 모니터링할 수 있는 업계 선두 제품인 Application Insights를 사용하여 필요한 데이터를 수집하는 방법을 설명합니다.

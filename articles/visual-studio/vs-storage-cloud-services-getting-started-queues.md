@@ -2,23 +2,20 @@
 title: 큐 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스) | Microsoft Docs
 description: Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다.
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: ee4228db093b840940152fcad6dfba793dbc4772
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c856bfb691c8d1b43822718bbfb86ff2122f4988
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]

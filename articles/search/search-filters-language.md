@@ -3,15 +3,16 @@ title: Azure Search의 언어 필터 | Microsoft Docs
 description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search에서 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 언어, 지리적 위치 또는 숫자 값별로 조건을 필터링합니다.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.workload: search
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 45d5fb127a4c9df4cf4875ecafbc4ad5ce244998
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6d7fa7ab6db1fe9f8e2d1530c2917f4716a38079
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Azure Search에서 언어에 따라 필터링하는 방법 
 

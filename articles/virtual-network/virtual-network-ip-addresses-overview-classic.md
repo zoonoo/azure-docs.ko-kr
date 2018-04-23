@@ -3,7 +3,7 @@ title: Azure의 IP 주소 유형(클래식) | Microsoft Docs
 description: Azure에서 공용 및 개인 IP 주소(기본)에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: f9e36abd44c2012d96a6ead8659197dcf66c6032
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a63099bf2a8bc818c88ccec1d5f44bb9ffc32de
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure의 IP 주소 유형 및 할당 방법
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
@@ -92,9 +92,9 @@ Azure [응용 프로그램 게이트웨이](../application-gateway/application-g
 | 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
 | 클라우드 서비스 |예 |예 |예 |
-| IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니오 |아니오 |
-| VPN 게이트웨이 |예 |아니오 |아니오 |
-| 응용 프로그램 게이트웨이 |예 |아니오 |아니요 |
+| IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니오 |아니요 |
+| VPN 게이트웨이 |예 |아니오 |아니요 |
+| 응용 프로그램 게이트웨이 |예 |아니오 |아니오 |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -142,7 +142,7 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 | 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
 | VM(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |예 |예 |
-| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |아니오 |아니오 |
+| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |아니요 |아니요 |
 | 내부 부하 분산 장치 프런트 엔드 |예 |예 |예 |
 | 응용 프로그램 게이트웨이 프런트 엔드 |예 |예 |예 |
 

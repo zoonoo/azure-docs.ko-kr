@@ -3,16 +3,17 @@ title: Azure Search 인덱서의 필드 매핑
 description: 필드 이름 및 데이터 표현의 차이를 처리하도록 Azure Search 인덱서 필드 매핑 구성
 author: chaosrealm
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 6e5148727ab09c56d9af36f7e6fae5e47c85ea59
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search 인덱서의 필드 매핑
 Azure Search 인덱서를 사용할 때 입력 데이터가 대상 인덱스 스키마와 정확히 일치하지 않는 경우에 직면할 수 있습니다. 이러한 경우 **필드 매핑** 을 사용하여 데이터를 원하는 모양으로 변환할 수 있습니다.

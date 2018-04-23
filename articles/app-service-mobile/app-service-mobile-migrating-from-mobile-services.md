@@ -1,11 +1,11 @@
 ---
-title: "Mobile Services에서 App Service 모바일 앱으로 마이그레이션"
-description: "Mobile Services 응용 프로그램을 App Service 모바일 앱으로 쉽게 마이그레이션하는 방법을 알아봅니다."
+title: Mobile Services에서 App Service 모바일 앱으로 마이그레이션
+description: Mobile Services 응용 프로그램을 App Service 모바일 앱으로 쉽게 마이그레이션하는 방법을 알아봅니다.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="article-top"></a>기존 Azure Mobile Services를 Azure App Service로 마이그레이션
 [Azure App Service의 일반적인 가용성]을 사용하여 Azure Mobile Services 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure App Service의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure Mobile Services에서 Azure App Service에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.

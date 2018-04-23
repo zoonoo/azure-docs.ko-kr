@@ -3,16 +3,17 @@ title: Azure Search의 인덱서 | Microsoft Docs
 description: 검색 가능한 데이터를 추출하여 Azure Search 인덱스에 입력하기 위해 Azure SQL Database, Azure Cosmos DB 또는 Azure Storage를 탐색합니다.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: a4130ceb3b60ac6b332e64964aa9e6c8b6e62450
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8def65c15d631909c69428a1cb5f100beb1f9b08
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search의 인덱서
 > [!div class="op_single_selector"]

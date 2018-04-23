@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
+    - name: 온-프레미스 리소스를 Azure로 마이그레이션
+      items:
+        - name: 시나리오 개요 - 온-프레미스 리소스를 Azure로 마이그레이션
+          href: migrate-scenarios-overview.md
+        - name: 시나리오 1 - Azure로 마이그레이션할 온-프레미스 리소스 평가
+          href: migrate-scenarios-assessment.md
     - name: 대규모 환경 검색 및 평가
       href: how-to-scale-assessment.md
     - name: 컴퓨터 그룹화

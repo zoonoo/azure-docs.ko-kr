@@ -14,8 +14,12 @@
     - name: Hive 정책 구성
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: 도메인 가입 클러스터 관리
-      href: apache-domain-joined-manage.md
+    - name: VSCode를 사용하여 도메인 가입된 클러스터에 연결
+      href: ../hdinsight-for-vscode.md
+    - name: IntelliJ를 사용하여 도메인 가입된 클러스터에 연결
+      href: ../spark/apache-spark-intellij-tool-plugin.md
+    - name: Eclipse를 사용하여 도메인 가입된 클러스터에 연결
+      href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: 데이터 보안
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

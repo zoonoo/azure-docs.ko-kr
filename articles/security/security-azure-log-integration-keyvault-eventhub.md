@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 로그 통합 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
@@ -88,7 +88,7 @@ Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보
 
 4. 인증에 성공하면 로그인되고 다음 스크린샷의 정보가 표시됩니다. 구독 ID 및 구독 이름을 메모해 두세요. 이후 단계를 완료하는 데 필요합니다.
 
-   ![PowerShell 창](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
+   ![PowerShell 창](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. 나중에 사용할 값을 저장하는 변수를 만듭니다. 다음 각 PowerShell 줄을 입력합니다. 환경에 맞게 값을 조정해야 할 수도 있습니다.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(구독 이름은 다를 수 있습니다. 이는 이전 명령의 출력에서 볼 수 있습니다.)
     - ```$location = 'West US'```(이 변수는 리소스를 만들 위치를 전달하는 데 사용됩니다. 이 변수를 선택한 위치로 변경할 수 있습니다.)

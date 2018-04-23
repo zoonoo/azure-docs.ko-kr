@@ -3,9 +3,8 @@ title: 'Azure Table Storage: 웹앱 Node.js 빌드 | Microsoft Docs'
 description: Azure Storage 서비스 및 Azure 모듈을 추가해 Express를 사용하여 Web App 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 6608c9a40c017709be4a482c7825729f8d292715
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table Storage: Node.js 웹 응용 프로그램
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -38,6 +37,15 @@ ms.lasthandoff: 04/06/2018
 다음 스크린샷에 완성된 응용 프로그램이 나와 있습니다.
 
 ![Internet Explorer의 완료된 웹 페이지](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
+
+## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Web.Config에서 저장소 자격 증명 설정
 Azure Storage 또는 Azure Cosmos DB에 액세스하려면 저장소 자격 증명을 전달해야 합니다. 이를 위해 web.config 응용 프로그램 설정을 사용합니다.

@@ -3,15 +3,16 @@ title: Azure Search에서 패싯 탐색을 구현하는 방법 | Microsoft Docs
 description: Microsoft Azure에서 클라우드 호스팅되는 Search 서비스인 Azure Search와 통합되는 응용 프로그램에 패싯 탐색을 추가합니다.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 9ca289d4a8ce9849e3ec8fa4c2a3ca89f4dc311e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 응용 프로그램에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.

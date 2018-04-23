@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 2e4c424bb26a3b268ec893ca40dcdce7d7469217
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d168c0a127c037c1bca2a6b875e9b3d5707ba70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
 
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만듭니다. 다음 지침에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
-1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](http://twitter.com/app)로 이동하고 **새 앱 만들기**를 선택합니다.
+1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
 
     ![Twitter 응용 프로그램 만들기](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "Twitter 응용 프로그램 만들기")
 

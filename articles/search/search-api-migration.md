@@ -3,16 +3,17 @@ title: Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드 | Mi
 description: Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드
 author: brjohnstmsft
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.openlocfilehash: f2e8d5dd7f54e3435d1d94f34a5d4556690bfba8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ea901462677d42d90007a2130825bd3b382407f2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드
 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)의 2015-02-28 또는 2015-02-28-Preview 버전을 사용하는 경우 이 문서를 통해 일반적으로 다음 API 버전인 2016-09-01을 사용하기 위해 응용 프로그램을 업그레이드할 수 있습니다.

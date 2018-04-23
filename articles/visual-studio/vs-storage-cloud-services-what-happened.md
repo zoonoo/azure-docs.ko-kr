@@ -2,23 +2,20 @@
 title: 클라우드 서비스 프로젝트에 대해 변경된 내용 | Microsoft Docs
 description: Visual Studio 연결 서비스를 사용하여 Azure 저장소 계정에 연결한 후 클라우드 서비스 프로젝트의 변경 내용에 대해 설명합니다.
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 8bbb87c313957ee697866a82ddec4c61d1420939
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e88e41edbd062f89e24915889f5b74660ec45513
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>내 클라우드 서비스 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용
 ## <a name="references-added"></a>참조 추가됨

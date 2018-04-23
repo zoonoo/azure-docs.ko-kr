@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 906ea3c37823616597ee74dbadf50618d5c4e11d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 66a3a31574778bb1238498b523d51dc0d32ac22f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 Azure는 Azure 클라우드 서비스 및 가상 머신 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다. 문서에는 각 문서에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.
@@ -75,7 +75,7 @@ Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사
 자세한 정보:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
+* [Azure Multi-Factor Authentication 정의](../active-directory/authentication/multi-factor-authentication.md)
 * [Azure Multi-Factor Authentication 작동 방법](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute

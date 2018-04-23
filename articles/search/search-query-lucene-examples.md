@@ -4,15 +4,16 @@ description: Lucene은 유사 항목 검색, 근접 검색, 용어 상승, 정�
 author: LiamCa
 manager: jlembicz
 tags: Lucene query analyzer syntax
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 5bf033d7549f3a1213d7a2b2c3694ae7415643eb
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene은 Azure Search에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
 Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 사용하거나, [Azure 검색의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)를 대신 사용할 수 있습니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 등의 더 복잡한 쿼리 구조를 지원합니다.

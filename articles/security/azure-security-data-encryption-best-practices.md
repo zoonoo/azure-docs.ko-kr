@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 클라우드의 데이터를 보호하기 위한 핵심 중 하나는 데이터에서 발생 가능한 상태 그리고 해당 상태에 어떤 컨트롤을 제공할 것인지 설명하는 것입니다. Azure 데이터 보안 및 암호화 모범 사례를 위해 다음과 같은 데이터 상태와 관련된 권장 사항이 제공됩니다.
@@ -50,13 +50,13 @@ ms.lasthandoff: 04/19/2018
 * 파일 수준 데이터 암호화 적용
 
 ## <a name="enforce-multi-factor-authentication"></a>Multi-Factor Authentication 적용
-Microsoft Azure의 데이터 액세스 및 제어에서 첫 번째 단계는 사용자 인증입니다. [Azure MFA(Multi-Factor Authentication)](../multi-factor-authentication/multi-factor-authentication.md)는 사용자 이름 및 암호 이외의 다른 수단을 사용하여 사용자의 ID를 확인하는 방법입니다. 이 인증 방법은 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동시에 데이터와 응용 프로그램에 대한 액세스를 보호합니다.
+Microsoft Azure의 데이터 액세스 및 제어에서 첫 번째 단계는 사용자 인증입니다. [Azure MFA(Multi-Factor Authentication)](../active-directory/authentication/multi-factor-authentication.md)는 사용자 이름 및 암호 이외의 다른 수단을 사용하여 사용자의 ID를 확인하는 방법입니다. 이 인증 방법은 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동시에 데이터와 응용 프로그램에 대한 액세스를 보호합니다.
 
 사용자에 대한 Azure MFA를 활성화하면 사용자 로그인 및 트랜잭션에 두 번째 보안 계층이 추가됩니다. 이 경우 트랜잭션이 파일 서버 또는 SharePoint Online에 있는 문서에 액세스할 수 있습니다. 또한 Azure MFA를 사용하면 IT는 손상된 자격 증명이 조직의 데이터에 액세스하는 가능성을 줄일 수 있습니다.
 
 예를 들어 사용자에 대해 Azure MFA를 적용하고 전화 통화 또는 문자 메시지를 통해 확인하도록 구성하면 사용자의 자격 증명이 손상된 경우 공격자가 어떤 리소스에도 액세스할 수 없습니다. 공격자가 사용자의 전화기에 대한 액세스 권한을 갖고 있지 않기 때문입니다. 이 ID 보호 추가 계층을 추가하지 않는 조직은 자격 증명 도난 공격에 취약하며, 이로 인해 데이터가 손상될 수 있습니다.
 
-인증 제어를 온-프레미스에 유지하려는 조직이 선택할 수 있는 대안 중 하나는 MFA 온-프레미스라고도 하는 [Azure Multi-factor Authentication 서버](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)를 사용하는 것입니다. 이 방법을 사용하면 여전히 Multi-factor Authentication을 적용하면서도 MFA 서버를 온-프레미스에 유지할 수 있습니다.
+인증 제어를 온-프레미스에 유지하려는 조직이 선택할 수 있는 대안 중 하나는 MFA 온-프레미스라고도 하는 [Azure Multi-factor Authentication 서버](../active-directory/authentication/howto-mfaserver-deploy.md)를 사용하는 것입니다. 이 방법을 사용하면 여전히 Multi-factor Authentication을 적용하면서도 MFA 서버를 온-프레미스에 유지할 수 있습니다.
 
 Azure MFA에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../active-directory/authentication/howto-mfa-getstarted.md)을 참조하세요.
 

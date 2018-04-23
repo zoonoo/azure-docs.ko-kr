@@ -69,6 +69,8 @@
       items:
         - name: JavaScript
           href: app-insights-javascript.md
+    - name: Azure Functions 모니터링
+      href: 'https://docs.microsoft.com/azure/azure-functions/functions-monitoring'
     - name: 기타 플랫폼 모니터링
       items:
         - name: SharePoint 사이트

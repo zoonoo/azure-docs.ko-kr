@@ -8,6 +8,7 @@
 ## [DNS FAQ](dns-faq.md)
 ## [개인 DNS 영역 사용](private-dns-overview.md)
 ## [개인 DNS 시나리오](private-dns-scenarios.md)
+## [DNS 메트릭 및 경고](dns-alerts-metrics.md)
 
 
 # 시작

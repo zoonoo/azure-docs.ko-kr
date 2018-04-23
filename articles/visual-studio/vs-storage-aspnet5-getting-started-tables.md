@@ -2,23 +2,20 @@
 title: 테이블 저장소 및 Visual Studio 연결된 서비스 시작 방법(ASP.NET Core) | Microsoft Docs
 description: Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio ASP.NET Core 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다.
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: c20176b33962760560bbdb1cfe0d41377227d720
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e53e8ed27cfc048f24bda4ef92fcd2a50a85ed07
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Azure 테이블 저장소 및 Visual Studio 연결된 서비스를 시작하는 방법
 

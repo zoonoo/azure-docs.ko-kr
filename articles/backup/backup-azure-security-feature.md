@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능 | Microsoft Docs"
-description: "Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안전하게 만드는 방법 알아보기"
+title: Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능 | Microsoft Docs
+description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안전하게 만드는 방법 알아보기
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격을 방지하기 위해 Azure Backup은 이제 하이브리드 백업을 보호하는 데 도움이 되는 보안 기능을 제공합니다. 이 문서는 Azure Recovery Services 에이전트와 Azure Backup Server를 사용하여 이러한 기능을 활성화하고 사용하는 방법을 다룹니다. 이러한 기능으로는 다음이 포함됩니다.
@@ -55,7 +55,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
     ![Recovery Services 자격 증명 모음 속성의 스크린샷](./media/backup-azure-security-feature/security-settings-update.png)
 
     업데이트 링크를 클릭하면 해당 기능을 사용하도록 설정하고 요약을 볼 수 있는 **보안 설정** 블레이드가 열립니다.
-5. **Azure Multi-Factor Authentication을 구성했습니까?** 드롭다운 목록에서 값을 선택하여 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)을 사용하도록 설정했는지 확인합니다. 이 기능을 사용하도록 설정했으면 Azure Portal에 로그인하는 동안 다른 장치(예: 휴대폰)에서 인증을 받을지 묻는 메시지가 표시됩니다.
+5. **Azure Multi-Factor Authentication을 구성했습니까?** 드롭다운 목록에서 값을 선택하여 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 사용하도록 설정했는지 확인합니다. 이 기능을 사용하도록 설정했으면 Azure Portal에 로그인하는 동안 다른 장치(예: 휴대폰)에서 인증을 받을지 묻는 메시지가 표시됩니다.
 
    Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Azure Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 장치에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
 6. 보안 설정을 저장하려면 **사용**을 선택하고 **저장**을 클릭합니다. 이전 단계에서 **Azure Multi-Factor Authentication을 구성했습니까?** 목록에서 값을 선택한 후에만 **사용**을 선택할 수 있습니다.

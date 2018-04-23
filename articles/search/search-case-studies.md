@@ -4,16 +4,17 @@ description: Microsoft Azure에서 호스팅되는 클라우드 Search 서비스
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 6fddec08f23de8f310ad9e675409b80818b1c98d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bc15d214d48978b2f8a6bceb3d1a0e945f10bd67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Azure Search를 사용하는 사람: 사례 연구 및 고객 사례
 풍부한 Azure Search 경험을 다음과 같은 조직의 온라인 응용 프로그램에 통합하여 해당 조직이 비즈니스를 발전시키도록 도운 방법에 대해 알아봅니다.

@@ -3,16 +3,17 @@ title: Azure Search .NET SDK 버전 3으로 업그레이드 | Microsoft Docs
 description: Azure Search .NET SDK 버전 3으로 업그레이드
 author: brjohnstmsft
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 287b587badc0b1b6029ab0601ea19a734d56acd9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
 버전 2.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 3으로 응용 프로그램을 업그레이드할 수 있습니다.

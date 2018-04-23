@@ -2,23 +2,20 @@
 title: Publish-WebApplicationVM | Microsoft Docs
 description: 가상 머신에 웹 응용 프로그램을 배포하는 방법을 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: de4cec95-f73f-44d9-babd-9f47f2633cdb
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 49778b00dc9b1f6a8a11de5e3575599957b753fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3fdd11387096d95359fb5f578ca64720f2182c45
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell 스크립트)
 가상 머신에 웹 응용 프로그램을 배포합니다. 없는 경우 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.

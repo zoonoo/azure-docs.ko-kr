@@ -470,6 +470,8 @@
           href: troubleshoot-app-connection.md
         - name: 할당 오류
           href: allocation-failure.md
+        - name: 할당 오류 - 클래식 VM
+          href: allocation-failure-classic.md
         - name: 배포 문제
           href: troubleshoot-deploy-vm.md
         - name: VM 만들기

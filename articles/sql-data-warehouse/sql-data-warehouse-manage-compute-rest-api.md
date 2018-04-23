@@ -2,19 +2,19 @@
 title: Azure SQL Data Warehouse의 REST를 사용한 일시 중지, 다시 시작, 크기 조정 | Microsoft Docs
 description: REST API를 통해 SQL Data Warehouse에서 계산 능력을 관리합니다.
 services: sql-data-warehouse
-author: ronortloff
+author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 198c78c18839dea4d29e7a314835162bca5b350c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 21423d69bf2cf06bcd208082ce492bf5dd038e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 REST API
 Azure SQL Data Warehouse에서 계산을 관리하기 위한 REST API입니다.

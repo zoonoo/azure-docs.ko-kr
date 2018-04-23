@@ -3,15 +3,16 @@ title: Azure Search에 대한 질문과 대답(FAQ) | Microsoft Docs
 description: Microsoft Azure Search 서비스에 대한 일반적인 질문과 답변
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: f86a4da519143cc9d043476d3853a15b812b9edd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d731faffe1b2448670a5fafa0278ff8c7fb21722
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ(질문과 대답)
 

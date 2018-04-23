@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 장치 등 여러 장치에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 응용 프로그램 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 끝점은 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -99,7 +99,7 @@ Azure 클라우드 서비스 구성은 Windows PowerShell 명령줄 인터페이
 
 Virtual Machine–배포 응용 프로그램은 필요에 따라 MMC(Microsoft Management Console), 엔터프라이즈 관리 콘솔(예: Microsoft System Center 또는 Windows Intune) 또는 다른 관리 응용 프로그램(예: Microsoft SQL Server Management Studio) 등 자체 클라이언트 도구 및 인터페이스를 제공합니다. 이러한 도구는 일반적으로 엔터프라이즈 환경 또는 클라이언트 네트워크에 상주합니다. 이는 직접적이며 상태 저장 연결이 필요한 RDP(원격 데스크톱 프로토콜)와 같은 특정 네트워크 프로토콜에 따라 다를 수 있습니다. 일부는 인터넷을 통해 공개적으로 게시되거나 액세스할 수 없는 웹 기반 인터페이스가 있을 수 있습니다.
 
-[Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md), [X.509 관리 인증서](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) 및 방화벽 규칙을 사용하여 Azure의 인프라 및 플랫폼 서비스 관리에 대한 액세스를 제한할 수 있습니다. Azure 포털 및 SMAPI는 전송 계층 보안(TLS)이 필요합니다. 그러나 Azure에 배포하는 서비스 및 응용 프로그램은 응용 프로그램에 따라 적절한 보호 조치를 취해야 합니다. 이러한 메커니즘은 강화된 워크스테이션 구성을 표준화하여 보다 쉽게 자주 사용할 수 있습니다.
+[Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md), [X.509 관리 인증서](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) 및 방화벽 규칙을 사용하여 Azure의 인프라 및 플랫폼 서비스 관리에 대한 액세스를 제한할 수 있습니다. Azure 포털 및 SMAPI는 전송 계층 보안(TLS)이 필요합니다. 그러나 Azure에 배포하는 서비스 및 응용 프로그램은 응용 프로그램에 따라 적절한 보호 조치를 취해야 합니다. 이러한 메커니즘은 강화된 워크스테이션 구성을 표준화하여 보다 쉽게 자주 사용할 수 있습니다.
 
 ### <a name="management-gateway"></a>관리 게이트웨이
 모든 관리 액세스를 중앙 집중화하고 모니터링 및 로깅을 간소화하려면, Azure 환경에 연결된 온-프레미스 네트워크에 전용 [원격 데스크톱 게이트웨이](https://technet.microsoft.com/library/dd560672)(RD 게이트웨이) 서버를 배포할 수 있습니다.
@@ -110,7 +110,7 @@ Virtual Machine–배포 응용 프로그램은 필요에 따라 MMC(Microsoft M
 * RD 게이트웨이를 관리자 워크스테이션과 동일한 [관리 도메인](http://technet.microsoft.com/library/bb727085.aspx)에 조인합니다. 이는 사이트 간 IPsec VPN 또는 Azure AD에 단방향 트러스트 관계가 있는 도메인 내의 ExpressRoute를 사용하는 경우 또는 온-프레미스 AD DS 인스턴스와 Azure AD 간의 자격 증명을 페더레이션하는 경우 필요합니다.
 * [클라이언트 연결 권한 부여 정책](http://technet.microsoft.com/library/cc753324.aspx)을 구성하여 RD 게이트웨이가 클라이언트 컴퓨터 이름이 유효하고(도메인에 조인됨) Azure Portal에 액세스할 수 있도록 허용되었는지 확인하도록 합니다.
 * [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)에 대한 IPsec을 사용하여 도청 및 토큰 도난으로부터 관리 트래픽을 보호하거나 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)를 통해 격리된 인터넷 링크를 고려합니다.
-* Multi-Factor Authentication([Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)을 통해) 또는 RD 게이트웨이를 통해 로그인하는 관리자를 위한 스마트 카드 인증을 사용합니다.
+* Multi-Factor Authentication([Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 통해) 또는 RD 게이트웨이를 통해 로그인하는 관리자를 위한 스마트 카드 인증을 사용합니다.
 * Azure에서 원본 [IP 주소 제한](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 구성하여 허용된 관리 끝점의 수를 최소화합니다.
 
 ## <a name="security-guidelines"></a>보안 지침
