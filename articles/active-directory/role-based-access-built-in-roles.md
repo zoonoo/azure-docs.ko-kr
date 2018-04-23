@@ -31,7 +31,7 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 - **쓰기**를 사용하여 PUT, POST, PATCH 및 DELETE 작업을 수행할 수 있습니다.
 - **읽기**를 사용하여 GET 작업을 수행할 수 있습니다.
 
-이 문서에서는 현재 존재하는 다양한 역할만 소개합니다. 그렇지만 사용자에게 역할을 할당할 때 범위를 정의하여 허용되는 동작을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 웹 사이트 참가자로 지정하려는 경우에 유용합니다.
+이 문서에서는 현재 존재하는 다양한 역할만 소개합니다. 그렇지만 사용자에게 역할을 할당할 때 범위를 정의하여 허용되는 동작을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 웹 사이트 기여자로 지정하려는 경우에 유용합니다.
 
 > [!NOTE]
 > Azure 역할 정의는 끊임없이 진화하고 있습니다. 이 문서는 가능한 최신 상태로 유지되지만 Azure PowerShell에서 항상 최신 역할 정의를 확인할 수 있습니다. 현재의 모든 역할을 나열하려면 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet을 사용합니다. `(get-azurermroledefinition "<role name>").actions` 또는 `(get-azurermroledefinition "<role name>").notactions`를 적절히 사용하여 특정 역할을 자세히 알아볼 수 있습니다. 특정 Azure 리소스 공급자의 작업을 나열하려면 [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation)을 사용합니다.
@@ -40,72 +40,72 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 | 기본 제공 역할 | 설명 |
 | --- | --- |
 | [소유자](#owner) | 리소스 액세스를 비롯한 모든 것을 관리할 수 있습니다. |
-| [참여자](#contributor) | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
+| [기여자](#contributor) | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
 | [판독기](#reader) | 모든 것을 볼 수 있지만 변경은 할 수 없습니다. |
-| [API Management 서비스 참여자](#api-management-service-contributor) | 서비스 및 API를 관리할 수 있습니다. |
+| [API Management 서비스 기여자](#api-management-service-contributor) | 서비스 및 API를 관리할 수 있습니다. |
 | [API Management 서비스 운영자 역할](#api-management-service-operator-role) | 서비스를 관리할 수 있지만 API는 관리할 수 없습니다. |
 | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | 서비스 및 API에 대한 읽기 전용 액세스 |
-| [Application Insights 구성 요소 참여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
+| [Application Insights 구성 요소 기여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
 | [Application Insights 스냅숏 디버거](#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅숏 디버거 기능을 사용할 수 있는 권한을 부여합니다. |
 | [Automation 작업 연산자](#automation-job-operator) | Automation Runbook을 사용하여 작업을 만들고 관리합니다. |
 | [Automation 운영자](#automation-operator) | 자동화 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. |
 | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. |
 | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. |
-| [Backup 참여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+| [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
 | [Backup 읽기 권한자](#backup-reader) | 백업 서비스를 볼 수 있지만 변경할 수는 없습니다. |
 | [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 |
-| [BizTalk 참여자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [CDN 엔드포인트 참가자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+| [BizTalk 기여자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
-| [CDN 프로필 참가자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+| [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 프로필 독자](#cdn-profile-reader) | CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
-| [클래식 네트워크 참여자](#classic-network-contributor) | 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [클래식 Storage 계정 참여자](#classic-storage-account-contributor) | 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
+| [클래식 네트워크 기여자](#classic-network-contributor) | 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [클래식 Storage 계정 기여자](#classic-storage-account-contributor) | 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [클래식 저장소 계정 키 운영자 서비스 역할](#classic-storage-account-key-operator-service-role) | 클래식 저장소 계정 키 운영자가 클래식 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
-| [Classic Virtual Machine 참여자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
-| [ClearDB MySQL DB 참여자](#cleardb-mysql-db-contributor) | ClearDB MySQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
-| [데이터 팩터리 참여자](#data-factory-contributor) | 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. |
+| [Classic Virtual Machine 기여자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
+| [ClearDB MySQL DB 기여자](#cleardb-mysql-db-contributor) | ClearDB MySQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 기여자](#documentdb-account-contributor)를 참조하세요. |
+| [데이터 팩터리 기여자](#data-factory-contributor) | 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. |
 | [Data Lake Analytics 개발자](#data-lake-analytics-developer) | 사용자 자신의 작업을 제출, 모니터링 및 관리할 수 있지만 Data Lake Analytics 계정을 만들거나 삭제할 수는 없습니다. |
 | [DevTest Lab 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
-| [DNS 영역 참여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
-| [DocumentDB 계정 참여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
-| [지능형 시스템 계정 참여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
-| [키 자격 증명 모음 참가자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [DNS 영역 기여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
+| [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
+| [지능형 시스템 계정 기여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [키 자격 증명 모음 기여자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [랩 작성자](#lab-creator) | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. |
-| [Log Analytics 참가자](#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
+| [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
 | [Log Analytics 독자](#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
-| [논리 앱 참가자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [논리 앱 기여자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [논리 앱 운영자](#logic-app-operator) | 논리 앱을 읽고, 설정하고, 해제할 수 있습니다. |
-| [관리 ID 참가자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
+| [관리 ID 기여자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
 | [관리 ID 운영자](#managed-identity-operator) | 사용자 할당 ID를 읽고 할당합니다. |
 | [Monitoring Contributor](#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 | [Monitoring Reader](#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
-| [네트워크 참여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [NewRelic APM 계정 참여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
-| [Redis 캐시 참여자](#redis-cache-contributor) | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [Scheduler 작업 컬렉션 참여자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
-| [Search 서비스 참여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Redis 캐시 기여자](#redis-cache-contributor) | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Scheduler 작업 컬렉션 기여자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제 |
 | [보안 관리자](#security-manager) | 보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있습니다. |
 | [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가 |
-| [Site Recovery 참가자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
+| [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
-| [SQL DB 참여자](#sql-db-contributor) | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
+| [SQL DB 기여자](#sql-db-contributor) | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
 | [SQL 보안 관리자](#sql-security-manager) | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
-| [SQL Server 참여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
-| [Storage 계정 참여자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
+| [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
+| [Storage 계정 기여자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 저장소 계정 키 운영자가 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
-| [지원 요청 참가자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. |
-| [Traffic Manager 참가자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
+| [지원 요청 기여자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. |
+| [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. |
 | [가상 머신 관리자 로그인](#virtual-machine-administrator-login) | - 이 역할이 할당된 사용자는 Windows 관리자 또는 Linux 루트 사용자 권한으로 가상 머신에 로그인할 수 있습니다. |
-| [Virtual Machine 참여자](#virtual-machine-contributor) | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
+| [Virtual Machine 기여자](#virtual-machine-contributor) | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 | [가상 머신 사용자 로그인](#virtual-machine-user-login) | 이 역할이 할당된 사용자는 가상 머신에 일반 사용자로 로그인 할 수 있습니다. |
-| [웹 계획 참여자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. |
-| [웹 사이트 참여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [웹 계획 기여자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. |
 
 다음 표에서는 각 역할에 부여되는 특정 권한에 대해 설명합니다. 여기에는 권한을 부여하는 **작업**과 권한을 제한하는 **작업 안 함**이 포함될 수 있습니다.
 
@@ -116,7 +116,7 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 | --- | --- |
 | * | 모든 유형의 리소스 만들기 및 관리 |
 
-## <a name="contributor"></a>참가자
+## <a name="contributor"></a>기여자
 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다.
 
 | **actions** |  |
@@ -136,7 +136,7 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 | --- | --- |
 | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 
-## <a name="api-management-service-contributor"></a>API Management 서비스 참여자
+## <a name="api-management-service-contributor"></a>API Management 서비스 기여자
 서비스 및 API를 관리할 수 있습니다.
 
 | **actions** |  |
@@ -192,7 +192,7 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 | --- | --- |
 | Microsoft.ApiManagement/service/users/keys/read | 사용자 키의 목록을 가져옵니다. |
 
-## <a name="application-insights-component-contributor"></a>Application Insights 구성 요소 참여자
+## <a name="application-insights-component-contributor"></a>Application Insights 구성 요소 기여자
 Application Insights 구성 요소를 관리할 수 있음
 
 | **actions** |  |
@@ -283,7 +283,7 @@ Azure Stack 등록을 관리할 수 있습니다.
 | Microsoft.AzureStack/registrations/products/read | Azure Stack Marketplace 제품의 속성 가져오기 |
 | Microsoft.AzureStack/registrations/read | Azure Stack 등록의 속성 가져오기 |
 
-## <a name="backup-contributor"></a>Backup 참여자
+## <a name="backup-contributor"></a>Backup 기여자
 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
 
 | **actions** |  |
@@ -421,7 +421,7 @@ Azure Stack 등록을 관리할 수 있습니다.
 | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="biztalk-contributor"></a>BizTalk 참여자
+## <a name="biztalk-contributor"></a>BizTalk 기여자
 BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -434,7 +434,7 @@ BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="cdn-endpoint-contributor"></a>CDN 엔드포인트 참가자
+## <a name="cdn-endpoint-contributor"></a>CDN 엔드포인트 기여자
 CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
 
 | **actions** |  |
@@ -462,7 +462,7 @@ CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="cdn-profile-contributor"></a>CDN 프로필 참가자
+## <a name="cdn-profile-contributor"></a>CDN 프로필 기여자
 CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
 
 | **actions** |  |
@@ -490,7 +490,7 @@ CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 �
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="classic-network-contributor"></a>클래식 네트워크 참여자
+## <a name="classic-network-contributor"></a>클래식 네트워크 기여자
 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -503,7 +503,7 @@ CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 �
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="classic-storage-account-contributor"></a>클래식 Storage 계정 참여자
+## <a name="classic-storage-account-contributor"></a>클래식 Storage 계정 기여자
 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -524,7 +524,7 @@ CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 �
 | Microsoft.ClassicStorage/storageAccounts/listkeys/action | 저장소 계정의 액세스 키를 나열합니다. |
 | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | 저장소 계정에 대한 기존 액세스 키를 다시 생성합니다. |
 
-## <a name="classic-virtual-machine-contributor"></a>클래식 Virtual Machine 참여자
+## <a name="classic-virtual-machine-contributor"></a>클래식 Virtual Machine 기여자
 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -547,7 +547,7 @@ CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 �
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB 참여자
+## <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB 기여자
 ClearDB MySQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -561,7 +561,7 @@ ClearDB MySQL 데이터베이스를 관리할 수 있지만 액세스할 수는 
 | successbricks.cleardb/databases/* | ClearDB MySQL 데이터베이스 만들기 및 관리 |
 
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB 계정 독자 역할
-Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요.
+Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 기여자](#documentdb-account-contributor)를 참조하세요.
 
 | **actions** |  |
 | --- | --- |
@@ -573,7 +573,7 @@ Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 �
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="data-factory-contributor"></a>데이터 팩터리 참여자
+## <a name="data-factory-contributor"></a>데이터 팩터리 기여자
 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다.
 
 | **actions** |  |
@@ -656,7 +656,7 @@ Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료�
 | --- | --- |
 | Microsoft.Compute/virtualMachines/vmSizes/read | 가상 머신이 업데이트될 수 있는 사용 가능한 크기를 나열합니다. |
 
-## <a name="dns-zone-contributor"></a>DNS 영역 참여자
+## <a name="dns-zone-contributor"></a>DNS 영역 기여자
 Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다.
 
 | **actions** |  |
@@ -669,7 +669,7 @@ Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="documentdb-account-contributor"></a>DocumentDB 계정 참여자
+## <a name="documentdb-account-contributor"></a>DocumentDB 계정 기여자
 Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다.
 
 | **actions** |  |
@@ -682,7 +682,7 @@ Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전�
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="intelligent-systems-account-contributor"></a>지능형 시스템 계정 참여자
+## <a name="intelligent-systems-account-contributor"></a>지능형 시스템 계정 기여자
 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -695,7 +695,7 @@ Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전�
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="key-vault-contributor"></a>키 자격 증명 모음 참가자
+## <a name="key-vault-contributor"></a>키 자격 증명 모음 기여자
 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -723,8 +723,8 @@ Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="log-analytics-contributor"></a>Log Analytics 참가자
-Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.
+## <a name="log-analytics-contributor"></a>Log Analytics 기여자
+Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.
 
 | **actions** |  |
 | --- | --- |
@@ -756,7 +756,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 | --- | --- |
 | Microsoft.OperationalInsights/workspaces/sharedKeys/read | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
 
-## <a name="logic-app-contributor"></a>논리 앱 참가자
+## <a name="logic-app-contributor"></a>논리 앱 기여자
 논리 앱을 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -804,7 +804,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 | Microsoft.Web/customApis/*/read | 사용자 지정 API를 읽습니다. |
 | Microsoft.Web/serverFarms/read | App Service 계획의 속성을 가져옵니다. |
 
-## <a name="managed-identity-contributor"></a>관리 ID 참가자
+## <a name="managed-identity-contributor"></a>관리 ID 기여자
 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다.
 
 | **actions** |  |
@@ -865,7 +865,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="network-contributor"></a>네트워크 참여자
+## <a name="network-contributor"></a>네트워크 기여자
 네트워크를 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -878,7 +878,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="new-relic-apm-account-contributor"></a>NewRelic APM 계정 참여자
+## <a name="new-relic-apm-account-contributor"></a>NewRelic APM 계정 기여자
 New Relic Application Performance Management 계정을 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -891,7 +891,7 @@ New Relic Application Performance Management 계정을 관리할 수 있지만 �
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 | NewRelic.APM/accounts/* |  |
 
-## <a name="redis-cache-contributor"></a>Redis 캐시 참여자
+## <a name="redis-cache-contributor"></a>Redis 캐시 기여자
 Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -904,7 +904,7 @@ Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다.
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="scheduler-job-collections-contributor"></a>Scheduler 작업 컬렉션 참여자
+## <a name="scheduler-job-collections-contributor"></a>Scheduler 작업 컬렉션 기여자
 Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -917,7 +917,7 @@ Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습
 | Microsoft.Scheduler/jobcollections/* | 스케줄러 작업 컬렉션 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="search-service-contributor"></a>Search 서비스 참여자
+## <a name="search-service-contributor"></a>Search 서비스 기여자
 Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -978,7 +978,7 @@ Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기,
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Security/*/read | 보안 구성 요소 및 정책 읽기 |
 
-## <a name="site-recovery-contributor"></a>Site Recovery 참가자
+## <a name="site-recovery-contributor"></a>Site Recovery 기여자
 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다.
 
 | **actions** |  |
@@ -1111,7 +1111,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="sql-db-contributor"></a>SQL DB 참여자
+## <a name="sql-db-contributor"></a>SQL DB 기여자
 SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다.
 
 | **actions** |  |
@@ -1176,7 +1176,7 @@ SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수
 | Microsoft.Sql/servers/securityAlertPolicies/* | SQL 서버 보안 경고 정책 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="sql-server-contributor"></a>SQL Server 참여자
+## <a name="sql-server-contributor"></a>SQL Server 기여자
 SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다.
 
 | **actions** |  |
@@ -1210,7 +1210,7 @@ SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스
 | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 | Microsoft.Sql/servers/securityAlertPolicies/* | SQL 서버 보안 경고 정책을 편집할 수 없음 |
 
-## <a name="storage-account-contributor"></a>Storage 계정 참여자
+## <a name="storage-account-contributor"></a>Storage 계정 기여자
 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -1233,7 +1233,7 @@ Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습�
 | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
 | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 저장소 계정에 대한 액세스 키를 다시 생성합니다. |
 
-## <a name="support-request-contributor"></a>지원 요청 참가자
+## <a name="support-request-contributor"></a>지원 요청 기여자
 지원 요청을 만들고 관리할 수 있습니다.
 
 | **actions** |  |
@@ -1242,7 +1242,7 @@ Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습�
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="traffic-manager-contributor"></a>Traffic Manager 참가자
+## <a name="traffic-manager-contributor"></a>Traffic Manager 기여자
 Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다.
 
 | **actions** |  |
@@ -1274,7 +1274,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 | Microsoft.Compute/virtualMachine/loginAsAdmin/action |  |
 | Microsoft.Compute/virtualMachine/logon/action |  |
 
-## <a name="virtual-machine-contributor"></a>Virtual Machine 참가자
+## <a name="virtual-machine-contributor"></a>Virtual Machine 기여자
 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -1325,7 +1325,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 | Microsoft.Compute/virtualMachines/login/action |  |
 | Microsoft.Compute/virtualMachine/logon/action |  |
 
-## <a name="web-plan-contributor"></a>웹 계획 참여자
+## <a name="web-plan-contributor"></a>웹 계획 기여자
 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |
@@ -1338,7 +1338,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 | Microsoft.Web/serverFarms/* | 서버 팜 만들기 및 관리 |
 
-## <a name="website-contributor"></a>웹 사이트 참여자
+## <a name="website-contributor"></a>웹 사이트 기여자
 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다.
 
 | **actions** |  |

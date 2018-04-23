@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드
 
@@ -121,8 +121,7 @@ Azure Marketplace를 통해 IT 전문가 및 클라우드 개발자가 IaaS, Saa
 체험 수준 또는 트랜잭션 수준의 참여가 용이하지 않을 경우 나에게 연락을 사용합니다. 이 방식은 마켓에 솔루션을 내놓은 게시자가 기본 거래를 통해 비즈니스 수익을 창출할 수 있는 잠재 고객을 바로 입수할 수 있다는 장점이 있습니다. 그러나 다른 제공 유형에 비해 고객 참여가 제한된다는 단점이 있습니다.
 
 >[!IMPORTANT]
-<<<<<<< HEAD 체험 및 트랜잭션 제안에는 고객 참여가 가장 좋습니다. 나에게 연락의 값은 사용자가 받는 잠재 고객이므로, 이 종류의 목록을 선택하는 경우 잠재 고객 대상이 구성되어 있고 잠재 고객을 최대화할 준비가 되었는지 확인합니다. ======= 나에게 연락 항목 종류는 권장되지 않습니다. 체험 환경을 확보할 방법이 있는 상황에서만 사용해야 합니다. 체험 및 트랜잭션 제공 시 고객 참여가 가장 좋습니다. 어떤 유형이든 체험 환경이 있는 경우 온보딩 프로세스가 해당 시나리오에 따라 이러한 옵션 중 하나를 안내합니다.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>체험 및 트랜잭션 제공 시 고객 참여가 가장 좋습니다. 나에게 연락의 값은 사용자가 받는 잠재 고객이므로, 이 종류의 목록을 선택하는 경우 잠재 고객 대상이 구성되어 있고 잠재 고객을 최대화할 준비가 되었는지 확인합니다. 
 
 제품이 주로 전문 서비스(예: 평가, 구현, 워크샵)로 이루어져 있는 경우 컨설팅 서비스 제공 유형을 사용합니다. 제공 범위, 기간 및 가격은 고정되어야 하며, 단일 고객을 위한 것이어야 하고, 현장에서 수행되어야 합니다.
 
@@ -493,7 +492,6 @@ Azure Marketplace에 대한 지원 옵션 목록은 다음과 같습니다.
 
 |지원 채널  |설명  |
 |---------|---------|
-|Slack: [Marketplace Slack에 참여](https://join.marketplace.azure.com)    |   파트너의 기술 문제를 지원하기 위한 Slack 환경입니다. 현재 이 환경에서 작업하는 350개 이상의 파트너가 있습니다.        |
 |MSDN 포럼: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network 포럼입니다.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Azure 및 Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 Stack Overflow 환경입니다.<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure 리소스 관리자](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 
