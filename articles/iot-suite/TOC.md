@@ -48,6 +48,7 @@
 ### [예측 유지 관리 솔루션 연습](iot-suite-predictive-walkthrough.md)
 
 ## 연결된 공장
+### [연결된 팩터리란?](iot-suite-connected-factory-features.md)
 ### [연결된 공장 솔루션 개요](iot-suite-connected-factory-overview.md)
 ### [연결된 공장 솔루션 연습](iot-suite-connected-factory-sample-walkthrough.md)
 

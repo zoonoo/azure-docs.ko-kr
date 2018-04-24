@@ -12,15 +12,15 @@
 ## [표준 Load Balancer 메트릭 및 진단](load-balancer-standard-diagnostics.md)
 
 # 시작
-## [기본 Load Balancer 만들기](load-balancer-get-started-internet-portal.md)
-### [기본 Load Balancer 만들기(CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [기본 Load Balancer 만들기(PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [표준 Load Balancer 만들기](load-balancer-standard-public-portal.md)
-### [표준 Load Balancer 만들기(CLI)](load-balancer-standard-public-cli.md)
+## [기본 Load Balancer 만들기](quickstart-create-basic-load-balancer-portal.md)
+### [기본 Load Balancer 만들기(CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [기본 Load Balancer 만들기(PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [표준 Load Balancer 만들기](quickstart-load-balancer-standard-public-portal.md)
+### [표준 Load Balancer 만들기(CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # 방법
 
-## [영역 중복 공용 표준 부하 분산 장치 만들기](load-balancer-get-started-internet-az-portal.md)
+## [영역 중복 공용 표준 부하 분산 장치 만들기](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [영역 중복 공용 표준 부하 분산 장치 만들기(PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [영역 중복 공용 표준 부하 분산 장치 만들기(CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [영역 공용 표준 부하 분산 장치 만들기](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
@@ -28,7 +28,8 @@
 ### [영역 중복 공용 표준 부하 분산 장치 만들기(CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
 ## [가용성 영역에 VM 부하 분산](load-balancer-standard-public-availability-zones-portal.md)
 ###  [가용성 영역에 VM 부하 분산(CLI)](load-balancer-standard-public-zone-redundant-cli.md)
-##  [영역 내에 VM 부하 분산(CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [영역 내에 VM 부하 분산](tutorial-load-balancer-standard-public-zonal-portal.md)  
+###  [영역 내에 VM 부하 분산(CLI)](load-balancer-standard-public-zonal-cli.md)   
 ## [기본 Load Balancer 만들기(템플릿)](load-balancer-get-started-internet-arm-template.md)
 ## [IPv6를 사용하는 공용 부하 분산 장치 만들기](load-balancer-ipv6-internet-ps.md)
 ### [IPv6를 사용하는 공용 부하 분산 장치 만들기(CLI)](load-balancer-ipv6-internet-cli.md)

@@ -27,9 +27,11 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2- 응용 프로그램 배포
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3- CI/CD 구성
+        - name: 3- HTTPS 활성화
+          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+        - name: 4- CI/CD 구성
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 4- 모니터링 및 진단
+        - name: 5- 모니터링 및 진단
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Java 앱 배포
       items:
@@ -553,36 +555,40 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: 모니터링 및 진단
       items:
-        - name: OMS를 사용하여 분석
+        - name: 응용 프로그램 모니터링
           items:
-            - name: OMS Log Analytics 설정
-              href: service-fabric-diagnostics-oms-setup.md
-            - name: OMS 에이전트 추가
-              href: service-fabric-diagnostics-oms-agent.md
-            - name: OMS로 모니터링
-              href: service-fabric-diagnostics-event-analysis-oms.md
+            - name: Application Insights를 사용하여 분석
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: 응용 프로그램에 로깅 추가
+              href: service-fabric-how-to-diagnostics-log.md
+            - name: EventFlow를 사용하여 이벤트 집계
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
             - name: 모니터 컨테이너
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Application Insights를 사용하여 분석
-          href: service-fabric-diagnostics-event-analysis-appinsights.md
-        - name: 이벤트 집계 - EventFlow
-          href: service-fabric-diagnostics-event-aggregation-eventflow.md
-        - name: 이벤트 집계 - Azure 진단
+        - name: 클러스터 모니터링
           items:
-            - name: Windows
+            - name: Windows Azure 진단
               href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux
+            - name: Linux Azure 진단
               href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: WAD를 사용하여 성능 모니터링
-          href: service-fabric-diagnostics-perf-wad.md
-        - name: 상태 보고 및 확인
-          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-        - name: 서비스에 로깅 추가
-          href: service-fabric-how-to-diagnostics-log.md
-        - name: 시스템 상태 보고서를 사용하여 문제 해결
-          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-        - name: 상태 보고서 보기
-          href: service-fabric-view-entities-aggregated-health.md
+            - name: OMS Log Analytics 설정
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: OMS로 모니터링
+              href: service-fabric-diagnostics-event-analysis-oms.md
+        - name: 인프라 모니터
+          items:
+            - name: WAD를 사용하여 성능 모니터링
+              href: service-fabric-diagnostics-perf-wad.md
+            - name: OMS 에이전트를 사용한 성능 모니터링
+              href: service-fabric-diagnostics-oms-agent.md
+        - name: 상태 모니터링
+          items:
+            - name: 상태 보고 및 확인
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: 시스템 상태 보고서를 사용하여 문제 해결
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: 상태 보고서 보기
+              href: service-fabric-view-entities-aggregated-health.md
         - name: 로컬 클러스터 문제 해결
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: 참고 자료

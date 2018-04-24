@@ -17,7 +17,7 @@
 ## [회사 브랜딩 구성](customize-branding.md)
 ## [Azure AD에 사용자 추가](add-users-azure-active-directory.md)
 ## [사용자에게 라이선스 할당](license-users-groups.md)
-## [셀프 서비스 암호 재설정 구성](active-directory-passwords-getting-started.md)
+## [셀프 서비스 암호 재설정 구성](authentication/quickstart-sspr.md)
 
 
 # 방법
@@ -63,6 +63,8 @@
 #### [동적 그룹 및 B2B 사용자](active-directory-b2b-dynamic-groups.md)
 #### [감사 및 보고서](active-directory-b2b-auditing-and-reporting.md)
 #### [하이브리드 조직에 대한 B2B](active-directory-b2b-hybrid-organizations.md)
+##### [B2B 사용자에게 로컬 앱에 대한 액세스 권한 부여](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [로컬 사용자에게 클라우드 앱에 대한 액세스 권한 부여](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [B2B 및 Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 #### [B2B 라이선스](active-directory-b2b-licensing.md)
 #### [현재 제한 사항](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
+#### [감사 활동 참조](active-directory-reporting-activity-audit-reference.md)
 #### [로그인 작업 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### 문제 해결
@@ -141,7 +144,7 @@
 #### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
 ### [SSPR 작동 방법](authentication/concept-sspr-howitworks.md)
 ### [SSPR 배포 가이드](authentication/howto-sspr-deployment.md)
-### [SSPR 및 Windows 10](active-directory-passwords-login.md)
+### [SSPR 및 Windows 10](authentication/tutorial-sspr-windows.md)
 ### [SSPR 정책](authentication/concept-sspr-policy.md)
 ### [SSPR 사용자 지정](authentication/concept-sspr-customization.md)
 ### [SSPR 데이터 요구 사항](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### IT 관리자: 암호 재설정
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [라이선스 SSPR](authentication/concept-sspr-licensing.md)
-### [비밀번호 쓰기 저장](active-directory-passwords-writeback.md)
+### [비밀번호 쓰기 저장](authentication/howto-sspr-writeback.md)
 ### [문제 해결](authentication/active-directory-passwords-troubleshoot.md)
 ### [FAQ](authentication/active-directory-passwords-faq.md)
 

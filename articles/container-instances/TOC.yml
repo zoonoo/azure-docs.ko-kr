@@ -43,6 +43,8 @@
       href: container-instances-environment-variables.md
     - name: 배포 문제 해결
       href: container-instances-troubleshooting.md
+    - name: ACI에서 Jenkins 빌드 에이전트
+      href: container-instances-jenkins.md
     - name: 데이터 볼륨 구성
       items:
         - name: Azure 파일

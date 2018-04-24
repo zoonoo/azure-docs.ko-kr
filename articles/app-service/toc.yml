@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: 자습서
   items:
-    - name: 1 - DB를 사용한 앱
+    - name: DB를 사용한 앱
       items:
         - name: SQL DB를 사용한 .NET Core
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: PostgreSQL을 사용하는 Python
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - RESTful API 호스트
+    - name: SQL DB를 안전하게 액세스
+      href: app-service-web-tutorial-connect-msi.md
+    - name: RESTful API 호스트
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - 사용자 지정 도메인 매핑
+    - name: 사용자 지정 도메인 매핑
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - SSL 인증서 바인딩
+    - name: SSL 인증서 바인딩
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - CDN 추가
+    - name: CDN 추가
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 - 사용자 인증
+    - name: 사용자 인증
       href: app-service-web-tutorial-auth-aad.md
 - name: 샘플
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: OS 기능
       href: web-sites-available-operating-system-functionality.md
+    - name: 인바운드 및 아웃바운드 IP
+      href: app-service-ip-addresses.md
     - name: 인증 및 권한 부여
       href: app-service-authentication-overview.md
     - name: 하이브리드 연결
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: 사용자 지정 인증
           href: app-service-authentication-how-to.md
+        - name: IP 제한
+          href: app-service-ip-restrictions.md
         - name: 관리되는 서비스 ID 사용
           href: app-service-managed-service-identity.md
         - name: 응용 프로그램 코드에서 SSL 인증서 사용

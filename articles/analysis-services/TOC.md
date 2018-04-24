@@ -31,6 +31,7 @@
 ### [서버 관리자 관리](analysis-services-server-admins.md)
 ### [서버 메트릭 모니터링](analysis-services-monitor.md)
 ### [진단 로깅 설정](analysis-services-logging.md)
+### [VNET의 데이터 원본에 대한 게이트웨이 사용](analysis-services-vnet-gateway.md)
 ## 연결
 ### [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ### [Excel과 연결](analysis-services-connect-excel.md)
@@ -70,7 +71,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure 상태](https://azure.microsoft.com/status/)
 ## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [가격](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
