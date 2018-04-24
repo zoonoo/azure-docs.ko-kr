@@ -57,11 +57,11 @@ Azure의 호스팅 서비스와 확장 기능을 활용하기 위해 웹 응용 
 
 1. [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)의 설명에 따라 Azure 구독에서 필요한 클라우드 서비스 및 저장소 계정을 만듭니다.
 1. Visual Studio에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure에 게시...** ("게시…" 명령과 다름)를 선택합니다.
-1. 나타나는 **Azure 응용 프로그램 게시**에서, 계정을 사용하여 Azure 구독에 로그인하고 **다음 >**을 선택합니다.
+1. 나타나는 **Azure 응용 프로그램 게시**에서, 계정을 사용하여 Azure 구독에 로그인하고 **다음 >** 을 선택합니다.
 1. 선택한 환경 및 구성에 맞는 대상 클라우드 서비스를 **설정 > 일반 설정** 탭의 **클라우드 서비스** 드롭다운 목록에서 선택합니다. 
-1. **설정 > 고급 설정**에서 사용할 저장소 계정을 선택하고 **다음 >**을 선택합니다.
+1. **설정 > 고급 설정**에서 사용할 저장소 계정을 선택하고 **다음 >** 을 선택합니다.
 1. **진단**에서 Application Insights에 정보를 보낼 것인지 선택합니다.
-1. **다음 >**을 선택하여 요약 정보를 살펴본 후 **게시**를 선택하여 배포를 시작합니다.
+1. **다음 >** 을 선택하여 요약 정보를 살펴본 후 **게시**를 선택하여 배포를 시작합니다.
 1. Visual Studio에서 진행률을 추적할 수 있는 활동 로그 창이 열립니다.
 
     ![VST_AzureActivityLog](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744149.png)

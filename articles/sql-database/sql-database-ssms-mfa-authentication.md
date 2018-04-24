@@ -23,7 +23,7 @@ Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버�
 ## <a name="the-five-authentication-options"></a>5가지 인증 옵션   
 - Active Directory 유니버설 인증은 2가지 비대화형 인증 방법(`Active Directory - Password` 인증 및 `Active Directory - Integrated` 인증)을 지원합니다. 비대화형 `Active Directory - Password` 및 `Active Directory - Integrated` 인증 방법은 여러 다른 응용 프로그램(ADO.NET, JDBC, ODBC 등)에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
 
-- `Active Directory - Universal with MFA` 인증은 *Azure MFA(Multi-factor Authentication)*를 지원하는 대화형 방법입니다. Azure MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
+- `Active Directory - Universal with MFA` 인증은 *Azure MFA(Multi-factor Authentication)* 를 지원하는 대화형 방법입니다. Azure MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
 
 Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 참조하세요.
 [SQL Server Management Studio에 대한 Azure SQL Database multi-factor authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조하세요.

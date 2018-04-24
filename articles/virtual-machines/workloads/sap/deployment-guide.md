@@ -757,7 +757,7 @@ SAP가 사용자 환경을 지원하도록 하려면 [SAP용 Azure 고급 모니
 ![Azure PowerShell cmdlet 버전 검사의 결과][deployment-guide-figure-600]
 <a name="figure-6"></a>
 
-컴퓨터에 설치된 Azure cmdlet 버전이 현재 버전인 경우 설치 마법사의 첫 페이지의 제품 제목에 **(설치됨)**을 추가하여 이 사실을 표시합니다(다음 스크린샷 참조). 사용자의 PowerShell Azure cmdlet은 최신 상태입니다. 설치 마법사를 닫으려면 **종료**를 선택합니다.
+컴퓨터에 설치된 Azure cmdlet 버전이 현재 버전인 경우 설치 마법사의 첫 페이지의 제품 제목에 **(설치됨)** 을 추가하여 이 사실을 표시합니다(다음 스크린샷 참조). 사용자의 PowerShell Azure cmdlet은 최신 상태입니다. 설치 마법사를 닫으려면 **종료**를 선택합니다.
 
 ![Azure PowerShell cmdlet의 최신 버전이 설치되었음을 나타내는 Azure PowerShell cmdlet 설치 페이지][deployment-guide-figure-700]
 <a name="figure-7"></a>

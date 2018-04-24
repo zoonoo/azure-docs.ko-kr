@@ -196,7 +196,7 @@ Azure 저장소 API에서 직접 작업하려면 **CloudStorageAccount** 매개 
 SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null인 경우에도 항상 큐 메시지가 생성됩니다.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>여러 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
-여러 개의 메시지를 만들려면 다음 예제와 같이 출력 큐의 매개 변수 유형을 **ICollector<T>** 또는 **IAsyncCollector<T>**로 설정합니다.
+여러 개의 메시지를 만들려면 다음 예제와 같이 출력 큐의 매개 변수 유형을 **ICollector<T>** 또는 **IAsyncCollector<T>** 로 설정합니다.
 
         public static void CreateQueueMessages(
             [QueueTrigger("inputqueue")] string queueMessage,

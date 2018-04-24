@@ -150,7 +150,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 2. 서버 관리자에서 **도구**를 선택하고 **네트워크 정책 서버**를 선택합니다. 
 
-3. 네트워크 정책 서버 콘솔에서 **NPS(로컬)**를 마우스 오른쪽 단추로 클릭한 다음 **Active Directory에 서버 등록**을 선택합니다. **확인**을 두 번 선택합니다.
+3. 네트워크 정책 서버 콘솔에서 **NPS(로컬)** 를 마우스 오른쪽 단추로 클릭한 다음 **Active Directory에 서버 등록**을 선택합니다. **확인**을 두 번 선택합니다.
 
     ![네트워크 정책 서버](./media/howto-mfa-nps-extension-vpn/image2.png)
 
@@ -159,7 +159,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 ### <a name="use-wizard-to-configure-the-radius-server"></a>마법사를 사용하여 RADIUS 서버 구성
 표준(마법사 기반) 또는 고급 구성 옵션을 사용하여 RADIUS 서버를 구성할 수 있습니다. 이 섹션에서는 마법사 기반 표준 구성 옵션을 사용한다고 가정합니다.
 
-1. 네트워크 정책 서버 콘솔에서 **NPS(로컬)**를 선택합니다.
+1. 네트워크 정책 서버 콘솔에서 **NPS(로컬)** 를 선택합니다.
 
 2. **표준 구성** 아래에서 **전화 접속 또는 VPN 연결을 위한 RADIUS 서버**를 선택한 다음 **VPN 또는 전화 접속 구성**을 선택합니다.
 
@@ -233,7 +233,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 2. 서버 관리자에서 **도구**, **라우팅 및 원격 액세스**를 차례로 선택합니다.
 
-3. **라우팅 및 원격 액세스** 창에서 **\<서버 이름> (로컬)**을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 선택합니다.
+3. **라우팅 및 원격 액세스** 창에서 **\<서버 이름> (로컬)** 을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 선택합니다.
 
     ![라우팅 및 원격 액세스 창](./media/howto-mfa-nps-extension-vpn/image14.png)
  
@@ -273,7 +273,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 4. **VPN 연결 추가**를 선택합니다.
 
-5. **VPN 연결 추가** 창의 **VPN 공급자** 상자에서 **Windows(기본 제공)**를 선택한 다음 나머지 필드를 적절히 완료하고 **저장**을 선택합니다. 
+5. **VPN 연결 추가** 창의 **VPN 공급자** 상자에서 **Windows(기본 제공)** 를 선택한 다음 나머지 필드를 적절히 완료하고 **저장**을 선택합니다. 
 
     ![“VPN 연결 추가” 창](./media/howto-mfa-nps-extension-vpn/image17.png)
  
@@ -289,7 +289,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 9. VPN 속성 창에서 **보안** 탭을 선택합니다. 
 
-10. **보안** 탭에서 **Microsoft CHAP 버전 2(MS-CHAP v2)**만 선택했는지 확인하고 **확인**을 선택합니다.
+10. **보안** 탭에서 **Microsoft CHAP 버전 2(MS-CHAP v2)** 만 선택했는지 확인하고 **확인**을 선택합니다.
 
     !["다음 프로토콜 허용" 옵션](./media/howto-mfa-nps-extension-vpn/image20.png)
 
@@ -376,7 +376,7 @@ NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고
 
 1. 관리자 권한으로 Windows PowerShell을 실행합니다.
 
-2. PowerShell 명령 프롬프트에서 **cd "c:\Program Files\Microsoft\AzureMfa\Config"**를 입력하고 Enter 키를 누릅니다.
+2. PowerShell 명령 프롬프트에서 **cd "c:\Program Files\Microsoft\AzureMfa\Config"** 를 입력하고 Enter 키를 누릅니다.
 
 3. 다음 명령 프롬프트에서 **.\AzureMfsNpsExtnConfigSetup.ps1**을 입력한 다음 Enter 키를 선택합니다. 스크립트에서 Azure AD PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
  

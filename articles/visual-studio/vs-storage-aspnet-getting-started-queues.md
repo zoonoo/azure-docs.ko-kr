@@ -80,7 +80,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     }
     ```
 
-1. **CreateQueue** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>*을 액세스하는 Azure 저장소 계정의 이름으로 변경).
+1. **CreateQueue** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>* 을 액세스하는 Azure 저장소 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -161,7 +161,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     }
     ```
  
-1. **AddMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>*을 액세스하는 Azure 저장소 계정의 이름으로 변경).
+1. **AddMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>* 을 액세스하는 Azure 저장소 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -250,7 +250,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     }
     ```
  
-1. **PeekMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>*을 액세스하는 Azure 저장소 계정의 이름으로 변경).
+1. **PeekMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>* 을 액세스하는 Azure 저장소 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -334,7 +334,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     }
     ```
  
-1. **ReadMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>*을 액세스하는 Azure 저장소 계정의 이름으로 변경).
+1. **ReadMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>* 을 액세스하는 Azure 저장소 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -425,7 +425,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     }
     ```
  
-1. **ReadMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>*을 액세스하는 Azure 저장소 계정의 이름으로 변경).
+1. **ReadMessage** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>* 을 액세스하는 Azure 저장소 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -512,7 +512,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     }
     ```
  
-1. **DeleteQueue** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>*을 액세스하는 Azure 저장소 계정의 이름으로 변경).
+1. **DeleteQueue** 메서드 내에서 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져옵니다(*&lt;storage-account-name>* 을 액세스하는 Azure 저장소 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

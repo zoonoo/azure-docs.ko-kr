@@ -58,7 +58,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 ## <a name="secure-api-keys"></a>api-key 보안
 키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 api-key를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
 
-+ 서비스 대시보드에서 **액세스 제어(IAM)**를 클릭하여 서비스에 대한 역할 할당을 봅니다.
++ 서비스 대시보드에서 **액세스 제어(IAM)** 를 클릭하여 서비스에 대한 역할 할당을 봅니다.
 
 다음 역할의 멤버는 키를 보고 다시 생성할 수 있습니다. 소유자, 참가자 [Search Service 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 

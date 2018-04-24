@@ -38,7 +38,7 @@ ms.lasthandoff: 04/23/2018
 10. 다음과 같이 VNet에 대한 **구성**이 표시되어야 합니다. 
    
     ![포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
-11. **서브넷** > **추가**를 클릭하고 서브넷의 **이름**을 입력하고 **주소 범위(CIDR 블록)**를 지정한 후 **확인**을 클릭합니다. 다음 그림에서는 현재 시나리오에 대한 설정을 보여 줍니다.
+11. **서브넷** > **추가**를 클릭하고 서브넷의 **이름**을 입력하고 **주소 범위(CIDR 블록)** 를 지정한 후 **확인**을 클릭합니다. 다음 그림에서는 현재 시나리오에 대한 설정을 보여 줍니다.
     
     ![Azure 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 

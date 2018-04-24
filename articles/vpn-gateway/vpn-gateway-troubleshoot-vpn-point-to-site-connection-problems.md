@@ -275,7 +275,7 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 
 ### <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 **C:\사용자\사용자 이름\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 관리자를 다시 실행합니다.
+이 문제를 해결하려면 **C:\사용자\사용자 이름\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 관리자를 다시 실행합니다.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>지점 및 사이트 간 VPN 클라이언트는 로컬 도메인에 있는 리소스의 FQDN을 확인할 수 없습니다.
 
@@ -360,7 +360,7 @@ Azure VPN 게이트웨이 형식은 VPN이어야 하고 VPN 형식은 **경로 �
 
 ### <a name="solution"></a>해결 방법
 
-**C:\사용자\사용자 이름\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 관리자를 다시 실행합니다. 
+**C:\사용자\사용자 이름\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 관리자를 다시 실행합니다. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN 클라이언트가 일정 시간 후에 최대 절전 모드 또는 절전 모드로 전환됨
 

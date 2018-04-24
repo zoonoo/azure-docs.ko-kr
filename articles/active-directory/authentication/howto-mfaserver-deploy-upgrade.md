@@ -80,7 +80,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
   - Unregister-MultiFactorAuthenticationAdfsAdapter.ps1
   - MultiFactorAuthenticationAdfsAdapter.config
 
-3. `Register-AdfsAuthenticationProvider` 명령의 끝에 `-ConfigurationFilePath [path]`를 추가하여 Register-MultiFactorAuthenticationAdfsAdapter.ps1 스크립트를 편집합니다. *[path]*를 MultiFactorAuthenticationAdfsAdapter.config 파일에 대한 전체 경로 또는 이전 단계에서 내보낸 구성 파일로 바꿉니다. 
+3. `Register-AdfsAuthenticationProvider` 명령의 끝에 `-ConfigurationFilePath [path]`를 추가하여 Register-MultiFactorAuthenticationAdfsAdapter.ps1 스크립트를 편집합니다. *[path]* 를 MultiFactorAuthenticationAdfsAdapter.config 파일에 대한 전체 경로 또는 이전 단계에서 내보낸 구성 파일로 바꿉니다. 
 
   새 MultiFactorAuthenticationAdfsAdapter.config의 특성이 이전 구성 파일과 일치하는지 확인합니다. 새 버전에서 특성이 추가되었거나 제거된 경우 이전 구성 파일에서 새 파일로 특성 값을 복사하거나 새 구성과 일치하도록 이전 구성 파일을 수정합니다.
 

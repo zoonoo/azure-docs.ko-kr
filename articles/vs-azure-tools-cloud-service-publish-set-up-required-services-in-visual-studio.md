@@ -38,7 +38,7 @@ Azure 환경에서 역할을 실행하는 클라우드 서비스 다음 섹션�
 ### <a name="create-a-cloud-service-through-the-azure-portal"></a>Azure Portal을 통해 클라우드 서비스 만들기
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-1. 페이지의 왼쪽에서 **Cloud Services(클래식)**를 선택합니다.
+1. 페이지의 왼쪽에서 **Cloud Services(클래식)** 를 선택합니다.
 1. **+ 추가**를 선택한 다음, 필요한 정보(DNS 이름, 구독, 리소스 그룹 및 위치)를 제공합니다. 나중에 Visual Studio에서 동일한 작업을 수행하므로 이 시점에서 패키지를 업로드할 필요가 없습니다.
 1. **만들기**를 선택하여 프로세스를 완료합니다.
 

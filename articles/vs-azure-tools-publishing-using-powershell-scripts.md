@@ -320,7 +320,7 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 | Find-AzureVM |지정된 Azure 가상 머신을 가져옵니다. |
 | Format-DevTestMessageWithTime |메시지 앞에 날짜와 시간을 추가합니다. 이 함수는 오류 및 자세한 정보 표시 스트림에 작성되는 메시지를 위해 설계되었습니다. |
 | Get-AzureSQLDatabaseConnectionString |연결 문자열을 조립하여 Azure SQL 데이터베이스에 연결합니다. |
-| Get-AzureVMStorage |지정된 위치 또는 선호도 그룹에 이름 패턴이 "devtest*"(대소문자 구분)인 첫 번째 저장소 계정의 이름을 반환합니다. "devtest*" 저장소 계정이 위치 또는 선호도 그룹과 일치하지 않을 경우 함수에서 무시합니다. 위치 또는 선호도 그룹을 지정합니다. |
+| Get-AzureVMStorage |지정된 위치 또는 선호도 그룹에 이름 패턴이 "devtest *"(대소문자 구분)인 첫 번째 저장소 계정의 이름을 반환합니다. "devtest*" 저장소 계정이 위치 또는 선호도 그룹과 일치하지 않을 경우 함수에서 무시합니다. 위치 또는 선호도 그룹을 지정합니다. |
 | Get-MSDeployCmd |MsDeploy.exe 도구를 실행하는 명령을 반환합니다. |
 | New-AzureVMEnvironment |JSON 구성 파일의 값과 일치하는 구독에서 가상 머신을 검색하거나 만듭니다. |
 | Publish-WebPackage |MsDeploy.exe 및 웹 게시 패키지인 .Zip 파일을 사용하여 리소스를 웹 사이트에 배포합니다. 이 함수는 출력을 생성하지 않습니다. MSDeploy.exe에 대한 호출이 실패할 경우 함수가 예외를 throw합니다. 더 자세한 출력을 가져오려면 **-Verbose** 옵션을 사용합니다. |

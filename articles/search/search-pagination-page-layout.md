@@ -3,16 +3,17 @@ title: Azure Search에서 검색 결과를 페이징하는 방법 | Microsoft Do
 description: Microsoft Azure에서 호스팅되는 클라우드 Search 서비스인 Azure Search에서의 페이징
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 066358241b79f8bc0fb40e5e5b5989e561d9c909
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Azure Search에서 검색 결과를 페이징하는 방법
 이 문서는 총 횟수, 문서 검색, 정렬 순서, 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하기 위한 Azure Search 서비스의 사용 방법에 대한 지침을 제공합니다.
@@ -94,7 +95,7 @@ Azure Search에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-`$filter` 식에 대한 자세한 내용은 [문서 검색(Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하십시오.
+[식에 대한 자세한 내용은 ](http://msdn.microsoft.com/library/azure/dn798927.aspx)문서 검색(Azure Search API) `$filter` 을 참조하십시오.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Search 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)

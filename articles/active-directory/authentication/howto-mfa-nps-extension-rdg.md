@@ -150,7 +150,7 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 그런 다음 아래 작업을 수행합니다.
 
 1. 관리 Windows PowerShell 프롬프트를 엽니다.
-2. PowerShell 프롬프트에서 **cd 'c:\Program Files\Microsoft\AzureMfa\Config'**를 입력하고 **Enter** 키를 누릅니다.
+2. PowerShell 프롬프트에서 **cd 'c:\Program Files\Microsoft\AzureMfa\Config'** 를 입력하고 **Enter** 키를 누릅니다.
 3. _.\AzureMfsNpsExtnConfigSetup.ps1_을 입력하고 **Enter** 키를 누릅니다. 스크립트에서 Azure Active Directory PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
@@ -180,7 +180,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
   ![원격 데스크톱 서비스](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. [RD 게이트웨이 관리자]에서 **\[서버 이름\](로컬)**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+3. [RD 게이트웨이 관리자]에서 **\[서버 이름\](로컬)** 을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
   ![서버 이름](./media/howto-mfa-nps-extension-rdg/image9.png)
 
@@ -247,7 +247,7 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 
 1. NPS 서버에서 **서버 관리자**를 엽니다.
 2. [서버 관리자]에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다. 
-3. [네트워크 정책 서버] 콘솔에서 **NPS(로컬)**를 마우스 오른쪽 단추로 클릭한 다음 **Active Directory에 서버 등록**을 클릭합니다. 
+3. [네트워크 정책 서버] 콘솔에서 **NPS(로컬)** 를 마우스 오른쪽 단추로 클릭한 다음 **Active Directory에 서버 등록**을 클릭합니다. 
 4. **확인**을 두 번 클릭합니다.
 
  ![AD에 서버 등록](./media/howto-mfa-nps-extension-rdg/image16.png)
@@ -276,7 +276,7 @@ Azure MFA 확장이 있는 NPS 서버는 CAP(연결 권한 부여 정책)에 지
 
  ![중복된 정책](./media/howto-mfa-nps-extension-rdg/image19.png)
 
-3. **Copy of Connections to other access servers(다른 액세스 서버 연결 복사본)**를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+3. **Copy of Connections to other access servers(다른 액세스 서버 연결 복사본)** 를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
  ![네트워크 속성](./media/howto-mfa-nps-extension-rdg/image20.png)
 
