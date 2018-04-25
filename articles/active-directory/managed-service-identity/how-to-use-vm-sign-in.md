@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ac23d0f9b8f6899df6941791b22ec384ea0f3977
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>로그인에 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
@@ -61,20 +61,11 @@ MSI를 사용하는 경우 MSI 서비스 주체 하에서 로그인할 수 있�
 
 다음 스크립트에서는 다음과 같은 방법을 설명합니다.
 
-1. VM의 MSI 액세스 토큰을 획득합니다.  
-2. 액세스 토큰을 사용하여 해당하는 MSI 서비스 주체 하의 Azure AD에 로그인합니다.   
-3. Azure Resource Manager cmdlet을 호출하여 VM에 대한 정보를 가져옵니다. PowerShell에서는 자동으로 토큰 획득/사용을 관리합니다.  
+1. VM의 MSI 서비스 주체 하의 Azure AD에 로그인합니다.  
+2. Azure Resource Manager cmdlet을 호출하여 VM에 대한 정보를 가져옵니다. PowerShell에서는 자동으로 토큰 획득/사용을 관리합니다.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Connect-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>

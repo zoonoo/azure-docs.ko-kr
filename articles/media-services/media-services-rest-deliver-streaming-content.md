@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: ab2da4e372759fb26d50daf519faecd1810c084d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8937be0e3f18d58d4cdd909de0ca2c455cc46c1f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시
 > [!div class="op_single_selector"]
@@ -28,7 +28,6 @@ ms.lasthandoff: 04/19/2018
 > 
 > 
 
-## <a name="overview"></a>개요
 적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-rest-encode-asset.md) 문서에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 설명합니다. 콘텐츠가 암호화되어 있는 경우 [이 문서](media-services-rest-configure-asset-delivery-policy.md)에서 설명한 대로 자산 배달 정책을 구성한 후에 로케이터를 만듭니다. 
 
 주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.  

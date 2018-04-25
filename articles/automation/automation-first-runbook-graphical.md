@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d47a8a3d8343aaa17346cd63c055e8687f25f812
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 04/19/2018
 1. 캔버스에서 **Connect-AzureRmAccount**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **Azure에 로그인**을 입력합니다.
 1. **매개 변수**를 클릭하면 활동 매개 변수 구성 페이지가 표시됩니다.
 1. **Connect-AzureRmAccount**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **ServicePrincipalCertificate** 매개 변수 집합을 선택합니다.
-1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure RM 계정 매개 변수 추가](media/automation-first-runbook-graphical/Connect-AzureRmAccount-params.png)
+1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure RM 계정 매개 변수 추가](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. 매개 변수 값 페이지에서 **데이터 원본**에 대해 **활동 출력**을 선택하고 목록에서 **실행 연결 가져오기**를 선택한 다음 **필드 경로** 텍스트 상자에 **ApplicationId**를 입력한 다음 **확인**을 클릭합니다. 작업에서 여러 속성을 가진 개체를 출력하기 때문에 필드 경로에 대한 속성의 이름을 지정합니다.
 1. **CERTIFICATETHUMBPRINT**를 클릭하고 매개 변수 값 페이지에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **CertificateThumbprint**를 입력한 다음 **확인**을 클릭합니다.
 1. **SERVICEPRINCIPAL**을 클릭하고 매개 변수 값 페이지에서 **데이터 원본**에 대한 **ConstantValue**를 선택하고 **True** 옵션을 클릭한 다음 **확인**을 클릭합니다.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 및 Multi-Factor Authentication: ID 및 액세스 제어를 사용하여 개인 데이터 보호
 
@@ -137,7 +137,7 @@ Azure 클라우드에 MFA를 배포하려면 먼저 이를 사용하도록 설�
 
 4. 페이지 맨 아래에 있는 **저장**
 
-이 창에는 MFA 서버를 다운로드할 수 있는 옵션도 있습니다. 배포 규모를 지정하고 배포를 계획하는 방법에 대한 자세한 내용은 [Azure Multi-Factor Authentication 서버로 시작하기](../multi-factor-authentication/multi-factor-authentication-get-started-server.md) 문서를 참조하세요.
+이 창에는 MFA 서버를 다운로드할 수 있는 옵션도 있습니다. 배포 규모를 지정하고 배포를 계획하는 방법에 대한 자세한 내용은 [Azure Multi-Factor Authentication 서버로 시작하기](../active-directory/authentication/howto-mfaserver-deploy.md) 문서를 참조하세요.
 
 Multi-Factor Auth 공급자를 관리하는 방법에 대한 자세한 내용은 [Azure Multi-Factor Auth 공급자 시작](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)을 참조하세요.
 
