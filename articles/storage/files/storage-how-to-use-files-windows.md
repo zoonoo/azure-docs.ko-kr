@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
@@ -35,7 +35,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 | Windows 8.1            | SMB 3.0     | 예                   | 예                  |
 | Windows Server 2012 R2 | SMB 3.0     | 예                   | 예                  |
 | Windows Server 2012    | SMB 3.0     | 예                   | 예                  |
-| Windows 7              | SMB 2.1     | 예                   | 아니오                   |
+| Windows 7              | SMB 2.1     | 예                   | 아니요                   |
 | Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니오                   |
 
 <sup>1</sup>Windows Server 버전 1709  
@@ -49,7 +49,16 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 
 * **Storage 계정 키**: Azure File 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
-* **445 포트가 열려 있는지 확인**: Azure Files는 SMB 프로토콜을 사용합니다. SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다.
+* **445 포트가 열려 있는지 확인**: Azure Files는 SMB 프로토콜을 사용합니다. SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다. Portqry를 사용하여 TCP 포트 445가 열려 있는지 여부를 확인할 수 있습니다. TCP 포트 445가 필터링됨으로 표시되는 경우 TCP 포트가 차단됩니다. 다음은 예제 쿼리입니다.
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    TCP 포트 445가 네트워크 경로를 따라 규칙을 통해 차단될 경우 다음 출력이 표시됩니다.
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Portqry 사용 방법에 대한 자세한 내용은 [Portqry.exe 명령줄 유틸리티에 대한 설명](https://support.microsoft.com/help/310099)을 참조하세요.
+
 
 ## <a name="persisting-connections-across-reboots"></a>다시 부팅 시 연결 유지
 ### <a name="cmdkey"></a>CmdKey

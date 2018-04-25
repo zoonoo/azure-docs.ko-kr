@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6767257a540e4f29bb5445a718ad65a31e1f373e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7d263dbb89b10876c3a1deb330f969c598addd6a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -33,9 +33,9 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 Batch 리소스를 관리하도록 Azure PowerShell을 사용하여 다음 작업을 수행합니다.
 
 * [Azure PowerShell 설치 및 구성](/powershell/azure/overview)
-* **Login-AzureRmAccount** cmdlet을 실행하여 구독에 연결(Azure Batch cmdlet은 Azure Resource Manager 모듈에 탑재됨):
+* **Connect-AzureRmAccount** cmdlet을 실행하여 구독에 연결(Azure Batch cmdlet은 Azure Resource Manager 모듈에 탑재됨):
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **Batch 공급자 네임 스페이스를 등록**합니다. 이 작업은 **구독당 한 번**만 수행하면 됩니다.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`

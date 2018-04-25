@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c9b4408e6ac92a2f86a10f63ddd254486b82b3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b24d4b15d83d746c5a514725bcd474828c62001
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/23/2018
   4. **ADFGetStartedApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.
 * [Azure PowerShell](/powershell/azure/overview)을 설치합니다.
 * **PowerShell** 을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
-  1. **Login-AzureRmAccount** 를 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
+  1. **Connect-AzureRmAccount**를 실행하고 Azure Portal에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.
   2. **Get-AzureRmSubscription** 을 실행하여 이 계정의 모든 구독을 확인합니다.
   3. **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext**를 실행하여 작업할 구독을 선택합니다. **NameOfAzureSubscription**을 Azure 구독의 이름으로 바꿉니다.
 * PowerShell에서 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.

@@ -1,25 +1,25 @@
 ---
-title: "Azure에 대한 MongoDB, Angular 및 노드 자습서 - 3부 | Microsoft Docs"
-description: "MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 3부"
+title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 3부 | Microsoft Docs
+description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 3부
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: ff75b4546a85c1c0bbf5c256977a3d33016c8c44
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 3부: Angular에서 UI 빌드
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/05/2017
     > 2. 검색 상자에 *angular essentials*를 입력합니다.
     > 3. **Install**을 클릭합니다. 
     > 4. **다시 로드** 단추를 클릭하여 새 확장을 사용합니다.
-    > 또는 [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials)를 다운로드합니다. 
+    > 또는 [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials)에서 다운로드합니다. 
     > ![Angular Essentials 확장](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
 7. **heroes.component.html** 파일로 돌아가서 이 코드에 복사합니다. `<div>`는 전체 페이지에 대한 컨테이너입니다. 컨테이너 내에는 만들어야 하는 Heroes 목록이 있습니다. 따라서 이 중 하나를 클릭하면 선택하고 편집하거나 UI에서 삭제할 수 있습니다. 그런 다음 HTML에서 선택한 항목을 확인할 수 있도록 몇 가지 스타일을 지정했습니다. 편집 영역도 있으므로 새 Hero를 추가하거나 기존 Hero를 편집할 수 있습니다. 

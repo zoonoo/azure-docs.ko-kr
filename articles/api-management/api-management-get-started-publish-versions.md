@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management를 사용하여 API 버전 게시 | Microsoft Docs"
-description: "이 자습서의 단계에 따라 API Management에서 여러 버전을 게시하는 방법에 대해 알아봅니다."
+title: Azure API Management를 사용하여 API 버전 게시 | Microsoft Docs
+description: 이 자습서의 단계에 따라 API Management에서 여러 버전을 게시하는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d63bdd3110f5c5db3e7bfec424644fdbc8d8d90c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7d61fa25f29f1380fe58069dbc25ed9ce1fff53c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>여러 버전의 API 게시 
 
-모든 API 호출자가 정확히 같은 버전을 사용하기가 어려운 경우가 있습니다. 그리고 특정 사용자를 대상으로 새로운 API 기능이나 다른 API 기능을 게시하려고 하는데, 현재 잘 사용하고 있는 API를 그대로 사용하려는 사용자도 있을 수 있습니다. 최신 버전으로 업그레이드하려는 호출자는 이해하기 쉬운 방식을 사용하여 업그레이드를 수행하기를 원할 것입니다.  Azure API Management에서 **버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)을 참조하세요.
+모든 API 호출자가 정확히 같은 버전을 사용하기가 어려운 경우가 있습니다. 최신 버전으로 업그레이드하려는 호출자는 이해하기 쉬운 방식을 사용하여 업그레이드를 수행하기를 원할 것입니다. Azure API Management에서 **버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)을 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -36,10 +36,8 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+* 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
+* 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
 ## <a name="add-a-new-version"></a>새 버전 추가
 
@@ -50,11 +48,11 @@ ms.lasthandoff: 12/04/2017
 3. **+ 버전 추가**를 선택합니다.
 
     > [!TIP]
-    > 새 API를 처음 만들 때 버전을 사용하도록 설정할 수도 있습니다. 이렇게 하려면 **API 추가** 화면에서 **이 API를 버전 관리하시겠습니까?**를 선택합니다.
+    > 새 API를 처음 만들 때 버전을 사용하도록 설정할 수도 있습니다. 이렇게 하려면 **API 추가** 화면에서 **이 API를 버전 관리하시겠습니까?** 를 선택합니다.
 
 ## <a name="choose-a-versioning-scheme"></a>버전 관리 체계 선택
 
-Azure API Management에서는 호출자가 원하는 API 버전을 지정하도록 허용할 방식을 선택할 수 있습니다. 이렇게 하려면 **버전 관리 체계**를 선택합니다. 이 체계는 **경로, 헤더 또는 쿼리 문자열**일 수 있습니다. 이 예제에서는 경로를 사용합니다.
+Azure API Management에서는 호출자가 원하는 API 버전을 지정하도록 허용할 방식을 선택할 수 있습니다. **버전 관리 체계**를 선택하여 사용할 API 버전을 지정합니다. 이 체계는 **경로, 헤더 또는 쿼리 문자열**일 수 있습니다. 다음 예에서 경로는 버전 관리 체계를 선택하는 데 사용됩니다.
 
 ![버전 추가 화면](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
@@ -71,20 +69,20 @@ Azure API Management에서는 호출자가 원하는 API 버전을 지정하도�
     ![Azure Portal에서 API 아래에 나열된 버전](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
-    > 버전이 없는 API에 버전을 추가하는 경우에는 항상 기본 URL에서 응답하는 **원본** 버전이 작성됩니다. 따라서 버전 추가 프로세스로 인해 기존 호출자의 호출이 중단되지 않습니다. 시작 시 버전을 사용하도록 설정하여 새 API를 만들면 원본이 작성되지 않습니다.
+    > 버전이 없는 API에 버전을 추가하는 경우에는 기본 URL에서 응답하는 **원본**이 자동으로 만들어집니다. 따라서 버전 추가 프로세스로 인해 기존 호출자의 호출이 중단되지 않습니다. 시작 시 버전을 사용하도록 설정하여 새 API를 만들면 원본이 작성되지 않습니다.
 
 6. 이제 **원본**과는 별개의 API로 **v1**을 편집하고 구성할 수 있습니다. 즉, 버전 하나를 변경해도 다른 버전에는 영향을 주지 않습니다.
 
 ## <a name="add-the-version-to-a-product"></a>제품에 버전 추가
 
-호출자에게 새 버전을 표시하려면 **제품**에 해당 버전을 추가해야 합니다. 제품은 부모 버전에서 상속되지 않습니다.
+호출자가 새 버전을 보게 하려면 **제품**에 추가해야 합니다.
 
-1. 서비스 관리 페이지에서 **제품**을 선택합니다.
+1. 클래식 배포 모델 페이지에서 **제품**을 선택합니다.
 2. **무제한**을 선택합니다.
 3. **API**를 선택합니다.
 4. **추가**를 선택합니다.
 5. **Conference API, 버전 v1**을 선택합니다.
-6. 서비스 관리 페이지로 돌아와서 **API**를 선택합니다.
+6. 서비스 관리 페이지로 이동하여 **API**를 선택합니다.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>개발자 포털을 검색하여 버전 확인
 

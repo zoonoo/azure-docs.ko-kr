@@ -1,25 +1,25 @@
 ---
-title: Azure 빠른 시작 - Azure Storage 탐색기를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Storage 탐색기를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: Azure 빠른 시작 - Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure Storage 탐색기를 사용합니다. 그런 다음, Storage 탐색기를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>빠른 시작: Azure Storage 탐색기를 사용하여 BLOB 업로드, 다운로드 및 나열
 
 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 저장소 계정 콘텐츠를 관리하는 데 사용되는 다중 플랫폼 사용자 인터페이스입니다. 이 가이드에서는 Azure Storage 탐색기를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 빠른 시작을 사용하려면 Azure Storage 탐색기를 설치해야 합니다. 설치해야 하는 경우 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)에 방문하여 Windows, Macintosh 또는 Linux용을 다운로드합니다.
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 |연결 문자열 또는 공유 액세스 서명 URI 사용 | SAS 토큰 또는 공유 연결 문자열이 있는 컨테이너 또는 저장소 계정에 직접 액세스하는 데 사용할 수 있습니다. |
 |저장소 계정 이름 및 키 사용| 저장소 계정 이름과 저장소 계정 키를 사용하여 Azure Storage에 연결합니다.|
 
-**Azure 계정 추가**를 선택하고 **로그인..**을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
+**Azure 계정 추가**를 선택하고 **로그인..** 을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
 
 ![Microsoft Azure Storage 탐색기 - 연결 창](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -57,7 +57,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 업로드할 파일 또는 폴더를 선택합니다. **Blob 유형**을 선택합니다. 사용할 수 있는 선택 사항은 **추가**, **페이지** 또는 **블록** Blob입니다.
 
-.vhd 또는 .vhdx 파일을 업로드하는 경우 **.vhd/.vhdx 파일을 페이지 blob으로 업로드(권장)**를 선택합니다.
+.vhd 또는 .vhdx 파일을 업로드하는 경우 **.vhd/.vhdx 파일을 페이지 blob으로 업로드(권장)** 를 선택합니다.
 
 **폴더에 업로드(선택 사항)** 필드에서 컨테이너 아래 폴더에 파일 또는 폴더를 저장할 폴더 이름을 입력합니다. 폴더를 선택하지 않으면 파일이 컨테이너 바로 아래에 업로드됩니다.
 
@@ -83,13 +83,13 @@ Azure Storage 탐색기는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가
 
 ## <a name="manage-access-policies"></a>액세스 정책 관리
 
-Storage 탐색기는 사용자 인터페이스 내의 컨테이너에 대한 액세스 정책을 관리하는 기능을 제공합니다. 보안 액세스 정책(SAS)에는 서비스 수준 및 계정 수준의 두 가지 유형이 있습니다. 계정 수준 SAS는 저장소 계정을 대상으로 하며 여러 서비스 및 리소스에 적용할 수 있습니다. 서비스 수준 SAS는 특정 서비스의 리소스에 정의됩니다. 서비스 레벨 SAS를 생성하려면 컨테이너를 마우스 오른쪽 단추로 클릭하고 **액세스 정책 관리...**를 선택합니다. 계정 수준 SAS를 생성하려면 저장소 계정을 마우스 오른쪽 단추로 클릭합니다.
+Storage 탐색기는 사용자 인터페이스 내의 컨테이너에 대한 액세스 정책을 관리하는 기능을 제공합니다. 보안 액세스 정책(SAS)에는 서비스 수준 및 계정 수준의 두 가지 유형이 있습니다. 계정 수준 SAS는 저장소 계정을 대상으로 하며 여러 서비스 및 리소스에 적용할 수 있습니다. 서비스 수준 SAS는 특정 서비스의 리소스에 정의됩니다. 서비스 레벨 SAS를 생성하려면 컨테이너를 마우스 오른쪽 단추로 클릭하고 **액세스 정책 관리...** 를 선택합니다. 계정 수준 SAS를 생성하려면 저장소 계정을 마우스 오른쪽 단추로 클릭합니다.
 
 **추가**를 선택하여 새 액세스 정책을 추가하고 정책에 대한 권한을 정의합니다. 완료되면 **저장**을 선택하여 액세스 정책을 저장합니다. 이 정책은 이제 공유 액세스 서명을 구성할 때 사용할 수 있습니다.
 
 ## <a name="work-with-shared-access-signatures"></a>공유 액세스 서명으로 작업
 
-공유 액세스 서명(SAS)은 Storage 탐색기를 통해 검색할 수 있습니다. 저장소 계정, 컨테이너 또는 Blob를 마우스 오른쪽 버튼으로 클릭하고 **공유 액세스 서명 가져오기...**를 선택합니다. 시작 및 만료 시간과 SAS URL에 대한 권한을 선택하고 **만들기**를 선택합니다. 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 다음 화면에서 복사할 수 있습니다.
+공유 액세스 서명(SAS)은 Storage 탐색기를 통해 검색할 수 있습니다. 저장소 계정, 컨테이너 또는 Blob를 마우스 오른쪽 버튼으로 클릭하고 **공유 액세스 서명 가져오기...** 를 선택합니다. 시작 및 만료 시간과 SAS URL에 대한 권한을 선택하고 **만들기**를 선택합니다. 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 다음 화면에서 복사할 수 있습니다.
 
 ![Microsoft Azure Storage 탐색기 - 컨테이너의 Blob 나열](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 

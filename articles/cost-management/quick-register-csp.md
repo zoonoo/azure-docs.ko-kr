@@ -1,20 +1,20 @@
 ---
-title: "CSP 파트너 정보를 사용하여 Azure Cost Management에 등록 | Microsoft Docs"
-description: "CSP 파트너 정보를 사용하여 Azure Cost Management에 등록합니다."
+title: CSP 파트너 정보를 사용하여 Azure Cost Management에 등록 | Microsoft Docs
+description: CSP 파트너 정보를 사용하여 Azure Cost Management에 등록합니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9e09961685ad688098970ae4ea73e1a90f6a95ca
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
@@ -32,9 +32,9 @@ CSP 파트너인 사용자는 Azure Cost Management에 등록할 수 있습니�
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-- Azure Portal( http://portal.azure.com )에 로그인합니다.
+- Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
-## <a name="create-a-trial-registration"></a>평가판 등록 만들기
+## <a name="register-with-azure-cost-management"></a>Azure Cost Management에 등록
 
 1. Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다.
 2. **개요**에서 **Cost Management**를 클릭합니다.  

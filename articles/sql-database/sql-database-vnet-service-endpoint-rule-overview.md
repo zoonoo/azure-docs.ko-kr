@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -129,8 +129,8 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용되고 [클래식 배포 모델][arm-deployment-model-568f] 네트워크에는 적용되지 않습니다.
 
-- 가상 네트워크 서비스 끝점을 Azure SQL Database로 실행하면 MySQL 및 PostGres Azure 서비스에 대한 끝점도 활성화됩니다. 그러나 끝점을 실행한 상태에서 끝점을 MySQL 또는 Postgres 인스턴스에 연결하려는 시도는 실패합니다.
-    - 기본 이유는 MySQL 및 PostGres가 현재 ACLing를 지원하지 않기 때문입니다.
+- 가상 네트워크 서비스 엔드포인트를 Azure SQL Database로 설정하면 MySQL 및 PostgreSQL Azure 서비스에 대한 엔드포인트도 활성화됩니다. 그러나 엔드포인트를 실행한 상태에서 엔드포인트를 MySQL 또는 PostgreSQL 인스턴스에 연결하려는 시도는 실패합니다.
+    - 기본 이유는 MySQL 및 PostgreSQL이 현재 ACLing를 지원하지 않기 때문입니다.
 
 - 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
     - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]
@@ -226,6 +226,10 @@ PowerShell을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정�
 
 이 섹션에서는 [Azure Portal][http-azure-portal-link-ref-477t]을 사용하여 Azure SQL Database에서 *가상 네트워크 규칙*을 만드는 방법을 보여 줍니다. 이 규칙은 *Virtual Network 서비스 끝점*으로 태그가 지정된 특정 서브넷에서 보낸 통신을 수락하도록 SQL Database에 지시합니다.
 
+> [!NOTE]
+> 서버의 VNET 방화벽 규칙에 추가할 VNET/서브넷에 대해 서비스 엔드포인트가 설정되어 있는지 확인하세요.
+> VNET/서브넷에 대해 서비스 엔드포인트가 설정되어 있지 않으면 포털에서 활성화할지 묻는 메시지가 표시되며 규칙을 추가하는 블레이드에서 활성화를 클릭하세요.
+
 #### <a name="powershell-alternative"></a>PowerShell 대체
 
 PowerShell 스크립트로 가상 네트워크 규칙을 만들 수도 있습니다. 중요 cmdlet **New-AzureRmSqlServerVirtualNetworkRule**. 자세한 내용은 [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
@@ -315,7 +319,7 @@ Azure SQL Database에 대한 가상 네트워크 규칙 기능은 2017년 9월 �
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

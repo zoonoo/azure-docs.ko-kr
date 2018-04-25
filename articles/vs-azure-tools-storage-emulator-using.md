@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: ecf9df0d94f34df69750a8baa7f5502764cf9b06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c4f4c89eccd1faa4c947048a6d634c4cf8483cb6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Visual Studio에서 저장소 에뮬레이터 구성 및 사용
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -54,5 +54,5 @@ Visual Studio에서 서비스를 실행하거나 디버깅하는 경우 Visual S
 저장소 에뮬레이터는 로컬 저장소 서비스의 상태를 보고 시작, 중지 및 다시 설정하는 사용자 인터페이스를 제공합니다. 저장소 에뮬레이터 서비스가 시작된 후 사용자 인터페이스를 표시하거나, Windows 작업 표시줄에서 Microsoft Azure 에뮬레이터에 대한 알림 영역 아이콘을 마우스 오른쪽 단추로 클릭하여 서비스를 시작하거나 중지할 수 있습니다.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>서버 탐색기에서 저장소 에뮬레이터 데이터 보기
-서버 탐색기에서 Azure Storage 노드를 사용하면 데이터를 보고 저장소 에뮬레이터를 포함한 Storage 계정의 blob 및 테이블 데이터에 대한 설정을 변경할 수 있습니다. 자세한 내용은 [저장소 탐색기(미리 보기)를 사용하여 Azure Blob Storage 리소스 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)를 참조하세요.
+서버 탐색기에서 Azure Storage 노드를 사용하면 데이터를 보고 저장소 에뮬레이터를 포함한 Storage 계정의 blob 및 테이블 데이터에 대한 설정을 변경할 수 있습니다. 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)를 참조하세요.
 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6dc5ce87e1e7a8629e96426701d4ac691fa4c687
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
 
@@ -27,8 +27,8 @@ Microsoft 또는 다른 공급자가 제공하는 여러 Kubernetes 모니터링
 
 > [!div class="checklist"]
 > * Log Analytics 작업 영역 설정 가져오기
-> * Kubernetes 노드에서 OMS 에이전트 설정
-> * OMS 포털 또는 Azure Portal에서 모니터링 정보에 액세스
+> * Kubernetes 노드에서 Log Analytics 에이전트 설정
+> * Log Analytics 포털 또는 Azure Portal에서 모니터링 정보에 액세스
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -38,7 +38,7 @@ Microsoft 또는 다른 공급자가 제공하는 여러 Kubernetes 모니터링
 
 ## <a name="get-workspace-settings"></a>작업 영역 설정 가져오기
 
-[OMS 포털](https://mms.microsoft.com)에 액세스할 수 있는 경우 **설정** > **연결된 원본** > **Linux 서버**로 이동합니다. 거기서 *작업 영역 ID* 및 기본 또는 보조 *작업 영역 키*를 찾을 수 있습니다. 클러스터에서 OMS 에이전트를 설정하는 데 필요한 이러한 값을 기록해 둡니다.
+[Log Analytics 포털](https://mms.microsoft.com)에 액세스할 수 있는 경우 **설정** > **연결된 원본** > **Linux 서버**로 이동합니다. 거기서 *작업 영역 ID* 및 기본 또는 보조 *작업 영역 키*를 찾을 수 있습니다. 클러스터에서 Log Analytics 에이전트를 설정하는 데 필요한 이러한 값을 기록해 둡니다.
 
 ## <a name="create-kubernetes-secret"></a>Kubernetes 비밀 만들기
 
@@ -48,7 +48,7 @@ Microsoft 또는 다른 공급자가 제공하는 여러 Kubernetes 모니터링
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
 ```
 
-## <a name="set-up-oms-agents"></a>OMS 에이전트 설정
+## <a name="set-up-log-analytics-agents"></a>Log Analytics 에이전트 설정
 
 다음 Kubernetes 매니페스트 파일을 사용하여 Kubernetes 클러스터에서 컨테이너 모니터링 에이전트를 구성할 수 있습니다. 이 파일은 Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)를 만들며, 이는 각 클러스터 노드에서 하나의 같은 Pod를 실행합니다.
 
@@ -142,11 +142,11 @@ omsagent   3         3         3         0            3           <none>        
 
 ## <a name="access-monitoring-data"></a>모니터링 데이터 액세스
 
-OMS 포털 또는 Azure Portal의 [컨테이너 솔루션](../../log-analytics/log-analytics-containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다.
+Log Analytics 포털 또는 Azure Portal의 [컨테이너 솔루션](../../log-analytics/log-analytics-containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다.
 
-[OMS 포털](https://mms.microsoft.com)을 사용하여 컨테이너 솔루션을 설치하려면 **솔루션 갤러리**로 이동합니다. 그런 다음 **컨테이너 솔루션**을 추가합니다. 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview)에서 컨테이너 솔루션을 추가합니다.
+[Log Analytics 포털](https://mms.microsoft.com)을 사용하여 컨테이너 솔루션을 설치하려면 **솔루션 갤러리**로 이동합니다. 그런 다음 **컨테이너 솔루션**을 추가합니다. 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview)에서 컨테이너 솔루션을 추가합니다.
 
-OMS 포털의 대시보드에서 **컨테이너** 요약 타일을 찾습니다. 타일을 클릭하면 컨테이너 이벤트, 오류, 상태, 이미지 인벤토리, CPU 및 메모리 사용량과 같은 세부 정보를 볼 수 있습니다. 더 세부적인 정보를 보려면 아무 타일에서 행을 클릭하거나 [로그 검색](../../log-analytics/log-analytics-log-searches.md)을 수행합니다.
+Log Analytics 포털의 대시보드에서 **컨테이너** 요약 타일을 찾습니다. 타일을 클릭하면 컨테이너 이벤트, 오류, 상태, 이미지 인벤토리, CPU 및 메모리 사용량과 같은 세부 정보를 볼 수 있습니다. 더 세부적인 정보를 보려면 아무 타일에서 행을 클릭하거나 [로그 검색](../../log-analytics/log-analytics-log-searches.md)을 수행합니다.
 
 ![OMS 포털의 컨테이너 대시보드](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -160,8 +160,8 @@ OMS 포털의 대시보드에서 **컨테이너** 요약 타일을 찾습니다.
 
 > [!div class="checklist"]
 > * Log Analytics 작업 영역 설정 가져오기
-> * Kubernetes 노드에서 OMS 에이전트 설정
-> * OMS 포털 또는 Azure Portal에서 모니터링 정보에 액세스
+> * Kubernetes 노드에서 Log Analytics 에이전트 설정
+> * Log Analytics 포털 또는 Azure Portal에서 모니터링 정보에 액세스
 
 
 Container Service에 대한 미리 빌드된 스크립트 샘플을 보려면 이 링크를 따라가세요.

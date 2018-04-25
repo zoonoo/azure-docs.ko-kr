@@ -10,11 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 131424b4a09beeca7c2e318a04e454bea7dab6a7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>자습서: Azure App Service에 CDN(Content Delivery Network) 추가
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="have-a-custom-domain-ready"></a>사용자 지정 도메인 준비
 
-이 자습서의 사용자 지정 도메인 단계를 완료하려면 사용자 지정 도메인을 소유하고 도메인 공급자(예: GoDaddy)의 DNS 레지스트리에 액세스할 수 있어야 합니다. 예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있는 액세스 권한이 있어야 합니다.
+이 자습서의 사용자 지정 도메인 단계를 완료하려면 사용자 지정 도메인을 소유하고 도메인 공급자의 DNS 레지스트리에 액세스할 수 있어야 합니다. 예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있는 액세스 권한이 있어야 합니다.
 
 아직 도메인 이름이 없는 경우 Azure Portal을 사용하여 도메인을 구매하려면 [App Service 도메인 자습서](custom-dns-web-site-buydomains-web-app.md)를 수행하는 것이 좋습니다. 
 

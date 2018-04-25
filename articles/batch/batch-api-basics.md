@@ -1,25 +1,25 @@
 ---
-title: "개발자를 위한 Azure Batch 개요 | Microsoft Docs"
-description: "개발자의 관점에서 Batch 서비스와 해당 API에 대한 기능을 알아봅니다."
+title: 개발자를 위한 Azure Batch 개요 | Microsoft Docs
+description: 개발자의 관점에서 Batch 서비스와 해당 API에 대한 기능을 알아봅니다.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -79,10 +79,15 @@ Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티�
 
 ## <a name="azure-storage-account"></a>Azure Storage 계정
 
-대부분의 Batch 솔루션은 리소스 파일 및 출력 파일을 저장하기 위해 Azure Storage를 사용합니다.  
+대부분의 Batch 솔루션은 리소스 파일 및 출력 파일을 저장하기 위해 Azure Storage를 사용합니다. 예를 들어 Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)는 일반적으로 저장소 계정에 상주하는 리소스 파일을 지정합니다.
 
-Batch는 현재 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 범용 저장소 계정 유형만 지원합니다. Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)은 범용 저장소 계정에서 상주하는 리소스 파일을 지정해야 합니다.
+Batch는 다음과 같은 Azure Storage [계정 옵션](../storage/common/storage-account-options.md)을 지원합니다.
 
+* 범용 v2(GPv2) 계정 
+* 범용 v1(GPv1) 계정
+* Blob 저장소 계정
+
+Batch 계정을 만들 때 또는 나중에 저장소 계정을 Batch 계정에 연결할 수 있습니다. 저장소 계정을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 예를 들어 GPv2 및 BLOB 저장소 계정 옵션은 GPv1보다 큰 [용량 및 확장성 제한](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)을 지원합니다. (저장소 제한을 늘리려면 Azure 고객 지원팀에 문의하세요.) 이러한 계정 옵션은 저장소 계정에서 데이터를 읽어 오거나 저장소 계정에 데이터를 쓰는 다수의 병렬 태스크를 포함하고 있는 Batch 솔루션의 성능을 향상할 수 있습니다.
 
 ## <a name="compute-node"></a>Compute 노드
 계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 머신) 또는 클라우드 서비스 VM입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services, [Azure Virtual Machines Marketplace][vm_marketplace] 이미지 또는 사용자가 준비한 사용자 지정 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool)을 참조하세요.
@@ -252,7 +257,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
     태스크가 노드의 `PATH` 또는 참조 환경 변수가 아닌 응용 프로그램 또는 스크립트를 실행해야 하는 경우 태스크 명령줄에서 명시적으로 셸을 호출합니다.
-* **리소스 파일** . 태스크의 명령줄을 실행하기 전에 이러한 파일은 범용 Azure Storage 계정의 Blob Storage에서 노드로 자동으로 복사됩니다. 자세한 내용은 [시작 태스크](#start-task) 및 [파일 및 디렉터리](#files-and-directories) 섹션을 참조하세요.
+* **리소스 파일** . 이러한 파일은 태스크의 명령줄이 실행되기 전에 Azure Storage 계정의 Blob Storage에 있는 노드로 자동 복사됩니다. 자세한 내용은 [시작 태스크](#start-task) 및 [파일 및 디렉터리](#files-and-directories) 섹션을 참조하세요.
 * 응용 프로그램에 필요한 **환경 변수** . 자세한 내용은 [태스크에 대한 환경 설정](#environment-settings-for-tasks) 섹션을 참조하세요.
 * 태스크가 실행되어야 하는 **제약 조건** . 예를 들어 제약 조건은 태스크가 실행되도록 허용된 최대 시간, 실패한 태스크를 다시 시도해야 하는 최대 횟수 및 태스크의 작업 중인 디렉터리에 파일을 보관하는 최대 시간을 포함합니다.
 * **응용 프로그램 패키지** 입니다. [응용 프로그램 패키지](#application-packages)는 태스크가 실행하는 응용 프로그램의 간소화된 배포 및 버전 관리를 제공합니다. 작업 수준 응용 프로그램 패키지는 공유 풀 환경에서 특히 유용하며 여기서는 다른 작업이 하나의 풀에서 실행되고 작업이 완료될 때 풀이 삭제되지 않습니다. 작업에 있는 태스크가 풀에 있는 노드보다 적은 경우 태스크를 실행하는 노드에만 응용 프로그램을 배포하므로 태스크 응용 프로그램 패키지는 데이터 전송을 최소화할 수 있습니다.

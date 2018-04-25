@@ -1,18 +1,17 @@
 ---
-title: "Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터 | Microsoft Docs"
-description: "보안 필터 및 Active Directory ID를 사용하는 Azure Search 콘텐츠에 대한 액세스 제어입니다."
-services: search
+title: Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터 | Microsoft Docs
+description: 보안 필터 및 Active Directory ID를 사용하는 Azure Search 콘텐츠에 대한 액세스 제어입니다.
 author: revitalbarletz
 manager: jlembicz
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d7df9ede1851680fb6327cac7eed0a479928cea0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -97,7 +96,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>4단계: 그룹 식별자 캐시
-필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. (AAD Batch API)[https://developer.microsoft.com/graph/docs/concepts/json_batching]를 사용하여 여러 사용자가 포함된 단일 Http 요청을 보내고 캐시를 빌드할 수 있습니다.
+필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. (AAD Batch API)[https://developer.microsoft.com/graph/docs/concepts/json_batching]를 사용하여 여러 사용자가 있는 단일 HTTP 요청을 보내고 캐시를 작성할 수 있습니다.
 
 Microsoft Graph는 많은 양의 요청을 처리하도록 설계되었습니다. 요청이 너무 많이 발생하면 Microsoft Graph가 HTTP 상태 코드 429와 함께 요청을 실패합니다. 자세한 내용은 [Microsoft Graph 제한](https://developer.microsoft.com/graph/docs/concepts/throttling)을 참조하세요.
 

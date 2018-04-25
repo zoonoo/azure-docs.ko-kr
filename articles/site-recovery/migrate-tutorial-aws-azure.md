@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
 이 자습서에서는 Site Recovery를 사용하여 AWS(Amazon Web Services) VM(가상 머신)을 Azure VM으로 마이그레이션하는 방법을 설명합니다. EC2 인스턴스를 Azure로 마이그레이션할 때 VM은 온-프레미스의 물리적 컴퓨터처럼 처리됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
+> * 필수 구성 요소 확인
 > * Azure 리소스 준비
 > * 마이그레이션을 위해 AWS EC2 인스턴스 준비
 > * 구성 서버 배포
@@ -29,6 +30,22 @@ ms.lasthandoff: 02/28/2018
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
+## <a name="prerequisites"></a>필수 조건
+- 마이그레이션할 VM이 포함하는 지원되는 OS 버전을 실행하고 있는지 확인합니다. 
+    - 64비트 버전의 Windows Server 2008 R2 SP1 이상, 
+    - Windows Server 2012,
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만 해당) 및 Citrix PV 또는 AWS PV 드라이버만 포함해야 합니다. RedHat PV 드라이버를 실행하는 인스턴스는 지원되지 **않습니다**.
+
+- 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
+
+> [!IMPORTANT]
+> Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치가 되려면 Site Recovery가 VM에 액세스하는 데 사용할 EC2 인스턴스 계정을 준비해야 합니다. 도메인 또는 로컬 계정을 사용할 수 있습니다. 
+> - Linux VM의 경우 계정은 원본 Linux 서버의 루트여야 합니다. 
+> - Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 DWORD 항목 **LocalAccountTokenFilterPolicy**를 추가하고 값을 1로 설정합니다.
+
+- Site Recovery 구성 서버로 사용할 수 있는 별도의 EC2 인스턴스가 필요합니다. 이 인스턴스는 Windows Server 2012 R2를 실행해야 합니다.
 
 ## <a name="prepare-azure-resources"></a>Azure 리소스 준비
 
@@ -74,19 +91,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 8. **서브넷**에 대해 **이름**과 **IP 범위**를 기본값으로 둡니다.
 9. **서비스 끝점**을 사용 안 함으로 둡니다.
 10. 완료하면 **만들기**를 클릭합니다.
-
-
-## <a name="prepare-the-ec2-instances"></a>EC2 인스턴스 준비
-
-마이그레이션할 하나 이상의 VM이 필요합니다. 이 EC2 인스턴스는 64비트 버전 Windows Server 2008 R2 SP1 이상, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 또는 Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만)을 실행해야 합니다. 서버는 Citrix PV 또는 AWS PV 드라이버만 사용해야 합니다. RedHat PV 드라이버를 실행하는 인스턴스는 지원되지 않습니다.
-
-복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치가 되려면 Site Recovery가 VM에 액세스하는 데 사용할 EC2 인스턴스 계정을 준비해야 합니다.
-
-도메인 또는 로컬 계정을 사용할 수 있습니다. Linux VM의 경우 계정은 원본 Linux 서버의 루트여야 합니다. Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
-
-  - 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 DWORD 항목 **LocalAccountTokenFilterPolicy**를 추가하고 값을 1로 설정합니다.
-
-Site Recovery 구성 서버로 사용할 수 있는 별도의 EC2 인스턴스도 필요합니다. 이 인스턴스는 Windows Server 2012 R2를 실행해야 합니다.
 
 
 ## <a name="prepare-the-infrastructure"></a>인프라 준비
@@ -155,7 +159,7 @@ Site Recovery 구성 서버로 사용할 수 있는 별도의 EC2 인스턴스�
 
 ### <a name="5-deployment-planning-select"></a>5 배포 계획 선택
 
-**배포 계획을 완료하셨나요?**의 드롭다운에서 **나중에 수행**을 선택하고 **확인**을 클릭합니다.
+**배포 계획을 완료하셨나요?** 의 드롭다운에서 **나중에 수행**을 선택하고 **확인**을 클릭합니다.
 
 **인프라 준비**의 5개 섹션을 모두 마쳤으면 **확인**을 클릭합니다.
 
@@ -218,13 +222,13 @@ VM에 대해 복제를 사용하도록 설정하면 변경 내용이 적용되�
 
 포털에서 다음과 같이 테스트 장애 조치(failover)를 실행합니다.
 
-1. 자격 증명 모음에 대한 페이지에서 **보호된 항목** > **복제된 항목**으로 이동하여 VM > **+ 테스트 장애 조치(Failover)**를 클릭합니다.
+1. 자격 증명 모음에 대한 페이지에서 **보호된 항목** > **복제된 항목**으로 이동하여 VM > **+ 테스트 장애 조치(Failover)** 를 클릭합니다.
 
 2. 장애 조치(failover)에 사용할 복구 지점을 선택합니다.
     - **가장 최근에 처리됨**: VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
     - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
     - **사용자 지정**: 복구 지점을 선택합니다.
-3. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 대상 Azure 네트워크를 선택합니다. [Azure 리소스 준비](#prepare-azure-resources) 섹션에서 만든 네트워크입니다.
+3. **테스트 장애 조치(Failover)** 에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 대상 Azure 네트워크를 선택합니다. [Azure 리소스 준비](#prepare-azure-resources) 섹션에서 만든 네트워크입니다.
 4. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 해당 속성을 열어 진행률을 추적할 수 있습니다. 또는 자격 증명 모음에 대한 페이지에서 **모니터링 및 보고서** > **작업** >
    **Site Recovery 작업**으로 이동하여 **테스트 장애 조치(Failover)** 작업을 클릭해도 됩니다.
 5. 장애 조치가 완료되면 Azure Portal > **Virtual Machines**에서 Azure VM 복제본이 표시됩니다. VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다.
@@ -238,8 +242,8 @@ VM에 대해 복제를 사용하도록 설정하면 변경 내용이 적용되�
 
 Azure VM에 마이그레이션할 EC2 인스턴스에 대해 실제 장애 조치(failover)를 실행합니다.
 
-1. **보호된 항목** > **복제된 항목**에서 AWS 인스턴스 > **장애 조치(Failover)**를 클릭합니다.
-2. **장애 조치(Failover)**에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
+1. **보호된 항목** > **복제된 항목**에서 AWS 인스턴스 > **장애 조치(Failover)** 를 클릭합니다.
+2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
 3. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 가상 머신을 종료하려고 시도하는 경우 **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. VM이 **복제된 항목**에 표시되는지 확인합니다.
 5. 각 VM을 마우스 오른쪽 단추로 클릭한 후 **마이그레이션 완료**를 클릭합니다. 그러면 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.

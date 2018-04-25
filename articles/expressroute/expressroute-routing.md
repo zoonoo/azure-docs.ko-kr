@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 7380629344b27d5bb1e7af0aeddcb8f7665c1a5c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8bf1381ad089b9db41a3ef9f6fd3b9521a16da7e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -183,6 +183,8 @@ ExpressRoute는 전송 라우터로 구성할 수 없습니다. 전송 라우팅
 | 일본 동부 | 12076분 51012초 |
 | 일본 서부 | 12076분 51013초 |
 | **오스트레일리아** | |
+| 오스트레일리아 중부 | 12076:51032 |
+| 오스트레일리아 중부 2 | 12076:51033 |
 | 오스트레일리아 동부 | 12076분 51015초 |
 | 오스트레일리아 남동부 | 12076분 51016초 |
 | **인도** | |

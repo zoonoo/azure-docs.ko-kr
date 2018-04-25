@@ -1,25 +1,18 @@
 ---
-title: "포털에서 Azure Search로 데이터 가져오기 | Microsoft Docs"
-description: "Azure Portal에서 Azure Search 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 NoSQL Azure Cosmos DB, Blob Storage, Table Storage, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링합니다."
-services: search
-documentationcenter: 
+title: 포털에서 Azure Search로 데이터 가져오기 | Microsoft Docs
+description: Azure Portal에서 Azure Search 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 NoSQL Azure Cosmos DB, Blob Storage, Table Storage, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링합니다.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: Azure Portal
-ms.assetid: f40fe07a-0536-485d-8dfa-8226eb72e2cd
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b651ccaa59e40b9d8d1c682fc8c266bf95b62a2e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>포털을 사용하여 Azure Search로 데이터 가져오기
 Azure Portal에는 인덱스에 데이터를 로드하기 위한 **데이터 가져오기** 마법사가 Azure Search 대시보드에 제공됩니다. 
@@ -94,7 +87,7 @@ Azure Cosmos DB에서 샘플 데이터를 사용하여 이 워크플로를 시�
 
 포털에는 **검색 탐색기**가 있으므로 코드를 작성하지 않고도 인덱스를 쿼리할 수 있습니다. 모든 인덱스에서 [검색 탐색기](search-explorer.md)를 사용할 수 있습니다.
 
-검색 환경은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 기본 [searchMode 쿼리 매개 변수(https://docs.microsoft.com/rest/api/searchservice/search-documents)와 같은 기본 설정을 기반으로 합니다. 
+검색 환경은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 기본 [searchMode 쿼리 매개 변수(https://docs.microsoft.com/rest/api/searchservice/search-documents)]를 기반으로 합니다. 
 
 결과는 자세한 정보 표시 형식의 JSON으로 반환되므로 전체 문서를 검사할 수 있습니다.
 

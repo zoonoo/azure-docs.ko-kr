@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 03/28/2018
+ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 장치를 프로비전
 
-이전 자습서에서 Device Provisioning Service에 연결하기 위해 장치를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 **_등록 목록_**을 사용하는 단일 IoT Hub에 장치를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이전 자습서에서 Device Provisioning Service에 연결하기 위해 장치를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 자동 프로비전 및 **_등록 목록_** 을 사용하는 단일 IoT Hub에 장치를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
 > * 장치 등록
@@ -42,18 +42,18 @@ ms.lasthandoff: 03/30/2018
     - TPM 칩 제조업체에서 얻은 각 TPM 칩 또는 시뮬레이션에 고유한 *인증 키*.  자세한 정보는 [TPM 인증 키 이해](https://technet.microsoft.com/library/cc770443.aspx)를 읽어보세요.
     - 네임스페이스/범위에서 장치를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이 ID는 장치 ID와 같을 수도 있고 다를 수도 있습니다. ID는 모든 장치에 필수입니다. TPM 기반 장치의 경우 등록 ID는 TPM 인증 키의 SHA-256 해시와 같이 TPM 자체에서 파생될 수도 있습니다.
 
-    ![포털에서 TPM에 대한 등록 정보](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
+    [![포털에서 TPM에 대한 등록 정보](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - X.509 기반 장치의 경우 다음과 같은 항목이 필요합니다.
     - [X.509에 발급된 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) 칩 또는 시뮬레이션입니다. 형식은 *.pem* 또는 *.cer* 파일 중 하나입니다. 개별 등록은 X.509 시스템에 대한 장치별 *서명자 인증서*를, 등록 그룹의 경우 *루트 인증서*를 사용해야 합니다. 
 
-    ![포털에서 X.509에 대한 등록 정보](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+    [![포털에 X.509 증명에 대한 개별 등록 추가](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 있습니다.
 
 - **등록 그룹** 특정 증명 메커니즘을 공유하는 장치의 그룹을 나타냅니다. 원하는 초기 구성을 공유하는 장치 수가 많은 경우 또는 장치가 모두 동일한 테넌트로 이동하는 경우 등록 그룹을 사용하는 것이 좋습니다.
 
-    ![포털에서 X.509에 대한 등록 그룹](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+    [![포털에 X.509 증명에 대한 그룹 등록 추가](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **개별 등록** Device Provisioning Service에 등록할 수도 있는 단일 장치에 대한 항목을 나타냅니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 장치 및 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록에는 원하는 IoT Hub 장치 ID가 지정될 수 있습니다.
 

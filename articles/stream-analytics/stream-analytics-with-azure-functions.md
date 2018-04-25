@@ -1,19 +1,21 @@
 ---
-title: Azure Stream Analytics 작업에서 Azure Functions 실행
-description: 이 문서에서는 Stream Analytics 작업에서 이벤트 드라이브 워크로드에 대한 출력 싱크로 Azure Functions를 구성하는 방법을 설명합니다.
+title: '자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 | Microsoft Docs'
+description: 이 자습서에서는 Stream Analytics 작업에 대한 출력 싱크로 Azure Functions를 구성하는 방법에 대해 알아봅니다.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
-ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/19/2017
-ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.custom: mvc
+ms.workload: data-services
+ms.date: 04/09/2018
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -21,7 +23,14 @@ Functions를 Stream Analytics 작업에 대한 출력 싱크 중 하나로 구�
 
 Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Functions 출력 어댑터를 통해 사용자는 Functions를 Stream Analytics에 연결할 수 있으므로, Stream Analytics 쿼리를 기준으로 그러한 이벤트를 트리거할 수 있습니다. 
 
-이 자습서에서는 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 Stream Analytics를 [Azure Redis Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)에 연결하는 방법을 보여줍니다. 
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * Stream Analytics 작업 만들기
+> * Azure Function 만들기
+> * 작업에 대한 출력으로 Azure 함수 구성
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Stream Analytics 작업을 구성하여 함수 실행 
 
@@ -191,3 +200,16 @@ Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Funct
 
 Azure 포털에서 최대 일괄 처리 크기/최대 일괄 처리 수 값을 빈 값(기본값)으로 재설정하려고 시도하면, 저장할 때 값이 이전에 입력된 값으로 다시 변경됩니다. 이 경우 이러한 필드에 대해 기본값을 수동으로 입력하십시오.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 필요할 때 나중에 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
+2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+이 자습서에서는 Azure Function을 실행하는 간단한 Stream Analytics 작업을 만들었습니다. Stream Analytics 작업에 대해 자세히 알아보려면 다음 자습서를 계속합니다.
+
+> [!div class="nextstepaction"]
+> [Stream Analytics 작업 내에서 JavaScript 사용자 정의 함수 실행](stream-analytics-javascript-user-defined-functions.md)

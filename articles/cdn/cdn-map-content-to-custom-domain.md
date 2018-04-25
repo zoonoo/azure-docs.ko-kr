@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/09/2018
+ms.date: 04/06/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: de04253a51d30885e936cb65a1925df4e5e96eaf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 끝점에 사용자 지정 도메인 추가
-이 자습서에서는 Azure CDN 끝점에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 끝점을 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
+이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 끝점을 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
 
 프로필에서 CDN 끝점을 만든 후에 azureedge.net의 하위 도메인인 끝점 이름은 기본적으로 CDN 콘텐츠를 배달하는 URL에 포함됩니다(예: https:\//contoso.azureedge.net/photo.png). 편의상 Azure CDN은 CDN 끝점과 사용자 지정 도메인을 연결하는 옵션을 제공합니다. 이 옵션을 사용하면 끝점 이름 대신 URL로 사용자 지정 도메인을 사용하여 콘텐츠를 배달합니다(예: https:\//www.contoso.com/photo.png). 
 
@@ -49,7 +49,8 @@ Azure CDN 끝점에 사용자 지정 도메인을 사용하려면 먼저 해당 
 
 사용자 지정 도메인 및 해당 하위 도메인은 한 번에 하나의 단일 끝점과 연결될 수 있습니다. 그러나 여러 CNAME 레코드를 사용하여 Azure 서비스 끝점에 동일한 사용자 지정 도메인의 다른 하위 도메인을 사용할 수 있습니다. 여러 하위 도메인을 포함한 사용자 지정 도메인을 동일한 CDN 끝점에 매핑할 수도 있습니다.
 
-## <a name="map-temporary-cdnverify-subdomain"></a>임시 cdnverify 하위 도메인 매핑
+
+## <a name="map-the-temporary-cdnverify-subdomain"></a>임시 cdnverify 하위 도메인 매핑
 
 프로덕션 중인 기존 도메인을 매핑할 경우 특별한 고려 사항이 있습니다. Azure Portal에서 사용자 지정 도메인을 등록하는 동안 도메인에 짧은 가동 중지 시간이 발생할 수 있습니다. 웹 트래픽을 중단하지 않도록 방지하려면 먼저 Azure cdnverify 하위 도메인을 포함한 CDN 끝점 호스트 이름에 사용자 지정 도메인을 매핑하여 임시 CNAME 매핑을 만듭니다. 이 메서드를 사용하여 DNS 매핑이 발생하는 동안 사용자가 중단 없이 도메인에 액세스할 수 있습니다. 
 
@@ -63,7 +64,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 3. 사용자 지정 도메인에 대한 CNAME 레코드 항목을 만들고 다음 표와 같이 필드에 입력합니다(필드 이름 다를 수 있음).
 
-    | 원본                    | 유형  | 대상                     |
+    | 원본                    | type  | 대상                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -135,7 +136,8 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 2. 브라우저에서 사용자 지정 도메인을 사용하는 파일의 주소로 이동합니다. 예를 들어 사용자 지정 도메인이 cdn.contoso.com인 경우 캐시된 Blob에 대한 URL은 다음 URL과 유사합니다. http:\//cdn.contoso.com/my-public-container/my-file.jpg
 
-## <a name="map-permanent-custom-domain"></a>영구 사용자 지정 도메인 매핑
+
+## <a name="map-the-permanent-custom-domain"></a>영구 사용자 지정 도메인 매핑
 
 cdnverify 하위 도메인이 끝점에 성공적으로 매핑되었음을 확인한 경우(또는 프로덕션 중이 아닌 새 사용자 지정 도메인을 사용하는 경우) 사용자 지정 도메인을 직접 CDN 끝점 호스트 이름에 매핑할 수 있습니다.
 
@@ -147,7 +149,7 @@ cdnverify 하위 도메인이 끝점에 성공적으로 매핑되었음을 확�
 
 3. 사용자 지정 도메인에 대한 CNAME 레코드 항목을 만들고 다음 표와 같이 필드에 입력합니다(필드 이름 다를 수 있음).
 
-    | 원본          | 유형  | 대상           |
+    | 원본          | type  | 대상           |
     |-----------------|-------|-----------------------|
     | www.contoso.com | CNAME | contoso.azureedge.net |
 
@@ -160,6 +162,8 @@ cdnverify 하위 도메인이 끝점에 성공적으로 매핑되었음을 확�
 4. 변경 내용을 저장합니다.
 
 5. 임시 cdnverify 하위 도메인 CNAME 레코드를 이전에 만든 경우 삭제합니다. 
+
+6. 프로덕션에서 이 사용자 지정 도메인을 처음으로 사용하는 경우 [CDN 끝점과 사용자 지정 도메인 연결](#associate-the-custom-domain-with-your-cdn-endpoint) 및 [사용자 지정 도메인 확인](#verify-the-custom-domain)의 단계에 따릅니다.
 
 예를 들어 GoDaddy 도메인 등록 기관에 대한 프로시저는 다음과 같습니다.
 
@@ -192,8 +196,6 @@ cdnverify 하위 도메인이 끝점에 성공적으로 매핑되었음을 확�
 7. cdnverify CNAME 레코드가 있는 경우 옆에 있는 연필 아이콘을 선택한 다음, 휴지통 아이콘을 선택합니다.
 
 8. **삭제**를 선택하여 CNAME 레코드를 삭제합니다.
-
-프로덕션에서 이 사용자 지정 도메인을 처음으로 사용하는 경우 [CDN 끝점과 사용자 지정 도메인 연결](#associate-the-custom-domain-with-your-cdn-endpoint) 및 [사용자 지정 도메인 확인](#verify-the-custom-domain)의 단계에 따릅니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

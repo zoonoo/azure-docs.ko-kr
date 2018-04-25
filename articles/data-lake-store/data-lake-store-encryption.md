@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store의 데이터 암호화
 
@@ -64,8 +64,8 @@ Data Lake Store는 MEK(마스터 암호화 키)를 관리하는 두 가지 모�
 |Key Vault 외부에 저장되는 암호화 키가 있나요? |아니오|아니오|
 |Key Vault에서 MEK를 검색할 수 있나요?|번호 MEK는 Key Vault에 저장된 후에 암호화 및 암호 해독에만 사용할 수 있습니다.|안 됩니다. MEK는 Key Vault에 저장된 후에 암호화 및 암호 해독에만 사용할 수 있습니다.|
 |Key Vault 인스턴스 및 MEK 소유자는 누구인가요?|Data Lake Store 서비스|사용자는 고유한 Azure 구독에 속한 Key Vault 인스턴스를 소유합니다. Key Vault의 MEK는 소프트웨어 또는 하드웨어로 관리할 수 있습니다.|
-|사용자가 Data Lake Store 서비스의 MEK에 대한 액세스를 취소할 수 있나요?|아니오|예. 사용자는 Key Vault의 액세스 제어 목록을 관리하고 Data Lake Store 서비스의 서비스 ID에 대한 액세스 제어 항목을 제거할 수 있습니다.|
-|MEK를 영구적으로 삭제할 수 있나요?|아니오|예. Key Vault에서 MEK를 삭제하면 Data Lake Store 서비스를 포함하여 누구도 Data Lake Store 계정의 데이터를 해독할 수 없습니다. <br><br> Key Vault에서 MEK를 삭제하기 전에 명시적으로 백업하면 MEK를 복원하고 데이터 복구할 수 있습니다. 그러나 Key Vault에서 MEK를 삭제하기 전에 백업하지 않으면 이후에 Data Lake Store 계정의 데이터를 해독할 수 없습니다.|
+|사용자가 Data Lake Store 서비스의 MEK에 대한 액세스를 취소할 수 있나요?|아니요|예. 사용자는 Key Vault의 액세스 제어 목록을 관리하고 Data Lake Store 서비스의 서비스 ID에 대한 액세스 제어 항목을 제거할 수 있습니다.|
+|MEK를 영구적으로 삭제할 수 있나요?|아니요|예. Key Vault에서 MEK를 삭제하면 Data Lake Store 서비스를 포함하여 누구도 Data Lake Store 계정의 데이터를 해독할 수 없습니다. <br><br> Key Vault에서 MEK를 삭제하기 전에 명시적으로 백업하면 MEK를 복원하고 데이터 복구할 수 있습니다. 그러나 Key Vault에서 MEK를 삭제하기 전에 백업하지 않으면 이후에 Data Lake Store 계정의 데이터를 해독할 수 없습니다.|
 
 
 MEK 및 MEK가 상주하는 Key Vault 인스턴스를 관리하는 사람이 다르다는 차이점을 제외한 디자인의 나머지 부분은 두 모드가 동일합니다.
@@ -79,7 +79,7 @@ MEK 및 MEK가 상주하는 Key Vault 인스턴스를 관리하는 사람이 다
 
 데이터 암호화 디자인에 사용되는 세 가지 종류의 키가 있습니다. 다음 테이블에서는 요약 정보를 제공합니다.
 
-| 키                   | 약어 | 연결 대상 | 저장 위치                             | 유형       | 메모                                                                                                   |
+| 키                   | 약어 | 연결 대상 | 저장 위치                             | type       | 메모                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | 마스터 암호화 키 | MEK          | Data Lake Store 계정 | Key Vault                              | 비대칭 | Data Lake Store 또는 사용자가 관리할 수 있습니다.                                                              |
 | 데이터 암호화 키   | DEK          | Data Lake Store 계정 | 영구 저장소, Data Lake Store 서비스에서 관리 | 대칭  | DEK는 MEK에서 암호화됩니다. 암호화된 DEK는 영구 미디어에 저장됩니다. |
@@ -138,3 +138,6 @@ Data Lake Store 계정을 설정할 때에 고유한 키를 사용하기로 했�
     ![강조 표시된 메시지와 회전 키에서 Data Lake Store 창의 스크린샷](./media/data-lake-store-encryption/rotatekey.png)
 
 이 작업은 2분 이내에 완료되며 키 회전으로 인해 예상되는 가동 중지 시간은 없습니다. 작업이 완료되면 새 버전의 키가 사용됩니다.
+
+> [!IMPORTANT]
+> 키 회전 작업이 완료되면 이전 버전의 키는 데이터를 암호화하는 데 더 이상 적극적으로 사용되지 않습니다.  그러나 데이터의 중복 복사본도 영향을 받는 예기치 않은 오류의 드문 경우에 여전히 이전 키를 사용하는 백업에서 데이터를 복원할 수 있습니다. 이러한 드문 경우에서 데이터에 액세스할 수 있도록 이전 버전의 암호화 키 복사본을 보관합니다. 재해 복구 계획에 대한 모범 사례는 [Data Lake Store의 데이터에 대한 재해 복구 가이드](data-lake-store-disaster-recovery-guidance.md)를 참조하세요. 

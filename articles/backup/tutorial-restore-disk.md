@@ -1,34 +1,36 @@
 ---
-title: "Azure Backup으로 VM 디스크 복원 | Microsoft Docs"
-description: "Backup 및 Recovery Services를 사용하여 Azure에서 디스크를 복원하고 복구된 VM을 만드는 방법을 알아봅니다."
+title: Azure Backup으로 VM 디스크 복원 | Microsoft Docs
+description: Backup 및 Recovery Services를 사용하여 Azure에서 디스크를 복원하고 복구된 VM을 만드는 방법을 알아봅니다.
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 2/14/2018
+ms.date: 4/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 571d40c46771f43ad5ea78fe92398de09e87393c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2b82725362517d12dd4e7df7b2bb083fa107253
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Azure에서 디스크 복원 및 복구된 VM 만들기
-Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 전체 VM을 복원하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 CLI를 사용하여 전체 VM을 복원하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 복구 지점 나열 및 선택
 > * 복구 지점에서 디스크 복원
 > * 복원된 디스크에서 VM 만들기
+
+PowerShell을 사용하여 디스크를 복원하고 복구된 VM을 만드는 방법은 [PowerShell을 사용하여 Azure VM 백업 및 복원](backup-azure-vms-automation.md#restore-an-azure-vm)을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

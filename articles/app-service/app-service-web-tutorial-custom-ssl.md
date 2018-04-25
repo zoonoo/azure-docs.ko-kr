@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -79,7 +79,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 ### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
 
-웹앱 페이지의 왼쪽 탐색 영역에서 **설정** 섹션으로 스크롤하고 **강화(App Service 계획)**를 선택합니다.
+웹앱 페이지의 왼쪽 탐색 영역에서 **설정** 섹션으로 스크롤하고 **강화(App Service 계획)** 를 선택합니다.
 
 ![강화 메뉴](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
@@ -137,7 +137,7 @@ _mergedcertificate.crt_라는 병합된 인증서의 파일을 만듭니다. 텍
 
 인증서 요청 생성에 사용된 개인 키로 병합된 SSL 인증서를 내보냅니다.
 
-OpenSSL을 사용하여 인증서 요청을 생성한 경우 개인 키 파일을 만든 것입니다. 인증서를 PFX로 내보내려면 다음 명령을 실행합니다. 자리 표시자 _&lt;private-key-file>_ 및 _&lt;merged-certificate-file>_을 사용자의 개인 키 및 병합된 인증서 파일에 대한 경로로 바꿉니다.
+OpenSSL을 사용하여 인증서 요청을 생성한 경우 개인 키 파일을 만든 것입니다. 인증서를 PFX로 내보내려면 다음 명령을 실행합니다. 자리 표시자 _&lt;private-key-file>_ 및 _&lt;merged-certificate-file>_ 을 사용자의 개인 키 및 병합된 인증서 파일에 대한 경로로 바꿉니다.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
@@ -149,7 +149,7 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 ### <a name="upload-your-ssl-certificate"></a>SSL 인증서 업로드
 
-SSL 인증서를 업로드하려면 웹앱의 왼쪽 탐색 영역에서 **SSL 인증서**를 클릭합니다.
+SSL 인증서를 업로드하려면 웹앱의 왼쪽 탐색 영역에서 **SSL 설정**을 클릭합니다.
 
 **인증서 업로드**를 클릭합니다. 
 
@@ -159,7 +159,7 @@ SSL 인증서를 업로드하려면 웹앱의 왼쪽 탐색 영역에서 **SSL �
 
 ![인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-App Service에서 인증서 업로드가 완료되면 **SSL 인증서** 페이지에 업로드된 인증서가 표시됩니다.
+App Service에서 인증서 업로드가 완료되면 **SSL 설정** 페이지에 업로드된 인증서가 표시됩니다.
 
 ![업로드된 인증서](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -216,7 +216,7 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 
 기본적으로 누구나 HTTP를 사용하여 웹앱에 액세스할 수 있습니다. HTTPS 포트에 모든 HTTP 요청을 리디렉션할 수 있습니다.
 
-웹앱 페이지의 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 그런 다음 **HTTPS에만 해당**에서 **켜기**를 선택합니다.
+웹앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음 **HTTPS에만 해당**에서 **켜기**를 선택합니다.
 
 ![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -225,6 +225,16 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>TLS 1.1/1.2 적용
+
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0은 기본적으로 앱에서 허용되며, 더 이상 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 같은 산업 표준에서 안전한 것으로 간주되지 않습니다. 더 높은 TLS 버전을 적용하려면 다음이 단계를 수행합니다.
+
+웹앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다.
+
+![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+작업이 완료되면 앱에서 더 낮은 TLS 버전과의 모든 연결을 거부합니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 

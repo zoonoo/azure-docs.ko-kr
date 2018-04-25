@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory 조건부 액세스의 위치 조건 | Microsoft Docs"
-description: "위치 조건을 사용하여 사용자의 네트워크 위치를 기준으로 클라우드 앱에 대한 액세스를 제어하는 방법을 알아봅니다."
+title: Azure Active Directory 조건부 액세스의 위치 조건 | Microsoft Docs
+description: 위치 조건을 사용하여 사용자의 네트워크 위치를 기준으로 클라우드 앱에 대한 액세스를 제어하는 방법을 알아봅니다.
 services: active-directory
-keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
-documentationcenter: 
+keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 687f3c4a5f70154b6335563d65443c12463b0b74
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건 
 
@@ -43,7 +43,14 @@ Azure AD에서는 공용 인터넷의 어디에서든지 장치, 앱 및 서비�
 
 명명된 위치를 사용하여 IP 주소 범위, 국가 및 지역의 논리적 그룹을 만들 수 있습니다. 
 
- 이름 위치의 구성 요소는 다음과 같습니다.
+조건부 액세스 페이지의 **관리** 섹션에서 명명된 위치에 액세스할 수 있습니다.
+
+![위치](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+명명된 위치의 구성 요소는 다음과 같습니다.
 
 ![위치](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ Azure AD에서는 공용 인터넷의 어디에서든지 장치, 앱 및 서비�
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
 
-[다단계 인증 서비스 설정](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)에서 조직의 로컬 인트라넷을 나타내는 IP 주소 범위를 구성할 수도 있습니다. 이 기능을 사용하면 최대 50개의 IP 주소 범위를 구성할 수 있습니다. IP 주소 범위는 CIDR 형식입니다. 자세한 내용은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.  
+[다단계 인증 서비스 설정](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)에서 조직의 로컬 인트라넷을 나타내는 IP 주소 범위를 구성할 수도 있습니다. 이 기능을 사용하면 최대 50개의 IP 주소 범위를 구성할 수 있습니다. IP 주소 범위는 CIDR 형식입니다. 자세한 내용은 [신뢰할 수 있는 IP](authentication/howto-mfa-mfasettings.md#trusted-ips)를 참조하세요.  
 
 신뢰할 수 있는 IP를 구성한 경우 위치 조건에 대한 위치 목록에서 **MFA에서 신뢰할 수 있는 IP**로 표시됩니다.   
 
 ### <a name="skipping-multi-factor-authentication"></a>다단계 인증 건너뛰기
 
-다단계 인증 서비스 설정 페이지에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택하여 회사 인트라넷 사용자를 식별할 수 있습니다. 이 설정은 AD FS에서 발급한 내부 회사 네트워크 클레임이 신뢰되며, 사용자를 회사 네트워크에 있는 것으로 식별하는 데 사용됨을 나타냅니다. 자세한 내용은 [조건부 액세스를 사용하여 신뢰할 수 있는 IP 기능을 사용하도록 설정](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access)을 참조하세요.
+다단계 인증 서비스 설정 페이지에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택하여 회사 인트라넷 사용자를 식별할 수 있습니다. 이 설정은 AD FS에서 발급한 내부 회사 네트워크 클레임이 신뢰되며, 사용자를 회사 네트워크에 있는 것으로 식별하는 데 사용됨을 나타냅니다. 자세한 내용은 [조건부 액세스를 사용하여 신뢰할 수 있는 IP 기능을 사용하도록 설정](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access)을 참조하세요.
 
 명명된 위치를 포함하는 이 옵션을 선택하면, **MFA에서 신뢰할 수 있는 IP**가 해당 옵션이 선택된 모든 정책에 적용됩니다.
 

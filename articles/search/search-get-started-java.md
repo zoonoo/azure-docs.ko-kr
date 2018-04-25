@@ -1,24 +1,17 @@
 ---
-title: "Java에서 Azure Search 시작 | Microsoft Docs"
-description: "Java를 프로그래밍 언어로 사용하여 Azure에서 호스트된 클라우드 검색 응용 프로그램을 빌드하는 방법입니다."
-services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
+title: Java에서 Azure Search 시작 | Microsoft Docs
+description: Java를 프로그래밍 언어로 사용하여 Azure에서 호스트된 클라우드 검색 응용 프로그램을 빌드하는 방법입니다.
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/14/2016
-ms.author: evboyle
-ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.author: jjed
+ms.openlocfilehash: 73e18b91412fd93897f9596077948fd7ea459e71
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java에서 Azure Search 시작
 > [!div class="op_single_selector"]
@@ -91,7 +84,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 ## <a name="configure-the-service-url-and-api-key"></a>서비스 URL 및 api-key 구성
 1. **Project Explorer**에서 **config.properties**를 두 번 클릭하여 서버 이름 및 api-key가 포함된 구성 설정을 편집합니다.
 2. 이 문서의 이전 단계를 참조하여 [config.properties](https://portal.azure.com)에 입력할 값을 가져오도록 **Azure Portal**에서 서비스 URL 및 api-key를 찾습니다.
-3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 그러면 서비스 이름(URL http://servicename.search.windows.net의 첫 번째 구성 요소)이 동일한 파일의 "service name"을 대체합니다.
+3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 다음으로 서비스 이름(URL http://servicename.search.windows.net)의 첫 번째 구성 요소)이 같은 파일의 “서비스 이름"을 대체합니다.
    
     ![][5]
 
@@ -101,7 +94,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
    
     ![][6]
 3. **Apply**를 클릭합니다.
-4. **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**를 선택합니다.
+4. **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..** 를 선택합니다.
 5. Apache를 확장하고 이전에 설치한 Apache Tomcat 서버의 버전을 선택합니다. 예제 시스템에는 버전 8이 설치되어 있습니다.
    
     ![][7]
@@ -122,7 +115,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 이제 구성 작업을 완료했습니다. 다음으로, 프로젝트를 빌드 및 실행합니다.
 
 ## <a name="build-the-project"></a>프로젝트 빌드
-1. Project Explorer에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **Run As** > **Maven build...**를 선택하여 프로젝트를 구성합니다.
+1. Project Explorer에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **Run As** > **Maven build...** 를 선택하여 프로젝트를 구성합니다.
    
     ![][10]
 2. Edit Configuration에서 Goals에 "clean install"을 입력하고 **Run**을 클릭합니다.

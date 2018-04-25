@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f6d8b8773719a59ad5326196f32a69a13a9a5d34
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4c7046c335039f5bc689790aaf53f5dff65991d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: PHP 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -42,24 +42,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="add-a-graph"></a>그래프 추가
 
-이제 Azure Portal에서 데이터 탐색기 도구를 사용하여 그래프 데이터베이스를 만들 수 있습니다. 
-
-1. **데이터 탐색기** > **새 그래프**를 클릭합니다.
-
-    **그래프 추가** 영역이 맨 오른쪽에 표시되면 확인하기 위해 오른쪽으로 스크롤해야 합니다.
-
-    ![Azure Portal 데이터 탐색기, 그래프 추가 페이지](./media/create-graph-php/azure-cosmosdb-data-explorer-graph.png)
-
-2. **그래프 추가** 페이지에서 새 그래프에 대한 설정을 입력합니다.
-
-    설정|제안 값|설명
-    ---|---|---
-    데이터베이스 ID|sample-database|새 데이터베이스의 이름으로 *sample-database*를 입력합니다. 데이터베이스 이름은 1~255자 사이여야 하며 `/ \ # ?` 또는 후행 공백을 포함할 수 없습니다.
-    그래프 ID|sample-graph|새 컬렉션의 이름으로 *sample-graph*를 입력입니다. 그래프 이름은 데이터베이스 ID와 동일한 문자 요구 사항을 갖습니다.
-    저장소 용량|고정(10GB)|기본값인 **고정(10GB)**으로 둡니다. 이 값은 데이터베이스의 저장소 용량입니다.
-    처리량|400RU|처리량을 400RU/s(초당 요청 단위)로 변경합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.
-
-3. 양식을 작성한 후 **확인**을 클릭합니다.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
@@ -85,7 +68,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-graph-php-getting-started\ 폴더의 `connect.php` 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-information)로 건너뛸 수 있습니다. 
+이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-graph-php-getting-started\ 폴더의 connect.php 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-information)로 건너뛸 수 있습니다. 
 
 * Gremlin `connection`은 `$db` 개체를 사용하여 `connect.php` 파일의 시작 부분에서 초기화됩니다.
 
@@ -122,7 +105,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ![Azure Portal에서 선택키 보기 및 복사, 키 페이지](./media/create-graph-php/keys.png)
 2. `connect.php` 파일을 열고 줄 8에서 URI 값을 `your_server_address`에 붙여넣습니다.
 
-    연결 개체 초기화는 이제 다음과 비슷하게 표시됩니다.
+    연결 개체 초기화는 이제 다음 코드와 비슷하게 표시됩니다.
 
     ```php
     $db = new Connection([
@@ -138,11 +121,11 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 3. 그래프 데이터베이스 계정이 2017년 12월 20일 당일 및 그 이후에 만들어진 경우 호스트 이름에서 `graphs.azure.com`을 `gremlin.cosmosdb.azure.com`으로 변경합니다.
 
-4. 연결 개체의 `username` 매개 변수를 자신의 데이터베이스 및 그래프 이름으로 변경합니다. 권장 값 `sample-database` 및 `sample-graph`를 사용한 경우 다음과 같이 표시됩니다.
+4. 연결 개체의 `username` 매개 변수를 자신의 데이터베이스 및 그래프 이름으로 변경합니다. 권장 값 `sample-database` 및 `sample-graph`를 사용한 경우 다음 코드와 같이 표시됩니다.
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    지금은 전체 연결 개체가 이렇게 표시됩니다.
+    전체 연결 개체는 이번에 다음 코드 조각과 같이 표시됩니다.
 
     ```php
     $db = new Connection([
@@ -158,7 +141,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 5. Azure Portal에서 복사 단추로 기본 키를 복사하여 암호 매개 변수의 `your_primary_key`에 붙여넣습니다.
 
-    이제 연결 개체 초기화는 다음과 비슷하게 표시됩니다.
+    이제 연결 개체 초기화는 다음 코드와 비슷하게 표시됩니다.
 
     ```php
     $db = new Connection([
@@ -228,7 +211,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     tech | java | 
 
     > [!NOTE]
-    > 이 빠른 시작에서는 파티션되지 않은 컬렉션을 만듭니다. 그러나 컬렉션을 만드는 중 파티션 키를 지정하여 파티션된 컬렉션을 만드는 경우에는 각 새로운 꼭지점에 키로 파티션 키를 포함해야 합니다.  
+    > 이 빠른 시작에서는 분할되지 않은 컬렉션을 만듭니다. 그러나 컬렉션을 만드는 중 파티션 키를 지정하여 파티션된 컬렉션을 만드는 경우에는 각 새로운 꼭지점에 키로 파티션 키를 포함해야 합니다.  
 
 6. **확인**을 클릭합니다. 화면 맨 아래에 **확인**이 보이도록 화면을 확장해야 합니다.
 
@@ -262,7 +245,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
    ![데이터 탐색기에서 연결된 두 꼭짓점](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   그러면 이 자습서의 리소스 생성 단계를 완료합니다. 계속 그래프에 꼭짓점을 추가하거나, 기존 꼭짓점을 수정하거나, 쿼리를 변경할 수 있습니다. 이제 Azure Cosmos DB에서 제공하는 메트릭을 검토하고 리소스를 정리하겠습니다. 
+   이것으로 이 빠른 시작의 리소스 만들기 단계를 마칩니다. 계속해서 그래프에 꼭짓점을 추가하거나, 기존 꼭짓점을 수정하거나, 쿼리를 변경할 수 있습니다. 이제 Azure Cosmos DB에서 제공하는 메트릭을 검토하고 리소스를 정리하겠습니다. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

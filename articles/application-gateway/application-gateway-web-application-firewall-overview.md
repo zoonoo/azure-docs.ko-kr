@@ -6,19 +6,18 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
-ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 35a7e60dc65b54cbddfcd85fa0e704823152889e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="web-application-firewall-waf"></a>WAF(웹 응용 프로그램 방화벽)
 
@@ -74,9 +73,7 @@ Application Gateway는 CRS 3.0 및 CRS 2.2.9라는 두 개의 규칙 집합을 �
 
 |RuleGroup|설명|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|알려진 스팸 또는 악의적인 활동으로부터 보호하는 규칙을 포함합니다.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|메서드(PUT, PATCH< ..)를 잠그는 규칙을 포함합니다.|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| DoS(서비스 거부) 공격으로부터 보호하는 규칙을 포함합니다.|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| 포트 및 환경 스캐너로부터 보호하는 규칙을 포함합니다.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|프로토콜 및 인코딩 문제로부터 보호하는 규칙을 포함합니다.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|헤더 주입, 밀수 요청 및 응답 분할로부터 보호하는 규칙을 포함합니다.|
@@ -166,7 +163,6 @@ Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제�
 
 새 WAF SKU 아래에서 웹 응용 프로그램 방화벽을 사용할 수 있습니다. 이 SKU는 클래식 배포 모델이 아닌 Azure Resource Manager 프로비전 모델에서만 사용할 수 있습니다. 또한 WAF SKU는 중간 규모 및 대규모 Application Gateway 인스턴스 크기로만 제공됩니다. Application Gateway의 모든 제한 사항이 WAF SKU에도 적용됩니다. 가격 책정은 시간 당 게이트웨이 인스턴스 요금 및 데이터 처리 충전을 기반으로 합니다. WAF SKU 시간 당 게이트웨이 가격 책정은 표준 SKU 요금과 다르며 [Application Gateway 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/application-gateway/)에서 찾을 수 있습니다. 데이터 처리 요금은 동일하게 유지됩니다. 규칙 또는 규칙 그룹 당 요금은 없습니다. 동일한 웹 응용 프로그램 방화벽 뒤에서 여러 웹 응용 프로그램을 보호할 수 있으며 여러 응용 프로그램을 지원하는 추가 비용이 없습니다. 
 
-WAF에 대한 요금 청구는 2017/5/5에 시작됩니다. 그 때까지 WAF SKU 게이트웨이는 표준 요금으로 계속 청구됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

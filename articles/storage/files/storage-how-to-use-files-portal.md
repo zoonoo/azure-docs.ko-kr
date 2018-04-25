@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9b8a7988be2c3a2622dd45a264abcb674b7d169e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Azure Portal을 사용하여 Azure 파일 공유 관리 
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 가이드에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure 파일 공유 작업의 기본 사항을 안내합니다. 방법 배우기:
@@ -47,10 +47,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. **이름**에서 *myshare*를 입력합니다.
 5. **확인**을 클릭하여 Azure 파일 공유를 만듭니다.
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Azure 파일 공유의 콘텐츠 조작
-이제 Azure 파일 공유를 만들었으므로 SMB를 사용하여 [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) 또는 [macOS](storage-how-to-use-files-mac.md)에 파일 공유를 탑재할 수 있습니다. 또는 Azure Portal을 사용하여 Azure 파일 공유를 조작할 수 있습니다. Azure Portal을 통한 모든 요청은 파일 REST API를 통해 수행되므로 SMB에 액세스하지 않고도 클라이언트에서 파일과 디렉터리를 만들고, 수정하고, 삭제할 수 있습니다.
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Azure 파일 공유의 콘텐츠 작업
+이제 Azure 파일 공유를 만들었으므로 SMB를 사용하여 [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) 또는 [macOS](storage-how-to-use-files-mac.md)에 파일 공유를 탑재할 수 있습니다. 또는 Azure Portal을 사용하여 Azure 파일 공유를 작업할 수 있습니다. Azure Portal을 통한 모든 요청은 파일 REST API를 통해 수행되므로 SMB에 액세스하지 않고도 클라이언트에서 파일과 디렉터리를 만들고, 수정하고, 삭제할 수 있습니다.
 
-### <a name="create-directory"></a>디렉터리 만들기
+### <a name="create-a-directory"></a>디렉터리 만들기
 Azure 파일 공유의 루트에 *myDirectory*라는 새 디렉터리를 만들려면,
 
 1. **파일 서비스** 페이지에서 **myshare** 파일 공유를 선택합니다. 파일 공유 페이지가 열립니다.

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e91e27da5ef80236768d19c5870ac96f19f6b074
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -29,7 +29,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 - **Azure Storage**: 일반 공급됩니다. Azure 공용 클라우드 및 Azure Government에서 모든 지역입니다.
 - **Azure SQL Database**: 모든 Azure 지역에서 일반 공급됩니다. 
-- **Azure SQL Data Warehouse**: 미리 보기 상태입니다. Azure 공용 클라우드에서 모든 지역입니다.
+- **Azure SQL Data Warehouse**: 미리 보기 Azure 공용 클라우드에서 모든 지역입니다.
 
 미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
@@ -80,13 +80,14 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 - 서비스 끝점에서 Azure 서비스의 DNS 항목은 현재 상태로 유지되고 Azure 서비스에 할당된 공용 IP 주소로 계속 사용됩니다.
 - 서비스 끝점의 NSG(네트워크 보안 그룹):
   - 기본적으로 NSG는 아웃바운드 인터넷 트래픽을 허용하고 따라서 VNet에서 Azure 서비스로의 트래픽을 허용합니다. 서비스 끝점에서 계속 그대로 작동합니다. 
-  - 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure 서비스에 대한 트래픽만 허용하려는 경우 NSG에서 __"Azure 서비스 태그"__를 사용하여 수행할 수 있습니다. NSG 규칙에서 대상으로 지원되는 Azure 서비스를 지정할 수 있습니다. 또한 각 태그의 기반이 되는 IP 주소의 유지 관리는 Azure에서 제공됩니다. 자세한 내용은 [NSG의 Azure 서비스 태그](https://aka.ms/servicetags)를 참조하세요. 
+  - 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure 서비스에 대한 트래픽만 허용하려는 경우 NSG에서 __"Azure 서비스 태그"__ 를 사용하여 수행할 수 있습니다. NSG 규칙에서 대상으로 지원되는 Azure 서비스를 지정할 수 있습니다. 또한 각 태그의 기반이 되는 IP 주소의 유지 관리는 Azure에서 제공됩니다. 자세한 내용은 [NSG의 Azure 서비스 태그](https://aka.ms/servicetags)를 참조하세요. 
 
 ### <a name="scenarios"></a>시나리오
 
 - **피어링되거나 연결된 여러 가상 네트워크**: 하나의 가상 네트워크 또는 여러 가상 네트워크의 여러 서브넷에 대한 Azure 서비스를 보호하려면 각 서브넷에서 서비스 끝점을 독립적으로 활성화하고 모든 서브넷에 대한 Azure 서비스 리소스를 보호할 수 있습니다.
 - **가상 네트워크에서 Azure 서비스로 아웃바운드 트래픽 필터링**: 가상 네트워크에서 Azure 서비스로 대상이 지정된 트래픽을 검사하거나 필터링하려는 경우 해당 가상 네트워크 내에서 네트워크 가상 어플라이언스를 배포할 수 있습니다. 네트워크 가상 어플라이언스를 배포한 서브넷에 서비스 끝점을 적용하고 이 서브넷에 대한 Azure 서비스 리소스만을 보호할 수 있습니다. 네트워크 가상 어플라이언스 필터링을 사용하여 가상 네트워크에서 특정 Azure 리소스로의 Azure 서비스 액세스만을 제한하도록 하려는 경우 이 시나리오가 유용할 수 있습니다. 자세한 내용은 [네트워크 가상 어플라이언스에서 송신](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 - **가상 네트워크에 직접 배포된 서비스에 대한 Azure 리소스 보호**: 다양한 Azure 서비스는 가상 네트워크의 특정 서브넷에 직접 배포될 수 있습니다. 관리되는 서비스 서브넷에서 서비스 끝점을 설정하여 [관리되는 서비스](virtual-network-for-azure-services.md) 서브넷에 대한 Azure 서비스 리소스를 보호할 수 있습니다.
+- **Azure 가상 머신의 디스크 트래픽**: 가상 머신 디스크 트래픽(탑재 및 탑재 해제 포함, diskIO), 관리되는/관리되지 않는 디스크의 경우 Azure Storage에 대한 서비스 엔드포인트 라우팅 변경 내용에 영향을 받지 않습니다. 서비스 엔드포인트 및 [Azure Storage 네트워크 규칙](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 REST 액세스를 네트워크를 선택하도록 페이지 Blob으로 제한할 수 있습니다. 
 
 ### <a name="logging-and-troubleshooting"></a>로깅 및 문제 해결
 
@@ -105,7 +106,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 가상 네트워크에 대한 쓰기 액세스 권한이 있는 사용자는 가상 네트워크에서 독립적으로 서비스 끝점을 구성할 수 있습니다. VNet에 대한 Azure 서비스 리소스를 보호하려면 사용자는 추가되는 서브넷의 *Microsoft.Network/JoinServicetoaSubnet*에 대한 사용 권한이 있어야 합니다. 이 권한은 기본적으로 기본 제공 서비스 관리자 역할에 포함되고 사용자 지정 역할을 만들어서 수정될 수 있습니다.
 
-[기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
+[기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
 
 가상 네트워크 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. 가상 네트워크 및 Azure 서비스 리소스가 다른 구독에 있는 경우 동일한 AD(Active Directory) 테넌트 아래에 있어야 합니다. 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cf678eac16f8b13c5ffaa1d5673ca1cb47440cf9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -41,16 +41,17 @@ Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치�
 
     * Ubuntu 16.04(`Xenial Xerus`)
 
-* `apt-transport-https` 패키지가 설치되었는지 확인합니다.
-
-      ```bash
-      sudo apt-get install apt-transport-https
-      ```
+      * `apt-transport-https` 패키지가 설치되었는지 확인합니다.
+         
+         ```bash
+         sudo apt-get install apt-transport-https
+         ```
+    * Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
 
 
 ## <a name="installation-methods"></a>설치 방법
 
-### <a name="1-script-installation"></a>1. 스크립트 설치
+### <a name="1-script-installation-ubuntu"></a>1. 스크립트 설치(Ubuntu)
 
 스크립트는 **sfctl** CLI와 함께 Service Fabric 런타임 및 Service Fabric 일반 SDK를 설치하기 위해 편의상 제공됩니다. 다음 섹션에서 수동 설치 단계를 실행하여 설치 항목 및 동의한 라이선스를 확인합니다. 스크립트를 실행하면 설치된 모든 소프트웨어에 대한 라이선스에 동의하는 것으로 가정합니다. 
 
@@ -63,8 +64,10 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### <a name="2-manual-installation"></a>2. 수동 설치
 Service Fabric 런타임 및 일반 SDK의 수동 설치는 이 가이드의 뒷부분을 수행합니다.
 
-## <a name="update-your-apt-sources"></a>APT 원본 업데이트
+## <a name="update-your-apt-sourcesyum-repositories"></a>APT 소스/Yum 리포지토리 업데이트
 apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치하려면 먼저 APT(Advanced Packaging Tool) 원본을 업데이트해야 합니다.
+
+### <a name="ubuntu"></a>Ubuntu
 
 1. 터미널을 엽니다.
 2. Service Fabric 리포지토리를 원본 목록에 추가합니다.
@@ -105,9 +108,43 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
     sudo apt-get update
     ```
 
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
+
+1. 터미널을 엽니다.
+2. EPEL(Enterprise Linux)에 대한 추가 패키지를 다운로드하여 설치합니다.
+
+    ```bash
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    sudo yum install epel-release-latest-7.noarch.rpm
+    ```
+3. EfficiOS RHEL7 패키지 리포지토리를 시스템에 추가합니다.
+
+    ```bash
+    sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    ```
+
+4. efficios 패키지 서명 키를 로컬 GPG 키링으로 가져옵니다.
+
+    ```bash
+    sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
+    ```
+5. Microsoft RHEL 리포지토리를 시스템에 추가합니다.
+   ```bash
+      curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+      sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+   ```
+6. dotnet sdk를 설치합니다.
+   ```bash
+      yum install rh-dotnet20 -y
+      scl enable rh-dotnet20 bash
+   ```
+
 ## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>로컬 클러스터 설정에 Service Fabric SDK 설치 및 설정
 
 원본을 업데이트하면 SDK를 설치할 수 있습니다. Service Fabric SDK 패키지를 설치하고, 설치를 확인한 다음, 사용권 계약에 동의합니다.
+
+### <a name="ubuntu"></a>Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -120,11 +157,18 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
+
+```bash
+sudo yum install servicefabricsdkcommon
+```
+
 위의 설치와 함께 제공되는 Service Fabric 런타임에는 아래 표에 나온 패키지가 포함됩니다. 
 
  | | DotNetCore | 자바 | 파이썬 | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | OpenJDK 1.8 | npm에서 암시적 | 최신 |
+RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
 ## <a name="set-up-a-local-cluster"></a>로컬 클러스터를 설정합니다.
   설치가 완료되면 로컬 클러스터를 시작할 수 있습니다.
@@ -135,7 +179,7 @@ Ubuntu | 2.0.0 | OpenJDK 1.8 | npm에서 암시적 | 최신 |
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. 웹 브라우저를 열고 [Service Fabric Explorer](http://localhost:19080/Explorer)로 이동합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다.
+  2. 웹 브라우저를 열고 [Service Fabric Explorer](http://localhost:19080/Explorer)(`http://localhost:19080/Explorer`)로 이동합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
 
       ![Linux의 Service Fabric Explorer][sfx-linux]
 
@@ -167,6 +211,11 @@ Ubuntu
   sudo apt install nodejs-legacy
   ```
 
+Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
+  ```bash
+  sudo yum install nodejs
+  sudo yum install npm
+  ```
 2. NPM의 컴퓨터에 [Yeoman](http://yeoman.io/) 템플릿 생성기 설치
 
   ```bash
@@ -189,21 +238,30 @@ Ubuntu
 
 Java를 사용하여 Service Fabric 서비스를 빌드하려면 JDK 1.8 및 Gradle을 설치하여 빌드 작업을 실행합니다. 다음 코드 조각은 Gradle과 함께 Open JDK 1.8을 설치합니다. Service Fabric Java 라이브러리는 Maven에서 끌어옵니다.
 
+
+Ubuntu 
  ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
+Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
+  ```bash
+  sudo yum install java-1.8.0-openjdk-devel
+  curl -s https://get.sdkman.io | bash
+  sdk install gradle
+  ```
+ 
 ## <a name="install-the-eclipse-plug-in-optional"></a>Eclipse 플러그 인 설치(선택 사항)
 
-Java 개발자용 Eclipse IDE 내에 Service Fabric용 Eclipse 플러그 인을 설치할 수 있습니다. Eclipse를 사용하여 Service Fabric Java 응용 프로그램 외에도 Service Fabric 게스트 실행 파일 응용 프로그램 및 컨테이너 응용 프로그램을 만들 수 있습니다.
+Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 수 있습니다. Eclipse를 사용하여 Service Fabric Java 응용 프로그램 외에도 Service Fabric 게스트 실행 파일 응용 프로그램 및 컨테이너 응용 프로그램을 만들 수 있습니다.
 
 > [!IMPORTANT]
 > Service Fabric 플러그 인에는 Eclipse Neon 이상 버전이 필요합니다. Eclipse의 버전을 확인하는 방법은 이 부분 뒤에 나오는 지침을 참조하십시오. 이전 버전의 Eclipse가 설치되어있는 경우 [Eclipse 사이트](https://www.eclipse.org)에서 최신 버전을 다운로드할 수 있습니다. 기존 Eclipse 설치 위에 설치하는 것(덮어쓰기)은 좋지 않습니다. 설치 관리자를 실행하기 전에 제거하거나 다른 디렉터리에 새 버전을 설치할 수 있습니다. 
 > 
-> Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. 
+> Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 최신 Buildship 버전(1.0.17 이상)이 설치되어 있는지 확인합니다. **도움말** > **설치 세부 정보**를 차례로 선택하여 설치된 구성 요소의 버전을 확인할 수 있습니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **도움말** > **Eclipse정보** > **설치 세부 정보**를 차례로 선택하여 설치된 구성 요소의 버전을 확인할 수 있습니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 
 2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치**를 차례로 선택합니다.
 
@@ -217,7 +275,7 @@ Java 개발자용 Eclipse IDE 내에 Service Fabric용 Eclipse 플러그 인을 
 
 6. 설치 단계를 완료한 다음 최종 사용자 사용권 계약에 동의합니다.
 
-Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **도움말** > **설치 세부 정보**를 선택한 다음 설치된 플러그 인 목록에서 Service Fabric을 검색하여 확인할 수 있습니다. 최신 버전을 사용할 수 있는 경우 **업데이트**를 선택합니다.
+Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **도움말** > **Eclipse 정보** > **설치 세부 정보**를 선택한 다음, 설치된 플러그 인 목록에서 Service Fabric을 검색하여 확인할 수 있습니다. 최신 버전을 사용할 수 있는 경우 **업데이트**를 선택합니다.
 
 자세한 내용은 [Eclipse Java 응용 프로그램 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 
@@ -237,11 +295,22 @@ Maven에서 Java SDK 이진 파일을 업데이트하려면 최신 버전을 가
 ## <a name="remove-the-sdk"></a>SDK 제거
 Service Fabric SDK를 제거하려면 다음을 실행합니다.
 
+### <a name="ubuntu"></a>Ubuntu
+
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
 sudo npm uninstall generator-azuresfcontainer
 sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
+```
+
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
+
+```bash
+sudo yum remote servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
 ```
 
 ## <a name="next-steps"></a>다음 단계

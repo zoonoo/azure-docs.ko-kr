@@ -1,19 +1,19 @@
 ---
-title: "Azure 빠른 시작 - Azure Portal을 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
-description: "이 빠른 시작에서는 Azure Portal을 사용하여 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Azure Portal을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
+title: Azure 빠른 시작 - Azure Portal을 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure Portal을 사용합니다. 그런 다음, Azure Portal을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1468aa0f12a05b71e3b997e1850d345a492308f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -33,7 +33,7 @@ Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 2. 저장소 계정의 왼쪽 메뉴에서 **Blob Service** 섹션까지 스크롤하고 **BLOB 찾아보기**를 선택합니다.
 3. **컨테이너 추가** 단추를 클릭합니다.
 4. 새 컨테이너 이름을 입력합니다. 컨테이너 이름 소문자로, 문자 또는 숫자로 시작해야 하며 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
-5. 컨테이너에 대한 공용 액세스 수준을 설정합니다. 기본 수준은 **개인(익명 액세스 없음)**입니다.
+5. 컨테이너에 대한 공용 액세스 수준을 설정합니다. 기본 수준은 **개인(익명 액세스 없음)** 입니다.
 6. **확인**을 클릭하여 컨테이너를 만듭니다.
 
     ![Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷](media/storage-quickstart-blobs-portal/create-container.png)

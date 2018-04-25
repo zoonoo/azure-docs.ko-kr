@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell을 사용하여 SQL Server Windows VM 만들기 | Microsoft Docs"
-description: "이 자습서는 Azure PowerShell을 사용하여 Windows SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다."
+title: Azure PowerShell을 사용하여 SQL Server Windows VM 만들기 | Microsoft Docs
+description: 이 자습서는 Azure PowerShell을 사용하여 Windows SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SQL Server Windows 가상 머신 만들기
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a id="subscription"></a> Azure 구독 가져오기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 ## <a id="powershell"></a> Azure PowerShell 가져오기
@@ -40,10 +40,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="configure-powershell"></a>PowerShell 구성
 
-1. PowerShell을 열고 **Add-AzureRmAccount** 명령을 실행하여 Azure 계정에 대한 액세스를 설정합니다.
+1. PowerShell을 열고 **Connect-AzureRmAccount** 명령을 실행하여 Azure 계정에 대한 액세스를 설정합니다.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. 자격 증명을 입력할 수 있는 로그인 화면이 표시됩니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.

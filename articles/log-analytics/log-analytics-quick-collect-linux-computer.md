@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 92d2cb0cb21cbbb0e72f9704ac92cc36670385fc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 30bb21ebd6b19f4cc52e364039b9be8a9a7695e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>사용자 환경에서 호스팅되는 Linux 컴퓨터에서 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 자세한 분석 및 상관 관계를 위해 물리적 또는 가상 Linux 컴퓨터 및 사용자 환경의 다른 리소스의 데이터를 단일 리포지토리로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
@@ -99,10 +99,10 @@ Linux 컴퓨터에서 프록시 서버를 통해 Log Analytics에 통신해야 �
 Log Analytics는 Linux Syslog에서 이벤트를 수집하고, 좀 더 긴 기간의 분석 및 보고를 위해 지정한 성능 카운터를 수집할 수 있으며 특정 조건이 검색되면 작업을 수행할 수 있습니다.  다음 단계에 따라 Linux Syslog의 수집과 시작할 몇 가지 일반 성능 카운터를 구성하세요.  
 
 1. **Syslog**를 선택합니다.  
-2. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **Syslog**를 입력하고 더하기 기호 **+**를 클릭합니다.  
+2. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **Syslog**를 입력하고 더하기 기호 **+** 를 클릭합니다.  
 3. 표에서 심각도 **정보**, **알림** 및 **디버그**를 선택 취소합니다. 
 4. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
-5. **Linux 성능 데이터**를 선택하여 Windows 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
+5. **Linux 성능 데이터**를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
 6. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.<br><br> ![선택된 기본 Windows 성능 카운터](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> **선택한 성능 카운터 추가**를 클릭합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
 7. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
 

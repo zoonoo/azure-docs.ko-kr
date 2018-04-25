@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics에서 작업 영역 관리 | Microsoft Docs"
-description: "사용자, 계정, 작업 영역 및 Azure 계정에 대한 다양한 관리 태스크를 사용하여 Azure Log Analytics에서 작업 영역을 관리할 수 있습니다."
+title: Azure Log Analytics에서 작업 영역 관리 | Microsoft Docs
+description: 사용자, 계정, 작업 영역 및 Azure 계정에 대한 다양한 관리 태스크를 사용하여 Azure Log Analytics에서 작업 영역을 관리할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: af648e97f5913ef7413f72db8e19aa5ea69d6d09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -77,13 +77,13 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
 Log Analytics 작업 영역에 대한 액세스를 제어하는 두 가지 사용 권한 모델이 있습니다.
 
 1. 레거시 Log Analytics 사용자 역할
-2. [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md)
+2. [Azure 역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)
 
 다음 표에서는 각 사용 권한 모델을 사용하여 설정할 수 있는 액세스를 요약합니다.
 
 |                          | Log Analytics 포털 | Azure portal | API(PowerShell 포함) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Log Analytics 사용자 역할 | 예                  | 아니요           | 아니요                         |
+| Log Analytics 사용자 역할 | 예                  | 아니요           | 아니오                         |
 | Azure 역할 기반 액세스  | 예                  | 예          | 예                        |
 
 > [!NOTE]
@@ -104,7 +104,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 두 가지 사�
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure 권한을 사용하여 Log Analytics에 대한 액세스 관리
-Azure 권한을 사용하여 Log Analytics 작업 영역에 대한 액세스 권한을 부여하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)의 단계를 따릅니다.
+Azure 권한을 사용하여 Log Analytics 작업 영역에 대한 액세스 권한을 부여하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)의 단계를 따릅니다.
 
 Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있습니다.
 - Log Analytics 독자
@@ -114,7 +114,7 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 - 모든 모니터링 데이터 검색 및 보기 
 - 모든 Azure 리소스에 대한 Azure 진단 구성 보기를 포함해 모니터링 설정 보기
 
-| 형식    | 사용 권한 | 설명 |
+| type    | 사용 권한 | 설명 |
 | ------- | ---------- | ----------- |
 | 조치 | `*/read`   | 다음을 포함해 모든 리소스 및 리소스 구성을 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정 |
 | 조치 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 로그 검색 v2 쿼리를 수행할 수 있습니다. |
@@ -156,7 +156,7 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 - 리소스 그룹 - 리소스 그룹에서 모든 작업 영역에 대한 액세스
 - 리소스 - 지정된 작업 영역에만 액세스
 
-[사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
+[사용자 지정 역할](../role-based-access-control/custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure 사용자 역할 및 Log Analytics 포털 사용자 역할
 사용자가 Log Analytics 작업 영역에서 Azure 읽기 권한 이상을 보유하는 경우 Log Analytics 작업 영역을 볼 때 **OMS 포털** 태스크를 클릭하여 OMS 포털을 열 수 있습니다.
@@ -174,7 +174,7 @@ OMS 포털의 역할 할당은 다음과 같이 사용하여 결정됩니다.
 | CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있음 | 관리자 | 일반적으로 CSP의 고객 |
 | CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있지 않음 | 참가자 | 일반적으로 CSP |
 
-<sup>1</sup> 역할 정의에 대한 자세한 내용은 [Azure 권한](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요. 역할을 평가할 경우 `*`의 작업이 `Microsoft.OperationalInsights/workspaces/*`와 동일하지 않습니다.
+<sup>1</sup> 역할 정의에 대한 자세한 내용은 [Azure 권한](../role-based-access-control/custom-roles.md)을 참조하세요. 역할을 평가할 경우 `*`의 작업이 `Microsoft.OperationalInsights/workspaces/*`와 동일하지 않습니다.
 
 Azure Portal에 대해 주의해야 할 사항:
 

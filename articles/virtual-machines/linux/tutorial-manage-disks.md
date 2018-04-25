@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1207ae8160739bcf27a651880dd58ea6893ebf37
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3153c57d6504346f6985823860623dc37977b79f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -50,7 +50,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 
-| 유형 | VM 크기 | 최대 임시 디스크 크기(GB) |
+| type | VM 크기 | 최대 임시 디스크 크기(GB) |
 |----|----|----|
 | [범용](sizes-general.md) | A 및 D 시리즈 | 800 |
 | [Compute에 최적화](sizes-compute.md) | F 시리즈 | 800 |
@@ -65,7 +65,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
 
-| 유형 | VM 크기 | VM당 최대 데이터 디스크 수 |
+| type | VM 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](sizes-general.md) | A 및 D 시리즈 | 32 |
 | [Compute에 최적화](sizes-compute.md) | F 시리즈 | 32 |
@@ -108,16 +108,17 @@ VM을 만들 때 또는 기존 VM에 데이터 디스크를 만들고 연결할 
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-[az vm create]( /cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만듭니다. `--datadisk-sizes-gb` 인수를 사용하여 가상 머신에 추가 디스크를 만들고 연결하도록 지정할 수 있습니다. 둘 이상의 디스크를 만들고 연결하려면 공백으로 구분된 디스크 크기 값 목록을 사용합니다. 다음 예제에서는 128GB 데이터 디스크 두 개가 있는 VM을 만듭니다. 디스크 크기가 128GB이므로 이러한 디스크는 모두 디스크당 최대 500 IOPS를 제공하는 P10으로 구성됩니다.
+[az vm create]( /cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만들고, *azureuser*라는 사용자 계정을 추가하고, 아직 SSH 키가 없으면 새로 생성합니다. `--datadisk-sizes-gb` 인수를 사용하여 가상 머신에 추가 디스크를 만들고 연결하도록 지정할 수 있습니다. 둘 이상의 디스크를 만들고 연결하려면 공백으로 구분된 디스크 크기 값 목록을 사용합니다. 다음 예제에서는 128GB 데이터 디스크 두 개가 있는 VM을 만듭니다. 디스크 크기가 128GB이므로 이러한 디스크는 모두 디스크당 최대 500 IOPS를 제공하는 P10으로 구성됩니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 128 128 \
-  --generate-ssh-keys
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
 
 ### <a name="attach-disk-to-existing-vm"></a>기존 VM에 디스크 연결

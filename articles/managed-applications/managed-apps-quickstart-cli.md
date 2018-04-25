@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI를 사용하여 Azure 관리되는 응용 프로그램 만들기 | Microsoft Docs"
-description: "조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 만드는 방법이 나와 있습니다."
+title: Azure CLI를 사용하여 Azure 관리되는 응용 프로그램 만들기 | Microsoft Docs
+description: 조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 만드는 방법이 나와 있습니다.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Azure CLI를 사용하여 Azure 관리되는 응용 프로그램 만들기 및 배포
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/18/2017
 
 작업이 완료되면 관리되는 응용 프로그램의 서로 다른 부분이 포함된 세 개의 리소스 그룹이 있습니다.
 
-| 리소스 그룹 | 포함 | 설명 |
+| 리소스 그룹 | contains | 설명 |
 | -------------- | -------- | ----------- |
 | appDefinitionGroup | 관리되는 응용 프로그램 정의 | 게시자가 이 리소스 그룹 및 관리되는 응용 프로그램 정의를 만듭니다. 관리되는 응용 프로그램 정의에 액세스할 수 있는 모든 사용자는 해당 응용 프로그램을 배포할 수 있습니다. |
 | applicationGroup | 관리되는 응용 프로그램 인스턴스 | 소비자가 이 리소스 그룹 및 관리되는 응용 프로그램 인스턴스를 만듭니다. 소비자는 이 인스턴스를 통해 관리되는 응용 프로그램을 업데이트할 수 있습니다. |
@@ -75,7 +75,7 @@ az managedapp definition create \
 앞의 예제에서 사용된 몇 가지 매개 변수는 다음과 같습니다.
 
 * **resource-group**: 관리되는 응용 프로그램 정의를 만든 리소스 그룹의 이름입니다.
-* **lock-level**: 관리되는 리소스 그룹에 배치하는 잠금 유형입니다. 고객이 이 리소스 그룹에서 바람직하지 않은 작업을 수행할 수 없게 합니다. 현재 지원되는 유일한 잠금 수준은 ReadOnly입니다. ReadOnly를 지정하는 경우 고객은 관리되는 리소스 그룹에 있는 리소스만 읽을 수 있습니다.
+* **lock-level**: 관리되는 리소스 그룹에 배치하는 잠금 유형입니다. 고객이 이 리소스 그룹에서 바람직하지 않은 작업을 수행할 수 없게 합니다. 현재 지원되는 유일한 잠금 수준은 ReadOnly입니다. ReadOnly를 지정하는 경우 고객은 관리되는 리소스 그룹에 있는 리소스만 읽을 수 있습니다. 관리되는 리소스 그룹에 대한 액세스 권한이 부여된 게시자 ID는 잠금에서 제외됩니다.
 * **authorizations**: 관리되는 리소스 그룹에 권한을 부여하는 데 사용되는 보안 주체 ID 및 역할 정의 ID를 설명합니다. `<principalId>:<roleDefinitionId>` 형식으로 지정됩니다. 이 속성에는 여러 값을 지정할 수도 있습니다. 여러 값이 필요하면 `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>` 형식으로 지정해야 합니다. 여러 값은 공백으로 구분됩니다.
 * **package-file-uri**: 필요한 파일이 포함되어 있는 .zip 패키지의 위치입니다. 패키지에는 적어도 **mainTemplate.json** 및 **createUiDefinition.json** 파일이 포함되어 있습니다. **mainTemplate.json**은 관리되는 응용 프로그램의 일부로 프로비전되는 Azure 리소스를 정의합니다. 템플릿은 일반 Resource Manager 템플릿과 차이가 없습니다. **createUiDefinition.json**은 포털을 통해 관리되는 응용 프로그램을 만드는 사용자를 위한 사용자 인터페이스를 생성합니다.
 

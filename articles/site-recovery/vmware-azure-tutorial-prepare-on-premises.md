@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
@@ -25,9 +25,12 @@ ms.lasthandoff: 03/16/2018
 > * VMware 서버 요구 사항 검토
 > * VMware VM 요구 사항 검토
 
-이 자습서 시리즈에서는 Azure Site Recovery를 사용하여 단일 VM을 백업하는 방법을 보여 줍니다. 여러 VMware VM을 보호하려면 VMware 복제를 위한 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 다운로드해야 합니다. 이 도구는 VM 호환성, VM당 디스크 수 및 디스크당 데이터 변동에 대한 정보를 수집합니다. 도구는 네트워크 대역폭 요구 사항과 성공적인 복제 및 테스트 장애 조치(failover)에 필요한 Azure 인프라에 대해서도 다룹니다. 이 도구를 실행하는 방법에 대해 [자세히 알아보세요](site-recovery-deployment-planner.md).
+이 자습서 시리즈에서는 Azure Site Recovery를 사용하여 단일 VM을 복제하는 방법을 보여줍니다. 
 
 이 문서는 시리즈의 두 번째 자습서입니다. 이전 자습서에서 설명한 대로 [Azure 구성 요소를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
+
+여러 VM을 복제하는 경우 VMware 복제에 대한 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 다운로드합니다. [자세히 알아보기](site-recovery-deployment-planner.md).
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>자동 검색용 계정 준비
 

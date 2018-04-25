@@ -1,33 +1,28 @@
 ---
-title: "SQL Data Warehouse용 Visual Studio 및 SSDT 설치 | Microsoft Docs"
-description: "Azure SQL Data Warehouse용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치"
+title: SQL Data Warehouse용 Visual Studio 및 SSDT 설치 | Microsoft Docs
+description: Azure SQL Data Warehouse용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 0ed9b406-9b42-4fe6-b963-fe0a5b48aac1
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 12/14/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: e8170eefb2e359719684e08749180a4e7784f9b6
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 2aade79d003e1c4d63eab93a7ac83730faeefee0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>SQL Data Warehouse용 Visual Studio 및 SSDT 설치
 SQL Data Warehouse용 응용 프로그램을 개발하려면 최신 버전의 SSDT(SQL Server 데이터 도구)와 함께 최신 버전의 Visual Studio를 사용하는 것이 좋습니다.  이전 버전과의 호환성을 위해 SSDT와 함께 Visual Studio 2013 업데이트 5도 지원됩니다.  
 
-SSDT로 Visual Studio를 사용하면 시각적 탐색 테이블, 뷰, 저장된 프로시저 및 SQL Data Warehouse의 더 많은 개체 뿐만 아니라 쿼리 실행에 SQL Server 개체 탐색기를 사용할 수 있습니다.
+SSDT와 함께 Visual Studio를 사용하면 SQL Server 개체 탐색기를 사용하여 SQL Data Warehouse의 테이블, 뷰, 저장 프로시저를 비롯한 많은 개체를 시각적으로 탐색하고 쿼리를 실행할 수 있습니다.
 
 > [!NOTE]
-> SQL Data Warehouse는 아직 Visual Studio 데이터베이스 프로젝트를 지원하지 않습니다.  이 기능은 이후 버전에 추가됩니다. 이 기능에 대한 주기적인 업데이트를 수신하려면 [UserVoice]에서 투표해주세요.
+> SQL Data Warehouse는 아직 Visual Studio 데이터베이스 프로젝트를 지원하지 않습니다. 이 기능에 대한 주기적인 업데이트를 수신하려면 [UserVoice]에서 투표해주세요.
 > 
 > 
 
@@ -38,12 +33,12 @@ SSDT로 Visual Studio를 사용하면 시각적 탐색 테이블, 뷰, 저장된
 2. MSDN의 [Visual Studio 설치][Installing Visual Studio] 지침을 따르고 기본 구성을 선택합니다.
 
 ## <a name="step-2-install-ssdt"></a>2단계: SSDT 설치
-Visual Studio 용 SSDT를 설치하려면 다음 이 단계를 수행하여 Visual Studio 내에서 SSDT 업데이트를 확인하기만 하면 됩니다.
+Visual Studio용 SSDT를 설치하려면 먼저 다음 단계에 따라 Visual Studio 내에서 SSDT 업데이트를 확인합니다.
 
-1. Visual Studio에서 **도구** / **확장 및 업데이트...**를 클릭합니다. / **업데이트**
+1. Visual Studio에서 **도구** / **확장 및 업데이트...** 를 클릭합니다. / **업데이트**
 2. **제품 업데이트**를 선택한 후 **데이터베이스 도구용 Microsoft SQL Server 업데이트**를 찾습니다.
 
-업데이트가 없는 경우 최신 버전을 설치했어야 합니다.  SSDT가 설치되었는지 확인하려면 **도움말** / **Microsoft Visual Studio 정보**를 클릭하여 목록에서 SQL Server 데이터 도구를 찾아봅니다.  최신 버전의 SSDT는 14.0.60525.0입니다.  설치 옵션을 Visual Studio에서 사용할 수 없는 경우 [SSDT 다운로드][SSDT Download] 페이지를 방문하여 SSDT를 수동으로 다운로드하고 설치할 수 있습니다.
+업데이트가 없는 경우 최신 버전을 설치했어야 합니다.  SSDT가 설치되었는지 확인하려면 **도움말** / **Microsoft Visual Studio 정보**를 클릭하여 목록에서 SQL Server 데이터 도구를 찾아봅니다. 최신 버전의 SSDT는 14.0.60525.0입니다. 설치 옵션을 Visual Studio에서 사용할 수 없는 경우 [SSDT 다운로드][SSDT Download] 페이지를 방문하여 SSDT를 수동으로 다운로드하고 설치할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 최신 버전의 SSDT가 설치되었으므로 SQL Data Warehouse에 [연결][connect]할 수 있습니다.

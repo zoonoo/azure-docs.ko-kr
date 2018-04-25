@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights로 빠른 시작 | Microsoft Docs"
-description: "Application Insights를 사용하여 모니터링하도록 Java 웹앱을 빠르게 설정하는 지침을 제공합니다."
+title: Azure Application Insights로 빠른 시작 | Microsoft Docs
+description: Application Insights를 사용하여 모니터링하도록 Java 웹앱을 빠르게 설정하는 지침을 제공합니다.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 응용 프로그램 모니터링 시작
 
@@ -26,7 +26,7 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- Oracle JRE 1.6 이상 또는 Zulu JRE 1.6 이상을 설치합니다.
+- JRE 1.7 또는 1.8 설치
 - [Java EE 개발자용 Eclipse IDE 평가판](http://www.eclipse.org/downloads/)을 설치합니다. 이 빠른 시작에서는 Eclipse Oxygen(4.7)을 사용합니다.
 - Azure 구독과 기존 Java 동적 웹 프로젝트가 필요합니다.
  

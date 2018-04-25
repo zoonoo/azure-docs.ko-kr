@@ -1,12 +1,12 @@
 ---
-title: "Azure Data Catalog 채택을 위한 접근 방식 및 프로세스 | Microsoft Docs"
-description: "이 문서에서는 비전 정의, 주요 비즈니스 사용 사례 식별, 파일럿 프로젝트 선택을 비롯한 Azure Data Catalog 도입을 고려하는 조직에 대한 접근 방식 및 프로세스를 제공합니다."
+title: Azure Data Catalog 채택을 위한 접근 방식 및 프로세스 | Microsoft Docs
+description: 이 문서에서는 비전 정의, 주요 비즈니스 사용 사례 식별, 파일럿 프로젝트 선택을 비롯한 Azure Data Catalog 도입을 고려하는 조직에 대한 접근 방식 및 프로세스를 제공합니다.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: d092613d88a4186c17c8c91046bb598c4f60b307
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e7c104fa9b136df8ac4b94ee1e444100e2a2f969
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Data Catalog 채택을 위한 접근 방식 및 프로세스
 이 문서는 조직에서 **Azure Data Catalog** 도입을 시작하는 데 도움이 됩니다. **Azure Data Catalog**를 성공적으로 도입하려면 사용자의 비전 정의, 조직 내의 주요 업무 사용 사례 식별, 파일럿 프로젝트 선택 등 세 가지 주요 항목에 초점을 맞춥니다.
@@ -142,7 +142,7 @@ Nancy와 그녀의 팀이 높은 가치의 데이터를 쉽게 찾을 수 있는
 파일럿 팀이 데이터 카탈로그 사용으로 직접 이동하기 전에 파일럿 프로젝트의 기대치에 대해 논하는 킥오프 미팅을 예약하고 초기 교육을 제공합니다.
 
 ### <a name="set-expectations"></a>기대치 설정
-예외 및 목표 설정은 사용자가 특정 결과물에 집중하는 데 도움이 됩니다. 프로젝트를 추적하기 위해 정기적인(예: 파일럿의 범위 및 기간에 따라 아마도 일일 또는 주간) 과제를 할당합니다. 데이터 카탈로그의 매우 중요한 기능 중 하나는 비즈니스 사용자가 전사적 데이터에 대한 지식으로부터 이익을 얻을 수 있는 데이터 자산의 크라우드소싱입니다. 우수한 과제 할당은 각 파일럿 팀 구성원이 자신이 사용한 데이터 원본을 적어도 한 개 등록하거나 주석을 추가하는 것입니다. [데이터 원본 등록](data-catalog-get-started.md) 및 [데이터 원본에 주석을 추가하는 방법](data-catalog-get-started.md)을 참조하세요.
+기대치 및 목표 설정은 사용자가 특정 결과물에 집중하는 데 도움이 됩니다. 프로젝트를 추적하기 위해 정기적인(예: 파일럿의 범위 및 기간에 따라 아마도 일일 또는 주간) 과제를 할당합니다. 데이터 카탈로그의 매우 중요한 기능 중 하나는 비즈니스 사용자가 전사적 데이터에 대한 지식으로부터 이익을 얻을 수 있는 데이터 자산의 크라우드소싱입니다. 우수한 과제 할당은 각 파일럿 팀 구성원이 자신이 사용한 데이터 원본을 적어도 한 개 등록하거나 주석을 추가하는 것입니다. [데이터 원본 등록](data-catalog-get-started.md) 및 [데이터 원본에 주석을 추가하는 방법](data-catalog-get-started.md)을 참조하세요.
 
 일부 주석을 검토하기 위해 정기적인 일정에 관하여 팀과 협의합니다. 데이터 원본에 관한 좋은 주석은 중앙 위치에서 의미 있는 데이터 원본 통찰력을 제공하므로 성공적인 데이터 원본 도입의 핵심적인 부분입니다. 좋은 주석이 없으면 데이터 원본에 관한 지식이 기업 전체에 걸쳐 분산된 채로 남아 있습니다. [데이터 원본에 주석을 추가하는 방법](data-catalog-get-started.md)을 참조하세요.
 

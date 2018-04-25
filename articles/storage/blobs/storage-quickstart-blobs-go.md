@@ -1,19 +1,19 @@
 ---
-title: Azure 빠른 시작 - Go를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs
-description: 이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Go용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: Azure 빠른 시작 - Go를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Go용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: seguler
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: b288c764c3a6b5821f913170f8f9c88e5cc86956
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 171cfaadce4bdafeadfdc26dedaedbba3025bd3c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -105,7 +105,7 @@ ContainerURL이 있으면 Blob을 가리키는 **BlobURL** 개체를 인스턴�
 > [!IMPORTANT]
 > 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
-이 섹션에서는 새 컨테이너를 만듭니다. 컨테이너는 **quickstartblobs-[random string]**라고 합니다. 
+이 섹션에서는 새 컨테이너를 만듭니다. 컨테이너는 **quickstartblobs-[random string]** 라고 합니다. 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -143,7 +143,7 @@ Blob에 파일을 업로드하려면 **os.Open**을 사용하여 파일을 엽�
 
 또는 SDK가 하위 수준 REST API를 기반으로 하는 [고급 수준의 API](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go)를 제공합니다. 예를 들어 ***UploadFileToBlockBlob*** 함수는 처리량을 최적화하기 위해 PutBlock 작업을 사용하여 동시에 청크에서 파일을 업로드합니다. 파일이 256MB보다 작은 경우 대신 PutBlob을 사용하여 단일 트랜잭션에서 전송을 완료합니다.
 
-다음 예제에서는 **quickstartblobs-[randomstring]**이라는 컨테이너에 파일을 업로드합니다.
+다음 예제에서는 **quickstartblobs-[randomstring]** 이라는 컨테이너에 파일을 업로드합니다.
 
 ```go
 // Here's how to upload a blob.

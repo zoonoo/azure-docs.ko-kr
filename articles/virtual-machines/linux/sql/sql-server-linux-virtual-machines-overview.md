@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.author: jroth
-ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Virtual Machines에서 SQL Server 개요(Linux)
 
@@ -24,27 +24,16 @@ ms.lasthandoff: 03/23/2018
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-이 항목에서는 [포털 이미지에 대한 링크](#create)와 함께 Azure Linux VM(Virtual Machines)에 SQL Server를 실행하는 옵션을 설명합니다.
+Azure 가상 머신의 SQL Server를 사용하면 온-프레미스 하드웨어를 관리할 필요 없이 클라우드에서 SQL Server의 전체 버전을 사용할 수 있습니다. 또한 SQL Server VM을 사용하면 종량제로 지불하는 경우 라이선스 비용이 간소화됩니다.
 
-> [!NOTE]
-> SQL Server에 이미 익숙하고 SQL Server Linux VM을 배포하는 방법을 확인하려는 경우 [Azure에서 Linux SQL Server VM 프로비전](provision-sql-server-linux-virtual-machine.md)을 참조하세요. 또는 SQL Server에서 Windows VM을 만들려는 경우 [Azure에서 Windows SQL Server VM 프로비전](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+Azure 가상 머신은 전 세계 여러 [지리적 지역](https://azure.microsoft.com/regions/)에서 실행됩니다. 또한 다양한 [컴퓨터 크기](../sizes.md)가 제공됩니다. 가상 머신 이미지 갤러리를 통해 적합한 버전 운영 체제로 SQL Server VM을 만들 수 있습니다. 따라서 가상 머신은 다양한 SQL Server 워크로드에 적합한 옵션입니다.
 
-데이터베이스 관리자 또는 개발자인 경우 Azure VM은 온-프레미스 SQL Server 워크로드 및 응용 프로그램을 클라우드로 이동하는 방법을 제공합니다.
+## <a id="create"></a> SQL VM 시작
 
-## <a name="scenarios"></a>시나리오
-
-Azure에서 데이터를 호스트하도록 선택할 수 있는 여러 가지 이유가 있습니다. 응용 프로그램을 개발하거나 Azure에 마이그레이션하는 경우 성능을 개선하기 위해 Azure에서 백 엔드 데이터를 찾습니다. 글로벌 서비스 및 재해 복구를 위해 여러 데이터 센터에 대한 액세스를 자동으로 가집니다. 데이터를 잘 보호하고 지속합니다.
-
-Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장하기 위한 한 가지 옵션입니다. Azure SQL Database 서비스를 사용하는 옵션도 있을 수 있습니다. Virtual Machines의 SQL Server와 Azure SQL Database 중에서 선택하는 방법에 대한 자세한 내용은 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
-
-## <a id="create"></a>새 SQL VM 만들기
-
-새 SQL VM을 만드는 단계별 지침은 [Azure에서 Linux SQL Server VM 프로비전](provision-sql-server-linux-virtual-machine.md) 자습서에 있습니다.
-
-다음 표에서는 가상 머신 갤러리의 최신 SQL Server 이미지 매트릭스를 제공합니다. 모든 링크를 클릭하여 지정된 버전, 버전 및 운영 체제로 새 SQL VM 만들기를 시작합니다.
+시작하려면 필요한 버전 및 운영 체제로 SQL Server 가상 머신 이미지를 선택합니다. 다음 섹션에서는 SQL Server 가상 머신 갤러리 이미지에 Azure Portal에 대한 직접 링크를 제공합니다.
 
 > [!TIP]
-> 이러한 이미지의 VM 및 SQL 가격 책정을 이해하려면 [Linux SQL Server VM의 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요.
+> SQL 이미지의 가격 책정을 이해하는 방법에 대한 자세한 내용은 [Linux SQL Server VM에 대한 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요.
 
 | 버전 | 운영 체제 | 버전 |
 | --- | --- | --- |
@@ -65,6 +54,33 @@ Linux에서 SQL Server를 구성하는 경우 요구 사항에 따라 데이터�
 | SLES | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | Ubuntu | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
+## <a name="related-products-and-services"></a>관련 제품 및 서비스
+
+### <a name="linux-virtual-machines"></a>Linux 가상 머신
+
+* [Virtual Machines 개요](../overview.md)
+
+### <a name="storage"></a>Storage
+
+* [Microsoft Azure Storage 소개](../../../storage/common/storage-introduction.md)
+
+### <a name="networking"></a>네트워킹
+
+* [Virtual Network 개요](../../../virtual-network/virtual-networks-overview.md)
+* [Azure의 IP 주소](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Azure Portal에서 정규화된 도메인 이름 만들기](../portal-create-fqdn.md)
+
+### <a name="sql"></a>SQL
+
+* [Linux의 SQL Server 설명서](https://docs.microsoft.com/sql/linux)
+* [Azure SQL Database 비교](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
+
 ## <a name="next-steps"></a>다음 단계
 
-Linux에서 SQL Server를 구성하고 사용하는 방법에 대해 자세히 알아보려면 [Linux의 SQL Server 개요](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)를 참조하세요.
+Azure Linux 가상 머신에서 SQL Server 시작:
+
+* [Azure Portal에서 SQL Server VM 만들기](provision-sql-server-linux-virtual-machine.md)
+
+Linux에서 SQL VM에 대한 일반적인 질문에 대한 답변 구하기:
+
+* [Azure Linux Virtual Machines의 SQL Server에 대한 FAQ](sql-server-linux-faq.md)

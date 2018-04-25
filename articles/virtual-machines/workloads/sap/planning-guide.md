@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c164406b3b988b5848f662d544ffa78bd6955d0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -966,7 +966,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 
 **PowerShell**
 
-* *Login-AzureRmAccount*를 사용하여 구독에 로그인
+* *Connect-AzureRmAccount*를 사용하여 구독에 로그인
 * *Set-AzureRmContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> 참조
 * *Add-AzureRmVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd> 참조
 * (선택 사항) *New-AzureRMDisk*를 사용하여 VHD에서 관리 디스크 만들기 - <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk> 참조
@@ -977,7 +977,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 **Azure CLI 2.0**
 
 * *az login*을 사용하여 구독에 로그인
-* *az account set --subscription `<subscription name or id`>*를 사용하여 구독 선택
+* *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
 * (선택 사항) *az disk create*를 사용하여 VHD에서 관리 디스크 만들기 - https://docs.microsoft.com/cli/azure/disk#az_disk_create 참조
 * *az vm create* 및 매개 변수 *--attach-os-disk*를 사용하여 업로드한 VHD 또는 관리 디스크를 OS 디스크로 지정해 새 VM 만들기
@@ -993,7 +993,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 기존 VM 또는 VHD를 업로드하려면 이러한 VM 또는 VHD가 이 문서의 [SAP용 고객별 이미지를 사용하여 VM 배포 준비][planning-guide-5.2.2] 장에서 나열한 요구 사항을 충족해야 합니다.
 
 * Windows의 *sysprep* 또는 Linux의 *waagent -deprovision*을 사용하여 VM 일반화 - [Sysprep 기술 참조](https://technet.microsoft.com/library/cc766049.aspx)(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
-* *Login-AzureRmAccount*를 사용하여 구독에 로그인
+* *Connect-AzureRmAccount*를 사용하여 구독에 로그인
 * *Set-AzureRmContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> 참조
 * *Add-AzureRmVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd> 참조
 * (선택 사항) *New-AzureRmImage*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage> 참조
@@ -1006,7 +1006,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 
 * Windows의 *sysprep* 또는 Linux의 *waagent -deprovision*을 사용하여 VM 일반화 - [Sysprep 기술 참조](https://technet.microsoft.com/library/cc766049.aspx)(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
 * *az login*을 사용하여 구독에 로그인
-* *az account set --subscription `<subscription name or id`>*를 사용하여 구독 선택
+* *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
 * (선택 사항) *az image create*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - https://docs.microsoft.com/cli/azure/image#az_image_create 참조
 * *az vm create* 및 매개 변수 *--image*를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
@@ -1815,7 +1815,7 @@ SAP Enterprise Portal의 URL 및/또는 포트를 사용자 지정하려는 경�
 
 ## <a name="high-availability-ha-and-disaster-recovery-dr-for-sap-netweaver-running-on-azure-virtual-machines"></a>Azure Virtual Machines에서 실행되는 SAP NetWeaver의 HA(고가용성) 및 DR(재해 복구)
 ### <a name="definition-of-terminologies"></a>용어 정의
-용어 **HA(고가용성)**는 일반적으로 **동일한** 데이터 센터 내의 중복성, 내결함성 또는 장애 조치(failover) 보호 구성 요소를 통해 IT 서비스의 비즈니스 연속성을 제공함으로써 IT 작업 중단을 최소화하는 일련의 기술과 관련되어 있습니다. 우리의 경우에는 단일 Azure 지역 내부에서의 고가용성이 고려됩니다.
+용어 **HA(고가용성)** 는 일반적으로 **동일한** 데이터 센터 내의 중복성, 내결함성 또는 장애 조치(failover) 보호 구성 요소를 통해 IT 서비스의 비즈니스 연속성을 제공함으로써 IT 작업 중단을 최소화하는 일련의 기술과 관련되어 있습니다. 우리의 경우에는 단일 Azure 지역 내부에서의 고가용성이 고려됩니다.
 
 **DR(재해 복구)** 또한 IT 서비스 중단을 최소화하고 복구를 수행하는 것을 목표로 하지만 일반적으로 수백 킬로미터 거리에 있는 **여러 다른** 데이터 센터 간에 발생하게 됩니다. 우리의 경우에는 동일한 지정학적 지역 내의 다양한 Azure 지역 간이나 고객이 설정한 Azure 지역 사이를 의미합니다.
 

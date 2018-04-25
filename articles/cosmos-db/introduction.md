@@ -2,9 +2,8 @@
 title: Azure Cosmos DB 소개 | Microsoft Docs
 description: Azure Cosmos DB에 대해 알아봅니다. 이 전세계에 배포된 멀티모델 데이터베이스는 낮은 대기 시간, 탄력적 확장성 및 고가용성을 위해 구축되었습니다.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/15/2017
-ms.author: mimig
+ms.date: 04/08/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -36,7 +35,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
 * **턴키 글로벌 배포**
     * [단추를 클릭](tutorial-global-distribution-sql-api.md)하여 원하는 수의 [Azure 지역](https://azure.microsoft.com/regions/)에 [데이터를 배포](distribute-data-globally.md)할 수 있습니다. 이렇게 하면 사용자가 있는 위치에 데이터를 배치하여 고객에게 가장 짧을 대기 시간을 보장할 수 있습니다. 
     * 앱에서는 Azure Cosmos DB의 멀티 호밍 API를 사용하여 가장 가까운 지역을 알고 가장 가까운 데이터 센터에 요청을 보냅니다. 이 모든 작업은 구성을 변경하지 않고 수행할 수 있습니다. 쓰기 지역 및 읽기 지역을 원하는 만큼 설정하면 나머지도 처리됩니다.
-    * Cosmos DB 데이터베이스에 지역을 추가하거나 제거하는 경우 멀티 호밍(multi-homing) API 기능에 따라 응용 프로그램을 다시 배포할 필요가 없으며 높은 가용성을 계속 유지할 수 있습니다.
+    * Azure Cosmos DB 데이터베이스에 지역을 추가하거나 제거하는 경우 멀티 호밍(multi-homing) API 기능에 따라 응용 프로그램을 다시 배포할 필요가 없으며 높은 가용성을 계속 유지할 수 있습니다.
 
 * **데이터 액세스 및 쿼리를 위한 다중 데이터 모델 및 주요 API**
     * Azure Cosmos DB가 빌드된 ARS(atom-record-sequence) 기반 데이터 모델은 기본적으로 문서, 그래프, 키-값, 테이블 및 열 계열 데이터 모델을 포함하지만 이를 제한하지 않는 여러 데이터 모델을 지원합니다.
@@ -44,9 +43,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
         * [SQL API](sql-api-introduction.md): 풍부한 SQL 쿼리 기능이 있지만 스키마가 없는 JSON 데이터베이스 엔진입니다.
         * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB 플랫폼에서 구동하는 대규모로 확장 가능한 *MongoDB-as-a-Service*입니다. 기존 MongoDB 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
         * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB 플랫폼에서 구동하는 전 세계적으로 분산된 Cassandra-as-a-Service입니다. 기존 [Apache Cassandra](https://cassandra.apache.org/) 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
-        * [Graph(Gremlin) API](graph-introduction.md): 개방형 Graph API([Apache TinkerPop 사양](http://tinkerpop.apache.org/), Apache Gremlin을 기반으로 함)를 지원하는 고도로 연결된 데이터 집합을 사용하는 응용 프로그램을 쉽게 빌드하고 실행할 수 있게 해주는 완전히 관리되고 수평적으로 확장 가능한 그래프 데이터베이스 서비스입니다.
+        * [Gremlin(Graph) API](graph-introduction.md): 개방형 Graph API([Apache TinkerPop 사양](http://tinkerpop.apache.org/), Apache Gremlin을 기반으로 함)를 지원하는 고도로 연결된 데이터 집합을 사용하는 응용 프로그램을 쉽게 빌드하고 실행할 수 있게 해주는 완전히 관리되고 수평적으로 확장 가능한 그래프 데이터베이스 서비스입니다.
         * [Table API](table-introduction.md): 앱을 변경하지 않고도 기존 Azure Table 저장소 응용 프로그램에 프리미엄 기능(예: 자동 인덱싱, 짧은 대기 시간 보장, 전역 배포)을 제공하도록 만들어진 키-값 데이터베이스 서비스입니다.
-        * 추가 데이터 모델 제공 예정
+        * 추가 데이터 모델 및 API 제공 예정
 
 * **주문형 및 전 세계적 규모의 처리량 및 저장소에 대한 탄력적이고 독립적인 크기 조정**
     * 데이터베이스 처리량을 [초](request-units.md) 단위로 간편하게 확장하고 원하면 언제든 변경할 수 있습니다. 
@@ -65,7 +64,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
     * 잘 정의되고 실용적이며 직관적인 5개 [일관성 모델](consistency-levels.md)은 중간 형태의 일관성을 포함하여 완화된 NoSQL 형태의 최종 일관성에서 강력한 SQL 형태의 일관성까지 모두 제공합니다. 
   
 * **환불 보장**
-    * 재정적으로 지원되는 업계 최고의 포괄적인 [서비스 수준 계약](https://aka.ms/acdbsla)으로 중요한 데이터에 대한 가용성, 대기 시간, 처리량 및 일관성을 보장합니다. 
+    * 재정적으로 지원되는 업계 최고의 포괄적인 [서비스 수준 계약](https://aka.ms/acdbsla)(SLA)으로 중요한 데이터에 대한 가용성, 대기 시간, 처리량 및 일관성을 보장합니다. 
 
 * **데이터베이스 스키마/인덱스 관리 없음**
     * 데이터베이스 스키마 및/또는 인덱스 관리에 대한 걱정 없이 응용 프로그램의 스키마를 신속하게 반복합니다.
@@ -77,14 +76,14 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
 
 ## <a name="capability-comparison"></a>기능 비교
 
-Azure Cosmos DB는 관계형 및 비관계형 데이터베이스의 최고 기능을 제공합니다.
+Azure Cosmos DB는 기존의 관계형 및 비관계형 데이터베이스의 최고 기능을 제공합니다.
 
 | 기능 | 관계형 데이터베이스   | 비관계형(NoSQL) 데이터베이스 |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | 글로벌 분포 | 아니오 | 아니오 | 예, 멀티 호밍 API를 사용하여 30개 이상의 지역에서 턴키 배포|
 | 수평적 확장 | 아니오 | 예 | 예, 독립적으로 저장소 및 처리량을 확장할 수 있습니다. | 
 | 대기 시간 보장 | 아니오 | 예 | 예, <10ms인 읽기의 99% 및 <15 ms인 쓰기 | 
-| 고가용성 | 아니요 | 예 | 예, Azure Cosmos DB는 항상 켜져 있고, PACELC 장단점이 잘 정의되어 있으며, 자동 및 수동 장애 조치 옵션을 제공합니다.|
+| 고가용성 | 아니오 | 예 | 예, Azure Cosmos DB는 항상 켜져 있고, PACELC 장단점이 잘 정의되어 있으며, 자동 및 수동 장애 조치 옵션을 제공합니다.|
 | 데이터 모델 + API | 관계형 + SQL | 다중 모델 + OSS API | 다중 모델 + SQL + OSS API(추가 서비스 예정) |
 | SLA | 예 | 아니오 | 예, 대기 시간, 처리량, 일관성, 가용성에 대한 포괄적 SLA |
 

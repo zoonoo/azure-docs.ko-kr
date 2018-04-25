@@ -1,6 +1,6 @@
 ---
-title: "클라우드에서 장면 렌더링 - Azure Batch"
-description: "자습서 - Batch Rendering Service 및 Azure 명령줄 인터페이스를 사용하여 Arnold에서 Autodesk 3ds Max 장면을 렌더링하는 방법을 알아봅니다."
+title: 클라우드에서 장면 렌더링 - Azure Batch
+description: 자습서 - Batch Rendering Service 및 Azure 명령줄 인터페이스를 사용하여 Arnold에서 Autodesk 3ds Max 장면을 렌더링하는 방법을 알아봅니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0531406ce50cf8cb549965d1f30b327afe52b003
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f8a93e873f79e99777fe2d8675c9426f5fc5ecda
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -50,7 +50,7 @@ az group create \
     --location eastus2
 ```
 
-[az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 리소스 그룹에 범용 저장소 계정을 만듭니다. 이 자습서에서는 저장소 계정을 사용하여 입력된 3ds Max 장면과 렌더링된 출력을 저장합니다.
+[az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 리소스 그룹에 Azure Storage 계정을 만듭니다. 이 자습서에서는 저장소 계정을 사용하여 입력된 3ds Max 장면과 렌더링된 출력을 저장합니다.
 
 ```azurecli-interactive
 az storage account create \

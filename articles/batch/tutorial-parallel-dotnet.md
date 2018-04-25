@@ -1,21 +1,21 @@
 ---
-title: "병렬 워크로드 실행 - Azure Batch .NET"
-description: "자습서 - Batch .NET 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 트랜스코딩"
+title: 병렬 워크로드 실행 - Azure Batch .NET
+description: 자습서 - Batch .NET 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 트랜스코딩
 services: batch
 author: dlepow
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1100f8fddcd2f802b5f38e0b9789bc9ec359e03a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -36,9 +36,9 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs)(Visual Studio 2015 이상 버전). 
+* [Visual Studio IDE](https://www.visualstudio.com/vs)(Visual Studio 2015 또는 최신 버전) 
 
-* Azure Batch 계정과 연결된 범용 Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
+* Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
 * [Windows 64비트 버전의 ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다. 
 
@@ -63,13 +63,13 @@ Azure Portal을 사용하여 ffmpeg를 Batch 계정에 [응용 프로그램 패�
 
 ### <a name="download-the-sample"></a>샘플 다운로드
 
-GitHub에서 [샘플 응용 프로그램을 다운로드 또는 복제](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)합니다. Git 클라이언트를 사용하여 샘플 앱 리포지토리를 복제하려면 다음 명령을 사용합니다.
+GitHub에서 [샘플 앱을 다운로드 또는 복제](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)합니다. Git 클라이언트를 사용하여 샘플 앱 리포지토리를 복제하려면 다음 명령을 사용합니다.
 
 ```
 git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 ```
 
-Visual Studio 솔루션 파일 `BatchDotNetFfmpegTutorial.sln`을 포함하는 디렉터리로 이동합니다.
+`BatchDotNetFfmpegTutorial.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
 Visual Studio에서 솔루션 파일을 열고 `program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
 
@@ -94,9 +94,9 @@ const string appPackageVersion = "3.4";
 
 * 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
 
-* 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치됩니다.
+* 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
-그러면 해당 항목을 실행합니다. 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
+그런 다음 실행합니다. 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
 
 ```
 Sample start: 12/12/2017 3:20:21 PM
@@ -195,7 +195,7 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 
 풀 구성에 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference)를 추가하면 계산 노드에 ffmpeg 응용 프로그램이 배포됩니다. 
 
-[Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) 메서드는 Batch 서비스에 풀을 제출합니다.
+[Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -229,7 +229,7 @@ pool.Commit();
 
 Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `CreateJobIfNotExist`를 호출하여 작업을 만듭니다. 이 정의된 메서드는 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 메서드를 사용하여 풀에 작업을 만듭니다. 
 
-[Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) 메서드는 Batch 서비스에 작업을 제출합니다. 처음에는 이 작업에 태스크가 없습니다.
+[Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) 메서드는 Batch 서비스에 작업을 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
@@ -306,7 +306,7 @@ batchClient.JobOperations.TerminateJob(jobId, successMessage);
 
 앱은 태스크를 실행한 후 생성된 입력 저장소 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 및 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 클래스에는 해당하는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 저장소 계정에 남아 있습니다.
 
-더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이 작업을 수행하려면 Batch 계정의 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

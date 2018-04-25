@@ -2,17 +2,17 @@
 title: 포함 파일
 description: 포함 파일
 services: cdn
-author: dksimpson
+author: SyntaxC4
 ms.service: cdn
 ms.topic: include
-ms.date: 04/04/2018
-ms.author: rli; v-deasim
+ms.date: 04/13/2018
+ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 692364e9b2e78b3bd1f63137148dfbc680364737
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0db5f571324694f0518ffc4e92af985e5125d755
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 ## <a name="create-a-new-cdn-profile"></a>새 CDN 프로필 만들기
 
@@ -22,7 +22,7 @@ CDN 프로필은 CDN 끝점에 대한 컨테이너이며 가격 책정 계층을
     
     **새로 만들기** 창이 나타납니다.
    
-2. **웹 + 모바일** 및 **CDN**을 차례로 선택합니다.
+2. **웹 + 모바일**을 선택한 후 **CDN**을 선택합니다.
    
     ![CDN 리소스 선택](./media/cdn-create-profile/cdn-new-resource.png)
 

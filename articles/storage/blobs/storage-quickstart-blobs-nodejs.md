@@ -1,19 +1,19 @@
 ---
-title: Azure 빠른 시작 - Node.js를 사용하여 Azure Storage에 Blob 업로드, 다운로드 및 나열 | Microsoft Docs
-description: 이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Node.js용 저장소 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
+title: Azure 빠른 시작 - Node.js를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js용 저장소 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -82,7 +82,7 @@ const storage = require('azure-storage');
 - *dotenv*는 *.env*라는 파일에 정의된 환경 변수를 현재 실행 컨텍스트에 로드합니다
 - *path*는 Blob 저장소에 업로드할 파일의 절대 파일 경로를 결정하는 데 필요합니다.
 - *yargs*는 명령줄 인수에 액세스하기 위한 간단한 인터페이스를 공개합니다
-- *azure-storage*는 Node.js용 [Azure Storage SDK](/nodejs/api/azure-storage) 모듈입니다.
+- *azure-storage*는 Node.js용 [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage) 모듈입니다.
 
 다음으로, 일련의 변수가 초기화됩니다.
 
@@ -294,4 +294,4 @@ Blob 저장소를 사용하여 Node.js 응용 프로그램을 개발하기 위�
 > [!div class="nextstepaction"]
 > [Blob Storage 작업 방법](storage-nodejs-how-to-use-blob-storage.md)
 
-Azure Storage에 대한 Node.js 참조는 [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest)를 참조하세요.
+Azure Storage에 대한 Node.js 참조는 [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage)를 참조하세요.

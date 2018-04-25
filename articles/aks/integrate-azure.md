@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
@@ -21,9 +21,9 @@ ms.lasthandoff: 03/28/2018
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독
 
-* Azure CLI 2.0: [로컬로 설치][azure-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용할 수 있습니다.
+* Azure CLI 2.0: [로컬로 설치][azure-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용합니다.
 
-* Helm CLI 2.7+: [로컬로 설치][helm-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용할 수 있습니다.
+* Helm CLI 2.7+: [로컬로 설치][helm-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용합니다.
 
 * Azure 구독에서 Contributor 역할로 서비스 사용자를 만드는 권한
 

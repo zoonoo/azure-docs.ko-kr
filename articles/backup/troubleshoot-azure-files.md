@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Azure Files 백업 문제 해결
 다음 표에 나열된 정보를 참조하여 Azure Files 백업을 사용하는 동안 발생하는 문제 및 오류를 해결할 수 있습니다.
@@ -59,6 +59,7 @@ Azure Files 백업은 미리 보기입니다. 다음 백업 시나리오에는 A
 | 소스의 파일 중 하나가 없기 때문에 복원이 실패합니다. | <ul><li> 선택한 항목이 복구 지점 데이터에 없습니다. 파일을 복구하려면 올바른 파일 목록을 제공하세요. <li> 복구 지점에 해당하는 파일 공유 스냅숏은 수동으로 삭제됩니다. 다른 복구 지점을 선택하고 복원 작업을 다시 시도합니다. |
 | 복구 작업이 동일한 대상으로 진행 중입니다. | <ul><li>파일 공유 백업은 동일한 대상 파일 공유에 대한 병렬 복구를 지원하지 않습니다. <li>기존 복구가 완료될 때까지 기다린 후 다시 시도합니다. Recovery Services 자격 증명 모음에서 복구 작업을 찾을 수 없으면 동일한 구독에 다른 Recovery Services 자격 증명 모음을 확인합니다. |
 | 대상 파일 공유 가득 차서 복원 작업이 실패했습니다. | 복원 데이터를 수용할 수 있도록 대상 파일 공유 크기 할당량을 늘리고 작업을 다시 시도합니다. |
+| 대상 파일 공유와 연결된 파일 동기화 서비스 리소스에서 사전 복원 작업을 수행하는 동안 발생한 오류로 인해 복원 작업이 실패했습니다. | 잠시 후 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |
 | 하나 이상의 파일을 성공적으로 복구할 수 없습니다. 자세한 내용은 위에 제공된 경로에서 실패한 파일 목록을 확인하세요. | <ul> <li> 복구 실패 이유가 파일(작업 세부 정보에 제공된 경로)에 나열되어 있습니다. 이유를 해결한 후 실패한 파일에 대해서만 복원 작업을 다시 시도합니다. <li> 파일 복원이 실패하는 일반적인 이유: <br/> - 실패한 파일이 현재 사용되고 있지는 않은지 확인합니다. <br/> - 실패한 파일과 같은 이름의 디렉터리가 부모 디렉터리에 있습니다. |
 
 ## <a name="see-also"></a>참고 항목

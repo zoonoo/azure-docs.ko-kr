@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: df97d2020309fa9af7f67170729ce9c2d723572d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7800c2e72b1bfd78f83bf7b90a35e47f6109a014
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -32,22 +32,13 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 
 | 언어 | 지원되는 버전 |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 9.4 |
 | Java * | 8.0 |
-| PHP | 5.6, 7.0 |
+| PHP | 5.6, 7.0, 7.2 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-
-* 미리 보기 기능 지원
-
-### <a name="preview-supported-java-runtimes"></a>미리 보기: 지원되는 Java 런타임
-
-Linux의 App Service에서 지원되는 Java 런타임은 다음과 같습니다.
-
-| 런타임 | 버전 |
-|---|---|
-| Apache Tomcat | 8.5 |
-| Apache Tomcat | 9.0 |
+| Go | 1.0 |
+| Apache Tomcat | 8.5, 9.0 |
 
 자세한 내용은 [Linux의 App Service에서 Java 웹앱 만들기](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java)를 참조하세요.
 
@@ -84,10 +75,7 @@ Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능�
 
 가상 네트워크 통합, Azure Active Directory/타사 인증 또는 Kudu 사이트 확장 등의 일부 기능은 아직 사용할 수 없습니다. 이러한 기능이 사용 가능해지면 설명서와 블로그에 변경 내용이 업데이트될 것입니다.
 
-Linux의 App Service는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 다음은 Linux의 App Service에 대한 중요한 제한 사항입니다.
-
-* 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다.
-* 비 Linux Web Apps를 포함하는 리소스 그룹에 Web App for Containers를 만드는 경우 기존 App Service 계획과 다른 리소스 그룹에 App Service 계획을 만들어야 합니다.
+Linux의 App Service는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

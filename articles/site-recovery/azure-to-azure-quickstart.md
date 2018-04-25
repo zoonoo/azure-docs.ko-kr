@@ -1,22 +1,19 @@
 ---
-title: "다른 Azure 지역에 Azure VM 복제(미리 보기)"
-description: "이 빠른 시작에서는 한 Azure 지역의 Azure VM을 다른 지역에 복제하는 데 필요한 단계를 제공합니다."
+title: 다른 Azure 지역에 Azure VM 복제(미리 보기)
+description: 이 빠른 시작에서는 한 Azure 지역의 Azure VM을 다른 지역에 복제하는 데 필요한 단계를 제공합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 02/07/2018
+ms.date: 04/08/2018
 ms.author: raynew
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 213b218a50506ace2298aa3f77721db1b81e2efe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>다른 Azure 지역에 Azure VM 복제(미리 보기)
 
@@ -24,17 +21,17 @@ ms.lasthandoff: 02/09/2018
 
 이 빠른 시작에서는 Azure VM을 다른 Azure 지역에 복제하는 방법을 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal( http://portal.azure.com )에 로그인합니다.
+Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Azure VM에 대해 복제 사용
 
 1. Azure Portal에서 **가상 머신**를 클릭한 다음 복제할 VM을 선택합니다.
 
-2. **설정**에서 **재해 복구(미리 보기)**를 클릭합니다.
+2. **설정**에서 **재해 복구(미리 보기)** 를 클릭합니다.
 3. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.
 4. 이 빠른 시작에서는 다른 기본 설정을 그대로 적용합니다.
 5. **복제 활성화**를 클릭합니다. VM에 대해 복제를 활성화하는 작업이 시작됩니다.
@@ -47,7 +44,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 복제 작업이 완료되면 복제 상태를 확인하고, 복제 설정을 수정하고, 배포를 테스트할 수 있습니다.
 
-1. VM 메뉴에서 **재해 복구(미리 보기)**를 클릭합니다.
+1. VM 메뉴에서 **재해 복구(미리 보기)** 를 클릭합니다.
 2. 복제 상태, 생성된 복구 지점, 원본 및 대상 지역을 지도에서 확인할 수 있습니다.
 
    ![복제 상태](media/azure-to-azure-quickstart/replication-status.png)
@@ -62,7 +59,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 다음과 같이 복제를 중지합니다.
 
 1. VM을 선택합니다.
-2. **재해 복구(미리 보기)**에서 **자세히**를 클릭합니다.
+2. **재해 복구(미리 보기)** 에서 **자세히**를 클릭합니다.
 3. **복제 사용 안 함**을 클릭합니다.
 
    ![복제 사용 안 함](media/azure-to-azure-quickstart/disable2-replication.png)

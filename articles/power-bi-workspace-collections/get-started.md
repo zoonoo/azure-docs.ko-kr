@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Power BI 작업 영역 컬렉션 시작"
-description: "Power BI 작업 영역 컬렉션은 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다."
+title: Microsoft Power BI 작업 영역 컬렉션 시작
+description: Power BI 작업 영역 컬렉션은 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 4ee113ed25142507f381d8c9d49b25ee6553c525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI 작업 영역 컬렉션 시작
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure Portal을 사용하여 **작업 영역 컬렉션**을 빌드하는 단계를 살펴보겠습니다.
 
-1. **Azure Portal**([http://portal.azure.com](http://portal.azure.com))을 열고 로그인합니다.
+1. **Azure Portal**을 열고 로그인합니다. [http://portal.azure.com](http://portal.azure.com)
 2. 위쪽 패널에서 **+새로 만들기**를 선택합니다.
    
    ![Azure Portal 내에서 +새로 만들기](media/get-started/create-workspace-1.png)

@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal에서 Batch 계정 만들기 | Microsoft Docs"
-description: "클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다."
+title: Azure Portal에서 Batch 계정 만들기 | Microsoft Docs
+description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다.
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch 관리 .NET](batch-management-dotnet.md)
 >
 >
@@ -58,7 +58,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     d. **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
-    e. **저장소 계정**(선택 사항): Batch 계정과 연결하는 범용 Azure Storage 계정입니다. 대부분의 Batch 계정에 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 뒷부분에서 [연결된 Azure Storage 계정](#linked-azure-storage-account)을 참조하세요.
+    e. **저장소 계정**(선택 사항): Batch 계정과 연결하는 Azure Storage 계정입니다. 대부분의 Batch 계정에 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 뒷부분에서 [연결된 Azure Storage 계정](#linked-azure-storage-account)을 참조하세요.
 
 4. **만들기**를 클릭하여 계정을 만듭니다.
 
@@ -85,11 +85,11 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 ## <a name="linked-azure-storage-account"></a>연결된 Azure Storage 계정
 
-범용 Azure Storage 계정을 Batch 계정에 연결할 수도 있습니다. 그러면 여러 시나리오에 유용합니다. Batch의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 [Batch 파일 규칙 .NET](batch-task-output.md) 라이브러리와 마찬가지로 Azure Blob 저장소를 사용합니다. 이러한 선택적 기능은 Batch 태스크에서 실행하는 응용 프로그램을 배포하고 생성한 데이터를 유지하는 데 도움이 됩니다.
+Azure Storage 계정을 Batch 계정에 연결할 수도 있습니다. 그러면 여러 시나리오에 유용합니다. Batch의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 [Batch 파일 규칙 .NET](batch-task-output.md) 라이브러리와 마찬가지로 Azure Blob 저장소를 사용합니다. 이러한 선택적 기능은 Batch 태스크에서 실행하는 응용 프로그램을 배포하고 생성한 데이터를 유지하는 데 도움이 됩니다.
 
-Batch 계정에서 배타적으로 사용할 수 있도록 새로운 Storage 계정을 만드는 것이 좋습니다. Azure Batch는 현재 범용 Storage 계정 유형만 지원합니다. 이 계정 형식은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)에서 설명합니다.
+Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요.
 
-![범용 저장소 계정 만들기][storage_account]
+![저장소 계정 만들기][storage_account]
 
 > [!NOTE]
 > 연결된 Storage 계정의 액세스 키를 다시 생성할 때는 주의해야 합니다. 하나의 저장소 계정 키를 다시 생성하고 연결된 저장소 계정 페이지에서 **동기화 키**를 클릭합니다. 키를 풀의 계산 노드에 전파한 다음 필요한 경우 다른 키를 다시 생성하고 동기화할 수 있으려면 5분 동안 기다립니다. 동시에 두 키를 다시 생성하는 경우 계산 노드에서 키를 동기화할 수 없으며 Storage 계정에 액세스할 수 없게 됩니다.

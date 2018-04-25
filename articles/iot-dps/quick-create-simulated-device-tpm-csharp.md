@@ -3,20 +3,20 @@ title: C#을 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로�
 description: Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 services: iot-dps
 keywords: ''
-author: JimacoMS2
-ms.author: v-jamebr
-ms.date: 12/21/2017
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/09/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c292f998a719f8bc6d64655c1f2cdd75054653b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4bca89f71922e36707c0c4893a7190d508242ffc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 
 다음 단계에서는 Windows OS를 실행하는 개발 컴퓨터에서 Azure IoT Hub C# SDK 시뮬레이션된 TPM 장치 샘플을 빌드하고, 이 시뮬레이션된 장치를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여 줍니다. 샘플 코드에서는 Windows TPM 시뮬레이터를 장치의 [HSM(하드웨어 보안 모듈)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)으로 사용합니다. 
 
-진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)에 나와 있는 단계를 완료해야 합니다.
+자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)도 검토하세요. 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/03/2018
     dotnet run <IDScope>
     ```
 
-1. 장치 등록에 필요한 **_인증 키_**, **_등록 ID_** 및 제안된 **_장치 ID_**가 명령 창에 표시됩니다. 이러한 값을 기록해 둡니다. 
+1. 장치 등록에 필요한 **_인증 키_**, **_등록 ID_** 및 제안된 **_장치 ID_** 가 명령 창에 표시됩니다. 이러한 값을 기록해 둡니다. 
    > [!NOTE]
    > 명령 출력이 포함된 창과 TPM 시뮬레이터의 출력이 포함된 창을 혼동하지 마세요. 명령 창을 클릭하여 포그라운드로 전환해야 합니다.
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 04/03/2018
 
    등록에 성공하면 장치의 *등록 ID*가 *개별 등록* 탭 아래 목록에 나타납니다. 
 
-6. 시뮬레이션된 장치를 등록하려면 (**_인증 키_**, **_등록 ID_** 및 제안된 **_장치 ID_**를 표시한) 명령 창에서 Enter를 누릅니다. 장치를 부팅하고 IoT Hub 정보를 얻기 위해 Device Provisioning Service에 연결하는 과정을 시뮬레이션하는 메시지를 확인합니다. 
+6. 시뮬레이션된 장치를 등록하려면 (**_인증 키_**, **_등록 ID_** 및 제안된 **_장치 ID_** 를 표시한) 명령 창에서 Enter를 누릅니다. 장치를 부팅하고 IoT Hub 정보를 얻기 위해 Device Provisioning Service에 연결하는 과정을 시뮬레이션하는 메시지를 확인합니다. 
 
 1. 장치가 프로비전되었는지 확인합니다. 프로비전 서비스와 연결된 IoT Hub에 시뮬레이션된 장치를 성공적으로 프로비전하면 장치 ID가 허브의 **IoT 장치** 블레이드에 표시됩니다. 
 

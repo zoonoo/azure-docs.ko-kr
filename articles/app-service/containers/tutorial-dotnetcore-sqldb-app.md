@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/10/2017
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c79d82ddc65b7302552f745ab653109677205aa4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 494f2864f61ed9717dbddd7bf85981dc84bd3aad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
 
@@ -47,8 +47,8 @@ ms.lasthandoff: 03/16/2018
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-1. [Git 설치](https://git-scm.com/)
-1. [.NET Core SDK 1.1.2 설치](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [Git 설치](https://git-scm.com/)
+* [.NET Core 설치](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>로컬 .NET Core 앱 만들기
 
@@ -99,7 +99,7 @@ SQL Database의 경우 이 자습서에서는 [Azure SQL Database](/azure/sql-da
 
 Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
 
-*\<server_name>* 자리 표시자를 고유한 SQL Database 이름으로 바꿉니다. 이 이름은 SQL Database 끝점(`<server_name>.database.windows.net`)의 일부로 사용되므로 Azure의 모든 논리 서버에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다. 또한 *\<db_username>* 및 *\<db_password>*를 선택한 사용자 이름 및 암호로 바꿉니다. 
+*\<server_name>* 자리 표시자를 고유한 SQL Database 이름으로 바꿉니다. 이 이름은 SQL Database 끝점(`<server_name>.database.windows.net`)의 일부로 사용되므로 Azure의 모든 논리 서버에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다. 또한 *\<db_username>* 및 *\<db_password>* 를 선택한 사용자 이름 및 암호로 바꿉니다. 
 
 
 ```azurecli-interactive
@@ -144,10 +144,10 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 
 ### <a name="create-connection-string"></a>연결 문자열 만들기
 
-다음 문자열을 이전에 사용한 *\<server_name>*, *\<db_username>* 및 *\<db_password>*로 바꿉니다.
+다음 문자열을 이전에 사용한 *\<server_name>*, *\<db_username>* 및 *\<db_password>* 로 바꿉니다.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 .NET Core 앱에 대한 연결 문자열입니다. 나중에 사용하기 위해 복사합니다.
@@ -215,7 +215,8 @@ Azure에서 실행되는 경우 `Database.Migrate()` 호출이 해당 마이그�
 변경 내용을 저장한 후 Git 리포지토리로 커밋합니다. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
@@ -347,8 +348,8 @@ dotnet run
 ### <a name="publish-changes-to-azure"></a>변경 내용을 Azure에 게시
 
 ```bash
-
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

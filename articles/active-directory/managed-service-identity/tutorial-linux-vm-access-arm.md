@@ -1,8 +1,8 @@
 ---
-title: "Linux VM MSI를 사용하여 Azure Resource Manager 액세스"
-description: "Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다."
+title: Linux VM MSI를 사용하여 Azure Resource Manager 액세스
+description: Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 842e0b42dee7e03f0ddb3f3a2445007a812ceb7e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97c6fec26a79352a12eebff451eb294a87455ed6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정
 
-Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하는 경우 내부적으로는 두 가지 작업이 수행됩니다. 즉, VM에 MSI VM 확장이 설치되고 VM에 대해 MSI가 사용하도록 설정됩니다.  
+Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 두 작업이 수행됩니다. 즉, 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성됩니다.
 
 1. MSI를 사용하도록 설정할 **Virtual Machine**을 선택합니다.
 2. 왼쪽 탐색 모음에서 **구성**을 클릭합니다.
@@ -65,19 +65,15 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
 
     ![대체 이미지 텍스트](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. 이 **Linux VM**에 있는 확장을 확인하려면 **확장**을 클릭합니다. MSI가 사용하도록 설정된 경우 목록에 **ManagedIdentityExtensionforLinux**가 표시됩니다.
-
-    ![대체 이미지 텍스트](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
-
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>VM에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
 
 코드는 MSI를 사용하여 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. Azure Resource Manager API는 Azure AD 인증을 지원합니다. 먼저 이 VM에 Azure Resource Manager의 리소스(이 예제에서는 VM이 포함된 리소스 그룹)에 대한 액세스 권한을 부여해야 합니다.  
 
 1. **리소스 그룹**의 탭으로 이동합니다.
 2. 앞에서 만든 특정 **리소스 그룹**을 선택합니다.
-3. 왼쪽 패널의 **액세스 제어(IAM)**로 이동합니다.
+3. 왼쪽 패널의 **액세스 제어(IAM)** 로 이동합니다.
 4. **추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다. **역할**로 **독자**를 선택합니다.
-5. 다음 드롭다운인 **다음에 대한 액세스 할당:**에서 **Virtual Machine** 리소스에 대한 액세스 권한을 할당합니다.
+5. 다음 드롭다운인 **다음에 대한 액세스 할당:** 에서 **Virtual Machine** 리소스에 대한 액세스 권한을 할당합니다.
 6. 그런 다음 **구독** 드롭다운에 적절한 구독이 나열되어 있는지 확인합니다. 그리고 **리소스 그룹**에서는 **모든 리소스 그룹**을 선택합니다.
 7. 마지막으로 **선택**의 드롭다운에서 Linux Virtual Machine을 선택하고 **저장**을 클릭합니다.
 
@@ -94,7 +90,7 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
     액세스 토큰에 대한 CURL 요청은 다음과 같습니다.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true   
     ```
     
     > [!NOTE]

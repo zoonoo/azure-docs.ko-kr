@@ -1,20 +1,20 @@
 ---
-title: "Azure Automation을 사용하여 컴퓨터에 설치된 소프트웨어 검색 | Microsoft Docs"
-description: "인벤토리를 사용하여 환경 전체에서 컴퓨터에 설치된 소프트웨어를 검색합니다."
+title: Azure Automation을 사용하여 컴퓨터에 설치된 소프트웨어 검색 | Microsoft Docs
+description: 인벤토리를 사용하여 환경 전체에서 컴퓨터에 설치된 소프트웨어를 검색합니다.
 services: automation
-keywords: "인벤토리, 자동화, 변경, 추적"
+keywords: 인벤토리, 자동화, 변경, 추적
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 04/11/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bd9fdc237a3c6f1c2a57ddf0f4448d7c3402a798
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure 및 비Azure 컴퓨터에 설치된 소프트웨어 검색
 
@@ -23,7 +23,9 @@ ms.lasthandoff: 02/28/2018
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 변경 내용 추적 및 인벤토리를 위한 VM 등록
+> * 솔루션 활성화
+> * Azure VM 등록
+> * 비 Azure VM 등록
 > * 설치된 소프트웨어 보기
 > * 설치된 소프트웨어에 대한 인벤토리 로그 검색
 
@@ -32,19 +34,20 @@ ms.lasthandoff: 02/28/2018
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 감시자, 작업 Runbook 및 감시자 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
+* 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
 * 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal( http://portal.azure.com )에 로그인합니다.
+Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
-먼저 이 자습서에서 사용할 VM에 대한 변경 내용 추적 및 인벤토리를 사용하도록 설정해야 합니다. 이전에 VM에 대해 **변경 내용 추적** 솔루션을 사용하도록 설정한 경우에는 이 단계가 필요하지 않습니다.
+먼저 이 자습서에 대한 변경 내용 추적 및 인벤토리를 사용하도록 설정해야 합니다. 이전에 **변경 내용 추적** 솔루션을 사용하도록 설정한 경우에는 이 단계가 필요하지 않습니다.
 
-1. 왼쪽 메뉴에서 **가상 머신**을 선택하고 목록에서 VM을 선택합니다.
-2. 왼쪽 메뉴의 **작업** 섹션 아래에서 **인벤토리**를 클릭합니다. **변경 내용 추적 및 인벤토리 사용** 페이지가 열립니다.
+Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리**를 선택합니다.
+
+Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
 ![인벤토리 등록 구성 배너](./media/automation-tutorial-installed-software/enableinventory.png)
 
@@ -57,15 +60,31 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 솔루션을 사용하도록 설정되면 설치된 소프트웨어에 대한 정보 및 VM에 대한 변경 내용이 Log Analytics로 이동합니다.
 이 데이터를 분석에 사용할 수 있게 되는 데 30분에서 6시간까지 걸릴 수 있습니다.
 
+## <a name="onboard-a-vm"></a>VM 등록
+
+Automation 계정에서 **구성 관리** 아래의 **인벤토리**로 이동합니다.
+
+**+ Azure VM 추가**를 선택하면 **가상 컴퓨터** 페이지가 열리고 목록에서 기존 VM을 선택할 수 있습니다. 등록할 VM을 선택합니다. 열리는 페이지에서 **사용**을 클릭하여 VM에서 솔루션을 사용하도록 설정합니다. Microsoft 관리 에이전트가 VM에 배포되고 솔루션을 활성화할 때 구성한 Log Analytics 작업 영역에 설명하도록 에이전트를 구성합니다. 등록을 완료하는 데 몇 분이 걸릴 수 있습니다. 이 시점에서 목록에서 새 VM을 선택하고 다른 VM을 등록할 수 있습니다.
+
+## <a name="onboard-a-non-azure-machine"></a>비Azure 컴퓨터 등록
+
+비 Azure 컴퓨터를 추가하려면 운영 체제에 따라 [Windows](../log-analytics/log-analytics-agent-windows.md) 또는 [Linux](automation-linux-hrw-install.md)에 대한 에이전트를 설치합니다. 에이전트가 설치되면 Automation 계정으로 이동하고 **구성 관리** 아래에서 **인벤토리**로 이동합니다. **관리 컴퓨터**를 클릭하면 솔루션이 활성화되지 않은 Log Analytics 작업 영역에 보고하는 컴퓨터의 목록이 표시됩니다. 사용자 환경에 적합한 옵션을 선택합니다.
+
+* **사용 가능한 모든 컴퓨터에서 사용하도록 설정** - 이 옵션은 이 시점에 Log Analytics 작업 영역에 보고하는 모든 컴퓨터에서 솔루션을 활성화합니다.
+* **사용 가능한 모든 컴퓨터 및 이후 컴퓨터에서 사용하도록 설정** - 이 옵션은 Log Analytics 작업 영역에 보고하는 모든 컴퓨터와 이후에 작업 영역에 추가되는 향후 모든 컴퓨터에서 솔루션을 활성화합니다.
+* **선택한 컴퓨터에서 사용하도록 설정** - 이 옵션은 선택한 컴퓨터에서만 솔루션을 활성화합니다.
+
+![컴퓨터 관리](./media/automation-tutorial-installed-software/manage-machines.png)
+
 ## <a name="view-installed-software"></a>설치된 소프트웨어 보기
 
 변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정되면 **인벤토리** 페이지에서 결과를 볼 수 있습니다.
 
-VM 내에서 **작업** 아래에 있는 **인벤토리**를 선택합니다.
+Automation 계정 내에서 **구성 관리** 아래의 **인벤토리**를 선택합니다.
 
 **인벤토리** 페이지에서 **소프트웨어** 탭을 클릭합니다.
 
-**소프트웨어** 탭에는 검색된 소프트웨어가 나열되는 테이블 목록이 있습니다. 소프트웨어는 소프트웨어 이름 및 버전별로 그룹화됩니다.
+**소프트웨어** 탭에는 검색된 소프트웨어를 나열하는 테이블이 있습니다. 소프트웨어는 소프트웨어 이름 및 버전별로 그룹화됩니다.
 
 각 소프트웨어 레코드에 대한 높은 수준의 자세한 정보는 이 테이블에서 볼 수 있습니다. 이러한 세부 정보에는 소프트웨어 이름, 버전, 게시자, 마지막으로 새로 고친 시간(그룹의 컴퓨터에서 보고한 최근의 새로 고침 시간) 및 컴퓨터(해당 소프트웨어가 있는 컴퓨터의 수)가 포함됩니다.
 
@@ -83,28 +102,29 @@ VM 내에서 **작업** 아래에 있는 **인벤토리**를 선택합니다.
 인벤토리는 Log Analytics로 보내는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 **인벤토리** 창 위쪽에서 **Log Analytics**를 선택합니다.
 
 인벤토리 데이터는 **ConfigurationData** 형식 아래에 저장됩니다.
-다음 샘플 Log Analytics 쿼리는 각 게시자에 대해 "Microsoft"와 SoftwareName 및 Computer별로 그룹화된 소프트웨어 레코드의 수가 포함된 게시자를 반환합니다.
+다음 샘플 Log Analytics 쿼리는 게시자가 "Microsoft Corporation"인 인벤토리 결과를 반환합니다.
 
-```
+```loganalytics
 ConfigurationData
-| summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 | where ConfigDataType == "Software"
-| search Publisher:"Microsoft"
-| summarize count() by Publisher
+| where Publisher == "Microsoft Corporation"
+| summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
 Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Log Analytics](https://docs.loganalytics.io/index)를 참조하세요.
 
 ### <a name="single-machine-inventory"></a>단일 컴퓨터 인벤토리
 
-단일 컴퓨터에 대한 소프트웨어 인벤토리를 보려면 Azure VM 리소스 페이지에서 인벤토리에 액세스하거나 Log Analytics를 사용하여 해당 컴퓨터로 필터링할 수 있습니다. 다음 Log Analytics 쿼리 예제에서는 ContosoVM이라는 컴퓨터의 소프트웨어 목록을 반환합니다.
+단일 컴퓨터에 대한 소프트웨어 인벤토리를 보려면 Azure VM 리소스 페이지에서 인벤토리에 액세스하거나 Log Analytics를 사용하여 해당 컴퓨터로 필터링할 수 있습니다.
+다음 Log Analytics 쿼리 예제에서는 ContosoVM이라는 컴퓨터의 소프트웨어 목록을 반환합니다.
 
-```
+```loganalytics
 ConfigurationData
-| where ConfigDataType == "Software" 
+| where ConfigDataType == "Software"
 | summarize arg_max(TimeGenerated, *) by SoftwareName, CurrentVersion
 | where Computer =="ContosoVM"
 | render table
+| summarize by Publisher, SoftwareName
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -112,7 +132,9 @@ ConfigurationData
 이 자습서에서는 다음과 같은 소프트웨어 인벤토리를 보는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 변경 내용 추적 및 인벤토리를 위한 VM 등록
+> * 솔루션 활성화
+> * Azure VM 등록
+> * 비 Azure VM 등록
 > * 설치된 소프트웨어 보기
 > * 설치된 소프트웨어에 대한 인벤토리 로그 검색
 

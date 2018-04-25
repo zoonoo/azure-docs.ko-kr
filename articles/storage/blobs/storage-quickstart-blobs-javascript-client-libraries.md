@@ -1,5 +1,5 @@
 ---
-title: 브라우저에서 JavaScript와 HTML을 사용하여 Azure Storage로 Blob 업로드, 나열 및 삭제
+title: Azure 빠른 시작 - 브라우저에서 JavaScript 및 HTML을 사용하여 개체 저장소에 Blob 만들기
 description: Blob Service의 인스턴스를 사용하여 HTML 페이지에서 JavaScript를 사용하여 Blob을 업로드, 나열 및 삭제하는 방법을 알아봅니다.
 services: storage
 keywords: 저장소, Javascript, html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>빠른 시작: 브라우저에서 JavaScript/HTML을 사용하여 Azure Storage로 Blob 업로드, 나열 및 삭제
-이 빠른 시작에서는 Blob 저장소 계정에 대한 보안 액세스를 보장하는 데 필요한 보안 조치와 함께 브라우저에서 완전히 실행되는 코드에서 Blob을 관리하여 는 방법을 알아봅니다. 이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>빠른 시작: 브라우저에서 JavaScript/HTML을 사용하여 Blob 업로드, 나열 및 삭제
+이 빠른 시작은 브라우저에서 전적으로 실행되는 코드의 Blob을 관리하는 방법을 보여줍니다. 여기에 사용된 방법은 Blob 저장소 계정에 대한 보호된 액세스를 보장하도록 필요한 보안 조치를 사용하는 방법을 보여줍니다. 이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>보안 설정 복사
-이 빠른 시작을 진행하는 동안 보안 토큰을 만들기 위한 몇 가지 보안 관련 값이 필요합니다. 포털에서 나중에 사용할 수 있도록 텍스트 편집기에 값을 복사할 수 있습니다. 
-
-포털에서 저장소 계정을 선택하고 **설정**섹션을 찾습니다. 설정에서 **액세스 키**를 선택하고 **저장소 계정 이름**을 따로 설정하고 **key1** 제목에 **키** 값을 설정합니다. (입력란의 오른쪽에 있는 "복사" 단추를 사용하여 값을 클립보드에 복사할 수 있습니다.)
 
 ## <a name="setting-up-storage-account-cors-rules"></a>저장소 계정 CORS 규칙 설정 
 웹 응용 프로그램이 클라이언트에서 Blob 저장소에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 
@@ -55,7 +50,7 @@ Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규�
 ## <a name="create-a-shared-access-signature"></a>공유 액세스 서명 만들기
 SAS(공유 액세스 서명)는 Blob 저장소에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키나 연결 문자열을 없이도 인증할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
-SAS는 Azure Cloud Shell을 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에서는 SAS를 생성하기 위해 값을 제공해야 하는 매개 변수에 대해 설명합니다.
+SAS는 Azure Cloud Shell 또는 Azure Storage 탐색기를 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에서는 CLI를 사용하여 SAS를 생성하기 위해 값을 제공해야 하는 매개 변수에 대해 설명합니다.
 
 | 매개 변수      |설명  | Placeholder |
 |----------------|-------------|-------------|
@@ -121,7 +116,7 @@ npm i http-server
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>Blob 저장소 클라이언트 스크립트 가져오기
+### <a name="get-the-blob-storage-client-library"></a>Blob 저장소 클라이언트 라이브러리 가져오기
 [JavaScript 클라이언트 라이브러리를 다운로드](https://aka.ms/downloadazurestoragejs)하고 zip의 내용을 추출한 다음 *bundle* 폴더의 스크립트 파일을 *scripts* 폴더에 넣습니다.
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>페이지에 클라이언트 스크립트 참조 추가
@@ -153,7 +148,7 @@ npm start
 - 파일을 업로드하는 데 사용되는 *INPUT* 요소
 - 저장소 관련 코드를 위한 자리 표시자
 
-### <a name="create-a-blob-service"></a>Blob 서비스 만들기 
+### <a name="create-an-instance-of-blobservice"></a>BlobService의 인스턴스 만들기 
 [BlobService](https://azure.github.io/azure-storage-node/BlobService.html)는 Azure Blob Storage에 대한 인터페이스를 제공합니다. 서비스 인스턴스를 만들려면 이전 단계에서 만든 저장소 계정 이름과 SAS를 제공해야 합니다.
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>Blob 업로드
-HTML 양식에서 Blob을 업로드하려면 *type*이 *file*로 설정된 *INPUT* 요소의 `files` 배열을 통해 선택된 파일에 대한 참조를 확보합니다.
+HTML 양식의 Blob을 업로드하려면 *INPUT* 요소에서 선택한 파일에 대한 참조를 가져옵니다. 선택한 파일은 요소의 *형식*이 *파일*로 설정된 경우 `files` 배열을 통해 사용할 수 있습니다.
 
 스크립트에서 HTML 요소를 참조하고 선택한 파일을 Blob 서비스에 전달할 수 있습니다.
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+*listBlobsSegmented* 메서드는 Blob의 컬렉션을 반환합니다. 기본적으로 컬렉션 수량은 5,000개의 Blob이지만 이 값을 필요에 맞게 조정할 수 있습니다. [연속 샘플](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132)은 많은 수의 Blob을 사용하는 방법과 클라이언트 라이브러리에서 페이징을 지원하는 방법을 보여줍니다. 
+
 
 ### <a name="delete-blobs"></a>Blob 삭제
 업로드한 Blob은 [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor)를 호출하여 삭제할 수 있습니다.

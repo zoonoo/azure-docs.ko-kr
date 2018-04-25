@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 저장소 계층
+# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 저장소: 핫, 쿨 및 보관 저장소 계층
 
 ## <a name="overview"></a>개요
 
@@ -32,9 +32,9 @@ Azure Storage는 Blob 개체 저장소에 세 가지 저장소 계층을 제공�
 
 ## <a name="storage-accounts-that-support-tiering"></a>계층을 지원하는 저장소 계정
 
-Blob Storage 또는 범용 v2(GPv2) 계정에서 개체 저장소 데이터를 핫, 쿨 또는 보관으로만 계층화할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 그러나 고객은 Azure Portal에서 간단히 한 번만 클릭하는 프로세스를 통해 기존 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 쉽게 변환할 수 있습니다. GPv2는 Blob, 파일 및 큐에 대한 새 가격 책정 구조 및 다양한 기타 새로운 저장소 기능에 대한 액세스를 제공합니다. 또한 앞으로 설명할 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 제공됩니다. 따라서 고객은 GPv2 계정을 사용하여 평가해야 하지만 일부 작업의 경우 비용이 GPv1보다 GPv2에서 높으므로 모든 서비스에 대한 가격 책정을 검토한 후에 사용해야 합니다. 자세히 알아보려면 [Azure Storage 계정 옵션](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+Blob 저장소 또는 범용 v2(GPv2) 계정에서 개체 저장소 데이터를 핫, 쿨 또는 보관으로만 계층화할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 그러나 고객은 Azure Portal에서 간단히 한 번만 클릭하는 프로세스를 통해 기존 GPv1 또는 Blob 저장소 계정을 GPv2 계정으로 쉽게 변환할 수 있습니다. GPv2는 Blob, 파일 및 큐에 대한 새 가격 책정 구조 및 다양한 기타 새로운 저장소 기능에 대한 액세스를 제공합니다. 또한 앞으로 설명할 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 제공됩니다. 따라서 고객은 GPv2 계정을 사용하여 평가해야 하지만 일부 작업의 경우 비용이 GPv1보다 GPv2에서 높으므로 모든 서비스에 대한 가격 책정을 검토한 후에 사용해야 합니다. 자세히 알아보려면 [Azure Storage 계정 옵션](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-Blob Storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성을 노출합니다. 그러면 개체 수준에서 계층을 설정하지 않은 저장소 계정에 포함된 모든 Blob의 경우 기본 저장소 계층을 핫 또는 쿨로 지정할 수 있습니다. 개체 수준에서 계층이 설정된 개체의 경우 계정 계층이 적용되지 않습니다. 보관 계층은 개체 수준에서만 적용할 수 있습니다. 언제든지 이러한 저장소 계층을 전환할 수 있습니다.
+Blob 저장소 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성을 노출합니다. 그러면 개체 수준에서 계층을 설정하지 않은 저장소 계정에 포함된 모든 Blob의 경우 기본 저장소 계층을 핫 또는 쿨로 지정할 수 있습니다. 개체 수준에서 계층이 설정된 개체의 경우 계정 계층이 적용되지 않습니다. 보관 계층은 개체 수준에서만 적용할 수 있습니다. 언제든지 이러한 저장소 계층을 전환할 수 있습니다.
 
 ## <a name="hot-access-tier"></a>핫 액세스 계층
 
@@ -81,7 +81,7 @@ Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageserv
 
 BLOB이 쿨 계층으로 이동하면(핫->쿨, 핫->아카이브, 또는 쿨->아카이브) 작업은 대상 계층 쓰기로 청구되며 대상 계층의 쓰기 작업(10,000개당) 및 데이터 쓰기(GB당) 요금이 적용됩니다. BLOB이 핫 계층으로 이동하면(아카이브->쿨, 아카이브->핫, 또는 쿨->핫) 작업은 원본 계층에서 읽기로 청구되며 원본 계층의 읽기 작업(10,000개당) 및 데이터 검색(GB당) 비용이 적용됩니다.
 
-계정 계층이 핫에서 쿨로 전환되면 GPv2 계정에서만 집합 계층 없이 모든 Blob의 경우 쓰기 작업(10,000개당)에 대한 요금이 청구됩니다. Blob Storage 계정에서는 무료입니다. 쿨에서 핫으로 Blob Storage 또는 GPv2 계정을 전환하는 경우 읽기 작업(10,000개당) 및 데이터 검색(GB당) 모두에 대한 요금이 청구 됩니다. 쿨 또는 보관 계층에서 이동한 모든 Blob에 대한 초기 삭제 요금도 적용해야 합니다.
+계정 계층이 핫에서 쿨로 전환되면 GPv2 계정에서만 집합 계층 없이 모든 Blob의 경우 쓰기 작업(10,000개당)에 대한 요금이 청구됩니다. Blob 저장소 계정에서는 무료입니다. 쿨에서 핫으로 Blob 저장소 또는 GPv2 계정을 전환하는 경우 읽기 작업(10,000개당) 및 데이터 검색(GB당) 모두에 대한 요금이 청구됩니다. 쿨 또는 보관 계층에서 이동한 모든 Blob에 대한 초기 삭제 요금도 적용해야 합니다.
 
 ### <a name="cool-and-archive-early-deletion"></a>쿨 및 보관 초기 삭제
 
@@ -102,14 +102,14 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 | **확장성 및 성능 대상** | 범용 저장소 계정과 동일 | 범용 저장소 계정과 동일 | 범용 저장소 계정과 동일 |
 
 > [!NOTE]
-> Blob Storage 계정은 범용 저장소 계정과 동일한 성능 및 확장성 목표를 지원합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (영문)를 참조하십시오.
+> Blob 저장소 계정은 범용 저장소 계정과 동일한 성능 및 확장성 목표를 지원합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (영문)를 참조하십시오.
 
 ## <a name="quickstart-scenarios"></a>빠른 시작 시나리오
 
 이 섹션에서는 Azure Portal을 사용하여 다음 시나리오를 보여줍니다.
 
-* GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경하는 방법입니다.
-* GPv2 또는 Blob Storage 계정의 계층을 변경하는 방법입니다.
+* GPv2 또는 Blob 저장소 계정의 기본 계정 액세스 계층을 변경하는 방법입니다.
+* GPv2 또는 Blob 저장소 계정의 계층을 변경하는 방법입니다.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경합니다.
 
@@ -123,7 +123,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 5. 블레이드 위쪽에서 저장을 클릭합니다.
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 계층을 변경합니다.
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob 저장소 계정의 계층을 변경합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -135,11 +135,11 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 ## <a name="faq"></a>FAQ
 
-**데이터를 계층화하려는 경우 Blob Storage 또는 GPv2 계정을 사용해야 하나요?**
+**데이터를 계층화하려는 경우 Blob 저장소 또는 GPv2 계정을 사용해야 하나요?**
 
-계층화에 Blob Storage 계정 대신 GPv2를 사용하는 것이 좋습니다. GPv2는 Blob Storage 계정이 지원하는 모든 기능을 지원합니다. Blob Storage와 GPv2 간의 가격 책정은 거의 동일하지만 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 사용할 수 있습니다. GPv1 계정은 계층화를 지원하지 않습니다.
+계층화에 Blob 저장소 계정 대신 GPv2를 사용하는 것이 좋습니다. GPv2는 Blob 저장소 계정이 지원하는 모든 기능을 지원합니다. Blob 저장소와 GPv2 간의 가격 책정은 거의 동일하지만 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 사용할 수 있습니다. GPv1 계정은 계층화를 지원하지 않습니다.
 
-GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계정을 사용하기 전에 둘을 신중하게 평가해야 합니다. 간단히 한 번 클릭하는 프로세스를 통해 기존 Blob Storage 또는 GPv1 계정을 GPv2로 쉽게 변환할 수 있습니다. 자세히 알아보려면 [Azure Storage 계정 옵션](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계정을 사용하기 전에 둘을 신중하게 평가해야 합니다. 간단히 한 번 클릭하는 프로세스를 통해 기존 Blob 저장소 또는 GPv1 계정을 GPv2로 쉽게 변환할 수 있습니다. 자세히 알아보려면 [Azure Storage 계정 옵션](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 **같은 계정에서 세 가지 저장소 계층(핫, 쿨 및 보관)에 개체를 저장할 수 있나요?**
 
@@ -147,7 +147,7 @@ GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계�
 
 **Blob 또는 GPv2 저장소 계정의 기본 저장소 계층을 변경할 수 있나요?**
 
-예, 저장소 계정에 **액세스 계층** 특성을 설정하여 기본 저장소 계층을 변경할 수 있습니다. 저장소 계층을 변경하면 명시적 계층 집합이 없는 계정에 저장된 모든 개체에 적용됩니다. 저장소 계층을 핫에서 쿨로 전환하면 GPv2 계정에서 집합 계층 없는 모든 Blob의 경우 쓰기 작업(10,000개당)만이 발생하고, 쿨에서 핫으로 전환하면 데이터 쓰기(GB당) 요금이 발생하며 쿨에서 핫으로 변경하면 Blob Storage 및 GPv2 계정에서 모든 Blob의 경우 읽기 작업(10,000개당)과 데이터 검색(GB당) 요금이 발생합니다.
+예, 저장소 계정에 **액세스 계층** 특성을 설정하여 기본 저장소 계층을 변경할 수 있습니다. 저장소 계층을 변경하면 명시적 계층 집합이 없는 계정에 저장된 모든 개체에 적용됩니다. 저장소 계층을 핫에서 쿨로 전환하면 GPv2 계정에서 집합 계층 없는 모든 Blob의 경우 쓰기 작업(10,000개당)만이 발생하고, 쿨에서 핫으로 전환하면 Blob 저장소 및 GPv2 계정에서 모든 Blob의 경우 읽기 작업(10,000개당)과 데이터 검색(GB당) 요금이 발생합니다.
 
 **기본 계정 액세스 계층을 보관 계층으로 설정할 수 있나요?**
 
@@ -159,7 +159,7 @@ Blob 수준 계층화를 사용하는 핫 및 쿨 저장소 계층은 모든 지
 
 **쿨 저장소 계층의 Blob이 핫 저장소 계층의 Blob과 다르게 작동하나요?**
 
-핫 저장소 계층의 Blob에는 GPv1, GPv2 및 Blob Storage 계정의 Blob과 동일한 대기 시간이 있습니다. 쿨 저장소 계층의 Blob에는 GPv1, GPv2 및 Blob Storage 계정의 Blob과 유사한(밀리초 단위) 대기 시간이 있습니다. 보관 저장소 계층의 Blob에는 GPv1, GPv2 및 Blob Storage 계정의 대기 시간이 있습니다.
+핫 저장소 계층의 Blob에는 GPv1, GPv2 및 Blob 저장소 계정의 Blob과 동일한 대기 시간이 있습니다. 쿨 저장소 계층의 Blob에는 GPv1, GPv2 및 Blob 저장소 계정의 Blob과 유사한(밀리초 단위) 대기 시간이 있습니다. 보관 저장소 계층의 Blob에는 GPv1, GPv2 및 Blob 저장소 계정의 대기 시간이 있습니다.
 
 쿨 저장소 계층의 Blob은 핫 저장소 계층의 Blob보다 가용성 서비스 수준(SLA)이 약간 낮습니다. 자세한 내용은 [저장소용 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_2/)를 참조하세요.
 
@@ -189,12 +189,12 @@ Azure Portal, PowerShell과 CLI 도구 및 .NET, Java, Python과 Node.js 클라�
 
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob Storage 계정에서 핫, 쿨 및 보관 평가
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob 저장소 계정에서 핫, 쿨 및 보관 평가
 
 [지역별 핫, 쿨 및 보관의 가용성 확인](https://azure.microsoft.com/regions/#services)
 
 [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)
+[지역별 Blob 저장소 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)
 
 [데이터 전송 가격 확인](https://azure.microsoft.com/pricing/details/data-transfers/)

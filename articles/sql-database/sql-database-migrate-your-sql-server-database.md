@@ -1,23 +1,28 @@
 ---
-title: SQL Server DB를 Azure SQL Database로 마이그레이션 | Microsoft Docs
-description: SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다.
+title: DMS를 사용하여 SQL Server DB를 Azure SQL Database로 마이그레이션 | Microsoft Docs
+description: DMS를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>DMS를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
 
-SQL Server 데이터베이스를 Azure SQL Database로 이동하는 것은 Azure에서 빈 SQL Database를 만든 다음 DMA([Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595))를 사용하여 데이터베이스를 Azure로 가져오는 것만큼 간단합니다. 이 자습서에서는 다음에 대해 알아봅니다.
+SQL Server 데이터베이스를 Azure SQL Database 단일 데이터베이스로 이동하는 것은 Azure에서 빈 SQL 데이터베이스를 만든 다음, DMA([Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595))를 사용하여 데이터베이스를 Azure로 가져오는 것만큼 간단합니다. 추가 마이그레이션 옵션은 [데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
+
+> [!IMPORTANT]
+> Azure SQL Database 관리되는 인스턴스로 마이그레이션하려면 [SQL Server에서 관리되는 인스턴스로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
+
+이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 빈 Azure SQL Database 만들기(새로운 또는 기존 Azure SQL Database 서버 사용)
@@ -138,7 +143,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
 ## <a name="migrate-your-database"></a>데이터베이스 마이그레이션
 
-**[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)**를 사용하여 Azure SQL Database에 마이그레이션하기 위한 데이터베이스의 준비 상태를 평가하고 마이그레이션을 완료하려면 다음 단계를 수행합니다.
+**[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** 를 사용하여 Azure SQL Database에 마이그레이션하기 위한 데이터베이스의 준비 상태를 평가하고 마이그레이션을 완료하려면 다음 단계를 수행합니다.
 
 1. **Data Migration Assistant**를 엽니다. 마이그레이션하려는 데이터베이스가 포함된 SQL Server 인스턴스에 연결되고 그리고 인터넷에 연결된 모든 컴퓨터에서 DMA를 실행할 수 있습니다. 마이그레이션하려는 SQL Server 인스턴스를 호스팅하는 컴퓨터에 설치할 필요가 없습니다. 이전 프로시저에서 만든 방화벽 규칙은 Data Migration Assistant를 실행하는 컴퓨터에 적용해야 합니다.
 

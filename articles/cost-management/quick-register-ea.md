@@ -1,8 +1,8 @@
 ---
-title: "Azure Cost Management에 Azure Enterprise Agreement 등록 | Microsoft Docs"
-description: "기업 계약을 사용하여 Azure Cost Management에 등록합니다."
+title: Azure Cost Management에 Azure Enterprise Agreement 등록 | Microsoft Docs
+description: 기업 계약을 사용하여 Azure Cost Management에 등록합니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f0769340ca15f2b60cbcb2669e1a5cf9beef6b8e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Azure Enterprise Agreement 등록 및 비용 데이터 보기
 
@@ -22,9 +22,9 @@ Azure Enterprise Agreement를 사용하여 Azure Cost Management에 등록합니
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-- Azure Portal( http://portal.azure.com )에 로그인합니다.
+- Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
-## <a name="create-a-trial-registration"></a>평가판 등록 만들기
+## <a name="register-with-azure-cost-management"></a>Azure Cost Management에 등록
 
 1. Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다.
 2. **개요**에서 **Cost Management**를 클릭합니다.  

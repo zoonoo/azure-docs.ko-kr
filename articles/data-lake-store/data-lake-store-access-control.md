@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store에서 액세스 제어
 
@@ -150,7 +150,7 @@ Azure에서 Data Lake Store 계정에는 다음을 포함하여 몇 가지 Azure
 * 참가자
 * 읽기 권한자
 
-Data Lake Store 계정에 대한 **소유자** 역할을 지닌 모든 사용자는 자동으로 해당 계정에 대한 슈퍼 사용자입니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+Data Lake Store 계정에 대한 **소유자** 역할을 지닌 모든 사용자는 자동으로 해당 계정에 대한 슈퍼 사용자입니다. 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 슈퍼 사용자 권한이 있는 사용자 지정 RBAC(역할 기반 액세스 제어) 역할을 만들려면 다음 권한이 있어야 합니다.
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ POSIX ACL에서 모든 사용자는 "주 그룹"과 연결됩니다. 예를 들�
 * 소유 사용자가 대상 그룹의 구성원이기도 한 경우 소유 사용자입니다.
 
 > [!NOTE]
-> 소유 그룹은 파일 또는 폴더의 ACL을 *변경할 수 없습니다*.
+> 소유 그룹은 파일 또는 폴더의 ACL을 *변경할 수 없습니다*.  소유 그룹은 루트 폴더의 경우 계정을 만든 사용자로 설정되지만 위의 **사례 1**, 단일 사용자 계정은 소유 그룹을 통한 권한 제공에 적합하지 않습니다.  해당하는 경우 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
 
 ## <a name="access-check-algorithm"></a>액세스 검사 알고리즘
 

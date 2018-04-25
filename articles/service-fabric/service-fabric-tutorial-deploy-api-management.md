@@ -1,12 +1,12 @@
 ---
-title: "API Management와 Azure Service Fabric 통합 | Microsoft Docs"
-description: "이 자습서에서는 Azure API Management 및 Service Fabric을 빠르게 시작하는 방법을 알아봅니다."
+title: API Management와 Azure Service Fabric 통합 | Microsoft Docs
+description: 이 자습서에서는 Azure API Management 및 Service Fabric을 빠르게 시작하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>자습서: Service Fabric을 사용하여 API Management 배포
 이 자습서는 시리즈의 4부입니다.  Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 ASP.NET Core 응용 프로그램, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다. 
@@ -59,7 +59,7 @@ ms.lasthandoff: 03/12/2018
 Azure 명령을 실행하기 전에 Azure 계정에 로그인하고 구독을 선택합니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -80,8 +80,8 @@ Service Fabric 백 엔드 서비스로 트래픽을 라우팅하도록 API Manag
 Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 만듭니다.
 
  1. Visual Studio에서 파일 -> 새 프로젝트를 선택합니다.
- 2. 클라우드에서 Service Fabric 응용 프로그램 템플릿을 선택하고 이름을 **"ApiApplication"**으로 지정합니다.
- 3. 상태 비저장 ASP.NET Core 서비스 템플릿을 선택하고 프로젝트 이름을 **"WebApiService"**로 지정합니다.
+ 2. 클라우드에서 Service Fabric 응용 프로그램 템플릿을 선택하고 이름을 **"ApiApplication"** 으로 지정합니다.
+ 3. 상태 비저장 ASP.NET Core 서비스 템플릿을 선택하고 프로젝트 이름을 **"WebApiService"** 로 지정합니다.
  4. Web API ASP.NET Core 2.0 프로젝트 템플릿을 선택합니다.
  5. 프로젝트가 만들어지면 `PackageRoot\ServiceManifest.xml`을 열고 끝점 리소스 구성에서 `Port` 특성을 제거합니다.
  
@@ -142,7 +142,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
    `fabric:/EchoServerApplication/EchoServerService`로 명명된 Java 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
 
-5. 브라우저를 열고 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage를 입력하면 "[version 1.0]Hello World!!!"가 표시됩니다.
+5. 브라우저를 열고 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage를 입력하면 "[version 1.0]Hello World!!!"가 표시됩니다. 표시됩니다.
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>리소스 관리자 템플릿 다운로드 및 이해
 다음 리소스 관리자 템플릿 및 매개 변수 파일을 다운로드하고 저장합니다.

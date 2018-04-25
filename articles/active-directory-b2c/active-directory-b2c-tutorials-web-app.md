@@ -1,6 +1,6 @@
 ---
-title: ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증
-description: Azure Active Directory B2C를 사용하여 ASP.NET 웹앱에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
+title: 자습서 - Azure Active Directory B2C를 사용하여 웹 응용 프로그램이 계정을 인증하도록 설정 | Microsoft Docs
+description: Azure Active Directory B2C를 사용하여 ASP.NET 웹 응용 프로그램에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
@@ -8,13 +8,13 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>자습서: ASP.NET 웹앱에서 Azure Active Directory B2C를 사용하여 사용자 인증
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 응용 프로그램이 계정을 인증하도록 설정
 
 이 자습서에서는 Azure AD(Azure Active Directory) B2C를 사용하여 로그인하고 ASP.NET 웹앱에서 사용자를 로그인하고 등록하는 방법을 보여 줍니다. Azure AD B2C를 사용하면 개방형 표준 프로토콜을 사용하여 소셜 계정, 엔터프라이즈 계정 및 Azure Active Directory 계정을 인증할 수 있습니다.
 
@@ -40,22 +40,22 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택합니다.
+1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택합니다. 
 
-2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다.
+2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다. 
 
     샘플 웹앱을 테넌트에 등록하려면 다음 설정을 사용합니다.
 
     ![새 앱 추가](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | 내 샘플 웹앱 | 소비자에게 앱을 설명하는 **이름**을 입력합니다. | 
     | **웹앱/웹 API 포함** | 예 | 웹앱에 대해 **예**를 선택합니다. |
     | **암시적 흐름 허용** | 예 | 앱에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `https://localhost:44316` | 회신 URL은 Azure AD B2C에서 앱이 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플이 로컬(로컬 호스트)에서 실행되고 44316 포트에서 수신 대기합니다. |
-    | **네이티브 클라이언트** | 아니오 | 이는 웹앱이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
-
+    | **네이티브 클라이언트 포함** | 아니오 | 이는 웹앱이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    
 3. **만들기** 를 클릭하여 앱을 등록합니다.
 
 등록된 앱은 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹앱을 선택합니다. 웹앱의 속성 창이 표시됩니다.
@@ -70,7 +70,7 @@ Azure AD B2C는 [클라이언트 응용 프로그램](../active-directory/develo
 
 1. 등록된 웹앱에 대한 [키] 페이지를 선택하고 **키 생성**을 클릭합니다.
 
-2. **저장**을 클릭하여 키를 표시합니다.
+2. **저장**을 클릭하여 앱 키를 표시합니다.
 
     ![앱 일반 키 페이지](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -92,7 +92,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiUpIn | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_**이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SiUpIn**)을 사용합니다. | 
+    | **Name** | SiUpIn | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SiUpIn**)을 사용합니다. | 
     | **ID 공급자** | 이메일 등록 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
     | **등록 특성** | 표시 이름 및 우편 번호 | 등록 시 사용자로부터 수집할 특성을 선택합니다. |
     | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
@@ -109,10 +109,10 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiPe | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_**이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SiPe**)을 사용합니다. | 
+    | **Name** | SiPe | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SiPe**)을 사용합니다. | 
     | **ID 공급자** | 로컬 계정 로그인 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
     | **프로필 특성** | 표시 이름 및 우편 번호 | 사용자가 프로필 편집 시 수정할 수 있는 특성을 선택합니다. |
-    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
+    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
 
 2. **만들기**를 클릭하여 정책을 만듭니다. 
 
@@ -126,7 +126,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SSPR | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_**이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SSPR**)을 사용합니다. | 
+    | **Name** | SSPR | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SSPR**)을 사용합니다. | 
     | **ID 공급자** | 이메일 주소를 사용하여 암호 재설정 | 사용자를 고유하게 식별하는 데 사용되는 ID 공급자입니다. |
     | **응용 프로그램 클레임** | 사용자의 개체 ID | 암호를 성공적으로 다시 설정한 후에 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
 
@@ -134,7 +134,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
 
 ## <a name="update-web-app-code"></a>웹앱 코드 업데이트
 
-이제 웹앱을 등록하고 정책을 만들었으므로 앱에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 샘플 웹앱을 구성합니다. 
+이제 웹앱을 등록하고 정책을 만들었으므로 앱에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플 웹앱을 구성합니다. 
 
 GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플 웹앱을 복제합니다.
 
@@ -154,7 +154,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 1. Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 
-2. **TaskWebApp** 웹앱 프로젝트에서 **Web.config** 파일을 열고 다음과 같이 업데이트합니다.
+2. **TaskWebApp** 웹앱 프로젝트에서 **Web.config** 파일을 열고 다음과 같이 기존 키를 업데이트합니다.
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -163,7 +163,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. 정책을 만들 때 생성된 이름으로 정책 설정을 업데이트합니다.
+3. 이전 단계에서 만든 정책 이름 값으로 기존 키를 업데이트합니다. *b2c_1_* 접두사를 포함해야 합니다.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

@@ -1,20 +1,20 @@
 ---
-title: "자습서 - Azure Cost Management에서 액세스 할당 | Microsoft Docs"
-description: "이 자습서에서는 엔터티에 대한 액세스 수준을 정의하는 사용자 계정을 사용하여 Cost Management 데이터에 대한 액세스를 할당하는 방법을 알아봅니다."
+title: 자습서 - Azure Cost Management에서 액세스 할당 | Microsoft Docs
+description: 이 자습서에서는 엔터티에 대한 액세스 수준을 정의하는 사용자 계정을 사용하여 Cost Management 데이터에 대한 액세스를 할당하는 방법을 알아봅니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/09/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db5cdecc57cf07876ca8d4e981860615643cfd79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>자습서: Cost Management 데이터에 대한 액세스 할당
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이미 관리자 액세스 권한이 있지만 조직의 동료에게도 관리자 액세스 권한이 있어야 할 수도 있습니다. Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **사용자 관리**를 선택합니다. **새 사용자 추가**를 클릭하여 새 사용자를 추가합니다.
 
-사용자에 대해 필요한 정보를 입력합니다. 사용자가 처음 로그인할 때 새 암호를 설정할 수 있도록 암호 필드를 비워 둘 수 있습니다. **전자 메일로 사용자에게 알림**을 선택하면 Cloudyn의 전자 메일을 통해 사용자에게 로그인 정보가 포함된 링크를 보냅니다. 사용자가 다른 사용자를 만들고 수정할 수 있도록 하려면 사용자 관리를 허용하는 권한을 선택합니다. 받는 사람 목록 관리를 허용하면 사용자가 받는 사람 목록을 편집할 수 있습니다.
+사용자에 대해 필요한 정보를 입력합니다. 로그인 ID는 유효한 이메일 주소여야 합니다. 사용자가 다른 사용자를 만들고 수정할 수 있도록 하려면 사용자 관리를 허용하는 권한을 선택합니다. 받는 사람 목록 관리를 통해 사용자가 받는 사람 목록을 편집할 수 있습니다. **전자 메일로 사용자에게 알림**을 선택하면 Cloudyn의 전자 메일을 통해 사용자에게 로그인 정보가 포함된 링크를 보냅니다. 첫 번째 로그인에서 사용자는 암호를 설정합니다.
 
 **사용자에게 관리자 액세스 권한 있음** 아래에서 조직의 루트 엔터티를 선택합니다. 루트를 선택한 상태로 두고 사용자 정보를 저장합니다. 루트 엔터티를 선택하면 사용자가 트리의 루트 엔터티뿐만 아니라 그 아래에 있는 모든 엔터티에 대한 관리자 권한을 가질 수 있습니다.  
   ![관리자 액세스 권한이 있는 새 사용자 추가](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure 계약 또는 계정을 Cloudyn에 등록했을 때 구독의 사용량, 성능, 청구 및 태그 데이터를 포함한 Azure 리소스 데이터가 Cloudyn 계정으로 복사되었습니다. 하지만 엔터티 트리는 수동으로 만들어야 합니다. Azure Resource Manager 등록을 건너뛰었으면 Cloudyn 포털에서는 청구 데이터와 몇 가지 자산 보고서만 사용할 수 있습니다.
 
-Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 계정**을 선택합니다. 하나의 엔터티(루트)로 시작하여 루트 아래에 엔터티 트리를 작성합니다. 다음은 완성된 트리에서 보여 주는 많은 IT 조직과 비슷한 엔터티 계층 구조의 예입니다.
+Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **클라우드 계정**을 선택합니다. 하나의 엔터티(루트)로 시작하여 루트 아래에 엔터티 트리를 작성합니다. 다음은 완성된 트리에서 보여 주는 많은 IT 조직과 비슷한 엔터티 계층 구조의 예입니다.
 
 ![엔터티 트리](.\media\tutorial-user-access\entity-tree.png)
 

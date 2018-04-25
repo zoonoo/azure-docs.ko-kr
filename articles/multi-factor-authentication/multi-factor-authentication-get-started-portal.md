@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA 서버의 사용자 포털 | Microsoft Docs"
-description: "Azure MFA 및 사용자 포털 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다."
+title: Azure MFA 서버의 사용자 포털 | Microsoft Docs
+description: Azure MFA 및 사용자 포털 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -69,7 +69,7 @@ Azure Multi-Factor Authentication 서버와 **동일한 서버**에 사용자 �
    > [!NOTE]
    > 이 SSL 인증서는 일반적으로 공개적으로 서명된 SSL 인증서입니다.
 
-4. 모든 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
+4. 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth))로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
 ![MFA 서버 사용자 포털 설치](./media/multi-factor-authentication-get-started-portal/install.png)
 
@@ -102,13 +102,13 @@ Azure Multi-Factor Authentication 서버 이외의 서버에 사용자 포털을
 4. **C:\inetpub\wwwroot\MultiFactorAuth**로 이동합니다.
 5. 메모장에서 Web.Config 파일을 편집합니다.
 
-    * **"USE_WEB_SERVICE_SDK"** 키를 찾고 **value="false"**를 **value="true"**로 변경합니다.
-    * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 키를 찾고 **value=""**를 **value="DOMAIN\User"**로 변경합니다. 여기서 DOMAIN\User는 "PhoneFactor Admins" 그룹의 일부인 서비스 계정입니다.
-    * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 키를 찾고 **value=""**를 **value="Password"**로 변경합니다. 여기서 암호는 이전 줄에 입력한 서비스 계정의 암호입니다.
-    * **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** 값을 확인하고 이 자리 표시자 URL을 2단계에서 설치한 웹 서비스 SDK URL로 변경합니다.
+    * **"USE_WEB_SERVICE_SDK"** 키를 찾고 **value="false"** 를 **value="true"** 로 변경합니다.
+    * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 키를 찾고 **value=""** 를 **value="DOMAIN\User"** 로 변경합니다. 여기서 DOMAIN\User는 "PhoneFactor Admins" 그룹의 일부인 서비스 계정입니다.
+    * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 키를 찾고 **value=""** 를 **value="Password"** 로 변경합니다. 여기서 암호는 이전 줄에 입력한 서비스 계정의 암호입니다.
+    * **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** 값을 찾아서 이 자리 표시자 URL을 2단계에서 설치한 웹 서비스 SDK URL로 변경합니다.
     * Web.Config 파일을 저장하고 메모장을 닫습니다.
 
-6. 모든 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
+6. 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth))로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
 IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 

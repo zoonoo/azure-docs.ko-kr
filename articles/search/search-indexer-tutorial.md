@@ -1,25 +1,18 @@
 ---
-title: "Azure Search에서 Azure SQL Databases를 인덱싱하는 방법에 대한 자습서 | Microsoft Docs"
-description: "검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다."
-services: search
-documentationcenter: 
+title: Azure Search에서 Azure SQL Databases를 인덱싱하는 방법에 대한 자습서 | Microsoft Docs
+description: 검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f123b4f5d0a51a4ab5015a2a0008a76fbfa0318e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Databases를 탐색하는 방법
 
@@ -95,7 +88,7 @@ ms.lasthandoff: 02/21/2018
 4. 해당 항목을 복사하고 Visual Studio에서 **appsettings.json**에 첫 번째 항목으로 붙여넣습니다.
 
   > [!Note]
-  > 서비스 이름은 search.windows.net을 포함하는 끝점의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 다음 예제와 비슷합니다. https://your-service-name.search.windows.net
+  > 서비스 이름은 search.windows.net을 포함하는 끝점의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
 
 5. 왼쪽의 **설정** > **키**에서 관리자 키 중 하나를 복사하고 i**appsettings.json**에 두 번째 항목으로 붙여넣습니다. 키는 프로비전하는 동안 서비스에 대해 생성되는 영숫자 문자열이며 서비스 작업에 대한 권한 있는 액세스에 필요합니다. 
 

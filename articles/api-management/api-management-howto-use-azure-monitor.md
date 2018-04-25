@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f4b1a6e3ee995fb309577fd6df611a705e613041
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
-Azure Monitor는 모든 Azure 리소스 모니터링을 위한 단일 소스를 제공하는 Azure 서비스입니다. Azure Monitor를 통해 API Management와 같은 Azure 리소스의 메트릭과 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다. 
+Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -43,24 +43,22 @@ Azure Monitor는 모든 Azure 리소스 모니터링을 위한 단일 소스를 
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
 ## <a name="view-metrics-of-your-apis"></a>API의 메트릭 보기
 
 API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으로 API의 상태를 확인할 수 있도록 합니다. 다음은 몇 가지 사용 가능한 메트릭에 대한 요약입니다.
 
-* 용량(미리 보기): APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스에 따라 계산됩니다.
+* 용량(미리 보기): APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
 * 총 게이트웨이 요청: 기간 동안의 API 요청 수입니다. 
-* 성공적인 게이트웨이 요청: 304, 307 및 301보다 작은(예: 200) 모든 항목을 포함하여 성공적인 HTTP 응답 코드를 수신하는 API 요청의 수입니다. 
+* 성공적인 게이트웨이 요청: 304, 307 및 301보다 작은(예: 200) 모든 항목을 포함하여 성공적인 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
 * 실패한 게이트웨이 요청: 400 및 500보다 큰 모든 항목을 포함하여 잘못된 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
-* 허가되지 않은 게이트웨이 요청: 401, 403 및 429를 포함하는 HTTP 응답 코드를 수신하는 API 요청의 수입니다. 
+* 허가되지 않은 게이트웨이 요청: 401, 403 및 429를 포함하는 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
 * 기타 게이트웨이 요청: 앞의 범주 중 하나에 속하지 않는(예: 418) HTTP 응답 코드를 수신하는 API 요청의 수입니다.
 
 메트릭에 액세스하려면
 
 1. 페이지 맨 아래의 메뉴에서 **메트릭**을 선택합니다.
 2. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다(여러 메트릭을 추가할 수 있음). 
-    
+
     예를 들어 사용 가능한 메트릭 목록에서 **총 게이트웨이 요청** 및 **실패한 게이트웨이 요청**을 선택합니다.
 3. 차트에는 총 API 호출 수가 표시됩니다. 또한 실패한 API 호출 수도 표시됩니다. 
 
@@ -89,7 +87,7 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 
 ## <a name="activity-logs"></a>활동 로그
 
-활동 로그는 API Management 서비스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그를 통해 API Management 서비스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 "무엇을, 누가, 언제"를 판단할 수 있습니다. 
+활동 로그는 API Management 서비스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그를 통해 API Management 서비스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 "무엇을, 누가, 언제"를 판단할 수 있습니다.
 
 > [!NOTE]
 > 활동 로그에는 읽기(GET) 작업 또는 Azure Portal에서 수행되었거나 원본 Management API를 사용하는 작업이 포함되지 않습니다.
@@ -103,7 +101,7 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-진단 로그는 감사 뿐만 아니라 문제 해결에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
+진단 로그는 감사 뿐만 아니라 문제 해결에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스에서 수행하는 작업에 대한 정보를 제공합니다.
 
 진단 로그를 구성하려면:
 
@@ -116,15 +114,15 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 ```json
 {  
     "isRequestSuccess" : "",
-    "time": "",   
-    "operationName": "",      
-    "category": "",   
-    "durationMs": ,   
-    "callerIpAddress": "",   
-    "correlationId": "",   
-    "location": "",      
-    "httpStatusCodeCategory": "",      
-    "resourceId": "",      
+    "time": "",
+    "operationName": "",
+    "category": "",
+    "durationMs": ,
+    "callerIpAddress": "",
+    "correlationId": "",
+    "location": "",
+    "httpStatusCodeCategory": "",
+    "resourceId": "",
     "properties": {   
         "method": "", 
         "url": "", 
@@ -158,7 +156,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 }  
 ```
 
-| 자산  | 유형 | 설명 |
+| 자산  | type | 설명 |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 부울 | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
 | 실시간 | 날짜-시간 | 게이트웨이에서 HTTP 요청을 수신하는 타임스탬프 |
@@ -168,7 +166,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | callerIpAddress | string | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
 | CorrelationId | string | API Management에서 할당하는 고유의 http 요청 식별자 |
 | location | string | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
-| httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 또는 304 또는 307), 권한 없음(401, 403, 429) 권한이 없음, 잘못됨(400, 500 및 600 사이), 기타 |
+| httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 이하 또는 304 또는 307), 권한 없음(401, 403, 429) 권한이 없음, 잘못됨(400, 500 및 600 사이), 기타 |
 | ResourceId | string | "API Management 리소스 Id /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | properties | object | 현재 요청의 속성 |
 | 메서드 | string | 들어오는 요청의 HTTP 메서드 |
@@ -177,14 +175,14 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | responseCode | 정수 | 클라이언트로 전송된 HTTP 응답의 상태 코드 |
 | backendMethod | string | 백 엔드로 전송된 요청의 HTTP 메서드 |
 | backendUrl | string | 백 엔드로 전송된 요청의 URL |
-| backendResponseCode | 정수 | 백 엔드에서 받은 HTTP 요청 코드 |
+| backendResponseCode | 정수 | 백 엔드에서 받은 HTTP 응답 코드 |
 | backendProtocol | string | 백 엔드로 전송된 요청의 HTTP 프로토콜 버전 | 
 | requestSize | 정수 | 요청을 처리하는 동안 클라이언트에서 받은 바이트 수 | 
 | responseSize | 정수 | 요청을 처리하는 동안 클라이언트로 전송된 바이트 수 | 
 | 캐시 | string | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
-| cacheTime | 정수 | 전체 API Management 캐시 IO에서 소요된(연결, 바이트 송신 및 수신) 시간(밀리초) | 
-| backendTime | 정수 | 전체 백 엔드 IO에서 소요된(연결, 바이트 송신 및 수신) 시간(밀리초) | 
-| clientTime | 정수 | 전체 클라이언트 IO에서 소요된(연결, 바이트 송신 및 수신) 시간(밀리초) | 
+| cacheTime | 정수 | 전체 API Management 캐시 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
+| backendTime | 정수 | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
+| clientTime | 정수 | 전체 클라이언트 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
 | apiId | string | 현재 요청에 대한 API 엔터티 식별자 | 
 | operationId | string | 현재 요청에 대한 작업 엔터티 식별자 | 
 | productId | string | 현재 요청에 대한 제품 엔터티 식별자 | 
@@ -206,7 +204,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 > [!div class="checklist"]
 > * 활동 로그 보기
 > * 진단 로그 보기
-> * API의 메트릭 보기 
+> * API의 메트릭 보기
 > * API가 무단 호출을 받을 경우의 경고 규칙 설정
 
 다음 자습서를 진행합니다.

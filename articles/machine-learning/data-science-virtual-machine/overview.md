@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9ef6b216889416ea00786dcd3043d6e0f246b305
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
 
@@ -62,23 +62,24 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus(공유 정품 인증) - Excel, Word 및 PowerPoint   |Y                      |N              |
 | 인기 있는 패키지가 사전 설치된 [Anaconda Python](https://www.continuum.io/) 2.7, 3.5    |Y                      |Y              |
 | Julia 언어에 대해 인기 있는 패키지가 사전 설치된 [JuliaPro](https://juliacomputing.com/products/juliapro.html)                         |Y                      |Y              |
-| 관계형 데이터베이스                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS에만 해당) |
+| 관계형 데이터베이스                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> 디벨로퍼 버전(Ubuntu) |
 | 데이터베이스 도구                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC/JDBC 드라이버| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)(쿼리 도구), <br /> * bcp, sqlcmd <br /> * ODBC/JDBC 드라이버|
 | SQL Server ML 서비스(R, Python)를 통한 확장성 있는 데이터베이스 내 분석 | Y     |N              |
 | 다음의 커널이 있는 **[Jupyter 노트북 서버](http://jupyter.org/),**                                  | Y     | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Y | Y |
-|     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 & 3.5 | Y | Y |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* Python | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | Y (Ubuntu에만 해당) |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | Y |
 | JupyterHub(다중 사용자 노트북 서버)| N | Y |
+| JupyterLab(다중 사용자 노트북 서버) | N | Y (Ubuntu에만 해당) |
 | **개발 도구, IDE 및 코드 편집기**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017(Community Edition)](https://www.visualstudio.com/community/) - Git 플러그 인, Azure HDInsight(Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) 및 [RTVS(Visual Studio용 R 도구)](http://microsoft.github.io/RTVS-docs/) 포함 | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017(Community Edition)](https://www.visualstudio.com/community/) Git 플러그 인, Azure HDInsight(Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) 및 [RTVS(Visual Studio용 R 도구)](http://microsoft.github.io/RTVS-docs/) 포함 | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm](https://www.jetbrains.com/pycharm/) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (Julia IDE)](http://junolab.org/)| Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim 및 Emacs | Y | Y |
@@ -105,12 +106,14 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (Ubuntu에만 해당) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | Y (Ubuntu에만 해당) |
-| **GPU 기반 심층 학습 도구** |Windows Server 2016 버전  | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit(이전의 CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Y | Y|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/), [Deep Water](https://www.h2o.ai/deep-water/) | N | Y (Ubuntu에만 해당) |
+| **딥 러닝 도구** <br>모든 도구는 GPU 또는 CPU에서 작동합니다. |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit(CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/)(Windows 2016) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y(Windows 2016) | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | Y(Ubuntu) |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Y(Windows 2016) | Y|
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Caffe & Caffe2](https://github.com/caffe2/caffe2) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Chainer](https://chainer.org/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | Y |
@@ -118,43 +121,18 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model Server델 서버](https://github.com/awslabs/mxnet-model-server) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow 서비스](https://www.tensorflow.org/serving/) | N | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, CUDNN, Nvidia 드라이버](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA 드라이버](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
 | **빅 데이터 플랫폼(Devtest에만 해당)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* 로컬 [Spark](http://spark.apache.org/) 독립 실행형 | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* 로컬 [Spark](http://spark.apache.org/) 독립 실행형 | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* 로컬 [Hadoop](http://hadoop.apache.org/)(HDFS, YARN) | N | Y |
 
+## <a name="get-started"></a>시작하기
 
+### <a name="windows-data-science-vm"></a>Windows 데이터 과학 VM
+* Windows DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Windows 데이터 과학 Virtual Machine 프로비전](provision-vm.md)을 참조하세요. Windows DSVM에서 데이터 과학 프로젝트에 필요한 다양한 작업을 수행하는 방법에 대한 자세한 내용은 [데이터 과학 Virtual Machine으로 할 수 있는 10가지 일](vm-do-ten-things.md)을 참조하세요.
 
-## <a name="get-started-with-the-windows-data-science-vm"></a>Windows 데이터 과학 VM 시작
-* 다음 항목으로 이동하여 원하는 Windows DSVM 버전의 인스턴스를 만듭니다.
-  * [Windows Server 2016 기반 DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
-  
-  또는 
-  * [Windows Server 2012 기반 DSVM](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 
-* **지금 받기** 단추를 클릭합니다.
-* VM을 생성할 때 지정해둔 자격 증명을 사용하여 원격 데스크톱에서 VM에 로그인합니다.
-* 사용할 수 있는 도구를 검색하고 시작하려면 **시작** 메뉴를 클릭합니다.
-
-## <a name="get-started-with-the-linux-data-science-vm"></a>Linux 데이터 과학 VM 시작
-* 다음 항목으로 이동하여 원하는 Linux DSVM 버전의 인스턴스를 만듭니다. 
-  * [Ubuntu 기반 DSVM](http://aka.ms/dsvm/ubuntu)
-
-  또는
-
-  * [CentOS 기반 DSVM](http://aka.ms/dsvm/centos)
-
-  
-* **지금 받기** 단추를 클릭합니다.
-* VM을 생성할 때 지정해둔 자격 증명을 사용하여 Putty 또는 SSH 명령과 같은 SSH 클라이언트에서 VM에 로그인합니다.
-* Shell 프롬프트에서 dsvm-more-info를 입력합니다.
-* 그래픽 데스크톱은 [여기](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 클라이언트 플랫폼을 위한 X2Go 클라이언트를 다운로드하고 Linux 데이터 과학 VM 문서 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md#installing-and-configuring-x2go-client)의 지침을 따르십시오.
-
-## <a name="next-steps"></a>다음 단계
-### <a name="for-the-windows-data-science-vm"></a>Windows 데이터 과학 VM
-* Windows 버전에서 사용할 수 있는 도구를 실행하는 방법에 대한 자세한 내용은 [Microsoft 데이터 과학 Virtual Machine 프로비전](provision-vm.md)을 참조하세요.
-* Windows VM에서 데이터 과학 프로젝트에 필요한 다양한 작업을 수행하는 방법에 대한 자세한 내용은 [데이터 과학 Virtual Machine으로 할 수 있는 10가지 일](vm-do-ten-things.md)을 참조하세요.
-
-### <a name="for-the-linux-data-science-vm"></a>Linux 데이터 과학 VM
-* Linux 버전에서 사용할 수 있는 도구를 실행하는 방법에 대한 자세한 내용은 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
-* Linux VM을 통해 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여주는 연습은 [Linux 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md)을 참조하세요.
+### <a name="linux-data-science-vm"></a>Linux 데이터 과학 VM
+* Ubuntu DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전](dsvm-ubuntu-intro.md)을 참조하세요. CentOS DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
+* Linux(CentOS 및 Ubuntu 모두) VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여주는 연습은 [Linux 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md)을 참조하세요.
 

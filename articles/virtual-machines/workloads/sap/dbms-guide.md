@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포 | Microsoft Docs"
-description: "SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포"
+title: SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포 | Microsoft Docs
+description: SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 596b88d8bfeaa42caaa234b945973b1404a5f1d3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -290,7 +290,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -436,7 +436,7 @@ Azure Standard Storage의 경우 가능한 캐시 유형은 다음과 같습니�
 * 읽기 캐싱
 * 읽기 및 쓰기 캐싱
 
-일관성 있고 결정적 성능을 얻으려면 Azure Standard Storage에서 **DBMS 관련 데이터 파일, 로그 파일 및 테이블 공간을 포함하는 모든 디스크의 캐싱을 '없음'**으로 설정해야 합니다. VM 캐싱은 기본값으로 유지할 수 있습니다.
+일관성 있고 결정적 성능을 얻으려면 Azure Standard Storage에서 **DBMS 관련 데이터 파일, 로그 파일 및 테이블 공간을 포함하는 모든 디스크의 캐싱을 '없음'** 으로 설정해야 합니다. VM 캐싱은 기본값으로 유지할 수 있습니다.
 
 Azure Premium Storage의 경우 다음과 같은 캐싱 옵션이 있습니다.
 
@@ -810,7 +810,7 @@ Always On은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]�
 
 [comment]: <> (TODO 이전 블로그)
 [comment]: <> (Azure에서 AlwaysOn 구성 설치에 대한 자세한 단계 및 필요성은 [여기][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]에서 사용할 수 있는 자습서를 살펴보는 것이 좋습니다.)
-[comment]: <> (Azure 갤러리<https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>를 통해 미리 구성된 AlwaysOn 설정)
+[comment]: <> (Azure 갤러리를 통해 미리 구성된 AlwaysOn 설정 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (가용성 그룹 수신기 생성은 [이][virtual-machines-windows-classic-ps-sql-int-listener] 자습서에 잘 설명되어 있습니다.)
 [comment]: <> (ACL을 사용한 네트워크 끝점 보호는 여기를 참조하세요.)
 [comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
@@ -821,7 +821,7 @@ Always On은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]�
 여러 Azure 지역에 SQL Server Always On 가용성 그룹을 배포할 수도 있습니다. 이 기능은 Azure VNet 간 연결을 활용합니다([자세한 내용][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comment]: <> (TODO 이전 블로그)
-[comment]: <> (이러한 시나리오에서 SQL Server AlwaysOn 가용성 그룹의 설정은 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에서 설명합니다.) 
+[comment]: <> (이러한 시나리오에서 SQL Server AlwaysOn 가용성 그룹을 설치하는 방법은 여기에 설명되어 있습니다. <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>Azure의 SQL Server 고가용성 요약
 Azure Storage가 콘텐츠를 보호하는 경우 상시 대기 이미지를 고집할 이유가 줄어듭니다. 즉, 고가용성 시나리오는 다음과 같은 경우에 대해서만 방지해야 합니다.
@@ -1261,7 +1261,7 @@ SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포 구조][dbms-gu
 
 한마디로 다음을 수행해야 합니다.
 
-* Azure Storage 계정을 사용하는 경우 [Microsoft Azure Storage][dbms-guide-2.3] 챕터에 지정된 대로 SAP MaxDB 데이터 및 로그 볼륨(즉, 파일)을 유지하는 Azure Sorage 계정을 **LRS(로컬 중복 저장소)**로 설정합니다.
+* Azure Storage 계정을 사용하는 경우 [Microsoft Azure Storage][dbms-guide-2.3] 챕터에 지정된 대로 SAP MaxDB 데이터 및 로그 볼륨(즉, 파일)을 유지하는 Azure Sorage 계정을 **LRS(로컬 중복 저장소)** 로 설정합니다.
 * 로그 볼륨(즉, 파일)에 대한 IO 경로에서 SAP MaxDB 데이터 볼륨(즉, 파일)에 대한 IO 경로를 구분합니다. 즉, SAP MaxDB 데이터 볼륨(즉, 파일)을 하나의 논리 드라이브에 설치하고 SAP MaxDB 로그 볼륨(즉, 파일)을 다른 논리 드라이브에 설치해야 합니다.
 * [VM 및 데이터 디스크에 대한 캐싱][dbms-guide-2.1] 챕터에서 설명한 대로 SAP MaxDB 데이터 또는 로그 볼륨(즉, 파일)에 사용하는지 여부와 Azure Standard Storage 또는 Azure Premium Storage를 사용하는지 여부에 따라 각 디스크에 대해 적절한 캐싱 유형을 설정합니다.
 * 디스크당 현재 IOPS 할당량이 요구 사항을 충족하는 경우 탑재된 단일 디스크의 모든 데이터 볼륨을 저장하고 다른 탑재된 단일 디스크에 모든 데이터베이스 로그 볼륨을 저장할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 클라우드 저장소 응용 프로그램 모니터링 및 문제 해결 | Microsoft Docs"
-description: "진단 도구, 메트릭 및 경고를 사용하여 클라우드 응용 프로그램 문제를 해결하고 모니터링합니다."
+title: Azure에서 클라우드 저장소 응용 프로그램 모니터링 및 문제 해결 | Microsoft Docs
+description: 진단 도구, 메트릭 및 경고를 사용하여 클라우드 응용 프로그램 문제를 해결하고 모니터링합니다.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 저장소 응용 프로그램 모니터링 및 문제 해결
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 02/22/2018
 
 왼쪽 메뉴에서 **리소스 그룹**을 선택하고 **myResourceGroup**을 선택한 후 리소스 목록에서 저장소 계정을 선택합니다.
 
-**진단**에서 **상태**를 **켜기**로 설정합니다. **BLOB 집계 메트릭**에서 **API 메트릭당 Blob** 및 **Blob 로그**가 사용되도록 설정되어 있는지 확인합니다.
+**진단**에서 **상태**를 **켜기**로 설정합니다. **Blob 속성** 아래의 모든 옵션이 활성화되었는지 확인합니다.
 
 완료되면 **저장**을 클릭합니다.
 
-![진단 창](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![진단 창](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>경고 사용
 

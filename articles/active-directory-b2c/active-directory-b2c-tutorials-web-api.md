@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호
+title: 자습서 - Azure Active Directory B2C를 사용하여 웹앱에서 ASP.NET Web API로의 액세스 권한 부여 | Microsoft Docs
 description: Active Directory B2C를 사용하여 ASP.NET 웹 API를 보호하고 ASP.NET 웹앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 editor: ''
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>자습서: Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹앱에서 ASP.NET Web API로의 액세스 권한 부여
 
 이 자습서에서는 ASP.NET 웹앱에서 Azure AD(Azure Active Directory) B2C로 보호된 웹 API 리소스를 호출하는 방법을 보여 줍니다.
 
@@ -45,7 +45,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택합니다.
 
-2. B2C 설정에서 **응용 프로그램**을 클릭한 다음 **+ 추가**를 클릭합니다.
+2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다.
 
     샘플 웹 API를 테넌트에 등록하려면 다음 설정을 사용합니다.
     
@@ -58,7 +58,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | **암시적 흐름 허용** | 예 | API에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `https://localhost:44332` | 회신 URL은 Azure AD B2C에서 API가 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플 웹 API가 로컬(로컬 호스트)에서 실행되고 44332 포트에서 수신 대기합니다. |
     | **앱 ID URI** | myAPISample | URI는 테넌트에서 API를 고유하게 식별합니다. 이 설정을 사용하면 테넌트별로 여러 API를 등록할 수 있습니다. [범위](../active-directory/develop/active-directory-dev-glossary.md#scopes)는 보호된 API 리소스에 대한 액세스를 제어하고 앱 ID URI별로 정의됩니다. |
-    | **네이티브 클라이언트** | 아니오 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    | **네이티브 클라이언트** | 아니요 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
 3. **만들기**를 클릭하여 API를 등록합니다.
 
@@ -78,7 +78,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 등록된 API는 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
 
-**게시된 범위(미리 보기)**를 클릭합니다.
+**게시된 범위(미리 보기)** 를 클릭합니다.
 
 웹 API에 대한 범위를 구성하려면 다음 항목을 추가합니다. 
 
@@ -89,11 +89,13 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 | **범위** | Hello.Read | Hello에 대한 읽기 액세스 |
 | **범위** | Hello.Write | Hello에 대한 쓰기 액세스 |
 
+**저장**을 클릭합니다.
+
 게시된 범위는 클라이언트 앱 사용 권한을 웹 API에 부여하는 데 사용할 수 있습니다.
 
 ### <a name="grant-app-permissions-to-web-api"></a>웹 API에 앱 사용 권한 부여
 
-앱에서 보호된 웹 API를 호출하려면 앱 사용 권한을 API에 부여해야 합니다. 
+앱에서 보호된 웹 API를 호출하려면 앱 사용 권한을 API에 부여해야 합니다. 이 자습서에서는 [ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-web-app.md)에서 만든 웹앱을 사용합니다. 
 
 1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **응용 프로그램**을 클릭하여 등록된 앱 목록을 봅니다.
 
@@ -109,7 +111,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 **내 샘플 웹앱**이 보호된 **내 샘플 웹 API**를 호출하도록 등록되었습니다. 사용자가 Azure AD B2C로 [인증](../active-directory/develop/active-directory-dev-glossary.md#authentication)하여 웹앱을 사용합니다. 웹앱은 Azure AD B2C에서 [권한 부여](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant)를 받아 보호된 웹 API에 액세스합니다.
 
-## <a name="update-web-api-code"></a>웹 API 코드 업데이트
+## <a name="update-code"></a>코드 업데이트
 
 이제 웹 API가 등록되었고 범위가 정의되었으므로 웹 API 코드에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 샘플 웹 API를 구성합니다. 
 
@@ -137,11 +139,11 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 
 3. API의 URI를 구성합니다. 이는 웹앱에서 API를 요청하는 데 사용하는 URI입니다. 또한 요청된 권한도 구성합니다.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### <a name="configure-the-web-api"></a>Web API 구성
 
@@ -162,7 +164,7 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 4. 등록 및 로그인 정책을 만들 때 생성된 이름으로 정책 설정을 업데이트합니다.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. 포털에서 만든 범위와 일치하도록 범위 설정을 구성합니다.
@@ -172,7 +174,7 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## <a name="run-the-sample-web-app-and-web-api"></a>샘플 웹앱 및 웹 API 실행
+## <a name="run-the-sample"></a>샘플 실행
 
 **TaskWebApp** 및 **TaskService** 프로젝트를 모두 실행해야 합니다. 
 

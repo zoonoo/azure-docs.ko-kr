@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
 
@@ -50,8 +50,8 @@ NSG 규칙은 다음 속성을 포함합니다.
 | **프로토콜** |규칙과 일치하는 프로토콜 |TCP, UDP, 또는 * |프로토콜로 *(별표)를 사용하면 UDP와 TCP뿐만 아니라 ICMP(동부 및 서부 트래픽만)도 포함되며, 필요한 규칙의 수를 줄일 수 있습니다.<br/>동시에 *를 사용하면 너무 광범위할 수 있으므로 필요한 경우에만 사용하는 것이 좋습니다. |
 | **원본 포트 범위** |규칙과 일치하는 원본 포트 범위 |1-65535의 단일 포트 번호, 포트 범위(예: 1-65535) 또는 *(모든 포트의 경우) |원본 포트는 사용 후 삭제될 수 있습니다. 클라이언트 프로그램에서 특정 포트를 사용하지 않는 한 대부분의 경우 "*"를 사용합니다.<br/>여러 규칙이 필요하지 않도록 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화할 수 없습니다. |
 | **대상 포트 범위** |규칙과 일치하는 대상 포트 범위 |1-65535의 단일 포트 번호, 포트 범위(예: 1-65535) 또는 \*(모든 포트의 경우) |여러 규칙이 필요하지 않도록 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화할 수 없습니다. |
-| **원본 주소 접두사** |규칙과 일치하는 원본 주소 접두사 또는 태그 |단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#default-tags) 또는 *(모든 주소의 경우) |범위, 기본 태그, *를 사용하여 규칙의 수를 줄이는 것이 좋습니다. |
-| **대상 주소 접두사** |규칙과 일치하는 대상 주소 접두사 또는 태그 | 단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#default-tags) 또는 *(모든 주소의 경우) |범위, 기본 태그, *를 사용하여 규칙의 수를 줄이는 것이 좋습니다. |
+| **원본 주소 접두사** |규칙과 일치하는 원본 주소 접두사 또는 태그 |단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [서비스 태그](#service-tags) 또는 *(모든 주소의 경우). |범위, 서비스 태그, *를 사용하여 규칙의 수를 줄이는 것이 좋습니다. |
+| **대상 주소 접두사** |규칙과 일치하는 대상 주소 접두사 또는 태그 | 단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#service-tags) 또는 *(모든 주소의 경우) |범위, 서비스 태그, *를 사용하여 규칙의 수를 줄이는 것이 좋습니다. |
 | **방향** |규칙과 일치하는 트래픽의 방향 |인바운드 또는 아웃바운드 |인바운드 규칙과 아웃바운드 규칙은 방향에 따라 개별적으로 처리됩니다. |
 | **우선 순위** |규칙은 우선 순위에 따라 검사됩니다. 규칙이 적용되면 일치하는 규칙은 더 이상 테스트되지 않습니다. | 100~4096 사이의 숫자 | 나중에 만들 수 있는 새로운 규칙을 위해 각 규칙마다 우선 순위를 100씩 건너뛰도록 만드는 것이 좋습니다. |
 | **Access** |규칙이 일치하는 경우 적용할 액세스 유형 | 허용 또는 거부 | 패킷에 대한 허용 규칙을 찾을 수 없으면 해당 패킷이 삭제됩니다. |
@@ -62,36 +62,13 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 
 위의 그림에서는 NSG 규칙을 처리하는 방법을 보여 줍니다.
 
-### <a name="default-tags"></a>기본 태그
-기본 태그는 IP 주소의 범주를 다루기 위해 시스템에서 제공한 식별자입니다. 모든 규칙의 **원본 주소 접두사** 및 **대상 주소 접두사** 속성에 있는 기본 태그를 사용할 수 있습니다. 다음 3개의 기본 태그를 사용할 수 있습니다.
+### <a name="default-tags"></a>시스템 태그
 
-* **VirtualNetwork**(Resource Manager) (클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(Azure에 정의된 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 연결된 Azure VNet(로컬 네트워크)이 포함됩니다.
-* **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, Azure Load Balancer의 상태 프로브가 시작된 Azure 데이터 센터 IP로 변환됩니다.
-* **Internet**(Resource Manager) (클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 나타냅니다. 범위에는 [Azure에서 소유하는 공용 IP 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
+서비스 태그는 IP 주소의 범주를 다루기 위해 시스템에서 제공한 식별자입니다. 모든 보안 규칙의 **원본 주소 접두사** 및 **대상 주소 접두사** 속성에 있는 서비스 태그를 사용할 수 있습니다. [서비스 태그](security-overview.md#service-tags)에 대해 자세히 알아보세요.
 
-### <a name="default-rules"></a>기본 규칙
-모든 NSG에는 기본 규칙 집합이 포함됩니다. 기본 규칙은 삭제할 수 없지만, 가장 낮은 우선순위가 할당되기 때문에 직접 만든 규칙으로 재정의할 수 있습니다. 
+### <a name="default-rules"></a>기본 보안 규칙
 
-기본 규칙은 다음과 같이 트래픽을 허용하거나 허용하지 않습니다.
-- **가상 네트워크:** 가상 네트워크에서 시작하고 끝나는 트래픽은 인바운드와 아웃바운드 방향 둘 다에서 허용됩니다.
-- **인터넷:** 아웃바운드 트래픽은 허용되지만 인바운드 트래픽은 차단됩니다.
-- **부하 분산 장치:** Azure Load Balancer를 사용하여 VM 및 역할 인스턴스의 상태를 검색할 수 있도록 합니다. 이 규칙이 무시되면 Azure Load Balancer 상태 프로브가 실패하여 서비스에 영향을 줄 수 있습니다.
-
-**인바운드 기본 규칙**
-
-| Name | 우선 순위 | 원본 IP | 원본 포트 | 대상 IP | 대상 포트 | 프로토콜 | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | 허용 |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | 허용 |
-| DenyAllInBound |65500 | * | * | * | * | * | 거부 |
-
-**아웃바운드 기본 규칙**
-
-| Name | 우선 순위 | 원본 IP | 원본 포트 | 대상 IP | 대상 포트 | 프로토콜 | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | 허용 |
-| AllowInternetOutBound | 65001 | * | * | 인터넷 | * | * | 허용 |
-| DenyAllOutBound | 65500 | * | * | * | * | * | 거부 |
+모든 NSG에는 기본 보안 규칙 집합이 포함되어 있습니다. 기본 규칙은 삭제할 수 없지만, 가장 낮은 우선순위가 할당되기 때문에 직접 만든 규칙으로 재정의할 수 있습니다. [기본 보안 규칙](security-overview.md#default-security-rules)에 대해 자세히 알아보세요.
 
 ## <a name="associating-nsgs"></a>NSG 연결
 다음과 같이 사용하는 배포 모델에 따라 NSG를 VM, NIC 및 서브넷에 연결할 수 있습니다.
@@ -126,8 +103,8 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 | Azure portal   | 예 | [예](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [예](virtual-networks-create-nsg-classic-ps.md) | [예](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [예](virtual-networks-create-nsg-classic-cli.md) | [예](tutorial-filter-network-traffic-cli.md) |
-| Azure CLI **V2**   | 아니요 | [예](tutorial-filter-network-traffic-cli.md) |
-| Azure Resource Manager 템플릿   | 아니오  | [예](virtual-networks-create-nsg-arm-template.md) |
+| Azure CLI **V2**   | 아니오 | [예](tutorial-filter-network-traffic-cli.md) |
+| Azure Resource Manager 템플릿   | 아니오  | [예](template-samples.md) |
 
 ## <a name="planning"></a>계획
 NSG를 구현하기 전에 아래 질문에 답변해야 합니다.

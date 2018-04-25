@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center 문제 해결 가이드 | Microsoft Docs"
-description: "이 문서는 Azure Security Center의 문제를 해결하는 데 도움이 됩니다."
+title: Azure Security Center 문제 해결 가이드 | Microsoft Docs
+description: 이 문서는 Azure Security Center의 문제를 해결하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0c5f7a932cef904abbca25b63cf8e0d96db73c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/03/2018
 감사 로그에는 리소스에서 수행된 모든 쓰기 작업(PUT, POST, DELETE)이 포함되지만 읽기 작업(GET)은 포함되지 않습니다.
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Security Center는 Azure 가상 머신에서 보안 데이터를 수집하는 데 Microsoft Monitoring Agent를 사용하며 이는 Operations Management Suite 및 Log Analytics 서비스에서 사용하는 동일한 에이전트입니다. 데이터 수집을 활성화하고 에이전트가 대상 컴퓨터에 제대로 설치된 후 아래 프로세스가 실행되어야 합니다.
+Security Center는 Microsoft Monitoring Agent(Log Analytics 서비스에서 사용하는 것과 동일한 에이전트)를 사용하여 Azure 가상 머신에서 보안 데이터를 수집합니다. 데이터 수집을 활성화하고 에이전트가 대상 컴퓨터에 제대로 설치된 후 아래 프로세스가 실행되어야 합니다.
 
 * HealthService.exe
 
@@ -84,7 +84,7 @@ Security Center는 Azure 가상 머신에서 보안 데이터를 수집하는 �
 에이전트를 Security Center에 연결하고 등록한 경우 포트 번호 및 도메인 URL을 비롯한 네트워크 리소스에 대한 액세스 권한을 가져야 합니다.
 
 - 프록시 서버의 경우 적절한 프록시 서버 리소스가 에이전트 설정에 구성되어 있는지 확인해야 합니다. [프록시 설정을 변경하는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings)에 대한 자세한 내용은 이 문서를 참조하세요.
-- 인터넷에 대한 액세스를 제한하는 방화벽을 사용하여 경우 OMS에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. 에이전트 설정에서 아무 작업도 필요하지 않습니다.
+- 인터넷에 대한 액세스를 제한하는 방화벽을 사용하여 경우 Log Analytics에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. 에이전트 설정에서 아무 작업도 필요하지 않습니다.
 
 다음 표에서는 통신에 필요한 리소스를 보여줍니다.
 

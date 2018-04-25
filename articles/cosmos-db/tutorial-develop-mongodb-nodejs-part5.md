@@ -1,25 +1,25 @@
 ---
-title: "Azure에 대한 MongoDB, Angular 및 노드 자습서 - 5부 | Microsoft Docs"
-description: "MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 5부"
+title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 5부 | Microsoft Docs
+description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 5부
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c06247279df9eaaedf128a2eeec801b4e323c535
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 7a4b25792577247d3121c5226da55081ed55ff2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 5부: Mongoose를 사용하여 Azure Cosmos DB에 연결
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 12/05/2017
 
 1. 이제 앱을 다시 실행하겠습니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)을 클릭하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)을 클릭합니다.
 
-3. 이제 브라우저로 돌아가서 개발자 도구 및 네트워크 탭을 연 다음 http://localhost:3000 로 이동하면 응용 프로그램이 있습니다.
+3. 이제 브라우저로 돌아가서 개발자 도구 및 네트워크 탭을 연 다음 http://localhost:3000로 이동하면 응용 프로그램이 있습니다.
 
     ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

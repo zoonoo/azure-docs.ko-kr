@@ -1,20 +1,20 @@
 ---
-title: "Azure Cost Management에 Azure 구독 등록 | Microsoft Docs"
-description: "Azure 구독을 사용하여 Azure Cost Management에 등록합니다."
+title: Azure Cost Management에 Azure 구독 등록 | Microsoft Docs
+description: Azure 구독을 사용하여 Azure Cost Management에 등록합니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a8ff85d9d40d2d6b1169e41ac69fac7e808a1df2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>개별 Azure 구독 등록 및 비용 데이터 보기
 
@@ -22,9 +22,9 @@ Azure 구독을 사용하여 Azure Cost Management에 등록합니다. 등록하
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-- Azure Portal( http://portal.azure.com )에 로그인합니다.
+- Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
-## <a name="create-a-trial-registration"></a>평가판 등록 만들기
+## <a name="register-with-azure-cost-management"></a>Azure Cost Management에 등록
 
 1. Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다.
 2. **개요**에서 **Cost Management**를 클릭합니다.  

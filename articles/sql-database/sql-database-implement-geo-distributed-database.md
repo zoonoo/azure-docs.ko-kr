@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>지리적으로 분산된 데이터베이스 구현
 
@@ -380,4 +380,17 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [활성 지역 복제 및 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md)을 참조하세요.
+이 자습서에서는 Azure SQL 데이터베이스와 응용 프로그램을 원격 지역으로 장애 조치(failover)하도록 구성한 다음, 장애 조치(failover) 계획을 테스트하는 것을 알아봤습니다.  다음 방법에 대해 알아보았습니다. 
+
+> [!div class="checklist"]
+> * 데이터베이스 사용자를 만들고 권한 부여
+> * 데이터베이스 수준 방화벽 규칙 설정
+> * 지역에서 복제 장애 조치(failover) 그룹 만들기
+> * Azure SQL Database를 쿼리하기 위한 Java 응용 프로그램 만들기 및 컴파일
+> * 재해 복구 훈련 수행
+
+관리되는 인스턴스를 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+>[관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)
+

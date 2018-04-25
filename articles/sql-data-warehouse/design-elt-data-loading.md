@@ -3,18 +3,18 @@ title: ETL 대신 Azure SQL Data Warehouse용 ELT 설계 | Microsoft Docs
 description: ETL 대신 Azure SQL 데이터 웨어하우스 또는 데이터를 로드하기 위한 추출, 로드 및 변환(ELT) 프로세스를 설계합니다.
 services: sql-data-warehouse
 author: ckarst
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3cea41a7c129ee5a691226097d087539f943bec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 설계
 
@@ -48,8 +48,8 @@ PolyBase로 데이터를 로드하려면 다음 로드 옵션 중 하나를 사�
 
 - [T-SQL을 이용한 PolyBase](load-data-from-azure-blob-storage-using-polybase.md): Azure Blob 저장소 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다. 
 - [SSIS를 이용한 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse): 원본 데이터가 SQL Server(SQL Server 온-프레미스 또는 클라우드)에 있을 경우 효과적입니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다. 
-- [ADF(Azure Data Factory)를 이용한 PolyBase](sql-data-warehouse-load-with-data-factory.md): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다. ADF를 사용하여 JSON 데이터를 구문 분석하여SQL Data Warehouse에 로드할 수 있습니다.
-- [PolyBase와 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)는 Azure Data Lake Store에서 SQL Data Warehouse로 데이터를 전송합니다. Azure DataBricks를 사용하여 JSON 데이터를 구문 분석하여 해당 데이터를 SQL Data Warehouse에 로드할 수 있습니다. 
+- [ADF(Azure Data Factory)를 이용한 PolyBase](sql-data-warehouse-load-with-data-factory.md): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다. 
+- [PolyBase와 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)는 SQL Data Warehouse 테이블에서 Databricks 데이터 프레임으로 데이터를 전송하고/전송하거나 Databricks 데이터 프레임에서 SQL Data Warehouse 테이블로 데이터를 씁니다.
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 외부 파일 형식
 
@@ -70,11 +70,8 @@ Azure 저장소에 데이터를 두려면 [Azure Blob 저장소](../storage/blob
 이들은 데이터를 Azure Storage로 이동하는 데 사용할 수 있는 도구 및 서비스입니다.
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 서비스는 네트워크 처리량, 성능 및 예측 가능성을 개선합니다. ExpressRoute는 Azure에 대한 전용 비공개 연결을 통해 데이터를 라우팅하는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 통해 데이터를 라우팅하지 않습니다. 이 연결은 공용 인터넷을 통한 일반적인 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
-- [AZCopy 유틸리티](../storage/common/storage-use-azcopy.md)는 공용 인터넷을 통해 Azure Storage로 데이터를 이동합니다. 이는 데이터 크기가 10TB 미만인 경우에 작동합니다. AZCopy를 사용하여 정기적으로 로드를 수행하려면 네트워크 속도를 테스트하여 가능한지 확인하세요. 
-- [ADF(Azure Data Factory)](../data-factory/introduction.md)에는 로컬 서버에 설치할 수 있는 게이트웨이가 있습니다. 그런 다음 파이프라인을 만들어 로컬 서버에서 Azure Storage로 데이터를 이동할 수 있습니다.
-
-자세한 내용은 [Azure Storage의 데이터 이동](../storage/common/storage-moving-data.md)을 참조하세요.
-
+- [AZCopy 유틸리티](../storage/common/storage-moving-data.md)는 공용 인터넷을 통해 Azure Storage로 데이터를 이동합니다. 이는 데이터 크기가 10TB 미만인 경우에 작동합니다. AZCopy를 사용하여 정기적으로 로드를 수행하려면 네트워크 속도를 테스트하여 가능한지 확인하세요. 
+- [ADF(Azure Data Factory)](../data-factory/introduction.md)에는 로컬 서버에 설치할 수 있는 게이트웨이가 있습니다. 그런 다음 파이프라인을 만들어 로컬 서버에서 Azure Storage로 데이터를 이동할 수 있습니다. SQL Data Warehouse에 데이터 팩터리를 사용하려면 [SQL Data Warehouse로 데이터 로드](/azure/data-factory/load-azure-sql-data-warehouse)를 참조하세요.
 
 ## <a name="prepare-data"></a>데이터 준비
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD B2C 사용 웹앱 시험 사용
-description: Azure Active Directory B2C를 사용하여 사용자 로그인을 제공하는 샘플 ASP.NET 웹앱을 사용해 보는 빠른 시작입니다.
+title: 빠른 시작 - Azure Active Directory B2C를 사용하여 ASP.NET 응용 프로그램에 대한 로그인 설정 | Microsoft Docs
+description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 ASP.NET 웹앱을 실행합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 7d6744fe7ef82a6a4f54291cedd15d5b3d4ee242
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4342e8c58c9bb20580d8428a6c9869f9a3b893cb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>빠른 시작: Azure AD B2C 사용 웹앱 시험 사용
+# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>빠른 시작 - Azure Active Directory B2C를 사용하여 ASP.NET 응용 프로그램에 대한 로그인 설정
 
 Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 앱에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다.
 
@@ -50,7 +50,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 이 빠른 시작에서 동시에 `TaskWebApp` 및 `TaskService` 프로젝트를 둘 다 실행합니다. 
 
 1. 솔루션 탐색기에서 `B2C-WebAPI-DotNet` 솔루션을 선택합니다.
-2. Visual Studio 메뉴에서 **프로젝트 > 시작 프로젝트 설정...**을 차례로 선택합니다. 
+2. Visual Studio 메뉴에서 **프로젝트 > 시작 프로젝트 설정...** 을 차례로 선택합니다. 
 3. **여러 시작 프로젝트** 라디오 단추를 선택합니다.
 4. **시작**할 두 프로젝트에 대한 **작업**을 변경합니다. **확인**을 클릭합니다.
 

@@ -1,19 +1,19 @@
 ---
-title: "Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware VM 재해 복구 설정 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware VM에 대한 재해 복구를 설정하는 방법을 알아봅니다."
+title: Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware VM 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 02/28/2018
 
 이 자습서는 시리즈의 세 번째입니다. 이 자습서에서는 이전 자습서의 작업을 완료했다고 가정합니다.
 
-* [Azure 준비](tutorial-prepare-azure.md)
-* [온-프레미스 VMware 준비](vmware-azure-tutorial-prepare-on-premises.md)
+* [Azure 준비](tutorial-prepare-azure.md) 이 자습서에서는 Azure 저장소 계정 및 네트워크를 설정하고, Azure 계정에 적절한 권한이 있는지 확인하고, Recovery Services 자격 증명 모음을 만드는 방법을 설명합니다.
+* [온-프레미스 VMware 준비](vmware-azure-tutorial-prepare-on-premises.md) 이 자습서에서는 Site Recovery에서 VM을 검색하고 필요에 따라 VM에 대한 복제를 사용하도록 설정할 때 Site Recovery Mobility 서비스 구성 요소의 강제 설치를 실행하기 위해 VMware 서버에 액세스할 수 있도록 계정을 준비합니다. 또한 VMware 서버 및 VM이 Site Recovery 요구 사항을 준수하는지 확인합니다.
 
 시작하기 전에 재해 복구 시나리오에 대한 [아키텍처를 검토](vmware-azure-architecture.md)하는 것이 좋습니다.
 
@@ -38,13 +38,11 @@ ms.lasthandoff: 02/28/2018
 1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음 이름인 **ContosoVMVault**를 선택합니다.
 2. **시작**에서 Site Recovery를 선택합니다. 그런 다음, **인프라 준비**를 선택합니다.
 3. **보호 목표** > **컴퓨터가 있는 위치**에서 **온-프레미스**를 선택합니다.
-4. **컴퓨터를 복제할 위치를 선택하세요.**에서 **Azure**를 선택합니다.
+4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
 5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 다음 **확인**을 선택합니다.
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-> [!TIP]
-> VMware 가상 머신 보호를 위해 구성 서버를 배포하는 데 권장되는 방법은 이 문서에 설명된 대로 OVF 기반 배포 모델을 사용하는 것입니다. 조직에 제한 사항이 있어서 OVF 템플릿을 배포할 수 없는 경우에는 [UnifiedSetup.exe를 사용하여 구성 서버를 설치](physical-manage-configuration-server.md)할 수 있습니다.
 
 원본 환경을 설정하려면 온-프레미스 Site Recovery 구성 요소를 호스트할 단일 고가용성 온-프레미스 컴퓨터가 필요합니다. 구성 요소에는 구성 서버, 프로세스 서버 및 마스터 대상 서버가 포함됩니다.
 
@@ -53,6 +51,10 @@ ms.lasthandoff: 02/28/2018
 - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
 
 고가용성 VMware VM으로 구성 서버를 설정하려면 준비된 OVF(Open Virtualization Format) 템플릿을 다운로드하고 템플릿을 VMware로 가져와서 VM을 만듭니다. 구성 서버를 설정 한 후 자격 증명 모음에 등록합니다. 등록이 완료되면 Site Recovery가 온-프레미스 VMware VM을 검색합니다.
+
+> [!TIP]
+> 이 자습서는 OVF 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 이를 수행할 수 없는 경우 [수동 설치](physical-manage-configuration-server.md)를 실행하여 이 작업을 수행할 수 있습니다. 
+
 
 ### <a name="download-the-vm-template"></a>VM 템플릿 다운로드
 
@@ -103,7 +105,7 @@ ms.lasthandoff: 02/28/2018
 7. 도구에서 몇 가지 구성 작업을 수행한 후 다시 부팅합니다.
 8. 컴퓨터에 다시 로그인합니다. 구성 서버 관리 마법사가 자동으로 시작됩니다.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>설정을 구성하고 VMware에 연결
+### <a name="configure-settings-and-add-the-vmware-server"></a>설정 구성 및 VMware 서버 추가
 
 1. 구성 서버 관리 마법사에서 **연결 설정**을 선택한 다음, 복제 트래픽을 수신할 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
 2. **Recovery Services 자격 증명 모음 선택**에서 Azure 구독을 선택하고 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
@@ -111,10 +113,10 @@ ms.lasthandoff: 02/28/2018
 4. **VMware PowerCLI 설치**를 선택합니다. 이렇게 하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 다음, **계속**을 선택합니다.
 5. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
 6. **vCenter Server/vSphere ESXi 서버 구성**에 복제하려는 VM이 있는 vCenter 서버 또는 vSphere 호스트의 FQDN 또는 IP 주소를 지정합니다. 서버가 수신 대기하는 포트를 입력합니다. 자격 증명 모음의 VMware 서버에 사용할 이름을 입력합니다.
-7. 구성 서버가 VMware 서버에 연결하는 데 사용할 자격 증명을 입력합니다. Site Recovery는 이러한 자격 증명을 사용하여 복제에 사용 가능한 VMware VM을 자동으로 검색합니다. **추가**를 선택한 후 **계속**을 선택합니다.
+7. 구성 서버가 VMware 서버에 연결하는 데 사용할 자격 증명을 입력합니다. Site Recovery는 이러한 자격 증명을 사용하여 복제에 사용 가능한 VMware VM을 자동으로 검색합니다. **추가**를 선택한 다음, **계속**을 선택합니다.
 8. **가상 머신 자격 증명 구성**에서, 복제가 사용되면 컴퓨터에 모바일 서비스를 자동으로 설치하는 데 사용할 사용자 이름 및 암호를 입력합니다. Windows 컴퓨터의 경우 복제하려는 컴퓨터에 대한 로컬 관리자 권한이 필요합니다. Linux의 경우 루트 계정에 대한 세부 정보를 제공합니다.
 9. **구성 완료**를 선택하여 등록을 완료합니다. 
-10. 등록이 완료되면 Azure Portal에서 구성 서버 및 VMware 서버가 자격 증명 모음의 **원본** 페이지에 표시되는지 확인합니다. 그런 후 **확인**을 선택하여 대상 설정을 구성합니다.
+10. 등록이 완료되면 Azure Portal에서 구성 서버 및 VMware 서버가 자격 증명 모음의 **원본** 페이지에 표시되는지 확인합니다. 그런 다음, **확인**을 선택하여 대상 설정을 구성합니다.
 
 
 Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 VM을 검색합니다.

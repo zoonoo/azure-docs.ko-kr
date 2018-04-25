@@ -1,11 +1,11 @@
 ---
-title: "Azure 포털에서 Azure 스케줄러 시작 | Microsoft Docs"
-description: "Azure 포털에서 Azure 스케줄러 시작"
+title: Azure Portal에서 Azure Scheduler 시작 | Microsoft Docs
+description: Azure Portal에서 Azure Scheduler 시작
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure 포털에서 Azure 스케줄러 시작
-Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 자습서에서는 작업을 만드는 방법을 알아봅니다. 스케줄러의 모니터링 및 관리 기능도 알아봅니다.
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure Portal에서 Azure Scheduler 시작
+Azure Scheduler에서 예약된 작업을 만드는 것은 쉽습니다. 이 자습서에서는 작업을 만드는 방법을 알아봅니다. Scheduler의 모니터링 및 관리 기능도 알아봅니다.
 
 ## <a name="create-a-job"></a>작업 만들기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.  
-2. **+새로 만들기**를 클릭하고 > 검색 상자에 *스케줄러*를 입력하고 > 결과에서 **스케줄러**를 선택하고 > **만들기**를 클릭합니다.
+2. **+새로 만들기**를 클릭하고 > 검색 상자에 *Scheduler*를 입력하고 > 결과에서 **Scheduler**를 선택하고 > **만들기**를 클릭합니다.
    
     ![][marketplace-create]
-3. 간단히 GET 요청으로 http://www.microsoft.com/을 히트하는 작업을 만들어 보겠습니다. **스케줄러 작업** 화면에서 다음 정보를 입력합니다.
+3. 간단히 GET 요청으로 http://www.microsoft.com/을 히트하는 작업을 만들어 보겠습니다. **Scheduler 작업** 화면에서 다음 정보를 입력합니다.
    
    1. **이름:** `getmicrosoft`  
    2. **구독:** Azure 구독입니다.   
@@ -53,7 +53,7 @@ Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 
 ## <a name="manage-and-monitor-jobs"></a>작업 관리 및 모니터링
 작업이 만들어지면 기본 Azure 대시보드에 표시됩니다. 작업을 클릭하면 다음 탭을 제공하는 새 창이 열립니다.
 
-1. 속성  
+1. properties  
 2. 작업 설정  
 3. 일정  
 4. 기록
@@ -61,8 +61,8 @@ Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 
    
    ![][job-overview]
 
-### <a name="properties"></a>속성
-이러한 읽기 전용 속성은 스케줄러 작업에 대한 관리 메타데이터를 설명합니다.
+### <a name="properties"></a>properties
+이러한 읽기 전용 속성은 Scheduler 작업에 대한 관리 메타데이터를 설명합니다.
 
    ![][job-properties]
 
@@ -89,9 +89,9 @@ HTTP 및 HTTPS 작업 동작 유형에서, 메서드를 허용되는 HTTP 동사
    ![][job-schedule]
 
 ### <a name="history"></a>기록
-**기록** 탭은 선택한 작업에 대해 시스템의 모든 작업 실행에 선택한 메트릭을 표시합니다. 이러한 메트릭은 스케줄러 상태와 관련된 실시간 값을 제공합니다.
+**기록** 탭은 선택한 작업에 대해 시스템의 모든 작업 실행에 선택한 메트릭을 표시합니다. 이러한 메트릭은 Scheduler 상태와 관련된 실시간 값을 제공합니다.
 
-1. 가동 상태  
+1. 상태  
 2. 세부 정보  
 3. 다시 시도 횟수
 4. 발생 빈도: 첫 번째, 두 번째, 세 번째 등
@@ -105,26 +105,26 @@ HTTP 및 HTTPS 작업 동작 유형에서, 메서드를 허용되는 HTTP 동사
    ![][job-history-details]
 
 ### <a name="users"></a>사용자
-Azure RBAC(역할 기반 액세스 제어)를 통해 Azure 스케줄러에 대한 세밀한 액세스 관리가 가능합니다. 사용자 탭을 사용하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
+Azure RBAC(역할 기반 Access Control)를 통해 Azure Scheduler에 대한 세밀한 액세스 관리가 가능합니다. 사용자 탭을 사용하는 방법을 알아보려면 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="see-also"></a>참고 항목
- [스케줄러란?](scheduler-intro.md)
+ [Scheduler란?](scheduler-intro.md)
 
- [스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
+ [Scheduler 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
- [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
+ [Azure Scheduler의 버전 및 요금 청구](scheduler-plans-billing.md)
 
- [Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법](scheduler-advanced-complexity.md)
+ [Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법](scheduler-advanced-complexity.md)
 
- [스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
+ [Scheduler REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
- [스케줄러 PowerShell Cmdlet 참조](scheduler-powershell-reference.md)
+ [Scheduler PowerShell Cmdlet 참조](scheduler-powershell-reference.md)
 
- [스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
+ [Scheduler 고가용성 및 안정성](scheduler-high-availability-reliability.md)
 
- [스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
+ [Scheduler 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
- [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+ [Scheduler 아웃바운드 인증](scheduler-outbound-authentication.md)
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png

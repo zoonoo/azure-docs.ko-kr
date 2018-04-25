@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다.  이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다.
@@ -96,7 +96,7 @@ Azure AD 사용 약관은 pdf 형식을 사용하여 콘텐츠를 제공합니�
 2. [감사 로그 보기]를 클릭합니다.</br>
 ![감사 이벤트](media/active-directory-tou/tou8.png)
 3.  Azure AD 감사 로그 화면에서 제공된 드롭 다운을 사용하여 특정 감사 로그 정보를 대상으로 하도록 정보를 필터링할 수 있습니다.
-![감사 이벤트](media/active-directory-tou/tou9.png)
+[감사 이벤트](media/active-directory-tou/tou9.png)
 4.  로컬에서 사용하도록 정보를 .csv 파일로 다운로드할 수도 있습니다.
 
 ## 

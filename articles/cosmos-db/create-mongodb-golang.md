@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5e8a85af7bfb3245f766b932397999726746dfa7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang 및 Azure Portal에서 MongoDB API 콘솔 앱 빌드
 
@@ -79,7 +79,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-main.go에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. 
+이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [앱 실행](#run-the-app)으로 넘어갈 수 있습니다. 
+
+다음 코드 조각은 모두 main.go 파일에서 가져옵니다.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Go 앱을 Azure Cosmos DB에 연결
 
@@ -222,7 +224,7 @@ if err != nil {
 
 Azure Portal로 돌아가서 데이터 탐색기에서 문서를 확인합니다.
 
-1. 왼쪽 탐색 메뉴에서 **데이터 탐색기(미리 보기)**를 클릭하고 **golang-coach**, **package**를 확장한 후 **문서**를 클릭합니다. **문서** 탭에서 \_id를 클릭하면 오른쪽 창에 문서가 표시됩니다. 
+1. 왼쪽 탐색 메뉴에서 **데이터 탐색기(미리 보기)** 를 클릭하고 **golang-coach**, **package**를 확장한 후 **문서**를 클릭합니다. **문서** 탭에서 \_id를 클릭하면 오른쪽 창에 문서가 표시됩니다. 
 
     ![새로 만든 문서를 표시하는 데이터 탐색기](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
     
@@ -234,10 +236,7 @@ Azure Portal로 돌아가서 데이터 탐색기에서 문서를 확인합니다
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 앱을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
-
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
-2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -77,7 +74,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
-IP 기반 방화벽, 프록시 또는 NSG 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 다음 IP 주소 범위를 허용 목록에 추가해야 합니다. 다음 링크에서 범위 목록을 다운로드합니다.
+URL 대신 IP 주소를 사용하여 아웃바운드 연결을 제어하려면 적절한 데이터 센터 범위, Office 365 주소 및 IP 기반 방화벽, 프록시 또는 NSG 규칙에 대한 서비스 엔드포인트 주소를 허용 목록에 추가합니다.
 
   - [Microsoft Azure 데이터 센터 IP 범위](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Windows Azure 데이터 센터 IP 범위(독일)](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ IP 기반 방화벽, 프록시 또는 NSG 규칙을 사용하여 아웃바운드
   - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery 서비스 끝점 IP 주소](https://aka.ms/site-recovery-public-ips)
 
-이 목록을 사용하여 네트워크에 네트워크 액세스 제어를 구성합니다. 이 [스크립트](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)를 사용하여 필요한 NSG 규칙을 만들 수 있습니다.
+이 [스크립트](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)를 사용하여 필요한 NSG 규칙을 만들 수 있습니다.
 
 ## <a name="verify-azure-vm-certificates"></a>Azure VM 인증서 확인
 
@@ -105,7 +102,7 @@ Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기�
 
 - **Site Recovery 읽기 권한자** - 이 역할은 모든 Site Recovery 관리 작업을 볼 수 있는 권한을 갖습니다. 이 역할은 현재 보호 상태를 모니터링하고 지원 티켓을 발행할 수 있는 IT 모니터링 임원에게 가장 적합합니다.
 
-[Azure RBAC 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)에 대해 알아보기
+[Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 알아보기
 
 ## <a name="enable-replication"></a>복제 사용
 

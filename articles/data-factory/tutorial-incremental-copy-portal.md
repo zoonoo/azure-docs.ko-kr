@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -162,7 +162,7 @@ END
       
      ![새 데이터 팩터리 페이지](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
  
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류와 함께 빨간색 느낌표가 표시되면, 데이터 팩터리 이름(예: yournameADFIncCopyTutorialDF)을 변경하고 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류와 함께 빨간색 느낌표가 표시되면, 데이터 팩터리 이름(예: yournameADFIncCopyTutorialDF)을 변경하고 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
        `Data factory name "ADFIncCopyTutorialDF" is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
@@ -172,7 +172,7 @@ END
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
         리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2(미리 보기)**를 선택합니다.
+4. **버전**에 **V2(미리 보기)** 를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.      
@@ -219,7 +219,7 @@ END
     7. **연결** 탭에서 **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**가 선택되어 있는지 확인합니다.
        
         ![새 연결된 서비스 창](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
-10. **테이블**에 대해 **[dbo].[watermarktable]**을 선택합니다. 테이블의 데이터를 미리 보려면 **데이터 미리 보기**를 클릭합니다.
+10. **테이블**에 대해 **[dbo].[watermarktable]** 을 선택합니다. 테이블의 데이터를 미리 보려면 **데이터 미리 보기**를 클릭합니다.
 
     ![워터마크 데이터 집합 - 연결 설정](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
 11. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 활동에 대한 속성 창에서 **원본 데이터 집합** 필드에 대해 **WatermarkDataset**가 선택되어 있는지 확인합니다. 
@@ -238,7 +238,7 @@ END
 16. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
-    2. [테이블]에 대해 **[dbo].[data_source_table]**을 선택합니다. 자습서의 뒷부분에서 이 데이터 집합에 대한 쿼리를 지정합니다. 쿼리는 이 단계에서 지정한 테이블보다 높은 우선 순위를 갖습니다. 
+    2. [테이블]에 대해 **[dbo].[data_source_table]** 을 선택합니다. 자습서의 뒷부분에서 이 데이터 집합에 대한 쿼리를 지정합니다. 쿼리는 이 단계에서 지정한 테이블보다 높은 우선 순위를 갖습니다. 
 
         ![두 번째 조회 활동 - 새 데이터 집합](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 활동에 대한 속성 창에서 **원본 데이터 집합** 필드에 대해 **SourceDataset**가 선택되어 있는지 확인합니다. 
@@ -310,7 +310,7 @@ END
     1. **저장 프로시저 이름**에 대해 **sp_write_watermark**를 선택합니다. 
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면, **가져오기 매개 변수**를 클릭하고 매개 변수에 대해 다음 값을 입력합니다. 
 
-        | Name | 형식 | 값 | 
+        | Name | type | 값 | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 문자열 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
