@@ -1,8 +1,8 @@
 ---
-title: "Windows VM MSI를 사용하여 Azure SQL 액세스"
-description: "Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL에 액세스하는 프로세스를 안내하는 자습서입니다."
+title: Windows VM MSI를 사용하여 Azure SQL 액세스
+description: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aaec2fe989c4b0ae1867e629f6b46ab29297cb41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL 액세스
 
@@ -55,17 +55,13 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정 
 
-VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하면 VM용으로 관리 ID를 만들도록 Azure에 지시하게 됩니다. MSI를 사용하도록 설정하는 경우 내부적으로는 두 가지 작업이 수행됩니다. 즉, VM에 MSI VM 확장이 설치되고 Azure Resource Manager에서 MSI가 사용하도록 설정됩니다.
+VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하면 VM용으로 관리 ID를 만들도록 Azure에 지시하게 됩니다. MSI를 사용하도록 설정하면 그 배경에서는 두 작업이 수행됩니다. 즉 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성됩니다.
 
 1.  MSI를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
 2.  왼쪽 탐색 모음에서 **구성**을 클릭합니다. 
 3.  **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
 4.  **저장**을 클릭하여 구성을 저장합니다.  
     ![대체 이미지 텍스트](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. 이 VM에 있는 확장을 확인하려면 **확장**을 클릭합니다. MSI가 사용하도록 설정된 경우 목록에 **ManagedIdentityExtensionforWindows**가 표시됩니다.
-
-    ![대체 이미지 텍스트](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>VM에 Azure SQL Server의 데이터베이스에 대한 액세스 권한 부여
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-다음으로 그룹에 VM의 MSI를 추가합니다.  Azure PowerShell를 사용하여 알 수 있는 MSI의 **ObjectId**가 필요합니다.  먼저 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 다운로드합니다. 그런 후 `Login-AzureRmAccount`를 사용하여 로그인하고 다음 명령을 실행하여 다음을 수행합니다.
+다음으로 그룹에 VM의 MSI를 추가합니다.  Azure PowerShell를 사용하여 알 수 있는 MSI의 **ObjectId**가 필요합니다.  먼저 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 다운로드합니다. 그런 후 `Connect-AzureRmAccount`를 사용하여 로그인하고 다음 명령을 실행하여 다음을 수행합니다.
 - 여러 구독이 있는 경우 세션 컨텍스트가 원하는 Azure 구독으로 설정되어 있는지 확인합니다.
 - Azure 구독의 사용 가능한 리소스를 나열하고 올바른 리소스 그룹 및 VM 이름을 확인합니다.
 - 적절한 `<RESOURCE-GROUP>` 및 `<VM-NAME>` 값을 사용하여 MSI VM의 속성을 가져옵니다.
@@ -182,7 +178,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 Azure SQL은 기본적으로 Azure AD 인증을 지원하므로 MSI를 사용하여 획득한 액세스 토큰을 직접 수락할 수 있습니다.  SQL에 대한 연결을 만들기 위해 **액세스 토큰** 방법을 사용합니다.  이 방법은 Azure SQL을 Azure AD와 통합하는 작업의 일부로, 연결 문자열에서 자격 증명을 제공하는 것과는 다릅니다.
 
-다음은 액세스 토큰을 사용하여 SQL에 대한 연결을 여는 .Net 코드 예제입니다.  VM MSI 끝점에 액세스하기 위해서는 VM에 대해 이 코드를 실행해야 합니다.  액세스 토큰 방법을 사용하려면 **.NET Framework 4.6** 이상이 필요합니다.  그에 따라 AZURE-SQL-SERVERNAME 및 DATABASE 값을 바꿉니다.  Azure SQL의 리소스 ID는 "https://database.windows.net/"입니다.
+다음은 액세스 토큰을 사용하여 SQL에 대한 연결을 여는 .Net 코드 예제입니다.  VM MSI 끝점에 액세스하기 위해서는 VM에 대해 이 코드를 실행해야 합니다.  액세스 토큰 방법을 사용하려면 **.NET Framework 4.6** 이상이 필요합니다.  그에 따라 AZURE-SQL-SERVERNAME 및 DATABASE 값을 바꿉니다.  Azure SQL에 대한 리소스 ID는 "https://database.windows.net/"입니다.
 
 ```csharp
 using System.Net;
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ if (accessToken != null) {
 4.  Powershell의 `Invoke-WebRequest`를 사용하여 로컬 MSI 끝점에 대한 요청을 수행해 Azure SQL용 액세스 토큰을 가져옵니다.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     JSON 개체에서 PowerShell 개체로 응답을 변환합니다. 

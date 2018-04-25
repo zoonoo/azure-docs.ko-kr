@@ -6,14 +6,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 4f0db9a7381468216c6b9a6e46b4e8f0fe7db59f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d47a8a3d8343aaa17346cd63c055e8687f25f812
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/23/2018
 
    다른 활동, Automation 자산, 혹은 Power Shell식 같은 특정 소스들로부터 출력을 사용할 수 있습니다. 이 경우에 바로 *Hello World*가 출력됩니다. PowerShell 식을 사용하고 문자열을 지정할 수 있습니다.<br>
 
-1. **식** 상자에 *"Hello World"*를 입력한 후 **확인**을 두 번 클릭하여 캔버스로 돌아갑니다.
+1. **식** 상자에 *"Hello World"* 를 입력한 후 **확인**을 두 번 클릭하여 캔버스로 돌아갑니다.
 1. **저장**을 클릭하여 Runbook을 저장합니다.
 
 ## <a name="test-the-runbook"></a>Runbook 테스트
@@ -87,7 +87,7 @@ ms.lasthandoff: 03/23/2018
 
 1. **게시**를 선택하여 Runbook을 게시한 다음, 확인 메시지가 표시되면 **예**를 선택합니다.
 1. **Runbooks** 페이지에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
-1. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook** 페이지가 표시됩니다.
+1. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook-Graphical** 페이지가 표시됩니다.
 
    위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나, 미래의 특정 시간에 시작하도록 예약하거나, [webhook](automation-webhooks.md) 을 생성하여 HTTP 호출을 통해 시작할 수 있습니다.
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/23/2018
 1. Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. **출력** 페이지가 열리고 창에 *Hello World*가 표시됩니다.
 1. 출력 페이지를 닫습니다.
 1. **모든 로그**를 클릭하여 Runbook 작업에 대한 스트림 페이지를 엽니다. 출력 스트림에 *Hello World*만이 표시되어야 하지만 Runbook이 자세한 정보 표시, 오류와 같은 Runbook 작업에 대한 다른 스트림에 작성된 경우 해당 스트림이 표시될 수 있습니다.
-1. 모든 로그 페이지와 작업 페이지를 닫고 MyFirstRunbook 페이지로 돌아갑니다.
+1. 모든 로그 페이지와 작업 페이지를 닫고 MyFirstRunbook-Graphical 페이지로 돌아갑니다.
 1. Runbook에 대한 모든 작업을 보려면 **작업** 페이지를 닫고 **리소스** 아래에서 **작업**을 선택합니다. 이 Runbook으로 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
 1. Runbook을 시작했을 때 표시된 동일한 작업창을 열려면 이 작업을 클릭하면 됩니다. 이 기능을 사용하면 예전으로 돌아가 특정 runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
@@ -111,18 +111,18 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="add-authentication"></a>인증 추가
 
-이제 구독 ID를 보유한 변수가 있으므로 [필수 조건](#prerequisites)에 나온 실행 자격 증명을 사용하여 인증하도록 Runbook을 구성할 수 있습니다. Azure 실행 연결 **자산** 및 **Add-AzureRMAccount** cmdlet을 캔버스에 추가하여 수행합니다.
+이제 구독 ID를 보유한 변수가 있으므로 [필수 조건](#prerequisites)에 나온 실행 자격 증명을 사용하여 인증하도록 Runbook을 구성할 수 있습니다. Azure 실행 연결 **자산** 및 **Connect-AzureRmAccount** cmdlet을 캔버스에 추가하여 수행합니다.
 
-1. Runbook으로 다시 이동하고 MyFirstRunbook 페이지에서 **편집**을 선택합니다.
+1. Runbook으로 다시 이동하고 MyFirstRunbook-Graphical 페이지에서 **편집**을 선택합니다.
 1. **출력에 Hello World 작성**이 더 이상 필요하지 않으므로 줄임표(...)를 클릭하고 **삭제**를 선택합니다.
 1. 라이브러리 컨트롤에서 **자산**, **연결**을 확장하고 **캔버스에 추가**를 선택하여 **AzureRunAsConnection**을 캔버스에 추가합니다.
-1. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Add-AzureRmAccount** 을 입력합니다.
-1. 캔버스에 **캔버스에-AzureRmAccount** 를 추가합니다.
-1. 도형 아래에 원이 나타날 때까지 **실행 연결 가져오기** 를 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Add-AzureRmAccount**로 끌어 놓습니다. 만든 화살표는 *링크*입니다. Runbook에서 **실행 연결 가져오기**를 시작한 다음 **Add-AzureRmAccount**를 실행합니다.<br> ![활동 간 링크 만들기](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
-1. 캔버스에서 **Add-AzureRmAccount**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **Azure에 로그인**을 입력합니다.
+1. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Connect-AzureRmAccount**를 입력합니다.
+1. 캔버스에 **Connect-AzureRmAccount**를 추가합니다.
+1. 도형 아래에 원이 나타날 때까지 **실행 연결 가져오기** 를 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Connect-AzureRmAccount**로 끌어 놓습니다. 만든 화살표는 *링크*입니다. Runbook에서 **실행 연결 가져오기**를 시작한 다음, **Connect-AzureRmAccount**를 실행합니다.<br> ![활동 간 링크 만들기](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+1. 캔버스에서 **Connect-AzureRmAccount**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **Azure에 로그인**을 입력합니다.
 1. **매개 변수**를 클릭하면 활동 매개 변수 구성 페이지가 표시됩니다.
-1. **Add-AzureRmAccount**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **ServicePrincipalCertificate** 매개 변수 집합을 선택합니다.
-1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure RM 계정 매개 변수 추가](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+1. **Connect-AzureRmAccount**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **ServicePrincipalCertificate** 매개 변수 집합을 선택합니다.
+1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure RM 계정 매개 변수 추가](media/automation-first-runbook-graphical/Connect-AzureRmAccount-params.png)
 1. 매개 변수 값 페이지에서 **데이터 원본**에 대해 **활동 출력**을 선택하고 목록에서 **실행 연결 가져오기**를 선택한 다음 **필드 경로** 텍스트 상자에 **ApplicationId**를 입력한 다음 **확인**을 클릭합니다. 작업에서 여러 속성을 가진 개체를 출력하기 때문에 필드 경로에 대한 속성의 이름을 지정합니다.
 1. **CERTIFICATETHUMBPRINT**를 클릭하고 매개 변수 값 페이지에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **CertificateThumbprint**를 입력한 다음 **확인**을 클릭합니다.
 1. **SERVICEPRINCIPAL**을 클릭하고 매개 변수 값 페이지에서 **데이터 원본**에 대한 **ConstantValue**를 선택하고 **True** 옵션을 클릭한 다음 **확인**을 클릭합니다.
@@ -135,6 +135,9 @@ ms.lasthandoff: 03/23/2018
 1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **SubscriptionID**
 1. 매개 변수 값 페이지에서 **데이터 원본**에 대해 **변수 자산**을 선택하고 목록에서 **AzureSubscriptionId**를 선택한 다음 **확인**을 두 번 클릭합니다.
 1. 아래에 원 모양이 나타날 때까지 **Azure에 로그인** 을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **구독 ID 지정**으로 끌어 놓습니다.
+
+> [!IMPORTANT]
+> **Connect-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Connect-AzureRmAccount**를 사용하거나 Automation 계정에서 모듈을 업데이트할 수 있습니다.
 
 이 시점에서 runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
@@ -157,7 +160,7 @@ ms.lasthandoff: 03/23/2018
 
 현재 Runbook은 **Start-AzureRmVM** cmdlet에 지정한 리소스 그룹에서 가상 머신을 시작합니다. Runbook은 Runbook을 시작할 때 둘 다 지정하는 경우에 더욱 유용합니다. 이제 Runbook에 입력 매개 변수를 추가하여 해당 기능을 제공합니다.
 
-1. **MyFirstRunbook** 창에서 **편집**을 클릭하여 그래픽 편집기를 엽니다.
+1. **MyFirstRunbook-Graphical** 창에서 **편집**을 클릭하여 그래픽 편집기를 엽니다.
 1. **입력 및 출력**과 **입력 추가**를 차례로 선택하여 Runbook 입력 매개 변수 창을 엽니다.
 1. *Name* 에 대해 **VMName**을 지정합니다. **형식**에 대해 *문자열*을 유지하고 **필수**를 *예*로 변경합니다. **확인**을 클릭합니다.
 1. *ResourceGroupName*이라는 두 번째 필수 입력 매개 변수를 만든 다음 **확인**을 클릭하여 **입력 및 출력** 창을 닫습니다.<br> ![Runbook 입력 매개 변수](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
@@ -175,7 +178,7 @@ ms.lasthandoff: 03/23/2018
 
 이제 Runbook을 수정하여 아직 시작하지 않은 경우에만 가상 머신을 시작하려고 시도합니다. 이렇게 하려면 가상 머신의 인스턴스 수준 상태를 가져오는 Runbook에 **Get-AzureRmVM** cmdlet을 추가합니다. 그런 다음 PowerShell 코드 조각과 함께 **Get Status**라는 PowerShell 워크플로 코드 모듈을 추가하여 가상 머신 상태가 실행 중이거나 중지되었는지 확인합니다. **상태 가져오기** 모듈의 조건부 링크는 현재 실행 중인 상태가 중지되는 경우에만 **Start-AzureRmVM**을 실행합니다. 마지막으로 VM이 성공적으로 시작되었거나 PowerShell Write-Output cmdlet을 사용하지 않았다고 알려주는 메시지를 출력합니다.
 
-1. 그래픽 편집기에서 **MyFirstRunbook** 을 엽니다.
+1. 그래픽 편집기에서 **MyFirstRunbook-Graphical**을 엽니다.
 1. **구독 ID 지정**과 **Start-AzureRmVM** 간의 링크를 클릭하고 *삭제* 키를 눌러 제거합니다.
 1. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Get-AzureRm** 을 입력합니다.
 1. 캔버스에 **Get-AzureRmVM** 을 추가합니다.
@@ -203,7 +206,7 @@ ms.lasthandoff: 03/23/2018
 
 1. **상태 가져오기**에서 **Start-AzureRmVM**에 대한 링크를 만듭니다.<br> ![코드 모듈과 Runbook](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 1. 링크를 선택하고 구성 창에서 **조건 적용**을 **예**로 변경합니다. 링크가 True로 확인되는 조건에서만 대상 활동이 실행된다고 나타내는 파선으로 바뀝니다.  
-1. **조건 식**에 *$ActivityOutput['Get Status'] -eq "Stopped"*를 입력합니다. 이제 가상 머신이 중지된 경우에만 **Start-AzureRmVM**이 실행됩니다.
+1. **조건 식**에 *$ActivityOutput['Get Status'] -eq "Stopped"* 를 입력합니다. 이제 가상 머신이 중지된 경우에만 **Start-AzureRmVM**이 실행됩니다.
 1. 라이브러리 컨트롤에서 **Cmdlet**과 **Microsoft.PowerShell.Utility**를 차례로 확장합니다.
 1. 캔버스에 **Write-Output**을 두 번 추가합니다.
 1. 첫 번째 **Write-Output** 컨트롤에서 **매개 변수**를 클릭하고 **레이블** 값을 *VM 시작 알림*으로 변경합니다.

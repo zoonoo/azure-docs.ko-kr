@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -29,7 +29,8 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM 에이전트가 Azure Backup과 통신할 수 없음
 
-오류 메시지: “VM 에이전트가 Azure Backup과 통신할 수 없습니다.”
+오류 메시지: “VM 에이전트가 Azure Backup과 통신할 수 없습니다.”<br>
+오류 코드: "UserErrorGuestAgentStatusUnavailable"
 
 Backup 서비스에 대한 VM을 등록하고 예약하면 Backup은 VM 에이전트와 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업이 실패할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.
 
@@ -41,7 +42,8 @@ Backup 서비스에 대한 VM을 등록하고 예약하면 Backup은 VM 에이�
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>가상 컴퓨터가 네트워크에 연결되어 있지 않으므로 스냅숏 작업이 실패합니다.
 
-오류 메시지: “가상 컴퓨터에 네트워크 연결이 없으므로 스냅숏 작업이 실패했습니다.”
+오류 메시지: “가상 컴퓨터에 네트워크 연결이 없으므로 스냅숏 작업이 실패했습니다.”<br>
+오류 코드: "ExtensionSnapshotFailedNoNetwork"
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.    
 **원인 1: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot 확장 작업이 실패합니다.
 
-오류 메시지: “VMSnapshot 확장 작업이 실패했습니다.”
+오류 메시지: “VMSnapshot 확장 작업이 실패했습니다.”<br>
+오류 코드: "ExtentionOperationFailed"
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 **원인 1: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM 에이전트가 응답하지 않으므로 백업이 실패합니다.
 
-오류 메시지: “VM 에이전트가 응답하지 않으므로 작업을 수행할 수 없습니다.”
+오류 메시지: “VM 에이전트가 응답하지 않으므로 작업을 수행할 수 없습니다.” <br>
+오류 코드: "GuestAgentSnapshotTaskStatusError"
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +73,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="backup-fails-with-an-internal-error"></a>내부 오류와 함께 백업이 실패합니다.
 
-오류 메시지: “내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요.”
+오류 메시지: “내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요.” <br>
+오류 코드: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 **원인 1: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**  
@@ -177,6 +182,8 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 3. **확장**을 섡택합니다.
 4. **Vmsnapshot 확장**을 선택합니다.
 5. **제거**를 선택합니다.
+
+Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/linux/update-agent.md)한 다음, 백업을 실행합니다. 
 
 이러한 단계를 완료하면 다음 백업 동안 확장을 다시 설치해야 합니다.
 

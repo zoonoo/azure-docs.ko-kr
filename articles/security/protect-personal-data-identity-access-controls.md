@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 및 Multi-Factor Authentication: ID 및 액세스 제어를 사용하여 개인 데이터 보호
 
@@ -83,11 +83,11 @@ AAD PIM 시작에 대한 자세한 내용과 지침은 [Azure AD Privileged Iden
 
 ### <a name="azure-role-based-access-control"></a>Azure 역할 기반 Access Control
 
-[Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)을 사용하면 Azure 관리자가 사용자에게 할당된 역할에 따라 액세스 권한을 부여함으로써 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 팀 내에서 직무를 분리하고, 자신들의 작업을 수행하는 데 필요한 사용자, 그룹 및 응용 프로그램에 대한 액세스 권한만 부여할 수 있습니다.
+[Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 사용하면 Azure 관리자가 사용자에게 할당된 역할에 따라 액세스 권한을 부여함으로써 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 팀 내에서 직무를 분리하고, 자신들의 작업을 수행하는 데 필요한 사용자, 그룹 및 응용 프로그램에 대한 액세스 권한만 부여할 수 있습니다.
 
 Azure 포털, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스를 부여할 수 있습니다.
 
-Azure RBAC 기본 사항에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)을 참조하세요.
+Azure RBAC 기본 사항에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](https://docs.microsoft.com/azure/role-based-access-control/overview)을 참조하세요.
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>PowerShell을 사용하여 Azure RBAC를 관리하려면 어떻게 할까요?
 
@@ -111,7 +111,7 @@ PowerShell cmdlet을 사용하여 다음 관리 작업을 포함한 Azure RBAC�
 
 - 사용자 지정 역할 나열
 
-PowerShell을 사용하여 Azure RBAC를 관리하는 방법에 대한 지침은 [Azure PowerShell을 사용하여 역할 기반 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell)를 참조하세요.
+PowerShell을 사용하여 Azure RBAC를 관리하는 방법에 대한 지침은 [Azure PowerShell을 사용하여 역할 기반 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -125,7 +125,7 @@ Azure 클라우드에 MFA를 배포하려면 먼저 이를 사용하도록 설�
 
 ![MFA 사용 가능 사용자](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-현재 라이선스가 없는 경우 시나리오에 가장 적합한 배포 유형을 결정하는 프로세스를 진행해야 합니다. 먼저 [사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택](../multi-factor-authentication/multi-factor-authentication-get-started.md) 문서를 확인하세요. 이를 결정할 경우 Multi-Factor Authentication 서버를 만들어야 합니다. 다음 단계를 수행하여 시작할 수 있습니다.
+현재 라이선스가 없는 경우 시나리오에 가장 적합한 배포 유형을 결정하는 프로세스를 진행해야 합니다. 먼저 [사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택](../active-directory/authentication/concept-mfa-whichversion.md) 문서를 확인하세요. 이를 결정할 경우 Multi-Factor Authentication 서버를 만들어야 합니다. 다음 단계를 수행하여 시작할 수 있습니다.
 
 1. Azure Portal에서 **Active Directory**를 선택합니다(관리자 권한으로 로그인함).
 
@@ -184,6 +184,6 @@ Multi-Factor Auth 공급자를 관리하는 방법에 대한 자세한 내용은
 
 - [Azure Multi-Factor Authentication에 대한 질문과 대답](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [역할 기반 Access Control 문제 해결](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [역할 기반 Access Control 문제 해결](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

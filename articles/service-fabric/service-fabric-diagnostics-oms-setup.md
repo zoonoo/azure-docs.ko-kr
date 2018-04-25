@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - OMS Log Analytics로 모니터링 설정 | Microsoft Docs
-description: Azure Service Fabric 클러스터를 모니터링하기 위해 Operations Management Suite를 설정하여 이벤트를 시각화 및 분석하는 방법을 알아봅니다.
+title: Azure Service Fabric - Log Analytics로 모니터링 설정 | Microsoft Docs
+description: Azure Service Fabric 클러스터를 모니터링하기 위해 Log Analytics를 설정하여 이벤트를 시각화 및 분석하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>클러스터에 대한 Operations Management Suite Log Analytics 설정
+# <a name="set-up-log-analytics-for-a-cluster"></a>클러스터에 대해 Log Analytics 설정
 
-Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 OMS(Operations Management Suite) 작업 영역을 설정할 수 있습니다. 나중에 사용하기 위해 배포의 업데이트된 Resource Manager 템플릿을 유지 관리하는 경우 동일한 템플릿을 사용하여 OMS 환경을 설정합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. OMS를 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
+Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analytics 작업 영역을 설정할 수 있습니다. 나중에 사용하기 위해 배포의 업데이트된 Resource Manager 템플릿을 유지 관리하는 경우 동일한 템플릿을 사용하여 OMS 환경을 설정합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. OMS를 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
 
 > [!NOTE]
-> 클러스터를 모니터링하도록 OMS를 설정하려면 클러스터 수준 또는 플랫폼 수준 이벤트를 보기 위해 진단을 사용하도록 설정해야 합니다.
+> 클러스터를 모니터링하도록 Log Analytics를 설정하려면 클러스터 수준 또는 플랫폼 수준 이벤트를 보기 위해 진단을 사용하도록 설정해야 합니다.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>Azure Marketplace를 사용하여 OMS 배포
 
@@ -50,13 +50,13 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 
 ### <a name="connect-the-oms-workspace-to-your-cluster"></a>OMS 작업 영역을 클러스터에 연결 
 
-1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>**를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 포털에 액세스할 수 있습니다.
+1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 포털에 액세스할 수 있습니다.
 
 2. 왼쪽 탐색 메뉴의 **작업 영역 데이터 원본**에서 **저장소 계정 로그**를 선택합니다.
 
 3. **저장소 계정 로그** 페이지에서 맨 위의 **추가**를 선택하여 작업 영역에 클러스터 로그를 추가합니다.
 
-4. **저장소 계정**을 선택하여 클러스터에서 만든 적절한 계정을 추가합니다. 기본 이름을 사용한 경우 저장소 계정은 **sfdg\<resourceGroupName\>**입니다. **applicationDiagnosticsStorageAccountName**에 사용된 값을 확인하여 클러스터를 배포하는 데 사용된 Azure Resource Manager 템플릿으로 이 이름을 확인할 수도 있습니다. 이름이 표시되지 않는 경우 아래로 스크롤하여 **추가 로드**를 선택합니다. 저장소 계정 이름을 선택합니다.
+4. **저장소 계정**을 선택하여 클러스터에서 만든 적절한 계정을 추가합니다. 기본 이름을 사용한 경우 저장소 계정은 **sfdg\<resourceGroupName\>** 입니다. **applicationDiagnosticsStorageAccountName**에 사용된 값을 확인하여 클러스터를 배포하는 데 사용된 Azure Resource Manager 템플릿으로 이 이름을 확인할 수도 있습니다. 이름이 표시되지 않는 경우 아래로 스크롤하여 **추가 로드**를 선택합니다. 저장소 계정 이름을 선택합니다.
 
 5. 데이터 형식을 지정합니다. **Service Fabric 이벤트**로 설정합니다.
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed
