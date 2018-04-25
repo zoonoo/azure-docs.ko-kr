@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -23,7 +23,7 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 * **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우 사용됩니다.
 * **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우 사용됩니다.
 
-    ![건축](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>로깅 사용
 
@@ -191,11 +191,11 @@ Log Analytics를 사용하여 SQL Database 세트를 간편하게 모니터링�
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>갤러리에서 SQL Analytics 솔루션 설치
 
-1. Log Analytics 리소스를 만들고 데이터 흐름이 시작되면 SQL Analytics 솔루션을 설치합니다. Operations Management Suite 홈페이지의 측면 메뉴에서 **솔루션 갤러리**를 선택합니다. 갤러리에서 **Azure SQL Analytics** 솔루션을 선택한 다음 **추가**를 클릭합니다.
+1. Log Analytics 리소스를 만들고 데이터 흐름이 시작되면 SQL Analytics 솔루션을 설치합니다. 홈페이지의 사이드 메뉴에서 **솔루션 갤러리**를 선택합니다. 갤러리에서 **Azure SQL Analytics** 솔루션을 선택한 다음 **추가**를 클릭합니다.
 
    ![모니터링 솔루션](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Operations Management Suite 홈 페이지에**Azure SQL Analytics** 타일이 나타납니다. 이 타일을 선택하여 SQL Analytics 대시보드를 엽니다.
+2. 홈페이지에**Azure SQL Analytics** 타일이 나타납니다. 이 타일을 선택하여 SQL Analytics 대시보드를 엽니다.
 
 ### <a name="use-the-sql-analytics-solution"></a>SQL Analytics 솔루션 사용
 
@@ -271,7 +271,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
-|형식|항상: AzureDiagnostics|
+|type|항상: AzureDiagnostics|
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
 |Category|범주 이름. 항상: QueryStoreRuntimeStatistics|
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent|
@@ -322,7 +322,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
-|형식|항상: AzureDiagnostics|
+|type|항상: AzureDiagnostics|
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
 |Category|범주 이름. 항상: QueryStoreWaitStatistics|
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent|
@@ -360,7 +360,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
-|형식|항상: AzureDiagnostics|
+|type|항상: AzureDiagnostics|
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
 |Category|범주 이름. 항상: Errors|
 |OperationName|작업의 이름입니다. 항상: ErrorEvent|
@@ -389,7 +389,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
-|형식|항상: AzureDiagnostics|
+|type|항상: AzureDiagnostics|
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
 |Category|범주 이름. 항상: DatabaseWaitStatistics|
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent|
@@ -418,7 +418,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
-|형식|항상: AzureDiagnostics|
+|type|항상: AzureDiagnostics|
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
 |Category|범주 이름. 항상: Timeouts|
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent|
@@ -441,7 +441,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
-|형식|항상: AzureDiagnostics|
+|type|항상: AzureDiagnostics|
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
 |Category|범주 이름. 항상: Blocks|
 |OperationName|작업의 이름입니다. 항상: BlockEvent|

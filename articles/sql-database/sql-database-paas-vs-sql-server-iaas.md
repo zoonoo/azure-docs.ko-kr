@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
 Azure에는 Microsoft Azure의 SQL Server 워크로드를 호스팅하는 다음과 같은 두 가지 옵션이 있습니다.
@@ -74,7 +74,10 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 #### <a name="billing-and-licensing-basics"></a>청구 및 라이선스 기본 사항
 **SQL Database** 는 라이선스가 아닌 서비스로 고객에게 판매됩니다.  [Azure VM에 대한 SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) 는 분당 지불하는 라이선스로 판매됩니다. 기존 라이선스가 있다면 사용할 수 있습니다.  
 
-현재 **SQL Database** 는 여러 서비스 계층에서 사용할 수 있으며 모두 선택하는 서비스 계층과 성능 수준을 기준으로 고정 요금이 시간당 청구됩니다. 또한 일반 [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/)으로 발신 인터넷 트래픽에 대해 요금이 청구됩니다. Basic, Standard 및 Premium 서비스 계층은 응용 프로그램의 최대 요구 사항에 맞게 여러 성능 수준의 예측 가능한 성능을 제공하기 위해 설계되었습니다. 응용 프로그램의 다양한 처리량 요구에 맞게 서비스 계층과 성능 수준을 변경할 수 있습니다. 데이터베이스에 트랜잭션 볼륨이 많고 지원해야 하는 동시 사용자가 많은 경우 Premium을 사용하는 것이 좋습니다. 현재 지원되는 서비스 계층에 대한 최신 정보는 [Azure SQL Database 서비스 계층](sql-database-service-tiers.md)을 참조하세요. [탄력적 풀](sql-database-elastic-pool.md)을 만들어 데이터베이스 인스턴스 간에 성능 리소스를 공유할 수도 있습니다.
+현재 **SQL Database** 는 여러 서비스 계층에서 사용할 수 있으며 모두 선택하는 서비스 계층과 성능 수준을 기준으로 고정 요금이 시간당 청구됩니다. 또한 일반 [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/)으로 발신 인터넷 트래픽에 대해 요금이 청구됩니다. Basic, Standard, Premium, General Purpose 및 Mission Critical 서비스 계층은 응용 프로그램의 최대 요구 사항에 맞게 여러 성능 수준의 예측 가능한 성능을 제공하기 위해 설계되었습니다. 응용 프로그램의 다양한 처리량 요구에 맞게 서비스 계층과 성능 수준을 변경할 수 있습니다. 현재 지원되는 서비스 계층에 대한 최신 정보는 [Azure SQL Database 서비스 계층](sql-database-service-tiers.md)을 참조하세요. [탄력적 풀](sql-database-elastic-pool.md)을 만들어 데이터베이스 인스턴스 간에 성능 리소스를 공유할 수도 있습니다.
+
+> [!IMPORTANT]
+> 데이터베이스에 트랜잭션 볼륨이 많고 지원해야 하는 동시 사용자가 많은 경우 Premium 또는 Mission Critical 서비스 계층을 사용하는 것이 좋습니다. 응용 프로그램과 SQL Database 간의 대기 시간을 최소화하려면 응용 프로그램을 데이터베이스와 동일한 지역에 두고 성능을 테스트합니다. 그런 후 필요에 따라 서비스 계층과 성능 수준을 늘립니다.
 
 **SQL Database**에서 데이터베이스 소프트웨어는 Microsoft에서 구성, 패치 적용 및 업그레이드를 수행하며 이는 관리 비용을 줄입니다. 또한 [기본 제공 백업](sql-database-automated-backups.md) 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다.
 
@@ -112,7 +115,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 ### <a name="service-level-agreement-sla"></a>SLA(서비스 수준 계약)
 IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충족하는 일이 가장 우선합니다. 이 섹션에서는 각 데이터베이스 호스팅 옵션에 어떤 SLA를 적용하는지 살펴봅니다.
 
-**SQL Database** Basic, Standard 및 Premium 서비스 계층에 대해 Microsoft는 99.99%의 가용성 SLA를 제공합니다. 최신 정보는 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/sql-database/)을 참조하세요. SQL Database 서비스 계층 및 지원되는 비즈니스 연속성 계획에 대한 최신 정보는 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+Microsoft는 **SQL Database** Basic, Standard, Premium, General Purpose 및 Mission Critical 서비스 계층에 대해 99.99%의 가용성 SLA를 제공합니다. 최신 정보는 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/sql-database/)을 참조하세요. SQL Database 서비스 계층 및 지원되는 비즈니스 연속성 계획에 대한 최신 정보는 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
 **Azure VM에서 실행 중인 SQL Server**의 경우 Microsoft는 Virtual Machine을 다루는 99.95%의 가용성 SLA를 제공합니다. 이 SLA는 VM에서 실행 중인 프로세스(예: SQL Server)를 다루지 않으며 가용성 집합에 두 개 이상의 VM 인스턴스를 호스트해야 합니다. 최신 정보는 [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요. VM 내에서 데이터베이스 고가용성(HA)을 이용하려면 SQL Server에서 지원되는 고가용성 옵션 중 하나(예: [AlwaysOn 가용성 그룹](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx))를 구성해야 합니다. 지원되는 고가용성 옵션을 사용하면 추가 SLA를 제공하지 않지만 >99.99%의 데이터베이스 가용성을 달성할 수 있습니다.
 

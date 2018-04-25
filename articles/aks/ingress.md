@@ -9,17 +9,21 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0bc6035c3004587ae50f1c331dd3976883e9d34
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>AKS(Azure Container Service)에서 HTTPS 수신
 
 수신 컨트롤러는 역방향 프록시, 구성 가능한 트래픽 라우팅, Kubernetes 서비스에 대한 TLS 종료를 제공하는 소프트웨어입니다. Kubernetes 수신 리소스는 개별 Kubernetes 서비스에 대한 수신 규칙 및 라우팅을 구성하는 데 사용됩니다. 수신 컨트롤러 및 수신 규칙을 사용하면 단일 외부 주소를 사용하여 Kubernetes 클러스터의 여러 서비스에 트래픽을 라우팅할 수 있습니다.
 
 이 문서에서는 AKS(Azure Container Service) 클러스터에서 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 샘플을 연습합니다. 또한 [KUBE-LEGO][kube-lego] 프로젝트는 [Let's Encrypt][lets-encrypt] 인증서를 자동으로 생성하고 구성하는 데 사용됩니다. 마지막으로, 여러 응용 프로그램이 AKS 클러스터에서 실행되며 단일 주소를 통해 각 응용 프로그램에 액세스할 수 있습니다.
+
+## <a name="prerequisite"></a>필수 요소
+
+Helm CLI 설치 - 설치 지침에 대해서는 Helm CLI [설명서][helm-cli]를 참조하세요.
 
 ## <a name="install-an-ingress-controller"></a>수신 컨트롤러 설치
 
@@ -179,10 +183,12 @@ Kubernetes 수신 컨트롤러의 FQDN으로 이동하면 hello world 응용 프
 
 이 문서에서 보여준 소프트웨어에 대해 자세히 알아보세요. 
 
+- [Helm CLI][helm-cli]
 - [NGINX 수신 컨트롤러][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
+[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

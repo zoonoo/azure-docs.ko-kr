@@ -1,32 +1,32 @@
 ---
-title: "Azure의 OpenShift 배포 후 작업 | Microsoft Docs"
-description: "OpenShift 클러스터가 배포 된 후 추가 작업입니다."
+title: Azure의 OpenShift 배포 후 작업 | Microsoft Docs
+description: OpenShift 클러스터가 배포 된 후 추가 작업입니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
 OpenShift 클러스터를 배포한 후에는 추가 항목을 구성할 수 있습니다. 이 문서에는 다음 내용이 포함됩니다.
 
 - Azure AD(Azure Active Directory)를 사용하여 Single Sign-On을 구성하는 방법
-- OpenShift를 모니터링하도록 Operations Management Suite를 구성하는 방법
+- OpenShift를 모니터링하도록 Log Analytics를 구성하는 방법
 - 메트릭 및 로깅을 구성하는 방법
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Single Sign-On 구성
@@ -81,7 +81,7 @@ Azure Portal에서 다음을 수행합니다.
 
   ![앱 등록](media/openshift-post-deployment/app-registration.png)
 
-6.  1단계: API 선택을 클릭한 다음 **Windows Azure Active Directory(Microsoft.Azure.ActiveDirectory)**를 클릭합니다. 아래쪽에서 **선택**을 선택합니다.
+6.  1단계: API 선택을 클릭한 다음 **Windows Azure Active Directory(Microsoft.Azure.ActiveDirectory)** 를 클릭합니다. 아래쪽에서 **선택**을 선택합니다.
 
   ![앱 등록 API 선택](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 OpenShift 콘솔에 htpasswd_auth 및 [앱 등록]이라는 두 가지 인증 옵션이 표시됩니다.
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Operations Management Suite를 사용하여 OpenShift 모니터링
+## <a name="monitor-openshift-with-log-analytics"></a>Log Analytics로 OpenShift 모니터링
 
-Operations Management Suite로 OpenShift를 모니터링하려면 VM 호스트에 OMS 에이전트 설치 또는 OMS 컨테이너라는 두 가지 옵션 중 하나를 사용합니다. 이 문서에는 OMS 컨테이너 배포에 대한 지침이 제공됩니다.
+Log Analytics로 OpenShift를 모니터링하려면 VM 호스트에 OMS 에이전트 설치 또는 OMS 컨테이너라는 두 가지 옵션 중 하나를 사용합니다. 이 문서에는 OMS 컨테이너 배포에 대한 지침이 제공됩니다.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Operations Management Suite용 OpenShift 프로젝트 만들기 및 사용자 액세스 설정
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Log Analytics용 OpenShift 프로젝트 만들기 및 사용자 액세스 설정
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>비밀 yaml 파일 만들기
 
-비밀 yaml 파일을 만들려면 OMS 작업 영역 ID와 OMS 작업 영역 공유 키라는 두 가지 정보가 필요합니다. 
+비밀 yaml 파일을 만들려면 Log Analytics 작업 영역 ID와 Log Analytics 작업 영역 공유 키라는 두 가지 정보가 필요합니다. 
 
 샘플 ocp-secret.yml 파일은 다음과 같습니다. 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-wsid_data를 Base64로 인코딩된 OMS 작업 영역 ID로 바꿉니다. 그런 다음 key_data를 Base64로 인코딩된 OMS 작업 영역 공유 키로 바꿉니다.
+wsid_data를 Base64로 인코딩된 Log Analytics 작업 영역 ID로 바꿉니다. 그런 후 key_data를 Base64로 인코딩된 Log Analytics 작업 영역 공유 키로 바꿉니다.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -291,7 +291,7 @@ OCP Resource Manager 템플릿을 사용했고 메트릭 및 로깅이 설치 �
 
 1. 포트 2200을 사용하여 첫 번째 마스터 노드에 SSH를 실행합니다.
 
-   예제:
+   예:
 
    ```bash
    ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
@@ -326,11 +326,11 @@ OCP Resource Manager 템플릿을 사용했고 메트릭 및 로깅이 설치 �
 첫 번째 마스터 노드(Origin) 또는 요새 노드(OCP)에서 배포 중에 제공된 자격 증명을 사용하여 SSH를 실행합니다. 다음 명령을 실행합니다.
 
 ```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
@@ -340,10 +340,10 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 첫 번째 마스터 노드(Origin) 또는 요새 노드(OCP)에서 배포 중에 제공된 자격 증명을 사용하여 SSH를 실행합니다. 다음 명령을 실행합니다.
 
 ```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True 
 
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True 
 ```
 

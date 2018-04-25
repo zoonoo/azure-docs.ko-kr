@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -118,7 +118,7 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록 
 
-로그인 시 Azure AD 관리자 역할(전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자) 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에 대해 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
+로그인 시 Azure AD 관리자 역할(전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자) 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에 대해 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>2단계: 가장 자주 사용되는 공격 기법에 대한 완화
 
@@ -154,9 +154,9 @@ BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 �
 
 지난 90일 동안 모든 사용자가 자신의 관리 계정에 로그인하고 암호를 한 번 이상 변경했는지 확인합니다. 또한 여러 사용자가 암호를 알고 있는 공유 계정의 암호가 최근에 변경되었는지 확인합니다.
 
-#### <a name="turn-on-password-synchronization"></a>암호 동기화 설정
+#### <a name="turn-on-password-hash-synchronization"></a>암호 해시 동기화 켜기
 
-암호 동기화는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화하는 데 사용되는 기능입니다. AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도, AD 또는 ADFS 서버와 같은 온-프레미스 인프라가 실패하거나 일시적으로 사용할 수 없게 되므로, 필요에 따라 암호 동기화를 백업으로 설정할 수 있습니다. 이렇게 하면 사용자가 온-프레미스 AD 인스턴스에 로그인하는 데 사용하는 것과 동일한 암호를 사용하여 서비스에 로그인할 수 있습니다. 또한 사용자가 Azure AD에 연결되지 않은 다른 서비스에서 동일한 이메일 주소와 암호를 사용하면, 암호 해시와 손상된 것으로 알려진 암호를 비교하여 Identity Protection에서 손상된 자격 증명을 검색할 수 있습니다.  자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)을 참조하세요.
+암호 해시 동기화는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화하는 데 사용되는 기능입니다. AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도, AD 또는 ADFS 서버와 같은 온-프레미스 인프라가 실패하거나 일시적으로 사용할 수 없게 되므로, 필요에 따라 암호 해시 동기화를 백업으로 설정할 수 있습니다. 이렇게 하면 사용자가 온-프레미스 AD 인스턴스에 로그인하는 데 사용하는 것과 동일한 암호를 사용하여 서비스에 로그인할 수 있습니다. 또한 사용자가 Azure AD에 연결되지 않은 다른 서비스에서 동일한 이메일 주소와 암호를 사용하면, 암호 해시와 손상된 것으로 알려진 암호를 비교하여 Identity Protection에서 손상된 자격 증명을 검색할 수 있습니다.  자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)을 참조하세요.
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>모든 권한이 있는 역할의 사용자 및 노출된 사용자에 대해 MFA(Multi-Factor Authentication) 요구
 
@@ -164,8 +164,8 @@ Azure AD에서는 계정이 손상된 경우 당한 영향을 미칠 수 있는 
 
 설정되는 MFA는 다음과 같습니다.
 
-* 조직의 임원에 대한 계정과 같이 [많이 노출되는 계정에 대한 MFA](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) 
-* 연결된 다른 SaaS 앱에 대한 [개별 사용자와 연결된 모든 관리자 계정에 대한 MFA](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) 
+* 조직의 임원에 대한 계정과 같이 [많이 노출되는 계정에 대한 MFA](authentication/multi-factor-authentication-security-best-practices.md) 
+* 연결된 다른 SaaS 앱에 대한 [개별 사용자와 연결된 모든 관리자 계정에 대한 MFA](authentication/howto-mfa-userstates.md) 
 * Exchange Online 및 Office 포털에서 관리되는 역할의 관리자를 포함하여 Microsoft SaaS 앱의 모든 관리자에 대한 MFA
 
 비즈니스용 Windows Hello를 사용하는 경우 Windows Hello 로그인 환경을 사용하여 MFA 요구 사항을 충족할 수 있습니다. 자세한 내용은 [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport)를 참조하세요. 
@@ -282,11 +282,11 @@ Azure Active Directory 테넌트가 온-프레미스 Active Directory에 연결�
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>호스팅된 Virtual Machines 내에서 권한 있는 계정 인벤토리 구성
 
-대부분의 경우 사용자에게 모든 Azure 구독 또는 리소스에 대한 무제한 권한을 부여할 필요가 없습니다. Azure AD 관리자 역할을 사용하여 조직 내의 직무를 분리하고 특정 작업을 수행해야 하는 사용자에게 액세스 권한만 부여할 수 있습니다. 예를 들어 Azure AD 관리자 역할을 사용하여 한 관리자가 구독의 VM만 관리하고, 다른 관리자는 동일한 구독 내에서 SQL 데이터베이스를 관리할 수 있습니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](role-based-access-control-what-is.md)을 참조하세요.
+대부분의 경우 사용자에게 모든 Azure 구독 또는 리소스에 대한 무제한 권한을 부여할 필요가 없습니다. Azure AD 관리자 역할을 사용하여 조직 내의 직무를 분리하고 특정 작업을 수행해야 하는 사용자에게 액세스 권한만 부여할 수 있습니다. 예를 들어 Azure AD 관리자 역할을 사용하여 한 관리자가 구독의 VM만 관리하고, 다른 관리자는 동일한 구독 내에서 SQL 데이터베이스를 관리할 수 있습니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Azure AD 관리자 역할에 대한 PIM 구현
 
-Azure AD 관리자 역할이 있는 Privileged Identity Management를 사용하여 Azure 리소스에 대한 액세스를 관리, 제어 및 모니터링합니다. PIM을 사용하면 권한의 노출 시간을 줄이고 보고서 및 경고를 통해 사용에 대한 가시성을 높여 사이버 공격으로부터 권한 있는 계정을 보호합니다. 자세한 내용은 [Privileged Identity Management를 사용하여 Azure 리소스에 대한 RBAC 액세스 관리](pim-azure-resource.md)를 참조하세요.
+Azure AD 관리자 역할이 있는 Privileged Identity Management를 사용하여 Azure 리소스에 대한 액세스를 관리, 제어 및 모니터링합니다. PIM을 사용하면 권한의 노출 시간을 줄이고 보고서 및 경고를 통해 사용에 대한 가시성을 높여 사이버 공격으로부터 권한 있는 계정을 보호합니다. 자세한 내용은 [Privileged Identity Management를 사용하여 Azure 리소스에 대한 RBAC 액세스 관리](../role-based-access-control/pim-azure-resource.md)를 참조하세요.
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Azure 로그 통합을 사용하여 SIEM 시스템에 관련 Azure 로그 보내기 
 

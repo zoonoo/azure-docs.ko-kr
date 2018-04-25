@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher Next Hop을 사용하여 다음 홉 찾기 - Azure CLI 2.0 | Microsoft Docs"
-description: "이 문서에서는 Azure CLI에서 다음 홉을 사용하여 다음 홉 유형 및 IP 주소를 찾을 수 있는 방법을 설명합니다."
+title: Azure Network Watcher Next Hop을 사용하여 다음 홉 찾기 - Azure CLI 2.0 | Microsoft Docs
+description: 이 문서에서는 Azure CLI에서 다음 홉을 사용하여 다음 홉 유형 및 IP 주소를 찾을 수 있는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: georgewallace
 manager: jimdial
-editor: 
+editor: ''
 ms.assetid: 0700c274-3e0d-4dca-acfa-3ceac8990613
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 873bd0f8c98cfa67c77841df8aa53eb2b895cd54
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Azure CLI 2.0을 사용하는 Azure Network Watcher에서 Next Hop 기능을 사용하는 다음 홉이 무엇인지 확인합니다.
 

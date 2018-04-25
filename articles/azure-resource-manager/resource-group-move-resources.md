@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -192,6 +192,8 @@ ms.lasthandoff: 04/03/2018
 Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
 
 ## <a name="virtual-networks-limitations"></a>Virtual Networks 제한 사항
+
+가상 네트워크를 이동할 때는 해당 종속 리소스도 함께 이동해야 합니다. 예를 들어, 가상 네트워크와 함께 게이트웨이를 이동해야 합니다.
 
 피어링된 가상 네트워크를 이동하려면 먼저 가상 네트워크 피어링을 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 가상 네트워크를 이동할 수 있습니다. 이동 후에는 가상 네트워크 피어링을 사용하도록 다시 설정합니다.
 

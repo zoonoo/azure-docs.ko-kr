@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
 
@@ -61,12 +61,16 @@ Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지
 3. Application Insights\Basic Overage Data
 4. Application Insights\Included Data
 
-등이 **Shared Services\Data Ingestion**이라는 새로운 공통 데이터 수집 미터로 결합됩니다. 새 가격 책정 모델에는 노드 기반 포함 데이터 할당이 없기 때문입니다.
+이러한 미터 집합은 **Shared Services\Data Ingestion**이라는 새로운 공통 데이터 수집 미터로 결합됩니다. 새 가격 책정 모델에는 노드별 포함 데이터 자격이 없기 때문입니다.
 
 또 다른 변화는 요금이 더 비싼 지역의 Log Analytics 또는 Application Insights의 경우 새로운 지역 미터로 이를 제대로 반영하여 표시됩니다. 예를 들어 **“데이터 주입(미국 중서부)**”입니다.
 
 > [!NOTE]
-> OMS(Operations Management Suite) 구독이 있다면 구매한 각 노드에 대한 Log Analytics 및 Application Insights 데이터 수집 할당을 받습니다. (구독 수준이 아닌) 계정 수준에서 적용되므로 추정치가 이러한 할당의 결과를 나타내지 못합니다. 이 경우 새 가격 책정 모델에 대한 더 상세한 논의는 고객 담당자에게 문의하세요.
+> 구독당 예상 비용은 OMS(Operations Management Suite) 구독의 계정 수준 노드별 자격의 영향을 받지 않습니다. 이 경우 새 가격 책정 모델에 대한 더 상세한 논의는 고객 담당자에게 문의하세요.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>새 가격 책정 모델 및 Operations Management Suite 구독 자격
+
+Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) 및 [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans)에 대한 노드별 데이터 주입 자격이 있습니다. 지정된 구독에서 Log Analytics 작업 영역 또는 Application Insights 대해 이러한 자격을 얻으려면 해당 구독의 가격 책정 모델이 Log Analytics “노드별(OMS)” 가격 책정 계층 및 Application Insights "Enterprise" 가격 책정 계획이 사용 가능한 2018년 4월 이전의 가격 책정 모델을 유지해야 합니다. 조직에서 구매한 제품군의 노드 수에 따라, 일부 구독을 새 가격 책정 모델로 전환하는 것이 여전히 이로울 수 있지만 신중히 결정해야 합니다. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환할 경우의 변경 내용
 

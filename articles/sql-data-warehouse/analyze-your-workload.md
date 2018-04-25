@@ -2,24 +2,25 @@
 title: 워크로드 분석 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
 services: sql-data-warehouse
-author: sqlmojo
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/28/2018
-ms.author: joeyong
-ms.reviewer: jrj
-ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: c2f6e1092b9375a90eb1909696a196c9ab4b5dad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="analyze-your-workload"></a>워크로드 분석
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 워크로드 분석
 Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
 
 ## <a name="workload-groups"></a>워크로드 그룹 
-SQL Data Warehouse는 워크로드 그룹을 사용하여 리소스 클래스를 구현합니다. 다양한 DWU 크기의 리소스 클래스 동작을 제어하는 총 8개의 워크로드 그룹이 있습니다. DWU의 경우 SQL Data Warehouse는 8개의 워크로드 그룹 중 4개만 사용합니다. 각 워크로드 그룹은 4가지 리소스 클래스 smallrc, mediumrc, largerc 또는 xlargerc 중 하나에 할당되기 때문에 이렇게 하는 것이 합리적입니다. 이들 워크로드 그룹의 일부가 더 높은 *중요도*로 설정된다는 점 때문에 워크로드 그룹을 이해하는 것이 중요합니다. 중요도가 CPU 예약에 사용됩니다. 높은 중요도를 갖고 실행되는 쿼리는 중간 중요도의 쿼리보다 3배 더 많은 CPU 사이클을 받게 될 것입니다. 따라서 동시성 슬롯 매핑은 또한 CPU 우선 순위를 결정합니다. 쿼리가 16개 이상의 슬롯을 사용할 경우 중요도 높음으로 실행됩니다.
+SQL Data Warehouse는 워크로드 그룹을 사용하여 리소스 클래스를 구현합니다. 다양한 DWU 크기의 리소스 클래스 동작을 제어하는 총 8개의 워크로드 그룹이 있습니다. DWU의 경우 SQL Data Warehouse는 8개의 워크로드 그룹 중 4개만 사용합니다. 이 접근 방법은 각 워크로드 그룹은 4가지 리소스 클래스 smallrc, mediumrc, largerc 또는 xlargerc 중 하나에 할당되기 때문에 타당합니다. 이들 워크로드 그룹의 일부가 더 높은 *중요도*로 설정된다는 점 때문에 워크로드 그룹을 이해하는 것이 중요합니다. 중요도가 CPU 예약에 사용됩니다. 높은 중요도의 쿼리 실행은 중간 중요도의 쿼리 실행보다 3배 더 많은 CPU 사이클이 할당됩니다. 따라서 동시성 슬롯 매핑은 또한 CPU 우선 순위를 결정합니다. 쿼리가 16개 이상의 슬롯을 사용할 경우 중요도 높음으로 실행됩니다.
 
 다음 테이블에서는 각 워크로드 그룹에 대한 중요도 매핑을 보여 줍니다.
 
@@ -38,7 +39,7 @@ SQL Data Warehouse는 워크로드 그룹을 사용하여 리소스 클래스를
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | 높음               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-**동시성 슬롯의 할당 및 사용량** 차트에서는 DW500이 smallrc, mediumrc, largerc 및 xlargerc 각각에 대해 1, 4, 8 또는 16의 동시성 슬롯을 사용한다는 확인할 수 있습니다. 위의 차트에서 이러한 값을 확인하여 각 리소스 클래스에 대한 중요도를 알 수 있습니다.
+**동시성 슬롯의 할당 및 사용량** 차트는 DW500이 smallrc, mediumrc, largerc 및 xlargerc 각각에 대해 1, 4, 8 또는 16의 동시성 슬롯을 사용한다는 사실을 보여 줍니다. 각 리소스 클래스에 대한 중요도를 확인하기 위해 위 차트에서 해당 값을 확인할 수 있습니다.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500의 리소스 클래스와 중요도 관계
 | 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | MB/배포 | 중요도 |
@@ -57,7 +58,7 @@ SQL Data Warehouse는 워크로드 그룹을 사용하여 리소스 클래스를
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | 높음       |
 
 ## <a name="view-workload-groups"></a>워크로드 그룹 보기
-다음 DMV 쿼리는 리소스 관리자의 관점에서 메모리 리소스 할당의 차이점을 자세히 살펴보거나, 또는 문제를 해결할 때 워크로드 그룹의 활성 및 사용 기록을 분석하는 데도 사용할 수 있습니다.
+다음 쿼리는 리소스 관리자의 관점에서 메모리 리소스 할당의 세부 정보를 보여 줍니다. 따라서 문제 해결 시 작업 그룹의 현재 및 이전 사용을 분석하는 데 도움이 됩니다.
 
 ```sql
 WITH rg

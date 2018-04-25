@@ -1,30 +1,26 @@
 ---
-title: SQL Data Warehouse에 대해 트랜잭션 최적화 | Microsoft Docs
-description: Azure SQL Data Warehouse에서 효율적인 트랜잭션 업데이트를 작성하는 모범 사례 가이드
+title: Azure SQL Data Warehouse에 대해 트랜잭션 최적화 | Microsoft Docs
+description: 긴 롤백에 대한 위험을 최소화하면서 Azure SQL Data Warehouse의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: 607c169e3d9e8aa741084392439da383f46cfe0c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/19/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 59467c0cd93141cef56e1c9d2f36b0870a589712
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="optimizing-transactions-for-sql-data-warehouse"></a>SQL Data Warehouse에 대해 트랜잭션 최적화
-이 문서에서는 긴 롤백에 대한 위험을 최소화하면서 트랜잭션 코드의 성능을 최적화하는 방법을 설명합니다.
+# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 트랜잭션 최적화
+긴 롤백에 대한 위험을 최소화하면서 Azure SQL Data Warehouse의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 
 ## <a name="transactions-and-logging"></a>트랜잭션 및 로깅
-트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. SQL Data Warehouse는 데이터를 수정하는 동안 트랜잭션을 사용합니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 `INSERT`, `UPDATE` 및 `DELETE` 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 `BEGIN TRAN`, `COMMIT TRAN` 또는 `ROLLBACK TRAN`을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다. 
+트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. SQL Data Warehouse는 데이터를 수정하는 동안 트랜잭션을 사용합니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다. 
 
 Azure SQL Data Warehouse는 트랜잭션 로그를 사용하여 데이터베이스에 변경 내용을 커밋합니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나 이 프로세스는 쓰기를 보장하지만 시스템에 오버헤드가 발생합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
 
@@ -33,7 +29,7 @@ Azure SQL Data Warehouse는 트랜잭션 로그를 사용하여 데이터베이�
 * 지정된 파티션에 대규모 수정을 위한 파티션 전환 패턴 사용
 
 ## <a name="minimal-vs-full-logging"></a>최소 로깅 및 전체 로깅 비교
-트랜잭션 로그를 사용하여 모든 행 변경을 추적하는 전체 로깅 작업과는 달리, 최소 로깅 작업은 규모 할당 및 메타 데이터 변경 내용만 추적합니다. 따라서 최소 로깅은 장애 발생 후 또는 명시적 요청을 위해 트랜잭션을 롤백(`ROLLBACK TRAN`)하는 데 필요한 정보만 로깅합니다. 최소 로깅 작업은 트랜잭션 로그에서 추적하는 정보의 양이 훨씬 적기 때문에 비슷한 크기의 전체 로깅 작업보다 성능이 우수합니다. 뿐만 아니라 트랜잭션 로그에 전달되는 쓰기 작업이 적기 때문에 훨씬 적은 양의 로그 데이터가 생성되고 따라서 I/O가 훨씬 효율적입니다.
+트랜잭션 로그를 사용하여 모든 행 변경을 추적하는 전체 로깅 작업과는 달리, 최소 로깅 작업은 규모 할당 및 메타 데이터 변경 내용만 추적합니다. 따라서 최소 로깅은 장애 발생 후 또는 명시적 요청을 위해 트랜잭션을 롤백(ROLLBACK TRAN)하는 데 필요한 정보만 로깅합니다. 최소 로깅 작업은 트랜잭션 로그에서 추적하는 정보의 양이 훨씬 적기 때문에 비슷한 크기의 전체 로깅 작업보다 성능이 우수합니다. 뿐만 아니라 트랜잭션 로그에 전달되는 쓰기 작업이 적기 때문에 훨씬 적은 양의 로그 데이터가 생성되고 따라서 I/O가 훨씬 효율적입니다.
 
 트랜잭션 안전성 제한은 전체 로깅 작업에만 적용됩니다.
 
@@ -45,7 +41,7 @@ Azure SQL Data Warehouse는 트랜잭션 로그를 사용하여 데이터베이�
 ## <a name="minimally-logged-operations"></a>최소 로깅 작업
 다음은 최소한으로 로깅 가능한 작업입니다.
 
-* [CTAS][CTAS](CREATE TABLE AS SELECT)
+* [CTAS](sql-data-warehouse-develop-ctas.md)(CREATE TABLE AS SELECT)
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -61,12 +57,12 @@ Azure SQL Data Warehouse는 트랜잭션 로그를 사용하여 데이터베이�
 -->
 
 > [!NOTE]
-> 내부 데이터 이동 작업(예: `BROADCAST` 및 `SHUFFLE`)은 트랜잭션 안전성 제한의 영향을 받지 않습니다.
+> 내부 데이터 이동 작업(예: BROADCAST 및 SHUFFLE)은 트랜잭션 안전성 제한의 영향을 받지 않습니다.
 > 
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>대량 로드를 사용하여 최소 로깅
-`CTAS` 및 `INSERT...SELECT`는 대량 로드 작업입니다. 그러나 둘 다 대상 테이블 정의의 영향을 받으며 부하 시나리오에 따라 달라집니다. 다음 표에서는 대량 작업이 완전히 기록되거나 최소로 기록되는 시기를 설명합니다.  
+CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘 다 대상 테이블 정의의 영향을 받으며 부하 시나리오에 따라 달라집니다. 다음 표에서는 대량 작업이 완전히 기록되거나 최소로 기록되는 시기를 설명합니다.  
 
 | 기본 인덱스 | 부하 시나리오 | 로깅 모드 |
 | --- | --- | --- |
@@ -87,7 +83,7 @@ Azure SQL Data Warehouse는 트랜잭션 로그를 사용하여 데이터베이�
 클러스터형 인덱스가 포함된 비어 있지 않은 테이블로 데이터를 로드하면 전체 로깅 행과 최소 로깅 행이 모두 포함되는 경우가 종종 있습니다. 클러스터형 인덱스는 균형 잡힌 페이지 트리(b-트리)입니다. 쓰여지고 있는 페이지가 이미 다른 트랜잭션의 행을 포함하고 있으면 쓰기 작업이 전체 로깅됩니다. 그러나 페이지가 비어 있으면 해당 페이지에 대한 쓰기 작업이 최소한으로 로깅됩니다.
 
 ## <a name="optimizing-deletes"></a>삭제 최적화
-`DELETE` 는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS][CTAS]를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME][RENAME]을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
+DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -118,9 +114,9 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>업데이트 최적화
-`UPDATE` 는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS][CTAS] 처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
+UPDATE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
 
-아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 `CTAS` 로 변환되었습니다.
+아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 CTAS로 변환되었습니다.
 
 이 예에서는 테이블의 판매 금액에 할인 금액을 소급하여 추가하고 있습니다.
 
@@ -184,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>파티션 전환을 사용하여 최적화
-[테이블 파티션][table partition] 내부에서 대규모 수정 작업에 직면하는 경우 파티션 전환 패턴을 사용하는 것이 효율적입니다. 데이터 수정 작업이 대규모이고 여러 파티션에 걸쳐 있는 경우 파티션을 반복해도 동일한 결과를 얻습니다.
+[테이블 파티션](sql-data-warehouse-tables-partition.md) 내부에서 대규모 수정 작업에 직면하는 경우 파티션 전환 패턴을 사용하는 것이 효율적입니다. 데이터 수정 작업이 대규모이고 여러 파티션에 걸쳐 있는 경우 파티션을 반복해도 동일한 결과를 얻습니다.
 
 파티션 전환을 수행하는 단계는 다음과 같습니다.
 
@@ -416,23 +412,9 @@ Azure SQL Data Warehouse를 사용하여 필요에 따라 데이터 웨어하우
 
 가장 좋은 시나리오는 진행 중인 데이터 수정 트랜잭션이 완료된 후 SQL Data Warehouse를 일시 중지하거나 규모를 조정하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
 
-* [CTAS][CTAS]를 사용하여 실행 시간이 긴 작업을 다시 작성
+* [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)를 사용하여 실행 시간이 긴 작업을 다시 작성
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Data Warehouse의 트랜잭션][Transactions in SQL Data Warehouse]을 참조하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.
-
-<!--Image references-->
-
-<!--Article references-->
-[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[table partition]: ./sql-data-warehouse-tables-partition.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-
-<!-- Other web references -->
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Data Warehouse의 트랜잭션](sql-data-warehouse-develop-transactions.md)을 참조하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
 

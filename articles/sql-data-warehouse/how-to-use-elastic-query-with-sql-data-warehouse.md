@@ -1,31 +1,26 @@
 ---
-title: "Azure SQL Data Warehouse의 탄력적 쿼리 개념 | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 탄력적 쿼리 개념 "
+title: 탄력적 쿼리 - Azure SQL Database에서 Azure SQL Data Warehouse의 데이터 액세스 | Microsoft Docs
+description: 탄력적 쿼리를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례에 대해 알아봅니다.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: elbutter
-ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.reviewer: jrj
+ms.openlocfilehash: 909271792b73b5fdc517847db7cfd6c8cf2092bc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>SQL Data Warehouse에서의 탄력적 쿼리 사용 방법
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Azure SQL Database에서 탄력적 쿼리를 사용하여 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례
+탄력적 쿼리를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례에 대해 알아봅니다. 
 
-
-
-Azure SQL Data Warehouse에서 탄력적 쿼리를 사용하면 외부 테이블을 통해 Azure SQL Data Warehouse 인스턴스로 원격 전송되는 SQL Database의 Transact-SQL을 작성할 수 있습니다. 시나리오에 따라 이 기능을 사용하여 비용을 절감하고 더 성능 높은 아키텍처를 구현할 수 있습니다.
+## <a name="what-is-an-elastic-query"></a>탄력적 쿼리란?
+탄력적 쿼리를 사용하면 T-SQL 및 외부 테이블을 사용하여 Azure SQL Data Warehouse에 원격으로 전송되는 쿼리를 Azure SQL Database에서 작성할 수 있습니다. 시나리오에 따라 이 기능을 사용하여 비용을 절감하고 더 성능 높은 아키텍처를 구현할 수 있습니다.
 
 이 기능을 통해 두 가지 기본 시나리오가 가능합니다.
 
@@ -46,10 +41,7 @@ Azure SQL Data Warehouse에서 탄력적 쿼리를 사용하면 외부 테이블
 
 탄력적 쿼리는 SQL 데이터 웨어하우스 인스턴스에서의 원격 쿼리 실행을 제공합니다. 두 데이터베이스 간에 핫 데이터와 콜드 데이터를 구분하여 SQL Database와 SQL Data Warehouse를 모두 최대로 활용할 수 있습니다. 사용자는 SQL Database 안에 더 최신인 데이터를 유지하여 보고서와 대규모 평균 비즈니스 사용자를 서비스할 수 있습니다. 그러나 더 많은 데이터나 계산이 필요할 경우, 대규모 집계를 더 신속하고 효율적으로 처리하는 SQL 데이터 웨어하우스 인스턴스로 쿼리의 일부를 옮길 수 있습니다.
 
-
-
-## <a name="elastic-query-overview"></a>탄력적 쿼리 개요
-
+## <a name="elastic-query-process"></a>탄력적 쿼리 프로세스
 탄력적 쿼리를 사용하여 한 SQL 데이터 웨어하우스에 있는 데이터를 다른 SQL 데이터베이스 인스턴스에 제공할 수 있습니다. 탄력적 쿼리를 사용하여 SQL Database의 쿼리가 원격 SQL Data Warehouse 인스턴스의 테이블을 참조하게 할 수 있습니다. 
 
 첫 단계는 SQL 데이터 웨어하우스 안에서 기존 사용자 자격 증명을 사용하는 SQL 데이터 웨어하우스 인스턴스를 참조하는 외부 데이터 원본을 만드는 것입니다. 원격 SQL 데이터 웨어하우스 인스턴스에서는 변경이 필요하지 않습니다. 
@@ -58,13 +50,12 @@ Azure SQL Data Warehouse에서 탄력적 쿼리를 사용하면 외부 테이블
 > 
 > 사용자는 모든 외부 데이터 원본 ALTER 권한이 있어야 합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다. 원격 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
 
-다음으로 SQL Data Warehouse의 원격 테이블을 가리키는 SQL Database 인스턴스의 원격 외부 테이블 정의를 만듭니다. 외부 테이블을 사용하는 쿼리를 사용할 때는 외부 테이블을 참조하는 쿼리 부분이 처리를 위해 SQL 데이터 웨어하우스 인스턴스로 보내집니다. 쿼리가 완료되면 결과 집합이 다시 호출하는 SQL Database 인스턴스로 보내집니다. SQL Database와 SQL Data Warehouse 간의 탄력적 쿼리를 설정하는 간략한 자습서는 [SQL Data Warehouse에서 탄력적 쿼리 구성][Configure Elastic Query with SQL Data Warehouse]을 참조하세요.
+다음으로 SQL Data Warehouse의 원격 테이블을 가리키는 SQL Database 인스턴스의 원격 외부 테이블 정의를 만듭니다. 쿼리에서 외부 테이블을 사용할 때는 외부 테이블을 참조하는 쿼리 부분이 처리를 위해 SQL 데이터 웨어하우스 인스턴스로 보내집니다. 쿼리가 완료되면 결과 집합이 다시 호출하는 SQL Database 인스턴스로 보내집니다. SQL Database와 SQL Data Warehouse 간의 탄력적 쿼리를 설정하는 간략한 자습서는 [SQL Data Warehouse에서 탄력적 쿼리 구성][Configure Elastic Query with SQL Data Warehouse]을 참조하세요.
 
 SQL Database에서의 탄력적 쿼리에 자세한 내용은 [Azure SQL Databased 탄력적 쿼리 개요][Azure SQL Database elastic query overview]를 참조하세요.
 
-
-
 ## <a name="best-practices"></a>모범 사례
+다음 모범 사례를 사용하여 탄력적 쿼리를 효과적으로 사용하세요.
 
 ### <a name="general"></a>일반
 
@@ -80,7 +71,7 @@ SQL Database에서의 탄력적 쿼리에 자세한 내용은 [Azure SQL Databas
 
 - 대부분의 경우 성능 향상을 테이블의 일부를 SQL Database 내에 캐시된 데이터로 저장하고 나머지 데이터는 SQL Data Warehouse에 저장하는 확대 테이블 형식을 관리할 수 있습니다. 이 경우 SQL Database에는 두 개의 개체 즉, SQL Data Warehouse의 기본 테이블을 참조하는 SQL Database 내에 있는 외부 테이블과 SQL Database 내에 있는 테이블의 “캐시된” 부분이 있어야 합니다. 테이블의 캐시된 부분과 외부 테이블 위에 뷰를 만들어 두 테이블을 통합하고 SQL Database 내에 구체화된 데이터와 외부 테이블을 통해 노출된 SQL Data Warehouse 데이터를 구분하는 필터를 적용하는 것이 좋습니다.
 
-  SQL Database 인스턴스에 가장 최근 연도의 데이터를 유지하려 한다고 가정합니다. 데이터 웨어하우스 주문 테이블을 참조하는 **ext.Orders**와 SQL Database 인스턴스 안의 데이터에 해당하는 최근 연도를 나타내는 **dbo.Orders** 등의 두 테이블이 있습니다. 사용자가 어떤 테이블을 쿼리할지 결정하게 하는 대신 가장 최근 연도의 파티션 지점에 두 쿼리의 맨 위에 대한 보기를 만듭니다.
+  SQL Database 인스턴스에 가장 최근 연도의 데이터를 유지하려 한다고 가정합니다. **ext.Orders** 테이블은 데이터 웨어하우스 주문 테이블을 참조합니다. **dbo.Orders**는 SQL Ddatabase 인스턴스 내의 최근 수년 간 데이터를 나타냅니다. 사용자가 어떤 테이블을 쿼리할지 결정하게 하는 대신 가장 최근 연도의 파티션 지점에 두 쿼리의 맨 위에 대한 보기를 만듭니다.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -115,23 +106,21 @@ SQL Database에서의 탄력적 쿼리에 자세한 내용은 [Azure SQL Databas
 ### <a name="moving-data"></a>데이터 이동 
 
 - 가능한 경우 데이터 웨어하우스와 데이터베이스 인스턴스 사이에 업데이트를 간편하게 유지할 수 있게 추가 전용 원본 테이블을 통해 데이터 관리를 더 간편하게 유지합니다.
-- 플러스 및 채우기 의미 체계가 있는 파티션 수준에서 데이터를 이동하여 데이터 웨어하우스 수준의 쿼리 비용과 이동하는 데이터 크기를 최소화하여 데이터베이스 인스턴스를 최신으로 유지합니다.  
+- 플러시 및 채우기 의미 체계가 있는 파티션 수준에서 데이터를 이동하여 데이터 웨어하우스 수준의 쿼리 비용과 이동하는 데이터 크기를 최소화하여 데이터베이스 인스턴스를 최신으로 유지합니다. 
 
 ### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>Azure Analysis Services 또는 SQL Database를 선택하는 경우
 
-#### <a name="azure-analysis-services"></a>Azure Analysis Services
+다음 경우에 Azure Analysis Services를 사용합니다.
 
 - 많은 소규모 쿼리를 제출하는 BI 도구에서 캐시를 사용하려는 경우
 - 1초 미만의 쿼리 대기 시간이 필요한 경우
 - Analysis Services에 대한 모델 관리/개발 경험이 있는 경우 
 
-#### <a name="sql-database"></a>SQL Database
+다음 경우에 Azure SQL Database를 사용합니다.
 
 - SQL에서 캐시 데이터를 쿼리하려는 경우
 - 특정 쿼리에 대해 원격 실행이 필요한 경우
 - 캐시 요구 사항이 더 큰 경우
-
-
 
 ## <a name="faq"></a>FAQ
 
@@ -161,19 +150,11 @@ A: SQL 데이터 웨어하우스에 공간 형식을 varbinary(max) 값으로 �
 
 ![공간 형식](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
-
-
-
-
-<!--Image references-->
-
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
-<!--MSDN references-->
 
-<!--Other Web references-->

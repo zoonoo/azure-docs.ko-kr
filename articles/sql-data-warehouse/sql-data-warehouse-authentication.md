@@ -1,35 +1,23 @@
 ---
-title: "Azure SQL Data Warehouse에 대한 인증 | Microsoft Docs"
-description: "Azure SQL Data Warehouse에 대한 AAD(Azure Active Directory) 및 SQL Server 인증"
+title: Azure SQL Data Warehouse에 대한 인증 | Microsoft Docs
+description: AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
 services: sql-data-warehouse
-documentationcenter: 
-author: ronortloff
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 173bc797cb6436decddb68aaf1599ea7a6dd597e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 인증
-> [!div class="op_single_selector"]
-> * [보안 개요](sql-data-warehouse-overview-manage-security.md)
-> * [인증](sql-data-warehouse-authentication.md)
-> * [암호화(포털)](sql-data-warehouse-encryption-tde.md)
-> * [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 인증
+AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
 
 SQL Data Warehouse에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.  
 

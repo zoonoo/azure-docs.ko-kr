@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/12/2018
 ms.author: dukek
-ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -26,10 +26,10 @@ ms.lasthandoff: 03/23/2018
 
 작업 그룹을 사용하여 작업 목록을 구성할 수 있습니다. 이러한 그룹은 사용자가 정의한 각 경고에서 다시 사용할 수 있습니다. 이를 통해 경고가 트리거될 때마다 동일한 작업이 수행되도록 합니다.
 
-하나의 작업 그룹에는 각 작업 유형이 최대 10개 포함될 수 있습니다. 각 작업은 다음과 같은 속성으로 구성됩니다.
+각 작업은 다음과 같은 속성으로 구성됩니다.
 
 * **이름**: 작업 그룹 내의 고유 식별자입니다.  
-* **동작 유형**: 음성 통화 또는 SMS 보내기, 이메일 보내기, 웹후크 호출, ITSM 도구에 데이터 보내기, Azure 앱 호출 또는 Automation Runbook 실행.
+* **동작 유형**: 음성 통화 또는 SMS 보내기, 이메일 보내기, 웹후크 호출, ITSM 도구에 데이터 보내기, 논리 앱 호출, Azure 앱에 푸시 알림 보내기 또는 Automation Runbook 실행.
 * **세부 정보**: 해당 전화 번호, 이메일 주소, 웹후크 URI 또는 ITSM 연결 세부 정보입니다.
 
 Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](monitoring-create-action-group-with-resource-manager-template.md)을 참조하세요.
@@ -56,14 +56,45 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     a. **이름**: 이 작업에 대한 고유 식별자를 입력합니다.
 
-    나. **작업 유형**: 이메일/SMS/푸시/음성, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
+    나. **작업 유형**: 이메일/SMS/푸시/음성, 논리 앱, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
 
     다. **세부 정보**: 작업 유형에 따라 전화 번호, 이메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
 
-   > [!NOTE]
-   > ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../log-analytics/log-analytics-itsmc-overview.md)을 만드는 방법에 대해 알아봅니다. 
-
 8. **확인**을 선택하여 작업 그룹을 만듭니다.
+
+## <a name="action-specific-information"></a>작업별 정보
+<dl>
+<dt>Azure 앱 푸시</dt>
+<dd>하나의 작업 그룹에 최대 10개의 Azure 앱 작업이 포함될 수 있습니다.</dd>
+<dd>현재, Azure 앱 작업은 ServiceHealth 알림만 지원합니다. 다른 경고 시간은 무시됩니다. [서비스 상태 알림이 게시될 때마다 경고 구성](monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요.</dd>
+
+<dt>전자 메일</dt>
+<dd>하나의 작업 그룹에 최대 50개의 전자 메일 작업이 포함될 수 있습니다.</dd>
+<dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
+
+<dt>ITSM</dt>
+<dd>하나의 작업 그룹에 최대 10개의 ITSM 작업이 포함될 수 있습니다.</dd>
+<dd>ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../log-analytics/log-analytics-itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.</dd>
+
+<dt>논리 앱</dt>
+<dd>하나의 작업 그룹에 최대 10개의 논리 앱 작업이 포함될 수 있습니다.</dd>
+
+<dt>Runbook</dt>
+<dd>하나의 작업 그룹에 최대 10개의 Runbook 작업이 포함될 수 있습니다.</dd>
+
+<dt>SMS</dt>
+<dd>하나의 작업 그룹에 최대 10개의 SMS 작업이 포함될 수 있습니다.</dd>
+<dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
+<dd>[SMS 경고 동작](monitoring-sms-alert-behavior.md) 문서를 참조하세요.</dd>
+
+<dt>음성</dt>
+<dd>하나의 작업 그룹에 최대 10개의 음성 작업이 포함될 수 있습니다.</dd>
+<dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
+
+<dt>웹후크</dt>
+<dd>하나의 작업 그룹에 최대 10개의 웹후크 작업이 포함될 수 있습니다.
+<dd>다시 시도 논리 - webhook 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되면 최대 3번 다시 시도됩니다.</dd>
+</dl>
 
 ## <a name="manage-your-action-groups"></a>작업 그룹 관리 ##
 작업 그룹을 만들면 **모니터** 블레이드의 **작업 그룹** 섹션에 표시됩니다. 관리하려는 작업 그룹을 선택합니다.

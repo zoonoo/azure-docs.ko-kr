@@ -1,27 +1,23 @@
 ---
 title: Azure SQL Data Warehouse에 대한 모범 사례 | Microsoft Docs
-description: Azure SQL Data Warehouse에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다. 이 내용은 성공적인 개발에 도움이 됩니다.
+description: Azure SQL Data Warehouse에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/18/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: c39adbfbb85173f7ac3fa129e7551efab6ddefd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 모범 사례
-이 문서는 Azure SQL Data Warehouse에서 최적의 성능을 달성할 수 있는 여러 가지 모범 사례에 대한 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
+이 문서는 Azure SQL Data Warehouse에서 최적의 성능을 달성할 수 있는 모범 사례 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
 
 Azure SQL Data Warehouse를 이제 시작하는 사용자라면 이 문서가 어려울 수 있습니다.  항목은 주로 중요한 순서로 배치되어 있습니다.  먼저 처음에 나오는 개념부터 살펴보는 것이 좋습니다.  SQL 데이터 웨어하우스 사용에 익숙해지면 돌아와서 더 많은 개념을 살펴봅니다.  금방 모든 항목을 이해할 수 있습니다.
 
@@ -77,7 +73,7 @@ SQL Data Warehouse에서 일시적으로 데이터를 방문하는 경우 힙 �
 또한 [임시 테이블][Temporary tables], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]도 참조하세요.
 
 ## <a name="optimize-clustered-columnstore-tables"></a>클러스터형 Columnstore 테이블 최적화
-columnstore 클러스터형 인덱스는 Azure SQL Data Warehouse에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 SQL Data Warehouse의 테이블은 클러스터형 ColumnStore로 만들어집니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  클러스터형 columnstore 테이블에 대해 세그먼트 품질을 감지하고 개선하는 단계별 지침은 [테이블 인덱스][Table indexes] 문서의 [Columnstore 인덱스 품질 저하 원인][Causes of poor columnstore index quality] 섹션을 참조하세요.  고품질 columnstore 세그먼트가 중요하기 때문에 데이터를 로드하기 위해서는 중간 규모 또는 대규모 리소스 클래스에 속하는 사용자 ID를 사용하는 것이 좋습니다. 낮은 [서비스 수준](performance-tiers.md#service-levels)을 사용하면 로드하는 사용자에게 더 큰 리소스 클래스를 할당하려는 것입니다.
+columnstore 클러스터형 인덱스는 Azure SQL Data Warehouse에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 SQL Data Warehouse의 테이블은 클러스터형 ColumnStore로 만들어집니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  클러스터형 columnstore 테이블에 대해 세그먼트 품질을 감지하고 개선하는 단계별 지침은 [테이블 인덱스][Table indexes] 문서의 [Columnstore 인덱스 품질 저하 원인][Causes of poor columnstore index quality] 섹션을 참조하세요.  고품질 columnstore 세그먼트가 중요하기 때문에 데이터를 로드하기 위해서는 중간 규모 또는 대규모 리소스 클래스에 속하는 사용자 ID를 사용하는 것이 좋습니다. 낮은 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)를 사용하면 로드하는 사용자에게 더 큰 리소스 클래스를 할당하려는 것입니다.
 
 columnstore 테이블은 일반적으로 테이블당 100개 이상의 행이 있고 각 SQL Data Warehouse 테이블이 60개 테이블로 파티션될 때까지 데이터를 압축된 columnstore 세그먼트에 푸시하지 않으므로 경험에 따르면 테이블에서 행 수가 6천만 개를 초과하지 않는다면 columnstore 테이블은 쿼리에 이점을 제공하지 않습니다.  6천만 개 미만의 행이 있는 테이블의 경우 columnstore 인덱스를 포함하는 것이 적절하지 않을 수 있습니다.  오히려 상황을 악화시킬 수 있습니다.  또한 데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 각 파티션에는 100개의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore에서 이점을 얻으려면 60억 개 이상의 행을 포함해야 합니다(60개 배포 * 100개 파티션 * 1백만 행).  이 예에서 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.  또한 실험을 통해 columnstore 테이블 대신 보조 인덱스가 있는 힙 테이블로 더 나은 성능을 얻을 수 있는지도 확인할 수 있습니다.
 
@@ -103,7 +99,7 @@ SQL Data Warehouse에는 쿼리 실행을 모니터링하는 데 사용할 수 �
 ## <a name="other-resources"></a>기타 리소스
 또한 일반적인 문제 및 해결 방법에 대해서는 [문제 해결][Troubleshooting] 문서를 참조하세요.
 
-이 문서에서 원하는 내용을 찾지 못하면 이 페이지의 왼쪽의 "문서 검색"을 사용하여 모든 Azure SQL Data Warehouse 문서를 검색해보세요.  [Azure SQL Data Warehouse MSDN 포럼][Azure SQL Data Warehouse MSDN Forum]은 다른 사용자 및 SQL Data Warehouse 제품 그룹에 질문할 수 있는 장소로 마련되었습니다.  Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  Stack Overflow에 질문하는 것을 선호하는 경우 [Azure SQL Data Warehouse Stack Overflow 포럼][Azure SQL Data Warehouse Stack Overflow Forum]도 제공합니다.
+이 문서에서 원하는 내용을 찾지 못하면 이 페이지의 왼쪽의 "문서 검색"을 사용하여 모든 Azure SQL Data Warehouse 문서를 검색해보세요.  [Azure SQL Data Warehouse 포럼][Azure SQL Data Warehouse MSDN Forum]은 다른 사용자 및 SQL Data Warehouse 제품 그룹에 질문할 수 있는 장소입니다.  Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  Stack Overflow에 질문하는 것을 선호하는 경우 [Azure SQL Data Warehouse Stack Overflow 포럼][Azure SQL Data Warehouse Stack Overflow Forum]도 제공합니다.
 
 마지막으로 [Azure SQL Data Warehouse 피드백][Azure SQL Data Warehouse Feedback] 페이지를 사용하여 기능을 요청합니다.  요청을 추가하거나 다른 요청에 투표를 하면 기능의 순위를 지정하는 데 도움이 됩니다.
 
@@ -124,9 +120,9 @@ SQL Data Warehouse에는 쿼리 실행을 모니터링하는 데 사용할 수 �
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
+[Load data with bcp]: /sql/tools/bcp-utility
+[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk

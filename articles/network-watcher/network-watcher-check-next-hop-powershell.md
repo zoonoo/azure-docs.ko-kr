@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher Next Hop을 사용하여 다음 홉 찾기 - PowerShell | Microsoft Docs"
-description: "이 문서에서는 PowerShell에서 Next Hop을 사용하여 다음 홉 유형 및 IP 주소를 찾을 수 있는 방법을 설명합니다."
+title: Azure Network Watcher Next Hop을 사용하여 다음 홉 찾기 - PowerShell | Microsoft Docs
+description: 이 문서에서는 PowerShell에서 Next Hop을 사용하여 다음 홉 유형 및 IP 주소를 찾을 수 있는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6a656c55-17bd-40f1-905d-90659087639c
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>PowerShell을 사용하는 Azure Network Watcher에서 Next Hop 기능을 사용하는 다음 홉이 무엇인지 확인합니다.
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [Azure REST API](network-watcher-check-next-hop-rest.md)
 
-Next Hop은 Network Watcher의 기능으로 지정된 가상 컴퓨터를 기반으로 하는 다음 홉 유형 및 IP 주소를 가져올 수 있습니다. 이 기능은 가상 컴퓨터에서 나가는 트래픽이 게이트웨이, 인터넷 또는 가상 네트워크를 트래버스하여 대상에 도달할지 여부를 결정하는 데 유용합니다.
+Next Hop은 Network Watcher의 기능으로 지정된 가상 컴퓨터를 기반으로 하는 다음 홉 유형 및 IP 주소를 가져올 수 있습니다. 이 기능은 가상 머신에서 나가는 트래픽이 게이트웨이, 인터넷 또는 가상 네트워크를 트래버스하여 대상에 도달할지 여부를 결정하는 데 유용합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

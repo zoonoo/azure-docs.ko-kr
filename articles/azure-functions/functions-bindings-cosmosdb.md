@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 47629350967026f6901441ff20d182cd7fd5be3a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure Functions의 Azure Cosmos DB 바인딩
 
@@ -38,7 +38,7 @@ Functions 1.x 버전용 Cosmos DB 바인딩은 [Microsoft.Azure.WebJobs.Extensio
 
 ## <a name="trigger"></a>트리거
 
-Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change-feed.md)를 사용하여 파티션의 변경 내용을 수신 대기합니다. 변경 피드는 삽입과 업데이트를 게시하지만 삭제는 게시하지 않습니다. 
+Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change-feed.md)를 사용하여 파티션의 변경 내용을 수신 대기합니다. 변경 피드는 삽입과 업데이트를 게시하지만 삭제는 게시하지 않습니다. 모니터링되는 컬렉션에 대해 수행된 모든 삽입 또는 업데이트에 대해 트리거가 호출됩니다. 
 
 ## <a name="trigger---example"></a>트리거 - 예제
 

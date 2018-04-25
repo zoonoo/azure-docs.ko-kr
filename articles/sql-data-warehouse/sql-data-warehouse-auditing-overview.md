@@ -1,28 +1,26 @@
 ---
-title: "Azure SQL Data Warehouse 감사 | Microsoft Docs"
-description: "Azure SQL Data Warehouse 감사 시작"
+title: Azure SQL Data Warehouse 감사 | Microsoft Docs
+description: 감사 및 Azure SQL Data Warehouse에서 감사를 설정하는 방법에 대해 알아봅니다.
 services: sql-data-warehouse
-documentationcenter: 
-author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 6e0072602586b5a1b873a3a6a0ff71a9d640ff29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
+감사 및 Azure SQL Data Warehouse에서 감사를 설정하는 방법에 대해 알아봅니다.
+
+## <a name="what-is-auditing"></a>감사란?
 SQL Data Warehouse 감사를 사용하면 Azure Storage 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. 또한 보고 및 분석을 위해 SQL Data Warehouse 감사 기능을 Microsoft Power BI와 통합합니다.
 
 감사 도구를 사용하면 규정 준수 표준을 보다 쉽게 준수할 수 있지만 규정을 완전히 준수한다고 보장할 수는 없습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure 보안 센터</a>를 참조하세요.
