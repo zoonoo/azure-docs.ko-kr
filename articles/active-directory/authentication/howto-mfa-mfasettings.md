@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 7efcdd89de56cb80781dc06ebe5f590573f23b5a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f587800d3b1d205107b6c8091ca424b01b9e67e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -147,7 +147,7 @@ _캐싱_ 기능을 사용하여 사용자가 인증된 후 인증 시도를 할 
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
 
-Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리되는 또는 페더레이션된 테넌트의 관리자가 사용합니다. 이 기능은 회사 인트라넷에서 로그인하는 사용자에 대해 2단계 인증을 바이패스합니다. 이 기능은 관리자용 무료 버전이 아닌 Azure Multi-Factor Authentication의 정식 버전에서 사용할 수 있습니다. Azure Multi-Factor Authentication의 정식 버전을 가져오는 방법에 대한 자세한 내용은 [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication.md)을 참조하세요.
+Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리되는 또는 페더레이션된 테넌트의 관리자가 사용합니다. 이 기능은 회사 인트라넷에서 로그인하는 사용자에 대해 2단계 인증을 바이패스합니다. 이 기능은 관리자용 무료 버전이 아닌 Azure Multi-Factor Authentication의 정식 버전에서 사용할 수 있습니다. Azure Multi-Factor Authentication의 정식 버전을 가져오는 방법에 대한 자세한 내용은 [Azure Multi-Factor Authentication](multi-factor-authentication.md)을 참조하세요.
 
 조직에서 온-프레미스 응용 프로그램 참고에 MFA를 제공하도록 NPS 확장을 배포하면 원본 IP 주소는 인증 시도가 통과하는 NPS 서버를 항상 나타냅니다.
 
@@ -302,7 +302,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 사용자가 신뢰할 수 있는 장치 및 브라우저용 _Multi-Factor Authentication 저장_ 기능은 모든 Multi-Factor Authentication 사용자에 대한 무료 기능입니다. 사용자는 Multi-Factor Authentication을 사용하여 장치에 성공적으로 로그인한 후 지정된 일 수 동안 이후 인증을 바이패스할 수 있습니다. 이 기능은 사용자가 동일한 장치에서 2단계 인증을 수행해야 하는 횟수를 최소화함으로써 유용성을 향상시킵니다.
 
 >[!IMPORTANT]
->계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 장치를 분실 또는 도난당한 경우 [모든 장치에서 Multi-Factor Authentication을 복원](../../multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다.
+>계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 장치를 분실 또는 도난당한 경우 [모든 장치에서 Multi-Factor Authentication을 복원](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다.
 >
 >복원 작업은 모든 장치에서 신뢰할 수 있는 상태를 해지하며, 사용자는 2단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
 >

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 5f410b6c0c1f24a9f9d453c833074cbd515f46b2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2e0d7f7f8b63a199f921c28072bcd861711addfc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스
 
@@ -102,7 +102,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 MSI�
 4. PowerShell의 `Invoke-WebRequest`를 사용하여 로컬 MSI 끝점에 대한 요청을 수행해 Azure Data Lake Store용 액세스 토큰을 가져옵니다.  Data Lake Store의 리소스 식별자는 "https://datalake.azure.net/"입니다.  Data Lake가 리소스 식별자와 정확히 일치하고 후행 슬래시가 중요합니다.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -Method GET -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
    JSON 개체에서 PowerShell 개체로 응답을 변환합니다. 

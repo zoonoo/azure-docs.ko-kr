@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a4bf44dc444c144991e3a96efc130ec97b90ec9f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c65e2dc3d1b7a754bda54bb9127bbc777b514768
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
 
@@ -108,25 +108,25 @@ PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다�
     PowerShell 요청은 다음과 같습니다.
     
     ```powershell
-    PS C:\> $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net -Method GET -Headers @{Metadata="true"} 
+    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -Method GET -Headers @{Metadata="true"} 
     ```
     
     다음으로 $response 개체에서 JSON(JavaScript Object Notation) 형식의 문자열로 저장된 전체 응답을 추출합니다.  
     
     ```powershell
-    PS C:\> $content = $response.Content | ConvertFrom-Json 
+    $content = $response.Content | ConvertFrom-Json 
     ```
     
     다음으로는 응답에서 액세스 토큰을 추출합니다.  
     
     ```powershell
-    PS C:\> $KeyVaultToken = $content.access_token 
+    $KeyVaultToken = $content.access_token 
     ```
     
     마지막으로 PowerShell의 Invoke-WebRequest 명령을 사용하여 앞에서 Key Vault에 만든 비밀을 검색하고 인증 헤더에서 액세스 토큰을 전달합니다.  Key Vault **개요** 페이지의 **기본 정보** 섹션에 있는 Key Vault의 URL이 필요합니다.  
     
     ```powershell
-    PS C:\> (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
+    (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
     ```
     
     응답은 다음과 같습니다. 

@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 
 Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능을 자연스럽게 롤아웃하기 위해 대부분의 고객이 다음 단계를 완료해야 합니다.
 
-1. [디렉터리에서 암호 재설정을 사용하도록 설정합니다](../active-directory-passwords-getting-started.md).
-2. [비밀번호 쓰기 저장에 대한 온-프레미스 Active Directory 권한을 구성합니다](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [비밀번호 쓰기 저장을 구성](../active-directory-passwords-writeback.md#configure-password-writeback)하여 Azure AD에서 온-프레미스 디렉터리로 비밀번호 다시 쓰기
+1. [디렉터리에서 암호 재설정을 사용하도록 설정합니다](quickstart-sspr.md).
+2. [비밀번호 쓰기 저장에 대한 온-프레미스 Active Directory 권한을 구성합니다](howto-sspr-writeback.md#active-directory-permissions).
+3. [비밀번호 쓰기 저장을 구성](howto-sspr-writeback.md#configure-password-writeback)하여 Azure AD에서 온-프레미스 디렉터리로 비밀번호 다시 쓰기
 4. [필수 라이선스를 할당하고 확인합니다](concept-sspr-licensing.md).
 5. 단계적 롤아웃을 수행할지를 결정합니다. SSPR을 점진적으로 롤아웃하려면 사용자 그룹에 대한 액세스를 제한하여 특정 그룹에서 프로그램의 파일럿을 수행할 수 있습니다. 특정 그룹을 롤아웃하려면 **셀프 서비스 암호 재설정 사용** 스위치를 **선택됨**으로 설정하고 암호 재설정을 사용하는 보안 그룹을 선택합니다. 
 6. 사무실 전화, 휴대폰 및 보조 이메일 주소와 같이 사용자가 등록하는 데 필요한 [인증 데이터](howto-sspr-authenticationdata.md)를 입력합니다.
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
    > [!NOTE]
    > 선택한 그룹에서 모든 사용자로 이 옵션을 변경하면 사용자가 테스트 그룹의 일부로 등록된 기존 인증 데이터를 무효화하지 않습니다. 구성되고 유효한 인증 데이터를 등록한 사용자는 계속 작동합니다.
 
-12. [Windows 10 사용자가 로그인 화면에서 해당 암호를 재설정할 수 있습니다](../active-directory-passwords-login.md).
+12. [Windows 10 사용자가 로그인 화면에서 해당 암호를 재설정할 수 있습니다](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Microsoft가 Azure 관리자 계정에 강력한 인증 요구 사항을 적용하므로 관리자가 아닌 사용자로 SSPR을 테스트합니다. 관리자 암호 정책에 대한 자세한 내용은 [암호 정책](concept-sspr-policy.md#administrator-password-policy-differences) 문서를 참조하세요.
@@ -90,7 +90,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 * [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
-* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](../active-directory-passwords-writeback.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
 * [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)

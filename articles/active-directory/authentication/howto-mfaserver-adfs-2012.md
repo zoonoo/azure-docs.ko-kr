@@ -15,17 +15,17 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 286ef523c1ba0ce76c412b319469c2627aade200
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e0838aafdeb76339d79a8db1b3548407670dede
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Windows Server에서 AD FS와 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
 AD FS(Active Directory Federation Services)를 사용하고 클라우드 또는 온-프레미스 리소스 보안을 유지하려는 경우, AD FS와 작동하도록 Azure Multi-Factor Authentication 서버를 구성할 수 있습니다. 이 구성은 높은 값의 끝점에 대해 2단계 인증을 트리거합니다.
 
-이 문서에서는 Windows Server 2012 R2 또는 Windows Server 2016에서 AD FS와 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 설명합니다. 자세한 내용은 [AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안을 유지](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs-adfs2.md)하는 방법에 대해 읽어보세요.
+이 문서에서는 Windows Server 2012 R2 또는 Windows Server 2016에서 AD FS와 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 설명합니다. 자세한 내용은 [AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안을 유지](howto-mfaserver-adfs-2.md)하는 방법에 대해 읽어보세요.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 Windows Server AD FS 보안 유지
 
@@ -40,11 +40,11 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 * 조직이 문자 메시지 또는 모바일 앱 확인 방법을 사용하는 경우, 회사 설정에서 정의된 문자열에는 <$*application_name*$> 자리 표시자가 있습니다. MFA 서버 v7.1에서 이 자리 표시자를 대체하는 응용 프로그램 이름을 제공할 수 있습니다. v7.0 이상에서 이 자리 표시자는 AD FS 어댑터를 사용하는 경우 자동으로 대체되지 않습니다. 이전 버전의 경우 AD FS 보안을 유지하면 적절 한 문자열에서 자리 표시자를 제거합니다.
 * 로그인에 사용하는 계정에는 Active Directory 서비스에서 보안 그룹을 만드는 사용자 권한이 있어야 합니다.
 * Multi-Factor Authentication AD FS 어댑터 설치 마법사는 Active Directory의 인스턴스에서 PhoneFactor Admins이라고 하는 보안 그룹을 만듭니다. 그런 다음 페더레이션 서비스의 AD FS 서비스 계정을 이 그룹에 추가합니다. PhoneFactor Admins 그룹이 도메인 컨트롤러에 생성되고 AD FS 서비스 계정이 이 그룹의 멤버인지 확인합니다. 필요한 경우 도메인 컨트롤러의 PhoneFactor Admins 그룹에 AD FS 서비스 계정을 수동으로 추가합니다.
-* 사용자 포털을 사용하여 웹 서비스 SDK를 설치하는 방법에 대한 내용은 [Azure Multi-Factor Authentication 서버에 사용자 포털 배포](../../multi-factor-authentication/multi-factor-authentication-get-started-portal.md)를 참조하세요.
+* 사용자 포털을 사용하여 웹 서비스 SDK를 설치하는 방법에 대한 내용은 [Azure Multi-Factor Authentication 서버에 사용자 포털 배포](howto-mfaserver-deploy-userportal.md)를 참조하세요.
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>AD FS 서버에 로컬로 Azure Multi-Factor Authentication 서버 설치
 
-1. AD FS 서버에 Azure Multi-Factor Authentication 서버를 다운로드하여 설치합니다. 설치에 대한 내용은 [Azure Multi-factor Authentication 서버로 시작](../../multi-factor-authentication/multi-factor-authentication-get-started-server.md)을 읽어보세요.
+1. AD FS 서버에 Azure Multi-Factor Authentication 서버를 다운로드하여 설치합니다. 설치에 대한 내용은 [Azure Multi-factor Authentication 서버로 시작](howto-mfaserver-deploy.md)을 읽어보세요.
 2. Azure Multi-Factor Authentication 서버 관리 콘솔에서 **AD FS** 아이콘을 클릭합니다. **사용자 등록 허용** 및 **사용자가 메서드를 선택하도록 허용** 옵션을 선택합니다.
 3. 조직에 대해 지정하려는 추가 옵션을 선택합니다.
 4. **AD FS 어댑터 설치**를 클릭합니다.
@@ -162,4 +162,4 @@ MFA 서버 AD FS 어댑터 문제를 해결하는 데 도움이 되도록 추가
 
 ## <a name="related-topics"></a>관련된 항목
 
-문제 해결 도움말을 보려면 [Azure Multi-Factor Authentication FAQ](../../multi-factor-authentication/multi-factor-authentication-faq.md)
+문제 해결 도움말을 보려면 [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)

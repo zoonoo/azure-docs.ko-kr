@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 660f75440d7d93562a3a17f646d5d284196e073d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -78,7 +78,7 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 사용
 
-가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-cli.md)에 자세히 설명된 프로세스와 같습니다. 가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들고 [가용성 영역 미리 보기에 등록](http://aka.ms/azenroll)해야 합니다.
+가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-cli.md)에 자세히 설명된 프로세스와 같습니다. 가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다.
 
 `--zones` 매개 변수를 [az vmss create](/cli/azure/vmss#az_vmss_create) 명령에 추가하고, 사용할 지역(예: 지역 *1*, *2* 또는 *3*)을 지정합니다. 다음 예제에서는 영역 *1*에 *myScaleSet*이라는 단일 영역 확장 집합을 만듭니다.
 

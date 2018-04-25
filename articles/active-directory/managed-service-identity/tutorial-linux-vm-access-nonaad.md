@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: eb97c6ddf2300677dd1ecc94d149e0171f42e67e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe38a423ffc40da21299b727c37532b9f0001d59
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
 
@@ -103,7 +103,7 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
     액세스 토큰에 대한 CURL 요청은 다음과 같습니다.  
     
     ```bash
-    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net -H Metadata:true  
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true  
     ```
     응답에는 Resource Manager에 액세스하는 데 필요한 액세스 토큰이 포함되어 있습니다. 
     

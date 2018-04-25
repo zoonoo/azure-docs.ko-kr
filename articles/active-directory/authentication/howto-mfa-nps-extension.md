@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: fd0f021d451dbf722fe23da7bc414ceb523af17a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -52,7 +52,7 @@ NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하�
 
 ### <a name="licenses"></a>라이선스
 
-Azure AD Premium, EMS 또는 MFA 독립 실행형 라이선스에 포함된 [Azure Multi-Factor Authentication 라이선스](../../multi-factor-authentication/multi-factor-authentication.md)를 가진 고객은 Azure MFA용 NPS 확장을 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 
+Azure AD Premium, EMS 또는 MFA 독립 실행형 라이선스에 포함된 [Azure Multi-Factor Authentication 라이선스](multi-factor-authentication.md)를 가진 고객은 Azure MFA용 NPS 확장을 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 
 
 ### <a name="software"></a>소프트웨어
 
@@ -124,7 +124,7 @@ Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정]
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
 1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다. 
 2. 지시에 따라 확인 방법을 설정합니다.
-3. 조건부 액세스 정책을 만들거나 [사용자 상태를 변경](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md)하여 테스트 계정에 대한 2단계 인증을 요구합니다. 
+3. 조건부 액세스 정책을 만들거나 [사용자 상태를 변경](howto-mfa-userstates.md)하여 테스트 계정에 대한 2단계 인증을 요구합니다. 
 
 사용자는 NPS 확장을 통해 인증을 받으려면 먼저 다음 단계에 따라 등록을 수행해야 합니다.
 
@@ -176,7 +176,7 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 ### <a name="configuration-limitations"></a>구성 제한 사항
 
 - Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드에 MFA 세부 정보를 채워야 합니다.  
-- NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용하도록 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md)을 참조하세요.
+- NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용하도록 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfaserver-nps-vpn.md)을 참조하세요.
 - 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
    - **PAP**는 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
@@ -247,6 +247,6 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 
 - [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfa-nps-extension-advanced.md)에서 2단계 확인을 수행하지 않아야 하는 IP 예외 목록 설정 또는 로그인에 대한 대체 ID 구성
 
-- NPS 확장을 사용하여 [원격 데스크톱 게이트웨이](../../multi-factor-authentication/nps-extension-remote-desktop-gateway.md) 및 [VPN 서버](../../multi-factor-authentication/nps-extension-vpn.md)를 통합하는 방법 알아보기
+- NPS 확장을 사용하여 [원격 데스크톱 게이트웨이](howto-mfa-nps-extension-rdg.md) 및 [VPN 서버](howto-mfa-nps-extension-vpn.md)를 통합하는 방법 알아보기
 
 - [Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결](howto-mfa-nps-extension-errors.md)

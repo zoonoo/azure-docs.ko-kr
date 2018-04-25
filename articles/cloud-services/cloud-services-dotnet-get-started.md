@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services 및 ASP.NET 시작 | Microsoft 문서"
-description: "ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법을 알아보세요. 이 앱은 웹 역할 및 작업자 역할을 사용하여 클라우드 서비스에서 실행되며 Entity Framework, SQL Database 및 Azure Storage 큐와 Blob를 사용합니다."
+title: Azure Cloud Services 및 ASP.NET 시작 | Microsoft 문서
+description: ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법을 알아보세요. 이 앱은 웹 역할 및 작업자 역할을 사용하여 클라우드 서비스에서 실행되며 Entity Framework, SQL Database 및 Azure Storage 큐와 Blob를 사용합니다.
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -34,8 +34,8 @@ ms.lasthandoff: 02/21/2018
 
 이 응용 프로그램에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>대체 아키텍처: Websites 및 WebJobs
-이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure 웹 사이트](/services/web-sites/)(영문)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)(영문) 기능(현재 미리 보기에서 제공)을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)(영문)을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure Websites, Cloud Services 및 가상 머신 비교](../app-service/choose-web-site-cloud-service-vm.md)(영문)를 참조하세요.
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>대체 아키텍처: Web Apps 및 WebJobs
+이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure Web Apps](/azure/app-service/)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) 기능을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)(영문)을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure Websites, Cloud Services 및 가상 머신 비교](../app-service/choose-web-site-cloud-service-vm.md)(영문)를 참조하세요.
 
 ## <a name="what-youll-learn"></a>학습할 내용
 * Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 하는 방법
@@ -324,7 +324,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>클라우드 서비스 Visual Studio 솔루션 만들기
 1. Visual Studio의 **새 프로젝트** from the **새 프로젝트** 를 선택합니다.
-2. **새 프로젝트** 대화 상자의 왼쪽 창에서 **Visual C#**을 확장하고 **클라우드** 템플릿을 선택한 후 **Azure 클라우드 서비스** 템플릿을 선택합니다.
+2. **새 프로젝트** 대화 상자의 왼쪽 창에서 **Visual C#** 을 확장하고 **클라우드** 템플릿을 선택한 후 **Azure 클라우드 서비스** 템플릿을 선택합니다.
 3. 프로젝트 및 솔루션의 이름을 ContosoAdsCloudService로 지정한 다음 **확인**을 클릭합니다.
 
     ![새 프로젝트](./media/cloud-services-dotnet-get-started/newproject.png)
@@ -339,7 +339,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
     ![인증 없음](./media/cloud-services-dotnet-get-started/noauth.png)
 7. **새 ASP.NET 프로젝트** 대화 상자에서 **확인**을 클릭합니다.
 8. **솔루션 탐색기**에서 솔루션(프로젝트 중 하나가 아님)을 마우스 오른쪽 단추로 클릭하고 **추가 - 새 프로젝트**를 선택합니다.
-9. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#**에 있는 **Windows**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.  
+9. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#** 에 있는 **Windows**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.  
 10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
     Entity Framework 컨텍스트 및 웹 역할 프로젝트와 작업자 역할 프로젝트의 데이터 모델을 참조해야 합니다. 또는 웹 역할 프로젝트에서 EF 관련 클래스를 정의하고 작업자 역할 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 대안에서는 작업자 역할 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.

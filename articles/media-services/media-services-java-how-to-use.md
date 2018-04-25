@@ -1,6 +1,6 @@
 ---
-title: "Java SDK를 사용하여 Azure Media Services 시작 | Microsoft Docs"
-description: "이 자습서에서는 Java를 사용하는 AMS(Azure Media Services) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다."
+title: Java SDK를 사용하여 Azure Media Services 시작 | Microsoft Docs
+description: 이 자습서에서는 Java를 사용하는 AMS(Azure Media Services) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 services: media-services
 documentationcenter: java
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b8dea132fc1af546b64f51e5ab395ad8bc3fe37
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -42,7 +42,7 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->`azure-media` 패키지 버전 `0.9.8`부터 SDK에서 AAD(Azure Active Directory) 인증을 지원하고 Azure ACS(Access Control Service) 인증 지원을 제거했습니다. ACS 서비스는 2018년 6월 1일부터 사용되지 않을 예정입니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
+>`azure-media` 패키지 버전 `0.9.8`부터 SDK에서 AAD(Azure Active Directory) 인증을 지원하고 Azure ACS(Access Control Service) 인증 지원을 제거했습니다. ACS 서비스는 2018년 6월 22일부터 사용되지 않습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
 
 >[!NOTE]
 >Azure Media Services Java SDK의 소스 코드는 [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)에서 찾을 수 있습니다. 마스터 분기가 아니라 0.9 분기로 전환해야 합니다. 

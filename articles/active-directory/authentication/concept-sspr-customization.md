@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: bcc4ab2f4383f16d64858e50c1857c6fa0e87bcf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f000e59195155f645d137233a9fa9896e21102b7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -92,7 +92,7 @@ AD FS 로그인 페이지에 링크를 추가하려면 AD FS 서버에서 아래
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
-* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](../active-directory-passwords-writeback.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
 * [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)

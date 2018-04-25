@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3cea41a7c129ee5a691226097d087539f943bec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 설계
 
@@ -56,7 +56,7 @@ PolyBase로 데이터를 로드하려면 다음 로드 옵션 중 하나를 사�
 PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 구분된 텍스트 파일 외에도 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서 로드됩니다. PolyBase는 Gzip 및 Snappy 압축 파일에서 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다.
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
-데이터가 PolyBase와 호환되지 않으면 [bcp](sql-data-warehouse-load-with-bcp.md) 또는 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)를 사용할 수 있습니다. bcp는 Azure Blob 저장소를 거치지 않고도 SQL Data Warehouse에 직접 로드되며, 소규모 로드에만 사용됩니다. 이러한 옵션의 로드 성능은 PolyBase보다 훨씬 느립니다. 
+데이터가 PolyBase와 호환되지 않으면 [bcp](/sql/tools/bcp-utility) 또는 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)를 사용할 수 있습니다. bcp는 Azure Blob 저장소를 거치지 않고도 SQL Data Warehouse에 직접 로드되며, 소규모 로드에만 사용됩니다. 이러한 옵션의 로드 성능은 PolyBase보다 훨씬 느립니다. 
 
 
 ## <a name="extract-source-data"></a>원본 데이터 추출

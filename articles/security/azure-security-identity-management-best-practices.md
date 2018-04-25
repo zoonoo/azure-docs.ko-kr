@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 2b77167992704bd342d67dc03b66af1e55955532
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 761013ad82fb8fa7d84e7929341d2e7d9e2d724c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 많은 사람이 ID를 기존 네트워크 중심 관점에서 역할을 대신하는 보안에 대한 새로운 경계 계층으로 생각하고 있습니다. 보안 주의 및 투자를 중심으로 하는 이러한 진화는 네트워크 경계에 점점 더 많은 구멍이 생기고 경계 방어가 [BYOD](http://aka.ms/byodcg) 장치 및 클라우드 응용 프로그램이 급증하기 전만큼 효과적일 수 없다는 사실에 기인합니다.
@@ -88,7 +88,7 @@ Azure AD SSO에 대한 자세한 내용은 [Azure AD Connect를 통한 AD FS 관
 
 예: 사용자에 대해 Azure MFA를 적용하고 전화 통화 또는 문자 메시지를 검증 수단으로 사용하도록 구성합니다. 사용자의 자격 증명이 손상된 경우 공격자는 사용자의 전화에 대한 액세스 권한이 없으므로 리소스에 액세스할 수 없습니다. 추가적인 ID 보호 계층을 추가하지 않는 조직은 자격 증명 도난 공격에 취약하며, 이로 인해 데이터가 손상될 수 있습니다.
 
-전체 인증 제어를 온-프레미스에 유지하려는 조직이 선택할 수 있는 대안 중 하나는 MFA 온-프레미스라고도 하는 [Azure Multi-factor Authentication 서버](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)를 사용하는 것입니다. 이 방법을 사용하면 여전히 Multi-factor Authentication을 적용하면서도 MFA 서버를 온-프레미스에 유지할 수 있습니다.
+전체 인증 제어를 온-프레미스에 유지하려는 조직이 선택할 수 있는 대안 중 하나는 MFA 온-프레미스라고도 하는 [Azure Multi-factor Authentication 서버](../active-directory/authentication/howto-mfaserver-deploy.md)를 사용하는 것입니다. 이 방법을 사용하면 여전히 Multi-factor Authentication을 적용하면서도 MFA 서버를 온-프레미스에 유지할 수 있습니다.
 
 Azure MFA에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../active-directory/authentication/howto-mfa-getstarted.md)을 참조하세요.
 

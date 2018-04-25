@@ -1,11 +1,11 @@
 ---
-title: "Azure AD v2.0 .NET 웹앱 로그인 시작하기 | Microsoft Docs"
-description: "개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET MVC Web 웹앱을 빌드하는 방법입니다."
+title: Azure AD v2.0 .NET 웹앱 로그인 시작하기 | Microsoft Docs
+description: 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET MVC Web 웹앱을 빌드하는 방법입니다.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c8b97ac6-0a06-4367-81b6-7d1d98152b14
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>.NET MVC 웹앱에 로그인 추가
 v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱에 빠르게 추가할 수 있습니다.  Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.

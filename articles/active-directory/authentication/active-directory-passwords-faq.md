@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 34f014c98d9333598c10e85d100251e62685c476
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7500b456296dc69c70cd1b5500d40f7e007569b1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -249,7 +249,7 @@ ms.lasthandoff: 04/19/2018
 
 * **Q: 비밀번호 쓰기 저장은 배후에서 어떻게 작동합니까?**
 
-  > **A:** 비밀번호 쓰기 저장을 사용하도록 설정한 경우 발생하는 일과 시스템을 통해 온-프레미스 환경으로 데이터가 다시 흘러 들어가는 방식에 대한 설명은 [비밀번호 쓰기 저장 작동 원리](../active-directory-passwords-writeback.md)를 참조하세요.
+  > **A:** 비밀번호 쓰기 저장을 사용하도록 설정한 경우 발생하는 일과 시스템을 통해 온-프레미스 환경으로 데이터가 다시 흘러 들어가는 방식에 대한 설명은 [비밀번호 쓰기 저장 작동 원리](howto-sspr-writeback.md)를 참조하세요.
   >
   >
 * **Q: 얼마 동안 비밀번호 쓰기 저장이 작동합니까? 암호 해시 동기화와 같은 동기화 지연이 있나요?**
@@ -279,7 +279,7 @@ ms.lasthandoff: 04/19/2018
   >
 * **Q: 비밀번호 쓰기 저장은 안전합니까?  해킹을 당하지 않는다고 어떻게 확신할 수 있습니까?**
 
-  > **A:** 예, 비밀번호 쓰기 저장은 안전합니다. 비밀번호 쓰기 저장 서비스에 의해 구현되는 4개의 보안 계층에 대한 자세한 내용은 [비밀번호 쓰기 저장 개요](../active-directory-passwords-writeback.md) 문서의 [비밀번호 쓰기 저장 보안 모델](../active-directory-passwords-writeback.md#password-writeback-security-model) 섹션을 확인하세요.
+  > **A:** 예, 비밀번호 쓰기 저장은 안전합니다. 비밀번호 쓰기 저장 서비스에 의해 구현되는 4개의 보안 계층에 대한 자세한 내용은 [비밀번호 쓰기 저장 개요](howto-sspr-writeback.md) 문서의 [비밀번호 쓰기 저장 보안 모델](howto-sspr-writeback.md#password-writeback-security-model) 섹션을 확인하세요.
   >
   >
 
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/19/2018
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
-* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](../active-directory-passwords-writeback.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
 * [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)

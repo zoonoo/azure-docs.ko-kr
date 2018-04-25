@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: cf678eac16f8b13c5ffaa1d5673ca1cb47440cf9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bf88e4c702321a7810ec6a3e50eb6cd47a788734
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -129,16 +129,19 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
     ```
+
 5. Microsoft RHEL 리포지토리를 시스템에 추가합니다.
-   ```bash
-      curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
-      sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
-   ```
+
+    ```bash
+    curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+    sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+    ```
+
 6. dotnet sdk를 설치합니다.
-   ```bash
-      yum install rh-dotnet20 -y
-      scl enable rh-dotnet20 bash
-   ```
+
+    ```bash
+    yum install rh-dotnet20 -y
+    ```
 
 ## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>로컬 클러스터 설정에 Service Fabric SDK 설치 및 설정
 
