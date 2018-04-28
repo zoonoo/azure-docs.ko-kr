@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82380c20c9ec631d9fea338404a25f167277701
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -52,6 +52,14 @@ iSCSI 대상 가상 머신이 없는 경우 우선 iSCSI 대상 가상 머신을
    sudo zypper update
    </code></pre>
 
+1. 패키지 제거
+
+   targetcli 및 SLES 12 SP3의 알려진 문제를 방지하려면 다음 패키지를 제거합니다. 찾을 수 없는 패키지에 대한 오류는 무시해도 됩니다.
+   
+   <pre><code>
+   sudo zypper remove lio-utils python-rtslib python-configshell targetcli
+   </code></pre>
+   
 1. iSCSI 대상 패키지 설치
 
    <pre><code>
@@ -61,9 +69,7 @@ iSCSI 대상 가상 머신이 없는 경우 우선 iSCSI 대상 가상 머신을
 1. iSCSI 대상 서비스를 사용하도록 설정
 
    <pre><code>   
-   sudo systemctl enable target
    sudo systemctl enable targetcli
-   sudo systemctl start target
    sudo systemctl start targetcli
    </code></pre>
 
@@ -99,7 +105,6 @@ sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create i
 
 # save the targetcli changes
 sudo targetcli saveconfig
-sudo systemctl restart target
 </code></pre>
 
 ### <a name="set-up-sbd-device"></a>SBD 장치 설정
@@ -396,7 +401,7 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
-서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 머신을 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell#create-a-custom-role) 또는 [Azure CLI](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli#create-a-custom-role)를 사용하여 만들 수 있습니다.
+서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 머신을 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) 또는 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)를 사용하여 만들 수 있습니다.
 
 입력 파일에 다음 콘텐츠를 사용합니다. 구독에 맞게 콘텐츠를 조정해야 합니다. 즉 c276fc76-9cd4-44c9-99a7-4fd71546436e 및 e91d47c4-76f3-4271-a796-21b4ecfe3624를 구독의 ID로 교체해야 합니다. 구독이 하나만 있는 경우 AssignableScopes에서 두 번째 항목을 제거합니다.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6bfe48df685952d2b465d9549e2f1c086c1c490
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비스의 일부입니다. VM 확장은 VM 기능을 확장하고 다양한 VM 관리 작업을 단순화하는 소프트웨어 구성 요소입니다.
 
-Azure DSC(Desired State Configuration) 확장의 주요 사용 사례는 VM을 [Azure Automation DSC 서비스](../../automation/automation-dsc-overview.md)로 부트스트랩하는 것입니다. VM 부트스트랩은 VM 구성의 지속적인 관리, Azure Monitor 등과 같은 기타 운영 도구와의 통합 등, 다양한 [혜택](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service)을 제공합니다.
+Azure DSC(Desired State Configuration) 확장의 주요 사용 사례는 VM을 [Azure Automation DSC 서비스](../../automation/automation-dsc-overview.md)로 부트스트랩하는 것입니다. VM 부트스트랩은 VM 구성의 지속적인 관리, Azure Monitor 등과 같은 기타 운영 도구와의 통합 등, 다양한 [혜택](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service)을 제공합니다.
 
 DSC 확장은 Automation DSC 서비스와 별도로 사용할 수 있습니다. 그러나 배포하는 동안 단일 작업이 수반됩니다. VM에서 로컬로 수행하는 경우를 제외하고, 지속적인 보고 또는 구성 관리를 사용할 수 없습니다.
 
@@ -47,9 +47,9 @@ DSC 확장은 Automation DSC 서비스와 별도로 사용할 수 있습니다. 
 - **노드**: DSC 구성에 대한 대상. 이 문서에서 *노드*는 항상 Azure VM을 나타냅니다.
 - **구성 데이터**: 구성에 대한 환경 데이터를 포함하는 .psd1 파일입니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
-Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig)에서 메타데이터를 설정하는 데만 사용됩니다.
+Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](https://docs.microsoft.com/powershell/dsc/metaconfig)에서 메타데이터를 설정하는 데만 사용됩니다.
 
 확장이 처음으로 호출되면 다음 논리를 사용하여 WMF의 버전을 설치합니다.
 
@@ -61,7 +61,7 @@ WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작
 
 ### <a name="default-configuration-script"></a>기본 구성 스크립트
 
-Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [기본 구성 스크립트](extensions-dsc-template.md#default-configuration-script) 에 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](extensions-dsc-template.md)을 참 조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)을 참조하세요.
+Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](https://docs.microsoft.com/powershell/dsc/metaconfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [기본 구성 스크립트](extensions-dsc-template.md#default-configuration-script) 에 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](extensions-dsc-template.md)을 참 조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)을 참조하세요.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 템플릿의 DSC 확장
 

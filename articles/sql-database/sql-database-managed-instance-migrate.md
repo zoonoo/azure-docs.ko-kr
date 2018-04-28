@@ -9,26 +9,32 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 4546f03294ea8ab01ecb2b2777c5b92dbc5a7f4a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5b8a2ec7e0401ac239acdefdd77a13b522f73960
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션
 
 이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 Azure SQL Database 관리되는 인스턴스(미리 보기)로 마이그레이션하는 방법에 대해 설명합니다. 
-
-> [!NOTE]
-> 단일 데이터베이스를 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하려면 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
 SQL Database 관리되는 인스턴스는 기존 SQL Database 서비스의 확장으로, 단일 데이터베이스와 탄력적 풀과 함께 세 번째 배포 옵션을 제공합니다.  이 응용 프로그램은 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. SQL Database 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 창조적인 지원을 제공합니다.
 
 개괄적인 응용 프로그램 마이그레이션 프로세스는 다음 다이어그램과 같습니다.
 
 ![마이그레이션 프로세스](./media/sql-database-managed-instance-migration/migration-process.png)
+
+- [관리되는 인스턴스 호환성 평가](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
+- [앱 연결 옵션 선택](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
+- [최적 크기의 관리되는 인스턴스에 배포](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
+- [마이그레이션 방법 선택 및 마이그레이션](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
+- [응용 프로그램 모니터링](sql-database-managed-instance-migrate.md#monitor-applications)
+
+> [!NOTE]
+> 단일 데이터베이스를 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하려면 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
 ## <a name="assess-managed-instance-compatibility"></a>관리되는 인스턴스 호환성 평가
 
@@ -43,14 +49,6 @@ SQL Database 관리되는 인스턴스는 기존 SQL Database 서비스의 확�
 - 특정 버전의 SQL Server(예: 2012)를 반드시 유지해야 하는 경우
 - 공개 미리 보기에서 관리되는 인스턴스가 제공하는 컴퓨팅 요구 사항이 훨씬 낮고(예: 하나의 vCore) 데이터베이스 통합이 허용되지 않는 옵션인 경우
 
-## <a name="choose-app-connectivity-option"></a>앱 연결 옵션 선택
-
-관리되는 인스턴스는 가상 네트워크에 완전히 포함되어 있으므로 데이터에 대한 최상의 격리 및 보안 수준을 제공합니다. 다음 다이어그램에서는 프런트 엔드 응용 프로그램에 대해 완전히 관리되는 서비스 또는 호스팅된 모델을 선택했는지 여부에 관계없이 다양한 응용 프로그램 토폴로지를 Azure 또는 하이브리드 환경에 완전히 배포하는 몇 가지 옵션을 보여 줍니다.
-
-![응용 프로그램 배포 토폴로지](./media/sql-database-managed-instance-migration/application-deployment-topologies.png)
-
-선택한 옵션 중 하나는 사설 IP 주소를 통해서만 SQL 엔드포인트에 연결할 수 있으므로 데이터에 대해 최적의 격리 수준을 보장합니다. <!--- For more information, see How to connect your application to Managed Instance.--->
-
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>최적 크기의 관리되는 인스턴스에 배포
 
 관리되는 인스턴스는 클라우드로 이동할 온-프레미스 작업에 맞게 조정됩니다. 작업에 적합한 수준의 리소스를 선택할 때 유연성이 높은 새 구매 모델이 도입되었습니다. 온-프레미스 환경에서는 실제 코어를 사용하여 이러한 작업의 크기를 조정하는 데 익숙할 것입니다. 관리되는 인스턴스에 대한 새 구매 모델은 가상 코어 수 또는 "vCore 수"를 기반으로 하며, 추가 저장소 및 IO를 별도로 사용할 수 있습니다. vCore 모델은 현재 온-프레미스에서 사용하는 제품과 비교하여 클라우드의 컴퓨팅 요구 사항을 더 쉽게 이해할 수 있는 방법입니다. 새로운 이 모델을 사용하면 클라우드에서 대상 환경의 크기를 올바르게 조정할 수 있습니다.
@@ -59,7 +57,7 @@ SQL Database 관리되는 인스턴스는 기존 SQL Database 서비스의 확�
 
 ![관리되는 인스턴스 크기 조정](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-VNet 인프라와 관리되는 인스턴스를 만들고 백업 파일에서 데이터베이스를 복원하는 방법을 알아보려면 [관리되는 인스턴스를 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
+VNet 인프라와 관리되는 인스턴스를 만드는 방법을 알아보려면 [관리되는 인스턴스를 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 
 > [!IMPORTANT]
 > [관리되는 인스턴스 VNET 요구 사항](sql-database-managed-instance-vnet-configuration.md#requirements)에 따라 항상 대상 VNet 및 서브넷을 유지해야 합니다. 호환되지 않는 경우 새 인스턴스를 만들거나 이미 만든 인스턴스를 사용하지 못할 수 있습니다.
@@ -77,11 +75,13 @@ SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니�
 
 관리되는 인스턴스에서 지원하는 데이터베이스 마이그레이션 옵션은 다음과 같습니다(현재 지원되는 유일한 마이그레이션 방법임).
 
+- Azure Database Migration Service - 거의 제로에 가까운 가동 중지 시간으로 마이그레이션
+- URL에서 네이티브 복원 - SQL Server의 네이티브 백업을 사용하며 약간의 가동 중지 시간 필요
+- BACPAC 파일을 사용하여 마이그레이션 - SQL Server 또는 SQL Database의 BACPAC 파일을 사용하며 약간의 가동 중지 시간 필요
+
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 [Azure DMS(Database Migration Service)](../dms/dms-overview.md)는 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션에는 Azure Virtual Machine에 있는 Azure SQL Database, 관리되는 인스턴스 및 SQL Server가 포함됩니다. DMS는 엔터프라이즈 작업에 권장되는 마이그레이션 방법입니다. 
-
-![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
 이 시나리오와 DMS 구성 단계에 대해 자세히 알아보려면 [DMS를 사용하여 온-프레미스 데이터베이스를 관리되는 인스턴스로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.  
 
@@ -100,12 +100,12 @@ SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니�
 |Azure Storage에 백업 저장|SQL 2012 SP1 CU2 이전|Azure Storage에 .bak 파일 직접 업로드|
 ||2012 SP1 CU2~2016|사용되지 않는 [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) 구문을 사용하여 직접 백업|
 ||2016 이상|[WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) 구문을 사용하여 직접 백업|
-|Azure Storage에서 관리되는 인스턴스로 복원|[SAS CREDENTIAL을 사용하여 URL에서 복원](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
+|Azure Storage에서 관리되는 인스턴스로 복원|[SAS CREDENTIAL을 사용하여 URL에서 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> 시스템 데이터베이스의 PRestore는 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 이러한 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
+> 시스템 데이터베이스의 복원은 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 이러한 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
 
-SAS 자격 증명을 사용하여 관리되는 인스턴스에 데이터베이스 백업을 복원하는 전체 자습서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
+SAS 자격 증명을 사용하여 관리되는 인스턴스에 데이터베이스 백업을 복원하는 전체 자습서는 [백업에서 관리되는 인스턴스 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
 
 ### <a name="migrate-using-bacpac-file"></a>BACPAC 파일을 사용하여 마이그레이션
 
@@ -128,5 +128,5 @@ BACPAC 파일에서 데이터를 사용하여 원본 데이터베이스의 복�
 ## <a name="next-steps"></a>다음 단계
 
 - 관리되는 인스턴스에 대한 자세한 내용은 [관리되는 인스턴스란?](sql-database-managed-instance.md)을 참조하세요.
-- 백업에서 복원하는 자습서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
+- 백업에서 복원하는 자습서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 - DMS를 사용한 마이그레이션을 보여 주는 자습서는 [DMS를 사용하여 온-프레미스 데이터베이스를 관리되는 인스턴스로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.  

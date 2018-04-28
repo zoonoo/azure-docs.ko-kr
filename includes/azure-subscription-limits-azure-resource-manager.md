@@ -5,7 +5,7 @@
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 시리즈(Dv2, F 등) 코어당 VM |지역당 20<sup>1</sup> | 지원에 문의 |
 | [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md)  |Unlimited |Unlimited |
 | [Storage 계정](../articles/storage/common/storage-create-storage-account.md)  |200 |200<sup>2</sup> |
-| 구독당 [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) |800 |800 |
+| 구독당 [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)  |지역당 2,000개 |지역당 2,000개 |
 | 리소스 관리자 API 읽기 |시간당 15,000개 |시간당 15,000개 |
 | 리소스 관리자 API 쓰기 |시간당 1,200개 |시간당 1,200개 |

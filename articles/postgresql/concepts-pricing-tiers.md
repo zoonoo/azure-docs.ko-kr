@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9b182935ad6a328afa4ee25049b3651f62277d45
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -36,7 +36,8 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 응용 프로그램이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
-서버가 만들어지면 vCore 수는 몇 초 이내에 늘리거나 줄일 수 있습니다. 또한 응용 프로그램 중단 시간 없이 독립적으로 저장소 용량을 늘리거나 백업 보존 기간을 늘리거나 줄일 수 있습니다. 자세한 내용은 "리소스 크기 조정" 섹션을 참조하세요.
+서버가 만들어지면 vCore 수는 몇 초 이내에 늘리거나 줄일 수 있습니다(같은 가격 책정 계층 내에서). 또한 응용 프로그램 중단 시간 없이 독립적으로 저장소 용량을 늘리거나 백업 보존 기간을 늘리거나 줄일 수 있습니다. 서버가 만들어진 후 가격 책정 계층 또는 백업 저장소 유형은 변경할 수 없습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
+
 
 ## <a name="compute-generations-vcores-and-memory"></a>세대, vCore 수 및 메모리 계산
 
@@ -53,16 +54,18 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 미국 서부 2 |  | X |
 | 캐나다 중부 | X | X |
 | 캐나다 동부 | X | X |
-| 브라질 남부 | X |  |
+| 브라질 남부 | X | X |
 | 북유럽 | X | X |
 | 서유럽 | X | X |
 | 영국 서부 |  | X |
 | 영국 남부 |  | X |
 | 동아시아 | X |  |
-| 동남아시아 | X |  |
+| 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
+| 오스트레일리아 남동부 |  | X |
 | 인도 중부 | X |  |
 | 인도 서부 | X |  |
+| 인도 남부 |  | X |
 | 일본 동부 | X | X |
 | 일본 서부 | X | X |
 | 한국 남부 |  | X |
@@ -90,7 +93,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 ## <a name="scale-resources"></a>리소스 크기 조정
 
-서버를 만든 후 vCore 수, 저장소 크기 및 백업 보존 기간을 독립적으로 변경할 수 있습니다. 서버가 만들어진 후 가격 책정 계층 또는 백업 저장소 유형은 변경할 수 없습니다. vCore 수 및 백업 보존 기간은 늘리거나 줄일 수 있습니다. 저장소 크기는 늘릴 수 있습니다. 리소스의 크기 조정은 포털 또는 Azure CLI를 통해 수행할 수 있습니다. Azure CLI를 사용하는 크기 조정의 예제는 [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 모니터링 및 크기 조정](scripts/sample-scale-server-up-or-down.md)을 참조하세요.
+서버를 만든 후 vCore 수, 저장소 크기 및 백업 보존 기간을 독립적으로 변경할 수 있습니다. 서버가 만들어진 후 가격 책정 계층 또는 백업 저장소 유형은 변경할 수 없습니다. vCores 수는 동일한 가격 책정 계층에서 늘리거나 줄일 수 있습니다. 백업 보존 기간은 7~35일 범위에서 늘리거나 줄일 수 있습니다. 저장소 크기는 늘릴 수 있습니다.  리소스의 크기 조정은 포털 또는 Azure CLI를 통해 수행할 수 있습니다. Azure CLI를 사용하는 크기 조정의 예제는 [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 모니터링 및 크기 조정](scripts/sample-scale-server-up-or-down.md)을 참조하세요.
 
 vCore 수를 변경하면 새 계산 할당을 사용하여 원본 서버의 복사본이 만들어집니다. 새 서버가 시작되고 실행된 후 새 서버에 대한 연결로 전환됩니다. 시스템이 새 서버로 전환되면 잠시 동안 새 연결을 설정할 수 없으며, 커밋되지 않은 모든 트랜잭션이 롤백됩니다. 이 기간은 다양하지만, 대부분의 경우 1분 미만입니다.
 

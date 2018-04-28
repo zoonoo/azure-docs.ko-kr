@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 ## <a name="overview"></a>개요
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/28/2018
 API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 AzureML(Azure Machine Learning) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 감지가 있는 이상 감지용이고, 다른 하나는 계절성 감지가 없는 이상 감지용입니다.  배포가 완료되면 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 끝점 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
 
 ## <a name="scaling-the-api"></a>API 크기 조정
-기본적으로 배포에는 1,000 트랜잭션/월 및 2 계산 시간/월을 포함하는 무료 개발/테스트 청구 계획이 있습니다.  필요에 따라 다른 계획으로 업그레이드할 수 있습니다.  다른 계획의 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/en-us/pricing/details/machine-learning/)의 "프로덕션 웹 API 가격"에 있습니다.
+기본적으로 배포에는 1,000 트랜잭션/월 및 2 계산 시간/월을 포함하는 무료 개발/테스트 청구 계획이 있습니다.  필요에 따라 다른 계획으로 업그레이드할 수 있습니다.  다른 계획의 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/machine-learning/)의 "프로덕션 웹 API 가격"에 있습니다.
 
 ## <a name="managing-aml-plans"></a>AML 관리 계획 
 [여기](https://services.azureml.net/plans/)서 청구 계획을 관리할 수 있습니다.  계획 이름은 API를 배포할 때 선택한 리소스 그룹 이름과 구독에 고유한 문자열을 기반으로 합니다.  계획을 업그레이드하는 방법에 대한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)의 "청구 계획 관리" 섹션에 있습니다.
@@ -118,7 +118,7 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 ### <a name="parameters"></a>매개 변수
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | 설명 | 기본 설정 | 유형 | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | type | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
 | detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
@@ -154,7 +154,7 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | 설명 | 기본 설정 | 유형 | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | type | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |정수 |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
 | preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |해당 없음 |

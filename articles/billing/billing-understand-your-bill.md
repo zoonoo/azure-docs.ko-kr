@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ec4fd970c6b552d87e006f9e0ab55d3495c9b0c8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 청구서를 자세한 일별 사용 현황 파일 및 Azure Portal의 비용 관리 보고서와 비교합니다.
@@ -102,7 +102,7 @@ Azure Portal에서 요금을 확인할 수도 있습니다. Azure Portal은 청�
 [지원 티켓을 작성](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 결제 상태 확인을 문의합니다. 
 
 ## <a name="tips-for-cost-management"></a>비용 관리 팁
-- [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/)와 [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)를 사용하여 비용을 산정하고 [각 서비스에 대한 자세한 요금 정보](https://azure.microsoft.com/en-us/pricing/)를 가져옵니다.
+- [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/)와 [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)를 사용하여 비용을 산정하고 [각 서비스에 대한 자세한 요금 정보](https://azure.microsoft.com/pricing/)를 가져옵니다.
 - [청구 알림을 설정](billing-set-up-alerts.md)합니다.
 - [Azure Portal에서 정기적으로 사용량 및 비용을 검토](billing-getting-started.md#costs)합니다.
 

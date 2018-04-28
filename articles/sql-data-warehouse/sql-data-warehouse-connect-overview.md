@@ -1,31 +1,26 @@
 ---
-title: "Azure SQL Data Warehouse에 연결 | Microsoft Azure"
-description: "Azure SQL Data Warehouse의 서버 이름 및 연결 문자열을 찾는 방법"
+title: Azure SQL Data Warehouse에 연결 | Microsoft Azure
+description: Azure SQL Data Warehouse에 연결
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 12/14/2017
-ms.author: anvang;barbkess;kevin
-ms.openlocfilehash: 804d91d309fcce42f0ac50ac98dbad9c5648b4eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 연결
-이 문서를 사용하면 처음으로 SQL Data Warehouse에 연결할 수 있습니다.
+Azure SQL Data Warehouse에 연결
 
 ## <a name="find-your-server-name"></a>서버 이름 찾기
-SQL Data Warehouse에 연결하는 첫 번째 단계로 서버 이름을 찾는 방법을 알아야 합니다.  예를 들어, 다음 예제에서 서버 이름은 samplesvr.database.windows.net입니다. 정규화된 서버 이름을 찾으려면:
+다음 예제에서 서버 이름은 samplesvr.database.windows.net입니다. 정규화된 서버 이름을 찾으려면:
 
 1. [Azure Portal][Azure portal]로 이동합니다.
 2. **SQL 데이터 웨어하우스**를 클릭합니다.
@@ -35,7 +30,7 @@ SQL Data Warehouse에 연결하는 첫 번째 단계로 서버 이름을 찾는 
     ![전체 서버 이름][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>지원되는 드라이버 및 연결 문자열
-Azure SQL Data Warehouse는 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JDBC][JDBC]를 지원합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시** 를 클릭할 수 있습니다.  또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
+Azure SQL Data Warehouse는 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JDBC][JDBC]를 지원합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시**를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
 
 > [!NOTE]
 > 사용 불가능한 짧은 시간 동안 연결이 효력을 유지하려면 연결 제한 시간을 300초로 설정하는 것이 좋습니다.

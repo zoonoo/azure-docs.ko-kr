@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 장치 관리 FAQ | Microsoft Docs"
-description: "Azure Active Directory 장치 관리 FAQ"
+title: Azure Active Directory 장치 관리 FAQ | Microsoft Docs
+description: Azure Active Directory 장치 관리 FAQ
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ef5b84820cfcaf86f526ddd0565463e12b96331
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
 
@@ -41,47 +41,44 @@ ms.lasthandoff: 01/16/2018
 
 **Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 장치가 표시되지 않는 이유는 무엇인가요?**
 
-**A:** 자동 장치 등록이 지정된 도메인 연결 Windows 10 장치가 사용자 정보 아래에 표시되지 않습니다.
+**A:** 하이브리드 Azure AD에 가입된 Windows 10 장치가 사용자 장치 아래에 표시되지 않습니다.
 모든 장치를 표시하려면 PowerShell을 사용해야 합니다. 
 
-다음 장치만 사용자 정보 아래에 나열됩니다.
+다음 장치만 사용자 장치 아래에 나열됩니다.
 
-- 엔터프라이즈에 조인되지 않은 모든 개인 장치 
-- 모든 비 Windows 10/Windows Server 2016 
+- 하이브리드 Azure AD에 가입되지 않은 모든 개인 장치 
+- 모든 비 Windows 10/Windows Server 2016 장치
 - 모든 비 Windows 장치 
 
 ---
 
 **Q: Azure Portal에서 Azure Active Directory에 등록된 모든 장치를 볼 수는 없는 이유는 무엇인가요?** 
 
-**A:** 현재 방법이 Azure Portal에서 등록된 모든 장치를 볼 수 있는 방법은 없습니다. 모든 장치를 찾으려면 Azure PowerShell을 사용할 수 있습니다. 자세한 내용은 [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 참조하세요.
+**A:** 이제 Azure AD 디렉터리 -> 모든 장치 메뉴 아래에서 볼 수 있습니다. 모든 장치를 찾기 위해 Azure PowerShell을 사용할 수도 있습니다. 자세한 내용은 [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 참조하세요.
 
 --- 
 
 **Q: 클라이언트의 장치 등록 상태를 어떻게 알 수 있나요?**
 
-**A:** 장치 등록 상태는 다음에 따라 다릅니다.
+**A:** Windows 10 및 Windows Server 2016 이상 장치의 경우 dsregcmd.exe /status를 실행합니다.
 
-- 장치가 무엇인지
-- 등록된 방법 
-- 관련된 모든 세부 정보 
- 
+하위 수준 OS 버전의 경우 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"를 실행합니다.
 
 ---
 
 **Q: Azure Portal에서 또는 Windows PowerShell을 사용하여 삭제한 장치가 여전히 등록된 것으로 표시되는 이유는 무엇인가요?**
 
-**A:** 이것은 의도적인 작동입니다. 장치는 클라우드의 리소스에 액세스할 수 없습니다. 장치를 제거하고 다시 등록하려면 장치에서 직접 작업을 수행해야 합니다. 
+**A:** 이것은 의도적인 작동입니다. 장치는 클라우드의 리소스에 액세스할 수 없습니다. 장치를 다시 등록하려면 장치에서 직접 작업을 수행해야 합니다. 
 
-온-프레미스 AD 도메인에 조인된 Windows 10 및 Windows Server 2016:
+온-프레미스 AD 도메인에 가입된 Windows 10 및 Windows Server 2016에서 가입 상태를 지우려면
 
 1.  관리자 권한으로 명령 프롬프트를 엽니다.
 
 2.  `dsregcmd.exe /debug /leave`를 입력합니다.
 
-3.  로그아웃했다가 로그인하여 장치를 다시 등록하는 예약된 작업을 트리거합니다. 
+3.  로그아웃했다가 로그인하여 장치를 Azure AD에 다시 등록하는 예약된 작업을 트리거합니다. 
 
-온-프레미스 AD 도메인에 조인된 다른 Windows 플랫폼:
+온-프레미스 AD 도메인에 가입된 하위 수준 Windows OS 버전의 경우:
 
 1.  관리자 권한으로 명령 프롬프트를 엽니다.
 2.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`을 입력합니다.
@@ -93,13 +90,13 @@ ms.lasthandoff: 01/16/2018
 
 **A:**
 
--   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 조인 해제했다가 다시 조인하면 중복된 항목이 나타날 수 있습니다. 
+-   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 가입 해제했다가 다시 가입하면 중복된 항목이 나타날 수 있습니다. 
 
 -   회사 또는 학교 계정 추가를 사용한 경우 회사 또는 학교 계정 추가를 사용하는 각 Windows 사용자는 장치 이름이 같은 새 장치 레코드를 만들게 됩니다.
 
--   자동 등록을 사용하여 온-프레미스 AD 도메인에 조인된 다른 Windows 플랫폼은 장치에 로그인하는 각 도메인 사용자에 대해 장치 이름이 같은 새 장치 레코드를 만듭니다. 
+-   자동 등록을 사용하여 온-프레미스 AD 도메인에 가입된 하위 수준 Windows OS 버전을 장치에 로그인하는 각 도메인 사용자에 대해 장치 이름이 같은 새 장치 레코드를 만듭니다. 
 
--   초기화되었다가 같은 이름으로 다시 설치되고 다시 조인된 AADJ 장치는 장치 이름이 같은 다른 레코드로 표시됩니다.
+-   초기화되었다가 같은 이름으로 다시 설치되고 다시 가입된 Azure AD 가입 컴퓨터는 장치 이름이 같은 다른 레코드로 표시됩니다.
 
 ---
 
@@ -108,21 +105,21 @@ ms.lasthandoff: 01/16/2018
 **A:** 해지가 적용되는 데는 최대 1시간이 소요될 수 있습니다.
 
 >[!Note] 
->분실한 장치의 경우에는 장치를 초기화하여 사용자가 장치에 액세스하지 못하게 하는 것이 좋습니다. 자세한 내용은 [Intune에서 관리를 위해 장치 등록](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 
+>등록된 장치의 경우에는 장치를 초기화하여 사용자가 리소스에 액세스하지 못하게 하는 것이 좋습니다. 자세한 내용은 [Intune에서 관리를 위해 장치 등록](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 
 
 
 ---
 
 **Q: 사용자에게 "여기에서 해당 위치로 이동할 수 없습니다." 메시지가 표시되는 이유는 무엇인가요?**
 
-**A:** 특정 장치 상태를 요구하도록 특정 조건부 액세스 규칙을 구성했거나 장치가 조건을 충족하지 않을 경우 사용자가 차단되고 다음 메시지가 표시됩니다. 규칙을 평가하고 장치가 이 조건을 충족하는지 확인하여 이 메시지가 표시되지 않도록 하세요.
+**A:** 특정 장치 상태를 요구하도록 특정 조건부 액세스 규칙을 구성했거나 장치가 조건을 충족하지 않을 경우 사용자가 차단되고 다음 메시지가 표시됩니다. 조건부 액세스 정책 규칙을 평가하고 장치가 이 조건을 충족하는지 확인하여 이 메시지가 표시되지 않도록 하세요.
 
 ---
 
 
 **Q: Azure Portal에서 사용자 정보에 장치 레코드가 표시되고 클라이언트에 등록된 상태로 표시됩니다. 조건부 액세스를 사용할 수 있게 제대로 설정되어 있는 것인가요?**
 
-**A:** Azure Portal의 장치 레코드(deviceID) 및 상태가 클라이언트와 일치하고 조건부 액세스를 위한 평가 조건을 충족해야 합니다. 자세한 내용은 [Azure Active Directory Device 등록 시작](active-directory-device-registration.md)을 참조하세요.
+**A:** deviceID로 리플렉션된 장치 가입 상태는 Azure AD의 가입 상태와 일치해야 하며 조건부 액세스에 대한 평가 조건을 만족해야 합니다. 자세한 내용은 [Azure Active Directory Device 등록 시작](active-directory-device-registration.md)을 참조하세요.
 
 ---
 
@@ -140,9 +137,9 @@ ms.lasthandoff: 01/16/2018
 
 ---
 
-**Q: PC를 조인하려고 할 때 "오류가 발생했습니다." 대화 상자가 표시되는 이유는 무엇인가요?**
+**Q: PC를 Azure AD에 가입하려고 할 때 "오류가 발생했습니다." 대화 상자가 표시되는 이유는 무엇인가요?**
 
-**A:** Intune에 Azure Active Directory를 등록했기 때문입니다. 자세한 내용은 [Windows 장치 관리 설정](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)을 참조하세요.  
+**A:** Intune에 Azure Active Directory를 등록했기 때문입니다. Azure AD 가입을 시도하는 사용자에게 올바른 Intune 라이선스가 할당되어 있는지 확인하세요. 자세한 내용은 [Windows 장치 관리 설정](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)을 참조하세요.  
 
 ---
 

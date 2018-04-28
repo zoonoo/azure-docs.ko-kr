@@ -1,24 +1,22 @@
 ---
-title: "Azure 가상 네트워크에서 HBase 클러스터 복제 설정 | Microsoft Docs"
-description: "부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다."
+title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정 | Microsoft Docs
+description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
 services: hdinsight,virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 
@@ -43,7 +41,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
@@ -82,7 +80,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 3. HBase 대상 클러스터가 포함된 리소스 그룹을 선택합니다. 이 그룹은 Resource Manager 템플릿을 사용하여 환경을 만들 때 지정한 리소스 그룹입니다. 필터를 사용하여 목록의 범위를 좁힐 수 있습니다. 두 가상 네트워크가 포함된 리소스 목록을 볼 수 있습니다.
-4. HBase 대상 클러스터가 포함된 가상 네트워크를 선택합니다. 예를 들어 **xxxx-vnet2**를 선택합니다. **nic-zookeepermode-**로 시작하는 이름을 가진 세 개의 장치가 나열됩니다. 이러한 장치는 세 개의 ZooKeeper VM입니다.
+4. HBase 대상 클러스터가 포함된 가상 네트워크를 선택합니다. 예를 들어 **xxxx-vnet2**를 선택합니다. **nic-zookeepermode-** 로 시작하는 이름을 가진 세 개의 장치가 나열됩니다. 이러한 장치는 세 개의 ZooKeeper VM입니다.
 5. ZooKeeper VM 중 하나를 선택합니다.
 6. **IP 구성**을 선택합니다.
 7. 목록에서 **ipConfig1**을 선택합니다.
@@ -182,7 +180,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 필수 인수:
 
-|이름|설명|
+|Name|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +189,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 선택적 인수:
 
-|이름|설명|
+|Name|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |

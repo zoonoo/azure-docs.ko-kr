@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
 
@@ -73,7 +73,7 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 ]
 ```
 
-이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB로 제한됩니다.
 
 예를 들어 올바른 이벤트 데이터 스키마는 다음과 같습니다.
 
@@ -98,9 +98,10 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 |결과  |response  |
 |---------|---------|
 |성공  | 200 정상  |
-|잘못된 엔드포인트 | 404 찾을 수 없음 |
-|잘못된 액세스 키 | 401 권한 없음 |
 |이벤트 데이터의 형식이 잘못되었습니다. | 400 잘못된 요청 |
+|잘못된 액세스 키 | 401 권한 없음 |
+|잘못된 엔드포인트 | 404 찾을 수 없음 |
+|배열 또는 이벤트가 크기 제한을 초과합니다. | 413 페이로드가 너무 큼 |
 
 오류의 경우 메시지 본문에 다음과 같은 형식이 있습니다.
 

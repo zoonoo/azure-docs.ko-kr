@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 보조 사이트로 Hyper-V VM의 DR 훈련 실행 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 VMM 클라우드에서 Hyper-V VM에 대한 DR 훈련을 보조 데이터 센터로 실행하는 방법을 알아봅니다."
+title: Azure Site Recovery를 사용하여 보조 사이트로 Hyper-V VM의 DR 훈련 실행 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 VMM 클라우드에서 Hyper-V VM에 대한 DR 훈련을 보조 데이터 센터로 실행하는 방법을 알아봅니다.
 services: site-recovery
 author: ponatara
 manager: abhemraj
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
 
@@ -52,10 +52,17 @@ ms.lasthandoff: 02/21/2018
 ### <a name="best-practices"></a>모범 사례
 
 - 프로덕션 네트워크를 테스트하면 프로덕션 작업에서 가동 중지 시간이 발생합니다. 따라서 재해 복구 드릴을 진행 중일 때는 사용자들이 관련 앱을 사용하지 않도록 요청하세요.
-- 테스트 네트워크는 테스트 장애 조치(failover)에 사용되는 VMM 논리 네트워크 유형과 일치할 필요가 없습니다. 그러나 일부 조합은 작동하지 않습니다. 복제본에서 DHCP 및 VLAN 기반 격리를 사용하는 경우 복제본에 대한 VM 네트워크는 고정 IP 주소 풀이 필요하지 않습니다. 따라서 사용 가능한 주소 풀이 없으므로 테스트 장애 조치에 대한 Windows 네트워크 가상화의 사용이 작동하지 않습니다. 
-        - 복제본 네트워크가 격리 없음을 사용하고 테스트 네트워크가 Windows 네트워크 가상화를 사용하는 경우 테스트 장애 조치(failover)가 작동하지 않습니다. 이것은 격리 없는 네트워크에 Windows 네트워크 가상화 네트워크를 만드는 데 필요한 서브넷이 없기 때문입니다.
+
+- 테스트 네트워크는 테스트 장애 조치(failover)에 사용되는 VMM 논리 네트워크 유형과 일치할 필요가 없습니다. 하지만 일부 조합은 작동하지 않습니다.
+
+     - 복제본에서 DHCP 및 VLAN 기반 격리를 사용하는 경우 복제본에 대한 VM 네트워크는 고정 IP 주소 풀이 필요하지 않습니다. 따라서 사용 가능한 주소 풀이 없으므로 테스트 장애 조치에 대한 Windows 네트워크 가상화의 사용이 작동하지 않습니다. 
+        
+     - 복제본 네트워크가 격리 없음을 사용하고 테스트 네트워크가 Windows 네트워크 가상화를 사용하는 경우 테스트 장애 조치(Failover)가 작동하지 않습니다. 이것은 격리 없는 네트워크에 Windows 네트워크 가상화 네트워크를 만드는 데 필요한 서브넷이 없기 때문입니다.
+        
 - 네트워크 매핑에 선택한 네트워크를 테스트 장애 조치(failover)용으로 사용하지 않는 것이 좋습니다.
+
 - 장애 조치 후에 복제본 가상 머신이 매핑된 VM 네트워크에 연결된 방식은 VM네트워크가 VMM 콘솔에서 구성된 방식에 따라 다릅니다.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>격리 없음 또는 VLAN 격리로 구성된 VM 네트워크
 
@@ -112,7 +119,7 @@ VM 네트워크가 Windows 네트워크 가상화를 사용하여 VMM에서 구�
 
 이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **Virtual Machines** 탭에서 단일 가상 머신에 대한 장애 조치를 실행할 수 있습니다.
 
-1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** > **Test 장애 조치(Failover)**에서 의견이나 질문을 게시합니다.
+1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** > **Test 장애 조치(Failover)** 에서 의견이나 질문을 게시합니다.
 2. **테스트 장애 조치** 블레이드에서 테스트 장애 조치(failover) 후에 복제 VM을 네트워크에 연결할 방법을 지정합니다.
 3. **작업** 탭에서 장애 조치 진행 상황을 추적합니다.
 4. 장애 조치(failover)가 완료되면 VM이 정상적으로 시작되는지 확인합니다.

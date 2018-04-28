@@ -3,7 +3,7 @@ title: Azure Functions C# 개발자 참조
 description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: tdykstra
+ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -235,7 +235,7 @@ public static class SimpleExample
 
 ## <a name="async"></a>Async
 
-비동기화 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
+[비동기화](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
 
 ```csharp
 public static class AsyncExample

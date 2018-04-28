@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dcfd37a40ce16a1574c21e3a6e9520cb2e773166
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03e72c29bedf6a3125a5ae0272e93cdf58632bc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
@@ -152,7 +152,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
     이 밖에 Giraph 샘플과 함께 사용된 기타 매개 변수에 대한 자세한 내용은 [Giraph 빠른 시작](http://giraph.apache.org/quick_start.html)을 참조하세요.
 
-6. 작업이 완료되면 결과는 **/example/out/shotestpathss** 디렉터리에 저장됩니다. 출력 파일 이름은 **part-m-**으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
+6. 작업이 완료되면 결과는 **/example/out/shotestpathss** 디렉터리에 저장됩니다. 출력 파일 이름은 **part-m-** 으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

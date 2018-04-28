@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/27/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 4ddd70501821941120d0d22e273b69842b567532
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Cost Management를 위해 저장소 계정 구성
 
@@ -34,14 +34,14 @@ AWS 단순 저장소 서비스(S3) 버킷이 없는 경우 만들어야 합니�
 
 Cost Management에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 저장소 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
 
-1. http://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 2. **모든 서비스**를 선택하고 **저장소 계정**을 선택한 후 사용하려는 저장소 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
 3. 저장소 계정 페이지의 **설정** 아래에서 **액세스 키**를 클릭합니다.
 4. **저장소 계정 이름** 및 **연결 문자열**을 key1 아래에 복사합니다.  
 ![Azure Storage 액세스 키](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
 6. 톱니 기호를 클릭한 다음 **보고서 저장소 관리**를 선택합니다.
-7. **새로 추가 +**를 클릭하고 Microsoft Azure가 선택되어 있는지 확인합니다. Azure Storage 계정 이름을 **이름** 영역에 붙여 넣습니다. **연결 문자열**을 해당 영역에 붙여 넣습니다. 컨테이너 이름을 입력한 다음 **저장**을 클릭합니다.  
+7. **새로 추가 +** 를 클릭하고 Microsoft Azure가 선택되어 있는지 확인합니다. Azure Storage 계정 이름을 **이름** 영역에 붙여 넣습니다. **연결 문자열**을 해당 영역에 붙여 넣습니다. 컨테이너 이름을 입력한 다음 **저장**을 클릭합니다.  
 ![Azure용으로 구성된 Cloudyn 저장소](./media/storage-accounts/azure-cloudyn-storage.png)
 
   새 Azure 보고서 저장소 항목이 저장소 계정 목록에 나타납니다.  
@@ -149,7 +149,7 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 
 1. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
 2. 톱니 기호를 클릭한 다음 **보고서 저장소 관리**를 선택합니다.
-3. **새로 추가 +**를 클릭하고 AWS가 선택되어 있는지 확인합니다.
+3. **새로 추가 +** 를 클릭하고 AWS가 선택되어 있는지 확인합니다.
 4. 계정 및 저장소 버킷을 선택합니다. AWS 저장소 버킷의 이름이 자동으로 채워집니다.  
     ![AWS 버킷에 대한 보고서 저장소 추가](./media/storage-accounts/aws-cloudyn-storage.png)  
 5. 그런 다음, **저장**을 클릭하고 **확인**을 클릭합니다.

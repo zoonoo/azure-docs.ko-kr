@@ -4,7 +4,7 @@ description: ExpressRoute FAQ는 Azure 서비스, 비용, 데이터 및 연결, 
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 04/09/2018
 ms.author: cherylmc
-ms.openlocfilehash: 557c6a75140f399f74d77543de834af086871032
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4c61cdc504306d4e28d1d8c03fce4e479a0bfd34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -36,7 +36,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>ExpressRoute 통신 업체 중 하나와 파트너의 관계가 아닌 경우, ExpressRoute를 사용하여 Microsoft에 연결할 수 있는 방법이 있나요?
 
-지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [ 파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
+지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
 
 ### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 비용
 
@@ -67,6 +67,10 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 * 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
 
 ### <a name="public-peering"></a>공용 피어링
+
+>[!NOTE]
+>Microsoft 피어링은 Azure에서 호스트되는 모든 서비스에 액세스하기 위한 기본 방법입니다.
+>
 
 * Power BI
 * Dynamics 365 for Finance and Operations(이전의 Dynamics AX Online)

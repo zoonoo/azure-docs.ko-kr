@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 865243a10bd5043ca04c392c043b37772271f68f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Machine Learning 관리 PowerShell cmdlet을 사용하여 새 리소스 관리자 기반 웹 서비스를 다시 학습
-새 웹 서비스를 다시 교육하는 경우 새로 학습된 모델을 참조하여 예측 웹 서비스 정의를 업데이트합니다.  
+새 웹 서비스를 다시 교육하는 경우 새로 학습된 모델을 참조하여 예측 웹 서비스 정의를 업데이트합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](retrain-models-programmatically.md)에서 보듯이 설정해야 합니다. 
+학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](retrain-models-programmatically.md)에서 보듯이 설정해야 합니다.
 
 > [!IMPORTANT]
-> 예측 실험을 Azure Resource Manager(신규) 기반 Machine Learning 웹 서비스로 배포해야 합니다. 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
+> 예측 실험을 Azure Resource Manager(신규) 기반 Machine Learning 웹 서비스로 배포해야 합니다.
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
 
 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 03/23/2018
 6. 웹 서비스를 새 웹 서비스 정의로 업데이트합니다.
 
 ## <a name="sign-in-to-your-azure-resource-manager-account"></a>Azure Resource Manager 계정으로 로그인합니다.
-먼저 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다.
+먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다.
 
 ## <a name="get-the-web-service-definition"></a>웹 서비스 정의 가져오기
 다음으로 [Get AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 호출하여 웹 서비스를 가져옵니다. 웹 서비스 정의는 웹 서비스 학습된 모델의 내부 표현이며 직접 수정할 수는 없습니다. 학습 실험이 아닌 예측 실험에 대한 웹 서비스 정의를 검색하고 있는지 확인합니다.

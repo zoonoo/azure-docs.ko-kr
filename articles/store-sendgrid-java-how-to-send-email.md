@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9f7d4841846e41eacb66125bcdeeb29466bb0b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java의 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -81,7 +81,7 @@ javax.mail 라이브러리를 가져오고(예: <http://www.oracle.com/technetwo
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. 메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#how-to-create-an-email) 섹션에 나와 있습니다.
-4. *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][방법: 전자 메일 보내기] 섹션에 나와 있습니다.
+4. *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][#how-to-send-an-email] 섹션에 나와 있습니다.
 
 ## <a name="how-to-create-an-email"></a>방법: 전자 메일 만들기
 다음은 메일 값을 지정하는 방법을 보여 줍니다.

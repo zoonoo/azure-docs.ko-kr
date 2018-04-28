@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 1a8cbdef8f3d8a5aa4aeab0e51275933160360c2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3335fdd3a1bb20c378bf36307d742491de0e46ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure 스택 개발 키트 릴리스 정보
 이러한 릴리스 정보에서는 향상 된 기능, 수정 및 Azure 스택 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모르는 경우 다음을 할 수 있습니다 [포털을 사용 하 여](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -308,81 +308,4 @@ Azure 스택 관리자 포털에서 이름으로 중요 한 알림이 표시 될
 > [!IMPORTANT]
 > 도 **azurestack\cloudadmin** 계정이 ADFS 배포 된 환경에서 기본 공급자 구독 소유자가, RDP에 사용 권한을 호스트도가 없습니다. 계속 사용 하는 **azurestack\azurestackadmin** 계정이 나 로컬 관리자 계정 로그인, 액세스 및 필요에 따라 호스트를 관리 합니다.
 
-
-
-
-## <a name="build-201711221"></a>빌드 20171122.1
-
-### <a name="new-features-and-fixes"></a>새 기능 및 수정
-
-- 참조는 [새 기능 및 수정](.\.\azure-stack-update-1711.md#new-features-and-fixes) Azure 스택에 대 한 Azure 스택 1711 업데이트 릴리스 정보 섹션 시스템을 통합 합니다.
-
-    > [!IMPORTANT]
-    > 에 나열 된 항목 중 일부는 **새 기능 및 수정** 섹션 통합 Azure 스택 시스템에만 적용 됩니다.
-
-### <a name="known-issues"></a>알려진 문제
-
- 
-#### <a name="deployment"></a>배포
-- IP 주소를 통해 시간 서버를 배포 하는 동안 지정 해야 합니다.
-- 1711, 버전부터 **CloudAdmin** 은 예약 된 계정 이름 및 지정 하지 마십시오. 수동으로 개발 키트를 배포 하는 경우. 
-
-#### <a name="infrastructure-management"></a>인프라 관리
-- 인프라 백업에 사용 하지 마십시오는 **인프라 백업** 블레이드입니다.
-- 베이스 보드 관리 컨트롤러 (BMC) IP 주소와 모델의 배율 단위 노드는 중요 한 정보에 표시 되지 않습니다. Azure 스택 개발 키트에이 동작이 필요 합니다.
-
-#### <a name="portal"></a>포털
-- 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 포털의 오른쪽 위 모서리에서 톱니 바퀴형 아이콘을 선택 하 고 다음 선택 **기본 설정을 복원**합니다.
-- 리소스 그룹의 속성을 볼 때의 **이동** 단추가 비활성화 됩니다. 이 동작은 사용할 수 있습니다. 구독 간 리소스 그룹 이동 현재 지원 되지 않습니다.
--  모든 워크플로에 드롭 다운 목록에서 구독, 리소스 그룹 또는 위치 선택 되는 위치에 대 한 다음 문제 중 하나 이상이 발생할 수 있습니다.
-
-   - 목록 맨 위에 있는 빈 행을 볼 수 있습니다. 여전히 예상 대로 항목을 선택할 수 있습니다.
-   - 드롭다운 목록에 있는 항목의 목록이 긴 경우 수 항목 이름 중 하나를 볼 수 없습니다.
-   - 구독이 여러 개인 사용자, 리소스 그룹 드롭 다운 목록 비어 있을 수 있습니다. 
-
-   마지막 두 개의 문제를 해결 하려면 구독 또는 리소스 그룹 (경우 것)의 이름을 입력할 수 있습니다 또는 PowerShell을 대신 사용할 수 있습니다.
-
-- 표시 됩니다는 **활성화 필요** Azure 스택 개발 키트를 등록 해야 한다는 경고 성 알림입니다. 이 동작은 사용할 수 있습니다.
-- 경우는 **구성 요소** 에서 링크를 클릭 하면 **인프라 역할** 경고 결과 **개요** 블레이드를 로드 하려고 하 고 실패 합니다. 또한는 **개요** 블레이드 시간이 제한 되지 않습니다.
-- 분리 된 리소스에서 사용자 구독 결과 삭제 합니다. 이 문제를 해결 먼저 사용자 리소스 또는 전체 리소스 그룹을 삭제 하 고 사용자 구독을 삭제 합니다.
-- Azure 스택 포털을 사용 하 여 구독에 대 한 사용 권한을 볼 수 없는 합니다. 이 문제를 해결 PowerShell을 사용 하 여 사용 권한을 확인할 수 있습니다.
-- **서비스 상태** 블레이드 로드 되지 않습니다. 관리자 또는 사용자 포털에서 Azure 스택 서비스 상태 블레이드를 열 때 오류가 표시 되 고 정보를 로드 하지 않습니다. 이는 정상적인 동작입니다. 선택 하 고 서비스 상태를 열 수 있지만이 기능은 아직 제공 되지 않습니다 되지만 Azure 스택의 이후 버전에서 구현 됩니다.
-
-#### <a name="marketplace"></a>Marketplace
-- 사용 하 여 Azure 스택 마켓플레이스 항목을 추가 하려고 하면는 **Azure에서 추가** 옵션을 일부 항목 다운로드에 대 한 표시 될 수 있습니다.
-- 사용자 구독 하지 않고 전체 마켓플레이스를 찾아볼 수 있으며, 계획 및 제안 같은 관리 항목을 볼 수 있습니다. 이러한 항목은 사용자에 게 기능입니다.
- 
-#### <a name="compute"></a>컴퓨팅
-- 사용자에는 지역 중복 저장소를 사용 하 여 가상 컴퓨터를 만들려면 옵션이 제공 됩니다. 이 구성을 사용 하면 가상 컴퓨터 만들기 실패 합니다. 
-- 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
-- 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.
-- 크기 조정 설정을 가상 컴퓨터 크기 집합에 대 한 포털에서 사용할 수 없는 경우 한 대 안으로 사용할 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)합니다. PowerShell 버전 차이 때문에 사용 해야 합니다는 `-Name` 매개 변수 대신 `-VMScaleSetName`합니다.
-
-#### <a name="networking"></a>네트워킹
-- 포털을 사용 하 여 공용 IP 주소와 부하 분산 장치를 만들 수 없습니다. 이 문제를 해결를 부하 분산 장치를 만드는 PowerShell을 사용할 수 있습니다.
-- 네트워크 부하 분산 장치를 만들 때 네트워크 주소 변환 (NAT) 규칙을 만들어야 합니다. 이렇게 하지 않으면 부하 분산 장치를 만들면 NAT 규칙을 추가 하려고 할 때 오류가 받게 합니다.
-- 아래 **네트워킹**누르면, **연결** VPN 연결을 설정 하려면 **VNet 대 VNet** 가능한 연결 유형으로 나열 됩니다. 이 옵션을 선택 하지 마십시오. 현재만 **사이트 (IPsec)** 옵션은 지원 됩니다.
-- VM이 되어 해당 IP 주소와 연결 된 후 가상 컴퓨터 (VM)에서 공용 IP 주소를 분리할 수 없습니다. Disassociation 작동으로 나타나지만 이전에 할당 된 공용 IP 주소에 연결 되어 있는 원본 VM입니다. 새 VM에 IP 주소를 다시 할당 하는 경우에이 문제가 발생 (일반적으로 라고는 *VIP 교체*). 앞으로의 모든 새 아니라 원래 연결 되어 있던 VM에 대 한 연결에서이 IP 주소 결과 통해 연결을 시도 합니다. 현재, 새 VM 만들기에 대 한 새 공용 IP 주소를만 사용 해야 합니다.
-- Azure 스택 운영자를 배포, 삭제, Vnet 또는 네트워크 보안 그룹을 수정 못할 수 있습니다. 이 문제는 동일한 패키지의 후속 업데이트 시도에 주로 나타납니다. 이 현재 조사 중인 상태인 업데이트와 패키징 문제로 인해 발생 합니다.
-- 부하 분산 ILB (내부) 백 엔드 Vm Linux 인스턴스를 사용 하는 경우 백 엔드 네트워크 패킷을 삭제에 대 한 MAC 주소를 잘못 처리 합니다.
- 
-#### <a name="sqlmysql"></a>SQL/MySQL 
-- 테 넌 트가 새 SQL 또는 MySQL SKU에 데이터베이스를 만들 수는 1 시간까지 걸릴 수 있으므로 합니다. 
-- SQL 및 MySQL 리소스 공급자가 수행 되지 않은 서버 호스팅에 직접 항목의 생성은 지원 되지 않으며 일치 하지 않는 상태가 될 수 있습니다.
-
-    > [!NOTE]
-    > 개별 참조 [SQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy) 및 [MySQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy) 버전 호환성 지침에 대 한 문서를 설정 합니다.
-
-#### <a name="app-service"></a>App Service
-- 사용자는 구독에 해당 첫 번째 Azure 기능을 만들기 전에 저장소 리소스 공급자를 등록 해야 합니다.
-
-#### <a name="usage"></a>사용 현황  
-- 사용 현황 공용 IP 주소 사용 계량 데이터를 보여 줍니다 동일한 *EventDateTime* 대신 각 레코드에 대 한 값은 *TimeDate* 레코드를 만들 때 보여 주는 스탬프입니다. 현재 공용 IP 주소 사용 정확한 계정 작업을 수행 하려면이 데이터를 사용할 수 없습니다.
-
-#### <a name="identity"></a>ID
-
-배포 된 환경에서 Azure Active Directory 페더레이션 서비스 (ADFS)는 **azurestack\azurestackadmin** 계정이 기본 공급자 구독 소유자가 더 이상. 에 로그인 하는 대신는 **관리 포털 / adminmanagement 끝점** 와 **azurestack\azurestackadmin**를 사용할 수 있습니다는 **azurestack\cloudadmin** 하므로 계정 관리 하 고 기본 공급자 구독을 사용 하 여 수 있습니다.
-
-> [!IMPORTANT]
-> 도 **azurestack\cloudadmin** 계정이 ADFS 배포 된 환경에서 기본 공급자 구독 소유자가, RDP에 사용 권한을 호스트도가 없습니다. 계속 사용 하는 **azurestack\azurestackadmin** 계정이 나 로컬 관리자 계정 로그인, 액세스 및 필요에 따라 호스트를 관리 합니다.
 

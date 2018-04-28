@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>장치 시뮬레이션 연습
 
@@ -69,22 +69,22 @@ Azure IoT 장치 시뮬레이션은 IoT 솔루션의 개발 및 테스트를 지
 
 장치 시뮬레이션은 세 가지 미리 구성된 장치 모델을 제공합니다. 냉각기, 엘리베이터 및 트럭에 대한 장치 모델을 사용할 수 있습니다.
 
-미리 구성된 장치 모델에는 미리 결정된 원격 분석 빈도를 갖는 여러 센서가 포함됩니다. 이러한 장치에 대한 원격 분석 빈도는 사용자 지정할 수 없습니다.
+미리 구성된 장치 모델에는 JavaScript 파일에 정의된 고급 동작의 여러 센서가 포함됩니다. 이러한 사용자 지정 동작은 웹 UI에서 지원되지 않습니다. 
 
 다음 표에서는 미리 구성된 각 장치 모델에 대한 구성 목록을 보여 줍니다.
 
-| 장치 모델 | 센서 | 단위 | 원격 분석 빈도
-| -------------| ------ | -----| --------------------|
-| 냉각기 | humidity | % | 5초 |
-| | pressure | psig | 5초 |
-| | 온도 | F | 5초 |
-| 엘리베이터 | Floor | | 5초 |
-| | Vibration | MM | 5초 |
-| | 온도 | F | 5초 |
-| 트럭 | 위도 | | 3초 |
-| | 경도 | | 3초 |
-| | speed | mph | 5초 |
-| | cargotemperature | F | 5초 |
+| 장치 모델 | 센서 | 단위 | 
+| -------------| ------ | -----| 
+| 냉각기 | humidity | % |
+| | pressure | psig | 
+| | 온도 | F | 
+| 엘리베이터 | Floor | 
+| | Vibration | MM | 
+| | 온도 | F | 
+| 트럭 | 위도 | |
+| | 경도 | | 
+| | speed | mph | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>사용자 지정 장치 모델
 
@@ -106,7 +106,7 @@ Azure IoT 장치 시뮬레이션은 IoT 솔루션의 개발 및 테스트를 지
 
 ### <a name="number-of-devices"></a>장치 수
 
-현재, 장치 시뮬레이션을 사용하면 최대 1,000개의 장치를 시뮬레이트할 수 있습니다.
+현재, 장치 시뮬레이션을 사용하면 최대 20,000개의 장치를 시뮬레이트할 수 있습니다.
 
 ![장치 수](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

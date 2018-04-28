@@ -3,21 +3,20 @@ title: Azure Virtual Network에서 Hive를 사용하여 데이터 변환 | Micro
 description: 이 자습서에서는 Azure Data Factory에서 Hive 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shengc
-ms.openlocfilehash: e9f8ae08a98ecb192fefed310b2392f9a90c7363
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: douglasl
+ms.openlocfilehash: 4e7faabb7c9aea8643a32dd626a3a7f5bf0a6f00
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -188,7 +187,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 }
 ```
 
-**&lt;accountname&gt; 및 &lt;accountkey&gt;**를 Azure Storage 계정의 이름과 키로 바꿉니다.
+**&lt;accountname&gt; 및 &lt;accountkey&gt;** 를 Azure Storage 계정의 이름과 키로 바꿉니다.
 
 ### <a name="hdinsight-linked-service"></a>HDInsight 연결된 서비스
 

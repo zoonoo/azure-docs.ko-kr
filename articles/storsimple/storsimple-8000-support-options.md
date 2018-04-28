@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6753b52b02373d03a9ed5fec775c899a806aff3e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5cb2d1cea80488970ef82071275b6c38e7f97cee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="storsimple-solution-support"></a>StorSimple 솔루션 지원
 
@@ -83,7 +83,7 @@ Microsoft는 StorSimple 엔터프라이즈 저장소 고객에게 유연한 지�
 영어 외에도 업무 시간 중 일본어, 한국어, 대만어 및 중국어 번체로 현지 언어 지원이 제공됩니다.
 
 ## <a name="support-scope"></a>지원 범위 
-청구 및 구독 관리 관련 문제에 대한 지원은 모든 지원 수준에서 제공됩니다. StorSimple 지원을 받으려면 고객이 StorSimple 표준 또는 프리미엄 지원 계획에 등록해야 합니다. StorSimple 지원 팀은 StorSimple 솔루션에 영향을 주는 모든 문제를 해결할 책임이 있습니다. StorSimple과 직접적으로 관련되지 않은 Azure 관련 문제에 대한 지원을 받으려면 고객은 적절한 Azure 지원 계획에 등록해야 합니다. 자세한 내용은 [여기](https://azure.microsoft.com/en-us/support/plans/)를 참조하세요. 지원 팀은 고객의 Azure 지원에 대한 자격에 따라 StorSimple 이외의 지원 사례는 Azure 팀에 안내하여 후속 조치합니다. 
+청구 및 구독 관리 관련 문제에 대한 지원은 모든 지원 수준에서 제공됩니다. StorSimple 지원을 받으려면 고객이 StorSimple 표준 또는 프리미엄 지원 계획에 등록해야 합니다. StorSimple 지원 팀은 StorSimple 솔루션에 영향을 주는 모든 문제를 해결할 책임이 있습니다. StorSimple과 직접적으로 관련되지 않은 Azure 관련 문제에 대한 지원을 받으려면 고객은 적절한 Azure 지원 계획에 등록해야 합니다. 자세한 내용은 [여기](https://azure.microsoft.com/support/plans/)를 참조하세요. 지원 팀은 고객의 Azure 지원에 대한 자격에 따라 StorSimple 이외의 지원 사례는 Azure 팀에 안내하여 후속 조치합니다. 
 
 
 | **심각도** |**고객의 상황**                                                                                                                                | 예상되는 Microsoft 응답 <sup>2                                                                                       | 예상되는 고객 응답                                                                                                                                                       |

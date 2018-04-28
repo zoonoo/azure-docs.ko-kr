@@ -1,10 +1,10 @@
 ---
-title: "Azure Data Lake Tools: Azure Data Lake Tools for Visual Studio Code 사용 | Microsoft Docs"
-description: "Azure Data Lake Tools for Visual Studio Code를 사용하여 U-SQL 스크립트를 만들고, 테스트하고, 실행하는 방법에 대해 알아봅니다. "
+title: 'Azure Data Lake Tools: Azure Data Lake Tools for Visual Studio Code 사용 | Microsoft Docs'
+description: 'Azure Data Lake Tools for Visual Studio Code를 사용하여 U-SQL 스크립트를 만들고, 테스트하고, 실행하는 방법에 대해 알아봅니다. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
@@ -168,7 +168,7 @@ Data Lake Tools를 사용하여 사용자 지정 코드 어셈블리를 Data Lak
 
 **ADL: Register Assembly(Advanced)를 통해 등록하려면**
 1.  Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다.
-2.  **ADL: Register Assembly(Advanced)**를 입력합니다. 
+2.  **ADL: Register Assembly(Advanced)** 를 입력합니다. 
 3.  로컬 어셈블리 경로를 지정합니다. 
 4.  JSON 파일이 표시됩니다. 필요한 경우 어셈블리 종속성 및 리소스 매개 변수를 검토하고 편집합니다. 지침이 **출력** 창에 표시됩니다. 어셈블리 등록을 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
 
@@ -322,7 +322,7 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 **ADL: Download File** 또는 **ADL: Download File(Advanced)** 명령을 입력하여 파일을 다운로드할 수 있습니다.
 
 **ADL: Download File(Advanced)를 통해 파일을 다운로드하려면**
-1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **Download File(Advanced)**를 선택합니다.
+1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **Download File(Advanced)** 를 선택합니다.
 2. VS Code에서 JSON 파일을 표시합니다. 파일 경로를 입력하고 여러 파일을 동시에 다운로드할 수 있습니다. 지침이 **출력** 창에 표시됩니다. 파일 다운로드를 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
 
     ![Data Lake Tools for Visual Studio Code의 구성 파일 다운로드](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -356,13 +356,13 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 
 **Azure 통합** 
 
-- Azure에 로그인하기 전에 항상 **DATALAKE 탐색기**를 확장한 다음 **Azure에 로그인**을 클릭하면 Azure에 로그인할 수 있습니다. 로그인 후 **DataLake 탐색기**의 왼쪽 패널에 Azure 계정의 전체 구독이 표시됩니다. 
+- Azure에 로그인하기 전에 항상 **AZURE DATALAKE**를 확장한 다음, **Azure에 로그인**을 클릭하여 Azure에 로그인할 수 있습니다. 로그인 후 **AZURE DATALAKE**의 왼쪽 패널에 Azure 계정의 전체 구독이 표시됩니다. 
 
    ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**ADLA 메타데이터 탐색** 
+**ADLA 메타데이터 탐색**
 
 - Azure 구독을 확장하면, U-SQL Database를 탐색하여, U-SQL Databases 노드에서 **스키마**, **자격 증명**, **어셈블리**, **테이블**, **인덱스** 등을 볼 수 있습니다.
 
@@ -382,11 +382,31 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 
 **ADLS 통합** 
 
- - **저장소 계정**으로 이동하면 파일 노드에서 상황에 맞는 메뉴로 **미리 보기**, **다운로드**, **삭제**, **상대 경로 복사**, **전체 경로 복사**를 수행할 수 있습니다. 폴더 노드에서 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하면 **새로 고침**, **업로드**, **폴더 업로드**, **삭제**를 수행할 수 있습니다.
+**Data Lake Store**로 이동
+
+ - 폴더 노드의 오른쪽 클릭 바로 가기 메뉴에서 **새로 고침**, **삭제**, **업로드**, **폴더 업로드**, **상대 경로 복사**, **전체 경로 복사**를 수행할 수 있습니다.
 
    ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - 폴더 노드의 오른쪽 클릭 바로 가기 메뉴에서 **다운로드**, **미리 보기**, **삭제**, **상대 경로 복사**, **전체 경로 복사**를 수행할 수 있습니다. 
+
    ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**WASB 통합**
+
+**Blob Storage**로 이동
+
+- Blob 컨테이너 노드의 오른쪽 클릭 바로 가기 메뉴에서 **새로 고침**, **Blob 컨테이너 삭제**, **Blob 업로드**를 수행할 수 있습니다.
+
+    ![Blob Storage Blob 컨테이너 노드](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- 폴더 노드의 오른쪽 클릭 바로 가기 메뉴에서 **새로 고침**, **Blob 업로드**를 수행할 수 있습니다.
+
+    ![Blob Storage 폴더 노드](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- 폴더 노드의 오른쪽 클릭 바로 가기 메뉴에서 **미리 보기/편집**, **다운로드**, **삭제**, **상대 경로 복사**, **전체 경로 복사**를 수행할 수 있습니다.
+
+    ![Blob Storage 파일 노드](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>포털에서 ADL 저장소 탐색기 열기
 1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다.

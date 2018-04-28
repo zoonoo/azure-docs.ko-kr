@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C 등록, 로그인, 프로필 편집 및 암호 재설정을 사용하여 ASP.NET 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 계정에 B2C 테넌트를 연결해야 합니다. [여기](https://azure.microsoft.com/en-us/)에서 Azure 계정을 만들 수 있습니다.
+- Azure 계정에 B2C 테넌트를 연결해야 합니다. [여기](https://azure.microsoft.com/)에서 Azure 계정을 만들 수 있습니다.
 - 샘플 코드를 보고 수정하기 위해 [Microsoft Visual Studio](https://www.visualstudio.com/) 또는 비슷한 프로그램이 필요합니다.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 만들기
@@ -194,7 +194,7 @@ public partial class Startup
                 },
 
                 // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
-                Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
+                Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );
     }

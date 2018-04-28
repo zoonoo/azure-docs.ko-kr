@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl compose| Microsoft Docs
-description: "Service Fabric CLI sfctl compose 명령을 설명합니다."
+description: Service Fabric CLI sfctl compose 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Docker Compose 배포를 만들고, 삭제하고, 관리합니다.
@@ -56,7 +56,7 @@ Service Fabric 작성 배포를 만듭니다.
 | --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
@@ -79,7 +79,7 @@ Service Fabric 클러스터에 만들어졌거나 만들어지는 프로세스�
 | --debug          | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h        | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o      | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query          | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query          | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose        | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
@@ -101,7 +101,7 @@ Service Fabric 클러스터에 만들어졌거나 만들어지는 프로세스�
 | --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
@@ -123,7 +123,7 @@ Service Fabric 클러스터에서 만들어졌거나 만들어지는 과정에 �
 | --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
@@ -161,7 +161,7 @@ Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니�
 |   --debug                      | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 |    --help -h                    | 이 도움말 메시지 및 종료를 표시합니다.|
 |   --output -o                  | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv. 기본값: json.|
-|   --query                      | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+|   --query                      | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 |   --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계

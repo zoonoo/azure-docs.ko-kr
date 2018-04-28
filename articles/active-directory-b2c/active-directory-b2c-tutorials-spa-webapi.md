@@ -8,11 +8,11 @@ ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: b1731a16dd2389f19d25a2594fe25a97b6ddd9f1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱에서 ASP.NET Core Web API로의 액세스 권한 부여
 
@@ -58,7 +58,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | **암시적 흐름 허용** | 예 | API에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `http://localhost:44332` | 회신 URL은 Azure AD B2C에서 API가 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플 웹 API가 로컬(로컬 호스트)에서 실행되고 5000 포트에서 수신 대기합니다. |
     | **앱 ID URI** | HelloCoreAPI | URI는 테넌트에서 API를 고유하게 식별합니다. 이 설정을 사용하면 테넌트별로 여러 API를 등록할 수 있습니다. [범위](../active-directory/develop/active-directory-dev-glossary.md#scopes)는 보호된 API 리소스에 대한 액세스를 제어하고 앱 ID URI별로 정의됩니다. |
-    | **네이티브 클라이언트** | 아니요 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    | **네이티브 클라이언트** | 아니오 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
 3. **만들기**를 클릭하여 API를 등록합니다.
 
@@ -138,7 +138,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 #### <a name="enable-cors"></a>CORS를 사용하도록 설정
 
-단일 페이지 앱에서 ASP.NET Core Web API를 호출할 수 있으려면 [CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors)를 사용하도록 설정해야 합니다.
+단일 페이지 앱에서 ASP.NET Core Web API를 호출할 수 있으려면 [CORS](https://docs.microsoft.com/aspnet/core/security/cors)를 사용하도록 설정해야 합니다.
 
 1. **Startup.cs**에서 CORS를 `ConfigureServices()` 메서드에 추가합니다.
 

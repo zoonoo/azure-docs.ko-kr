@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="volumes-with-azure-files"></a>Azure 파일이 포함된 볼륨
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>파일 공유를 볼륨으로 탑재
 
-해당 사양에서 볼륨을 구성하여 Azure 파일 공유를 Pod에 탑재할 수 있습니다. 다음 내용이 포함된 새 파일 `azure-files-pod.yaml`을 만듭니다. `aksshare`을 Azure 파일 공유에 지정된 이름으로 업데이트합니다.
+해당 사양에서 볼륨을 구성하여 Azure 파일 공유를 Pod에 탑재합니다. 다음 내용이 포함된 새 파일 `azure-files-pod.yaml`을 만듭니다. `aksshare`을 Azure 파일 공유에 지정된 이름으로 업데이트합니다.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ kubectl을 사용하여 Pod를 만듭니다.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-이제 Azure 파일 공유가 `/mnt/azure` 디렉터리에 탑재된 컨테이너가 실행되고 있습니다. `kubectl describe pod azure-files-pod`를 통해 Pod를 검사하여 볼륨 탑재를 확인할 수 있습니다.
+이제 Azure 파일 공유가 `/mnt/azure` 디렉터리에 탑재된 컨테이너가 실행되고 있습니다.  `kubectl describe pod azure-files-pod`를 통해 Pod를 검사하여 볼륨 탑재를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

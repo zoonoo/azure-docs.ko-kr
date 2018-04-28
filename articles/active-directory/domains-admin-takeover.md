@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 이 문서에서는 Azure Active Directory (Azure AD)에서 관리 되지 않는 디렉터리의 DNS 도메인 이름을 인수할 두 가지 방법을 설명합니다. 셀프 서비스 사용자가 Microsoft AD를 사용하는 클라우드 서비스에 등록할 때, 전자 메일 도메인에 기반하여 관리되지 않는 Microsoft Azure AD 디렉토리에 추가됩니다. 셀프 서비스 또는 서비스에 대한 "바이럴" 등록에 대한 자세한 내용은 [Microsoft Azure Active Directory의 셀프 서비스 등록이란?]()을 참조하세요.
@@ -83,14 +83,12 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 - 사용자
 - 구독
 - 라이선스 할당
- 
-도메인 이름 외부 관리자 인수에 대한 [**ForceTakeover** 옵션](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)은 두 가지 서비스인 Power BI 및 Microsoft Azure RMS에 대해서만 지원됩니다.
 
 ### <a name="support-for-external-admin-takeover"></a>외부 관리자 인수에 대한 지원
 외부 관리자 인수는 다음과 같은 온라인 서비스에서 지원합니다.
 
 - Power BI
-- Azure Rights Management Service (RMS)
+- Azure Rights Management
 - Exchange Online
 
 지원되는 서비스 계획은 다음과 같습니다.
@@ -99,12 +97,19 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 - Power BI Pro
 - PowerApps Free
 - PowerFlow Free
-- Azure Rights Management Service Basic (RMS)
-- Azure Rights Management Service Enterprise (RMS)
+- 개인용 RMS
 - Microsoft Stream
 - Dynamics 365 평가판
 
-SharePoint, OneDrive, 또는 Skype For Business를 포함하는 서비스 계획을 가진 모든 서비스, 예를 들어 Office 무료 구독 또는 Office Basic SKU를 통한 외부 관리자 인수는 지원되지 않습니다.
+SharePoint, OneDrive, 또는 Skype For Business를 포함하는 서비스 계획을 가진 모든 서비스, 예를 들어 Office 무료 구독 또는 Office Basic SKU를 통한 외부 관리자 인수는 지원되지 않습니다. 선택적으로 관리되지 않는 테넌트에서 도메인 이름을 제거하고 원하는 테넌트에서 확인하기 위해 [**ForceTakeover** 옵션](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)을 사용할 수 있습니다. 이 ForceTakeover 옵션은 사용자를 이동하거나 구독에 대한 액세스 권한을 유지하지 않습니다. 대신, 이 옵션은 도메인 이름만 이동합니다. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>개인용 RMS에 대한 자세한 내용
+
+[개인용 RMS](/information-protection/understand-explore/rms-for-individuals)의 경우, 관리되지 않는 테넌트가 사용자 소유의 테넌트와 같은 지역에 있을 경우 자동으로 생성된 [Azure Information Protection 테넌트 키](/information-protection/plan-design/plan-implement-tenant-key) 및 [기본 보호 템플릿](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates)이 도메인 이름과 함께 추가로 이동됩니다. 
+
+관리되지 않는 테넌트가 다른 지역에 있을 때는 이 키 및 템플릿이 이동되지 않습니다. 예를 들어, 관리되지 않는 테넌트는 유럽에 있고 사용자 소유의 테넌트는 북미 지역에 있을 수 있습니다. 
+
+개인용 RMS는 보호된 콘텐츠를 열기 위한 Azure AD 인증을 지원하도록 디자인되었지만, 사용자의 콘텐츠 보호를 방지하지 못 합니다. 사용자가 개인용 RMS 구독을 사용하여 콘텐츠를 보호하며 해당 키와 템플릿이 이동되지 않은 경우, 해당 콘텐츠는 도메인이 작업을 인계받은 후에 액세스할 수 없게 됩니다.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.

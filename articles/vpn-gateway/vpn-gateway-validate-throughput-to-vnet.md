@@ -1,13 +1,13 @@
 ---
-title: "Microsoft Azure Virtual Network에 대한 VPN 처리량 유효성 검사 | Microsoft Docs"
-description: "이 문서의 목적은 사용자가 온-프레미스 리소스에서 Azure 가상 컴퓨터로의 네트워크 처리량을 유효성 검사하도록 돕는 것입니다."
+title: Microsoft Azure Virtual Network에 대한 VPN 처리량 유효성 검사 | Microsoft Docs
+description: 이 문서의 목적은 사용자가 온-프레미스 리소스에서 Azure 가상 머신으로의 네트워크 처리량을 유효성 검사하도록 돕는 것입니다.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: jasmc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -53,7 +53,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 4.  ISP(인터넷 서비스 공급자) 대역폭을 결정합니다.
 5.  예상 처리량을 계산합니다((VM, Gateway, ISP)의 최소 대역폭 * 0.8).
 
-계산된 처리량이 응용 프로그램의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 컴퓨터의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/virtual-machines-windows-resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의해야 할 수도 있습니다.
+계산된 처리량이 응용 프로그램의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 머신의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/virtual-machines-windows-resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의해야 할 수도 있습니다.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>성능 도구를 사용하여 네트워크 처리량의 유효성 검사
 
@@ -121,7 +121,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 ## <a name="address-slow-file-copy-issues"></a>느린 파일 복사 문제 처리
 Windows 탐색기를 사용하거나 RDP 세션을 통해 끌어서 놓으면 파일 복사가 느려질 수 있습니다. 일반적으로 이 문제의 원인은 다음 요소 중 하나이거나 둘 다에 해당합니다.
 
-- Windows 탐색기 및 RDP와 같은 파일 복사 응용 프로그램은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx)와 같은 다중 스레드 파일 복사 응용 프로그램을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 사용할 스레드 수를 변경하려면 **작업** > **복사 옵션** > **파일 복사**를 클릭합니다.<br><br>
+- Windows 탐색기 및 RDP와 같은 파일 복사 응용 프로그램은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)와 같은 다중 스레드 파일 복사 응용 프로그램을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 사용할 스레드 수를 변경하려면 **작업** > **복사 옵션** > **파일 복사**를 클릭합니다.<br><br>
 ![느린 파일 복사 문제](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - 부족한 VM 디스크 읽기/쓰기 속도. 자세한 내용은 [Azure Storage 문제 해결](../storage/common/storage-e2e-troubleshooting.md)을 참조하세요.
 
@@ -137,5 +137,5 @@ tracert를 통해 Microsoft Azure Edge 장치를 추적하여 홉 사이에 100m
 ## <a name="next-steps"></a>다음 단계
 자세한 정보 또는 도움말을 보려면 다음 링크를 확인하세요.
 
-- [Azure 가상 컴퓨터에 대한 네트워크 처리량 최적화](../virtual-network/virtual-network-optimize-network-bandwidth.md)
+- [Azure Virtual Machine에 대한 네트워크 처리량 최적화](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

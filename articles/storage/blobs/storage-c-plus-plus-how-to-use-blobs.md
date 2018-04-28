@@ -1,39 +1,27 @@
 ---
-title: "C++에서 Blob Storage(개체 저장소)를 사용하는 방법 | Microsoft Docs"
-description: "Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
+title: C++에서 개체(Blob) 저장소를 사용하는 방법 - Azure | Microsoft Docs
+description: Azure Blob(개체) 저장소를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
 services: storage
-documentationcenter: .net
 author: MichaelHauss
-manager: vamshik
-editor: tysonn
-ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob 저장소를 사용하는 방법
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-## <a name="overview"></a>개요
-Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개체/Blob로 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
-
-이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 Blob **업로드**, **나열**, **다운로드** 및 **삭제**가 포함됩니다.  
+이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.  
 
 > [!NOTE]
-> 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용 가능합니다.
-> 
-> 
+> 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용 가능한 C++용 저장소 클라이언트 라이브러리의 최신 버전을 사용하는 것이 좋습니다.
+
+## <a name="what-is-blob-storage"></a>Blob 저장소란?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -62,14 +50,14 @@ Azure 저장소 API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, 저장소 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 저장소 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 저장소 계정 및 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, 저장소 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 저장소 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-로컬 Windows 컴퓨터에서 응용 프로그램을 테스트 하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Microsoft Azure [Storage 에뮬레이터](../storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 테이블 서비스를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.
+로컬 Windows 컴퓨터에서 응용 프로그램을 테스트 하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Microsoft Azure [Storage 에뮬레이터](../storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.
@@ -81,14 +69,14 @@ Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하�
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.  
 
 ## <a name="retrieve-your-connection-string"></a>연결 문자열 검색
-**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.  
+**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.  
 
 ```cpp
 // Retrieve storage account from connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-다음으로, Blob Storage 서비스에 저장된 Blob과 컨테이너를 나타내는 개체를 검색할 수 있도록 **cloud_blob_client** 클래스에 대한 참조를 가져옵니다. 다음 코드는 위에서 검색한 저장소 계정 개체를 사용하여 **cloud_blob_client** 개체를 만듭니다.  
+다음으로, Blob 저장소에 저장된 Blob과 컨테이너를 나타내는 개체를 검색할 수 있도록 **cloud_blob_client** 클래스에 대한 참조를 가져옵니다. 다음 코드는 위에서 검색한 저장소 계정 개체를 사용하여 **cloud_blob_client** 개체를 만듭니다.  
 
 ```cpp
 // Create the blob client.
@@ -195,7 +183,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-작업 나열에 대한 자세한 내용은 [C++에서 Azure 저장소 리소스 나열](../storage-c-plus-plus-enumeration.md)을 참조하세요.
+작업 나열에 대한 자세한 내용은 [C++에서 Azure Storage 리소스 나열](../storage-c-plus-plus-enumeration.md)을 참조하세요.
 
 ## <a name="how-to-download-blobs"></a>방법: Blob 다운로드
 Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download_to_stream** 메서드를 호출합니다. 다음 예제에서는 **download_to_stream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송한 다음 이 개체를 로컬 파일에 저장할 수 있습니다.  
@@ -266,12 +254,12 @@ blockBlob.delete_blob();
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 Azure 저장소 작업에 대해 알아보세요.  
+이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 Azure Storage 작업에 대해 알아보세요.  
 
-* [C++에서 큐 저장소를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
-* [C++에서 테이블 저장소를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [C++에서 Azure 저장소 리소스 나열](../storage-c-plus-plus-enumeration.md)
+* [C++에서 Queue Storage를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
+* [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [C++에서 Azure Storage 리소스 나열](../storage-c-plus-plus-enumeration.md)
 * [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
-* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../storage-use-azcopy.md)
 

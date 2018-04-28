@@ -1,23 +1,23 @@
 ---
-title: "Azure Service Fabric 독립 실행형 클러스터 배포 준비 | Microsoft Docs"
-description: "프로덕션 워크로드를 처리하기 위한 클러스터를 배포하기 전에 고려해야 하는 환경 준비 및 클러스터 구성 만들기와 관련된 설명서입니다."
+title: Azure Service Fabric 독립 실행형 클러스터 배포 준비 | Microsoft Docs
+description: 프로덕션 워크로드를 처리하기 위한 클러스터를 배포하기 전에 고려해야 하는 환경 준비 및 클러스터 구성 만들기와 관련된 설명서입니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -36,7 +36,7 @@ FD를 ClusterConfig.json에 지정하는 경우 각 FD의 이름을 선택할 �
 * "faultDomain": "fd:/FD1"
 * "faultDomain": "fd:/Room1/Rack1/PDU1/M1"
 
-*UD(업그레이드 도메인)*는 노드의 논리적 단위입니다. Service Fabric이 업그레이드(응용 프로그램 업그레이드 또는 클러스터 업그레이드)를 조정하는 동안 다른 UD의 노드를 요청을 처리하는 데 계속 사용할 수 있도록 업그레이드를 수행하기 위해 UD의 모든 노드를 사용합니다. 컴퓨터에 수행하는 펌웨어 업그레이드는 UD를 인식하지 못하므로 한 번에 하나의 컴퓨터를 수행해야 합니다.
+*UD(업그레이드 도메인)* 는 노드의 논리적 단위입니다. Service Fabric이 업그레이드(응용 프로그램 업그레이드 또는 클러스터 업그레이드)를 조정하는 동안 다른 UD의 노드를 요청을 처리하는 데 계속 사용할 수 있도록 업그레이드를 수행하기 위해 UD의 모든 노드를 사용합니다. 컴퓨터에 수행하는 펌웨어 업그레이드는 UD를 인식하지 못하므로 한 번에 하나의 컴퓨터를 수행해야 합니다.
 
 이러한 개념에 대해 생각하는 가장 간단한 방법은 FD를 계획되지 않은 오류의 단위로, UD를 계획된 유지 관리의 단위로 인식하는 것입니다.
 
@@ -49,13 +49,13 @@ UD를 ClusterConfig.json에 지정하는 경우 각 UD의 이름을 선택할 �
 
 FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)을 참조하세요.
 
-컴퓨터 업데이트 및 교체를 담당하는 사례와 같이 노드의 유지 관리 및 관리에 대한 모든 권한이 있는 경우 프로덕션의 클러스터는 프로덕션 환경에서 지원되도록 하기 위해 3개 이상 FD를 포괄해야 합니다. 환경에서 실행 중인 클러스터의 경우(예: Amazon 웹 서비스 VM 인스턴스) 컴퓨터에 대한 전체 제어 권한이 없으면 클러스터에 최소 5개의 FD가 있어야 합니다. 각 FD는 하나 이상의 노드를 가질 수 있습니다. 이는 타이밍에 따라 컴퓨터 업그레이드 및 업데이트가 클러스터의 응용 프로그램 및 서비스 실행을 방해할 수 있는 문제를 방지하기 위한 것입니다.
+컴퓨터 업데이트 및 교체를 담당하는 사례와 같이 노드의 유지 관리 및 관리에 대한 모든 권한이 있는 경우 프로덕션의 클러스터는 프로덕션 환경에서 지원되도록 하기 위해 3개 이상 FD를 포괄해야 합니다. 환경에서 실행 중인 클러스터의 경우(즉, Amazon Web Services VM 인스턴스) 컴퓨터에 대한 전체 제어 권한이 없으면 클러스터에 최소 5개의 FD가 있어야 합니다. 각 FD는 하나 이상의 노드를 가질 수 있습니다. 이는 타이밍에 따라 컴퓨터 업그레이드 및 업데이트가 클러스터의 응용 프로그램 및 서비스 실행을 방해할 수 있는 문제를 방지하기 위한 것입니다.
 
 ## <a name="determine-the-initial-cluster-size"></a>초기 클러스터 크기 결정
 
-일반적으로 클러스터의 노드 수는 클러스터에서 실행되는 서비스 및 컨테이너의 수, 워크로드를 유지하는 데 필요한 리소스의 양과 같은 비즈니스 요구 사항에 따라 결정됩니다. 프로덕션 클러스터의 경우 5개 FD를 포괄하는 클러스터에 최소 5개 노드를 갖는 것이 좋습니다. 그러나 위에서 설명한 대로 해당 노드에 대한 모든 권한이 있고 세 FD를 포괄할 수 있는 경우 3개의 노드가 작업을 수행해야 합니다.
+일반적으로 클러스터의 노드 수는 클러스터에서 실행되는 서비스 및 컨테이너의 수, 워크로드를 유지하는 데 필요한 리소스의 양과 같은 비즈니스 요구 사항에 따라 결정됩니다. 프로덕션 클러스터의 경우 5개의 FD를 포괄하는 클러스터에 최소 5개 노드를 갖는 것이 좋습니다. 그러나 위에서 설명한 대로 해당 노드에 대한 모든 권한이 있고 세 FD를 포괄할 수 있는 경우 3개의 노드가 작업을 수행해야 합니다.
 
-상태 저장 워크로드를 실행 중인 테스트 클러스터는 노드가 세 개인 반면, 상태 비저장 워크로드를 실행 중인 테스트 클러스터는 하나의 노드만 필요합니다. 개발 목적으로 지정된 컴퓨터에 노드를 하나 이상 가질 수 있다는 점을 유의해야 합니다. 단, 프로덕션 환경에서 Service Fabric은 실제 또는 가상 컴퓨터당 하나의 노드만 지원합니다.
+상태 저장 워크로드를 실행 중인 테스트 클러스터는 노드가 세 개인 반면, 상태 비저장 워크로드를 실행 중인 테스트 클러스터는 하나의 노드만 필요합니다. 개발 목적으로 지정된 컴퓨터에 노드를 하나 이상 가질 수 있다는 점을 유의해야 합니다. 단, 프로덕션 환경에서 Service Fabric은 실제 또는 가상 머신당 하나의 노드만 지원합니다.
 
 ## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>노드의 역할을 하는 컴퓨터 준비
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 응용 프로그램의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 응용 프로그램 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI 2.0을 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
@@ -347,6 +347,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 가용성 영역
 - 이미지 참조 게시자
 - 이미지 참조 제공
+- 관리되는 OS 디스크 저장소 계정 형식
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>현재 값에 따라서만 변경할 수 있는 속성
 현재 값을 따른다는 점을 제외하고, 일부 속성을 변경할 수 있습니다. 이러한 속성은 다음과 같습니다.
@@ -372,12 +373,12 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 응용 프로그램을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.
 
 ### <a name="os-updates"></a>OS 업데이트
-Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
+Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
 >[!NOTE]
 > 플랫폼 이미지를 사용하는 경우 이미지 참조 버전으로 "최신"을 지정하는 것이 일반적입니다. VM을 만들고 규모를 확장하고 이미지로 다시 설치하는 동안 VM은 사용 가능한 최신 버전으로 만들어집니다. 하지만 시간이 지나면서 새 이미지 버전이 릴리스되면 OS 이미지가 자동으로 업데이트된다는 의미는 **아닙니다**. 자동 OS 업그레이드를 제공하는 별도의 기능이 현재 미리 보기 상태에 있습니다. 자세한 내용은 [자동 OS 업그레이드 설명서](virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
 
-사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
+사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
 ## <a name="examples"></a>예
 

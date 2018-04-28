@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d287206d30c05289679c83636ba5f968a5fcbcbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure 미디어 분석으로 얼굴 편집 안내
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 
 이 항목에서는 AMSE(Azure Media Services 탐색기) 및 Azure Media Redactor Visualizer(오픈 소스 도구)를 사용하여 전체 교정 워크플로를 실행하는 방법에 대한 단계별 지침을 보여줍니다.
 
-자세한 내용은 [이 블로그](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) 를 참조하세요.
+자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/redaction-preview-available-globally) 를 참조하세요.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure Media Services 탐색기 워크플로
 

@@ -12,19 +12,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>게시된 응용 프로그램 설치 - H2O Sparkling Water
 
-이 문서에서는 게시된 Hadoop 응용 프로그램 [H20 Sparkling Water](http://www.h2o.ai/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼의 개요 및 사용 가능한 ISV(독립 소프트웨어 공급업체) 게시 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 게시된 Hadoop 응용 프로그램 [H20 Sparkling Water](http://www.h2o.ai/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-h2o-sparkling-water"></a>H2O Sparkling Water 정보
 
@@ -47,7 +45,7 @@ H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 
 
 ## <a name="prerequisites"></a>필수 조건
 
-새 HDInsight 클러스터 또는 기존 클러스터에 이 앱을 설치하려면 다음과 같이 구성해야 합니다.
+새 HDInsight 클러스터 또는 기존 클러스터에 이 앱을 설치하려면 다음 구성이 필요합니다.
 
 * 클러스터 계층: 표준 또는 프리미엄
 * 클러스터 유형: Spark
@@ -73,7 +71,7 @@ H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 
 
     ![클러스터 시작](./media/hdinsight-apps-install-h2o/start-cluster.png)
 
-5. H2O 클러스터를 실행한 후에는**`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**으로 이동하여 H2O Flow를 엽니다.
+5. H2O 클러스터를 실행한 후에는**`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`** 으로 이동하여 H2O Flow를 엽니다.
 
     > [!NOTE]
     > H2O Flow를 열 수 없는 경우 브라우저 캐시를 지워봅니다. 그래도 열 수 없는 경우 클러스터의 리소스가 충분하지 않은 것입니다. 클러스터 창의 **클러스터 크기 조정** 아래에서 작업자 노드 수를 늘려보세요.
@@ -84,9 +82,9 @@ H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 
 
     ![Million_Songs.flow 선택](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. **milsongs-cls-train.csv.gz**가 포함된 경로를 찾아서 전체 경로를 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**로 바꿉니다.
+7. **milsongs-cls-train.csv.gz**를 포함하는 경로를 찾고 전체 경로를 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**로 바꿉니다.
 
-8. **milsongs-cls-test.csv.gz**가 포함된 경로를 찾아서 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**로 바꿉니다.
+8. **milsongs-cls-test.csv.gz**를 포함하는 경로를 찾고 이 경로를 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**로 바꿉니다.
 
 9. Notebook 셀에 있는 모든 명령문을 실행하려면 도구 모음에서 **모두 실행** 단추를 선택합니다.
 
@@ -101,8 +99,8 @@ H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 
 ## <a name="next-steps"></a>다음 단계
 
 * [H2O 설명서](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
-* [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight로 게시 취소된 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
+* [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight에 게시되지 않은 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
 * [HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법을 알아봅니다.
 * [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 정의하는 방법을 알아봅니다.
-* [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
-* [HDInsight에서 비어 있는 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 응용 프로그램을 테스트 및 호스팅하는 방법을 알아봅니다.
+* [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 동작을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
+* [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 응용 프로그램을 테스트 및 호스팅하는 방법을 알아봅니다.

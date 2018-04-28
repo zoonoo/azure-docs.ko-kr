@@ -1,6 +1,6 @@
 ---
-title: "Azure 스택 교육 및 인증"
-description: "Azure 스택 교육 인증 기회에 알아보기"
+title: Azure 스택 교육 및 인증
+description: Azure 스택 교육 인증 기회에 알아보기
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -8,12 +8,12 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-keywords: 
-ms.openlocfilehash: 3ac1d83c4f40bd8bbd072486489b72de73084ade
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 19dba180d19967dcd6a01a6b2851d746ad1f9831
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure 스택 교육 및 인증
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/02/2018
 
 - [20537A 과정: 구성 및 작동 하는 하이브리드 클라우드로 Microsoft Azure 스택](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
 - [edX: Azure 스택 온라인 교육](https://aka.ms/AzureStackMOOC)
-- [작업 역할 및 학습 경로](https://azure.microsoft.com/en-us/training/learning-paths/)
+- [작업 역할 및 학습 경로](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>인증
 Azure 스택 인증은 현재 개발 합니다. 최신 업데이트를 확인 합니다.

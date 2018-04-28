@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>권한 있는 끝점을 사용 하 여 Azure 스택
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure 스택 연산자로 가장 일상적인 관리 작업에 대 한 관리자 포털, PowerShell 또는 Azure 리소스 관리자 Api를 사용 해야 합니다. 그러나 일부 덜 일반적인 작업에 대 한 사용 해야는 *권한 있는 끝점* (PEP). PEP 필요한 작업을 수행할 수 있도록 충분 한 기능을 제공 하는 미리 구성 된 원격 PowerShell 콘솔입니다. 끝점은 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/en-us/powershell/jea/overview) cmdlet의 제한 된 집합을 노출 합니다. 액세스 하는 PEP 고 호출 cmdlet의 제한 된 집합, 권한이 낮은 계정 사용 됩니다. 없는 관리자 계정이 필요 합니다. 추가 보안에 대 한 스크립팅을 허용 되지 않습니다.
+Azure 스택 연산자로 가장 일상적인 관리 작업에 대 한 관리자 포털, PowerShell 또는 Azure 리소스 관리자 Api를 사용 해야 합니다. 그러나 일부 덜 일반적인 작업에 대 한 사용 해야는 *권한 있는 끝점* (PEP). PEP 필요한 작업을 수행할 수 있도록 충분 한 기능을 제공 하는 미리 구성 된 원격 PowerShell 콘솔입니다. 끝점은 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) cmdlet의 제한 된 집합을 노출 합니다. 액세스 하는 PEP 고 호출 cmdlet의 제한 된 집합, 권한이 낮은 계정 사용 됩니다. 없는 관리자 계정이 필요 합니다. 추가 보안에 대 한 스크립팅을 허용 되지 않습니다.
 
 다음과 같은 작업을 수행 하는 PEP를 사용할 수 있습니다.
 
@@ -83,7 +83,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
     > [!NOTE]
     > ERCS 끝점에 연결할 수 없는 경우에 두 단계를 이미 않았다면 연결할 ERCS VM의 IP 주소를 사용 하 여 다시 시도 하십시오.
 
-3.  연결 된 후의 프롬프트로 바뀝니다 **[*이름 지정 IP 주소 또는 ERCS VM*]: PS >** 또는 **[azs ercs01]: PS >**환경에 따라 합니다. 여기에서는 실행 `Get-Command` 사용 가능한 cmdlet의 목록을 볼 수 있습니다.
+3.  연결 된 후의 프롬프트로 바뀝니다 **[*이름 지정 IP 주소 또는 ERCS VM*]: PS >** 또는 **[azs ercs01]: PS >** 환경에 따라 합니다. 여기에서는 실행 `Get-Command` 사용 가능한 cmdlet의 목록을 볼 수 있습니다.
 
     이러한 cmdlet 중 많은 통합된 시스템 환경 (예: 데이터 센터 통합과 관련 cmdlet)에 사용 됩니다. ASDK에서 다음 cmdlet 유효성이 검증 되었습니다.
 
@@ -92,7 +92,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
     - Exit-pssession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
-    - Get-Command
+    - Get 명령
     - Get-FormatData
     - Get-Help
     - Get-ThirdPartyNotices
@@ -108,7 +108,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>권한 있는 끝점을 사용 하기 위한 팁 
 
-PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) 끝점입니다. JEA 끝점은 강력한 보안 계층을 제공 하는 동안 일부 스크립팅 또는 탭 완성 기능 등 기본 PowerShell 기능을 줄입니다. 모든 유형의 스크립트 작업을 시도 하면 오류가 발생 하 여 작업이 실패 **ScriptsNotAllowed**합니다. 이는 정상적인 동작입니다.
+PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) 끝점입니다. JEA 끝점은 강력한 보안 계층을 제공 하는 동안 일부 스크립팅 또는 탭 완성 기능 등 기본 PowerShell 기능을 줄입니다. 모든 유형의 스크립트 작업을 시도 하면 오류가 발생 하 여 작업이 실패 **ScriptsNotAllowed**합니다. 이는 정상적인 동작입니다.
 
 따라서 예를 들어, 특정된 cmdlet에 대 한 매개 변수 목록을 가져오려는 하는 다음 명령을 실행 합니다.
 
@@ -116,7 +116,7 @@ PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en
     Get-Command <cmdlet_name> -Syntax
 ```
 
-사용할 수 있습니다는 [Import-pssession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) PEP cmdlet은 로컬 컴퓨터에서 현재 세션으로 가져오려면 cmdlet. 이렇게 하면 모든 cmdlet 아 기능은 PEP의 이제 사용할 수 있는 탭 완성 등을 함께 로컬 컴퓨터에 일반적으로 스크립트. 
+사용할 수 있습니다는 [Import-pssession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) PEP cmdlet은 로컬 컴퓨터에서 현재 세션으로 가져오려면 cmdlet. 이렇게 하면 모든 cmdlet 아 기능은 PEP의 이제 사용할 수 있는 탭 완성 등을 함께 로컬 컴퓨터에 일반적으로 스크립트. 
 
 로컬 컴퓨터의 PEP 세션을 가져오려면 다음 단계를 수행 합니다.
 

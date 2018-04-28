@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 개발자 용어집 | Microsoft Docs"
-description: "일반적으로 사용되는 Azure Active Directory 개발자 개념 및 기능에 대한 용어 목록입니다."
+title: Azure Active Directory 개발자 용어집 | Microsoft Docs
+description: 일반적으로 사용되는 Azure Active Directory 개발자 개념 및 기능에 대한 용어 목록입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 개발자 용어집
 이 문서에는 Azure AD에 대한 응용 프로그램 개발에 관해 알아보고자 할 때 유용한 핵심 Azure Active Directory(AD) 개발자 개념 함 합니다.
@@ -54,7 +54,7 @@ Azure AD가 응용 프로그램 등록 시 부여하는 고유 식별자로, 해
 
 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]을 참조하세요.
 
-## <a name="authentication"></a>authentication
+## <a name="authentication"></a>인증
 ID 및 액세스 제어에 사용할 보안 주체를 만들기 위한 기반을 제공하도록 당사자에게 합법적인 자격 증명을 하게 챌린지하는 작업. 예를 들어 [OAuth2 권한 부여](#authorization-grant) 시 당사자 인증은 사용된 권한 부여에 따라 [리소스 소유자](#resource-owner) 또는 [클라이언트 응용 프로그램](#client-application)의 역할을 수행합니다.
 
 ## <a name="authorization"></a>권한 부여
@@ -155,7 +155,7 @@ OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명�
 ## <a name="sign-out"></a>로그 아웃
 [로그인](#sign-in) 시 [클라이언트 응용 프로그램](#client-application) 세션과 연결된 사용자 상태를 분리하여 최종 사용자의 인증을 무효화하는 프로세스
 
-## <a name="tenant"></a>테넌트
+## <a name="tenant"></a>tenant
 Azure AD 디렉터리의 인스턴스는 Azure AD 테넌트라고 합니다. 다음과 같은 여러 기능을 제공합니다.
 
 * 통합 응용 프로그램에 대한 레지스트리 서비스
@@ -203,7 +203,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

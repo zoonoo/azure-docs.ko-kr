@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: f7f7562f0af4753bc08018227a967f9ca3736021
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 67da209718c3f3436be6ceaae68f61f416da6832
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -32,14 +32,14 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 
 * 소유자
 * DevTest Lab 사용자
-* 참가자
+* 기여자
 
 다음 표에는 이러한 각 역할의 사용자가 수행할 수 있는 작업에 대해 설명합니다.
 
 | **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **참여자** |
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
-| 랩에 사용자 추가 |아니오 |예 |아니요 |
+| 랩에 사용자 추가 |아니오 |예 |아니오 |
 | 비용 설정 업데이트 |아니오 |예 |예 |
 | **VM 기본 작업** | | | |
 | 사용자 지정 이미지 추가 및 제거 |아니오 |예 |예 |
@@ -88,7 +88,7 @@ Azure Portal의 랩 블레이드에서 `subscriptionId`, `labResourceGroup` 및 
 
     # Add an external user in DevTest Labs user role to a lab
     # Ensure that guest users can be added to the Azure Active directory:
-    # https://azure.microsoft.com/en-us/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+    # https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
 
     # Values to change
     $subscriptionId = "<Enter Azure subscription ID here>"

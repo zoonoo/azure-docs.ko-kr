@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d1af5ae008fb2811f1ae59396a03833b8c1b15f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ff8b8ffc66ea4c90ca2f11edc36aac670f24eac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -198,7 +198,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
     __이 스크립트 작업을 유지__ 항목을 사용하여 크기 조정 작업 시 스크립트가 적용되도록 합니다.
 
-5. __만들기__를 선택하여 스크립트를 저장합니다. 그런 다음 __+ Submit new(새로 제출)__를 사용하여 다른 스크립트를 추가할 수 있습니다.
+5. __만들기__를 선택하여 스크립트를 저장합니다. 그런 다음 __+ Submit new(새로 제출)__ 를 사용하여 다른 스크립트를 추가할 수 있습니다.
 
     ![여러 스크립트 작업](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
 
@@ -208,7 +208,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 스크립트 동작 사용
 
-스크립트 동작을 Azure Resource Manager 템플릿과 함께 사용할 수 있습니다. 예제는 [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/)에서 확인할 수 있습니다.
+스크립트 동작을 Azure Resource Manager 템플릿과 함께 사용할 수 있습니다. 예제는 [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/)에서 확인할 수 있습니다.
 
 이 예제에서는 스크립트 동작이 다음 코드를 사용하여 추가됩니다.
 
@@ -366,7 +366,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
     ![스크립트 작업 속성](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. 또한 스크립트 동작 섹션에서 항목 오른쪽에 있는 **...**를 사용하여 작업을 수행할 수도 있습니다.
+6. 또한 스크립트 동작 섹션에서 항목 오른쪽에 있는 **...** 를 사용하여 작업을 수행할 수도 있습니다.
 
     ![스크립트 작업 ... 사용량](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 

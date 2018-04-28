@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric 클러스터 설정 변경 | Microsoft Docs"
-description: "이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다."
+title: Azure Service Fabric 클러스터 설정 변경 | Microsoft Docs
+description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/02/2018
 아래 단계에서는 새로운 *MaxDiskQuotaInMB* 설정을 *Diagnostics* 섹션에 추가하는 방법을 보여 줍니다.
 
 1. https://resources.azure.com으로 이동합니다.
-2. **구독** -> **\<사용자의 구독>** -> **resourceGroups** -> **\<사용자의 리소스 그룹>** -> **공급자** -> **Microsoft.ServiceFabric** -> **클러스터** -> **\<클러스터 이름>**을 펼쳐서 구독으로 이동합니다.
+2. **구독** -> **\<사용자의 구독>** -> **resourceGroups** -> **\<사용자의 리소스 그룹>** -> **공급자** -> **Microsoft.ServiceFabric** -> **클러스터** -> **\<클러스터 이름>** 을 펼쳐서 구독으로 이동합니다.
 3. 오른쪽 위 모서리에서 **읽기/쓰기**를 선택합니다.
 4. **편집**을 선택하고 `fabricSettings` JSON 요소를 업데이트하고 새 요소를 추가합니다.
 
@@ -302,7 +302,7 @@ ms.lasthandoff: 03/02/2018
 |RemoveServiceResponseHeaders|string, 기본값: L"Date; Server"|공용|클라이언트에 전달하기 전에 서비스 응답에서 제거될 세미콜론/쉼표로 구분된 응답 헤더 목록입니다. 이 값을 빈 문자열로 설정하면 현재 서비스에서 반환된 모든 헤더를 있는 그대로 전달합니다. 예: Date와 Server를 덮어쓰지 않음 |
 |ApplicationCertificateValidationPolicy|string, 기본값: L"None"|공용| ApplicationCertificateValidationPolicy: None: 서버 인증서의 유효성을 검사하지 않습니다. 요청이 성공됩니다. ServiceCertificateThumbprints: 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록에 대한 ServiceCertificateThumbprints 구성을 참조합니다. ServiceCommonNameAndIssuer: 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 주체 이름 및 발급자 지문에 대한 ServiceCommonNameAndIssuer 구성을 참조합니다. |
 |ServiceCertificateThumbprints|string, 기본값: L""|동적| |
-|CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 응용 프로그램/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx)에서 문서화되어 있습니다.  |
+|CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 응용 프로그램/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx).  |
 |IgnoreCrlOfflineError|bool, 기본값: TRUE|동적|응용 프로그램/서비스 인증서 확인에 대한 CRL 오프라인 오류를 무시할지 여부 |
 |SecureOnlyMode|bool, 기본값: FALSE|동적| SecureOnlyMode: true: 역방향 프록시에서 보안 끝점을 게시하는 서비스에만 전달합니다. false: 역방향 프록시에서 보안/비보안 끝점에 요청을 전달할 수 있습니다.  |
 |ForwardClientCertificate|bool, 기본값: FALSE|동적| |
@@ -451,7 +451,7 @@ ms.lasthandoff: 03/02/2018
 |ServerCertThumbprints|string, 기본값: L""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클라이언트에서 이 지문을 사용하여 클러스터를 인증합니다. 쉼표로 구분된 이름 목록입니다. |
 |ClientCertThumbprints|string, 기본값: L""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클러스터에서 이 지문을 사용하여 들어오는 연결에 대한 권한을 부여합니다. 쉼표로 구분된 이름 목록입니다. |
 |AdminClientCertThumbprints|string, 기본값: L""|동적|관리자 역할의 클라이언트에서 사용하는 인증서의 지문입니다. 쉼표로 구분된 이름 목록입니다. |
-|CrlCheckingFlag|uint, 기본값: 0x40000000|동적|기본 인증서 체인 유효성 검사에 대한 플래그이며, 구성 요소 특정 플래그로 재정의될 수 있습니다. 예: Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx)에서 문서화되어 있습니다. |
+|CrlCheckingFlag|uint, 기본값: 0x40000000|동적|기본 인증서 체인 유효성 검사에 대한 플래그이며, 구성 요소 특정 플래그로 재정의될 수 있습니다. 예: Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx). |
 |IgnoreCrlOfflineError|bool, 기본값: FALSE|동적|서버 쪽에서 들어오는 클라이언트 인증서를 확인할 때 CRL 오프라인 오류를 무시할지 여부 |
 |IgnoreSvrCrlOfflineError|bool, 기본값: TRUE|동적|클라이언트 쪽에서 들어오는 서버 인증서를 확인할 때 CRL 오프라인 오류를 무시할지 여부이며, 기본값은 true입니다. 해지된 서버 인증서를 사용하여 공격하려면 DNS가 손상되어야 합니다. 이는 해지된 클라이언트 인증서를 사용하는 것보다 더 어렵습니다. |
 |CrlDisablePeriod|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(15)|동적|시간 간격은 초 단위로 지정합니다. CRL 오프라인 오류를 무시할 수 있는 경우 오프라인 오류가 발생한 후에 지정된 인증서에 대한 CRL 확인이 사용되지 않는 기간입니다. |

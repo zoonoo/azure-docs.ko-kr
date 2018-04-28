@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e65f38b6fb4f5434c840af1866ccf09671111f3e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -773,7 +773,7 @@ SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대해 레지스트리 �
 | 변수 이름 |`KeepAliveTime` |
 | 변수 유형 |REG_DWORD(10진수) |
 | 값 |120000 |
-| 설명서 링크 |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| 설명서 링크 |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**표 3:** 첫 번째 TCP/IP 매개 변수 변경_
 
@@ -784,7 +784,7 @@ _**표 3:** 첫 번째 TCP/IP 매개 변수 변경_
 | 변수 이름 |`KeepAliveInterval` |
 | 변수 유형 |REG_DWORD(10진수) |
 | 값 |120000 |
-| 설명서 링크 |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| 설명서 링크 |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**표 4:** 두 번째 TCP/IP 매개 변수 변경_
 
@@ -1306,7 +1306,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 ### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> SAP ERS Windows 서비스 인스턴스의 시작 유형 변경
 
-두 클러스터 노드에서 SAP ERS Windows 서비스의 시작 유형을 **자동(지연된 시작)**으로 변경합니다.
+두 클러스터 노드에서 SAP ERS Windows 서비스의 시작 유형을 **자동(지연된 시작)** 으로 변경합니다.
 
 ![그림 60: SAP ERS 인스턴스의 서비스 유형을 지연된 자동으로 변경][sap-ha-guide-figure-3050]
 
@@ -1336,7 +1336,7 @@ SAP 응용 프로그램 서버 인스턴스를 호스트하도록 지정한 모�
 
 _**그림 61:** 장애 조치 클러스터 관리자 - 클러스터 노드 A에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 
-SIOS DataKeeper 관리 및 구성 도구에서 공유 디스크 데이터가 클러스터 노드 A의 S 원본 볼륨 드라이브에서 클러스터 노드 B의 S 대상 볼륨 드라이브로 동기식으로 복제되는 것을 확인할 수 있습니다(예: **pr1-ascs-0 [10.0.0.40]**에서 **pr1-ascs-1 [10.0.0.41]**로 복제됨).
+SIOS DataKeeper 관리 및 구성 도구에서 공유 디스크 데이터가 클러스터 노드 A의 S 원본 볼륨 드라이브에서 클러스터 노드 B의 S 대상 볼륨 드라이브로 동기식으로 복제되는 것을 확인할 수 있습니다(예: **pr1-ascs-0 [10.0.0.40]** 에서 **pr1-ascs-1 [10.0.0.41]** 로 복제됨).
 
 ![그림 62: SIOS DataKeeper에서 클러스터 노드 A로부터 클러스터 노드 B에 로컬 볼륨 복제][sap-ha-guide-figure-5001]
 
@@ -1365,7 +1365,7 @@ _**그림 62:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스�
 
   _**그림 63**: 장애 조치 클러스터 관리자: 클러스터 노드 B에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 
-  이제 공유 디스크가 클러스터 노드 B에 탑재됩니다. SIOS DataKeeper에서 데이터를 클러스터 노드 B의 S 소스 볼륨 드라이브에서 클러스터 노드 A의 S 대상 볼륨 드라이브로 복제합니다(예: **pr1-ascs-1 [10.0.0.41]**에서 **pr1-ascs-0 [10.0.0.40]**으로 복제).
+  이제 공유 디스크가 클러스터 노드 B에 탑재됩니다. SIOS DataKeeper에서 데이터를 클러스터 노드 B의 S 소스 볼륨 드라이브에서 클러스터 노드 A의 S 대상 볼륨 드라이브로 복제합니다(예: **pr1-ascs-1 [10.0.0.41]** 에서 **pr1-ascs-0 [10.0.0.40]** 으로 복제).
 
   ![그림 64: SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제][sap-ha-guide-figure-5003]
 

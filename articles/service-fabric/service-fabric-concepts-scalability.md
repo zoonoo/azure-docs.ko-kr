@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric에서 크기 조정
 Azure Service Fabric을 사용하면 클러스터 노드의 서비스, 파티션 및 복제본을 관리하여 확장 가능한 응용 프로그램을 쉽게 빌드할 수 있습니다. 동일한 하드웨어에서 많은 워크로드를 실행하면 리소스를 최대한 활용할 수 있을 뿐만 아니라 워크로드의 크기를 조정하기 위해 선택하는 방법에 유연성도 제공합니다. 이 채널 9 비디오에서는 확장 가능한 마이크로 서비스 응용 프로그램을 구축하는 방법을 설명합니다.
@@ -117,12 +117,7 @@ Service Fabric은 파티션을 지원합니다. 분할은 서비스를 여러 �
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>크기 조정: 클러스터에서 노드 추가 및 제거 
 Service Fabric을 사용하여 크기를 조정하는 또 다른 옵션은 클러스터의 크기를 변경하는 것입니다. 클러스터의 크기를 변경하면 클러스터에서 하나 이상의 노드 형식에 대한 노드를 추가하거나 제거합니다. 예를 들어 클러스터의 모든 노드가 핫인 경우를 고려합니다. 이는 클러스터의 리소스가 거의 모두 사용된다는 것을 의미합니다. 이 경우 클러스터에 더 많은 노드를 추가하는 것이 가장 좋은 크기 조정 방법입니다. 새 노드가 클러스터에 조인하면 Service Fabric 클러스터 리소스 관리자에서 서비스를 이 노드로 이동하므로 기존 노드에 대한 총 로드가 줄어듭니다. 인스턴스 수가 -1인 상태 비저장 서비스의 경우 더 많은 서비스 인스턴스가 자동으로 만들어집니다. 이렇게 하면 일부 호출이 기존 노드에서 새 노드로 이동할 수 있습니다. 
 
-클러스터에 노드를 추가하고 제거하는 작업은 Service Fabric Azure 리소스 관리자 PowerShell 모듈을 통해 수행할 수 있습니다.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+자세한 내용은 [클러스터 크기 조정](service-fabric-cluster-scaling.md)을 참조하세요.
 
 ## <a name="putting-it-all-together"></a>모든 항목 요약
 여기서 설명한 모든 아이디어를 이용하여 예를 통해 설명해 보겠습니다. 이름 및 연락처 정보를 가지고 주소록의 역할을 하는 서비스를 빌드하려고 하는 다음 예제를 고려합니다. 

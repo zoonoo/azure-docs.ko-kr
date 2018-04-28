@@ -1,25 +1,23 @@
 ---
-title: "HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가 - Azure | Microsoft Docs"
-description: "클러스터를 만드는 동안 HDInsight 클러스터에 Hive 라이브러리(jar 파일)를 추가하는 방법을 알아봅니다."
+title: HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가 - Azure | Microsoft Docs
+description: 클러스터를 만드는 동안 HDInsight 클러스터에 Hive 라이브러리(jar 파일)를 추가하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 434c7d24f55c20cc763df3b83429e039bb5e8541
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Hive 라이브러리에 추가
 
@@ -41,9 +39,9 @@ HDInsight에 Hive 라이브러리를 미리 로드하는 방법을 알아봅니�
 
 **스크립트 위치**
 
-**Linux 기반 클러스터**의 경우: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
+**Linux 기반 클러스터**: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
 
-**Windows 기반 클러스터**의 경우: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
+**Windows 기반 클러스터**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -56,7 +54,7 @@ HDInsight에 Hive 라이브러리를 미리 로드하는 방법을 알아봅니�
 
 * 만드는 동안 jar 파일의 라이브러리를 포함하는 저장소 계정을 HDInsight 클러스터에 **연결해야** 합니다. 기본 저장소 계정이거나 __선택적 구성__을 통해 추가된 계정이어야 합니다.
 
-* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar이 **mystorage** 저장소 계정의 **libs** 컨테이너에 저장되는 경우 매개 변수는 **wasb://libs@mystorage.blob.core.windows.net/**입니다.
+* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar이 **mystorage** 저장소 계정의 **libs** 컨테이너에 저장되는 경우 매개 변수는 **wasb://libs@mystorage.blob.core.windows.net/** 입니다.
 
   > [!NOTE]
   > 이 문서에서는 사용자가 이미 저장소 계정과 BLOB 컨테이너를 만들고 거기에 파일을 업로드했다고 가정합니다.
@@ -84,7 +82,7 @@ HDInsight에 Hive 라이브러리를 미리 로드하는 방법을 알아봅니�
 
    * **ZOOKEEPER**: 이 옵션을 비워둡니다.
 
-   * **매개 변수**: jar을 포함하는 컨테이너 및 저장소 계정에 WASB 주소를 입력합니다. 예를 들어 **wasb://libs@mystorage.blob.core.windows.net/**입니다.
+   * **매개 변수**: jar을 포함하는 컨테이너 및 저장소 계정에 WASB 주소를 입력합니다. 예를 들어 **wasb://libs@mystorage.blob.core.windows.net/** 입니다.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다.
 

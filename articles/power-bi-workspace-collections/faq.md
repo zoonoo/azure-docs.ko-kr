@@ -1,12 +1,12 @@
 ---
-title: "Power BI 작업 영역 컬렉션 FAQ"
-description: "Power BI 작업 영역 컬렉션에 관련된 질문과 대답입니다."
+title: Power BI 작업 영역 컬렉션 FAQ
+description: Power BI 작업 영역 컬렉션에 관련된 질문과 대답입니다.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 6b33f497a5dbc889945e2147586f79edf1bd9aeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 작업 영역 컬렉션 FAQ
 
@@ -66,7 +66,7 @@ Power BI 작업 영역 컬렉션 서비스를 사용하는 방법에 대한 자�
 예. 기존 Azure 구독을 사용하여 Microsoft Power BI 작업 영역 컬렉션 서비스를 프로비전하고 사용할 수 있습니다.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>응용 프로그램 최종 사용자에게 Power BI 라이선스가 필요한가요?
-아니요. 응용 프로그램의 최종 사용자는 앱 내 데이터 시각화에 액세스하기 위해 별도로 Power BI 구독을 구매할 필요가 없습니다. Power BI 작업 영역 컬렉션 모델에서는 응용 프로그램 공급자에게 Azure 소비 측정기를 통해 서비스에 대한 요금이 청구됩니다. [가격 책정 및 라이선스 페이지](http://go.microsoft.com/fwlink/?LinkId=760527)를 참조하세요.
+번호 응용 프로그램의 최종 사용자는 앱 내 데이터 시각화에 액세스하기 위해 별도로 Power BI 구독을 구매할 필요가 없습니다. Power BI 작업 영역 컬렉션 모델에서는 응용 프로그램 공급자에게 Azure 소비 측정기를 통해 서비스에 대한 요금이 청구됩니다. [가격 책정 및 라이선스 페이지](http://go.microsoft.com/fwlink/?LinkId=760527)를 참조하세요.
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>사용자 인증은 Power BI 작업 영역 컬렉션에 어떻게 작동하나요?
 Power BI 작업 영역 컬렉션 서비스는 명시적인 최종 사용자 인증 대신 인증 및 권한 부여에 대한 앱 토큰을 사용합니다. 앱 토큰 모델에서 응용 프로그램이 최종 사용자에 대한 인증 및 권한 부여를 관리합니다. 그런 다음 필요한 경우

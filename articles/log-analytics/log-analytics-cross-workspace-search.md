@@ -1,24 +1,24 @@
 ---
-title: "Azure Log Analytics로 리소스 검색 | Microsoft Docs"
-description: "이 문서에서는 구독의 여러 작업 영역과 특정 App Insights 앱에서 리소스를 쿼리하는 방법을 설명합니다."
+title: Azure Log Analytics로 리소스 검색 | Microsoft Docs
+description: 이 문서에서는 구독의 여러 작업 영역과 특정 App Insights 앱에서 리소스를 쿼리하는 방법을 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 5485b1634013c73b58932aafa6e17d636558715d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics에서 리소스 간 로그 검색 수행  
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/24/2018
 쿼리에 다른 작업 영역을 참조하려면 [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) 식별자를 사용합니다.  
 
 ### <a name="identifying-workspace-resources"></a>작업 영역 리소스 식별
-다음 예제에서는 현재 작업 영역과 *contosoretail-it*라는 다른 작업 영역의 업데이트 테이블의 분류에 필요한 요약된 업데이트 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
+다음 예제에서는 현재 작업 영역과 *contosoretail-it*이라는 작업 영역의 업데이트 테이블에서 요약된 업데이트 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
 
 작업 영역 식별은 여러 가지 방법으로 수행될 수 있습니다.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 58656e2aa3b052d9bd9aa14edeb6215858d55ea4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory의 엔터프라이즈 응용 프로그램에 대해 SAML 토큰에서 발급된 역할 클레임 구성
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="steps-to-use-this-feature"></a>이 기능을 사용하는 단계
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -60,82 +60,86 @@ ms.lasthandoff: 03/23/2018
 
     a. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
-    나. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
+    나. 역할을 만들 수 있는 권한이 필요합니다. **권한 수정**을 클릭하여 필요한 권한을 얻을 수 있습니다. 
+
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+
+    다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
+
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    d. 여기서는 다시 로그인하고 동의할 것을 요청합니다. 동의 후에는 시스템에 다시 로그인됩니다.
+
+    e. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
     여러 디렉터리를 사용하는 경우 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` 패턴을 따라야 합니다.
     
-    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    다. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 응용 프로그램을 검색할 수도 있습니다. [속성] 페이지에서 복사한 **개체 ID**를 검색하고 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
+    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 응용 프로그램을 검색할 수도 있습니다. [속성] 페이지에서 복사한 **개체 ID**를 검색하고 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    d. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    g. 서비스 사용자 개체에서 appRoles 속성을 추출합니다. 
 
-    e. 이제 응용 프로그램에 대한 새 역할을 생성해야 합니다. Azure AD 역할 생성기는 [여기](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y)서 다운로드할 수 있습니다.
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-    f. Azure AD 생성기를 열고 다음 단계를 수행합니다.
+    > [!Note]
+    > 사용자 지정(비 갤러리) 앱을 사용할 경우 사용자와 msiam_access 등의 두 기본 역할이 표시됩니다. 갤러리 앱의 경우 기본 역할은 msiam_access뿐입니다.  기본 역할은 변경할 필요가 없습니다.
 
-    ![Azure AD 생성기](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
-    
-    **역할 이름**, **역할 설명** 및 **역할 값**을 입력합니다. **추가**를 클릭하여 역할을 추가합니다.
-    
-    필요한 역할을 모두 추가한 후 **생성**을 클릭합니다.
-    
-    **콘텐츠 복사**를 클릭하여 콘텐츠를 복사합니다.
+    h. 이제 응용 프로그램에 대한 새 역할을 생성해야 합니다. 
 
-    > [!NOTE] 
-    > 생성된 역할에서 **msiam_access** 사용자 역할과 id가 일치하는지 확인합니다.
+    i. 다음 JSON은 appRoles 개체의 예입니다. 응용 프로그램에 역할을 추가할 유사한 개체를 만듭니다. 
 
-    g. Graph Explorer로 돌아갑니다. 메서드를 **GET**에서 **PATCH**로 변경합니다. 복사한 값으로 appRoles 속성을 업데이트하여 원하는 appRoles를 사용하도록 서비스 사용자 개체를 패치합니다. **쿼리 실행**을 클릭합니다.
-
-    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
-
-    > [!NOTE]
-    > 다음은 appRoles 개체의 예입니다. 
     ```
     {
        "appRoles": [
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "msiam_access",
-        "displayName": "msiam_access",
-        "id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
-        "isEnabled": true,
-        "origin": "Application",
-        "value": null
-    },
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "teacher",
-        "displayName": "teacher",
-        "id": "6478ffd2-5dbd-4584-b2ce-137390b09b60",
-        "isEnabled": ,
-        "origin": "ServicePrincipal",
-        "value": "teacher"
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "msiam_access",
+            "displayName": "msiam_access",
+            "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+            "isEnabled": true,
+            "origin": "Application",
+            "value": null
+        },
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "Administrators Only",
+            "displayName": "Admin",
+            "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+            "isEnabled": true,
+            "origin": "ServicePrincipal",
+            "value": "Administrator"
+        }
+    ],
     }
-    ] 
-    }   
     ```
-7. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자를 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 각 앱으로 이동합니다. 그런 다음, 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다. 이 프로세스는 모든 사용자 또는 그룹을 나열합니다.
+    > [!Note]
+    > 패치 작업에 대한 **msiam_access** 다음에만 새 역할을 추가할 수 있습니다. 또한 조직 요구에 따라 원하는 만큼의 역할을 추가할 수 있습니다. Azure AD는 SAML 응답의 클레임 값으로 이 역할의 **값**을 보냅니다.
+    
+    j. Graph Explorer로 돌아가 메서드를 **GET**에서 **PATCH**로 변경합니다. 위 예제의 것과 유사하게 appRoles 속성을 업데이트하여 원하는 역할을 갖도록 서비스 사용자 개체를 패치합니다. **쿼리 실행**을 클릭하여 패치 작업을 실행합니다. 성공 메시지가 나타나 역할 생성을 확인합니다.
 
-    ![Single Sign-On 구성 추가](./media/active-directory-enterprise-app-role-management/userrole.png)
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-    a. 사용자에게 역할을 할당하려면 특정 사용자/그룹을 선택하고 페이지 아래쪽에서 **할당** 단추를 클릭합니다.
+7. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자를 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 각 앱으로 이동합니다. 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다. 응용 프로그램에 이미 할당된 사용자 및 그룹 응용 프로그램이 나열됩니다. 새 역할에 새 사용자를 추가할 수 있고 기존 사용자를 선택한 다음, **편집**을 클릭하여 역할을 변경할 수도 있습니다.
 
-    ![Single Sign-On 구성 추가](./media/active-directory-enterprise-app-role-management/userandgroups.png)
+    ![Single Sign-On 구성 추가](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
-    나. 이 단추를 클릭하면 각 서비스 사용자에 대해 정의된 여러 역할 중에서 선택하는 팝업이 나타납니다.
+     사용자에게 역할을 할당하려면 새 역할을 선택하고 페이지 아래의 **할당** 단추를 클릭합니다.
 
-    다. 필요한 역할을 선택하고 [제출]을 클릭합니다.
+    ![Single Sign-On 구성 추가](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
+
+    > [!Note]
+    > 새 역할을 확인하려면 Azure Portal에서 세션을 새로 고쳐야 합니다.
 
 8. 사용자에게 역할을 할당한 후에는 **역할** 클레임의 사용자 지정 매핑을 정의하도록 **특성** 테이블을 업데이트해야 합니다.
 
@@ -151,7 +155,7 @@ ms.lasthandoff: 03/23/2018
 
     ![Single Sign-On 특성 구성](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    나. **이름** 텍스트 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예제에서는 **역할 이름**을 클레임 이름으로 사용했습니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -163,87 +167,89 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="update-existing-role"></a>기존 역할 업데이트
 
-1. 기존 역할을 업데이트하려면 다음 단계를 수행합니다.
+기존 역할을 업데이트하려면 다음 단계를 수행합니다.
 
-    a. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
+1. [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
 
-    나. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
+2. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
     
-    다. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
+3. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
     
     `https://graph.microsoft.com/beta/servicePrincipals`
-        
+    
     여러 디렉터리를 사용하는 경우 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` 패턴을 따라야 합니다.
+
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
-    
-    d. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 응용 프로그램을 검색할 수도 있습니다. [속성] 페이지에서 복사한 **개체 ID**를 검색하고 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
+4. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 응용 프로그램을 검색할 수도 있습니다. [속성] 페이지에서 복사한 **개체 ID**를 검색하고 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
+
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-    e. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
+5. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
     
-    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
     
-    f. 기존 역할을 업데이트하려면 다음 단계를 수행합니다.
+6. 기존 역할을 업데이트하려면 다음 단계를 수행합니다.
 
     ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
     * 메서드를 **GET**에서 **PATCH**로 변경합니다.
 
-    * 응용 프로그램에서 기존 역할을 복사하여 **요청 본문**에 붙여넣습니다.
-    
-    * 조직 요구 사항에 따라 **역할 설명**, **역할 값** 및 **역할 표시 이름**을 바꿔서 값을 업데이트합니다.
-    
+    * 기존 역할을 복사하여 **요청 본문**에 붙여넣습니다.
+
+    * 필요에 따라 **역할 설명**, **역할 값** 또는 **역할 표시 이름**을 업데이트하여 역할 값을 업데이트합니다.
+
     * 필요한 역할을 모두 업데이트한 후 **쿼리 실행**을 클릭합니다.
         
 ## <a name="delete-existing-role"></a>기존 역할 삭제
 
 기존 역할을 삭제하려면 다음 단계를 수행합니다.
 
-a. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
+1. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
 
-나. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
+2. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
-다. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
+3. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
     
-`https://graph.microsoft.com/beta/servicePrincipals`
+    `https://graph.microsoft.com/beta/servicePrincipals`
     
-여러 디렉터리를 사용하는 경우 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` 패턴을 따라야 합니다.
+    여러 디렉터리를 사용하는 경우 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` 패턴을 따라야 합니다.
     
-![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-d. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 응용 프로그램을 검색할 수도 있습니다. [속성] 페이지에서 복사한 **개체 ID**를 검색하고 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
+4. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 응용 프로그램을 검색할 수도 있습니다. [속성] 페이지에서 복사한 **개체 ID**를 검색하고 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
      
-`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
-    
-e. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
-    
-![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-f. 기존 역할을 삭제하려면 다음 단계를 수행합니다.
-
-![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
-
-메서드를 **GET**에서 **PATCH**로 변경합니다.
-
-응용 프로그램에서 기존 역할을 복사하여 **요청 본문**에 붙여넣습니다.
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
+5. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
+    
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-**쿼리 실행**을 클릭합니다.
-    
-> [!NOTE] 
-> 생성된 역할에서 **msiam_access** 사용자 역할과 id가 일치하는지 확인합니다.
-    
-g. 위 프로세스를 수행한 후 메서드를 **PATCH**로 유지하고 나머지 역할 콘텐츠를 **요청 본문**에 붙여넣은 후 **쿼리 실행**을 클릭합니다.
-    
-![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
+6. 기존 역할을 삭제하려면 다음 단계를 수행합니다.
 
-h. 쿼리를 실행한 후에는 역할이 삭제됩니다.
+    ![Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+
+    * 메서드를 **GET**에서 **PATCH**로 변경합니다.
+
+    * 응용 프로그램에서 기존 역할을 복사하여 **요청 본문**에 붙여넣습니다.
+        
+    * 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
+
+    * **쿼리 실행**을 클릭합니다.
     
-> [!NOTE]
-> 역할을 제거하려면 먼저 비활성화해야 합니다. 
+    > [!NOTE] 
+    > 생성된 역할에서 **msiam_access** 사용자 역할과 id가 일치하는지 확인합니다.
+    
+7. 역할이 비활성화되면 해당 역할 블록을 appRoles 섹션에서 삭제하고 메서드를 **패치** 및 **쿼리 실행**으로 유지합니다.
+    
+8. 쿼리를 실행한 후에는 역할이 삭제됩니다.
+    
+    > [!NOTE]
+    > 역할을 제거하려면 먼저 비활성화해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

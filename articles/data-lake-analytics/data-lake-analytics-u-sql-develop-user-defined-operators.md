@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
 U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다.
@@ -130,5 +130,5 @@ U-SQL에 대한 일반적인 용도의 어셈블리 개발에 대한 지침은 [
 2. 샘플 및 출력을 확장하고 **Drivers.csv**를 두 번 클릭합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [사용자 코드를 사용하여 U-SQL 식 확장](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [사용자 코드를 사용하여 U-SQL 식 확장](https://msdn.microsoft.com/library/azure/mt621316.aspx)
 * [U-SQL 응용 프로그램 개발에 Visual Studio용 데이터 레이크 도구 사용하기](data-lake-analytics-data-lake-tools-get-started.md)

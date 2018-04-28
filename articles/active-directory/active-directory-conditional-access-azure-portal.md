@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 94d34df771334319db36009053a7264f0aeacf46
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
@@ -108,7 +108,7 @@ Azure AD 조건부 액세스를 사용하여 인증 시도가 다음에서 오�
 
 ### <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
 
-조건부 액세스를 사용하려면 Azure AD Premium 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)를 참조하세요.
+조건부 액세스를 사용하려면 Azure AD Premium 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

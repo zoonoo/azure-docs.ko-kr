@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b8e1f2923657965f4bab89e7a0f5f08faa1d27e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Azure Automation 실행 계정 인증 테스트
 Automation 계정이 성공적으로 만들어지면 새로 만들어지거나 업데이트된 Automation 실행 계정을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포에서 성공적으로 인증할 수 있는지를 확인하는 간단한 테스트를 수행할 수 있습니다.    
@@ -27,7 +27,7 @@ Automation 계정이 성공적으로 만들어지면 새로 만들어지거나 �
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
            -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -58,7 +58,7 @@ Automation 계정이 성공적으로 만들어지면 새로 만들어지거나 �
        Write-Output ("")
     } 
 
-Runbook - **Add-AzureRmAccount**에서 인증에 사용 되는 cmdlet는 *ServicePrincipalCertificate* 매개 변수 집합을 사용합니다.  이것은 자격 증명이 아니라 서비스 주체 인증서를 사용하여 인증합니다.  
+Runbook - **Connect-AzureRmAccount**에서 인증에 사용되는 cmdlet은 *ServicePrincipalCertificate* 매개 변수 집합을 사용합니다.  이것은 자격 증명이 아니라 서비스 주체 인증서를 사용하여 인증합니다.  
 
 실행 계정의 유효성을 검증하기 위해 [Runbook을 실행](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)할 경우 [Runbook 작업](automation-runbook-execution.md)이 만들어지고, 작업 페이지가 표시되며, **작업 요약** 타일에 작업 상태가 표시됩니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중* 으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  Runbook 작업이 완료되면 **완료됨** 상태가 나타나야 합니다.
 

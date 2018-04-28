@@ -1,11 +1,11 @@
 ---
-title: "MES(Media Encoder Standard)에 대한 작업 미리 설정 | Microsoft Docs"
-description: "이 항목에서는 MES(Media Encoder Standard)에 대한 서비스 정의 샘플 미리 설정에 대해 간단히 설명합니다."
+title: MES(Media Encoder Standard)에 대한 작업 미리 설정 | Microsoft Docs
+description: 이 항목에서는 MES(Media Encoder Standard)에 대한 서비스 정의 샘플 미리 설정에 대해 간단히 설명합니다.
 author: Juliako
 manager: cfow
 editor: johndeu
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
 ms.author: juliako
-ms.openlocfilehash: 5753b1dffe5a1a4ee069b83f58e9c2dac433b89d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>MES(Media Encoder Standard)에 대한 샘플 미리 설정
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. 인코딩 미리 설정을 사용자 지정해야 하는 경우 이 섹션에 제공된 시스템 미리 설정 중 하나를 사용자 지정 구성에 대한 템플릿으로 사용해야 합니다. 미리 설정에 포함된 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md) 항목을 참조하세요.  
   
 > [!NOTE]
->  4k 인코드에 대한 미리 설정을 사용하는 경우 `S3` 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)을 참조하세요.  
+>  4k 인코드에 대한 미리 설정을 사용하는 경우 `S3` 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [Encoding 크기를 조정하는 방법](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)을 참조하세요.  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>미리 설정의 비디오 회전 기본 설정:
 Media Encoder Standard로 작업할 때 기본적으로 비디오 회전이 사용됩니다. 비디오를 세로 모드의 모바일 장치로 녹화한 경우 이러한 미리 설정에 따라 인코딩 전에 비디오가 가로 모드로 회전됩니다.
@@ -85,4 +85,4 @@ Media Encoder Standard로 작업할 때 기본적으로 비디오 회전이 사�
   
  [Android용 H264 단일 비트 전송 저품질 SD](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)는 스테레오 AAC 오디오 및 비트 전송률이 56kbps인 단일 MP4 파일을 생성합니다.  
   
- Media Services 인코더와 관련된 자세한 내용은 [Azure Media Services를 사용하여 주문형 인코딩](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/)을 참조하세요.
+ Media Services 인코더와 관련된 자세한 내용은 [Azure Media Services를 사용하여 주문형 Encoding](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/)을 참조하세요.

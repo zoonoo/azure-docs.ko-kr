@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e3eb4682f2c7d8e22191b763457c4cca356b59d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c1c3191ba198b56386f813b6f9d2588b895633c4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>IoT Hub를 사용한 장치-클라우드 및 클라우드-장치 메시징
 
@@ -45,7 +45,7 @@ IoT Hub 기능에 대한 소개는 [Azure 및 사물 인터넷][lnk-azure-iot]�
 * IoT Hub [장치-클라우드 메시징][lnk-d2c]에 대해 알아봅니다.
 * IoT Hub [클라우드-장치 메시징][lnk-c2d]에 대해 알아봅니다.
 
-[lnk-azure-iot]: iot-hub-what-is-azure-iot.md
+[lnk-azure-iot]: ../iot-fundamentals/index.yml
 [lnk-iot-hub-overview]: iot-hub-what-is-iot-hub.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md

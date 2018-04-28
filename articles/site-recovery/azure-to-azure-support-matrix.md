@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -168,12 +168,14 @@ Premium Storage 계정의 디스크 | 지원됨 | VM의 디스크가 Premium Sto
 ADE(Azure Disk Encryption) | 지원되지 않음 |
 디스크 핫 추가/제거 | 지원되지 않음 | VM에서 데이터 디스크를 추가하거나 제거하는 경우 해당 VM에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 디스크 제외 | 지원되지 않음|   임시 디스크는 기본적으로 제외됩니다.
+직접 저장소 공간  | 지원되지 않음|
+스케일 아웃 파일 서버  | 지원되지 않음|
 LRS | 지원됨 |
 GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니오 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
+Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
 범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니오 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]

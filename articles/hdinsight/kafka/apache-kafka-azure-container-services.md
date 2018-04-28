@@ -1,24 +1,24 @@
 ---
-title: "HDInsight의 Kafka로 Azure Container Service 사용 | Microsoft Docs"
-description: "AKS(Azure Container Service)에서 호스트되는 컨테이너 이미지에서 HDInsight의 Kafka를 사용하는 방법을 알아봅니다."
+title: HDInsight의 Kafka로 Azure Container Service 사용 | Microsoft Docs
+description: AKS(Azure Container Service)에서 호스트되는 컨테이너 이미지에서 HDInsight의 Kafka를 사용하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>HDInsight의 Kafka로 Azure Container Service 사용
 
@@ -42,7 +42,7 @@ HDInsight 클러스터의 Kafka로 AKS(Azure Container Service)를 사용하는 
 
 또한, 이 문서에서는 [Azure Container Services 자습서](../../aks/tutorial-kubernetes-prepare-app.md)를 살펴보았다고 가정합니다. 이 자습서에서는 컨테이너 서비스를 만들고, Kubernetes 클러스터와 컨테이너 레지스트리를 생성하고, `kubectl` 유틸리티를 구성합니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
 ### <a name="network-topology"></a>네트워크 토폴로지
 
@@ -158,7 +158,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 1. 테스트 응용 프로그램에서 사용되는 Kafka 항목을 만듭니다. Kafka 항목 만들기에 대한 내용은 [Kafka 클러스터 만들기](apache-kafka-get-started.md) 문서를 참조하세요.
 
-2. [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test)에서 응용 프로그램 예제를 다운로드합니다. 
+2. [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test)에서 예제 응용 프로그램을 다운로드합니다. 
 
 3. `index.js` 파일을 편집하고 다음 줄을 변경합니다.
 

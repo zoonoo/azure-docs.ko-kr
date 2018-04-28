@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 865b0e485480f5ee7d676d3a6c90cb51fd50d19c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리
 Log Analytics는 Azure에 배포되거나 회사의 모든 원본에서 일당 대량의 데이터를 수집, 인덱싱, 저장하는 것을 크기 조정하고 지원하도록 설계됐습니다.  조직에 대한 주 드라이버인 반면 비용 효율성은 궁극적으로 기본 드라이버입니다. 그 목적을 위해서는 Log Analytisc 작업 영역의 비용이 수집된 데이터 볼륨을 기반으로 하지 않고 선택한 계획에 따라 달라지며, 연결된 소스에서 생성된 데이터를 저장하려고 선택한 기간을 이해하는 것이 중요합니다.  
@@ -33,15 +33,14 @@ Log Analytics는 Azure에 배포되거나 회사의 모든 원본에서 일당 �
 - 데이터가 작업 영역에서 보존되는 기간  
 - 사용하도록 설정된 관리 솔루션의 수, 데이터 원본 및 수집 빈도 
 
+수집한 데이터의 예상 크기에 대해서는 각 솔루션에 대한 설명서를 참조하세요.   
+
+“무료” 가격 책정 계층을 사용 중인 경우 데이터는 7일 동안 보존되는 것으로 제한됩니다. "GB별(독립 실행형)" 또는 "노드별(OMS)" 계층의 경우, 수집된 데이터를 마지막 31일 동안 사용할 수 있고 보존은 최대 2년으로 늘릴 수 있습니다. 더 긴 보존 기간을 선택한 경우 요금이 부과됩니다. 무료 요금제는 일일 수집 제한이 500MB입니다. 허용되는 양이 계속 초과될 경우 이 제한을 초과해서 데이터를 수집하도록 작업 영역을 GB별 또는 노드별 계층으로 변경할 수 있습니다. 언제든지 요금제 유형을 변경할 수 있습니다. 가격 책정에 대한 자세한 내용은 [가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요. 
+
 > [!NOTE]
-> 수집한 데이터의 예상 크기에 대해서는 각 솔루션에 대한 설명서를 참조하세요.   
+> 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 모델](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), 사용 패턴에 따라 [이 모델로 전환할 때의 영향 평가](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) 방법 및 [새 모델을 옵트인하는 방법](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)에 대해 자세히 알아봅니다. 
 
-*무료* 요금제를 사용 중인 경우 데이터는 7일 동안 보존되는 것으로 제한됩니다. *독립 실행형* 또는 *유료* 계층의 경우 수집된 데이터를 마지막 31일 동안 사용할 수 있습니다. *무료* 요금제는 일일 수집 제한이 500MB입니다. 허용되는 양이 계속 초과될 경우 이 제한을 초과해서 데이터를 수집하도록 작업 영역을 유료 요금제로 변경할 수 있습니다. 
-
-> [!NOTE]
-> 유료 계층에 대해 더 긴 보존 기간을 선택한 경우 요금이 부과됩니다. 언제든지 요금제 유형을 변경할 수 있습니다. 가격 책정에 대한 자세한 내용은 [가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요. 
-
-데이터 볼륨을 제한하고 해당 비용을 제어할 수 있는 두 가지 방법이 있습니다. 즉, 일일 한도 및 데이터 보존입니다.  
+가격 책정 모델 또는 계층에 관계없이, 데이터의 양을 관리하는 것은 비용을 관리하는 데 기본적입니다. 특정 솔루션의 선택 및 구성과 별개로, Log Analytics 내에는 데이터 볼륨을 제한하고 해당 비용을 제어할 수 있는 두 가지 방법이 있습니다. 즉, 일일 한도 및 데이터 보존입니다.  
 
 ## <a name="review-estimated-cost"></a>예상 비용 검토
 Log Analytics를 사용하면 최근 사용 패턴에 따른 가능한 비용을 쉽게 파악할 수 있습니다.  이렇게 하려면 다음 단계를 수행합니다.  

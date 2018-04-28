@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 494f2864f61ed9717dbddd7bf85981dc84bd3aad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 654c187bcd552e9682115bc5e53ba69a3dca7c1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
 
@@ -136,7 +136,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>데이터베이스 만들기
 
-[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) 명령을 사용하여 서버에서 [S0 성능 수준](../../sql-database/sql-database-service-tiers.md)인 데이터베이스를 만듭니다.
+[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) 명령을 사용하여 서버에서 [S0 성능 수준](../../sql-database/sql-database-service-tiers-dtu.md)인 데이터베이스를 만듭니다.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0

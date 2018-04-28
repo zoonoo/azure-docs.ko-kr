@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 509570dfe0e3d4be2e589ac1958dd377dc4e8e03
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure 스택의 암호를 회전
 
@@ -82,7 +82,7 @@ Azure 스택 인프라의 무결성을 유지 하기 위해 연산자에는 조�
     > [!IMPORTANT]  
     > 세션을 시작, 세션 변수로 저장 하지 마십시오.
     
-3. 실행  **[invoke-command 기반](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**합니다. 으로 권한 있는 끝점 PowerShell 세션 변수를 전달 된 **세션** 매개 변수입니다. 
+3. 실행  **[invoke-command 기반](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)** 합니다. 으로 권한 있는 끝점 PowerShell 세션 변수를 전달 된 **세션** 매개 변수입니다. 
 4. 실행 **시작 SecretRotation** 는 다음 매개 변수:
     - **PfxFilesPath**  
     이전에 만든 인증서 디렉터리에 네트워크 경로 지정 합니다.  
@@ -105,9 +105,9 @@ $PEPCreds = Get-Credential
 $PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint 
 
 #Run Secret Rotation
-$CertPassword = "CertPasswordHere" | ConvertTo-SecureString
+$CertPassword = ConvertTo-SecureString "Certpasswordhere" -AsPlainText -Force
 $CertShareCred = Get-Credential 
-$CertSharePath = <NetworkPathofCertShare>   
+$CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -session $PEPsession -ScriptBlock { 
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
@@ -137,7 +137,7 @@ Azure 스택 시스템의 인프라 암호를 회전 하는 시작 SecretRotatio
  
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 유형 | 필수 | Position | 기본값 | 설명 |
+| 매개 변수 | type | 필수 | Position | 기본값 | 설명 |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | 문자열  | False  | named  | 없음  | 에 대 한 파일 공유 경로 **\Certificates** 모든 외부 포함 된 디렉터리 네트워크 끝점 인증서입니다. 내부 및 외부 암호를 회전 하는 경우에 필요 합니다. 최종 디렉터리 있어야 **\Certificates**합니다. |
 | CertificatePassword | SecureString | False  | named  | 없음  | -PfXFilesPath에서 제공 하는 모든 인증서에 대 한 암호입니다. 내부 및 외부 암호를 회전 하는 경우에 PfxFilesPath가 제공 하는 경우 필수 값입니다. |
@@ -170,7 +170,7 @@ Remove-PSSession -Session $PEPSession
 
 1. Azure 스택 물리적 서버에서 BMC OEM 지침에 따라 업데이트 합니다. 사용자 환경에서 각 BMC에 대 한 암호는 같아야 합니다.
 2. Azure 스택 세션에서 권한 있는 끝점을 엽니다. 명령에 대 한 참조 [권한 있는 끝점을 사용 하 여 Azure 스택의](azure-stack-privileged-endpoint.md)합니다.
-3. 프롬프트를 변경 된 후에 PowerShell **[IP 주소 또는 ERCS VM name]: PS >** 또는 **[azs ercs01]: PS >**실행 하는 환경에 따라 `Set-BmcPassword` 를 실행 하 여 `invoke-command`합니다. 권한 있는 끝점 세션 변수를 매개 변수로 전달 합니다. 예: 
+3. 프롬프트를 변경 된 후에 PowerShell **[IP 주소 또는 ERCS VM name]: PS >** 또는 **[azs ercs01]: PS >** 실행 하는 환경에 따라 `Set-BmcPassword` 를 실행 하 여 `invoke-command`합니다. 권한 있는 끝점 세션 변수를 매개 변수로 전달 합니다. 예: 
 
     ```powershell
     # Interactive Version

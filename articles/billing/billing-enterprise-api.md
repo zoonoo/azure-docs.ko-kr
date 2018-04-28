@@ -1,11 +1,11 @@
 ---
-title: "Azure 청구 엔터프라이즈 API | Microsoft Docs"
-description: "Azure 기업 고객이 사용량 데이터를 프로그래밍 방식으로 끌어올 수 있게 하는 보고 API에 대해 알아봅니다."
-services: 
-documentationcenter: 
+title: Azure 청구 엔터프라이즈 API | Microsoft Docs
+description: Azure 기업 고객이 사용량 데이터를 프로그래밍 방식으로 끌어올 수 있게 하는 보고 API에 대해 알아봅니다.
+services: ''
+documentationcenter: ''
 author: anandedwin
 manager: aedwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ae04c7c1fdddecf40583d14f7b08dcf41941c6f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
 Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 기본 데이터 분석 도구로 프로그래밍 방식으로 끌어올 수 있습니다. 
 
 ## <a name="enabling-data-access-to-the-api"></a>API에 대한 데이터 액세스 사용
-* **API 키 생성/검색** - 엔터프라이즈 포털에 로그인하고, 도움말 - Reporting API 아래의 자습서를 따릅니다. 이 도움말 문서의 첫 번째 섹션에서는 지정된 등록에 대한 API 키를 생성하거나 검색하는 방법에 대해 설명합니다.
+* **API 키 생성 또는 검색** - Enterprise 포털에 로그인한 다음, 보고서 > 사용량 다운로드 > API 액세스 키로 이동하여 API 키를 생성하거나 검색합니다.
 * **API에서 키 전달** - API 키는 인증 및 권한 부여를 호출할 때마다 전달되어야 합니다. HTTP 헤더에 있어야 하는 속성은 다음과 같습니다.
 
 |요청 헤더 키 | 값|

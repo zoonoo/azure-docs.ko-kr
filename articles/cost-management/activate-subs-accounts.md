@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure Cost Management로 Azure 구독 및 계정 활성화
 
@@ -93,7 +93,7 @@ Azure Cost Management 포털을 처음 사용할 때 기업 계약 또는 CSP(�
 다음은 문제를 해결하는 방법입니다.
 
 1. 재판매인은 계정에 대해 _표시_를 사용하도록 설정해야 합니다. 지침은 [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)(간접 고객 온보딩 가이드)를 참조하세요.
-2. Azure Cost Management에 사용할 기업 계약 키를 생성합니다. 지침은 [Azure Enterprise Agreement 등록 및 비용 데이터 보기](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea)를 참조하세요.
+2. Azure Cost Management에 사용할 기업 계약 키를 생성합니다. 지침은 [Azure Enterprise Agreement 등록 및 비용 데이터 보기](https://docs.microsoft.com/azure/cost-management/quick-register-ea)를 참조하세요.
 
 Azure 서비스 관리자만 Cost Management를 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다.
 

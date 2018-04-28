@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e5c99552b74861db6018093dccf736d08374204f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -186,7 +186,7 @@ Azure AD 액세스 패널은 최종 사용자가 자신의 앱을 시작하고 �
 | 사용자에게 Single Sign-On 앱을 배포하는 데 사용할 수 있는 다양한 옵션의 비교 |[사용자에게 Azure AD 통합 응용 프로그램 배포](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | MyApps에 해당하는 액세스 패널 및 해당 모바일의 개요 |[액세스 패널 및 MyApps 소개](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Office 365 웹 사이트에서 Azure AD 앱에 액세스하는 방법 |[Office 365 앱 시작 관리자 사용](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Intune 관리된 브라우저 모바일 앱에서 Azure AD 앱에 액세스하는 방법 |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Intune 관리된 브라우저 모바일 앱에서 Azure AD 앱에 액세스하는 방법 |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | 딥 링크를 사용하여 Single Sign-On을 시작하도록 Azure AD 앱에 액세스하는 방법 |[앱에 직접 로그온 링크 가져오기](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 액세스 패널은 [모든 버전의 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다.

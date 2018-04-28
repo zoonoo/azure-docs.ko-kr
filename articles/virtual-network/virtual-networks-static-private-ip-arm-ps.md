@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b0e8153f1d0cecd4efe66dc7cce64addd6ed62aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>PowerShell을 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -68,7 +68,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. 위에서 만든 NIC를 사용하여 VM을 만듭니다.
+5. NIC를 사용하여 VM을 만듭니다.
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -83,16 +83,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
     New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
     ```
 
-    예상 출력:
-    
-        EndTime             : [Date and time]
-        Error               : 
-        Output              : 
-        StartTime           : [Date and time]
-        Status              : Succeeded
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        StatusCode          : OK 
+[Windows VM에 여러 IP 주소를 할당](virtual-network-multiple-ip-addresses-powershell.md)할 때처럼 반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure Virtual Machine에 할당된 개인 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다. 가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>네트워크 인터페이스의 고정 개인 IP 주소 정보 검색
 위의 스크립트로 만든 VM에 대한 정적 개인 IP 주소 정보를 보려면 다음 PowerShell 명령을 실행하고 *PrivateIpAddress* 및 *PrivateIpAllocationMethod*에 대한 값을 확인합니다.
@@ -199,6 +190,9 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
+
+[Windows VM에 여러 IP 주소를 할당](virtual-network-multiple-ip-addresses-powershell.md)할 때처럼 반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure Virtual Machine에 할당된 개인 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다. 가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다.
+
 ## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경
 
 개인 IP 주소는 고정 또는 동적 할당 방법을 사용하여 NIC에 할당됩니다. 동적 IP 주소는 이전에 중지(할당 취소) 상태였던 VM을 시작한 후 변경할 수 있습니다. 이렇게 하면 VM이 동일한 IP 주소가 필요한 서비스를 호스팅하는 경우 중지(할당 취소) 상태에서 다시 시작하더라도 문제가 발생할 수 있습니다. 고정 IP 주소는 VM이 삭제될 때까지 유지됩니다. IP 주소 할당 방법을 변경하려면 할당 방법을 동적에서 고정으로 변경하는 다음 스크립트를 실행합니다. 현재 개인 IP 주소의 할당 방법이 고정이면 *고정*을 *동적*으로 변경한 후 스크립트를 실행합니다.
@@ -222,7 +216,5 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
-* [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
-* [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
+[IP 주소 설정](virtual-network-network-interface-addresses.md) 관리에 대해 자세히 알아봅니다.

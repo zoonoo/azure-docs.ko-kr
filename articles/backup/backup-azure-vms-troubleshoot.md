@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 93eb9a65e9d5733963f7d6269a06d5f3cde5e256
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래 표에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/16/2018
 | 가상 머신이 존재하지 않습니다. - 해당 가상 컴퓨터가 존재하는지 확인하거나 다른 가상 컴퓨터를 선택하세요. |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 머신을 다시 만듭니다.<br>또는<br></li><li>백업 데이터를 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. [자세한 내용](http://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
 | 명령을 실행하지 못했습니다. - 현재 이 항목에 대해 다른 작업이 진행 중입니다. 이전 작업이 완료될 때까지 기다린 후 다시 시도하세요. |VM에 대한 기존 백업이 실행 중이며, 기존 작업이 실행되는 동안에는 새 작업을 시작할 수 없습니다. |
 | 백업 자격 증명 모음에서 VHD를 복사하는 작업이 시간 초과되었습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 저장소 쪽에서 일시적인 오류가 발생하거나 백업 서비스가 제한 시간 내에 VM을 호스트하는 저장소 계정에서 Vault로 데이터를 전송하기 위한 충분한 IOPS를 얻지 못하는 경우에 이러한 문제가 발생합니다. 백업을 설정하는 동안 [모범 사례](backup-azure-vms-introduction.md#best-practices)를 따랐는지 확인하세요. VM을 로드되지 않은 다른 저장소 계정으로 이동한 후 백업을 다시 시도하세요.|
-| 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |이 오류는 다음 두 가지 이유로 발생할 수 있습니다. <ol><li> VM 저장소에 액세스하는 데 일시적인 문제가 있습니다. [Azure 상태](https://azure.microsoft.com/en-us/status/)를 확인하여 하위 지역의 계산, 저장소 또는 네트워크와 관련하여 진행 중인 문제가 있는지 확인합니다. 문제가 해결되면 백업 작업을 다시 시도합니다. <li>원래 VM이 삭제되었으므로 복구 지점을 가져올 수 없습니다. 삭제된 VM의 백업 데이터를 유지하지만 백업 오류를 제거하려면 VM의 보호를 해제하고 데이터 유지 옵션을 선택합니다. 이 작업을 수행하면 예약된 백업 작업 및 되풀이 오류 메시지가 중지됩니다. |
+| 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |이 오류는 다음 두 가지 이유로 발생할 수 있습니다. <ol><li> VM 저장소에 액세스하는 데 일시적인 문제가 있습니다. [Azure 상태](https://azure.microsoft.com/status/)를 확인하여 하위 지역의 계산, 저장소 또는 네트워크와 관련하여 진행 중인 문제가 있는지 확인합니다. 문제가 해결되면 백업 작업을 다시 시도합니다. <li>원래 VM이 삭제되었으므로 복구 지점을 가져올 수 없습니다. 삭제된 VM의 백업 데이터를 유지하지만 백업 오류를 제거하려면 VM의 보호를 해제하고 데이터 유지 옵션을 선택합니다. 이 작업을 수행하면 예약된 백업 작업 및 되풀이 오류 메시지가 중지됩니다. |
 | 선택한 항목에 Azure Recovery Services 서비스 확장을 설치하지 못했습니다. Azure Recovery Services 확장의 필수 조건인 VM 에이전트가 있어야 합니다. Azure VM 에이전트를 설치하고 등록 작업 다시 시작 |<ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법에 대해 [자세히 알아보세요](#validating-vm-agent-installation). |
 | “COM+” 오류로 인해 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다. |이는 대개 COM+ 서비스가 실행되고 있지 않음을 의미합니다. 이 문제 해결에 대한 도움은 Microsoft 지원에 문의하세요. |
 | “이 드라이브는 BitLocker 드라이브 암호화로 잠겨 있습니다.”라는 VSS 작업 오류와 함께 스냅숏 작업이 실패했습니다. 제어판에서 이 드라이브의 잠금을 해제해야 합니다. |VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결 되었는지 관찰합니다. |

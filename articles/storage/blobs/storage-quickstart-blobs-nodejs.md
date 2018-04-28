@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07ac5195d9653affdbb0f305ac1697cecd379319
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -143,7 +143,7 @@ const upload = () => {
 ```
 샘플 응용 프로그램의 컨텍스트에서 *example.txt*라는 파일이 *test-container*라는 컨테이너의 *example*이라는 Blob에 업로드됩니다. 콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 및 [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream)를 사용하는 것입니다.
 
-파일이 Blob 저장소에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
+파일이 Blob 저장소에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
@@ -284,7 +284,7 @@ Blob 저장소를 사용하여 Node.js 응용 프로그램을 개발하기 위�
 
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
 
-- Node.js 클라이언트 라이브러리에 대한 자세한 내용은 [Node.js API 참조](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage)를 참조하세요.
+- Node.js 클라이언트 라이브러리에 대한 자세한 내용은 [Node.js API 참조](https://docs.microsoft.com/javascript/api/overview/azure/storage)를 참조하세요.
 - Node.js 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계

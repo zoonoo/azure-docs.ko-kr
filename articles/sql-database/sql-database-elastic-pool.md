@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -74,7 +74,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 ### <a name="minimum-number-of-databases"></a>데이터베이스의 최소 수
 
-단일 데이터베이스에 대한 리소스 양이 풀에 필요한 리소스의 1.5배 이상인 경우 탄력적 풀은 더욱 비용 효율적입니다.
+단일 데이터베이스에 대한 리소스의 집계 양이 풀에 필요한 리소스의 1.5배 이상인 경우 탄력적 풀은 더욱 비용 효율적입니다.
 
 ***DTU 기반 구매 모델 예***<br>
 단일 데이터베이스에 성능 수준을 사용하는 것보다 비용 효율을 증가시키려면 100 DTU 풀에 최소 두 개의 S3 데이터베이스 혹은 15개의 S0 데이터베이스가 필요합니다.
@@ -98,7 +98,7 @@ S3 데이터베이스의 최고 사용률이 100 DTU이며 평균 사용률이 6
 
 풀의 적절한 크기는 풀의 모든 데이터베이스에 필요한 집계 리소스에 따라 달라집니다. 이는 다음 결정을 포함합니다.
 
-* 풀의 모든 데이터베이스에서 사용되는 최대 리소스(선택한 리소스 모델에 따라 최대 DTU 또는 최대 vCore)
+* 풀의 모든 데이터베이스에서 사용되는 최대 리소스(선택한 리소스 모델에 따라 최대 DTU 또는 최대 vCore)입니다.
 * 풀에 있는 모든 데이터베이스의 최대 저장된 바이트 수입니다.
 
 각 리소스 모델에 대해 사용할 수 있는 서비스 계층은 [DTU 기반 구매 모델](sql-database-service-tiers.md#dtu-based-purchasing-model) 또는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)을 참조하세요.
@@ -124,7 +124,7 @@ SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 �
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>탄력적 작업 및 탄력적 풀
 
-풀을 통해 **[탄력적 작업](sql-database-elastic-jobs-overview.md)**의 스크립트를 실행하여 관리 작업이 간소화됩니다. 탄력적 작업은 많은 수의 데이터베이스와 관련된 번거로움을 대부분 없애 줍니다. 시작하려면 [탄력적 작업 시작](sql-database-elastic-jobs-getting-started.md)을 참조하세요.
+풀을 통해 **[탄력적 작업](sql-database-elastic-jobs-overview.md)** 의 스크립트를 실행하여 관리 작업이 간소화됩니다. 탄력적 작업은 많은 수의 데이터베이스와 관련된 번거로움을 대부분 없애 줍니다. 시작하려면 [탄력적 작업 시작](sql-database-elastic-jobs-getting-started.md)을 참조하세요.
 
 여러 데이터베이스를 사용하기 위한 다른 데이터베이스 도구에 대한 자세한 내용은 [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)을 참조합니다.
 
@@ -177,7 +177,7 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 차트 및 메트릭 페이지를 편집하여 CPU 비율, 데이터 IO 비율, 사용되는 로그 IO 백분율 등 다른 메트릭을 표시할 수 있습니다.
 
-**차트 편집** 양식에서 고정된 시간 범위를 선택하거나 **사용자 지정**을 클릭하여 지난 2주 동안에서 24시간 창을 선택한 다음, 모니터링할 리소스를 선택할 수 있습니다.
+**차트 편집** 양식에서 고정된 시간 범위를 선택하거나 **사용자 지정**을 클릭하여 지난 2주 동안에서 24시간 범위를 선택한 다음, 모니터링할 리소스를 선택할 수 있습니다.
 
 #### <a name="to-select-databases-to-monitor"></a>모니터링할 데이터베이스를 선택하려면
 

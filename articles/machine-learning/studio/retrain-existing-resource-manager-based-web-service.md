@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>기존 예측 웹 서비스 재학습
 이 문서에서는 다음 시나리오에 대한 재학습 프로세스를 설명합니다.
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/23/2018
 * 조작 가능한 웹 서비스로 배포한 학습 실험 및 예측 실험이 있습니다.
 * 예측 웹 서비스가 점수 매기기를 수행하도록 하기 위해 사용할 새 데이터가 있습니다.
 
-> [!NOTE] 
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
+> [!NOTE]
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
 
 기존 웹 서비스 및 실험을 시작으로 다음 단계를 수행해야 합니다.
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/23/2018
 
 실험을 실행합니다.
 
-다음으로 학습 실험을 학습된 모델 및 모델 평가 결과를 생성하는 웹 서비스로 배포해야 합니다.  
+다음으로 학습 실험을 학습된 모델 및 모델 평가 결과를 생성하는 웹 서비스로 배포해야 합니다.
 
 실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭한 다음 **웹 서비스[New] 배포**를 선택합니다. Azure Machine Learning Web Services 포털은 **웹 서비스 배포** 페이지에 열립니다. 웹 서비스의 이름을 입력하고 결제 방식을 선택한 다음 **배포**를 클릭합니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/23/2018
 **사용** 페이지의 **기본 사용량 정보** 섹션에서 기본 키를 찾아 **apikey** 선언으로 복사합니다.
 
 ### <a name="update-the-azure-storage-information"></a>Azure Storage 정보 업데이트
-BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") Azure Storage로 파일을 업로드하고 이를 처리하고 결과를 Azure Storage에 다시 작성합니다.  
+BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") Azure Storage로 파일을 업로드하고 이를 처리하고 결과를 Azure Storage에 다시 작성합니다.
 
 실험을 실행한 후 결과 워크플로는 다음과 비슷합니다.
 
@@ -126,7 +126,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 ## <a name="evaluate-the-retraining-results"></a>재학습 결과 평가
 응용 프로그램을 실행할 때 출력은 평가 결과를 액세스하는 데 필요한 URL 및 공유 액세스 서명 토큰을 포함합니다.
 
-*output2*에 대한 출력 결과의 *BaseLocation*, *RelativeLocation* 및 *SasBlobToken*을 조합하고(앞서 재학습 출력 이미지에 표시된 것처럼) 브라우저 주소 표시줄에 전체 URL을 붙여넣어 다시 학습된 모델의 성능 결과를 확인할 수 있습니다.  
+*output2*에 대한 출력 결과의 *BaseLocation*, *RelativeLocation* 및 *SasBlobToken*을 조합하고(앞서 재학습 출력 이미지에 표시된 것처럼) 브라우저 주소 표시줄에 전체 URL을 붙여넣어 다시 학습된 모델의 성능 결과를 확인할 수 있습니다.
 
 새로 학습된 모델이 기존 모델을 대체할 만큼 성능이 뛰어난지 여부를 확인하도록 결과를 검사합니다.
 
@@ -136,7 +136,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 새 웹 서비스를 다시 교육하는 경우 새로 학습된 모델을 참조하여 예측 웹 서비스 정의를 업데이트합니다. 웹 서비스 정의는 웹 서비스 학습된 모델의 내부 표현이며 직접 수정할 수는 없습니다. 학습 실험이 아닌 예측 실험에 대한 웹 서비스 정의를 검색하고 있는지 확인합니다.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Azure Resource Manager로 로그인
-먼저 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다.
+먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다.
 
 ## <a name="get-the-web-service-definition-object"></a>웹 서비스 정의 개체 가져오기
 다음으로 [Get AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 호출하여 웹 서비스 정의 개체를 가져옵니다.

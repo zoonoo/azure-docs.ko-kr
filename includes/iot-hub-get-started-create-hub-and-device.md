@@ -19,8 +19,8 @@ IoT 허브를 만들었으므로 IoT 허브에 장치 및 응용 프로그램을
 
 1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub를 엽니다.
 
-2. **장치 탐색기**를 클릭합니다.
-3. 장치 탐색기 창에서 **추가**를 클릭하여 IoT Hub에 장치를 추가합니다. 그런 다음 아래 작업을 수행합니다.
+2. **IoT 장치**를 클릭합니다.
+3. IoT 장치 창에서 **추가**를 클릭하여 IoT Hub에 장치를 추가합니다. 그런 다음 아래 작업을 수행합니다.
 
    **장치 ID**: 새 장치의 ID를 입력합니다. 장치 ID는 대/소문자를 구분합니다.
 
@@ -30,12 +30,15 @@ IoT 허브를 만들었으므로 IoT 허브에 장치 및 응용 프로그램을
 
    **IoT Hub에 장치 연결**: **사용**을 클릭합니다.
 
-   ![IoT Hub의 Device Explorer에 장치를 추가합니다.](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![IoT 허브의 IoT 장치에 장치 추가](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. **저장**을 클릭합니다.
-5. 장치를 만든 후에 **장치 탐색기** 창에서 장치를 엽니다.
+5. 장치가 만들어진 후에 **IoT 장치** 창에서 장치를 엽니다.
+
+   ![IoT Hub의 IoT 장치 목록](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. 연결 문자열의 기본 키를 기록해 둡니다.
 
-   ![장치 연결 문자열 가져오기](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![장치 연결 문자열 가져오기](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

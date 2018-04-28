@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics에서 경고에 대한 응답 | Microsoft Docs"
-description: "Log Analytics의 경고는 Azure 작업 영역의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 경고 규칙을 만드는 방법을 설명하고 규칙에서 실행할 수 있는 여러 가지 작업을 자세히 설명합니다."
+title: Azure Log Analytics에서 경고에 대한 응답 | Microsoft Docs
+description: Log Analytics의 경고는 Azure 작업 영역의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 경고 규칙을 만드는 방법을 설명하고 규칙에서 실행할 수 있는 여러 가지 작업을 자세히 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,16 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 04/13/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 717adf1b19b9de8542ec507df3a01b187d0df8a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Log Analytics에서 경고 규칙에 작업 추가
+
+> [!NOTE]
+> Log Analytics의 경고가 [Azure로 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)되고 있습니다.  Azure의 경고는 이 문서의 정보 대신 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 해당 작업을 정의합니다.
+
+
 [경고가 Log Analytics에서 생성](log-analytics-alerts.md)될 때 하나 이상의 작업을 수행하는 [경고 규칙 구성](log-analytics-alerts.md)의 옵션이 있습니다.  이 문서에서는 사용 가능한 다양한 작업 및 각 종류를 구성하는 세부 정보를 설명합니다.
 
 | 조치 | 설명 |
@@ -32,7 +37,7 @@ ms.lasthandoff: 01/10/2018
 
 
 ## <a name="email-actions"></a>전자 메일 작업
-전자 메일 작업은 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다.  메일의 제목을 지정할 수 있지만 그 내용은 Log Analytics이 구성한 표준 형식입니다.  메일은 로그 검색에서 반환된 10개까지의 레코드에 대한 세부 정보 외에 경고의 이름과 같은 요약 정보를 포함하고 있습니다.  또한 쿼리에서 전체 레코드 집합을 반환할 Log Analytics의 로그 검색에 대한 링크를 포함하고 있습니다.   메일의 보낸 사람은 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*입니다. 
+전자 메일 작업은 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다.  메일의 제목을 지정할 수 있지만 그 내용은 Log Analytics에서 구성한 표준 형식입니다.  메일은 로그 검색에서 반환된 10개까지의 레코드에 대한 세부 정보 외에 경고의 이름과 같은 요약 정보를 포함하고 있습니다.  또한 쿼리에서 전체 레코드 집합을 반환할 Log Analytics의 로그 검색에 대한 링크를 포함하고 있습니다.   메일의 보낸 사람은 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;* 입니다. 
 
 전자 메일 작업에는 다음 표의 속성이 필요합니다.
 
@@ -56,8 +61,6 @@ ms.lasthandoff: 01/10/2018
 
 웹후크는 URL 및 외부 서비스에 보낸 데이터인 JSON 형식의 페이로드를 포함하고 있습니다.  기본적으로 페이로드는 다음 표의 값을 포함합니다.  이 페이로드를 자신만의 사용자 지정 페이로드로 바꾸도록 선택할 수 있습니다.  그러한 경우 각 매개 변수에 대한 표의 변수를 사용하여 해당 값을 사용자 지정 페이로드에 포함할 수 있습니다.
 
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 웹후크 페이로드가 변경됩니다.  형식의 세부 내용은 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)에 있습니다.  아래 [샘플](#sample-payload)에서 예를 볼 수 있습니다.
 
 | 매개 변수 | 변수 | 설명 |
 |:--- |:--- |:--- |
@@ -121,43 +124,12 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
 |:--- |:--- |
 | id |경로와, 검색의 GUID입니다. |
 | __metadata |레코드 수 및 검색 결과 상태를 포함하는 경고 관련 정보입니다. |
-| 값 |검색 결과의 각 레코드에 대해 개별 항목입니다.  항목의 상세 정보는 레코드의 속성 및 값과 일치합니다. |
+| 값 |검색 결과의 각 레코드에 대해 개별 항목입니다.  항목의 세부 정보는 레코드의 속성 및 값과 일치합니다. |
 
 예를 들어 다음 Runbook은 로그 검색에서 반환된 레코드를 추출하고 각 레코드 유형에 따라 서로 다른 속성을 할당합니다.  Runbook은 JSON에서 **RequestBody**를 변환하여 시작되므로 PowerShell의 개체로 작동할 수 있습니다.
 
 >[!NOTE]
-> 두 Runbook은 모두 표준 페이로드를 사용한 Runbook 작업 및 webhook 작업의 결과를 포함하는 속성인 **SearchResult**를 사용합니다.  사용자 지정 페이로드를 사용하여 webhook 응답에서 Runbook이 호출된 경우 이 속성을 **SearchResults**로 변경해야 합니다.
-
-다음 Runbook은 [레거시 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)의 페이로드를 사용합니다.
-
-    param ( 
-        [object]$WebhookData
-    )
-
-    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResult.value
-
-    foreach ($Record in $Records)
-    {
-        $Computer = $Record.Computer
-
-        if ($Record.Type -eq 'Event')
-        {
-            $EventNo    = $Record.EventID
-            $EventLevel = $Record.EventLevelName
-            $EventData  = $Record.EventData
-        }
-
-        if ($Record.Type -eq 'Perf')
-        {
-            $Object    = $Record.ObjectName
-            $Counter   = $Record.CounterName
-            $Instance  = $Record.InstanceName
-            $Value     = $Record.CounterValue
-        }
-    }
-
-다음 Runbook은 [업그레이드된 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)의 페이로드를 사용합니다.
+> 이 Runbook은 모두 표준 페이로드를 사용한 Runbook 작업 및 webhook 작업의 결과를 포함하는 속성인 **SearchResult**를 사용합니다.  사용자 지정 페이로드를 사용하여 webhook 응답에서 Runbook이 호출된 경우 이 속성을 **SearchResults**로 변경해야 합니다.
 
     param ( 
         [object]$WebhookData
@@ -208,88 +180,12 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
 
 
 ## <a name="sample-payload"></a>샘플 페이로드
-이 섹션은 기존 및 [업그레이드된 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)에서 웹후크 및 Runbook 작업에 대한 샘플 페이로드를 보여줍니다.
+이 섹션에서는 웹후크와 Runbook 작업에 대한 샘플 페이로드를 살펴봅니다.
 
 ### <a name="webhook-actions"></a>웹후크 작업
-두 예제는 모두 표준 페이로드를 사용한 webhook 작업의 결과를 포함하는 속성인 **SearchResult**를 사용합니다.  webhook가 검색 결과를 포함하는 사용자 지정 페이로드를 사용한 경우 이 속성은 **SearchResults**가 됩니다.
+이 예제는 모두 표준 페이로드를 사용한 웹후크 작업의 결과를 포함하는 속성인 **SearchResult**를 사용합니다.  webhook가 검색 결과를 포함하는 사용자 지정 페이로드를 사용한 경우 이 속성은 **SearchResults**가 됩니다.
 
-#### <a name="legacy-workspace"></a>기존 작업 영역.
-다음은 기존 작업 영역에서 웹후크 작업에 대한 샘플 페이로드입니다.
-
-    {
-    "WorkspaceId": "workspaceID",
-    "AlertRuleName": "WebhookAlert",
-    "SearchQuery": "Type=Usage",
-    "SearchResult": {
-        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
-        "__metadata": {
-        "resultType": "raw",
-        "total": 1,
-        "top": 2147483647,
-        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
-        "CoreSummaries": [
-            {
-            "Status": "Successful",
-            "NumberOfDocuments": 135000000
-            }
-        ],
-        "Status": "Successful",
-        "NumberOfDocuments": 135000000,
-        "StartTime": "2017-09-27T10:30:38.9453282Z",
-        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
-        "ETag": "636421050440907473",
-        "sort": [
-            {
-            "name": "TimeGenerated",
-            "order": "desc"
-            }
-        ],
-        "requestTime": 361
-        },
-        "value": [
-        {
-            "Computer": "-",
-            "SourceSystem": "OMS",
-            "TimeGenerated": "2017-09-26T13:59:59Z",
-            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
-            "DataType": "Operation",
-            "StartTime": "2017-09-26T13:00:00Z",
-            "EndTime": "2017-09-26T13:59:59Z",
-            "Solution": "LogManagement",
-            "BatchesWithinSla": 8,
-            "BatchesOutsideSla": 0,
-            "BatchesCapped": 0,
-            "TotalBatches": 8,
-            "AvgLatencyInSeconds": 0.0,
-            "Quantity": 0.002502,
-            "QuantityUnit": "MBytes",
-            "IsBillable": false,
-            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-            "Type": "Usage",
-            "MG": "00000000-0000-0000-0000-000000000000",
-            "__metadata": {
-            "Type": "Usage",
-            "TimeGenerated": "2017-09-26T13:59:59Z"
-            }
-        }
-        ]
-    },
-    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 1,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
-    "Description": null,
-    "Severity": "Low"
-    }
-
-
-#### <a name="upgraded-workspace"></a>업그레이드된 작업 영역.
-다음은 업그레이드된 작업 영역에서 웹후크 작업에 대한 샘플 페이로드입니다.
+다음은 웹후크 작업에 대한 샘플 페이로드입니다.
 
     {
     "WorkspaceId": "workspaceID",
@@ -427,64 +323,7 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
 
 ### <a name="runbooks"></a>Runbook
 
-#### <a name="legacy-workspace"></a>기존 작업 영역
-다음은 기존 작업 영역에서 Runbook 작업에 대한 샘플 페이로드입니다.
-
-    {
-        "SearchResult": {
-            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
-            "__metadata": {
-                "resultType": "raw",
-                "total": 1,
-                "top": 2147483647,
-                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
-                "CoreSummaries": [{
-                    "Status": "Successful",
-                    "NumberOfDocuments": 135000000
-                }],
-                "Status": "Successful",
-                "NumberOfDocuments": 135000000,
-                "StartTime": "2017-09-27T10:51:43.3075124Z",
-                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
-                "ETag": "636421063111002092",
-                "sort": [{
-                    "name": "TimeGenerated",
-                    "order": "desc"
-                }],
-                "requestTime": 511
-            },
-            "value": [{
-                "Computer": "-",
-                "SourceSystem": "OMS",
-                "TimeGenerated": "2017-09-26T13:59:59Z",
-                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
-                "DataType": "Operation",
-                "StartTime": "2017-09-26T13:00:00Z",
-                "EndTime": "2017-09-26T13:59:59Z",
-                "Solution": "LogManagement",
-                "BatchesWithinSla": 8,
-                "BatchesOutsideSla": 0,
-                "BatchesCapped": 0,
-                "TotalBatches": 8,
-                "AvgLatencyInSeconds": 0.0,
-                "Quantity": 0.002502,
-                "QuantityUnit": "MBytes",
-                "IsBillable": false,
-                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-                "Type": "Usage",
-                "MG": "00000000-0000-0000-0000-000000000000",
-                "__metadata": {
-                    "Type": "Usage",
-                    "TimeGenerated": "2017-09-26T13:59:59Z"
-                }
-            }]
-        }
-    }
-
-#### <a name="upgraded-workspace"></a>업그레이드된 작업 영역
-다음은 업그레이드된 작업 영역에서 Runbook 작업에 대한 샘플 페이로드입니다.
+다음은 Runbook 작업에 대한 샘플 페이로드입니다.
 
     {
     "WorkspaceId": "workspaceID",
@@ -603,6 +442,7 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

@@ -1,4 +1,26 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="setting-up-your-web-server-or-project"></a>웹 서버 또는 프로젝트 설정
 
 > 이 샘플의 프로젝트를 다운로드하고 싶으세요? 
@@ -7,7 +29,7 @@
 > 또는
 > - 로컬 웹 서버(예: python)용 [프로젝트 파일 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip)
 >
-> 그런 후 [구성 단계](#create-an-application-express)로 건너뛰어 실행 전에 코드 샘플을 구성합니다.
+> 그런 후 [구성 단계](#register-your-application)로 건너뛰어 실행 전에 코드 샘플을 구성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 단계별 설치를 실행하려면 [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core) 또는 IIS Express와 같은 로컬 웹 서버가 [Visual Studio 2017](https://www.visualstudio.com/downloads/)과 통합되어 있어야 합니다. 

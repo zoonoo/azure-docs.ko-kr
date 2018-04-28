@@ -1,27 +1,22 @@
 ---
-title: "SQL Data Warehouse용 드라이버 | Microsoft Docs"
-description: "SQL Data Warehouse용 드라이버 및 연결 문자열"
+title: Azure SQL Data Warehouse용 연결 문자열 | Microsoft Docs
+description: SQL Data Warehouse용 연결 문자열
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 6950fff1c899510ce9291393aa3f6cb9774c994d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 8fce3ba099c871059ffb71a589e4d8cd33d5bcae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="drivers-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 드라이버
+# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 연결 문자열
 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JDBC][JDBC]와 같은 여러 가지 다양한 응용 프로그램 프로토콜을 사용하여 SQL Data Warehouse에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
 ## <a name="sample-adonet-connection-string"></a>샘플 ADO.NET 연결 문자열

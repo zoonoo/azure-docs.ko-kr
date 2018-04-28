@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱에 대한 진단 로깅 설정
 ## <a name="overview"></a>개요
@@ -84,7 +84,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 > **Table Storage** 또는 **Blob Storage**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](/downloads/#)중 하나를 사용하여 Azure Storage에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 >
 > [!NOTE]
-> Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 구성하지 않은 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)을 참조하세요.
+> Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 구성하지 않은 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)을 참조하세요.
 >
 >
 
@@ -113,7 +113,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 이 명령은 **-Name** 매개 변수로 지정된 웹앱의 로그를 현재 디렉터리의 **logs.zip**이라는 파일에 저장합니다.
 
 > [!NOTE]
-> Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 구성하지 않은 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)을 참조하세요.
+> Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 구성하지 않은 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)을 참조하세요.
 >
 >
 
@@ -125,7 +125,7 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 이 명령은 'webappname'이라는 웹앱의 로그를 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장합니다.
 
 > [!NOTE]
-> Azure CLI(Azure Command-Line Interface)를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure CLI 사용 방법](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 참조하세요.
+> Azure CLI(Azure Command-Line Interface)를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure CLI 사용 방법](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 참조하세요.
 >
 >
 

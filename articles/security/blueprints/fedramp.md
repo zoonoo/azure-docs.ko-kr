@@ -1,6 +1,6 @@
 ---
-title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화"
-description: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화"
+title: Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화
+description: Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화
 
@@ -76,10 +76,9 @@ ms.lasthandoff: 02/11/2018
 * **Azure Active Directory**
 * **Azure 리소스 관리자**
 * **Azure Log Analytics**
+    - (1) Log Analytics 작업 영역
 * **Azure Automation**
     - (1) Automation 계정
-* **Operations Management Suite**
-    - (1) OMS 작업 영역
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 
@@ -136,7 +135,7 @@ Azure Disk Encryption은 Windows IaaS 가상 머신 디스크를 암호화하는
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
-[OMS(Operations Management Suite)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)는 시스템 및 사용자 활동과 시스템 상태에 대한 광범위 로깅을 제공합니다. 
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)는 시스템 및 사용자 활동과 시스템 상태에 대한 광범위 로깅을 제공합니다. 
 
 - **활동 로그:** [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다.
 - **진단 로그:** [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그입니다.   이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다.
@@ -154,7 +153,7 @@ Azure Disk Encryption은 Windows IaaS 가상 머신 디스크를 암호화하는
 다음 기술은 Azure 환경에서 ID 관리 기능을 제공합니다.
 - [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.
 - 고객 배포 웹 응용 프로그램에 대한 인증은 Azure AD를 사용하여 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.  
-- [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 리소스 액세스는 사용자 역할에 따라 제한될 수 있습니다.
+- [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 리소스 액세스는 사용자 역할에 따라 제한될 수 있습니다.
 - 배포된 IaaS Active Directory 인스턴스는 배포된 IaaS 가상 머신에 대한 OS 수준의 ID 관리를 제공합니다.
    
 ### <a name="compute-resources"></a>Compute 리소스
@@ -182,17 +181,17 @@ Virtual Machine용 [Microsoft Antimalware](https://docs.microsoft.com/azure/secu
 
 ### <a name="patch-management"></a>패치 관리
 
-이 Azure Security 및 Compliance Blueprint Automation에서 배포한 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동 업데이트를 받도록 구성됩니다. 이 솔루션은 필요할 때 Windows 서버에 패치를 배포하기 위해 배포 업데이트를 만들 수 있는 OMS Azure Automation 솔루션도 배포합니다.
+이 Azure Security 및 Compliance Blueprint Automation에서 배포한 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동 업데이트를 받도록 구성됩니다. 이 솔루션은 필요할 때 Windows 서버에 패치를 배포하기 위해 배포 업데이트를 만들 수 있는 Azure Automation 솔루션도 배포합니다.
 
 ### <a name="operations-management"></a>운영 관리
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 Azure 및 온-프레미스 환경의 리소스로 생성된 데이터를 수집 및 분석할 수 있게 하는 OMS(Operations Management Suite) 서비스입니다.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 Azure 및 온-프레미스 환경의 리소스로 생성된 데이터를 수집 및 분석할 수 있게 하는 서비스입니다.
 
-#### <a name="oms-solutions"></a>OMS 솔루션
+#### <a name="management-solutions"></a>관리 솔루션
 
-다음 OMS 솔루션은 이 솔루션의 일부로 미리 설치됩니다.
+다음 관리 솔루션은 이 솔루션의 일부로 미리 설치됩니다.
 - [AD 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [맬웨어 방지 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

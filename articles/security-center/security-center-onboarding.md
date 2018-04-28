@@ -1,11 +1,11 @@
 ---
-title: "보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩 | Microsoft Docs"
+title: 보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩 | Microsoft Docs
 description: " 보안을 개선하기 위해 Azure Security Center 표준 계층으로 온보딩하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다.  60일 동안 표준 계층을 무료로 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -82,7 +82,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 ### <a name="add-new-non-azure-computers-from-onboarding"></a>온보딩에서 새로운 비 Azure 컴퓨터 추가
 
 1. **온보딩**으로 돌아옵니다.   
-2. **새로운 비 Azure 컴퓨터를 추가하시겠습니까?**를 선택합니다.
+2. **새로운 비 Azure 컴퓨터를 추가하시겠습니까?** 를 선택합니다.
 
   ![비 Azure 컴퓨터 추가][3]
 

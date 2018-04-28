@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 0ebf71a68f00b9766e14ea775fa2b1e9f15a201b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d325e71125e875590b54b84700b6ec9e0fe7dd7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 장치 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 컴퓨터에 `git`이 설치되어 있고 명령 창에서 액세스할 수 있는 환경 변수에 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 **Git Bash**가 포함됩니다. 
 
-1. 다음을 [인증서 개요](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 사용하여 테스트 인증서를 만듭니다. 인증서 만들기에 대한 자세한 설명은 [CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates)를 참조하세요.
+1. 다음을 [인증서 개요](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 사용하여 테스트 인증서를 만듭니다. 인증서 만들기에 대한 자세한 설명은 [CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates)를 참조하세요.
 
     > [!NOTE]
     > 이 단계를 수행하려면 원본에서 빌드 및 설치하거나 [이](https://sourceforge.net/projects/openssl/)와 같은 [타사](https://wiki.openssl.org/index.php/Binaries)에서 다운로드 및 설치할 수 있는 [OpenSSL](https://www.openssl.org/)이 필요합니다. 이미 _루트_, _중간_ 및 _장치_ 인증서를 만든 경우 이 단계를 건너뛸 수 있습니다.
@@ -162,7 +162,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 다음과 같은 방식으로 등록 그룹 정보를 입력합니다.
 
-    - 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_ (프로비전 서비스 전역 엔드포인트)를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` 를 편집합니다. **_{deviceName}-public.pem_** 파일을 열고 이 값을 _클라이언트 인증서_ 로 포함합니다. **_{deviceName}-all.pem_** 파일을 열고 _-----BEGIN PRIVATE KEY-----_의 텍스트를 _-----END PRIVATE KEY-----_로 복사합니다.  이를 _클라이언트 인증서 개인 키_로 사용합니다.
+    - 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_ (프로비전 서비스 전역 엔드포인트)를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` 를 편집합니다. **_{deviceName}-public.pem_** 파일을 열고 이 값을 _클라이언트 인증서_ 로 포함합니다. **_{deviceName}-all.pem_** 파일을 열고 _-----BEGIN PRIVATE KEY-----_ 의 텍스트를 _-----END PRIVATE KEY-----_ 로 복사합니다.  이를 _클라이언트 인증서 개인 키_로 사용합니다.
 
         ```java
         private static final String idScope = "[Your ID scope here]";

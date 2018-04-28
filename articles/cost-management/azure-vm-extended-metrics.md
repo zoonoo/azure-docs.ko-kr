@@ -1,20 +1,20 @@
 ---
-title: "Azure Virtual Machines에 대한 확장 메트릭 추가 | Microsoft Docs"
-description: "이 문서를 통해 Azure VM에 대해 확장 진단 메트릭을 사용하고 구성할 수 있습니다."
+title: Azure Virtual Machines에 대한 확장 메트릭 추가 | Microsoft Docs
+description: 이 문서를 통해 Azure VM에 대해 확장 진단 메트릭을 사용하고 구성할 수 있습니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 91797aaab1dca96e78643f57776eb16d336e894b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가 
 
@@ -31,7 +31,7 @@ Cost Management는 Azure VM의 Azure 메트릭 데이터를 사용하여 리소�
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>VM에서 메트릭을 사용하도록 설정되어 있는지 확인
 
-1. Azure Portal( http://portal.azure.com )에 로그인합니다.
+1. Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 2. **가상 머신**에서 VM을 선택한 다음, **모니터링**에서 **메트릭**을 선택합니다. 사용 가능한 메트릭 목록이 표시됩니다.
 3. 일부 메트릭을 선택하면 그래프가 해당 항목에 대한 데이터를 표시합니다.  
     ![예제 메트릭 - 호스트 백분율 CPU](./media/azure-vm-extended-metrics/metric01.png)

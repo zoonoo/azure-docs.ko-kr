@@ -1,12 +1,12 @@
 ---
-title: "Azure 스택 저장소: 차이점과 고려 사항"
-description: "Azure 스택 배포 고려 사항 함께 Azure 스택 저장소 및 Azure 저장소 간의 차이점을 이해 합니다."
+title: 'Azure 스택 저장소: 차이점과 고려 사항'
+description: Azure 스택 배포 고려 사항 함께 Azure 스택 저장소 및 Azure 저장소 간의 차이점을 이해 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
 ms.reviwer: xiaofmao
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure 스택 저장소: 차이점과 고려 사항
 
@@ -47,6 +47,7 @@ Blob 저장소에 대 한 일시 삭제|미리 보기|아직 지원 되지 않�
 |페이지 blob의 최대 크기|8 TB|1TB
 |페이지 blob 페이지 크기|512바이트|4KB
 |테이블 파티션 키와 행 키 크기|1, 024 자 (2, 048 바이트)|400 문자 (800 바이트)
+|Blob 스냅숏|최대 하나의 blob의 스냅숏 수 제한 하지 않습니다.|한 blob의 스냅숏의 최대 수는 1, 000입니다.|
 
 ### <a name="metrics"></a>메트릭
 저장소 메트릭 사용 하 여 몇 가지 차이점이 있습니다.
@@ -59,19 +60,19 @@ Azure 스택 저장소와 다음과 같은 버전이 지원 됩니다.
 Azure 저장소 서비스 Api:
 
 1802 업데이트 이상 버전:
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 이전 버전:
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 
 Azure 저장소 서비스 관리 Api:
 
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-미리 보기](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
  - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
  - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
@@ -87,7 +88,7 @@ Azure 스택 저장소 클라이언트 라이브러리 지원 됩니다.
 | C++            | 3.1.0 2.4.0에서           | Nuget 패키지:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | 연결 문자열 설정      |
 | PHP            | 1.0.0 0.15.0에서          | GitHub 릴리스:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>작성기를 통해 설치 (아래 세부 정보 참조)                                                                                                                                                                                                                  | 연결 문자열 설정      |
 | 파이썬         | 1.0.0 0.30.0에서          | GitHub 릴리스:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | 서비스 인스턴스 선언 |
-| Ruby           | 1.0.1 0.12.1에서          | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Queue: https://rubygems.org/gems/azure-storage-queue/<br>Table: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-ruby/releases | 연결 문자열 설정      |
+| Ruby           | 1.0.1 0.12.1에서          | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>큐: https://rubygems.org/gems/azure-storage-queue/<br>Table: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-ruby/releases | 연결 문자열 설정      |
 
 ## <a name="next-steps"></a>다음 단계
 

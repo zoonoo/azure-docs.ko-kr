@@ -1,6 +1,6 @@
 ---
-title: "Azure Time Series Insights 환경의 규모 계획 | Microsoft Docs"
-description: "이 문서에서는 저장소 용량, 데이터 보존, 수집 용량, 모니터링 모범 사례에 따라 Azure Time Series Insights 환경을 계획하는 방법을 설명합니다."
+title: Azure Time Series Insights 환경의 규모 계획 | Microsoft Docs
+description: 이 문서에서는 저장소 용량, 데이터 보존, 수집 용량, 모니터링 모범 사례에 따라 Azure Time Series Insights 환경을 계획하는 방법을 설명합니다.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 5fb158ba162dd199f419f9568de08a7a18c833dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경 계획
 
@@ -29,9 +29,11 @@ Time Series Insights를 시작하려면 분당 얼마만큼의 데이터를 수�
 두 Time Series Insights SKU의 용량 및 보존에 대한 자세한 내용은 [Time Series Insights 가격](https://azure.microsoft.com/pricing/details/time-series-insights/)을 참조하세요.
 
 장기적인 안목에서 최상의 환경을 계획하려면 다음을 고려해야 합니다. 
-- 저장소 용량
+- Storage 용량
 - 데이터 보존 기간
 - 수집 용량 
+- 이벤트 셰이핑
+- 참조 데이터가 제대로 준비되어 있는지 확인
 
 ## <a name="understand-storage-capacity"></a>저장소 용량의 이해
 기본적으로 Time Series Insights는 사용자가 프로비전한 저장소 용량(단위 곱하기 단위당 저장소의 시간)과 수집 용량을 기준으로 데이터를 보존합니다.
@@ -74,15 +76,26 @@ Time Series Insights 환경에서 최대 400일까지 데이터가 보존되도�
 
 예상되는 데이터 푸시 용량을 사전에 예측하기 어려울 수 있습니다. 이 경우 Azure Portal에서 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) 및 [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)의 데이터 텔레메트리를 찾을 수 있습니다. 텔레메트리를 바탕으로 환경을 어떻게 프로비전해야 할지 판단할 수 있습니다. Azure Portal의 **메트릭** 페이지에서 개별 이벤트 소스의 텔레메트리를 확인할 수 있습니다. 이벤트 소스 메트릭을 파악하면 Time Series Insights 환경을 더 효과적으로 계획하고 프로비전하는 데 도움이 됩니다.
 
-## <a name="calculate-ingress-requirements"></a>수집 요구 사항 계산하기
+### <a name="calculate-ingress-requirements"></a>수집 요구 사항 계산하기
 
 - 수집 용량이 분당 평균 속도보다 높고, 1시간 미만 동안 용량의 2배에 해당하는 예상 수집 용량을 처리할 만큼 환경의 규모가 커야 합니다.
 
 - 수집 용량 급증이 1시간 미만으로 지속되는 경우, 급증한 속도를 평균값으로 사용하여 급증 속도를 처리할 수 있는 용량으로 환경을 프로비전합니다.
  
-## <a name="mitigate-throttling-and-latency"></a>제한 및 대기 시간에 대응하기
+### <a name="mitigate-throttling-and-latency"></a>제한 및 대기 시간에 대응하기
 
 제한 및 대기 시간을 방지하는 자세한 방법은 [대기 시간 및 제한 완화](time-series-insights-environment-mitigate-latency.md)를 참조하세요. 
+
+## <a name="shaping-your-events"></a>이벤트 셰이핑
+TSI에 이벤트를 보내는 방식이 프로비전하는 환경의 크기를 지원하도록 하는 것이 중요합니다(반대로 TSI가 읽는 이벤트 수와 각 이벤트의 크기에 환경 크기를 맞출 수 있음).  마찬가지로, 데이터를 쿼리할 때 조각화 및 필터링 기준으로 사용할 특성도 고려해야 합니다.  이러한 사항을 고려할 때, *이벤트 전송* 설명서[설명서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events)의 JSON 셰이핑 섹션을 검토하는 것이 좋습니다.  페이지의 아래쪽에 있습니다.  
+
+## <a name="ensuring-you-have-reference-data-in-place"></a>참조 데이터가 제대로 준비되어 있는지 확인
+참조 데이터 집합은 이벤트 원본의 이벤트로 확장된 항목의 컬렉션입니다. Time Series Insights 수신 엔진은 이벤트 원본의 각 이벤트와 참조 데이터 집합의 해당 데이터 행을 조인합니다. 이렇게 보강된 이벤트는 쿼리에 사용할 수 있습니다. 이 조인은 참조 데이터 집합에서 정의된 기본 키 열을 기준으로 합니다.
+
+참조 데이터는 소급되어 조인되지 않습니다. 즉, 참조 데이터 집합이 일단 구성되고 업로드되면, 현재 및 미래의 수신 데이터만 일치되고 참조 데이터 집합에 조인됩니다.  많은 양의 기록 데이터를 TSI로 전송하려고 하며, TSI에서 참조 데이터를 먼저 업로드하거나 만들지 않을 경우 작업을 다시 실행해야 할 수 있습니다(중요 참고 사항).  
+
+TSI에서 참조 데이터를 만들고, 업로드하고, 관리하는 방법에 대한 자세한 내용은 *참조 데이터* 설명서[설명서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 - [Event Hub 이벤트 소스를 추가하는 방법](time-series-insights-how-to-add-an-event-source-eventhub.md)

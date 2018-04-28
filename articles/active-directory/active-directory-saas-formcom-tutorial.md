@@ -1,10 +1,10 @@
 ---
-title: "자습서: Form.com과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Form.com 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Form.com과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Form.com 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>자습서: Azure Active Directory와 Form.com 통합
 
@@ -58,7 +58,7 @@ Form.com의 Azure AD 통합을 구성하려면 갤러리의 Form.com을 관리�
 
 **갤러리에서 Form.com을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -101,7 +101,7 @@ Form.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. **Form.com 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -110,54 +110,34 @@ Form.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.wa-form.com`
 
-    b. **식별자** 텍스트 상자에서 `https://<subdomain>.form.com` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에서 `https://<subdomain>.form.com` 패턴을 사용하여 URL을 입력합니다.
 
-    c. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
     | |
     |--|
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 값을 업데이트하세요. 이러한 값을 얻으려면 [Form.com 클라이언트 지원 팀](https://form.com/about/company/contact-us/)에 문의하세요. 
- 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 값을 업데이트하세요. 이러한 값을 얻으려면 [Form.com 클라이언트 지원 팀](https://form.com/about/company/contact-us/)에 문의하세요.
 
-    ![인증서 다운로드 링크](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. **메타데이터 URL**을 생성하려면 다음 단계를 수행합니다.
-
-    a. **앱 등록**을 클릭합니다.
+4. **SAML 서명 인증서** 섹션에서 다음 단계를 수행합니다.
     
-    ![앱 등록 구성](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![끝점 구성](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![끝점 구성](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. 복사 단추를 클릭하고 **앱 페더레이션 메타데이터 URL**을 복사하여 메모장에 붙여 넣습니다.
+
+    나. **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
      
-    d. 이제 **Form.com**의 속성 페이지로 이동해 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사한 후 메모장에 붙여넣습니다.
- 
-    ![appid 구성](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
-
-6. **저장** 단추를 클릭합니다.
+5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. **Form.com 구성** 섹션에서 **Form.com 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+6. **Form.com 구성** 섹션에서 **Form.com 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Form.com 구성](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. **Form.com** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **메타데이터 URL** 및 **SAML Single Sign-On 서비스 URL**을 [Form.com 지원 팀](https://form.com/about/company/contact-us/)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+7. **Form.com** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **앱 페더레이션 메타데이터 URL** 및 **SAML Single Sign-On 서비스 URL**을 [Form.com 지원 팀](https://form.com/about/company/contact-us/)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -185,9 +165,9 @@ Form.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -235,7 +215,7 @@ Form.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
 

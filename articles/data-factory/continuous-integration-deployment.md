@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: e021403cd5544f0570e8ea3c73a17a57b241a65f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory에서 연속 통합 및 배포
 
@@ -62,6 +62,8 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
 여러 환경에 Data Factory의 배포를 자동화할 수 있도록 VSTS 릴리스를 설정하는 단계는 다음과 같습니다.
 
+![VSTS 연속 통합 다이어그램](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### <a name="requirements"></a>요구 사항
 
 -   [*Azure Resource Manager 서비스 끝점*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)을 사용하여 Team Foundation Server 또는 VSTS에 연결된 Azure 구독
@@ -90,7 +92,7 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
     a.  매개 변수 파일에 암호를 추가합니다.
 
-        -   게시 분기에 업로드된 매개 변수 파일의 복사본을 만들고 다음과 같은 형식의 키 자격 증명 모음에서 가져오려는 매개 변수의 값을 설정합니다.
+       -   게시 분기에 업로드된 매개 변수 파일의 복사본을 만들고 다음과 같은 형식의 키 자격 증명 모음에서 가져오려는 매개 변수의 값을 설정합니다.
 
         ```json
         {
@@ -100,24 +102,24 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   이 메서드를 사용하는 경우 키 자격 증명 모음에서 자동으로 암호를 끌어옵니다.
+       -   이 메서드를 사용하는 경우 키 자격 증명 모음에서 자동으로 암호를 끌어옵니다.
 
-        -   매개 변수 파일은 게시 분기에 포함되어야 합니다.
+       -   매개 변수 파일은 게시 분기에 포함되어야 합니다.
 
     나.  [Azure Key Vault 작업](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)을 추가합니다.
 
-        -   **작업** 탭을 선택하고, 새 작업을 만들고, **Azure Key Vault**를 검색하고 추가합니다.
+       -   **작업** 탭을 선택하고, 새 작업을 만들고, **Azure Key Vault**를 검색하고 추가합니다.
 
-        -   Key Vault 작업에서는 키 자격 증명 모음을 만든 구독을 선택하고, 필요한 경우 자격 증명을 제공한 다음, 키 자격 증명 모음을 선택합니다.
+       -   Key Vault 작업에서는 키 자격 증명 모음을 만든 구독을 선택하고, 필요한 경우 자격 증명을 제공한 다음, 키 자격 증명 모음을 선택합니다.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Azure Resource Manager 배포 작업을 추가합니다.
 
@@ -127,7 +129,7 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
     다.  **리소스 그룹 만들기 또는 업데이트** 작업을 선택합니다.
 
-    d.  “**템플릿**” 필드에서 **…**를 선택합니다. 포털에서 게시 작업으로 만들어진 Resource Manager 템플릿(*ARMTemplateForFactory.json*)을 찾아봅니다. `adf\_publish` 분기의 루트 폴더에서 이 파일을 찾습니다.
+    d.  **템플릿 매개 변수 재정의** 필드 **…**를 선택합니다. 포털에서 게시 작업으로 만들어진 Resource Manager 템플릿(*ARMTemplateForFactory.json*)을 찾아봅니다. `adf\_publish` 분기의 루트 폴더에서 이 파일을 찾습니다.
 
     e.  매개 변수 파일에 동일한 작업을 수행합니다. 복사본을 만들었는지 또는 기본 파일 *ARMTemplateParametersForFactory.json*을 사용하는지에 따라 올바른 파일을 선택합니다.
 

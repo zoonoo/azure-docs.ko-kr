@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 8ca129640db862f6031325279cc98c1e08dcef59
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법
 
@@ -113,6 +113,10 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 서버를 지리적으로 중복된 백업으로 구성한 경우 기존 서버의 백업에서 새 서버를 만들 수 있습니다. 이 새 서버는 Azure Database for PostgreSQL을 사용할 수 있는 모든 지역에서 만들 수 있습니다.  
 
 지역 중복 백업을 사용하여 서버를 만들려면 Azure CLI `az postgres server georestore` 명령을 사용합니다.
+
+> [!NOTE]
+> 서버가 처음 생성될 때는 지역 복원에 즉시 사용 가능하지 않을 수 있습니다. 필요한 메타데이터를 채우는 데 몇 시간 정도 걸릴 수 있습니다.
+>
 
 서버를 지역 복원하려면 Azure CLI 명령 프롬프트에서 다음 명령을 입력합니다.
 

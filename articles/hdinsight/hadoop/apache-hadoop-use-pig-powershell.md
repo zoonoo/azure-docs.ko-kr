@@ -1,8 +1,8 @@
 ---
-title: "HDInsight에서 PowerShell과 Hadoop Pig 사용 - Azure | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터에 Pig 작업을 제출하는 방법에 대해 알아봅니다."
+title: HDInsight에서 PowerShell과 Hadoop Pig 사용 - Azure | Microsoft Docs
+description: Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터에 Pig 작업을 제출하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7fa50e206c86b307f7e2a90ff0938571b64f41bb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0c06289625ab18dad134c235fc28fd5c775955eb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Azure PowerShell을 사용하여 HDInsight에서 Pig 작업 실행
 
@@ -46,7 +44,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 Pig 작업을 실행할 때 사용됩니다.
 
-* **Login-AzureRmAccount**: Azure 구독에 대해 Azure PowerShell을 인증합니다.
+* **Connect-AzureRmAccount**: Azure 구독에 대해 Azure PowerShell을 인증합니다.
 * **New-AzureRmHDInsightPigJobDefinition**: 지정한 Pig Latin 문을 사용하여 *작업 정의*를 만듭니다.
 * **Start-AzureRmHDInsightJob**: HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.
 * **Wait-AzureRmHDInsightJob**: 작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료될 때까지 기다리거나 대기 시간이 초과될 때까지 기다립니다.

@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: cd458b1f6d26fbd5f5821a04cd01be5c3a4e4514
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auto-provisioning-concepts"></a>자동 프로비전 개념
 
@@ -31,7 +31,7 @@ Azure IoT 자동 프로비전은 다음 세 단계로 구분할 수 있습니다
    > [!NOTE]
    > IoT 솔루션 크기에 관계 없이, 수백만 개의 장치를 지원하려는 경우에도 **일회성 구성**이 수행됩니다.
 
-2. **장치 등록** - Device Provisioning Service 인스턴스가 향후 등록할 장치를 인식하도록 하는 프로세스입니다. 등록은 프로비전 서비스에서 단일 장치의 경우는 "개별 등록"으로, 여러 장치의 경우는 "그룹 등록"으로 장치 ID 정보를 구성하여 수행됩니다. ID는 장치가 사용하도록 디자인된 [증명 메커니즘](concepts-security.md#attestation-mechanism)을 기준으로 합니다. 이 메커니즘을 사용하여 프로비전 서비스는 등록 중에 장치의 신뢰성을 증명할 수 있습니다.
+2. **장치 등록** - Device Provisioning Service 인스턴스가 향후 등록할 장치를 인식하도록 하는 프로세스입니다. [등록](concepts-service.md#enrollment)은 프로비전 서비스에서 단일 장치의 경우는 "개별 등록"으로, 여러 장치의 경우는 "그룹 등록"으로 장치 ID 정보를 구성하여 수행됩니다. ID는 장치가 사용하도록 디자인된 [증명 메커니즘](concepts-security.md#attestation-mechanism)을 기준으로 합니다. 이 메커니즘을 사용하여 프로비전 서비스는 등록 중에 장치의 신뢰성을 증명할 수 있습니다.
 
    - **TPM**: "개별 등록"으로 구성됩니다. 장치 ID는 TPM 등록 ID 및 공용 인증 키를 기준으로 합니다. TPM이 [사양]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/))이라고 간주할 경우, 서비스는 TPM 구현(하드웨어 또는 소프트웨어)에 관계없이 사양에 따라서만 증명합니다. TPM 기반 증명에 대한 자세한 내용은 [장치 프로비전: TPM으로 ID 증명](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/)을 참조하세요. 
 

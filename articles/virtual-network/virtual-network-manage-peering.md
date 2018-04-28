@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: ac9c762327dd8d2eb9e4dd9a79fc2bfa87241f14
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52c910609930bbeecd21b75549c71ee9ed4e1e3b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -31,14 +31,14 @@ ms.lasthandoff: 04/03/2018
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고, 피어링을 사용하는 데 [필요한 권한](#permissions)이 있는 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 사용할 수 있는 체험용 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.5.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `Login-AzureRmAccount`도 실행해야 합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.5.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `Connect-AzureRmAccount`도 실행해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.29 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `az login`도 실행해야 합니다.
 
 ## <a name="create-a-peering"></a>피어링 만들기
 
 피어링을 만들기 전에 먼저 [요구 사항 및 제약 조건](#requirements-and-contstraints)과 [필요한 권한](#permissions)을 숙지하세요.
 
-1. Azure Portal 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)**가 목록에 나타나더라도 선택하지 않습니다.
+1. Azure Portal 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)** 가 목록에 나타나더라도 선택하지 않습니다.
 2. 목록에서 피어링을 만들 가상 네트워크를 선택합니다.
 3. 가상 네트워크 목록에서 피어링을 만들 가상 네트워크를 선택합니다.
 4. **설정**에서 **피어링**을 선택합니다.
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/03/2018
 
 피어링을 변경하기 전에 먼저 [요구 사항 및 제약 조건](#requirements-and-contstraints)과 [필요한 권한](#permissions)을 숙지하세요.
 
-1. 포털 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)**가 목록에 나타나더라도 선택하지 않습니다.
+1. 포털 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)** 가 목록에 나타나더라도 선택하지 않습니다.
 2. 목록에서 피어링 설정을 변경할 가상 네트워크를 선택합니다.
 3. 가상 네트워크 목록에서 피어링 설정을 변경할 가상 네트워크를 선택합니다.
 4. **설정**에서 **피어링**을 선택합니다.
@@ -98,7 +98,7 @@ ms.lasthandoff: 04/03/2018
 
 가상 네트워크가 가끔 통신하되 항상 통신하지는 않게 하려면 피어링을 삭제하는 대신 **가상 네트워크 액세스 허용** 설정을 **사용 안 함**으로 설정할 수 있습니다. 방법을 알아보려면 이 문서의 [피어링 만들기](#create-peering) 섹션에 있는 6단계를 읽어보세요. 피어링을 삭제하고 다시 만드는 것보다 네트워크 액세스를 사용 안 함/사용 설정하는 것이 더 쉬움을 알 수 있습니다.
 
-1. 포털 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)**가 목록에 나타나더라도 선택하지 않습니다.
+1. 포털 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)** 가 목록에 나타나더라도 선택하지 않습니다.
 2. 목록에서 피어링을 삭제할 가상 네트워크를 선택합니다.
 3. 가상 네트워크 목록에서 피어링을 삭제할 가상 네트워크를 선택합니다.
 4. **설정**에서 **피어링**을 선택합니다.
@@ -129,8 +129,8 @@ ms.lasthandoff: 04/03/2018
 - 피어링하려는 두 가상 네트워크가 있는 구독은 같은 Azure Active Directory 테넌트에 연결되어야 합니다. 아직 AD 테넌트가 없는 경우 빠르게 [만들](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) 수 있습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 다른 Active Directory 테넌트에 연결된 다른 구독에 있는 2개의 가상 네트워크를 연결할 수 있습니다.
 - 가상 네트워크를 다른 가상 네트워크에 피어링할 수 있으며, Azure Virtual Network 게이트웨이를 통해 다른 가상 네트워크에 연결할 수도 있습니다. 가상 네트워크가 피어링 및 게이트웨이를 통해 연결된 경우 가상 네트워크 간 트래픽은 게이트웨이가 아니라 피어링 구성을 통해 흐릅니다.
 - 가상 네트워크 피어링을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
-* <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 두 가상 네트워크가 *동일한* 지역에 있는 경우에는 다음과 같은 제약 조건이 적용되지 않지만 가상 네트워크가 *다른* 영역에 있는 경우에는 적용됩니다. 
-    - 가상 네트워크는 다음 지역에만 있을 수 있습니다. 대한민국, 영국 남부, 영국 서부, 캐나다 동부, 인도 남부, 인도 중부, 인도 서부, 미국 중서부, 캐나다 중부 및 미국 서부 2
+* <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 두 가상 네트워크가 *동일한* 지역에 있는 경우에는 다음과 같은 제약 조건이 적용되지 않지만 가상 네트워크가 전역에 피어링되는 경우에는 적용됩니다. 
+    - 미국 중서부(와이오밍), 미국 서부 2(워싱턴), 미국 중부(아이오와), 미국 동부 2(버지니아), 캐나다 중부(토론토), 캐나다 동부(퀘벡시), 동남 아시아(싱가포르), 한국 남부(부산), 인도 남부(첸나이), 인도 중부(푸네), 인도 서부(뭄바이), 영국 남부(런던), 영국 서부(카디프), 유럽 서부(네덜란드) 등의 지역에는 가상 네트워크만 있을 수 있습니다.
     - 하나의 가상 네트워크의 리소스는 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 IP 주소와 통신할 수 없습니다. 함께 통신하는 부하 분산 장치 및 리소스는 동일한 가상 네트워크에 있어야 합니다.
     - 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링에서 두 가상 네트워크는 동일한 지역에 있어야 합니다. 
 
@@ -140,12 +140,12 @@ ms.lasthandoff: 04/03/2018
     
 |가상 네트워크|배포 모델|역할|권한|
 |---|---|---|---|
-|myVnetA|리소스 관리자|[네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |클래식|[클래식 네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|해당 없음|
-|myVnetB|리소스 관리자|[네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||클래식|[클래식 네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|myVnetA|리소스 관리자|[네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |클래식|[클래식 네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|해당 없음|
+|myVnetB|리소스 관리자|[네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||클래식|[클래식 네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-[기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(Resource Manager만 해당)에 대해 자세히 알아보세요.
+[기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(Resource Manager만 해당)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

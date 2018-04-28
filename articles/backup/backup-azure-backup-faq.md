@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -30,10 +30,10 @@ ms.lasthandoff: 03/16/2018
 ## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>각 Azure 구독에 만들 수 있는 자격 증명 모음의 개수에 제한이 있나요? <br/>
-예. 2018년 1월부터 구독별로 지원되는 Azure Backup 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
+예. 구독당 Azure Backup의 지원되는 지역당 최대 500개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요? <br/>
-자격 증명 모음당 최대 200대의 Azure Virtual Machines를 등록할 수 있습니다. MAB Agent를 사용하면 자격 증명 모음당 최대 50대의 MAB Agent를 등록할 수 있습니다. 또한 자격 증명 모음에 50대의 MAB 서버/DPM 서버를 등록할 수 있습니다.
+자격 증명 모음당 최대 1000대의 Azure 가상 머신을 등록할 수 있습니다. MAB Agent를 사용하면 자격 증명 모음당 최대 50대의 MAB Agent를 등록할 수 있습니다. 또한 자격 증명 모음에 50대의 MAB 서버/DPM 서버를 등록할 수 있습니다.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 서버 간에 데이터를 어떻게 격리할 수 있나요?<br/>
 동일한 자격 증명 모음에 등록된 모든 서버는 *동일한 암호를 사용*하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직의 다른 서버에서 백업 데이터를 격리하고 싶은 서버가 있는 경우 해당 서버에 대해 지정된 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
@@ -81,13 +81,13 @@ System Center DPM(Data Protection Manager)과 함께 Azure Backup을 사용하�
 Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 무시됩니다. 다음 백업 작업은 마지막으로 성공한 백업 작업에서 증분 데이터를 전송합니다.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>백업 작업을 예약할 수 있는 시간 또는 횟수에 제한이 있나요?<br/>
-예. Windows Server 또는 Windows 워크스테이션에서는 하루 최대 3번까지 백업 작업을 실행할 수 있습니다. System Center DPM에서는 하루 2번까지 백업 작업을 실행할 수 있습니다. IaaS VM의 경우 하루에 한 번 백업 작업을 실행할 수 있습니다. Windows Server 또는 Windows 워크스테이션에 대해 예약 정책을 사용하여 일별 또는 주별 일정을 지정할 수 있습니다. System Center DPM을 사용하여 일별, 주별, 월별, 연도별로 일정을 지정할 수 있습니다.
+예. Windows Server 또는 Windows 워크스테이션에서는 하루 최대 3번까지 백업 작업을 실행할 수 있습니다. System Center DPM에서는 하루 2번까지 백업 작업을 실행할 수 있습니다. IaaS VM의 경우 하루에 한 번 백업 작업을 실행할 수 있습니다. Windows Server 또는 Windows 워크스테이션에 대해 예약 정책을 사용하여 일별 또는 주별 일정을 지정합니다. System Center DPM을 사용하여 일별, 주별, 월별, 연도별로 일정을 지정할 수 있습니다.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Recovery Services 자격 증명 모음에 전송된 데이터가 백업한 데이터의 크기보다 작은 이유는 무엇인가요?<br/>
  Azure Backup 에이전트 또는 SCDPM 또는 Azure Backup 서버에서 백업된 모든 데이터를 전송하기 전에 압축하고 암호화합니다. 압축 및 암호화를 적용하면 Recovery Services 자격 증명 모음에 있는 데이터 크기가 30-40% 줄어듭니다.
 
 ## <a name="what-can-i-back-up"></a>어떤 것을 백업할 수 있나요?
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>Azure Backup에서 지원하는 운영 체제는 무엇인가요? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Azure Backup에서 지원하는 운영 체제는 무엇인가요? <br/>
 Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manager)을 사용하여 보호되는 파일과 폴더 및 워크로드 응용 프로그램의 백업을 위한 다음 목록의 운영 체제를 지원합니다.
 
 | 운영 체제 | 플랫폼 | SKU |
@@ -112,7 +112,7 @@ Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manage
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>백업하는 각 데이터 원본의 크기에 제한이 있나요? <br/>
-자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없습니다. Azure Backup은 데이터 원본에 대한 최대 크기를 제한하지만 이러한 한도는 큽니다. 2015년 8월 기준으로, 지원되는 운영 체제의 최대 크기 데이터 원본은 다음과 같습니다.
+Azure Backup은 데이터 원본에 대해 최대 크기를 적용하지만 원본에 대한 제한 사항은 큽니다. 2015년 8월 기준으로, 지원되는 운영 체제의 최대 크기 데이터 원본은 다음과 같습니다.
 
 | S.No | 운영 체제 | 데이터 원본의 최대 크기 |
 |:---:|:--- |:--- |
@@ -132,13 +132,16 @@ Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manage
 | Microsoft Exchange |백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계 |
 | BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태 |
 
-Azure VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가질 수 있으며, 각 데이터 디스크의 크기는 4095GB 이하입니다. <br>
+Azure IaaS VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가질 수 있으며 각 데이터 디스크는 최대 4095GB일 수 있습니다.
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 저장된 데이터의 양에 제한이 있나요?
+Recovery Services 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없습니다.
 
 ## <a name="retention-policy-and-recovery-points"></a>보존 정책 및 복구 지점
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM과 Windows Server/클라이언트(즉, DPM이 없는 Windows Server)에 대한 보존 정책 간에 차이가 있나요?<br/>
 아니요, DPM 및 Windows Server/클라이언트 모두 일별, 주별, 월별, 연도별 보존 정책을 포함합니다.
 
-### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>내 보존 정책을 선택적으로 구성할 수 있나요? 즉, 연도별, 월별 정책은 구성하지 않고 주별, 일별 정책을 구성할 수 있나요?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>내 보존 정책을 선택적으로 구성할 수 있나요? 즉, 연도별, 월별 정책은 구성하지 않고 주별, 일별 정책을 구성할 수 있나요?<br/>
 예, Azure Backup 보존 구조를 사용하여 사용자의 요구 사항에 따라 유연하게 보존 정책을 정의할 수 있습니다.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>오후 6시에 "백업을 예약"하고 다른 시간에 "보존 정책"을 지정할 수 있나요?<br/>

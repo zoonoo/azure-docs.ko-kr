@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Azure 스택 업데이트 1 릴리스 정보에 대 한 앱 서비스
 
@@ -39,7 +39,7 @@ Azure 스택 업데이트 1 빌드 번호에 앱 서비스는 **69.0.13698.9**
 ### <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
-> Azure 스택 앱 서비스를 Azure의 새 배포 이제 요구는 [3 주체 와일드 카드 인증서](azure-stack-app-service-before-you-get-started.md#get-certificates) 처리 하는 방식에는 SSO에 대 한 Kudu 이제 Azure 앱 서비스에서의 향상으로 인해 합니다.  새 주제는 * * *. sso.appservice.<region>합니다. <domainname>.<extension>**
+> Azure 스택 앱 서비스를 Azure의 새 배포 이제 요구는 [3 주체 와일드 카드 인증서](azure-stack-app-service-before-you-get-started.md#get-certificates) 처리 하는 방식에는 SSO에 대 한 Kudu 이제 Azure 앱 서비스에서의 향상으로 인해 합니다. 새 주제는 * * *. sso.appservice.<region>합니다. <domainname>.<extension>**
 >
 >
 
@@ -49,11 +49,11 @@ Azure 스택 업데이트 1 빌드 번호에 앱 서비스는 **69.0.13698.9**
 
 Azure 스택 업데이트 1에서 azure 앱 서비스는 다음과 같은 향상 된 기능 및 수정 합니다.
 
-- **높은 가용성의 Azure 앱 서비스** -The Azure 스택 1802 사용 하도록 설정 하는 업데이트 작업에 배포할 오류 도메인입니다.  따라서 응용 프로그램 서비스 인프라는 오류 도메인 배포 될 내결함성이 있는 될 수 있습니다.  하지만 기본적으로 Azure 스택 1802 하기 전에 완료 하는 배포에 적용 되 고 업데이트를 참조 Azure 앱 서비스의 모든 새 배포가이 기능이 적용 됩니다는 [응용 프로그램 서비스 오류 도메인 설명서](azure-stack-app-service-fault-domain-update.md)
+- **높은 가용성의 Azure 앱 서비스** -The Azure 스택 1802 사용 하도록 설정 하는 업데이트 작업에 배포할 오류 도메인입니다. 따라서 응용 프로그램 서비스 인프라는 오류 도메인 배포 될 내결함성이 있는 될 수 있습니다. 하지만 기본적으로 Azure 앱 서비스의 모든 새 배포에이 기능이 Azure 스택 1802 하기 전에 완료 하는 배포에 적용 되 고 업데이트를 참조는 [응용 프로그램 서비스 오류 도메인 설명서](azure-stack-app-service-fault-domain-update.md)
 
-- **기존 가상 네트워크에 배포** -고객은 기존 가상 네트워크 내에서 이제 Azure 스택 앱 서비스를 배포할 수 있습니다.  기존 가상 네트워크에 배포 고객을 SQL Server 및 개인 포트를 통해 Azure 앱 서비스에 필요한 파일 서버에 연결할 수 있습니다.  그러나 기존 가상 네트워크에 배포 하도록 선택할 수 고객 배포 하는 동안 [앱 서비스에서 사용 하기 위해 서브넷 만들어야](azure-stack-app-service-before-you-get-started.md#virtual-network) 배포 하기 전에.
+- **기존 가상 네트워크에 배포** -고객은 기존 가상 네트워크 내에서 이제 Azure 스택 앱 서비스를 배포할 수 있습니다. 기존 가상 네트워크에 배포 고객을 SQL Server 및 개인 포트를 통해 Azure 앱 서비스에 필요한 파일 서버에 연결할 수 있습니다. 그러나 기존 가상 네트워크에 배포 하도록 선택할 수 고객 배포 하는 동안 [앱 서비스에서 사용 하기 위해 서브넷 만들어야](azure-stack-app-service-before-you-get-started.md#virtual-network) 배포 하기 전에.
 
-- 업데이트를 **응용 프로그램 서비스 테 넌 트, 관리자, 함수 포털 및 Kudu 도구**합니다.  Azure 스택 포털 SDK 버전와 일치 합니다.
+- 업데이트를 **응용 프로그램 서비스 테 넌 트, 관리자, 함수 포털 및 Kudu 도구**합니다. Azure 스택 포털 SDK 버전와 일치 합니다.
 
 - **다음 응용 프로그램 프레임 워크 및 도구에 대 한 업데이트**:
     - 추가 **.NET 2.0 핵심** 지원
@@ -105,11 +105,11 @@ Azure 스택 업데이트 1에서 azure 앱 서비스는 다음과 같은 향상
 
 - 인증서 유효성 검사 오류
 
-일부 고객 설치 관리자에서 지나치게 제한적인 유효성 검사로 인해 통합된 된 시스템에 배포 하는 경우 앱 서비스 설치 관리자에 인증서를 제공 하는 경우 문제가 발생 했습니다.  앱 서비스 설치 관리자를 다시 릴리스 되었습니다, 고객 해야 [업데이트 된 설치 관리자 다운로드](https://aka.ms/appsvconmasinstaller)합니다.  계속 업데이트 된 설치 관리자를 사용 하 여 인증서 유효성 검사 문제를 발생 하는 경우에 지원에 문의 합니다.
+일부 고객 설치 관리자에서 지나치게 제한적인 유효성 검사로 인해 통합된 된 시스템에 배포 하는 경우 앱 서비스 설치 관리자에 인증서를 제공 하는 경우 문제가 발생 했습니다. 앱 서비스 설치 관리자를 다시 릴리스 되었습니다, 고객 해야 [업데이트 된 설치 관리자 다운로드](https://aka.ms/appsvconmasinstaller)합니다. 계속 업데이트 된 설치 관리자를 사용 하 여 인증서 유효성 검사 문제를 발생 하는 경우에 지원에 문의 합니다.
 
 - 통합된 시스템에서 Azure 스택 루트 인증서를 검색 하는 문제입니다.
 
-Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치 되지 않은 컴퓨터에서 스크립트를 실행할 때 Azure 스택 루트 인증서를 검색 하지 않아야 합니다.  스크립트를 다시 릴리스 요청 고객 및이 문제를 해결 되었습니다 이제 [업데이트 된 도우미 스크립트를 다운로드](https://aka.ms/appsvconmashelpers)합니다.  루트 인증서 업데이트 된 스크립트를 검색 하는 문제가 발생 해도 지원에 문의 합니다.
+Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치 되지 않은 컴퓨터에서 스크립트를 실행할 때 Azure 스택 루트 인증서를 검색 하지 않아야 합니다. 스크립트를 다시 릴리스 요청 고객 및이 문제를 해결 되었습니다 이제 [업데이트 된 도우미 스크립트를 다운로드](https://aka.ms/appsvconmashelpers)합니다. 루트 인증서 업데이트 된 스크립트를 검색 하는 문제가 발생 해도 지원에 문의 합니다.
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제
 
@@ -119,12 +119,12 @@ Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치
 
 - 슬롯 전환 작동 하지 않습니다.
 
-이 릴리스에서 사이트 슬롯 전환을 구분 합니다.  기능을 복원 하려면 다음이 단계를 완료 합니다.
+이 릴리스에서 사이트 슬롯 전환을 구분 합니다. 기능을 복원 하려면 다음이 단계를 완료 합니다.
 
-1. ControllersNSG 네트워크 보안 그룹을 수정 **허용** 앱 서비스 컨트롤러 인스턴스에 원격 데스크톱 연결 합니다.  AppService.local에서 응용 프로그램 서비스를 배포 하는 리소스 그룹의 이름으로 대체 합니다.
+1. ControllersNSG 네트워크 보안 그룹을 수정 **허용** 앱 서비스 컨트롤러 인스턴스에 원격 데스크톱 연결 합니다. AppService.local에서 응용 프로그램 서비스를 배포 하는 리소스 그룹의 이름으로 대체 합니다.
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -146,7 +146,7 @@ Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. 로 이동는 **CN0 VM** Azure 스택 관리자 포털에서 가상 컴퓨터에서 및 **연결 클릭 하 여** 컨트롤러 인스턴스 여 원격 데스크톱 세션을 엽니다.  앱 서비스 배포 중 지정 된 자격 증명을 사용 합니다.
+2. 로 이동는 **CN0 VM** Azure 스택 관리자 포털에서 가상 컴퓨터에서 및 **연결 클릭 하 여** 컨트롤러 인스턴스 여 원격 데스크톱 세션을 엽니다. 앱 서비스 배포 중 지정 된 자격 증명을 사용 합니다.
 3. 시작 **관리자 권한으로 PowerShell** 다음 스크립트를 실행 하 고
 
     ```powershell
@@ -171,11 +171,11 @@ Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치
     ```
 
 4. 원격 데스크톱 세션을 닫습니다.
-5. ControllersNSG 네트워크 보안 그룹을 되돌리기 **Deny** 앱 서비스 컨트롤러 인스턴스에 원격 데스크톱 연결 합니다.  AppService.local에서 응용 프로그램 서비스를 배포 하는 리소스 그룹의 이름으로 대체 합니다.
+5. ControllersNSG 네트워크 보안 그룹을 되돌리기 **Deny** 앱 서비스 컨트롤러 인스턴스에 원격 데스크톱 연결 합니다. AppService.local에서 응용 프로그램 서비스를 배포 하는 리소스 그룹의 이름으로 대체 합니다.
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -196,6 +196,18 @@ Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
+- 작업자는 응용 프로그램 서비스는 기존 가상 네트워크에 배포 하 고 파일 서버 에서만 사용 가능 개인 네트워크에 파일 서버에 연결할 수 없습니다.
+ 
+기존 가상 네트워크와 프로그램 파일 서버에 연결할 내부 IP 주소에 배포 하려는 경우 추가 해야는 아웃 바운드 보안 규칙 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 합니다. 이 작업을 수행 하려면 관리 포털에서 WorkersNsg으로 이동한 다음 속성으로 아웃 바운드 보안 규칙 추가:
+ * 원본: 모든
+ * 원본 포트 범위: *
+ * 대상: IP 주소
+ * 대상 IP 주소 범위: Ip 범위를 파일 서버에 대 한
+ * 대상 포트 범위: 445
+ * 프로토콜: TCP
+ * 동작: 허용
+ * 우선 순위: 700
+ * 이름: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 Azure 운영 클라우드 관리자에 대 한 알려진된 문제
 

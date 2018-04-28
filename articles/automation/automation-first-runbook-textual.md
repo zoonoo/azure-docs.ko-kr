@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b29fd8a576b4360b8465cc59db606fb1a8f2a02d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 33e9b68973aa399123fa9e62a2d0eea77c55add0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 
@@ -97,7 +97,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 12. 이 작업을 클릭하여 Runbook을 시작했을 때 표시된 것과 동일한 [작업] 창을 열 수 있습니다. 이 기능을 사용하면 예전으로 돌아가 특정 runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>5 단계-Azure 리소스를 관리 인증 추가
-Runbook을 테스트하고 게시했지만, 지금까지 아무 것도 유용하지 않습니다. 이제 Azure 리소스를 관리하려고 합니다. [필수 구성 요소](#prerequisites)에서 언급한 자격 증명을 사용하여 인증하지 않은 경우 이러한 리소스를 관리할 수 없습니다. 이렇게 하려면 **Add-AzureRMAccount** cmdlet을 사용합니다.
+Runbook을 테스트하고 게시했지만, 지금까지 아무 것도 유용하지 않습니다. 이제 Azure 리소스를 관리하려고 합니다. [필수 구성 요소](#prerequisites)에서 언급한 자격 증명을 사용하여 인증하지 않은 경우 이러한 리소스를 관리할 수 없습니다. 이렇게 하려면 **Connect-AzureRmAccount** cmdlet을 사용합니다.
 
 1. MyFirstRunbook-Workflow 창에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.
 2. **Write-Output** 줄은 더 이상 필요하지 않으므로 계속 진행하여 삭제합니다.
@@ -106,7 +106,7 @@ Runbook을 테스트하고 게시했지만, 지금까지 아무 것도 유용하
 
    ```powershell-interactive
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
 5. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
@@ -115,13 +115,13 @@ Runbook을 테스트하고 게시했지만, 지금까지 아무 것도 유용하
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6단계 - 가상 머신을 시작하기 위한 코드 추가
 이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 머신을 시작하는 명령을 추가합니다. Azure 구독에서 가상 머신을 선택할 수 있지만, 지금은 해당 이름을 Runbook에 하드 코딩합니다.
 
-1. *Add-AzureRmAccount* 다음에 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'*을 입력하여 시작하려는 가상 머신의 이름과 리소스 그룹 이름을 입력합니다.  
+1. *Connect-AzureRmAccount* 다음에 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* 을 입력하여 시작하려는 가상 머신의 이름과 리소스 그룹 이름을 입력합니다.  
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
@@ -141,7 +141,7 @@ Runbook은 현재 Runbook에 하드 코딩된 가상 머신을 시작하지만, 
      [string]$ResourceGroupName
     )  
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```

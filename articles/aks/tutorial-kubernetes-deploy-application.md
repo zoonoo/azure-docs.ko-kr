@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-run-applications-in-azure-container-service-aks"></a>자습서: AKS(Azure Container Service)에서 응용 프로그램 실행
 
@@ -115,7 +115,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 응용 프로그램이 로드되지 않는 경우 이미지 레지스트의 권한 부여 문제가 원인일 수 있습니다.
 
-다음 단계에 따라 [Kubernetes 비밀을 통해 액세스를 허용](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)하세요.
+다음 단계에 따라 [Kubernetes 비밀을 통해 액세스를 허용](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL Database에서 성능 튜닝
 
@@ -28,7 +28,7 @@ Azure SQL Database는 데이터베이스의 성능을 개선하는 데 사용할
 
 ## <a name="increasing-performance-tier-of-your-database"></a>데이터베이스의 성능 계층 늘리기
 
-Azure SQL Database는 사용자가 선택할 수 있는 4가지 [서비스 계층](sql-database-service-tiers.md)(기본, 표준 및 프리미엄)을 제공합니다(성능은 데이터베이스 처리량 단위 또는 [DTU](sql-database-what-is-a-dtu.md)로 측정함). 각 서비스 계층에서는 사용자의 SQL Database가 사용할 수 있는 리소스를 엄격하게 분리하며 해당 서비스 수준의 예측 가능한 성능을 보장합니다. 이 문서에서는 응용 프로그램에 대한 서비스 계층을 선택하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝할 수 있는 방법도 설명합니다.
+Azure SQL Database는 두 가지 구매 모델, 즉 DTU 기반 구매 모델과 vCore 기반 구매 모델을 제공합니다. 각 모델에는 선택할 수 있는 여러 가지 [서비스 계층](sql-database-service-tiers.md)이 있습니다. 각 서비스 계층에서는 사용자의 SQL Database가 사용할 수 있는 리소스를 엄격하게 분리하며 해당 서비스 수준의 예측 가능한 성능을 보장합니다. 이 문서에서는 응용 프로그램에 대한 서비스 계층을 선택하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝할 수 있는 방법도 설명합니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database의 단일 데이터베이스에 대한 성능 지침을 중심으로 살펴봅니다. 탄력적 풀과 관련된 성능 지침을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 단, 이 문서의 많은 튜닝 권장 사항을 탄력적 풀의 데이터베이스에 적용하고 유사한 성능 이점을 얻을 수는 있습니다.

@@ -1,8 +1,8 @@
 ---
-title: "HDInsight - Azure의 Hadoop에서 MapReduce와 함께 C# 사용 | Microsoft Docs"
-description: "Azure HDInsight에서 Hadoop과 함께 C#을 사용하여 MapReduce 솔루션을 만드는 방법에 대해 알아보세요."
+title: HDInsight - Azure의 Hadoop에서 MapReduce와 함께 C# 사용 | Microsoft Docs
+description: Azure HDInsight에서 Hadoop과 함께 C#을 사용하여 MapReduce 솔루션을 만드는 방법에 대해 알아보세요.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7287972ccf63f33a8cf08065f8d5d30ee1b1afb5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>HDInsight의 Hadoop에서 MapReduce와 함께 C# 사용
 
@@ -157,13 +155,13 @@ namespace reducer
 
 3. 메시지가 표시되면 Azure 구독 자격 증명을 입력한 다음 **로그인**을 클릭합니다.
 
-4. 이 응용 프로그램을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목__(기본 Storage 계정)__이 목록에 표시됩니다.
+4. 이 응용 프로그램을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 __(기본 Storage 계정)__ 이 목록에 표시됩니다.
 
     ![클러스터에 대한 저장소 계정을 보여주는 서버 탐색기](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 저장소로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__를 두 번 클릭합니다.
+    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 저장소로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
 
-    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 저장소로 __Azure Data Lake Store__를 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__을 두 번 클릭합니다.
+    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 저장소로 __Azure Data Lake Store__를 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
 
 5. .exe 파일을 업로드하려면 다음 방법 중 하나를 사용합니다.
 

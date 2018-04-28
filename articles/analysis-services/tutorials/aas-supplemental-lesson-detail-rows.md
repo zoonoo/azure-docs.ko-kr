@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 자습서 추가 단원: 세부 정보 행 | Microsoft Docs"
-description: "Azure Analysis Services 자습서에서 세부 정보 행 식을 만드는 방법을 설명합니다."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services 자습서 추가 단원: 세부 정보 행 | Microsoft Docs'
+description: Azure Analysis Services 자습서에서 세부 정보 행 식을 만드는 방법을 설명합니다.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>추가 단원 - 세부 정보 행
 
@@ -27,7 +20,7 @@ ms.lasthandoff: 01/09/2018
   
 이 단원을 완료하기 위한 예상 시간: **10분**  
   
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>필수 조건  
 이 추가 단원은 테이블 형식 모델링 자습서의 일부입니다. 이 추가 단원의 작업을 수행하기 전에 이전의 모든 단원을 완료하거나 완료된 Adventure Works Internet Sales 샘플 모델 프로젝트가 있어야 합니다.  
   
 ## <a name="whats-the-issue"></a>무엇이 문제인가요?
@@ -39,11 +32,11 @@ ms.lasthandoff: 01/09/2018
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. 피벗 테이블에서 연도 및 지역 이름에 대해 집계된 값을 두 번 클릭합니다. 여기서는 2014년 오스트레일리아에 대한 값을 두 번 클릭했습니다. 데이터가 포함된 새 시트가 열리지만 유용한 데이터가 아닙니다.
+3. 피벗 테이블에서 연도 및 지역 이름에 대해 집계된 값을 두 번 클릭합니다. 2014년 오스트레일리아에 대한 값입니다. 데이터가 포함된 새 시트가 열리지만 유용한 데이터가 아닙니다.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-여기서 보려고 하는 것은 InternetTotalSales 측정값의 집계 결과를 구성하는 데이터 행과 열이 포함된 테이블입니다. 이를 위해 세부 정보 행 식을 측정값의 속성으로 추가할 수 있습니다.
+여기서 목표는 InternetTotalSales 측정값의 집계 결과를 구성하는 데이터 행과 열이 포함된 테이블입니다. 이를 위해 세부 정보 행 식을 측정값의 속성으로 추가합니다.
 
 ## <a name="add-a-detail-rows-expression"></a>세부 정보 행 식 추가
 
@@ -80,6 +73,8 @@ ms.lasthandoff: 01/09/2018
 
   
 ## <a name="see-also"></a>참고 항목  
-[SELECTCOLUMNS 함수(DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
-[추가 단원 - 동적 보안](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[추가 단원 - 불규칙한 계층 구조](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+
+[SELECTCOLUMNS 함수(DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[추가 단원 - 동적 보안](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[추가 단원 - 불규칙한 계층 구조](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
+ 

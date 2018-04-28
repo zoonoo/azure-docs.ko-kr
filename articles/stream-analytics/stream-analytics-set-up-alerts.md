@@ -9,14 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.openlocfilehash: 2498c0960ef8fd50064e40428f87d106abf10ecd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fb69f1b52e5b17dd6794c896969c29003a929c9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
-## <a name="introduction-monitor-page"></a>소개: 모니터 페이지
+# <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에 대한 경고 설정
 메트릭이 지정한 조건에 도달하면 경고를 트리거하도록 경고를 설정할 수 있습니다. 예를 들어 다음과 같은 조건에 대한 경고를 설정할 수 있습니다.
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`

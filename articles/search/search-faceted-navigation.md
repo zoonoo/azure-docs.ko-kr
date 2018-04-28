@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 응용 프로그램에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/23/2018
 
 ### <a name="query-basics"></a>쿼리 기본 사항
 
-Azure Search에서는 하나 이상의 쿼리 매개 변수를 통해 요청이 지정됩니다(각 매개 변수에 대한 설명은 [문서 검색](http://msdn.microsoft.com/library/azure/dn798927.aspx) 참조). 필수 사항인 쿼리 매개 변수는 없지만 쿼리가 유효하려면 하나 이상의 쿼리 매개 변수가 있어야 합니다.
+Azure Search에서는 하나 이상의 쿼리 매개 변수를 통해 요청이 지정됩니다(각 매개 변수에 대한 설명은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 참조). 필수 사항인 쿼리 매개 변수는 없지만 쿼리가 유효하려면 하나 이상의 쿼리 매개 변수가 있어야 합니다.
 
 관련 없는 적중 항목을 필터링하는 기능으로 이해되는 정밀도는 다음 두 식 중 하나 또는 둘 다를 통해 실현됩니다.
 
@@ -228,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-패싯 쿼리 매개 변수는 필드로 설정되어 있으며, 데이터 형식에 따라 `count:<integer>`, `sort:<>`, `interval:<integer>` 및 `values:<list>`를 포함하는 쉼표로 구분된 목록으로 추가 매개 변수화할 수 있습니다. 값 목록은 범위를 설정할 때 숫자 데이터에 대해 지원됩니다. 자세한 내용은 [문서 검색(Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) 을 참조하세요.
+패싯 쿼리 매개 변수는 필드로 설정되어 있으며, 데이터 형식에 따라 `count:<integer>`, `sort:<>`, `interval:<integer>` 및 `values:<list>`를 포함하는 쉼표로 구분된 목록으로 추가 매개 변수화할 수 있습니다. 값 목록은 범위를 설정할 때 숫자 데이터에 대해 지원됩니다. 자세한 내용은 [문서 검색(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 을 참조하세요.
 
 패싯과 함께, 응용 프로그램에서 작성된 요청도 패싯 값 선택 항목에 따라 후보 문서 집합의 범위를 좁히는 필터를 작성해야 합니다. 자전거 매장의 경우 패싯 탐색은 *어떤 색상, 어떤 제조업체, 어떤 종류의 자전거를 판매합니까?* 와 같은 질문에 대한 단서를 제공합니다. 필터링은 *이 가격대의 빨간색 산악용 자전거는 무엇입니까?* 와 같은 질문에 답변합니다. 빨간색 제품만 표시되도록 사용자가 "빨간색"을 클릭하면 응용 프로그램에서 보내는 다음 쿼리에 `$filter=Color eq ‘Red’`가 포함됩니다.
 
@@ -329,7 +329,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>범위를 기준으로 필터링
-값 범위에 대한 패싯은 일반적인 검색 응용 프로그램 요구 사항입니다. 범위는 숫자 데이터 및 DateTime 값에 대해 지원됩니다. 각 접근 방법에 대한 자세한 내용은 [문서 검색(Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하세요.
+값 범위에 대한 패싯은 일반적인 검색 응용 프로그램 요구 사항입니다. 범위는 숫자 데이터 및 DateTime 값에 대해 지원됩니다. 각 접근 방법에 대한 자세한 내용은 [문서 검색(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)을 참조하세요.
 
 Azure Search에서는 범위를 계산하는 두 가지 방법을 제공하여 범위 생성을 간소화합니다. 두 방법 모두에 대해 Azure Search에서는 사용자가 입력을 제공한 경우 적절한 범위를 만듭니다. 예를 들어 10|20|30 범위 값을 지정한 경우 0-10, 10-20, 20-30 범위가 자동으로 만들어집니다. 비어 있는 간격을 응용 프로그램에서 선택적으로 제거할 수도 있습니다. 
 
@@ -362,7 +362,7 @@ Azure Search에는 **geo.distance** 및 **geo.intersects**라는 두 개의 지�
 * **geo.distance** 함수는 두 점 사이의 거리를 킬로미터 단위로 반환합니다. 한 점은 필드이고 다른 점은 필터의 일부로 전달되는 상수입니다. 
 * **geo.intersects** 함수는 주어진 점이 주어진 다각형 내부에 있으면 true를 반환합니다. 점은 필드이고, 다각형은 필터의 일부로 전달되는 좌표의 상수 목록으로 지정됩니다.
 
-필터 예제는 [OData 식 구문(Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx)에서 확인할 수 있습니다.
+필터 예제는 [OData 식 구문(Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)에서 확인할 수 있습니다.
 
 <a name="tryitout"></a>
 
@@ -431,9 +431,9 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

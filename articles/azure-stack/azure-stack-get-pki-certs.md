@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 349661352d17b015d4c605b39f1e42aa482949ac
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure 스택 인증서 서명 요청 만들기
 
@@ -112,4 +112,6 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
 8.  제출 된 **합니다. 필수** CA (내부 또는 공용)에 생성 된 파일입니다.  출력 디렉터리 **시작 AzsReadinessChecker** 인증 기관에 제출 하는 데 필요한 CSR(s)를 포함 합니다.  또한 참조로의 인증서 요청 생성 시 사용할 INF 파일이 들어 있는 하위 디렉터리를 포함 합니다. CA을 충족 하는 생성 된 요청을 사용 하 여 인증서를 생성 해야는 [Azure 스택 PKI 요구 사항](azure-stack-pki-certs.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure 스택 PKI 인증서를 준비 합니다.](azure-stack-prepare-pki-certs.md)
+

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 설정
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 하이브리드 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 새 동기화 그룹을 완벽하게 구성하고 설정한 일정에 동기화합니다.
@@ -151,7 +151,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
         ![에이전트 키 및 서버 자격 증명을 입력합니다.](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   이 시점에서 방화벽 오류가 발생하면 Azure에 대해 SQL Server 컴퓨터에서 들어오는 트래픽을 허용하는 방화벽 규칙을 만들어야 합니다. 포털에서 규칙을 수동으로 만들 수 있지만 SSMS(SQL Server Management Studio)에서 더 쉽게 만들 수 있습니다. SSMS에서 Azure의 허브 데이터베이스에 연결하려고 합니다. 데이터베이스 이름을 \<hub_database_name\>.database.windows.net으로 입력합니다. Azure 방화벽 규칙을 구성하려면 대화 상자의 단계를 따릅니다. 그런 다음 클라이언트 동기화 에이전트 앱에 반환합니다.
+        >   이 시점에서 방화벽 오류가 발생하면 Azure에 대해 SQL Server 컴퓨터에서 들어오는 트래픽을 허용하는 방화벽 규칙을 만들어야 합니다. 포털에서 규칙을 수동으로 만들 수 있지만 SSMS(SQL Server Management Studio)에서 더 쉽게 만들 수 있습니다. SSMS에서 Azure의 허브 데이터베이스에 연결하려고 합니다. 데이터베이스 이름을 <hub_database_name>.database.windows.net으로 입력합니다. Azure 방화벽 규칙을 구성하려면 대화 상자의 단계를 따릅니다. 그런 다음 클라이언트 동기화 에이전트 앱에 반환합니다.
 
     9.  클라이언트 동기화 에이전트 앱에서 **등록**을 클릭하여 에이전트와 SQL Server 데이터베이스를 등록합니다. **SQL Server 구성** 대화 상자가 열립니다.
 
@@ -225,7 +225,16 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>동기화 그룹에 스키마 변경 내용은 어떻게 가져오나요?
 
-스키마 변경을 수동으로 수행해야 합니다.
+스키마를 변경하고 모든 변경 내용을 수동으로 전파해야 합니다.
+1. 스키마 변경 내용을 모든 허브 및 모든 동기화 멤버에 수동으로 복제합니다.
+2. 동기화 스키마를 업데이트합니다.
+
+**새 테이블 및 열 추가**. 새 테이블 및 열은 현재 동기화에 영향을 미치지 않습니다. 데이터 동기화는 새 테이블 및 열을 동기화 스키마에 추가할 때까지 무시합니다. 새 데이터베이스 개체를 추가할 때는 다음 순서대로 작업하는 것이 가장 좋습니다.
+1. 허브 및 모든 동기화 멤버에 새 테이블이나 열을 추가합니다.
+2. 동기화 스키마에 새 테이블이나 열을 추가합니다.
+3. 새 테이블 및 열에 값을 삽입하기 시작합니다.
+
+**열의 데이터 형식 변경**. 기존 열의 데이터 형식을 변경하면 데이터 동기화는 새 값이 동기화 스키마에 정의된 원본 데이터 형식과 잘 맞을 경우 계속 작동합니다. 예를 들어, 원본 데이터베이스에서 데이터 형식을 **int**에서 **bigint**로 변경할 경우, **int** 데이터 형식에 비해 너무 큰 값을 삽입하기 전까지는 데이터 동기화가 계속 작동합니다. 변경을 완료하려면 스키마 변경 내용을 허브와 모든 동기화 멤버에 수동으로 복제한 다음, 동기화 스키마를 업데이트합니다.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>데이터 동기화를 사용하여 데이터베이스를 어떻게 내보내고 가져오나요?
 데이터베이스를 `.bacpac` 파일로 내보내고 새 데이터베이스를 만들기 위해 파일을 가져온 후에 새 데이터베이스에서 데이터 동기화를 사용하려면 다음 두 가지 작업을 수행해야 합니다.

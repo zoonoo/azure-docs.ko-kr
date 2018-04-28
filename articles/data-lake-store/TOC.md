@@ -83,7 +83,7 @@
 ### [고가용성을 위한 설계](data-lake-store-disaster-recovery-guidance.md)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
@@ -98,7 +98,7 @@
 ## [Data Lake Store 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [가격](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [스택 오버플로 포럼](http://stackoverflow.com/questions/tagged/azure-data-lake)

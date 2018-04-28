@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ef6d8cb47971b1cf261edceb13485b940eff3d13
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure VM, Service Fabric 및 Azure Cloud Services에서 Application Insights Profiler 사용
 
@@ -40,7 +40,7 @@ Profiler를 완전히 활성화하려면 세 위치에서 구성을 변경해야
 
 ## <a name="set-up-the-application-insights-instance"></a>Application Insights 인스턴스 설정
 
-1. [새 Application Insights 리소스를 만들](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)거나 기존 Application Insights 리소스를 선택합니다. 
+1. [새 Application Insights 리소스를 만들](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource)거나 기존 Application Insights 리소스를 선택합니다. 
 
 2. Application Insights 리소스로 이동한 다음, 계측 키를 복사합니다.
 

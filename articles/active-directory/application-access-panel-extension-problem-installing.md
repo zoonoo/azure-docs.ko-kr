@@ -1,11 +1,11 @@
 ---
-title: "응용 프로그램 액세스 패널 브라우저 확장 설치 - Azure | Microsoft Docs"
-description: "액세스 패널 브라우저 확장을 설치할 때 발생하는 일반적인 오류를 해결합니다."
+title: 응용 프로그램 액세스 패널 브라우저 확장 설치 - Azure | Microsoft Docs
+description: 액세스 패널 브라우저 확장을 설치할 때 발생하는 일반적인 오류를 해결합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
@@ -37,7 +37,6 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
 - **Edge**: Windows 10 Anniversary Edition 이상 
 - **Chrome**: Windows 7 이상 및 MacOS X 이상
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
-- **Internet Explorer 8, 9, 10, 11**: Windows 7 이상(제한적으로 지원함)
 
 ## <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
@@ -64,24 +63,24 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
 - [Edge 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장 사용
-* `https://myapps.microsoft.com`이 아닌 내 앱 URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
+* `https://myapps.microsoft.com` 이외의 My Apps URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
    1. 확장에 로그인되지 *않은* 상태에서 확장 아이콘을 마우스 오른쪽 단추로 클릭합니다.
-   2. 메뉴에서 **내 앱 URL**을 선택합니다.
+   2. 메뉴에서 **My Apps URL**을 선택합니다.
    3. 기본 URL을 선택합니다.
    4. 확장 아이콘을 선택합니다.
    5. 확장에 로그인하려면 **시작하려면 로그인하세요**를 선택합니다.
 
-* 브라우저에서 앱에 바로 로그인하려면 다음을 수행하십시오.
-   1. 확장을 설치한 후 **시작하려면 로그인하세요**를 선택하여 로그인합니다.
-   2. 로그인 URL로 앱에 로그인합니다.  
+* 브라우저에서 앱에 직접 로그인하려면 다음을 수행합니다.
+   1. 확장이 설치되면 **시작하려면 로그인하세요**를 선택하여 확장에 로그인합니다.
+   2. 로그온 URL로 앱에 로그인합니다.  
        로그온 URL은 일반적으로 로그인 양식을 표시하는 앱의 URL입니다.
-      확장의 상태가 변경되고 암호를 사용할 수 있다고 표시됩니다.
+      확장에서 상태를 변경하고 암호를 사용할 수 있다고 알려주어야 합니다.
    3. 로그인하려면 확장 아이콘을 선택합니다.
 
 * 확장에서 앱을 시작하려면 다음을 수행합니다.
-   1. 확장을 설치한 후 **시작하려면 로그인하세요**를 선택하여 로그인합니다.
-   2. 확장 아이콘을 선택하여 메뉴를 엽니다.
-   3. 내 앱 포털에서 사용할 수 있는 앱을 검색합니다.
+   1. 확장이 설치되면 **시작하려면 로그인하세요**를 선택하여 확장에 로그인합니다.
+   2. 확장 아이콘을 선택하여 해당 메뉴를 엽니다.
+   3. My Apps 포털에서 사용할 수 있는 앱을 검색합니다.
    4. 검색 결과 목록에서 앱을 선택합니다.  
        마지막으로 사용한 앱 3개가 **최근에 사용됨** 바로 가기 목록에 표시됩니다.
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
 Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한 사전입니다. 참고 항목:
 
-* [Microsoft Azure 및 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Azure 서비스 및 해당 AWS 서비스 정의<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
+* [Microsoft Azure 및 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Azure 서비스 및 해당 AWS 서비스 정의<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [클라우드 컴퓨팅 용어](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 업계의 일반적인 클라우드 용어
 
 ## <a name="account"></a>계정

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -66,7 +66,7 @@ VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machi
 * **VM 만들기:** VM을 만들 때 가속화된 네트워킹을 사용하도록 설정된 NIC만 VM에 연결할 수 있습니다. 기존 VM에는 이 NIC를 연결할 수 없습니다. VM을 기존 가용성 집합에 추가하는 경우 가용성 집합의 모든 VM에서도 가속화된 네트워킹을 사용할 수 있어야 합니다.
 * **Azure Resource Manager를 통해서만 배포:** 가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
 
-이 문서에서는 Azure CLI를 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 지원되는 운영 체제와 VM 크기로 가상 머신을 만드는 경우 **설정**의 **가속 네트워킹** 아래에서 **사용**을 선택합니다. 가상 머신이 만들어진 후에는 [가속 네트워킹을 사용할 수 있는지 확인](#confirm-that-accelerated-networking-is-enabled)의 지침을 완료해야 합니다.
+이 문서에서는 Azure CLI를 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 가상 머신을 만드는 경우 **설정**의 **가속 네트워킹** 아래에서 **사용**을 선택합니다. [지원되는 운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택하지 않으면 가속 네트워킹을 사용하는 옵션이 포털에 나타나지 않습니다. 가상 머신이 만들어진 후에는 [가속 네트워킹을 사용할 수 있는지 확인](#confirm-that-accelerated-networking-is-enabled)의 지침을 완료해야 합니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 

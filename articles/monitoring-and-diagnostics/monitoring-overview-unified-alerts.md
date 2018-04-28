@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Azure Monitor의 새로운 경고 환경
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 새로운 경고 환경이 도입되었습니다. 이전 경고 환경은 이제 경고(클래식) 탭 아래에 있습니다. 새로운 경고 환경은 경고(클래식) 환경에 비해 다음과 같은 이점이 있습니다.
 
--   **향상된 알림 시스템**: 모든 최신 경고는 여러 경고에서 다시 사용할 수 있는 알림 및 작업으로 명명된 그룹인 [작업 그룹]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups)을 사용합니다.  클래식 메트릭 경고 및 이전 Log Analytics 경고는 작업 그룹을 사용하지 않습니다. 
+-   **향상된 알림 시스템**: 모든 최신 경고는 여러 경고에서 다시 사용할 수 있는 알림 및 작업으로 명명된 그룹인 [작업 그룹]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)을 사용합니다.  클래식 메트릭 경고 및 이전 Log Analytics 경고는 작업 그룹을 사용하지 않습니다. 
 - **통합 작성 환경** - Azure Monitor, Log Analytics, Application Insights 전체의 메트릭, 로그 및 활동 로그에 대한 모든 경고가 한곳에서 생성됩니다. 
 - **Azure Portal에서 발생한 Log Analytics 경고 보기** - 이제 구독에서 발생한 Log Analytics 경고를 볼 수도 있습니다. 이전에는 별도의 포털에 있었습니다. 
 - **발생한 경고 및 경고 규칙의 분리** - 경고 규칙(경고를 트리거하는 조건의 정의)과 발생한 경고(경고 규칙 발생의 인스턴스)가 구별되므로 운영 및 구성 보기가 구분됩니다.
@@ -104,7 +104,7 @@ ms.lasthandoff: 04/03/2018
 | **신호 유형** | **모니터 원본** | **설명** | 
 |-------------|----------------|-------------|
 | 메트릭 | Azure Monitor | [근 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)라고도 하는 메트릭 경고는 1분의 주기로 메트릭 조건 평가를 지원하고 다중 메트릭 및 다차원 메트릭 규칙을 허용합니다. 지원되는 리소스 종류의 목록은 [여기](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)에서 사용 가능합니다. |
-| 메트릭 | Azure Monitor | [이전 클래식 메트릭 경고](monitoring-overview-alerts.md)는 새로운 경고 환경에서 지원되지 않습니다. Azure Portal의 경고(클래식) 아래에서 찾을 수 있습니다. 클래식 경고는 최신 경고로 아직 이동되지 않은 일부 메트릭 유형도 지원합니다. 전체 목록은 [지원되는 메트릭](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)을 참조하세요.
+| 메트릭 | Azure Monitor | [이전 클래식 메트릭 경고](monitoring-overview-alerts.md)는 새로운 경고 환경에서 지원되지 않습니다. Azure Portal의 경고(클래식) 아래에서 찾을 수 있습니다. 클래식 경고는 최신 경고로 아직 이동되지 않은 일부 메트릭 유형도 지원합니다. 전체 목록은 [지원되는 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)을 참조하세요.
 | 로그  | Log Analytics | 메트릭 및/또는 이벤트 데이터에 대한 로그 검색 쿼리가 특정 기준에 부합하면 알림을 받거나 자동화된 작업을 실행합니다. 이전 Log Analytics 경고는 여전히 사용할 수 있지만 [새로운 환경으로 복사되고](monitoring-alerts-extend.md) 있습니다. 또한 *메트릭으로 Log Analytics 로그*의 [미리 보기](monitoring-alerts-extend-tool.md)를 사용할 수 있습니다. 미리 보기를 통해 일부 유형의 로그를 사용하고 메트릭으로 변환할 수 있으며 여기에서 새로운 경고 환경을 사용하여 경고할 수 있습니다. 미리 보기는 기본 Azure Monitor 메트릭과 함께 가져오려는 비 Azure 로그가 있는 경우에 유용합니다. |
 | 활동 로그 | 활동 로그(일반) | 선택한 대상(리소스/리소스 그룹/구독)을 통해 수행된 모든 Create, Update 및 Delete 작업의 레코드를 포함합니다. |
 | 활동 로그  | 서비스 상태 | 새 경고 환경에서 지원되지 않습니다. [서비스 알림에 대한 활동 로그 경고 만들기](monitoring-activity-log-alerts-on-service-notifications.md)를 참조하세요.  |

@@ -1,8 +1,8 @@
 ---
-title: "Event Hubs의 데이터를 Azure Data Lake Store에 캡처 | Microsoft Docs"
-description: "Azure Data Lake Store를 사용하여 Event Hubs에서 데이터 캡처"
+title: Event Hubs의 데이터를 Azure Data Lake Store에 캡처 | Microsoft Docs
+description: Azure Data Lake Store를 사용하여 Event Hubs에서 데이터 캡처
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Azure Data Lake Store를 사용하여 Event Hubs에서 데이터 캡처
 
@@ -58,9 +58,12 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
     다. **권한 할당**에서 **권한 선택**을 클릭합니다. **권한**을 **실행**으로 설정합니다. **추가 대상**을 **이 폴더 및 모든 하위 폴더**로 설정합니다. **다른 권한으로 추가**를 **액세스 권한 항목 및 기본 권한 항목**으로 설정합니다.
 
-    ![Data Lake Store 루트에 대한 권한 할당](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake Store 루트에 대한 권한 할당")
+> [!IMPORTANT]
+> Azure Event Hubs에서 수신된 데이터를 캡처하기 위해 새 폴더 계층 구조를 만들 경우 이렇게 하면 대상 폴더에 대한 액세스를 쉽게 보장할 수 있습니다.  그러나 많은 자식 파일 및 폴더를 포함하는 최상위 수준 폴더의 모든 자식 항목에 대해 사용 권한을 추가하는 데는 시간이 오래 걸릴 수 있습니다.  루트 폴더에 많은 수의 파일 및 폴더가 포함되어 있으면 `Microsoft.EventHubs`에 대한 **실행** 권한을 최종 대상 폴더의 경로에 있는 각 폴더에 개별적으로 추가하는 것이 더 빠를 수 있습니다. 
 
-    **확인**을 클릭합니다.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. 데이터를 캡처하려는 Data Lake Store 계정 아래의 폴더에 대해 권한을 할당합니다.
 

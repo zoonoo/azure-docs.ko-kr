@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 8cc5ce1ec113df7ce92c54022dbe1b6219c8c235
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure 스택에서 프로필에서 지 원하는 리소스 공급자 API 버전
 
@@ -55,7 +53,7 @@ Azure 리소스 공급자 리소스를 배포 하 고 Azure 리소스 관리자�
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Azure 계산 Api 가상 컴퓨터 및 해당 관련 리소스에 프로그래밍 방식으로 액세스할 수 있습니다. 자세한 내용은 참조 [Azure 계산](https://docs.microsoft.com/en-us/rest/api/compute/)합니다.
+Azure 계산 Api 가상 컴퓨터 및 해당 관련 리소스에 프로그래밍 방식으로 액세스할 수 있습니다. 자세한 내용은 참조 [Azure 계산](https://docs.microsoft.com/rest/api/compute/)합니다.
 
 | 리소스 종류 | API 버전 |
 |---------------------------------------------------------------|-------------|
@@ -64,7 +62,7 @@ Azure 계산 Api 가상 컴퓨터 및 해당 관련 리소스에 프로그래밍
 | 위치/작업 | 2016-03-30 |
 | Locations/publishers | 2016-03-30 |
 | 위치/용도 | 2016-03-30 |
-| Locations/vmSizes | 2016-03-30 |
+| 위치/vmSizes | 2016-03-30 |
 | 작업 | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
 | 가상 컴퓨터/확장 | 2016-03-30 |
@@ -92,8 +90,8 @@ Azure 계산 Api 가상 컴퓨터 및 해당 관련 리소스에 프로그래밍
 | 리소스 종류 | API 버전 |
 |--------------------|--------------------|
 | 경고 규칙 | 2016-03-01 |
-| 이벤트 범주 | 2017-03-01-preview |
-| 이벤트 유형 | 2017-03-01-preview |
+| 이벤트 범주 | 2017-03-01-미리 보기 |
+| 이벤트 유형 | 2017-03-01-미리 보기 |
 | 메트릭 정의 | 2016-03-01 |
 | 작업 | 2015-04-01 |
 
@@ -114,8 +112,8 @@ Azure 계산 Api 가상 컴퓨터 및 해당 관련 리소스에 프로그래밍
 
 | 리소스 종류 | API 버전 |
 |------------------|--------------------|
-| 위치 | 2017-02-01-preview |
-| 위치/할당량 | 2017-02-01-preview |
+| 위치 | 2017-02-01-미리 보기 |
+| 위치/할당량 | 2017-02-01-미리 보기 |
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -166,9 +164,9 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 구독/공급자 | 2015-012017-08-01 |
 | 구독/리소스 그룹 | 2015-012016-09-01 |
 | Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
-| Subscriptions/resources | 2015-012016-09-01 |
+| 구독/리소스 | 2015-012016-09-01 |
 | Subscriptions/tagNames | 2016-0609-01 |
-| Subscriptions/tagNames/tagValues | 2016-0609-01 |
+| 구독/tagNames/tagValues | 2016-0609-01 |
 | 테 넌 트 | 2015-012017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
@@ -181,7 +179,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 위치 | 2016-01-01 |
 | 위치/할당량 | 2016-01-01 |
 | 작업 | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
+| storageaccounts 하는 중 | 2016-01-01 |
 | 사용 | 2016-01-01 |
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,16 +10,14 @@ ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: be62705ce0217235b75ec5ad220ad6f32dfd3c10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka 사용
 
@@ -32,9 +30,9 @@ Apache Storm을 사용하여 Apache Kafka에서 읽고 쓰는 방법에 대해 �
 
 ## <a name="get-the-code"></a>코드 가져오기
 
-이 문서에서 사용하는 예제의 코드는 [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka)에서 제공됩니다.
+이 문서에 사용된 예제에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka)에서 지원됩니다.
 
-이 프로젝트를 컴파일하려면 개발 환경에 대한 다음 구성이 필요합니다.
+이 프로젝트를 컴파일하기 위해 개발 환경에 필요한 구성 요소는 다음과 같습니다.
 
 * [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
@@ -68,7 +66,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 템플릿은 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**에 있습니다. 이 템플릿은 다음 리소스를 만듭니다.
+    Azure Resource Manager 템플릿의 위치는 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**입니다. 이 템플릿은 다음 리소스를 만듭니다.
     
     * Azure 리소스 그룹
     * Azure Virtual Network

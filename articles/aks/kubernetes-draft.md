@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Azure Container Service(AKS)에서 Draft 사용
 
@@ -33,10 +33,10 @@ ACR(Azure Container Registry)에서 개인 Docker 레지스트리도 필요합�
 
 ## <a name="install-draft"></a>Draft 설치
 
-Draft CLI는 개발 시스템에서 실행되는 클라이언트로, Kubernetes 클러스터에 코드를 신속하게 배포할 수 있습니다. 
+Draft CLI는 개발 시스템에서 실행되는 클라이언트로, Kubernetes 클러스터에 코드를 신속하게 배포할 수 있습니다.
 
-> [!NOTE] 
-> 버전 0.12 전에 Draft를 설치했다면 먼저 `helm delete --purge draft`을 사용하여 클러스터에서 Draft를 삭제한 다음, `rm -rf ~/.draft`를 실행하여 로컬 구성을 제거해야 합니다. MacOS에 있다면 `brew upgrade draft`을 실행할 수 있습니다.
+> [!NOTE]
+> 버전 0.12 전에 Draft를 설치했다면 먼저 `helm delete --purge draft`을 사용하여 클러스터에서 Draft를 삭제한 다음, `rm -rf ~/.draft`를 실행하여 로컬 구성을 제거해야 합니다. MacOS에서 작업하는 경우 `brew upgrade draft`를 실행합니다.
 
 Mac에서 Draft CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션에 대해서는 [Draft 설치 가이드][install-draft]를 참조하세요.
 
@@ -57,7 +57,7 @@ Draft는 컨테이너 이미지를 로컬에서 빌드한 다음, 로컬 레지�
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>AKS 클러스터와 ACR 사이의 트러스트 만들기
 
-AKS 클러스터와 ACR 레지스트리 간에 트러스트를 설정하려면 ACR 리포지토리 범위를 통해 참가자 역할을 추가하여 AKS가 사용된 Azure Active Directory 서비스 주체를 수정합니다. 이렇게 하려면 다음 명령을 실행합니다. _&lt;aks-rg-name&gt;_ 및 _&lt;aks-cluster-name&gt;_을 AKS 클러스터의 이름 및 리소스 그룹으로 교체하고 _&lt;acr-rg-nam&gt;_ 및 _&lt;acr-repo-name&gt;_을 트러스트를 만들려는 ACR 리포지토리의 리소스 그룹 및 리포지토리 이름으로 바꾸십시오.
+AKS 클러스터와 ACR 레지스트리 간에 트러스트를 설정하려면 ACR 리포지토리 범위를 통해 참가자 역할을 추가하여 AKS가 사용된 Azure Active Directory 서비스 주체를 수정합니다. 이렇게 하려면 다음 명령을 실행합니다. _&lt;aks-rg-name&gt;_ 및 _&lt;aks-cluster-name&gt;_ 을 AKS 클러스터의 이름 및 리소스 그룹으로 교체하고 _&lt;acr-rg-nam&gt;_ 및 _&lt;acr-repo-name&gt;_ 을 트러스트를 만들려는 ACR 리포지토리의 리소스 그룹 및 리포지토리 이름으로 바꾸십시오.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
@@ -70,10 +70,10 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 ### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>ACR에서 배포하고 푸시할 Draft 구성
 
 AKS와 ACR 간에 트러스트 관계가 있으므로 다음 단계를 통해 AKS 클러스터에서 ACR을 사용할 수 있습니다.
-1. _&lt;레지스트리 이름&lt;_이 ACR 레지스트리 이름인 경우 `draft config set registry <registry name>.azurecr.io`를 실행하여 Draft 구성 `registry` 값을 설정합니다.
-2. `az acr login -n <registry name>`을 실행하여 ACR 레지스트리에 로그온합니다. 
+1. _&lt;레지스트리 이름&lt;_ 이 ACR 레지스트리 이름인 경우 `draft config set registry <registry name>.azurecr.io`를 실행하여 Draft 구성 `registry` 값을 설정합니다.
+2. `az acr login -n <registry name>`을 실행하여 ACR 레지스트리에 로그온합니다.
 
-로컬로 ACR에 로그온하고 AKS와 ACR 간에 트러스트 관계를 만들었으므로 ACR에서 AKS로 푸시하거나 풀하기 위해 암호는 필요없습니다. Azure Active Directory를 사용하여 Azure Resource Manager 수준에서 인증이 발생합니다. 
+로컬로 ACR에 로그온하고 AKS와 ACR 간에 트러스트 관계를 만들었으므로 ACR에서 AKS로 푸시하거나 풀하기 위해 암호는 필요없습니다. Azure Active Directory를 사용하여 Azure Resource Manager 수준에서 인증이 발생합니다.
 
 ## <a name="run-an-application"></a>응용 프로그램 실행
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-http://localhost:46143로 이동하여 응용 프로그램을 테스트할 수 있습니다(앞의 예제에서 포트가 다를 수 있습니다). 응용 프로그램 테스트가 끝나면 `Control+C`를 사용하여 프록시 연결을 중지합니다.
+이제 http://localhost:46143로 이동하여 응용 프로그램을 테스트합니다(앞의 예제의 경우 포트가 다를 수 있음). 응용 프로그램 테스트가 끝나면 `Control+C`를 사용하여 프록시 연결을 중지합니다.
 
 > [!NOTE]
 > `draft up --auto-connect` 명령을 사용하여 응용 프로그램을 빌드 및 배포할 수 있으며 즉각 첫 번째 실행 중인 컨테이너에 연결하여 반복 주기를 더 빠르게 할 수 있습니다.

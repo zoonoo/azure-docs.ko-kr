@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -84,8 +84,8 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 경로 템플릿 매개 변수 외에도 구성 값에 다음 값을 사용할 수 있습니다.
 
 * **{request.method}** : 원래 요청에 사용된 HTTP 메서드입니다.
-* **{request.headers.\<HeaderName\>}**: 원래 요청에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>*을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
-* **{request.querystring.\<ParameterName\>}**: 원래 요청에서 읽어올 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>*을 읽으려는 매개 변수 이름으로 바꿉니다. 매개 변수가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{request.headers.\<HeaderName\>}**: 원래 요청에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>* 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{request.querystring.\<ParameterName\>}**: 원래 요청에서 읽어올 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 을 읽으려는 매개 변수 이름으로 바꿉니다. 매개 변수가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="response-parameters"></a>백 엔드 응답 매개 변수 참조
 
@@ -93,13 +93,13 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 * **{backend.response.statusCode}**: 백 엔드 응답에 반환할 HTTP 상태 코드입니다.
 * **{backend.response.statusReason}**: 백 엔드 응답에 반환할 HTTP 이유 구문입니다.
-* **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>*을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>* 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="use-appsettings"></a>응용 프로그램 설정 참조
 
 설정 이름을 백분율 기호(%)로 묶어 [함수 앱에 대해 정의된 응용 프로그램 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop)을 참조할 수도 있습니다.
 
-예를 들어 *https://%ORDER_PROCESSING_HOST%/api/orders*의 백 엔드 URL에서 “%ORDER_PROCESSING_HOST%”는 ORDER_PROCESSING_HOS 설정 값으로 바뀝니다.
+예를 들어 *https://%ORDER_PROCESSING_HOST%/api/orders*의 백 엔드 URL에서 "%ORDER_PROCESSING_HOST%"는 ORDER_PROCESSING_HOS 설정 값으로 바뀝니다.
 
 > [!TIP] 
 > 배포 또는 테스트 환경이 여러 개 있는 경우 백 엔드 호스트에 대해 응용 프로그램 설정을 사용하세요. 이러한 방식으로 항상 해당 환경에 적합한 백 엔드에 정보를 전달할 수 있습니다.
@@ -175,8 +175,8 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 requestOverrides 개체는 백 엔드 리소스가 호출될 때 요청에 대한 변경 내용을 정의합니다. 개체는 다음 속성으로 정의됩니다.
 
 * **backend.request.method**: 백 엔드를 호출하는 데 사용될 HTTP 메서드입니다.
-* **backend.request.querystring.\<ParameterName\>**: 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>*을 설정하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공되면 매개 변수는 백 엔드 요청에 포함되지 않습니다.
-* **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. *\<HeaderName\>*을 설정하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 백 엔드 요청에 포함되지 않습니다.
+* **backend.request.querystring.\<ParameterName\>**: 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 을 설정하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공되면 매개 변수는 백 엔드 요청에 포함되지 않습니다.
+* **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. *\<HeaderName\>* 을 설정하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 백 엔드 요청에 포함되지 않습니다.
 
 값은 응용 프로그램 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다.
 
@@ -208,7 +208,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 * **response.statusCode**: 클라이언트에 반환할 HTTP 상태 코드입니다.
 * **response.statusReason**: 클라이언트에 반환할 HTTP 이유 구문입니다.
 * **response.body**: 클라이언트에 반환할 본문의 문자열 표현입니다.
-* **response.headers.\<HeaderName\>**: 클라이언트에 대한 응답에 설정할 수 있는 헤더입니다. *\<HeaderName\>*을 설정하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 응답에 포함되지 않습니다.
+* **response.headers.\<HeaderName\>**: 클라이언트에 대한 응답에 설정할 수 있는 헤더입니다. *\<HeaderName\>* 을 설정하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 응답에 포함되지 않습니다.
 
 값은 응용 프로그램 설정, 원래 클라이언트 요청의 매개 변수 및 백 엔드 응답의 매개 변수를 참조할 수 있습니다.
 

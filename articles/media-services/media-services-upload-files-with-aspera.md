@@ -1,11 +1,11 @@
 ---
-title: "Aspera를 사용하여 Azure Media Services 계정에 파일 업로드 | Microsoft Docs"
-description: "이 자습서에서는 Azure에서 **Aspera Server On Demand** 서비스를 사용하여 Media Services 계정과 연결된 저장소 계정에 파일을 업로드하는 단계를 안내합니다."
+title: Aspera를 사용하여 Azure Media Services 계정에 파일 업로드 | Microsoft Docs
+description: 이 자습서에서는 Azure에서 **Aspera Server On Demand** 서비스를 사용하여 Media Services 계정과 연결된 저장소 계정에 파일을 업로드하는 단계를 안내합니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: johndeu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 58fec9746828863c4d0bff223fb6e9fb122256c3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure에서 Aspera Server On Demand 서비스를 사용하여 Media Services 계정에 파일 업로드
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 **Aspera** 는 고속 파일 전송 소프트웨어입니다. Azure용 **Aspera Server On Demand**는 Azure BLOB 개체 저장소에 직접 대용량 파일을 고속으로 업로드 및 다운로드할 수 있게 해줍니다. **Aspera On Demand**에 대한 자세한 내용은 [Aspera Cloud](http://cloud.asperasoft.com/) 사이트를 참조하세요. 
   
-Azure용 **Aspera Server On Demand**는 [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/)에서 구매할 수 있습니다. Azure용 **Aspera Server On Demand**의 구매를 완료하려면 Windows Live ID를 사용하여 Azure Marketplace에 로그인하세요.
+Azure용 **Aspera Server On Demand**는 [Azure Marketplace](https://azure.microsoft.com/marketplace/)에서 구매할 수 있습니다. Azure용 **Aspera Server On Demand**의 구매를 완료하려면 Windows Live ID를 사용하여 Azure Marketplace에 로그인하세요.
 
 이 자습서에서는 Azure에서 **Aspera Server On-Demand** 서비스를 사용하여 Media Services 계정과 연결된 저장소 계정에 파일을 업로드하는 단계를 안내합니다. 
 
@@ -36,7 +36,7 @@ Azure용 **Aspera Server On Demand**는 [Azure Marketplace](https://azure.micros
 >Azure Media Services MP(미디어 프로세서)에서 처리할 수 있는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 문서를 참조하세요.
 >
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

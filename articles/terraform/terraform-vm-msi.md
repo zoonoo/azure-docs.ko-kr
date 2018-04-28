@@ -7,11 +7,11 @@ manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Azure Marketplace 이미지를 사용하여 관리 서비스 ID가 있는 Terraform Linux 가상 머신 만들기
 
@@ -88,7 +88,7 @@ SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 �
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- 원격 상태 관리에 대한 자세한 내용은 [Terraform 원격 상태에 대한 이 페이지](https://www.terraform.io/docs/state/remote.html)를 참조하세요. 저장소 액세스 키는 이 파일에 공개되어 있으며, 원본 제어를 주의 깊게 확인해야 합니다.  
+ 원격 상태 관리에 대한 자세한 내용은 [Terraform 원격 상태에 대한 이 페이지](https://www.terraform.io/docs/state/remote.html)를 참조하세요. 저장소 액세스 키는 이 파일에 노출되며, Terraform 구성 파일을 소스 제어로 커밋하기 전에 제외해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure에서 Terraform Linux 가상 머신을 설정하는 방법을 알아보았습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 

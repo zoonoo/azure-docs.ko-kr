@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>HDInsight Windows 기반 클러스터용 스크립트 작업 스크립트 개발
 HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 기반 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
@@ -192,14 +190,14 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-이 문은 환경 변수 **MDS_RUNNER_CUSTOM_CLUSTER**를 'true' 값으로 설정하고 이 변수의 범위를 컴퓨터 수준이 되도록 설정합니다. 환경 변수를 적절한 범위(컴퓨터 또는 사용자)로 설정하는 것이 중요한 경우가 있습니다. 환경 변수 설정에 대한 자세한 내용은 [여기][1]를 참조하세요.
+이 문은 환경 변수 **MDS_RUNNER_CUSTOM_CLUSTER**를 'true' 값으로 설정하고 이 변수의 범위를 컴퓨터 수준이 되도록 설정합니다. 환경 변수를 적절한 범위(컴퓨터 또는 사용자)로 설정하는 것이 중요합니다. 환경 변수 설정에 대한 자세한 내용은 [여기][1]를 참조하세요.
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>사용자 지정 스크립트가 저장된 위치 액세스
-클러스터를 사용자 지정하는 데 사용되는 스크립트는 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다. 스크립트에서 다른 곳에 있는 리소스에 액세스할 경우 이러한 리소스는 공개적으로 액세스 가능(최소한 공용 읽기 전용)해야 합니다. 예를 들어 파일에 액세스한 후 SaveFile-HDI 명령을 사용하여 해당 파일을 저장할 수 있습니다.
+클러스터를 사용자 지정하는 데 사용되는 스크립트는 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다. 스크립트가 다른 위치에 있는 리소스에 액세스하는 경우, 리소스를 공개적으로 읽을 수 있어야 합니다. 예를 들어, 파일에 액세스한 후 SaveFile-HDI 명령을 사용하여 해당 파일을 저장할 수 있습니다.
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-이 예에서는 'somestorageaccount' 저장소 계정의 'somecontainer' 컨테이너가 공개적으로 액세스할 수 있는지 확인해야 합니다. 그렇지 않은 경우 스크립트는 ' 찾을 수 없음 ' 예외를 발생시키고 실패합니다.
+이 예제에서는 `somestorageaccount` 저장소 계정의 `somecontainer` 컨테이너가 공개적으로 액세스 가능한지 확인해야 합니다. 그렇지 않은 경우 스크립트는 ' 찾을 수 없음 ' 예외를 발생시키고 실패합니다.
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Add-AzureRmHDInsightScriptAction cmdlet에 매개 변수 전달
 여러 매개 변수를 Add-AzureRmHDInsightScriptAction cmdlet에 전달하려면 스크립트에 대한 모든 매개 변수를 포함하도록 문자열 값의 형식을 지정해야 합니다. 예: 
@@ -238,8 +236,8 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 1. 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 기본 또는 클러스터 배포 시 지정된 추가 Storage 계정, 또는 공개적으로 액세스할 수 있는 저장소 컨테이너가 될 수 있습니다.
 2. 스크립트가 동일한 노드에서 여러 번 실행될 수 있도록 멱등원으로 실행되는지 확인하는 검사를 스크립트에 추가합니다.
-3. **Write-Output** Azure PowerShell cmdlet을 사용하여 STDOUT 및 STDERR로 인쇄합니다. **Write-Host**를 사용하지 마세요.
-4. 임시 파일 폴더(예: $env:TEMP)를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
+3. `Write-Output` Azure PowerShell cmdlet을 사용하여 STDOUT 및 STDERR로 인쇄합니다. `Write-Host`는 사용하지 마세요.
+4. 임시 파일 폴더(예: `$env:TEMP`)를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
 5. D:\ 또는 C:\apps에만 사용자 지정 소프트웨어를 설치합니다. C: 드라이브의 다른 위치는 예약되어 있으므로 사용하면 안 됩니다. C: 드라이브에서 C:\apps 외의 폴더에 파일을 설치하면 노드 재이미징 동안 설치에 실패할 수 있습니다.
 6. OS 수준 설정이나 Hadoop 서비스 구성 파일이 변경된 경우에는 HDInsight 서비스에서 스크립트에 설정된 환경 변수와 같은 OS 수준 설정을 선택할 수 있도록 해당 서비스를 다시 시작할 수 있습니다.
 

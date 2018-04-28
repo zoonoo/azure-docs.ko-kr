@@ -26,7 +26,7 @@
 ## [관련된 데이터 자산 보기](data-catalog-how-to-view-related-data-assets.md) 
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [검색 구문 참조](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [개발자 개념](data-catalog-developer-concepts.md)
@@ -35,7 +35,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [Azure Data Catalog의 키보드 바로 가기](data-catalog-keyboard-shortcuts.md)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [가격](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](data-catalog-whats-new.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-catalog)

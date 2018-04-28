@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
 ms.author: v-masebo;dobett
-ms.openlocfilehash: 8ea2a5bc0a2f017c17bce4d366cb39acfba935aa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 76c8d3739b2af3c010cd80585c93c097fc9eb466
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>작업 예약 및 브로드캐스트(.NET/.NET)
 
@@ -67,7 +67,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
    
     ![새 Visual C# Windows 클래식 장치 앱][img-createdeviceapp]
     
-1. 솔루션 탐색기에서 **SimulateDeviceMethods** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다.
+1. 솔루션 탐색기에서 **SimulateDeviceMethods** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 
 1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices.client**를 검색합니다. **설치**를 선택하여 **Microsoft.Azure.Devices.Client** 패키지를 설치한 후 사용 약관에 동의합니다. 이 절차에서는 [Azure IoT 장치 SDK][lnk-nuget-client-sdk] NuGet 패키지 및 해당 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
    
@@ -304,4 +304,4 @@ Azure IoT Edge로 AI를 에지 장치에 배포하는 방법을 자세히 알아
 [lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-query]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language
+[lnk-query]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language

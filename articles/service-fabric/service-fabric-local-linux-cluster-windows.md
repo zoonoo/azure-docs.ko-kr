@@ -1,11 +1,11 @@
 ---
-title: "Windows에서 Azure Service Fabric Linux 클러스터 설정 | Microsoft Docs"
-description: "이 문서에서는 Windows 개발 컴퓨터에서 실행되는 Service Fabric Linux 클러스터를 설정하는 방법을 알아봅니다. 이 기능은 크로스 플랫폼 개발에 특히 유용합니다."
+title: Windows에서 Azure Service Fabric Linux 클러스터 설정 | Microsoft Docs
+description: 이 문서에서는 Windows 개발 컴퓨터에서 실행되는 Service Fabric Linux 클러스터를 설정하는 방법을 알아봅니다. 이 기능은 크로스 플랫폼 개발에 특히 유용합니다.
 services: service-fabric
 documentationcenter: .net
 author: suhuruli
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 89c1cf36c3b92376dedb1cb29d190c4c6d8f619b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows 개발자 컴퓨터에서 Linux Service Fabric 클러스터 설정
 
@@ -36,7 +36,7 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>로컬 컨테이너 만들기 및 Service Fabric 설치
-로컬 Docker 컨테이너를 설정하고 Service Fabric 클러스터를 실행하려면 다음 단계를 수행합니다.
+로컬 Docker 컨테이너를 설정하고 서비스 패브릭 클러스터가 실행되도록 하려면 PowerShell에서 다음 단계를 수행합니다.
 
 1. Docker 허브 리포지토리에서 이미지를 끌어옵니다.
 

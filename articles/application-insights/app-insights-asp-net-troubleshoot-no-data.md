@@ -1,6 +1,6 @@
 ---
-title: "데이터 없음 문제 해결 - .NET용 Application Insights"
-description: "Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요."
+title: 데이터 없음 문제 해결 - .NET용 Application Insights
+description: Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨

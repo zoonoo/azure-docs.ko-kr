@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 969f6b9654200b7f742b6405faa2cff2b13ba537
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="registration-management"></a>등록 관리
 ## <a name="overview"></a>개요
@@ -42,7 +42,7 @@ Notification Hub에 장치 등록은 **등록** 또는 **설치**를 사용하�
 설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://msdn.microsoft.com/library/azure/mt621153.aspx) 또는 [설치 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)을 참조하세요.
 
     // Example installation format to show some supported properties
-    {
+    {,
         installationId: "",
         expirationTime: "",
         tags: [],

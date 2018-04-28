@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database는 응용 프로그램을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
+Azure SQL Database는 응용 프로그램을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 또한 Azure Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. 사용할 경우 Data Lake Store는 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 투명합니다. 자세한 내용은 [Azure Data Lake Store의 데이터 보안](../data-lake-store/data-lake-store-security-overview.md)을 참조하세요. 
@@ -86,7 +86,7 @@ Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지�
 Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  
 
 ## <a name="hybrid-scenarios"></a>하이브리드 시나리오
-하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 사설 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요. 
+하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 사설 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요. 
 
 ![자체 호스팅 통합 런타임 채널](media/data-movement-security-considerations/data-management-gateway-channels.png)
 

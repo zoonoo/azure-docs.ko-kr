@@ -1,38 +1,32 @@
 ---
-title: "iOS에서 Azure Blob Storage를 사용하는 방법 | Microsoft Docs"
-description: "Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
+title: iOS에서 개체(Blob) 저장소를 사용하는 방법 - Azure | Microsoft Docs
+description: Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>iOS에서 Blob 저장소를 사용하는 방법
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 응용 프로그램에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
 
-## <a name="overview"></a>개요
-이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob **업로드**, **나열**, **다운로드** 및 **삭제**가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 응용 프로그램에서 Azure 저장소의 사용을 신속하게 볼 수 있습니다.
+## <a name="what-is-blob-storage"></a>Blob 저장소란?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Azure 저장소 iOS 라이브러리를 응용 프로그램으로 가져오기
+## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Azure Storage iOS 라이브러리를 응용 프로그램으로 가져오기
 [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient)를 사용하거나 **프레임워크** 파일을 가져와 Azure Storage iOS 라이브러리를 응용 프로그램으로 가져올 수 있습니다. CocoaPod는 라이브러리를 손쉽게 통합하는 반면, 프레임워크 파일에서 가져오기는 기존 프로젝트에 대해 덜 침입적이기 때문에 권장되는 방식입니다.
 
 이 라이브러리를 사용하려면 다음이 필요합니다.
@@ -68,8 +62,8 @@ ms.lasthandoff: 10/11/2017
 라이브러리를 사용하는 다른 방법은 프레임워크를 수동으로 빌드하는 것입니다.
 
 1. 먼저, [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)를 다운로드하거나 복제합니다.
-2. *azure-storage-ios* -> *Lib* -> *Azure 저장소 클라이언트 라이브러리*로 이동하고 X 코드에서 `AZSClient.xcodeproj`를 엽니다.
-3. Xcode의 왼쪽 위에서 "Azure 저장소 클라이언트 라이브러리"의 활성 구성표를 "프레임워크"로 변경합니다.
+2. *azure-storage-ios* -> *Lib* -> *Azure Storage 클라이언트 라이브러리*로 이동하고 X 코드에서 `AZSClient.xcodeproj`를 엽니다.
+3. Xcode의 왼쪽 위에서 "Azure Storage 클라이언트 라이브러리"의 활성 구성표를 "프레임워크"로 변경합니다.
 4. 프로젝트를 빌드합니다(⌘+B). 그러면 바탕 화면에 `AZSClient.framework` 파일이 만들어집니다.
 
 그런 후 다음을 수행하여 프레임워크 파일을 응용 프로그램으로 가져올 수 있습니다.
@@ -104,7 +98,7 @@ Swift를 사용하는 경우에 브리징 헤더를 만들고 <AZSClient/AZSClie
 > 
 
 ## <a name="create-a-container"></a>컨테이너 만들기
-Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예제에서는 *newcontainer*라는 컨테이너를 저장소 계정에 만드는 방법을 보여 줍니다(아직 없는 경우). 컨테이너에 대한 이름을 선택할 때 위에서 언급한 명명 규칙을 따릅니다.
+Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예제에서는 *newcontainer*라는 컨테이너를 Storage 계정에 만드는 방법을 보여 줍니다(아직 없는 경우). 컨테이너에 대한 이름을 선택할 때 위에서 언급한 명명 규칙을 따릅니다.
 
 ```objc
 -(void)createContainer{
@@ -170,7 +164,7 @@ Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 �
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>컨테이너에 Blob 업로드
-[Blob 서비스 개념](#blob-service-concepts) 섹션에서 설명한 것처럼 Blob 저장소는 블록 Blob, 추가 Blob, 페이지 Blob의 서로 다른 Blob 유형을 제공합니다. Azure Storage iOS 라이브러리는 세 가지 형식의 Blob을 모두 지원합니다. 대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
+[Blob service 개념](#blob-service-concepts) 섹션에서 설명한 것처럼 Blob Storage는 블록 Blob, 추가 Blob, 페이지 Blob의 서로 다른 Blob 유형을 제공합니다. Azure Storage iOS 라이브러리는 세 가지 형식의 Blob을 모두 지원합니다. 대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
 
 다음 예제에서는 NSString에서 블록 Blob를 업로드하는 방법을 보여줍니다. 같은 이름의 Blob가 이 컨테이너에 이미 있는 경우 이 Blob의 내용을 덮어씁니다.
 
@@ -222,7 +216,7 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 
 * **continuationToken** - 연속 토큰은 목록 작업을 시작할 위치를 나타냅니다. 토큰이 제공되지 않는 경우 처음부터 Blob를 나열합니다. 0에서 최대 설정까지 개수에 관계 없이 Blob를 나열할 수 있습니다. 이 메서드가 0개의 결과를 반환하더라도 `results.continuationToken` 이 nil이 아니면 서비스에 나열되지 않은 더 많은 Blob이 있을 수 있습니다.
 * **prefix** - Blob 목록에 사용할 접두사를 지정할 수 있습니다. 이 접두사로 시작하는 Blob만 나열됩니다.
-* **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob 서비스가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
+* **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
 * **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
   * _AZSBlobListingDetailsNone_: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
   * _AZSBlobListingDetailsSnapshots_: 커밋된 Blob과 Blob 스냅숏을 나열합니다.
@@ -383,12 +377,12 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 ```
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 iOS에서 Blob 저장소를 사용하는 방법을 살펴보았으므로 다음 링크를 따라 이동하여 iOS 라이브러리 및 저장소 서비스에 대한 자세한 내용을 확인하세요.
+지금까지 iOS에서 Blob Storage를 사용하는 방법을 살펴보았으므로 다음 링크를 따라 이동하여 iOS 라이브러리 및 Storage 서비스에 대한 자세한 내용을 확인하세요.
 
-* [iOS용 Azure 저장소 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
+* [iOS용 Azure Storage 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
 * [Azure Storage iOS 참조 설명서](http://azure.github.io/azure-storage-ios/)
-* [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage)
+* [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage)
 
 이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
 Azure Storage에 대한 기능 제안 사항이 있는 경우 [Azure Storage 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.

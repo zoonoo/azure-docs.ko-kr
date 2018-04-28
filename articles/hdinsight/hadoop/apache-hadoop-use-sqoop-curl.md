@@ -1,8 +1,8 @@
 ---
-title: "HDInsight에서 Curl과 Hadoop Sqoop 사용 - Azure | Microsoft Docs"
-description: "원격으로 Curl을 사용하여 HDInsight에 Sqoop 작업을 제출하는 방법에 대해 알아봅니다."
+title: HDInsight에서 Curl과 Hadoop Sqoop 사용 - Azure | Microsoft Docs
+description: 원격으로 Curl을 사용하여 HDInsight에 Sqoop 작업을 제출하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 39798321-78ca-428c-bcfe-322e49af4059
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 66c82cc22b9b460281928c4892dab8308ccf1098
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Curl을 사용하여 HDInsight에서 Hadoop으로 Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -63,7 +61,7 @@ Sqoop 작업을 실행하고 모니터링하며 결과를 검색하는 원시 HT
    * **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
    * **-G** - GET 요청임을 나타냅니다.
      
-     URL 시작 부분인 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**은 모든 요청에서 동일합니다. **/status** 경로는 요청이 서버에 대한 WebHCat(Templeton라고도 함)의 상태를 반환하는 경우 나타납니다. 
+     URL의 시작 부분, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**은 모든 요청에 대해 동일합니다. **/status** 경로는 요청이 서버에 대한 WebHCat(Templeton라고도 함)의 상태를 반환하는 경우 나타납니다. 
 2. 다음을 사용하여 Sqoop 작업을 제출합니다.
 
     ```bash

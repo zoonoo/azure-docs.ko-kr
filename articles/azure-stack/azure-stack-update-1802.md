@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure 스택 1802 업데이트
 
@@ -56,9 +56,10 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
 
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
-1802 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.  
-- [Azure 스택 업데이트를 설치 하려고 할 때 KB 4103348-네트워크 컨트롤러 API 서비스가 충돌](https://support.microsoft.com/help/4103348)
+1802 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
+- Azure 스택 핫픽스 **1.0.180302.4**합니다. [KB 4131152-기존 가상 컴퓨터 크기 집합을 사용할 수 없게 될 수 있습니다.]( https://support.microsoft.com/help/4131152) 
 
+  이 문제를이 수정에 자세히 설명 하는 문제 해결 [KB 4103348-Azure 스택 업데이트를 설치 하려고 할 때 네트워크 컨트롤러 API 서비스 장애와](https://support.microsoft.com/help/4103348)합니다.
 
 
 ### <a name="new-features-and-fixes"></a>새 기능 및 수정
@@ -67,7 +68,7 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
 - **다음과 같은 Azure 저장소 서비스 API 버전에 대 한 지원이 추가 됩니다**:
     - 2017-04-17 
     - 2016-05-31 
-    - 2015-12-11 
+    - 2015 년 12 월 11 
     - 2015-07-08 
     
     자세한 내용은 참조 [Azure 스택 저장소: 차이점과 고려 사항을](/azure/azure-stack/user/azure-stack-acs-differences)합니다.

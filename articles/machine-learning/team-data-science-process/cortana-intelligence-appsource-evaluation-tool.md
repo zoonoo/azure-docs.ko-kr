@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams
-ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence 솔루션 평가 도구
 ## <a name="overview"></a>개요
@@ -195,7 +195,7 @@ AzureML에서 다시 학습 웹 서비스를 만드는 방법에 대한 자세�
 Azure Data Factory를 사용하여 모델 학습 프로세스를 자동화하는 방법에 대한 자세한 내용은 [업데이트 리소스 작업을 사용하여 Azure Machine Learning 모델 업데이트](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity)를 참조하세요.
 
 ## <a name="existing-documentation"></a>기존 설명서
-[클라우드 비즈니스 성장을 위한 Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[클라우드 비즈니스 성장을 위한 Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Cortana Intelligence용 Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Cortana Intelligence용 Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

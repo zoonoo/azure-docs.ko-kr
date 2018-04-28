@@ -1,12 +1,12 @@
 ---
-title: "루프 - 배열 처리 또는 반복 작업 - Azure Logic Apps | Microsoft Docs"
+title: 루프 - 배열 처리 또는 반복 작업 - Azure Logic Apps | Microsoft Docs
 description: "\"for each\" 루프를 사용하여 배열을 처리하거나 논리 앱에서 특정 조건이 충족될 때까지 작업을 반복합니다."
 services: logic-apps
-keywords: "for each 루프"
-documentationcenter: 
+keywords: for each 루프
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>루프: 배열 처리 또는 조건이 충족될 때까지 작업 반복
 
 논리 앱에서 배열을 반복하려면 ["Foreach" 루프](#foreach-loop) 또는 [순차적 "Foreach" 루프](#sequential-foreach-loop)를 사용할 수 있습니다. 표준 "Foreach" 루프의 주기는 병렬로 실행되지만, 순차적 "Foreach" 루프의 주기는 한 번에 하나씩 실행됩니다. "Foreach" 루프가 단일 논리 앱 실행에서 처리할 수 있는 최대 배열 항목 수는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
 > [!TIP] 
-> 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)*할 수 있습니다. 
+> 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다. 
   
 조건이 충족되거나 일부 상태가 변경될 때까지 작업을 반복하려면 ["Until" 루프](#until-loop)를 사용합니다. 논리 앱에서 먼저 루프 내부의 모든 작업을 수행한 다음, 마지막 단계로 조건을 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 단일 논리 앱 실행의 최대 "Until" 루프 수는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
@@ -153,9 +153,6 @@ ms.lasthandoff: 03/05/2018
 
 * 원하는 응답을 받을 때까지 엔드포인트를 호출합니다.
 * 데이터베이스에 레코드를 만들고, 해당 레코드의 특정 필드가 승인될 때까지 기다리고, 처리를 계속합니다. 
-
-> [!NOTE]
-> "Until" 루프는 "Foreach" 루프 또는 다른 "Until" 루프를 포함할 수 없습니다.
 
 예를 들어 이 논리 앱은 매일 오전 8시에 변수의 값이 10이 될 때까지 변수를 증가시킵니다. 그런 다음, 논리 앱에서 현재 값을 확인하는 이메일을 보냅니다. 이 예에서는 Office 365 Outlook을 사용하지만, Logic Apps에서 지원하는 모든 이메일 공급자를 사용할 수 있습니다([여기에 있는 커넥터 목록 검토](https://docs.microsoft.com/connectors/)). 다른 이메일 계정을 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다. 
 

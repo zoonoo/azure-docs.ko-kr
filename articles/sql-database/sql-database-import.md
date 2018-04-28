@@ -6,14 +6,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>새 Azure SQL Database로 BACPAC 파일 가져오기
 
@@ -31,6 +31,9 @@ Azure Portal을 사용하여 가져오려면 데이터베이스를 연결하기 
    ![데이터베이스 가져오기](./media/sql-database-import/import.png)
 
 가져오기 작업의 진행률을 모니터링하려면 가져올 데이터베이스가 포함된 논리 서버에 대한 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **Import/Export** 기록을 클릭합니다.
+
+> [!NOTE]
+> [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)는 이 문서의 다른 방법을 사용하여 BACPAC 파일에서 가져오는 작업을 지원했으나, 현재는 Azure Portal을 사용하는 마이그레이션을 지원하지 않습니다.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>가져오기 작업의 진행률 모니터링
 
@@ -98,6 +101,13 @@ $importStatus
 
 > [!TIP]
 다른 스크립트 예제는 [BACPAC 파일에서 데이터베이스 가져오기](scripts/sql-database-import-from-bacpac-powershell.md)를 참조하세요.
+
+## <a name="import-using-other-methods"></a>다른 방법을 사용하여 가져오기
+
+다음 마법사를 사용할 수도 있습니다.
+
+- [SQL Server Management Studio의 데이터 계층 응용 프로그램 가져오기 마법사](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard)
+- [SQL Server 가져오기 및 내보내기 마법사](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard)
 
 ## <a name="next-steps"></a>다음 단계
 * 가져온 SQL Database에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL Database에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.

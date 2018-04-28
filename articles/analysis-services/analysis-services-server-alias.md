@@ -1,24 +1,18 @@
 ---
-title: "Azure Analysis Services 별칭 서버 이름 | Microsoft Docs"
-description: "서버 이름 별칭을 만들고 사용하는 방법을 설명합니다."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 별칭 서버 이름 | Microsoft Docs
+description: 서버 이름 별칭을 만들고 사용하는 방법을 설명합니다.
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: e0119580c4128ffd237127a62e29dac34297da5d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
 
@@ -31,7 +25,7 @@ ms.lasthandoff: 02/21/2018
 - 다른 시간에 다른 서버에 사용자를 지정하는 경우 
 - Azure Traffic Manager를 사용할 때와 같이 지리적으로 보다 가까이 있는 인스턴스에 다른 지역의 사용자를 지정하는 경우 
 
-유효한 Azure Analysis Services 서버 이름을 반환하는 모든 HTTP 끝점은 별칭으로 사용할 수 있습니다.
+유효한 Azure Analysis Services 서버 이름을 반환하는 모든 HTTPS 엔드포인트는 별칭으로 사용할 수 있습니다. 엔드포인트는 포트 443을 통해 HTTPS를 지원해야 하며 URI에 포트를 지정하지 말아야 합니다.
 
 ![링크 형식을 사용하는 별칭](media/analysis-services-alias/aas-alias-browser.png)
 

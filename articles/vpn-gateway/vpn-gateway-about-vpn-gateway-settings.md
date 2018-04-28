@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -79,9 +79,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>SKU 크기 조정과 변경 비교
+###  <a name="resizechange"></a>SKU 크기 조정 또는 변경
 
-게이트웨이 SKU의 크기 조정은 매우 쉽습니다. 게이트웨이 크기를 조정할 때 매우 적은 가동 중지 시간을 갖습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
+VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 경우 게이트웨이 SKU 크기를 조정하거나 다른 SKU로 변경할 수 있습니다. 다른 게이트웨이 SKU로 변경할 때는 기존 게이트웨이를 완전히 삭제하고 새로 작성하게 됩니다. 새로 작성하는 데는 최대 45분이 걸릴 수 있습니다. 그에 비해, 게이트웨이 SKU 크기를 조정할 때는 게이트웨이를 삭제했다가 다시 작성할 필요가 없으므로 아주 짧은 가동 중지 시간만 발생합니다. 게이트웨이 SKU를 변경하지 않고 크기를 조정할 수 있다면 그렇게 하는 것이 좋습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
 
 1. VpnGw1, VpnGw2와 VpnGw3 SKU 간에 크기를 조정할 수 있습니다.
 2. 이전 게이트웨이 SKU로 작동하는 경우 Basic, Standard 및 HighPerformance SKU 간에 크기를 조정할 수 있습니다.

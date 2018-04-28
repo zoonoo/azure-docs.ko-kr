@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI를 사용하여 Azure VM에서 MSI를 구성하는 방법"
-description: "Azure CLI를 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다."
+title: Azure CLI를 사용하여 Azure VM에서 MSI를 구성하는 방법
+description: Azure CLI를 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 0863d5bec71a79f28017582eaa111f6c4a97c1ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c76d53d32b297ff106c05bdd717a80a9f4b98814
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Azure CLI를 사용하여 VM MSI(관리 서비스 ID) 구성
 
@@ -55,7 +55,7 @@ MSI 기반 VM을 만들려면:
    az group create --name myResourceGroup --location westus
    ```
 
-3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 MSI를 사용하여 *myVM*이라는 VM을 만듭니다. `--admin-username` 및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
+3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 MSI를 사용하여 *myVM*이라는 VM을 만듭니다. `--admin-username`및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -71,10 +71,10 @@ MSI 기반 VM을 만들려면:
    az login
    ```
 
-2. `--assign-identity` 매개 변수가 포함된 [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity)를 사용하여 기존 VM에 MSI를 추가합니다.
+2. [az vm identity assign](/cli/azure/vm/identity/#az_vm_identity_assign)과 `identity assign` 명령을 함께 사용하여 기존 VM에 MSI를 추가합니다.
 
    ```azurecli-interactive
-   az vm assign-identity -g myResourceGroup -n myVm
+   az vm identity assign -g myResourceGroup -n myVm
    ```
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Azure VM에서 MSI 제거

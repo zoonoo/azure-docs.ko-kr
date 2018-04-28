@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택에서 할당량 유형 | Microsoft Docs"
-description: "Azure 스택에서 서비스 및 리소스에 사용할 수 있는 서로 다른 할당량 형식을 검토 합니다."
+title: Azure 스택에서 할당량 유형 | Microsoft Docs
+description: Azure 스택에서 서비스 및 리소스에 사용할 수 있는 서로 다른 할당량 형식을 검토 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure 스택에서 할당량 유형
 
@@ -35,16 +35,18 @@ ms.lasthandoff: 02/21/2018
 | 가용성 집합의 수를 최대 | 10 | 이 위치에 만들 수 있는 가용성 집합의 최대 수입니다. |
 | 가상 컴퓨터 크기의 최대 수 설정 | 20 | 이 위치에 만들 수 있는 가상 컴퓨터 크기 집합의 최대 수입니다. |
 
-> [!NOTE]
-> 이 기술 미리 보기에는 할당량이 적용 되지 않은 계산 합니다.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>저장소 할당량 유형
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
 | 최대 용량 (GB) |500 |이 위치에서 구독을 사용할 수 있는 총 저장소 용량입니다. |
 | 저장소 계정의 총 수 |20 |이 위치에 구독을 만들 수 있는 저장소 계정 최대 수입니다. |
+
+> [!NOTE]  
+> 새 저장소 할당량 적용 되기 전에 최대 2 시간이 걸릴 수 있습니다. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>네트워크 할당량 유형
 | **항목** | **기본값** | **설명** |

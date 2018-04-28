@@ -3,7 +3,7 @@ title: Azure Service Fabric 성능 모니터링 | Microsoft Docs
 description: Azure Service Fabric 클러스터를 모니터링하고 진단하기 위한 성능 카운터에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 54837b2a43f93f43d089a2fdf35d8b74ecacfc3e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performance-metrics"></a>성능 메트릭
 
@@ -83,4 +83,4 @@ Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성�
 ## <a name="next-steps"></a>다음 단계
 
 * Service Fabric에서 [플랫폼 수준의 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)에 대해 자세히 알아보기
-* [Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md)을 통해 성능 메트릭 수집
+* [OMS 에이전트](service-fabric-diagnostics-oms-agent.md)를 통해 성능 메트릭 수집

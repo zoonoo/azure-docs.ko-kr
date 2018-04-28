@@ -1,12 +1,12 @@
 ---
-title: "Azure 백업: Azure Portal을 사용하여 가상 머신 복원 | Microsoft Docs"
-description: "Azure Portal을 사용하여 복구 지점에서 Azure Virtual Machine 복원"
+title: 'Azure 백업: Azure Portal을 사용하여 가상 머신 복원 | Microsoft Docs'
+description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Machine 복원
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "백업 복원; 복원하는 방법; 복구 지점;"
+editor: ''
+keywords: 백업 복원; 복원하는 방법; 복구 지점;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
 정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
@@ -211,7 +211,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 ## <a name="restore-domain-controller-vms"></a>도메인 컨트롤러 VM 복원
 DC(도메인 컨트롤러) VM 백업은 Backup에서 지원되는 시나리오입니다. 그러나 복원 프로세스 동안 주의해야 합니다. 올바른 복원 프로세스는 도메인의 구조에 따라 다릅니다. 단순한 경우에 단일 도메인에 단일 DC가 있기도 하지만, 일반적으로 프로덕션 로드에서는 단일 도메인에 여러 DC가 있고, 일부 DC는 온-프레미스에 있을 수 있습니다. 여러 도메인이 있는 포리스트도 있을 수 있습니다. 
 
-Active Directory 관점에서 Azure VM은 지원되는 최신 하이퍼바이저의 다른 VM과 비슷합니다. 온-프레미스 하이퍼바이저와의 주된 차이점은 Azure에서는 사용할 수 없는 VM 콘솔이 없다는 것입니다. BMR(완전 복구) 유형 백업을 사용한 복구와 같은 특정 시나리오에서는 콘솔이 필요합니다. 하지만 백업 자격 증명 모음의 VM 복원이 BMR을 완전히 대체합니다. Active Directory 복원 모드(DSRM)도 사용할 수 있으므로 모든 Directory Services 복원 모드를 실행할 수 있습니다. 자세한 내용은 [가상화된 도메인 컨트롤러에 대한 백업 및 복원 고려 사항](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) 및 [Active Directory 포리스트 복구 계획](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx)을 참조하세요.
+Active Directory 관점에서 Azure VM은 지원되는 최신 하이퍼바이저의 다른 VM과 비슷합니다. 온-프레미스 하이퍼바이저와의 주된 차이점은 Azure에서는 사용할 수 없는 VM 콘솔이 없다는 것입니다. BMR(완전 복구) 유형 백업을 사용한 복구와 같은 특정 시나리오에서는 콘솔이 필요합니다. 하지만 백업 자격 증명 모음의 VM 복원이 BMR을 완전히 대체합니다. Active Directory 복원 모드(DSRM)도 사용할 수 있으므로 모든 Directory Services 복원 모드를 실행할 수 있습니다. 자세한 내용은 [가상화된 도메인 컨트롤러에 대한 백업 및 복원 고려 사항](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) 및 [Active Directory 포리스트 복구 계획](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx)을 참조하세요.
 
 ### <a name="single-dc-in-a-single-domain"></a>단일 도메인의 단일 DC
 Azure Portal에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지로 VM을 복원할 수 있습니다.
@@ -242,7 +242,7 @@ Azure Portal에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 
    a. [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)가 있는 클라우드 서비스에서 VM을 만듭니다.
 
-   나. [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)에 연결하는 VM을 만듭니다.
+   나. [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)에 연결하는 VM을 만듭니다.
 
    다. [여러 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)가 있는 VM을 만듭니다.
 

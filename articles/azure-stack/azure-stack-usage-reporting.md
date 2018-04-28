@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure에 Azure 스택 사용 현황 데이터를 보고 합니다. 
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/28/2018
 사용량 기반 청구 모델을 사용 하는 azure 스택 다중 노드 시스템 청구 목적을 위해 Azure에 사용 현황 데이터를 보고 해야 합니다.  Azure 스택 운영자는 해당 Azure 스택 인스턴스가 Azure에 사용 데이터 보고를 구성 해야 합니다.
 
 > [!NOTE]
-> 사용 데이터 보고는 사용량 기준 과금으로-있습니다-사용 가능한 모델에서 허가 받은 Azure 스택 multi-node 사용자 필요 합니다. 용량 모델을 구입한 고객에 대 한 선택 사항 (참조는 [페이지를 구입 하는 방법](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/)합니다. Azure 스택 개발 키트 사용자에 대 한 Azure 스택 운영자는 사용 현황 데이터를 보고 하 고 기능 테스트 수 있습니다. 그러나 사용자가 그로 인해 발생 하는 모든 사용에 대 한 청구 되지 됩니다. 
+> 사용 데이터 보고는 사용량 기준 과금으로-있습니다-사용 가능한 모델에서 허가 받은 Azure 스택 multi-node 사용자 필요 합니다. 용량 모델을 구입한 고객에 대 한 선택 사항 (참조는 [페이지를 구입 하는 방법](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)합니다. Azure 스택 개발 키트 사용자에 대 한 Azure 스택 운영자는 사용 현황 데이터를 보고 하 고 기능 테스트 수 있습니다. 그러나 사용자가 그로 인해 발생 하는 모든 사용에 대 한 청구 되지 됩니다. 
 
 
 ![청구 흐름](media/azure-stack-usage-reporting/billing-flow.png)

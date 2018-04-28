@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 2cb881e50b9a08c99b59796a23107bfafb847b75
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: 파일 지원 요청
 다음 단계를 사용하여 Azure 포털에서 Azure AD(Azure Active Directory) B2C에 대한 지원 요청을 제출할 수 있습니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/23/2018
    * **문제점 유형**은 **기술**입니다.
    * 적합한 **구독**을 선택합니다.
    * **서비스**는 **Active Directory**입니다.
-   * 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/en-us/support/plans/)에서 하나를 등록할 수 있습니다.
+   * 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/support/plans/)에서 하나를 등록할 수 있습니다.
      
      ![지원 - 기본 사항](./media/active-directory-b2c-support/support-basics.png)
 6. **문제** 블레이드에서 이러한 세부 정보를 사용하고 **다음**을 클릭합니다.

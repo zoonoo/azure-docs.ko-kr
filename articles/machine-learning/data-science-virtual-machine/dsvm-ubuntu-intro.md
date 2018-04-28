@@ -5,24 +5,24 @@ services: machine-learning
 documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
-Linux용 데이터 과학 Virtual Machine은 Azure에서 편리하게 심층 학습을 시작할 수 있도록 하는 Ubuntu 기반 가상 머신 이미지입니다. 심층 학습 도구에는 다음이 포함됩니다.
+Linux용 데이터 과학 Virtual Machine은 Azure에서 딥 러닝을 포함한 가상 학습을 쉽게 시작할 수 있도록 하는 Ubuntu 기반 가상 머신 이미지입니다. 심층 학습 도구에는 다음이 포함됩니다.
 
   * [Caffe](http://caffe.berkeleyvision.org/): 속도, 표현도 및 모듈화를 위해 구축된 심층 학습 프레임워크
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe의 플랫폼 간 버전
@@ -31,6 +31,7 @@ Linux용 데이터 과학 Virtual Machine은 Azure에서 편리하게 심층 학
   * [Keras](https://keras.io/): Python의 Theano 및 TensorFlow용 고급 신경망 네트워크 API
   * [MXNet](http://mxnet.io/): 많은 언어 바인딩을 사용하는 유연하고 효율적인 심층 학습 라이브러리
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): 일반적인 심층 학습 작업을 단순화하는 그래픽 시스템
+  * [PyTorch](http://pytorch.org/): 동적 네트워크를 지원하는 고급 Python 라이브러리
   * [TensorFlow](https://www.tensorflow.org/): Google의 컴퓨터 인텔리전스를 위한 오픈 소스 라이브러리
   * [Theano](http://deeplearning.net/software/theano/): 다차원 배열과 관련된 수학 식을 정의하고, 최적화하고, 효율적으로 계산하기 위한 Python 라이브러리
   * [Torch](http://torch.ch/): 기계 학습 알고리즘을 광범위하게 지원하는 공학용 계산 프레임워크
@@ -113,6 +114,14 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
 프로비전에는 5-10분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine에 액세스하는 방법
+
+세 가지 메서드를 사용하여 Ubuntu DSVM에 액세스할 수 있습니다.
+1. 터미널 세션에 대한 SSH
+2. 그래픽 세션에 대한 X2Go
+3. Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
+
+### <a name="ssh"></a>SSH
+
 VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 3단계의 **기본 사항** 섹션에서 만든 계정 자격 증명을 텍스트 셸 인터페이스용으로 사용합니다. Windows에서는 [Putty](http://www.putty.org)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다.
 
 > [!NOTE]
@@ -120,7 +129,7 @@ VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다.
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>X2Go 클라이언트 설치 및 구성
+### <a name="x2go"></a>X2Go
 Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연결을 사용할 수 있습니다. Linux VM 그래픽 데스크톱에 연결하려면 클라이언트에서 다음 절차를 완료합니다.
 
 1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
@@ -134,6 +143,14 @@ Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연�
    * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
 
 X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 및 JupyterLab
+
+Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https://your-vm-ip:8000으로 이동하고, VM을 만들고 로그인하는 데 사용한 사용자 이름 및 암호를 입력합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
+
+Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https://your-vm-ip:8000/lab URL로 이동합니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine에 설치된 도구
 ### <a name="deep-learning-libraries"></a>심층 학습 라이브러리
@@ -159,7 +176,7 @@ Caffe2는 Caffe를 기반으로 제작된 Facebook의 심층 학습 프레임워
 JupyterHub에서 몇 가지 예제 Notebook이 제공됩니다.
 
 #### <a name="h2o"></a>H2O
-H2O는 빠른 메모리 내 분산형 기계 학습 및 예측 분석 플랫폼입니다. Python 패키지는 루트 및 py35 Anaconda 환경 둘 다에 설치됩니다. R 패키지도 설치됩니다. 실행 명령줄에서 H2O 를 시작하려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)을 구성할 수 있습니다. 흐름 웹 UI는 시작할 http://localhost:54321 을 검색하여 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.
+H2O는 빠른 메모리 내 분산형 기계 학습 및 예측 분석 플랫폼입니다. Python 패키지는 루트 및 py35 Anaconda 환경 둘 다에 설치됩니다. R 패키지도 설치됩니다. 실행 명령줄에서 H2O 를 시작하려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)을 구성할 수 있습니다. 흐름 웹 UI는 시작할 http://localhost:54321로 이동하여 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.
 
 #### <a name="keras"></a>Keras
 Keras는 TensorFlow 또는 Theano에서 실행될 수 있는 Python의 고급 신경망 네트워크 API입니다. 루트 및 py35 Python 환경에서 사용할 수 있습니다. 
@@ -170,7 +187,7 @@ MXNet은 효율성과 유연성을 위해 디자인된 심층 학습 프레임�
 #### <a name="nvidia-digits"></a>NVIDIA DIGITS
 DIGITS라고도 하는 NVIDIA 심층 학습 GPU 교육 시스템은 데이터 관리, GPU 시스템에서의 신경망 네트워크 설계 및 교육, 고급 시각화를 사용한 실시간 성능 모니터링 등의 일반적인 심층 학습 작업을 간소화하기 위한 시스템입니다. 
 
-DIGITS는 digits라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 http://localhost:5000 으로 이동하여 시작합니다.
+DIGITS는 digits라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 http://localhost:5000으로 이동하여 시작합니다.
 
 DIGITS는 Conda 루트 환경에서 Python 모듈로도 설치됩니다.
 
@@ -193,42 +210,44 @@ R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게
 또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
 ### <a name="python"></a>파이썬
-Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
+Anaconda Python은 Python 2.7 및 3.5 환경과 함께 설치됩니다. 2.7 환경을 _루트_라고 하며, 3.5 환경을 _py35_라고 합니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 
 
-Python은 2.7 및 3.5 버전이 있으므로 현재 세션에서 작업하려는 Python 버전(conda 환경)을 활성화해야 합니다. 활성화 프로세스는 PATH 변수를 원하는 Python 버전으로 설정합니다.
+py35 환경은 기본값입니다. 루트(2.7) 환경을 활성화하려면:
 
-Python 2.7 conda 환경을 활성화하려면 셸에서 다음 명령을 실행합니다.
+    source activate root
 
-    source /anaconda/bin/activate root
+py35 환경을 다시 활성화하려면:
 
-Python 2.7은 */anaconda/bin*에 설치됩니다.
+    source activate py35
 
-Python 3.5 conda 환경을 활성화하려면 셸에서 다음을 실행합니다.
+Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 
 
-    source /anaconda/bin/activate py35
+```conda``` 또는 ````pip````를 사용하여 추가 Python 라이브러리를 설치합니다. pip의 경우 기본값을 원하지 않는 경우 적절한 환경을 먼저 활성화합니다.
 
+    source activate root
+    pip install <package>
 
-Python 3.5는 */anaconda/envs/py35/bin*에 설치됩니다.
+또는 전체 경로를 pip로 지정합니다.
 
-Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **pycharm**을 입력하면 PyCharm Python IDE를 시작할 수 있습니다.
+    /anaconda/bin/pip install <package>
+    
+conda의 경우 환경 이름을 항상 지정해야 합니다(_py35_ 또는 _루트_).
 
-추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ````pip```` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예: 
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **pycharm**을 입력하면 PyCharm Python IDE를 시작할 수 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter Notebook도 제공됩니다. JupyterHub을 통해 Jupyter Notebook에 액세스합니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 로그인합니다.
 
-Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미리 구성되어 있습니다. 브라우저를 시작하여 노트북 서버에 액세스하는 데 사용할 수 있는 "Jupyter Notebook"이라는 바탕 화면 아이콘이 있습니다. SSH 또는 X2Go 클라이언트를 통해 VM을 사용하는 경우 [https://localhost:8000/](https://localhost:8000/) 를 방문하여 Jupyter Notebook 서버에 액세스할 수도 있습니다.
+Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미리 구성되어 있습니다. 브라우저를 시작하여 노트북 서버에 액세스하는 데 사용할 수 있는 "Jupyter Notebook"이라는 바탕 화면 아이콘이 있습니다. SSH 또는 X2Go 클라이언트를 통해 VM을 사용하는 경우 [https://localhost:8000/](https://localhost:8000/)을 방문하여 Jupyter Notebook 서버에 액세스할 수도 있습니다.
 
 > [!NOTE]
 > 인증서 경고가 나타나는 경우 계속 진행하세요.
 > 
 > 
 
-모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. *https://\<VM DNS 이름 또는 IP 주소\>:8000/*만 입력하면 됩니다.
+모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. *https://\<VM DNS 이름 또는 IP 주소\>:8000/* 만 입력하면 됩니다.
 
 > [!NOTE]
 > VM이 프로비전될 때 포트 8000이 방화벽에 기본적으로 열립니다.

@@ -1,25 +1,18 @@
 ---
 title: 온-프레미스 데이터 게이트웨이 설치 | Microsoft Docs
 description: 온-프레미스 데이터 게이트웨이를 설치 및 구성하는 방법을 알아봅니다.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 참조하세요.
@@ -44,7 +37,7 @@ ms.lasthandoff: 04/05/2018
 * 유지되고 대기 상태로 전환되지 않는 컴퓨터에 게이트웨이를 설치합니다.
 * 네트워크에 무선으로 연결된 컴퓨터에 게이트웨이를 설치하지 않습니다. 성능이 감소될 수 있습니다.
 * 게이트웨이를 등록한 구독과 동일한 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
-* 여기에 설명된 (통합) 게이트웨이는 Azure Government(Fairfax)에서 지원되지 않습니다. Azure Analysis Services에 대해 전용 온-프레미스 게이트웨이를 사용합니다. 전용 게이트웨이는 Power BI 및 Power Apps와 같은 추가 서비스를 지원하지 않습니다. 전용 게이트웨이는 포털의 서버 빠른 시작에서 설치됩니다.
+* 여기에 설명된 (통합) 게이트웨이는 Azure Government, Azure 독일 및 Azure 중국 자치 지역에서 지원되지 않습니다. 포털에 있는 서버의 **빠른 시작**에서 설치된 **Azure Analysis Services에 대한 전용 온-프레미스 게이트웨이**를 사용합니다. 
 
 
 ## <a name="download"></a>다운로드

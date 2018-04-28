@@ -1,12 +1,12 @@
 ---
-title: ".NET을 사용한 Azure Storage 샘플 | Microsoft Docs"
-description: "Azure 저장소에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. .NET 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다."
+title: .NET을 사용한 Azure Storage 샘플 | Microsoft Docs
+description: Azure Storage에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. .NET 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 services: storage
 documentationcenter: na
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 74777ed14ebb41ad31657f814e86724ff1e5e62e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e6973f0decc448657d869afb8823dd03c62d272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET을 사용한 Azure Storage 샘플
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 10/11/2017
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Blob 추가</td> 
-<td><a href="https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference 메서드 예제</a></td> 
+<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference 메서드 예제</a></td> 
 </tr> 
 <tr> 
 <td>블록 Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob 저장소 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
 </tr> 
 <tr> 
 <td>클라이언트 쪽 암호화</td>
@@ -46,11 +46,11 @@ ms.lasthandoff: 10/11/2017
 </tr> 
 <tr> 
 <td>컨테이너 만들기</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob 저장소 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
 </tr> 
 <tr> 
 <td>Blob 삭제</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob 저장소 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
 </tr> 
 <tr> 
 <td>컨테이너 삭제</td>
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 </tr> 
 <tr> 
 <td>컨테이너 ACL/메타데이터/속성</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob 저장소 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
 </tr> 
 <tr> 
 <td>페이지 범위 가져오기</td>
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
 </tr>           
 <tr> 
 <td>Blob 스냅숏</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크 백업</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">증분 스냅숏을 사용하여 Azure Virtual Machine 디스크 백업</a></td>
 </tr> 
 <tr> 
 <td rowspan="9"><b>파일</b></td>
@@ -165,7 +165,7 @@ ms.lasthandoff: 10/11/2017
 <tr> 
 <td rowspan="7"><b>테이블</b></td>
 <td>테이블 만들기</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure 저장소를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
 </tr> 
 <tr> 
 <td>엔터티/테이블 삭제</td> 
@@ -173,7 +173,7 @@ ms.lasthandoff: 10/11/2017
 </tr> 
 <tr> 
 <td>엔터티 삽입/병합/바꾸기</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure 저장소를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
 </tr> 
 <tr> 
 <td>엔터티 쿼리</td> 
@@ -189,7 +189,7 @@ ms.lasthandoff: 10/11/2017
 </tr> 
 <tr> 
 <td>엔터티 업데이트</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure 저장소를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
 </tr> 
 </tbody> 
 </table>

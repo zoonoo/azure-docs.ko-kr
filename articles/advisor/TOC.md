@@ -23,7 +23,7 @@
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # 리소스
-## [Azure Advisor 비디오](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
+## [Azure Advisor 비디오](https://azure.microsoft.com/resources/videos/index/?services=advisor)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 

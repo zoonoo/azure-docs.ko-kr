@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2a0f183770a07cd05963e88c672452cfeb80e567
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM 복제 및 장애 조치(failover)
 
@@ -42,10 +42,10 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure 구독에 로그인
 
-Login-AzureRmAccount cmdlet을 사용하여 Azure 구독에 로그인합니다.
+Connect-AzureRmAccount cmdlet을 사용하여 Azure 구독에 로그인
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzureRmSubscription cmdlet을 사용하여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Select-AzureRmSubscription cmdlet을 사용하여 작업에 사용할 Azure 구독을 선택합니다.
 
@@ -175,7 +175,7 @@ for($i=0; $i -lt $ProcessServers.count; $i++) {
 1     ConfigurationServer
 ```
 
-위 출력 내용에서 ***$ProcessServers[0]***은 *ScaleOut-ProcessServer*에 해당하고 ***$ProcessServers[1]***은 *ConfigurationServer*의 프로세스 서버 역할에 해당합니다.
+위 출력 내용에서 ***$ProcessServers[0]*** 은 *ScaleOut-ProcessServer*에 해당하고 ***$ProcessServers[1]*** 은 *ConfigurationServer*의 프로세스 서버 역할에 해당합니다.
 
 * 구성 서버에 설정된 계정을 식별합니다.
 
@@ -192,7 +192,7 @@ AccountId AccountName
 3         LinuxAccount
 ```
 
-위 출력 내용에서 ***$AccountHandles[0]***은 *vCenter_account* 계정에 해당하고 ***$AccountHandles[1]***은 *WindowsAccount* 계정에 해당하고 ***$AccountHandles[2]***는 *LinuxAccount* 계정에 해당합니다.
+위 출력 내용에서 ***$AccountHandles[0]*** 은 *vCenter_account* 계정에 해당하고 ***$AccountHandles[1]*** 은 *WindowsAccount* 계정에 해당하고 ***$AccountHandles[2]*** 는 *LinuxAccount* 계정에 해당합니다.
 
 ## <a name="create-a-replication-policy-and-map-it-for-use-with-the-configuration-server"></a>복제 정책을 만들어서 구성 서버와 사용하도록 매핑
 

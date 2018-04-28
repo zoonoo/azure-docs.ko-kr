@@ -1,11 +1,11 @@
 ---
-title: "Azure Storage 및 Service Bus 큐 비교 및 대조 | Microsoft Docs"
-description: "Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다."
+title: Azure Storage 및 Service Bus 큐 비교 및 대조 | Microsoft Docs
+description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -39,7 +39,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 
 솔루션 설계자/개발자라면 다음과 같은 경우 **Storage 큐의 사용을 고려해야** 합니다.
 
-* 응용 프로그램의 큐에 80GB 이상의 메시지를 저장해야 하며, 메시지 수명은 7일 미만일 경우.
+* 응용 프로그램은 80GB보다 많은 메시지는 큐에 저장해야 합니다.
 * 응용 프로그램에서 큐 내부의 메시지 처리 진행률을 추적하려는 경우. 이는 작업자가 메시지 충돌을 처리하는 경우에 유용합니다. 그러면 후속 작업자가 해당 정보를 사용하여 이전 작업자가 중단한 부분부터 작업을 계속할 수 있습니다.
 * 큐에 대해 실행된 모든 트랜잭션의 서버 측 로그가 필요합니다.
 
@@ -51,7 +51,6 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 * 솔루션이 자동 중복 검색을 지원할 수 있어야 하는 경우.
 * 응용 프로그램이 메시지를 병렬 장기 실행 스트림(메시지의 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 속성을 사용하여 메시지가 스트림과 연결됨)으로 처리하는 것이 좋습니다. 이 모델에서는 소비 응용 프로그램의 각 노드가 메시지가 아니라 스트림에 대해 경쟁합니다. 소비 노드에 스트림이 전달되면 해당 노드는 트랜잭션을 사용하여 응용 프로그램 스트림 상태를 검사할 수 있습니다.
 * 큐에서 여러 메시지를 송신 또는 수신할 경우 솔루션에 트랜잭션 동작 및 원자성이 필요합니다.
-* 응용 프로그램별 워크로드의 TTL(Time-to-Live) 특성은 7일의 기간을 초과할 수 있습니다.
 * 응용 프로그램은 64KB를 초과하지만 256KB의 한도에 접근할 가능성은 없는 메시지를 처리합니다.
 * 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다.
 * 큐 크기는 80GB보다 크게 증가하지 않습니다.
@@ -133,7 +132,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | --- | --- | --- |
 | 최대 큐 크기 |**500TB**<br/><br/>([단일 저장소 계정 용량](../storage/common/storage-introduction.md#queue-storage)으로 제한됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
 | 최대 메시지 크기 |**64KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
-| 최대 메시지 TTL |**7일** |**TimeSpan.Max** |
+| 최대 메시지 TTL |**Infinite**(api-version 2017-07-27부터) |**TimeSpan.Max** |
 | 최대 큐 수 |**무제한** |**10,000**<br/><br/>(서비스 네임스페이스당) |
 | 최대 동시 클라이언트 수 |**무제한** |**무제한**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨) |
 

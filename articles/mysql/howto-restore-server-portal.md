@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8782befb1548606fe649909a7841eb648c15f1c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
@@ -85,6 +85,10 @@ Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 �
 
 2. 양식의 **원본 선택** 드롭다운에서 **백업**을 선택합니다. 이 작업은 지역 중복 백업을 사용하도록 설정된 서버 목록을 로드합니다. 이러한 백업 중 하나를 새 서버의 원본으로 선택합니다.
    ![원본 선택: 백업 및 지역 중복 백업 목록](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > 서버가 처음 생성될 때는 지역 복원에 즉시 사용 가능하지 않을 수 있습니다. 필요한 메타데이터를 채우는 데 몇 시간 정도 걸릴 수 있습니다.
+   >
 
 3. 나머지 양식은 기본 설정으로 작성합니다. **위치**를 선택할 수 있습니다. 위치가 선택되면 **가격 책정 계층**을 선택할 수 있습니다. 기본적으로 복원하는 기존 서버에 대한 매개 변수가 표시됩니다. 이러한 설정을 상속하도록 변경하지 않고 **확인**을 클릭할 수 있습니다. 또는 **세대 계산**(선택한 지역에서 사용 가능한 경우), **vCore** 수, **백업 보존 기간** 및 **백업 중복 옵션**을 변경할 수 있습니다. **가격 책정 계층**(기본, 범용 또는 메모리 최적화) 또는 **저장소** 크기는 복원하는 동안 변경할 수 없습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용하여 SSIS 패키지 호출 - 저장 프로시저 작업 | Microsoft Docs
-description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 호출하는 방법에 대해 설명합니다.
+title: Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행 | Microsoft Docs
+description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 00a4401a9116d8ebbfefa56194fe45802bcf198e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
-이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
+# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
+이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [버전 1에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출](v1/how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
@@ -58,7 +58,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2(미리 보기)**를 선택합니다.
+4. **버전**에 **V2(미리 보기)** 를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
@@ -85,12 +85,13 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 4. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **유형**으로 **Azure SQL Database**를 선택합니다.
-    2. **서버 이름** 필드에 대해 SSISDB 데이터베이스를 호스트하는 Azure SQL Server를 선택합니다.
-    3. **데이터베이스 이름**으로 **SSISDB**를 선택합니다.
-    4. **사용자 이름**으로 데이터베이스에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다.
-    5. **암호**에 대해 사용자의 암호를 입력합니다. 
-    6. **연결 테스트** 단추를 클릭하여 데이터베이스에 대한 연결을 테스트합니다.
-    7. **저장** 단추를 클릭하여 연결된 서비스를 저장합니다. 
+    2. **기본** Azure Integration Runtime을 선택하여 `SSISDB` 데이터베이스를 호스트하는 Azure SQL Database에 연결합니다.
+    3. **서버 이름** 필드에 대해 SSISDB 데이터베이스를 호스트하는 Azure SQL Database를 선택합니다.
+    4. **데이터베이스 이름**으로 **SSISDB**를 선택합니다.
+    5. **사용자 이름**으로 데이터베이스에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다.
+    6. **암호**에 대해 사용자의 암호를 입력합니다. 
+    7. **연결 테스트** 단추를 클릭하여 데이터베이스에 대한 연결을 테스트합니다.
+    8. **저장** 단추를 클릭하여 연결된 서비스를 저장합니다. 
 
         ![Azure SQL Database 연결된 서비스](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. 속성 창의 **SQL 계정** 탭에서 **저장 프로시저** 탭으로 전환한 후 다음 단계를 수행합니다. 
@@ -109,7 +110,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
         ```
 
         ![Azure SQL Database 연결된 서비스](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. 파이프라인 구성에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>**를 클릭합니다.
+6. 파이프라인 구성에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>** 를 클릭합니다.
 
     ![파이프라인 유효성 검사](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. **모두 게시** 단추를 클릭하여 Data Factory에 파이프라인을 게시합니다. 
@@ -121,14 +122,18 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
 1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거**를 클릭하고 **지금 트리거**를 클릭합니다. 
 
-    ![지금 트리거](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    ![지금 트리거](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+
 2. **파이프라인 실행** 창에서 **마침**을 선택합니다. 
 3. 왼쪽의 **모니터** 탭으로 전환합니다. 다른 정보(예: 실행 시작 시간)와 함께 파이프라인 실행 및 해당 상태를 확인합니다. 보기를 새로 고치려면 **새로 고침**을 클릭합니다.
 
     ![파이프라인 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 파이프라인에는 작업이 하나만 있으므로(저장 프로시저 작업) 하나의 작업 실행만 파이프라인으로 표시됩니다.
 
-    ![작업 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4.Azure SQL Server의 SSISDB 데이터베이스에 대해 다음 **쿼리**를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
+    ![작업 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
+
+4. Azure SQL 서버의 SSISDB 데이터베이스에 대해 다음 **쿼리**를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
 
     ```sql
     select * from catalog.executions

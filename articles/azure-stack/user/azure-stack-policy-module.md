@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 정책 모듈을 사용 하 여 | Microsoft Docs"
-description: "Azure 스택 구독 처럼 동작 하는 Azure 구독을 제한 하는 방법에 알아봅니다"
+title: Azure 스택 정책 모듈을 사용 하 여 | Microsoft Docs
+description: Azure 스택 구독 처럼 동작 하는 Azure 구독을 제한 하는 방법에 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 71f17a460f4a81a98e2cdef183acb29f721d584e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 10df87ec6d30e74356b0ff0f44b8745f8c7b8bf3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Azure 스택 정책 모듈을 사용 하 여 Azure 정책 관리
 
@@ -41,7 +41,7 @@ Azure 스택 정책 모듈을 사용 하면 동일한 버전 관리 및 Azure �
 Azure 구독에 대해 기본 Azure 스택 정책을 적용 하려면 다음 명령을 사용할 수 있습니다. 를 실행 하기 전에 교체 *Azure 구독 이름을* Azure 구독.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -53,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 보다 세부적인 메서드에 정책을 적용 수 있습니다.  예를 들어, 동일한 구독에서 실행 중인 다른 리소스가 있을 수 있습니다.  Azure 리소스를 사용 하 여 Azure 스택 앱을 테스트할 수 있는 특정 리소스 그룹에 정책 적용을 범위를 지정할 수 있습니다. 를 실행 하기 전에 교체 *Azure 구독 이름을* 을 Azure 구독 이름입니다.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

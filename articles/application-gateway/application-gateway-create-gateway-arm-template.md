@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Gateway 만들기 - 템플릿 | Microsoft Docs"
-description: "이 페이지에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다."
+title: Azure Application Gateway 만들기 - 템플릿 | Microsoft Docs
+description: 이 페이지에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ba100189cec2060efa97914a2c90f7b0cccbc33f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 게이트웨이 만들기
 
 > [!div class="op_single_selector"]
-> * [쉬운 테이블](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
@@ -73,10 +73,10 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 1. **resources** 아래의 내용을 확인하고 다음 속성을 검토합니다.
 
    * **type**. 템플릿에 의해 생성되는 리소스의 유형입니다. 이 경우 형식은 응용 프로그램 게이트웨이를 나타내는 `Microsoft.Network/applicationGateways`입니다.
-   * **이름**. 리소스의 이름입니다. `[parameters('applicationGatewayName')]`이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
+   * **이름**: 리소스의 이름입니다. `[parameters('applicationGatewayName')]`이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
    * **properties**. 리소스의 속성 목록입니다. 이 템플릿은 응용 프로그램 게이트웨이를 만드는 동안 가상 네트워크 및 공용 IP 주소를 사용합니다.
 
-1. [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)로 이동합니다.
+1. [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)로 돌아갑니다.
 1. **azuredeploy-parameters.json**을 클릭하고 **RAW**를 클릭합니다.
 1. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 1. 저장한 파일을 열고 매개 변수 값을 편집합니다. 다음 값을 사용하여 이 시나리오에 설명된 응용 프로그램 게이트웨이를 배포합니다.
@@ -129,7 +129,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 1. PowerShell에 로그인
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. 계정에 대한 구독을 확인합니다.

@@ -1,24 +1,24 @@
 ---
-title: "Resource Manager 템플릿을 사용하여 Azure Service Bus 리소스 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 자동으로 Service Bus 리소스 만들기"
+title: Resource Manager 템플릿을 사용하여 Azure Service Bus 리소스 만들기 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 자동으로 Service Bus 리소스 만들기
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: 0ceeb138a7432e51cabe2597c680cb01ea9eac4a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 리소스 만들기
 
@@ -61,7 +61,7 @@ Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resour
 
 ### <a name="create-a-template"></a>템플릿 만들기
 
-GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 템플릿을 복제 또는 복사합니다.
+리포지토리를 복제하거나 GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 템플릿을 복사합니다.
 
 ```json
 {
@@ -163,7 +163,7 @@ GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quicks
 PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Azure 계정에 로그온하라는 메시지가 표시됩니다. 로그온한 후 다음 명령을 실행하여 사용 가능한 구독을 확인합니다.
@@ -180,7 +180,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>리소스 그룹 설정
 
-기존 리소스 그룹이 없는 경우 **New-AzureRmResourceGroup ** 명령을 사용하여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예:
+기존 리소스 그룹이 없는 경우 **New-AzureRmResourceGroup ** 명령을 사용하여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예: 
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"

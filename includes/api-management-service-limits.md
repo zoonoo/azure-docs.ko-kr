@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: bee289da3f18edd0cb425f3d9acde084567a3b13
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b40e2ba448236bcef72ffe501b4b14fa0dd64e1c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -21,6 +21,7 @@ ms.lasthandoff: 04/05/2018
 | 캐시 | 단위당 5GB<sup>1</sup> |
 | HTTP 기관당 동시 백 엔드 연결<sup>2</sup> | 단위당 2048<sup>3</sup> |
 | 캐시된 최대 응답 크기 | 10MB |
+| 최대 정책 문서 크기 | 256KB |
 | 최대 사용자 지정 게이트웨이 도메인 | 서비스 인스턴스당 20<sup>4</sup> |
 
 

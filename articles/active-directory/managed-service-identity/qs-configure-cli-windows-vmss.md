@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI를 사용하여 Azure 가상 머신 확장 집합에서 MSI 구성"
-description: "Azure CLI를 사용하여 Azure 가상 머신 확장 집합에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침입니다."
+title: Azure CLI를 사용하여 Azure 가상 머신 확장 집합에서 MSI 구성
+description: Azure CLI를 사용하여 Azure 가상 머신 확장 집합에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9cdf5225f2d87fffa2290e3edd09d4ae829aee21
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 MSI(관리 서비스 ID) 구성
 
@@ -71,10 +71,10 @@ MSI 기반 가상 머신 확장 집합을 만들려면 다음을 수행합니다
    az login
    ```
 
-2. `--assign-identity` 매개 변수가 포함된 [az vmss assign-identity](/cli/azure/vm/#az_vmss_assign_identity)를 사용하여 기존 VM에 MSI를 추가합니다.
+2. [az vmss identity assign](/cli/azure/vmss/identity/#az_vmss_identity_assign) 명령을 사용하여 기존 VM에 MSI를 추가합니다.
 
    ```azurecli-interactive
-   az vmss assign-identity -g myResourceGroup -n myVMSS
+   az vmss identity assign -g myResourceGroup -n myVMSS
    ```
 
 ## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 MSI 제거
@@ -87,10 +87,10 @@ MSI가 더 이상 필요하지 않은 가상 머신 확장 집합이 있는 경�
    az login
    ```
 
-2. [az vmss remove-identity](/cli/azure/vmss/#az_vmss_remove_identity)와 함께 `--identities` 스위치를 사용하여 MSI를 제거합니다.
+2. [az vmss identity remove](/cli/azure/vmss/identity/#az_vmss_remove_identity) 명령을 사용하여 MSI를 제거합니다.
 
    ```azurecli-interactive
-   az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
+   az vmss identity remove -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
 ## <a name="next-steps"></a>다음 단계

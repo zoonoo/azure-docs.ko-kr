@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Java 명령줄 시작 | Microsoft Docs"
-description: "API 액세스를 위해 사용자를 로그인하는 Java 명령줄 앱을 빌드하는 방법"
+title: Azure AD Java 명령줄 시작 | Microsoft Docs
+description: API 액세스를 위해 사용자를 로그인하는 Java 명령줄 앱을 빌드하는 방법
 services: active-directory
 documentationcenter: java
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0e12711e4a7e67861d61ae4575c4956531cf841
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Azure AD에서 API를 액세스하기 위해 Java 명령줄 앱 사용
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -258,7 +258,7 @@ public class PublicClient {
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> 최신 Tomcat 서버를 사용하여 WAR를 쉽게 배포할 수 있습니다. `http://localhost:8080/manager/`로 이동하여 'adal4jsample.war' 파일을 업로드하기 위한 지침을 따릅니다. 올바른 끝점을 사용하여 자동으로 배포합니다.
+> 최신 Tomcat 서버를 사용하여 WAR를 쉽게 배포할 수 있습니다. `http://localhost:8080/manager/`로 이동하여 `adal4jsample.war` 파일을 업로드하기 위한 지침을 따릅니다. 올바른 끝점을 사용하여 자동으로 배포합니다.
 > 
 > 
 

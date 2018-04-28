@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 250c66c3a39519a6eddc1ecb51259ec1944c88a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 Virtual Network 지원을 구성하는 방법 
 Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. VNet은 클라우드의 개인 네트워크입니다. Azure Redis Cache 인스턴스를 VNet으로 구성한 경우 클라이언트에서만 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신 및 응용 프로그램에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법을 설명합니다.
@@ -84,12 +84,13 @@ VNet을 사용하는 경우 Azure Redis Cache 인스턴스에 연결하려면 �
 
 * [Azure Redis Cache 및 VNet의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 * [캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [VNET에서 내 Redis Cache에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [표준 또는 기본 캐시에 VNet을 사용할 수 있나요?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [일부 서브넷에서만 Redis Cache 생성이 실패하는 이유는 무엇인가요?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [서브넷 주소 공간 요구 사항은 무엇입니까?](#what-are-the-subnet-address-space-requirements)
 * [VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Azure Redis Cache 및 VNet의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
+### <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Azure Redis Cache 및 VNet의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
 Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용됩니다. 
 
 >[!IMPORTANT]
@@ -100,7 +101,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 - [아웃바운드 포트 요구 사항](#outbound-port-requirements)
 - [인바운드 포트 요구 사항](#inbound-port-requirements)
 
-### <a name="outbound-port-requirements"></a>아웃바운드 포트 요구 사항
+#### <a name="outbound-port-requirements"></a>아웃바운드 포트 요구 사항
 
 7가지 아웃바운드 포트 요구 사항이 있습니다.
 
@@ -120,7 +121,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 | 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
 
-### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
+#### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
 
@@ -135,7 +136,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 | 16001 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
 | 20226 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-### <a name="additional-vnet-network-connectivity-requirements"></a>추가 VNET 네트워크 연결 요구 사항
+#### <a name="additional-vnet-network-connectivity-requirements"></a>추가 VNET 네트워크 연결 요구 사항
 
 가상 네트워크에서 처음에 충족되지 않는 Azure Redis Cache에 대한 네트워크 연결 요구 사항이 있습니다. Azure Redis Cache를 가상 네트워크 내에서 사용하는 경우 제대로 작동되려면 다음 항목이 모두 필요합니다.
 
@@ -164,6 +165,24 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
   - 또 다른 테스트 방법은 캐시에 연결하고 캐시에서 일부 항목을 추가 및 검색하는 테스트 캐시 클라이언트(StackExchange.Redis를 사용하는 간단한 콘솔 응용 프로그램일 수 있음)를 만드는 것입니다. 캐시와 동일한 VNET에 있는 VM에 샘플 클라이언트 응용 프로그램을 설치하고 실행하여 캐시에 대한 연결을 확인합니다.
 
 
+### <a name="when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>VNET에서 내 Redis Cache에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?
+
+VNET의 Redis Cache에 연결하려고 하면 다음과 같은 인증서 유효성 검사 오류가 나타납니다.
+
+`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
+
+IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다. 호스트 이름을 사용하는 것이 좋습니다. 즉, 다음을 사용합니다.     
+
+`[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+다음 연결 문자열과 유사한 IP 주소는 사용하지 마세요.
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예: 
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
+
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>표준 또는 기본 캐시에 VNet을 사용할 수 있나요?
 VNet은 프리미엄 캐시에만 사용할 수 있습니다.
 
@@ -182,7 +201,9 @@ Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소
 
 * Redis 콘솔 - Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
 
+
 ## <a name="use-expressroute-with-azure-redis-cache"></a>Azure Redis Cache에서 ExpressRoute 사용
+
 고객은 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) 회로를 가상 네트워크 인프라로 연결할 수 있습니다. 따라서 Azure로 온-프레미스 네트워크를 확장합니다. 
 
 기본적으로 새로 만든 ExpressRoute 회로는 VNET에서 강제 터널링(0.0.0.0/0 기본 경로 보급 알림)을 수행하지 않습니다. 결과적으로 아웃바운드 인터넷 연결은 VNET에서 직접 허용되며, 클라이언트 응용 프로그램은 Azure Redis Cache를 포함한 다른 Azure 끝점에 연결할 수 있습니다.

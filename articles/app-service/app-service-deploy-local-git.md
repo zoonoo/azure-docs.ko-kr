@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 4cbe26055bdbf906223a327ab8cf94bebe9e7998
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대한 로컬 Git 배포
 
@@ -99,7 +99,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ## <a name="deploy-your-project"></a>프로젝트 배포
 
-_로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _\<url>_을 [앱에 대해 Git 사용](#enable-git-for-you-app)에서 가져온 Git 원격의 URL로 바꿉니다.
+_로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _\<url>_ 을 [앱에 대해 Git 사용](#enable-git-for-you-app)에서 가져온 Git 원격의 URL로 바꿉니다.
 
 ```bash
 git remote add azure <url>
@@ -189,3 +189,5 @@ git config --global http.postBuffer 524288000
 
 * [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
 * [Azure App Service에 연속 배포](app-service-continuous-deployment.md)
+* [샘플: 로컬 Git 리포지토리에서 웹앱 만들기 및 코드 배포(Azure CLI)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [샘플: 로컬 Git 리포지토리에서 웹앱 만들기 및 코드 배포(PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

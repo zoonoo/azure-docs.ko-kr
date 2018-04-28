@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 Windows 가상 머신 만들기
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > 가속 네트워킹을 사용하여 가상 머신을 만들어야 합니다. 기존 가상 머신에서는 이 기능을 사용할 수 없습니다. 가속 네트워킹을 사용하려면 다음 단계를 완료합니다.
 >   1. 가상 머신 삭제
 >   2. 가속 네트워킹을 사용하는 가상 머신을 다시 만듭니다.
@@ -52,7 +52,7 @@ Microsoft Windows Server 2012 R2 Datacenter 및 Windows Server 2016
 VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="regions"></a>영역
-모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다. 
+모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 이 기능을 사용하는 경우 다음과 같은 제한이 적용됩니다.
@@ -61,11 +61,11 @@ VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-mac
 * **VM 만들기:** VM을 만들 때 가속화된 네트워킹을 사용하도록 설정된 NIC만 VM에 연결할 수 있습니다. 기존 VM에는 이 NIC를 연결할 수 없습니다. VM을 기존 가용성 집합에 추가하는 경우 가용성 집합의 모든 VM에서도 가속화된 네트워킹을 사용할 수 있어야 합니다.
 * **Azure Resource Manager를 통해서만 배포:** 가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
 
-이 문서에서는 Azure PowerShell을 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 지원되는 운영 체제와 VM 크기로 가상 머신을 만드는 경우 **설정**의 **가속 네트워킹** 아래에서 **사용**을 선택합니다. 가상 머신이 만들어진 후에는 [드라이버가 운영 체제에 설치되었는지 확인](#confirm-the-driver-is-installed-in-the-operating-system)의 지침을 완료해야 합니다.
+이 문서에서는 Azure PowerShell을 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 가상 머신을 만드는 경우 **설정**의 **가속 네트워킹** 아래에서 **사용**을 선택합니다. [지원되는 운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택하지 않으면 가속 네트워킹을 사용하는 옵션이 포털에 나타나지 않습니다. 가상 머신이 만들어진 후에는 [드라이버가 운영 체제에 설치되었는지 확인](#confirm-the-driver-is-installed-in-the-operating-system)의 지침을 완료해야 합니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[Azure PowerShell](/powershell/azure/install-azurerm-ps) 버전 5.1.1 이상을 설치합니다. 현재 설치된 버전을 찾으려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 할 경우 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureRM)에서 최신 버전의 AzureRM 모듈을 설치합니다. PowerShell 세션에서 [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount) 명령을 사용하여 Azure 계정에 로그인합니다.
+[Azure PowerShell](/powershell/azure/install-azurerm-ps) 버전 5.1.1 이상을 설치합니다. 현재 설치된 버전을 찾으려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 할 경우 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureRM)에서 최신 버전의 AzureRM 모듈을 설치합니다. PowerShell 세션에서 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용하여 Azure 계정에 로그인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVM*이 포함됩니다.
 
@@ -200,13 +200,13 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 ## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>드라이버가 운영 체제에 설치되었는지 확인
 
-Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설치되어 있는지를 확인합니다. 
+Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설치되어 있는지를 확인합니다.
 
 1. 인터넷 브라우저에서 Azure [Portal](https://portal.azure.com)을 열고 Azure 계정으로 로그인합니다.
 2. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *myVm*을 입력합니다. 검색 결과에서 표시되는 **myVm**을 클릭합니다. **연결** 단추 아래에서 **만드는 중**이 표시되는 경우 Azure에서 VM 만들기를 아직 완료하지 않은 것입니다. 따라서 **연결** 단추 아래에서 **만드는 중**가 더 이상 표시되지 않는 경우에만 개요의 왼쪽 위 모서리에 있는 **연결**을 클릭합니다.
 3. [가상 머신 만들기](#create-the-virtual-machine)에서 입력한 사용자 이름과 암호를 입력합니다. Azure에서 Windows VM에 연결된 적이 없는 경우 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)을 참조하세요.
 4. [Windows 시작] 단추를 마우스 오른쪽 단추로 클릭한 다음 **장치 관리자**를 클릭합니다. **네트워크 어댑터** 노드를 펼칩니다. 다음 그림과 같이 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 나타나는지 확인합니다.
-   
+
     ![장치 관리자](./media/create-vm-accelerated-networking/device-manager.png)
 
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.

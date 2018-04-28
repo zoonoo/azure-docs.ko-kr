@@ -1,9 +1,9 @@
 ---
-title: "SQL Server 비즈니스 인텔리전스 | Microsoft Docs"
-description: "이 항목에서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure VM(Virtual Machines)에서 실행 중인 SQL Server에 사용할 수 있는 BI(비즈니스 인텔리전스) 기능에 대해 설명합니다."
+title: SQL Server 비즈니스 인텔리전스 | Microsoft Docs
+description: 이 항목에서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure VM(Virtual Machines)에서 실행 중인 SQL Server에 사용할 수 있는 BI(비즈니스 인텔리전스) 기능에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -78,10 +78,10 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 | SQL Server BI 기능 | 갤러리 이미지에 설치 | 메모 |
 | --- | --- | --- |
 | **Reporting Services 기본 모드** |예 |설치되었지만 보고서 관리자 URL을 비롯한 구성이 필요합니다. [Reporting Services 구성](#configure-reporting-services)섹션을 참조하세요. |
-| **Reporting Services SharePoint 모드** |아니요 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
+| **Reporting Services SharePoint 모드** |아니오 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
 | **Analysis Services 다차원 및 데이터 마이닝(OLAP)** |예 |설치되고 기본 Analysis Services 인스턴스로 구성되었습니다. |
 | **Analysis Services 테이블 형식** |아니요 |SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요. |
-| **SharePoint용 Analysis Services 파워 피벗** |아니요 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
+| **SharePoint용 Analysis Services 파워 피벗** |아니오 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
 
 <sup>1</sup> SharePoint 및 Azure Virtual Machines에 대한 추가 정보는 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx) 및 [Microsoft Azure Virtual Machines에 SharePoint 배포](https://www.microsoft.com/download/details.aspx?id=34598)를 참조하세요.
 
@@ -197,7 +197,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 2. **데이터베이스 변경**을 클릭합니다.
 3. **새 보고서 서버 데이터베이스 만들기** 가 선택되었는지 확인한 후 다음을 클릭합니다.
 4. **서버 이름**을 확인하고 **연결 테스트**를 클릭합니다.
-5. 결과가 **연결 테스트에 성공했습니다.**인 경우 **확인**을 클릭한 후 **다음**을 클릭합니다.
+5. 결과가 **연결 테스트에 성공했습니다.** 인 경우 **확인**을 클릭한 후 **다음**을 클릭합니다.
 6. 데이터베이스 이름이 **ReportServer**이고 **보고서 서버 모드**가 **기본**인지 확인한 후 **다음**을 클릭합니다.
 7. **다음** on the **다음** 을 클릭합니다.
 8. **다음** on the **다음** 을 클릭합니다.
@@ -225,7 +225,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 2. 가상 머신의 방화벽에서 포트 80을 엽니다.
 3. Azure Virtual Machine **DNS 이름**을 URL의 서버 이름으로 사용하는 보고서 관리자 또는 웹 포털로 이동합니다. 예: 
    
-    **보고서 서버**: http://uebi.cloudapp.net/reportserver **웹 포털**: http://uebi.cloudapp.net/reports
+    **보고서 서버**: http://uebi.cloudapp.net/reportserver  **웹 포털**: http://uebi.cloudapp.net/reports
    
     [보고서 서버 액세스를 위한 방화벽 구성](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -316,7 +316,7 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
   * 표시된 포트(*)에 가상 머신 끝점을 만듭니다.
 * Azure 가상 네트워킹 같은 VPN 터널을 사용하여 가상 머신이 도메인에 가입되어 있는 경우 끝점이 필요하지 않습니다. 그러나 VM의 방화벽에서 포트를 엽니다.
   
-  | 포트 | 형식 | 설명 |
+  | 포트 | type | 설명 |
   | --- | --- | --- |
   | **80** |TCP |보고서 서버 원격 액세스(*) |
   | **1433** |TCP |SQL Server Management Studio(*) |

@@ -1,6 +1,6 @@
 ---
-title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - Access Control"
-description: "FedRAMP 웹 응용 프로그램 자동화 - Access Control"
+title: Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - Access Control
+description: FedRAMP 웹 응용 프로그램 자동화 - Access Control
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-ac"></a>AC(액세스 제어)
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 Blueprint는 OMS 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 정보 시스템 계정 사용을 모니터링할 수 있습니다. |
+| **고객** | 이 Blueprint는 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 정보 시스템 계정 사용을 모니터링할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 Blueprint는 OMS 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 정보 시스템 계정 사용을 모니터링할 수 있습니다. 비정상적 활동이 의심되거나 미리 정의된 기타 이벤트가 발생할 때 경고를 보내도록 OMS를 구성할 수 있습니다. |
+| **고객** | 이 Blueprint는 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 정보 시스템 계정 사용을 모니터링할 수 있습니다. 비정상적 활동이 의심되거나 미리 정의된 기타 이벤트가 발생할 때 경고를 보내도록 구성할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 Blueprint는 Azure Active Directory 사용자, Windows OS 사용자, SQL Server 서비스 계정과 같은 시스템 계정 유형을 구현합니다. Azure Active Directory 계정 관리 작업은 Azure 활동 로그에 이벤트를 생성하고 OS 수준 계정 관리 작업은 시스템 로그에 이벤트를 생성합니다. 이러한 로그는 Log Analytics에 의해 수집되어 OMS 리포지토리에 저장됩니다. 미리 정의된 이벤트가 발생할 때 경고를 보내도록 OMS를 구성할 수 있습니다.  |
+| **고객** | 이 Blueprint는 Azure Active Directory 사용자, Windows OS 사용자, SQL Server 서비스 계정과 같은 시스템 계정 유형을 구현합니다. Azure Active Directory 계정 관리 작업은 Azure 활동 로그에 이벤트를 생성하고 OS 수준 계정 관리 작업은 시스템 로그에 이벤트를 생성합니다. 이러한 로그는 Log Analytics에 의해 수집되어 Log Analytics 작업 영역에 저장됩니다. 미리 정의된 이벤트가 발생할 때 경고를 보내도록 Log Analytics를 구성할 수 있습니다.  |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 Blueprint는 OMS 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 정보 시스템 계정 사용을 모니터링할 수 있습니다. 이 솔루션을 쿼리하여 권한 있는 역할 할당을 보고할 수 있습니다. |
+| **고객** | 이 Blueprint는 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 정보 시스템 계정 사용을 모니터링할 수 있습니다. 이 솔루션을 쿼리하여 권한 있는 역할 할당을 보고할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 Blueprint는 OMS 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 배포된 리소스에 대한 액세스 시도를 모니터링할 수 있습니다. |
+| **고객** | 이 Blueprint는 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 배포된 리소스에 대한 액세스 시도를 모니터링할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 Blueprint는 OMS 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 배포된 리소스에 대한 액세스 시도를 모니터링할 수 있습니다. 비정상적 활동이 의심되거나 미리 정의된 기타 이벤트가 발생할 때 경고를 보내도록 이 솔루션을 구성할 수 있습니다. |
+| **고객** | 이 Blueprint는 보안 및 감사 솔루션의 ID 및 액세스 대시보드를 구현합니다. 이 대시보드를 통해 계정 관리자는 배포된 리소스에 대한 액세스 시도를 모니터링할 수 있습니다. 비정상적 활동이 의심되거나 미리 정의된 기타 이벤트가 발생할 때 경고를 보내도록 이 솔루션을 구성할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 청사진은 OMS에서 Log Analytics 서비스를 구현합니다. 배포된 VM 및 Azure 진단 저장소 계정은 권한 있는 기능의 실행이 감사되도록 Log Analytics에 연결된 원본입니다. |
+| **고객** | 이 Blueprint는 Log Analytics 서비스를 구현합니다. 배포된 VM 및 Azure 진단 저장소 계정은 권한 있는 기능의 실행이 감사되도록 Log Analytics에 연결된 원본입니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 Blueprint는 Azure Portal, jumpbox를 통한 원격 데스크톱 연결, 고객 구현 웹 응용 프로그램을 통해 정보 시스템에 대한 원격 액세스를 제공합니다. Azure Portal 및 원격 데스크톱 세션을 통한 액세스는 감사되며 OMS를 통해 모니터링할 수 있습니다. 고객은 필요에 따라 웹 응용 프로그램에 원격 액세스 제어를 구현해야 합니다. |
+| **고객** | 이 Blueprint는 Azure Portal, jumpbox를 통한 원격 데스크톱 연결, 고객 구현 웹 응용 프로그램을 통해 정보 시스템에 대한 원격 액세스를 제공합니다. Azure Portal 및 원격 데스크톱 세션을 통한 액세스는 감사되며 Log Analytics를 통해 모니터링할 수 있습니다. 고객은 필요에 따라 웹 응용 프로그램에 원격 액세스 제어를 구현해야 합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 

@@ -8,16 +8,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -297,7 +295,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Az
 
 ## <a name="connecting-to-hdinsight"></a>HDInsight에 연결
 
-HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 https://CLUSTERNAME.azurehdinsight.net에서 클러스터에 연결할 수 있습니다. 이 주소는 인터넷에서 액세스를 제한하는 데 NSG 또는 UDR을 사용한 경우에는 사용할 수 없는 공용 게이트웨이를 사용합니다.
+HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 https://CLUSTERNAME.azurehdinsight.net에 있는 클러스터에 연결할 수 있습니다. 이 주소는 인터넷에서 액세스를 제한하는 데 NSG 또는 UDR을 사용한 경우에는 사용할 수 없는 공용 게이트웨이를 사용합니다.
 
 일부 설명서는 SSH 세션에서 클러스터에 연결하는 경우 `headnodehost`도 참조합니다. 이 주소는 클러스터 내의 노드에서만 제공되며 가상 네트워크를 통해 연결된 클라이언트에서 사용할 수 없습니다.
 

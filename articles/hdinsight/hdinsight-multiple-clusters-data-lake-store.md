@@ -1,26 +1,24 @@
 ---
-title: "Azure Data Lake Store 계정으로 여러 HDInsight 클러스터 사용 - Azure | Microsoft Docs"
-description: "단일 Data Lake Store 계정으로 하나 이상의 HDInsight 클러스터를 사용하는 방법에 대해 알아봅니다"
-keywords: "hdinsight 저장소, hdfs, 구조화된 데이터, 구조화되지 않은 데이터, Data Lake Store"
+title: Azure Data Lake Store 계정으로 여러 HDInsight 클러스터 사용 - Azure | Microsoft Docs
+description: 단일 Data Lake Store 계정으로 하나 이상의 HDInsight 클러스터를 사용하는 방법에 대해 알아봅니다
+keywords: hdinsight 저장소, hdfs, 구조화된 데이터, 구조화되지 않은 데이터, Data Lake Store
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정으로 여러 HDInsight 클러스터 사용
 
@@ -94,7 +92,7 @@ AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체
 이전에 연결된 YARN JIRA에 명시된 대로 공용 리소스를 지역화하는 동안 지역화 담당자는 원격 파일 시스템에서 해당 사용 권한을 확인하여 요청된 모든 리소스가 실제로 공용인지 확인합니다. 지역화를 위해 해당 조건에 맞지 않는 모든 LocalResource는 거부됩니다. 사용 권한에 대한 확인은 "다른 사용자"에 대한 파일에 읽기 액세스를 포함합니다. Azure Data Lake는 루트 폴더 수준에서 "다른 사용자"에 대한 모든 액세스를 거부하므로 이 시나리오는 Azure Data Lake에서 HDInsight 클러스터를 호스팅할 때 기본으로 작동하지 않습니다.
 
 #### <a name="workaround"></a>해결 방법
-계층을 통해 **다른 사용자**에 대한 읽기-실행 권한을 설정합니다(예: **/**에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
+계층을 통해 **다른 사용자**에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
 
 ## <a name="see-also"></a>참고 항목
 

@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보"
-description: "Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보"
+title: Microsoft Azure Storage 탐색기 릴리스 정보
+description: Microsoft Azure Storage 탐색기에 대한 릴리스 정보
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
 이 문서에서는 Azure Storage 탐색기 0.9.6(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 제공합니다.
 
-[Microsoft Azure Storage 탐색기(미리 보기)](./vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다.
+[Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
 ## <a name="version-096"></a>버전 0.9.6
 02/28/2018
@@ -227,7 +227,7 @@ ms.lasthandoff: 03/02/2018
 * 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 저장소 탐색기는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 저장소 탐색기는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
 * Blob 업로드 중에 대상 Blob 컨테이너의 편집기는 경우에 따라 올바르게 새로 고쳐지지 않습니다. 이 문제가 해결되었습니다.
 * 여러 형태의 연결 문자열 및 SAS URI에 대한 지원이 회귀되었습니다. 모든 알려진 문제를 해결했지만 추가 문제가 발생하면 사용자 의견을 보내주세요.
-* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/en-us/features/storage-explorer/)에서 최신 버전의 Microsoft Azure Storage 탐색기를 수동으로 다운로드할 수 있습니다.
+* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Microsoft Azure Storage 탐색기를 수동으로 다운로드할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 * 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
@@ -281,7 +281,7 @@ ms.lasthandoff: 03/02/2018
 * 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 저장소 탐색기는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 저장소 탐색기는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
 * Blob 업로드 중에 대상 Blob 컨테이너의 편집기는 경우에 따라 올바르게 새로 고쳐지지 않습니다. 이 문제가 해결되었습니다.
 * 여러 형태의 연결 문자열 및 SAS URI에 대한 지원이 회귀되었습니다. 모든 알려진 문제를 해결했지만 추가 문제가 발생하면 사용자 의견을 보내주세요.
-* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/en-us/features/storage-explorer/)에서 최신 버전의 저장소 탐색기를 수동으로 다운로드할 수 있습니다.
+* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 저장소 탐색기를 수동으로 다운로드할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 * 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/23/2018
 * 모니터는 조건이 충족되면 종료되거나 다른 프로세스에 의해 종료될 수 있습니다.
 * 모니터에 매개 변수를 사용할 수 있습니다. 이 샘플에서는 요청 받은 위치와 전화 번호에 동일한 기상 모니터링 프로세스를 적용하는 방법을 보여줍니다.
 * 모니터는 확장성이 있습니다. 각 모니터는 오케스트레이션 인스턴스이기 때문에 새 함수를 만들거나 코드를 더 정의하지 않고도 다수의 모니터를 만들 수 있습니다.
-* 모니터는 보다 큰 워크플로에 쉽게 통합됩니다. 모니터는 더 복잡한 오케스트레이션 함수 또는 [ 하위 오케스트레이션](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations)의 한 섹션이 될 수 있습니다.
+* 모니터는 보다 큰 워크플로에 쉽게 통합됩니다. 모니터는 더 복잡한 오케스트레이션 함수 또는 [ 하위 오케스트레이션](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations)의 한 섹션이 될 수 있습니다.
 
 ## <a name="configuring-twilio-integration"></a>Twilio 통합 구성
 

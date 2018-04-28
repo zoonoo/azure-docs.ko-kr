@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure 스택에서 통용 API 버전 프로필을 사용 하 여
 
@@ -82,7 +80,7 @@ Azure로 이동 SDK에 대 한 자세한 정보를 얻을 수 있습니다.
   ```
 
   3. 사용할 수 없는 경우 구독을 만들고 나중에 사용할 구독 ID를 저장 합니다. 구독을 만드는 방법에 대 한 정보를 참조 하십시오. [Azure 스택에서 제공 하는 구독을 만들](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)합니다. 
-  4. "구독" 범위를 가진 서비스 사용자 만들기 및 **소유자** 역할입니다. 서비스 사용자의 ID와 암호를 저장 합니다. Azure 스택에 대 한 서비스 사용자를 만드는 방법에 대 한 정보를 참조 하십시오. [서비스 보안 주체를 만들](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad)합니다. Azure 스택 환경 설정 되어 있습니다.
+  4. "구독" 범위를 가진 서비스 사용자 만들기 및 **소유자** 역할입니다. ID 및 암호에는 서비스 사용자를 저장 합니다. Azure 스택에 대 한 서비스 사용자를 만드는 방법에 대 한 정보를 참조 하십시오. [서비스 보안 주체를 만들](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad)합니다. Azure 스택 환경 설정 되어 있습니다.
   5. 코드에서 이동 SDK 프로필에서 서비스 모듈을 가져옵니다. Azure 스택 프로필의 현재 버전은 **2017-03-09**합니다. 예를 들어에서 네트워크 모듈을 가져오려면 **2017-03-09** 프로필 유형: 
 
   ````go
@@ -129,7 +127,7 @@ func main() {
 
 이 섹션에서는 클라이언트 자격 증명을 사용 하 여 Azure 스택에 권한 부여자 토큰을 가져오기 위해 일반적으로 제공 합니다.
 
-  1. 소유자 역할 구독에 서비스 사용자를 사용할 수 있는 경우이 단계를 건너뜁니다. 그렇지 않으면 서비스 사용자를 만들 [지침]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) 구독으로 범위가 지정 된 "소유자" 역할을 할당 하 고 [지침]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)합니다. 서비스 응용 프로그램 사용자 ID 및 암호를 저장 합니다. 
+  1. 소유자 역할 구독에 서비스 사용자를 사용할 수 있는 경우이 단계를 건너뜁니다. 그렇지 않으면 서비스 사용자를 만들 [지침]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) 구독으로 범위가 지정 된 "소유자" 역할을 할당 하 고 [지침]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)합니다. 서비스 응용 프로그램 사용자 ID 및 암호를 저장 합니다. 
 
   2. 가져오기 **adal** Go AutoRest에서 코드에 패키지 합니다. 
   

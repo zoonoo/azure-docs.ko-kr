@@ -1,11 +1,11 @@
 ---
-title: "Operations Management Suite에서 B2B 메시지 추적 - Azure Logic Apps | Microsoft Docs"
-description: "Azure Log Analytics를 사용하여 OMS(Operations Management Suite)에서 통합 계정 및 논리 앱에 대한 B2B 통신 추적"
+title: Azure Log Analytics으로 B2B 메시지 추적 - Azure Logic Apps | Microsoft Docs
+description: Azure Log Analytics를 사용하여 통합 계정 및 논리 앱에 대한 B2B 통신 추적
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Microsoft OMS(Operations Management Suite)에서 B2B 통신 추적
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 B2B 통신 추적
 
-통합 계정을 통해 실행 중인 두 비즈니스 프로세스 또는 응용 프로그램 간의 B2B 통신을 설정한 후 해당 엔터티는 서로 메시지를 교환할 수 있습니다. 이러한 메시지가 올바르게 처리되는지 여부를 확인하기 위해 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에서 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 추적할 수 있습니다. 예를 들어 메시지 추적에 대해 이러한 웹 기반 추적 기능을 사용할 수 있습니다.
+통합 계정을 통해 실행 중인 두 비즈니스 프로세스 또는 응용 프로그램 간의 B2B 통신을 설정한 후 해당 엔터티는 서로 메시지를 교환할 수 있습니다. 이러한 메시지가 올바르게 처리되는지 여부를 확인하기 위해 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 추적할 수 있습니다. 예를 들어 메시지 추적에 대해 이러한 웹 기반 추적 기능을 사용할 수 있습니다.
 
 * 메시지 수 및 상태
 * 승인 상태
@@ -36,30 +36,30 @@ ms.lasthandoff: 02/21/2018
 
 * 모니터링 및 로깅을 사용하여 설정된 통합 계정. [통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 및 [해당 계정에 대한 모니터링 및 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-b2b-message.md)을 알아봅니다.
 
-* 아직 없는 경우 OMS에서 [Log Analytics에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
+* 아직 없는 경우 [Log Analytics에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
 > [!NOTE]
-> 이전 요구 사항을 충족한 후 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에 작업 영역이 있어야 합니다. OMS에서 B2B 통신 추적에 대해 동일한 OMS 작업 영역을 사용해야 합니다. 
+> 이전 요구 사항을 충족한 후에는 Log Analytics에 작업 영역이 있어야 합니다. Log Analytics에서 B2B 통신 추적에 대해 동일한 작업 영역을 사용해야 합니다. 
 >  
-> OMS 작업 영역이 없는 경우 [OMS 작업 영역을 만드는 방법](../log-analytics/log-analytics-get-started.md)을 알아봅니다.
+> Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>OMS(Operations Management Suite)에 Logic Apps B2B 솔루션 추가
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Log Analytics에 Logic Apps B2B 솔루션 추가
 
-논리 앱에 대한 B2B 메시지를 추적하는 OMS를 가지려면 OMS 포털에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [OMS에 솔루션 추가](../log-analytics/log-analytics-get-started.md)에 대해 자세히 알아봅니다.
+Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 OMS 포털에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../log-analytics/log-analytics-quick-create-workspace.md)에 대해 자세히 알아봅니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
 
    ![Log Analytics 찾기](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. **Log Analytics** 아래에서 OMS 작업 영역을 찾고 선택합니다. 
+2. **Log Analytics** 아래에서 Log Analytics 작업 영역을 찾고 선택합니다. 
 
-   ![OMS 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Log Analytics 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. **관리** 아래에서 **OMS 포털**을 선택합니다.
 
    ![OMS 포털 선택](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. OMS 홈페이지를 연 후 **솔루션 갤러리**를 선택합니다.    
+4. 홈페이지를 연 후 **솔루션 갤러리**를 선택합니다.    
 
    ![솔루션 갤러리 선택](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,21 +71,21 @@ ms.lasthandoff: 02/21/2018
 
    ![[추가] 선택](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   OMS 홈페이지에 **Logic Apps B2B 메시지**에 대한 타일이 이제 나타납니다. 
+   홈페이지에 **Logic Apps B2B 메시지**에 대한 타일이 이제 나타납니다. 
    이 타일은 B2B 메시지가 처리되는 경우 메시지 수를 업데이트합니다.
 
-   ![OMS 홈페이지, Logic Apps B2B 메시지 타일](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![홈페이지, Logic Apps B2B 메시지 타일](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>Operations Management Suite의 메시지 상태 및 세부 정보 추적
+## <a name="track-message-status-and-details-in-log-analytics"></a>Log Analytics에서 메시지 상태 및 세부 정보 추적
 
-1. B2B 메시지가 처리된 후 해당 메시지에 대한 상태 및 세부 정보를 볼 수 있습니다. OMS 홈페이지에서 **Logic Apps B2B 메시지** 타일을 선택합니다.
+1. B2B 메시지가 처리된 후 해당 메시지에 대한 상태 및 세부 정보를 볼 수 있습니다. 홈페이지에서 **Logic Apps B2B 메시지** 타일을 선택합니다.
 
    ![업데이트된 메시지 수](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > 기본적으로 **Logic Apps B2B 메시지** 타일은 일별 데이터를 표시합니다. 데이터 범위를 다른 간격으로 변경하려면 OMS 페이지 맨 위에 있는 범위 컨트롤을 선택합니다.
+   > 기본적으로 **Logic Apps B2B 메시지** 타일은 일별 데이터를 표시합니다. 데이터 범위를 다른 간격으로 변경하려면 페이지 맨 위에 있는 범위 컨트롤을 선택합니다.
    > 
    > ![데이터 범위 변경](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
@@ -240,7 +240,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Operations Management Suite에서 B2B 메시지에 대한 쿼리](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Log Analytics에서 B2B 메시지 쿼리](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 추적 스키마](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 추적 스키마](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

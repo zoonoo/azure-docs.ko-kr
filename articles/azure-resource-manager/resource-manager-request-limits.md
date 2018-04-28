@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 요청 한도 | Microsoft Docs"
-description: "구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다."
+title: Azure Resource Manager 요청 한도 | Microsoft Docs
+description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 04/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d670fd7a9a165977fa5c8d3ce4caf5ff1b1df1e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 각 구독 및 테넌트에 대해 Resource Manager는 읽기 요청을 시간당 15,000으로, 쓰기 요청을 시간당 1,200으로 제한합니다. 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
@@ -36,8 +36,8 @@ ms.lasthandoff: 01/29/2018
 
 | 응답 헤더 | 설명 |
 | --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |구독에 범위가 지정된 나머지 읽기 |
-| x-ms-ratelimit-remaining-subscription-writes |구독에 범위가 지정된 나머지 쓰기 |
+| x-ms-ratelimit-remaining-subscription-reads |구독에 범위가 지정된 나머지 읽기. 이 값은 읽기 작업에서 반환됩니다. |
+| x-ms-ratelimit-remaining-subscription-writes |구독에 범위가 지정된 나머지 쓰기. 이 값은 쓰기 작업에서 반환됩니다. |
 | x-ms-ratelimit-remaining-tenant-reads |테넌트에 범위가 지정된 나머지 읽기 |
 | x-ms-ratelimit-remaining-tenant-writes |테넌트에 범위가 지정된 나머지 쓰기 |
 | x-ms-ratelimit-remaining-subscription-resource-requests |구독에 범위가 지정된 나머지 리소스 종류 요청.<br /><br />이 헤더 값은 서비스에서 기본 제한을 재정의한 경우에만 반환됩니다. Resource Manager는 구독 읽기 또는 쓰기 대신 이 값을 추가합니다. |
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/29/2018
 ## <a name="retrieving-the-header-values"></a>헤더 값 검색
 코드 또는 스크립트에서 이러한 헤더 값을 검색하는 것은 임의의 헤더 값을 검색하는 것과 같습니다. 
 
-예를 들어 **C#**에서는 다음 코드로 **response**로 명명된 **HttpWebResponse** 개체에서 헤더 값을 검색합니다.
+예를 들어 **C#** 에서는 다음 코드로 **response**로 명명된 **HttpWebResponse** 개체에서 헤더 값을 검색합니다.
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
@@ -70,7 +70,6 @@ Get-AzureRmResourceGroup -Debug
 그러면 다음 응답 값을 포함한 많은 값이 반환됩니다.
 
 ```powershell
-...
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -79,7 +78,25 @@ OK
 Headers:
 Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 14999
-...
+```
+
+쓰기 제한을 가져오려면 쓰기 작업을 사용합니다. 
+
+```powershell
+New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+```
+
+그러면 다음 값을 포함하는 많은 값이 반환됩니다.
+
+```powershell
+DEBUG: ============================ HTTP RESPONSE ============================
+
+Status Code:
+Created
+
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
 **Azure CLI**에서 더 많은 자세한 정보 표시 옵션을 사용하여 헤더 값을 검색합니다.
@@ -88,20 +105,37 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 az group list --verbose --debug
 ```
 
-그러면 다음 개체를 포함한 많은 값이 반환됩니다.
+그러면 다음 값을 포함하는 많은 값이 반환됩니다.
 
 ```azurecli
-...
-silly: returnObject
-{
-  "statusCode": 200,
-  "header": {
-    "cache-control": "no-cache",
-    "pragma": "no-cache",
-    "content-type": "application/json; charset=utf-8",
-    "expires": "-1",
-    "x-ms-ratelimit-remaining-subscription-reads": "14998",
-    ...
+msrest.http_logger : Response status: 200
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Content-Encoding': 'gzip'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'Vary': 'Accept-Encoding'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+```
+
+쓰기 제한을 가져오려면 쓰기 작업을 사용합니다. 
+
+```azurecli
+az group create -n myresourcegroup --location westus --verbose --debug
+```
+
+그러면 다음 값을 포함하는 많은 값이 반환됩니다.
+
+```azurecli
+msrest.http_logger : Response status: 201
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Length': '163'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## <a name="waiting-before-sending-next-request"></a>다음 요청을 보낼 때까지 대기

@@ -1,6 +1,6 @@
 ---
-title: "Azure 결제 처리 청사진 - 테스트 요구 사항"
-description: "PCI DSS 요구 사항 11"
+title: Azure 결제 처리 청사진 - 테스트 요구 사항
+description: PCI DSS 요구 사항 11
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 57429741afd2ffd16c09a0f1485cb1cfbdda5571
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 테스트 요구 사항 
 ## <a name="pci-dss-requirement-11"></a>PCI DSS 요구 사항 11
@@ -252,7 +252,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 온라인 서비스 대시보드를 통해 서비스의 보안 또는 가용성에 영향을 줄 수 있는 잠재적인 변경 및 이벤트를 유지하고 고객에게 알려줍니다. Microsoft Azure 고객에 대한 보안 약속 및 보안 의무에 대한 변경 내용은 Microsoft Azure 웹 사이트에서 시기 적절하게 업데이트됩니다.<br /><br />권한이 있는 관리 담당자만 Microsoft Azure 프로덕션 환경에서 소프트웨어를 설치하거나 변경하도록 제한되며, 이 경우 변경 관리 절차를 따릅니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 데모는 PaaS 서비스이고, 변경 탐지는 OMS를 사용하여 구현되었습니다. 자세한 내용은 [PCI 지침 - 미리 설치된 OMS 솔루션](payment-processing-blueprint.md#oms-solutions)을 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 데모는 PaaS 서비스이고, 변경 탐지는 Log Analytics를 사용하여 구현되었습니다. 자세한 내용은 [PCI 지침 - 미리 설치된 관리 솔루션](payment-processing-blueprint.md#management-solutions)을 참조하세요.<br /><br />|
 
 
 
@@ -265,7 +265,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Azure 모니터링 이벤트 규칙은 위험 수준이 높은 작업 및 자산에 대해 향상된 수준의 모니터링을 제공합니다. Azure에서 관리되는 네트워크 장치는 설정된 보안 표준을 준수하는지 모니터링됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 변경에 대한 Contoso Webstore 경고는 OMS 구현에 의해 제공됩니다. 자세한 내용은 [PCI 지침 - 미리 설치된 OMS 솔루션](payment-processing-blueprint.md#oms-solutions)을 참조하세요.<br /><br /><br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 변경에 대한 Contoso Webstore 경고는 Log Analytics 구현에 의해 제공됩니다. 자세한 내용은 [PCI 지침 - 미리 설치된 관리 솔루션](payment-processing-blueprint.md#management-solutions)을 참조하세요.<br /><br /><br /><br />|
 
 
 
@@ -278,7 +278,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 변경에 대한 Contoso Webstore 경고는 OMS 구현에 의해 제공됩니다. 자세한 내용은 [PCI 지침 - 미리 설치된 OMS 솔루션](payment-processing-blueprint.md#oms-solutions)을 참조하세요.<br /><br /><br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 변경에 대한 Contoso Webstore 경고는 Log Analytics 구현에 의해 제공됩니다. 자세한 내용은 [PCI 지침 - 미리 설치된 관리 솔루션](payment-processing-blueprint.md#management-solutions)을 참조하세요.<br /><br /><br /><br />|
 
 
 

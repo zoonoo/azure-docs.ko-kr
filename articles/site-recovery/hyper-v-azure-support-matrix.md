@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 9078b56ae9c5582aa21201c168974eb6cc7a4ed6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -56,12 +56,12 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#failed-over-azure
 호스트 네트워크: NIC 팀 | 예
 호스트 네트워크: VLAN | 예
 호스트 네트워크: IPv4 | 예
-호스트 네트워크: IPv6 | 아니요
-게스트 VM 네트워크: NIC 팀 | 아니요
+호스트 네트워크: IPv6 | 아니오
+게스트 VM 네트워크: NIC 팀 | 아니오
 게스트 VM 네트워크: IPv4 | 예
-게스트 VM 네트워크: IPv6 | 아니요
+게스트 VM 네트워크: IPv6 | 아니오
 게스트 VM 네트워크: 고정 IP(Windows) | 예
-게스트 VM 네트워크: 고정 IP(Linux) | 아니요
+게스트 VM 네트워크: 고정 IP(Linux) | 아니오
 게스트 VM 네트워크: 다중 NIC | 예
 
 
@@ -78,7 +78,7 @@ Azure Traffic Manager | 예 | 예
 예약된 IP | 예 | 예
 IPv4 | 예 | 예
 원본 IP 주소 유지 | 예 | 예
-Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Virtual Networks) | 아니요 | 아니오
+Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Virtual Networks) | 아니오 | 아니오
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 저장소
@@ -98,17 +98,17 @@ VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | 예 | 예
 2세대 VM | 예 | 예
 EFI/UEFI| 예 | 예
-공유 클러스터 디스크 | 아니요 | 아니요
-암호화된 디스크 | 아니오 | 아니요
+공유 클러스터 디스크 | 아니오 | 아니오
+암호화된 디스크 | 아니오 | 아니오
 NFS | 해당 없음 | 해당 없음
-SMB 3.0 | 아니요 | 아니요
+SMB 3.0 | 아니오 | 아니오
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
 디스크: 4K 논리/512바이트 물리 섹터 | 예 |  예
 스트라이프 디스크 포함 볼륨 1TB 이상<br/><br/> 논리 볼륨 관리(LVM) | 예 | 예
 저장소 공간 | 예 | 예
-디스크 핫 추가/제거 | 아니오 | 아니요
+디스크 핫 추가/제거 | 아니오 | 아니오
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 예 | 예
 
@@ -119,13 +119,13 @@ RDM | 해당 없음 | 해당 없음
 로컬 중복 저장소 | 예 | 예
 지역 중복 저장소 | 예 | 예
 읽기 액세스 지역 중복 저장소 | 예 | 예
-쿨 저장소 | 아니요 | 아니요
-핫 저장소| 아니요 | 아니오
-블록 Blob | 아니요 | 아니오
+쿨 저장소 | 아니오 | 아니오
+핫 저장소| 아니오 | 아니오
+블록 Blob | 아니오 | 아니오
 미사용 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
-Import/Export 서비스 | 아니요 | 아니오
-대상에서 복제 데이터에 사용되는 저장소 계정을 캐시하기 위한 Azure Virtual Network 서비스 엔드포인트(Azure Storage 방화벽 및 가상 네트워크) | 아니요 | 아니요
+Import/Export 서비스 | 아니오 | 아니오
+대상에서 복제 데이터에 사용되는 저장소 계정을 캐시하기 위한 Azure Virtual Network 서비스 엔드포인트(Azure Storage 방화벽 및 가상 네트워크) | 아니오 | 아니오
 
 
 ## <a name="azure-compute-features"></a>Azure 계산 기능
@@ -160,8 +160,8 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 **작업** |  **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오 
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오 
 
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트
@@ -170,7 +170,7 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 **Name** | **설명** | **세부 정보**
 --- | --- | --- | --- | ---
-Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Virtual Machine Manager가 있는 Hyper-V : Virtual Machine Manager 서버에 설치됨<br/><br/> Virtual Machine Manager가 없는 Hyper-V: Hyper-V 호스트에 설치됨| 최신 버전: 5.1.2700.1(Azure Portal에서 제공됨)<br/><br/> [최신 기능 및 수정](https://aka.ms/latest_asr_updates)
+Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Virtual Machine Manager가 있는 Hyper-V : Virtual Machine Manager 서버에 설치됨<br/><br/> Virtual Machine Manager가 없는 Hyper-V: Hyper-V 호스트에 설치됨| 최신 버전: 5.1.2700.1(Azure Portal에서 제공됨)<br/><br/> [최신 기능 및 수정](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services 에이전트 | Hyper-V VM과 Azure 간 복제 조정<br/><br/> 온-프레미스 Hyper-V 서버에 설치됨(Virtual Machine Manager 있음/없음) | 포털에서 사용할 수 있는 최신 에이전트
 
 

@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 04/27/2018
+ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -29,21 +29,13 @@ Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티�
 
 ### <a name="inputs"></a>입력
 모든 Azure Stream Analytics 입력은 분할을 사용할 수 있습니다.
--   EventHub(파티션 키를 명시적으로 설정해야 함)
--   IoT Hub(파티션 키를 명시적으로 설정해야 함)
+-   EventHub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
+-   IoT Hub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
 -   Blob 저장소
 
 ### <a name="outputs"></a>outputs
 
-Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 있습니다.
--   Azure Data Lake 저장소
--   Azure 기능
--   Azure 테이블
--   Blob 저장소
--   CosmosDB(파티션 키를 명시적으로 설정해야 함)
--   EventHub(파티션 키를 명시적으로 설정해야 함)
--   IoT Hub(파티션 키를 명시적으로 설정해야 함)
--   Service Bus
+Stream Analytics로 작업할 때 대부분의 출력 싱크에 대해 분할을 활용할 수 있습니다. 출력 분할에 대한 자세한 내용은 [출력 페이지의 섹션 분할](stream-analytics-define-outputs.md#partitioning)을 참조하세요.
 
 PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-step-query-with-different-partition-by-values)에 설명된 대로 입력은 여전히 분할할 수 있습니다. 
 
@@ -56,7 +48,7 @@ PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니�
 ## <a name="embarrassingly-parallel-jobs"></a>병렬 처리가 적합한 작업
 *병렬 처리가 적합한* 작업은 Azure Stream Analytics에서 가장 확장성이 뛰어난 시나리오입니다. 하나의 쿼리 인스턴스에 대한 하나의 입력 파티션을 하나의 출력 파티션에 연결합니다. 이 병렬 처리에는 다음 요구 사항이 있습니다.
 
-1. 쿼리 논리가 동일한 쿼리 인스턴스에서 처리되는 동일한 키에 따라 다른 경우 이벤트가 동일한 입력 파티션으로 이동하는지 확인해야 합니다. 이벤트 허브의 경우 이것은 이벤트 데이터에 **PartitionKey** 값이 설정되어야 함을 의미합니다. 또는 분할된 보낸 사람을 사용할 수 있습니다. Blob Storage의 경우 이것은 이벤트가 같은 파티션 폴더에 전송된다는 것을 의미합니다. 쿼리 논리가 동일한 쿼리 인스턴스에서 동일한 키를 처리할 필요가 없는 경우 이 요구 사항을 무시할 수 있습니다. 이 논리에 대한 예로 간단한 선택/프로젝트/필터 쿼리를 참조하세요.  
+1. 쿼리 논리가 동일한 쿼리 인스턴스에서 처리되는 동일한 키에 따라 다른 경우 이벤트가 동일한 입력 파티션으로 이동하는지 확인해야 합니다. Event Hubs 또는 IoT Hub의 경우 이것은 이벤트 데이터에 **PartitionKey** 값 집합이 있어야 한다는 의미입니다. 또는 분할된 보낸 사람을 사용할 수 있습니다. Blob Storage의 경우 이것은 이벤트가 같은 파티션 폴더에 전송된다는 것을 의미합니다. 쿼리 논리가 동일한 쿼리 인스턴스에서 동일한 키를 처리할 필요가 없는 경우 이 요구 사항을 무시할 수 있습니다. 이 논리에 대한 예로 간단한 선택/프로젝트/필터 쿼리를 참조하세요.  
 
 2. 데이터가 입력 측에 배치되면 쿼리가 분할되었는지 확인해야 합니다. 그러려면 모든 단계에서 **PARTITION BY**를 사용해야 합니다. 여러 단계가 허용되지만 모두 동일한 키로 분할되어야 합니다. 현재는 작업을 완전히 병렬로 처리하기 위해 분할 키를 **PartitionId**로 설정해야 합니다.  
 
@@ -66,6 +58,7 @@ PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니�
 
    * 8개의 이벤트 허브 입력 파티션 및 8개의 이벤트 허브 출력 파티션
    * 8개의 이벤트 허브 입력 파티션 및 Blob Storage 출력  
+   * 8개의 IoT 허브 입력 파티션 및 8개의 이벤트 허브 출력 파티션
    * 8개의 Blob Storage 입력 파티션 및 Blob Storage 출력  
    * 8개의 Blob Storage 입력 파티션 및 8개의 이벤트 허브 출력 파티션  
 

@@ -47,7 +47,7 @@
 ### [Resource Manager 템플릿을 사용하여 이벤트 허브 만들기 및 배포](event-hubs-resource-manager-namespace-event-hub.md)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=event-hubs)
 ## 자바
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -65,7 +65,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [코드 샘플](event-hubs-samples.md)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [가격](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-eventhub)

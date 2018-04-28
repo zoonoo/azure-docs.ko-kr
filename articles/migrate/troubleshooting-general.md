@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bba52534c534ea33c2939d0d9b76b7b4138e13cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -37,7 +37,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 2. 설치를 시작하려면 다운로드한 파일을 두 번 클릭합니다.
 3. 설치 화면의 **시작** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의**를 클릭하여 라이선스를 수락합니다.
 4. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다.
-5. **에이전트 설치 옵션**에서 **Azure Log Analytics(OMS)** > **다음**을 차례로 선택합니다.
+5. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 6. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 복사한 프로젝트 ID와 키를 붙여넣습니다. 그런 후 **Next** 를 클릭합니다.
 7. 에이전트가 프로젝트에 연결할 수 있는지 확인합니다. 연결할 수 없으면 설정을 확인합니다. 에이전트는 연결할 수는 있지만 수집기는 연결할 수 없는 경우 지원에 문의합니다.
 
@@ -62,7 +62,7 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 
 **에이전트를 설치하고 종속성 시각화 그룹을 사용하여 그룹을 만들었습니다. 장애 조치(failover) 이후, 컴퓨터가 "종속성 보기" 대신 "에이전트 설치" 작업을 표시합니다.**
 * 계획된 또는 계획되지 않은 장애 조치(failover) 후에는 온-프레미스 컴퓨터가 꺼지고 동급 컴퓨터가 Azure에 생성됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다. 사용자가 온-프레미스 IP 주소를 유지하는지 여부에 따라 다른 IP 주소를 가질 수도 있습니다. MAC 및 IP 주소가 모두 다르면 Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
-* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 OMS 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 Log Analytics 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
 
 
 ## <a name="troubleshoot-readiness-issues"></a>준비 관련 문제 해결

@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -240,7 +240,7 @@ Azure MFA 또는 Windows Hello와 같이 고위 경영진, 고위 관리자, 중
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Azure AD에 대한 관리 전용 워크스테이션 사용
 
-공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 장치에서 분리하면 피싱 공격, 응용 프로그램 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
+공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 장치에서 분리하면 피싱 공격, 응용 프로그램 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>인시던트 처리에 대한 NIST 권장 사항 검토 
 

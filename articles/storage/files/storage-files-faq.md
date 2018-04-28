@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure Files에 대한 질문과 대답
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(일반 인터넷 파일 시스템 또는 CIFS라고도 함)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync(미리 보기)를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -232,7 +232,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **내 Azure 파일 공유를 백업하려면 어떻게 하나요?**  
-    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅숏](storage-how-to-use-files-snapshots.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. 
+    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅숏](storage-snapshots-files.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. 
 
 ## <a name="share-snapshots"></a>공유 스냅숏
 ### <a name="share-snapshots-general"></a>공유 스냅숏: 일반
@@ -257,7 +257,7 @@ ms.lasthandoff: 03/28/2018
     예. Azure Files는 최대 200개의 공유 스냅숏을 유지할 수 있습니다. 공유 스냅숏은 공유 할당량에 포함되지 않으므로 모든 공유 스냅숏에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 저장소 계정 제한은 여전히 적용됩니다. 공유 스냅숏이 200개를 넘는 경우 새 공유 스냅숏을 생성하려면 이전 스냅숏을 삭제해야 합니다.
 * <a id="snapshot-cost"></a>
 **스냅숏 공유 비용은 얼마나 되나요?**  
-    표준 트랜잭션 및 표준 저장소 비용이 스냅숏에 적용됩니다. 스냅숏은 기본적으로 증분식입니다. 기본 스냅숏은 공유 자체입니다. 모든 후속 스냅숏은 증분이며, 이전 스냅숏과의 차이만 저장합니다. 즉, 청구서에 표시되는 델타 변경 내용은 워크로드 변동이 적은 경우 최소화됩니다. 표준 Azure 파일 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/storage/files/)를 참조하세요. 현재 공유 스냅숏으로 소비되는 크기를 보는 방법은 청구된 용량과 사용된 용량을 비교하는 것입니다. 보고를 개선하기 위한 도구를 개발 중입니다.
+    표준 트랜잭션 및 표준 저장소 비용이 스냅숏에 적용됩니다. 스냅숏은 기본적으로 증분식입니다. 기본 스냅숏은 공유 자체입니다. 모든 후속 스냅숏은 증분이며, 이전 스냅숏과의 차이만 저장합니다. 즉, 청구서에 표시되는 델타 변경 내용은 워크로드 변동이 적은 경우 최소화됩니다. 표준 Azure 파일 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요. 현재 공유 스냅숏으로 소비되는 크기를 보는 방법은 청구된 용량과 사용된 용량을 비교하는 것입니다. 보고를 개선하기 위한 도구를 개발 중입니다.
 
 
 ### <a name="create-share-snapshots"></a>공유 스냅숏 만들기

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
-이 자습서에서는 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구매하여 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에 안전하게 저장하고 사용자 지정 도메인과 연결하여 웹앱의 보안을 유지하는 방법을 보여 줍니다.
+이 자습서에서는 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** 에 대한 SSL 인증서를 구매하여 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에 안전하게 저장하고 사용자 지정 도메인과 연결하여 웹앱의 보안을 유지하는 방법을 보여 줍니다.
 
 ## <a name="step-1---log-in-to-azure"></a>1단계 - Azure에 로그인
 
@@ -56,7 +56,7 @@ SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal
 
 ![KV에 저장할 준비 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-이 인증서를 사용하려면 몇 가지 추가 단계를 완료해야 하므로 인증서 상태는 **"발급 보류 중"**입니다.
+이 인증서를 사용하려면 몇 가지 추가 단계를 완료해야 하므로 인증서 상태는 **"발급 보류 중"** 입니다.
 
 인증서 속성 페이지 내에서 **인증서 구성**을 클릭하고 **1단계: 저장**을 클릭하여 이 인증서를 Azure Key Vault에 저장합니다.
 
@@ -64,7 +64,7 @@ SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal
 
 > [!NOTE]
 > Azure Key Vault의 경우 이 인증서를 저장하는 데 약간의 요금이 부과됩니다.
-> 자세한 내용은 **[Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)**를 참조하세요.
+> 자세한 내용은 **[Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)** 를 참조하세요.
 >
 
 이 인증서를 저장할 Key Vault 리포지토리를 선택하면 **저장** 옵션이 표시됩니다.
@@ -94,20 +94,20 @@ App Service Certificate에서는 도메인 확인 방법으로 App Service, 도�
 ## <a name="step-5---assign-certificate-to-app-service-app"></a>5단계: App Service 앱에 인증서 할당
 
 > [!NOTE]
-> 이 섹션의 단계를 수행하기 전에 사용자 지정 도메인 이름을 앱과 연결한 상태여야 합니다. 자세한 내용은 **[웹앱에 대한 사용자 지정 도메인 이름 구성](app-service-web-tutorial-custom-domain.md)**을 참조하세요.
+> 이 섹션의 단계를 수행하기 전에 사용자 지정 도메인 이름을 앱과 연결한 상태여야 합니다. 자세한 내용은 **[웹앱에 대한 사용자 지정 도메인 이름 구성](app-service-web-tutorial-custom-domain.md)** 을 참조하세요.
 >
 
-**[Azure Portal](https://portal.azure.com/)**에서 페이지 왼쪽의 **App Service** 옵션을 클릭합니다.
+**[Azure Portal](https://portal.azure.com/)** 에서 페이지 왼쪽의 **App Service** 옵션을 클릭합니다.
 
 이 인증서를 할당하려는 앱의 이름을 클릭합니다.
 
-**설정**에서 **SSL 인증서**를 클릭합니다.
+**설정**에서 **SSL 설정**을 클릭합니다.
 
 **App Service Certificate 가져오기**를 클릭하고 방금 구입한 인증서를 선택합니다.
 
 ![인증서 가져오기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-**ssl 바인딩** 섹션에서 **바인딩 추가**를 클릭하고 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)**를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
+**ssl 바인딩** 섹션에서 **바인딩 추가**를 클릭하고 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)** 를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
 
 ![SSL 바인딩 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
@@ -155,7 +155,7 @@ App Service Certificate에서는 도메인 확인 방법으로 메일 확인 및
 > HTML 웹 페이지 확인(표준 인증서 SKU로만 작동)
 >
 
-1. **"starfield.html"**이라는 HTML 파일 만들기
+1. **"starfield.html"** 이라는 HTML 파일 만들기
 
 1. 이 파일의 내용은 도메인 확인 토큰의 이름과 정확히 같아야 합니다. (토큰은 도메인 확인 상태 페이지에서 복사할 수 있습니다.)
 
@@ -206,5 +206,7 @@ SSL 인증서가 자동 갱신에 대해 구성되었지만 자동으로 갱신�
 
 ## <a name="more-resources"></a>추가 리소스
 
+* [HTTPS 적용](app-service-web-tutorial-custom-ssl.md#enforce-https)
+* [TLS 1.1/1.2 적용](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
 * [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)
 * [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

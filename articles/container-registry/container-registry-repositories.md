@@ -1,24 +1,24 @@
 ---
-title: "Azure Portal의 Azure Container Registry 리포지토리"
-description: "Azure Portal에서 Azure Container Registry 리포지토리를 보는 방법"
+title: Azure Portal의 Azure Container Registry 리포지토리
+description: Azure Portal에서 Azure Container Registry 리포지토리를 보는 방법
 services: container-registry
 author: cristy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 593972e972207a27d1232fcb0c1bf220ac3a8def
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4479c78eb2eb4138dbacfa3619616a3b16d51121
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Azure Portal의 컨테이너 레지스트리 리포지토리 보기
 
 Azure Container Registry를 통해 리포지토리에 Docker 컨테이너 이미지를 저장할 수 있습니다. 리포지토리에 이미지를 저장하면 격리된 환경에 이미지 그룹(또는 이미지 버전)을 저장할 수 있습니다. 이미지를 레지스트리에 푸시할 때 이러한 리포지토리를 지정하고, Azure Portal에서 해당 콘텐츠를 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **컨테이너 레지스트리**: Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Docker CLI**: 로컬 컴퓨터에 Docker 명령줄 인터페이스를 제공하는 [Docker][docker-install]를 설치합니다.

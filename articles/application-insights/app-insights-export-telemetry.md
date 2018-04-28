@@ -1,8 +1,8 @@
 ---
-title: "Application Insights에서 원격 분석 연속 내보내기 | Microsoft Docs"
-description: "Microsoft Azure에서 저장소에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다."
+title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft Docs
+description: Microsoft Azure에서 저장소에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -31,6 +31,7 @@ ms.lasthandoff: 11/01/2017
 * [분석](app-insights-analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
 * [Power BI에서 데이터를 탐색](app-insights-export-power-bi.md)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
+* [Powershell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0) 설정에 액세스할 수도 있습니다.
 
 연속 내보내기를 통해 저장소에 데이터를 복사한 후에도(원하는 기간 동안 저장소에 유지할 수 있음) 일반적인 [보존 기간](app-insights-data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 11/01/2017
 
 [샘플링](app-insights-sampling.md) 에서 무시된 데이터는 내보낸 데이터에 포함되지 않습니다.
 
-계산된 다른 메트릭은 포함되지 않습니다. 예를들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
+계산된 다른 메트릭은 포함되지 않습니다. 예를 들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
 
 데이터에는 설정한 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)의 결과도 포함됩니다.
 
@@ -112,7 +113,7 @@ Where
 
 ![적합한 도구를 사용하여 원격 분석 보기](./media/app-insights-export-telemetry/06-json.png)
 
-시간 기간은 틱 단위이며 10,000틱은 1ms입니다. 예를 들어 이러한 값은 브라우저에서 요청을 보내는 데 1ms, 받는 데 3ms, 브라우저에서 페이지를 처리하는 데 1.8s를 보여 줍니다.
+시간 기간은 틱 단위이며 10,000틱은 1ms입니다. 예를 들어 이러한 값은 브라우저에서 요청을 보내는 데 1ms, 받는 데 3ms, 브라우저에서 페이지를 처리하는 데 1.8s를 보여줍니다.
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},
@@ -121,7 +122,7 @@ Where
 [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 
 ## <a name="processing-the-data"></a>데이터 처리
-작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 예:
+작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 예: 
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -176,7 +177,7 @@ Where
     아니요. 죄송합니다. 우리의 내보내기 엔진은 현재 Azure 저장소에서만 작동합니다.  
 * *내 저장소에 보관하는 데이터량에 제한이 있나요?*
 
-    아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
+    번호 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
 * *저장소에서 몇 개의 BLOB를 볼 수 있나요?*
 
   * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.

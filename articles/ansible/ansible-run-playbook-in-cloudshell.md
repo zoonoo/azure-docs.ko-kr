@@ -1,18 +1,18 @@
 ---
-title: "Azure Cloud Shell에서 Bash를 사용하여 Ansible 실행"
-description: "Azure Cloud Shell에서 Bash를 사용하여 다양한 Ansible 작업을 수행하는 방법 알아보기"
+title: Azure Cloud Shell에서 Bash를 사용하여 Ansible 실행
+description: Azure Cloud Shell에서 Bash를 사용하여 다양한 Ansible 작업을 수행하는 방법 알아보기
 ms.service: ansible
-keywords: "Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash"
+keywords: Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash를 사용하여 Ansible 실행
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/08/2018
 
 - **Azure 자격 증명** - [Azure 자격 증명 만들기 및 Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) 문서에 설명되어 있습니다. 다음에서 Cloud Shell에 대한 전용 웹 사이트를 시작합니다.
+- **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](https://docs.microsoft.com/azure/cloud-shell/quickstart) 문서에 설명되어 있습니다. 다음에서 Cloud Shell에 대한 전용 웹 사이트를 시작합니다.
 
 [![Cloud Shell 시작](https://shell.azure.com/images/launchcloudshell.png "Cloud Shell 시작")](https://shell.azure.com)
 

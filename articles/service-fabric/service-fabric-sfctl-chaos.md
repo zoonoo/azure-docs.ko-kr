@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl choas| Microsoft Docs
-description: "Service Fabric CLI sfctl chaos 명령을 설명합니다."
+description: Service Fabric CLI sfctl chaos 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e4d47b1de509c2053996d9d1078733d7055447
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 비정상 상황 테스트 서비스를 시작하고, 중지하고 보고합니다.
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/27/2018
 | --debug          | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h        | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o      | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query          | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query          | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose        | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
@@ -86,7 +86,7 @@ Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변�
 | --debug                    | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                  | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.           기본값: json.|
-| --query                    | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                    | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose                  | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stop
@@ -107,7 +107,7 @@ Chaos가 더 이상의 오류 작업 일정을 잡지 못하도록 막으나 처
 | --debug  | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h| 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query  | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query  | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose| 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계

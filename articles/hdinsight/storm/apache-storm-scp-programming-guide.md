@@ -1,8 +1,8 @@
 ---
-title: "SCP.NET 프로그래밍 가이드 | Microsoft Docs"
-description: "HDInsight의 Storm 사용을 위해 SCP.NET을 사용하여 .NET 기반 Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
+title: SCP.NET 프로그래밍 가이드 | Microsoft Docs
+description: HDInsight의 Storm 사용을 위해 SCP.NET을 사용하여 .NET 기반 Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: raviperi
 manager: jhubbard
 editor: cgronlun
@@ -11,15 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: a0ce92ba58fbcda812a3d4e5e275178b73400d6c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0f4c021bc209c99e1b3f34b34bf5ba0549eb48f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
 SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 응용 프로그램을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](http://zookeeper.apache.org/)를 활용합니다. 
@@ -155,7 +153,7 @@ Context는 응용 프로그램에 실행 환경을 제공합니다. 각 ISCPPlug
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf`은(는) Storm에서 정의하는 매개 변수이고 `pluginConf`은(는) SCP에서 정의하는 매개 변수입니다. 예:
+`stormConf`은(는) Storm에서 정의하는 매개 변수이고 `pluginConf`은(는) SCP에서 정의하는 매개 변수입니다. 예: 
 
     public class Constants
     {
@@ -351,7 +349,7 @@ ISCPBatchBolt의 경우 `parms`에서 `StormTxAttempt`을(를) 가져와 해당 
         }
 
 ## <a name="topology-specification-language"></a>토폴로지 사양 언어
-SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 도메인별 언어로, Storm의 Clojure DSL(<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>)을 기반으로 하며 SCP에 의해 확장됩니다.
+SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 도메인별 언어로, Storm의 Clojure DSL(<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>)를 기준으로 하며 SCP에 의해 확장됩니다.
 
 ***runspec*** 명령을 통해 토폴로지 사양을 실행용으로 Storm 클러스터에 직접 제출할 수 있습니다.
 
@@ -471,7 +469,7 @@ Java Spout 또는 Bolt를 포함하는 토폴로지를 제출하려면 먼저 Ja
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 
-여기서 **examples\\HybridTopology\\java\\target\\**은 Java Spout/Bolt Jar 파일을 포함하는 폴더입니다.
+여기서 **examples\\HybridTopology\\java\\target\\** 은 Java Spout/Bolt Jar 파일을 포함하는 폴더입니다.
 
 ### <a name="serialization-and-deserialization-between-java-and-c"></a>Java와 C\# 간의 직렬화 및 역직렬화
 SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java Spout/Bolt와 상호 작용을 하기 위해 다음 그래프에서 볼 수 있듯이 Java 쪽과 C\# 쪽 사이에서 직렬화/역직렬화를 수행해야 합니다.

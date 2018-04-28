@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 69d004ae4c2408e5749d0a7d21b996cec8dba722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 Azure SQL Database PaaS 제품을 출시한 이후, Microsoft는 HA(고가용성)를 서비스에 기본적으로 제공하고, 고객이 HA를 운영하거나 HA에 특별한 논리를 추가하거나 HA 관련 의사 결정을 내릴 필요가 없도록 하겠다고 고객에게 약속한 바 있습니다. Microsoft는 고객에게 SLA를 제공하여 HA 시스템 구성 및 운영에 대한 완전한 제어를 유지 관리합니다. HA SLA는 지역에 있는 SQL 데이터베이스에 적용되며, Microsoft의 합리적인 제어 이외의 요인으로 인해 전체 지역에 장애가 발생하는 경우 보호를 제공하지 않습니다. 이러한 요인으로, 자연 재해, 전쟁, 테러 행위, 폭동, 정부 조치 또는 Microsoft의 데이터 센터 외부(고객 사이트 또는 고객 사이트와 Microsoft 데이터 센터 간 포함)의 네트워크 또는 장치 오류가 있습니다.
@@ -46,7 +46,7 @@ HA의 문제 영역을 단순화하기 위해 Microsoft는 다음 가정을 사�
 
 ## <a name="data-redundancy"></a>데이터 중복
 
-SQL Database의 고가용성 솔루션은 SQL Server의 [Always ON 가용성 그룹](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) 기술을 기반으로 하며, LS 및 RS 데이터베이스 모두에 대해 최소한의 차이로 작동합니다. Always ON 가용성 그룹 기술은 LS 구성에서 지속성에 사용되는 한편, RS에서는 가용성(낮은 RTO)에 사용됩니다. 
+SQL Database의 고가용성 솔루션은 SQL Server의 [Always ON 가용성 그룹](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) 기술을 기반으로 하며, LS 및 RS 데이터베이스 모두에 대해 최소한의 차이로 작동합니다. Always ON 가용성 그룹 기술은 LS 구성에서 지속성에 사용되는 한편, RS에서는 가용성(활성 지역 복제에 의한 낮은 RTO)에 사용됩니다. 
 
 ## <a name="local-storage-configuration"></a>로컬 저장소 구성
 

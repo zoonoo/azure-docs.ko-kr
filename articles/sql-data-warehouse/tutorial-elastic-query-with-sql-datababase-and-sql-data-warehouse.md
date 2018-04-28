@@ -1,29 +1,24 @@
 ---
-title: "Azure SQL Data Warehouse의 탄력적 쿼리 자습서 | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 탄력적 쿼리 사용 방법 알아보기"
+title: '자습서: Azure SQL Data Warehouse의 탄력적 쿼리 | Microsoft Docs'
+description: 이 자습서에서는 탄력적 쿼리 기능을 사용하여 Azure SQL 데이터베이스에서 Azure SQL Data Warehouse로 쿼리합니다.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
-ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: igorstan
+ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>SQL Data Warehouse에서 탄력적 쿼리 구성
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>자습서: 탄력적 쿼리를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse의 데이터에 액세스
 
-이 자습서에서는 탄력적 쿼리를 사용하여 SQL Database에서 SQL Data Warehouse로 쿼리를 제출하는 방법을 알아봅니다. 탄력적 쿼리는 Azure SQL 제품에 제공되는 기능입니다. 탄력적 쿼리의 개념에 대한 자세한 내용은 [**SQL Data Warehouse에서의 탄력적 쿼리 사용 방법**][How to use Elastic Query with SQL Data Warehouse]을 참조하세요.
+이 자습서에서는 탄력적 쿼리 기능을 사용하여 Azure SQL 데이터베이스에서 Azure SQL Data Warehouse로 쿼리합니다. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>자습서의 필수 조건
 
@@ -128,7 +123,7 @@ ms.lasthandoff: 12/11/2017
 
 5. 이제 **SQL Database 인스턴스**에 외부 테이블 정의가 있는 것을 볼 수 있습니다.
 
-   ![탄력적 쿼리 외부 테이블 정의](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![탄력적 쿼리 외부 테이블 정의](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. 데이터 웨어하우스 인스턴스를 쿼리하는 다음 쿼리를 제출합니다. 2단계에서 삽입한 5개 값을 받게 됩니다. 
@@ -143,15 +138,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 이제 매우 기본적인 탄력적 쿼리가 설정되었습니다. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## <a name="next-steps"></a>다음 단계
+권장 사항은 [Azure SQL Data Warehouse에서 탄력적 쿼리를 사용하는 모범 사례](how-to-use-elastic-query-with-sql-data-warehouse.md)를 참조하세요.

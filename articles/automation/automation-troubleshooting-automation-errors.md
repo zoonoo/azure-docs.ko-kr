@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: 자동화 오류, 문제 해결, 문제
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation이 일반적인 문제 해결 
 이 문서에서는 Azure Automation에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure Automation Runbook을 사용할 때 인증 오류
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>시나리오: Azure 계정 로그인에 실패
-**오류:** Add-AzureAccount 또는 Login-AzureRmAccount cmdlet을 사용하면 "Unknown_user_type: 알 수 없는 사용자 유형" 오류가 수신됩니다.
+**오류:** Add-AzureAccount 또는 Connect-AzureRmAccount cmdlet을 사용하면 "Unknown_user_type: 알 수 없는 사용자 유형" 오류가 수신됩니다.
 
 **오류 원인:** 이 오류는 자격 증명 자산 이름이 올바르지 않거나 Automation 자격 증명 자산을 설정하는 데 사용한 사용자 이름과 암호가 올바르지 않은 경우에 발생합니다.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. 인증이 로컬에서 실패하면 Azure Active Directory 자격 증명을 올바르게 설정하지 않았다는 뜻입니다. Azure Active Directory 계정을 올바르게 설정하는 방법은 [Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조하세요.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>시나리오: Azure 구독을 찾을 수 없음
@@ -105,7 +105,7 @@ ms.lasthandoff: 03/23/2018
 **문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
 
 * cmdlet 이름을 올바르게 입력했는지 확인합니다.  
-* Automation 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 **Get-Command ``<CommandName>``**를 실행합니다. cmdlet을 계정에 사용할 수 있고 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는 것으로 확인되면 캔버스에 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.  
+* Automation 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 **Get-Command ``<CommandName>``** 를 실행합니다. cmdlet을 계정에 사용할 수 있고 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는 것으로 확인되면 캔버스에 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.  
 * 이름이 충돌하고 cmdlet이 서로 다른 두 모듈에서 사용되는 경우 cmdlet에 대한 정규화된 이름을 사용하여 이 문제를 해결할 수 있습니다. 예를 들어 **ModuleName\CmdletName**을 사용할 수 있습니다.  
 * Hybrid Worker 그룹에서 runbook 온-프레미스를 실행하는 경우 모듈/cmdlet이 Hybrid Worker를 호스트하는 시스템에 설치되어야 합니다.
 

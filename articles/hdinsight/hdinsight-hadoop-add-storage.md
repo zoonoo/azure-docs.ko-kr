@@ -1,25 +1,23 @@
 ---
-title: "HDInsight에 추가 Azure 저장소 계정 추가 | Microsoft 문서"
-description: "기존 HDInsight 클러스터에 추가 Azure 저장소 계정을 추가하는 방법에 대해 알아봅니다."
+title: HDInsight에 추가 Azure 저장소 계정 추가 | Microsoft 문서
+description: 기존 HDInsight 클러스터에 추가 Azure 저장소 계정을 추가하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
 
@@ -68,7 +66,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI 1.0에서 이 스크립트를 �
 > [!IMPORTANT]
 > 사용자 지정 문서에 제공된 단계를 사용할 때는 다음 정보를 사용하여 이 스크립트를 적용하세요.
 >
-> * 예제 스크립트 동작 URI를 이 스크립트의 URI(https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)로 바꿉니다.
+> * 예제 스크립트 작업 URI를 이 스크립트에 대한 URI로 바꿉니다(https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
 > * 모든 예제 매개 변수를 Azure 저장소 계정 이름과 클러스터에 추가할 저장소 계정의 키로 바꿉니다. Azure Portal을 사용하는 경우 이러한 매개 변수는 공백으로 구분되어야 합니다.
 > * 클러스터의 Ambari 구성을 직접 업데이트하므로 이 스크립트를 __지속형__으로 표시할 필요가 없습니다.
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > `$PASSWORD`를 클러스터 로그인(관리자) 계정 암호로 설정합니다. `$CLUSTERNAME`을 HDInsight 클러스터의 이름으로 설정합니다. `$STORAGEACCOUNTNAME`을 저장소 계정의 이름으로 설정합니다.
 >
-> 이 예제는 [curl(http://curl.haxx.se/)](http://curl.haxx.se/) 및 [jq(https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)를 사용하여 JSON 데이터를 검색하고 구문 분석합니다.
+> 이 예제에서는 [curl(http://curl.haxx.se/)](http://curl.haxx.se/) 및 [jq(https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)를 사용하여 JSON 데이터를 검색하고 구문 분석합니다.
 
 이 명령을 사용할 때는 __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다. __PASSWORD__는 클러스터의 HTTP 로그인 암호로 바꿉니다. __STORAGEACCOUNT__는 스크립트 동작을 사용하여 추가한 저장소 계정의 이름으로 바꿉니다. 이 명령에서 반환되는 정보는 다음 텍스트와 비슷합니다.
 

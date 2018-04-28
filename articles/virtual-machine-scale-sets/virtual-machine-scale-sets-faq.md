@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -170,7 +170,7 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 `$vmss`에서 extensionName 값을 찾을 수 있습니다.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Operations Management Suite와 통합되는 가상 머신 확장 집합 템플릿 예제가 있나요?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제가 있나요?
 
-Operations Management Suite와 통합되는 가상 머신 확장 집합 템플릿 예제의 경우 [Log Analytics를 사용하여 Azure Service Fabric 클러스터 배포 및 모니터링 사용](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)의 두 번째 예제를 참조하세요.
+Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 경우 [Log Analytics를 사용하여 Azure Service Fabric 클러스터 배포 및 모니터링 사용](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)의 두 번째 예제를 참조하세요.
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>여러 확장이 가상 머신 확장 집합에서 병렬로 실행되는 것 같습니다. 이로 인해 사용자 지정 스크립트 확장이 실패합니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
@@ -693,9 +693,9 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 
 자세한 내용은 [가상 머신 크기 집합의 모든 VM 관리](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)를 참조하세요.
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Azure OMS(Operations Management Suite)와 확장 집합을 통합할 수 있나요?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Log Analytics와 확장 집합을 통합할 수 있나요?
 
-예, 확장 집합 VM에서 OMS 확장을 설치하여 수행할 수 있습니다. Azure CLI 예는 다음과 같습니다.
+예, 확장 집합 VM에서 Log Analytics 확장을 설치하여 수행할 수 있습니다. Azure CLI 예는 다음과 같습니다.
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

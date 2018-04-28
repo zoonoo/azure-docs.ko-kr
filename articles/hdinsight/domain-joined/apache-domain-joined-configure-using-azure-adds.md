@@ -1,24 +1,19 @@
 ---
-title: Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성- Azure | Microsoft Docs
+title: AAD-DS를 사용하여 도메인에 가입된 HDInsight 클러스터 구성
 description: Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터를 설정 및 구성하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/20/2018
-ms.author: bhanupr
-ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 060ca8040f514ec1df48c2ca4568cbbb2a529267
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성
 
@@ -36,7 +31,10 @@ HDInsight 클러스터를 만들려면 먼저 Azure AD DS를 만들어야 합니
 > [!NOTE]
 > 도메인 서비스를 만들 권한은 테넌트 관리자에게만 있습니다. HDInsight에 대한 기본 저장소로 ADLS(Azure Data Lake Storage)를 사용하는 경우 ADLS에 대한 기본 Azure AD 테넌트가 HDInsight 클러스터에 대한 도메인과 동일한지 확인합니다. 이 설정이 Azure Data Lake Store에서 작동하려면 클러스터에 액세스할 수 있는 사용자에 대해 다단계 인증을 사용하지 않도록 설정해야 합니다.
 
-도메인 서비스를 프로비전한 후에는 **Azure AD DC Administrators** 그룹에 서비스 계정을 만들어 HDInsight 클러스터를 만들어야 합니다. 서비스 계정은 Azure AD의 전역 관리자여야 합니다.
+AAD 도메인 서비스를 프로비전한 후에는 적절한 사용 권한으로 AAD(AAD-DS로 동기화됨)에 서비스 계정을 만들어 HDInsight 클러스터를 만들어야 합니다. 이 서비스 계정이 이미 있는 경우 해당 암호를 다시 설정하고 AAD-DS로 동기화될 때까지 기다려야 합니다(이 다시 설정은 kerberos 암호 해시를 생성하고 최대 30분이 걸릴 수 있음). 이 서비스 계정에는 다음 권한이 있어야 합니다.
+
+- 컴퓨터를 도메인에 가입하고 컴퓨터 보안 주체를 클러스터를 만드는 동안 지정하는 OU 내에 배치합니다.
+- 클러스터를 만드는 동안 지정하는 OU 내에 서비스 사용자를 만듭니다.
 
 Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정해야 합니다. 보안 LDAP를 사용하도록 설정하려면 [Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)을 참조하세요.
 
@@ -49,7 +47,7 @@ Azure AD 도메인 서비스와 HDInsight 클러스터를 동일한 Azure VNet(�
 도메인에 가입된 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공해야 합니다.
 
 - **도메인 이름**: Azure AD DS와 연결된 도메인 이름입니다. 예: contoso.onmicrosoft.com.
-- **도메인 사용자 이름**: 이전 섹션에서 만든 Azure AD DC Administrators 그룹의 서비스 계정입니다. 예: hdiadmin@contoso.onmicrosoft.com 이 도메인 사용자는 이 도메인에 가입된 HDInsight 클러스터의 관리자입니다.
+- **도메인 사용자 이름**: 이전 섹션에서 만든 Azure AD DC의 서비스 계정입니다. 예: hdiadmin@contoso.onmicrosoft.com 이 도메인 사용자는 이 도메인에 가입된 HDInsight 클러스터의 관리자가 됩니다.
 - **도메인 암호**: 서비스 계정의 암호입니다.
 - **조직 구성 단위**: HDInsight 클러스터에 사용하려는 OU의 고유한 이름입니다. 예: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. 이 OU가 없을 경우 HDInsight 클러스터는 이 OU를 만들려고 시도합니다. 
 - **LDAPS URL**: 예, ldaps://contoso.onmicrosoft.com:636

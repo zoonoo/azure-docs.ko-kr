@@ -1,11 +1,11 @@
 ---
-title: "고정 공용 IP가 있는 VM 만들기 - Azure CLI | Microsoft Docs"
-description: "Azure CLI(명령줄 인터페이스)를 사용하여 고정 공용 IP 주소가 있는 VM을 만드는 방법에 대해 알아봅니다."
+title: 고정 공용 IP가 있는 VM 만들기 - Azure CLI | Microsoft Docs
+description: Azure CLI(명령줄 인터페이스)를 사용하여 고정 공용 IP 주소가 있는 VM을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI를 사용하여 고정 공용 IP 주소가 있는 VM 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [템플릿](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -145,7 +144,11 @@ az vm create \
 1. 리소스 그룹의 리소스를 보려면 `az resource list --resource-group IaaSStory` 명령을 실행합니다.
 2. 리소스 그룹에 이 문서의 스크립트에서 만든 리소스 외에 다른 리소스가 없는지 확인합니다. 
 3. 이 연습에서 만든 모든 리소스를 삭제하려면 `az group delete -n IaaSStory` 명령을 실행합니다. 이 명령은 리소스 그룹과 그 속에 포함된 모든 리소스를 삭제합니다.
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>운영 체제 내에서 IP 주소 설정
+
+가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다. [Windows VM에 여러 IP 주소를 할당](virtual-network-multiple-ip-addresses-cli.md)할 때처럼 반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure Virtual Machine에 할당된 개인 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서 만든 VM 간에 네트워크 트래픽을 전달할 수 있습니다. 네트워크 인터페이스, 서브넷 또는 둘 간에 전달할 수 있는 트래픽을 제한하는 NSG 내에서 인바운드 및 아웃바운드 규칙을 정의할 수 있습니다. NSG에 대해 자세히 알아보려면 [NSG 개요](virtual-networks-nsg.md) 문서를 읽어보세요.
+이 문서에서 만든 VM 간에 네트워크 트래픽을 전달할 수 있습니다. 네트워크 인터페이스, 서브넷 또는 둘 간에 전달할 수 있는 트래픽을 제한하는 네트워크 보안 그룹 내에서 인바운드 및 아웃바운드 보안 규칙을 정의할 수 있습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md)를 참조하세요.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>내부 부하 분산 장치에 대해 고가용성 포트 구성
 
@@ -39,12 +39,6 @@ ms.lasthandoff: 03/23/2018
 ![고가용성 포트 예제 배포](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>미리 보기 등록
-
-표준 Azure Load Balancer에서 고가용성 포트 기능의 미리 보기에 참여하려면 Azure CLI 2.0 또는 PowerShell을 사용하여 액세스 권한을 얻도록 구독을 등록합니다. [표준 Load Balancer 미리 보기](https://aka.ms/lbpreview#preview-sign-up)에 대해 구독을 등록합니다.
-
->[!NOTE]
->표준 Load Balancer 미리 보기 등록은 최대 1시간이 걸릴 수 있습니다.
 
 ## <a name="configure-high-availability-ports"></a>고가용성 포트 구성
 

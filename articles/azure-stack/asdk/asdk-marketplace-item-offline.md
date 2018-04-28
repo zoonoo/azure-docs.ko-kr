@@ -1,12 +1,12 @@
 ---
-title: "로컬 원본의 Azure 스택 마켓플레이스 항목을 추가 합니다. | Microsoft Docs"
-description: "Azure 스택 마켓플레이스에 로컬 운영 체제 이미지를 추가 하는 방법에 설명 합니다."
+title: 로컬 원본의 Azure 스택 마켓플레이스 항목을 추가 합니다. | Microsoft Docs
+description: Azure 스택 마켓플레이스에 로컬 운영 체제 이미지를 추가 하는 방법에 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 296719ddd23fb9ee717455420906e9a634a71a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 815dc055e19a38a61cbb3e927c3d7e92393b17dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>로컬 원본의 Azure 스택 마켓플레이스 항목을 추가 하는 자습서:
 
@@ -84,7 +84,7 @@ Azure 스택 연결이 끊긴 시나리오에서 또는 시나리오에서 함�
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -112,7 +112,7 @@ Azure 스택 연결이 끊긴 시나리오에서 또는 시나리오에서 함�
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -150,7 +150,7 @@ Azure 스택 연산자로 사용할 수 있습니다는 [관리자 포털](https
 3. 에 **기본 사항** 블레이드에서 다음 정보를 입력 하 고 클릭 **확인**:
   - **이름**: 테스트-v m-1
   - **사용자 이름**: AdminTestUser
-  - **Password**: AzS-TestVM01
+  - **암호**: AzS TestVM01
   - **구독**: 기본 공급자 구독 허용
   - **리소스 그룹**: rg-vm-테스트
   - **위치**: 로컬

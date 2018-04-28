@@ -1,36 +1,34 @@
 ---
-title: "Linux 기반 HDInsight - Azure에서 Hadoop MapReduce와 함께 .NET 사용 | Microsoft Docs"
-description: "Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 응용 프로그램을 사용하는 방법에 대해 알아보세요."
+title: Linux 기반 HDInsight - Azure에서 Hadoop MapReduce와 함께 .NET 사용 | Microsoft Docs
+description: Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 응용 프로그램을 사용하는 방법에 대해 알아보세요.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: bff53af8f5c0b74cf0f69ba474d62ecdb7e20ce1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 36b8f51122bad6614e63dfc58e09e5c1ca08f83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
-Linux 기반 HDInsight 클러스터는 [Mono (https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행합니다. Mono에서는 MapReduce 응용 프로그램 등의 .NET 구성 요소와 Linux 기반 HDInsight를 함께 사용할 수 있습니다. 이 문서에서는 Linux 기반 HDInsight의 Mono와 함께 사용할 수 있도록 Windows 기반 HDInsight 클러스터용으로 만든 .NET 솔루션을 마이그레이션하는 방법에 대해 배웁니다.
+Linux 기반 HDInsight 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행합니다. Mono에서는 MapReduce 응용 프로그램 등의 .NET 구성 요소와 Linux 기반 HDInsight를 함께 사용할 수 있습니다. 이 문서에서는 Linux 기반 HDInsight의 Mono와 함께 사용할 수 있도록 Windows 기반 HDInsight 클러스터용으로 만든 .NET 솔루션을 마이그레이션하는 방법에 대해 배웁니다.
 
 ## <a name="mono-compatibility-with-net"></a>Mono와 .NET의 호환성
 
 Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight와 함께 제공되는 Mono 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md)을 참조하세요. 특정 버전의 Mono를 설치하려면 [Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md) 문서를 참조하세요.
 
-Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 참조하세요.
+Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 참조하세요.
 
 > [!IMPORTANT]
 > SCP.NET 프레임워크는 Mono와 호환됩니다. Mono와 함께 SCP.NET을 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](storm/apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
@@ -58,7 +56,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono compatibility (ht
 
 ## <a name="manual-portability-analysis"></a>수동 이식성 분석
 
-[응용 프로그램 이식성(http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) 문서의 정보를 사용하여 코드를 수동으로 감사합니다.
+[응용 프로그램 이식성(http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) 문서의 정보를 사용하여 코드의 수동 감사를 수행합니다.
 
 ## <a name="modify-and-build"></a>수정 및 빌드
 

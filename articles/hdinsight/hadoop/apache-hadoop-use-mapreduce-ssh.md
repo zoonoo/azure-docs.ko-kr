@@ -1,26 +1,26 @@
 ---
-title: "HDInsight에서 Hadoop과 MapReduce 및 SSH 연결 사용 - Azure | Microsoft Docs"
-description: "SSH를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 실행하는 방법에 대해 알아봅니다."
+title: HDInsight에서 Hadoop과 MapReduce 및 SSH 연결 사용 - Azure | Microsoft Docs
+description: SSH를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 실행하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlunb
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 08c67168cde60c1b7551806da8542c98dcb82f55
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>SSH를 사용하여 HDInsight에서 Hadoop과 MapReduce 사용
 
@@ -42,16 +42,16 @@ SSH(Secure Shell) 연결에서 HDInsight로 MapReduce 작업을 제출하는 방
 
 ## <a id="ssh"></a>SSH를 사용하여 연결
 
-SSH를 사용하여 클러스터에 연결합니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
+SSH를 사용하여 클러스터에 연결합니다. 예를 들어, 다음 명령은 **myhdinsight**라는 클러스터에 **sshuser** 계정으로 연결합니다.
 
 ```bash
-ssh admin@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **SSH 인증을 위해 인증서 키를 사용하는 경우** 클라이언트 시스템에서 개인 키의 위치를 지정해야 할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```bash
-ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **SSH 인증을 위해 암호를 사용하는 경우** 메시지가 표시되면 암호를 제공해야 합니다.

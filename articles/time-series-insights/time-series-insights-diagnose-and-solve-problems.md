@@ -1,6 +1,6 @@
 ---
-title: "Azure Time Series Insights에서 문제 진단 및 해결 | Microsoft Docs"
-description: "이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 일반적인 문제를 진단하고 해결하는 방법을 설명합니다."
+title: Azure Time Series Insights에서 문제 진단 및 해결 | Microsoft Docs
+description: 이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 일반적인 문제를 진단하고 해결하는 방법을 설명합니다.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/09/2018
+ms.openlocfilehash: f0c1b8aa99e9ac9c73f57af17490dd3a465a9cac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -45,6 +45,11 @@ IoT Hub 또는 이벤트 허브의 등록 중에 데이터를 읽을 때 사용�
 데이터를 부분적으로 볼 수 있지만 데이터가 지연되는 경우 다음과 같은 몇 가지 가능성을 고려해야 합니다.
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>가능한 원인 A: 사용자 환경이 제한적입니다.
+이것은 데이터로 이벤트 원본을 만든 후 환경이 프로비전될 때 나타나는 일반적인 문제입니다.  Azure IoT Hub 및 Event Hubs는 최대 7일 동안의 데이터를 저장합니다.  TSI는 항상 이벤트 원본 내에서 가장 오래된 이벤트에서 시작됩니다(FIFO).  따라서 단일 단위 TSI 환경인 S1에 연결할 때 하나의 이벤트 원본에 5백만 개의 이벤트가 있는 경우 TSI는 하루에 약 백만 개의 이벤트를 읽습니다.  대충 보면 TSI에서 5일 간의 대기 시간이 발생하는 것처럼 나타날 수 있습니다.  실제로는 작업 환경이 제한되고 있는 것입니다.  이벤트 원본에 이전 이벤트가 있는 경우 다음 두 가지 방법 중 하나로 접근할 수 있습니다.
+
+- 이벤트 원본의 보존 제한을 변경하여 TSI에 표시하지 않으려는 이전 이벤트 제거
+- 더 큰 크기의 환경(단위 수 측면에서)을 프로비전하여 이전 이벤트의 처리량 늘리기.  위 예제를 사용하는 경우 동일한 S1 환경을 하루에 5개 단위로 늘리면 해당 환경은 이제 하루 만에 같은 처리량을 따라잡아야 합니다.  안정 상태의 이벤트 생성이 하루에 백만 개 미만의 이벤트인 경우 처리량을 따라잡은 후에는 이벤트 용량을 다시 1개 단위로 줄일 수 있습니다.  
+
 제한적 한도는 환경의 SKU 유형 및 용량을 기준으로 적용됩니다. 환경의 모든 이벤트 원본은 이 용량을 공유합니다. IoT Hub 또는 이벤트 허브에 대한 이벤트 원본이 적용된 한도를 초과하여 데이터를 푸시하는 경우 제한 및 지연될 수 있습니다.
 
 다음 다이어그램에는 SKU S1 및 용량 3을 사용하는 Time Series Insights 환경이 나와 있습니다. 하루에 3백만 개의 이벤트를 수신할 수 있습니다.
@@ -76,6 +81,12 @@ IoT Hub 또는 이벤트 허브의 등록 중에 데이터를 읽을 때 사용�
 이름 및 값이 다음 규칙을 준수하는지 확인합니다.
 * 타임스탬프 속성 이름은 _대/소문자를 구분_합니다.
 * JSON 문자열처럼 이벤트 원본에서 가져오는 타임스탬프 속성 값은 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_ 형식이어야 합니다. 이러한 문자열의 예는 “2008-04-12T12:53Z”입니다.
+
+*타임스탬프 속성 이름*이 캡처되고 제대작동로 하는지 확인하는 가장 쉬운 방법은 TSI 탐색기를 사용하는 것입니다.  TSI 탐색기 내에서 차트를 사용하고, *타임스탬프 속성 이름*을 제공하기 전에 경과될 기간을 선택합니다.  선택 영역을 마우스 오른쪽 단추로 클릭하고 *이벤트 탐색* 옵션을 선택합니다.  첫 번째 열 머리글은 *타임스탬프 속성 이름*이고, *타임스탬프* 단어 옆에 *($ts)* 가 나와야 합니다. 다음 표시는 사용하지 않아야 합니다.
+- *(abc)*: TSI가 데이터 값을 문자열로 읽음을 나타냅니다.
+- *달력 아이콘*: TSI가 데이터 값을 *날짜/시간*으로 읽음을 나타냅니다.
+- *#*: TSI가 데이터 값을 정수로 읽음을 나타냅니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 - 추가 지원을 받으려면 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)에서 대화를 시작합니다. 

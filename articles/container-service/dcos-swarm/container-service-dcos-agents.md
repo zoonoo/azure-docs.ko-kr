@@ -1,19 +1,19 @@
 ---
-title: "Azure Container Service의 DC/OS 에이전트 풀"
-description: "공용 및 사용자 에이전트 풀이 Azure Container Service 클러스터와 함께 작동하는 방식"
+title: Azure Container Service의 DC/OS 에이전트 풀
+description: 공용 및 사용자 에이전트 풀이 Azure Container Service 클러스터와 함께 작동하는 방식
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 81059fd75f0e61324221614c4bb8eccd94203478
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Azure Container Service의 DC/OS 에이전트 풀
 Azure Container Service의 DC/OS 클러스터는 2개의 풀, 즉 공용 풀과 개인 풀에 에이전트 노드를 포함합니다. 응용 프로그램을 이러한 두 풀 중 하나에 배포할 수 있으며 이는 컨테이너 서비스의 컴퓨터 간의 액세스 가능성에 영향을 줍니다. 컴퓨터는 인터넷(공용)에 노출되거나 내부(개인)로 유지될 수 있습니다. 이 문서에서는 공용 및 개인 풀이 있는 이유에 대한 간략한 개요를 제공합니다.
@@ -33,7 +33,7 @@ Azure Container Service의 DC/OS 에이전트 풀은 다음과 같이 만들어�
 
 * **공용 풀**은 처음에 미리 정의된 수의 에이전트 노드를 포함합니다. 이 풀은 DC/OS 클러스터가 프로비저닝될 때 자동으로 추가됩니다.
 
-개인 풀과 공용 풀은 Azure 가상 컴퓨터 규모 집합입니다. 배포 후 이러한 풀의 크기를 조정할 수 있습니다.
+개인 풀과 공용 풀은 Azure 가상 머신 규모 집합입니다. 배포 후 이러한 풀의 크기를 조정할 수 있습니다.
 
 ## <a name="use-agent-pools"></a>에이전트 풀 사용
 기본적으로 **Marathon** 은 새 응용 프로그램을 *사용자* 에이전트 노드에 배포합니다. 응용 프로그램 생성 중에 응용 프로그램을 *공용* 노드에 명시적으로 배포해야 합니다. **선택 사항** 탭을 선택하고 **수락된 리소스 역할** 값에 **slave_public**을 입력합니다. 이 과정은 [여기](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container)와 [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) 설명서에 문서화되어 있습니다.

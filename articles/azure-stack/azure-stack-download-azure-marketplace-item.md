@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 마켓플레이스 항목을 다운로드 | Microsoft Docs"
-description: "내 Azure 스택 배포에서 Azure 마켓플레이스 항목을 다운로드할 수 있습니다."
+title: Azure에서 마켓플레이스 항목을 다운로드 | Microsoft Docs
+description: 내 Azure 스택 배포에서 Azure 마켓플레이스 항목을 다운로드할 수 있습니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure 스택에 마켓플레이스 항목을 다운로드
 
@@ -31,7 +31,7 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>(인터넷 연결)에 연결 된 시나리오에서 마켓플레이스 항목을 다운로드 합니다.
 
 1. 마켓플레이스 항목을 다운로드 하려면 먼저 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md)합니다.
-2. Azure 스택 관리자 포털 (https://portal.local.azurestack.external)에 로그인 합니다.
+2. Azure 스택 관리자 포털에 로그인 (https://portal.local.azurestack.external)합니다.
 3. 일부 마켓플레이스 항목 클 수 있습니다. 확인을 클릭 하 여 시스템에 있는 충분 한 공간이 있는지 확인 하십시오 **리소스 공급자** > **저장소**합니다.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)

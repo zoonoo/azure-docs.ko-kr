@@ -1,6 +1,6 @@
 ---
-title: "Azure 관리되는 응용 프로그램 개요 | Microsoft Docs"
-description: "Azure 관리되는 응용 프로그램에 대한 개념을 설명합니다."
+title: Azure 관리되는 응용 프로그램 개요 | Microsoft Docs
+description: Azure 관리되는 응용 프로그램에 대한 개념을 설명합니다.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 응용 프로그램 개요
 
@@ -52,7 +52,7 @@ IT 팀은 관리되는 응용 프로그램을 통해 사전 승인된 솔루션�
 
 ## <a name="resource-groups-for-managed-applications"></a>관리되는 응용 프로그램에 대한 리소스 그룹
 
-일반적으로 관리되는 응용 프로그램의 리소스는 두 리소스 그룹에 있습니다. 소비자가 한 리소스 그룹을 관리하고 게시자가 다른 리소스 그룹을 관리합니다. 관리되는 응용 프로그램을 정의할 때는 게시자가 액세스 수준을 지정합니다. 다음 이미지는 게시자가 관리되는 리소스 그룹에 대한 소유자 역할을 요청하는 시나리오를 보여 줍니다. 게시자는 소비자에 대해 이 리소스 그룹에 대한 읽기 전용 잠금을 적용했습니다.
+일반적으로 관리되는 응용 프로그램의 리소스는 두 리소스 그룹에 있습니다. 소비자가 한 리소스 그룹을 관리하고 게시자가 다른 리소스 그룹을 관리합니다. 관리되는 응용 프로그램을 정의할 때는 게시자가 액세스 수준을 지정합니다. 다음 이미지는 게시자가 관리되는 리소스 그룹에 대한 소유자 역할을 요청하는 시나리오를 보여 줍니다. 게시자는 소비자에 대해 이 리소스 그룹에 대한 읽기 전용 잠금을 적용했습니다. 관리되는 리소스 그룹에 대한 액세스 권한이 부여된 게시자 ID는 잠금에서 제외됩니다.
 
 ![리소스 그룹 액세스](./media/overview/access.png)
 

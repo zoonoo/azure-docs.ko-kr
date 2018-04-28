@@ -1,8 +1,8 @@
 ---
-title: "분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용 | Microsoft Docs"
-description: "분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용"
+title: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용 | Microsoft Docs
+description: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: xiaoyongzhu
 manager: asadk
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 71dcd1ad-4cad-47ad-8a9d-dcb7fa3c2ff9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bccd889ba8a063613f1f3f385b39e4bfe8afcc89
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
@@ -35,23 +33,23 @@ ms.lasthandoff: 12/08/2017
 
 이 문서에서는 HDInsight 클러스터에 대해 [Spark의 Caffe](https://github.com/yahoo/CaffeOnSpark)를 설치하는 방법을 보여줍니다. 또한 이 문서는 기본 제공 MNIST 데모를 사용하여 CPU에서 HDInsight Spark를 통해 분산 심층 학습을 사용하는 방법을 보여줍니다.
 
-HDInsight에서 작업을 위해서는 4가지 주요 단계가 있습니다.
+다음 4단계로 작업을 수행합니다.
 
 1. 모든 노드에 필요한 종속성 설치
 2. 헤드 노드에서 HDInsight용 Spark에 Caffe 빌드
 3. 모든 작업자 노드에 필요한 라이브러리 배포
 4. Caffe 모델을 구성하고 분산 방식으로 실행합니다.
 
-HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로 일부 작업을 쉽게 수행할 수 있습니다. 이 블로그 게시물에서 많이 사용하는 기능 중 하나는 [스크립트 작업](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)이라고 하며 셸 명령을 실행하여 클러스터 노드(헤드 노드, 작업자 노드 또는 가장자리 노드)를 사용자 지정할 수 있습니다.
+HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로 일부 작업을 쉽게 수행할 수 있습니다. 이 블로그 게시물에서 사용하는 기능 중 하나는 [스크립트 작업](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)이라고 하며 셸 명령을 실행하여 클러스터 노드(헤드 노드, 작업자 노드 또는 가장자리 노드)를 사용자 지정할 수 있습니다.
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>1단계: 모든 노드에 필요한 종속성 설치
 
-시작하려면 필요한 종속성을 설치해야 합니다. Caffe 사이트 및 [CaffeOnSpark 사이트](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)는 YARN 모드에서 Spark에 대한 종속성을 설치하기 위한 몇 가지 유용한 wiki를 제공합니다. 또한 HDInsight는 YARN 모드에서 Spark를 사용합니다. 그러나 HDInsight 플랫폼에 대한 몇 가지 종속성을 추가해야 합니다. 이렇게 하려면 스크립트 동작을 사용하고 모든 헤드 노드 및 작업자 노드에서 실행합니다. 해당 종속성은 다른 패키지에도 종속되므로 이 스크립트 동작은 약 20분이 소요됩니다. HDInsight 클러스터에 액세스할 수 있는 일부 위치(예: GitHub 위치 또는 기본 Blob Storage 계정)에 배치해야 합니다.
+시작하려면 종속성을 설치해야 합니다. Caffe 사이트 및 [CaffeOnSpark 사이트](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)는 YARN 모드에서 Spark에 대한 종속성을 설치하기 위한 몇 가지 유용한 wiki를 제공합니다. 또한 HDInsight는 YARN 모드에서 Spark를 사용합니다. 그러나 HDInsight 플랫폼에 대한 몇 가지 종속성을 추가해야 합니다. 이렇게 하려면 스크립트 동작을 사용하고 모든 헤드 노드 및 작업자 노드에서 실행합니다. 해당 종속성은 다른 패키지에도 종속되므로 이 스크립트 동작은 약 20분이 소요됩니다. HDInsight 클러스터에 액세스할 수 있는 일부 위치(예: GitHub 위치 또는 기본 Blob Storage 계정)에 배치해야 합니다.
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
     #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
-    #It seems numpy will only needed during compilation time, but for safety purpose we install them on all the nodes
+    #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 
@@ -301,8 +299,8 @@ SampleID는 MNIST 데이터 집합에서 ID를 나타내며 레이블은 모델�
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)

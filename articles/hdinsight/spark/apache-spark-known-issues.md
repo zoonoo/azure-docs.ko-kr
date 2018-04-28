@@ -1,8 +1,8 @@
 ---
-title: "Azure HDInsight에서 Apache Spark 클러스터 관련 문제 해결 | Microsoft Docs"
-description: "Azure HDInsight의 Apache Spark 클러스터 관련 문제 및 이를 해결하는 방법에 대해 알아봅니다."
+title: Azure HDInsight에서 Apache Spark 클러스터 관련 문제 해결 | Microsoft Docs
+description: Azure HDInsight의 Apache Spark 클러스터 관련 문제 및 이를 해결하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
 
 이 문서는 HDInsight Spark 공개 미리 보기에 대한 모든 알려진 문제를 추적합니다.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy 누수 대화형 세션
-Livy가 여전히 활성 상태인 대화형 세션으로 재시작하는 경우(Ambari에서 또는 헤드 노드 0 가상 머신 재부팅으로 인해) 대화형 작업 세션이 손실됩니다. 이로 인해 새 작업은 수락된 상태에 멈출 수 있으며 시작할 수 없습니다.
+Livy가 여전히 활성 상태인 대화형 세션으로 재시작하는 경우(Ambari에서 또는 헤드 노드 0 가상 머신 재부팅으로 인해) 대화형 작업 세션이 손실됩니다. 따라서 새 작업은 수락됨 상태에서 멈출 수 있습니다.
 
 **해결 방법:**
 
@@ -54,7 +52,12 @@ Livy가 여전히 활성 상태인 대화형 세션으로 재시작하는 경우
 Ambari에서 기록 서버를 수동으로 시작합니다.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Spark 로그 디렉터리에 대한 사용 권한 문제
-hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log(사용 권한 거부됨)가 있고 드라이버 로그가 작성되지 않습니다. 
+hdiuser는 spark-submit을 사용하여 작업을 제출할 때 다음과 같은 오류가 발생합니다.
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+또한 드라이버 로그가 기록되지 않습니다. 
 
 **해결 방법:**
 
@@ -65,7 +68,7 @@ hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotF
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Spark-Phoenix 커넥터가 지원되지 않음
 
-현재 Spark-Phoenix 커넥터는 HDInsight Spark 클러스터에서 지원되지 않습니다.
+HDInsight Spark 클러스터는 Spark-Phoenix 커넥터를 지원하지 않습니다.
 
 **해결 방법:**
 
@@ -75,7 +78,7 @@ hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotF
 다음은 Jupyter Notebook과 관련된 몇 가지 알려진 문제입니다.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>파일 이름에 ASCII가 아닌 문자가 있는 Notebook
-Spark HDInsight 클러스터에서 사용할 수 있는 Jupyter Notebook은 파일 이름에 ASCII가 아닌 문자를 포함할 수 없습니다. ASCII가 아닌 파일 이름을 가진 파일을 Jupyter UI를 통해 업로드하려고 하면 자동으로 실패합니다. 즉, Jupyter에서 파일을 업로드할 수 없지만 시각적 오류도 throw되지 않습니다. 
+Jupyter 노트북 파일 이름에는 비 ASCII 문자를 사용하지 마세요. Jupyter UI를 통해 ASCII가 아닌 파일 이름을 갖는 파일을 업로드하려고 하면 오류 메시지 없이 실패합니다. Jupyter에서는 해당 파일을 업로드할 수 없도록 하지만 보이는 오류를 throw하지 않습니다.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>더 큰 Notebook을 로드하는 중 오류
 더 큰 Notebook을 로드할 때 **`Error loading notebook`** 오류가 표시될 수 있습니다.  
@@ -114,10 +117,8 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* 
-            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

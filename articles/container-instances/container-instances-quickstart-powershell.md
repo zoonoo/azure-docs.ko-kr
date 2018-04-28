@@ -3,17 +3,17 @@ title: 퀵 스타트 - PowerShell로 첫 번째 Azure Container Instances 컨테
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure Container Instances에 Windows 컨테이너를 배포합니다
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d958cb5ae2a1adf1968099bd198162e25d963bc4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8670de00e3ab66ec4a5fa5c0c340e38182fd1ffd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>빠른 시작: Azure Container Instances에서 첫 번째 컨테이너 만들기
 

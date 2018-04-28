@@ -1,12 +1,12 @@
 ---
-title: "Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿에서 Azure DevTest Labs에 다중 VM 환경 및 PaaS 리소스를 만드는 방법에 대해 알아봅니다."
+title: Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기 | Microsoft Docs
+description: Azure Resource Manager 템플릿에서 Azure DevTest Labs에 다중 VM 환경 및 PaaS 리소스를 만드는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 38e048e9ec4985d16632f8891e42c2b6394c83d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/21/2018
 
     ![공용 리포지토리](./media/devtest-lab-create-environment-from-arm/public-repo.png)
 
-1. **추가+**를 선택하여 Azure Resource Manager 템플릿 리포지토리를 추가합니다.
+1. **추가+** 를 선택하여 Azure Resource Manager 템플릿 리포지토리를 추가합니다.
 1. 두 번째 **리포지토리** 창이 열리면 다음과 같이 필요한 정보를 입력합니다.
     - **이름** - 랩에서 사용되는 리포지토리 이름을 입력합니다.
     - **Git 복제 URL** - GitHub 또는 Visual Studio Team Services의 GIT HTTPS 복제 URL을 입력합니다.  
@@ -97,12 +97,12 @@ ms.lasthandoff: 02/21/2018
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 원하는 랩을 탭합니다.   
-1. 랩의 창에서 **추가+**를 선택합니다.
+1. 랩의 창에서 **추가+** 를 선택합니다.
 1. **기본 선택** 창에는 먼저 나열된 Azure Resource Manager 템플릿에서 사용할 수 있는 기본 이미지가 표시됩니다. 원하는 Azure Resource Manager 템플릿을 선택합니다.
 
     ![기본 선택](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. **추가** 창에서 **환경 이름** 값을 입력합니다. 환경 이름은 랩에서 사용자에게 표시되는 이름입니다. 나머지 입력 필드는 Azure Resource Manager 템플릿에 정의되어 있습니다. 기본값이 템플릿에 정의되어 있거나 `azuredeploy.parameter.json` 파일이 있으면 해당 입력 필드에 기본값이 표시되어 있습니다. *보안 문자열* 형식의 매개 변수에는 랩의 [개인 비밀 저장소](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)에 저장된 비밀을 사용할 수 있습니다.
+1. **추가** 창에서 **환경 이름** 값을 입력합니다. 환경 이름은 랩에서 사용자에게 표시되는 이름입니다. 나머지 입력 필드는 Azure Resource Manager 템플릿에 정의되어 있습니다. 기본값이 템플릿에 정의되어 있거나 `azuredeploy.parameter.json` 파일이 있으면 해당 입력 필드에 기본값이 표시되어 있습니다. *보안 문자열* 형식의 매개 변수에는 랩의 [개인 비밀 저장소](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)에 저장된 비밀을 사용할 수 있습니다.
 
     ![창 추가](./media/devtest-lab-create-environment-from-arm/add.png)
 

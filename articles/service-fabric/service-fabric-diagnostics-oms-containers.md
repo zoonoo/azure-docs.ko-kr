@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 7a775b6d23c144c81650bb3608ee6a117475a9ba
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1de7e58eecc80e306920ab17884290dfddf8efa8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Log Analytics를 사용하여 컨테이너 모니터링
  
-이 문서에서는 클러스터에 대해 컨테이너는 모니터링을 설정하는 데 필요한 단계를 설명합니다. 이에 대한 자세한 내용은 [Service Fabric에서 컨테이너 모니터링](service-fabric-diagnostics-event-analysis-oms.md#monitoring-containers)을 참조하세요. 이에 대한 단계별 자습서를 보려면 [Service Fabric에서 Windows 컨테이너 모니터링](service-fabric-tutorial-monitoring-wincontainers.md)을 참조하세요.
+이 문서에서는 컨테이너 이벤트를 보기 위해 OMS Log Analytics 컨테이너 모니터링 솔루션을 설정하는 데 필요한 단계를 다룹니다. 클러스터가 컨테이너 이벤트를 수집하도록 설정하려면 이 [단계별 자습서](service-fabric-tutorial-monitoring-wincontainers.md)를 참조하세요.
 
 ## <a name="set-up-the-container-monitoring-solution"></a>컨테이너 모니터링 솔루션 설정
 
@@ -35,9 +35,22 @@ ms.lasthandoff: 04/06/2018
 
     ![컨테이너 솔루션 추가](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. 클러스터에 대해 이미 작성된 동일한 작업 영역 내부에 솔루션을 만듭니다. 이렇게 변경하면 컨테이너에서 docker 데이터 수집을 시작하는 에이전트가 자동으로 트리거됩니다. 약 15분 정도 동안 로그와 통계가 들어오는 것으로 솔루션에 불이 들어옵니다.
+3. 클러스터에 대해 이미 작성된 동일한 작업 영역 내부에 솔루션을 만듭니다. 이렇게 변경하면 컨테이너에서 docker 데이터 수집을 시작하는 에이전트가 자동으로 트리거됩니다. 아래 이미지에서처럼 약 15분 정도 동안 로그와 통계가 들어오는 것으로 솔루션에 불이 들어옵니다.
+
+    ![기본 OMS 대시보드](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+
+에이전트를 사용하면 OMS에서 쿼리하거나 성능 지표를 시각화하는 데 사용할 수 있는 몇 가지 컨테이너별 로그를 수집할 수 있습니다. 수집되는 로그 형식은 다음과 같습니다.
+
+* ContainerInventory: 컨테이너 위치, 이름 및 이미지에 대한 정보를 표시합니다.
+* ContainerImageInventory: ID 또는 크기를 포함하여 배포된 이미지에 대한 정보를 표시합니다.
+* ContainerLog: 특정 오류 로그, docker 로그(stdout 등) 및 기타 항목을 표시합니다.
+* ContainerServiceLog: 실행된 docker 디먼 명령을 표시합니다.
+* Perf: 호스트 컴퓨터의 컨테이너 CPU, 메모리, 네트워크 트래픽, 디스크 I/O, 사용자 지정 메트릭을 포함하는 성능 카운터를 표시합니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
+* [OMS의 컨테이너 솔루션](../log-analytics/log-analytics-containers.md)에 대해 자세히 알아보세요.
 * Service Fabric - [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)에서 컨테이너 오케스트레이션에 대해 자세히 알아보세요.
 * Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
 * 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md) 규칙을 설정하도록 Log Analytics를 구성합니다.

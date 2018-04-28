@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 3e6c7c70acbfde9d82d40c884711db8e9eb6946a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
 
@@ -73,7 +73,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 ## <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 데이터 원본을 만들려면 POST를 수행합니다.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -146,7 +146,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 
 다음 예제에서는 id 및 설명 필드를 사용해서 인덱스를 만듭니다.
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -192,7 +192,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 
 인덱스와 데이터 원본이 만들어지면 인덱서를 만들 준비가 된 것입니다.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -211,7 +211,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 ### <a name="running-indexer-on-demand"></a>요청 시 인덱서 실행
 인덱서를 일정에 따라 주기적으로 실행할 수 있을 뿐 아니라 요청 시에 호출할 수도 있습니다.
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -223,7 +223,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 ### <a name="getting-indexer-status"></a>인덱서 상태 가져오기
 인덱서의 상태 및 실행 기록을 검색할 수 있습니다.
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 응답에는 전반적인 인덱서 상태, 마지막(또는 진행 중인) 인덱서 호출 및 최근 인덱서 호출 기록이 포함됩니다.
@@ -297,7 +297,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 
 다음 예제에서는 일시 삭제 정책을 사용하여 데이터 원본을 만듭니다.
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

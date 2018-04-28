@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9fb1426e66df6cd8085342743b7d045c297743e5
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9bf51bf6a4e2b84771edb9841e1b0ae18953826c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Windows Phone Silverlight 앱용 Azure Mobile Engagement 시작
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/30/2018
 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 여기서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 데이터를 수집하는 빈 Windows Phone Silverlight 앱을 만듭니다.
 
 > [!NOTE]
-> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/)를 참조하세요.
 
 > [!NOTE]
 > Windows Phone 8.1 및 이전 버전 프로젝트는 Visual Studio 2017에서 지원되지 않습니다.  자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요.
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/30/2018
 다음 단계에서는 Visual Studio 2015를 사용한다고 가정하지만 이전 버전의 Visual Studio에서도 단계는 유사합니다. 
 
 1. Visual Studio를 시작하고 **홈** 화면에서 **새 프로젝트**를 선택합니다.
-2. 팝업에서 **Windows 8** -> **Windows Phone** -> **비어 있는 앱(Windows Phone Silverlight)**을 선택합니다. 앱 **이름** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
+2. 팝업에서 **Windows 8** -> **Windows Phone** -> **비어 있는 앱(Windows Phone Silverlight)** 을 선택합니다. 앱 **이름** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
    
     ![][1]
 3. **Windows Phone 8.0** 또는 **Windows Phone 8.1**을 대상으로 선택할 수 있습니다.

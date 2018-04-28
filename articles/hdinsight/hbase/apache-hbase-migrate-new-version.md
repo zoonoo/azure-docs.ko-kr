@@ -1,26 +1,24 @@
 ---
-title: "HBase 클러스터를 최신 버전으로 마이그레이션 - Azure HDInsight | Microsoft Docs"
-description: "HBase 클러스터를 최신 버전으로 마이그레이션하는 방법입니다."
+title: HBase 클러스터를 최신 버전으로 마이그레이션 - Azure HDInsight | Microsoft Docs
+description: HBase 클러스터를 최신 버전으로 마이그레이션하는 방법입니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 15d23d0ccf816ca355103ad7fd0d6124f1c5c226
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 3ca982e7fc0ce56bee2ee2e193c82a78fac44362
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>HBase 클러스터를 최신 버전으로 마이그레이션
 
@@ -193,7 +191,7 @@ HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 HBase �
     
 4. 이전 HBase 클러스터에 대한 수집을 중지합니다.
 5. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
-6. 이전 클러스터(https://OLDCLUSTERNAME.azurehdidnsight.net)의 Ambari에 로그인하고 HBase 서비스를 중지합니다. 서비스를 중지하려는 것인지 묻는 메시지가 표시되면 상자를 선택하여 HBase에 대한 유지 관리 모드를 켭니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+6. 이전 클러스터(https://OLDCLUSTERNAME.azurehdidnsight.net))에서 Ambari에 로그인하고 HBase 서비스를 중지합니다. 서비스를 중지하려는 것인지 묻는 메시지가 표시되면 상자를 선택하여 HBase에 대한 유지 관리 모드를 켭니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
     ![Ambari에서 [서비스] 탭을 클릭하고, 왼쪽 메뉴에서 HBase를 클릭한 다음, [서비스 작업]에서 [중지]를 클릭함](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 

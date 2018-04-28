@@ -1,24 +1,18 @@
 ---
-title: "Azure Analysis Services 규모 확장 | Microsoft Docs"
-description: "규모 확장으로 Azure Analysis Services 서버 복제"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 규모 확장 | Microsoft Docs
+description: 규모 확장으로 Azure Analysis Services 서버 복제
 author: minewiskan
-manager: erikre
-editor: 
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/16/2018
 ms.author: owend
-ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 02/21/2018
 
 일반적인 서버 배포에서는 한 서버가 처리 서버 및 쿼리 서버 역할을 모두 수행합니다. 서버 모델에 대한 클라이언트 쿼리 수가 서버 계획에 대한 QPU(쿼리 처리 단위)를 초과하거나 높은 쿼리 워크로드와 동시에 모델 처리가 발생하면 성능이 저하될 수 있습니다. 
 
-규모 확장을 사용하면 최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 중요한 시간에 QPU 요구를 충족시키기 위해 쿼리 복제본 수를 확장하고 언제든지 처리 서버를 쿼리 풀에서 분리할 수 있습니다. 
+규모 확장을 사용하면 최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 중요한 시간에 QPU 요구를 충족시키기 위해 쿼리 복제본 수를 확장하고 언제든지 처리 서버를 쿼리 풀에서 분리할 수 있습니다. 모든 쿼리 복제본은 서버와 동일한 지역에 만들어집니다.
 
 쿼리 풀에 있는 쿼리 복제본의 수와 관계없이 처리 워크로드는 쿼리 복제본 간에 분산되지 않습니다. 단일 서버가 처리 서버 역할을 수행합니다. 쿼리 복제본은 쿼리 풀의 각 복제본 간에 동기화된 모델에 대한 쿼리만 제공합니다. 
 
@@ -79,7 +73,13 @@ ms.lasthandoff: 02/21/2018
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-PowerShell에서 동기화를 실행하려면 AzureRM 모듈의 5.01 이상 [최신 버전으로 업데이트](https://github.com/Azure/azure-powershell/releases)합니다. [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)를 사용합니다.
+PowerShell을 사용하기 전에 [최신 AzureRM 모듈을 설치하거나 업데이트합니다](https://github.com/Azure/azure-powershell/releases). 
+
+쿼리 복제본 수를 설정하려면 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)를 사용합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
+
+동기화를 실행하려면 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)를 사용합니다.
+
+
 
 ## <a name="connections"></a>연결
 

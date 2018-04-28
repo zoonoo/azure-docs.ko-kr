@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup: Windows Server에 시스템 상태 복원 | Microsoft Docs"
-description: "Azure의 백업에서 Windows Server 시스템 상태를 복원하기 위한 단계별 설명입니다."
+title: 'Azure Backup: Windows Server에 시스템 상태 복원 | Microsoft Docs'
+description: Azure의 백업에서 Windows Server 시스템 상태를 복원하기 위한 단계별 설명입니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/19/2017
 
     ![데이터 복구](./media/backup-azure-restore-windows-server/recover.png)
 
-3. **시작** 창에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)**를 선택하고 **다음**을 클릭합니다.
+3. **시작** 창에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)** 를 선택하고 **다음**을 클릭합니다.
 
     ![같은 컴퓨터에 데이터를 복원하려면 이 서버 옵션을 선택합니다.](./media/backup-azure-restore-system-state/samemachine.png)
 
@@ -98,7 +98,7 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 6. Backup 서버 선택 창의 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택합니다.
 7. 복구 모드 선택 창에서 **시스템 상태**를 선택하고 **다음**을 선택합니다. 
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![검색](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. **볼륨 및 날짜 선택** 창의 일정에서 복구 지점을 선택합니다. 어떤 복구 시점에서라도 복원할 수 있습니다. **굵게** 표시된 날짜는 하나 이상의 복구 지점을 사용 가능함을 나타냅니다. 날짜를 선택하고 여러 복구 지점을 사용할 수 있는 경우 **시간** 드롭다운 메뉴에서 특정 복구 지점을 선택합니다. 
 
@@ -171,7 +171,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 시스템 상태 백업은 Active Directory 데이터를 포함합니다. 다음 단계를 사용하여 현재 상태에서 이전 상태로 AD DS(Active Directory Domain Service)를 복원합니다.
 
 1. DSRM(디렉터리 서비스 복원 모드)로 도메인 컨트롤러를 다시 시작합니다.
-2. Windows Server Backup cmdlet을 사용하여 AD DS를 복구하려면 [여기](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) 있는 단계를 수행합니다.
+2. Windows Server Backup cmdlet을 사용하여 AD DS를 복구하려면 [여기](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) 있는 단계를 수행합니다.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>실패한 시스템 상태 복원 문제 해결

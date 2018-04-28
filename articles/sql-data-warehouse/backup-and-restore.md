@@ -1,23 +1,23 @@
 ---
 title: Azure SQL Data Warehouse 백업 및 복원 - 스냅숏, 지역 중복 | Microsoft Docs
-description: Azure SQL Data Warehouse에서 백업 및 복원이 어떻게 작동하는지 알아봅니다. 데이터 웨어하우스 백업을 사용하여 데이터 웨어하우스를 주 지역의 복원 지점으로 복원하거나 지역 중복 백업을 사용하여 다른 지리적 지역으로 복원하세요.
+description: Azure SQL Data Warehouse에서 백업 및 복원이 어떻게 작동하는지 알아봅니다. 데이터 웨어하우스 백업을 사용하여 데이터 웨어하우스를 주 지역의 복원 지점으로 복원합니다. 지역 중복 백업을 사용하여 다른 지역에 복원합니다.
 services: sql-data-warehouse
-author: ronortloff
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-ms.date: 03/28/2018
-ms.author: rortloff
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 백업 및 복원
-Azure SQL Data Warehouse에서 백업 및 복원이 어떻게 작동하는지 알아봅니다. 데이터 웨어하우스 백업을 사용하여 데이터 웨어하우스를 주 지역의 복원 지점으로 복원하거나 지역 중복 백업을 사용하여 다른 지리적 지역으로 복원하세요. 
+Azure SQL Data Warehouse에서 백업 및 복원이 어떻게 작동하는지 알아봅니다. 데이터 웨어하우스 백업을 사용하여 데이터 웨어하우스를 주 지역의 복원 지점으로 복원합니다. 지역 중복 백업을 사용하여 다른 지역에 복원합니다. 
 
 ## <a name="what-is-backup-and-restore"></a>백업 및 복원이란?
 *데이터 웨어하우스 백업*은 데이터 웨어하우스를 복원하는 데 사용할 수 있는 데이터베이스 복사본입니다.  SQL Data Warehouse는 분산 시스템이므로 데이터 웨어하우스 백업은 Azure Storage에 있는 여러 파일로 구성됩니다. 데이터 웨어하우스 백업에는 로컬 데이터베이스 스냅숏과 데이터 웨어하우스와 연결된 모든 데이터베이스 및 파일의 지역 백업이 모두 포함됩니다. 

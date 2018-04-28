@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f0df9b02e7672faec3a1d94997c9b27ffca275e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>질문과 대답 Azure 스택 사용량 API
 이 문서 Azure 스택 사용량 API에 대 한 몇 가지 자주 묻는 질문에 대답 합니다.
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure 스택 사용량 Api와 비교 하는 방법의 [Azure 사용량 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (현재 공개 미리 보기)에 있습니까?
 * 테 넌 트 사용량 API는 한 가지 예외로 Azure API와 일치:는 *showDetails* 플래그 현재 Azure 스택에서 지원 되지 않습니다.
 * 공급자 사용량 API는 Azure 스택만 적용 됩니다.
-* 현재는 [RateCard API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) 즉 Azure에서 사용할 수 있는 Azure 스택에서 사용할 수 없는 합니다.
+* 현재는 [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx) 즉 Azure에서 사용할 수 있는 Azure 스택에서 사용할 수 없는 합니다.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>사용 시간과 보고 된 시간 사이의 차이 무엇입니까?
 사용 현황 데이터 보고서는 두 개의 기본 시간 값을 갖습니다.

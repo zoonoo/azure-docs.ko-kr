@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK for .NET 2.9 릴리스 정보
 
@@ -41,7 +41,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 가상 머신
 
-- 이제 Visual Studio에서는 OS 제품군 5(Windows Server 2016) 가상 머신에 Cloud Services를 배포하도록 지원합니다. 기존 클라우드 서비스의 경우, 새 OS 제품군을 대상으로 설정을 변경할 수 있습니다. 새 클라우드 서비스를 만들 때 .NET 4.6 이상을 사용하여 서비스를 만들려면 선택하는 경우 기본적으로 서비스는 OS 제품군 5를 사용하게 됩니다.  자세한 내용은 [게스트 OS 제품군 지원 테이블](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/)을 참조하세요.
+- 이제 Visual Studio에서는 OS 제품군 5(Windows Server 2016) 가상 머신에 Cloud Services를 배포하도록 지원합니다. 기존 클라우드 서비스의 경우, 새 OS 제품군을 대상으로 설정을 변경할 수 있습니다. 새 클라우드 서비스를 만들 때 .NET 4.6 이상을 사용하여 서비스를 만들려면 선택하는 경우 기본적으로 서비스는 OS 제품군 5를 사용하게 됩니다.  자세한 내용은 [게스트 OS 제품군 지원 테이블](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/)을 참조하세요.
 
 #### <a name="known-issues"></a>알려진 문제
 
@@ -50,7 +50,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
 
-- Azure In-Role Cache에 대한 지원은 2016년 11월 30일에 종료됩니다. 자세한 내용을 보려면 [여기](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)를 클릭하세요.
+- Azure In-Role Cache에 대한 지원은 2016년 11월 30일에 종료됩니다. 자세한 내용을 보려면 [여기](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)를 클릭하세요.
 
 ### <a name="azure-resource-manager-templates-for-azure-stack"></a>Azure Stack용 Azure Resource Manager 템플릿
 

@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: sngun
-ms.openlocfilehash: ab85591ce4ffadeba4c1336efea0bd6945d46ec3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.author: rimman
+ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 머신을 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [Table API](table-introduction.md) 및 [Graph API](graph-introduction.md)를 통한 Gremlin 데이터 액세스가 모두 기본적으로 지원됩니다. Azure Cosmos DB의 통화는 RU(요청 단위)입니다. RU를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 머신을 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [Table API](table-introduction.md) 및 [Gremlin API](graph-introduction.md)를 통한 그래프 등, 모두 기본적으로 지원됩니다. 
 
-Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 모든 요청 값이 같지 않으므로 요청을 처리하는 데 필요한 계산의 양에 기반하여 정규화된 양의 **요청 단위**가 할당됩니다. 작업에 대한 요청 단위 수는 결정적이며 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에 사용된 요청 단위 수를 추적할 수 있습니다. 
+Azure Cosmos DB의 통화는 **RU(요청 단위)** 입니다. RU를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다. Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 모든 요청 값이 같지 않으므로 요청을 처리하는 데 필요한 계산의 양에 기반하여 정규화된 양의 **요청 단위**가 할당됩니다. 작업에 대한 요청 단위 수는 결정적이며 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에 사용된 요청 단위 수를 추적할 수 있습니다. 
 
 예측 가능한 성능을 제공하려면 100 RU/초 단위로 처리량을 예약해야 합니다. Azure Cosmos DB [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 사용하여 [처리량 요구 사항을 예상](request-units.md#estimating-throughput-needs)할 수 있습니다.
 
@@ -31,12 +31,12 @@ Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리�
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.  
 
-* 요청 단위 및 요청 요금이 무엇인가요?
-* 컨테이너에 대해 요청 단위 용량을 지정하려면 어떻게 해야 하나요?
+* Azure Cosmos DB에서 요청 단위 및 요청 요금이 무엇인가요?
+* Azure Cosmos DB에서 컨테이너에 대해 요청 단위 용량을 지정하려면 어떻게 해야 하나요?
 * 내 응용 프로그램에 필요한 요청 단위를 어떻게 추정할 수 있나요?
-* 컨테이너의 요청 단위 용량을 초과하면 어떻게 되나요?
+* Azure Cosmos DB에서 컨테이너에 대해 요청 단위 용량을 지정하면 어떻게 되나요?
 
-Azure Cosmos DB는 다중 모델 데이터베이스이므로 이 문서에서는 문서 API의 경우 컬렉션/문서를, Graph API의 경우 그래프/노드를, 테이블 API의 경우 테이블/엔터티를 가합니다. 이 문서에서는 컨테이너로서의 컬렉션, 그래프 또는 테이블 개념과 항목으로서의 문서, 노드 또는 엔터티의 개념에 대해 설명합니다.
+Azure Cosmos DB는 다중 모델 데이터베이스입니다. 이 문서는 Azure Cosmos DB의 모든 데이터 모델과 API에 해당합니다. 이 문서에서는 일반적으로 각각 컬렉션, 그래프 또는 테이블과, 문서, 노드 또는 엔터티를 의미하는 *컨테이너* 및 *항목* 같은 일반 용어를 사용합니다.
 
 ## <a name="request-units-and-request-charges"></a>요청 단위 및 요청 요금
 Azure Cosmos DB는 응용 프로그램의 처리량 수요를 충족하도록 리소스를 *예약*하여 신속하고 예측 가능한 성능을 제공합니다.  시간이 지나면 응용 프로그램 로드 및 액세스 패턴이 변하는데, Azure Cosmos DB를 사용하면 응용 프로그램에 제공되는 예약된 처리량을 간편하게 늘리거나 줄일 수 있습니다.
@@ -92,17 +92,17 @@ await client.ReplaceOfferAsync(offer);
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>전역적으로 분산된 데이터베이스의 처리량 격리
 
-둘 이상의 지역에 데이터베이스를 복제하는 경우, Azure Cosmos DB는 한 지역의 RU 사용량이 다른 지역의 RU 사용량에 영향을 미치지 않도록 처리량 격리를 제공합니다. 예를 들어 한 지역에 데이터를 쓰고 다른 지역에서 이 데이터를 읽는 경우, A 지역에서 쓰기 작업을 수행하는 데 사용되는 RU는 B 지역에서 읽기 작업을 수행하는 데 사용되는 RU에 영향을 미치지 않습니다. RU는 배포한 지역에서 분할되지 않습니다. 데이터베이스가 복제되어 있는 각 지역에는 프로비전된 전체 RU가 있습니다. 전역 복제에 대한 자세한 내용은 [Azure Cosmos DB로 데이터를 전역적으로 배포하는 방법](distribute-data-globally.md)을 참조하세요.
+둘 이상의 지역에 데이터베이스를 복제하는 경우, Azure Cosmos DB는 한 지역의 RU 사용량이 다른 지역의 RU 사용량에 영향을 미치지 않도록 처리량 격리를 제공합니다. 예를 들어 한 지역에 데이터를 쓰고 다른 지역에서 이 데이터를 읽는 경우, *A* 지역에서 쓰기 작업을 수행하는 데 사용되는 RU는 *B* 지역에서 읽기 작업을 수행하는 데 사용되는 RU에 영향을 미치지 않습니다.  RU는 배포한 지역에서 분할되지 않습니다. 데이터베이스가 복제되어 있는 각 지역에는 프로비전된 전체 RU가 있습니다. 전역 복제에 대한 자세한 내용은 [Azure Cosmos DB로 데이터를 전역적으로 배포하는 방법](distribute-data-globally.md)을 참조하세요.
 
 ## <a name="request-unit-considerations"></a>요청 단위 고려 사항
-Azure Cosmos DB 컨테이너에 대해 예약할 요청 단위 수를 추정하는 경우 다음 변수를 고려해야 합니다.
+Azure Cosmos DB 컨테이너에 대해 프로비전할 요청 단위 수를 추정하는 경우 다음 변수를 고려해야 합니다.
 
-* **항목 크기**. 크기가 증가할수록 데이터를 읽거나 쓰는 데 사용되는 단위도 증가합니다.
+* **항목 크기**. 크기가 증가할수록 데이터를 읽거나 쓰는 데 사용되는 요청 단위 수도 증가합니다.
 * **항목 속성 개수**. 모든 속성의 기본 인덱싱을 가정할 경우 속성 수가 증가할수록 문서/노드/엔터티를 쓰는 데 사용되는 단위가 증가합니다.
-* **데이터 일관성**. 강력 또는 제한된 부실 데이터 일관성 수준을 사용하는 경우 항목을 읽는 데 추가 단위가 사용됩니다.
+* **데이터 일관성**. 강력 또는 제한된 부실 데이터 일관성 수준을 사용하는 경우 항목을 읽는 데 추가 요청 단위가 사용됩니다.
 * **인덱싱된 속성**. 각 컨테이너의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정됩니다. 인덱싱되는 속성 수를 제한하거나 지연 인덱싱을 사용하면 요청 단위 사용을 줄일 수 있습니다.
 * **문서 인덱싱**. 기본적으로 각 항목은 자동으로 인덱싱됩니다. 일부 항목을 인덱싱하지 않도록 선택하면 더 적은 요청 단위를 사용합니다.
-* **쿼리 패턴**. 쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, 프로젝션, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
+* **쿼리 패턴**. 쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, 프로젝션, UDF 수 및 원본 데이터의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 * **스크립트 사용량**.  쿼리와 마찬가지로, 저장된 프로시저 및 트리거는 수행하는 작업의 복잡성에 따라 요청 단위를 사용합니다. 응용 프로그램을 개발하면서 요청 요금 헤더를 검사하면 각 작업이 요청 단위 용량을 어떻게 사용하는지 파악하는 데 도움이 됩니다.
 
 ## <a name="estimating-throughput-needs"></a>필요한 처리량 예측
@@ -113,7 +113,7 @@ Azure Cosmos DB 컨테이너에 대해 예약할 요청 단위 수를 추정하�
 > 
 > 
 
-예를 들어 다음 표에는 세 가지 항목 크기(1KB, 4KB 및 64KB)와 두 가지 다른 성능(500읽기/초 + 100쓰기/초 및 500읽기/초 +500 쓰기/초)에서 프로비전할 요청 단위가 나와 있습니다. 데이터 일관성은 세션에서 구성되었으며 인덱싱 정책은 None으로 설정되었습니다.
+예를 들어 다음 표에는 세 가지 크기(1KB, 4KB 및 64KB)와 두 가지 다른 성능(500읽기/초 + 100쓰기/초 및 500읽기/초 +500 쓰기/초)으로 프로비전할 요청 단위가 나와 있습니다. 데이터 일관성은 *세션*에서 구성되었으며 인덱싱 정책은 *None*으로 설정되었습니다.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -174,11 +174,11 @@ Azure Cosmos DB 컨테이너에 대해 예약할 요청 단위 수를 추정하�
 
 도구를 사용하는 것은 간단합니다.
 
-1. 하나 이상의 대표 항목을 업로드합니다.
+1. 하나 이상의 대표 항목(예: 샘플 JSON 문서)을 업로드합니다.
    
     ![요청 단위 계산기에 항목 업로드][2]
-2. 데이터 저장소 요구 사항을 예측하려면 저장할 항목의 총수를 입력합니다.
-3. 항목 수를 입력하여 필요한 작업을 만들고 읽고 업데이트하고 삭제합니다(초 단위별로). 항목 업데이트 작업의 요청 단위 요금을 예측하려면 일반적인 필드 업데이트가 포함된 위의 1단계에서 샘플 항목의 복사본을 업로드합니다.  예를 들어 항목 업데이트가 일반적으로 lastLogin 및 userVisits라는 두 가지 속성을 수정하는 경우 샘플 항목을 복사하고 해당 두 가지 속성의 값을 업데이트한 다음 복사된 항목을 업로드합니다.
+2. 데이터 저장소 요구 사항을 예측하려면 저장할 항목(예: 문서, 테이블 또는 그래프)의 총수를 입력합니다.
+3. 필요한 만들기, 읽기, 업데이트 및 삭제 작업의 수를 입력합니다(초 단위 기준). 항목 업데이트 작업의 요청 단위 요금을 예측하려면 일반적인 필드 업데이트가 포함된 위의 1단계에서 샘플 항목의 복사본을 업로드합니다.  예를 들어 항목 업데이트에서 일반적을 이름이 *lastLogin* 및 *userVisits*인 두 속성을 수정하는 경우, 샘플 항목을 복사하고 해당 두 가지 속성의 값을 업데이트한 다음, 복사된 항목을 업로드합니다.
    
     ![요청 단위 계산기에 처리량 요구 입력][3]
 4. 결과를 계산하고 검토하도록 클릭합니다.
@@ -191,7 +191,7 @@ Azure Cosmos DB 컨테이너에 대해 예약할 요청 단위 수를 추정하�
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Azure Cosmos DB 요청 요금 응답 헤더 사용
-Azure Cosmos DB 서비스의 모든 응답에는 요청에 사용된 요청 단위가 포함된 사용자 지정 헤더(`x-ms-request-charge`)가 포함되어 있습니다. 이 헤더는 Azure Cosmos DB SDK를 통해 액세스할 수도 있습니다. .NET SDK에서 RequestCharge는 ResourceResponse 개체의 속성입니다.  쿼리의 경우 Azure Portal의 Azure Cosmos DB 데이터 탐색기는 실행된 쿼리에 대한 요청 요금 정보를 제공합니다.
+Azure Cosmos DB 서비스의 모든 응답에는 해당 요청에 사용된 요청 단위가 포함된 사용자 지정 헤더(`x-ms-request-charge`)가 포함되어 있습니다. 이 헤더는 Azure Cosmos DB SDK를 통해 액세스할 수도 있습니다. .NET SDK에서 `RequestCharge`는 `ResourceResponse` 개체의 속성입니다.  쿼리의 경우 Azure Portal의 Azure Cosmos DB 데이터 탐색기는 실행된 쿼리에 대한 요청 요금 정보를 제공합니다.
 
 이 점을 염두에 두고, 응용 프로그램에 필요한 예약된 처리량을 예측하는 한 가지 방법은 응용 프로그램에서 사용하는 대표적인 항목에 대해 실행되는 일반 작업과 연결된 요청 단위 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다.  일반 쿼리 및 Azure Cosmos DB 스크립트 사용량도 측정하여 포함해야 합니다.
 
@@ -209,40 +209,8 @@ Azure Cosmos DB 서비스의 모든 응답에는 요청에 사용된 요청 단�
 5. 응용 프로그램에서 활용하는 모든 사용자 지정 스크립트(저장된 프로시저, 트리거, 사용자 정의 함수)의 요청 단위 요금을 기록합니다.
 6. 예상되는 초당 작업 수를 고려하여 필요한 요청 단위를 계산합니다.
 
-## <a id="GetLastRequestStatistics"></a>MongoDB API의 GetLastRequestStatistics 명령 사용
-MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사용자 지정 명령인 *getLastRequestStatistics*를 지원합니다.
-
-예를 들어 Mongo Shell에서 요청 비용을 확인할 작업을 실행합니다.
-```
-> db.sample.find()
-```
-
-다음으로 *getLastRequestStatistics* 명령을 실행합니다.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-이 점을 염두에 두고, 응용 프로그램에 필요한 예약된 처리량을 예측하는 한 가지 방법은 응용 프로그램에서 사용하는 대표적인 항목에 대해 실행되는 일반 작업과 연결된 요청 단위 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다.
-
-> [!NOTE]
-> 인덱싱된 속성과 크기 및 개수가 완전히 다른 항목 유형이 있는 경우에는 일반 항목의 각 *유형*과 연결된 적용 가능한 작업 요청 단위 요금을 기록합니다.
-> 
-> 
-
-## <a name="use-mongodb-api-portal-metrics"></a>MongoDB API 포털 메트릭 사용
-MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추정하는 가장 간단한 방법은 [Azure Portal](https://portal.azure.com) 메트릭을 사용하는 것입니다. *요청 수* 및 *요청 요금* 차트에서 각 작업에서 사용하는 요청 단위 수와 서로 상대적으로 사용하는 요청 단위 수를 추정할 수 있습니다.
-
-![MongoDB API 포털 메트릭][6]
-
-## <a name="a-request-unit-estimation-example"></a>요청 단위 추정 예제
-다음과 같은 1KB보다 작은 문서를 가정하겠습니다.
+## <a name="a-request-unit-estimate-example"></a>요청 단위 추정 예제
+다음과 같은 1KB 미만 문서를 가정하겠습니다.
 
 ```json
 {
@@ -299,7 +267,7 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 > 
 > 
 
-다음 표에서는 이 항목의 일반 작업에 대한 대략적인 요청 단위 요금을 보여 줍니다(대략적인 요청 단위 요금은 계정 일관성 수준이 "세션"으로 설정되어 있고 모든 항목이 자동으로 인덱싱되는 것으로 가정).
+다음 표에서는 이 항목의 일반 작업에 대한 대략적인 요청 단위 요금을 보여 줍니다(대략적인 요청 단위 요금은 계정 일관성 수준이 *Session*으로 설정되어 있고 모든 항목이 자동으로 인덱싱되는 것으로 가정).
 
 | 작업 | 요청 단위 요금 |
 | --- | --- |
@@ -334,18 +302,15 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컨테이너에 1,300 RU/s를 프로비전하면 됩니다.
 
 ## <a id="RequestRateTooLarge"></a> Azure Cosmos DB에서 예약된 처리량 제한 초과
-요청 단위 소비는 예산이 비어 있는 경우 초당 비율로 평가된다는 점을 기억하세요. 컨테이너에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컨테이너에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
+요청 단위 소비는 초당 비율로 평가된다고 했습니다. 프로비전된 요청 단위 비율을 초과하는 응용 프로그램의 경우 비율이 프로비전된 처리량 수준 아래로 떨어질 때까지 제한됩니다. 요청에 비율 제한이 발생하면 서버에서 `RequestRateTooLargeException`(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 `x-ms-retry-after-ms` 헤더를 반환합니다.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
 
-.NET 클라이언트 SDK 및 LINQ 쿼리를 사용하는 경우에는 거의 대부분 이 예외를 처리할 필요가 없습니다. .NET 클라이언트 SDK 최신 버전이 이 응답을 암시적으로 catch하고, 서버에서 지정한 retry-after 헤더를 준수하고, 요청을 다시 시도하기 때문입니다. 동시에 여러 클라이언트가 계정에 액세스하지만 않으면 다음 재시도가 성공할 것입니다.
+.NET Client SDK 및 LINQ 쿼리를 사용하는 경우에는 거의 대부분 이 예외를 처리할 필요가 없습니다. .NET 클라이언트 SDK 최신 버전이 이 응답을 암시적으로 catch하고, 서버에서 지정한 retry-after 헤더를 준수하고, 자동으로 요청을 다시 시도하기 때문입니다. 동시에 여러 클라이언트가 계정에 액세스하지만 않으면 다음 재시도가 성공할 것입니다.
 
-여러 클라이언트가 누적적으로 요청 속도를 초과하여 작동하는 경우에는 기본 재시도 동작으로 충분하지 않을 수 있으며, 클라이언트가 응용 프로그램에 상태 코드 429와 함께 DocumentClientException을 throw합니다. 이 경우 응용 프로그램의 오류 처리 루틴에서 재시도 동작 및 논리를 처리하는 방법 또는 컨테이너에 대해 예약된 처리량을 늘리는 방법을 고려해 볼 수 있습니다.
-
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
-컨테이너에서 프로비전된 요청 단위를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 제한됩니다. 제한이 발생하면 백 엔드는 *16500* 오류 코드 - *너무 많은 요청*으로 요청을 먼저 종료합니다. 기본적으로 MongoDB API는 *너무 많은 요청* 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. *너무 많은 요청* 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 동작을 추가하거나 [컨테이너에 대해 예약된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
+여러 클라이언트가 누적적으로 요청 속도를 초과하여 작동하는 경우에는 기본 재시도 동작으로 충분하지 않을 수 있으며, 클라이언트가 응용 프로그램에 상태 코드 429와 함께 `DocumentClientException`을 throw합니다. 이 같은 경우 응용 프로그램의 오류 처리 루틴에서 재시도 동작 및 논리를 처리하는 방법 또는 컨테이너에 대해 프로비전된 처리량을 늘리는 방법을 고려해 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB 데이터베이스의 예약된 처리량에 대한 자세한 내용은 다음 리소스를 참조하세요.
@@ -361,4 +326,3 @@ Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 시작하려면 [
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/api-for-mongodb-metrics.png

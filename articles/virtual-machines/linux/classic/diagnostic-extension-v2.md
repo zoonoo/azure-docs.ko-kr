@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링
 
@@ -53,7 +53,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 
 [Azure 포털](https://portal.azure.com/#), Azure PowerShell 또는 Azure CLI 스크립트를 통해 확장을 사용하도록 설정할 수 있습니다.
 
-Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [Azure 블로그의 단계](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)를 따르세요.
+Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [Azure 블로그의 단계](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)를 따르세요.
 
 이 문서는 Azure CLI 명령을 사용하여 확장을 사용하도록 설정하고 구성하는 방법에 중점을 두고 있습니다. 이렇게 하면 저장소 테이블에서 직접 데이터를 읽고 볼 수 있습니다.
 

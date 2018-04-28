@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화
 
@@ -72,7 +72,7 @@ A: 예. Azure Key Vault에서 [사용자 고유의 암호화 키를 사용하는
 
 **Q: 저장소 계정을 만들 경우 Storage 서비스 암호화가 기본적으로 사용되나요?**
 
-A: 예. Microsoft 관리 키를 사용하는 Storage 서비스 암호화는 기본적으로 모든 저장소 계정(Azure Resource Manager 및 클래식)에 대해 사용되도록 설정됩니다. 모든 서비스(Blob Storage, Table Storage, Queue Storage 및 Azure Files)에 대해서도 사용되도록 설정됩니다.
+A: Storage 서비스 암호화는 기본적으로 모든 저장소 계정 및 모든 Azure Storage 서비스에 대해 사용되도록 설정됩니다.
 
 **Q: Azure Disk Encryption과 어떻게 다른가요?**
 

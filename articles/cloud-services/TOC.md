@@ -92,7 +92,7 @@
 #### [배포 FAQ](cloud-services-deployment-faq.md)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [.csdef XML 스키마](schema-csdef-file.md)
 ### [LoadBalancerProbe 스키마](schema-csdef-loadbalancerprobe.md)
 ### [WebRole 스키마](schema-csdef-webrole.md)
@@ -107,7 +107,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [가격](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

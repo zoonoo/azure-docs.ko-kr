@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 8cc4d8110db0a650b8355f96fee490093826ac30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
 
@@ -159,6 +159,11 @@ Azure Cosmos DB의 [SQL SDK](sql-api-sdk-dotnet.md)는 변경 피드를 읽고 �
             }
     }
     ```
+
+> [!NOTE]
+> `ChangeFeedOptions.PartitionKeyRangeId` 대신, `ChangeFeedOptions.PartitionKey`를 사용하여 변경 피드를 가져올 단일 파티션 키를 지정합니다. 예: `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`
+> 
+>
 
 복수의 reader가 있는 경우 **ChangeFeedOptions**를 사용하여 읽기 로드를 다른 스레드 또는 다른 클라이언트로 분산할 수 있습니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 3680777439678a93b1283cf94b9f8a173965feeb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>이미지를 사용자 지정 가상 컴퓨터에서에서 사용할 수 있도록 Azure 스택
 
@@ -59,7 +59,7 @@ Azure 스택 마켓플레이스 이미지를 추가 하려면 다음 단계를 �
 
 2. Azure 스택 환경에 로그인 합니다. Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택 환경 배포 여부에 따라 다음 스크립트 중 하나를 실행 합니다. (Azure AD를 대체 `tenantName`, `GraphAudience` 끝점 및 `ArmEndpoint` 환경 구성을 반영 하도록 값입니다.)
 
-    * **Azure Active Directory**. 다음 cmdlet을 사용 합니다.
+    * **Azure Active Directory**합니다. 다음 cmdlet을 사용 합니다.
 
       ```PowerShell
       # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -81,7 +81,7 @@ Azure 스택 마켓플레이스 이미지를 추가 하려면 다음 단계를 �
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -109,7 +109,7 @@ Azure 스택 마켓플레이스 이미지를 추가 하려면 다음 단계를 �
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Connect-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```

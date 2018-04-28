@@ -1,24 +1,24 @@
 ---
-title: "Azure Functions를 사용하여 HDInsight의 Kafka로 데이터 보내기 | Microsoft Docs"
-description: "Azure 함수를 사용하여 HDInsight의 Kafka에 데이터를 쓰는 방법을 알아봅니다."
+title: Azure Functions를 사용하여 HDInsight의 Kafka로 데이터 보내기 | Microsoft Docs
+description: Azure 함수를 사용하여 HDInsight의 Kafka에 데이터를 쓰는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Azure 함수 앱에서 HDInsight의 Kafka사용
 
@@ -52,7 +52,7 @@ HDInsight의 Kafka 공용 인터넷에 API를 제공하지 않습니다. Kafka�
 
     Kafka 및 가상 네트워크에 대한 자세한 내용은 [가상 네트워크를 통해 Kafka에 연결](apache-kafka-connect-vpn-gateway.md) 문서를 참조하세요.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
 HDInsight의 Kafka는 Azure Virtual Network에 포함되어 있습니다. Azure Functions는 지점 및 사이트 간 게이트웨이를 사용하여 가상 네트워크와 통신할 수 있습니다. 다음 이미지는 이 네트워크 토폴로지의 다이어그램입니다.
 

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 8c584ec0c8d89a232d573399cfabe02fc8aa1c87
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Storage 탐색기에서 Azure Cosmos DB 관리
 
@@ -76,7 +76,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 다음 단계를 사용하여 현재 SQL 계정만 지원하는 에뮬레이터로 Azure Cosmos DB에 연결합니다.
 
-1. 에뮬레이터를 설치하고 시작합니다. 에뮬레이터를 설치하는 방법은 [Cosmos DB 에뮬레이터](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)를 참조하세요.
+1. 에뮬레이터를 설치하고 시작합니다. 에뮬레이터를 설치하는 방법은 [Cosmos DB 에뮬레이터](https://docs.microsoft.com/azure/cosmos-db/local-emulator)를 참조하세요.
 
 2. 왼쪽 트리에서 **로컬 및 연결**을 찾아 **Cosmos DB 계정**을 마우스 오른쪽 단추로 클릭한 후 **Cosmos DB 에뮬레이터에 연결...** 을 선택합니다.
 
@@ -210,7 +210,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 ## <a name="troubleshooting"></a>문제 해결
 
-[Azure Storage 탐색기에서 Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer)는 Windows, macOS 또는 Linux에서 Sovereign 클라우드 및 Azure에 호스팅되는 Azure Cosmos DB 계정에 연결할 수 있게 해주는 독립 실행형 앱입니다. 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장된 프로시저 및 트리거를 업데이트할 수 있게 됩니다.
+[Azure Storage 탐색기에서 Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)는 Windows, macOS 또는 Linux에서 Sovereign 클라우드 및 Azure에 호스팅되는 Azure Cosmos DB 계정에 연결할 수 있게 해주는 독립 실행형 앱입니다. 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장된 프로시저 및 트리거를 업데이트할 수 있게 됩니다.
 
 Storage 탐색기의 Azure Cosmos DB에서 나타나는 일반적인 문제에 대한 솔루션입니다.
 

@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Azure Container Service에서 Jenkins와 연속 배포
 
-이 문서에서는 Jenkins와 AKS(Azure Container Service) 클러스터 간의 기본 연속 배포 워크플로를 설정하는 방법을 보여줍니다. 
+이 문서에서는 Jenkins와 AKS(Azure Container Service) 클러스터 간의 기본 연속 배포 워크플로를 설정하는 방법을 보여줍니다.
 
 예제 워크플로에는 다음 단계가 포함됩니다.
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="prepare-application"></a>응용 프로그램 준비
 
-이 문서에서 사용된 Azure 투표 응용 프로그램은 하나 이상의 Pod에서 호스트되는 웹 인터페이스와 임시 데이터 저장소를 위한 Redis를 호스트하는 두 번째 Pod를 포함합니다. 
+이 문서에서 사용된 Azure 투표 응용 프로그램은 하나 이상의 Pod에서 호스트되는 웹 인터페이스와 임시 데이터 저장소를 위한 Redis를 호스트하는 두 번째 Pod를 포함합니다.
 
 Jenkins/AKS 통합을 빌드하기 전에 Azure 투표 응용 프로그램을 준비하고 AKS 클러스터에 배포하세요. 이를 이 응용 프로그램의 한 버전으로 생각하세요.
 
@@ -94,7 +94,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-ACR 로그인 서버 이름으로 ACR 로그인 서버 값을 업데이트하고 `azure-vote-front` 이미지를 레지스트리로 푸시합니다. 
+ACR 로그인 서버 이름으로 ACR 로그인 서버 값을 업데이트하고 `azure-vote-front` 이미지를 레지스트리로 푸시합니다.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -118,7 +118,7 @@ containers:
 kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
-인터넷에 응용 프로그램을 노출하는 [Kubernetes 서비스][kubernetes-service]가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 
+인터넷에 응용 프로그램을 노출하는 [Kubernetes 서비스][kubernetes-service]가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다.
 
 진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
@@ -127,12 +127,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `control+c`를 사용하여 kubectl 조사식 프로세스를 중지합니다. 
+*EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `control+c`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
 
 ```
 azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
@@ -160,20 +160,6 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
-
-Jenkins에 로그인하는 문제가 발생하는 경우 Jenkins VM을 사용하여 SSH 세션을 만들고, Jenkins 서비스를 다시 시작합니다. VM의 IP 주소는 빌드 스크립트에서 제공한 동일한 주소입니다. VM 관리 사용자 이름은 `azureuser`입니다.
-
-```bash
-ssh azureuser@52.166.118.64
-```
-
-Jenkins 서비스를 다시 시작합니다.
-
-```bash
-sudo service jenkins restart
-```
-
-브라우저를 새로 고치고 Jenkins 로그인 양식을 표시해야 합니다.
 
 ## <a name="jenkins-environment-variables"></a>Jenkins 환경 변수
 
@@ -209,7 +195,7 @@ Jenkins 관리자 포털에서 **Jenkins 관리** > **시스템 구성**을 클�
 
 Jenkins 관리 포털에서 **새 항목**을 클릭합니다.
 
-프로젝트에 이름(예: `azure-vote`)을 지정하고, **프리스타일 프로젝트**를 선택하고 **확인**을 클릭합니다. 
+프로젝트에 이름(예: `azure-vote`)을 지정하고, **프리스타일 프로젝트**를 선택하고 **확인**을 클릭합니다.
 
 ![Jenkins 프로젝트](media/aks-jenkins/jenkins-project.png)
 
@@ -217,9 +203,9 @@ Jenkins 관리 포털에서 **새 항목**을 클릭합니다.
 
 ![GitHub 프로젝트](media/aks-jenkins/github-project.png)
 
-**소스 코드 관리** 아래에서 **Git**을 선택하고 Azure 투표 GitHub 리포지토리의 포크에 대한 URL을 입력합니다. 
+**소스 코드 관리** 아래에서 **Git**을 선택하고 Azure 투표 GitHub 리포지토리의 포크에 대한 URL을 입력합니다.
 
-자격 증명의 경우 **추가** > **Jenkins**를 클릭합니다. **종류** 아래에서 **비밀 텍스트**를 선택하고 [GitHub 개인용 액세스 토큰][git-access-token]을 비밀로 입력합니다. 
+자격 증명의 경우 **추가** > **Jenkins**를 클릭합니다. **종류** 아래에서 **비밀 텍스트**를 선택하고 [GitHub 개인용 액세스 토큰][git-access-token]을 비밀로 입력합니다.
 
 완료되면 **추가**를 선택합니다.
 
@@ -233,7 +219,7 @@ Jenkins 관리 포털에서 **새 항목**을 클릭합니다.
 
 ![Jenkins 빌드 환경](media/aks-jenkins/build-environment.png)
 
-**바인딩** 아래에서 **추가** > **사용자 이름 및 암호(구분)**를 선택합니다. 
+**바인딩** 아래에서 **추가** > **사용자 이름 및 암호(구분)** 를 선택합니다.
 
 **사용자 이름 변수**에 `ACR_ID`를 입력하고, **암호 변수**에 `ACR_PASSWORD`를 입력합니다.
 
@@ -263,13 +249,13 @@ kubectl set image deployment/azure-vote-front azure-vote-front=$WEB_IMAGE_NAME -
 
 계속하기 전에 Jenkins 빌드를 테스트합니다. 이는 빌드 작업이 올바르게 구성되었고, 올바른 Kubernetes 인증 파일이 준비되어 있으며, 올바른 ACR 자격 증명이 제공되었는지 검증합니다.
 
-프로젝트의 왼쪽 메뉴에 있는 **지금 빌드**를 클릭합니다. 
+프로젝트의 왼쪽 메뉴에 있는 **지금 빌드**를 클릭합니다.
 
 ![Jenkins 테스트 빌드](media/aks-jenkins/test-build.png)
 
 이 프로세스 중에는 GitHub 리포지토리가 Jenkins 빌드 서버에 복제됩니다. 새 컨테이너 이미지가 빌드되어 ACR 레지스트리로 푸시됩니다. 마지막으로, AKS 클러스터에서 실행 중인 Azure 투표 응용 프로그램이 새 이미지를 사용하도록 업데이트됩니다. 응용 프로그램 코드에는 변경된 내용이 없으므로 응용 프로그램은 변경되지 않습니다.
 
-프로세스가 완료되면 빌드 기록 아래에서 **빌드 #1**을 클릭하고 **콘솔 출력**을 선택하여 빌드 프로세스의 모든 출력을 볼 수 있습니다. 마지막 줄에 빌드가 성공했다는 내용이 표시되어야 합니다. 
+프로세스가 완료되면 빌드 기록 아래에서 **빌드 #1**을 클릭하고 **콘솔 출력**을 선택하여 빌드 프로세스의 모든 출력을 봅니다. 마지막 줄에 빌드가 성공했다는 내용이 표시되어야 합니다.
 
 ## <a name="create-github-webhook"></a>GitHub 웹후크 만들기
 
@@ -280,14 +266,14 @@ kubectl set image deployment/azure-vote-front azure-vote-front=$WEB_IMAGE_NAME -
 3. **서비스 추가**를 선택하고 필터 상자에 `Jenkins (GitHub plugin)`를 입력하고 플러그인을 선택합니다.
 4. Jenkins 연결 URL에 `http://<publicIp:8080>/github-webhook/`을 입력합니다. 여기서 `publicIp`는 Jenkins 서버의 IP 주소입니다. 후행 슬래시(/)를 포함해야 합니다.
 5. 서비스 추가를 선택합니다.
-  
+
 ![GitHub 웹후크](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>CI/CD 프로세스 종단 간 테스트
 
-개발 컴퓨터에서 코드 편집기를 사용하여 복제된 응용 프로그램을 엽니다. 
+개발 컴퓨터에서 코드 편집기를 사용하여 복제된 응용 프로그램을 엽니다.
 
-**/azure-vote/azure-vote** 디렉터리 아래에 **config_file.cfg**라는 파일이 있습니다. 이 파일의 vote 값을 cats 및 dogs 이외의 값으로 업데이트합니다. 
+**/azure-vote/azure-vote** 디렉터리 아래에 **config_file.cfg**라는 파일이 있습니다. 이 파일의 vote 값을 cats 및 dogs 이외의 값으로 업데이트합니다.
 
 다음 예제에서는 업데이트된 **config_file.cfg** 파일을 보여줍니다.
 
@@ -299,7 +285,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-완료되면 파일을 저장하고, 변경 내용을 커밋하고, 이를 GitHub 리포지토리의 포크에 푸시합니다. 커밋이 완료되면 GitHub 웹후크가 새로운 Jenkins 빌드를 트리거하고, 컨테이너 이미지 및 AKS 배포가 업데이트됩니다. Jenkins 관리 콘솔에서 빌드 프로세스를 모니터링합니다. 
+완료되면 파일을 저장하고, 변경 내용을 커밋하고, 이를 GitHub 리포지토리의 포크에 푸시합니다. 커밋이 완료되면 GitHub 웹후크가 새로운 Jenkins 빌드를 트리거하고, 컨테이너 이미지 및 AKS 배포가 업데이트됩니다. Jenkins 관리 콘솔에서 빌드 프로세스를 모니터링합니다.
 
 빌드가 완료되면 응용 프로그램 엔드포인트로 다시 이동하여 변경 내용을 확인합니다.
 

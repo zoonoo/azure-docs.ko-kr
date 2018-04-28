@@ -3,17 +3,17 @@ title: Azure DC/OS 클러스터 모니터링 - 운영 관리
 description: Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다.
 services: container-service
 author: keikhara
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: ba76f8480dedb37326505f7ed756eb51a41ee0fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b326e5b686e14cefac4e6376bd3f26787ea1d10d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
 
@@ -70,7 +70,7 @@ OMS 포털(<https://mms.microsoft.com>)에 로그인하고 **솔루션 갤러리
 
 ### <a name="azure-portal"></a>Azure Portal 
 
-Azure Portal(<https://portal.microsoft.com/>)에 로그인합니다. **Marketplace**로 이동하고 **모니터링 + 관리**를 선택한 다음 **모두 표시**를 클릭합니다. 그런 다음 검색 상자에서 `containers`를 입력합니다. 그러면 검색 결과에서 "컨테이너"가 표시됩니다. **컨테이너**를 선택하고 **만들기**를 클릭합니다.
+Azure Portal ( <https://portal.microsoft.com/> ) 에 로그인합니다. **Marketplace**로 이동하고 **모니터링 + 관리**를 선택한 다음 **모두 표시**를 클릭합니다. 그런 다음 검색 상자에서 `containers`를 입력합니다. 그러면 검색 결과에서 "컨테이너"가 표시됩니다. **컨테이너**를 선택하고 **만들기**를 클릭합니다.
 
 ![](media/container-service-monitoring-oms/image9.png)
 

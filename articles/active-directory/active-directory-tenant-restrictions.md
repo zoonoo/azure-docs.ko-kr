@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 응용 프로그램에 대한 액세스 관리
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 
 테넌트 제한은 조직 사용자에게 액세스가 허용된 테넌트 목록을 지정할 수 있는 기능을 제공합니다. 그러면 Azure AD는 이러한 허용된 테넌트에 대해서만 액세스를 허가합니다.
 
-이 문서는 Office 365에 대한 테넌트 제한을 중점적으로 설명하지만 Single Sign-On을 위해 Azure AD와 함께 최신 인증 프로토콜을 사용하는 모든 SaaS 클라우드 앱에도 이 기능을 사용할 수 있습니다. Office 365에서 사용되는 테넌트와는 다른 Azure AD 테넌트에서 SaaS 앱을 사용하는 경우 필요한 모든 테넌트가 허용되는지 확인합니다. 클라우드 SaaS 앱에 대한 자세한 내용은 [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/)를 참조하세요.
+이 문서는 Office 365에 대한 테넌트 제한을 중점적으로 설명하지만 Single Sign-On을 위해 Azure AD와 함께 최신 인증 프로토콜을 사용하는 모든 SaaS 클라우드 앱에도 이 기능을 사용할 수 있습니다. Office 365에서 사용되는 테넌트와는 다른 Azure AD 테넌트에서 SaaS 앱을 사용하는 경우 필요한 모든 테넌트가 허용되는지 확인합니다. 클라우드 SaaS 앱에 대한 자세한 내용은 [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -127,7 +127,7 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
 1.  [Fiddler 다운로드하고 설치합니다](http://www.telerik.com/fiddler).
 2.  [Fiddler 도움말 설명서](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)에 따라 HTTPS 트래픽 암호를 해독하도록 Fiddler를 구성합니다.
 3.  사용자 지정 규칙을 사용하여 *Restrict-Access-To-Tenants* 및 *Restrict-Access-Context* 머리글을 삽입하도록 Fiddler를 구성합니다.
-  1. Fiddler Web Debugger 도구에서 **Rules** 메뉴를 선택하고 **Customize Rules...**를 선택하여 CustomRules 파일을 엽니다.
+  1. Fiddler Web Debugger 도구에서 **Rules** 메뉴를 선택하고 **Customize Rules...** 를 선택하여 CustomRules 파일을 엽니다.
   2. 다음 줄은 *OnBeforeRequest* 함수 맨 앞에 추가합니다. \<tenant domain\>을 테넌트에 등록된 도메인(예: contoso.onmicrosoft.com)으로 바꿉니다. \<directory ID\>를 테넌트의 Azure AD GUID 식별자로 바꿉니다.
 
   ```

@@ -1,6 +1,6 @@
 ---
-title: "Azure Payment Processing Blueprint - 모니터링 요구 사항"
-description: "PCI DSS 요구 사항 10"
+title: Azure Payment Processing Blueprint - 모니터링 요구 사항
+description: PCI DSS 요구 사항 10
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 모니터링 요구 사항 
 ## <a name="pci-dss-requirement-10"></a>PCI DSS 요구 사항 10
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 관리 및 진단 도구에 대한 액세스를 관련 작업을 담당하는 권한 있는 개인으로 제한합니다. Microsoft Azure는 최소 권한 원칙을 기준으로 프로덕션 환경에서 사용되는 도구에 대한 권한 있는 액세스를 제한합니다. Microsoft Azure는 플랫폼 환경의 Microsoft Azure 시스템 구성 요소에 대한 모든 개인 사용자 액세스 로그를 기록 및 유지 관리합니다.<br /><br />Microsoft Azure 구성 요소(OS, CloudNet, Fabric 및 기타 포함)는 보안 이벤트를 기록 및 수집하도록 구성됩니다. Microsoft Azure 플랫폼의 관리 활동은 기록됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
 
 
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 관리 및 진단 도구에 대한 액세스를 관련 작업을 담당하는 권한 있는 개인으로 제한합니다. Microsoft Azure는 최소 권한 원칙을 기준으로 프로덕션 환경에서 사용되는 도구에 대한 권한 있는 액세스를 제한합니다. Microsoft Azure는 플랫폼 환경의 Microsoft Azure 시스템 구성 요소에 대한 모든 개인 사용자 액세스 로그를 기록 및 유지 관리합니다.<br /><br />Microsoft Azure 구성 요소(OS, CloudNet, Fabric 및 기타 포함)는 보안 이벤트를 기록 및 수집하도록 구성됩니다. Microsoft Azure 플랫폼의 관리 활동은 기록됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore에는 CHD 로깅을 포함하여 모든 시스템 및 사용자 작업에 대한 광범위한 로깅이 있습니다. 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore에는 CHD 로깅을 포함하여 모든 시스템 및 사용자 작업에 대한 광범위한 로깅이 있습니다. 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
 
 
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 GPS(Global Positioning System) 위성에 동기화된 NTP Stratum 1 시간 서버에 대해 Microsoft Azure 환경의 서버와 네트워크 장치를 동기화하는 프로시저를 수립했습니다. 동기화는 5분마다 자동으로 수행됩니다. Microsoft Azure는 서비스 호스트가 적합하게 시간을 동기화하도록 할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 10.3 제어의 요구대로 사용자 ID, 이벤트 유형, 날짜 시간 스탬프, 성공 실패 이벤트, 이벤트 원본 및 리소스 이름을 기록합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 10.3 제어의 요구대로 사용자 ID, 이벤트 유형, 날짜 시간 스탬프, 성공 실패 이벤트, 이벤트 원본 및 리소스 이름을 기록합니다.|
 
 
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 GPS(Global Positioning System) 위성에 동기화된 NTP Stratum 1 시간 서버에 대해 Microsoft Azure 환경의 서버와 네트워크 장치를 동기화하는 프로시저를 수립했습니다. 동기화는 5분마다 자동으로 수행됩니다. Microsoft Azure는 서비스 호스트가 적합하게 시간을 동기화하도록 할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
 
 
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.4](#pci-dss-requirement-10-4)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
 
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.4](#pci-dss-requirement-10-4)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
 
 
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.4](#pci-dss-requirement-10-4)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | PaaS 서비스에 대한 시간 동기화는 Azure에서 수행합니다.|
 
 
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | FIM 및 ID 도구는 Microsoft Azure 환경 내에서 구현됩니다. Microsoft Azure는 EWS를 사용하여 운영 환경 내 이벤트의 실시간 분석을 지원합니다. Ma 및 AIMS는 잠재적으로 시스템을 손상시킬 수 있는 이벤트에 대해 실시간에 근접한 경고를 생성합니다. <br /><br />서비스, 사용자 및 보안 이벤트에 대한 로깅(웹 서버 로그, FTP 서버 로그)을 사용하고 중앙 집중식으로 유지합니다. Azure는 직무에 따라 감사 로그 액세스를 권한 있는 개인으로 제한합니다. 이벤트 로그는 Azure의 보안 보관 인프라에 보관되며 180일 동안 유지됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 OMS에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
 
 
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.5](#pci-dss-requirement-10-5)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 OMS에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
 
 
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.5](#pci-dss-requirement-10-5)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 OMS에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
 
 
 
@@ -184,7 +184,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.5](#pci-dss-requirement-10-5)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 OMS에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
 
 
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.5](#pci-dss-requirement-10-5)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 OMS에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
 
 
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.5](#pci-dss-requirement-10-5)는 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 OMS에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure에 모든 요소에 대한 감사를 제공합니다. 외부 원본에 대한 백업은 [Azure Backup](https://azure.microsoft.com/services/backup/)이 수행할 수 있습니다.|
 
 
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | FIM 및 ID 도구는 Microsoft Azure 환경 내에서 구현됩니다. Microsoft Azure는 EWS를 사용하여 운영 환경 내 이벤트의 실시간 분석을 지원합니다. Ma 및 AIMS는 잠재적으로 시스템을 손상시킬 수 있는 이벤트에 대해 실시간에 근접한 경고를 생성합니다. <br /><br />서비스, 사용자 및 보안 이벤트에 대한 로깅(웹 서버 로그, FTP 서버 로그)을 사용하고 중앙 집중식으로 유지합니다. Azure는 직무에 따라 감사 로그 액세스를 권한 있는 개인으로 제한합니다. 이벤트 로그는 Azure의 보안 보관 인프라에 보관되며 180일 동안 유지됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
 
 
 
@@ -243,7 +243,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.6](#pci-dss-requirement-10-6)은 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
 
 
 
@@ -256,7 +256,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.6](#pci-dss-requirement-10-6)은 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
 
 
 
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | [요구 사항 10.6](#pci-dss-requirement-10-6)은 "Microsoft Azure" 섹션을 참조하세요. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 사용하여 예외를 모니터링, 보고 및 방지합니다. [Azure Advisor](/azure/advisor/advisor-security-recommendations)는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다.|
 
 
 
@@ -282,7 +282,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 최근 3개월을 내부 포털에서 즉시 액세스 가능한 상태로 1년 동안 감사 로그를 유지합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
 
 
 
@@ -299,7 +299,7 @@ ms.lasthandoff: 11/16/2017
 - (사용하는 경우) 구분 제어 
 
 > [!NOTE]
-> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고 그 후에는 요구 사항이 됩니다.
+> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고, 이후에는 요구 사항이 됩니다.
 
 
 
@@ -308,7 +308,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 EWS를 사용하여 운영 환경 내 이벤트의 실시간 분석을 지원합니다. Ma 및 AIMS는 잠재적으로 시스템을 손상시킬 수 있는 이벤트에 대해 실시간에 근접한 경고를 생성합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
 
 
 
@@ -323,7 +323,7 @@ ms.lasthandoff: 11/16/2017
 - 실패 원인의 반복을 방지하기 위한 제어 구현 - 보안 제어의 모니터링 계속 
 
 > [!NOTE]
-> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고 그 후에는 요구 사항이 됩니다.
+> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고, 이후에는 요구 사항이 됩니다.
 
 
 **책임:&nbsp;&nbsp;`Shared`**
@@ -331,7 +331,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 EWS를 사용하여 운영 환경 내 이벤트의 실시간 분석을 지원합니다. Ma 및 AIMS는 잠재적으로 시스템을 손상시킬 수 있는 이벤트에 대해 실시간에 근접한 경고를 생성합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore에는 모든 시스템과 사용자 활동에 대한 광범위한 로깅이 있습니다(CHD 로깅 포함). 자세한 내용은 [PCI 지침 - 로깅](payment-processing-blueprint.md#logging-and-auditing)을 참조하세요.|
 
 
 
@@ -345,7 +345,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 CHD가 관리 및 보호되는 방식에 대한 사용 사례와 설명을 제공합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 CHD가 관리 및 보호되는 방식에 대한 사용 사례와 설명을 제공합니다.|
 
 
 

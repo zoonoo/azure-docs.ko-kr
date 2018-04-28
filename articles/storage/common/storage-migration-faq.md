@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 4fb84c95da061991711fe51326ccd95295fbdcc3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9bde8657e435f1c759eceb26682e650605012a89
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -76,7 +76,7 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
 
 1.  대상 Blob에 컨테이너(폴더)를 만듭니다.
 
-2.  [AzCopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/)를 사용하여 원래 Blob 컨테이너의 내용을 다른 Blob 컨테이너로 복사합니다.
+2.  [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/)를 사용하여 원래 Blob 컨테이너의 내용을 다른 Blob 컨테이너로 복사합니다.
 
 **Azure Storage의 Azure 파일 공유 간에 데이터를 이동하도록 PowerShell 스크립트를 만들려면 어떻게 할까요?**
 

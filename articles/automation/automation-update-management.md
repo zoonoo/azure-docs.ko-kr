@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -51,7 +51,7 @@ Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방
 |운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상     |Windows Server 2008 R2 SP1에는 .NET Framework 4.5 및 WMF 5.0 이상이 필요합니다.        |
+|Windows Server 2008 R2 SP1 이상     |Windows PowerShell 4.0 이상이 필요합니다([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))은 안정성 개선을 위해 필요합니다.         |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
@@ -252,7 +252,7 @@ Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택�
 | 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>System.Net.Http.HttpRequestException: 요청을 보내는 동안 오류가 발생했습니다. ---><br>System.Net.WebException: 기본 연결이<br>닫혔습니다. 받는 동안<br>예기치 않은 오류가 발생했습니다. ---> System.ComponentModel.Win32Exception:<br>클라이언트와 서버의 공통 알고리즘이 없기 때문에<br>서로 통신할 수 없습니다. | 프록시/게이트웨이/방화벽이 통신을 차단합니다. | [네트워크 요구 사항을 검토합니다.](automation-offering-get-started.md#network-planning)|
 | 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>Newtonsoft.Json.JsonReaderException: 양의 무한대 값을 구문 분석하는 도중에 오류가 발생했습니다. | 프록시/게이트웨이/방화벽이 통신을 차단합니다. | [네트워크 요구 사항을 검토합니다.](automation-offering-get-started.md#network-planning)|
 | <wsid>.oms.opinsights.azure.com 서비스에서 제공하는 인증서가<br>Microsoft 서비스에 사용된 인증서 기관에서<br>발급한 것이 아닙니다. 연락처<br>관리자에 연락하여<br>TLS/SSL 통신을 가로채는 프록시를 실행 중인지 확인합니다. |프록시/게이트웨이/방화벽이 통신을 차단합니다. | [네트워크 요구 사항을 검토합니다.](automation-offering-get-started.md#network-planning)|
-| 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>자체 서명된 인증서를 만들지 못했습니다. ---><br>System.UnauthorizedAccessException: 액세스가 거부되었습니다. | 자체 서명된 인증서 생성 오류 | 시스템 계정에<br>다음 폴더에 대한 읽기 권한이 있는지 확인합니다.<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>자체 서명된 인증서를 만들지 못했습니다. ---><br>System.UnauthorizedAccessException: 액세스가 거부되었습니다. | 자체 서명된 인증서 생성 오류 | 시스템 계정에<br>다음 폴더에 대한 읽기 권한이 있는지 확인합니다.<br>**C:\ProgramData\Microsoft\**<br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>다음 단계
 

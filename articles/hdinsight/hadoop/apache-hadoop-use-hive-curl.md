@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/26/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 8a7627e35a39dd4c9c94d273aa9f02c977dc88bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f602cf45165625ec252f2e29cb9b0e5ed878f3a8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 
@@ -146,7 +146,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
    * `ROW FORMAT` - 데이터의 형식을 지정하는 방식입니다. 각 로그의 필드는 공백으로 구분됩니다.
    * `STORED AS TEXTFILE LOCATION` - 데이터가 저장된 위치(example/data 디렉터리)이며 텍스트로 저장됩니다.
-   * `SELECT` - 열 **t4**에 값 **[ERROR]**가 포함된 모든 행의 수를 선택합니다. 이 값이 포함된 행이 3개이므로 이 문은 **3** 값을 반환합니다.
+   * `SELECT` - 열 **t4**에 값 **[ERROR]** 가 포함된 모든 행의 수를 선택합니다. 이 값이 포함된 행이 3개이므로 이 문은 **3** 값을 반환합니다.
 
      > [!NOTE]
      > Curl과 함께 사용할 경우 HiveQL 문 사이의 공백이 `+` 문자로 바뀝니다. 구분 기호와 같이 공백을 포함하는 따옴표로 묶인 값은 `+`로 바뀌지 않아야 합니다.

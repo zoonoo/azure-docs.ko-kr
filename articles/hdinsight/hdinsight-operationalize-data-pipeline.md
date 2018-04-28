@@ -1,25 +1,23 @@
 ---
-title: "데이터 분석 파이프라인 운영 - Azure | Microsoft Docs"
-description: "새 데이터에 의해 트리거되고 간결한 결과를 생성하는 예제 데이터 파이프라인을 설정하고 실행합니다."
+title: 데이터 분석 파이프라인 운영 - Azure | Microsoft Docs
+description: 새 데이터에 의해 트리거되고 간결한 결과를 생성하는 예제 데이터 파이프라인을 설정하고 실행합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 7a439c9d25a470a2474b427f6b20addb6ff3b0c7
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 

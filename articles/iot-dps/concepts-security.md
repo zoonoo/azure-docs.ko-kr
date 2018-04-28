@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 03/27/2018
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6410aa3ab21e7c50ec6918930f31b9e1455c464
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning 서비스 보안 개념 
 
-IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 터치 장치 프로비전을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning 서비스를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 장치를 프로비전할 수 있습니다. 이 문서는 장치 프로비전과 관련된 *보안* 개념의 개요를 제공합니다. 이 문서는 배포를 위한 장치 준비에 관련된 모든 사람에게 적합합니다.
+IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 터치 장치 프로비전을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning 서비스를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 장치를 [자동 프로비전](concepts-auto-provisioning.md)할 수 있습니다. 이 문서는 장치 프로비전과 관련된 *보안* 개념의 개요를 제공합니다. 이 문서는 배포를 위한 장치 준비에 관련된 모든 사람에게 적합합니다.
 
 ## <a name="attestation-mechanism"></a>증명 메커니즘
 
@@ -31,7 +31,7 @@ IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 �
 
 Device Provisioning 서비스는 두 가지 형태의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서**
-* nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)**은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 장치에서 실제 TPM이 필요하지 않지만 서비스는 [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)당 인증 키를 사용하여 증명하기를 기대합니다.
+* nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 장치에서 실제 TPM이 필요하지 않지만 서비스는 [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)당 인증 키를 사용하여 증명하기를 기대합니다.
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
@@ -46,6 +46,8 @@ Device Provisioning 서비스는 두 가지 형태의 증명을 지원합니다.
 
 TPM은 플랫폼을 인증하는 데 사용되는 키를 안전하게 저장하기 위한 표준을 참조할 수 있거나 표준을 구현하는 모듈과 상호 작용하는 데 사용되는 I/O 인터페이스를 참조할 수 있습니다. TPM은 별도 하드웨어, 통합된 하드웨어, 펌웨어 기반 또는 소프트웨어 기반으로 존재할 수 있습니다. [TPM 및 TPM 증명](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation)에 대해 자세히 알아봅니다. Device Provisioning 서비스는 TPM 2.0만 지원합니다.
 
+TPM 증명은 인증 및 저장소 루트 키를 사용하여 서명된 SAS(공유 액세스 서명) 토큰을 제공하는 nonce 챌린지를 기준으로 진행됩니다.
+
 ### <a name="endorsement-key"></a>인증 키
 
 인증 키는 내부적으로 생성되거나 제조 시간에 삽입된 TPM 내부에 포함된 비대칭 키이며, 모든 TPM에서 고유합니다. 인증 키를 변경하거나 제거할 수 없습니다. 인증 키의 비공개 부분 TPM 외부로 공개되지 않는 반면 인증 키의 공개 부분은 정품 TPM을 인식하는 데 사용됩니다. [인증 키](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx)에 대해 자세히 알아봅니다.
@@ -56,21 +58,27 @@ TPM은 플랫폼을 인증하는 데 사용되는 키를 안전하게 저장하�
 
 ## <a name="x509-certificates"></a>X.509 인증서
 
-X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 장치 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 개인 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이렇게 하면 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 장치에 설치된 최종 엔터티 인증서로 위임된 신뢰 체인을 설정합니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 장치 인증](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
+X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 장치 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 개인 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이렇게 하면 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 장치에 설치된 최종 엔터티 “리프” 인증서로 위임된 신뢰 체인을 설정합니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 장치 인증](/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
 
-인증서 체인은 종종 장치와 관련된 논리적 또는 물리적 계층 일부를 나타냅니다. 예를 들어 제조업체는 자체 서명된 루트 CA 인증서를 발급하고, 해당 인증서를 사용하여 각 공장에 대한 고유한 중간 CA 인증서를 생성하고, 각 공장의 인증서를 사용하여 생산 설비의 각 생산 라인에 대한 고유한 중간 CA 인증서를 생성하고, 마지막으로 생산 라인 인증서를 사용하여 라인에서 제조되는 각 장치에 대한 고유한 장치(최종 엔터티) 인증서를 생성합니다. 자세한 내용은 [IoT 업계의 X.509 CA 인증서에 대한 개념적 이해](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)를 참조하세요. 
+인증서 체인은 종종 장치와 관련된 논리적 또는 물리적 계층 일부를 나타냅니다. 예를 들어, 제조업체는 다음과 같은 작업을 수행할 수 있습니다.
+- 자체 서명된 루트 CA 인증서 발급
+- 루트 인증서를 사용하여 각 공장에 대한 고유한 중간 CA 인증서 생성
+- 각 공장 인증서를 사용하여 공장의 각 생산 라인에 대한 고유한 중간 CA 인증서 생성
+- 마지막으로 생산 라인 인증서를 사용하여 해당 라인에서 제조된 각 장치에 대해 고유한 장치(최종 엔터티) 인증서 생성 
+
+자세한 내용은 [IoT 업계의 X.509 CA 인증서에 대한 개념적 이해](/azure/iot-hub/iot-hub-x509ca-concept)를 참조하세요. 
 
 ### <a name="root-certificate"></a>루트 인증서
 
-루트 인증서는 CA(인증 기관)를 나타내는 자체 서명된 X.509 인증서입니다. 인증서 체인의 종점 또는 트러스트 앵커입니다. 루트 인증서는 조직에서 자체적으로 발급하거나 루트 인증 기관에서 구입할 수 있습니다. 자세한 내용은 [X.509 CA 인증서 얻기](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates)를 참조하세요. 또한 루트 인증서는 루트 CA 인증서라고도 합니다.
+루트 인증서는 CA(인증 기관)를 나타내는 자체 서명된 X.509 인증서입니다. 인증서 체인의 종점 또는 트러스트 앵커입니다. 루트 인증서는 조직에서 자체적으로 발급하거나 루트 인증 기관에서 구입할 수 있습니다. 자세한 내용은 [X.509 CA 인증서 얻기](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates)를 참조하세요. 또한 루트 인증서는 루트 CA 인증서라고도 합니다.
 
 ### <a name="intermediate-certificate"></a>중간 인증서
 
 중간 인증서는 루트 인증서(또는 해당 체인에 루트 인증서가 있는 다른 중간 인증서)에서 서명한 X.509 인증서입니다. 체인의 마지막 중간 인증서는 리프 인증서에 서명하는 데 사용됩니다. 또한 중간 인증서는 중간 CA 인증서라고도 합니다.
 
-### <a name="leaf-certificate"></a>리프 인증서
+### <a name="end-entity-leaf-certificate"></a>최종 엔터티 “리프” 인증서
 
-리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 장치를 프로비전 서비스에 고유하게 식별하며, 때로는 장치 인증서라고도 합니다. 인증하는 동안 장치는 이 인증서와 관련된 개인 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다. 자세한 내용은 [X.509 CA 인증서로 서명된 장치 인증](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
+리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 장치를 프로비전 서비스에 고유하게 식별하며, 때로는 장치 인증서라고도 합니다. 인증하는 동안 장치는 이 인증서와 관련된 개인 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다. 자세한 내용은 [X.509 CA 인증서로 서명된 장치 인증](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>X.509 인증서를 사용하여 프로비전 서비스에 대한 장치 액세스 제어
 

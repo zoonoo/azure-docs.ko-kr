@@ -1,8 +1,8 @@
 ---
-title: "HDInsight | Microsoft Docs에서 Apache Storm 토폴로지 배포 및 관리"
-description: "HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다."
+title: HDInsight | Microsoft Docs에서 Apache Storm 토폴로지 배포 및 관리
+description: HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92c1a02cd7d435809914e7f5bb43b2f8d6aa0cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
@@ -53,7 +51,7 @@ Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 �
 
 ## <a name="storm-dashboard"></a>Storm 대시보드
 
-Storm 대시보드는 Storm 클러스터에서 사용할 수 있는 웹 페이지입니다. URL은 **https://&lt;clustername>.azurehdinsight.net/**이며, **clustername**은 HDInsight 클러스터에서 Storm의 이름입니다.
+Storm 대시보드는 Storm 클러스터에서 사용할 수 있는 웹 페이지입니다. URL은 **https://&lt;clustername>.azurehdinsight.net/** 이며, **clustername**은 HDInsight 클러스터에서 Storm의 이름입니다.
 
 Storm 대시보드의 위쪽에서 **토폴로지 제출**을 선택합니다. 샘플 토폴로지를 실행하거나 사용자가 만든 토폴로지를 업로드 및 실행하려면 페이지의 지침을 따릅니다.
 
@@ -94,7 +92,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
   * **균형 다시 맞추기**- 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
 
-      자세한 내용은 [Storm 토폴로지의 병렬 처리 이해(http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)(영문)를 참조하세요.
+      자세한 내용은 [Storm 토폴로지의 병렬 처리 이해(http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
 
   * **중단**- 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
@@ -169,7 +167,7 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 
 ### <a name="base-uri"></a>기본 URI
 
-HDInsight 클러스터에서 REST API의 기본 URI는 **https://&lt;clustername>.azurehdinsight.net/stormui/api/v1/**이며**clustername**은 HDInsight 클러스터에서 Storm의 이름입니다.
+HDInsight 클러스터에서 REST API의 기본 URI는 **https://&lt;clustername>.azurehdinsight.net/stormui/api/v1/** 이며**clustername**은 HDInsight 클러스터에서 Storm의 이름입니다.
 
 ### <a name="authentication"></a>인증
 
@@ -180,7 +178,7 @@ REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight �
 
 ### <a name="return-values"></a>반환 값
 
-REST API에서 반환되는 정보는 클러스터와 동일한 Azure Virtual Network에 있는 클러스터 또는 가상 컴퓨터 내에서만 사용할 수 있습니다. 예를 들어, Zookeeper 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
+REST API에서 반환되는 정보는 클러스터와 동일한 Azure Virtual Network에 있는 클러스터 또는 가상 머신 내에서만 사용할 수 있습니다. 예를 들어, Zookeeper 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

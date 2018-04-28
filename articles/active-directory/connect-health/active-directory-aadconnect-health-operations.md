@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect Health 작업"
-description: "이 문서에서는 Azure AD Connect Health를 배포한 후 수행할 수 있는 추가 작업에 대해 설명합니다."
+title: Azure Active Directory Connect Health 작업
+description: 이 문서에서는 Azure AD Connect Health를 배포한 후 수행할 수 있는 추가 작업에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.
@@ -91,9 +91,9 @@ Azure Active Directory Domain Services용 Azure AD Connect Health:
 4. **삭제**를 클릭합니다.
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (RBAC 섹션의 시작)
 ## <a name="manage-access-with-role-based-access-control"></a>역할 기반 Access Control로 액세스 관리
-Azure AD Connect Health에 대한 [RBAC(역할 기반 Access Control)](../role-based-access-control-configure.md)는 전역 관리자 이외의 사용자 및 그룹에 액세스 권한을 부여합니다. RBAC는 의도한 사용자 및 그룹에 역할을 할당하고 디렉터리 내의 전역 관리자를 제한하는 메커니즘을 제공합니다.
+Azure AD Connect Health에 대한 [RBAC(역할 기반 Access Control)](../../role-based-access-control/role-assignments-portal.md)는 전역 관리자 이외의 사용자 및 그룹에 액세스 권한을 부여합니다. RBAC는 의도한 사용자 및 그룹에 역할을 할당하고 디렉터리 내의 전역 관리자를 제한하는 메커니즘을 제공합니다.
 
 ### <a name="roles"></a>역할
 Azure AD Connect Health는 다음과 같은 기본 제공 역할을 지원합니다.
@@ -153,7 +153,7 @@ Azure AD Connect Health 내에서 *모든 서비스 인스턴스* 수준으로 �
 Azure AD Connect Health RBAC에 추가된 사용자 또는 그룹을 제거할 수 있습니다. 사용자 또는 그룹을 마우스 오른쪽 단추로 클릭하고 **제거**를 선택하면 됩니다.<br>
 ![제거가 강조 표시된 Azure AD Connect Health RBAC 사용자 창 스크린샷](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (RBAC 섹션의 끝)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩된 가상화를 사용하여 문제 Azure VM 해결
 
 이 문서에서는 문제 해결을 위해 Hyper-V 호스트(복구 VM)에서 문제 VM의 디스크를 탑재할 수 있도록 Microsoft Azure에서 중첩된 가상화 환경을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisites"></a>필수 조건
 
 문제 VM을 탑재하려면 복구 VM에서 다음 필수 구성 요소를 충족해야 합니다.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 
 -   복구 VM은 문제 VM과 동일한 유형의 저장소 계정(표준 또는 프리미엄)을 사용해야 합니다.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>1단계: 복구 VM 만들기 및 Hyper-V 역할 설치
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1단계: 복구 VM 만들기 및 Hyper-V 역할 설치
 
 1.  새 복구 VM을 만듭니다.
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/06/2018
 
 13. 서버가 Hyper-V 역할을 설치하도록 허용합니다. 몇 분 정도 걸리며 서버가 자동으로 재부팅됩니다.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>2단계: 복구 VM의 Hyper-V 서버에서 문제 VM 만들기
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2단계: 복구 VM의 Hyper-V 서버에서 문제 VM 만들기
 
 1.  문제 VM의 디스크 이름을 기록하고 문제 VM을 삭제합니다. 연결된 모든 디스크를 유지하고 있는지 확인합니다. 
 

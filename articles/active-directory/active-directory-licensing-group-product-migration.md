@@ -1,13 +1,13 @@
 ---
-title: "Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법 | Microsoft Docs"
-description: "그룹 기반 라이선스를 사용하여 서로 다른 제품 라이선스(예: Office 365 Enterprise E1 및 E3) 간에 사용자를 마이그레이션하는 데 권장되는 프로세스에 대해 설명합니다."
+title: Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법 | Microsoft Docs
+description: '그룹 기반 라이선스를 사용하여 서로 다른 제품 라이선스(예: Office 365 Enterprise E1 및 E3) 간에 사용자를 마이그레이션하는 데 권장되는 프로세스에 대해 설명합니다.'
 services: active-directory
-keywords: "Azure AD 라이선스"
-documentationcenter: 
+keywords: Azure AD 라이선스
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2018
 ms.author: piotrci
-ms.openlocfilehash: bb27b3fb739bbcea56026733b41e6cadf21b8953
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 068457044af7af7a55bdbcc4043da3028a68b2d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/24/2018
 
 -   Office 365 Enterprise E3 및 Office 365 Enterprise E5 간 마이그레이션과 같이 충돌하는 서비스 계획을 포함하지 않는 제품 라이선스 간의 단순 마이그레이션
 
--   Office 365 Enterprise E1 및 Office 365 Enterprise E3 간 마이그레이션과 같이 충돌하는 서비스 계획을 포함하는 제품 간의 보다 복잡한 마이그레이션 충돌에 대한 자세한 내용은 [충돌하는 서비스 계획](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) 및 [동시에 할당될 수 없는 서비스 계획](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time)을 참조하세요.
+-   Office 365 Enterprise E1 및 Office 365 Enterprise E3 간 마이그레이션과 같이 충돌하는 서비스 계획을 포함하는 제품 간의 보다 복잡한 마이그레이션 충돌에 대한 자세한 내용은 [충돌하는 서비스 계획](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) 및 [동시에 할당될 수 없는 서비스 계획](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time)을 참조하세요.
 
 이 문서에는 마이그레이션 및 확인 단계를 수행하는 데 사용할 수 있는 샘플 PowerShell 코드가 포함되어 있습니다. 이 코드는 수동으로 단계를 수행할 수 없는 대규모 작업에 특히 유용합니다.
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/24/2018
 -   그룹 기반 라이선스를 사용하여 사용자에게 *소스 라이선스*가 할당되어 있습니다. 기존 제품의 라이선스가 단일 소스 그룹에서 상속되며 직접 할당된 것이 아닙니다.
 
     >[!NOTE]
-    >라이선스가 직접 할당된 경우 *대상 라이선스*의 적용을 차단할 수 있습니다. [직접 및 그룹 라이선스 할당](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses)에 대해 자세히 알아보세요. [PowerShell 스크립트](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)를 사용하여 사용자에게 직접 라이선스가 있는지 확인하는 것이 좋습니다.
+    >라이선스가 직접 할당된 경우 *대상 라이선스*의 적용을 차단할 수 있습니다. [직접 및 그룹 라이선스 할당](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses)에 대해 자세히 알아보세요. [PowerShell 스크립트](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)를 사용하여 사용자에게 직접 라이선스가 있는지 확인하는 것이 좋습니다.
 
 -   대상 제품에 사용 가능한 라이선스가 충분합니다. 충분한 라이선스가 없으면 일부 사용자가 *대상 라이선스*를 얻지 못할 수 있습니다. [사용 가능한 라이선스 수를 확인](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)할 수 있습니다.
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/24/2018
 
 3.  대상 그룹에 사용자 배치를 추가합니다. 그룹 기반 라이선스는 변경 내용을 선택하고 *대상 라이선스*를 할당합니다. 이 프로세스는 배치 크기 및 테넌트의 기타 활동에 따라 오래 걸릴 수 있습니다.
 
-4.  사용자 배치가 그룹 기반의 라이선스에 의해 완전히 처리되는지 확인합니다. 각 사용자에게 *대상 라이선스*가 할당되어 있는지 확인합니다. 사용자가 다른 제품과 충돌 또는 라이선스 부족과 같은 오류 상태로 종료되지 않았는지 확인합니다. 오류에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)을 참조하세요.
+4.  사용자 배치가 그룹 기반의 라이선스에 의해 완전히 처리되는지 확인합니다. 각 사용자에게 *대상 라이선스*가 할당되어 있는지 확인합니다. 사용자가 다른 제품과 충돌 또는 라이선스 부족과 같은 오류 상태로 종료되지 않았는지 확인합니다. 오류에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)을 참조하세요.
 
 5.  이제 사용자에게 *소스 라이선스* 및 *대상 라이선스*가 둘 다 할당되었습니다.
 
@@ -175,7 +175,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>충돌하는 서비스 계획이 있는 제품 간 사용자 마이그레이션
-마이그레이션 목표는 그룹 기반 라이선스를 사용하여 사용자 라이선스를 *소스 라이선스*(이 예제에서는 Office 365 Enterprise E1)에서 *대상 라이선스*(이 예제에서는 Office 365 Enterprise E3)로 변경하는 것입니다. 이 시나리오의 두 제품에 충돌하는 서비스 계획이 포함되어 있으므로 사용자를 원활하게 마이그레이션하기 위해 충돌을 해결해야 합니다. 이러한 충돌에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결: 충돌하는 서비스 계획](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)을 참조하세요. 마이그레이션 중에 사용자가 서비스 또는 데이터에 대한 액세스 권한을 잃지 않습니다. 마이그레이션은 소규모 "일괄 처리"로 수행됩니다. 각 일괄 처리에 대한 결과가 유효한지 확인하고, 프로세스 동안 발생할 수 있는 모든 문제의 범위를 최소화할 수 있습니다. 전반적인 프로세스는 다음과 같습니다.
+마이그레이션 목표는 그룹 기반 라이선스를 사용하여 사용자 라이선스를 *소스 라이선스*(이 예제에서는 Office 365 Enterprise E1)에서 *대상 라이선스*(이 예제에서는 Office 365 Enterprise E3)로 변경하는 것입니다. 이 시나리오의 두 제품에 충돌하는 서비스 계획이 포함되어 있으므로 사용자를 원활하게 마이그레이션하기 위해 충돌을 해결해야 합니다. 이러한 충돌에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결: 충돌하는 서비스 계획](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)을 참조하세요. 마이그레이션 중에 사용자가 서비스 또는 데이터에 대한 액세스 권한을 잃지 않습니다. 마이그레이션은 소규모 "일괄 처리"로 수행됩니다. 각 일괄 처리에 대한 결과가 유효한지 확인하고, 프로세스 동안 발생할 수 있는 모든 문제의 범위를 최소화할 수 있습니다. 전반적인 프로세스는 다음과 같습니다.
 
 1.  사용자가 소스 그룹의 멤버이며 해당 그룹에서 *소스 라이선스*를 상속합니다.
 
@@ -183,7 +183,7 @@ Check passed for all users. Exiting check loop.
 
 3.  대상 그룹에 사용자 배치를 추가합니다. 그룹 기반 라이선스는 변경 내용을 선택하고 *대상 라이선스*를 할당하려고 합니다. 두 제품의 서비스 간 충돌 때문에 할당이 실패합니다. 그룹 기반 라이선스는 이러한 실패를 각 사용자의 오류로 기록합니다. 이 프로세스는 배치 크기 및 테넌트의 기타 활동에 따라 오래 걸릴 수 있습니다.
 
-4.  사용자 배치가 그룹 기반의 라이선스에 의해 완전히 처리되는지 확인합니다. 각 사용자에게 기록된 충돌 오류가 있는지 확인합니다. 일부 사용자가 예상치 않은 오류 상태로 종료되지 않았는지 확인합니다. 오류에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)을 참조하세요.
+4.  사용자 배치가 그룹 기반의 라이선스에 의해 완전히 처리되는지 확인합니다. 각 사용자에게 기록된 충돌 오류가 있는지 확인합니다. 일부 사용자가 예상치 않은 오류 상태로 종료되지 않았는지 확인합니다. 오류에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)을 참조하세요.
 
 5.  여전히 사용자에게 *소스 라이선스* 및 *대상 라이선스*에 대한 충돌 오류가 있습니다. 사용자에게 *대상 라이선스*는 아직 할당되지 않았습니다.
 
@@ -317,7 +317,7 @@ Check passed for all users. Exiting check loop.
 >[!WARNING]
 >이 코드는 데모 용도의 예로 제공됩니다. 사용자 환경에서 사용하려는 경우, 먼저 작은 규모로 코드를 테스트하거나 별도의 테스트 테넌트에서 테스트하는 것이 좋습니다. 환경의 특정 요구에 맞게 코드를 조정해야 할 수도 있습니다.
 
-코드를 실행하려면 [Azure AD PowerShell v1.0 라이브러리](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)의 명령을 사용합니다. 스크립트를 실행하기 전에 `connect-msolservice` cmdlet을 실행하여 테넌트에 로그인합니다.
+코드를 실행하려면 [Azure AD PowerShell v1.0 라이브러리](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)의 명령을 사용합니다. 스크립트를 실행하기 전에 `connect-msolservice` cmdlet을 실행하여 테넌트에 로그인합니다.
 
 ```
 # BEGIN: Helper functions that are used in the scripts.

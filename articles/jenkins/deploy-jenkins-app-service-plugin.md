@@ -1,12 +1,12 @@
 ---
-title: "Jenkins 플러그 인을 사용하여 Azure App Service에 배포 | Microsoft Docs"
-description: "Azure App Service Jenkins 플러그 인을 사용하여 Jenkins에서 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다."
+title: Jenkins 플러그 인을 사용하여 Azure App Service에 배포 | Microsoft Docs
+description: Azure App Service Jenkins 플러그 인을 사용하여 Jenkins에서 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -39,7 +39,7 @@ Jenkins 마스터가 없는 경우 JDK(Java Development Kit) 버전 8 및 다음
 * [Jenkins Git 클라이언트 플러그 인](https://plugins.jenkins.io/git-client) 버전 2.4.6 
 * [Docker Commons 플러그 인](https://plugins.jenkins.io/docker-commons) 버전 1.4.0
 * [Azure 자격 증명](https://plugins.jenkins.io/azure-credentials) 버전 1.2
-* [Azure App Service](https://plugins.jenkins.io/azure-app-server) 버전 0.1
+* [Azure App Service](https://plugins.jenkins.io/azure-app-service) 버전 0.1
 
 Jenkins 플러그 인을 사용하여 Web Apps에 지원되는 언어(예: C#, PHP, Java, Node.js)로 웹앱을 배포할 수 있습니다. 이 자습서에서는 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)을 사용합니다. 자신의 GitHub 계정에 리포지토리를 분기하려면 GitHub 인터페이스의 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.  
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure에 배포하려면 Azure 서비스 주체가 필요합니다.
 
 
 1. Azure 서비스 주체를 만들려면 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 또는 [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 사용합니다.
-2. Jenkins 대시보드에서 **자격 증명** > **시스템**을 선택합니다. 그런 다음 **전역 자격 증명(제한 없음)**을 선택합니다.
+2. Jenkins 대시보드에서 **자격 증명** > **시스템**을 선택합니다. 그런 다음 **전역 자격 증명(제한 없음)** 을 선택합니다.
 3. Microsoft Azure 서비스 주체를 추가하려면 **자격 증명 추가**를 선택합니다. **구독 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **OAuth 2.0 토큰 끝점** 필드에 대한 값을 제공합니다. **ID** 필드를 **mySp**로 설정합니다. 이 ID는 이 문서의 후속 단계에서 사용됩니다.
 
 

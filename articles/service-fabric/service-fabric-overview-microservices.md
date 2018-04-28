@@ -1,11 +1,11 @@
 ---
-title: "Azure 마이크로 서비스 소개 | Microsoft Docs"
-description: "마이크로 서비스 접근 방식을 통해 클라우드 응용 프로그램을 빌드하는 것이 왜 현대 응용 프로그램 개발에서 중요하며 Azure Service Fabric이 어떻게 이를 위한 플랫폼을 제공하는지에 대한 개요"
+title: Azure 마이크로 서비스 소개 | Microsoft Docs
+description: 마이크로 서비스 접근 방식을 통해 클라우드 응용 프로그램을 빌드하는 것이 왜 현대 응용 프로그램 개발에서 중요하며 Azure Service Fabric이 어떻게 이를 위한 플랫폼을 제공하는지에 대한 개요
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유
 소프트웨어 개발자로서 응용 프로그램을 구성 요소 부분으로 팩터링하는 것에 대한 생각에는 새로울 것이 없습니다. 객체 지향, 소프트웨어 추상화 및 구성 요소화가 중심적인 패러다임입니다. 현재 이러한 팩토링화는 공유 라이브러리와 기술 계층 간의 인터페이스와 클래스의 형태를 취하는 경향이 있습니다. 일반적으로 백엔드 스토어, 중간 계층 비즈니스 논리, 프런트엔드 사용자 인터페이스(UI)를 통한 계층화된 접근 방식을 이용합니다. 지난 몇 년 동안 우리 개발자들이 *겪은* 변화는 비즈니스에서 운영하는 클라우드용 배포 응용 프로그램을 구축하는 것이었습니다.
@@ -59,11 +59,11 @@ ms.lasthandoff: 10/19/2017
 
 1) 모놀리식 앱은 도메인 특정 기능을 포함하며 일반적으로 웹, 비즈니스, 데이터 등의 기능 계층으로 구분됩니다.
 
-2) 모놀리식 앱은 여러 서버/가상 컴퓨터/컨테이너에 복제하여 확장합니다.
+2) 모놀리식 앱은 여러 서버/가상 머신/컨테이너에 복제하여 확장합니다.
 
 3) 마이크로 서비스 응용 프로그램은 기능을 더 작은 개별 서비스로 구분합니다.
 
-4) 마이크로 서비스 접근 방식에서는 각 서비스를 독립적으로 배포하여 확장하며 서버/가상 컴퓨터/컨테이너 간에 이러한 서비스의 인스턴스를 만듭니다.
+4) 마이크로 서비스 접근 방식에서는 각 서비스를 독립적으로 배포하여 확장하며 서버/가상 머신/컨테이너 간에 이러한 서비스의 인스턴스를 만듭니다.
 
 마이크로 서비스 접근 방식을 통한 설계는 모든 프로젝트에서 적용되는 만능 해결책은 아니지만 앞서 설명한 비즈니스 목표와 더 긴밀하게 연결됩니다. 나중에 코드를 마이크로 서비스 설계에 포함시키기 위해 재작업할 기회가 있다는 점을 알고 있다면 모놀리식 접근 방식으로 시작하는 것도 좋습니다. 모놀리식 응용 프로그램을 시작하고, 확장성 또는 민첩성이 더 필요한 기능 영역부터 천천히 단계별로 분할하는 것이 더 일반적입니다.
 
@@ -181,7 +181,7 @@ Microsoft 내에서 많은 기존 응용 프로그램을 단순하게 컨테이�
 
 ## <a name="next-steps"></a>다음 단계
 * [서비스 패브릭 용어 개요](service-fabric-technical-overview.md)
-* [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Storage Explorer를 사용하여 Azure Data Lake Store 리소스 관리
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview)는 텍스트 또는 이진 데이터와 같이 많은 양의 구조화되지 않은 데이터를 저장하는 서비스입니다. HTTP 또는 HTTPS를 통해 어디서나 데이터에 액세스할 수 있습니다. Azure Storage 탐색기의 Data Lake Store를 사용하면 사용자가 Blob 및 큐와 같은 다른 Azure 엔터티와 함께 Data Lake Store 데이터 및 리소스에 액세스하고 관리할 수 있습니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)는 텍스트 또는 이진 데이터와 같이 많은 양의 구조화되지 않은 데이터를 저장하는 서비스입니다. HTTP 또는 HTTPS를 통해 어디서나 데이터에 액세스할 수 있습니다. Azure Storage 탐색기의 Data Lake Store를 사용하면 사용자가 Blob 및 큐와 같은 다른 Azure 엔터티와 함께 Data Lake Store 데이터 및 리소스에 액세스하고 관리할 수 있습니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다.
 
 또 다른 이점은 사용자에게 Data Lake Store 데이터를 관리하기 위한 구독 권한이 필요하지 않다는 것입니다. Storage 탐색기에서 누군가 사용 권한을 부여하는 한 Data Lake Store 경로를 **로컬 및 연결된** 노드에 연결할 수 있습니다.
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/16/2018
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 *   Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial)을 참조하세요.
-*   Azure Data Lake Store 계정 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)을 참조하세요.
+*   Azure Data Lake Store 계정 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)을 참조하세요.
 
 ## <a name="install-storage-explorer"></a>Storage 탐색기 설치
 
@@ -197,7 +197,7 @@ URL이 있는 경우 파일 탐색기 또는 브라우저의 주소 경로에 UR
 
 ## <a name="next-steps"></a>다음 단계
 * [최신 Storage 탐색기 릴리스 정보 및 비디오](http://www.storageexplorer.com)를 보세요.
-* [Azure Storage 탐색기에서 Azure Cosmos DB를 관리하는 방법](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer)을 알아봅니다.
-* [Storage 탐색기 시작](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Azure Data Lake Store 시작](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* [Azure Storage 탐색기에서 Azure Cosmos DB를 관리하는 방법](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)을 알아봅니다.
+* [Storage 탐색기 시작](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Azure Data Lake Store 시작](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * [Azure Storage 탐색기에서 Azure Cosmos DB를 사용하는 방법에 대한 YouTube 비디오](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)를 시청합니다.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: ac7fa42c93e42e93800c3b26154cdabb85756698
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure 스택 1803 업데이트
 
@@ -44,10 +44,11 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
-1803 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.
+- 1803 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.
 
-- [Azure 스택 업데이트를 설치 하려고 할 때 KB 4103348-네트워크 컨트롤러 API 서비스가 충돌](https://support.microsoft.com/en-us/help/4103348)
+  - [Azure 스택 업데이트를 설치 하려고 할 때 KB 4103348-네트워크 컨트롤러 API 서비스가 충돌](https://support.microsoft.com/en-us/help/4103348)
 
+- 이 업데이트를 설치한 후 되도록 방화벽 구성을 검토 [필요한 포트가](azure-stack-integrate-endpoints.md) 열려 있습니다. 예를 들어이 업데이트 작업 로그에 감사 로그의 변경 사항이 포함 되어 있는 Azure 모니터를 소개 합니다. 이러한 변경으로 인해 포트 13012는 이제 사용 및도 열려 있어야 합니다.  
 
 ### <a name="new-features"></a>새로운 기능 
 이 업데이트 Azure 스택에 대 한 다음과 같은 향상 된 기능 및 수정 프로그램을 포함합니다.
@@ -169,7 +170,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
     - *허용:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

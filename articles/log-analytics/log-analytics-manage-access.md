@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: af648e97f5913ef7413f72db8e19aa5ea69d6d09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -34,7 +34,7 @@ Log Analytics에 대한 액세스를 관리하려면 작업 영역에 관련된 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>필요한 작업 영역의 수 결정
 작업 영역은 Azure 리소스이며 Azure Portal에서 데이터가 수집, 집계, 분석 및 표시되는 컨테이너입니다.
 
-Azure 구독당 여러 작업 영역을 포함할 수 있으며 두 개 이상의 작업 영역에 액세스할 수 있습니다. 이전에는 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다. 이제 [여러 작업 영역에 걸쳐 쿼리를 수행](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search)할 수 있기 때문에 데이터에 대한 시스템 전반 뷰를 파악할 수 있습니다. 이 섹션에서는 둘 이상의 작업 영역을 만들 때 유용할 수 있는 시기를 설명합니다.
+Azure 구독당 여러 작업 영역을 포함할 수 있으며 두 개 이상의 작업 영역에 액세스할 수 있습니다. 이전에는 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다. 이제 [여러 작업 영역에 걸쳐 쿼리를 수행](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)할 수 있기 때문에 데이터에 대한 시스템 전반 뷰를 파악할 수 있습니다. 이 섹션에서는 둘 이상의 작업 영역을 만들 때 유용할 수 있는 시기를 설명합니다.
 
 현재 작업 영역은 다음을 제공합니다.
 
@@ -83,7 +83,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 두 가지 사�
 
 |                          | Log Analytics 포털 | Azure portal | API(PowerShell 포함) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Log Analytics 사용자 역할 | 예                  | 아니요           | 아니오                         |
+| Log Analytics 사용자 역할 | 예                  | 아니오           | 아니오                         |
 | Azure 역할 기반 액세스  | 예                  | 예          | 예                        |
 
 > [!NOTE]
@@ -168,11 +168,11 @@ OMS 포털의 역할 할당은 다음과 같이 사용하여 결정됩니다.
 |--------------------------------------------------------------|----------------------------------|-------|
 | 사용자 계정이 레거시 Log Analytics 사용자 역할에 속함     | 지정된 Log Analytics 사용자 역할 | |
 | 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> 작업 영역에 대한 전체 Azure 권한(`*` 권한 <sup>1</sup>) | 관리자 ||
-| 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> 작업 영역에 대한 전체 Azure 권한(`*` 권한 <sup>1</sup>) <br> `Microsoft.Authorization/*/Delete` 및 `Microsoft.Authorization/*/Write`의 *not actions* | 참가자 ||
+| 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> 작업 영역에 대한 전체 Azure 권한(`*` 권한 <sup>1</sup>) <br> `Microsoft.Authorization/*/Delete` 및 `Microsoft.Authorization/*/Write`의 *not actions* | 기여자 ||
 | 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> Azure 읽기 권한 | 읽기 전용 ||
 | 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> Azure 권한이 인식되지 않음 | 읽기 전용 ||
 | CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있음 | 관리자 | 일반적으로 CSP의 고객 |
-| CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있지 않음 | 참가자 | 일반적으로 CSP |
+| CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있지 않음 | 기여자 | 일반적으로 CSP |
 
 <sup>1</sup> 역할 정의에 대한 자세한 내용은 [Azure 권한](../role-based-access-control/custom-roles.md)을 참조하세요. 역할을 평가할 경우 `*`의 작업이 `Microsoft.OperationalInsights/workspaces/*`와 동일하지 않습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 구성 관리"
-description: "FedRAMP 웹 애플리케이션 자동화 - 구성 관리"
+title: Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 구성 관리
+description: FedRAMP 웹 애플리케이션 자동화 - 구성 관리
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 356eccac6af2780c02d1cd935d41891b5f89f1a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-management-cm"></a>CM(구성 관리)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | Azure Resource Manager 템플릿과 이 청사진을 구성하는 함께 제공되는 리소스는 배포된 아키텍처의 “코드로 구성” 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. 솔루션에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. |
+| **고객** | Azure Resource Manager 템플릿과 이 청사진을 구성하는 함께 제공되는 리소스는 배포된 아키텍처의 "코드로 구성" 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. 솔루션에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | Azure Resource Manager 템플릿과 이 청사진을 구성하는 함께 제공되는 리소스는 배포된 아키텍처의 “코드로 구성” 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. Azure Portal에서 자동화 스크립트는 배포된 모든 리소스서 사용할 수 있으며 언제나 이러한 리소스의 최신 표현을 제공합니다.  |
+| **고객** | Azure Resource Manager 템플릿과 이 청사진을 구성하는 함께 제공되는 리소스는 배포된 아키텍처의 "코드로 구성" 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. Azure Portal에서 자동화 스크립트는 배포된 모든 리소스서 사용할 수 있으며 언제나 이러한 리소스의 최신 표현을 제공합니다.  |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 청사진은 Azure Automation DSC를 배포합니다. Azure OMS(Operations Management Suite)에 포함되어 있는 자동화 DSC는 구성 오류를 감지하면 경고를 생성하거나 오류를 해결하도록 구성할 수 있습니다. |
+| **고객** | 이 청사진은 Azure Automation DSC를 배포합니다. Automation DSC는 구성 오류를 감지하면 경고를 생성하거나 오류를 해결하도록 구성할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 

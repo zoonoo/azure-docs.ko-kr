@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리되는 인스턴스 및 SQL Server 간의 T-SQL 차이점 
 
@@ -239,7 +239,7 @@ XEvent에 대한 일부 Windows 관련 대상은 지원되지 않습니다.
 ### <a name="linked-servers"></a>연결된 서버
  
 관리되는 인스턴스의 연결된 서버는 제한된 수의 대상을 지원합니다. 
-- 지원 대상: 가상 머신의 SQL Server, SQL Database, 관리되는 인스턴스 및 SQL Server
+- 지원 대상: SQL Server 및 SQL Database
 - 지원되지 않는 대상: 파일, Analysis Services 및 기타 RDBMS
 
 작업
@@ -393,7 +393,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 저장소 공간 초과
 
-각 관리되는 인스턴스에는 Azure Premium 디스크 공간에 대해 예약된 최대 35TB의 저장소가 있으며 각 데이터베이스 파일은 별도의 실제 디스크에 배치됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 일부 경우에서 총 8TB가 필요 없는 관리되는 인스턴스는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다. 
+각 관리되는 인스턴스에는 Azure Premium 디스크 공간에 대해 예약된 최대 35TB의 저장소가 있으며 각 데이터베이스 파일은 별도의 실제 디스크에 배치됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 관리되는 인스턴스는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다. 
 
 예를 들어 관리되는 인스턴스는 4TB 디스크를 사용하는 1.2TB 크기의 하나의 파일 및 각각 128GB 크기의 248개의 디스크에 있는 1GB의 248개의 파일을 가질 수 있습니다. 이 예제에서 전체 디스크 저장소 크기는 1x4TB + 248x128GB = 35TB입니다. 그러나 데이터베이스에 대한 총 예약된 인스턴스 크기는 1x1.2TB + 248x1GB = 1.4TB입니다. 특정 상황에서 매우 구체적인 파일의 배포로 인해 관리되는 인스턴스는 예상치 못한 Azure Premium 디스크 저장소 용량 한도에 도달할 수 있음을 보여줍니다. 
 
@@ -419,4 +419,4 @@ Azure Portal을 사용하여 생성된 SAS 키에서 선행 `?`를 제거했는�
 
 - 관리되는 인스턴스에 대한 자세한 내용은 [관리되는 인스턴스란?](sql-database-managed-instance.md)을 참조하세요.
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.
-- 자습서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
+- 관리되는 인스턴스를 새로 만드는 방법을 보여 주는 자습서에 대해서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.

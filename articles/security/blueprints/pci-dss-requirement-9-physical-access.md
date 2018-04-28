@@ -1,6 +1,6 @@
 ---
-title: "Azure Payment Processing Blueprint - 물리적 액세스 요구 사항"
-description: "PCI DSS 요구 사항 9"
+title: Azure Payment Processing Blueprint - 물리적 액세스 요구 사항
+description: PCI DSS 요구 사항 9
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 물리적 요구 사항 
 ## <a name="pci-dss-requirement-9"></a>PCI DSS 요구 사항 9
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 데이터 센터에 대한 물리적 액세스 보안을 구현, 적용 및 모니터링할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 데이터 센터를 위한 생체 액세스 제어 메커니즘과 CCTV를 실행, 적용 및 모니터링할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 플랫폼에는 공개적으로 액세스 가능한 네트워크 잭이 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 네트워크 하드웨어에 대한 물리적 액세스는 액세스 목록, 여러 형태의 인증, 물리적 진입 장벽, 장비 액세스 승인이 필요한 비즈니스 요구 사항을 통해 엄격히 제어됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 데이터 센터를 방문하는 직원 및 하청업체 ID와 물리적 액세스 보안을 실행, 적용 및 모니터링할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft 데이터 센터에 대한 액세스는 최소 권한 원칙을 바탕으로 데이터 센터 팀에서 승인한 권한 부여 액세스 목록을 통해 제어됩니다. 액세스 제어 목록은 분기별로 검토, 확인 및 업데이트합니다.<br /><br />Microsoft Azure Data Center에서는 경계 게이트, 전자 액세스 배지 판독기, 생체 인식 장치, 수동 트랩/입구, 재통과 금지 장치 등의 물리적 액세스 장치를 활용합니다. 액세스 배지 장치는 지속적으로 모니터링됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 정보 처리 시설과 물리적으로 격리된 보안 로드 베이에서 미리 승인된 전달물을 받고 권한이 부여된 담당자가 이를 모니터링하도록 시행할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 정보 처리 시설과 물리적으로 격리된 보안 로드 베이에서 미리 승인된 전달물을 받고 권한이 부여된 담당자가 이를 모니터링하도록 시행할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft 데이터 센터 액세스는 사전 승인이 필요하며 권한이 부여된 방문자는 도착 시점에 물리적 보안에서 체크인하고 입장 전에 유효한 ID 증명서를 제출합니다. 배지는 직원을 분명하게 식별합니다. 하청업체와 방문자는 시설을 떠나는 시점에 반납해야 하는 임시 배지를 받습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 방문자는 모든 Microsoft 시설에서 떠나는 시점에 배지를 반납해야 합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -182,7 +182,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 카드 소유자 데이터가 저장 또는 전송되는 시설, 컴퓨터실, 데이터 센터에 대한 방문자 활동의 물리적 감사 추적의 형태로 방문자 로그를 유지 관리할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -195,7 +195,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -234,7 +234,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -247,7 +247,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -300,7 +300,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -313,7 +313,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 데이터를 Azure SQL Database에 저장합니다. PaaS SQL Database 인스턴스는 데이터베이스 보안 방법을 표시하기 위해 사용됩니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -326,7 +326,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 데이터 파기 기술은 파기될 데이터 개체의 종류, 가입 여부, 저장 장치, 가상 머신 또는 데이터베이스에 따라 달라집니다. Microsoft Azure 다중 테넌트 환경에서는 고객 데이터가 다른 고객 데이터에 "유출"되지 않게 하고 고객이 데이터를 삭제하면 다른 고객(대부분의 경우 한 때 해당 데이터를 소유했던 고객을 포함)이 삭제된 데이터에 액세스하지 못하도록 주의를 기울이고 있습니다.<br /><br />Microsoft Azure는 데이터가 의도치 않게 공개되지 않도록 하는 기본 원칙을 다루는 미디어 삭제에 관한 NIST 800-88 지침을 따릅니다. 이 지침에서는 전자 및 물리적 삭제를 모두 포괄하고 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 중 사용한 리소스 그룹을 삭제하여 완전히 삭제할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 중 사용한 리소스 그룹을 삭제하여 완전히 삭제할 수 있습니다.|
 
 
 
@@ -342,7 +342,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 OMS를 사용하여 모든 시스템 변경 내용을 기록합니다.<br /><br />[OMS(Operations Management Suite)](/azure/operations-management-suite/)는 광범위한 변경 내용 로깅을 제공합니다. 변경 내용이 정확한지 검토 및 확인할 수 있습니다. 보다 구체적인 지침은 [PCI 지침 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure를 사용하여 모든 시스템 변경 내용을 기록합니다.<br /><br />Log Analytics는 광범위한 변경 내용 로깅을 제공합니다. 변경을 검토하고 정확도를 확인할 수 있습니다. 보다 구체적인 지침은 [PCI 지침 - 로깅 및 감사](payment-processing-blueprint.md#logging-and-auditing)를 참조하세요.|
 
 
 
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 문서에 사용된 참조 아키텍처와, 모든 서비스 목록을 제공합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 문서에 사용된 참조 아키텍처와, 모든 서비스 목록을 제공합니다.|
 
 
 
@@ -374,7 +374,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -391,7 +391,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 
@@ -404,7 +404,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 사용할 수 없습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 사용할 수 없습니다.|
 
 
 

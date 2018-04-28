@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/25/2018
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDoS 보호 | 스키마를 사용할 수 없음 |
 | Recovery Services | [Azure Backup용 데이터 모델](../backup/backup-azure-reports-data-model.md)|
-| Search |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
+| 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
 | 서버 관리 | 스키마를 사용할 수 없음 |
 | Service Bus |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 진단 로깅](../sql-database/sql-database-metrics-diag-logging.md) |
@@ -73,6 +73,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 서버 로그|
 |Microsoft.Devices/IotHubs|연결|연결|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|장치 원격 분석|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 명령|
@@ -84,6 +85,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Devices/IotHubs|TwinQueries|쌍 쿼리|
 |Microsoft.Devices/IotHubs|JobsOperations|작업 연산|
 |Microsoft.Devices/IotHubs|DirectMethods|직접 메서드|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 진단(미리 보기)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|장치 작업|
 |Microsoft.Devices/provisioningServices|ServiceOperations|서비스 작동|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -96,7 +98,6 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|네트워크 보안 그룹 이벤트|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|네트워크 보안 그룹 규칙 흐름 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 보호 알림|
@@ -107,6 +108,8 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|게이트웨이 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|터널 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|경로 진단 로그|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE 진단 로그|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2P 진단 로그|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager 프로브 상태 결과 이벤트|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 카운터 테이블|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup 보고 데이터|
@@ -127,6 +130,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Sql/servers/databases|블록|블록|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL 정보|
 |Microsoft.Sql/servers/databases|감사|감사 로그|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 보안 감사 이벤트|
 |Microsoft.StreamAnalytics/streamingjobs|실행|실행|
 |Microsoft.StreamAnalytics/streamingjobs|작성|작성|
 

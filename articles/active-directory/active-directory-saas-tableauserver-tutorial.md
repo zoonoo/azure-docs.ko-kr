@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -57,7 +57,7 @@ Tableau Server의 Azure AD 통합을 구성하려면 갤러리의 Tableau Server
 
 **갤러리에서 Tableau Server를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -158,7 +158,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
   
    나. **Single Sign-On에 SAML 사용**확인란을 선택합니다.
    
-   다. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL예: http://tableau_server 입니다. http://localhost 를 사용하지 않는 것이 좋습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/)은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **로그온 URL** 텍스트 상자에 붙여넣습니다.
+   다. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL(예: http://tableau_server)입니다. http://localhost을 사용하는 것은 권장되지 않습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/))은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **로그온 URL** 텍스트 상자에 붙여넣습니다.
    
    d. SAML 엔터티 ID - 엔터티 ID는 IdP에 대한 Tableau Server 설치를 고유하게 식별합니다. 원하는 경우 여기에 Tableau Server URL을 다시 입력할 수 있지만 반드시 Tableau Server URL을 입력해야 하는 것은 아닙니다. **SAML 엔터티 ID**를 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **식별자** 텍스트 상자에 붙여넣습니다.
      

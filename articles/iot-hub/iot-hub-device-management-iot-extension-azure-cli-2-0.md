@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1bf2c10c5267157f6d74962c00d587a6956fc574
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Azure CLI 2.0용 IoT 확장을 사용하여 Azure IoT Hub 장치 관리
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest)의 기능에 추가하는 새 오픈 소스 IoT 확장입니다. Azure CLI 2.0에는 Azure Resource Manager 및 관리 끝점과 상호 작용하기 위한 명령이 포함되어 있습니다. 예를 들어 Azure CLI 2.0을 사용하여 Azure VM 또는 IoT 허브를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자가 명령줄을 통해 모든 IoT Hub, IoT Edge, IoT Hub 장치 프로비전 서비스 기능에 액세스할 수 있도록 합니다.
+[Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)의 기능에 추가하는 새 오픈 소스 IoT 확장입니다. Azure CLI 2.0에는 Azure Resource Manager 및 관리 끝점과 상호 작용하기 위한 명령이 포함되어 있습니다. 예를 들어 Azure CLI 2.0을 사용하여 Azure VM 또는 IoT 허브를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자가 명령줄을 통해 모든 IoT Hub, IoT Edge, IoT Hub 장치 프로비전 서비스 기능에 액세스할 수 있도록 합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/03/2018
 
 - [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)
 
-- Azure CLI 2.0을 설치합니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다. [Microsoft 문서](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)의 설치 지침에 따라 환경에 Azure CLI 2.0을 설치합니다. Azure CLI 2.0 버전이 2.0.24 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 
+- Azure CLI 2.0을 설치합니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다. [Microsoft 문서](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)의 설치 지침에 따라 환경에 Azure CLI 2.0을 설치합니다. Azure CLI 2.0 버전이 2.0.24 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 
 
 - IoT 확장을 설치합니다. 가장 간단한 방법은 `az extension add --name azure-cli-iot-ext` 명령을 사용하는 것입니다. [IoT 확장 추가 정보](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)에는 확장을 설치하는 여러 가지 방법이 설명되어 있습니다.
 

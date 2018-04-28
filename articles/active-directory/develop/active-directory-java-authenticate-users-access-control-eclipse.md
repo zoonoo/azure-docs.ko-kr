@@ -1,25 +1,24 @@
 ---
-title: Access Control 사용 방법(Java) | Microsoft Docs
+title: 'Access Control 사용 방법(Java) '
 description: Azure에서 Java를 사용하여 Access Control을 개발하고 사용하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: ''
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Eclipse를 사용하여 Azure Access Control Service를 통해 웹 사용자를 인증하는 방법
 이 가이드에서는 Eclipse용 Azure 도구 키트 내에서 Azure ACS(Access Control Service)를 사용하는 방법을 보여 줍니다. ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
@@ -116,14 +115,14 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
    
    1. **이름**에 RP의 이름을 입력합니다. 이 자습서에서는 **Azure Web App**을 입력합니다.
    2. **모드**에서 **수동으로 설정 입력**을 선택합니다.
-   3. **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 **http://localhost:8080/**을 입력합니다.
+   3. **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업에 대해 **http://localhost:8080/** 를 입력합니다.
       ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator]
-   4. **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator]를 입력합니다.
+   4. **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업에 대해 **http://localhost:8080/MyACSHelloWorld/index.jsp**
+      ![계산 에뮬레이터에서 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator]을 입력합니다.
    5. 나머지 필드는 기본값을 그대로 사용합니다.
 4. **저장**을 클릭합니다.
 
-이제 Java 웹 응용 프로그램이 Azure 계산 에뮬레이터(http://localhost:8080/에서) 실행될 때 ACS 네임스페이스에서 RP가 되도록 Java 웹 응용 프로그램을 구성했습니다. 다음 단계에서는 ACS가 RP에 대한 클레임을 처리하는 데 사용하는 규칙을 만듭니다.
+이제 Java 웹 응용 프로그램이 Azure 계산 에뮬레이터(http://localhost:8080/))에서 실행될 때 ACS 네임스페이스에서 RP가 되도록 Java 웹 응용 프로그램을 구성했습니다. 다음 단계에서는 ACS가 RP에 대한 클레임을 처리하는 데 사용하는 규칙을 만듭니다.
 
 ## <a name="create-rules"></a>규칙 만들기
 이 작업에서는 클레임이 IP에서 RP로 전달되는 방법을 구동하는 규칙을 정의합니다. 이 가이드에서는 입력 클레임 유형 및 값을 필터링하거나 수정하지 않고 직접 출력 토큰에 복사하도록 ACS를 간단히 구성합니다.
@@ -159,7 +158,7 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
 **로그인 페이지 통합: Azure Web App** 페이지에서 **옵션 1: ACS 호스트된 로그인 페이지에 연결**에 나열된 URL이 Java 웹 응용 프로그램에 사용됩니다. Azure Access Control Services Filter 라이브러리를 Java 응용 프로그램에 추가할 때 이 값이 필요합니다.
 
 ## <a name="create-a-java-web-application"></a>Java 웹 응용 프로그램 만들기
-1. Eclipse 내의 메뉴에서 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다. **파일**, **새로 만들기**를 차례로 클릭한 후 **동적 웹 프로젝트**가 사용 가능한 프로젝트로 표시되지 않는 경우 **파일**, **새로 만들기**, **프로젝트...**를 차례로 클릭한 후 **웹**을 확장하고 **동적 웹 프로젝트**를 클릭한 후 **다음**을 클릭합니다. 이 자습서에서는 프로젝트의 이름을 **MyACSHelloWorld**로 지정합니다. (이 이름을 사용했는지 확인하세요. 이 자습서의 이후 단계에서는 WAR 파일의 이름이 MyACSHelloWorld라고 가정합니다.) 화면이 다음과 유사하게 나타납니다.
+1. Eclipse 내의 메뉴에서 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다. **파일**, **새로 만들기**를 차례로 클릭한 후 **동적 웹 프로젝트**가 사용 가능한 프로젝트로 표시되지 않는 경우 **파일**, **새로 만들기**, **프로젝트...** 를 차례로 클릭한 후 **웹**을 확장하고 **동적 웹 프로젝트**를 클릭한 후 **다음**을 클릭합니다. 이 자습서에서는 프로젝트의 이름을 **MyACSHelloWorld**로 지정합니다. (이 이름을 사용했는지 확인하세요. 이 자습서의 이후 단계에서는 WAR 파일의 이름이 MyACSHelloWorld라고 가정합니다.) 화면이 다음과 유사하게 나타납니다.
    
     ![ACS용 Hello World 프로젝트 만들기 예제][create_acs_hello_world]
    
@@ -170,8 +169,8 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
     ![ACS용 JSP 파일 추가 예제][add_jsp_file_acs]
    
     **다음**을 클릭합니다.
-4. **JSP 템플릿 선택** 대화 상자에서 **새 JSP 파일(html)**을 선택하고 **마침**을 클릭합니다.
-5. index.jsp 파일이 Eclipse에서 열리면 **Hello ACF World!**를 표시하도록 텍스트를 추가합니다. 기존 `<body>` 요소 내. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
+4. **JSP 템플릿 선택** 대화 상자에서 **새 JSP 파일(html)** 을 선택하고 **마침**을 클릭합니다.
+5. index.jsp 파일이 Eclipse에서 열리면 **Hello ACF World!** 를 표시하도록 텍스트를 추가합니다. 기존 `<body>` 요소 내. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
    
         <body>
           <b><% out.println("Hello ACS World!"); %></b>
@@ -183,7 +182,7 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
 1. Eclipse의 Project Explorer에서 **MyACSHelloWorld**를 마우스 오른쪽 단추로 클릭하고 **Build Path**를 클릭한 후 **Configure Build Path**를 클릭합니다.
 2. **Java Build Path** 대화 상자에서 **Libraries** 탭을 클릭합니다.
 3. **Add Library**를 클릭합니다.
-4. **Azure Access Control Services Filter (by MS Open Tech)**를 클릭한 후 **Next**를 클릭합니다. **Azure Access Control Services Filter** 대화 상자가 표시됩니다.  (Eclipse를 설치한 위치에 따라 **Location** 필드의 경로가 다를 수 있으며, 소프트웨어 업데이트에 따라 버전 번호가 다를 수 있습니다.)
+4. **Azure Access Control Services Filter (by MS Open Tech)** 를 클릭한 후 **Next**를 클릭합니다. **Azure Access Control Services Filter** 대화 상자가 표시됩니다.  (Eclipse를 설치한 위치에 따라 **Location** 필드의 경로가 다를 수 있으며, 소프트웨어 업데이트에 따라 버전 번호가 다를 수 있습니다.)
    
     ![ACS Filter 라이브러리 추가][add_acs_filter_lib]
 5. 관리 포털의 **로그인 페이지 통합** 페이지가 열려 있는 브라우저를 사용하여 **옵션 1: ACS 호스트된 로그인 페이지에 연결** 필드에 나열된 URL을 복사하여 Eclipse 대화 상자의 **ACS Authentication Endpoint** 필드에 붙여넣습니다.
@@ -253,7 +252,7 @@ ACS에서 응용 프로그램에 반환하는 SAML(Security Assertion Markup Lan
    2. **As Name**의 경우 텍스트 상자를 클릭하고 기본 이름을 그대로 사용합니다.
    3. **Deploy** 섹션에서 다음을 수행합니다.
       1. **Method**의 경우 **copy**를 선택합니다.
-      2. **To directory**의 경우 **%JAVA_HOME%**을 입력합니다.
+      2. **To directory**의 경우 **%JAVA_HOME%** 을 입력합니다.
    4. **Add Component** 대화 상자는 다음과 유사합니다.
       
        ![인증서 구성 요소 추가][add_cert_component]

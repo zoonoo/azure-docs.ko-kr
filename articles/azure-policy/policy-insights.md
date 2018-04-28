@@ -3,18 +3,18 @@ title: Azure Policy를 사용하여 프로그래밍 방식으로 정책 및 보�
 description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 03/28/2018
 ms.topic: article
 ms.service: azure-policy
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 1809f0b7ef386bb9eeaa55982178e4cd5e1dd2e2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
@@ -28,12 +28,11 @@ ms.lasthandoff: 03/30/2018
 2. AzureRM PowerShell 모듈을 최신 버전으로 업데이트합니다. 최신 버전에 대한 자세한 내용은 Azure PowerShell https://github.com/Azure/azure-powershell/releases을 참조합니다.
 3. 구독이 리소스 공급자와 함께 작동하도록 Azure PowerShell을 사용하여 Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 작업 등록을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
 
-    ```
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
-    ```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  ```
 
-    리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
-
+  리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
 4. 아직 Azure CLI를 설치하지 않았다면 설치합니다. [Windows에 Azure CLI 2.0 설치](/azure/install-azure-cli-windows?view=azure-cli-latest)에서 최신 버전을 얻을 수 있습니다.
 
 ## <a name="create-and-assign-a-policy-definition"></a>정책 정의 만들기 및 할당
@@ -46,54 +45,46 @@ ms.lasthandoff: 03/30/2018
 
 1. 다음 JSON 코드 조각을 사용하여 AuditStorageAccounts.json 이름의 JSON 파일을 만듭니다.
 
-    ```
-    {
-    "if": {
-      "allOf": [
-        {
-          "field": "type",
-          "equals": "Microsoft.Storage/storageAccounts"
-        },
-        {
-          "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-          "equals": "Allow"
-        }
-      ]
-    },
-    "then": {
-      "effect": "audit"
-    }
+  ```json
+  {
+      "if": {
+          "allOf": [{
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                  "equals": "Allow"
+              }
+          ]
+      },
+      "then": {
+          "effect": "audit"
+      }
   }
+  ```
 
-    ```
-
-    정책 정의 작성에 대한 자세한 내용은 [Azure Policy 정의 구조](policy-definition.md)를 참조합니다.
-
+  정책 정의 작성에 대한 자세한 내용은 [Azure Policy 정의 구조](policy-definition.md)를 참조합니다.
 2. AuditStorageAccounts.json 파일을 사용하여 정책 정의를 만들려면 다음 명령을 실행합니다.
 
-    ```
-    PS C:\>New-AzureRmPolicyDefinition -Name "AuditStorageAccounts" -DisplayName "Audit Storage Accounts Open to Public Networks" -Policy C:\AuditStorageAccounts.json
-    ```
+  ```azurepowershell-interactive
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  ```
 
-    이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다. 사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition?view=azurermps-4.4.1)을 참조하세요.
-
+  이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다. 사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)을 참조하세요.
 3. 정책 정의를 만든 후 다음 명령을 실행하여 정책 할당을 만들 수 있습니다.
 
-    ```
-$rg = Get-AzureRmResourceGroup -Name "ContosoRG"
-```
+  ```azurepowershell-interactive
+  $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
 
-    ```
-$Policy = Get-AzureRmPolicyDefinition -Name "AuditStorageAccounts"
-    ```
+  $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
 
-    ```
-New-AzureRmPolicyAssignment -Name "AuditStorageAccounts" -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
-    ```
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  ```
 
-    _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
+  _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
 
-Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리에 대한 자세한 내용은 [AzureRM.Resources](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies)를 참조하세요.
+Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리에 대한 자세한 내용은 [AzureRM.Resources](/powershell/module/azurerm.resources/#policies)를 참조하세요.
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>ARMClient를 사용하여 정책 정의 만들기 및 할당
 
@@ -101,75 +92,71 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리
 
 1. 다음 JSON 코드 조각을 복사하여 JSON 파일을 만듭니다. 다음 단계에서 파일을 호출합니다.
 
-    ```
-    {
-    "properties": {
-        "displayName": "Audit Storage Accounts Open to Public Networks",
-        "policyType": "Custom",
-        "mode": "Indexed",
-        "description": "This policy ensures that storage accounts with exposure to Public Networks are audited.",
-        "parameters": {},
-        "policyRule": {
-              "if": {
-                "allOf": [
-                  {
-                    "field": "type",
-                    "equals": "Microsoft.Storage/storageAccounts"
+  ```json
+  "properties": {
+      "displayName": "Audit Storage Accounts Open to Public Networks",
+      "policyType": "Custom",
+      "mode": "Indexed",
+      "description": "This policy ensures that storage accounts with exposure to Public Networks are audited.",
+      "parameters": {},
+      "policyRule": {
+          "if": {
+              "allOf": [{
+                      "field": "type",
+                      "equals": "Microsoft.Storage/storageAccounts"
                   },
                   {
-                    "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                    "equals": "Allow"
+                      "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                      "equals": "Allow"
                   }
-                ]
-              },
-              "then": {
-                "effect": "audit"
-              }
-            }
-    }
-}
-```
+              ]
+          },
+          "then": {
+              "effect": "audit"
+          }
+      }
+  }
+  ```
 
 2. 다음 호출을 사용하여 정책 정의를 만듭니다.
 
-    ```
-    armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01 @<path to policy definition JSON file>"
-    ```
+  ```
+  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  ```
 
-    preceding_ &lt;subscriptionId&gt;을 원하는 구독 ID로 바꿉니다.
+  preceding_ &lt;subscriptionId&gt;을 원하는 구독 ID로 바꿉니다.
 
 쿼리 구조에 대한 자세한 내용은 [정책 정의 - 만들기 또는 업데이트](/rest/api/resources/policydefinitions/createorupdate)를 참조하세요.
-
 
 다음 절차를 사용하여 정책 할당을 만들고 리소스 그룹 수준에서 정책 정의를 할당합니다.
 
 1. 다음 JSON 코드 조각을 복사하여 JSON 정책 할당 파일을 만듭니다. &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.
 
-    ```
-    {
-  "properties": {
-"description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
-"displayName": "Audit Storage Accounts Open to Public Networks Assignment",
-"parameters": {},
-"policyDefinitionId":"/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
-"scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-},
-"sku": {
-    "name": "A1",
-    "tier": "Standard"
-    }
-}
-    ```
+  ```json
+  {
+      "properties": {
+          "description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
+          "displayName": "Audit Storage Accounts Open to Public Networks Assignment",
+          "parameters": {},
+          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
+          "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
+      },
+      "sku": {
+          "name": "A1",
+          "tier": "Standard"
+      }
+  }
+  ```
 
 2. 다음 호출을 사용하여 정책 할당을 만듭니다.
 
-    ```
-    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
-    ```
+  ```
+  armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+  ```
 
-    &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.
+  &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.
 
- REST API에 HTTP 호출하는 방법에 대한 자세한 내용은 [Azure REST API 리소스](/rest/api/resources/)를 참조합니다.
+  REST API에 HTTP 호출하는 방법에 대한 자세한 내용은 [Azure REST API 리소스](/rest/api/resources/)를 참조합니다.
 
 ### <a name="create-and-assign-a-policy-definition-with-azure-cli"></a>Azure CLI를 사용해 정책 정의 만들기 및 할당
 
@@ -177,41 +164,40 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리
 
 1. 다음 JSON 코드 조각을 복사하여 JSON 정책 할당 파일을 만듭니다.
 
-    ```
-    {
-                  "if": {
-                    "allOf": [
-                      {
-                        "field": "type",
-                        "equals": "Microsoft.Storage/storageAccounts"
-                      },
-                      {
-                        "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                        "equals": "Allow"
-                      }
-                    ]
-                  },
-                  "then": {
-                    "effect": "audit"
-                  }
-    }
-    ```
+  ```json
+  {
+      "if": {
+          "allOf": [{
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                  "equals": "Allow"
+              }
+          ]
+      },
+      "then": {
+          "effect": "audit"
+      }
+  }
+  ```
 
 2. 정책 정의를 만들려면 다음 명령을 실행합니다.
 
-    ```
+  ```azurecli-interactive
 az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
-    ```
+  ```
 
-정책 할당을 만들려면 다음 명령을 사용합니다. &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.
+3. 정책 할당을 만들려면 다음 명령을 사용합니다. &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.
 
-```
-az policy assignment create --name '<Audit Storage Accounts Open to Public Networks in Contoso RG' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
-```
+  ```azurecli-interactive
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  ```
 
 다음 명령으로 PowerShell을 사용하여 정책 정의 ID를 가져올 수 있습니다.
 
-```
+```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
 ```
 
@@ -250,45 +236,42 @@ Azure CLI를 사용하여 리소스 정책을 관리하는 방법에 대한 자�
 
 1. 다음 명령을 실행하여 정책 할당 ID를 가져옵니다.
 
-    ```
-    $policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Storage Accounts with Open Public Networks"}
-    ```
+  ```azurepowershell-interactive
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
 
-    ```
-    $policyAssignment.PolicyAssignmentId
-    ```
+  $policyAssignment.PolicyAssignmentId
+  ```
 
-    정책 할당 ID를 가져오는 방법에 대한 자세한 내용은 [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment?view=azurermps-4.4.1)를 참조합니다.
+  정책 할당 ID를 가져오는 방법에 대한 자세한 내용은 [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment)를 참조합니다.
 
 2. JSON 파일로 복사된 비준수 리소스의 리소스 ID를 얻으려면 다음 명령을 실행합니다.
 
-    ```
-    armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-    ```
+  ```
+  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+  ```
 
 3. 결과는 다음 예제와 유사합니다.
 
-  ```
-      {
-  "@odata.context":"https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-  "@odata.count": 3,
-  "value": [
+  ```json
   {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-      },
-      {
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-             },
-  {
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-             }
-  ]
+      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+      "@odata.count": 3,
+      "value": [{
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
+          },
+          {
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
+          },
+          {
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
+          }
+      ]
   }
   ```
 
@@ -306,19 +289,16 @@ armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorizatio
 
 결과는 다음 예제와 유사합니다.
 
-```
+```json
 {
-  "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-  "@odata.count": 1,
-  "value": [
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-      "NumAuditEvents": 3
-    }
-  ]
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
+    "@odata.count": 1,
+    "value": [{
+        "@odata.id": null,
+        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
+        "NumAuditEvents": 3
+    }]
 }
-
 ```
 
 정책 상태와 마찬가지로 HTTP 요청을 사용하면 정책 이벤트만 볼 수 있습니다. 정책 이벤트를 쿼리하는 방법에 대한 자세한 내용은 [정책 이벤트](/rest/api/policy-insights/policyevents) 참조 문서를 참조합니다.
@@ -327,17 +307,17 @@ armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorizatio
 
 *Set-AzureRmPolicyAssignment* PowerShell cmdlet을 사용하여 기존 정책 할당에 대해 가격 책정 계층을 표준 또는 무료로 업데이트할 수 있습니다. 예: 
 
-```
-Set-AzureRmPolicyAssignment -Id /subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID> -Sku @{Name='A1';Tier='Standard'}
+```azurepowershell-interactive
+Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
 ```
 
-cmdlet에 대한 자세한 내용은 [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment?view=azurermps-4.4.1)를 참조하세요.
+cmdlet에 대한 자세한 내용은 [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 제시된 명령 및 쿼리에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure REST API 리소스](/rest/api/resources/)
-- [Azure RM PowerShell 모듈](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies)
+- [Azure RM PowerShell 모듈](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI 정책 명령](/cli/azure/policy?view=azure-cli-latest)
 - [Policy Insights 리소스 공급자 REST API 참조](/rest/api/policy-insights)

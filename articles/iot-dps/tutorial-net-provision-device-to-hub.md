@@ -12,15 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Device Provisioning Service 클라이언트를 사용하여 IoT Hub에 장치를 등록(.NET)
 
-이전 자습서에서 Device Provisioning Service에 연결하기 위해 장치를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 **_개별 등록_** 및 **_등록 그룹_**을 모두 사용하는 단일 IoT Hub에 장치를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이전 자습서에서 Device Provisioning Service에 연결하기 위해 장치를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 **_개별 등록_** 및 **_등록 그룹_** 을 모두 사용하는 단일 IoT Hub에 장치를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
 > * 장치 등록
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/16/2018
 
 - X.509 기반 장치의 경우:
     - *.pem* 또는 *.cer* 파일 중 하나의 형식인 [장치에 발급된 X.509 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)입니다. 개별 등록의 경우 X.509 시스템에 대한 *리프 인증서*를 사용해야 합니다. 반면, 등록 그룹의 경우 *루트 인증서* 또는 동일한 *서명자 인증서*를 사용해야 합니다.
-    - 네임스페이스/범위에서 장치를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이는 장치 ID와 같거나 다를 수 있습니다. ID는 모든 장치에 필수입니다. X.509 기반 장치의 경우 등록 ID는 인증서의 CN(일반 이름)에서 파생됩니다. 이러한 요구 사항에 대한 자세한 내용은 [장치 개념](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device)을 참조하세요.
+    - 네임스페이스/범위에서 장치를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이는 장치 ID와 같거나 다를 수 있습니다. ID는 모든 장치에 필수입니다. X.509 기반 장치의 경우 등록 ID는 인증서의 CN(일반 이름)에서 파생됩니다. 이러한 요구 사항에 대한 자세한 내용은 [장치 개념](https://docs.microsoft.com/azure/iot-dps/concepts-device)을 참조하세요.
 
 Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 있습니다.
 
@@ -61,7 +61,7 @@ Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 �
 
 1. Visual Studio에서 **콘솔 앱** 프로젝트 템플릿을 사용하여 Visual C# 콘솔 응용 프로그램 프로젝트를 만듭니다. 프로젝트 이름을 **DeviceProvisioning**으로 지정합니다.
     
-1. 솔루션 탐색기에서 **DeviceProvisioning** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다.
+1. 솔루션 탐색기에서 **DeviceProvisioning** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 
 1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices.provisioning.service**를 검색합니다. 항목을 선택하고 **설치**를 클릭하여 **Microsoft.Azure.Devices.Provisioning.Service** 패키지를 설치한 후 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 장치 프로비저닝 서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.
 
@@ -131,7 +131,7 @@ Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 �
     }
     ```
         
-1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정...**을 클릭합니다. **단일 시작 프로젝트**를 선택한 다음 드롭다운 메뉴에서 **DeviceProvisioning** 프로젝트를 선택합니다.  
+1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정...** 을 클릭합니다. **단일 시작 프로젝트**를 선택한 다음 드롭다운 메뉴에서 **DeviceProvisioning** 프로젝트를 선택합니다.  
 
 1. .NET 장치 앱 **DeviceProvisiong**을 실행합니다. 장치에 대한 프로비저닝을 설정해야 합니다. 
 

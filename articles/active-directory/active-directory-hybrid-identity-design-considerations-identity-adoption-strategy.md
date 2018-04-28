@@ -1,11 +1,11 @@
 ---
-title: "Azure의 하이브리드 ID 디자인 - 채택 전략 | Microsoft Docs"
-description: "조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."
-documentationcenter: 
+title: Azure의 하이브리드 ID 디자인 - 채택 전략 | Microsoft Docs
+description: 조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -196,7 +196,7 @@ Multi-Factor 설계 옵션:
 | 온-프레미스 AD |Multi-Factor Authentication 서버 |
 
 > [!NOTE]
-> 또한 선택한 Multi-Factor Authentication 설계 옵션이 설계에 필요한 기능을 지원하도록 해야 합니다.  자세한 내용은 [다단계 보안 솔루션 선택](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure)을 참조하세요.
+> 또한 선택한 Multi-Factor Authentication 설계 옵션이 설계에 필요한 기능을 지원하도록 해야 합니다.  자세한 내용은 [다단계 보안 솔루션 선택](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure)을 참조하세요.
 > 
 > 
 

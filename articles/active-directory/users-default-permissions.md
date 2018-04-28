@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한
 
-Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 형식, [역할 멤버 자격](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다.
+Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 형식, [역할 멤버 자격](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다.
 
 ## <a name="member-and-guest-users"></a>멤버 및 게스트 사용자
 받게 되는 기본 권한 집합은 사용자가 테넌트의 기본 멤버(멤버 사용자)인지 또는 B2B 공동 작업 게스트(게스트 사용자)인지에 따라 달라집니다. B2B 공동 작업 및 게스트 사용자에 대한 자세한 내용은 [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)을 참조하세요. 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 833efa7f24d01346525af3dd9ca37012ab0ba3c4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 07a993bbdda374dedc37a03bc46eecef4dcdc257
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure 스택에 응용 프로그램 액세스 권한을 제공합니다
 
@@ -128,7 +128,7 @@ Requirements:
 역할에 할당 한 후 다음 명령을 사용 하 여 서비스 사용자를 사용 하 여 Azure 스택에 서명할 수 있습니다.
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 
@@ -146,7 +146,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 
      ![할당을 위한 구독 선택](./media/azure-stack-create-service-principal/image16.png)
 
-3. **Access Control(IAM)**을 선택합니다.
+3. **Access Control(IAM)** 을 선택합니다.
 
      ![액세스 선택](./media/azure-stack-create-service-principal/image17.png)
 

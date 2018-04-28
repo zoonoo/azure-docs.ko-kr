@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell 문제 해결 | Microsoft Docs"
-description: "Azure Cloud Shell 문제 해결"
+title: Azure Cloud Shell 문제 해결 | Microsoft Docs
+description: Azure Cloud Shell 문제 해결
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendMSFT
 manager: angelc
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -147,4 +147,30 @@ PowerShell cmdlet을 사용하여 사용자가 Azure 드라이브 아래에 파�
 
 ### <a name="gui-applications-are-not-supported"></a>GUI 응용 프로그램은 지원되지 않습니다.
 
-사용자가 Windows 대화 상자를 만드는 명령을 실행할 경우(예: `Connect-AzureAD` 또는 `Login-AzureRMAccount`) `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` 같은 오류 메시지가 표시됩니다.
+사용자가 Windows 대화 상자를 만드는 명령을 실행할 경우(예: `Connect-AzureAD` 또는 `Connect-AzureRmAccount`) `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` 같은 오류 메시지가 표시됩니다.
+
+## <a name="gdpr-compliance-for-cloud-shell"></a>Cloud Shell에 대한 GDPR 규정 준수
+
+Azure Cloud Shell은 개인 데이터를 중대하게 사용하며, Azure Cloud Shell 서비스에 의해 캡처되고 저장되는 데이터는 가장 최근에 사용된 셸, 기본 설정된 글꼴 크기, 기본 설정된 글꼴 유형 및 clouddrive로 백업하는 파일 공유 세부 정보와 같은 환경에 대한 기본값을 제공하는 데 사용됩니다. 이 데이터를 내보내거나 삭제하려는 경우 다음 지침을 포함합니다.
+
+### <a name="export"></a>내보내기
+사용자 설정을 **내보내기** 위해 Cloud Shell은 다음 명령을 실행하여 기본 설정된 셸, 글꼴 크기 및 글꼴 종류 등을 저장합니다.
+
+1. Cloud Shell의 Bash 시작
+2. 다음 명령을 실행합니다.
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+```
+
+### <a name="delete"></a>삭제
+사용자 설정을 **삭제하기** 위해 Cloud Shell은 다음 명령을 실행하여 기본 설정된 셸, 글꼴 크기 및 글꼴 종류 등을 저장합니다. 다음 번에 Cloud Shell을 시작하면 파일 공유를 다시 등록할지 묻는 메시지가 표시됩니다. 
+
+실제 Azure Files 공유는 사용자 설정을 삭제하는 경우 삭제되지 않으며, 해당 작업을 완료하려면 Azure Files로 이동합니다.
+
+1. Cloud Shell의 Bash 시작
+2. 다음 명령을 실행합니다.
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+```

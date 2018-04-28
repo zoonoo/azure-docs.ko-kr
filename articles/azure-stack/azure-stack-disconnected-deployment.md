@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/26/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure 스택에 대 한 결정을 계획 하는 azure 연결이 끊긴된 배포 시스템을 통합
 결정 한 다음 [Azure 스택 하이브리드 클라우드 환경으로 통합 됩니다는 어떻게](azure-stack-connection-models.md), Azure 스택 배포 결정 사항 마무리 다음 수 있습니다.
@@ -47,7 +47,7 @@ Azure 스택은 장애가 있는 사용자 또는 완전히 연결이 끊어진�
 |온라인 업데이트 관리 가이드를 참조 하는 경고 수정/완화|사용할 수 없음 – 경고 치료 인터넷 URL이 작동 하지 않습니다 사용 하는 링크입니다.|
 |마켓플레이스 배포 – 선택 하 고 Azure Marketplace에서 직접 갤러리 패키지를 추가 하는 기능|장애가 있는 – 모든 인터넷 연결) (없이 연결이 끊어진된 모드에서 Azure 스택을 배포할 때 Azure 스택 포털을 사용 하 여 마켓플레이스 항목을 다운로드할 수 없습니다. 사용할 수 있습니다는 [마켓플레이스 배포 도구](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) 마켓플레이스 항목 인터넷에 연결 하는 컴퓨터에 다운로드 한 다음 Azure 스택 환경에 전송 합니다.|
 |Azure 스택 배포를 관리 하도록 Azure Active Directory 페더레이션 계정을 사용 하 여|사용할 수 없음 –이 기능은 Azure에 연결 해야 합니다. 로컬 Active Directory 인스턴스와 AD FS는 대신 사용 해야 합니다.|
-|WebApps SQL 등과 같은 리소스 공급자|사용할 수 없음-SQL WebApps 등의 리소스 공급자 콘텐츠에 대 한 인터넷 액세스가 필요 합니다.|
+|App Services|장애가 있는-업데이트 된 내용에 대 한 WebApps 인터넷 액세스가 필요할 수 있습니다.|
 |CLI(Command Line Interface)|CLI 장애가 – 인증 및 구축 서비스 조항의 측면에서 기능을 감소 되었습니다.|
 |Visual Studio-클라우드 검색|장애가 있는 – 클라우드 검색은 서로 다른 클라우드를 검색 하거나 또는 전혀 작동 하지 않습니다.|
 |Visual Studio-AD FS|장애가 있는 –만 Visual Studio Enterprise에서는 AD FS를 지원 합니다.

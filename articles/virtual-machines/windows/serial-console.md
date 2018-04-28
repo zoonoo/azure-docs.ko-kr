@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>가상 머신 직렬 콘솔(미리 보기) 
 
@@ -109,7 +109,7 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
 이 섹션에는 RDP 연결 오류 문제를 해결해야 할 때와 같이 VM에 액세스하는 데 SAC를 사용할 수 있는 시나리오에서 일반적인 작업 수행에 대한 명령의 예를 포함합니다.
 
-SAC는 Windows Server 2003만 기본적으로 사용할 수 없게 된 이래 모든 버전의 Windows에 포함되었습니다. SAC는 `sacdrv.sys` 커널 드라이버, `Special Administration Console Helper` 서비스(`sacsvr`) 및 `sacsess.exe` 프로세스에 의존합니다. 자세한 내용은 [응급 관리 서비스 도구 및 설정](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10))을 참조합니다.
+SAC는 Windows Server 2003만 기본적으로 사용할 수 없게 된 이래 모든 버전의 Windows에 포함되었습니다. SAC는 `sacdrv.sys` 커널 드라이버, `Special Administration Console Helper` 서비스(`sacsvr`) 및 `sacsess.exe` 프로세스에 의존합니다. 자세한 내용은 [응급 관리 서비스 도구 및 설정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10))을 참조합니다.
 
 SAC는 직렬 포트를 통해 실행 중인 OS에 연결할 수 있습니다. SAC에서 CMD를 시작할 때 `sacsess.exe`은 실행 중인 OS 내에서 `cmd.exe`를 시작합니다. 작업 관리자에서 RDP가 VM에 연결된 경우 동시에 직렬 콘솔 기능을 통해 SAC에 연결돼 있음을 확인할 수 있습니다. RDP를 통해 연결된 경우 SAC를 통해 액세스하는 CMD는 사용하는 동일한 `cmd.exe`입니다. 해당 CMD 인스턴스에서 PowerShell을 시작하는 기능을 포함하여 모두 동일한 명령 및 도구를 사용할 수 있습니다. SAC와 WinRE(Windows 복구 환경) 사이의 주요 차이점은 WinRE가 다른 Minimal OS로 부팅하는 경우 SAC가 실행 중인 OS를 관리할 수 있게 한다는 것입니다. Azure VM은 직렬 콘솔 기능을 사용하여 WinRE에 액세스하는 기능을 지원하지 않지만 SAC를 통해 Azure VM을 관리할 수 있습니다.
 
@@ -266,11 +266,11 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 #### <a name="scan-for-system-file-corruption"></a>시스템 파일 손상에 대한 검사
 `sfc /scannow`
 
-[Windows 이미지 복구](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
+[Windows 이미지 복구](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
 #### <a name="scan-for-system-file-corruption"></a>시스템 파일 손상에 대한 검사
 `dism /online /cleanup-image /scanhealth`
 
-[Windows 이미지 복구](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
+[Windows 이미지 복구](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
 #### <a name="export-file-permissions-to-text-file"></a>텍스트 파일에 파일 사용 권한 내보내기
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>ACL 파일에 파일 사용 권한 저장하기
@@ -516,7 +516,7 @@ osType, Location, vmSize, vmId, name, resourceGroupName, subscriptionId, private
 
 인스턴스 메타데이터를 쿼리하려면 Azure 호스트를 통해 인스턴스 메타데이터 서비스로 REST 호출하기 때문에 정상 게스트 네트워크 연결이 필요합니다. 따라서 인스턴스 메타데이터를 쿼리할 수 있으면 게스트는 네트워크를 통해 Azure 호스팅 서비스와 통신할 수 있습니다.
 
-자세한 내용은 [Azure Instance Metadata 서비스](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)를 참조하세요.
+자세한 내용은 [Azure Instance Metadata 서비스](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)를 참조하세요.
 
 #### <a name="instance-metadata"></a>인스턴스 메타데이터
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

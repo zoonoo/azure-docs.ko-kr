@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 Windows 가상 머신 정품 인증 문제 해결 | Microsoft Docs"
-description: "Azure에서 Windows 가상 머신 정품 인증 문제를 해결하기 위한 문제 해결 단계를 제공합니다."
+title: Azure에서 Windows 가상 머신 정품 인증 문제 해결 | Microsoft Docs
+description: Azure에서 Windows 가상 머신 정품 인증 문제를 해결하기 위한 문제 해결 단계를 제공합니다.
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -78,7 +78,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>2단계 VM과 Azure KMS 서비스 간의 연결 확인
 
-1. [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) 도구를 활성화하지 않는 VM의 로컬 폴더에 다운로드하고 압축합니다. 
+1. [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) 도구를 활성화하지 않는 VM의 로컬 폴더에 다운로드하고 압축합니다. 
 
 2. 시작하고 Windows PowerShell에서 검색하고 Windows PowerShell을 마우스 오른쪽 단추로 클릭한 다음 관리자 권한으로 실행을 선택합니다.
 
@@ -126,7 +126,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Windows 정품 인증 기간이 만료된 경우 어떻게 되나요? 
  
-유예 기간이 만료되고 Windows가 여전히 활성화되지 않은 경우 Windows Server 2008 R2 및 Windows 이후 버전은 정품 인증에 대한 추가 알림을 표시합니다. 바탕 화면 배경 화면을 검은색으로 유지하고 Windows 업데이트를 통해 보안 및 중요 업데이트만을 설치하고 선택 사항 업데이트를 설치하지 않습니다. [라이선스 조건](http://technet.microsoft.com/en-us/library/ff793403.aspx) 페이지의 맨 아래에 있는 알림 섹션을 참조하세요.   
+유예 기간이 만료되고 Windows가 여전히 활성화되지 않은 경우 Windows Server 2008 R2 및 Windows 이후 버전은 정품 인증에 대한 추가 알림을 표시합니다. 바탕 화면 배경 화면을 검은색으로 유지하고 Windows 업데이트를 통해 보안 및 중요 업데이트만을 설치하고 선택 사항 업데이트를 설치하지 않습니다. [라이선스 조건](http://technet.microsoft.com/library/ff793403.aspx) 페이지의 맨 아래에 있는 알림 섹션을 참조하세요.   
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에 대 한 VPN 게이트웨이 설정을 | Microsoft Docs"
-description: "Azure 스택 함께 사용 하면 VPN 게이트웨이에 대 한 설정에 알아봅니다."
+title: Azure 스택에 대 한 VPN 게이트웨이 설정을 | Microsoft Docs
+description: Azure 스택 함께 사용 하면 VPN 게이트웨이에 대 한 설정에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure 스택에 대 한 VPN 게이트웨이 구성 설정
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>게이트웨이 SKU
 가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다.
 
->[!NOTE]
-> 클래식 가상 네트워크는 이전 SKU를 계속 사용합니다. 이전 게이트웨이 SKU에 대한 자세한 내용은 [가상 네트워크 게이트웨이 SKU(이전)로 작업](/azure/vpn-gateway/vpn-gateway-about-skus-legacy)을 참조합니다.
-
 Azure 스택 다음 VPN 게이트웨이 Sku를 제공합니다.
 
 |   | VPN 게이트웨이 처리량 |VPN 게이트웨이 최대 IPsec 터널 |
 |-------|-------|-------|
 |**기본 SKU**  | 100Mbps  | 10    |
 |**표준 SKU**           | 100Mbps  | 10    |
-|**고성능 SKU** | 200Mbps    | 30    |
+|**고성능 SKU** | 200Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>게이트웨이 Sku 크기 조정
 Azure 스택 지원 되는 레거시 Sku 간에 Sku의 크기 조정을 지원 하지 않습니다.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 유형을 지정해야 합니다. 선택하는 VPN 유형은 만들려는 연결 토폴로지에 따라 달라집니다.  또한 VPN 유형은 사용하는 하드웨어에 따라서도 달라질 수 있습니다. S2S 구성에는 VPN 장치가 필요합니다. 일부 VPN 장치는 특정 VPN 유형을 지원합니다.
 
 > [!IMPORTANT]  
-> 이때 Azure 스택 경로 기반 VPN 형식만을 지원 합니다. 정책 기반 Vpn 장치 지원, Azure 스택에서 해당 장치에 대 한 연결 지원 되지 않습니다.
+> 이때 Azure 스택 경로 기반 VPN 형식만을 지원 합니다. 정책 기반 Vpn 장치 지원, Azure 스택에서 해당 장치에 대 한 연결 지원 되지 않습니다.  또한 Azure 스택 지원 하지 않습니다이 때 경로 기반 게이트웨이 위한 정책 기반 트래픽 선택기를 사용 하 여 사용자 지정 IPSec/IKE 정책 구성이 아직 지원 합니다.
 
 - **PolicyBased**: *(Azure 스택 있지만 Azure에서 지원 됨)* 정책 기반 Vpn 암호화 하 고 패킷을 주소 접두사 조합으로 구성 된 IPsec 정책에 따라 IPsec 터널을 통해 직접 온-프레미스 네트워크와 Azure 스택 VNet입니다. 정책(또는 트래픽 선택기)는 일반적으로 VPN 장치 구성에서 액세스 목록으로 정의됩니다.
 
-- **RouteBased**: RouteBased Vpn IP 전달 또는 해당 터널 인터페이스에 직접 패킷을 라우팅 테이블에서에서 "경로"를 사용 합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책(또는 트래픽 선택기)은 임의 또는 와일드카드로 구성됩니다. RouteBased VPN 형식에 대 한 값은 RouteBased.
+- **RouteBased**: RouteBased Vpn IP 전달 또는 해당 터널 인터페이스에 직접 패킷을 라우팅 테이블에서에서 "경로"를 사용 합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 정책 (또는 트래픽 선택기) RouteBased Vpn에 any-에-any로 구성 된 (또는 와일드 카드) 하 여 기본 및 변경할 수 없습니다. RouteBased VPN 형식에 대 한 값은 RouteBased.
 
 다음 PowerShell 예에서는 RouteBased로-VpnType를 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
 
@@ -110,7 +107,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 |--|--|--|--|--|
 | **사이트 간 연결 (S2S 연결)** | 지원되지 않음 | RouteBased VPN 구성 | RouteBased VPN 구성 | RouteBased VPN 구성 |
 | **인증 방법**  | 지원되지 않음 | S2S 연결에 대 한 사전 공유 키  | S2S 연결에 대 한 사전 공유 키  | S2S 연결에 대 한 사전 공유 키  |   
-| **S2S 연결의 최대 수**  | 지원되지 않음 | 10 | 10| 30|
+| **S2S 연결의 최대 수**  | 지원되지 않음 | 10 | 10| 5|
 |**활성 라우팅 지원(BGP)** | 지원되지 않음 | 지원되지 않음 | 지원됨 | 지원됨 |
 
 ### <a name="gateway-subnet"></a>게이트웨이 서브넷 
@@ -160,7 +157,7 @@ Azure 스택에서 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성
 |IKE 버전 |IKEv2 |
 |암호화 및 해시 알고리즘 (암호화)     | GCMAES256|
 |암호화 및 해시 알고리즘 (인증) | GCMAES256|
-|SA 수명(시간)  | 14400 초 |
+|SA 수명(시간)  | 27,000초 |
 |SA 수명(바이트) | 819,200       |
 |PFS(Perfect Forward Secrecy) |PFS2048 |
 |작동하지 않는 피어 검색 | 지원됨|  

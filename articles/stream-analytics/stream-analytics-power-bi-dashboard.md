@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2017
-ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
+# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>자습서: Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 실시간 대시보드를 만들고 사용하는 방법도 학습합니다.
 
 이 문서는 Stream Analytics [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서로부터 내용이 이어집니다. 해당 자습서에서 만든 워크플로를 기반으로 하고 Power BI 출력을 추가하여 Streaming Analytics 작업에서 감지한 사기성 전화를 시각화할 수 있습니다. 

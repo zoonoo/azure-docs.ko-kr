@@ -4,7 +4,7 @@ description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB .NET SDK
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 662a1d1d0f13b64cc87ab6eb0eee6af94cd97c54
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e4d33fc513b3a2aaa70a3402a42b31efe63c62dd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]

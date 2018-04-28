@@ -1,31 +1,24 @@
 ---
-title: '자습서: Polybase 데이터 로드 - Azure Storage Blob에서 Azure SQL Data Warehouse로 | Microsoft Docs'
-description: Azure Portal 및 SQL Server Management Studio를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드하는 자습서입니다.
+title: '자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드 | Microsoft Docs'
+description: 이 자습서에서는 Azure Portal 및 SQL Server Management Studio를 사용하여 공용 Azure Blob에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드합니다.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>자습서: PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
-PolyBase는 SQL Data Warehouse로 데이터를 가져오기 위한 표준 로드 기술입니다. 이 자습서에서는 PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
+이 자습서에서는 PolyBase를 사용하여 공용 Azure Blob에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터 웨어하우스 만들기
@@ -50,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>빈 SQL Data Warehouse 만들기
 
-Azure SQL Database가 정의된 [계산 리소스](performance-tiers.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
+Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
 
 빈 SQL Data Database를 만들려면 다음 단계를 수행합니다. 
 
@@ -170,7 +163,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 
-서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. [메모리 최대값](performance-tiers.md#memory-maximums)은 [성능 계층](performance-tiers.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
+서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 [성능 계층](memory-and-concurrency-limits.md#performance-tiers), [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
@@ -221,7 +214,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-external-tables-for-the-sample-data"></a>샘플 데이터에 대한 외부 테이블 만들기
 
-새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 이 자습서에서는 [Polybase](/sql/relational-databases/polybase/polybase-guide)를 사용하여 Azure Storage Blob에서 뉴욕시 택시 데이터를 로드하는 방법을 보여 줍니다. 나중에 참조하기 위해 데이터를 Azure Blob Storage로 가져오거나 원본에서 SQL Data Warehouse로 직접 로드하는 방법에 대해 알아보려면 [로드 개요](sql-data-warehouse-overview-load.md)를 참조하세요.
+새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 이 자습서에서는 외부 테이블을 사용하여 Azure 저장소 Blob에서 뉴욕시 택시 데이터를 로드하는 방법을 보여줍니다. 나중에 참조하기 위해 데이터를 Azure Blob Storage로 가져오거나 원본에서 SQL Data Warehouse로 직접 로드하는 방법에 대해 알아보려면 [로드 개요](sql-data-warehouse-overview-load.md)를 참조하세요.
 
 다음 SQL 스크립트를 실행하여 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다. 
 

@@ -4,7 +4,7 @@ description: Azure Portal에서 Data Factory 파이프라인을 반복적으로 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,11 +12,11 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: adb5ffd65d4b2b591abba5d4b3481b7ca08de579
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 
@@ -45,9 +45,17 @@ Azure Data Factory를 사용하면 Data Factory 파이프라인을 반복적인 
 
 ## <a name="setting-breakpoints-for-debugging"></a>디버깅을 위한 중단점 설정
 
-Data Factory를 통해 파이프라인 캔버스의 특정 작업에 도달할 때까지 디버깅할 수 있습니다. 테스트하려는 작업까지 중단점을 설정하고 **디버그**를 선택합니다. Data Factory는 파이프라인 캔버스의 중단점 작업까지만 테스트가 실행되도록 합니다. *Debug Until* 기능은 전체 파이프라인을 테스트하지 않고 파이프라인 내부의 일부 작업만 테스트하려는 경우에 유용합니다.
+Data Factory를 통해 파이프라인 캔버스의 특정 작업에 도달할 때까지 디버그할 수 있습니다. 테스트하려는 작업까지 중단점을 설정하고 **디버그**를 선택합니다. Data Factory는 파이프라인 캔버스의 중단점 작업까지만 테스트가 실행되도록 합니다. *Debug Until* 기능은 전체 파이프라인을 테스트하지 않고 파이프라인 내부의 일부 작업만 테스트하려는 경우에 유용합니다.
 
 ![파이프라인 캔버스의 중단점](media/iterative-development-debugging/iterative-development-image4.png)
+
+중단점을 설정하려면 파이프라인 캔버스에서 요소를 선택합니다. *다음까지 디버그* 옵션이 요소의 오른쪽 위 모서리에 빈 빨간색 원으로 표시됩니다.
+
+![선택된 요소에 중단점을 설정하기 전에](media/iterative-development-debugging/iterative-development-image5.png)
+
+*다음까지 디버그* 옵션을 선택하면 중단점이 설정되었음을 나타내기 위해 채워진 빨간색 원으로 바뀝니다.
+
+![선택된 요소에 중단점을 설정한 후](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Data Factory에서 지속적인 통합 및 배포](continuous-integration-deployment.md)

@@ -1,26 +1,24 @@
 ---
-title: "YARN에서 항상 사용 가능한 Spark Streaming 작업 만들기 - Azure HDInsight | Microsoft Docs"
-description: "고가용성 시나리오에 대한 Spark Streaming을 설정하는 방법"
+title: YARN에서 항상 사용 가능한 Spark Streaming 작업 만들기 - Azure HDInsight | Microsoft Docs
+description: 고가용성 시나리오에 대한 Spark Streaming을 설정하는 방법
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: f916f9939ac9683a2ee162ba4d2105f66187b111
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0a738d7e26384523e9da9c8c79e12729330fe6f7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Spark Streaming 작업 만들기
 

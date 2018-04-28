@@ -5,6 +5,7 @@
     - name: Virtual Network 정보
       href: virtual-networks-overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 가상 네트워크 만들기 - 포털
       href: quick-create-portal.md

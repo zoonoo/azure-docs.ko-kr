@@ -1,11 +1,11 @@
 ---
-title: "Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 업그레이드 | Microsoft 문서"
-description: "클러스터 업데이트 모드 설정 등 독립 실행형 Service Fabric 클러스터를 실행하는 Azure Service Fabric 코드 및/또는 구성을 업그레이드합니다."
+title: Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 업그레이드 | Microsoft 문서
+description: 클러스터 업데이트 모드 설정 등 독립 실행형 Service Fabric 클러스터를 실행하는 Azure Service Fabric 코드 및/또는 구성을 업그레이드합니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3354fab5f664391520e721586712e5035ff79cb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 업그레이드 
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
         "fabricClusterAutoupgradeEnabled": false,
 
-자세한 사용 방법은 [Start-ServiceFabricClusterConfigurationUpgrade PowerShell 명령](https://msdn.microsoft.com/en-us/library/mt788302.aspx)을 참조하세요. 구성 업그레이드를 시작하기 전에 JSON에서 'clusterConfigurationVersion'을 업데이트해야 합니다.
+자세한 사용 방법은 [Start-ServiceFabricClusterConfigurationUpgrade PowerShell 명령](https://msdn.microsoft.com/library/mt788302.aspx)을 참조하세요. 구성 업그레이드를 시작하기 전에 JSON에서 'clusterConfigurationVersion'을 업데이트해야 합니다.
 
 ```powershell
 

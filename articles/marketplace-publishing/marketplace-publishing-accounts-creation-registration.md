@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 이 문서에서는 Azure Marketplace에서 승인된 Microsoft 개발자가 되기 위해 필요한 계정 만들기 및 등록 과정을 안내합니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/16/2018
 사용자 이름을 구성하는 주소는 귀사의 도메인에 속하고 귀사의 IT 팀에서 제어해야 합니다. 모든 게시 관련 작업은 이 계정을 통해 수행되어야 합니다.
 
 > [!WARNING]
-> **"Azure"** 및 **"Microsoft"**와 같은 단어는 Microsoft 계정 등록에 대해 지원되지 않습니다. 계정 만들기 및 등록 프로세스를 완료하려면 이러한 단어를 사용하지 마십시오.
+> **"Azure"** 및 **"Microsoft"** 와 같은 단어는 Microsoft 계정 등록에 대해 지원되지 않습니다. 계정 만들기 및 등록 프로세스를 완료하려면 이러한 단어를 사용하지 마십시오.
 >
 >
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/16/2018
 회사 계정을 만들 때 둘 이상의 사용자가 계정을 연 Microsoft 계정으로 로그인하여 계정에 액세스해야 하는 경우 다음 지침을 따릅니다.
 
 > [!Important]
-> 중요 여러 사용자가 개발자 센터 계정에 액세스할 수 있게 하려면 Azure Active Directory를 사용하여 개인 Azure AD 자격 증명으로 로그인하여 계정에 액세스할 수 있는 개별 사용자에게 역할을 할당하는 것이 좋습니다. 자세한 내용은 [계정 사용자 관리](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users)를 참조하세요.
+> 중요 여러 사용자가 개발자 센터 계정에 액세스할 수 있게 하려면 Azure Active Directory를 사용하여 개인 Azure AD 자격 증명으로 로그인하여 계정에 액세스할 수 있는 개별 사용자에게 역할을 할당하는 것이 좋습니다. 자세한 내용은 [계정 사용자 관리](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users)를 참조하세요.
 
 * 회사 도메인에 속하지만 단일 개인이 아닌 전자 메일 주소(예: windowsapps@fabrikam.com)를 사용하여 Microsoft 계정을 만듭니다.
 * 이 Microsoft 계정에 대한 액세스를 최대한 적은 수의 개발자로 제한합니다.
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/16/2018
 
 개발자 계정은 주로 신뢰할 수 있는 PC에서 액세스해야 합니다. 이는 주당 계정별로 생성되는 코드 수에 제한이 있기 때문에 중요합니다. 또한 가장 원활한 로그인 환경을 가능하게 합니다.
 
-추가 개발자 계정 지침 및 보안에 대한 자세한 내용을 보려면 [여기](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts)를 클릭하세요.
+추가 개발자 계정 지침 및 보안에 대한 자세한 내용을 보려면 [여기](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts)를 클릭하세요.
 
 ### <a name="instructions"></a>지침
 1. 새 Chrome Incognito 또는 Internet Explorer InPrivate 브라우징 세션을 열어 기존 계정에 로그인되지 않았는지 확인합니다.
@@ -120,10 +120,10 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
    > 개발자 센터에서 승인된 회사에 대한 확인 프로세스에 사용되므로 정확한 연락처 정보를 제공해야 합니다.
    >
    >
-8. **회사 승인자**의 연락처 정보를 입력합니다. 회사 승인자는 조직을 대신하여 개발자 센터에서 계정을 만드는 권한이 있는 사람을 확인할 수 있는 사람입니다. 작업을 마쳤으면 **다음**을 클릭하여 **"지급 섹션"**으로 이동합니다.
+8. **회사 승인자**의 연락처 정보를 입력합니다. 회사 승인자는 조직을 대신하여 개발자 센터에서 계정을 만드는 권한이 있는 사람을 확인할 수 있는 사람입니다. 작업을 마쳤으면 **다음**을 클릭하여 **"지급 섹션"** 으로 이동합니다.
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_08.png)
-9. 결제 정보를 입력하여 해당 계정에 대한 비용을 지불합니다. 등록 비용을 부담하는 프로모션 코드를 가지고 있는 경우 여기에 프로모션 코드를 입력할 수 있습니다. 그렇지 않은 경우 신용 카드 정보(또는 지원되는 시장에서 PayPal)를 제공합니다. 작업을 마쳤으면 **다음**을 클릭하여 **"검토 화면"**으로 이동합니다.
+9. 결제 정보를 입력하여 해당 계정에 대한 비용을 지불합니다. 등록 비용을 부담하는 프로모션 코드를 가지고 있는 경우 여기에 프로모션 코드를 입력할 수 있습니다. 그렇지 않은 경우 신용 카드 정보(또는 지원되는 시장에서 PayPal)를 제공합니다. 작업을 마쳤으면 **다음**을 클릭하여 **"검토 화면"** 으로 이동합니다.
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
 10. 계정 정보를 검토하고 모든 정보가 올바른지 확인합니다. 그런 다음 [Microsoft Azure Marketplace 판매자 계약](http://go.microsoft.com/fwlink/?LinkID=699560)의 약관을 읽고 동의합니다. 확인란을 선택하여 이러한 약관을 읽고 동의했음을 나타냅니다.

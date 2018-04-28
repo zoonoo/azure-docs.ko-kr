@@ -1,20 +1,20 @@
 ---
-title: "자습서 - Azure Cost Management로 비용 관리 | Microsoft Docs"
-description: "이 자습서에서는 비용 할당 및 쇼백과 차지백 보고서를 사용하여 비용을 관리하는 방법을 알아봅니다."
+title: 자습서 - Azure Cost Management로 비용 관리 | Microsoft Docs
+description: 이 자습서에서는 비용 할당 및 쇼백과 차지백 보고서를 사용하여 비용을 관리하는 방법을 알아봅니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+manager: dougeby
+ms.openlocfilehash: 16f86eace9b5848f263e0d0772db441a123f21ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>자습서: Azure Cost Management를 사용한 비용 관리
 

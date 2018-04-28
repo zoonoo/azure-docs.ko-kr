@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: bb7a0e61b6d29c292642fd950aed7617de9b340d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 62265947e35636bf17492b6600c915e06a7ac1fd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Web Apps용 Azure Mobile Engagement 시작
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/30/2018
 이 항목에서는 Azure Mobile Engagement를 사용하여 웹앱 사용량을 파악하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/)를 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 

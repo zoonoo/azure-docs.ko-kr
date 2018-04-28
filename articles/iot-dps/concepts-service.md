@@ -1,26 +1,26 @@
 ---
-title: "Azure IoT Hub Device Provisioning 서비스의 서비스 개념 | Microsoft Docs"
-description: "DPS 및 IoT Hub를 사용하는 장치에 해당하는 서비스 프로비전 개념 설명"
+title: Azure IoT Hub Device Provisioning 서비스의 서비스 개념 | Microsoft Docs
+description: DPS 및 IoT Hub를 사용하는 장치에 해당하는 서비스 프로비전 개념 설명
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 10/03/2017
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2bc58514ea716954ec3ac96151549168fedc2ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning 서비스 개념
 
-IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 터치 장치 프로비전을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning 서비스를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 장치를 프로비전할 수 있습니다.
+IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 터치 장치 프로비전을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning 서비스를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 장치를 [자동 프로비전](concepts-auto-provisioning.md)할 수 있습니다.
 
 장치 프로비전은 두 부분의 프로세스로 구성됩니다. 첫 번째 부분은 장치를 *등록*함으로써 장치와 IoT 솔루션 간 초기 연결을 설정하는 것입니다. 두 번째 부분은 솔루션의 특정 요구 사항에 따라 장치에 적절한 *구성*을 적용하는 것입니다. 두 단계가 수행되고 나면 장치가 완벽히 *프로비전된* 것입니다. Device Provisioning 서비스는 두 단계를 모두 자동화하여 장치에 원활한 프로비전 환경을 제공합니다.
 
@@ -32,7 +32,7 @@ IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 �
 
 ## <a name="device-provisioning-endpoint"></a>장치 프로비전 끝점
 
-장치 프로비전 끝점은 모든 장치가 프로비전에 대해 얘기하는 중앙 끝점입니다. URL은 공급 체인 시나리오에서 새 연결 정보를 사용하여 장치를 새로 고쳐야 하는 필요성을 경감하기 위해 모든 프로비전 서비스에 대해 동일합니다. [ID 범위](#id-scope)는 테넌트 격리를 보장합니다.
+장치 프로비전 끝점은 모든 장치가 자동 프로비전에 사용하는 단일 끝점입니다. URL은 공급 체인 시나리오에서 새 연결 정보를 사용하여 장치를 새로 고쳐야 하는 필요성을 경감하기 위해 모든 프로비전 서비스 인스턴스에 대해 동일합니다. [ID 범위](#id-scope)는 테넌트 격리를 보장합니다.
 
 ## <a name="linked-iot-hubs"></a>연결된 IoT 허브
 
@@ -47,21 +47,27 @@ Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 
 
 ## <a name="enrollment"></a>등록
 
-등록은 특정 시점에 등록된 장치 또는 장치 그룹의 전체 레코드입니다. 등록 레코드는 장치에 대한 증명 메서드 및 필요에 따라 원하는 초기 구성, 원하는 IoT 허브 및 원하는 장치 ID를 비롯하여 장치 또는 장치 그룹에 대한 정보를 포함합니다. Device Provisioning 서비스에서 지원하는 두 가지 유형의 등록이 있습니다.
+등록은 자동 프로비전을 통해 등록될 수 있는 장치 또는 장치 그룹의 레코드입니다. 등록 레코드에는 다음을 포함하여 장치 또는 장치 그룹에 대한 정보가 들어 있습니다.
+- 장치에서 사용되는 [증명 메커니즘](concepts-security.md#attestation-mechanism)
+- 원하는 초기 구성(선택 사항)
+- 원하는 IoT Hub
+- 원하는 장치 ID
+
+Device Provisioning 서비스에는 다음 두 가지 유형의 등록을 지원합니다.
 
 ### <a name="enrollment-group"></a>등록 그룹
 
-등록 그룹은 특정 증명 메커니즘을 공유하는 장치의 그룹입니다. 등록 그룹의 모든 장치는 동일한 루트 CA에서 서명된 X.509 인증서를 제공합니다. 등록 그룹은 X.509 증명 메커니즘만 사용할 수 있습니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
+등록 그룹은 특정 증명 메커니즘을 공유하는 장치의 그룹입니다. 등록 그룹의 모든 장치는 동일한 루트 CA 또는 중간 CA에서 서명된 X.509 인증서를 제공합니다. 등록 그룹은 X.509 증명 메커니즘만 사용할 수 있습니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
 
 > [!TIP]
 > 원하는 초기 구성을 공유하는 다수의 장치 또는 동일한 테넌트로 이동하는 장치에 대한 등록 그룹을 사용하는 것이 좋습니다.
 
 ### <a name="individual-enrollment"></a>개별 등록
 
-개별 등록은 등록할 수 있는 단일 장치에 대한 항목입니다. 개별 등록은 증명 메커니즘으로 X.509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 개별 등록의 등록 ID는 영숫자, 소문자이며 하이픈을 포함할 수 있습니다. 개별 등록에는 원하는 IoT Hub 장치 ID가 지정될 수 있습니다.
+개별 등록은 등록할 수 있는 단일 장치에 대한 항목입니다. 개별 등록은 증명 메커니즘으로 X.509 리프 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 개별 등록의 등록 ID는 영숫자, 소문자이며 하이픈을 포함할 수 있습니다. 개별 등록에는 원하는 IoT Hub 장치 ID가 지정될 수 있습니다.
 
 > [!TIP]
-> 고유한 초기 구성이 필요한 장치 또는 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다.
+> 고유한 초기 구성이 필요한 장치 또는 TPM 증명을 통해 SAS 토큰만으로 인증될 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다.
 
 ## <a name="registration"></a>등록
 

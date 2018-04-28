@@ -3,21 +3,20 @@ title: Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이�
 description: Azure HDInsight 클러스터에서 Azure Data Factory의 Hadoop MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7c736f08e35f217be1ab7eef0a06ce418025973a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: ecaa9b612dcf7760987b8b8438808b0a961ef193
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -78,7 +77,7 @@ HDInsight Pig 및 Hive를 사용하여 파이프라인에서 HDInsight 클러스
 | jarlibs           | jarLinkedService에 정의된 Azure Storage에 저장된 작업에서 참조하는 Jar 라이브러리 파일의 경로에 대한 문자열의 배열입니다. 파일 이름은 대/소문자를 구분합니다. | 아니오       |
 | getDebugInfo      | jarLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 아니오       |
 | arguments         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니오       |
-| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       |
+| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니오       |
 
 
 

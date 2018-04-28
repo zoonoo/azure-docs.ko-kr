@@ -1,8 +1,8 @@
 ---
-title: "Python 구성 요소를 사용하는 Apache Storm - Azure HDInsight | Microsoft Docs"
-description: "Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
+title: Python 구성 요소를 사용하는 Apache Storm - Azure HDInsight | Microsoft Docs
+description: Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ebfc9d5aa1c3a650a938c0a9f5fc3d047f90458d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
@@ -29,7 +27,7 @@ Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방�
 > [!IMPORTANT]
 > 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-이 프로젝트의 코드는 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다.
+이 프로젝트에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -43,7 +41,7 @@ Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방�
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
 
-Apache Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 [Storm에 대한 Thrift 정의](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift)를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈을 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)에서 찾을 수 있습니다.
+Apache Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 [Storm에 대한 Thrift 정의](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift)를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈은 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)에서 찾을 수 있습니다.
 
 Storm은 JVM(Java Virtual Machine)에서 실행되는 Java 프로세스입니다. 다른 언어로 작성된 구성 요소는 하위 프로세스로 실행됩니다. Storm은 stdin/stdout을 통해 전송되는 JSON 메시지를 사용하여 이러한 하위 프로세스와 통신합니다. 구성 요소 간의 통신에 대한 자세한 내용은 [다중 언어 프로토콜](https://storm.apache.org/documentation/Multilang-protocol.html) (영문) 설명서에서 확인할 수 있습니다.
 

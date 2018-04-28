@@ -1,26 +1,24 @@
 ---
-title: "Apache Hive로 Twitter 데이터 분석 - Azure HDInsight | Microsoft Docs"
-description: "HDInsight에서 Hive 및 Hadoop을 사용하여 원시 TWitter 데이터를 검색 가능한 Hive 테이블로 변환하는 방법을 알아 봅니다."
+title: Apache Hive로 Twitter 데이터 분석 - Azure HDInsight | Microsoft Docs
+description: HDInsight에서 Hive 및 Hadoop을 사용하여 원시 TWitter 데이터를 검색 가능한 Hive 테이블로 변환하는 방법을 알아 봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>HDInsight에서 Hive 및 Hadoop을 사용하여 Twitter 데이터 분석
 
@@ -37,7 +35,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
 
 ### <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
 
-1. 웹 브라우저에서[https://apps.twitter.com/](https://apps.twitter.com/)으로 로그인합니다. Twitter 계정이 없는 경우 **지금 로그인** 링크를 클릭합니다.
+1. 웹 브라우저에서 [https://apps.twitter.com/](https://apps.twitter.com/)에 로그인합니다. Twitter 계정이 없는 경우 **지금 로그인** 링크를 클릭합니다.
 
 2. **Create New App**을 클릭합니다.
 
@@ -179,9 +177,9 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
 
 HDInsight 저장소로 데이터를 복사하려면 다음 명령을 사용합니다.
 
-   ```bash
-   hdfs dfs -mkdir -p /tutorials/twitter/data
-   hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
+```bash
+hdfs dfs -mkdir -p /tutorials/twitter/data
+hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
 이러한 명령은 클러스터의 모든 노드에서 액세스할 수 있는 위치에 데이터를 저장합니다.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -46,13 +46,13 @@ ms.lasthandoff: 03/23/2018
 
    ![앱 등록 보기](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. 앱 등록 설정이 **아니요**로 설정되어 있으면 관리자만 앱을 등록할 수 있습니다. 사용자 계정이 Azure AD 테넌트에 대한 관리자인지 확인합니다. **개요**를 선택하여 사용자 정보를 확인합니다. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정(이전 단계)이 관리자로 제한되어 있으면 관리자에게 사용자를 관리자 역할로 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 요청합니다.
+1. 앱 등록 설정이 **아니요**로 설정되어 있으면 [전역 관리자](../active-directory/active-directory-assign-admin-roles-azure-portal.md)만 앱을 등록할 수 있습니다. 사용자 계정이 Azure AD 테넌트에 대한 관리자인지 확인합니다. **개요**를 선택하여 사용자 정보를 확인합니다. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정(이전 단계)이 관리자로 제한되어 있으면 관리자에게 사용자를 전역 관리자 역할로 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 요청합니다.
 
    ![사용자 찾기](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Azure 구독 권한 확인
 
-Azure 구독에서 사용자 계정에 AD 앱을 역할에 할당할 수 있는 `Microsoft.Authorization/*/Write` 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다. 계정이 **참가자** 역할에 할당된 경우 적절한 사용 권한이 없습니다. 서비스 주체를 역할에 할당하려고 하면 오류가 발생합니다.
+Azure 구독에서 사용자 계정에 AD 앱을 역할에 할당할 수 있는 `Microsoft.Authorization/*/Write` 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../role-based-access-control/built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다. 계정이 **참가자** 역할에 할당된 경우 적절한 사용 권한이 없습니다. 서비스 주체를 역할에 할당하려고 하면 오류가 발생합니다.
 
 Azure 구독 권한을 확인하려면
 
@@ -60,7 +60,7 @@ Azure 구독 권한을 확인하려면
 
    ![사용자 권한 선택](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-1. 드롭다운 목록에서 구독을 선택합니다. **이 구독에 대한 전체 액세스 세부 정보를 보려면 여기를 클릭합니다.**를 선택합니다.
+1. 드롭다운 목록에서 구독을 선택합니다. **이 구독에 대한 전체 액세스 세부 정보를 보려면 여기를 클릭합니다.** 를 선택합니다.
 
    ![사용자 찾기](./media/resource-group-create-service-principal-portal/view-details.png)
 
@@ -135,7 +135,7 @@ Azure 구독 권한을 확인하려면
 
 ## <a name="assign-application-to-role"></a>응용 프로그램을 역할에 할당
 
-구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 
@@ -147,7 +147,7 @@ Azure 구독 권한을 확인하려면
 
    ![할당을 위한 구독 선택](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-1. **Access Control(IAM)**을 선택합니다.
+1. **Access Control(IAM)** 을 선택합니다.
 
    ![액세스 선택](./media/resource-group-create-service-principal-portal/select-access-control.png)
 
@@ -167,5 +167,5 @@ Azure 구독 권한을 확인하려면
 
 ## <a name="next-steps"></a>다음 단계
 * 다중 테넌트 응용 프로그램을 설정하려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
-* 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.  
-* 권한이 부여되거나 사용자에 대해 거부될 수 있는 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../active-directory/role-based-access-control-resource-provider-operations.md)을 참조하세요.
+* 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.  
+* 권한이 부여되거나 사용자에 대해 거부될 수 있는 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요.

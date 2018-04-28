@@ -3,21 +3,20 @@ title: Azure Data Factory에서 Spark를 사용하여 데이터 변환 | Microso
 description: 이 자습서에서는 Azure Data Factory에서 Spark 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
-ms.author: shengc
-ms.openlocfilehash: af8045a6681443cfc9cfa681cedce5d290aac0f1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: e32fa771595fdc4bf5fe54ec14630961d467d40f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 
@@ -66,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     if __name__ == "__main__":
         main()
     ```
-2. *&lt;storageAccountName&gt;*을 Azure Storage 계정 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
+2. *&lt;storageAccountName&gt;* 을 Azure Storage 계정 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
 3. Azure Blob Storage에 아직 없는 경우 **adftutorial**이라는 컨테이너를 만듭니다. 
 4. **spark**라는 폴더를 만듭니다.
 5. **spark** 폴더 아래에 **script**라는 하위 폴더를 만듭니다. 
@@ -98,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
    이 빠른 시작의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup**이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-5. **버전**에 **V2(미리 보기)**를 선택합니다.
+5. **버전**에 **V2(미리 보기)** 를 선택합니다.
 6. **위치**에 데이터 팩터리의 위치를 선택합니다. 
 
    현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 Data Factory V2를 사용하여 데이터 팩터리를 만들 수 있습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.

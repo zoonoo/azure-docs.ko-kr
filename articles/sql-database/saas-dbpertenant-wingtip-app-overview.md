@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 소개
 
@@ -24,7 +24,7 @@ Wingtip SaaS 응용 프로그램은 샘플 다중 테넌트 앱입니다. 이 �
 
 ## <a name="application-architecture"></a>응용 프로그램 아키텍처
 
-Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. SQL 탄력적 풀을 사용하여 효율성을 극대화합니다. 테넌트를 해당 데이터에 매핑하고 프로비전하는 데 카탈로그 데이터베이스가 사용됩니다. 핵심 Wingtip SaaS 응용 프로그램은 세 가지 샘플 테넌트가 있는 풀 및 카탈로그 데이터베이스를 사용합니다. 여러 Wingtip SaaS 자습서를 완료하면 초기 배포에 대한 추가 기능이 생성됩니다. 분석 데이터베이스 및 데이터베이스 간 스키마 관리와 같은 추가 기능이 도입됩니다.
+Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. SQL 탄력적 풀을 사용하여 효율성을 극대화합니다. 테넌트를 해당 데이터에 매핑하고 프로비전하는 데 카탈로그 데이터베이스가 사용됩니다. 핵심 Wingtip SaaS 응용 프로그램은 세 가지 샘플 테넌트가 있는 풀 및 카탈로그 데이터베이스를 사용합니다. 카탈로그 및 테넌트 서버는 DNS 별칭을 사용하여 프로비전되었습니다. 이러한 별칭은 Wingtip 응용 프로그램에서 사용하는 활성 리소스에 대한 참조를 유지 관리하는 데 사용됩니다. 이러한 별칭은 재해 복구 자습서의 복구 리소스를 가리키도록 업데이트됩니다. 여러 Wingtip SaaS 자습서를 완료하면 초기 배포에 대한 추가 기능이 생성됩니다. 분석 데이터베이스 및 데이터베이스 간 스키마 관리와 같은 추가 기능이 도입됩니다.
 
 
 ![Wingtip SaaS 아키텍처](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

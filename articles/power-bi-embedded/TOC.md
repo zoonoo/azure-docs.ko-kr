@@ -28,7 +28,7 @@
 # 참고 자료
 ## API
 ### [Azure Resource Management REST API](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [Power BI REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+### [Power BI REST API](https://msdn.microsoft.com/library/mt147898.aspx)
 
 # 리소스
 ## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)

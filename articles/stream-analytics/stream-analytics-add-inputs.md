@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 13c3c948fbe24d5536b32967c8394060ee898377
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Stream Analytics 작업에 스트리밍 데이터 입력 또는 참조 데이터 추가
 Blob 저장소에서 참조 데이터 또는 Event Hubs에서 데이터 입력을 스트리밍하면서 데이터 소스를 Stream Analytics 작업에 연결하는 방법을 배웁니다.
@@ -49,12 +49,12 @@ Stream Analytics 작업에 입력을 추가하려면
     ![데이터 스트림 데이터 입력 추가](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
 4. 입력 별칭 상자에 이 입력의 이름을 입력합니다.  이 이름은 나중에 작업 쿼리에서 입력을 참조하는 데 사용됩니다.
    
-    데이터 원본에 연결하는 데 필요한 나머지 연결 속성을 입력합니다. 이러한 필드는 입력 형식 및 소스 형식마다 다르며 [여기](stream-analytics-create-a-job.md)에 자세히 정의되어 있습니다.  
+    데이터 원본에 연결하는 데 필요한 나머지 연결 속성을 입력합니다. 
    
     ![이벤트 허브 데이터 입력 추가](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. 입력 데이터에 대한 직렬화 설정을 지정합니다.
    
-   * 쿼리가 예상대로 작동하게 하려면 들어오는 데이터의 **이벤트 직렬화 형식** 을 지정합니다.  지원되는 직렬화 형식은 JSON, CSV 및 Avro입니다.
+   * 쿼리가 예상대로 작동하게 하려면 들어오는 데이터의 **이벤트 직렬화 형식** 을 지정합니다.  지원되는 직렬화 형식은 JSON, CSV 및 Avro입니다. JSON 형식이 사양에 부합하고 십진수 앞에 0을 포함하지 않는지 확인하십시오.
    * 데이터의 **Encoding**을 확인합니다.  지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.
      
      ![데이터 입력에 대한 데이터 직렬화 설정](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  

@@ -1,11 +1,11 @@
 ---
-title: "Azure Virtual Machines의 여러 IP 주소 - 포털 | Microsoft Docs"
-description: "Azure Portal | Resource Manager를 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다."
+title: Azure Virtual Machines의 여러 IP 주소 - 포털 | Microsoft Docs
+description: Azure Portal | Resource Manager를 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3a8cae97-3bed-430d-91b3-274696d91e34
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 906105e737087de91e7393861e9057f8acb06aa4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff6f3444847d9c78836a44ca95f9b00160c29ef4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 >
 이 문서는 Azure Portal을 사용하여 Azure Resource Manager 배포 모델을 통해 VM(가상 머신)을 만드는 방법을 설명합니다. 클래식 배포 모델을 통해 생성된 리소스에 여러 IP 주소를 할당할 수 없습니다. Azure 배포 모델에 대해 자세히 알아보려면 [배포 모델 이해](../resource-manager-deployment-model.md) 문서를 참조하세요.
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="add"></a>VM에 IP 주소 추가
 
-다음 단계를 완료하여 개인 및 공용 IP 주소를 NIC에 추가할 수 있습니다. 다음 섹션의 예제는 [시나리오](#Scenario)에서 설명한 3개의 IP로 구성된 VM이 이미 있다고 가정하지만 필수 사항은 아닙니다.
+다음 단계를 완료하여 개인 및 공용 IP 주소를 Azure 네트워크 인터페이스에 추가할 수 있습니다. 다음 섹션의 예제는 [시나리오](#Scenario)에서 설명한 3개의 IP로 구성된 VM이 이미 있다고 가정하지만 필수 사항은 아닙니다.
 
 ### <a name="coreadd"></a>핵심 단계
 

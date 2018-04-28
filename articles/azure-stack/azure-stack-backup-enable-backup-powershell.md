@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 powershell에 대 한 백업을 사용 하도록 설정 | Microsoft Docs"
-description: "오류가 발생 하는 경우 Azure 스택 복원할 수 있도록 Windows PowerShell과 함께 인프라 백업 서비스를 설정 합니다."
+title: Azure 스택 powershell에 대 한 백업을 사용 하도록 설정 | Microsoft Docs
+description: 오류가 발생 하는 경우 Azure 스택 복원할 수 있도록 Windows PowerShell과 함께 인프라 백업 서비스를 설정 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: cbec6242fb4e185c9801a93fc2c4b35721269c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
+ms.openlocfilehash: d21bb919686e318b1caf7267b3115dae20938884
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Azure 스택 powershell에 대 한 백업을 사용 하도록 설정
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 01/12/2018
       -EnvironmentName AzureStackAdmin
     
     # Sign-in to the operator's console.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
+    Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
     
    ```
 ## <a name="generate-a-new-encryption-key"></a>새 암호화 키 생성

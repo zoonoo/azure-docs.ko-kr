@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
@@ -165,8 +165,18 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 3. 감사 구성 블레이드로 돌아가서 저장소 액세스 키를 보조에서 기본으로 전환하고 **확인**을 클릭합니다. 그런 다음 감사 구성 블레이드의 맨 위에서 **저장**을 클릭합니다.
 4. 저장소 구성 블레이드로 돌아와서 보조 액세스 키를 다시 생성합니다(다음 키 새로 고침 주기를 위한 준비).
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Database 감사 관리
+## <a name="additional-information"></a>추가 정보
 
+* 로그 형식, 저장소 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
+
+   > [!IMPORTANT]
+   > Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
+
+* 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
+   * **Premium Storage**는 현재 Blob 추가에서 **지원되지 않습니다**.
+   * **VNet의 저장소**는 현재 **지원되지 않습니다**.
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Database 감사 관리
 
 * **PowerShell cmdlet**:
 

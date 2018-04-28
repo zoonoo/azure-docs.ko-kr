@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 
@@ -29,7 +29,7 @@ Azure Portal에서 Stream Analytics 작업 동안에 **지원 + 문제 해결**�
 
 ![메트릭이 있는 작업 다이어그램 - 기본 작업](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
-Azure Event Hubs 입력의 파티션을 보려면 **. . .**을 선택합니다. 상황에 맞는 메뉴가 나타납니다. 또한 입력된 합병을 볼 수 있습니다.
+Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다. 상황에 맞는 메뉴가 나타납니다. 또한 입력된 합병을 볼 수 있습니다.
 
 ![메트릭이 있는 작업 다이어그램 - 파티션 확장](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 
@@ -76,11 +76,11 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .**을 선택합니다. 
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>데이터를 읽을 때 뒤쳐지고 있습니까?
 
-*   **InputEventsSourcesBackloggedTotal**은 Event Hubs 및 Azure IoT Hub 입력에 읽어야 하는 메시지가 얼마나 더 있는지를 알려 줍니다.
+*   **총 백로그된 입력 이벤트 수**는 Event Hubs 및 Azure IoT Hub 입력에 대해 얼마나 많은 메시지를 읽어야 하는지 알려줍니다. 이 숫자가 0보다 크면 작업이 데이터가 들어오는 속도만큼 빠르게 데이터를 처리할 수 없다는 의미입니다. 이 경우 스트리밍 단위 수를 늘리거나 작업을 병렬 처리할 수 있도록 해야 합니다. 이에 대한 자세한 내용은 [쿼리 병렬화 페이지](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)를 참조하세요. 
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics 소개](stream-analytics-introduction.md)

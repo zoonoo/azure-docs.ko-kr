@@ -1,6 +1,6 @@
 ---
-title: "Azure Time Series Insights 환경으로 이벤트를 보내는 방법 | Microsoft Docs"
-description: "이 자습서에서는 Azure Time Series Insights에 표시하기 위해 이벤트 허브를 생성 및 구성하고 이벤트를 푸시하는 샘플 응용 프로그램을 실행하는 방법을 설명합니다."
+title: Azure Time Series Insights 환경으로 이벤트를 보내는 방법 | Microsoft Docs
+description: 이 자습서에서는 Azure Time Series Insights에 표시하기 위해 이벤트 허브를 생성 및 구성하고 이벤트를 푸시하는 샘플 응용 프로그램을 실행하는 방법을 설명합니다.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 04/09/2018
+ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 이 문서에서는 이벤트 허브를 생성 및 구성하고 이벤트를 푸시하는 샘플 응용 프로그램을 실행하는 방법을 설명합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우 이 자습서를 건너뛰고 [시계열 정보](https://insights.timeseries.azure.com)에서 환경을 봅니다.
@@ -48,6 +48,18 @@ ms.lasthandoff: 11/16/2017
   ![공유 액세스 정책을 선택하고 추가 단추 클릭](media/send-events/shared-access-policy.png)  
 
   ![새 공유 액세스 정책 추가](media/send-events/shared-access-policy-2.png)  
+
+## <a name="add-time-series-insights-reference-data-set"></a>Time Series Insights 참조 데이터 집합 추가 
+TSI에서 참조 데이터를 사용하여 원격 분석 데이터의 맥락을 추가합니다.  해당 맥락은 데이터에 의미를 더하여 보다 쉽게 필터링하고 집계할 수 있도록 합니다.  TSI는 수신 시에 참조 데이터를 조인하며, 이 데이터를 소급해서 조인할 수는 없습니다.  따라서 데이터와 함께 이벤트 원본을 추가하기 전에, 참조 데이터를 추가하는 것이 중요합니다.  위치 또는 센서 유형과 같은 데이터는 장치/태그/센서 ID에 조인하여 보다 쉽게 조각화 및 필터링할 수 있는 유용한 차원입니다.  
+
+> [!IMPORTANT]
+> 기록 데이터를 업로드하는 경우 참조 데이터 집합이 구성되도록 하는 것이 중요합니다.
+
+기록 데이터를 TSI에 대량으로 업로드할 때 참조 데이터가 준비되어 있는지 확인합니다.  TSI는 조인된 이벤트 원본에 데이터가 있는 경우 바로 읽기 시작한다는 점에 유의하세요.  특히 이벤트 원본 데이터가 들어 있는 경우, 참조 데이터가 제대로 준비될 때까지 기다렸다가 이벤트 원본을 TSI에 조인하는 것이 유용합니다. 또는, 참조 데이터 집합이 준비될 때까지 기다렸다가 해당 이벤트 원본에 데이터를 밀어 넣을 수 있습니다.
+
+참조 데이터를 관리하기 위해 TSI 탐색기에는 웹 기반 사용자 인터페이스가 있으며 프로그래밍 방식 C# API도 있습니다. TSI 탐색기에는 파일을 업로드하거나 기존 참조 데이터 집합을 JSON 또는 CSV 형식으로 붙여넣기 위한 시각적 사용자 환경이 있습니다. 해당 API를 사용하여 필요할 때 사용자 지정 앱을 빌드할 수 있습니다.
+
+Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자세한 내용은 [참조 데이터 문서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
 
 ## <a name="create-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 1. 아직 이벤트 원본을 만들지 않은 경우 [다음된 지침](time-series-insights-how-to-add-an-event-source-eventhub.md)에 따라 이벤트 원본을 만듭니다.
@@ -143,7 +155,7 @@ namespace Microsoft.Rdx.DataGenerator
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---1-event"></a>출력 - 1개 이벤트
+#### <a name="output---one-event"></a>출력 - 하나의 이벤트
 
 |id|timestamp|
 |--------|---------------|
@@ -165,7 +177,7 @@ namespace Microsoft.Rdx.DataGenerator
     }
 ]
 ```
-#### <a name="output---2-events"></a>출력 - 2개 이벤트
+#### <a name="output---two-events"></a>출력 - 2개의 이벤트
 
 |id|timestamp|
 |--------|---------------|
@@ -193,10 +205,10 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-#### <a name="output---2-events"></a>출력 - 2개 이벤트
-"위치" 속성은 각 이벤트로 복사됩니다.
+#### <a name="output---two-events"></a>출력 - 2개의 이벤트
+"location" 속성은 각 이벤트로 복사됩니다.
 
-|위치|events.id|events.timestamp|
+|location|events.id|events.timestamp|
 |--------|---------------|----------------------|
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
@@ -236,12 +248,185 @@ namespace Microsoft.Rdx.DataGenerator
     ]
 }
 ```
-#### <a name="output---2-events"></a>출력 - 2개 이벤트
+#### <a name="output---two-events"></a>출력 - 2개의 이벤트
 
-|위치|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+
+### <a name="json-shaping-strategies"></a>JSON 셰이핑 전략
+다음 이벤트 예제를 시작점으로 사용한 다음, 관련된 문제와 해당 문제를 완화하기 위한 전략을 논의해보겠습니다.
+
+#### <a name="payload-1"></a>페이로드 1:
+```json
+[{
+            "messageId": "LINE_DATA",
+            "deviceId": "FXXX",
+            "timestamp": 1522355650620,
+            "series": [{
+                        "chId": 3,
+                        "value": -3750.0
+                  }, {
+                        "chId": 13,
+                        "value": 0.58015072345733643
+                  }, {
+                        "chId": 11,
+                        "value": 800.0
+                  }, {
+                        "chId": 21,
+                        "value": 0.0
+                  }, {
+                        "chId": 14,
+                        "value": -999.0
+                  }, {
+                        "chId": 37,
+                        "value": 2.445906400680542
+                  }, {
+                        "chId": 39,
+                        "value": 0.0
+                  }, {
+                        "chId": 40,
+                        "value": 1.0
+                  }, {
+                        "chId": 1,
+                        "value": 1.0172575712203979
+                  }
+            ],
+            "EventProcessedUtcTime": "2018-03-29T20:36:21.3245900Z",
+            "PartitionId": 2,
+            "EventEnqueuedUtcTime": "2018-03-29T20:34:11.0830000Z",
+            "IoTHub": {
+                  "MessageId": "<17xxx2xx-36x0-4875-9x1x-x428x41x1x68>",
+                  "CorrelationId": "<x253x5xx-7xxx-4xx3-91x4-xxx3bx2xx0x3>",
+                  "ConnectionDeviceId": "AAAA-ZZ-001",
+                  "ConnectionDeviceGenerationId": "<123456789012345678>",
+                  "EnqueuedTime": "2018-03-29T20:34:10.7990000Z",
+                  "StreamId": null
+            }
+      }
+]
+ ```
+
+이 이벤트 배열을 페이로드로 TSI에 밀어 넣으면 측정값당 하나의 이벤트로 저장됩니다. 이렇게 하면 과도한 이벤트가 생성되므로 이상적이지 않을 수 있습니다. TSI에서 참조 데이터를 사용하여 의미 있는 이름을 속성으로 추가할 수 있습니다.  예를 들어, 다음과 같이 키 속성으로 chId를 사용하여 참조 데이터 집합을 만들 수 있습니다.  
+
+chId  Measure               Unit 24    Engine Oil Pressure   PSI 25    CALC Pump Rate        bbl/min
+
+Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자세한 내용은 [참조 데이터 문서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
+
+첫 번째 페이로드의 또 다른 문제는 타임스탬프가 밀리초 단위라는 것입니다. TSI는 ISO 형식 타임스탬프만 허용합니다. 한 가지 해결 방법은 TSI에서 큐에 대기된 타임스탬프를 사용하는 것을 의미하는 기본 타임스탬프 동작을 그대로 유지하는 것입니다.
+
+위 페이로드의 대안으로, 또 다른 예제를 살펴보겠습니다.  
+
+#### <a name="payload-2"></a>페이로드 2:
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "STATE Engine State": 1,
+      "unit": "NONE"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "MPC_AAAA-ZZ-001",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Well Head Px 1": -494162.8515625,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "unit": "bbl/min"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Fuel Pressure": 0,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Oil Pressure": 0.58015072345733643,
+      "unit": "psi"
+}
+```
+
+페이로드 1과 마찬가지로 TSI는 측정된 모든 값을 고유한 이벤트로 저장합니다.  주목할 만한 차이점은 여기서는 TSI가 *타임스탬프*를 ISO로 올바르게 읽는다는 것입니다.  
+
+전송된 이벤트의 수를 줄여야 할 경우 정보를 다음으로 전송할 수 있습니다.  
+
+#### <a name="payload-3"></a>페이로드 3:
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+```
+한 가지 최종 제안 사항은 다음과 같습니다.
+
+#### <a name="payload-4"></a>페이로드 4:
+```json
+{
+              "line": "Line01",
+              "station": "Station 11",
+              "gatewayid": "AAAA-ZZ-001",
+              "deviceid": "F12XX",
+              "timestamp": "2018-03-29T20:34:15.0000000Z",
+              "CALC Pump Rate": {
+                           "value": 0,
+                           "unit": "bbl/min"
+              },
+              "Engine Oil Pressure": {
+                           "value": 0.58015072345733643,
+                           "unit": "psi"
+              },
+              "Engine Fuel Pressure": {
+                           "value": 0,
+                           "unit": "psi"
+              }
+}
+```
+
+이 예제에서는 JSON을 평면화한 후의 출력을 보여 줍니다.
+
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",,
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate.value": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure.value": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure.value": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+```
+
+이벤트 수를 낮게 유지하면서, 자체 JSON 개체 내에서 각 채널에 대한 여러 다른 속성을 자유롭게 정의할 수 있습니다. 이러한 평면화 접근 방식은 더 많은 공간을 차지하므로 신중히 고려해야 합니다. TSI 용량은 이벤트 및 크기 중에서 먼저 나오는 항목을 기준으로 결정됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

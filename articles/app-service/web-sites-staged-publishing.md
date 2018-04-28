@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/16/2018
 * 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
 * 교환 후에는 이전의 준비된 앱이 들어 있던 슬롯 안에 이전의 프로덕션 앱이 들어갑니다. 프로덕션 슬롯과 교환한 변경 내용이 예상과 다른 경우 같은 교환 작업을 즉시 수행하여 "마지막 양호 상태"로 돌아갈 수 있습니다.
 
-각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 앱 계층이 지원하는 슬롯의 수를 알아보려면 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
+각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 앱 계층이 지원하는 슬롯의 수를 알아보려면 [App Service 제한](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits)을 참조하세요.
 
 * 앱에 여러 슬롯이 있을 때에는 계층을 변경할 수 없습니다.
 * 프로덕션이 아닌 슬롯에 대해 크기 조정을 사용할 수 없습니다.

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
 이 문서는 Azure AD(Azure Active Directory) B2C의 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md) 에 동반됩니다. 다음 단계는 제공되는 샘플 HTML 및 CSS 콘텐츠를 사용하여 페이지 UI 사용자 지정 기능을 연습하는 방법을 설명합니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/23/2018
 ## <a name="register-an-application"></a>응용 프로그램 등록
 정책을 실행하는 데 사용할 수 있는 B2C 테넌트에 [응용 프로그램을 등록](active-directory-b2c-app-registration.md) 해야 합니다. 응용 프로그램을 등록한 후 등록 정책을 실제로 실행하는데 사용할 수 있는 옵션이 몇 가지 있습니다.
 
-* [응용 프로그램의 등록 및 로그인 사용자](active-directory-b2c-overview.md#get-started)의 “시작” 섹션에 나열된 Azure AD B2C 빠른 시작 응용 프로그램 중 하나를 빌드합니다.
+* [응용 프로그램의 등록 및 로그인 사용자](active-directory-b2c-overview.md)의 “시작” 섹션에 나열된 Azure AD B2C 빠른 시작 응용 프로그램 중 하나를 빌드합니다.
 * 미리 빌드해 놓은 [Azure AD B2C 실습](https://aadb2cplayground.azurewebsites.net) 응용 프로그램을 사용합니다. 실습을 사용하기로 선택하는 경우 **리디렉션 URI** `https://aadb2cplayground.azurewebsites.net/`을 사용하여 B2C 테넌트에 응용 프로그램을 등록해야 합니다.
 * **Azure 포털** 에서 정책의 [지금 실행](https://portal.azure.com/)단추를 사용합니다.
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/23/2018
 이 자습서에 대한 일부 샘플 콘텐츠를 이미 만들어서 Azure Blob Storage에 호스팅해 두었습니다. 샘플 콘텐츠는 "Wingtip Toys"라는 가상의 회사를 테마로 하는 매우 기본적인 사용자 지정입니다. 사용자의 정책으로 시도해 보려면 다음 단계를 따릅니다.
 
 1. [Azure 포털](https://portal.azure.com/) 의 테넌트에 로그인하고 B2C 기능 블레이드로 이동합니다.
-2. **등록 또는 로그인 정책**을 클릭한 다음 사용자의 정책(예: "b2c\_1\_sign\_up\_sign\_in")을 클릭합니다.
+2. **등록 또는 로그인 정책**을 클릭한 다음, 사용자의 정책과 편집(예: "b2c\_1\_sign\_up\_sign\_in")을 클릭합니다.
 3. **페이지 UI 사용자 지정**을 클릭한 다음 **통합 등록 또는 로그인 페이지**를 클릭합니다.
 4. **사용자 지정 페이지 사용** 스위치를 **예**로 설정/해제합니다. **사용자 지정 페이지 URI** 필드에서 `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`을 입력합니다. **확인**을 클릭합니다.
 5. **로컬 계정 등록 페이지**를 클릭합니다. **사용자 지정 템플릿 사용** 스위치를 **예**로 설정/해제합니다. **사용자 지정 페이지 URI** 필드에서 `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`을 입력합니다.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -84,7 +84,7 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
 
 아웃바운드 IP 주소 목록이 표시됩니다.
 
-웹 사이트가 PowerApps에 대한 App Service Environment에서 호스트되는 경우 아웃바운드 IP 주소를 확인하는 방법을 알아보려면 [아웃바운드 네트워크 주소](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses)를 참조하세요.
+웹 서비스가 App Service 환경에서 호스트되는 경우 아웃 바운드 IP 주소를 불러오는 방법을 알아보려면 [아웃바운드 네트워크 주소](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses)를 참조하세요.
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>내 웹앱에 대한 예약되거나 전용인 인바운드 IP 주소를 어떻게 확인하나요?
 
@@ -268,7 +268,7 @@ App Service Certificate 구매의 도메인을 확인하는 동안 다음 메시
 App Service Certificate가 24시간 후에도 이 메시지를 계속 표시하면 다음 PowerShell 스크립트를 실행하세요. 스크립트가 문제를 해결하기 위해 [인증서 공급자](https://www.godaddy.com/)에 직접 연결합니다.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

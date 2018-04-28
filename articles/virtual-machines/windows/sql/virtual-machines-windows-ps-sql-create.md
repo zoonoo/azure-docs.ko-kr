@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell을 사용하여 SQL Server VM 프로비전 가이드 | Microsoft Docs"
-description: "SQL Server 가상 머신 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 명령을 제공합니다."
+title: Azure PowerShell을 사용하여 SQL Server VM 프로비전 가이드 | Microsoft Docs
+description: SQL Server 가상 머신 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 명령을 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법
 
 이 가이드에서는 Azure PowerShell을 사용하여 Windows SQL Server VM을 만드는 옵션에 대해 설명합니다. 기본값이 더 많은 간소화된 Azure PowerShell 예제는 [SQL VM Azure PowerShell 빠른 시작](quickstart-sql-vm-create-powershell.md)를 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 문서에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="configure-your-subscription"></a>구독 구성
 
-1. PowerShell을 열고 **Add-AzureRmAccount** 명령을 실행하여 Azure 계정에 대한 액세스를 설정합니다.
+1. PowerShell을 열고 **Connect-AzureRmAccount** 명령을 실행하여 Azure 계정에 대한 액세스를 설정합니다.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. 자격 증명을 입력할 수 있는 로그인 화면이 표시됩니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
@@ -327,7 +327,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 **Remove-AzureRmResourceGroup** 명령을 사용하여 가상 머신과 관련된 모든 리소스를 영구적으로 삭제할 수도 있습니다. 그러면 가상 머신도 영구적으로 삭제되므로 이 명령을 사용할 때는 주의해야 합니다.
 
 ## <a name="example-script"></a>예제 스크립트
-다음 스크립트에는 이 자습서에 대한 전체 PowerShell 스크립트가 포함됩니다. **Add-AzureRmAccount** 및 **Select-AzureRmSubscription** 명령을 사용하도록 이미 Azure 구독을 설정한 것으로 가정합니다.
+다음 스크립트에는 이 자습서에 대한 전체 PowerShell 스크립트가 포함됩니다. **Connect-AzureRmAccount** 및 **Select-AzureRmSubscription** 명령을 사용하도록 이미 Azure 구독을 설정한 것으로 가정합니다.
 
 ```PowerShell
 # Variables

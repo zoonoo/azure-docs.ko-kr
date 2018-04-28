@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 72a823ef04ad69d1d3b40377c32a02bacb8328c2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6d2681ad05890fc5f9f2821245e0f0280bf45a5f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure CDN(Content Delivery Network)에서 Azure Blob Storage 만료 관리 
 > [!div class="op_single_selector"]
@@ -148,7 +148,7 @@ class Program
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>다른 방법을 사용하여 Cache-Control 헤더 설정
 
 ### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
-[Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer/)를 사용하여 *CacheControl* 속성 등의 속성을 비롯한 Blob Storage 리소스를 확인하고 편집할 수 있습니다. 
+[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 *CacheControl* 속성 등의 속성을 비롯한 Blob Storage 리소스를 확인하고 편집할 수 있습니다. 
 
 Azure Storage Explorer에서 Blob의 *CacheControl* 속성을 업데이트하려면
    1. Blob를 선택하고 바로 가기 메뉴에서 **속성**을 선택합니다. 
@@ -168,8 +168,8 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>Azure Storage 서비스 REST API
 [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)를 사용하면 요청에 다음 작업을 사용하여 *x-ms-blob-cache-control* 속성을 명시적으로 설정할 수 있습니다.
   
-   - [Blob 배치](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [블록 목록 배치](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Blob 배치](https://msdn.microsoft.com/library/azure/dd179451.aspx)
+   - [블록 목록 배치](https://msdn.microsoft.com/library/azure/dd179467.aspx)
    - [Blob 속성 설정](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Cache-Control 헤더 테스트

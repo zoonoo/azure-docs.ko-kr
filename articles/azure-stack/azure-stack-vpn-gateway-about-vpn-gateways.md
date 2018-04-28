@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에 대 한 VPN 게이트웨이에 대 한 | Microsoft Docs"
-description: "에 대해 알아보고 Azure 스택과 함께 사용 하 여 VPN 게이트웨이 구성 합니다."
+title: Azure 스택에 대 한 VPN 게이트웨이에 대 한 | Microsoft Docs
+description: 에 대해 알아보고 Azure 스택과 함께 사용 하 여 VPN 게이트웨이 구성 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure 스택에 대 한 VPN 게이트웨이에 대 한
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
@@ -26,11 +26,11 @@ ms.lasthandoff: 12/02/2017
 
 Azure 가상 네트워크와 온-프레미스 사이트 간의 네트워크 트래픽을 보낼 수 있습니다, 전에 가상 네트워크에 대 한 가상 네트워크 게이트웨이 만들어야 합니다.
 
-VPN Gateway는 공용 연결을 통해 암호화된 트래픽을 전송하는 가상 네트워크 게이트웨이의 유형입니다. 스택에서 Azure 가상 네트워크와 azure에서 가상 네트워크 간에 안전 하 게 또는 가상 네트워크와 VPN 장치에 연결 된 다른 네트워크 간에 트래픽을 보낼 VPN 게이트웨이 사용할 수 있습니다.
+VPN Gateway는 공용 연결을 통해 암호화된 트래픽을 전송하는 가상 네트워크 게이트웨이의 유형입니다. Azure에서 안전 하 게 Azure 스택에서 가상 네트워크와 가상 네트워크 간에 트래픽을 보낼 VPN 게이트웨이 사용할 수 있습니다. 가상 네트워크와 VPN 장치에 연결 된 다른 네트워크 간에 안전 하 게 트래픽을 보낼 수도 있습니다.
 
 가상 네트워크 게이트웨이를 만들 때 만들려는 게이트웨이 유형을 지정합니다. Azure 스택은 한 유형의 가상 네트워크 게이트웨이 지원: 'Vpn' 유형입니다.
 
-가상 네트워크마다 두 개의 가상 네트워크 게이트웨이를 포함할 수 있으며 각 유형은 하나씩만 포함할 수 있습니다. 선택한 설정에 따라 단일 VPN Gateway에 대한 여러 연결을 만들 수 있습니다. 한 가지 예로 다중 사이트 연결 구성이 있습니다.
+가상 네트워크마다 두 개의 가상 네트워크 게이트웨이를 포함할 수 있으며 각 유형은 하나씩만 포함할 수 있습니다. 선택한 설정에 따라 단일 VPN Gateway에 대한 여러 연결을 만들 수 있습니다. 예를 들어 다중 사이트 연결 구성입니다.
 
 > [!NOTE]
 > Azure에서에 연결 하는 모든 연결에서 선택 하면 VPN 게이트웨이 SKU에 대 한 대역폭 처리량을 분할 해야 합니다.  Azure 스택에서 VPN 게이트웨이 SKU에 대 한 대역폭 값에 연결 된 각 연결 리소스에 적용 됩니다.     
@@ -46,10 +46,10 @@ VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 �
 각 리소스에 선택하는 설정은 성공적인 연결을 만드는 데 매우 중요합니다. VPN 게이트웨이에 대 한 설정과 개별 리소스에 대 한 정보를 참조 하십시오. [에 대 한 VPN 게이트웨이 설정에 대 한 Azure 스택](azure-stack-vpn-gateway-settings.md)합니다. 게이트웨이 유형, VPN 유형, 연결 유형, 게이트웨이 서브넷, 로컬 네트워크 게이트웨이 및 고려할 수 있는 다양 한 리소스 설정 이해 하는 데 유용한 정보를 찾을 수 있습니다.
 
 ### <a name="deployment-tools"></a>배포 도구
-Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시작하고 구성할 수 있습니다. 그런 다음 나중에 PowerShell과 같은 다른 도구로 전환하도록 결정하여 추가 리소스를 구성하거나 해당하는 경우 기존 리소스를 수정할 수 있습니다. 현재, Azure Portal에서 모든 리소스 및 리소스 설정을 구성할 수 없습니다. 각 연결 토폴로지에 대한 문서의 지침은 특정 구성 도구가 필요한지 여부를 지정합니다.
+수 만들고 Azure 포털 등의 한 구성 도구를 사용 하 여 리소스를 구성 합니다. 나중에 추가 리소스를 구성 하거나 해당 하는 경우 기존 리소스를 수정할 수는 PowerShell과 같은 다른 도구를 전환할 수 있습니다. 현재, Azure Portal에서 모든 리소스 및 리소스 설정을 구성할 수 없습니다. 각 연결 토폴로지에 대한 문서의 지침은 특정 구성 도구가 필요한지 여부를 지정합니다.
 
 ## <a name="connection-topology-diagrams"></a>연결 토폴로지 다이어그램
-VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실을 꼭 기억하시기 바랍니다. 그 중에서 필요에 맞는 최상의 구성을 결정해야 합니다. 아래 섹션에서는 다음과 같은 VPN Gateway 연결에 대한 정보 및 토폴로지 다이어그램을 볼 수 있습니다. 다음 섹션에는 다음에 나열된 테이블이 포함되어 있습니다.
+VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실을 꼭 기억하시기 바랍니다. 필요에 맞는 최적의 구성을 확인 합니다. 아래 섹션에서는 다음과 같은 VPN Gateway 연결에 대한 정보 및 토폴로지 다이어그램을 볼 수 있습니다. 다음 섹션에는 다음에 나열된 테이블이 포함되어 있습니다.
 
 - 사용 가능한 배포 모델
 - 사용 가능한 구성 도구
@@ -78,7 +78,7 @@ Standard 또는 Basic을 통해 더 높은 게이트웨이 통해 Basic, Standar
 
 Azure 스택 UltraPerformance 게이트웨이 Express 경로와 단독으로 사용 하는 SKU를 지원 하지 않습니다.
 
-SKU를 선택할 때 다음을 고려합니다.
+SKU를 선택 하면 다음을 고려 하십시오.
 - Azure 스택 정책 기반 게이트웨이 지원 하지 않습니다.
 - 프로토콜 BGP (경계 게이트웨이)는 기본 SKU에서 지원 되지 않습니다.
 - ExpressRoute VPN 게이트웨이 함께 사용할 Azure 스택의 구성은 지원 되지 않습니다
@@ -87,13 +87,14 @@ SKU를 선택할 때 다음을 고려합니다.
 ## <a name="estimated-aggregate-throughput-by-sku"></a>SKU 기준으로 예상된 총 처리량
 다음 테이블에서는 게이트웨이 형식과 게이트웨이 SKU에 의한 예상 총 처리량을 보여 줍니다.
 
-|   | VPN 게이트웨이 처리량 *(1)* |VPN 게이트웨이 최대 IPsec 터널 |
+|   | VPN 게이트웨이 처리량 *(1)* | VPN 게이트웨이 최대 IPsec 터널 *(2)* |
 |-------|-------|-------|
-|**Basic SKU** ***(2)***    | 100Mbps  | 10    |
+|**Basic SKU** ***(3)***    | 100Mbps  | 10    |
 |**표준 SKU**       | 100Mbps  | 10    |
-|**고성능 SKU** | 200Mbps    | 30    |
+|**고성능 SKU** | 200Mbps    | 5 |
 ***(1)***  있는 VPN 처리량은 하지 크로스-프레미스 연결에 대 한 보장된 처리량 인터넷을 통해. 가능한 최대 처리량 측정값입니다.  
-***(2)***  기본 SKU에 대 한 BGP 지원 되지 않습니다.
+***(2)***  최대 터널 번호는 모든 구독에 대 한 Azure 스택 배포 당 총 합니다.  
+***(3)***  기본 SKU에 대 한 BGP 지원 되지 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 에 대 한 자세한 내용은 [VPN 게이트웨이에 대 한 설정을](azure-stack-vpn-gateway-settings.md) Azure 스택에 대 한 합니다.

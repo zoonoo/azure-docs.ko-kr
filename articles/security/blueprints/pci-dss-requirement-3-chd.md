@@ -1,6 +1,6 @@
 ---
-title: "Azure Payment Processing Blueprint - CHD 요구 사항"
-description: "PCI DSS 요구 사항 3"
+title: Azure Payment Processing Blueprint - CHD 요구 사항
+description: PCI DSS 요구 사항 3
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 CHD 요구 사항
 ## <a name="pci-dss-requirement-3"></a>PCI DSS 요구 사항 3
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **저장된 카드 소유자 데이터 보호**
 
 > [!NOTE]
-> 이러한 요구 사항은 [PCI DSS(데이터 보안 표준) 버전 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss)의 일부로 [PCI(지불 카드 업계) 보안 표준 협의회](https://www.pcisecuritystandards.org/pci_security/)에 의해 정의됩니다. 각 요구 사항에 대한 테스트 절차 및 지침에 대한 정보는 PCI DSS를 참조하세요.
+> 이러한 요구 사항은 [PCI DSS(데이터 보안 표준) 버전 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss)의 일부로 [PCI(결제 카드 산업) 보안 표준 위원회](https://www.pcisecuritystandards.org/pci_security/)에 의해 정의됩니다. 각 요구 사항에 대한 테스트 절차 및 지침에 대한 정보는 PCI DSS를 참조하세요.
 
 암호화, 잘림, 마스킹 및 해시 등의 보호 방법은 카드 소유자 데이터 보호의 중요한 구성 요소입니다. 적합한 암호화 키 없이 침입자가 다른 보안 제어를 우회하고 암호화된 데이터에 대한 액세스를 확보할 경우 해당 사용자가 데이터를 읽거나 사용할 수 없습니다. 저장된 데이터를 보호하는 다른 효과적인 방법도 잠재적인 위험 완화 수단으로 고려되어야 합니다. 절대적으로 필요하지 않은 한 카드 소유자 데이터를 저장하지 않고, 전체 PAN이 필요하지 않은 경우 카드 소유자 데이터를 분리하며, 이메일이나 인스턴트 메시징 같은 최종 사용자 메시징 기술을 사용하여 보호되지 않는 PAN을 보내지 않는 등의 방법을 예로 들 수 있습니다.
 "강력한 암호화" 및 기타 PCI DSS 용어는 PCI DSS 및 PA-DSS 용어집 및 약어를 참조하세요.
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Azure는 삭제 대상으로 지정된 고객 데이터가 보안 폐기 정책에서 지정한 NIST 800-88 규격 보안 프로토콜을 사용하여 안전하게 폐기되도록 확인할 책임이 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 저장된 CHD를 삭제하거나 파기하지 않습니다. 그러나 모든 데이터는 암호화되며 PAN(기본 계정 번호) 데이터는 저장되지 않습니다.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 저장된 CHD를 삭제하거나 파기하지 않습니다. 그러나 모든 데이터는 암호화되며 PAN(기본 계정 번호) 데이터는 저장되지 않습니다.<br /><br />|
 
 
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 저장된 CHD를 삭제하거나 파기하지 않습니다. 샘플 데이터는 오직 데모용으로만 저장됩니다. 그러나 모든 데이터는 암호화되며 PAN(기본 계정 번호) 데이터는 저장되지 않습니다.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 저장된 CHD를 삭제하거나 파기하지 않습니다. 샘플 데이터는 오직 데모용으로만 저장됩니다. 그러나 모든 데이터는 암호화되며 PAN(기본 계정 번호) 데이터는 저장되지 않습니다.<br /><br />|
 
 
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 CHD의 전체 콘텐츠를 저장하지 않습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 CHD의 전체 콘텐츠를 저장하지 않습니다.|
 
 
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 CVV 샘플을 비롯한 모든 데이터를 암호화합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 CVV 샘플을 비롯한 모든 데이터를 암호화합니다.|
 
 
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 PIN 정보를 저장하지 않습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 PIN 정보를 저장하지 않습니다.|
 
 
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 투명한 데이터 암호화, Always Encrypted 열, 동적 데이터 마스킹을 사용하여 PAN(기본 계정 번호)을 마스킹합니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 투명한 데이터 암호화, Always Encrypted 열, 동적 데이터 마스킹을 사용하여 PAN(기본 계정 번호)을 마스킹합니다. 자세한 내용은 [PCI 지침 - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database)를 참조하세요.|
 
 
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore 모든 신용 카드 데이터를 암호화하며 Azure Key Vault를 사용하여 키를 관리하여 CHD 검색을 방지합니다.<br /><br />자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 모든 신용 카드 데이터를 암호화하며 Azure Key Vault를 사용하여 키를 관리하여 CHD 검색을 방지합니다.<br /><br />자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 저장된 데이터를 암호화하고 트래픽을 분리하여 DevOps 기능에 대한 권한 상승을 차단합니다.<br /><br />App Service 환경은 보호되고 잠겨 있으므로 Kudu를 사용한 웹앱 모니터링 기능처럼 필요한 DevOps 릴리스나 변경 내용을 허용하는 메커니즘이 필요합니다.<br /><br />다음 구성을 통해 가상 머신을 점프박스(요새 호스트)로 구축합니다.<br /><br /><ul><li>[맬웨어 방지 확장](/azure/security/azure-security-antimalware)</li><li>[OMS 모니터링 확장](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[VM 진단 확장](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker 암호화 디스크](/azure/security/azure-security-disk-encryption)</li></ul>Azure Key Vault를 사용하여 Azure Government, PCI DSS 및 HIPAA 요구 사항에 따릅니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 저장된 데이터를 암호화하고 트래픽을 분리하여 DevOps 기능에 대한 권한 상승을 차단합니다.<br /><br />App Service 환경은 보호되고 잠겨 있으므로 Kudu를 사용한 웹앱 모니터링 기능처럼 필요한 DevOps 릴리스나 변경 내용을 허용하는 메커니즘이 필요합니다.<br /><br />다음 구성을 통해 가상 머신을 점프박스(요새 호스트)로 구축합니다.<br /><br /><ul><li>[맬웨어 방지 확장](/azure/security/azure-security-antimalware)</li><li>[Log Analytics 모니터링 확장](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[VM 진단 확장](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker 암호화 디스크](/azure/security/azure-security-disk-encryption)</li></ul>Azure Key Vault를 사용하여 Azure Government, PCI DSS 및 HIPAA 요구 사항에 따릅니다.|
 
 
 
@@ -177,7 +177,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />Microsoft Azure는 고객 키 자격 증명 모음이 서로 논리적으로 격리되고 Key Vault 서비스의 관리 평면과 논리적으로 격리되도록 합니다. Key Vault는 Microsoft가 고객의 키 자격 증명 모음에 대한 고정 액세스를 갖지 못하도록 설계되었습니다. <br /><br />키는 Microsoft Azure에서 업계 표준 알고리즘, 키 길이 및 HSM(하드웨어 보안 모듈)을 사용하여 보호됩니다.<br /><br />Microsoft Azure Key Vault에 저장된 키를 사용하여 다른 키를 보호할 수 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 데모 CHD 보호를 위한 보호 키 솔루션 배포를 설명 및 지원하는 문서를 제공합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 데모 CHD 보호를 위한 보호 키 솔루션 배포를 설명 및 지원하는 문서를 제공합니다.|
 
 
 
@@ -189,14 +189,14 @@ ms.lasthandoff: 11/16/2017
 - 키 관리에 사용되는 HSM 및 기타 SCD 인벤토리 
 
 > [!NOTE]
-> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고 그 후에는 요구 사항이 됩니다.
+> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고, 이후에는 요구 사항이 됩니다.
 
 **책임:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />Microsoft Azure는 고객 키 자격 증명 모음이 서로 논리적으로 격리되고 Key Vault 서비스의 관리 평면과 논리적으로 격리되도록 합니다. Key Vault는 Microsoft가 고객의 키 자격 증명 모음에 대한 고정 액세스를 갖지 못하도록 설계되었습니다. <br /><br />키는 Microsoft Azure에서 업계 표준 알고리즘, 키 길이 및 HSM(하드웨어 보안 모듈)을 사용하여 보호됩니다.<br /><br />Microsoft Azure Key Vault에 저장된 키를 사용하여 다른 키를 보호할 수 있습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 데모 CHD 보호를 위한 보호 키 솔루션 배포를 설명 및 지원하는 문서를 제공합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 데모 CHD 보호를 위한 보호 키 솔루션 배포를 설명 및 지원하는 문서를 제공합니다.|
 
 
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />Key Vault는 특정 엔터티에 대해 특정 작업을 수행하기 위해 특정 기능에 대한 액세스를 Key Vault 소유자가 부여할 수 있는 세부 액세스 정책을 지원합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore 키 관리는 단일 사용자 계정(admin##@contosowebstore.com)으로 격리됩니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 키 관리는 단일 사용자 계정(admin##@contosowebstore.com)으로 격리됩니다.|
 
 
 
@@ -229,7 +229,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />키는 고객이 식별한 특정 키 자격 증명 모음에 저장됩니다.<br /><br />Key Vault는 여러 응용 프로그램에서 동시에 전체적으로 액세스할 수 있으므로 여러 위치에 키를 복사하여 저장할 필요가 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -243,7 +243,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />키는 고객이 식별한 특정 키 자격 증명 모음에 저장됩니다. <br /><br />Key Vault는 여러 응용 프로그램에서 동시에 전체적으로 액세스할 수 있으므로 여러 위치에 키를 복사하여 저장할 필요가 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -272,7 +272,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:** <br /><br />Key Vault에서 키를 생성할 때 Azure는 고객의 규격에 따라 키를 생성할 책임이 있습니다. 키는 HSM을 사용하여 생성됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -285,7 +285,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />BYOK(고유 키 사용) 도구는 고객 키를 캡슐화하고 특정 Azure 구독에 묶인 특정 보안 자격 증명 모음을 대상으로 지정합니다. 키는 지정된 지역에서 정의된 구독의 키 자격 증명 모음으로만 가져올 수 있습니다. 이 프로세스는 하드웨어 제조업체에서 제공한 암호화 프로시저를 사용합니다. 고객이 전송에 성공했음을 알림으로 받습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -298,7 +298,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />키는 HSM에 저장되며 하드웨어 제조업체의 암호화 보안을 통해 보호됩니다. 키에 대한 메타데이터는 암호화된 상태로 Azure Storage에 저장되며 각 키 자격 증명 모음마다 고유합니다. <br /><br /> |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />Key Vault는 고객이 정의한 키 업데이트 또는 롤링 기능을 지원합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -327,7 +327,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />Key Vault는 고객이 정의한 키 사용 중지 또는 바꾸기 기능을 지원합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -356,7 +356,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | **Key Vault를 사용하는 고객:**<br /><br />Key Vault가 논리적으로 구분되며 디렉터리 교차 권한 부여를 지원하지 않습니다. 따라서 무단 대체가 차단됩니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -369,7 +369,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore 키 관리는 단일 사용자 계정(admin##@contosowebstore.com)으로 격리됩니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 키 관리는 단일 사용자 계정(admin##@contosowebstore.com)으로 격리됩니다.|
 
 
 
@@ -382,7 +382,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 모든 키 관리에 사용합니다.  자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 

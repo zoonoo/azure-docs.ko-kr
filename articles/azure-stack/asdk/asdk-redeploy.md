@@ -1,12 +1,12 @@
 ---
-title: "Azure 스택 개발 키트 (ASDK)를 다시 배포 | Microsoft Docs"
-description: "이 자습서는 ASDK 다시 설치 하는 방법에 설명 합니다."
+title: Azure 스택 개발 키트 (ASDK)를 다시 배포 | Microsoft Docs
+description: 이 자습서는 ASDK 다시 설치 하는 방법에 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 579414f79da29a443ddaf8e167bf3889a647f33d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 33879187a912394b5cec6e9f9a8898f431134f5c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-redeploy-the-asdk"></a>자습서:는 ASDK 다시 배포
 이 자습서는 Azure 스택 개발 키트 (ASDK) 비-프로덕션 환경에서 다시 배포 하는 방법에 설명 합니다. 업그레이드는 ASDK 지원 되지 않는, 완전히 새 버전으로 이동 하 고 다시 배포 해야 합니다. 또한 언제 든 지 처음부터 다시 시작 하려는 ASDK를 다시 배포할 수 있습니다.
@@ -48,7 +48,7 @@ Azure와 함께 이전에 ASDK 설치를 등록 하는 경우 등록 리소스�
   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Provide Azure subscription admin credentials
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
 
   # Provide ASDK admin credentials
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"

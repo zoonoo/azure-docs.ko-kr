@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에서 추적 사용에 대 한 테 넌 트가 등록 | Microsoft Docs"
-description: "테 넌 트 등록 및 Azure 스택의 테 넌 트 사용을 추적 하는 방식을 관리 하는 데 사용 되는 작업에 대 한 세부 정보입니다."
+title: Azure 스택에서 추적 사용에 대 한 테 넌 트가 등록 | Microsoft Docs
+description: 테 넌 트 등록 및 Azure 스택의 테 넌 트 사용을 추적 하는 방식을 관리 하는 데 사용 되는 작업에 대 한 세부 정보입니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure 스택의 테 넌 트 등록 관리
 
@@ -47,7 +47,7 @@ Azure 구독이 하나만 테 넌 트와 연결할 수 있는지 확인 합니�
 
 ### <a name="powershell"></a>PowerShell
 
-등록 리소스를 업데이트 하는 새로운 AzureRmResource cmdlet을 사용 합니다. Azure에 로그인 (`Login-AzureRMAccount`) 초기 등록에 사용한 계정을 사용 하 여 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
+등록 리소스를 업데이트 하는 새로운 AzureRmResource cmdlet을 사용 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 하 여 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Azure 구독이 하나만 테 넌 트와 연결할 수 있는지 확인 합니�
 
 ### <a name="powershell"></a>PowerShell
 
-등록 된 모든 테 넌 트를 나열 하려면 AzureRmResovurce Get cmdlet을 사용 합니다. Azure에 로그인 (`Login-AzureRMAccount`) 초기 등록에 사용한 계정을 사용 하 여 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
+등록 된 모든 테 넌 트를 나열 하려면 AzureRmResovurce Get cmdlet을 사용 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 하 여 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

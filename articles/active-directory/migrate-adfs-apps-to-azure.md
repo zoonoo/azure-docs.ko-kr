@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 5eb562901d73974765878024b1107e3b75e9abb5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6303fdce65e460489c9f66e388c28383b9942627
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS 온-프레미스 앱을 Azure로 마이그레이션 
 
@@ -230,7 +230,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 ![Azure AD를 인증 서비스로 선택](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>선택 사항: Azure AD에서 사용자 프로비저닝 구성
-Azure AD에서 SaaS 응용 프로그램에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning)를 참조하세요.
+Azure AD에서 SaaS 응용 프로그램에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

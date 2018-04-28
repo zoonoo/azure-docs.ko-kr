@@ -1,8 +1,8 @@
 ---
-title: "최종 사용자 인증: Azure Active Directory를 사용하여 .NET SDK로 Data Lake Store 인증 | Microsoft Docs"
-description: "Azure Active Directory와 .NET SDK를 사용하여 Data Lake Store로 최종 사용자 인증을 수행하는 방법을 알아봅니다."
+title: '최종 사용자 인증: Azure Active Directory를 사용하여 .NET SDK로 Data Lake Store 인증 | Microsoft Docs'
+description: Azure Active Directory와 .NET SDK를 사용하여 Data Lake Store로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK를 사용하여 Data Lake Store로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/12/2018
 
 이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Store로 최종 사용자 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용하는 Data Lake Store 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2017을 사용합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/12/2018
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 응용 프로그램 |
-   | 이름 |CreateADLApplication |
+   | Name |CreateADLApplication |
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 

@@ -9,11 +9,11 @@ ms.date: 3/01/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: da3b8c42fc98f0957f2fa1a1ac95e12737528863
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ef92a7fbbc3b84195eff251b0224cb0fd51a6c88
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API로의 액세스 권한 부여
 
@@ -145,9 +145,10 @@ Node.js Web API 실행:
 3. 다음 명령을 실행합니다.
     ```
     npm install && npm update
+    ```
+    ```
     node index.js
     ```
-
 데스크톱 앱 실행:
 
 1. **F5** 키를 눌러 데스크톱 앱을 실행합니다.

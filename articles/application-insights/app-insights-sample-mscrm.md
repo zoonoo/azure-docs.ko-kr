@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>연습: Application Insights를 사용하여 Microsoft Dynamics CRM Online 작업에 대한 원격 분석 설정
 이 문서는 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)를 사용하여 [Microsoft Dynamics CRM Online](https://www.dynamics.com/)에서 원격 분석 데이터를 가져오는 방법을 보여 줍니다. 응용 프로그램에 Application Insights 스크립트 추가, 데이터 캡처 및 데이터 시각화의 전체 프로세스를 연습합니다.
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/17/2018
     ![텍스트 편집기 열기](./media/app-insights-sample-mscrm/00004.png)
 2. Application Insights에서 코드 복사 복사하는 동안 스크립트 태그를 무시합니다. 아래 스크린샷을 참조하세요.
 
-    ![계측 키 설정](./media/app-insights-sample-mscrm/00005.png)
+    ![계측 키 설정](./media/app-insights-sample-mscrm/000005.png)
 
     코드는 Application insights 리소스를 식별하는 계측 키를 포함합니다.
 3. 저장하고 게시합니다.

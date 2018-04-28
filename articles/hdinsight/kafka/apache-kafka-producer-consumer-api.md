@@ -1,8 +1,8 @@
 ---
-title: "Apache Kafka 생산자 및 소비자 API 사용 - Azure HDInsight | Microsoft Docs"
-description: "HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이러한 API를 사용하여 Apache Kafka에서 읽고 쓰는 응용 프로그램을 개발할 수 있습니다."
+title: Apache Kafka 생산자 및 소비자 API 사용 - Azure HDInsight | Microsoft Docs
+description: HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이러한 API를 사용하여 Apache Kafka에서 읽고 쓰는 응용 프로그램을 개발할 수 있습니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: b57745d6bd993a993e923c964327d9071e745413
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 01592401c4c88adeed49b11df4e7963e27b1bcee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>Apache Kafka 생산자 및 소비자 API
 

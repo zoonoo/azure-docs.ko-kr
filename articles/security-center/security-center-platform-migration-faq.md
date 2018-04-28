@@ -1,24 +1,24 @@
 ---
-title: "Security Center 플랫폼 마이그레이션 FAQ | Microsoft Docs"
-description: "이 FAQ는 Azure Security Center 플랫폼 마이그레이션에 대한 질문에 답변합니다."
+title: Security Center 플랫폼 마이그레이션 FAQ | Microsoft Docs
+description: 이 FAQ는 Azure Security Center 플랫폼 마이그레이션에 대한 질문에 답변합니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center 마이그레이션 FAQ
 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 FAQ는 플랫폼 마이그레이션에 대한 질문에 답변합니다.
@@ -34,7 +34,7 @@ Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 �
 에이전트에 의해 수집된 데이터는 VM에 연결된 기존 Log Analytics 작업 영역 또는 Security Center에서 만든 새 작업 영역 중 하나에 저장됩니다. Security Center가 새 작업 영역을 만들 때 VM의 지리적 위치가 고려됩니다.
 
 > [!NOTE]
-> Microsoft Monitoring Agent는 OMS(Operations Management Suite), Log Analytics 서비스 및 SCOM(System Center Operations Manager)에서 사용되는 것과 동일한 에이전트입니다.
+> Microsoft Monitoring Agent는 Log Analytics 서비스 및 SCOM(System Center Operations Manager)에서 사용되는 것과 동일한 에이전트입니다.
 >
 >
 
@@ -64,8 +64,8 @@ Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 �
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에서 Log Analytics 또는 OMS에 대한 요금을 청구하나요?
-아니요. Security Center에서 만든 작업 영역은 노드 요금 청구당 OMS에 구성되는 동안 OMS 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에서 Log Analytics에 대한 요금을 청구하나요?
+번호 Security Center에서 만든 작업 영역은 노드 요금 청구당 Log Analytics에 구성된 동안 Log Analytics 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
 - **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
@@ -73,7 +73,7 @@ Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 �
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요. 가격 책정 페이지 주소는 2017년 6월부터 보안 데이터 저장소 및 비례 배분 청구로 변경됩니다.
 
 > [!NOTE]
-> Security Center에서 만든 작업 영역의 OMS 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.
+> Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.
 >
 >
 
@@ -122,8 +122,6 @@ Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 �
    >
 
    - 작업을 취소하려면 **취소**를 선택합니다.
-
-      ![모니터링되는 VM 다시 구성][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Microsoft Monitoring Agent가 VM에 확장으로 이미 설치되어 있으면 어떻게 되나요?
 Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. Security Center는 이미 연결된 작업 영역에서 VM의 보안 데이터를 저장합니다. Security Center는 Security Center 사용을 지원하기 위해 VM의 Azure 리소스 ID를 포함하도록 확장 버전을 업데이트합니다.
@@ -204,12 +202,12 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 >
 >
 
-## <a name="existing-oms-customers"></a>기존 OMS 고객
+## <a name="existing-log-analytics-customers"></a>기존 Log Analytics 고객
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center에서 VM과 작업 영역 간의 모든 기존 연결을 재정의하나요?
 VM에 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있으면 Security Center에서 기존 작업 영역 연결을 재정의하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다.
 
-Security Center 솔루션이 작업 영역에 없는 경우 설치되고 솔루션은 관련 VM에만 적용됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. OMS 기능인 [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
+Security Center 솔루션이 작업 영역에 없는 경우 설치되고 솔루션은 관련 VM에만 적용됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
 
 Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 VM에 직접 설치하는 경우 Security Center는 Microsoft Monitoring Agent를 설치하지 않으며, 보안 모니터링 기능이 제한됩니다.
 
@@ -220,18 +218,13 @@ Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 V
 - 연결이 끊기기 전에 확장에 구성된 작업 영역의 Azure 리소스 ID
 - 이전에 설치된 에이전트 및 버전
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>Security Center에서 기존 OMS 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center에서 기존 Log Analytics 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
 Security Center에서 VM이 만든 작업 영역에 이미 연결되어 있는지를 식별하는 경우 Security Center를 통해 가격 책정 계층에 따라 이 작업 영역에서 솔루션을 사용할 수 있습니다. 솔루션이 [솔루션 대상 지정](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
 - **체험 계층** – Security Center는 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
 - **표준 계층** – Security Center가 작업 영역에 'Security' 솔루션을 설치합니다.
 
    ![기본 작업 영역의 솔루션][4]
-
-> [!NOTE]
-> Log Analytics에서 'Security' 솔루션은 OMS의 보안 및 감사 솔루션입니다.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>내 환경에 이미 작업 영역이 있는 경우 보안 데이터를 수집하는 데 사용할 수 있나요?
 VM에 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있으면 Security Center에서 기존 연결된 작업 영역 연결을 사용합니다. Security Center 솔루션이 작업 영역에 없는 경우 설치되고 솔루션은 [솔루션 대상 지정](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting)을 통해 관련 VM에만 적용됩니다.
@@ -253,4 +246,3 @@ Security Center 플랫폼 마이그레이션을 자세히 알아보려면 다음
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

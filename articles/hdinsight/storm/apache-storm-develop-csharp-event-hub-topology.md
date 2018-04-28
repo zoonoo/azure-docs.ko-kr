@@ -1,26 +1,24 @@
 ---
-title: "Storm으로 Event Hubs에서 이벤트 처리 - Azure HDInsight | Microsoft Docs"
-description: "HDInsight Tools for Visual Studio를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 Azure Event Hubs의 데이터를 처리하는 방법에 대해 알아봅니다."
+title: Storm으로 Event Hubs에서 이벤트 처리 - Azure HDInsight | Microsoft Docs
+description: HDInsight Tools for Visual Studio를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 Azure Event Hubs의 데이터를 처리하는 방법에 대해 알아봅니다.
 services: hdinsight,notification hubs
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: 
+ms.custom: ''
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>HDInsight의 Storm(C#)으로 Azure Event Hubs에서 이벤트 처리
 
@@ -51,7 +49,7 @@ C# 토폴로지도 .NET 4.5를 대상으로 해야 합니다.
 
 ## <a name="how-to-work-with-event-hubs"></a>Event Hubs 작동 방법
 
-Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 있는 Java 구성 요소 집합을 제공합니다. 이러한 구성 요소의 HDInsight 3.6 호환 버전이 포함된 Java 아카이브(JAR) 파일을 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)에서 찾을 수 있습니다.
+Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 있는 Java 구성 요소 집합을 제공합니다. [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)에서 이러한 구성 요소의 HDInsight 3.6 호환 버전이 포함된 JAR(Java archive) 파일을 찾을 수 있습니다.
 
 > [!IMPORTANT]
 > 구성 요소는 Java로 작성되지만 C# 토폴로지에서 쉽게 사용할 수 있습니다.
@@ -132,7 +130,7 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-event-hubs-components"></a>Event Hubs 구성 요소 다운로드
 
-Event Hubs Spout 및 Bolt 구성 요소를 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)에서 다운로드하세요.
+[https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)에서 Event Hubs Spout 및 Bolt 구성 요소를 다운로드합니다.
 
 `eventhubspout`라는 디렉터리를 만들고 이 디렉터리에 파일을 저장합니다.
 
@@ -191,7 +189,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
     ![HDInsight의 Storm에 제출이 강조 표시된 솔루션 탐색기 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submittostorm.png)
 
-2. **토폴로지 제출** 대화 상자에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...**을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
+2. **토폴로지 제출** 대화 상자에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
 
     ![토폴로지 제출 대화 상자의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit.png)
 
@@ -201,7 +199,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 4. **솔루션 탐색기**에서 **EventHubWriter** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight의 Storm에 제출**을 선택합니다.
 
-5. **토폴로지 제출** 대화 상자에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...**을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
+5. **토폴로지 제출** 대화 상자에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
 
 6. 토폴로지가 제출되었으면 **Storm Topologies Viewer** 에서 토폴로지 목록을 새로 고쳐 두 토폴로지 모두 클러스터에서 실행되는지 확인합니다.
 

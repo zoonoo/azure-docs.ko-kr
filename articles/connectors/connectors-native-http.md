@@ -1,11 +1,11 @@
 ---
-title: "HTTP를 통해 끝점과 통신 - Azure Logic Apps | Microsoft Docs"
-description: "HTTP를 통해 끝점과 통신할 수 있는 Logic Apps 만들기"
+title: HTTP를 통해 끝점과 통신 - Azure Logic Apps | Microsoft Docs
+description: HTTP를 통해 끝점과 통신할 수 있는 Logic Apps 만들기
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>HTTP 동작 시작
 
@@ -150,7 +150,7 @@ A*는 필수 필드 임을 의미합니다.
 
 > [!TIP]
 > 정의에서 검색할 수 없는 암호를 사용하려는 경우 `securestring` 매개 변수 및 `@parameters()` 
-> [워크플로 정의 함수](http://aka.ms/logicappdocs)를 사용합니다.
+> [워크플로 정의 함수](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)를 사용합니다.
 
 예: 
 
@@ -174,7 +174,7 @@ A*는 필수 필드 임을 의미합니다.
 
 > [!TIP]
 > 논리 앱을 저장한 후 정의에서 읽을 수 없는 매개 변수를 사용하려면 `securestring` 매개 변수 및 `@parameters()` 
-> [워크플로 정의 함수](http://aka.ms/logicappdocs)를 사용할 수 있습니다.
+> [워크플로 정의 함수](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)를 사용할 수 있습니다.
 
 예: 
 
@@ -198,7 +198,7 @@ A*는 필수 필드 임을 의미합니다.
 | 암호* |secret |토큰을 요청하는 클라이언트의 암호 |
 
 > [!TIP]
-> `securestring` 매개 변수 및 `@parameters()` [워크플로 정의 함수](http://aka.ms/logicappdocs)를 사용하면 저장한 후 정의에서 읽을 수 없는 매개 변수를 사용할 수 있습니다.
+> `securestring` 매개 변수 및 `@parameters()` [워크플로 정의 함수](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)를 사용하면 저장한 후 정의에서 읽을 수 없는 매개 변수를 사용할 수 있습니다.
 > 
 > 
 

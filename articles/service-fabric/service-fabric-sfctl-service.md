@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl service| Microsoft Docs
-description: "Service Fabric CLI sfctl service 명령을 설명합니다."
+description: Service Fabric CLI sfctl service 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
 ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -93,7 +93,7 @@ ms.lasthandoff: 02/27/2018
 | --debug               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h             | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query               | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query               | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
@@ -116,7 +116,7 @@ ms.lasthandoff: 02/27/2018
 | --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-description"></a>sfctl service description
@@ -138,7 +138,7 @@ ms.lasthandoff: 02/27/2018
 | --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-health"></a>sfctl service health
@@ -163,7 +163,7 @@ ms.lasthandoff: 02/27/2018
 | --debug                      | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                    | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                  | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                  기본값: json.|
-| --query                      | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                      | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-info"></a>sfctl service info
@@ -186,7 +186,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-list"></a>sfctl service list
@@ -210,7 +210,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
@@ -234,7 +234,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --debug                           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                         | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                       | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                       기본값: json.|
-| --query                           | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                           | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose                         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-recover"></a>sfctl service recover
@@ -256,7 +256,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
@@ -281,7 +281,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 | --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-update"></a>sfctl service update
@@ -315,7 +315,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 | --debug               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h             | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query               | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query               | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계

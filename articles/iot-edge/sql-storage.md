@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d464bbfb9f38b184e47911a7224be8ec8679f0be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -95,7 +95,7 @@ x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 �
         }
    ```
 
-3. `<docker registry address>`를 완성된 자습서 [IoT Edge 모듈로 Azure Function 배포 - 미리 보기](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)에서 채워진 주소로 바꿉니다.
+3. `<docker registry address>`를 완성된 자습서 [IoT Edge 모듈로 Azure Function 배포 - 미리 보기](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)에서 채워진 주소로 바꿉니다.
 
    >[!NOTE]
    >컨테이너 레지스트리 주소는 레지스트리에서 복사한 로그인 서버와 같습니다. `<your container registry name>.azurecr.io` 형식이어야 합니다.

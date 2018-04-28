@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/26/2017
 ms.author: jingwang
-ms.openlocfilehash: c3711e90bbb8622d6e112ee2865073cb50258f23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e0d801dbb8060cf2fa175086fc5324f444870412
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 Presto에서 데이터 복사
 
@@ -56,11 +56,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 사용자 이름 | Presto에 연결하는 데 사용되는 사용자 이름입니다.  | 아니오 |
 | 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니오 |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
-| trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
-| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
-| allowHostNameCNMismatch | SSL을 통해 연결할 때 CA 발급 인증서 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니오 |
+| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
+| allowHostNameCNMismatch | SSL을 통해 연결할 때 CA 발급 인증서 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
 | allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
-| timeZoneID | 연결에서 사용되는 현지 표준 시간대입니다. 이 옵션에 유효한 값은 IANA 표준 시간대 데이터베이스에 지정되어 있습니다. 기본값은 시스템 표준 시간대입니다.  | 아니요 |
+| timeZoneID | 연결에서 사용되는 현지 표준 시간대입니다. 이 옵션에 유효한 값은 IANA 표준 시간대 데이터베이스에 지정되어 있습니다. 기본값은 시스템 표준 시간대입니다.  | 아니오 |
 
 **예제:**
 
@@ -74,7 +74,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
             "serverVersion" : "0.148-t",
             "catalog" : "<catalog>",
             "port" : "<port>",
-            "authenticationType" : "Anonymous",
+            "authenticationType" : "LDAP",
             "username" : "<username>",
             "password": {
                  "type": "SecureString",

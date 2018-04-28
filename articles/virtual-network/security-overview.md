@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 636f7be10850ff6a65aa6a2680bea148cb5ebd3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/16/2018
 - **인바운드 트래픽**: 네트워크 인터페이스가 위치한 서브넷에 연결된 네트워크 보안 그룹을 먼저 평가합니다. 서브넷에 연결된 네트워크 보안 그룹을 통해 허용된 모든 트래픽은 네트워크 인터페이스에 연결된 네트워크 보안 그룹에 의해 평가됩니다. 예를 들어 인터넷의 포트 80을 통해 가상 머신에 대한 인바운드 액세스가 필요할 수 있습니다. 네트워크 인터페이스 및 해당 네트워크 인터페이스가 위치한 서브넷에 네트워크 보안 그룹을 연결하는 경우 서브넷에 연결된 네트워크 보안 그룹 및 네트워크 인터페이스는 포트 80을 허용해야 합니다. 서브넷 또는 해당 서브넷이 위치한 네트워크 인터페이스에 연결된 네트워크 보안 그룹을 통한 포트 80만을 허용하는 경우 기본 보안 규칙으로 인해 통신에 실패합니다. 자세한 내용은 [기본 보안 규칙](#default-security-rules)을 참조하세요. 예를 들어 서브넷 또는 네트워크 인터페이스에 대한 네트워크 보안 그룹 및 포트 80 인바운드 트래픽을 허용하는 규칙을 포함하는 네트워크 보안 그룹에만 적용한 경우 통신에 성공합니다. 
 - **아웃바운드 트래픽**: 네트워크 인터페이스에 연결된 네트워크 보안 그룹을 먼저 평가합니다. 네트워크 인터페이스에 연결된 네트워크 보안 그룹을 통해 허용된 모든 트래픽은 서브넷에 연결된 네트워크 보안 그룹에 의해 평가됩니다.
 
-네트워크 인터페이스와 서브넷에 네트워크 보안 그룹이 적용되는 시점을 항상 알 수는 없습니다. 네트워크 인터페이스의 [유효 보안 규칙](virtual-network-network-interface.md#view-effective-security-rules)을 확인하여 네트워크 인터페이스에 적용되는 집계 규칙을 쉽게 볼 수 있습니다. Azure Network Watcher에서 [IP 흐름 확인](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용하여 통신이 네트워크 인터페이스 간에 허용되는지 여부를 결정할 수도 있습니다. 이 도구에서는 통신이 허용되는지 여부 및 어떤 네트워크 보안 규칙이 트래픽을 허용하거나 거부하는지를 알려줍니다.
+네트워크 인터페이스와 서브넷에 네트워크 보안 그룹이 적용되는 시점을 항상 알 수는 없습니다. 네트워크 인터페이스의 [유효 보안 규칙](virtual-network-network-interface.md#view-effective-security-rules)을 확인하여 네트워크 인터페이스에 적용되는 집계 규칙을 쉽게 볼 수 있습니다. Azure Network Watcher에서 [IP 흐름 확인](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용하여 통신이 네트워크 인터페이스 간에 허용되는지 여부를 결정할 수도 있습니다. 이 도구에서는 통신이 허용되는지 여부 및 어떤 네트워크 보안 규칙이 트래픽을 허용하거나 거부하는지를 알려줍니다.
  
 > [!NOTE]
 > 네트워크 보안 그룹이 Resource Manager 배포 모델에서 네트워크 인터페이스가 아닌 배포 클래식 배포 모델에 배포된 서브넷 또는 가상 머신과 클라우드 서비스에 연결됩니다. Azure 배포 모델에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
@@ -119,7 +119,7 @@ ms.lasthandoff: 04/16/2018
 * **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(가상 네트워크에 대해 정의된 모든 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링](virtual-network-peering-overview.md)된 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 연결된 가상 네트워크가 포함됩니다.
 * **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, 태그는 Azure의 상태 검색이 시작되는 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
 * **Internet**(Resource Manager) (클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
-* **AzureTrafficManager**(리소스 관리자에만 해당): 이 태그는 Azure Traffic Manager 프로브 IP의 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다.
+* **AzureTrafficManager**(리소스 관리자에만 해당): 이 태그는 Azure Traffic Manager 프로브 IP의 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다.
 * **Storage**(Resource Manager에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다.
 * **Sql**(Resource Manager에만 해당): 이 태그는 Azure SQL Database 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Sql에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL Database 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다.
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/16/2018
   2017년 11월 15일까지 Azure 구독을 만든 경우 SMTP 릴레이 서비스를 사용할 수 있을 뿐만 아니라 TCP 포트 25를 통해 직접 전자 메일을 보낼 수 있습니다. 2017년 11월 15일 이후에 구독을 만든 경우 포트 25를 통해 직접 전자 메일을 보낼 수 없습니다. 포트 25를 통한 아웃바운드 통신 동작은 다음과 같이 구독 형식에 따라 다릅니다.
 
      - **기업 계약**: 아웃바운드 포트 25 통신이 허용됩니다. Azure 플랫폼의 제한 없이 가상 머신에서 외부 전자 메일 공급자로 직접 아웃바운드 전자 메일을 보낼 수 있습니다. 
-     - **종량제:** 모든 리소스에서 아웃바운드 포트 25 통신이 차단되었습니다. 가상 머신에서 전자 메일을 외부 전자 메일 공급자로 직접 보내야 하는 경우(인증된 SMTP 릴레이를 사용하지 않음) 제한을 제거하도록 요청할 수 있습니다. 요청은 Microsoft의 재량에 따라 검토되고 승인되어 부패 방지 검사를 수행한 후에 허가됩니다. 요청하려면 *기술*, *Virtual Network 연결*, *전자 메일을 보낼 수 없습니다(SMTP/포트 25).*라는 문제 형식의 지원 사례를 엽니다. 지원 사례에는 인증된 SMTP 릴레이를 통하지 않고 구독에서 메일 공급자로 직접 전자 메일을 보내야 하는 이유에 대한 세부 정보가 포함됩니다. 구독이 제외되는 경우 예외 날짜 이후에 만든 가상 머신만이 포트 25를 통해 아웃바운드로 통신할 수 있습니다.
+     - **종량제:** 모든 리소스에서 아웃바운드 포트 25 통신이 차단되었습니다. 가상 머신에서 전자 메일을 외부 전자 메일 공급자로 직접 보내야 하는 경우(인증된 SMTP 릴레이를 사용하지 않음) 제한을 제거하도록 요청할 수 있습니다. 요청은 Microsoft의 재량에 따라 검토되고 승인되어 부패 방지 검사를 수행한 후에 허가됩니다. 요청하려면 *기술*, *Virtual Network 연결*, *전자 메일을 보낼 수 없습니다(SMTP/포트 25).* 라는 문제 형식의 지원 사례를 엽니다. 지원 사례에는 인증된 SMTP 릴레이를 통하지 않고 구독에서 메일 공급자로 직접 전자 메일을 보내야 하는 이유에 대한 세부 정보가 포함됩니다. 구독이 제외되는 경우 예외 날짜 이후에 만든 가상 머신만이 포트 25를 통해 아웃바운드로 통신할 수 있습니다.
      - **CSP(클라우드 서비스 공급자), MSDN, Azure Pass, Azure in Open, Education, BizSpark 및 평가판**: 25 아웃바운드 포트 통신이 모든 리소스에서 차단됩니다. 요청이 허가되지 않기 때문에 제한을 제거하도록 요청할 수 없습니다. 가상 머신에서 전자 메일을 보내야 하는 경우 SMTP 릴레이 서비스를 사용해야 합니다.
 
   Azure에서 25 포트를 통해 전자 메일을 보낼 수 있도록 허용하는 경우 Microsoft는 전자 메일 공급자에서 가상 머신의 인바운드 전자 메일을 수락하도록 보장할 수 없습니다. 특정 공급자가 가상 머신의 메일을 거부하는 경우 메시지 배달 또는 스팸 필터링 문제를 해결하기 위해 공급자와 직접 작업하거나 인증된 SMTP 릴레이 서비스를 사용해야 합니다. 

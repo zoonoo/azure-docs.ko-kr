@@ -3,16 +3,16 @@ title: Classic Azure Container Registry 업그레이드
 description: 관리되지 않는 Classic 컨테이너 레지스트리를 업그레이드하여 Basic, Standard 및 Premium의 관리되는 컨테이너 레지스트리의 확장된 기능 집합을 활용할 수 있습니다.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 084dfc8f87aaea4b5bbad7cb5fdb9d445d566206
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Classic 컨테이너 레지스트리 업그레이드
 

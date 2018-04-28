@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher로 네트워크 연결 모니터링
 
@@ -69,4 +69,4 @@ ms.lasthandoff: 04/05/2018
 ## <a name="next-steps"></a>다음 단계
 
 - [경고로 트리거된 패킷 캡처를 만들어](network-watcher-alert-triggered-packet-capture.md) VM 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
-- [IP 흐름 확인 검사](network-watcher-check-ip-flow-verify-portal.md)를 방문하여 VM에서 또는 가상 머신으로 특정 트래픽 전송이 허용되는지 확인합니다.
+- [IP 흐름 확인 검사](diagnose-vm-network-traffic-filtering-problem.md)를 방문하여 VM에서 또는 가상 머신으로 특정 트래픽 전송이 허용되는지 확인합니다.

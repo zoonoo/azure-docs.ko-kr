@@ -1,10 +1,10 @@
 ---
-title: "HPC 팩 클러스터 노드 자동 크기 조정 | Microsoft Docs"
-description: "Azure에서 HPC 팩 클러스터 계산 노드 수를 자동으로 증가 및 축소"
+title: HPC 팩 클러스터 노드 자동 크기 조정 | Microsoft Docs
+description: Azure에서 HPC 팩 클러스터 계산 노드 수를 자동으로 증가 및 축소
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>클러스터 워크로드에 따라 Azure에서 HPC 팩 클러스터 리소스를 자동으로 증가 및 축소
 HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 HPC 팩 클러스터를 만드는 경우 클러스터의 현재 워크로드에 따라 노드 또는 코어 등과 같은 클러스터 리소스를 자동으로 증가 또는 축소하려는 방법이 필요합니다. 이렇게 클러스터 리소스의 크기를 조정하면 Azure 리소스를 더욱 효율적으로 사용하고 비용을 관리할 수 있습니다.
@@ -50,13 +50,13 @@ HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     계정이 둘 이상의 Azure Active Directory 테넌트 또는 Azure 구독에 포함된 경우 다음 명령을 실행해 올바른 테넌트 및 구독을 선택할 수 있습니다.
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     현재 선택된 테넌트와 구독을 보려면 다음 명령을 실행합니다.
@@ -186,12 +186,12 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 * **HPC 팩 2012 R2 업데이트 1 이상 클러스터** - **AzureAutoGrowShrink.ps1** 스크립트는 %CCP_HOME%bin 폴더에 설치됩니다. 클러스터 헤드 노드는 온-프레미스 또는 Azure VM에 배포할 수 있습니다. 온-프레미스 헤드 노드 및 Azure "버스트" 노드로 시작하려면 [HPC 팩으로 하이브리드 클러스터 설정](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) 을 참조하세요. Azure VM에 HPC 팩 클러스터를 빠르게 배포하려면 [HPC 팩 IaaS 배포 스크립트](hpcpack-cluster-powershell-script.md)를 참조하세요. 또는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)을 사용하세요.
 * **Azure PowerShell 1.4.0** - 현재 스크립트는 이 특정 버전의 Azure PowerShell에 따라 다릅니다.
 * **Azure 버스트 노드가 포함된 클러스터의 경우** - HPC 팩이 설치된 클라이언트 컴퓨터 또는 헤드 노드에서 스크립트를 실행합니다. 클라이언트 컴퓨터에서 실행할 경우 $env:CCP_SCHEDULER 변수가 헤드 노드를 가리키도록 설정합니다. Azure "버스트" 노드는 클러스터에 추가되어 있어야 하지만, 배포되지 않음 상태일 수 있습니다.
-* **Azure VM Resource Manager 배포 모델에서 배포된 클러스터의 경우** - Resource Manager 배포 모델에 배포된 Azure VM 클러스터의 경우 스크립트는 Azure 인증을 위한 두 가지 방법을 지원합니다. `Login-AzureRmAccount`을 실행하여 스크립트를 실행할 때마다 Azure 계정에 로그인하거나 서비스 주체가 인증서를 사용하여 인증하도록 구성합니다. HPC 팩은 **ConfigARMAutoGrowShrinkCert.ps** 스크립트를 제공하여 인증서를 가진 서비스 주체를 만듭니다. 스크립트는 Azure AD(Azure Active Directory) 응용 프로그램 및 서비스 주체를 만들고 서비스 주체에 참가자 역할을 할당합니다. 스크립트를 실행하려면 Azure PowerShell을 관리자로 시작하고 다음 명령을 실행합니다.
+* **Azure VM Resource Manager 배포 모델에서 배포된 클러스터의 경우** - Resource Manager 배포 모델에 배포된 Azure VM 클러스터의 경우 스크립트는 Azure 인증을 위한 두 가지 방법을 지원합니다. `Connect-AzureRmAccount`을 실행하여 스크립트를 실행할 때마다 Azure 계정에 로그인하거나 서비스 주체가 인증서를 사용하여 인증하도록 구성합니다. HPC 팩은 **ConfigARMAutoGrowShrinkCert.ps** 스크립트를 제공하여 인증서를 가진 서비스 주체를 만듭니다. 스크립트는 Azure AD(Azure Active Directory) 응용 프로그램 및 서비스 주체를 만들고 서비스 주체에 참가자 역할을 할당합니다. 스크립트를 실행하려면 Azure PowerShell을 관리자로 시작하고 다음 명령을 실행합니다.
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```
@@ -229,7 +229,7 @@ AzureAutoGrowShrink.ps1 -UseLastConfigurations [-ArgFile <String>] [-LogFilePref
 * **NumOfQueuedJobsToGrowThreshold** - 증가 프로세스를 시작하기 위한 큐 작업 수의 임계치입니다.
 * **NumOfActiveQueuedTasksPerNodeToGrow** - 한 개 노드를 증가하는 데 필요한 활성 큐 작업의 수입니다. **NumOfQueuedJobsPerNodeToGrow** 가 0보다 큰 값으로 지정된 경우 이 매개 변수가 무시됩니다.
 * **NumOfActiveQueuedTasksToGrowThreshold** - 증가 프로세스를 시작하기 위한 활성 큐 작업 수의 임계치입니다.
-* **NumOfInitialNodesToGrow** - 범위 내 모든 노드가 **배포되지 않음** 또는 **중지(할당 해제)**일 경우 증가할 초기의 최소 노드 수입니다.
+* **NumOfInitialNodesToGrow** - 범위 내 모든 노드가 **배포되지 않음** 또는 **중지(할당 해제)** 일 경우 증가할 초기의 최소 노드 수입니다.
 * **GrowCheckIntervalMins** - 검사 간 증가할 간격(분)입니다.
 * **ShrinkCheckIntervalMins** - 검사 간 축소할 간격(분)입니다.
 * **ShrinkCheckIdleTimes** - 노드가 유휴 상태임을 나타낼 연속적 축소 검사의 수(**ShrinkCheckIntervalMins**로 구분)입니다.

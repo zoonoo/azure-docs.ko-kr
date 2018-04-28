@@ -1,45 +1,94 @@
 ---
-title: "워크로드 관리를 위한 리소스 클래스 - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다."
+title: 워크로드 관리를 위한 리소스 클래스 - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="resource-classes-for-workload-management"></a>워크로드 관리를 위한 리소스 클래스
-Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시에 실행되는 동시 쿼리 수를 관리하는 리소스 클래스 사용 지침입니다.
+# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
+Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및 쿼리의 동시성을 관리하기 위한 지침입니다.  
  
 ## <a name="what-is-workload-management"></a>워크로드 관리란?
-워크로드 관리는 모든 쿼리의 전체 성능을 최적화하는 기능입니다. 잘 튜닝된 워크로드는 계산 집약적인지 또는 IO 사용량이 많은지에 관계없이 효율적으로 쿼리를 실행하고 작업을 로드합니다. 
+워크로드 관리는 모든 쿼리의 전체 성능을 최적화하는 기능입니다. 잘 튜닝된 워크로드는 계산 집약적인지 또는 IO 사용량이 많은지에 관계없이 효율적으로 쿼리를 실행하고 작업을 로드합니다.  SQL Data Warehouse는 다중 사용자 환경에 대한 워크로드 관리 기능을 제공합니다. 데이터 웨어하우스는 다중 테넌트 워크로드용은 아닙니다.
 
-SQL Data Warehouse는 다중 사용자 환경에 대한 워크로드 관리 기능을 제공합니다. 데이터 웨어하우스는 다중 테넌트 워크로드용은 아닙니다.
+데이터 웨어하우스의 성능 용량은 [성능 계층](memory-and-concurrency-limits.md#performance-tiers) 및 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 의해 결정됩니다. 
+
+- 모든 성능 프로필에 대한 메모리 및 동시성 제한을 보려면 [메모리 및 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
+- 성능 용량을 조정하려면 용량을 [확장 또는 축소](quickstart-scale-compute-portal.md)합니다.
+
+쿼리의 성능 용량은 쿼리의 리소스 클래스에 의해 결정됩니다. 이 문서의 나머지 부분에서는 리소스 클래스가 무언인지, 어떻게 조정하는지에 대해 설명합니다.
+
 
 ## <a name="what-are-resource-classes"></a>리소스 클래스란?
-리소스 클래스는 쿼리 실행을 제어하는 미리 지정된 리소스 제한입니다. SQL Data Warehouse는 리소스 클래스에 따라 각 쿼리에 대한 계산 리소스를 제한합니다. 
+리소스 클래스는 쿼리 실행을 위한 계산 리소스와 동시성을 관리하는, Azure SQL Data Warehouse에 미리 결정된 리소스 제한입니다. 리소스 클래스를 사용하면 동시에 실행되는 쿼리 수와 각 쿼리에 할당되는 계산 리소스에 대한 제한을 설정하여 워크로드를 관리할 수 있습니다. 메모리와 동시성 사이에는 장단점이 있습니다.
 
-리소스 클래스는 데이터 웨어하우스 워크로드의 전반적인 성능을 관리하는 데 도움이 됩니다. 리소스 클래스를 효율적으로 사용하여 동시에 실행되는 쿼리 수 및 각 쿼리에 할당되는 계산 리소스 수에 제한을 설정하여 워크로드를 관리할 수 있습니다. 
+- 리소스 클래스가 작을수록 쿼리당 최대 메모리가 줄어들고 동시성은 높아집니다.
+- 리소스 클래스가 클수록 쿼리당 최대 메모리가 증가하고 동시성은 줄어듭니다. 
 
-- 리소스 클래스가 작을수록 계산 리소스를 덜 사용하지만 전체 쿼리 동시성은 높아집니다.
-- 리소스 클래스가 클수록 더 많은 계산 리소스를 제공하지만 쿼리 동시성은 제한됩니다.
+쿼리의 성능 용량은 사용자의 리소스 클래스에 의해 결정됩니다.
 
-리소스 클래스는 데이터 관리 및 조작 작업을 위해 설계되었습니다. 또한 일부 매우 복잡한 쿼리는 큰 조인과 정렬로 인해 시스템이 디스크에 분산하지 않고 메모리에서 쿼리를 실행하는 경우 도움이 됩니다.
+- 리소스 클래스의 리소스 사용률을 보려면 [ 메모리 및 동시성 제한](memory-and-concurrency-limits.md#concurrency-maximums)을 참조하세요.
+- 리소스 클래스를 조정하려면 다른 사용자로 쿼리를 실행하거나 [현재 사용자의 리소스 클래스](#change-a-user-s-resource-class) 멤버 자격을 변경합니다. 
 
-다음은 리소스 클래스에 의해 제어되는 작업입니다.
+리소스 클래스는 리소스 소비를 측정하기 위해 동시성 슬롯을 사용합니다.  [동시성 슬롯](#concurrency-slots)은 이 문서의 뒷부분에 설명되어 있습니다. 
+
+### <a name="static-resource-classes"></a>정적 리소스 클래스
+정적 리소스 클래스는 현재 성능 수준에 관계없이 동일한 양의 메모리를 할당하며 이는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 측정됩니다. 쿼리는 성능 수준에 관계없이 동일한 메모리가 할당되므로 [데이터 웨어하우스를 확장하면](quickstart-scale-compute-portal.md) 리소스 클래스 내에서 더 많은 쿼리를 실행할 수 있습니다.
+
+정적 리소스 클래스는 다음과 같은 미리 정의된 데이터베이스 역할로 구현됩니다.
+
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
+
+이러한 리소스 클래스는 리소스 클래스를 늘려 추가 계산 리소스를 얻으려는 솔루션에 가장 적합합니다.
+
+### <a name="dynamic-resource-classes"></a>동적 리소스 클래스
+동적 리소스 클래스는 현재 서비스 수준에 따라 가변 크기의 메모리를 할당합니다. 즉, 더 큰 서비스 수준으로 확장할 경우 쿼리도 자동으로 더 많은 메모리를 얻게 됩니다. 
+
+동적 리소스 클래스는 다음과 같은 미리 정의된 데이터베이스 역할로 구현됩니다.
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc. 
+
+이러한 리소스 클래스는 계산 크기를 늘려 추가 리소스를 얻으려는 솔루션에 가장 적합합니다. 
+
+
+### <a name="default-resource-class"></a>기본 리소스 클래스
+기본적으로 각 사용자는 동적 리소스 클래스인 **smallrc**의 멤버입니다. 
+
+서비스 관리자의 리소스 클래스는 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.
+
+> [!NOTE]
+> Active Directory 관리자로 정의된 사용자 또는 그룹은 서비스 관리자이기도 합니다.
+>
+>
+
+## <a name="resource-class-operations"></a>리소스 클래스 작업
+
+리소스 클래스는 데이터 관리 및 조작 작업의 성능을 높이기 위해 설계됩니다. 복잡한 쿼리를 대규모 리소스 클래스에서 실행하면 도움이 됩니다. 예를 들어 대규모 조인 및 정렬에 대한 쿼리 성능은 쿼리를 메모리에서 실행할 수 있을 만큼 리소스 클래스가 충분히 큰 경우에 향상됩니다.
+
+### <a name="operations-governed-by-resource-classes"></a>리소스 클래스에 의해 제어되는 작업
+
+다음과 같은 작업은 리소스 클래스에 의해 제어됩니다.
 
 * INSERT-SELECT, UPDATE, DELETE
 * SELECT(사용자 테이블을 쿼리하는 경우)
@@ -56,50 +105,7 @@ SQL Data Warehouse는 다중 사용자 환경에 대한 워크로드 관리 기�
 > 
 > 
 
-## <a name="static-and-dynamic-resource-classes"></a>정적 및 동적 리소스 클래스
-
-리소스 클래스에는 두 가지 유형(동적 및 정적)이 있습니다.
-
-- **정적 리소스 클래스**는 현재 서비스 수준에 관계없이 동일한 양의 메모리를 할당하며 이는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 측정됩니다. 이 정적 할당은 더 큰 서비스 수준으로 각 리소스 클래스에서 더 많은 쿼리를 실행할 수 있음을 의미합니다.  정적 리소스 클래스의 이름은 staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70 및 staticrc80으로 지정됩니다. 이러한 리소스 클래스는 리소스 클래스를 늘려 추가 계산 리소스를 얻으려는 솔루션에 가장 적합합니다.
-
-- **동적 리소스 클래스**는 현재 서비스 수준에 따라 가변 크기의 메모리를 할당합니다. 즉, 더 큰 서비스 수준으로 확장할 경우 쿼리도 자동으로 더 많은 메모리를 얻게 됩니다. 동적 리소스 클래스의 이름은 smallrc, mediumrc, largerc 및 xlargerc로 지정됩니다. 이러한 리소스 클래스는 계산 크기를 늘려 추가 리소스를 얻으려는 솔루션에 가장 적합합니다. 
-
-[성능 계층](performance-tiers.md)은 동일한 리소스 클래스 이름을 사용하지만 [메모리 및 동시성 사양](performance-tiers.md)은 다릅니다. 
-
-
-## <a name="assigning-resource-classes"></a>리소스 클래스 할당
-
-데이터베이스 역할에 사용자를 할당하여 리소스 클래스를 구현합니다. 사용자가 쿼리를 실행하면 사용자의 리소스 클래스를 사용하여 쿼리가 실행됩니다. 예를 들어 사용자가 smallrc 또는 staticrc10 데이터베이스 역할의 구성원인 경우 해당 쿼리는 적은 양의 메모리로 실행됩니다. 데이터베이스 사용자가 xlargerc 또는 staticrc80 데이터베이스 역할의 구성원인 경우 해당 쿼리는 많은 양의 메모리로 실행됩니다. 
-
-사용자의 리소스 클래스를 늘리려면 저장 프로시저 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용합니다. 
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-리소스 클래스를 줄이려면 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)를 사용합니다.  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-```
-
-서비스 관리자의 리소스 클래스는 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.
-
-> [!NOTE]
-> Active Directory 관리자로 정의된 사용자 또는 그룹은 서비스 관리자이기도 합니다.
->
->
-
-### <a name="default-resource-class"></a>기본 리소스 클래스
-기본적으로 각 사용자는 작은 리소스 클래스인 **smallrc**의 멤버입니다. 
-
-### <a name="resource-class-precedence"></a>리소스 클래스 우선 순위
-사용자는 여러 리소스 클래스의 구성원일 수 있습니다. 사용자가 둘 이상의 리소스 클래스에 속하는 경우:
-
-- 동적 리소스 클래스가 정적 리소스 클래스보다 우선합니다. 예를 들어 사용자가 mediumrc(동적) 및 staticrc80(정적) 둘 다의 구성원인 경우 쿼리는 mediumrc를 사용하여 실행됩니다.
-- 큰 리소스 클래스가 작은 리소스 클래스보다 우선합니다. 예를 들어 사용자가 mediumrc 및 largerc의 구성원인 경우 쿼리는 largerc를 사용하여 실행됩니다. 마찬가지로 사용자가 staticrc20 및 statirc80 둘 다의 구성원인 경우 쿼리는 statirc80 리소스 할당을 사용하여 실행됩니다.
-
-### <a name="queries-exempt-from-resource-classes"></a>리소스 클래스에서 쿼리 제외
+### <a name="operations-not-governed-by-resource-classes"></a>리소스 클래스에 의해 제어되지 않는 작업
 사용자가 더 큰 리소스 클래스의 구성원인 경우에도 일부 쿼리는 항상 smallrc 리소스 클래스에서 실행됩니다. 이러한 제외 쿼리는 동시성 제한 계산에 포함되지 않습니다. 예를 들어 동시성 제한이 16인 경우 사용할 수 있는 동시성 슬롯에 영향을 주지 않고 많은 사용자가 시스템 뷰에서 선택될 수 있습니다.
 
 다음은 리소스 클래스에서 제외되고 항상 smallrc에서 실행되는 문입니다.
@@ -126,6 +132,45 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
 -->
+
+## <a name="concurrency-slots"></a>동시성 슬롯 수
+동시성 슬롯은 쿼리 실행에 사용할 수 있는 리소스를 추적하는 편리한 방법입니다. 동시성 슬롯은 콘서트의 좌석이 제한되어 있으므로 좌석을 예약하기 위해 구매하는 티켓과 같습니다. 데이터 웨어하우스 당 동시성 슬롯의 총 수는 서비스 수준에 의해 결정됩니다. 쿼리를 실행하려면 먼저 충분한 동시성 슬롯을 예약할 수 있어야 합니다. 쿼리가 완료되면 해당 동시성 슬롯을 해제합니다.  
+
+- 10개의 동시성 슬롯으로 쿼리를 실행하면 2개의 동시성 슬롯으로 쿼리를 실행하는 것보다 5배 이상의 계산 리소스에 액세스할 수 있습니다.
+- 각 쿼리에 10개의 동시성 슬롯이 필요하고 40개의 동시성 슬롯이 있는 경우에는 4개의 쿼리만 동시에 실행할 수 있습니다.
+ 
+쿼리에 사용되는 리소스만 동시성 슬롯을 사용합니다. 시스템 쿼리와 일부 간단한 쿼리는 슬롯을 소비하지 않습니다. 소비되는 동시성 슬롯의 정확한 수는 쿼리의 리소스 클래스에 의해 결정됩니다.
+
+## <a name="view-the-resource-classes"></a>리소스 클래스 보기
+
+리소스 클래스는 미리 정의된 데이터베이스 역할로 구현됩니다. 리소스 클래스에는 두 가지 유형(동적 및 정적)이 있습니다. 리소스 클래스 목록을 보려면 다음 쿼리를 사용합니다.
+
+    ```sql
+    SELECT name FROM sys.database_principals
+    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+    ```
+
+## <a name="change-a-users-resource-class"></a>사용자의 리소스 클래스 변경
+
+데이터베이스 역할에 사용자를 할당하여 리소스 클래스를 구현합니다. 사용자가 쿼리를 실행하면 사용자의 리소스 클래스를 사용하여 쿼리가 실행됩니다. 예를 들어 사용자가 smallrc 또는 staticrc10 데이터베이스 역할의 구성원인 경우 해당 쿼리는 적은 양의 메모리로 실행됩니다. 데이터베이스 사용자가 xlargerc 또는 staticrc80 데이터베이스 역할의 구성원인 경우 해당 쿼리는 많은 양의 메모리로 실행됩니다. 
+
+사용자의 리소스 클래스를 늘리려면 저장 프로시저 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용합니다. 
+
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser';
+```
+
+리소스 클래스를 줄이려면 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)를 사용합니다.  
+
+```sql
+EXEC sp_droprolemember 'largerc', 'loaduser';
+```
+
+## <a name="resource-class-precedence"></a>리소스 클래스 우선 순위
+사용자는 여러 리소스 클래스의 구성원일 수 있습니다. 사용자가 둘 이상의 리소스 클래스에 속하는 경우:
+
+- 동적 리소스 클래스가 정적 리소스 클래스보다 우선합니다. 예를 들어 사용자가 mediumrc(동적) 및 staticrc80(정적) 둘 다의 구성원인 경우 쿼리는 mediumrc를 사용하여 실행됩니다.
+- 큰 리소스 클래스가 작은 리소스 클래스보다 우선합니다. 예를 들어 사용자가 mediumrc 및 largerc의 구성원인 경우 쿼리는 largerc를 사용하여 실행됩니다. 마찬가지로 사용자가 staticrc20 및 statirc80 둘 다의 구성원인 경우 쿼리는 statirc80 리소스 할당을 사용하여 실행됩니다.
 
 ## <a name="recommendations"></a>권장 사항
 특정 유형의 쿼리 또는 로드 작업만 실행하는 사용자를 만드는 것이 좋습니다. 그러면 리소스 클래스를 자주 변경하는 대신 해당 사용자에게 영구 리소스 클래스를 제공합니다. 정적 리소스 클래스는 워크로드에서 더 광범위한 제어를 허용하므로 동적 리소스 클래스를 고려하기 전에 먼저 정적 리소스 클래스를 사용하는 것이 좋습니다.

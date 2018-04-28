@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: c32c85c560e9dfe587e79e77aa4b1262e347bed4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 831fa2b6b9afb39bff715ef54cc41e11ee903e50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>미사용 Azure Cosmos DB 데이터베이스 암호화
 
@@ -65,4 +65,4 @@ A: 에뮬레이터는 독립 실행형 개발/테스트 도구이며 관리되�
 ## <a name="next-steps"></a>다음 단계
 
 Cosmos DB 보안 및 최신 개선 사항에 대한 개요는 [Azure Cosmos DB 데이터베이스 보안](database-security.md)을 참조하세요.
-Microsoft 인증에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/en-us/support/trust-center/)를 참조하세요.
+Microsoft 인증에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.

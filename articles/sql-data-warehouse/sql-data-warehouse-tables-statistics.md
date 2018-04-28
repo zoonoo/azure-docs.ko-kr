@@ -1,43 +1,30 @@
 ---
-title: SQL Data Warehouse의 테이블에 대한 통계 관리 | Microsoft Docs
-description: Azure SQL Data Warehouse에서 테이블에 대한 통계 시작
+title: 통계 만들기 및 업데이트 - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블에 대한 통계 관리
-> [!div class="op_single_selector"]
-> * [개요][Overview]
-> * [데이터 형식][Data Types]
-> * [배포][Distribute]
-> * [인덱스][Index]
-> * [파티션][Partition]
-> * [통계][Statistics]
-> * [임시][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 테이블에서 통계 만들기 및 업데이트
+Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
 
+## <a name="why-use-statistics"></a>통계를 사용하는 이유는?
 Azure SQL Data Warehouse에서 데이터에 대해 더 많이 알수록 데이터에 대한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대한 통계를 수집하고 SQL Data Warehouse에 로드하는 것은 쿼리를 최적화하기 위해 수행할 수 있는 가장 중요한 작업 중 하나입니다. SQL Data Warehouse 쿼리 최적화 프로그램이 비용 기반 최적화 프로그램이기 때문입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 이는 대부분의 경우 가장 빠르게 실행되는 계획입니다. 예를 들어 최적화 프로그램이 쿼리에서 필터링하는 날짜가 하나의 행을 반환한다고 예측하는 경우, 선택한 날짜가 1백만 개의 행을 반환한다고 예측할 때와 다른 계획을 선택할 수 있습니다.
 
 통계를 만들고 업데이트하는 프로세스는 현재 수동 프로세스이지만 간단하게 수행할 수 있습니다.  곧 단일 열 및 인덱스에 대한 통계를 자동으로 만들고 업데이트할 수 있습니다.  다음 정보를 사용하여 데이터에 대한 통계 관리를 크게 자동화할 수 있습니다. 
 
-## <a name="getting-started-with-statistics"></a>통계 시작
+## <a name="scenarios"></a>시나리오
 모든 열에서 샘플링된 통계를 만드는 것이 시작하는 쉬운 방법입니다. 통계가 오래되면 차선의 쿼리 성능으로 이어집니다. 그러나 데이터가 증가함에 따라 모든 열에 대한 통계를 업데이트하면 메모리가 소모될 수 있습니다. 
 
 다양한 시나리오에 대한 권장 사항은 다음과 같습니다.
@@ -54,7 +41,7 @@ Azure SQL Data Warehouse에서 데이터에 대해 더 많이 알수록 데이�
 
 모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로, 값 분포는 일반적으로 변경되지 않기 때문에 고객 테이블의 국가 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 하나의 국가만 포함되어 있고 새 국가에서 데이터를 가져와서 여러 국가의 데이터가 저장되는 경우 국가 열에 대한 통계를 업데이트해야 합니다.
 
-쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"**입니다.
+쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 
 이 질문은 데이터의 기간에 따라 응답할 수 있는 질문은 아닙니다. 기본 데이터에 중대한 변경이 없는 경우 최신 통계 개체가 오래되었을 수 있습니다. 행 수가 상당히 변경되었거나 열에 대한 값의 분포에 중대한 변경이 있는 경우 *통계를 업데이트해야 하는 시간*입니다.
 
@@ -94,7 +81,7 @@ WHERE
 
 예를 들어, 일반적으로 데이터 웨어하우스의 **날짜 열**은 자주 통계 업데이트가 필요합니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다.  반대로, 고객 테이블의 성별 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 성별이 하나만 있고 새로운 요구 사항으로 인해 성별이 여러 개인 경우, 성별 열에 대한 통계를 업데이트해야 합니다.
 
-자세한 설명은 MSDN에서 [통계][Statistics]를 참조하세요.
+자세한 내용은 [통계](/sql/relational-databases/statistics/statistics)에 대한 일반 가이드를 참조하세요.
 
 ## <a name="implementing-statistics-management"></a>통계 관리 구현
 로드가 끝날 때 통계가 업데이트되도록 데이터 로드 프로세스를 확장하는 것이 좋습니다. 데이터 로드는 테이블이 값의 크기 및/또는 배포를 자주 변경하는 경우입니다. 따라서 일부 관리 프로세스를 구현할 수 있는 논리 위치입니다.
@@ -107,7 +94,7 @@ WHERE
 * 정적 배포 열은 자주 업데이트하지 않는 것이 좋습니다.
 * 각 통계 개체는 순서대로 업데이트됩니다. `UPDATE STATISTICS <TABLE_NAME>`을 구현하는 것만이 항상 이상적인 것은 아닙니다(특히 통계 개체가 많이 있는 광범위한 테이블의 경우).
 
-자세한 설명은 MSDN에서 [카디널리티 예측][Cardinality Estimation]을 참조하세요.
+자세한 내용은 [카디널리티 예측](/sql/relational-databases/performance/cardinality-estimation-sql-server)을 참조합니다.
 
 ## <a name="examples-create-statistics"></a>예제: 통계 작성
 이 예제는 통계를 만들기 위한 다양한 옵션을 사용하는 방법을 보여줍니다. 각 열에 대해 사용하는 옵션은 데이터의 특징 및 열이 쿼리에서 사용되는 방법에 따라 다릅니다.
@@ -115,7 +102,7 @@ WHERE
 ### <a name="create-single-column-statistics-with-default-options"></a>기본 옵션으로 단일 열 통계 만들기
 열에서 통계를 만들려면, 통계 개체에 대한 이름과 열 이름을 제공하면 됩니다.
 
-이 구문은 모든 기본 옵션을 사용합니다. SQL Data Warehouse는 통계를 만들 때 기본적으로 테이블의 **20%**를 샘플링합니다.
+이 구문은 모든 기본 옵션을 사용합니다. SQL Data Warehouse는 통계를 만들 때 기본적으로 테이블의 **20%** 를 샘플링합니다.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -172,7 +159,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-전체 참조의 경우 MSDN에서 [CREATE STATISTICS][CREATE STATISTICS]를 참조하세요.
+전체 참조의 경우 [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql)를 참조하세요.
 
 ### <a name="create-multi-column-statistics"></a>여러 열 통계 만들기
 여러 열 통계 개체를 만들려면 이전 예제를 사용하지만 더 많은 열을 지정하기만 하면 됩니다.
@@ -362,9 +349,9 @@ UPDATE STATISTICS dbo.table1;
 > 
 > 
 
-`UPDATE STATISTICS` 프로시저의 구현은 [임시 테이블][Temporary]을 참조하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
+`UPDATE STATISTICS` 프로시저의 구현은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
 
-전체 구문의 경우, MSDN에서 [통계 업데이트][Update Statistics]를 참조하세요.
+전체 구문의 경우, [통계 업데이트](/sql/t-sql/statements/update-statistics-transact-sql)를 참조하세요.
 
 ## <a name="statistics-metadata"></a>통계 메타데이터
 통계에 대한 정보를 찾는 데 사용할 수 있는 몇 가지 시스템 뷰 및 함수가 있습니다. 예를 들어 통계가 마지막으로 만들어지거나 업데이트된 시기를 확인하는 stats-date 함수를 사용하여 통계 개체가 오래되었는지 확인할 수 있습니다.
@@ -374,21 +361,21 @@ UPDATE STATISTICS dbo.table1;
 
 | 카탈로그 뷰 | 설명 |
 |:--- |:--- |
-| [sys.columns][sys.columns] |각 열에 대해 한 행입니다. |
-| [sys.objects][sys.objects] |데이터베이스의 각 개체에 대해 한 행입니다. |
-| [sys.schemas][sys.schemas] |데이터베이스의 각 스키마에 대해 한 행입니다. |
-| [sys.stats][sys.stats] |각 통계 개체에 대해 한 행입니다. |
-| [sys.stats_columns][sys.stats_columns] |통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
-| [sys.tables][sys.tables] |각 테이블에 대해 한 행입니다(외부 테이블 포함). |
-| [sys.table_types][sys.table_types] |각 데이터 유형에 대해 한 행입니다. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |각 열에 대해 한 행입니다. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |데이터베이스의 각 개체에 대해 한 행입니다. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |데이터베이스의 각 스키마에 대해 한 행입니다. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |각 통계 개체에 대해 한 행입니다. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |각 테이블에 대해 한 행입니다(외부 테이블 포함). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |각 데이터 유형에 대해 한 행입니다. |
 
 ### <a name="system-functions-for-statistics"></a>통계에 대한 시스템 함수
 이 시스템 함수는 통계를 작업할 때 유용합니다.
 
 | 시스템 함수 | 설명 |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |통계 개체가 마지막으로 업데이트된 날짜입니다. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |통계 개체에서 인식되는 값의 분포에 대한 요약 수준 및 세부 정보 |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |통계 개체가 마지막으로 업데이트된 날짜입니다. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |통계 개체에서 인식되는 값의 분포에 대한 요약 수준 및 세부 정보 |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>통계 열 및 함수를 하나의 보기로 결합
 이 뷰는 통계와 관련된 열 및 STATS_DATE() 함수의 결과를 모두 제공합니다.
@@ -476,37 +463,5 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL Data Warehouse에서 �
 - 2767 사용자 지정 오류는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 MSDN에서 [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS]를 참조하세요.
+쿼리 성능 추가 향상은 [작업 모니터링](sql-data-warehouse-manage-monitor.md) 참조
 
-  자세한 내용은 [테이블 개요][Overview], [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition] 및 [임시 테이블][Temporary] 문서를 참조하세요.
-  
-   모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

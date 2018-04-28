@@ -1,19 +1,19 @@
 ---
-title: "Docker 컨테이너 클러스터 배포 - Azure CLI"
-description: "Azure CLI 2.0을 사용하여 Azure Container Service에 Kubernetes, DC/OS 또는 Docker Swarm 솔루션 배포"
+title: Docker 컨테이너 클러스터 배포 - Azure CLI
+description: Azure CLI 2.0을 사용하여 Azure Container Service에 Kubernetes, DC/OS 또는 Docker Swarm 솔루션 배포
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 40d5ea0e7abce165659219db8842ab64ac75fda7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 037834fa94a4ef6ecf6ab87055ed1369a3c8f1fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Docker 컨테이너 호스팅 솔루션 배포
 
@@ -28,7 +28,7 @@ Azure CLI 2.0을 사용하여 Azure Container Service 클러스터를 만들려�
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))이 있어야 합니다.
 * [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 설정해야 합니다.
 
-## <a name="get-started"></a>시작 
+## <a name="get-started"></a>시작하기 
 ### <a name="log-in-to-your-account"></a>계정에 로그인
 ```azurecli
 az login 
@@ -38,7 +38,7 @@ az login
 
 ### <a name="set-your-azure-subscription"></a>Azure 구독 설정
 
-Azure 구독이 두 개 이상인 경우 기본 구독을 설정합니다. 예:
+Azure 구독이 두 개 이상인 경우 기본 구독을 설정합니다. 예: 
 
 ```
 az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
@@ -46,7 +46,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-모든 클러스터에 대한 리소스 그룹을 만드는 것이 좋습니다. Azure Container Service가 [사용 가능](https://azure.microsoft.com/en-us/regions/services/)한 Azure 지역을 지정합니다. 예:
+모든 클러스터에 대한 리소스 그룹을 만드는 것이 좋습니다. Azure Container Service가 [사용 가능](https://azure.microsoft.com/regions/services/)한 Azure 지역을 지정합니다. 예: 
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

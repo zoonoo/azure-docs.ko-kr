@@ -1,25 +1,25 @@
 ---
-title: "Azure Policy json 샘플 - 허용되는 Express Route 대역폭 | Microsoft Docs"
-description: "이 json 샘플 정책에서 기본 경로는 지정된 대역폭 집합을 사용해야 합니다."
+title: Azure Policy json 샘플 - 허용되는 Express Route 대역폭 | Microsoft Docs
+description: 이 json 샘플 정책에서 기본 경로는 지정된 대역폭 집합을 사용해야 합니다.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 985c7ae3a79a59e6fe20720fd8a2fe86a4f36905
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 541fc3db7dfc326178eb74e1d2b8d8fc82bbfbe6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allowed-express-route-bandwidth"></a>허용되는 Express Route 대역폭
 

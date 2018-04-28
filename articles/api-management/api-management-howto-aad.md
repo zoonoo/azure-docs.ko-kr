@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory를 사용하여 개발자 계정에 권한 부여 - Azure API Management | Microsoft Docs"
-description: "API Management에서 Azure Active Directory를 사용하여 사용자에게 권한을 부여하는 방법을 알아봅니다."
+title: Azure Active Directory를 사용하여 개발자 계정에 권한 부여 - Azure API Management | Microsoft Docs
+description: API Management에서 Azure Active Directory를 사용하여 사용자에게 권한을 부여하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/09/2018
     **만들기** 창이 오른쪽에 나타납니다. 여기에 Azure AD 앱 관련 정보를 입력합니다.
 17. 응용 프로그램의 이름을 입력합니다.
 18. 응용 프로그램 형식에서 **웹앱/API**를 선택합니다.
-19. 로그온 URL에서 개발자 포털의 로그온 URL을 입력합니다. 이 예제에서 로그온 URL은 https://apimwithaad.portal.azure-api.net/signin입니다.
+19. 로그온 URL에서 개발자 포털의 로그온 URL을 입력합니다. 이 예제에서 로그인 URL은 https://apimwithaad.portal.azure-api.net/signin입니다.
 20. **만들기**를 선택하여 응용 프로그램을 만듭니다.
 21. 앱을 찾으려면 **앱 등록**을 선택하고 이름으로 검색합니다.
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 02/09/2018
 
     **허용된 테넌트** 섹션에서 여러 도메인을 지정할 수 있습니다. 사용자가 응용 프로그램이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 응용 프로그램에 권한을 부여해야 합니다. 사용 권한을 부여하려면 전역 관리자는 다음을 수행해야 합니다.
     
-    a. `https://<URL of your developer portal>/aadadminconsent`로 이동합니다(예: https://contoso.portal.azure-api.net/aadadminconsent).
+    a. `https://<URL of your developer portal>/aadadminconsent`(예: https://contoso.portal.azure-api.net/aadadminconsent)로 이동합니다.
     
     나. 액세스 권한을 부여하려는 Azure AD 테넌트의 도메인 이름을 입력합니다.
     

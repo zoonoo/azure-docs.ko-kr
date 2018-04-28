@@ -12,30 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/19/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: f73f6599f24c0748862ba3a2f1384246841e7e8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기
+# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기
 
 *적용 대상: Azure 스택 시스템 통합*
 
-Azure 스택에서 Windows Server 2016 가상 컴퓨터를 만드는 PowerShell을 사용 하 여이 가이드 정보입니다. VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 실행할 수 있습니다. 
+Azure 스택에서 Windows Server 2016 가상 컴퓨터를 만드는 PowerShell을 사용 하 여이 가이드 정보입니다. VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 스택 연산자 Azure 스택 마켓플레이스에 "Windows Server 2016" 이미지에 추가 되었는지 확인 합니다.  
+* Azure 스택 연산자 Azure 스택 마켓플레이스에 "Windows Server 2016" 이미지에 추가 되었는지 확인 합니다.
 
-* Azure 스택 특정 버전의 Azure PowerShell을 만들고 관리 하는 리소스를 필요 합니다. Azure 스택에 대해 구성 된 PowerShell를 설정 하지 않은 경우의 단계에 따라 [설치](azure-stack-powershell-install.md) 및 [구성](azure-stack-powershell-configure-user.md) PowerShell 합니다.    
+* Azure 스택 특정 버전의 Azure PowerShell을 만들고 관리 하는 리소스를 필요 합니다. Azure 스택에 대해 구성 된 PowerShell를 설정 하지 않은 경우의 단계에 따라 [설치](azure-stack-powershell-install.md) 및 [구성](azure-stack-powershell-configure-user.md) PowerShell 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 리소스는 Azure 스택에 배포 되 고 관리 하는 논리 컨테이너입니다. 개발 키트 또는 Azure 스택 통합 시스템에서 리소스 그룹을 만들려면 다음 코드 블록을 실행 합니다. 이 문서에서 모든 변수에 대 한 값을 할당할 것, 되었거나 다른 값을 할당할 그대로 사용할 수 있습니다.  
+리소스 그룹은 리소스는 Azure 스택에 배포 되 고 관리 하는 논리 컨테이너입니다. 개발 키트 또는 Azure 스택 통합 시스템에서 리소스 그룹을 만들려면 다음 코드 블록을 실행 합니다. 이 문서에서 모든 변수의 값이 할당 됩니다, 그리고 이러한 값을 사용 하거나 새 값을 할당할 수 있습니다.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -47,7 +47,7 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>저장소 리소스 만들기 
+## <a name="create-storage-resources"></a>저장소 리소스 만들기
 
 저장소 계정 및 Windows Server 2016 이미지를 저장할 저장소 컨테이너를 만듭니다.
 
@@ -76,7 +76,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>네트워킹 리소스 만들기
 
-가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 컴퓨터에 네트워크 연결을 제공 하는 데 사용 됩니다.  
+가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 컴퓨터에 네트워크 연결을 제공 하는 데 사용 됩니다.
 
 ```powershell
 # Create a subnet configuration
@@ -135,9 +135,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name myNetworkSecurityGroup `
-  -SecurityRules $nsgRuleRDP,$nsgRuleWeb 
+  -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
- 
+
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 머신에 대한 네트워크 카드 만들기
 
 네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 머신을 연결합니다.
@@ -150,12 +150,12 @@ $nic = New-AzureRmNetworkInterface `
   -Location $location `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
-  -NetworkSecurityGroupId $nsg.Id 
+  -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-가상 머신 구성을 만듭니다. 구성에 가상 컴퓨터 이미지, 크기, 자격 증명 등 가상 컴퓨터를 배포할 때 사용 되는 설정을 포함 합니다.
+가상 머신 구성을 만듭니다. 이 구성은 가상 컴퓨터를 배포할 때 사용 되는 설정을 포함 합니다. 예: 자격 증명, 크기 및 가상 컴퓨터 이미지입니다.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -168,13 +168,13 @@ $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig `
   -VMName $VmName `
-  -VMSize $VmSize 
+  -VMSize $VmSize
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem `
   -VM $VirtualMachine `
   -Windows `
   -ComputerName "MainComputer" `
-  -Credential $Credential 
+  -Credential $Credential
 
 $VirtualMachine = Set-AzureRmVMSourceImage `
   -VM $VirtualMachine `
@@ -189,13 +189,13 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a virtual machine. 
+# Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
   -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
-  Add-AzureRmVMNetworkInterface -Id $nic.Id 
+  Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Create the virtual machine.
 New-AzureRmVM `
@@ -206,13 +206,13 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
-이전 단계에서 만든 가상 컴퓨터에 원격으로 하려면 해당 공용 IP 주소가 필요 합니다. 가상 컴퓨터의 공용 IP 주소를 얻기 위해 다음 명령을 실행 합니다. 
+이전 단계에서 만든 가상 컴퓨터에 원격으로 하려면 해당 공용 IP 주소가 필요 합니다. 가상 컴퓨터의 공용 IP 주소를 얻기 위해 다음 명령을 실행 합니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
- 
+
 다음 명령을 사용 하 여 가상 컴퓨터와 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 머신의 publicIPAddress로 바꿉니다. 대화 상자가 나타나면 사용자 이름 및 가상 컴퓨터를 만들 때 사용한 암호를 입력 합니다.
 
 ```powershell
@@ -229,10 +229,9 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS 시작 페이지 보기
 
-IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 IIS 시작 페이지를 볼 수 있습니다. 위에 설명한 *publicIpAddress*를 사용하여 기본 페이지를 방문해야 합니다. 
+IIS를 설치한 및 포트 80이 VM에 열려 있는 기본 IIS 시작 페이지를 보려면 사용자가 선택한 웹 브라우저를 사용할 수 있습니다. 사용 하 여는 *publicIpAddress* 기본 페이지를 방문 하 여 이전 섹션에서 설명 합니다.
 
-![IIS 기본 사이트](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png) 
-
+![IIS 기본 사이트](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-virtual-machine"></a>가상 머신 삭제
 
@@ -246,4 +245,3 @@ Remove-AzureRmResourceGroup `
 ## <a name="next-steps"></a>다음 단계
 
 이 퀵 스타트의 간단한 Windows 가상 컴퓨터를 배포한 합니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.
-

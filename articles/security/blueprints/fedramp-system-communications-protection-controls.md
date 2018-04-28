@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 통신 보호"
-description: "FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 통신 보호"
+title: Azure Security and Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 통신 보호
+description: FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 통신 보호
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>시스템 및 통신 보호(SC)
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **고객** | 이 청사진은 Application Gateway,부하 분산 장치를 배포하고, 네트워크 보안 그룹 규칙을 구성하여 경계 외부 및 내부 서브넷 간 통신을 제어합니다. Application Gateway, Load Balancer 및 네트워크 보안 그룹 이벤트와 진단 로그는 고개 모니터링을 위해 OMS Log Analytics에서 수집됩니다. |
+| **고객** | 이 청사진은 Application Gateway, 부하 분산 장치를 배포하고, 네트워크 보안 그룹 규칙을 구성하여 경계 외부 및 내부 서브넷 간 통신을 제어합니다. Application Gateway, Load Balancer 및 네트워크 보안 그룹 이벤트와 진단 로그는 고개 모니터링을 위해 Log Analytics에서 수집됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 

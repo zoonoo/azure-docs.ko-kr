@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store 성능 조정 지침 | Microsoft Docs"
-description: "Azure Data Lake Store 성능 조정 지침"
+title: Azure Data Lake Store 성능 조정 지침 | Microsoft Docs
+description: Azure Data Lake Store 성능 조정 지침
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store의 성능 조정
 
@@ -42,7 +42,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Azure Data Lake Store에 대한 네트워크 연결
 
-원본 데이터와 Azure Data Lake Store 간의 네트워크 연결에서 병목 상태가 발생하는 경우도 있습니다. 원본 데이터가 온-프레미스인 경우 [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/)와 함께 전용 링크를 사용하는 것이 좋습니다. 원본 데이터가 Azure에 있는 경우 데이터가 Data Lake Store와 동일한 Azure 지역에 있을 때 성능이 가장 좋습니다.
+원본 데이터와 Azure Data Lake Store 간의 네트워크 연결에서 병목 상태가 발생하는 경우도 있습니다. 원본 데이터가 온-프레미스인 경우 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)와 함께 전용 링크를 사용하는 것이 좋습니다. 원본 데이터가 Azure에 있는 경우 데이터가 Data Lake Store와 동일한 Azure 지역에 있을 때 성능이 가장 좋습니다.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>최대 병렬 처리를 위해 데이터 수집 도구 구성
 

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 7800c2e72b1bfd78f83bf7b90a35e47f6109a014
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c9c4cb42e6bf9f60c883242fad6963f72b772063
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -40,7 +40,7 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 | Go | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
-자세한 내용은 [Linux의 App Service에서 Java 웹앱 만들기](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java)를 참조하세요.
+자세한 내용은 [Linux의 App Service에서 Java 웹앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-java)를 참조하세요.
 
 ## <a name="deployments"></a>배포
 

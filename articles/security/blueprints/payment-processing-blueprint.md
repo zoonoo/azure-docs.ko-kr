@@ -1,6 +1,6 @@
 ---
-title: "Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경"
-description: "Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경"
+title: Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
+description: Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
 
@@ -120,7 +120,7 @@ Edna Benson은 리셉셔니스트이자 비즈니스 관리자입니다. 고객 
 >- Application Gateway
 >- Azure Active Directory
 >- App Service Environment v2
->- OMS Log Analytics
+>- Log Analytics
 >- Azure Key Vault
 >- 네트워크 보안 그룹
 >- Azure SQL DB
@@ -173,7 +173,7 @@ Edna Benson은 리셉셔니스트이자 비즈니스 관리자입니다. 고객 
 
 각 NSG에는 안전하고 정확한 솔루션 작업을 위해 열린 특정 포트와 프로토콜이 있습니다. 또한 각 NSG에 대해 다음과 같은 구성을 사용합니다.
 - 활성화된 [진단 로그 및 이벤트](/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 저장 
-- [NSG의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결된 OMS Log Analytics
+- [NSG의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결된 Log Analytics
 
 #### <a name="subnets"></a>서브넷
  각 서브넷이 해당 NSG에 연결되어야 합니다.
@@ -203,12 +203,12 @@ Azure SQL Database 인스턴스는 다음 데이터베이스 보안 조치를 �
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
-[OMS(Operations Management Suite)](/azure/operations-management-suite/)는 Contoso Webstore에 카드 소유자 데이터 로깅을 포함하여 모든 시스템 및 사용자 활동에 대한 광범위한 로깅을 제공할 수 있습니다. 변경 내용이 정확한지 검토 및 확인할 수 있습니다. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics)는 Contoso Webstore에 카드 소유자 데이터 로깅을 포함하여 모든 시스템 및 사용자 활동에 대한 광범위한 로깅을 제공할 수 있습니다. 변경을 검토하고 정확도를 확인할 수 있습니다. 
 
 - **활동 로그:** [활동 로그](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다.
 - **진단 로그:** [진단 로그](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그입니다.   이러한 로그는 Windows 이벤트 시스템 로그, Azure Blob Storage, 테이블 및 큐 로그를 포함합니다.
 - **방화벽 로그:** Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF가 활성화된 Application Gateway 리소스에 사용할 수 있습니다.
-- **로그 보관:** 모든 진단 로그는 보관을 위해 중앙 및 암호화된 Azure Storage 계정에 기록하도록 구성되며 정의된 보존 기간(2일)이 있습니다. 그런 다음 로그는 처리, 저장, 대시보드 작업을 위해 Azure Log Analytics에 연결됩니다. [Log Analytics](https://azure.microsoft.com/services/log-analytics)는 클라우드 및 온-프레미스 환경의 리소스로 생성된 데이터를 수집 및 분석할 수 있게 하는 OMS 서비스입니다.
+- **로그 보관:** 모든 진단 로그는 보관을 위해 중앙 및 암호화된 Azure Storage 계정에 기록하도록 구성되며 정의된 보존 기간(2일)이 있습니다. 그런 다음 로그는 처리, 저장, 대시보드 작업을 위해 Azure Log Analytics에 연결됩니다. [Log Analytics](https://azure.microsoft.com/services/log-analytics)는 클라우드 및 온-프레미스 환경의 리소스로 생성된 데이터를 수집 및 분석할 수 있게 하는 Log Analytics 서비스입니다.
 
 ### <a name="encryption-and-secrets-management"></a>암호화 및 비밀 관리
 
@@ -224,7 +224,7 @@ Contoso Webstore 모든 신용 카드 데이터를 암호화하며 Azure Key Vau
 - [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. SQL Database에 액세스하는 사용자를 포함하여 모든 솔루션 사용자가 Azure Active Directory에서 만들어졌습니다.
 - 응용 프로그램에 대한 인증은 Azure AD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 또한 데이터베이스 열 암호화도 Azure AD를 사용하여 Azure SQL Database에 대해 응용 프로그램을 인증합니다.  자세한 내용은 [Always Encrypted: SQL Database에서 중요 데이터 보호](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요. 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 미치는 잠재적인 취약점을 검색하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 대처를 구성하며, 의심스러운 사건을 조사하고, 그 해결을 위해 적합한 조치를 취합니다.
-- [Azure RBAC(Role-based Access Control)](/azure/active-directory/role-based-access-control-configure)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 Azure Key Vault 액세스는 모든 사용자로 제한됩니다.
+- [Azure RBAC(Role-based Access Control)](/azure/role-based-access-control/role-assignments-portal)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 Azure Key Vault 액세스는 모든 사용자로 제한됩니다.
 
 Azure SQL Database의 보안 기능 사용에 대한 자세한 내용은 [Contoso Clinic 데모 응용 프로그램](https://github.com/Microsoft/azure-sql-security-sample) 샘플을 참조하세요.
    
@@ -278,11 +278,11 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 클라우드 및 온-프레미스 환경의 리소스로 생성된 데이터를 수집 및 분석할 수 있게 하는 OMS(Operations Management Suite) 서비스입니다.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 클라우드 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집 및 분석하도록 도와주는 Azure의 서비스입니다.
 
-#### <a name="oms-solutions"></a>OMS 솔루션
+#### <a name="management-solutions"></a>관리 솔루션
 
-이러한 추가 OMS 솔루션을 고려하고 구성해야 합니다.
+이러한 추가 관리 솔루션을 고려하고 구성해야 합니다.
 - [활동 로그 분석](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,9 +338,9 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
     
     자세한 사용 지침은 [스크립트 지침 - Azure Resources 배포 및 구성](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)을 참조하세요.
     
-3. OMS 로깅 및 모니터링. 솔루션을 배포한 후에는 [Microsoft OMS(Operations Management Suite)](/azure/operations-management-suite/operations-management-suite-overview) 작업 영역을 열 수 있고, 솔루션 저장소에서 제공한 샘플 템플릿을 사용하여 모니터링 대시보드의 구성 방법을 설명할 수 있습니다. 샘플 OMS 템플릿은 [omsDashboards 폴더](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)를 참조하세요. 템플릿을 올바르게 배포하려면 OMS에 데이터를 수집해야 합니다. 사이트 작업에 따라 최대 1시간 이상 걸릴 수 있습니다.
+3. 로깅 및 모니터링. 솔루션을 배포한 후에는 Log Analytics 작업 영역을 열 수 있고, 솔루션 저장소에서 제공한 샘플 템플릿을 사용하여 모니터링 대시보드의 구성 방법을 설명할 수 있습니다. 샘플 템플릿은 [omsDashboards 폴더](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)를 참조하세요. 템플릿을 올바르게 배포하려면 Log Analytics에 데이터를 수집해야 합니다. 사이트 작업에 따라 최대 1시간 이상 걸릴 수 있습니다.
  
-    OMS 로깅을 설정할 때 이러한 리소스를 포함하는 것이 좋습니다.
+    Log Analytics 로깅을 설정할 때 이러한 리소스를 포함하는 것이 좋습니다.
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

@@ -8,21 +8,22 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine으로 할 수 있는 10가지 일
+# <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
-Microsoft DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및 모델링 작업을 수행할 수 있는 강력한 데이터 과학 개발 환경입니다. 이 환경에는 온-프레미스, 클라우드 또는 하이브리드 배포에 대한 간편하고 신속하게 분석을 시작할 수 있는 여러 대중적인 분석 도구가 기본적으로 내장되고 번들로 제공됩니다. DSVM은 여러 Azure 서비스와 긴밀하게 연동하며 Azure의 Azure SQL Data Warehouse, Azure Data Lake, Azure Storage 또는 Azure Cosmos DB에 저장된 데이터를 읽고 처리할 수 있습니다. 또한 Azure Machine Learning 및 Azure Data Factory와 같은 기타 분석 도구를 활용할 수 있습니다.
+Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및 모델링 작업을 수행할 수 있는 강력한 데이터 과학 개발 환경입니다. 이 환경에는 온-프레미스, 클라우드 또는 하이브리드 배포에 대한 간편하고 신속하게 분석을 시작할 수 있는 여러 대중적인 분석 도구가 기본적으로 내장되고 번들로 제공됩니다. DSVM은 여러 Azure 서비스와 긴밀하게 연동하며 Azure의 Azure SQL Data Warehouse, Azure Data Lake, Azure Storage 또는 Azure Cosmos DB에 저장된 데이터를 읽고 처리할 수 있습니다. 또한 Azure Machine Learning 및 Azure Data Factory와 같은 기타 분석 도구를 활용할 수 있습니다.
 
 이 문서에서는 DSVM을 사용하여 다양한 데이터 과학 작업을 수행하고 다른 Azure 서비스와 상호 작용하는 방법을 배울 수 있습니다. 다음은 DSVM에서 수행할 수 있는 작업 중 일부입니다.
 
@@ -207,7 +208,7 @@ Azure 구독 및 클라우드 리소스를 관리하려는 경우 브라우저�
 Azure Powershell을 사용하여 Azure 파일 서비스 공유를 만들 수 있습니다. 다음은 Azure PowerShell에서 실행하여 Azure 파일 서비스 공유를 만들 수 있는 스크립트입니다.
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.
@@ -296,7 +297,7 @@ Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storag
 Azure Storage 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
 * 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![Storage 탐색기에서 업로드](./media/vm-do-ten-things/storage-accounts.png)
-* **파일** 상자 오른쪽의 **...**을 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![Blob에 파일 업로드](./media/vm-do-ten-things/upload-files-to-blob.png)
+* **파일** 상자 오른쪽의 **...** 을 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![Blob에 파일 업로드](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Azure Blob에서 데이터 읽기: Machine Learning 판독기 모듈**
 
@@ -379,7 +380,7 @@ Azure Machine Learning Studio에서 **데이터 가져오기 모듈**을 사용�
 
 ![저장소 계정 및 키 입력](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-Visual Studio에서 Blob Storage의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob Storage에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://**를 사용합니다.
+Visual Studio에서 Blob Storage의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob Storage에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://** 를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://** 를 사용합니다.
 
 ![데이터 프레임](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

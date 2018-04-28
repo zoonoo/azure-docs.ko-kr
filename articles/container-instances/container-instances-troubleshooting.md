@@ -3,17 +3,17 @@ title: Azure Container Instances 문제 해결
 description: Azure Container Instances 관련 문제 해결 방법 알아보기
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ac7ddbccdef736bce941716883cf821a0f5c1f34
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4067db9955b804f126e889fa73641f69fef56ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 및 배포 문제 해결
 

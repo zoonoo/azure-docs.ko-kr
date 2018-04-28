@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb37ce7e61796494be0a9282afdc620b0ca5886a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Device Provisioning 서비스를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법
 
@@ -58,7 +58,7 @@ Microsoft는 서명된 확인 인증서를 만들 수 있는 도구 및 샘플�
 
 - **Azure IoT Hub C SDK**는 확인 코드를 사용하여 CA 및 리프 인증서를 만들고 소유 증명을 수행하기 위해 PowerShell(Windows) 및 Bash(Linux) 스크립트를 제공합니다. 작업 폴더에 시스템과 관련된 [파일](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)을 다운로드하고 [CA 인증서 관리 추가 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 의 지침에 따라 CA 인증서에서 소유 증명을 수행할 수 있습니다. 
 - **Azure IoT Hub C# SDK**에는 [그룹 인증서 확인 샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample)이 포함됩니다. 이 기능은 소유 증명을 수행하는 데 사용할 수 있습니다.
-- IoT Hub 설명서의 [CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates)의 단계를 수행할 수 있습니다. 특히, [X.509 CA 인증서의 소유권 증명](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode)이라는 섹션에 언급된 스크립트를 수행합니다.
+- IoT Hub 설명서의 [CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates)의 단계를 수행할 수 있습니다. 특히, [X.509 CA 인증서의 소유권 증명](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode)이라는 섹션에 언급된 스크립트를 수행합니다.
  
 > [!IMPORTANT]
 > 소유 증명을 수행하는 것 외에도 이전에 언급된 PowerShell 및 Bash 스크립트를 통해 장치를 인증하고 프로비전하는 데 사용할 수 있는 루트 인증서, 중간 인증서 및 리프 인증서를 만들 수 있습니다. 이러한 인증서는 개발 용도로만 사용되어야 합니다. 프로덕션 환경에서 사용되지 않아야 합니다. 
@@ -70,7 +70,7 @@ Microsoft는 서명된 확인 인증서를 만들 수 있는 도구 및 샘플�
 
 1. 결과로 생성된 서명을 포털에서 프로비전 서비스에 확인 인증서로 업로드합니다. Azure Portal의 **인증서 세부 정보**에서 **확인 인증서 .pem 또는 .cer 파일** 필드 옆에 있는 _파일 탐색기_ 아이콘을 사용하여 시스템에서 서명된 인증서를 업로드합니다.
 
-2. 인증서 업로드가 완료되면 **확인**을 클릭합니다. **인증서 탐색기** 목록에서 인증서의 **상태**가 **_확인됨_**으로 변경됩니다. 자동으로 업데이트되지 않으면 **새로 고침**을 클릭하십시오.
+2. 인증서 업로드가 완료되면 **확인**을 클릭합니다. **인증서 탐색기** 목록에서 인증서의 **상태**가 **_확인됨_** 으로 변경됩니다. 자동으로 업데이트되지 않으면 **새로 고침**을 클릭하십시오.
 
    ![인증서 업로드 확인](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

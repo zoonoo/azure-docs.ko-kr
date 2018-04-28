@@ -1,35 +1,4 @@
-- name: 관리 서비스 ID(사용자 할당)
-  href: msi-overview.md
+- name: VM MSI를 사용하여 Azure Storage에 액세스
   items:
-    - name: Azure VM에 대한 MSI 구성
-      items:
-        - name: Azure CLI 사용
-          href: msi-qs-configure-cli-windows-vm.md
-        - name: Azure SDK 사용
-          href: msi-qs-configure-sdk-windows-vm.md
-    - name: Resource Manager에 대한 MSI 액세스 권한 부여
-      items:
-        - name: Azure CLI 사용
-          href: msi-howto-assign-access-cli.md
-    - name: VM MSI 사용 방법
-      items:
-        - name: 액세스 토큰 획득
-          href: msi-how-to-use-vm-msi-token.md
-        - name: Azure CLI에 로그인
-          href: msi-how-to-use-vm-msi-sign-in.md
-        - name: Azure SDK와 함께 사용
-          href: msi-how-to-use-vm-msi-sdk.md
-    - name: VM MSI를 사용하여 Azure Resource Manager에 액세스
-      items:
-        - name: Linux VM에서
-          href: msi-tutorial-linux-vm-access-arm.md
-    - name: VM MSI를 사용하여 Azure Cosmos DB에 액세스
-      items:
-        - name: Linux VM에서
-          href: msi-tutorial-linux-vm-access-cosmosdb.md
-    - name: VM MSI를 사용하여 Azure Storage에 액세스
-      items:
-        - name: 액세스 키를 사용하는 Linux VM에서
-          href: msi-tutorial-linux-vm-access-storage.md
-    - name: FAQ 및 알려진 문제
-      href: msi-known-issues.md
+    - name: 액세스 키를 사용하는 Linux VM에서
+      href: msi-tutorial-linux-vm-access-storage.md

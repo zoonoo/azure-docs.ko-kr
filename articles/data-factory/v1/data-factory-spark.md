@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory에서 Spark 프로그램 호출 | Microsoft Docs"
-description: "MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법을 알아봅니다."
+title: Azure Data Factory에서 Spark 프로그램 호출 | Microsoft Docs
+description: MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -59,7 +59,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 2. [HDInsight에서 Spark 클러스터 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)의 지침에 따라 HDInsight에서 Spark 클러스터를 만듭니다. 1단계에서 만든 저장소 계정을 이 클러스터와 연결합니다.
 
-3. [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py)에 있는 **test.py** Python 스크립트 파일을 다운로드하여 검토합니다.
+3. [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py)에 있는 Python 스크립트 파일 **test.py**를 다운로드하고 검토합니다.
 
 4. Blob 저장소의 **adfspark** 컨테이너에 있는 **test.py**를 **pyFiles** 폴더로 업로드합니다. 컨테이너와 폴더가 없으면 만듭니다.
 
@@ -84,7 +84,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 7. **만들기**를 선택합니다.
 
    > [!IMPORTANT]
-   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
+   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
 
 8. Azure Portal의 대시보드에서 만들어질 때 데이터 팩터리가 표시됩니다.
 
@@ -336,26 +336,26 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 | rootPath | Spark 파일이 포함된 Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. | 예 |
 | entryFilePath | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. | 예 |
 | className | 응용 프로그램의 Java/Spark main 클래스입니다. | 아니오 |
-| arguments | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니요 |
-| proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 아니요 |
-| sparkConfig | [Spark 구성: 응용 프로그램 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 아니요 |
+| arguments | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니오 |
+| proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 아니오 |
+| sparkConfig | [Spark 구성: 응용 프로그램 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 아니오 |
 | getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 저장소에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 아니요 |
-| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Storage 연결된 서비스입니다. 이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. | 아니요 |
+| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Storage 연결된 서비스입니다. 이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. | 아니오 |
 
 ## <a name="folder-structure"></a>폴더 구조
 Pig 및 Hive 작업에서 수행하는 것처럼 Spark 작업은 인라인 스크립트를 지원하지 않습니다. Spark 작업은 Pig/Hive 작업보다 확장성이 뛰어납니다. Spark 작업의 경우 jar 패키지(java CLASSPATH에 배치), Python 파일(PYTHONPATH에 배치) 및 기타 파일과 같은 여러 종속성을 제공할 수 있습니다.
 
 HDInsight 연결된 서비스에서 참조하는 Blob 저장소에 다음 폴더 구조를 만듭니다. 그런 다음 **entryFilePath**로 표시된 루트 폴더의 해당 하위 폴더에 종속 파일을 업로드합니다. 예를 들어 Python 파일은 루트 폴더의 pyFiles 하위 폴더에 업로드하고, jar 파일은 jars 하위 폴더에 업로드합니다. 런타임 시, Data Factory 서비스에 필요한 Blob 저장소의 폴더 구조는 다음과 같습니다. 
 
-| path | 설명 | 필수 | 형식 |
+| path | 설명 | 필수 | type |
 | ---- | ----------- | -------- | ---- |
 | 에서도 확인할 수 있습니다. | 저장소 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |
-| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 아니요 | 폴더 |
+| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 아니오 | 폴더 |
 | ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 아니요 | 폴더 |
-| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 아니요 | 폴더 |
-| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니요 | 폴더 |
-| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니요 | 폴더 |
+| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 아니오 | 폴더 |
+| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니오 | 폴더 |
+| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니오 | 폴더 |
 
 HDInsight 연결된 서비스에서 참조하는 Blob 저장소에 있는 두 개의 Spark 작업 파일이 포함된 저장소에 대한 예제는 다음과 같습니다.
 

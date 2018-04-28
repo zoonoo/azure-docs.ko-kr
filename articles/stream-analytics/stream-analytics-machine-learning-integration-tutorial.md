@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행
 이 문서에서는 Azure Machine Learning을 통합하는 간단한 Azure Stream Analytics 작업을 신속하게 설정하는 방법을 설명합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2018
 * 포럼, 블로그 및 동영상에 대한 의견 평가 
 * 기타 실시간 예측 점수 매기기 시나리오
 
-실제 시나리오에서는 Twitter 데이터 스트림에서 직접 데이터를 가져옵니다. 자습서를 단순화하기 Stream Analytics 작업이 Azure Blob Storage에서 CSV 파일의 트윗을 가져오도록 작성했습니다. 고유한 CSV 파일을 만들거나 다음 이미지에 나와 있는 것처럼 샘플 CSV 파일을 사용할 수 있습니다.
+실제 시나리오에서는 Twitter 데이터 스트림에서 직접 데이터를 가져옵니다. 자습서를 간소화하기 Stream Analytics 작업이 Azure Blob Storage에서 CSV 파일의 트윗을 가져오도록 작성했습니다. 고유한 CSV 파일을 만들거나 다음 이미지에 나와 있는 것처럼 샘플 CSV 파일을 사용할 수 있습니다.
 
 ![CSV 파일에서 샘플 트윗](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/06/2018
 
    |필드  |값  |
    |---------|---------|
-   |**출력 별칭** | 이름 `datainput`을 사용하고 **구독에서 Blob 저장소 선택**을 선택합니다.       |
+   |**출력 별칭** | 이름 `datamloutput`을 사용하고 **구독에서 Blob 저장소 선택**을 선택합니다.       |
    |**Storage 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
@@ -180,7 +180,7 @@ ms.lasthandoff: 04/06/2018
 
    |필드  |값  |
    |---------|---------|
-   | **함수 별칭** | 이름 `sentiment`를 사용하여 **Azure Machine Learning 함수 설정을 수동으로 제공합니다.**를 선택합니다. 그러면 URL 및 키를 입력하기 위한 옵션이 제공됩니다.      |
+   | **함수 별칭** | 이름 `sentiment`를 사용하여 **Azure Machine Learning 함수 설정을 수동으로 제공합니다.** 를 선택합니다. 그러면 URL 및 키를 입력하기 위한 옵션이 제공됩니다.      |
    | **URL**| 웹 서비스 URL을 붙여넣습니다.|
    |**키** | API 키를 붙여넣습니다. |
   
@@ -200,12 +200,13 @@ Stream Analytics는 선언적인 SQL 기반 쿼리를 사용하여 입력을 검
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     쿼리는 입력의 트윗에 대한 감정 분석을 수행하기 위해 앞에서 만든 함수를 호출합니다(`sentiment`). 

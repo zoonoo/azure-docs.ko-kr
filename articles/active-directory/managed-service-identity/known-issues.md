@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>추가 기능에 대한 비공개 미리 보기를 사용할 수 있나요?
+### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>향후 MSI 기능 및 통합에 사용할 수 있는 비공개 미리 보기 프로그램이 있나요?
 
-예. 비공개 미리 보기에 등록하고 싶은 경우 [등록 페이지를 방문](https://aka.ms/azuremsiprivatepreview)하세요.
+예. 비공개 미리 보기 프로그램 등록에 대해 알아보려면 [등록 페이지를 방문](https://aka.ms/azuremsiprivatepreview)하세요.
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Azure Cloud Services와 함께 MSI를 사용할 수 있나요?
 
@@ -42,10 +42,24 @@ ms.lasthandoff: 03/16/2018
 
 ID의 보안 경계는 연결되는 리소스입니다. 예를 들어 가상 머신 MSI에 대한 보안 경계는 가상 머신입니다. 해당 VM에서 실행되는 모든 코드는 MSI 끝점 및 요청 토큰을 호출할 수 있습니다. MSI를 지원하는 다른 리소스와 비슷한 환경입니다.
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>MSI VM IMDS 엔드포인트 또는 MSI VM 확장 엔드포인트를 사용해야 하나요?
+
+VM에 MSI를 사용할 경우 MSI IMDS 엔드포인트를 사용하는 것이 좋습니다. Azure Instance Metadata Service는 Azure Resource Manager를 통해 생성된 모든 IaaS VM에 액세스할 수 있는 REST 끝점입니다. IMDS에 MSI를 사용할 경우 몇 가지 이점은 다음과 같습니다.
+
+1. 모든 Azure IaaS 지원 운영 체제는 IMDS에 MSI를 사용할 수 있습니다. 
+2. 이제 MSI를 사용하기 위해 VM에 확장을 설치하지 않아도 됩니다. 
+3. MSI에서 사용하는 인증서는 이제 VM에 존재하지 않습니다. 
+4. IMDS 엔드포인트는 잘 알려진 라우팅 불가능 IP 주소로, VM 내에서만 사용할 수 있습니다. 
+
+MSI VM 확장은 현재 사용이 가능하지만 앞으로 IMDS 엔드포인트 사용을 기본으로 할 계획에 있습니다. MSI VM 확장은 곧 사용 중단이 시작될 것입니다. 
+
+Azure Instance Metada Service에 대한 자세한 내용은 [IMDS 설명서](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)를 참조하세요.
+
 ### <a name="what-are-the-supported-linux-distributions"></a>지원되는 Linux 배포는 무엇입니까?
 
-다음 Linux 배포판이 MSI를 지원합니다. 
+Azure IaaS에서 지원되는 모든 Linux 배포를 IMDS 엔드포인트를 통해 MSI에 사용할 수 있습니다. 
 
+참고: MSI VM 확장은 다음 Linux 배포만 지원합니다.
 - CoreOS Stable
 - CentOS 7.1
 - RedHat 7.2
@@ -85,7 +99,7 @@ VM에 VM 구성 블레이드가 표시되지 않는 경우 해당 지역의 Port
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>액세스 제어(IAM) 블레이드에서 가상 머신 액세스 권한을 할당할 수 없음
 
-Azure Portal의 **액세스 제어(IAM)** > **권한 추가**에서 **다음에 대한 액세스 할당:**의 선택 항목으로 **Virtual Machine**이 표시되지 않는 경우 해당 지역의 Portal에서 관리 서비스 ID가 아직 사용하도록 설정되지 않은 것입니다. 나중에 다시 확인하세요.  MSI의 서비스 주체를 검색하여 역할 할당용으로 관리 서비스 ID를 선택할 수는 있습니다.  **선택** 필드에 VM 이름을 입력하면 서비스 주체가 검색 결과에 표시됩니다.
+Azure Portal의 **액세스 제어(IAM)** > **권한 추가**에서 **다음에 대한 액세스 할당:** 의 선택 항목으로 **Virtual Machine**이 표시되지 않는 경우 해당 지역의 Portal에서 관리 서비스 ID가 아직 사용하도록 설정되지 않은 것입니다. 나중에 다시 확인하세요.  MSI의 서비스 주체를 검색하여 역할 할당용으로 관리 서비스 ID를 선택할 수는 있습니다.  **선택** 필드에 VM 이름을 입력하면 서비스 주체가 검색 결과에 표시됩니다.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM이 리소스 그룹 또는 구독에서 이동한 후 시작되지 않음
 

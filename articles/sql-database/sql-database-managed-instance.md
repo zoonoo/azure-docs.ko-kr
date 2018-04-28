@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
@@ -42,8 +42,6 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 |Azure SQL Database(단일 또는 풀) |**탄력적 풀**: 새 SaaS 다중 테넌트 응용 프로그램을 개발 중이거나 기존 온-프레미스 앱을 의도적으로 SaaS 다중 테넌트 앱으로 전환하려는 고객에게는 탄력적 풀을 제안합니다. 이 모델의 장점은 다음과 같습니다. <br><ul><li>비즈니스 모델을 라이선스 판매에서 서비스 구독 판매로 전환(ISV의 경우)</li></ul><ul><li>간편하고 완벽한 테넌트 격리</li></ul><ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul><ul><li>하드 한도에 도달하지 않고 규모 확장할 수 있는 가능성</li></ul>**단일 데이터베이스**: SaaS 다중 테넌트 이외의 새 앱을 개발 중이고 워크로드가 안정적이고 예측 가능한 고객에게는 단일 데이터베이스를 제안합니다. 이 모델의 장점은 다음과 같습니다.<ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul>  <ul><li>각 데이터베이스의 예측 가능한 성능</li></ul>|
 |SQL IaaS 가상 머신|운영 체제 또는 데이터베이스 서버를 사용자 지정해야 하는 고객 그리고 타사 앱을 SQL Server와 함께(같은 VM에서) 실행해야 하는 고객에게는 최적의 솔루션으로 SQL VM/IaaS를 제안합니다.|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>관리되는 인스턴스를 프로그래밍 방식으로 식별하는 방법
 
@@ -131,7 +129,7 @@ vCore 기반 구매 모델은 유연성, 제어, 투명성 및 온-프레미스 
 
 관리되는 인스턴스는 Azure 클라우드의 다른 테넌트와 추가로 격리되는 보안을 제공합니다. 보안 격리에는 다음이 포함됩니다. 
 
-- Azure Express Route 또는 VPN Gateway를 사용한 네이티브 가상 네트워크 구현 및 온-프레미스 환경 연결 
+- Azure ExpressRoute 또는 VPN Gateway를 사용하여 [네이티브 가상 네트워크 구현](sql-database-managed-instance-vnet-configuration.md) 및 온-프레미스 환경에 연결 
 - SQL 엔드포인트가 개인 IP 주소를 통해서만 노출되므로 개인 Azure 또는 하이브리드 네트워크에서 안전하게 연결
 - 전용 기본 인프라(계산, 저장소)를 제공하는 단일 테넌트
 
@@ -185,7 +183,13 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 
 ### <a name="backup-and-restore"></a>Backup 및 복원  
 
-마이그레이션 방식에서는 Azure blob 저장소에 SQL을 백업합니다. Azure 저장소 blob에 저장된 백업을 관리되는 인스턴스에 바로 복원할 수 있습니다. 
+마이그레이션 방식에서는 Azure blob 저장소에 SQL을 백업합니다. Azure 저장소 blob에 저장된 백업을 관리되는 인스턴스에 바로 복원할 수 있습니다. 기존 SQL 데이터베이스를 관리되는 인스턴스로 복원하려면 다음을 수행하면 됩니다.
+
+- [DMS(데이터 마이그레이션 서비스)](/sql/dma/dma-overview)를 사용합니다. 데이터베이스 백업 파일에서 복원하는 방법을 보여 주는 자습서는 [DMS(Azure Database Migration Service)를 사용하여 관리되는 인스턴스로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+- [T-SQL RESTORE 명령](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql)을 사용합니다. 
+  - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여 주는 자습서는 [관리되는 인스턴스에 백업 파일 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요. 이 자습서에서는 백업 파일을 Azure Blob 저장소에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여 줍니다.
+  - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](sql-database-managed-instance-migrate.md#native-restore-from-url)을 참조하세요.
+- [BACPAC 파일에서 가져오기](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>지원되는 SQL 기능 
 
@@ -217,5 +221,6 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 ## <a name="next-steps"></a>다음 단계
 
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.
-- 백업 파일에서 관리되는 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 자습서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
+- VNet 구성에 대한 자세한 내용은 [관리되는 인스턴스 VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
+- 백업 파일에서 관리되는 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 자습서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 - Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 관리되는 인스턴스 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.

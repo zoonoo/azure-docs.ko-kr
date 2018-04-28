@@ -1,19 +1,19 @@
 ---
-title: "Azure DC/OS 클러스터의 컨테이너 부하 분산"
-description: "Azure Container Service DC/OS 클러스터에 있는 여러 컨테이너에 대해 부하를 분산합니다."
+title: Azure DC/OS 클러스터의 컨테이너 부하 분산
+description: Azure Container Service DC/OS 클러스터에 있는 여러 컨테이너에 대해 부하를 분산합니다.
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 6f5467d0fbcc577a548f1100ed6e4d380fe38759
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 62967636a4d80f72f731a666947d5d4d5e47f7e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
 
@@ -36,7 +36,7 @@ Azure Container Service DC/OS 클러스터에는 두 개의 부하 분산 계층
 
 **Azure Load Balancer**는 공용 진입점(최종 사용자가 액세스하는)을 제공합니다. Azure LB는 Azure Container Service에서 자동으로 제공하며 기본적으로 포트 80, 443 및 8080을 노출하도록 구성됩니다.
 
-**Marathon Load Balancer(marathon-lb)**는 요청을 서비스하는 컨테이너 인스턴스로 인바운드 요청을 라우팅합니다. 웹 서비스를 제공하는 컨테이너를 확장하면 marathon-lb는 동적으로 조정됩니다. 이 부하 분산 장치는 Container Service에 기본적으로 제공되지 않지만 쉽게 설치할 수 있습니다.
+**Marathon Load Balancer(marathon-lb)** 는 요청을 서비스하는 컨테이너 인스턴스로 인바운드 요청을 라우팅합니다. 웹 서비스를 제공하는 컨테이너를 확장하면 marathon-lb는 동적으로 조정됩니다. 이 부하 분산 장치는 Container Service에 기본적으로 제공되지 않지만 쉽게 설치할 수 있습니다.
 
 ## <a name="configure-marathon-load-balancer"></a>Marathon Load Balancer 구성
 

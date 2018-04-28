@@ -1,11 +1,11 @@
 ---
-title: "사용에 대 한 테 넌 트를 추가 하 고 Azure 스택에 청구 | Microsoft Docs"
-description: "필요한 단계는 클라우드 서비스 공급자가 관리 하는 Azure 스택에 최종 사용자를 추가 합니다."
+title: 사용에 대 한 테 넌 트를 추가 하 고 Azure 스택에 청구 | Microsoft Docs
+description: 필요한 단계는 클라우드 서비스 공급자가 관리 하는 Azure 스택에 최종 사용자를 추가 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용에 대 한 테 넌 트를 추가 하 고 Azure 스택에 청구
 
@@ -58,7 +58,7 @@ Csp는 종종 Azure 스택 배포에서 여러 고객 (테 넌 트)에 서비스
 > 이 단계를 수행 하려면 있어야 [Azure 스택 등록](azure-stack-register.md)합니다.
 
 1. 관리자 권한 프롬프트를 통한 Windows PowerShell을 열고 실행 합니다.  
-    `Login-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Azure 자격 증명을 입력 합니다.
 3. PowerShell 세션에서 다음을 실행 합니다.
 

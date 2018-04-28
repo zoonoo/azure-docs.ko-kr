@@ -5,37 +5,57 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.
 
-## <a name="supported-scenarios"></a>지원되는 시나리오
+## <a name="replication-scenario"></a>복제 시나리오
 
 **시나리오** | **세부 정보**
 --- | ---
-VMware VM | Azure에 온-프레미스 VMware VM 재해 복구를 수행할 수 있습니다. Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.
-물리적 서버 | Azure에 온-프레미스 Windows/Linux 물리적 서버 재해 복구를 수행할 수 있습니다. Azure Portal에서 이 시나리오를 배포할 수 있습니다.
+VMware VM | 온-프레미스 VMware VM을 Azure로 복제. Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.
+물리적 서버 | 온-프레미스 Windows/Linux 실제 서버를 Azure로 복제. Azure Portal에서 이 시나리오를 배포할 수 있습니다.
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
 **서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 또는 5.5 또는 vSphere 6.5, 6.0 또는 5.5 | vCenter Server를 사용하는 것이 좋습니다.
+VMware | vCenter Server 6.5, 6.0 또는 5.5 또는 vSphere 6.5, 6.0 또는 5.5 | vCenter Server를 사용하는 것이 좋습니다.<br/><br/> vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버 구성 요소는 구성 서버에서 실행되므로 전용 프로세스 서버를 설정하지 않으면, 구성 서버를 설정한 네트워크가 여기에 해당합니다. 
 물리적 | 해당 없음
 
+## <a name="site-recovery-configuration-server"></a>Site Recovery 구성 서버
+
+구성 서버는 구성 서버, 프로세스 서버 및 마스터 대상 서버를 포함하여 Site Recovery 구성 요소를 실행하는 온-프레미스 컴퓨터입니다. VMware 복제의 경우 모든 요구 사항에 따라 구성 서버를 설정하고, OVF 템플릿을 사용하여 VMware VM을 만듭니다. 물리적 서버 복제의 경우 구성 서버 컴퓨터를 수동으로 설정합니다.
+
+**구성 요소** | **요구 사항**
+--- |---
+CPU 코어 | 8 
+RAM | 12GB
+디스크 수 | 3개의 디스크<br/><br/> 디스크에는 OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브(장애 복구용)가 포함됩니다.
+사용 가능한 디스크 공간 | 프로세스 서버 캐시에 600GB의 공간이 필요합니다.
+사용 가능한 디스크 공간 | 보존 드라이브에 600GB의 공간이 필요합니다.
+운영 체제  | Windows Server 2012 R2 또는 Windows Server 2016 | 
+운영 체제 로케일 | 미국 영어(en-us) 
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")을 설치해야 합니다.
+Windows Server 역할 | 다음을 사용하지 않음 <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V |
+그룹 정책| 다음을 사용하지 않음 <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | 다음을 확인합니다.<br/><br/> - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/앱 없음<br>
+NIC 유형 | VMXNET3(VMware VM으로 배포될 경우) 
+IP 주소 유형 | 공용 
+포트 | 컨트롤 채널 오케스트레이션에 443 사용<br>데이터 전송에 9443 사용
 
 ## <a name="replicated-machines"></a>복제된 컴퓨터
 
-다음 표에는 VMware VM 및 물리적 서버에 대한 복제 지원이 요약되어 있습니다. Site Recovery는 지원되는 운영 체제가 있는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다.
+Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다.
 
 **구성 요소** | **세부 정보**
 --- | ---
@@ -129,16 +149,16 @@ Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Vi
 게스트/서버 VMDK | 예
 게스트/서버 EFI/UEFI| 부분(Windows Server 2012 이상 VMware 가상 머신에서만 Azure로 마이그레이션) </br></br> 표 끝에 있는 메모를 참조하세요.
 게스트/서버 공유 클러스터 디스크 | 아니오
-게스트/서버 암호화된 디스크 | 아니요
-게스트/서버 NFS | 아니오
+게스트/서버 암호화된 디스크 | 아니오
+게스트/서버 NFS | 아니요
 게스트/서버 SMB 3.0 | 아니요
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
 4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br><br/>논리 볼륨 관리(LVM)| 예
-게스트/서버 - 저장소 공간 | 아니요
-게스트/서버 디스크 핫 추가/제거 | 아니요
+게스트/서버 - 저장소 공간 | 아니오
+게스트/서버 디스크 핫 추가/제거 | 아니오
 게스트/서버 - 디스크 제외 | 예
 게스트/서버 다중 경로(MPIO) | 해당 없음
 
@@ -159,11 +179,11 @@ Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Vi
 읽기 액세스 지역 중복 저장소 | 예
 쿨 저장소 | 아니오
 핫 저장소| 아니오
-블록 Blob | 아니요
+블록 Blob | 아니오
 휴지 상태의 암호화(Storage 서비스 암호화)| 예
 Premium Storage | 예
-Import/Export 서비스 | 아니요
-Virtual Network 서비스 엔드포인트<br/><br/> 저장소 방화벽 및 대상 저장소/캐시 저장소 계정에 구성된 Virtual Network(복제 데이터 저장에 사용) | 아니요
+Import/Export 서비스 | 아니오
+Virtual Network 서비스 엔드포인트<br/><br/> 저장소 방화벽 및 대상 저장소/캐시 저장소 계정에 구성된 Virtual Network(복제 데이터 저장에 사용) | 아니오
 범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니오
 
 ## <a name="azure-compute"></a>Azure Compute
@@ -198,7 +218,7 @@ VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으�
 **작업** | **지원됨**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요
 
 
 ## <a name="mobility-service"></a>Mobility Service

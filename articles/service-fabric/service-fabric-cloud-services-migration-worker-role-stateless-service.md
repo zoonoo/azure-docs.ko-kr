@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services 앱을 마이크로 서비스로 변환 | Microsoft Docs"
-description: "이 가이드에서는 Cloud Services에서 서비스 패브릭으로 마이그레이션할 수 있도록 Cloud Services 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다."
+title: Azure Cloud Services 앱을 마이크로 서비스로 변환 | Microsoft Docs
+description: 이 가이드에서는 Cloud Services에서 서비스 패브릭으로 마이그레이션할 수 있도록 Cloud Services 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
 이 문서에서는 Cloud Services 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 마이그레이션하는 방법을 설명합니다. Cloud Services에서 전반적인 아키텍처를 대략적으로 동일하게 유지하는 응용 프로그램에 대한 서비스 패브릭으로의 가장 간단한 마이그레이션 경로입니다.
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/24/2018
 
 | **응용 프로그램** | **지원됨** | **마이그레이션 경로** |
 | --- | --- | --- |
-| ASP.NET 웹 양식 |아니요 |ASP.NET Core 1 MVC로 변환 |
+| ASP.NET 웹 양식 |아니오 |ASP.NET Core 1 MVC로 변환 |
 | ASP.NET MVC |마이그레이션 사용 |ASP.NET Core 1 MVC로 업그레이드 |
 | ASP.NET Web API |마이그레이션 사용 |자체 호스팅된 서버 또는 ASP.NET Core 1 사용 |
 | ASP.NET Core 1 |예 |해당 없음 |
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>시작 작업
 시작 작업은 응용 프로그램이 시작되기 전에 수행되는 작업입니다. 시작 작업은 상승된 권한을 사용하여 설치 스크립트를 실행하는 데 일반적으로 사용됩니다. Cloud Services와 서비스 패브릭은 시작 작업을 지원합니다. 주요 차이점은 Cloud Services에서 시작 작업은 역할 인스턴스의 일부이므로 VM에 연결되는 반면 서비스 패브릭에서 시작 작업은 특정 VM에 연결되지 않은 서비스에 연결된다는 점입니다.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | 구성 위치 |ServiceDefinition.csdef |
 | 권한 |"제한된" 또는 "상승된" |

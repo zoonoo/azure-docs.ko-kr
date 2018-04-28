@@ -12,15 +12,13 @@ ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
@@ -31,7 +29,7 @@ Azure HDInsight Tools for Visual Studio Code(VS Code)를 사용하여 Hive 배�
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
-- HDInsight 클러스터.  클러스터를 만들려면 [HDInsight 시작]( hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+- HDInsight 클러스터. 클러스터를 만들려면 [HDInsight 시작]( hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono는 Linux 및 macOS에만 필요합니다.
 
@@ -102,7 +100,7 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
     - PySpark 배치 스크립트 제출
     - 구성 설정
 
-**클러스터를 연결하려면**
+<a id="linkcluster"></a>**클러스터를 연결하려면**
 
 Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
 1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a cluster**를 입력합니다.
@@ -114,7 +112,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
    ![클러스터 연결 대화 상자](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 사용자 이름 및 암호를 사용합니다. 
+   > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 사용자 이름 및 암호가 사용됩니다. 
    
 3. **List cluster** 명령을 사용하여 연결된 클러스터를 볼 수 있습니다. 이제 연결된 클러스터에 스크립트를 제출할 수 있습니다.
 
@@ -235,7 +233,7 @@ HDInsight Tools for VS Code를 사용하면 HDInsight 대화형 쿼리 클러스
    ![Python 작업 결과 제출](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
 8. 이 도구는 **SQL 절** 쿼리도 지원합니다.
 
-   ![Python 결과 작업 제출](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 쿼리를 실행할 때 제출 상태가 아래쪽 상태 표시줄의 왼쪽에 표시됩니다. 상태가 **PySpark 커널(작업 중)**이면 다른 쿼리를 제출하지 마세요. 
+   ![Python 결과 작업 제출](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 쿼리를 실행할 때 제출 상태가 아래쪽 상태 표시줄의 왼쪽에 표시됩니다. 상태가 **PySpark 커널(작업 중)** 이면 다른 쿼리를 제출하지 마세요. 
 
 >[!NOTE]
 >클러스터는 세션 정보를 유지할 수 있습니다. 정의된 변수, 함수 및 해당 값은 세션에 유지되므로 동일한 클러스터에 대한 여러 서비스 호출에서 참조될 수 있습니다. 
@@ -277,8 +275,50 @@ HDInsight Tools for VS Code를 사용하면 HDInsight 대화형 쿼리 클러스
 
 Python 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나타납니다. **Spark UI URL** 및 **Yarn UI URL**도 표시됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
-
+>[!NOTE]
+>PySpark3은 Livy 0.4에서 더 이상 지원되지 않습니다(HDI spark 2.2 클러스터). Python에 대해 “PySpark”만 지원됩니다. python3을 사용하여 spark 2.2 전송 실패는 알려진 문제입니다.
    
+## <a name="livy-configuration"></a>Livy 구성
+Livy 구성은 지원되며, 작업 영역 폴더의 프로젝트 설정에서 설정될 수 있습니다. 자세한 내용은 [Livy 추가 정보](https://github.com/cloudera/livy/blob/master/README.rst )를 참조하세요.
+
++ 프로젝트 설정:
+
+    ![Livy 구성](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ 지원되는 Livy 구성:   
+
+    **POST/일괄 처리**   
+    요청 본문
+
+    | 이름 | description | 형식 | 
+    | :- | :- | :- | 
+    | file | 실행할 응용 프로그램을 포함하는 파일 | 경로(필수) | 
+    | proxyUser | 작업을 실행할 때 가장하는 사용자 | string | 
+    | className | 응용 프로그램 Java/Spark 주 클래스 | string |
+    | args | 응용 프로그램에 대한 명령줄 인수 | 문자열 목록 | 
+    | ./jars | 이 세션에 사용할 jars | 문자열 목록 | 
+    | pyFiles | 이 세션에 사용할 Python 파일 | 문자열 목록 |
+    | 업로드 | 이 세션에 사용할 파일 | 문자열 목록 |
+    | driverMemory | 드라이버 프로세스에 사용할 메모리의 양 | string |
+    | driverCores | 드라이버 프로세스에 사용할 코어 수 | int |
+    | executorMemory | 실행기 프로세스당 사용할 메모리의 양 | string |
+    | executorCores | 각 실행기에 사용할 코어 수 | int |
+    | numExecutors | 이 세션에 대해 시작할 실행기 수 | int |
+    | 아카이브 | 이 세션에 사용할 아카이브 | 문자열 목록 |
+    | 큐 | 제출되는 YARN 큐의 이름 | string |
+    | 이름 | 이 세션의 이름 | string |
+    | conf | Spark 구성 속성 | key=val의 맵 |
+
+    응답 본문   
+    만든 일괄 처리 개체입니다.
+
+    | 이름 | description | 형식 | 
+    | :- | :- | :- | 
+    | id | 세션 ID | int | 
+    | appId | 이 세션의 응용 프로그램 ID |  문자열 |
+    | appInfo | 자세한 응용 프로그램 정보 | key=val의 맵 |
+    | 로그 | 로그 줄 | 문자열 목록 |
+    | state |   일괄 처리 상태 | string |
 
 
 ## <a name="additional-features"></a>추가 기능

@@ -1,26 +1,22 @@
 ---
-title: 도메인에 가입된 HDInsight에서 Hive 정책 구성 - Azure | Microsoft Docs
+title: 도메인에 가입된 HDInsight에서 Hive 정책 구성 - Azure
 description: 유용한 정보
 services: hdinsight
-documentationcenter: ''
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/25/2016
-ms.author: saurinsh
-ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>도메인에 가입된 HDInsight에서 Hive 정책 구성
 Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.

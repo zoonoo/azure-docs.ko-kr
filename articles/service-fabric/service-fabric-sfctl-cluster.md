@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl cluster | Microsoft Docs
-description: "Service Fabric CLI sfctl cluster 명령을 설명합니다."
+description: Service Fabric CLI sfctl cluster 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -68,7 +68,7 @@ Service Fabric 클러스터의 상태를 가져옵니다. 상태에 따라 클�
 | --debug                        | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                      | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                    | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                    기본값: json.|
-| --query                        | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                        | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose                      | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-cluster-manifest"></a>sfctl 클러스터 매니페스트
@@ -89,7 +89,7 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 | --debug  | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h| 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query  | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query  | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose| 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
@@ -111,7 +111,7 @@ Service Fabric 클러스터의 코드 또는 구성 패키지의 유효성을 �
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h  | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o| 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose  | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
@@ -138,7 +138,7 @@ Service Fabric 클러스터 끝점에 연결합니다.
 | --debug           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h         | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o       | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query           | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query           | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 | --verbose         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
@@ -159,7 +159,7 @@ Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전�
 |--debug         | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
  |   --help -h       | 이 도움말 메시지 및 종료를 표시합니다.|
  |   --output -o     | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
- |   --query         | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+ |   --query         | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
  |   --verbose       | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 
@@ -197,7 +197,7 @@ Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 �
 |--debug                               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 |    --help -h                             | 이 도움말 메시지 및 종료를 표시합니다.|
 |    --output -o                           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv. 기본값: json.|
-|    --query                               | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+|    --query                               | JMESPath 쿼리 문자열. 자세한 내용과 예제는 http://jmespath.org/를 참조하세요.|
 |    --verbose                             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계

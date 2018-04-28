@@ -1,30 +1,26 @@
 ---
-title: "테이블 디자인 소개 - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 테이블 디자인을 소개합니다."
+title: 테이블 디자인 - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse의 테이블 디자인을 소개합니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d299ff0d8e719040d503852af6056d9d87738b7d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인 소개
+# <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인
 
 Azure SQL Data Warehouse의 테이블 디자인에 대한 주요 개념을 알아봅니다. 
 
-## <a name="determining-table-category"></a>테이블 범주 확인 
+## <a name="determine-table-category"></a>테이블 범주 확인 
 
 [스타 스키마](https://en.wikipedia.org/wiki/Star_schema)는 데이터를 팩트 및 차원 테이블로 구성합니다. 일부 테이블은 팩트 또는 차원 테이블로 이동하기 전의 통합 또는 준비 데이터에 사용됩니다. 테이블을 디자인할 때 테이블 데이터가 팩트, 차원 또는 통합 테이블에 속하는지를 결정합니다. 이 결정은 적절한 테이블 구조 및 배포를 알려줍니다. 
 
@@ -46,7 +42,7 @@ CREATE SCHEMA wwi;
 SQL Data Warehouse의 테이블 구성을 표시하려면 fact, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표는 WideWorldImportersDW의 일부 스키마 및 테이블 이름을 보여 줍니다. SQL Server의 이름과 SQL Data Warehouse의 이름을 비교합니다. 
 
 | WideWorldImportersDW 테이블  | 테이블 형식 | SQL Server | SQL Data Warehouse |
-|:-----|:-----|:------|
+|:-----|:-----|:------|:-----|
 | City | 차원 | Dimension.City | wwi.DimCity |
 | 순서 | 팩트 | Fact.Order | wwi.FactOrder |
 
@@ -70,7 +66,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE AS SELECT 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 SQL Data Warehouse로 가져옵니다. 따라서 외부 테이블은 데이터 로드에 유용합니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
 
 ## <a name="data-types"></a>데이터 형식
-SQL Data Warehouse는 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)을 참조하세요. 데이터 형식의 크기를 최소화하면 쿼리 성능 향상에 도움이 됩니다. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
+SQL Data Warehouse는 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)을 참조하세요. 데이터 형식의 크기를 최소화하면 쿼리 성능 향상에 도움이 됩니다. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
 
 ## <a name="distributed-tables"></a>분산 테이블
 SQL Data Warehouse의 기본 기능은 60개의 [분산](massively-parallel-processing-mpp-architecture.md#distributions)에 걸쳐 있는 테이블에 저장하고 운영할 수 있는 방법입니다.  테이블은 라운드 로빈, 해시 또는 복제 방법을 사용하여 분산됩니다.
@@ -106,7 +102,7 @@ SQL Data Warehouse의 기본 기능은 60개의 [분산](massively-parallel-proc
 ## <a name="columnstore-indexes"></a>Columnstore 인덱스
 기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 저장소는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 저장소 구조인 경우도 있습니다.
 
-columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
+columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-whats-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 
 ## <a name="statistics"></a>통계
 쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 쿼리 성능을 향상하려면 개별 열, 특히 쿼리 조인에 사용되는 열에 대한 통계를 만드는 것이 중요합니다. 통계 생성 및 업데이트는 자동으로 수행되지 않습니다. 테이블을 만든 후 [통계를 생성](/sql/t-sql/statements/create-statistics-transact-sql)합니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
@@ -143,7 +139,7 @@ SQL Data Warehouse는 다른 데이터베이스에서 제공하는 테이블 기
 - [사용자 정의 형식](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>테이블 크기 쿼리
-60개의 각 배포에서 한 테이블에 사용되는 공간과 행을 식별하는 한 가지 간단한 방법은 [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED]를 사용하는 것입니다.
+60개의 각 배포에서 한 테이블에 사용되는 공간 및 행을 식별하는 한 가지 간단한 방법은 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql)를 사용하는 것입니다.
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -342,4 +338,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>다음 단계
-데이터 웨어하우스에 대한 테이블을 만든 후 다음 단계는 테이블에 데이터를 로드하는 것입니다.  로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
+데이터 웨어하우스에 대한 테이블을 만든 후 다음 단계는 테이블에 데이터를 로드하는 것입니다.  로드에 대한 자습서는 [SQL Data Warehouse에 데이터 로드](load-data-wideworldimportersdw.md)를 참조하세요.

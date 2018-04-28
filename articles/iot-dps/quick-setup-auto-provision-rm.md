@@ -12,21 +12,21 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8fc014efab898bf0ab3d8cd5eaa83dce53ee275b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bb27cca9e976ff8433793ef378cc6a43449d4bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
 
-[Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)를 사용하여 장치를 프로비전하는 데 필요한 Azure 클라우드 리소스를 프로그래밍 방식으로 설정할 수 있습니다. 이 단계에서는 IoT 허브, 새 IoT Hub Device Provisioning 서비스를 만들고 Azure Resource Manager 템플릿을 사용하여 두 서비스를 서로 연결하는 방법을 보여줍니다. 이 빠른 시작에서는 [Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli)을 사용하여 리소스 그룹을 만들고 템플릿을 배포하는 데 필요한 프로그래밍 단계를 수행하지만, [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby 또는 다른 프로그래밍 언어를 사용하여 이러한 단계를 간편하게 수행하고 템플릿을 배포할 수 있습니다. 
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하여 장치를 프로비전하는 데 필요한 Azure 클라우드 리소스를 프로그래밍 방식으로 설정할 수 있습니다. 이 단계에서는 IoT 허브, 새 IoT Hub Device Provisioning 서비스를 만들고 Azure Resource Manager 템플릿을 사용하여 두 서비스를 서로 연결하는 방법을 보여줍니다. 이 빠른 시작에서는 [Azure CLI 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)을 사용하여 리소스 그룹을 만들고 템플릿을 배포하는 데 필요한 프로그래밍 단계를 수행하지만, [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby 또는 다른 프로그래밍 언어를 사용하여 이러한 단계를 간편하게 수행하고 템플릿을 배포할 수 있습니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- 이 빠른 시작에서는 Azure CLI를 로컬에서 실행해야 합니다. Azure CLI 버전 2.0 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 참조하세요.
+- 이 빠른 시작에서는 Azure CLI를 로컬에서 실행해야 합니다. Azure CLI 버전 2.0 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Azure에 로그인하여 리소스 그룹 만들기
@@ -116,7 +116,7 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
 
    ```
 
-4. IoT 허브를 만들려면 **resources** 컬렉션에 다음 줄을 추가합니다. JSON은 IoT Hub를 만드는 데 필요한 최소 속성을 지정합니다. **name** 및 **location** 속성은 매개 변수로 전달됩니다. 템플릿에서 IoT Hub에 대해 지정할 수 있는 속성에 대해 자세히 알아보려면 [Microsoft.Devices/IotHubs 템플릿 참조](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothubs)를 참조하세요.
+4. IoT 허브를 만들려면 **resources** 컬렉션에 다음 줄을 추가합니다. JSON은 IoT Hub를 만드는 데 필요한 최소 속성을 지정합니다. **name** 및 **location** 속성은 매개 변수로 전달됩니다. 템플릿에서 IoT Hub에 대해 지정할 수 있는 속성에 대해 자세히 알아보려면 [Microsoft.Devices/IotHubs 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs)를 참조하세요.
 
    ```json
         {
@@ -136,9 +136,9 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
 
    ``` 
 
-5. 프로비전 서비스를 만들려면 **resources** 컬렉션의 IoT 허브 사양 뒤에 다음 줄을 추가합니다. 프로비전 서비스의 **name** 및 **location**은 매개 변수로 전달됩니다. **iotHubs** 컬렉션에 프로비전 서비스에 연결할 IoT 허브를 지정합니다. 최소한, 연결된 IoT 허브마다 **connectionString** 및 **location** 속성을 지정해야 합니다. IoT 허브마다 **allocationWeight** 및 **applyAllocationPolicy**와 같은 속성을 설정할 수 있을 뿐만 아니라 프로비전 서비스 자체에 **allocationPolicy** 및 **authorizationPolicies**와 같은 속성을 설정할 수 있습니다. 자세히 알아보려면 [Microsoft.Devices/provisioningServices 템플릿 참조](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/provisioningservices)를 참조하세요.
+5. 프로비전 서비스를 만들려면 **resources** 컬렉션의 IoT 허브 사양 뒤에 다음 줄을 추가합니다. 프로비전 서비스의 **name** 및 **location**은 매개 변수로 전달됩니다. **iotHubs** 컬렉션에 프로비전 서비스에 연결할 IoT 허브를 지정합니다. 최소한, 연결된 IoT 허브마다 **connectionString** 및 **location** 속성을 지정해야 합니다. IoT 허브마다 **allocationWeight** 및 **applyAllocationPolicy**와 같은 속성을 설정할 수 있을 뿐만 아니라 프로비전 서비스 자체에 **allocationPolicy** 및 **authorizationPolicies**와 같은 속성을 설정할 수 있습니다. 자세히 알아보려면 [Microsoft.Devices/provisioningServices 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices)를 참조하세요.
 
-   **dependsOn** 속성은 Resource Manager가 프로비전 서비스를 만들기 전에 IoT 허브를 만들도록 하는 데 사용됩니다. 템플릿에 허브와 해당 키가 먼저 생성되도록 프로비전 서비스에 대한 링크를 지정하는 IoT 허브의 연결 문자열이 필요합니다. 템플릿은 **concat** 및 **listKeys**와 같은 함수를 사용하여 연결 문자열을 만듭니다. 자세히 알아보려면 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions)를 참조하세요.
+   **dependsOn** 속성은 Resource Manager가 프로비전 서비스를 만들기 전에 IoT 허브를 만들도록 하는 데 사용됩니다. 템플릿에 허브와 해당 키가 먼저 생성되도록 프로비전 서비스에 대한 링크를 지정하는 IoT 허브의 연결 문자열이 필요합니다. 템플릿은 **concat** 및 **listKeys**와 같은 함수를 사용하여 연결 문자열을 만듭니다. 자세히 알아보려면 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)를 참조하세요.
 
    ```json
         {
@@ -301,7 +301,7 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
 
 다음 Azure CLI 명령을 사용하여 템플릿을 배포하고 배포를 확인합니다.
 
-1. 템플릿을 배포하려면 다음 [명령을 실행하여 배포를 시작](https://docs.microsoft.com/en-us/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create)합니다.
+1. 템플릿을 배포하려면 다음 [명령을 실행하여 배포를 시작](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create)합니다.
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
    ![프로비전 출력](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열하고](https://docs.microsoft.com/en-us/cli/azure/resource?view=azure-cli-latest#az_resource_list) 출력에서 새 프로비전 서비스 및 IoT 허브를 찾습니다.
+2. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열하고](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) 출력에서 새 프로비전 서비스 및 IoT 허브를 찾습니다.
 
     ```azurecli
      az resource list -g {your resource group name}

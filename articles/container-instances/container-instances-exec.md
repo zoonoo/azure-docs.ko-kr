@@ -3,16 +3,16 @@ title: Azure Container Instances에서 실행 중인 컨테이너에서 명령 �
 description: Azure Container Instances에서 현재 실행 중인 컨테이너에서 명령을 실행하는 방법에 대해 알아봅니다.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: marsma
-ms.openlocfilehash: 539c1dadf74923e255e1d07e6010290d52665290
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 43211f620efb16cbcd722d3d386b1bb862fc6280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
 

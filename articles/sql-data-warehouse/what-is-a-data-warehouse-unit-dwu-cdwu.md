@@ -1,27 +1,23 @@
 ---
-title: Azure SQL Data Warehouse에서 데이터 웨어하우스 단위(DWU, cDWU)란? | Microsoft Docs
-description: Azure SQL Data Warehouse의 성능 확장 기능입니다. DWU, cDWU를 조정하여 규모를 확장하거나 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다.
+title: Azure SQL Data Warehouse의 데이터 웨어하우스 단위(DWU, cDWU) | Microsoft Docs
+description: 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)
-Azure SQL Data Warehouse의 DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)에 대해 설명합니다. 이상적인 데이터 웨어하우스 단위 수를 선택하기 위한 권장 사항 및 데이터 웨어하우스 단위 수를 변경하는 방법도 설명합니다. 
+가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법 
 
 ## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 단위란?
 SQL Data Warehouse CPU, 메모리 및 IO는 DWU(데이터 웨어하우스 단위)라는 계산 크기 단위로 함께 제공됩니다. DWU는 계산 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경하면 시스템에 할당된 DWU 수를 변경하여 시스템의 성능과 비용이 조정됩니다. 
@@ -32,12 +28,33 @@ SQL Data Warehouse CPU, 메모리 및 IO는 DWU(데이터 웨어하우스 단위
 
 - 표준 데이터 웨어하우징 쿼리가 대량의 행을 검색한 후 복잡한 집계를 수행하는 속도. 이 작업은 I/O 및 CPU를 많이 사용합니다.
 - 데이터 웨어하우스가 Azure Storage Blob 또는 Azure Data Lake에서 데이터를 수집하는 속도. 이 작업은 네트워크 및 CPU를 많이 사용합니다. 
-- [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 명령이 테이블을 복사하는 속도. 이 작업에는 데이터를 저장소에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 저장소에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
+- [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 명령이 테이블을 복사하는 속도. 이 작업에는 데이터를 저장소에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 저장소에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
 
 DWU 늘리기:
 - 검색, 집계 및 CTAS 문에 대한 시스템 성능을 선형적으로 변경합니다.
 - PolyBase 로드 작업용 판독기 및 작성기 수를 늘립니다.
 - 동시 쿼리 및 동시성 슬롯의 최대 수를 늘립니다.
+
+## <a name="service-level-objective"></a>서비스 수준 목표
+SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. 계산에 최적화됨 성능 계층 확장에 대한 서비스 수준은 cDWU(계산 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). 탄력성에 최적화됨 서비스 수준은 DWU로 측정됩니다(예: DW2000). 
+
+T-SQL에서 SERVICE_OBJECTIVE 설정은 데이터 웨어하우스에 대한 서비스 수준 및 성능 계층을 결정합니다.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>성능 계층 및 데이터 웨어하우스 단위
 
@@ -68,11 +85,11 @@ SQL Data Warehouse는 데이터 양 조정이 가능한 대량의 계산 및 쿼
 
 > [!NOTE]
 >
-> 계산 노드 간에 작업을 분할할 수 있는 경우 더 많은 병렬 처리를 통해 쿼리 성능만 증가합니다. 크기를 조정해도 성능이 변경되지 않는 경우 테이블 디자인 및/또는 쿼리를 튜닝해야 할 수 있습니다. 쿼리 튜닝 지침은 다음 [성능](sql-data-warehouse-overview-manage-user-queries.md) 문서를 참조하세요. 
+> 계산 노드 간에 작업을 분할할 수 있는 경우 더 많은 병렬 처리를 통해 쿼리 성능만 증가합니다. 크기를 조정해도 성능이 변경되지 않는 경우 테이블 디자인 및/또는 쿼리를 튜닝해야 할 수 있습니다. 쿼리 튜닝 지침에 대해서는 [사용자 쿼리 관리](sql-data-warehouse-overview-manage-user-queries.md)를 참조하세요. 
 
 ## <a name="permissions"></a>권한
 
-데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE][ALTER DATABASE]에 설명된 권한이 필요합니다. 
+데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)에 설명된 권한이 필요합니다. 
 
 ## <a name="view-current-dwu-settings"></a>현재 DWU 설정 보기
 
@@ -103,11 +120,13 @@ DWU 또는 cDWU를 변경하려면
 3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
 ### <a name="powershell"></a>PowerShell
-DWU 또는 cDWU를 변경하려면 [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase] PowerShell cmdlet을 사용합니다. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
+DWU 또는 cDWU를 변경하려면 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
+
+자세한 내용은 [SQL Data Warehouse용 PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)을 참조하세요.
 
 ### <a name="t-sql"></a>T-SQL
 T-SQL을 사용하여 현재 DWU 또는 cDWU 설정을 보고, 설정을 변경하고, 진행 상황을 확인할 수 있습니다. 
@@ -115,7 +134,7 @@ T-SQL을 사용하여 현재 DWU 또는 cDWU 설정을 보고, 설정을 변경�
 DWU 또는 cDWU를 변경하려면:
 
 1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. [ALTER DATABASE][ALTER DATABASE] TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다. 
+2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -125,7 +144,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>REST API
 
-DWU를 변경하려면 [데이터베이스 생성 또는 업데이트][데이터베이스 생성 또는 업데이트] REST API를 사용합니다. 다음 예제에서는 MyServer에서 호스팅되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
+DWU를 변경하려면 [데이터베이스 생성 또는 업데이트](/rest/api/sql/databases/createorupdate) REST API를 사용합니다. 다음 예제에서는 MyServer에서 호스팅되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -138,6 +157,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
+추가 REST API 예제를 보려면 [SQL Data Warehouse용 REST API](sql-data-warehouse-manage-compute-rest-api.md)를 참조하세요.
 
 ## <a name="check-status-of-dwu-changes"></a>DWU 변경 상태 확인
 
@@ -179,40 +199,7 @@ AND       major_resource_id = 'MySQLDW'
 - 축소 작업의 경우 불필요한 노드를 저장소에서 분리하고 나머지 노드에 다시 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
-일부 추가적인 주요 성능 개념을 이해하는 데 도움이 되는 다음 문서를 참조하세요.
-
-* [워크로드 및 동시성 관리][Workload and concurrency management]
-* [테이블 디자인 개요][Table design overview]
-* [테이블 배포][Table distribution]
-* [테이블 인덱싱][Table indexing]
-* [테이블 분할][Table partitioning]
-* [테이블 통계][Table statistics]
-* [모범 사례][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+성능 관리에 대한 자세한 내용은 [워크로드 관리에 대한 리소스 클래스](resource-classes-for-workload-management.md) 및 [메모리와 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
 
 
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./resource-classes-for-workload-management.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/

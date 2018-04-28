@@ -1,20 +1,20 @@
 ---
-title: Azure SQL 데이터 웨어하우스 만들기 및 쿼리 - Azure Portal | Microsoft Docs
-description: Azure Portal에서 Azure SQL Data Warehouse를 만들고 쿼리하는 방법을 알아봅니다.
+title: '빠른 시작: Azure SQL Data Warehouse 만들기 및 쿼리 - Azure Portal | Microsoft Docs'
+description: Azure Portal에서 Azure SQL Data Warehouse로 데이터 웨어하우스를 만들고 쿼리합니다.
 services: sql-data-warehouse
-author: hirokib
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.topic: quickstart
-ms.component: implement
-ms.date: 03/28/2018
-ms.author: elbutter
-ms.reviewer: jrj
-ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse 생성 및 쿼리
 
@@ -22,9 +22,14 @@ Azure Portal을 사용하여 Azure SQL 데이터 웨어하우스를 신속하게
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
+> [!NOTE]
+> SQL Data Warehouse를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  자세한 내용은 [SQL Data Warehouse 가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
+>
+>
+
 ## <a name="before-you-begin"></a>시작하기 전에
 
-최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms.md)를 다운로드하여 설치합니다.
+최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 다운로드하여 설치합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -32,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
 
-Azure SQL 데이터 웨어하우스는 정의된 [계산 리소스](performance-tiers.md)를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에 생성됩니다. 
+Azure SQL 데이터 웨어하우스는 정의된 [계산 리소스](memory-and-concurrency-limits.md)를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server)에 생성됩니다. 
 
 다음 단계에 따라 AdventureWorksDW 샘플 데이터가 포함된 SQL 데이터 웨어하우스를 만듭니다. 
 

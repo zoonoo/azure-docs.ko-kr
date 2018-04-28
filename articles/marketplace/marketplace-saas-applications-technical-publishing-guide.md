@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS 응용 프로그램 기술 게시 가이드
 
 Azure Marketplace SaaS 응용 프로그램 기술 게시 가이드를 시작합니다. 이 가이드는 향후 게시자 및 기존 게시자가 SaaS 응용 프로그램 제품을 사용하여 Azure Marketplace에 응용 프로그램과 서비스를 나열하는 데 도움을 주기 위해 작성되었습니다.  
-자신의 Azure 구독에 솔루션을 배포하고, 응용 프로그램을 테스트하기 위해 디자인하고 관리하는 인터페이스를 통해 고객이 로그인하는 경우 SaaS 응용 프로그램 제품을 사용할 수 있습니다. 이러한 작업은 [Azure AD(Azure Active Directory)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)를 사용하고 기존 평가판 환경을 활용하여 수행됩니다. 다시 말해, 고객이 주도하고 파트너가 호스트하는 평가판입니다. 클라우드 구매자가 무료 또는 유료 솔루션을 독립적으로 경험할 수 있는 방식으로 솔루션을 공개하는 것이 중요하기 때문에 이러한 제품 유형은 고객이 클라우드 솔루션을 검색하는 방식과 일치하는 평가판 환경을 제공합니다.  
+자신의 Azure 구독에 솔루션을 배포하고, 응용 프로그램을 테스트하기 위해 디자인하고 관리하는 인터페이스를 통해 고객이 로그인하는 경우 SaaS 응용 프로그램 제품을 사용할 수 있습니다. 이러한 작업은 [Azure AD(Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)를 사용하고 기존 평가판 환경을 활용하여 수행됩니다. 다시 말해, 고객이 주도하고 파트너가 호스트하는 평가판입니다. 클라우드 구매자가 무료 또는 유료 솔루션을 독립적으로 경험할 수 있는 방식으로 솔루션을 공개하는 것이 중요하기 때문에 이러한 제품 유형은 고객이 클라우드 솔루션을 검색하는 방식과 일치하는 평가판 환경을 제공합니다.  
 
 다른 모든 Marketplace 제품에 대한 개요는 [Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
 
@@ -31,8 +31,8 @@ Azure Marketplace SaaS 응용 프로그램 기술 게시 가이드를 시작합�
 SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게시할 Azure AD와 게시자가 통합되기만 하면 됩니다.  Azure AD와 응용 프로그램의 통합은 문서화가 잘 되어있으며 이를 위해 Microsoft는 다수의 SDK와 리소스가 제공됩니다.  
 
 시작하려면 다른 이니셔티브와 작업을 격리할 수 있도록 Azure Marketplace 게시 전용 구독을 마련하는 것이 좋습니다. 또한 개발 환경의 일부로 다음 도구가 아직 설치되지 않은 경우 설치하는 것이 좋습니다. 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure Powershell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Azure 개발자 도구(사용 가능한 항목 검토)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게�
 
 **설명서**
 
-- [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Azure Active Directory와 통합](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Azure Active Directory와 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Azure 로드맵 - 보안 및 ID](https://azure.microsoft.com/roadmap/?category=security-identity)
 

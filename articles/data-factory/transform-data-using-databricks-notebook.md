@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6c3eb1e86d2dd98590d3a17dedf76c2a694f1a6d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 3.  **새 데이터 팩터리** 창에서 **이름** 아래에 **ADFTutorialDataFactory**를 입력합니다.
 
-    Azure Data Factory의 이름은 *전역적으로 고유*해야 합니다. 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다. (예를 들어 **\<yourname\>ADFTutorialDataFactory** 사용). 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) 문서를 참조하세요.
+    Azure Data Factory의 이름은 *전역적으로 고유*해야 합니다. 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다. (예를 들어 **\<yourname\>ADFTutorialDataFactory** 사용). 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](https://docs.microsoft.com/azure/data-factory/naming-rules) 문서를 참조하세요.
 
     ![새 데이터 팩터리에 대한 이름을 제공합니다.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -61,9 +61,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     
     - **새로 만들기**를 선택하고, 리소스 그룹의 이름을 입력합니다.
 
-    이 빠른 시작의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup**이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
+    이 빠른 시작의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup**이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
 
-1.  **버전**에 **V2(미리 보기)**를 선택합니다.
+1.  **버전**에 **V2(미리 보기)** 를 선택합니다.
 
 2.  **위치**에 데이터 팩터리의 위치를 선택합니다.
 
@@ -149,7 +149,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
           ![새 폴더 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [새 Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook)(Python)을 만듭니다. **adftutorial** 폴더 아래에서 **mynotebook**을 호출하고**,** **만들기**를 클릭해 보겠습니다.
+       3. [새 Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook)(Python)을 만듭니다. **adftutorial** 폴더 아래에서 **mynotebook**을 호출하고 **,** **만들기**를 클릭해 보겠습니다.
 
           ![새 Notebook 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

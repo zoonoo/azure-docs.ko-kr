@@ -1,8 +1,8 @@
 ---
-title: "Apache Storm 예제 Java 토폴로지 - Azure HDInsight | Microsoft Docs"
-description: "예제 단어 개수 토폴로지를 만들어 Java에서 Apache Storm 토폴로지를 만드는 방법에 대해 배웁니다."
+title: Apache Storm 예제 Java 토폴로지 - Azure HDInsight | Microsoft Docs
+description: 예제 단어 개수 토폴로지를 만들어 Java에서 Apache Storm 토폴로지를 만드는 방법에 대해 배웁니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ keywords: apache storm,apache storm example,storm java,storm topology example
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
@@ -30,13 +28,13 @@ Apache Storm에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅
 이 문서의 단계를 완료한 후에 HDInsight에서 Apache Storm에 토폴로지를 배포할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서 만든 Storm 토폴로지의 완료된 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 확인할 수 있습니다.
+> 이 문서에서 만든 Storm 토폴로지 예제의 전체 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * [JDK(Java Developer Kit) 버전 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* [Maven(https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Java 프로젝트를 위한 프로젝트 빌드 시스템입니다.
+* [Maven(https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 * 텍스트 편집기 또는 IDE
 
@@ -169,7 +167,7 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 </build>
 ```
 
-이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다. **pom.xml** 파일에 대한 전체 참조는 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)을 참조하세요.
+이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다. **pom.xml** 파일에 대한 전체 참조를 보려면 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)을 참조하세요.
 
 ### <a name="add-plug-ins"></a>플러그 인 추가
 
@@ -565,10 +563,10 @@ Storm은 Apache Log4j를 사용하여 정보를 기록합니다. 로깅을 구�
 
 `<Root level="error">` 섹션은 루트 수준의 로깅(모든 항목이 `com.microsoft.example`에 있지는 않음)을 오류 정보를 기록하도록 구성합니다.
 
-Log4j에 대한 로깅 구성과 관련된 자세한 내용은 [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html)을 참조하세요.
+Log4j의 로깅 구성에 대한 자세한 내용은 [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html)을 참조하세요.
 
 > [!NOTE]
-> Storm 버전 0.10.0 이상은 Log4j 2.x를 사용합니다. 이전 버전의 Storm은 로그 구성에 다른 형식을 사용하는 Log4j 1.x를 사용합니다. 이전 구성에 대한 자세한 내용은 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)을 참조하세요.
+> Storm 버전 0.10.0 이상은 Log4j 2.x를 사용합니다. 이전 버전의 Storm은 로그 구성에 다른 형식을 사용하는 Log4j 1.x를 사용합니다. 오래된 구성에 대한 자세한 내용은 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)을 참조하세요.
 
 ## <a name="test-the-topology-locally"></a>로컬에서 토폴로지 테스트
 
@@ -720,7 +718,7 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
     ```
 
     > [!WARNING]
-    > 토폴로지가 Storm 1.0.1 비트를 사용하는 경우 이 명령은 실패합니다. 이 문제는 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055)로 인해 발생합니다. 대신, [개발 환경에서 Storm을 설치](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)하고 다음 단계를 사용합니다.
+    > 토폴로지가 Storm 1.0.1 비트를 사용하는 경우 이 명령은 실패합니다. 이 실패는 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055)로 인한 것입니다. 대신, [개발 환경에서 Storm을 설치](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)하고 다음 단계를 사용합니다.
     >
     > [개발 환경에서 Storm을 설치](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)한 경우 다음 명령을 대신 사용할 수 있습니다.
     >

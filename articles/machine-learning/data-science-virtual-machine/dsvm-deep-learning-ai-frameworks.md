@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>심층 학습 및 AI 프레임워크
 [데이터 과학 Virtual Machine](http://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](http://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 응용 프로그램을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다. 
@@ -32,10 +32,11 @@ ms.lasthandoff: 03/28/2018
 | ------------- | ------------- |
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Windows, Linux     |
-| DSVM에 구성/설치 방법  | Microsoft Cognitive 도구 키트(CNTK)는 _루트_ 환경에서 Python 2.7은 물론 _py35_ 환경에서 Python 3.5에 설치됩니다.   |
+| DSVM에 구성/설치 방법  | Microsoft CNTK(Cognitive Toolkit)은 [Linux 및 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition)의 Python 3.5에 설치되고, [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)의 Python 3.6에 설치됩니다.   |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북이 포함됩니다.     |
 | DSVM의 관련 도구      | Keras      |
-| 사용/실행 방법    | Jupyter를 연 다음 CNTK 폴더를 찾습니다  |
+| 사용/실행 방법    | * 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/>
+ * Jupyter에서: [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 또는 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)에 연결한 다음, 샘플에 대한 CNTK 디렉터리를 엽니다. |
 
 ## <a name="tensorflow"></a>TensorFlow
 
@@ -43,10 +44,22 @@ ms.lasthandoff: 03/28/2018
 | ------------- | ------------- |
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Windows, Linux     |
-| DSVM에 구성/설치 방법  | Linux에서 TensorFlow는 Python 2.7(_루트_)은 물론 Python 3.5(_py35_) 환경에 설치됩니다. Windows에서 Tensorflow는 Python 3.5(_py35_) 환경에 설치됩니다.  |
+| DSVM에 구성/설치 방법  | TensorFlow는 [Linux 및 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition)의 Python 3.5에 설치되고, [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)의 Python 3.6에 설치됩니다.  |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북이 포함됩니다.     |
 | DSVM의 관련 도구      | Keras      |
-| 사용/실행 방법    | Jupyter를 연 다음 TensorFlow 폴더를 찾습니다.  |
+| 사용/실행 방법    | * 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/>
+ * Jupyter에서: [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 또는 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)에 연결한 다음, 샘플에 대한 TensorFlow 디렉터리를 엽니다.  |
+
+## <a name="horovod"></a>Horovod
+
+|    |           |
+| ------------- | ------------- |
+| 무엇인가요?   | TensorFlow에 대한 분산된 딥 러닝 프레임워크      |
+| 지원되는 DSVM 버전      | Ubuntu     |
+| DSVM에 구성/설치 방법  | Horovod는 [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition)에서 Python 3.5에 설치됩니다.  |
+| 샘플에 대한 링크      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
+| DSVM의 관련 도구      | TensorFlow      |
+| 사용/실행 방법    | 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. |
 
 ## <a name="keras"></a>Keras
 
@@ -54,13 +67,11 @@ ms.lasthandoff: 03/28/2018
 | ------------- | ------------- |
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Windows, Linux     |
-| DSVM에 구성/설치 방법  | Keras는 Python 2.7(_루트_)은 물론 Python 3.5(_py35_) 환경에 설치됩니다.   |
+| DSVM에 구성/설치 방법  | TensorFlow는 [Linux 및 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition)의 Python 3.5에 설치되고, [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)의 Python 3.6에 설치됩니다. |
 | 샘플에 대한 링크      | https://github.com/fchollet/keras/tree/master/examples      |
 | DSVM의 관련 도구      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
-| 사용/실행 방법    | 샘플을 Github 위치에서 다운로드하여, ~/notebooks 아래의 하위 디렉터리에 복사한 후 Jupyter에서 엽니다.   |
-
-
-
+| 사용/실행 방법    | * 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/>
+ * Jupyter에서: Github 위치에서 샘플을 다운로드하고, [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 또는 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)에 연결한 다음, 샘플 디렉터리를 엽니다. |
 
 ## <a name="caffe"></a>Caffe
 
@@ -82,17 +93,19 @@ jupyter notebook
 
 새 브라우저 창이 샘플 노트북과 함께 열립니다.
 
+이진 파일은 /opt/caffe/build/install/bin에 설치됩니다. 
+
 ## <a name="caffe2"></a>Caffe2
 
 |    |           |
 | ------------- | ------------- |
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Ubuntu     |
-| DSVM에 구성/설치 방법  | Caffe2는 `/opt/caffe2`에 설치됩니다. 또한 Python 2.7(_루트_) Conda 환경에 대해 사용할 수 있습니다.     |
-| 샘플에 대한 링크      | 샘플 Jupyter 노트북이 포함됩니다     |
+| DSVM에 구성/설치 방법  | Caffe2는 [Python 2.7(루트) conda 환경](dsvm-languages.md#python-linux-and-windows-server-2012-edition)에 설치됩니다. 원본은 `/opt/caffe2`에 있습니다. |
+| 샘플에 대한 링크      | 샘플 노트북은 JupyterHub에 포함되어 있습니다. |
 | DSVM의 관련 도구      | Caffe      |
-| 사용/실행 방법    | Jupyter를 연 후, 샘플 노트북을 찾으려면 Caffe2 디렉터리로 이동합니다. 일부 노트북은 Python 코드에 Caffe2 루트를 설정해야 합니다; enter /opt/caffe2.   |
-
+| 사용/실행 방법    | * 터미널에서: [루트 Python 환경](dsvm-languages.md#python-linux-and-windows-server-2012-edition)을 활성화하고, Python을 시작하고, caffe2를 가져옵니다. <br/> * JupyterHub에서: [JupyterHub에 연결](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)한 다음, 샘플 노트북을 찾으려면 Caffe2 디렉터리로 이동합니다. 일부 노트북은 Python 코드에 Caffe2 루트를 설정해야 합니다; enter /opt/caffe2. |
+| 빌드 정보 | Caffe2는 Linux의 원본에서 빌드되고 CUDA, cuDNN 및 Intel MKL을 포함합니다. 현재 커밋은 모든 GPU 및 테스트되는 샘플에서 안정성을 위해 선택된 0d9c0d48c6f20143d6404b99cc568efd29d5a4be입니다. |
 
 ## <a name="chainer"></a>Chainer
 
@@ -100,13 +113,11 @@ jupyter notebook
 | ------------- | ------------- |
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Windows, Linux     |
-| DSVM에 구성/설치 방법  | Chainer는 Python 2.7(_루트_)은 물론 Python 3.5(_py35_) 환경에 설치됩니다. ChainerRL 및 ChainerCV도 설치됩니다.   |
-| 샘플에 대한 링크      | 샘플 Jupyter 노트북이 포함됩니다.      |
+| DSVM에 구성/설치 방법  | Chainer는 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition)에 설치됩니다. ChainerRL 및 ChainerCV도 설치됩니다.   |
+| 샘플에 대한 링크      | 샘플 노트북은 JupyterHub에 포함되어 있습니다. |
 | DSVM의 관련 도구      | Caffe      |
-
-### <a name="how-to-use--run-it"></a>사용/실행 방법  
-
-터미널에서 원하는 Python 버전(_루트_ 또는 _py35_)을 활성화하고, _python_을 실행한 후, Chainer를 가져옵니다. Jupyter에서 Python 2.7 또는 3.5 커널을 선택한 다음 Chainer를 가져옵니다.
+| 사용/실행 방법  | * 터미널에서: [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 환경을 활성화하고, _python_을 실행한 다음, Chainer를 가져옵니다. <br/>
+* JupyterHub에서: [JupyterHub에 연결](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)한 다음, 샘플 노트북을 찾으려면 Chainer 디렉터리로 이동합니다.
 
 
 ## <a name="deep-water"></a>Deep Water
@@ -115,19 +126,22 @@ jupyter notebook
 | ------------- | ------------- |
 | 무엇인가요?   | H2O에 대한 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Ubuntu     |
-| DSVM에 구성/설치 방법  | Deep Water은 `/dsvm/tools/deep_water`에 설치됩니다.   |
-| 샘플에 대한 링크      | 샘플은 Deep Water 서버를 통해 제공됩니다.      |
+| DSVM에 구성/설치 방법  | Deep Water는 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition)에 설치되며 `/dsvm/tools/deep_water`에서도 사용할 수 있습니다.   |
+| 샘플에 대한 링크      | 샘플 노트북은 JupyterHub에 포함되어 있습니다.      |
 | DSVM의 관련 도구      | H2O, Sparkling Water      |
 
 ### <a name="how-to-use--run-it"></a>사용/실행 방법  
 
-X2Go를 사용하여 VM에 연결합니다. 터미널에서 Deep Water 서버를 시작합니다.
+Deep Water는 cuDNN 5.1의 CUDA 8이 필요합니다. 다른 딥 러닝 프레임워크는 CUDA 9 및 cuDNN 7을 사용하므로 기본적으로 라이브러리 경로에 있지 않습니다. Deep Water에 CUDA 8 + cuDNN 5.1을 사용하려면:
 
-    java -jar /dsvm/tools/deep_water/h2o.jar
+```
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:${LD_LIBRARY_PATH}
+export CUDA_ROOT=/usr/local/cuda-8.0
+```
 
-그런 다음 브라우저를 열고 `http://localhost:54321`에 연결합니다.
-
-
+Deep Water를 사용하려면:
+* 터미널에서: [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 환경을 활성화한 다음, _python_을 실행합니다. <br/>
+* JupyterHub에서: [JupyterHub에 연결](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)한 다음, 샘플 노트북을 찾으려면 deep_water 디렉터리로 이동합니다.
 
 ## <a name="mxnet"></a>MXNet
 
@@ -135,10 +149,12 @@ X2Go를 사용하여 VM에 연결합니다. 터미널에서 Deep Water 서버를
 | ------------- | ------------- |
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Windows, Linux     |
-| DSVM에 구성/설치 방법  | MXNet은 Windows에서 `C:\dsvm\tools\mxnet`에 그리고 Linux에서 `/dsvm/tools/mxnet`에 설치됩니다. Python 바인딩은 Python 2.7(_루트_)은 물론 Python 3.5(_py35_) 환경에 설치됩니다. 또한 R 바인딩도 설치됩니다.   |
+| DSVM에 구성/설치 방법  | MXNet은 Windows에서 `C:\dsvm\tools\mxnet`에 그리고 Linux에서 `/dsvm/tools/mxnet`에 설치됩니다. Python 바인딩은 [Linux 및 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition)의 Python 3.5에 설치되고, [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)의 Python 3.6에 설치됩니다. 또한 R 바인딩도 Ubuntu에 설치됩니다.   |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북이 포함됩니다.    |
 | DSVM의 관련 도구      | Keras      |
-| 사용/실행 방법    | Jupyter를 연 다음 MXNet 폴더를 찾습니다  |
+| 사용/실행 방법    | * 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/>
+ * Jupyter에서: [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 또는 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)에 연결한 다음, 샘플에 대한 mxnet 디렉터리를 엽니다.  |
+ | 빌드 정보 | MXNet는 Linux의 원본에서 빌드됩니다. 이 빌드는 CUDA, cuDNN, NCCL 및 MKL을 포함합니다. |
 
 ## <a name="nvidia-digits"></a>NVIDIA DIGITS
 
@@ -176,7 +192,12 @@ X2Go를 사용하여 VM에 로그인합니다. 터미널에서 서비스를 시�
 | 지원되는 DSVM 버전      | Ubuntu     |
 | DSVM에 구성/설치 방법  | Theano는 Python 2.7(_루트_)은 물론 Python 3.5(_py35_) 환경에 설치됩니다.   |
 | DSVM의 관련 도구      | Keras      |
-| 사용/실행 방법    | 터미널에서 원하는 Python 버전(루트 또는 py35)을 활성화하고, Python을 실행한 후, Theano를 가져옵니다. Jupyter에서 Python 2.7 또는 3.5 커널을 선택한 다음 Theano를 가져옵니다.  |
+| 사용/실행 방법    | * 터미널에서 원하는 Python 버전(루트 또는 py35)을 활성화하고, python을 실행한 다음, theano를 가져옵니다. <br/> 
+* Jupyter에서 Python 2.7 또는 3.5 커널을 선택한 다음 Theano를 가져옵니다.  
+<br/>
+최근 MKL 버그를 해결하려면 먼저 MKL 스레딩 계층을 설정해야 합니다.<br/><br/>
+_export MKL_THREADING_LAYER=GNU_
+|
 
 
 
@@ -196,14 +217,12 @@ X2Go를 사용하여 VM에 로그인합니다. 터미널에서 서비스를 시�
 | ------------- | ------------- |
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Linux     |
-| DSVM에 구성/설치 방법  | PyTorch는 Python 3.5(_py35_) 환경에 설치됩니다.   |
+| DSVM에 구성/설치 방법  | PyTorch는 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition)에 설치됩니다.  |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북이 포함되며 /dsvm/samples/pytorch에도 샘플이 있습니다.      |
 | DSVM의 관련 도구      | Torch      |
-
-### <a name="how-to-use--run-it"></a>사용/실행 방법  
-
-터미널에서 _python_을 실행한 다음, torch를 가져옵니다. Jupyter에서 Python 3.5 커널을 선택한 다음, torch를 가져옵니다.
-
+| 사용/실행 방법 | 
+* 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/>
+ * Jupyter에서: [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)에 연결한 다음, 샘플에 대한 PyTorch 디렉터리를 엽니다.  |
 
 ## <a name="mxnet-model-server"></a>MXNet 모델 서버
 
@@ -224,3 +243,16 @@ X2Go를 사용하여 VM에 로그인합니다. 터미널에서 서비스를 시�
 | DSVM에 구성/설치 방법  | _tensorflow_model_server_는 터미널에서 제공됩니다.   |
 | 샘플에 대한 링크      | 샘플은 [온라인](https://www.tensorflow.org/serving/)으로 제공됩니다.      |
 | DSVM의 관련 도구      | TensorFlow      |
+
+## <a name="tensorrt"></a>TensorRT
+
+|    |           |
+| ------------- | ------------- |
+| 무엇인가요?   | NVIDIA의 딥 러닝 유추 서버입니다. |
+| 지원되는 DSVM 버전      | Ubuntu     |
+| DSVM에 구성/설치 방법  | TensorRT는 _apt_ 패키지로 설치됩니다.   |
+| 샘플에 대한 링크      | 샘플은 [온라인](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples)으로 제공됩니다.      |
+| DSVM의 관련 도구      | TensorFlow 서비스, MXNet 모델 서버  |
+
+
+

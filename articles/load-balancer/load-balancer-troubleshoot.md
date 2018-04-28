@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -103,9 +103,7 @@ VM이 데이터 트래픽에 응답하지 않을 경우 대상 포트가 참여 
 
 서브넷 또는 VM에 구성된 하나 이상의 네트워크 보안 그룹이 원본 IP 또는 포트를 차단하는 경우 VM이 응답할 수 없습니다.
 
-* 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. 자세한 내용은 다음을 참조하세요.
-    -  [포털을 사용하여 네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [PowerShell을 사용하여 네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. 자세한 내용은 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하세요.
 * 네트워크 보안 그룹 목록에서 다음을 확인합니다.
     - 데이터 포트에서 들어오거나 나가는 트래픽에 간섭이 있습니다. 
     - VM 또는 서브넷의 NIC에 대해 Load Balancer 프로브 및 트래픽을 허용하는 기본 규칙보다 우선 순위가 더 높은 **모두 거부** 네트워크 보안 그룹 규칙(네트워크 보안 그룹은 프로브 포트에 해당하는 168.63.129.16의 부하 분산 장치 IP를 허용해야 함). 

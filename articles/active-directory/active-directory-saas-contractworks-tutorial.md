@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97e5ad805bbb25d2431944e2ede1f22630956356
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3c986810f3d994b956d4c81fd80b38d9dfee4f50
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>자습서: ContractWorks와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ ContractWorks가 Azure AD에 통합되도록 구성하려면 갤러리에서 Con
 
 **갤러리에서 ContractWorks를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -99,7 +99,7 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_samlbase.png)
 
 3. **ContractWorks 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
@@ -121,7 +121,7 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 6. **Single sign-on** 대화 상자의 **사용자 특성** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
     | 특성 이름 | 특성 값 |
-    | ---------------| --------------- |    
+    | ---------------| --------------- |
     | mail | user.mail |
     | displayName | user.displayname |
 
@@ -139,34 +139,15 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     
     d. **확인**을 클릭합니다.
 
-7. **저장** 단추를 클릭합니다.
+7. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_metadataurl.png)
+     
+8. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-contractworks-tutorial/tutorial_general_400.png)
 
-8. **메타데이터 URL**을 생성하려면 다음 단계를 수행합니다.
-
-    a. **앱 등록**을 클릭합니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appregistrations.png)
-   
-    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpointicon.png)
-
-    다. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpoint.png)
-     
-    d. 이제 **Contractworks**의 속성 페이지로 이동하고 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여넣습니다.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
-
-9. **ContractWorks** 쪽에서 Single Sign-On을 구성하려면 생성된 **메타데이터 URL**을 [ContractWorks 지원 팀](mailto:support@contractworks.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+9. **ContractWorks** 쪽에서 Single Sign-On을 구성하려면 생성된 **앱 페더레이션 메타데이터 URL**을 [ContractWorks 지원 팀](mailto:support@contractworks.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

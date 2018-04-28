@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 04/16/2018
 |  | 항목 이름 | 설명 | 게시자 | OS 종류 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 확장](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 확장 ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>모든 SQL Server에서 Windows 마켓플레이스 항목을 배포 하려면이 확장을 다운로드-이 확장 프로그램은 필요 합니다.</b> | Microsoft | Windows |
-|![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [ 사용자 지정 스크립트 확장 ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>기본 버전의 Windows 사용자 지정 스크립트 확장이이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
+|![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [ 사용자 지정 스크립트 확장 ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>기본 버전의 Windows 사용자 지정 스크립트 확장이이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
 |![PowerShell DSC 확장](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC 확장 ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다. TLS v 1.2를 지원 하도록 업데이트 합니다.</b> | Microsoft | Windows |
-| ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft 맬웨어 방지 확장 ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. | Microsoft | Windows |
-|![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [ 사용자 지정 스크립트 확장 ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Linux 용 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다. 이 확장의 버전이 여러 개 및 1.5.2.1 및 2.0. x 모두 다운로드 해야 합니다. </b> | Microsoft | Linux |
+| ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft 맬웨어 방지 확장 ](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. | Microsoft | Windows |
+|![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [ 사용자 지정 스크립트 확장 ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Linux 용 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다. 이 확장의 버전이 여러 개 및 1.5.2.1 및 2.0. x 모두 다운로드 해야 합니다. </b> | Microsoft | Linux |
 | ![Docker 확장](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Linux 가상 컴퓨터에 docker 확장 합니다. | Microsoft | Linux |
 | ![Linux 용 VM 액세스](media/azure-stack-marketplace-azure-items/cse.png) | [ Linux 용 VM 액세스 ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Linux 확장용는 VMAccess의 기본 버전으로이 업데이트를 다운로드 합니다. 이 업데이트는 Debian Linux Vm을 사용 하려는 경우에 중요 합니다.</b> | Microsoft | Linux |
 | ![Linux 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [ Linux 용 Acronis 백업 확장 ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Linux |

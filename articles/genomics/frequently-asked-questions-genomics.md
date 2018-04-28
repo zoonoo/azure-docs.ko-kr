@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Genomics: 일반적인 질문 | Microsoft Docs"
+title: 'Microsoft Genomics: 일반적인 질문 | Microsoft Docs'
 titleSuffix: Azure
-description: "Microsoft Genomics에 대해 고객이 일반적으로 하는 질문에 대한 답입니다."
+description: Microsoft Genomics에 대해 고객이 일반적으로 하는 질문에 대한 답입니다.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
-이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [What is Microsoft Genomics?](overview-what-is-genomics.md)(Microsoft Genomics는 무엇인가요?)를 참조하세요. 
+이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
@@ -57,7 +57,7 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 ## <a name="what-genome-references-can-i-use"></a>어떤 게놈 참조를 사용할 수 있나요?
 
 지원되는 참조는 다음과 같습니다.
- |참조              | `-pa/--process-args`의 값 |
+ |참고 자료              | `-pa/--process-args`의 값 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

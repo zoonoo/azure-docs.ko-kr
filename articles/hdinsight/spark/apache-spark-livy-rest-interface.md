@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight에서 Livy Spark를 사용하여 Spark 클러스터에 작업 제출 | Microsoft Docs"
-description: "Apache Spark REST API를 사용하여 Azure HDInsight 클러스터에 원격으로 Spark 작업을 제출하는 방법을 알아봅니다."
+title: Azure HDInsight에서 Livy Spark를 사용하여 Spark 클러스터에 작업 제출 | Microsoft Docs
+description: Apache Spark REST API를 사용하여 Azure HDInsight 클러스터에 원격으로 Spark 작업을 제출하는 방법을 알아봅니다.
 keywords: apache spark rest api, livy spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 

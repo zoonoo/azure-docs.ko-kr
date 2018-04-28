@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>OMS 포털에서 Azure로 경고 확장(복사)
 OMS(Operations Management Suite) 포털만 Log Analytics 경고를 표시합니다.  새 경고 환경은 이제 Microsoft Azure의 다양한 서비스와 부분에서 경고 환경을 통합했습니다. Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능한 새 환경은 활동 로그 경고, 메트릭 경고, Log Analytics의 로그 경고 및 Application Insights를 포함합니다. 
@@ -43,7 +43,7 @@ Log Analytics 작업 영역의 경고가 Azure로 확장에 대한 일정을 예
  ![예약된 기간 동안 경고에 대한 사용자 작업은 Azure로 리디렉션됨](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> OMS 포털에서 Azure로 경고 확장은 요금이 청구되지 않으며 쿼리 기반 Log Analytics 경고에 대한 Azure 경고의 사용량은 [Azure Monitor 가격 책정 정책](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 명시된 제한 및 조건 내에서 사용되는 경우 청구되지 않습니다.  
+> OMS 포털에서 Azure로 경고 확장은 요금이 청구되지 않으며 쿼리 기반 Log Analytics 경고에 대한 Azure 경고의 사용량은 [Azure Monitor 가격 책정 정책](https://azure.microsoft.com/pricing/details/monitor/)에 명시된 제한 및 조건 내에서 사용되는 경우 청구되지 않습니다.  
 
 사용자는 자발적으로 해당 경고를 Azure에서 관리할 수 있도록 선택하여 이 날 짜 이전에 경고 확장의 이점을 활용할 수 있습니다.
 

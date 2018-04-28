@@ -1,6 +1,6 @@
 ---
-title: "자습서: Nexonia와 Azure Active Directory 통합 | Microsoft 문서"
-description: "Azure Active Directory 및 Nexonia 간에 Single Sign-On을 구성하는 방법을 알아봅니다."
+title: '자습서: Nexonia와 Azure Active Directory 통합 | Microsoft 문서'
+description: Azure Active Directory 및 Nexonia 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>자습서: Nexonia와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ Azure AD에 Nexonia를 통합하도록 구성하려면 갤러리의 Nexonia를 �
 
 **갤러리에서 Nexonia를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -95,7 +95,7 @@ Nexonia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Nexonia 응용 프로그램에서 Single Sign-On을 구성합니다.
 
   > [!Note]
-   > 통합에 문제가 있는 경우 문제 해결 가이드에 대한 이 [링크](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery)를 참조하세요. 그래도 해결 방법을 찾지 못하면 Azure Portal에서 지원 요청을 제기하세요.
+   > 통합에 문제가 있는 경우 문제 해결 가이드에 대한 이 [링크](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)를 참조하세요. 그래도 해결 방법을 찾지 못하면 Azure Portal에서 지원 요청을 제기하세요.
 
 **Nexonia에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -118,7 +118,7 @@ Nexonia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE] 
     > [회신 URL] 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이 값을 가져오려면 [Nexonia 지원 팀](https://nexonia.zendesk.com/hc/requests/new)에 문의합니다.
  
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
 

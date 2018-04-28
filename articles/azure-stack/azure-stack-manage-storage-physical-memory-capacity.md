@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/03/2018
+ms.date: 04/17/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 34b03cf1fda29706936968ab93cb35a6a2510c65
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: af253525ce5a77ece72e810642abcaf7931e39d8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Azure 스택에 대 한 실제 메모리 용량 관리
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 Azure 스택에 대 한 사용 가능한 총 메모리 용량을 늘리려면 추가 메모리를 추가할 수 있습니다. Azure 스택에서 실제 서버도 라고는 *배율 단위 노드*합니다. 단일 배율 단위의 구성원 인 모든 배율 단위 노드는 동일한 메모리 양이 있어야 합니다.
 
 > [!note]  
-> 계속 하기 전에 제조업체는 실제 메모리 업그레이드를 지원 메모리를 업그레이드 하는 경우 확인 하려면 하드웨어 제조업체 설명서를 참조 하십시오. OEM 하드웨어 공급 업체 지원 계약 공급 업체에서 물리적 서버 랙에 배치와 장치 펌웨어 업데이트를 수행 한다고 필요할 수 있습니다.
+> 계속 하기 전에 해당 공급 업체는 실제 메모리 업그레이드를 지원 하는지 하드웨어 제조업체 설명서를 참조 하십시오. 물리적 서버 랙에 배치 및 장치 펌웨어 업데이트를 수행 하 여 OEM 하드웨어 공급 업체 지원 계약 필요할 수 있습니다.
 
 다음 흐름 다이어그램에서는 각 배율 단위 노드에 메모리를 추가 하는 일반적인 프로세스를 보여 줍니다.
 

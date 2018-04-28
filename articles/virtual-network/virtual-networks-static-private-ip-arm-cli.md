@@ -1,11 +1,11 @@
 ---
-title: "VM에 대한 개인 IP 주소 구성 - Azure CLI | Microsoft Docs"
-description: "Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다."
+title: VM에 대한 개인 IP 주소 구성 - Azure CLI | Microsoft Docs
+description: Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -158,6 +158,7 @@ ms.lasthandoff: 03/09/2018
 
    * `--nics`: VM이 연결된 NIC의 이름입니다.
    
+[Windows VM에 여러 IP 주소를 할당](virtual-network-multiple-ip-addresses-cli.md)할 때처럼 반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure Virtual Machine에 할당된 개인 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보 검색
 
@@ -267,9 +268,7 @@ Azure Resource Manager 배포를 위해 Azure CLI의 NIC에서 고정 개인 IP 
 
     > [!NOTE]
     > VM에 하나 이상의 NIC가 있을 정도로 충분히 큰 경우 **azure network nic delete** 명령을 실행하여 이전 NIC를 삭제합니다.
-   
-## <a name="next-steps"></a>다음 단계
-* [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
-* [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
-* [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
+## <a name="next-steps"></a>다음 단계
+
+[IP 주소 설정](virtual-network-network-interface-addresses.md) 관리에 대해 자세히 알아봅니다.

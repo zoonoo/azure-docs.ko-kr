@@ -1,11 +1,11 @@
 ---
-title: "Azure 구독 제품 변경 | Microsoft Docs"
-description: "Azure 구독을 변경하고 Azure 계정 센터를 사용하여 다른 제품으로 전환하는 방법에 대해 알아봅니다."
-services: 
-documentationcenter: 
+title: Azure 구독 제품 변경 | Microsoft Docs
+description: Azure 구독을 변경하고 Azure 계정 센터를 사용하여 다른 제품으로 전환하는 방법에 대해 알아봅니다.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>다른 제품으로 종량제 구독 변경
 
@@ -113,6 +113,6 @@ Azure 제품은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 * 리소스를 새 구독으로 바로 마이그레이션할 수 있으며 자세한 방법은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 * Azure 구독과 그 안에 있는 모든 것의 소유권을 다른 사람에게 양도하려면 [Azure 구독의 소유권 이전](billing-subscription-transfer.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

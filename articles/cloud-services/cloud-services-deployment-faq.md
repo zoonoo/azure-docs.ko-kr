@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure Cloud Services FAQ에 대한 배포 문제 | Microsoft Docs"
-description: "이 문서는 Microsoft Azure Cloud Services의 배포에 대한 질문과 대답을 나열합니다."
+title: Microsoft Azure Cloud Services FAQ에 대한 배포 문제 | Microsoft Docs
+description: 이 문서는 Microsoft Azure Cloud Services의 배포에 대한 질문과 대답을 나열합니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 배포 문제: FAQ(질문과 대답)
 
@@ -79,4 +79,4 @@ Cloud Service는 Azure Resource Manager 모델과 직접 호환되지 않는 클
 
 클래식 포털에서는 패키지가 관리 API 계층에 직접 업로드되면 API 계층에서 패키지를 내부 저장소 계정에 임시로 저장했습니다.  API 계층은 파일 업로드 서비스로 설계되지 않았기 때문에 이 프로세스로 인해 성능 및 확장성 문제가 발생합니다.  Azure Portal(Resource Manager 배포 모델)에서는 API 계층에 먼저 업로드하는 중간 단계를 무시하여 보다 빠르고 안정적인 배포가 가능해졌습니다. 
 
-비용 측면에서는 매우 작지만 모든 배포에서 동일한 저장소 계정을 재사용할 수 있습니다. [요금 계산기](https://azure.microsoft.com/en-us/pricing/calculator/#storage1)를 사용하여 서비스 패키지(CSPKG)를 업로드하고 CSPKG를 다운로드한 다음 CSPKG를 삭제하는 비용을 확인할 수 있습니다. 
+비용 측면에서는 매우 작지만 모든 배포에서 동일한 저장소 계정을 재사용할 수 있습니다. [요금 계산기](https://azure.microsoft.com/pricing/calculator/#storage1)를 사용하여 서비스 패키지(CSPKG)를 업로드하고 CSPKG를 다운로드한 다음 CSPKG를 삭제하는 비용을 확인할 수 있습니다. 

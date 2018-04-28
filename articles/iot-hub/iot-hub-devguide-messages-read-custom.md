@@ -1,23 +1,23 @@
 ---
-title: "Azure IoT Hub 사용자 지정 끝점 이해 | Microsoft Docs"
-description: "개발자 가이드 - 라우팅 규칙을 사용하여 장치-클라우드 메시지를 사용자 지정 끝점으로 라우팅합니다."
+title: Azure IoT Hub 사용자 지정 끝점 이해 | Microsoft Docs
+description: 개발자 가이드 - 라우팅 규칙을 사용하여 장치-클라우드 메시지를 사용자 지정 끝점으로 라우팅합니다.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>장치-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 끝점 사용
 
@@ -31,6 +31,8 @@ IoT Hub를 사용하면 메시지 속성을 기반으로 IoT Hub 서비스 지�
 | **끝점**  | IoT Hub에서 조건과 일치하는 메시지를 보내는 끝점의 이름입니다. 끝점은 IoT Hub와 동일한 지역에 있어야 합니다. 그렇지 않으면 지역 간 쓰기 요금이 부과될 수 있습니다. |
 
 하나의 메시지가 여러 라우팅 규칙의 조건과 일치할 수 있습니다.이 경우 IoT Hub는 일치된 각 규칙과 연결된 끝점으로 메시지를 배달합니다. 또한 IoT Hub는 메시지 배달을 자동으로 중복 제거하므로 메시지가 동일한 대상을 가진 여러 규칙과 일치하면 해당 대상에 한 번만 기록됩니다.
+
+## <a name="endpoints-and-routing"></a>끝점 및 라우팅
 
 IoT Hub에는 기본 [기본 제공 끝점][lnk-built-in]이 있습니다. 구독의 다른 서비스를 허브에 연결하여 메시지를 라우팅할 사용자 지정 끝점을 만들 수 있습니다. IoT Hub는 현재 사용자 지정 끝점으로 Azure Storage 컨테이너, Event Hubs, Service Bus 큐 및 Service Bus 토픽을 지원합니다.
 
@@ -50,6 +52,12 @@ IoT Hub에 사용자 지정 끝점을 만드는 방법에 대한 자세한 내�
 * [Event Hubs][lnk-getstarted-eh]에서 읽기
 * [Service Bus 큐][lnk-getstarted-queue]에서 읽기
 * [Service Bus 토픽][lnk-getstarted-topic]에서 읽기
+
+## <a name="latency"></a>대기 시간
+
+기본 제공 끝점을 사용하여 장치-클라우드 간 원격 분석 메시지를 라우팅할 경우 첫 번째 경로를 만든 후 종단 간 대기 시간이 약간 증가합니다.
+
+대부분의 경우 평균적인 대기 시간 증가는 1초 미만입니다. **d2c.endpoints.latency.builtIn.events** [IoT Hub 메트릭](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics)을 사용하여 대기 시간을 모니터링할 수 있습니다. 첫 번째 경로 이후에 다른 경로를 만들거나 삭제해도 종단 간 대기 시간에는 영향을 주지 않습니다.
 
 ### <a name="next-steps"></a>다음 단계
 

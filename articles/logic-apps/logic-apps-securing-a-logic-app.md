@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps에 대한 액세스 보호 | Microsoft Docs"
-description: "Azure Logic Apps에서 워크플로와 함께 사용되는 트리거, 입력 및 출력, 작업 매개 변수 및 서비스에 대한 액세스를 보호하기 위한 보안을 추가합니다."
+title: Azure Logic Apps에 대한 액세스 보호 | Microsoft Docs
+description: Azure Logic Apps에서 워크플로와 함께 사용되는 트리거, 입력 및 출력, 작업 매개 변수 및 서비스에 대한 액세스를 보호하기 위한 보안을 추가합니다.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>논리 앱에 대한 액세스 보호
 
@@ -77,7 +77,7 @@ POST
 이 설정은 논리 앱 설정 내에서 구성할 수 있습니다.
 
 1. Azure Portal에서 IP 주소 제한을 추가하려는 논리 앱을 엽니다.
-1. **설정** 아래에 있는 **액세스 제어 구성** 메뉴 항목을 클릭합니다.
+1. **설정**에서 **워크플로 설정** 메뉴 항목을 클릭합니다.
 1. 트리거에 의해 허용되는 IP 주소 범위 목록을 지정합니다.
 
 유효한 IP 범위 형식은 `192.168.1.1/255`입니다. 논리 앱을 중첩된 논리 앱으로서 실행하려는 경우 **다른 논리 앱만** 옵션을 선택합니다. 이 옵션은 빈 배열을 리소스에 작성할 수 있으며, 이는 서비스 자체(부모 논리 앱)의 호출만 성공적으로 실행된다는 의미입니다.
@@ -119,7 +119,7 @@ POST
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>논리 앱을 관리하거나 편집하기 위한 액세스 보호
 
-특정 사용자 또는 그룹만 리소스에서 작업을 수행할 수 있도록 논리 앱에서 관리 작업을 위한 액세스를 제한할 수 있습니다. 논리 앱은 Azure [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md) 기능을 사용하고 동일한 도구로 사용자 지정할 수 있습니다.  또한 구독 구성원들에게 할당할 수 있는 몇 가지 기본 제공 역할이 있습니다.
+특정 사용자 또는 그룹만 리소스에서 작업을 수행할 수 있도록 논리 앱에서 관리 작업을 위한 액세스를 제한할 수 있습니다. 논리 앱은 Azure [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 기능을 사용하고 동일한 도구로 사용자 지정할 수 있습니다.  또한 구독 구성원들에게 할당할 수 있는 몇 가지 기본 제공 역할이 있습니다.
 
 * **논리 앱 참가자** - 논리 앱을 보고, 편집하고 업데이트하기 위한 액세스를 제공합니다.  리소스를 제거하거나 관리 작업을 수행할 수 없습니다.
 * **논리 앱 연산자** - 논리 앱과 실행 기록을 보고 활성화/비활성화할 수 있습니다.  정의를 편집하거나 업데이트할 수 없습니다.
@@ -264,7 +264,7 @@ HTTP, HTTP + Swagger(개방형 API) 또는 웹후크 동작으로 작업할 경�
 
 논리 앱의 많은 관리형 커넥터는 파일 시스템, SQL, SharePoint, DB2 등의 온-프레미스 시스템에 보안 연결을 제공합니다. 게이트웨이는 Azure Service Bus를 통해 암호화된 채널의 온-프레미스 원본에서 데이터를 릴레이합니다. 보안으로 시작하는 모든 트래픽은 게이트웨이 에이전트에서 트래픽을 아웃바운드합니다. [데이터 게이트웨이 작동 원리](logic-apps-gateway-install.md#gateway-cloud-service)에 대해 자세히 알아봅니다.
 
-#### <a name="azure-api-management"></a>Azure API 관리
+#### <a name="azure-api-management"></a>Azure API Management
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/)에는 보안 프록시를 위한 사이트 간 VPN 및 ExpressRoute 통합과 온-프레미스 시스템에 대한 통신 등 온-프레미스 연결 옵션이 있습니다. Logic App Designer에서 워크플로 내의 Azure API Management에서 노출되는 API를 빠르게 선택하여 온-프레미스 시스템에 빠르게 액세스할 수 있습니다.
 

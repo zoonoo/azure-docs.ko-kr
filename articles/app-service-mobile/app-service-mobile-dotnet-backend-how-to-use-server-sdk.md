@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -44,13 +44,27 @@ App Service 모바일 백 엔드를 만들려면 [빠른 시작 자습서][3]를
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-*시작* 블레이드로 돌아가서 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **C#**을 선택합니다. **다운로드**를 클릭하고 로컬 컴퓨터에 압축된 프로젝트 파일을 풀고 Visual Studio에서 솔루션을 엽니다.
+*시작* 블레이드로 돌아가서 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **C#** 을 선택합니다. **다운로드**를 클릭하고 로컬 컴퓨터에 압축된 프로젝트 파일을 풀고 Visual Studio에서 솔루션을 엽니다.
 
-### <a name="create-a-net-backend-using-visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 및 Visual Studio 2015를 사용하여 .NET 백 엔드 만들기
+### <a name="create-a-net-backend-using-visual-studio-2017"></a>Visual Studio 2017을 사용하여 .NET 백 엔드 만들기
+
+Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visual Studio에서 Azure Mobile Apps 프로젝트에 게시합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 응용 프로그램을 만듭니다.
+
+1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
+2. **Visual C#** 를 확장하고 **웹**을 선택합니다.
+3. **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
+4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
+5. 템플릿 목록에서 **Azure 모바일 앱**을 선택합니다.
+6. **확인**을 클릭하여 솔루션을 만듭니다.
+7. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택한 다음, 게시 대상으로 **App Service**를 선택합니다.
+8. 프롬프트를 따라 인증하고 새로운 또는 기존 Azure App Service를 선택하여 게시합니다.
+
+### <a name="create-a-net-backend-using-visual-studio-2015"></a>Visual Studio 2015를 사용하여 .NET 백 엔드 만들기
+
 Visual Studio에서 Azure Mobile Apps 프로젝트를 만들려면 [.NET용 Azure SDK][4](버전 2.9.0 이상)을 설치합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 응용 프로그램을 만듭니다.
 
-1. **새 프로젝트** 대화를 엽니다(*파일* > **새로 만들기** > **프로젝트...**에서).
-2. **템플릿** > **Visual C#**를 확장하고 **웹**을 선택합니다.
+1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
+2. **템플릿** > **Visual C#** 를 확장하고 **웹**을 선택합니다.
 3. **ASP.NET 웹 응용 프로그램**을 선택합니다.
 4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
 5. *ASP.NET 4.5.2 템플릿*아래에서 **Azure Mobile App**을 선택합니다. **클라우드에 호스트** 를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 모바일 백 엔드를 만듭니다.
@@ -89,7 +103,7 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 **HttpConfiguration**
         .MapApiControllers()
         .ApplyTo(config);
 
-Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호출합니다. 이것은 다음 설정과 같습니다.
+Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()** 을 호출합니다. 이것은 다음 설정과 같습니다.
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -182,7 +196,7 @@ DTO는 SQL 데이터베이스 내에서 테이블을 정의하는 데 사용됩�
 
 Azure SDK가 설치되어 있으면 이제 다음과 같이 템플릿 테이블 컨트롤러를 만들 수 있습니다.
 
-1. 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** > **컨트롤러를 참조하세요.를 참조하세요.를 참조하세요.**를 참조하세요.
+1. 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** > **컨트롤러를 참조하세요.를 참조하세요.를 참조하세요.** 를 참조하세요.
 2. **Azure Mobile Apps 테이블 컨트롤러** 옵션을 선택한 다음 **추가**를 클릭합니다.
 3. **컨트롤러 추가** 대화 상자에서 다음을 수행합니다.
    * **모델 클래스** 드롭다운에서 새 DTO를 선택합니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 끝점에 자산 미리 로드 | Microsoft Docs"
-description: "Azure CDN 끝점에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다."
+title: Azure CDN 끝점에 자산 미리 로드 | Microsoft Docs
+description: Azure CDN 끝점에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: mazha
-ms.openlocfilehash: e00205ddcaab277029d7185d0158a64818d0d49b
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: bf3161d756759e4b278e48ad7a49615e4a73d17f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 끝점에 자산 미리 로드
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -67,6 +67,6 @@ ms.lasthandoff: 02/14/2018
 
 ## <a name="see-also"></a>참고 항목
 * [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
-* [Azure CDN REST API 참조: 끝점에서 콘텐츠 미리 로드](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API 참조: 끝점에서 콘텐츠 제거](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/purgecontent)
+* [Azure CDN REST API 참조: 끝점에서 콘텐츠 미리 로드](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Azure CDN REST API 참조: 끝점에서 콘텐츠 제거](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

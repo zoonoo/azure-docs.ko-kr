@@ -1,62 +1,56 @@
 ---
-title: 로드 - Azure Data Lake Store에서 SQL Data Warehouse로| Microsoft Docs
-description: PolyBase 외부 테이블을 사용하여 Azure Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 로드하는 방법에 대해 알아봅니다.
+title: '자습서: Azure Data Lake Store에서 Azure SQL Data Warehouse로 로드 | Microsoft Docs'
+description: PolyBase 외부 테이블을 사용하여 Azure Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 로드합니다.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
-manager: barbkess
-editor: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 3/14/2018
-ms.author: cakarst;barbkess
-ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c6030d1951c22dddfe6df01225c63cf503a370ac
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Azure Data Lake Store에서 SQL Data Warehouse로 데이터 로드
-이 문서는 PolyBase를 사용하여 ADLS(Azure Data Lake Store)에서 SQL Data Warehouse로 데이터를 로드하는 데 필요한 모든 단계를 제공합니다.
-외부 테이블을 사용하여 ADLS에 저장된 데이터에 대해 임시 쿼리를 실행할 수 있는 동안 모범 사례로 SQL Data Warehouse로 데이터를 가져오는 것을 권장합니다.
+# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Azure Data Lake Store에서 SQL Data Warehouse로 데이터 로드
+PolyBase 외부 테이블을 사용하여 Azure Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 로드합니다. ADLS에 저장된 데이터에서 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * Azure Data Lake Store에서 로드하려면 데이터베이스 개체를 만들어야 합니다.
+> * Azure Data Lake Store 디렉터리에 연결합니다.
+> * Azure SQL Data Warehouse에 데이터를 로드합니다.
 
-1. Azure Data Lake Store에서 로드하려면 데이터베이스 개체를 만들어야 합니다.
-2. Azure Data Lake Store 디렉터리에 연결합니다.
-3. Azure SQL Data Warehouse에 데이터를 로드합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
+
 이 자습서를 실행하려면 다음이 필요합니다.
 
-* 서비스 간 인증에 사용할 Azure Active Directory 응용 프로그램. 만들려면 [Active Directory 인증](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)을 따릅니다.
+* 서비스 간 인증에 사용할 Azure Active Directory 응용 프로그램. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
 >[!NOTE] 
-> SQL Data Warehouse에서 Azure Data Lake에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다.
->Azure Active Directory 앱 등록의 경우 '응용 프로그램 ID'를 클라이언트 ID로 사용합니다.
+> SQL Data Warehouse에서 Azure Data Lake에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '응용 프로그램 ID'를 클라이언트 ID로 사용합니다.
+> 
 
-* SQL Server Management Studio 또는 SQL Server Data Tools, SSMS를 다운로드하고 연결하려면 [SSMS 쿼리](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)를 참조하세요.
+* Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.
 
-* Azure SQL Data Warehouse, 하나 만들려면 다음을 수행합니다. https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Azure Data Lake Store입니다. [Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조합니다. 
 
-* Azure Data Lake Store, 하나 만들려면 다음을 수행합니다. https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+##  <a name="create-a-credential"></a>자격 증명 만들기
+Azure Data Lake Store에 액세스하려면 다음 단계에서 사용되는 자격 증명 암호를 암호화하는 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음, AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Miscrosoft Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
 
-
-###  <a name="create-a-credential"></a>자격 증명 만들기
-Azure Data Lake Store에 액세스하려면 다음 단계에서 사용되는 자격 증명 암호를 암호화하는 데이터베이스 마스터 키를 만들어야 합니다.
-그런 다음, AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Miscrosoft Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
-Azure Data Lake Store에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Azure Data Lake 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 이러한 단계를 수행하기 위한 지침은 [여기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)에 있습니다.
+Azure Data Lake Store에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Azure Data Lake 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Store 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조합니다.
 
 ```sql
 -- A: Create a Database Master Key.
 -- Only necessary if one does not already exist.
 -- Required to encrypt the credential secret in the next step.
--- For more information on Master Key: https://msdn.microsoft.com/en-us/library/ms174382.aspx?f=255&MSPPError=-2147217396
+-- For more information on Master Key: https://msdn.microsoft.com/library/ms174382.aspx?f=255&MSPPError=-2147217396
 
 CREATE MASTER KEY;
 
@@ -64,7 +58,7 @@ CREATE MASTER KEY;
 -- B: Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
--- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/en-us/library/mt270260.aspx
+-- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
 CREATE DATABASE SCOPED CREDENTIAL ADLCredential
 WITH
@@ -80,9 +74,8 @@ WITH
 ;
 ```
 
-
-### <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
-이 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 명령을 사용하여 데이터의 위치를 저장합니다. 
+## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
+이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 명령을 사용하여 데이터의 위치를 저장합니다. 
 
 ```sql
 -- C: Create an external data source
@@ -100,7 +93,7 @@ WITH (
 
 ## <a name="configure-data-format"></a>데이터 형식 구성
 ADLS에서 데이터를 가져오려면 외부 파일 형식을 지정해야 합니다. 이 개체는 ADLS에 파일을 쓰는 방법을 정의합니다.
-전체 목록은 [외부 파일 형식 만들기][CREATE EXTERNAL FILE FORMAT]의 T-SQL 설명서를 참조하세요.
+전체 목록은 [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서 참조
 
 ```sql
 -- D: Create an external file format
@@ -160,7 +153,7 @@ REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어�
  Azure Data Lake는 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 위치 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
-Azure Data Lake Store에서 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용합니다. 
+Azure Data Lake Store에서 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문을 사용합니다. 
 
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
@@ -177,7 +170,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
-기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리][manage columnstore indexes]를 참조하세요.
+기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 
@@ -187,41 +180,31 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
-Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [Columnstore 인덱스 관리][manage columnstore indexes] 문서를 참조하세요.
-
 ## <a name="optimize-statistics"></a>통계를 최적화합니다.
 로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 통계에 대한 몇 가지 선택 사항이 있습니다. 예를 들어 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다. 쿼리 조건자에 위치하지 않을 특정 열에 대해 알고 있다면 이들 열에 대한 통계 생성 과정은 건너뛸 수 있습니다.
 
-단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계][statistics] 문서에 저장된 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
+단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서에 저장된 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
 
 다음 예제는 통계를 만들기 위한 좋은 출발점이 됩니다. 차원 테이블의 각 열과 팩트 테이블의 각 조인 열의 단일 열 통계를 생성합니다. 이후 언제라도 다른 팩트 테이블 열에 단일 또는 여러 열 통계를 추가할 수 있습니다.
-
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
 이제 Azure SQL Data Warehouse에 데이터를 성공적으로 로드했습니다. 잘 하셨습니다!
 
-## <a name="next-steps"></a>다음 단계
-데이터 로드는 SQL Data Warehouse를 사용하여 데이터 웨어하우스 솔루션을 개발하는 첫 번째 단계입니다. [테이블](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) 및 [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops)에서 개발 리소스를 확인하세요.
+## <a name="next-steps"></a>다음 단계 
+이 자습서에서는 Azure Data Lake Store에 저장된 데이터에 대한 구조를 정의하는 외부 테이블을 만든 다음, PolyBase CREATE TABLE AS SELECT 문을 사용하여 데이터 웨어하우스에 데이터를 로드했습니다. 
+
+다음 작업을 수행했습니다.
+> [!div class="checklist"]
+> * Azure Data Lake Store에서 로드하려면 데이터베이스 개체를 만들어야 합니다.
+> * Azure Data Lake Store 디렉터리에 연결했습니다.
+> * Azure SQL Data Warehouse에 데이터를 로드했습니다.
+> 
+
+데이터 로드는 SQL Data Warehouse를 사용하여 데이터 웨어하우스 솔루션을 개발하는 첫 번째 단계입니다. 개발 리소스를 확인하세요.
+
+> [!div class="nextstepaction"]
+>[SQL Data Warehouse에서 테이블을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)
 
 
-<!--Image references-->
 
-<!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
 
-<!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
-
-<!--Other Web references-->
-[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

@@ -1,29 +1,29 @@
 ---
-title: "Azure Policy json 샘플 ‑ 관리 디스크를 사용하여 VM 만들기 | Microsoft Docs"
-description: "이 json 샘플 정책에서는 가상 컴퓨터가 관리 디스크를 사용해야 합니다."
+title: Azure Policy json 샘플 ‑ 관리 디스크를 사용하여 VM 만들기 | Microsoft Docs
+description: 이 json 샘플 정책에서는 가상 머신이 관리 디스크를 사용해야 합니다.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 7d1590896d4ffd86d8e4c903ca356adc48fc21db
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 968c41386b4d166329a700f544421e33f5f47c29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-vm-using-managed-disk"></a>관리 디스크를 사용하여 VM 만들기
 
-가상 컴퓨터가 관리 디스크를 사용해야 합니다.
+가상 머신이 관리 디스크를 사용해야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

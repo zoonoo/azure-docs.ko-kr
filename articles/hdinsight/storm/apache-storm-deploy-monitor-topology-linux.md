@@ -1,8 +1,8 @@
 ---
-title: "Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리 | Microsoft Docs"
-description: "Linux 기반 HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다."
+title: Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리 | Microsoft Docs
+description: Linux 기반 HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
@@ -95,7 +93,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 ## <a name="submit-a-topology-programmatically"></a>토폴로지 제출: 프로그래밍 방식으로
 
-Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) 는 Nimbus 서비스를 통해 토폴로지를 배포하고 시작하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공합니다.
+Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)는 Nimbus 서비스를 통해 토폴로지를 배포하고 시작하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공합니다.
 
 ## <a name="monitor-and-manage-visual-studio"></a>모니터링 및 관리: Visual Studio
 
@@ -220,7 +218,7 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 
 ### <a name="base-uri"></a>기본 URI
 
-Linux 기반 HDInsight 클러스터에서 REST API의 기본 URI는 **https://HEADNODEFQDN:8744/api/v1/**에 있는 헤드 노드에서 사용할 수 있습니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성되고 고정적이지 않습니다.
+Linux 기반 HDInsight 클러스터에서 REST API의 기본 URI는 **https://HEADNODEFQDN:8744/api/v1/** 에 있는 헤드 노드에서 사용할 수 있습니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성되고 고정적이지 않습니다.
 
 다양한 방법으로 클러스터 헤드 노드의 정규화된 도메인 이름(FQDN)을 찾을 수 있습니다.
 

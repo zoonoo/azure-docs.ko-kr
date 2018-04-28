@@ -1,25 +1,25 @@
 ---
-title: "Azure Policy json 샘플 - 모든 NIC에서 NSG x | Microsoft Docs"
-description: "이 json 샘플 정책에서는 특정 네트워크 보안 그룹이 모든 가상 네트워크 인터페이스와 함께 사용됩니다."
+title: Azure Policy json 샘플 - 모든 NIC에서 NSG x | Microsoft Docs
+description: 이 json 샘플 정책에서는 특정 네트워크 보안 그룹이 모든 가상 네트워크 인터페이스와 함께 사용됩니다.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: db60ddc164549ddcc8d0d6edb296956b3b144eb9
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 09b635e064212bea6f5756a4493a590130894644
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nsg-x-on-every-nic"></a>모든 NIC에서 NSG x
 

@@ -1,11 +1,10 @@
 ---
-title: "VM의 계산 집약적인 Java 응용 프로그램 | Microsoft Docs"
-description: "다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 머신을 만드는 방법에 대해 알아봅니다."
+title: VM의 계산 집약적 Java 응용 프로그램
+description: 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management,azure-resource-manager
 ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: ccccdf58fbb84605bc5dff29d870b373134f1f97
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e8da296c30f1d2be3c637e456e90d2f93da67548
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>가상 머신에서 Java로 계산 집약적인 작업을 실행하는 방법
 > [!IMPORTANT] 
@@ -67,7 +66,7 @@ Azure에서 가상 머신을 사용하여 계산 집약적인 작업을 처리�
    2. **클라우드 서비스 DNS 이름** 값은 cloudapp.net에서 고유해야 합니다. 필요한 경우 Azure에서 고유한 이름이 되도록 수정합니다.
    3. 지역, 선호도 그룹 또는 가상 네트워크를 지정합니다. 이 자습서에서는 지역(예: **미국 서부**)을 지정합니다.
    4. **Storage 계정** 상자에서 **자동으로 생성된 Storage 계정 사용**을 선택합니다.
-   5. **가용성 집합**에서 **(없음)**을 선택합니다.
+   5. **가용성 집합**에서 **(없음)** 을 선택합니다.
    6. **다음**을 클릭합니다.
 7. 마지막 **가상 머신 구성** 대화 상자에서 다음을 수행합니다.
    1. 기본 끝점 항목을 그대로 사용합니다.

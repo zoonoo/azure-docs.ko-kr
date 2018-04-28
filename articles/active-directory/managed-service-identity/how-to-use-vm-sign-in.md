@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ec8c9de6ecd81900c4104abf58ecbe032e43fad9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>로그인에 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
@@ -75,7 +75,7 @@ MSI를 사용하는 경우 MSI 서비스 주체 하에서 로그인할 수 있�
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 서비스의 리소스 ID
 
-Azure AD를 지원하고 MSI 및 해당하는 리소스 ID를 사용하여 테스트된 리소스의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](overview.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+Azure AD를 지원하고 MSI 및 해당하는 리소스 ID를 사용하여 테스트된 리소스의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](services-support-msi.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
 ## <a name="error-handling-guidance"></a>오류 처리 지침 
 

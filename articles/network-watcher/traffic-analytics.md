@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -42,7 +42,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 - **NSG(네트워크 보안 그룹) 흐름 로그**: 네트워크 보안 그룹을 통한 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. NSG 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP 주소, 원본/대상 포트, 프로토콜)를 보여줍니다. NSG 흐름 로그에 대한 자세한 내용은 [NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
 - **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 모니터링 응용 프로그램은 Log Analytics를 기반으로 사용하여 작성됩니다. 자세한 내용은 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **로그 분석 작업 영역**: Azure 계정과 관련된 데이터가 저장되는 로그 분석 인스턴스입니다. 로그 분석 작업 영역에 대한 자세한 내용은 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
-- **Network Watcher**: Azure에서 네트워크 시나리오 수준으로 상태를 모니터링하고 진단할 수 있는 지역 서비스입니다. Network Watcher에서 NSG 흐름 로그를 켜고 끌 수 있습니다. 자세한 내용은 [Network Watcher](network-watcher-monitoring-overview.md#network-watcher)를 참조하세요.
+- **Network Watcher**: Azure에서 네트워크 시나리오 수준으로 상태를 모니터링하고 진단할 수 있는 지역 서비스입니다. Network Watcher에서 NSG 흐름 로그를 켜고 끌 수 있습니다. 자세한 내용은 [Network Watcher](network-watcher-monitoring-overview.md)를 참조하세요.
 
 ## <a name="how-traffic-analytics-works"></a>트래픽 분석의 작동 원리 
 
@@ -116,7 +116,7 @@ New-AzureRmStorageAccount `
 
 ## <a name="view-traffic-analytics"></a>트래픽 분석 보기
 
-포털의 왼쪽에서 **모든 서비스**를 선택한 다음, **필터** 상자에 *모니터*를 입력합니다. 검색 결과에 **모니터**가 표시되면 모니터를 선택합니다. 트래픽 분석 및 그 기능을 탐색하려면 **Network Watcher**, **트래픽 분석(미리 보기)**을 차례로 선택합니다.
+포털의 왼쪽에서 **모든 서비스**를 선택한 다음, **필터** 상자에 *모니터*를 입력합니다. 검색 결과에 **모니터**가 표시되면 모니터를 선택합니다. 트래픽 분석 및 그 기능을 탐색하려면 **Network Watcher**, **트래픽 분석(미리 보기)** 을 차례로 선택합니다.
 
 ![트래픽 분석 대시보드에 액세스](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

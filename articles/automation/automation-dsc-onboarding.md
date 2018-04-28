@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드
 
@@ -42,7 +42,7 @@ Azure Automation DSC를 사용하면 Azure Portal이나 PowerShell을 사용하�
 
 ### <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](http://portal.azure.com/)에서 **찾아보기** -> **가상 머신(클래식)**를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 머신의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure Automation DSC** -> **만들기**를 클릭합니다. 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4), Automation 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+[Azure Portal](http://portal.azure.com/)에서 **찾아보기** -> **가상 머신(클래식)** 를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 머신의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure Automation DSC** -> **만들기**를 클릭합니다. 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4), Automation 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
@@ -53,7 +53,7 @@ Azure Automation DSC를 사용하면 Azure Portal이나 PowerShell을 사용하�
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation DSC에 의한 구성 관�
 PowerShell DSC 로컬 구성 관리자 기본값이 해당 사용 사례와 일치하는 경우 Azure Automation DSC에서 끌어오고 보고하는 모든 컴퓨터를 등록하려 합니다. Azure Automation cmdlet은 필요한 DSC 메타 구성을 생성하는 단순화된 방법을 제공합니다.
 
 1. 로컬 환경의 컴퓨터에서 관리자 권한으로 PowerShell 콘솔이나 PowerShell ISE를 엽니다.
-2. **Add-AzureRmAccount**
+2. **Connect-AzureRmAccount**를 사용하여 Azure Resource Manager에 연결
 3. 노드를 등록하려는 Automation 계정에서 등록하려 컴퓨터에 대한 PowerShell DSC 메타 구성을 다운로드합니다.
 
     ```powershell

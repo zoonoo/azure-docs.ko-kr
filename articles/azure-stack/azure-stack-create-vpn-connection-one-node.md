@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6520da6b866ebddd66604dd8f27acfc5a9bcef4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>다양 한 Azure 스택 개발 키트 환경에서 두 가상 네트워크 간의 사이트 간 VPN 연결 만들기
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
 연결 구성을 완료 하려면를 시작 하기 전에 다음 항목이 있는지 확인 합니다.
 
 * 두 대의 서버 및 기타 필수 구성 요소에 설명 된 대로 Azure 스택 개발 키트 하드웨어 요구 사항을 충족 하는 [빠른 시작: Azure 스택 개발 키트 평가](azure-stack-deploy-overview.md)합니다. 
-* [Azure 스택 개발 키트](https://azure.microsoft.com/en-us/overview/azure-stack/try/) 배포 패키지 합니다.
+* [Azure 스택 개발 키트](https://azure.microsoft.com/overview/azure-stack/try/) 배포 패키지 합니다.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Azure 스택 개발 키트 환경 배포
 연결 구성을 완료 하려면 두 가지 Azure 스택 개발 키트 환경 배포 해야 합니다.
@@ -53,7 +53,7 @@ POC1와 POC2 모두에서 제공 하는 서비스 사용자는 제품 구독 하
 |---------|---------|---------|
 |가상 네트워크 이름     |VNET-01|VNET-02 |
 |가상 네트워크 주소 공간 |10.0.10.0/23|10.0.20.0/23|
-|서브넷 이름     |서브넷-01|Subnet-02|
+|서브넷 이름     |서브넷-01|서브넷-02|
 |서브넷 주소 범위|10.0.10.0/24 |10.0.20.0/24 |
 |게이트웨이 서브넷      |10.0.11.0/24|10.0.21.0/24|
 |외부 BGPNAT 주소     |         |         |
@@ -150,7 +150,7 @@ Azure 배포에서 로컬 네트워크 게이트웨이 Azure에서 가상 네트
 1. 사용자 포털에서 선택 **새로**합니다.
 2. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
 3. 리소스 목록에서 선택 **연결**합니다.
-4. 에 **기본 사항** 설정 블레이드에서 대 한는 **연결 유형**선택, **사이트 (IPSec)**합니다.
+4. 에 **기본 사항** 설정 블레이드에서 대 한는 **연결 유형**선택, **사이트 (IPSec)** 합니다.
 5. 선택 된 **구독**, **리소스 그룹**, 및 **위치**를 선택한 후 **확인**합니다.
 6. 에 **설정** 블레이드를 **가상 네트워크 게이트웨이**를 선택한 후 **GW1**합니다.
 7. 선택 **로컬 네트워크 게이트웨이**를 선택한 후 **POC2 GW**합니다.
@@ -228,7 +228,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 1. 사용자 포털에서 선택 **새로**합니다. 
 2. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
 3. 리소스 목록에서 선택 **연결**합니다.
-4. 에 **기본** 설정 블레이드에서 대 한는 **연결 유형**, 선택 **사이트 (IPSec)**합니다.
+4. 에 **기본** 설정 블레이드에서 대 한는 **연결 유형**, 선택 **사이트 (IPSec)** 합니다.
 5. 선택 된 **구독**, **리소스 그룹**, 및 **위치**를 선택한 후 **확인**합니다.
 6. 에 **설정** 블레이드를 **가상 네트워크 게이트웨이**를 선택한 후 **GW2**합니다.
 7. 선택 **로컬 네트워크 게이트웨이**를 선택한 후 **POC1 GW**합니다.

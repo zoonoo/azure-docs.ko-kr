@@ -171,7 +171,7 @@
 ## [App Service 모범 사례](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [가격](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [가격](https://azure.microsoft.com/pricing/details/app-service/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)

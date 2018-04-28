@@ -1,12 +1,12 @@
 ---
-title: "Azure 보안 소개 | Microsoft Docs"
-description: "Azure 보안, 해당 서비스 및 작동 방법에 대해 알아봅니다."
+title: Azure 보안 소개 | Microsoft Docs
+description: Azure 보안, 해당 서비스 및 작동 방법에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 68bba95e177fa8d0261b84f51b0f5285c7fb7417
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -58,8 +58,8 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 | [보안 플랫폼](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [개인 정보 보호 및 제어](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[규정 준수](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [투명성](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [보안 개발 주기](https://www.microsoft.com/en-us/sdl/)(영문), 내부 감사 | [항상 사용자 데이터 관리](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data)(영문) | [보안 센터](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)(영문) |
-| [필수 보안 교육, 백그라운드 검사](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](http://azuredatacentermap.azurewebsites.net/)(영문)|
-| [침투 테스트](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc), [침입 검색, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [감사 및 로깅](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [조건부 데이터 액세스 제공](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Cloud Services 실사 검사 목록](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist)(영문) |[데이터에 누가 그리고 어떤 조건으로 액세스할 수 있는가](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [필수 보안 교육, 백그라운드 검사](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](http://azuredatacentermap.azurewebsites.net/)(영문)|
+| [침투 테스트](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [침입 검색, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [감사 및 로깅](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [조건부 데이터 액세스 제공](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Cloud Services 실사 검사 목록](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist)(영문) |[데이터에 누가 그리고 어떤 조건으로 액세스할 수 있는가](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [세계 첨단의 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), 물리적 보안, [네트워크 보안](https://docs.microsoft.com/azure/security/security-network-overview) | [사법 기관에 대한 응답](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)(영문) |  [서비스별, 지역별 및 산업별 규정 준수](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)(영문)|
 |  [보안 사고 대응](http://aka.ms/SecurityResponsepaper)(영문), [공동 책임](http://aka.ms/sharedresponsibility)(영문) |[엄격한 개인 정보 보호 표준](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure 서비스, 투명성 허브에 대한 인증 검토](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)(영문)|
 
@@ -148,11 +148,11 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 -   응용 프로그램 오류(예외 이벤트 표시)
 -   성능(성능 이벤트 표시)
 
-## <a name="storage"></a>저장소
+## <a name="storage"></a>Storage
 이 섹션에서는 Azure 저장소 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
-RBAC(역할 기반 Access Control)를 사용하여 저장소 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 하여 액세스를 제한하는 것은 데이터 액세스에 대한 보안 정책을 시행하려는 조직에서 반드시 필요합니다. 특정 범위에서 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)을 사용하여 사용자에게 권한을 할당할 수 있습니다. [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) 모델을 사용하는 저장소 계정의 저장소 키에 대한 액세스는 RBAC(역할 기반 Access Control)를 통해 제어할 수 있습니다.
+RBAC(역할 기반 Access Control)를 사용하여 저장소 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 하여 액세스를 제한하는 것은 데이터 액세스에 대한 보안 정책을 시행하려는 조직에서 반드시 필요합니다. 특정 범위에서 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 사용하여 사용자에게 권한을 할당할 수 있습니다. [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) 모델을 사용하는 저장소 계정의 저장소 키에 대한 액세스는 RBAC(역할 기반 Access Control)를 통해 제어할 수 있습니다.
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 저장소 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
@@ -172,7 +172,7 @@ RBAC(역할 기반 Access Control)를 사용하여 저장소 계정의 보안을
 
 -   [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) 는 휴지 상태의 암호화 기능을 제공합니다.
 
--   [Azure 디스크 암호화](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 를 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
+-   [Azure 디스크 암호화](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 를 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
 ### <a name="storage-analytics"></a>저장소 분석
 [Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. 저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 다음과 같은 유형의 인증된 요청이 기록됩니다.
@@ -192,7 +192,7 @@ Azure 저장소 서비스는 이제 CORS를 지원하므로 서비스에 대한 
 이 섹션에서는 Azure 네트워크 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="network-layer-controls"></a>네트워크 계층 제어
-네트워크 액세스 제어는 특정 장치 또는 서브넷 간의 연결을 제한하는 행위이며, 네트워크 보안의 핵심을 나타냅니다. 네트워크 액세스 제어의 목표는 가상 컴퓨터 및 서비스가 사용자가 액세스하길 원하는 사용자 및 장치에만 액세스 가능하도록 하는 것입니다.
+네트워크 액세스 제어는 특정 장치 또는 서브넷 간의 연결을 제한하는 행위이며, 네트워크 보안의 핵심을 나타냅니다. 네트워크 액세스 제어의 목표는 가상 머신 및 서비스가 사용자가 액세스하길 원하는 사용자 및 장치에만 액세스 가능하도록 하는 것입니다.
 
 #### <a name="network-security-groups"></a>네트워크 보안 그룹
 [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)은 기본적인 상태 저장 패킷 필터링 방화벽이며, [5개 튜플](https://www.techopedia.com/definition/28190/5-tuple)에 기반하여 액세스를 제어할 수 있게 합니다. NSG는 응용 프로그램 계층 검사 또는 인증된 액세스 제어를 제공하지 않습니다. 이 그룹은 Azure Virtual Network 내의 서브넷 간에 이동하는 트래픽 및 Azure Virtual Network와 인터넷 간 트래픽을 제어하는 데 사용할 수 있습니다.
@@ -200,7 +200,7 @@ Azure 저장소 서비스는 이제 CORS를 지원하므로 서비스에 대한 
 #### <a name="route-control-and-forced-tunneling"></a>경로 제어 및 터널링 적용
 Azure Virtual Network에 라우팅 동작을 제어하는 기능은 중요한 네트워크 보안 및 액세스 제어 기능입니다. 예를 들어 Azure Virtual Network에 들어오고 나가는 모든 트래픽이 해당 가상 보안 어플라이언스를 통과하는지 확인하려면 라우팅 동작을 제어하고 사용자 지정할 수 있어야 합니다. 이렇게 하려면 Azure에서 사용자 정의 경로를 구성하면 됩니다.
 
-[사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 사용하면 개별 가상 컴퓨터 또는 서브넷으로 들어오고 나가는 트래픽의 인바운드 및 아웃바운드 경로를 사용자 지정하여 가능한 가장 안전한 경로를 보장할 수 있습니다. [터널링 적용](https://www.petri.com/azure-forced-tunneling) 은 사용자의 서비스가 인터넷에서 장치에 대한 연결을 개시하지 못하게 하도록 사용할 수 있는 메커니즘입니다.
+[사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 사용하면 개별 가상 머신 또는 서브넷으로 들어오고 나가는 트래픽의 인바운드 및 아웃바운드 경로를 사용자 지정하여 가능한 가장 안전한 경로를 보장할 수 있습니다. [터널링 적용](https://www.petri.com/azure-forced-tunneling) 은 사용자의 서비스가 인터넷에서 장치에 대한 연결을 개시하지 못하게 하도록 사용할 수 있는 메커니즘입니다.
 
 이는 들어오는 연결을 수락한 다음 응답을 받을 수 있는 것과 다릅니다. 프런트 엔드 웹 서버는 인터넷 호스트의 요청에 응답해야 하므로 인터넷 소싱 트래픽은 이러한 웹 서버에 허용되는 인바운드이며 웹 서버에서 응답할 수 있습니다.
 
@@ -211,7 +211,7 @@ Azure Virtual Network에 라우팅 동작을 제어하는 기능은 중요한 �
 
 ### <a name="azure-virtual-network"></a>Azure Virtual Network
 
-Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 네트워크 패브릭의 논리적 격리입니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. Azure Virtual Networks에서 VNet을 서브넷으로 분할하고 Azure IaaS VM(가상 컴퓨터) 및/또는 [Cloud services(PaaS 역할 인스턴스)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)를 배치할 수 있습니다.
+Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 네트워크 패브릭의 논리적 격리입니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. Azure Virtual Networks에서 VNet을 서브넷으로 분할하고 Azure IaaS VM(가상 머신) 및/또는 [Cloud services(PaaS 역할 인스턴스)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)를 배치할 수 있습니다.
 
 뿐만 아니라 Azure에서 제공하는 [연결 옵션](https://docs.microsoft.com/azure/vpn-gateway/) 중 하나를 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. 기본적으로 네트워크를 Azure로 확장하여 IP 주소 블록을 완벽하게 제어하고, Azure가 제공하는 엔터프라이즈급 솔루션의 혜택을 누릴 수 있습니다.
 
@@ -275,11 +275,11 @@ Traffic Manager는 다양한 응용 프로그램 요구 사항, 끝점 상태 [�
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
 
--   가상 컴퓨터에 들어오는 인터넷 트래픽을 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
+-   들어오는 인터넷 트래픽을 가상 머신에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
--   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합. 
+-   가상 네트워크의 가상 머신 간, 클라우드 서비스의 가상 머신 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 머신 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합. 
 
-- 외부 트래픽을 특정 가상 컴퓨터로 전달
+- 외부 트래픽을 특정 가상 머신으로 전달
 
 ### <a name="internal-dns"></a>내부 DNS
 관리 포털 또는 네트워크 구성 파일에서 VNet에 사용된 DNS 서버 목록을 관리할 수 있습니다. 고객은 각 VNet마다 최대 12개의 DNS 서버를 추가할 수 있습니다. DNS 서버를 지정할 때 고객 환경에 맞는 올바른 순서로 고객의 DNS 서버를 나열하는지 확인하는 것이 중요합니다. DNS 서버 목록은 라운드 로빈 방식으로 작동하지 않으며, 지정된 순서로 사용됩니다. 목록의 첫 번째 DNS 서버에 연결할 수 있으면 DNS 서버가 적절하게 작동하는지 여부와 관계없이 클라이언트에서 해당 DNS 서버를 사용합니다. 고객의 가상 네트워크에 대한 DNS 서버 순서를 변경하려면 목록에서 DNS 서버를 제거하고 고객이 원하는 순서대로 다시 추가합니다. DNS는 "CIA" 보안 3요소를 한 조로 묶어 가용성 측면을 지원합니다.
@@ -301,23 +301,23 @@ Security Center는 위협을 예방, 검색 및 대응하는 데 도움이 되�
 
 -   [NGFW를 통해서만 트래픽 라우팅](https://docs.microsoft.com/azure/security-center/security-center-add-next-generation-firewall#route-traffic-through-ngfw-only) - NGFW를 통해 VM에 인바운드 트래픽을 강제 적용하는 NSG(네트워크 보안 그룹) 규칙을 구성하는 것이 좋습니다.
 
--   [서브넷 또는 가상 컴퓨터에서 네트워크 보안 그룹 사용](https://docs.microsoft.com/azure/security-center/security-center-enable-network-security-groups) - 서브넷 또는 VM에서 NSG를 사용하는 것이 좋습니다.
+-   [서브넷 또는 가상 머신에서 네트워크 보안 그룹 사용](https://docs.microsoft.com/azure/security-center/security-center-enable-network-security-groups) - 서브넷 또는 VM에서 NSG를 사용하는 것이 좋습니다.
 
 -   [인터넷 연결 끝점을 통한 액세스 제한](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints) - NSG에 대한 인바운드 트래픽 규칙을 구성하는 것이 좋습니다.
 
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>컴퓨팅
 
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신
-Azure IaaS를 사용하면 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersky와 같은 보안 공급업체의 맬웨어 방지 소프트웨어를 통해 악성 파일, 애드웨어 및 기타 위협으로부터 가상 컴퓨터를 보호할 수 있습니다. Azure Cloud Services 및 Virtual Machines를 위한 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 보호 기능입니다. Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다. 또한 Microsoft 맬웨어 방지 프로그램은 Azure Security Center를 통해 배포할 수도 있습니다.
+Azure IaaS를 사용하면 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersky와 같은 보안 공급업체의 맬웨어 방지 소프트웨어를 통해 악성 파일, 애드웨어 및 기타 위협으로부터 가상 머신을 보호할 수 있습니다. Azure Cloud Services 및 Virtual Machines를 위한 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 보호 기능입니다. Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다. 또한 Microsoft 맬웨어 방지 프로그램은 Azure Security Center를 통해 배포할 수도 있습니다.
 
 ### <a name="hardware-security-module"></a>하드웨어 보안 모듈
 암호화 및 인증은 키 자체가 보호되지 않는 한 보안을 향상시키지 않습니다. 중요한 비밀과 키를 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에 저장하여 관리와 보안을 단순화할 수 있습니다. Key Vault는 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 저장할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx) 를 위한 SQL Server 암호화 키는 응용 프로그램의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
 
-### <a name="virtual-machine-backup"></a>가상 컴퓨터 백업
-[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 자본 투자 없이 최소의 운영 비용으로 응용 프로그램 데이터를 보호하는 솔루션입니다. 응용 프로그램 오류로 인해 데이터가 손상될 수 있으며, 사용자 실수로 인해 응용 프로그램에 버그가 발생하여 보안 문제가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 컴퓨터의 보호에 도움이 됩니다.
+### <a name="virtual-machine-backup"></a>가상 머신 백업
+[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 자본 투자 없이 최소의 운영 비용으로 응용 프로그램 데이터를 보호하는 솔루션입니다. 응용 프로그램 오류로 인해 데이터가 손상될 수 있으며, 사용자 실수로 인해 응용 프로그램에 버그가 발생하여 보안 문제가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 계획되거나 계획되지 않은 중단 상태가 발생하는 경우 조직 [BCDR(비즈니스 연속성/재해 복구)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 전략의 중요한 부분은 회사 워크로드 및 앱을 가동 및 실행하도록 유지하는 방법을 파악하는 것입니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하면 기본 위치가 중단되는 경우 보조 위치에서 사용할 수 있도록 워크로드 및 앱의 복제, 장애 조치 및 복구를 오케스트레이션할 수 있습니다.
@@ -330,10 +330,10 @@ AKV(Azure Key Vault) 서비스는 안전하고 가용성이 높은 위치에서 
 온-프레미스 컴퓨터에서 SQL Server를 실행하는 경우 온-프레미스 SQL Server 컴퓨터에서 Azure Key Vault에 액세스할 수 있는 단계가 있습니다. 하지만 Azure VM의 SQL Server에서는 Azure Key Vault 통합 기능을 사용하여 시간을 절약할 수 있습니다. 이 기능을 지원하는 Azure PowerShell cmdlet 몇 개만 있으면 SQL VM이 키 자격 증명 모음에 액세스하는 데 필요한 구성을 자동화할 수 있습니다.
 
 ### <a name="vm-disk-encryption"></a>VM 디스크 암호화
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows 및 Linux IaaS 가상 컴퓨터 디스크를 암호화할 수 있게 하는 새로운 기능입니다. Windows의 업계 표준 BitLocker 기능과 Linux의 DM-Crypt 기능을 적용하여 OS 및 데이터 디스크에 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 Key Vault 구독에서 디스크 암호화 키와 비밀을 제어하고 관리 할 수 있습니다. 이 솔루션은 가상 컴퓨터 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
+[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있게 하는 새로운 기능입니다. Windows의 업계 표준 BitLocker 기능과 Linux의 DM-Crypt 기능을 적용하여 OS 및 데이터 디스크에 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 Key Vault 구독에서 디스크 암호화 키와 비밀을 제어하고 관리 할 수 있습니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
 
 ### <a name="virtual-networking"></a>가상 네트워킹
-가상 컴퓨터는 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 컴퓨터를 Azure Virtual Network에 연결해야 합니다. Azure Virtual Network는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 논리적 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 각각은 다른 모든 Azure Virtual Network와 격리됩니다. 이 격리를 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
+가상 머신은 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 머신을 Azure Virtual Network에 연결해야 합니다. Azure Virtual Network는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 논리적 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 각각은 다른 모든 Azure Virtual Network와 격리됩니다. 이 격리를 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
 
 ### <a name="patch-updates"></a>패치 업데이트
 패치 업데이트는 기업에서 배포해야 하는 소프트웨어 업데이트의 수를 줄이고 규정 준수를 모니터링하는 기능을 향상시킴으로써 잠재적인 문제를 찾아 수정하고 소프트웨어 업데이트 관리 프로세스를 간소화할 수 있는 기반을 제공합니다.
@@ -356,7 +356,7 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 -   [암호 정책 적용](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/) - 길이 및 복잡성 요구 사항, 정기적 강제 회전, 실패한 인증 시도 후 계정 잠금을 강제 적용하여 기존 암호의 보안을 강화합니다.
 
--   [토큰 기반 인증](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) - AD FS(Active Directory Federation Service) 또는 타사 보안 토큰 시스템을 통해 인증할 수 있게 합니다.
+-   [토큰 기반 인증](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/)을 사용하여 Azure Active Directory를 통한 인증을 설정할 수 있습니다.
 
 -   [RBAC(역할 기반 액세스 제어)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) - 사용자에게 할당된 역할에 따라 액세스 권한을 부여함으로써 사용자에게 자신의 업무를 수행하는 데 필요한 액세스 권한만 부여할 수 있게 합니다. 조직의 비즈니스 모델 및 위험 허용 범위에 따라 RBAC를 사용자 지정할 수 있습니다.
 

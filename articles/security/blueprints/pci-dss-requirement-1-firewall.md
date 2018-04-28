@@ -1,6 +1,6 @@
 ---
-title: "Azure 결제 처리 청사진 - 방화벽 요구 사항"
-description: "PCI DSS 요구 사항 1"
+title: Azure 결제 처리 청사진 - 방화벽 요구 사항
+description: PCI DSS 요구 사항 1
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 방화벽 요구 사항 
 ## <a name="pci-dss-requirement-1"></a>PCI DSS 요구 사항 1
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 인스턴스는 모든 변경이 올바르게 관리되도록 하기 위해 CI/CD DevOps 모델을 설정합니다. [OMS(Operations Management Suite)](/azure/operations-management-suite/)는 변경에 대한 광범위한 로깅을 제공합니다. 변경을 검토하고 정확도를 확인할 수 있습니다. 자세한 지침은 [PCI 지침 - OMS(Operations Management Suite)](payment-processing-blueprint.md#logging-and-auditing)를 참조하세요.<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙 집중식 보기를 제공합니다. 적절한 보안 제어가 준비되고 올바르게 구성되었는지와 주의가 필요한 리소스를 한눈에 빠르게 확인할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 인스턴스는 모든 변경이 올바르게 관리되도록 하기 위해 CI/CD DevOps 모델을 설정합니다. Log Analytics는 광범위한 변경 내용 로깅을 제공합니다. 변경을 검토하고 정확도를 확인할 수 있습니다. 자세한 지침은 [PCI 지침 - OMS(Operations Management Suite)](payment-processing-blueprint.md#logging-and-auditing)를 참조하세요.<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙 집중식 보기를 제공합니다. 적절한 보안 제어가 준비되고 올바르게 구성되었는지와 주의가 필요한 리소스를 한눈에 빠르게 확인할 수 있습니다.|
 
 
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 [Azure RBAC(역할 기반 액세스 제어)](/azure/active-directory/role-based-access-control-configure)를 사용하여 사용자 역할을 격리합니다. RBAC를 사용하면 Azure에 대해 정확하게 초점을 맞춘 액세스 관리를 사용할 수 있습니다. 구독 액세스 및 Azure Key Vault 액세스에 대한 특정 구성이 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 [Azure RBAC(역할 기반 액세스 제어)](/azure/role-based-access-control/role-assignments-portal)를 사용하여 사용자 역할을 격리합니다. RBAC를 사용하면 Azure에 대해 정확하게 초점을 맞춘 액세스 관리를 사용할 수 있습니다. 구독 액세스 및 Azure Key Vault 액세스에 대한 특정 구성이 있습니다.|
 
 
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric Java 클라이언트 API | Microsoft Docs"
-description: "Service Fabric 클라이언트 REST API 사양을 사용하여 Service Fabric Java 클라이언트 API를 생성하고 사용합니다."
+title: Azure Service Fabric Java 클라이언트 API | Microsoft Docs
+description: Service Fabric 클라이언트 REST API 사양을 사용하여 Service Fabric Java 클라이언트 API를 생성하고 사용합니다.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 6f9b9d46be36b292fe2c3be92d90d4cf87155210
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9596e55c6c915461ef4d0bff0d7f9583aac18a1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
@@ -133,5 +133,5 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
     * 사후 비동기 프로그래밍을 사용하고 RAW REST 응답을 처리하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Service Fabric REST API](https://docs.microsoft.com/en-us/rest/api/servicefabric/)에 대해 알아봅니다.
+* [Service Fabric REST API](https://docs.microsoft.com/rest/api/servicefabric/)에 대해 알아봅니다.
 

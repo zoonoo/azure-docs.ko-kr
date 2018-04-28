@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 404ede664f13900137c730034798fbb4b8307852
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure 응용 프로그램 및 리소스 모니터링
 
@@ -161,6 +161,6 @@ Azure에서는 Windows 및 Linux 가상 머신이 혼합되어 실행됩니다. 
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
 
-* 핵심 모니터링 메트릭 및 경고를 시작하는 [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/)
+* 핵심 모니터링 메트릭 및 경고를 시작하는 [Azure Monitor](https://azure.microsoft.com/services/monitor/)
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - App Service 웹앱에서 문제를 진단하려는 경우
 * 수집한 모니터링 데이터 및 로그를 분석하기 위한 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

@@ -3,7 +3,7 @@ title: Azure 스택에 배포 된 Vm을 보호 | Microsoft Docs
 description: Azure 스택에 배포 된 가상 컴퓨터를 보호 하는 방법에 대 한 지침입니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -11,20 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.topic: get-started-article
+ms.date: 04/25/2018
+ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b49a8650611472b5e35c4bdf8373a1d7e3a45589
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure 스택에 배포 된 가상 컴퓨터 보호
-
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
-
 이 문서에서는 Azure 스택에 배포 된 사용자 Vm을 보호 하는 방법에 대 한 지침을 다룹니다.
 
 계획 되지 않은 가동 중지 시간 및 데이터 손실을 방지 하기 위해 사용자 응용 프로그램 및 데이터에 대 한 백업 복구 또는 재해 복구 계획을 구현 해야 합니다. 이 계획은 각 응용 프로그램에 대해 고유 하지만 조직의 포괄적인 비즈니스 연속성 및 재해 복구 (BC/DR) 전략에 의해 설정 된 프레임 워크를 따릅니다. 일반 패턴 및 응용 프로그램에 대 한 사례에 대 한 가용성과 복원 력이 참조 [Azure에 대 한 복원 력 있는 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency) Azure의 아키텍처 센터에 있습니다.
@@ -60,11 +57,11 @@ RPO에는 재해 발생 시 허용 되는 데이터 손실의 최대 기간입�
  
 RTO 및 RPO는 비즈니스 요구 사항입니다. 응용 프로그램의 RTO 및 RPO를 정의 하는 위험 평가 수행 합니다. 또 다른 일반적인 메트릭은 **복구 하는 평균 시간** (MTTR) 되는 응용 프로그램 오류가 발생 한 후 복원 하는 데 걸리는 평균 시간입니다. MTTR은 시스템에 대한 실증적 팩트입니다. MTTR이 RTO를 초과하면 시스템에 오류가 발생했을 때 정의된 RTO 내에서 시스템을 복원할 수 없기 때문에 허용할 수 없는 수준의 비즈니스 중단이 발생합니다.
 
-### <a name="backup-restore"></a>Backup-restore
+### <a name="backup-restore"></a>백업 복원
 
 VM 기반 응용 프로그램에 대 한 가장 일반적인 보호 체계 백업 소프트웨어를 사용 하는 것입니다. 일반적으로 VM을 백업할 운영 체제, 운영 체제 구성, 응용 프로그램 이진 파일 및 응용 프로그램 데이터를 포함 합니다. 백업 볼륨, 디스크 또는 전체 VM의 스냅숏을 수행 하 여 생성 됩니다. Azure 스택 Azure 스택 저장소 또는 게스트 OS의 컨텍스트 내에서 백업의 유연성 있으며 Api를 계산 합니다. Azure 스택 하이퍼바이저 수준에서 기록 백업을 지원 하지 않습니다. 
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![백업 복원](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
  
 응용 프로그램 복구 또는 새 클라우드 동일한 클라우드로 하나 이상의 가상 컴퓨터를 복원 해야 합니다. 데이터 센터 또는 공용 클라우드는 클라우드를 지정할 수 있습니다. 대상 클라우드가 컨트롤 내에 완전히을 데이터 개인 정보 및 sovereignty 요구 사항에 따라 수행 됩니다. 
  
@@ -147,7 +144,8 @@ Azure 스택 배포에 대 한 중요 한 고려 사항:
 ## <a name="next-steps"></a>다음 단계 
 
 이 문서에서는 Azure 스택에 배포 된 사용자 Vm을 보호 하는 방법에 대 한 지침 포함 되어 있습니다. Azure 서비스를 사용 하 여 Vm을 보호 하는 방법에 대 한 자세한 내용은 참조 합니다.
- - [Azure 스택에 대 한 azure 백업 서버 지원](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [Azure 스택에 대 한 azure 사이트 복구 지원](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [Azure 백업을 사용 하 여 Azure 스택에 파일 및 응용 프로그램을 백업 합니다.](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure 스택에 대 한 azure 백업 서버 지원](https://docs.microsoft.com/azure/backup/ ) 
+ - [Azure 스택에 대 한 azure 사이트 복구 지원](https://docs.microsoft.com/azure/site-recovery/)  
  
 Azure 스택에서 VM 보호를 제공 하는 파트너 제품에 대 한 자세한 내용은를 참조 "[응용 프로그램과 데이터에 Azure 스택 보호](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."

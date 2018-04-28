@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 338a153ac4e00c329bf6854306a466657de1d70f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5f5cfc49bd7b5e1c06adf97bc6f6ba88fc81f77a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Azure Container Service(AKS) 클러스터 업그레이드
 
@@ -100,7 +100,7 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
 }
 ```
 
-이제 `az aks show` 명령을 사용하여 업그레이드가 성공적이었는지 확인할 수 있습니다.
+`az aks show` 명령을 사용하여 업그레이드가 성공적이었는지 확인합니다.
 
 ```azurecli-interactive
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

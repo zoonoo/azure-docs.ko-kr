@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights .NET SDK를 통한 사용자 지정 작업 추적 | Microsoft Docs"
-description: "Azure Application Insights .NET SDK를 통한 사용자 지정 작업 추적 "
+title: Azure Application Insights .NET SDK를 통한 사용자 지정 작업 추적 | Microsoft Docs
+description: 'Azure Application Insights .NET SDK를 통한 사용자 지정 작업 추적 '
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 94424a3d8aad56cf4504cccd8adb1a45523d95e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -450,7 +450,7 @@ public async Task RunMyTaskAsync()
 
 작업을 삭제하면 작업이 중지되므로 `StopOperation`을 호출하는 대신 수행할 수 있습니다.
 
-*경고*: 일부 경우에 처리되지 않은 예외는 `finally`가 호출되는 것을 [방지](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally)하므로 작업은 추적되지 않을 수 있습니다.
+*경고*: 일부 경우에 처리되지 않은 예외는 `finally`가 호출되는 것을 [방지](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally)하므로 작업은 추적되지 않을 수 있습니다.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>병렬 작업 처리 및 추적
 

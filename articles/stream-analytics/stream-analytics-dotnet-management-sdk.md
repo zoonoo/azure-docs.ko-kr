@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: 541ad08a21b118e463969fa3240374c3646bf50e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b57e22b979d0e47d294a89d41a945a665beacdc0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.
@@ -45,7 +45,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* 사용하려는 입력 소스 및 출력 대상을 설정합니다. 샘플 입력 설정 방법에 대한 자세한 지침은 [입력 추가](stream-analytics-add-inputs.md)를 참조하고 샘플 출력 설정 방법에 대한 자세한 지침은 [출력 추가](stream-analytics-add-outputs.md)를 참조하세요.
+* 작업이 연결될 입력 원본 및 출력 대상을 설정합니다.
 
 ## <a name="set-up-a-project"></a>프로젝트 설정
 .NET용 Stream Analytics API를 사용하여 분석 작업을 만들려면 먼저 프로젝트를 설정합니다.

@@ -1,18 +1,18 @@
 ---
-title: "Azure Container Registry의 모범 사례"
-description: "다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다."
+title: Azure Container Registry의 모범 사례
+description: 다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 12/20/2017
 ms.author: marsma
-ms.openlocfilehash: 684b778f57da4adb331958c5daef6b9906b6d253
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c993e55193ffb140f6c3aabfa7626b501ab24b9d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
@@ -54,7 +54,7 @@ Azure Container Instances와 같은 특정 호스트 유형으로 시험해 볼 
 
 Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉 개별 인증과 서비스(또는 "헤드리스") 인증이 있습니다. 다음 표에서는 이러한 시나리오와 각 시나리오의 권장 인증 방법에 대해 간략하게 설명합니다.
 
-| 형식 | 예제 시나리오  | 권장 방법 |
+| type | 예제 시나리오  | 권장 방법 |
 |---|---|---|
 | 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
 | 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |

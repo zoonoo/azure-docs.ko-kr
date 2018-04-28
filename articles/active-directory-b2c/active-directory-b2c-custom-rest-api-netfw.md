@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 ID 경험 프레임워크를 사용하여 사용자 경험에서 RESTful API와 통합할 수 있습니다. 이 연습에서는 Azure AD B2C가 .NET Framework RESTful 서비스(Web API)와 상호 작용하는 방법을 알아봅니다.
 
 ## <a name="introduction"></a>소개
@@ -57,7 +60,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 프로젝트를 만듭니다.
 
-2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET 웹 응용 프로그램(.NET Framework)**을 선택합니다.
+2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
 
 3. **이름** 상자에서 응용 프로그램의 이름(예: *Contoso.AADB2C.API*)을 지정한 후 **확인**을 선택합니다.
 

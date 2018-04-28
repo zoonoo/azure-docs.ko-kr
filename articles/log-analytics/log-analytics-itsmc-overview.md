@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: c39cf464a7e838fecf7ebd4a3cbb08612388a5fa
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 48fe35006ca9ca5ac48e6b2d2a207576426e814d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -85,7 +85,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니다.
 
-1.  **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)**를 찾습니다.
+1.  **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 2.  왼쪽 창의 **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
     ![ITSM 연결](./media/log-analytics-itsmc/itsm-connections.png)
 
@@ -334,10 +334,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-itsm-connections"></a>ITSM 연결 문제 해결
 1.  연결된 원본의 UI에서 **연결을 저장하는 동안 오류 발생** 메시지와 함께 연결에 실패하는 경우 다음 단계를 수행합니다.
 - ServiceNow, Cherwell 및 Provence 연결의 경우  
-           - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 암호를 올바르게 입력했는지 확인합니다.  
-           - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
+    - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 비밀을 올바르게 입력했는지 확인합니다.  
+    - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
 - Service Manager 연결의 경우  
-           - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
+    - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
 
 2.  ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
 3.  OMS 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.

@@ -1,11 +1,11 @@
 ---
-title: "Media Services 릴리스 정보 | Microsoft 문서"
-description: "Media Services 릴리스 정보"
+title: Media Services 릴리스 정보 | Microsoft 문서
+description: Media Services 릴리스 정보
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -47,7 +47,7 @@ Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media
 
 ## <a name="october-2017-release"></a>2017년 10월 릴리스
 > [!IMPORTANT] 
-> Media Services는 Azure Access Control Service 인증 키에 대한 지원을 사용하지 않습니다. 2018년 6월 1일부터 더 이상 Access Control Service 키를 사용하여 코드를 통해 Media Services 백 엔드에서 인증할 수 없습니다. [Azure AD 기반 인증](media-services-use-aad-auth-to-access-ams-api.md)에 Azure AD(Azure Active Directory)를 사용하도록 코드를 업데이트해야 합니다. Azure Portal에서 이러한 변경에 대한 경고를 감시합니다.
+> Media Services는 Azure Access Control Service 인증 키에 대한 지원을 사용하지 않습니다. 2018년 6월 22일부터 더 이상 Access Control Service 키를 사용하여 코드를 통해 Media Services 백 엔드에서 인증할 수 없습니다. [Azure AD 기반 인증](media-services-use-aad-auth-to-access-ams-api.md)에 Azure AD(Azure Active Directory)를 사용하도록 코드를 업데이트해야 합니다. Azure Portal에서 이러한 변경에 대한 경고를 감시합니다.
 
 ### <a name="updates-for-october-2017"></a>2017년 10월 업데이트
 #### <a name="sdks"></a>SDK

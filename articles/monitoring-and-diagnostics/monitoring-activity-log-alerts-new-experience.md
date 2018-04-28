@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>새 경고(미리 보기) 환경을 사용하여 활동 로그 경고를 만듭니다.
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/12/2018
 
 이렇게 하려면 다음 절차를 수행합니다.
 
-1. Azure Portal에서 **모니터** > **경고(미리 보기)**를 선택합니다.
+1. Azure Portal에서 **모니터** > **경고(미리 보기)** 를 선택합니다.
 2. **경고(미리 보기)** 창의 맨 위에서 **새 경고 규칙**을 클릭합니다.
 
      ![새 경고 규칙](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
@@ -103,13 +103,13 @@ ms.lasthandoff: 03/12/2018
 
     **경고 논리**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **이벤트 수준**: 이벤트의 심각도 수준(**자세한 정보, 정보, 경고, 오류** 또는 **중요**)입니다.
+     - **상태**: 이벤트의 상태로, **시작됨, 실패** 또는 **성공**입니다.
+     - **이벤트에 의해 시작**: 호출자로도 알려져 있습니다. 작업을 수행한 사용자의 이메일 주소 또는 Active Directory 식별자입니다.
 
-        **Sample signal graph with alert logic applied** :
+        **경고 논리가 적용되는 샘플 신호 그래프** :
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ 선택한 기준](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. **경고 규칙 세부 정보 정의**에서 다음 세부 정보를 제공합니다.
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>활동 로그 경고 규칙 보기 및 관리
 
-1. Azure Portal에서 **모니터** > **경고(미리 보기)**를 클릭하고 창의 왼쪽 위에서 **규칙 관리**를 클릭합니다.
+1. Azure Portal에서 **모니터** > **경고(미리 보기)** 를 클릭하고 창의 왼쪽 위에서 **규칙 관리**를 클릭합니다.
 
     ![ 경고 규칙 관리](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

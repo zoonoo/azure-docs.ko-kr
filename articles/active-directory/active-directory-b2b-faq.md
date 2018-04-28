@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 공동 작업 FAQ
 
@@ -85,7 +85,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 예. 사용자가 JIT 테넌시에서 암호를 재설정할 수 있도록 허용하는 암호 재설정 메일을 보낼 수 있습니다.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365에서 Azure AD B2B 공동 작업에 대한 온라인 지원을 제공합니까?
-예, Dynamics 365(온라인)는 Azure AD B2B 공동 작업을 지원합니다. 자세한 내용은 Dynamics 365 문서 [Azure AD B2B 공동 작업에 사용자 초대](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration)를 참조하세요.
+예, Dynamics 365(온라인)는 Azure AD B2B 공동 작업을 지원합니다. 자세한 내용은 Dynamics 365 문서 [Azure AD B2B 공동 작업에 사용자 초대](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration)를 참조하세요.
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>새로 만든 B2B 공동 작업 사용자의 초기 암호 수명은 어떻게 됩니까?
 Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적용되는 고정된 문자 집합, 암호 강도 및 계정 잠금 요구 사항이 있습니다. 클라우드 사용자 계정은 다른 ID 공급자와 페더레이션되지 않은 계정입니다. 예를 들면 다음과 같습니다. 
