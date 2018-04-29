@@ -12,20 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure 스택에서 PowerShell을 사용 하 여 Windows Server 가상 컴퓨터 만들기
 
-*적용 대상: Azure 스택 시스템 통합*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure 스택에서 Windows Server 2016 가상 컴퓨터를 만드는 PowerShell을 사용 하 여이 가이드 정보입니다. VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 실행할 수 있습니다.
+Azure 스택 PowerShell을 사용 하 여 Windows Server 2016 가상 컴퓨터를 만들 수 있습니다. 이 문서를 만들고 가상 컴퓨터를 사용의 단계를 수행 합니다. 이 문서의 단계를 제공합니다.
+
+* 가상 컴퓨터 원격 클라이언트와 연결 합니다.
+* IIS 웹 서버를 설치 하 고 기본 홈 페이지를 봅니다.
+* 리소스를 정리 합니다.
+
+>[!NOTE]
+ VPN을 통해 연결 된 경우 Azure 스택 개발 키트 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 실행할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
