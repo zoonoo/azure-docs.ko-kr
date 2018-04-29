@@ -1,8 +1,8 @@
 ---
-title: "HDInsight에서 Hadoop과 MapReduce 및 Curl 사용 - Azure | Microsoft Docs"
-description: "원격으로 Curl을 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 실행하는 방법에 대해 알아봅니다."
+title: HDInsight에서 Hadoop과 MapReduce 및 Curl 사용 - Azure | Microsoft Docs
+description: 원격으로 Curl을 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 실행하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: e48e9f833db86f01d944133c8a32d2c6b27b7b48
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eeecdb6432c4ab13b051c9a9dba1e7f14ce40f91
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업 실행
 
@@ -84,7 +82,7 @@ HDInsight 클러스터의 Hadoop에서 WebHCat REST API를 사용하여 MapReduc
    * **-u**: 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
    * **-G**: 이 작업이 GET 요청임을 나타냅니다.
 
-   URI 시작 부분인 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**은 모든 요청에서 동일합니다.
+   URL의 시작 부분, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**은 모든 요청에 대해 동일합니다.
 
 4. MapReduce 작업을 제출하려면 다음 명령을 사용합니다.
 

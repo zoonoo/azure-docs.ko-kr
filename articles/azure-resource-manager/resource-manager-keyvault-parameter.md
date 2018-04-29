@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿에서 Key Vault 비밀 | Microsoft Docs"
-description: "배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다."
+title: Azure Resource Manager 템플릿에서 Key Vault 비밀 | Microsoft Docs
+description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다.
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: tfitzmac
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2643f79bb1e5e2603b1bd50b04c8ee3e7496f1f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
@@ -62,7 +62,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## <a name="enable-access-to-the-secret"></a>비밀에 대한 액세스를 사용하도록 설정
 
-새 Key Vault를 사용하든, 기존 Key Vault를 사용하든, 템플릿을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 비밀을 참조하는 템플릿을 배포하는 사용자에게는 Key Vault에 대한 `Microsoft.KeyVault/vaults/deploy/action` 권한이 있어야 합니다. [소유자](../active-directory/role-based-access-built-in-roles.md#owner) 및 [참여자](../active-directory/role-based-access-built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다.
+새 Key Vault를 사용하든, 기존 Key Vault를 사용하든, 템플릿을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 비밀을 참조하는 템플릿을 배포하는 사용자에게는 Key Vault에 대한 `Microsoft.KeyVault/vaults/deploy/action` 권한이 있어야 합니다. [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다.
 
 ## <a name="reference-a-secret-with-static-id"></a>정적 ID로 비밀 참조
 
@@ -129,6 +129,13 @@ Key Vault 비밀을 수신하는 템플릿은 다른 템플릿과 비슷합니�
         }
     }
 }
+```
+
+현재 버전이 아닌 암호 버전을 사용해야 할 경우 `secretVersion` 속성을 사용합니다.
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 
 이제 템플릿을 배포하고 매개 변수 파일을 전달합니다. GitHub에서 예제 템플릿을 사용할 수 있지만 사용자 환경에 설정한 값이 포함된 로컬 매개 변수 파일을 사용해야 합니다.

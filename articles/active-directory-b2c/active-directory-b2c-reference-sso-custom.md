@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: SSO(Single Sign-On) 세션 관리
 
@@ -47,6 +47,9 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. 
+
+> [!NOTE]
+> DefaultSSOSessionProvider를 사용하여 세션에 클레임을 저장하는 경우 응용 프로그램에 반환되거나 이후 단계의 사전 조건에 사용되어야 하는 모든 클레임이 해당 세션에 저장되어 있거나 디렉터리에 있는 사용자 프로필에서의 읽기로 확대되는지 확인해야 합니다. 이렇게 하면 인증 과정이 누락된 클레임에서도 실패하지 않게 됩니다.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

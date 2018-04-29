@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 962a9d32790638af7513e805424d8579b29f433e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 005470298a115a822350f345cdab6e9cafb15eda
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>예측 유지 관리 실제 시나리오에 대한 딥 러닝
 
@@ -151,7 +151,7 @@ LSTM_o16n.zip 배포 파일에는 다음과 같은 아티팩트가 포함됩니�
 * [SQL R Services를 사용한 예측 유지 관리 모델링 가이드](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [예측 유지 관리 모델링 가이드 Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [PySpark를 사용한 예측 유지 관리](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-* [예측 유지 관리 실제 시나리오](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
+* [예측 유지 관리 실제 시나리오](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
 
 ## <a name="next-steps"></a>다음 단계
 

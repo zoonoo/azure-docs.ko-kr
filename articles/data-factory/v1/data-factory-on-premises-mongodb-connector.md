@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 086cc528e500a55bba73796e5fc7b17c561de8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/23/2018
 ## <a name="prerequisites"></a>필수 조건
 Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터베이스에 연결할 수 있도록 하려면 다음 구성 요소를 설치해야 합니다.
 
-- 지원되는 MongoDB 버전:  2.4, 2.6, 3.0 및 3.2.
+- 지원되는 MongoDB 버전: 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6.
 - 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 같은 컴퓨터에 설치하거나 데이터베이스와 리소스 경쟁을 피하려면 별도의 컴퓨터에 설치합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 소프트웨어입니다. 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 데이터 이동을 위한 데이터 파이프라인 및 게이트웨이 설정에 대한 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
     게이트웨이를 설치하면 MongoDB에 연결하는 데 사용되는 Microsoft MongoDB ODBC 드라이버가 자동으로 설치됩니다.

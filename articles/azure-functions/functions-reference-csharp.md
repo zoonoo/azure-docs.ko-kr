@@ -1,25 +1,25 @@
 ---
-title: "Azure Functions C# 스크립트 개발자 참조"
-description: "C# 스크립트를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
+title: Azure Functions C# 스크립트 개발자 참조
+description: C# 스크립트를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+editor: ''
+tags: ''
+keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: tdykstra
+ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -233,7 +233,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## <a name="async"></a>Async
 
-비동기화 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
+[비동기화](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -479,8 +479,7 @@ public static async Task Run(string input, Binder binder)
 | 바인딩 | 특성 | 추가 참조 |
 |------|------|------|
 | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-| Event Hubs
- | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 | Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |

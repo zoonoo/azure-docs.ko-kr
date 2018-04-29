@@ -1,33 +1,35 @@
 ---
 title: Azure 공급자 배포 슬롯과 Terraform
-description: Azure 공급자 배포 슬롯과 Terraform 자습서
+description: Azure 공급자 배포 슬롯에서 Terraform을 사용하는 방법에 대한 자습서
 keywords: terraform, devops, 가상 머신, Azure, 배포 슬롯
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 
-[Azure 배포 슬롯](/azure/app-service/web-sites-staged-publishing)을 사용하면 다른 앱 버전(예: 프로덕션 및 스테이징) 간에 교환할 수 있으므로 손상된 배포의 영향을 최소화할 수 있습니다. 이 문서에서는 GitHub 및 Azure를 통해 두 개의 앱을 배포하는 과정을 안내하면서 배포 슬롯을 사용하는 예를 보여줍니다. 하나의 앱은 "프로덕션 슬롯"에 호스트되고 두 번째 앱은 "스테이징" 슬롯에 호스트됩니다. ("프로덕션" 및 "스테이징"은 임의의 이름이며 시나리오를 나타내는 이름을 원하는 대로 사용할 수 있습니다.) 배포 슬롯이 구성된 후에는 필요에 따라 Terraform을 사용하여 두 슬롯 사이를 전환할 수 있습니다.
+[Azure 배포 슬롯](/azure/app-service/web-sites-staged-publishing)을 사용하여 여러 다른 앱 버전 간을 전환할 수 있습니다. 이 기능을 사용하면 손상된 배포의 영향을 최소화할 수 있습니다. 
+
+이 문서에서는 GitHub 및 Azure를 통해 두 개의 앱을 배포하는 과정을 안내하면서 배포 슬롯을 사용하는 예를 보여줍니다. 하나의 앱이 프로덕션 슬롯에 호스트됩니다. 두 번째 앱은 스테이징 슬롯에 호스트됩니다. ("프로덕션" 및 "스테이징"은 임의의 이름이며 시나리오를 나타내는 이름을 원하는 대로 사용할 수 있습니다.) 배포 슬롯을 구성한 후, 필요에 따라 Terraform을 사용하여 두 슬롯 사이를 전환할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-- **GitHub 계정** - 테스트 GitHub 리포지토리를 포크하고 사용하려면 [GitHub](http://www.github.com) 계정이 필요합니다.
+- **GitHub 계정**: 테스트 GitHub 리포지토리를 포크하고 사용하려면 [GitHub](http://www.github.com) 계정이 필요합니다.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Terraform 계획 만들기 및 적용
 
 1. [Azure Portal](http://portal.azure.com)로 이동합니다.
 
-1. [Azure Cloud Shell](/azure/cloud-shell/overview)을 열고 이전에 선택하지 않은 경우 **Bash**를 환경으로 선택합니다.
+1. [Azure Cloud Shell](/azure/cloud-shell/overview)을 엽니다. 이전에 환경을 선택하지 않은 경우 환경으로 **Bash**를 선택합니다.
 
     ![Cloud Shell 프롬프트](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 04/06/2018
     mkdir swap
     ```
 
-1. `ls` bash 명령을 사용하여 두 디렉터리가 모두 성공적으로 만들어졌는지 확인합니다.
+1. `ls` bash 명령을 사용하여 두 디렉터리를 성공적으로 만들었는지 확인합니다.
 
     ![디렉터리를 만든 후 Cloud Shell](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ ms.lasthandoff: 04/06/2018
     cd deploy
     ```
 
-1. [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html)를 사용하여 이름이 `deploy.tf`인 파일을 만듭니다. 여기에는 [Terraform 구성](https://www.terraform.io/docs/configuration/index.html)이 포함됩니다.
+1. [vi 편집기](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html)를 사용하여 이름이 `deploy.tf`인 파일을 만듭니다. 이 파일에는 [Terraform 구성](https://www.terraform.io/docs/configuration/index.html)이 포함됩니다.
 
     ```bash
     vi deploy.tf
     ```
 
-1. 문자 `i` 키를 눌러서 삽입 모드로 전환합니다.
+1. I 키를 선택하여 삽입 모드를시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. **&lt;Esc>** 키를 눌러서 삽입 모드를 종료합니다.
+1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
-1. 다음 명령을 입력한 다음, **&lt;Enter>**를 눌러서 파일을 저장하고 vi editor를 종료합니다.
+1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
 
     ```bash
     :wq
     ```
 
-1. 파일이 만들어지면 콘텐츠를 확인할 수 있습니다.
+1. 파일을 만들었으므로 해당 내용을 확인합니다.
 
     ```bash
     cat deploy.tf
@@ -138,15 +140,15 @@ ms.lasthandoff: 04/06/2018
 
 1. Cloud Shell 창을 닫습니다.
 
-1. Azure Portal 주 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 주 메뉴에서 **리소스 그룹**을 선택합니다.
 
-    ![Azure Portal 리소스 그룹](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![포털의 "리소스 그룹" 선택 항목](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. **리소스 그룹** 탭에서 **slotDemoResourceGroup**을 선택합니다.
 
     ![Terraform에서 만든 리소스 그룹](./media/terraform-slot-walkthru/resource-group.png)
 
-완료되면 Terraform에서 만든 리소스를 모두 볼 수 있습니다.
+이제 Terraform이 만든 모든 리소스가 표시됩니다.
 
 ![Terraform에서 만든 리소스](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ ms.lasthandoff: 04/06/2018
 
 1. [GitHub의 awesome-terraform 리포지토리](https://github.com/Azure/awesome-terraform)로 이동합니다.
 
-1. **awesome-terraform 리포지토리**를 포크합니다.
+1. **awesome-terraform** 리포지토리를 포크합니다.
 
     ![GitHub awesome-terraform 리포지토리 포크](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -166,7 +168,7 @@ ms.lasthandoff: 04/06/2018
 
 테스트 프로젝트 리포지토리를 포크한 후에는 다음 단계를 통해 배포 슬롯을 구성합니다.
 
-1. Azure Portal 주 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 주 메뉴에서 **리소스 그룹**을 선택합니다.
 
 1. **slotDemoResourceGroup**을 선택합니다.
 
@@ -206,7 +208,7 @@ ms.lasthandoff: 04/06/2018
 
 - 3단계에서 **slotAppServiceSlotOne** 리소스를 선택합니다.
 
-- 13단계에서 마스터 분기 대신 "작업 중" 분기를 선택합니다.
+- 13단계에서 마스터 분기 대신 작업 중 분기를 선택합니다.
 
     ![작업 중 분기 선택](./media/terraform-slot-walkthru/choose-branch-working.png)
 
@@ -214,9 +216,9 @@ ms.lasthandoff: 04/06/2018
 
 이전 섹션에서는 GitHub의 다른 분기에서 배포할 두 개의 슬롯인 **slotAppService** 및 **slotAppServiceSlotOne**을 설정했습니다. 웹앱을 미리 보면서 성공적으로 배포되었는지 확인합니다.
 
-다음 단계를 두 번 수행하되 3단계에서 첫 번째에서 **slotAppService**를 선택한 다음, 두 번째에서 **slotAppServiceSlotOne**을 선택합니다.
+다음 단계를 2번 수행합니다. 3단계에서 첫 번째에서 **slotAppService**를 선택한 다음, 두 번째에서 **slotAppServiceSlotOne**을 선택합니다.
 
-1. Azure Portal 주 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 주 메뉴에서 **리소스 그룹**을 선택합니다.
 
 1. **slotDemoResourceGroup**을 선택합니다.
 
@@ -251,18 +253,18 @@ ms.lasthandoff: 04/06/2018
     cd clouddrive/swap
     ```
 
-1. vi editor를 사용하여 이름이 `swap.tf`인 파일을 만듭니다.
+1. vi 편집기를 사용하여 이름이 `swap.tf`인 파일을 만듭니다.
 
     ```bash
     vi swap.tf
     ```
 
-1. 문자 `i` 키를 눌러서 삽입 모드로 전환합니다.
+1. I 키를 선택하여 삽입 모드를시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. **&lt;Esc>** 키를 눌러서 삽입 모드를 종료합니다.
+1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
-1. 다음 명령을 입력한 다음, **&lt;Enter>**를 눌러서 파일을 저장하고 vi editor를 종료합니다.
+1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
 
     ```bash
     :wq
@@ -301,7 +303,7 @@ ms.lasthandoff: 04/06/2018
 
 1. Terraform에서 슬롯 교환을 마치면 **slotAppService** 웹앱을 렌더링하는 브라우저로 돌아가서 페이지를 새로 고칩니다. 
 
-**slotAppServiceSlotOne** 스테이징 슬롯의 웹앱이 프로덕션 슬롯으로 교환되고 녹색이 렌더링됩니다. 
+**slotAppServiceSlotOne** 스테이징 슬롯의 웹앱이 프로덕션 슬롯으로 교환되고 녹색으로 렌더링됩니다. 
 
 ![배포 슬롯이 교환되었습니다.](./media/terraform-slot-walkthru/slots-swapped.png)
 
@@ -311,4 +313,4 @@ ms.lasthandoff: 04/06/2018
 terraform apply
 ```
 
-교환되면 원래 구성이 표시됩니다.
+앱이 교환되면 원래 구성이 표시됩니다.

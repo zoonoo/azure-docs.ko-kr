@@ -1,25 +1,25 @@
 ---
-title: "Azure 데이터 저장소에 IoT Hub 메시지 저장 | Microsoft Docs"
-description: "IoT Hub 메시지 라우팅을 사용하여 Azure BLOB 저장소에 IoT Hub 메시지를 저장합니다. IoT Hub 메시지에는 IoT 장치에서 보낸 센서 데이터와 같은 정보가 있습니다."
+title: Azure 데이터 저장소에 IoT Hub 메시지 저장 | Microsoft Docs
+description: IoT Hub 메시지 라우팅을 사용하여 Azure BLOB 저장소에 IoT Hub 메시지를 저장합니다. IoT Hub 메시지에는 IoT 장치에서 보낸 센서 데이터와 같은 정보가 있습니다.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "IoT 데이터 저장소, IoT 센서 데이터 저장소"
+tags: ''
+keywords: IoT 데이터 저장소, IoT 센서 데이터 저장소
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
-ms.author: xshi
-ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Azure BLOB 저장소에 센서 데이터를 포함한 IoT Hub 메시지 저장
 
@@ -61,7 +61,7 @@ Azure 저장소 계정 및 Azure Functions 앱을 만들어 BLOB 저장소에 Io
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>저장소에 메시지를 라우팅하도록 IoT Hub 준비
 
-IoT Hub는 기본적으로 Azure 저장소에 메시지를 라우팅하는 기능을 지원합니다.
+IoT Hub는 기본적으로 Azure 저장소에 메시지를 라우팅하는 기능을 지원합니다. Azure IoT Hub 사용자 지정 끝점에 대해 자세히 알아보려면 [기본 제공 IoT Hub 끝점 목록이](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints)을 참조할 수 있습니다.
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>사용자 지정 끝점으로 저장소 추가
 

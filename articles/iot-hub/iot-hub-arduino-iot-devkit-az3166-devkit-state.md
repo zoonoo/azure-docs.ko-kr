@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 38a0c4f90b99686450b164637162c117b1fb6063
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- [시작 가이드](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)에 따라 개발 환경을 설정합니다.
+- [시작 가이드](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)에 따라 개발 환경을 설정합니다.
 - GitBash 터미널 창(또는 다른 Git 명령줄 인터페이스)에 다음 명령을 입력합니다.
     - `git clone https://github.com/DevKitExamples/DevKitState.git`
     - `cd DevKitState`
@@ -66,7 +66,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="upload-arduino-code-to-devkit"></a>DevKit에 Arduino 코드 업로드
 
 MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **빌드 작업 실행...**을 선택합니다. Arduino 스케치가 컴파일되어 DevKit에 업로드됩니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **빌드 작업 실행...** 을 선택합니다. Arduino 스케치가 컴파일되어 DevKit에 업로드됩니다.
 2. 스케치가 성공적으로 업로드되면 *Build & Upload Sketch: success*(스케치 빌드 및 업로드: 성공) 메시지가 표시됩니다.
 
 ## <a name="monitor-devkit-state-in-browser"></a>브라우저에서 DevKit 상태 모니터링
@@ -96,4 +96,4 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 권장되는 단계는 다음과 같습니다.
 
 * [Azure IoT Suite 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

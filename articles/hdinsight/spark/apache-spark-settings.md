@@ -1,26 +1,24 @@
 ---
-title: "Spark 설정 구성 - Azure HDInsight | Microsoft Docs"
-description: "HDInsight 클러스터에 대해 Spark를 구성하는 방법"
+title: Spark 설정 구성 - Azure HDInsight | Microsoft Docs
+description: HDInsight 클러스터에 대해 Spark를 구성하는 방법
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-spark-settings"></a>Spark 설정 구성
 
@@ -34,9 +32,13 @@ HDInsight 클러스터 노드의 VM 수 및 VM 크기는 Spark 구성에 영향�
 
 ## <a name="spark-versions"></a>Spark 버전
 
-또한 클러스터에 대해 가장 적합한 Spark 버전을 고려해야 합니다.  Spark 2.x는 Spark 1.x보다 훨씬 더 잘 실행될 수 있습니다. Spark 2.x에는 Tungsten, Catalyst Query Optimization 등과 같은 다양한 성능 최적화 기능이 포함되어 있습니다.  HDInsight 서비스에는 여러 버전의 Spark 및 HDInsight가 포함되어 있습니다.  Spark의 각 버전에는 기본 클러스터 설정 집합이 포함됩니다.  새 클러스터를 만들 때 다음과 같은 최신 Spark 버전 중에서 선택합니다.
+클러스터에 최적의 Spark 버전을 사용합니다.  HDInsight 서비스에는 여러 버전의 Spark 및 HDInsight가 포함되어 있습니다.  Spark의 각 버전에는 기본 클러스터 설정 집합이 포함됩니다.  
+
+새 클러스터를 만들 때 다음과 같은 최신 Spark 버전 중에서 선택합니다.
 
 ![Spark 버전](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x는 Spark 1.x보다 훨씬 더 잘 실행될 수 있습니다. Spark 2.x에는 Tungsten, Catalyst Query Optimization 등과 같은 다양한 성능 최적화 기능이 포함되어 있습니다.  
 
 > [!NOTE]
 > HDInsight 서비스에서 Apache Spark의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 .NET SDK/Azure PowerShell 및 Azure CLI를 사용하여 클러스터를 만들 때 특정 버전을 지정하는 것이 좋습니다.
@@ -47,7 +49,7 @@ Apache Spark에는 다음과 같은 3가지 시스템 구성 위치가 있습니
 * 각 노드의 `conf/spark-env.sh` 스크립트를 통해, IP 주소와 같은 컴퓨터별 설정을 지정하는 데 환경 변수를 사용할 수 있습니다.
 * 로깅은 `log4j.properties`를 통해 구성할 수 있습니다.
 
-특정 Spark 버전을 선택하면 클러스터에 기본 구성 설정이 포함됩니다.  사용자 지정 Spark 구성 파일을 제공하여 기본 Spark 구성 값을 변경할 수 있습니다.  아래에 예제가 나와 있습니다.
+특정 Spark 버전을 선택하면 클러스터에 기본 구성 설정이 포함됩니다.  사용자 지정 Spark 구성 파일을 사용하여 기본 Spark 구성 값을 변경할 수 있습니다.  아래에 예제가 나와 있습니다.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -57,7 +59,7 @@ Apache Spark에는 다음과 같은 3가지 시스템 구성 위치가 있습니
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-위에 표시된 예제는 5개의 Spark 구성 매개 변수에 대한 몇 가지 기본값을 재정의합니다.  압축 코덱, Hadoop mapreduce 분할 최소 크기 및 parquet 블록 크기, Spar SQL 파티션 및 열려 있는 파일 크기 기본값이 여기에 해당합니다.  이러한 구성 변경은 관련 데이터 및 작업(이 예제에서는 게놈 데이터)이 이러한 사용자 지정 구성 설정을 사용할 때 더 잘 수행되는 특정 특성을 갖기 때문에 선택되었습니다.
+위에 표시된 예제는 5개의 Spark 구성 매개 변수에 대한 몇 가지 기본값을 재정의합니다.  압축 코덱, Hadoop MapReduce 분할 최소 크기 및 parquet 블록 크기, Spar SQL 파티션 및 열려 있는 파일 크기 기본값이 여기에 해당합니다.  이러한 구성 변경은 관련 데이터 및 작업(이 예제에서는 게놈 데이터)이 이러한 사용자 지정 구성 설정을 사용할 때 더 잘 수행되는 특정 특성을 갖기 때문에 선택되었습니다.
 
 ---
 
@@ -86,7 +88,7 @@ Apache Spark에 대한 구성 값을 표시하려면 **구성 기록**을 선택
 
 ## <a name="configuring-spark-executors"></a>Spark 실행기 구성
 
-다음 다이어그림은 핵심 Spark 개체에 해당하는 드라이버 프로그램과 해당 관련 Spark 컨텍스트, 클러스터 관리자 및 해당 *n* 작업자 노드를 나타냅니다.  각 작업자 노드에는 실행기, 캐시 및 *n* 태스크 인스턴스가 포함됩니다.
+다음 다이어그램은 핵심 Spark 개체에 해당하는 드라이버 프로그램과 해당 관련 Spark 컨텍스트, 클러스터 관리자 및 해당 *n* 작업자 노드를 나타냅니다.  각 작업자 노드에는 실행기, 캐시 및 *n* 태스크 인스턴스가 포함됩니다.
 
 ![클러스터 개체](./media/apache-spark-settings/spark-arch.png)
 

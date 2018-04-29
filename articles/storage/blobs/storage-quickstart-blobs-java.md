@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: cbf9014f9a2776cb6dcffabacc5a8a270419a534
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 197777971b92ad9cd53e91602b88858a371ce1d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>빠른 시작: Java를 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -214,7 +214,7 @@ Blob 저장소를 사용하여 Java 응용 프로그램을 개발하기 위한 �
 
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
 
-- Java 클라이언트 라이브러리에 대한 자세한 내용은 [Java API 참조](https://docs.microsoft.com/en-us/java/api/overview/azure/storage)를 참조하세요.
+- Java 클라이언트 라이브러리에 대한 자세한 내용은 [Java API 참조](https://docs.microsoft.com/java/api/overview/azure/storage)를 참조하세요.
 - Java 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계

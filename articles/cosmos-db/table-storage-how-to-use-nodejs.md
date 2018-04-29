@@ -3,22 +3,21 @@ title: Node.js에서 Azure Table Storage 또는 Azure Cosmos DB를 사용하는 
 description: Azure Table Storage 또는 Azure Cosmos DB를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: mimig
-ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js에서 Azure 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,12 +26,20 @@ ms.lasthandoff: 03/28/2018
 ## <a name="overview"></a>개요
 이 문서에서는 Node.js 응용 프로그램의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
+
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 응용 프로그램 구성
-Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
+Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 응용 프로그램을 만든 폴더로 이동합니다.

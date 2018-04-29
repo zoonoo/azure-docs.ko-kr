@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Hub 방법 | Microsoft Docs"
-description: "개발자로서 다양한 IoT Hub 기능을 어떻게 사용합니까?"
+title: Azure IoT Hub 방법 | Microsoft Docs
+description: 개발자로서 다양한 IoT Hub 기능을 어떻게 사용합니까?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Azure IoT Hub 사용 방법
 
@@ -52,7 +52,7 @@ IoT Hub 서비스를 개발하는 방법을 알아보는 다양한 옵션이 있
 
 - [desired 속성을 사용하여 장치 구성][lnk-properties-tutorial]. 이 자습서는 장치를 원격으로 구성하기 위해 장치 쌍의 desired 및 reported 속성을 사용하는 방법을 보여 줍니다.
 
-- [장치 작업을 사용하여 장치 펌웨어 업데이트 시작][lnk-jobs-tutorial]. 이 자습서는 쌍 및 직접 메서드와 같은 주요 장치 관리 기능을 사용하는 방법을 보여 줍니다. 이러한 기능을 사용하여 장치의 펌웨어를 원격으로 업데이트하는 방법을 배웁니다.
+- [장치 관리를 사용하여 장치 펌웨어 업데이트][lnk-jobs-tutorial]. 이 자습서는 쌍 및 직접 메서드와 같은 주요 장치 관리 기능을 사용하는 방법을 보여 줍니다. 이러한 기능을 사용하여 장치의 펌웨어를 원격으로 업데이트하는 방법을 배웁니다.
 
 - [작업 예약 및 브로드캐스트][lnk-schedule-tutorial]. 이 자습서는 예약된 시간에 여러 장치와 상호 작용하기 위해 desired 속성과 직접 메서드를 사용하는 방법을 보여 줍니다.
 

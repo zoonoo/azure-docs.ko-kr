@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 2c542f9d47eb8011a13bf7156430324c53d238ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6bfb34c05a03ed02694210a5901f4f367e8a2fd3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/23/2018
 
 다음 단계는 PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지를 만드는 과정을 안내합니다.
 
-1. PowerShell 프롬프트에서, **Login-AzureRmAccount** cmdlet에 대한 다음 호출로 Azure 계정에 로그인합니다.  
+1. PowerShell 프롬프트에서, **Connect-AzureRmAccount** cmdlet에 대한 다음 호출로 Azure 계정에 로그인합니다.  
     
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1.  **Select-AzureRmSubscription** cmdlet을 호출하여 원하는 Azure 구독을 선택합니다. **$subscriptionId** 변수에 대한 다음 자리 표시자를 유효한 Azure 구독 ID로 바꿉니다. 
@@ -83,7 +83,7 @@ ms.lasthandoff: 03/23/2018
 
 ```PowerShell
 # Log in to your Azure account.  
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Select the desired Azure subscription. 
 $subscriptionId = '<Specify your subscription ID here>'

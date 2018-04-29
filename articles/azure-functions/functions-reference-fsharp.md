@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions F# 개발자 참조 | Microsoft Docs"
-description: "F#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
+title: Azure Functions F# 개발자 참조 | Microsoft Docs
+description: F#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: fsharp
 author: sylvanc
 manager: jbronsk
-editor: 
-tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버가 없는 아키텍처, F#"
+editor: ''
+tags: ''
+keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버가 없는 아키텍처, F#
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: functions
 ms.devlang: fsharp
@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2c84de3f38a49bc97fda04a7a4eb449a1f7d14bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽게 실행하기 위한 솔루션입니다. 데이터는 함수 인수를 통해 F# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다.
 

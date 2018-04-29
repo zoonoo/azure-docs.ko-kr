@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: ac7fa42c93e42e93800c3b26154cdabb85756698
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure 스택 1803 업데이트
 
@@ -170,7 +170,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
     - *허용:*
  
       ```powershell    
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -200,7 +200,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
         ```powershell
         
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

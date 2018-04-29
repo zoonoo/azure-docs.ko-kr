@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup에서 System Center Data Protection Manager 문제 해결 | Microsoft Docs"
-description: "System Center Data Protection Manager 문제 해결"
+title: Azure Backup에서 System Center Data Protection Manager 문제 해결 | Microsoft Docs
+description: System Center Data Protection Manager 문제 해결
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;adigan
-ms.openlocfilehash: bf4ea676c5309bb732f6a4ce71849606b4d2e4df
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f8117b216dcbda217bc433e643090e8eb47cf57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>System Center Data Protection Manager 문제 해결
 
 이 문서에서는 Data Protection Manager를 사용하는 동안 발생할 수 있는 문제 해결 방법을 설명합니다.
 
-System Center Data Protection Manager의 최신 릴리스 정보는 [System Center 설명서](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)를 참조하세요. Data Protection Manager 지원에 대한 내용은 [이 지원표](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016)에서 확인할 수 있습니다.
+System Center Data Protection Manager의 최신 릴리스 정보는 [System Center 설명서](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)를 참조하세요. Data Protection Manager 지원에 대한 내용은 [이 지원표](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016)에서 확인할 수 있습니다.
 
 
 ## <a name="error-replica-is-inconsistent"></a>오류: 복제본이 일치하지 않습니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0cef0a261b0362fcb9776e63c10e96aedc408b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 
@@ -134,7 +134,7 @@ Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Fac
 
 #### <a name="device-registration"></a>장치 등록
 
-[Azure AD Device Registration](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction)은 장치 기반 [조건부 액세스](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) 시나리오의 기초입니다. 장치가 등록되면 Azure AD 장치 등록은 사용자가 로그인할 때 장치를 인증하는 데 사용되는 ID와 함께 장치를 제공합니다. 그런 다음 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 응용 프로그램에 조건부 액세스 정책을 적용할 수 있습니다.
+[Azure AD Device Registration](https://docs.microsoft.com/azure/active-directory/device-management-introduction)은 장치 기반 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) 시나리오의 기초입니다. 장치가 등록되면 Azure AD 장치 등록은 사용자가 로그인할 때 장치를 인증하는 데 사용되는 ID와 함께 장치를 제공합니다. 그런 다음 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 응용 프로그램에 조건부 액세스 정책을 적용할 수 있습니다.
 
 Intune과 같은 [MDM(모바일 장치 관리)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 솔루션과 함께 사용할 경우 Azure Active Directory의 장치 특성이 장치에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 장치의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다.
 

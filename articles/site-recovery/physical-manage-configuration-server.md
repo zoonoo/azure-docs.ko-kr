@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
@@ -24,7 +24,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | **구성 요소** | **요구 사항** |
 | --- |---|
 | CPU 코어| 8 |
-| RAM | 12GB|
+| RAM | 16GB|
 | 디스크 수 | 3, OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브(장애 복구용) 포함 |
 | 사용 가능한 디스크 공간(프로세스 서버 캐시) | 600GB
 | 사용 가능한 디스크 공간(보존 디스크) | 600GB|
@@ -36,7 +36,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/응용 프로그램 없음<br>|
 | NIC 유형 | VMXNET3(VMware VM으로 배포될 경우) |
 | IP 주소 유형 | 공용 |
-| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi(확장 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
+| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi(스케일 아웃 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
 | 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송)|
 
 ## <a name="download-the-latest-installation-file"></a>최신 설치 파일 다운로드
@@ -105,7 +105,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| 형식 | 설명| 값|
+|매개 변수 이름| type | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -266,7 +266,7 @@ ProxyPassword="Password"
 1. Azure PowerShell 모듈 [설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
 2. 다음 명령을 사용하여 Azure 계정에 로그인
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. 자격 증명 모음이 있는 구독 선택
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

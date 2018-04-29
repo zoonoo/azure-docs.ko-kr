@@ -1,11 +1,11 @@
 ---
-title: "Azure 관리자 구독 역할 추가 또는 변경 | Microsoft Docs"
-description: "Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법에 대해 설명합니다."
-services: 
-documentationcenter: 
+title: Azure 관리자 구독 역할 추가 또는 변경 | Microsoft Docs
+description: Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법에 대해 설명합니다.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
-Azure 클래식 구독 관리자와 Azure [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)는 Azure 리소스에 대한 액세스를 관리하기 위한 두 개의 시스템입니다.
+Azure 클래식 구독 관리자와 Azure [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)는 Azure 리소스에 대한 액세스를 관리하기 위한 두 개의 시스템입니다.
 
 * 클래식 구독 관리자 역할은 기본 액세스 관리를 제공하며, 계정 관리자, 서비스 관리자 및 공동 관리자를 포함합니다.
     * 새 Azure 구독에 등록할 때 계정은 기본적으로 계정 관리자 및 서비스 관리자로 설정됩니다.
@@ -41,10 +41,12 @@ Azure 구독 서비스 관리를 위한 관리자로 누군가를 추가하려�
 
 1. [Azure Portal에서 **구독**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 방문하세요.
 2. 액세스 권한을 부여하려는 구독을 선택합니다.
-3. 메뉴에서 **액세스 제어(IAM)**를 선택합니다.
-4. **역할**상자에서 **소유자**를 선택합니다. 
-5. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다. 
-6. **선택** 상자에서 소유자로 추가할 사용자의 메일 주소를 입력합니다. 사용자를 선택한 다음 **저장**을 선택합니다.
+3. **추가**를 선택합니다.  
+   (추가 단추가 없으면 사용 권한을 추가할 수 있는 권한이 없는 것입니다.)
+4. 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
+5. **역할**상자에서 **소유자**를 선택합니다. 
+6. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다. 
+7. **선택** 상자에서 소유자로 추가할 사용자의 메일 주소를 입력합니다. 사용자를 선택한 다음 **저장**을 선택합니다.
 
     ![선택한 소유자 역할을 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -91,8 +93,8 @@ Azure 구독 서비스 관리를 위한 관리자로 누군가를 추가하려�
 
   | 로그인 방법 | SA로 Microsoft 계정 사용자 추가? | SA로 동일한 조직에 회사 또는 학교 계정 추가? | SA로 다른 조직에 회사 또는 학교 계정 추가? |
   | --- | --- | --- | --- |
-  |  Microsoft 계정 |적용 |아니요 |아니요 |
-  |  회사 또는 학교 계정 |적용 |적용 |아니요 |
+  |  Microsoft 계정 |예 |아니오 |아니오 |
+  |  회사 또는 학교 계정 |예 |예 |아니오 |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Azure 구독에 대한 계정 관리자 변경
 
@@ -111,7 +113,7 @@ Azure 구독 서비스 관리를 위한 관리자로 누군가를 추가하려�
  계정 관리자, 서비스 관리자 및 공동 관리자는 Azure에 있는 세 가지 종류의 클래식 구독 관리자 역할입니다. Azure에 등록하는 데 사용된 계정은 자동으로 계정 관리자와 서비스 관리자로 설정됩니다. 그런 다음 공동 관리자를 추가할 수 있습니다. 다음 테이블에서는 이러한 세 가지 관리 역할 간의 차이점을 정확히 설명합니다. 
 
 > [!TIP]
-> 액세스 관리를 효율적으로 제어하고 세분화하기 위해 Azure RBAC(역할 기반 액세스 제어)를 사용하는 것이 좋습니다. 이를 통해 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)를 참조하세요.
+> 액세스 관리를 효율적으로 제어하고 세분화하기 위해 Azure RBAC(역할 기반 액세스 제어)를 사용하는 것이 좋습니다. 이를 통해 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
 | 클래식 구독 관리자 | 제한 | 설명 |
 | --- | --- | --- |
@@ -121,9 +123,9 @@ Azure 구독 서비스 관리를 위한 관리자로 누군가를 추가하려�
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>리소스 액세스 제어 및 Active Directory에 대해 자세히 알아보기
 
-* Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](../active-directory/active-directory-understanding-resource-access.md)를 참조하세요.
+* Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 * Azure Active Directory에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

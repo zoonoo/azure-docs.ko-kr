@@ -1,27 +1,29 @@
 ---
-title: "Azure 페이지 Blob의 고유 기능 | Microsoft Docs"
-description: "Azure 페이지 Blob에 대한 개요, 이점 및 샘플 스크립트가 포함된 사용 사례"
+title: Azure 페이지 Blob의 고유 기능 | Microsoft Docs
+description: Azure 페이지 Blob와 해당 이점의 개요, 샘플 스크립트를 통한 사용 사례
 services: storage
 author: anasouma
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/21/2018
 ms.author: wielriac
-ms.openlocfilehash: 56e8c4c9f7ab9b40a210f284960f959a437a4e20
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5d1ad1555cb1e01e363456af5c50ecd090ce7147
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure 페이지 Blob의 고유 기능
 
-Azure Storage에는 블록 Blob, 추가 Blob 및 페이지 Blob의 세 가지 유형의 Blob Storage가 제공됩니다. 블록 Blob은 블록으로 구성되며 텍스트 또는 이진 파일을 저장하고 큰 파일을 효율적으로 업로드하는 데 적합합니다. 추가 Blob도 블록으로 구성되지만 추가 작업에 최적화되어 있으므로 로깅 시나리오에 적합합니다. 페이지 Blob의 전체 크기는 512바이트 페이지(최대 8TB)로 구성되고 빈번한 임의의 읽기/쓰기 작업에 더 효율적입니다. 페이지 Blob은 Azure IaaS 디스크의 기반이 됩니다. 이 문서에서는 페이지 Blob의 기능 및 이점을 중점적으로 설명합니다.
+Azure Storage에는 블록 Blob, 추가 Blob 및 페이지 Blob의 세 가지 유형의 Blob Storage가 제공됩니다. 블록 Blob은 블록으로 구성되며 텍스트 또는 이진 파일을 저장하고 큰 파일을 효율적으로 업로드하는 데 적합합니다. 추가 Blob도 블록으로 구성되지만 추가 작업에 최적화되어 있으므로 로깅 시나리오에 적합합니다. 페이지 Blob의 전체 크기는 512바이트 페이지(최대 8TB)로 구성되고 빈번한 임의의 읽기/쓰기 작업에 맞게 고안되었습니다. 페이지 Blob은 Azure IaaS 디스크의 기반이 됩니다. 이 문서에서는 페이지 Blob의 기능 및 이점을 중점적으로 설명합니다.
 
-## <a name="overview"></a>개요
 페이지 Blob은 임의의 바이트 범위에 대한 읽기/쓰기 기능을 제공하는 512바이트 페이지의 컬렉션입니다. 따라서 페이지 Blob은 가상 머신과 데이터베이스의 OS 및 데이터 디스크와 같은 인덱스 기반 및 스파스 데이터 구조를 저장하는 데 적합합니다. 예를 들어 Azure SQL DB는 해당 데이터베이스에 대한 기본 영구적 저장소로 페이지 Blob을 사용합니다. 또한 페이지 Blob은 범위 기반 업데이트가 포함된 파일에도 자주 사용됩니다.  
 
 Azure 페이지 Blob의 주요 기능은 해당 REST 인터페이스, 기본 저장소의 내구성 및 Azure로 원활한 마이그레이션 기능입니다. 이러한 기능은 다음 섹션에서 자세히 설명합니다. 또한 Azure 페이지 Blob은 현재 두 가지 유형의 저장소(Premium Storage 및 Standard Storage)에서 지원됩니다. Premium Storage는 고성능의 데이터 저장소 데이터베이스에 적합한 프리미엄 페이지 Blob을 만드는 데 대기 시간이 짧고 일관된 높은 성능이 필요한 워크로드용으로 특별히 디자인되었습니다.  Standard Storage는 대기 시간의 영향에 구애받지 않는 워크로드 실행에 있어 보다 비용 효율적입니다.
+
+> [!WARNING]
+> Premium Storage의 페이지 Blob은 VHD로만 사용하도록 디자인되었습니다. 비용이 크게 높아질 수 있으므로 Premium Storage의 페이지 Blob에 다른 형식의 데이터를 저장하는 것은 권장되지 않습니다. VHD에 없는 데이터를 저장할 때는 블록 Blob을 사용합니다.
 
 ## <a name="sample-use-cases"></a>샘플 사용 사례
 
@@ -41,8 +43,8 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
-#### <a name="creating-an-empty-page-blob-of-a-certain-size"></a>특정 크기의 빈 페이지 Blob 만들기
-페이지 Blob을 만들기 위해 아래 예제와 같이 **StorageCredentialsAccountAndKey** 개체와 함께 먼저 저장소 계정(그림 1의 pbaccount)의 Blob 저장소에 액세스하기 위한 기본 URI가 있는 **CloudBlobClient** 개체를 만듭니다. 이 예제에서는 **CloudBlobContainer** 개체에 대한 참조를 만든 다음, 아직 없는 경우 컨테이너(testvhds)를 만듭니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 Blob을 만들려면 [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)를 호출하여 만들려는 Blob의 최대 크기를 전달합니다. blobSize는 512바이트의 배수여야 합니다.
+#### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>지정된 크기의 빈 페이지 Blob 만들기
+페이지 Blob을 만들기 위해 아래 예제와 같이 **StorageCredentialsAccountAndKey** 개체와 함께 먼저 저장소 계정(그림 1의 *pbaccount*)의 Blob 저장소에 액세스하기 위한 기본 URI가 있는 **CloudBlobClient** 개체를 만듭니다. 이 예제에서는 **CloudBlobContainer** 개체에 대한 참조를 만든 다음, 아직 없는 경우 컨테이너(testvhds)를 만듭니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 Blob을 만들려면 [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)를 호출하여 만들려는 Blob의 최대 크기를 전달합니다. blobSize는 512바이트의 배수여야 합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -65,7 +67,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
 #### <a name="resizing-a-page-blob"></a>페이지 Blob 크기 조정
-페이지 Blob을 만든 후 크기를 조정하려면 [Resize](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API를 사용합니다. 요청 크기는 512바이트의 배수여야 합니다.
+페이지 Blob을 만든 후 크기를 조정하려면 [크기 조정](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API를 사용합니다. 요청 크기는 512바이트의 배수여야 합니다.
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes); 
 ```
@@ -129,7 +131,7 @@ Blob 임대 작업은 Blob에 대한 쓰기 및 삭제 작업 잠금을 설정�
 ### <a name="durability-and-high-availability"></a>내구성 및 고가용성
 Standard Storage 및 Premium Storage는 둘 다 내구성과 고가용성이 보장되도록 페이지 Blob 데이터가 항상 복제되는 지속성 저장소입니다. Azure Storage 중복에 대한 자세한 내용은 이 [설명서](../common/storage-redundancy.md)를 참조하세요. Azure는 업계 최고의 0% [연간 실패율](https://en.wikipedia.org/wiki/Annualized_failure_rate)로 IaaS 디스크 및 페이지 Blob에 엔터프라이즈급 내구성을 일관되게 제공하고 있습니다. 즉, Azure는 고객의 페이지 Blob 데이터를 손실하지 않습니다. 
 
-### <a name="seamless-migration-to-azure"></a>Azure로 원활한 마이그레이션
+### <a name="seamless-migration-to-azure"></a>Azure로의 원활한 마이그레이션
 Azure는 자체 사용자 지정 백업 솔루션 구현에 관심이 있는 고객 및 개발자에게 델타만 보유하는 증분 스냅숏도 제공합니다. 이 기능은 초기 전체 복사의 비용을 방지하여 백업 비용을 크게 낮출 수 있습니다. 이 기능은 효율적으로 차등 데이터를 읽고 복사하는 기능과 더불어 개발자가 기능을 한층 더 혁신할 수 있도록 해주는 또 하나의 강력한 기능입니다. 이를 통해 Azure에서 최상의 백업 및 DR(재해 복구) 환경을 제공할 수 있습니다. DR에 대한 증분 데이터를 쉽게 복사하는 데 사용할 수 있는 [페이지 범위 가져오기](/rest/api/storageservices/get-page-ranges) API 및 [Blob 증분 복사](/rest/api/storageservices/incremental-copy-blob) API와 함께 [Blob 스냅숏](/rest/api/storageservices/snapshot-blob)을 사용하여 Azure에서 VM에 대한 사용자 고유의 백업 또는 DR 솔루션을 설정할 수 있습니다. 
 
 게다가 많은 엔터프라이즈에는 온-프레미스 데이터 센터에서 이미 실행 중인 중요한 워크로드가 있습니다. 워크로드를 클라우드로 마이그레이션하는 데 우려 사항 중 하나는 해당 데이터를 복사하는 데 필요한 가동 중단 시간과 전환 후 예측하지 못한 문제 발생 위험입니다. 대부분의 경우 가동 중단 시간은 클라우드로의 마이그레이션을 위한 쇼스타퍼(showstopper)일 수 있습니다. Azure는 페이지 Blob REST API를 사용하여 중요한 워크로드의 중단을 최소화하면서 클라우드를 마이그레이션하여 이 문제를 해결합니다. 

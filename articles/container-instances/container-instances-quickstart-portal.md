@@ -3,17 +3,17 @@ title: 퀵 스타트 - Azure Portal로 첫 번째 Azure Container Instances 컨�
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Container Instances에 컨테이너를 배포합니다
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: cb0c8c5f5730ae1f7a2e9b38c3ef3e04ee8cde67
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 34f1edf441a18e22bcbef0c827ab4301f97c1aa1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>빠른 시작: Azure Container Instances에서 첫 번째 컨테이너 만들기
 
@@ -23,7 +23,7 @@ Azure Container Instances를 통해 Azure에서 컨테이너를 쉽게 만들고
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-http://portal.azure.com에서 Azure Portal에 로그인합니다.
+Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="create-a-container-instance"></a>컨테이너 인스턴스 만들기
 

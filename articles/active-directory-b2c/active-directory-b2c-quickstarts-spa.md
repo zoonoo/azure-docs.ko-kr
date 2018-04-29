@@ -1,6 +1,6 @@
 ---
-title: Azure AD B2C 사용 단일 페이지 앱 시험 사용
-description: Azure Active Directory B2C를 사용하여 사용자를 인증하고 등록하는 샘플 단일 페이지 앱을 사용해 보는 빠른 시작입니다.
+title: 빠른 시작 - Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정 | Microsoft Docs
+description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 단일 페이지 응용 프로그램을 실행합니다.
 services: active-directory-b2c
 documentationcenter: ''
 author: davidmu1
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 96baf0297c3d2976f3d6fb112b0bd0ce077a186f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>빠른 시작: Azure AD B2C 사용 단일 페이지 앱 시험 사용
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정 
 
 Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 앱에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다.
 

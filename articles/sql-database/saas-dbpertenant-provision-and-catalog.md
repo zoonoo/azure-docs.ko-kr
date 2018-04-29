@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 
@@ -63,7 +63,7 @@ Wingtip Tickets SaaS 샘플에서 카탈로그는 [EDCL(Elastic Database 클라�
 
 Wingtip Tickets Database-per-Tenant 앱은 카탈로그 서버에 배포된 _basetenantdb_라는 템플릿 데이터베이스를 복사하여 새 테넌트를 프로비전합니다. 프로비전은 등록 과정의 일부로서 응용 프로그램에 통합될 수 있습니다. 또한 스크립트를 사용하여 오프라인에서 지원될 수도 있습니다. 이 자습서에서는 PowerShell을 사용하는 프로비전을 살펴봅니다. 
 
-프로비저닝 스크립트는 _basetenantdb_ 데이터베이스를 복사하여 탄력적 풀에 새 테넌트 데이터베이스를 만듭니다. 그런 다음, 스크립트는 테넌트 관련 정보로 데이터베이스를 초기화하고 카탈로그 분할된 데이터베이스 맵에 등록합니다. 테넌트 데이터베이스에는 테넌트 이름을 본따서 이름이 지정됩니다. 이 명명 스키마는 패턴의 중요한 부분이 아닙니다. 카탈로그는 테넌트 키를 데이터베이스 이름으로 매핑하므로 어떤 명명 규칙도 사용 가능합니다. 
+프로비저닝 스크립트는 _basetenantdb_ 데이터베이스를 복사하여 탄력적 풀에 새 테넌트 데이터베이스를 만듭니다. 테넌트 데이터베이스는 _newtenant_ DNS 별칭에 매핑된 테넌트 서버에서 생성됩니다. 이 별칭은 새 테넌트를 프로비전하는 데 사용되는 서버에 대한 참조를 유지 관리하며, 재해 복구 자습서([georestore를 사용하는 DR](saas-dbpertenant-dr-geo-restore.md), [georeplication을 사용하는 DR](saas-dbpertenant-dr-geo-replication.md))에서 복구 테넌트 서버를 가리키도록 업데이트되었습니다. 그런 다음, 스크립트는 테넌트 관련 정보로 데이터베이스를 초기화하고 카탈로그 분할된 데이터베이스 맵에 등록합니다. 테넌트 데이터베이스에는 테넌트 이름을 본따서 이름이 지정됩니다. 이 명명 스키마는 패턴의 중요한 부분이 아닙니다. 카탈로그는 테넌트 키를 데이터베이스 이름으로 매핑하므로 어떤 명명 규칙도 사용 가능합니다. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 스크립트 가져오기

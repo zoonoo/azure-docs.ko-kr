@@ -1,29 +1,26 @@
 ---
-title: SQL Data Warehouse Transact-SQL 언어 요소 | Microsoft Docs
-description: SQL Data Warehouse에 사용되는 TRANSACT-SQL 언어 요소에 대한 참조 내용에 대한 링크 목록입니다.
+title: T-SQL 언어 요소 - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: dd9dc070c817a7276369a9be7126b0d48dc9e4eb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="language-elements"></a>언어 요소
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소
+Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명서 링크입니다.
+
 ## <a name="core-elements"></a>핵심 요소
-* [구문 규칙](https://msdn.microsoft.com/library/ms177563.aspx)
+* [구문 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [개체 명명 규칙](https://msdn.microsoft.com/library/ms175874.aspx)
 * [예약된 키워드](https://msdn.microsoft.com/library/ms189822.aspx)
 * [데이터 정렬](https://msdn.microsoft.com/library/ff848763.aspx)
@@ -279,5 +276,5 @@ ms.lasthandoff: 03/28/2018
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 TSQL 참조는 [SQL Data Warehouse T-SQL 문](sql-data-warehouse-reference-tsql-statements.md)를 참조하세요.
+자세한 참고 정보는 [Microsoft Azure SQL Data Warehouse의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md) 및 [Azure SQL Data Warehouse의 시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)를 참조합니다.
 

@@ -1,8 +1,8 @@
 ---
-title: "HDInsight의 Hadoop에서 Hive 및 Pig와 함께 C# 사용 - Azure | Microsoft Docs"
-description: "Azure HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다."
+title: HDInsight의 Hadoop에서 Hive 및 Pig와 함께 C# 사용 - Azure | Microsoft Docs
+description: Azure HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b776b214b9d46293a3ab97ad226dffd3107f3430
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용
 
@@ -49,7 +47,7 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
 ## <a name="net-on-hdinsight"></a>HDInsight에서.NET
 
-* [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행하는 __Linux 기반 HDInsight__ 클러스터. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다.
+* __Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다.
 
     .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
 
@@ -63,7 +61,7 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
 ### <a name="hive-udf"></a>Hive UDF
 
-1. Visual Studio를 열고 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 앱(.NET Framework)**을 선택하고 새 프로젝트의 이름을 **HiveCSharp**로 지정합니다.
+1. Visual Studio를 열고 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 앱(.NET Framework)** 을 선택하고 새 프로젝트의 이름을 **HiveCSharp**로 지정합니다.
 
     > [!IMPORTANT]
     > Linux 기반 HDInsight 클러스터를 사용하는 경우 __.NET Framework 4.5__를 선택합니다. .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
@@ -168,13 +166,13 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
 3. 메시지가 표시되면 Azure 구독 자격 증명을 입력한 다음 **로그인**을 클릭합니다.
 
-4. 이 응용 프로그램을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목__(기본 Storage 계정)__이 목록에 표시됩니다.
+4. 이 응용 프로그램을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 __(기본 Storage 계정)__ 이 목록에 표시됩니다.
 
     ![클러스터에 대한 저장소 계정을 보여주는 서버 탐색기](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 저장소로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__를 두 번 클릭합니다.
+    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 저장소로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
 
-    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 저장소로 __Azure Data Lake Store__를 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__을 두 번 클릭합니다.
+    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 저장소로 __Azure Data Lake Store__를 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
 
 6. .exe 파일을 업로드하려면 다음 방법 중 하나를 사용합니다.
 

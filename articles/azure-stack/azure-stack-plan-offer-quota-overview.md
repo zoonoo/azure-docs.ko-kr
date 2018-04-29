@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 계획, 제안, 할당량 및 구독 개요 | Microsoft Docs"
-description: "클라우드 연산자로 Azure 스택 계획, 제안, 할당량 및 구독을 이해 하려고 합니다."
+title: Azure 스택 계획, 제안, 할당량 및 구독 개요 | Microsoft Docs
+description: 클라우드 연산자로 Azure 스택 계획, 제안, 할당량 및 구독을 이해 하려고 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>계획, 제안, 할당량 및 구독 개요
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 02/21/2018
 - 사용자가 사용할 수 있는 이러한 리소스의 크기
 - 지역에서 리소스에 액세스할 수
 
-서비스를 제공 하는 경우에 같은 대략적인 단계를 수행 합니다.
+서비스를 제공할 때 다음과 같은 대략적인 단계.
 
 1. 사용자에 게 제공 하려는 서비스를 추가 합니다.
-2. 하나 이상의 서비스를 포함 하는 계획을 만듭니다. 계획을 만들 때 선택 하거나 각 서비스의 리소스 제한 계획에 정의 하는 할당량 만들기 됩니다.
+2. 하나 이상의 서비스를 포함 하는 계획을 만듭니다. 계획을 만들 때 선택 하거나 계획의 각 서비스의 리소스 한계를 정의 하는 할당량을 만듭니다.
 3. (기본 계획 및 계획 선택적 추가 기능 포함)는 하나 이상의 계획을 포함 하는 제안을 만듭니다.
 
 이 요청을 만든 후 서비스 및 제공 하는 리소스에 액세스 하도록 하려면 사용자가 구독할 수 있습니다. 사용자가 원하는 만큼 많은 혜택을 구독할 수 있습니다. 다음 다이어그램에서는 두 구독가 사용자의 간단한 예를 보여 줍니다. 각 행사 계획 또는 둘을 가지 며 각 계획을 액세스할 수 있도록 서비스
@@ -52,13 +52,15 @@ ms.lasthandoff: 02/21/2018
 
 지역에 따라 할당량을 구성할 수 있습니다. 예를 들어 영역 A의에서 계산 서비스를 포함 하는 계획의 두 가상 컴퓨터, 4GB RAM 및 10 CPU 코어 할당량이 있을 수 있습니다. Azure 스택 개발 키트 한 지역에에서 (라는 *로컬*)를 사용할 수 있습니다.
 
+에 대 한 자세한 내용은 [Azure 스택의 할당량 유형](azure-stack-quota-types.md)합니다. 
+
 ### <a name="base-plan"></a>기본 요금제
 
 제공 하는 서비스를 만들 때 서비스 관리자는 기본 계획을 포함할 수 있습니다. 이러한 기본 계획은 해당 제품을 구독 하는 사용자 때 기본적으로 포함 됩니다. 사용자가 구독 (해당 할당량)와 해당 기본 계획에 지정 된 모든 리소스 공급자에 대 한 액세스를 유지 됩니다.
 
 ### <a name="add-on-plans"></a>추가 요금제
 
-제공 하는 선택적 추가 기능 계획을 포함할 수도 있습니다. 추가 기능 계획은 구독에서 기본적으로 포함되지 않습니다. 추가 기능 계획은 추가 계획 (할당량)와 구독자의 구독에 추가할 수 있는 제품에서 사용할 수 있는입니다. 예를 들어 서비스를 도입 하기로 결정 하는 고객는 평가판에 대 한 제한 된 리소스를 사용 하 여 기본 계획 및 추가 기능 계획 더 많은 리소스를 제안할 수 있습니다.
+추가 기능 계획은 제공 하는 서비스에 추가 하는 선택적 계획입니다. 추가 기능 계획은 구독에서 기본적으로 포함되지 않습니다. 추가 기능 계획은 추가 계획 (할당량)와 구독자의 구독에 추가할 수 있는 제품에서 사용할 수 있는입니다. 예를 들어 서비스를 도입 하기로 결정 하는 고객는 평가판에 대 한 제한 된 리소스를 사용 하 여 기본 계획 및 추가 기능 계획 더 많은 리소스를 제안할 수 있습니다.
 
 ## <a name="offers"></a>제품
 

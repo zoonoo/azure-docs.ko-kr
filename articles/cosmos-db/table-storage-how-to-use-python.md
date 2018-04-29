@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: c8f35656e9db07b596cd24ecb570fa0960f540b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b4370f63c2e5ccf466de7cb680377b12940a6efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Python을 사용하여 Azure Table Storage 시작
 
@@ -42,7 +42,7 @@ Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, �
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 또는 3.6
 - [Python용 Azure Cosmos DB 테이블 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/) 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
-- [Azure Storage 계정](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) 또는 [Azure Cosmos DB 계정](https://azure.microsoft.com/en-us/try/cosmosdb/)
+- [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) 또는 [Azure Cosmos DB 계정](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
@@ -223,11 +223,11 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>다음 단계
 
-* [FAQ - Table API를 사용하여 개발](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
+* [FAQ - Table API를 사용하여 개발](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
 * [Azure Cosmos DB SDK for Python API 참조](https://azure.github.io/azure-cosmosdb-python/)
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md): Windows, macOS, 및 Linux에서 Azure Storage 데이터를 시각적으로 사용하기 위한 플랫폼 간 무료 응용 프로그램입니다.
-* [Visual Studio(Windows)에서 Python 사용](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio)
+* [Visual Studio(Windows)에서 Python 사용](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 [py_commit_batch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
 [py_create_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html

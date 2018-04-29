@@ -16,11 +16,11 @@ ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 25b3e47b013cbcd99a39d128cca733709b7a1bb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
@@ -168,7 +168,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 *null*입니다. |(user.mobile -eq "value") |
-| objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 온-프레미스에서 클라우드로 동기화된 사용자의 온-프레미스 SID(보안 식별자)입니다. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |임의의 문자열 값 또는 *null*입니다. |(user.physicalDeliveryOfficeName -eq "value") |

@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs"
-description: "저장소 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다."
+title: Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs
+description: 저장소 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: fhryo-msft
 manager: jahogg
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -474,7 +474,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | 원본 | 자세한 정도 | 자세한 정도 | 클라이언트 요청 ID | 작업 텍스트 |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 에 대한 동기 요청을 시작하는 중입니다. |
+| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14에 대한 동기 요청을 시작하는 중입니다. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
 | Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버가 오류를 반환했습니다: (403) 사용할 수 없음. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |

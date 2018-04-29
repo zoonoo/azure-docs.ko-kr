@@ -1,6 +1,6 @@
 ---
-title: "Application Insights 및 Log Analytics에 사용된 IP 주소 | Microsoft Docs"
-description: "Application Insights에 필요한 서버 방화벽 예외"
+title: Application Insights 및 Log Analytics에 사용된 IP 주소 | Microsoft Docs
+description: Application Insights에 필요한 서버 방화벽 예외
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에 사용된 IP 주소
 [Azure Application Insights](app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -48,7 +48,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 | 구성 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | 구성 |`auth.gfx.ms` | |`443` |
 | 구성 |`login.live.com` | |`443` |
-| 설치 |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
+| 설치 |`packages.nuget.org`, `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net`(NuGet 다운로드) | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | 목적 | URL | IP | 포트 |

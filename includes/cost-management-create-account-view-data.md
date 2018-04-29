@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>비용 데이터 보기
 
 Azure Cost Management by Cloudyn에서는 모든 클라우드 리소스 데이터에 대한 액세스 권한을 제공합니다. 대시보드 보고서의 눌러진 보기에서 표준 및 사용자 지정 보고서를 모두 찾을 수 있습니다. 데이터의 비용을 즉시 보여주는 인기 있는 대시보드 및 보고서의 예제는 다음과 같습니다.

@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -23,18 +23,19 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
-
 변경 내용 추적을 시작하려면 Automation 계정에 대한 변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정해야 합니다.
 
 1. Azure Portal에서 Automation 계정으로 이동합니다.
 1. **구성** 아래에서 **변경 내용 추적**을 선택합니다.
-2. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하고 **사용**을 클릭합니다.
+1. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하고 **사용**을 클릭합니다.
 
 이렇게 하면 Automation 계정에 대한 솔루션을 사용할 수 있습니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 솔루션을 사용하도록 설정되면 파란색 배너에서 알려줍니다. **변경 내용 추적** 페이지로 다시 이동하여 솔루션을 관리합니다.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 구성
 
-솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보드](automation-onboard-solutions-from-automation-account.md)를 방문하세요. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 내용 추적 및 인벤토리가 모두 활성화됩니다.
+솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보드](automation-onboard-solutions-from-automation-account.md)를 방문하세요. 변경 내용 추적과 인벤토리 솔루션을 컴퓨터에 탑재한 후 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 내용 추적 및 인벤토리가 모두 활성화됩니다.
+
+Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일의 MD5 해시를 사용합니다. 그런 다음, 이 해시를 사용하여 마지막 인벤토리 이후 변경이 있는지 검색합니다.
 
 ### <a name="configure-linux-files-to-track"></a>추적할 Linux 파일 구성
 
@@ -109,6 +110,7 @@ ms.lasthandoff: 03/23/2018
 ## <a name="known-issues"></a>알려진 문제
 
 변경 내용 추적 솔루션에 현재 다음과 같은 문제가 있습니다.
+
 * 핫픽스 업데이트가 Windows 10 크리에이터 업데이트 및 Windows Server 2016 Core RS3 컴퓨터에 대해 수집되지 않습니다.
 
 ## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
@@ -117,13 +119,13 @@ ms.lasthandoff: 03/23/2018
 
 | **변경 유형** | **Frequency(빈도)** |
 | --- | --- |
-| Windows 레지스트리 | 50분 | 
-| Windows 파일 | 30분 | 
-| Linux 파일 | 15분 | 
-| Windows 서비스 | 30분 | 
+| Windows 레지스트리 | 50분 |
+| Windows 파일 | 30분 |
+| Linux 파일 | 15분 |
+| Windows 서비스 | 30분 |
 | Linux 데몬 | 5분 |
-| Windows 소프트웨어 | 30분 | 
-| Linux 소프트웨어 | 5분 | 
+| Windows 소프트웨어 | 30분 |
+| Linux 소프트웨어 | 5분 |
 
 ### <a name="registry-key-change-tracking"></a>레지스트리 키 변경 내용 추적
 

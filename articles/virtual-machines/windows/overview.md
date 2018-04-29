@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fe4345f45013359fd77e5ddae3dc754b94af2696
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ff709d021c9d4201301edd9890f1e4a94f555313
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
 
@@ -62,7 +62,7 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 명령을 사용합니다. |
 | REST API |[위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) 작업을 사용합니다. |
-| Azure CLI |[az account list-locations](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_list_locations) 작업을 사용합니다. |
+| Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations) 작업을 사용합니다. |
 
 ### <a name="vm-size"></a>VM 크기
 사용할 VM의 [크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 저장소 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
@@ -84,7 +84,7 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 | Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 [사용자 고유의 이미지를 업로드하고 사용하도록](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 
@@ -105,7 +105,7 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
 | [Storage 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
-| [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니요 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
+| [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니오 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
 | [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니오 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
@@ -121,7 +121,7 @@ VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속�
 | Azure PowerShell |[PowerShell을 사용하여 Windows VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 클라이언트 SDK |[C#를 사용하여 Azure 리소스 배포](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST API |[VM 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
-| Azure CLI |[Azure CLI를 사용하여 VM 만들기](https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
+| Azure CLI |[Azure CLI를 사용하여 VM 만들기](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 문제가 결코 발생하지 않기를 바라지만 때로는 몇몇 문제가 발생하기도 합니다. 이러한 상황이 발생하면 [Azure에서 Windows 가상 머신을 만들 때 발생하는 Resource Manager 배포 문제 해결](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 있는 정보를 확인하세요.
 
@@ -137,7 +137,7 @@ VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구
 | Azure PowerShell |PowerShell을 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell 을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
 | REST API |[VM 가져오기 정보](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) 작업을 사용하여 VM에 대한 정보를 가져옵니다. |
 | 클라이언트 SDK |C#를 사용한 VM 관리에 대한 내용은 [Azure Resource Manager 및 C#를 사용하여 Azure Virtual Machines 관리](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
-| Azure CLI |Azure CLI를 사용하여 VM을 관리하는 방법에 대한 내용은 [Azure CLI 참조](https://docs.microsoft.com/en-us/cli/azure/vm)를 참조하세요. |
+| Azure CLI |Azure CLI를 사용하여 VM을 관리하는 방법에 대한 내용은 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/vm)를 참조하세요. |
 
 ### <a name="log-on-to-the-vm"></a>VM에 로그인
 Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션을 시작합니다](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 원격 연결을 사용하려고 할 때 가끔 문제가 발생할 수도 있습니다. 이러한 상황이 발생하면 [Windows를 실행하는 Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 있는 도움말 정보를 확인하세요.

@@ -1,8 +1,8 @@
 ---
-title: "HDInsight의 쿼리 콘솔에서 Hadoop Hive 사용 - Azure | Microsoft Docs"
-description: "브라우저에서 웹 기반 쿼리 콘솔을 사용하여 HDInsight Hadoop 클러스터에 대한 Hive 쿼리를 실행하는 방법에 대해 알아봅니다."
+title: HDInsight의 쿼리 콘솔에서 Hadoop Hive 사용 - Azure | Microsoft Docs
+description: 브라우저에서 웹 기반 쿼리 콘솔을 사용하여 HDInsight Hadoop 클러스터에 대한 Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: d6032b8a1e3d338b046c958804102aeb9efcf4ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>쿼리 콘솔을 사용하여 Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -68,7 +66,7 @@ ms.lasthandoff: 11/03/2017
    * **STORED AS TEXTFILE LOCATION**: 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
    * **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
    * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
-3. **Submit**를 클릭합니다. 페이지 아래쪽의 **작업 세션** 에는 작업에 대한 세부 정보가 표시됩니다.
+3. **제출**을 클릭합니다. 페이지 아래쪽의 **작업 세션** 에는 작업에 대한 세부 정보가 표시됩니다.
 4. **상태** 필드가 **완료**로 변경되면 작업에 대한 **세부 정보 보기**를 선택합니다. 세부 정보 페이지의 **작업 출력**에는 `[ERROR]    3`이 포함됩니다. 이 필드 아래의 **다운로드** 단추를 사용하여 작업의 출력을 포함하는 파일을 다운로드할 수 있습니다.
 
 ## <a id="summary"></a>요약

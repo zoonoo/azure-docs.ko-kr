@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Azure에서 HPC 팩 2016 클러스터 배포
 
@@ -56,7 +56,7 @@ Microsoft HPC 팩 2016 클러스터에는 HPC 노드 간 통신을 보호하기 
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Azure Key Vault에 인증서 업로드
 
-HPC 클러스터를 배포하기 전에 PFX 인증서를 [Azure Key Vault](../../key-vault/index.md)에 암호로 업로드하고 배포하는 동안 사용할 **자격 증명 모음 이름**, **자격 증명 모음 리소스 그룹**, **인증서 URL** 및 **인증서 지문** 정보를 기록합니다.
+HPC 클러스터를 배포하기 전에 PFX 인증서를 [Azure Key Vault](../../key-vault/index.yml)에 암호로 업로드하고 배포하는 동안 사용할 **자격 증명 모음 이름**, **자격 증명 모음 리소스 그룹**, **인증서 URL** 및 **인증서 지문** 정보를 기록합니다.
 
 인증서를 업로드하고, 키 자격 증명 모음을 만들고, 필요한 정보를 생성하는 샘플 PowerShell 스크립트가 뒤에 나옵니다. Azure Key Vault에 인증서를 업로드하는 방법에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md)을 참조하세요.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 ## <a name="about-this-list"></a>다음 목록 정보
@@ -38,12 +38,12 @@ Open API 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 �
 
 ## <a name="wsdl"> </a>WSDL
 SOAP 통과 API를 생성하는 데 WSDL 파일이 사용되며 SOAP-to-REST API의 백 엔드로 사용됩니다.
-
-* **WSDL:Import** - 현재 APIM은 이 특성을 사용한 API를 지원하지 않습니다. 고객은 가져온 요소를 문서 하나로 병합해야 합니다.
-* **여러 부분으로 된 메시지** 현재, APIM은 이러한 유형의 메시지를 지원하지 않습니다.
-* **WCF wsHttpBinding** Windows Communication Foundation으로 생성된 SOAP 서비스는 basicHttpBinding을 사용해야 합니다. wsHttpBinding은 지원되지 않습니다.
-* **MTOM** MTOM을 사용한 서비스는 <em>작동할 수 있습니다</em>. 현재는 공식적으로 지원되지 않습니다.
-* 재귀적으로 정의된(예: 자체의 배열을 참조) **재귀** 형식은 APIM에서 지원되지 않습니다.
+* **SOAP 바인딩** - 스타일 "document" 및 "literal" 인코딩의 SOAP 바인딩만 사용할 수 있습니다. "rpc" 스타일 또는 SOAP 인코딩은 지원되지 않습니다.
+* **WSDL:Import** - 이 특성은 지원되지 않습니다. 고객은 가져오기를 문서 하나로 병합해야 합니다.
+* **여러 부분으로 된 메시지** - 이러한 유형의 메시지는 지원되지 않습니다.
+* **WCF wsHttpBinding** - Windows Communication Foundation으로 생성된 SOAP 서비스는 basicHttpBinding을 사용해야 합니다. wsHttpBinding은 지원되지 않습니다.
+* **MTOM** - MTOM을 사용한 서비스는 <em>작동할 수 있습니다</em>. 현재는 공식적으로 지원되지 않습니다.
+* **재귀** - 재귀적으로 정의된(예: 자체의 배열을 참조) 형식은 APIM에서 지원되지 않습니다.
 
 ## <a name="wadl"> </a>WADL
 현재, 알려진 WADL 가져오기 문제가 없습니다.

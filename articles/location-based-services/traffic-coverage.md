@@ -1,22 +1,22 @@
 ---
-title: "Azure Location Based Services에서 트래픽 검사 | Microsoft Docs"
-description: "Azure Location Based Services에서 트래픽 검사에 대해 알아봅니다"
+title: Azure Location Based Services에서 트래픽 검사 | Microsoft Docs
+description: Azure Location Based Services에서 트래픽 검사에 대해 알아봅니다
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 251c736e0f607ffeea144639f437900eb337b6ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6d061d5b1100051a2a06e838dc16912119efb6c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-location-based-services---traffic-coverage"></a>Azure Location Based Services - 트래픽 검사
 
@@ -31,6 +31,7 @@ Azure Location Based Services(파운드)는 Azure LBS 맵 컨트롤의 맨 위�
 |바레인     |         |✓         |
 |벨기에     |✓         |✓         |
 |브라질     |✓         |✓         |
+|불가리아     |✓         |✓         |
 |캐나다     |✓         |✓         |
 |칠레     |✓         |✓         |
 |콜롬비아      |         |✓         |

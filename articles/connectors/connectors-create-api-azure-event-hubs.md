@@ -1,14 +1,14 @@
 ---
-title: "Azure Logic Apps용 Azure Event Hubs로 이벤트 모니터링 설정 | Microsoft Docs"
-description: "Azure Event Hubs를 사용하여 논리 앱에 대한 이벤트를 수신 및 전송하는 데이터 스트림 모니터링"
+title: Azure Logic Apps용 Azure Event Hubs로 이벤트 모니터링 설정 | Microsoft Docs
+description: Azure Event Hubs를 사용하여 논리 앱에 대한 이벤트를 수신 및 전송하는 데이터 스트림 모니터링
 services: logic-apps
-keywords: "데이터 스트림, 이벤트 모니터, 이벤트 허브"
+keywords: 데이터 스트림, 이벤트 모니터, 이벤트 허브
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Event Hubs 커넥터로 이벤트 모니터, 수신 및 전송
 
@@ -76,11 +76,28 @@ Event Hubs 커넥터를 사용하려면 먼저 다음과 같은 항목이 있어
 3. 모니터링할 Event Hub를 선택하고, Event Hub를 확인하는 시기에 대한 간격 및 빈도를 설정합니다.
 
     ![Event Hub 또는 소비자 그룹 지정](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > 모든 Event Hub 트리거는 *긴 폴링* 트리거입니다. 즉, 이 트리거는 발생될 때 모든 이벤트를 처리한 다음, 더 많은 이벤트가 Event Hub에 나타날 때까지 30초 동안 기다립니다.
+    > 30초 후에 이벤트가 수신되지 않으면 트리거 실행을 건너뜁니다. 그렇지 않으면 트리거는 Event Hub가 빈 상태가 될 때까지 이벤트를 계속 읽습니다.
+    > 다음 트리거 폴링은 트리거의 속성에 지정된 되풀이 간격을 기준으로 합니다.
 
-    > [!TIP]
-    > 필요할 경우 이벤트를 읽기 위한 소비자 그룹을 선택하고 **고급 옵션 표시**를 선택합니다.
 
-4. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+4. 고급 트리거 옵션 중 일부를 필요에 따라 선택하려면 **고급 옵션 표시**를 선택합니다.
+
+    ![트리거 고급 옵션](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | 자산 | 세부 정보 |
+    | --- | --- |
+    | 콘텐츠 형식  |드롭다운 목록에서 이벤트의 콘텐츠 유형을 선택합니다. 기본적으로 application/octet-stream이 선택됩니다. |
+    | 콘텐츠 스키마 |Event Hub에서 읽는 이벤트에 대한 콘텐츠 스키마를 JSON에 입력합니다. |
+    | 소비자 그룹 이름 |이벤트를 읽을 Event Hub [소비자 그룹 이름](../event-hubs/event-hubs-features.md#consumer-groups)을 입력합니다. 소비자 그룹 이름을 지정하지 않으면 기본 소비자 그룹이 사용됩니다. |
+    | 최소 파티션 키 |읽을 최소 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
+    | 최대 파티션 키 |읽을 최대 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
+    | 최대 이벤트 수 |최대 이벤트 수에 대한 값을 입력합니다. 트리거는 1과 이 속성으로 지정된 이벤트의 수 범위의 숫자를 반환합니다. |
+    |||
+
+5. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 이제, 논리 앱이 선택된 Event Hub를 검사하고 새 이벤트를 발견하는 경우 찾은 이벤트에 대한 논리 앱에서 트리거가 동작을 실행합니다.
 

@@ -1,18 +1,18 @@
 ---
-title: "Azure Container Registry 웹후크 스키마 참조"
-description: "Azure Container Registry에 대한 웹후크 요청 JSON 페이로드 참조입니다."
+title: Azure Container Registry 웹후크 스키마 참조
+description: Azure Container Registry에 대한 웹후크 요청 JSON 페이로드 참조입니다.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry 웹후크 참조
 
@@ -40,17 +40,17 @@ Azure Container Registry에 대한 웹후크를 구성하는 방법에 대한 �
 
 ### <a name="push-event-payload"></a>푸시 이벤트 페이로드
 
-|요소|유형|설명|
+|요소|type|설명|
 |-------------|----------|-----------|
 |`id`|문자열|웹후크 이벤트의 ID입니다.|
-|`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
+|`timestamp`|Datetime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
 |`action`|문자열|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
 |[요청](#request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
 
 ### <a name="target"></a>대상
 
-|요소|유형|설명|
+|요소|type|설명|
 |------------------|----------|-----------|
 |`mediaType`|문자열|참조된 개체의 MIME 형식입니다.|
 |`size`|Int32|콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다.|
@@ -61,7 +61,7 @@ Azure Container Registry에 대한 웹후크를 구성하는 방법에 대한 �
 
 ### <a name="request"></a>request
 
-|요소|유형|설명|
+|요소|type|설명|
 |------------------|----------|-----------|
 |`id`|문자열|이벤트를 시작한 요청의 ID입니다.|
 |`host`|문자열|외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 HTTP 호스트 헤더를 통해 지정됩니다.|
@@ -104,17 +104,17 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ### <a name="delete-event-payload"></a>삭제 이벤트 페이로드
 
-|요소|유형|설명|
+|요소|type|설명|
 |-------------|----------|-----------|
 |`id`|문자열|웹후크 이벤트의 ID입니다.|
-|`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
+|`timestamp`|Datetime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
 |`action`|문자열|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#delete_target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
 |[요청](#delete_request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
 
 ### <a name="delete_target"></a> 대상
 
-|요소|유형|설명|
+|요소|type|설명|
 |------------------|----------|-----------|
 |`mediaType`|문자열|참조된 개체의 MIME 형식입니다.|
 |`digest`|문자열|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
@@ -122,7 +122,7 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ### <a name="delete_request"></a> 요청
 
-|요소|유형|설명|
+|요소|type|설명|
 |------------------|----------|-----------|
 |`id`|문자열|이벤트를 시작한 요청의 ID입니다.|
 |`host`|문자열|외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 HTTP 호스트 헤더를 통해 지정됩니다.|

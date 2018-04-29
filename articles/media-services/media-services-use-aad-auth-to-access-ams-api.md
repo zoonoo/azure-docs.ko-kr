@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 인증으로 Azure Media Services API 액세스 | Microsoft Docs"
-description: "Azure Media Services API에 대한 액세스를 인증하는 데 Azure AD(Azure Active Directory)를 사용하기 위해 수행할 단계와 개념에 대해 알아봅니다."
+title: Azure Active Directory 인증으로 Azure Media Services API 액세스 | Microsoft Docs
+description: Azure Media Services API에 대한 액세스를 인증하는 데 Azure AD(Azure Active Directory)를 사용하기 위해 수행할 단계와 개념에 대해 알아봅니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스
  
 Azure Media Services API는 RESTful API입니다. 이 API와 REST API 또는 제공되는 클라이언트 SDK를 사용하여 미디어 리소스에 대한 작업을 수행할 수 있습니다. Azure Media Services는 Microsoft .NET용 Media Services 클라이언트 SDK를 제공합니다. Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 
 
-Media Services는 [Azure AD(Azure Active Directory) 기반 인증](../active-directory/active-directory-whatis.md)을 지원합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 응용 프로그램이 리소스에 액세스하기 위해 **참가자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.  
+Media Services는 [Azure AD(Azure Active Directory) 기반 인증](../active-directory/active-directory-whatis.md)을 지원합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 응용 프로그램이 리소스에 액세스하기 위해 **참가자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.  
 
 > [!IMPORTANT]
 > 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 그러나 Access Control 권한 부여는 2018년 6월 1일부로 더 이상 사용되지 않을 예정입니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
@@ -75,13 +75,13 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
         Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
     * Media Services 리소스 URI. 
 
-        이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net )에 있는 Media Services 계정에 대해서는 동일합니다.
+        이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
 
     * Media Services(원시) 응용 프로그램 클라이언트 ID.
     * Media Services(원시) 응용 프로그램 리디렉션 URI.
     * REST Media Services의 리소스 URI.
         
-        이 URI는 REST API 끝점(예: https://test03.restv2.westus.media.azure.net/api/)을 나타냅니다.
+        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
     이러한 매개 변수 값을 가져오려면 사용자 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
 
@@ -117,11 +117,11 @@ Azure AD 응용 프로그램을 만든 후 다음 설정에 대한 값을 가져
         Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
     * Media Services 리소스 URI. 
 
-        이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net )에 있는 Media Services 계정에 대해서는 동일합니다.
+        이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
 
     * REST Media Services의 리소스 URI.
 
-        이 URI는 REST API 끝점(예: https://test03.restv2.westus.media.azure.net/api/)을 나타냅니다.
+        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
     * Azure AD 응용 프로그램 값: 클라이언트 ID 및 클라이언트 암호.
     
@@ -147,7 +147,7 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 1단계에
 
 - [Azure AD로 해결된 인증 시나리오](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Azure AD에서 응용 프로그램 추가, 업데이트 또는 제거](../active-directory/develop/active-directory-integrating-applications.md)
-- [PowerShell을 사용하여 역할 기반 액세스 제어 구성 및 관리](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [PowerShell을 사용하여 역할 기반 Access Control 구성 및 관리](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>다음 단계
 

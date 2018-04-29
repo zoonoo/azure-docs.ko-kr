@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0c8fc2551f529fbff647d3400144fa2a9600bbd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -130,7 +130,7 @@ ms.lasthandoff: 03/30/2018
 
 **해결 방법:**
 
-서비스를 복원하려면 관리되는 도메인에 연결된 [Azure 구독을 갱신](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable)합니다.
+서비스를 복원하려면 관리되는 도메인에 연결된 [Azure 구독을 갱신](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable)합니다.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: 잘못된 구성으로 인한 일시 중단
 

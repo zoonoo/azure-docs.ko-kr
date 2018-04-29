@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2018
+ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 860a381e5ec2054cd6243901a8e172832e6ada53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure 스택 저장소 용 도구
 
@@ -47,41 +47,88 @@ Azure 및 Azure 스택 간에 저장소 서비스 차이 때문에 다음 섹션
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy는 간단한 명령을 사용 하 여 최적의 성능으로 Microsoft Azure blob 및 테이블 저장소에서 데이터를 복사 하도록 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다. AzCopy 유틸리티의 두 버전: Windows 및 Linux에서 AzCopy에 AzCopy 합니다. Azure 스택 Windows 버전을 지원합니다. 
- 
-### <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치 
 
-[다운로드](https://aka.ms/azcopyforazurestack) AzCopy Azure 스택에 대 한 지원 되는 Windows 버전입니다. 설치 하 고 Azure와 같은 방식으로 Azure 스택에 AzCopy를 사용할 수 있습니다. 자세한 내용은 참고 [AzCopy 명령줄 유틸리티를 사용 하 여 데이터를 전송](../../storage/common/storage-use-azcopy.md)합니다. 
+AzCopy는 간단한 명령을 사용 하 여 최적의 성능으로 Microsoft Azure blob 및 테이블 저장소에서 데이터를 복사 하도록 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
 
- - 1802 업데이트 또는 새 버전에 대 한 [AzCopy 7.1.0 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다.
- - 이전 버전에 대 한 [AzCopy 5.0.0 다운로드](https://aka.ms/azcopyforazurestack20150405)합니다.
+### <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치
+
+AzCopy 유틸리티의 두 버전: Windows 및 Linux에서 AzCopy에 AzCopy 합니다.
+
+ - **Windows에서 AzCopy**  
+    - Azure 스택에 대 한 AzCopy의 지원 되는 버전을 다운로드 합니다. 설치 하 고 Azure와 같은 방식으로 Azure 스택에 AzCopy를 사용할 수 있습니다. 자세한 내용은 참고 [Windows에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)합니다.
+        - 1802 업데이트 또는 새 버전에 대 한 [AzCopy 7.1.0 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다.
+        - 이전 버전에 대 한 [AzCopy 5.0.0 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다.
+
+ - **Linux에서 AzCopy**  
+
+    - Linux에서 AzCopy는 Azure 스택 1802 업데이트 또는 최신 버전을 지원합니다. 설치 하 고 Azure와 같은 방식으로 Azure 스택에 AzCopy를 사용할 수 있습니다. 자세한 내용은 참고 [Linux에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)합니다.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>데이터 전송에 대 한 AzCopy 명령 예제
 
-다음 예에서는 Azure 스택 blob에서 데이터를 복사 하기 위한 일반적인 시나리오를 보여 줍니다. 자세한 내용은 참고 [AzCopy 명령줄 유틸리티를 사용 하 여 데이터를 전송](../../storage/storage-use-azcopy.md)합니다. 
+다음 예제에서는 Azure 스택 blob에서 데이터를 복사 하기 위한 일반적인 시나리오를 따릅니다. 자세한 내용은 참고 [Windows에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) 및 [Linux에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)합니다.
 
-#### <a name="download-all-blobs-to-local-disk"></a>로컬 디스크에 모든 blob를 다운로드 합니다.
+### <a name="download-all-blobs-to-a-local-disk"></a>로컬 디스크에 모든 blob를 다운로드 합니다.
 
-```azcopy  
+**Windows**
+
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-```
+````
 
-#### <a name="upload-single-file-to-virtual-directory"></a>가상 디렉터리에 단일 파일 업로드 
-```azcopy  
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount.blob.local.azurestack.external/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
+````
+
+### <a name="upload-single-file-to-virtual-directory"></a>가상 디렉터리에 단일 파일 업로드
+
+**Windows**
+
+```AzCopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure 스택 저장소 및 Azure 간 데이터 이동 
-Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정 하는 **/SyncCopy** 옵션입니다. 
+**Linux**
 
-```azcopy  
+````AzCopy  
+azcopy \
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
+    --dest-key <key>
+````
+
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure 스택 저장소 및 Azure 간 데이터 이동
+
+Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정 하는 **/SyncCopy** 또는 **-동기화 복사** 옵션입니다.
+
+**Windows**
+
+````AzCopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
-### <a name="azcopy-known-issues"></a>Azcopy의 알려진 문제
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --sync-copy
+````
+
+### <a name="azcopy-known-issues"></a>Azcopy 알려진 문제
 
  - 파일 저장소에 대해 AzCopy 연산을 사용할 수 없는 경우 파일 저장소가 아직 사용할 수 없기 때문에 Azure 스택
  - Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정할 수는 **/SyncCopy** 옵션 데이터를 복사 합니다.
- - Azure 스택 저장소에 대 한 Azcopy의 Linux 버전 지원 되지 않습니다. 
+ - Linux 버전의 Azcopy 1802 업데이트 또는 이후 버전에만 지원합니다. 및 테이블 서비스 지원 하지 않습니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -132,7 +179,7 @@ Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Connect-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName

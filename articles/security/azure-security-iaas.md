@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -166,7 +166,7 @@ Azure IaaS의 모든 가상 머신은 설치된 응용 프로그램에 필요한
 
 Security Compliance Manager는 무료 도구입니다. 그룹 정책 및 System Center Configuration Manager를 사용하여 데스크톱, 기존 데이터 센터, 사설 및 공용 클라우드를 빠르게 구성하고 관리할 수 있습니다.
 
-Security Compliance Manager는 테스트를 마친 배포 준비가 완료된 정책 및 Desired Configuration Management 구성 팩을 제공합니다. 이러한 기준은 [Microsoft 보안 지침](https://technet.microsoft.com/en-us/library/cc184906.aspx) 권장 사항 및 업계 모범 사례를 토대로 합니다. 또한 구성 드리프트를 관리하고, 규정 준수 요구 사항을 해결하고, 보안 위험을 줄이는 데 도움이 됩니다.
+Security Compliance Manager는 테스트를 마친 배포 준비가 완료된 정책 및 Desired Configuration Management 구성 팩을 제공합니다. 이러한 기준은 [Microsoft 보안 지침](https://technet.microsoft.com/library/cc184906.aspx) 권장 사항 및 업계 모범 사례를 토대로 합니다. 또한 구성 드리프트를 관리하고, 규정 준수 요구 사항을 해결하고, 보안 위험을 줄이는 데 도움이 됩니다.
 
 Security Compliance Manager를 사용하여 두 가지 방법으로 컴퓨터의 현재 구성을 가져올 수 있습니다. 먼저 Active Directory 기반 그룹 정책을 가져올 수 있습니다. 둘째로 [LocalGPO 도구](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/)를 사용하여 로컬 그룹 정책을 백업함으로써 "골든 마스터" 참조 컴퓨터의 구성을 가져올 수 있습니다. 그런 다음 로컬 그룹 정책을 Security Compliance Manager로 가져올 수 있습니다.
 

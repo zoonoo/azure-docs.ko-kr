@@ -1,11 +1,10 @@
 ---
-title: "클래식 Azure VM에서 Java 응용 프로그램 서버 실행 | Microsoft Docs"
-description: "이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Windows 가상 머신을 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법을 보여 줍니다."
+title: 클래식 Azure VM에서 Java 응용 프로그램 서버 실행
+description: 이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Windows 가상 머신을 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법을 보여 줍니다.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e13228a707e7dae4a4c2505154d01215c40b4716
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 가상 머신에서 Java 응용 프로그램 서버를 실행하는 방법
 > [!IMPORTANT]
@@ -64,7 +63,7 @@ Azure에서 가상 머신을 사용하여 서버 기능을 제공할 수 있습�
 
 ## <a name="to-remotely-sign-in-to-your-virtual-machine"></a>가상 컴퓨터에 원격으로 로그인하려면 다음을 수행합니다.
 1. [Azure 포털](https://portal.azure.com)에 로그온합니다.
-2. **가상 머신(클래식)**을 클릭합니다. 필요한 경우 서비스 범주 아래의 왼쪽 하단에 있는 **추가 서비스**를 클릭합니다. **가상 머신(클래식)** 항목이 **Compute** 그룹에 나열됩니다.
+2. **가상 머신(클래식)** 을 클릭합니다. 필요한 경우 서비스 범주 아래의 왼쪽 하단에 있는 **추가 서비스**를 클릭합니다. **가상 머신(클래식)** 항목이 **Compute** 그룹에 나열됩니다.
 3. 로그인할 가상 머신의 이름을 클릭합니다.
 4. 가상 머신이 시작되면 창 위쪽의 메뉴를 통해 연결할 수 있습니다.
 5. **Connect**를 클릭합니다.
@@ -84,13 +83,13 @@ Java 응용 프로그램 서버를 가상 컴퓨터로 복사하거나 설치 �
 
 가상 머신에서 명령 프롬프트를 열고 **net&nbsp;start&nbsp;Tomcat8** 명령을 실행하여 Tomcat을 수동으로 시작할 수 있습니다.
 
-Tomcat이 실행되면 가상 머신의 브라우저에서 URL <http://localhost:8080/>을 입력하여 Tomcat에 액세스할 수 있습니다.
+Tomcat이 실행되면 가상 머신의 브라우저에서 URL <http://localhost:8080>을 입력하여 Tomcat에 액세스할 수 있습니다.
 
 Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들고 포트를 열어야 합니다.
 
 ## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>가상 머신의 끝점을 만드는 방법
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **가상 머신(클래식)**을 클릭합니다.
+2. **가상 머신(클래식)** 을 클릭합니다.
 3. Java 응용 프로그램 서버를 실행하는 가상 머신의 이름을 클릭합니다.
 4. **끝점**을 클릭합니다.
 5. **추가**를 클릭합니다.

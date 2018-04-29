@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 및 Linux IaaS VM용 Azure 디스크 암호화
 Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하기 위해 노력하고 있으며 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 광범위한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있도록 합니다. 또한 Azure 고객에게 비즈니스 요구에 가장 잘 맞는 솔루션을 선택할 수 있는 유연성을 제공합니다. 이 문서에는 "Windows 및 Linux IaaS VM용 Azure 디스크 암호화"라는 새로운 기술 솔루션을 소개하여 조직의 보안 및 규정 준수 약정에 따라 데이터를 보호하도록 합니다. 이 문서에서는 지원되는 시나리오와 사용자 환경을 비롯하여 Azure 디스크 암호화 기능을 사용하는 방법에 대한 자세한 지침을 제공합니다.
@@ -141,7 +141,7 @@ OS 드라이브가 암호화되는 경우 Linux에 데이터 디스크 암호화
 > [!NOTE]
 > Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. 선택적 업데이트인 Windows Server 2008 R2 x64 기반 시스템용 Microsoft .NET Framework 4.5.2([KB2901983](https://support.microsoft.com/kb/2901983))를 설치하여 Windows 업데이트에서 설치할 수 있습니다.
 
-* Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다.  현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq)를 참조하세요.
+* Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다.  현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq)를 참조하세요.
 
 * Azure Disk Encryption은 Key Vault 및 VM이 동일한 Azure 하위 지역 및 구독에 있어야 합니다.
 
@@ -783,7 +783,7 @@ OS 파티션을 압축하고 BitLocker에 대한 컴퓨터를 준비하려면 �
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>OS 디스크 암호화를 위한 필수 조건
 
-* VM은 [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support)에 나열된 것과 같이 OS 디스크 암호화와 호환되는 배포를 사용해야 합니다. 
+* VM은 [Azure Disk Encryption FAQ](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support)에 나열된 것과 같이 OS 디스크 암호화와 호환되는 배포를 사용해야 합니다. 
 * Azure Resource Manager의 Marketplace 이미지에서 VM을 만들어야 합니다.
 * 4GB 이상의 RAM이 있는 Azure VM(권장 크기는 7GB)이 있어야 합니다.
 * (RHEL 및 CentOS) SELinux를 사용하지 않도록 설정합니다. SELinux를 사용하지 않도록 설정하려면 VM에 대한 [SELinux 사용자 및 관리자 가이드](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux)에서 "4.4.2. SELinux 사용 안 함"을 참조하세요.

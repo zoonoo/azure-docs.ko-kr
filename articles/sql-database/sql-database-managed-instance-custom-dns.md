@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 993ff518a1987581ad7de4797611f104080c2c2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175b99c0e41cedf313115043b09608496adfdca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 대한 사용자 지정 DNS 구성
 
@@ -79,5 +79,5 @@ Azure VNet의 DNS 구성에서는 IP 주소를 입력해야 하므로 다음 단
 ## <a name="next-steps"></a>다음 단계
 
 - 개요는 [관리되는 인스턴스란?](sql-database-managed-instance.md)을 참조하세요.
-- VNet을 만든 다음, 관리되는 인스턴스를 만드는 예제는 [관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
-- VNet을 구성하려면 [관리되는 인스턴스의 VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
+- 관리되는 인스턴스를 새로 만드는 방법을 보여 주는 자습서에 대해서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
+- 관리되는 인스턴스에 대해 VNet을 구성하는 방법에 대한 내용은 [관리되는 인스턴스의 VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.

@@ -1,25 +1,25 @@
 ---
-title: "Azure Policy json 샘플 - 일치 패턴 적용 | Microsoft Docs"
-description: "이 json 샘플 정책에서는 리소스가 명명 규칙에 대한 일치 패턴을 충족해야 합니다."
+title: Azure Policy json 샘플 - 일치 패턴 적용 | Microsoft Docs
+description: 이 json 샘플 정책에서는 리소스가 명명 규칙에 대한 일치 패턴을 충족해야 합니다.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 11/13/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: ecef7ab6eee9f40915804df06c0e0de55b63438e
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 1b8955cfd0df134d572a41fe1d4dfd857c5beb19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>명명 규칙에 대한 일치 패턴 적용
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs"
-description: "Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다."
+title: Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs
+description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/17/2017
 > | **계획된 유지 보수** |패치/업그레이드|[가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)(Azure에서 관리되는 패치/업그레이드) |
 > | **리소스** |전용  |다른 클라이언트와 공유|
 > | **지역** |데이터 센터 |[지역 쌍](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **저장소** |SAN/실제 디스크 |[Azure 관리 저장소](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Storage** |SAN/실제 디스크 |[Azure 관리 저장소](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **규모** |수직적 확장 |수평적 확장|
 
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/17/2017
 
 Azure 환경에서 성능을 향상시키기 위해 조정할 수 있는 잠재적인 네 가지 영역이 있습니다.
 
-- 가상 컴퓨터 크기
+- 가상 머신 크기
 - 네트워크 처리량
 - 디스크 형식 및 구성
 - 디스크 캐시 설정
@@ -99,7 +99,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 - 데이터베이스 크기(GB)
 - 클라이언트 간 SQL*Net을 통해 수신된 바이트 수
 
-### <a name="virtual-machine-size"></a>가상 컴퓨터 크기
+### <a name="virtual-machine-size"></a>가상 머신 크기
 
 #### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. AWR 보고서의 CPU, 메모리 및 I/O 사용량에 따라 VM 크기 예측
 
@@ -136,12 +136,12 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 
 ![SQL*Net 처리량의 스크린샷](./media/oracle-design/sqlnet_info.png)
 
-네트워크 대역폭 요구 사항에 따라 다양한 게이트웨이 유형을 선택할 수 있습니다. 여기에는 기본, VpnGw 및 Azure ExpressRoute가 포함됩니다. 자세한 내용은 [VPN Gateway 가격 페이지](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h)를 참조하세요.
+네트워크 대역폭 요구 사항에 따라 다양한 게이트웨이 유형을 선택할 수 있습니다. 여기에는 기본, VpnGw 및 Azure ExpressRoute가 포함됩니다. 자세한 내용은 [VPN Gateway 가격 페이지](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h)를 참조하세요.
 
 **권장 사항**
 
 - 네트워크 대기 시간은 온-프레미스 배포에 비해 더 높습니다. 네트워크 왕복 수를 줄이면 성능이 크게 향상될 수 있습니다.
-- 왕복을 줄이려면 동일한 가상 컴퓨터에서 트랜잭션이 많은 응용 프로그램 또는 "채팅 가능한(chatty)" 앱을 통합합니다.
+- 왕복을 줄이려면 동일한 가상 머신에서 트랜잭션이 많은 응용 프로그램 또는 "채팅 가능한(chatty)" 앱을 통합합니다.
 
 ### <a name="disk-types-and-configurations"></a>디스크 형식 및 구성
 

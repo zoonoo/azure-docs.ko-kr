@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: bccd889ba8a063613f1f3f385b39e4bfe8afcc89
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 27ce89f205efa6b8f2d29e034c6e5002065879fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/18/2018
 
 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. Caffe는 가장 유명한 비기호(명령적) 신경망 프레임워크 중 하나로, 컴퓨터 비전을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
 
-[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/)는 Spark, Hive, Hadoop, HBase, Storm, Kafka, R Server에 최적화된 오픈 소스 기반의 분석 클러스터를 제공하는 클라우드 Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 응용 프로그램은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Spark, Hive, Hadoop, HBase, Storm, Kafka, R Server에 최적화된 오픈 소스 기반의 분석 클러스터를 제공하는 클라우드 Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 응용 프로그램은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
 
 이 문서에서는 HDInsight 클러스터에 대해 [Spark의 Caffe](https://github.com/yahoo/CaffeOnSpark)를 설치하는 방법을 보여줍니다. 또한 이 문서는 기본 제공 MNIST 데모를 사용하여 CPU에서 HDInsight Spark를 통해 분산 심층 학습을 사용하는 방법을 보여줍니다.
 

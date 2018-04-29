@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드와 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -138,6 +138,11 @@ SQL 데이터 동기화(미리 보기)는 공용 클라우드가 지원되는 �
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>데이터 동기화를 사용하여 SQL Server 온-프레미스 데이터베이스 사이에서 동기화할 수 있나요? 
 직접 끌 수는 없습니다. 그러나 Azure에서 허브 데이터베이스를 만든 다음 온-프레미스 데이터베이스를 동기화 그룹에 추가하여 간접적으로 SQL Server 온-프레미스 데이터베이스 사이에서 동기화할 수 있습니다.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>데이터 동기화를 사용해서 서로 다른 구독에 속해 있는 SQL Database 간에 동기화를 수행할 수 있나요?
+예. 서로 다른 구독에서 소유하는 리소스 그룹에 속해 있는 SQL Database 간에 동기화를 수행할 수 있습니다.
+-   구독이 동일한 테넌트에 속하며 모든 구독에 대해 사용 권한이 있는 경우, Azure Portal에서 동기화 그룹을 구성할 수 있습니다.
+-   그렇지 않으면 PowerShell을 사용하여 서로 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>데이터 동기화를 사용하여 프로덕션 데이터베이스에서 빈 데이터베이스로 데이터를 시드한 다음 동기화된 상태로 유지할 수 있나요? 
 예. 원본에서 스크립팅하여 수동으로 새 데이터베이스에 스키마를 만듭니다. 스키마를 만든 후 테이블을 동기화 그룹에 추가하여 데이터를 복사하고 동기화된 상태로 유지합니다.
@@ -147,6 +152,12 @@ SQL 데이터 동기화(미리 보기)는 공용 클라우드가 지원되는 �
 SQL 데이터 동기화(미리 보기)를 사용하여 데이터의 백업을 만드는 것은 권장되지 않습니다. SQL 데이터 동기화(미리 보기) 동기화는 버전 관리가 되지 않기 때문에 특정 시점의 데이터를 백업 또는 복원할 수 없습니다. 또한, SQL 데이터 동기화(미리 보기)는 저장 프로시저와 같은 다른 SQL 개체를 백업하지 않고, 복원 작업과 동급의 작업을 빠르게 수행하지 못합니다.
 
 권장되는 백업 방법은 [Azure SQL 데이터베이스 복사](sql-database-copy.md)를 참조하세요.
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>데이터 동기화로 암호화된 테이블 및 열을 동기화할 수 있나요?
+
+-   데이터베이스에서 Always Encrypted를 사용하는 경우 암호화되지 *않은* 테이블 및 열만 동기화할 수 있습니다. 데이터 동기화로는 데이터 암호를 해독할 수 없으므로 암호화된 열은 동기화할 수 없습니다.
+
+-   열에서 CLE(열 수준 암호화)를 사용하는 경우, 행 크기가 최대 크기인 24Mb보다 작기만 하면 열을 동기화할 수 있습니다. 데이터 동기화는 키로 암호화된 열(CLE)을 일반 이진 데이터로 처리합니다. 다른 동기화 멤버에 대한 데이터 암호를 해독하려면 같은 인증서가 필요합니다.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 데이터 동기화는 데이터 정렬을 지원하나요?
 

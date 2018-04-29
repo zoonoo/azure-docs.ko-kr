@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric Backup 및 복원 | Microsoft Docs"
-description: "서비스 패브릭 Backup 및 복원에 관한 개념 설명서"
+title: Service Fabric Backup 및 복원 | Microsoft Docs
+description: 서비스 패브릭 Backup 및 복원에 관한 개념 설명서
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원
 Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고가용성을 유지하는 고가용성 플랫폼입니다.  따라서 클러스터의 한 노드에서 오류가 발생해도 서비스를 지속적으로 사용할 수 있습니다. 많은 경우 플랫폼에서 제공하는 이러한 기본 제공 중복성으로 충분하지만 어떤 경우에는 서비스를 위해 (외부 저장소에) 데이터를 백업하는 것이 바람직합니다.
@@ -111,7 +111,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
   - 서비스 파티션에서 데이터가 손실되었습니다. 예를 들어, 파티션에 대한 세 복제본 중 두 복제본(주 복제본 포함)에 대한 디스크가 손상되거나 초기화되었습니다. 새 주 복제본이 백업에서 데이터를 복원해야 할 수도 있습니다.
   - 전체 서비스가 손실되었습니다. 예를 들어, 관리자가 전체 서비스를 제거하여 서비스와 데이터를 복원해야 합니다.
-  - 서비스가 손상된 응용 프로그래 데이터를 복제했습니다.(예: 응용 프로그램 버그 때문에) 이 경우 손상 원인을 제거하기 위해 서비스를 업그레이드하거나 되돌려야 하며 손상되지 않은 데이터를 복원해야 합니다.
+  - 서비스가 손상된 응용 프로그램 데이터를 복제했습니다(예: 응용 프로그램 버그 때문에). 이 경우 손상 원인을 제거하기 위해 서비스를 업그레이드하거나 되돌려야 하며 손상되지 않은 데이터를 복원해야 합니다.
 
 다양한 방법이 가능하지만, 위의 시나리오에서 `RestoreAsync`를 사용하여 복구하는 몇 가지 예제를 제공하겠습니다.
 
@@ -153,7 +153,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 > 
 
 ## <a name="deleted-or-lost-service"></a>서비스 삭제 또는 손상
-서비스가 제거된 경우 데이터 복원에 앞서 서비스를 다시 만들어야 합니다.  데이터의 원할한 복원을 위해 파티션 구성표 등과 같은 동일한 구성의 서비스를 만드는 것이 좋습니다.  서비스가 작동되면 이 서비스의 모든 파티션에서 데이터를 복원하는 API(위의`OnDataLossAsync`)를 호출해야 합니다. 이를 달성하는 한 가지 방법은 모든 파티션에서 `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)`를 사용하는 것입니다.  
+서비스가 제거된 경우 데이터 복원에 앞서 서비스를 다시 만들어야 합니다.  데이터의 원활한 복원을 위해 파티션 구성표 등과 같은 동일한 구성의 서비스를 만드는 것이 좋습니다.  서비스가 작동되면 이 서비스의 모든 파티션에서 데이터를 복원하는 API(위의`OnDataLossAsync`)를 호출해야 합니다. 이를 달성하는 한 가지 방법은 모든 파티션에서 `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)`를 사용하는 것입니다.  
 
 이 시점부터는 앞의 시나리오와 같은 방식으로 구현됩니다. 각 파티션이 외부 저장소로부터 최신 관련 백업을 복원해야 합니다. 한 가지 주의할 점은 런타임이 동적으로 파티션 ID를 생성하기 대문에 파티션 ID가 변경될 수 있다는 사실입니다. 따라서 서비스가 각 파티션에서 복원할 정확한 최신 백업을 식별할 수 있게 적합한 파티션 정보 및 서비스 이름을 저장해야 합니다.
 
@@ -178,7 +178,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 ## <a name="backup-and-restore-reliable-actors"></a>Reliable Actors Backup 및 복원
 
 
-Reliable Actors 프레임워크는 Reliable Services를 기반으로 구축됩니다. 행위자를 호스팅하는 ActorService는 상태 저장 신뢰할 수 있는 서비스입니다. 따라서 Reliable Services에서 사용 가능한 모든 백업 및 복원 기능이 Reliable Actors에도 제공됩니다(상태 제공자와 관련된 동작은 제외). 백업이 파티션 단위로 수행되기 때문에 파티션에서 모든 행위자에 대한 상태는 백업됩니다(또한 복원은 비슷하고 파티션 기준으로 발생함). 백업/복원을 수행하려면 서비스 소유자는 ActorService에서 파생되는 사용자 지정 행위자 서비스 클래스를 만든 다음 이전 섹션에서 설명한 것과 같이 Reliable Services와 유사한 백업/복원을 수행해야 합니다.
+Reliable Actors 프레임워크는 Reliable Services를 기반으로 구축됩니다. 작업자를 호스트하는 ActorService는 상태 저장 신뢰할 수 있는 서비스입니다. 따라서 Reliable Services에서 사용 가능한 모든 백업 및 복원 기능이 Reliable Actors에도 제공됩니다(상태 제공자와 관련된 동작은 제외). 백업이 파티션 단위로 수행되기 때문에 파티션에서 모든 행위자에 대한 상태는 백업됩니다(또한 복원은 비슷하고 파티션 기준으로 발생함). 백업/복원을 수행하려면 서비스 소유자는 ActorService에서 파생되는 사용자 지정 행위자 서비스 클래스를 만든 다음 이전 섹션에서 설명한 것과 같이 Reliable Services와 유사한 백업/복원을 수행해야 합니다.
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -244,7 +244,7 @@ class MyCustomActorService : ActorService
 ### <a name="backup"></a>Backup
 Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관된 백업을 만드는 기능을 제공합니다. 이를 위해 검사점 및 로그 지속성 메커니즘을 활용합니다.  Reliable State Manager는 트랜잭션 로그로부터의 부담을 줄이고 복구 시간을 단축하기 위해 특정 지점에서 유사 항목(경량) 검사점을 사용합니다.  `BackupAsync`가 호출되면 신뢰할 수 있는 상태 관리자에서 모든 신뢰할 수 있는 개체에 최신 검사점 파일을 로컬 백업 폴더에 복사하도록 지시합니다.  그런 다음 Reliable State Manager가 "시작  포인터"에서부터 마지막 로그 레코드까지의 모든 로그 레코드를 백업 폴더에 복사합니다.  최신 로그 레코드까지의 모든 로그 레코드가 백업에 포함되고 신뢰할 수 있는 상태 관리자에서 미리 쓰기 로깅을 유지하므로 신뢰할 수 있는 상태 관리자는 커밋된 모든 트랜잭션(`CommitAsync`가 성공적으로 반환됨)이 백업에 포함되도록 보장합니다.
 
-`BackupAsync`가 호출된 후에 커밋되는 모든 트랜잭션은 백업에 포함되거나 포함되지 않을 수 있습니다.  로컬 백업 폴더를 플랫폼에서 입력합 후에는(즉, 런타임에서 로컬 백업 완료됨) 서비스의 백업 콜백이 호출됩니다.  이 콜백은 백업 폴더를 Azure Storage 등의 외부 위치로 이동하는 것을 담당합니다.
+`BackupAsync`가 호출된 후에 커밋되는 모든 트랜잭션은 백업에 포함되거나 포함되지 않을 수 있습니다.  로컬 백업 폴더를 플랫폼에서 입력한 후에는(즉, 런타임에서 로컬 백업 완료됨) 서비스의 백업 콜백이 호출됩니다.  이 콜백은 백업 폴더를 Azure Storage 등의 외부 위치로 이동하는 것을 담당합니다.
 
 ### <a name="restore"></a>복원
 신뢰할 수 있는 상태 관리자에서는 `RestoreAsync` API를 사용하여 백업에서 복원하는 기능을 제공합니다.  
@@ -255,12 +255,7 @@ Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관
 그런 다음 `OnDataLossAsync`가 새 주 복제본에서 호출됩니다.
 서비스가 이 API를 성공적으로 완료하고(True 또는 False 반환) 관련 재구성을 마치면 한 번에 하나씩 API가 계속 호출됩니다.
 
-`RestoreAsync`는 먼저 호출된 주 복제본의 모든 기존 상태를 삭제합니다.  
-그런 다음 신뢰할 수 있는 상태 관리자가 백업 폴더에 존재하는 모든 신뢰 개체를 만듭니다.  
-다음으로 백업 폴더의 검사점으로부터 백업하도록 신뢰 개체에게 지시합니다.  
-마지막으로 Reliable State Manager가 백업 폴더의 로그 레코드에서 자체 상태를 복구하고 복구를 수행합니다.  
-복구 프로세스의 일환으로 백업 폴더에서 로그 레코드를 커밋한 "시작점"에서 시작하는 작업이 신뢰 개체에 재현됩니다.  
-이 단계를 통해 일관된 복구 상태를 유지합니다.
+`RestoreAsync`는 먼저 호출된 주 복제본의 모든 기존 상태를 삭제합니다. 그런 다음 신뢰할 수 있는 상태 관리자가 백업 폴더에 존재하는 모든 신뢰 개체를 만듭니다. 다음으로 백업 폴더의 검사점으로부터 백업하도록 신뢰 개체에게 지시합니다. 마지막으로 Reliable State Manager가 백업 폴더의 로그 레코드에서 자체 상태를 복구하고 복구를 수행합니다. 복구 프로세스의 일환으로 백업 폴더에서 로그 레코드를 커밋한 "시작점"에서 시작하는 작업이 신뢰 개체에 재현됩니다. 이 단계를 통해 일관된 복구 상태를 유지합니다.
 
 ## <a name="next-steps"></a>다음 단계
   - [신뢰할 수 있는 컬렉션](service-fabric-work-with-reliable-collections.md)
@@ -268,4 +263,5 @@ Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관
   - [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
   - [Reliable Services 구성](service-fabric-reliable-services-configuration.md)
   - [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Azure Service Fabric에서 정기적인 백업 및 복원](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

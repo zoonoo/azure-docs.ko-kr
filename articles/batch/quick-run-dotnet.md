@@ -1,6 +1,6 @@
 ---
-title: "Azure 빠른 시작 - Batch 작업 실행 - .NET"
-description: "Batch .NET 클라이언트 라이브러리를 사용하여 Batch 작업 및 태스크를 빠르게 실행합니다."
+title: Azure 빠른 시작 - Batch 작업 실행 - .NET
+description: Batch .NET 클라이언트 라이브러리를 사용하여 Batch 작업 및 태스크를 빠르게 실행합니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/01/2018
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs)(Visual Studio 2015 또는 최신 버전) 
 
-* 배치 계정 및 연결된 범용 저장소 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요. 
+* Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요. 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

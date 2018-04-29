@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -46,6 +46,7 @@ Azure는 유효한 DNS 요청에 대해 99.99% 이상의 시간 동안 하나 �
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>'DNS 영역'이란 무엇인가요? DNS 도메인과 같은 것인가요? 
 
 도메인은 Domain Name System의 고유 이름입니다(예: 'contoso.com').
+
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 여러 DNS 레코드를 포함할 수 있습니다. 이러한 레코드는 DNS 영역 'contoso.com'에서 호스트됩니다.
 
@@ -90,6 +91,14 @@ DNSSEC는 Azure DNS 백로그에서 추적되는 기능입니다. 피드백 사�
 번호 URL 리디렉션 서비스는 실제로 DNS 서비스가 아닙니다. 따라서 DNS 수준이 아닌 HTTP 수준에서 작동합니다. URL을 번들로 묶는 일부 DNS 공급자는 서비스를 전체 제품의 일부로 리디렉션합니다. 현재 이 기능은 Azure DNS에서 지원되지 않습니다.
 
 URL 리디렉션 기능은 Azure DNS 백로그에 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape)할 수 있습니다.
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Azure DNS는 TXT 레코드 집합에 대해 확장된 ASCII 인코딩(8비트) 집합을 지원하나요?
+
+예. 최신 버전의 Azure REST API, SDK, PowerShell 및 CLI를 사용하는 경우 Azure DNS는 TXT 레코드 집합에 대해 확장된 ASCII 인코딩 집합을 지원합니다(2017-10-01보다 오래된 버전. 그렇지 않은 경우 SDK 2.1이 확장된 ASCII 집합을 지원하지 않음). 예를 들어, 사용자가 TXT 레코드의 값으로, 확장된 ASCII 문자 \128을 포함하는 문자열(예: "abcd\128efgh")을 제공할 경우 Azure DNS는 내부 표현에 이 문자의 바이트 값(즉, 128)을 사용합니다. DNS 확인 시에도 이 바이트 값이 응답에 반환됩니다. 또한 확인이 주 목적이라면 "abc"와 "\097\098\099"를 바꿔서 사용해도 됩니다. 
+
+TXT 레코드에 대해 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 영역 파일 마스터 형식 이스케이프 규칙을 따릅니다. 예를 들어, 이제 '\'는 실제로 RFC에 대해 모든 항목을 이스케이프합니다. TXT 레코드 값으로 "A\B"를 지정하면 단지 "AB"로 표시되고 확인됩니다. 실제로 확인 시 TXT 레코드에 "A\B"가 포함되하려게 면 "\"를 다시 이스케이프해야 합니다. 즉, "A\\B"로 지정합니다. 
+
+현재, 이 지원은 Azure Portal에서 만든 TXT 레코드에는 사용할 수 없습니다. 
 
 ## <a name="using-azure-dns"></a>Azure DNS 사용
 
@@ -169,7 +178,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 예. 고객은 최대 10개의 확인 가상 네트워크를 단일 개인 영역에 연결할 수 있습니다.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>다른 구독에 속하는 가상 네트워크를 개인 영역에 확인 가상 네트워크로 추가할 수 있나요? 
-예. 사용자에게 가상 네트워크 뿐만 아니라 개인 DNS 영역에 대해 쓰기 작업 권한이 있기만 하면 됩니다. 쓰기 권한은 여러 RBAC 역할에 할당할 수 있습니다. 예를 들어, 클래식 네트워크 참가자 RBAC 역할에는 가상 네트워크에 대한 쓰기 권한이 있습니다. RBAC 역할에 대한 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)를 참조하세요.
+예. 사용자에게 가상 네트워크 뿐만 아니라 개인 DNS 영역에 대해 쓰기 작업 권한이 있기만 하면 됩니다. 쓰기 권한은 여러 RBAC 역할에 할당할 수 있습니다. 예를 들어, 클래식 네트워크 참가자 RBAC 역할에는 가상 네트워크에 대한 쓰기 권한이 있습니다. RBAC 역할에 대한 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>고객이 가상 머신을 삭제하는 경우, 개인 영역에서 자동으로 등록된 가상 컴퓨터 DNS 레코드도 자동으로 삭제되나요?
 예. 등록 가상 네트워크 내에서 가상 머신을 삭제하면 해당 네트워크가 등록 가상 네트워크이기 때문에 영역에 등록된 DNS 레코드가 자동으로 삭제됩니다. 

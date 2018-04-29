@@ -110,6 +110,8 @@
                   href: azure-stack-version-profiles-azurecli2.md
                 - name: 이동
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
                 - name: 리소스 공급자 프로필에서 지 원하는 Api
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: 정책 모듈 사용

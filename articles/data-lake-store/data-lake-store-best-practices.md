@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store를 사용하는 모범 사례
 이 문서에서는 Azure Data Lake Store 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Store의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Store 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Store를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Store에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 
@@ -26,11 +26,13 @@ ms.lasthandoff: 04/05/2018
 
 Azure Data Lake Store는 Azure AD(Azure Active Directory) 사용자, 그룹 및 서비스 사용자에 대한 POSIX 액세스 제어 및 자세한 감사 기능을 제공합니다. 이러한 액세스 제어는 기존 파일 및 폴더에 설정할 수 있습니다. 액세스 제어를 사용하여 새 파일이나 폴더에 적용할 수 있는 기본값을 만들 수도 있습니다. 권한이 기존 폴더 및 자식 개체에 설정되면 권한을 각 개체에 재귀적으로 전파해야 합니다. 많은 수의 파일이 있는 경우 권한을 전파하는 데 오랜 시간이 걸릴 수 있습니다. 소요 시간은 초당 처리되는 30-50개 개체 사이의 범위일 수 있습니다. 따라서 폴더 구조와 사용자 그룹을 적절하게 계획합니다. 그렇지 않으면 데이터를 사용할 때 예기치 않은 지연과 문제가 발생할 수 있습니다. 
 
-100,000개의 자식 개체가 있는 폴더가 있다고 가정합니다. 초당 처리되는 30개 개체의 하한 값을 사용하면 전체 폴더에 대한 권한을 업데이트하는 데 1시간이 걸릴 수 있습니다. Data Lake Store ACL에 대한 자세한 내용은 [Azure Data Lake Store에서 액세스 제어](data-lake-store-access-control.md)에서 사용할 수 있습니다. ACL을 재귀적으로 할당할 때 성능을 향상시키기 위해 Azure Data Lake 명령줄 도구를 사용할 수 있습니다. 이 도구는 다중 스레드와 재귀 탐색 논리를 만들어 수백만 개의 파일에 ACL을 빠르게 적용합니다. 이 도구는 Linux 및 Windows에서 사용할 수 있으며, 이 도구에 대한 [설명서](https://github.com/Azure/data-lake-adlstool) 및 [다운로드](http://aka.ms/adlstool-download)는 GitHub에서 찾을 수 있습니다.
+100,000개의 자식 개체가 있는 폴더가 있다고 가정합니다. 초당 처리되는 30개 개체의 하한 값을 사용하면 전체 폴더에 대한 권한을 업데이트하는 데 1시간이 걸릴 수 있습니다. Data Lake Store ACL에 대한 자세한 내용은 [Azure Data Lake Store에서 액세스 제어](data-lake-store-access-control.md)에서 사용할 수 있습니다. ACL을 재귀적으로 할당할 때 성능을 향상시키기 위해 Azure Data Lake 명령줄 도구를 사용할 수 있습니다. 이 도구는 다중 스레드와 재귀 탐색 논리를 만들어 수백만 개의 파일에 ACL을 빠르게 적용합니다. 이 도구는 Linux 및 Windows에서 사용할 수 있으며, 이 도구에 대한 [설명서](https://github.com/Azure/data-lake-adlstool) 및 [다운로드](http://aka.ms/adlstool-download)는 GitHub에서 찾을 수 있습니다. 이러한 동일한 성능 개선은 Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) 및 [Java](data-lake-store-get-started-java-sdk.md) SDK로 작성된 자체 도구에서 설정할 수 있습니다.
 
 ### <a name="use-security-groups-versus-individual-users"></a>보안 그룹 및 개별 사용자 사용 
 
-Data Lake Store에서 빅 데이터를 사용할 때는 대부분의 경우 서비스 사용자가 Azure HDInsight와 같은 서비스에서 데이터 작업을 수행할 수 있도록 하는 데 사용됩니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 이 경우 개별 사용자를 폴더 및 파일에 할당하는 대신 Azure Active Director 보안 그룹을 사용해야 합니다. 보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Store를 업데이트할 필요가 없습니다. 
+Data Lake Store에서 빅 데이터를 사용할 때는 대부분의 경우 서비스 사용자가 Azure HDInsight와 같은 서비스에서 데이터 작업을 수행할 수 있도록 하는 데 사용됩니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 이 경우 개별 사용자를 폴더 및 파일에 할당하는 대신 Azure Active Director [보안 그룹](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory)을 사용해야 합니다. 
+
+보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Store를 업데이트할 필요가 없습니다. 이렇게 하면 [32개의 액세스 및 기본 ACL](../azure-subscription-service-limits.md#data-lake-store-limits) 제한을 초과하지 않는 데 도움이 됩니다(여기에는 항상 모든 파일 및 폴더과 연결된 4개의 POSIX 스타일 ACL, 즉 [소유 사용자](data-lake-store-access-control.md#the-owning-user), [소유 그룹](data-lake-store-access-control.md#the-owning-group), [마스크](data-lake-store-access-control.md#the-mask-and-effective-permissions) 및 기타가 포함됨).
 
 ### <a name="security-for-groups"></a>그룹에 대한 보안 
 
@@ -99,7 +101,7 @@ Data Lake Store를 사용하여 데이터를 복원하는 경우 HA/DR 요구 �
 |  |Distcp  |Azure 데이터 팩터리  |AdlCopy  |
 |---------|---------|---------|---------|
 |**크기 조정 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
-|**델타 복사 지원**     |   예      | 아니요         | 아니오         |
+|**델타 복사 지원**     |   예      | 아니오         | 아니오         |
 |**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
 |**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
 |**OS 지원**     |Hadoop을 실행하는 모든 OS         | 해당 없음          | 윈도우 10         |

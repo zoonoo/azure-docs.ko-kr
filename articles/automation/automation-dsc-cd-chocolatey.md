@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>사용 예: Automation DSC 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발자를 지원하는 여러 도구가 있습니다.  Azure Automation DSC(필요한 상태 구성)는 DevOps 팀이 채택할 수 있는 새로운 옵션이 추가되는 것을 환영합니다.  이 문서에서는 Windows 컴퓨터에 대 한 CD(연속 배포)를 보여줍니다.  이 방법을 간편하게 확장하여 역할(예: 웹 사이트)에서 필요한 만큼의 Windows 컴퓨터를 포함하고 추가적인 역할도 구성할 수 있습니다.
@@ -50,7 +50,7 @@ Resource Manager 템플릿의 핵심 기능은 프로비전되었을 때 VM에 V
 ARM 템플릿으로 시작하지 않아도 괜찮습니다.  VM을 풀 서버 및 나머지 모두에 등록하는 데 도움이 되도록 설계된PowerShell cmdlet이 있습니다. 자세한 내용은 다음 문서, [Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>1단계: 풀 서버 및 자동화 계정 설정
-인증된(Add-AzureRmAccount) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
+인증된(Connect-AzureRmAccount) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 

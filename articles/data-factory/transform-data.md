@@ -3,7 +3,7 @@ title: Azure Data Factory를 사용하여 데이터 변환 | Microsoft Docs
 description: Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환 또는 처리하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
 ms.service: data-factory
 ms.workload: data-services
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 639a464a73000648b2f70cc7fe4aa0864d90efbc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: 4915e8aebf110b5ae799f409472b43b986a18b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]

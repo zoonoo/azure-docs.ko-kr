@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 2d64b007b68db4df652bde4308760400f4de6dbc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ac2d9620cfb6b3bc12bd3ff664d03d342efc5791
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning 웹 서비스: 배포 및 사용
 Azure Machine Learning을 통해 웹 서비스로 기계 학습 워크플로 및 모델을 배포할 수 있습니다. 그런 다음 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 응용 프로그램에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다. 웹 서비스는 RESTFul이므로 .NET 및 Java와 같은 다양한 프로그래밍 언어 및 플랫폼과 Excel과 같은 응용 프로그램에서 호출될 수 있습니다.
@@ -49,7 +49,7 @@ Machine Learning Studio 및 Microsoft Azure Machine Learning 웹 서비스 포�
 ### <a name="with-powershell-cmdlets"></a>PowerShell cmdlet 사용
 웹 서비스에 대한 Azure Machine Learning 리소스 공급자는 PowerShell cmdlet을 사용하여 웹 서비스의 배포 및 관리를 활성화합니다.
 
-cmdlet을 사용하려면 먼저 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
+cmdlet을 사용하려면 먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
 
 예측 실험을 내보내려면 이 [샘플 코드](https://github.com/ritwik20/AzureML-WebServices)를 사용합니다. 코드에서 .exe 파일을 만든 후 다음을 입력할 수 있습니다.
 

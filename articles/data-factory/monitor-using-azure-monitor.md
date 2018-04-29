@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 모니터링  
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 } 
 ```
 
-| 자산 | 유형 | 설명 |
+| 자산 | type | 설명 |
 | --- | --- | --- |
 | storageAccountId |문자열 | 진단 로그를 보내려는 저장소 계정의 리소스 ID입니다. |
 | serviceBusRuleId |문자열 | 진단 로그 스트리밍에 대해 Event Hubs를 만들려는 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. 규칙 ID의 형식은 "{service bus resource ID}/authorizationrules/{key name}"입니다.|
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[자세한 내용 참고](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[자세한 내용 참고](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>로그 및 이벤트의 스키마
 
@@ -273,7 +273,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 자산 | 유형 | 설명 | 예 |
+| 자산 | type | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 항상 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -320,7 +320,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 자산 | 유형 | 설명 | 예 |
+| 자산 | type | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -365,7 +365,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| 자산 | 유형 | 설명 | 예 |
+| 자산 | type | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 활동 실행 로그에 대해 수준 4로 설정합니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |

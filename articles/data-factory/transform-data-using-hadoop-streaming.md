@@ -3,21 +3,20 @@ title: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데�
 description: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7c882e6fd826adb415b0452c9b441405d2ff90d7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: c0143b4f2d6858883ac11df18f7844802c667404
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,13 +80,13 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | mapper            | mapper 실행 파일의 이름을 지정합니다. | 예      |
 | reducer           | reducer 실행 파일의 이름을 지정합니다. | 예      |
 | combiner          | combiner 실행 파일의 이름을 지정합니다. | 아니오       |
-| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니요       |
+| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니오       |
 | filePath          | fileLinkedService에서 참조하는 Azure Storage에 저장된 Mapper, Combiner 및 Reducer 프로그램의 경로 배열을 제공합니다. 경로는 대/소문자를 구분합니다. | 예      |
 | input             | Mapper에 대한 입력 파일의 WASB 경로를 지정합니다. | 예      |
 | output            | Reducer에 대한 출력 파일의 WASB 경로를 지정합니다. | 예      |
 | getDebugInfo      | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 아니오       |
 | arguments         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니오       |
-| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       | 
+| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니오       | 
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 

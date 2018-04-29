@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드
 
@@ -31,7 +31,7 @@ Azure Automation DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니
 또한 클라우드에서 컴퓨터 구성을 관리할 수 없는 경우 Azure Automation DSC는 보고서 전용 끝점으로 사용될 수 있습니다. 이 옵션을 사용하면 DSC 온-프레미스를 통해 원하는 구성을 설정(푸시)하고 Azure Automation에서 원하는 상태로 노드 준수에서 다양하게 보고하는 세부 정보를 볼 수 있습니다.
 
 > [!NOTE]
-> DSC를 사용한 Azure VM 관리는 설치된 가상 머신 DSC 확장이 2.70보다 큰 경우 추가 비용 없이 포함됩니다. 자세한 내용은 [**Automation 가격 페이지**](https://azure.microsoft.com/en-us/pricing/details/automation/)를 참조하세요.
+> DSC를 사용한 Azure VM 관리는 설치된 가상 머신 DSC 확장이 2.70보다 큰 경우 추가 비용 없이 포함됩니다. 자세한 내용은 [**Automation 가격 페이지**](https://azure.microsoft.com/pricing/details/automation/)를 참조하세요.
 
 
 다음 섹션에서는 Azure Automation DSC에 대해 각 컴퓨터 형식을 온보드하는 방법을 간략히 설명합니다.
@@ -195,7 +195,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation DSC에 의한 구성 관�
 
 ## <a name="generating-dsc-metaconfigurations"></a>DSC 메타 구성 생성
 
-일반적으로 컴퓨터를 Azure Automation DSC에 등록하려면 [DSC 메타 구성](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig)은 적용될 때 생성될 수 있으며 컴퓨터의 DSC 에이전트가 Azure Automation DSC에서 끌어오거나 보고하도록 지시합니다. Azure Automation DSC에 대한 DSC 메타 구성은 PowerShell DSC 구성 또는 Azure Automation PowerShell cmdlet을 사용하여 생성될 수 있습니다.
+일반적으로 컴퓨터를 Azure Automation DSC에 등록하려면 [DSC 메타 구성](https://msdn.microsoft.com/powershell/dsc/metaconfig)은 적용될 때 생성될 수 있으며 컴퓨터의 DSC 에이전트가 Azure Automation DSC에서 끌어오거나 보고하도록 지시합니다. Azure Automation DSC에 대한 DSC 메타 구성은 PowerShell DSC 구성 또는 Azure Automation PowerShell cmdlet을 사용하여 생성될 수 있습니다.
 
 > [!NOTE]
 > DSC 메타 구성은 관리를 위해 Automation 계정에 컴퓨터를 등록하는 데 필요한 암호를 포함합니다. 사용한 후에 만들거나 삭제한 DSC 메타 구성을 제대로 보호해야 합니다.

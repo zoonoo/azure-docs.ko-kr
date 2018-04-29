@@ -1,19 +1,19 @@
 ---
-title: "빠른 시작 - Windows용 Azure Kubernetes 클러스터"
-description: "Azure Container Service에서 Azure CLI를 사용하여 Windows 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
+title: 빠른 시작 - Windows용 Azure Kubernetes 클러스터
+description: Azure Container Service에서 Azure CLI를 사용하여 Windows 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a7bb330657d14ac42cddf2e20fbb2e5a5b2a589b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 74ce913548fbcefdc441d0d2b772c864dacd4482
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Windows 컨테이너용 Kubernetes 클러스터 배포
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 02/01/2018
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 [Azure Container Service](../container-service-intro.md)에서 [Kubernetes](https://kubernetes.io/docs/home/) 클러스터를 배포하는 방법에 대해 자세히 설명합니다. 클러스터가 배포되면 Kubernetes `kubectl` 명령줄 도구를 사용하여 해당 클러스터에 연결하고 첫 번째 Windows 컨테이너를 배포합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

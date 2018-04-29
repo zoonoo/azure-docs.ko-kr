@@ -1,13 +1,13 @@
 ---
-title: "Azure Active Directory B2B 공동 작업 문제 해결 | Microsoft Docs"
-description: "Azure Active Directory B2B 공동 작업과 관련된 일반 문제를 해결하는 방법"
+title: Azure Active Directory B2B 공동 작업 문제 해결 | Microsoft Docs
+description: Azure Active Directory B2B 공동 작업과 관련된 일반 문제를 해결하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 공동 작업 문제 해결
 
@@ -63,7 +63,7 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>일반적으로 잘못된 문자인 ‘\#’은 Azure AD와 어떻게 동기화됩니까?
 
-초대된 계정 user@contoso.com은 user_contoso.com#EXT@fabrikam.onmicrosoft.com이므로 "\#"은 Azure AD B2B 공동 작업 또는 외부 사용자에 대해 예약된 UPN 문자입니다. 따라서 온-프레미스에서 가져온 UPN의 \#은 Azure Portal에 로그인할 때 허용되지 않습니다. 
+초대된 계정 user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com이므로 “\#”은 Azure AD B2B 공동 작업 또는 외부 사용자에 대해 예약된 UPN 문자입니다. 따라서 온-프레미스에서 가져온 UPN의 \#은 Azure Portal에 로그인할 때 허용되지 않습니다. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>동기화된 그룹에 외부 사용자를 추가할 때 오류가 발생합니다.
 

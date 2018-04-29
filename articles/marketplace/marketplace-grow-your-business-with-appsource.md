@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: de7716a540737d4f2cc6f0f495180533ef6aa90a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource를 사용하여 비즈니스 확장
 Azure Marketplace와 AppSource는 모두 Microsoft와 공동으로 시장 진출 활동을 진행하기 위한 출발점이면서 비즈니스 확장을 위한 원동력이 됩니다. 마켓플레이스 제품은 출시 프로모션, 수요 창출, 공동 판매 및 마케팅을 통해 클라우드 비즈니스 엔진의 핵심이 될 수 있습니다. 참여에는 비용이 들지 않습니다. Microsoft 고객은 매일 클라우드 마켓플레이스를 방문하여 비즈니스를 향상시키는 데 도움이 되는 올바른 앱과 서비스를 찾을 수 있습니다. Microsoft 및 파트너 에코시스템의 솔루션과 서비스를 조직과 연결하는 것이 목표입니다. 
@@ -117,7 +117,7 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 
 #### <a name="marketplace-gtm-benefits"></a>Marketplace GTM 혜택 
 
-AppSource의 새 목록은 무료 마켓플레이스 GTM 혜택을 받을 수 있습니다. 일단 나열되면 마케팅 전문가 팀에서 사용자에게 연락하고 마케팅 담당자와 협력하여 이러한 활동을 시작합니다. 제공되는 활동은 Marketplace에서의 귀하의 솔루션 상태에 따라 다릅니다. 제품에 대해 평가판 체험과 함께 제공되는 혜택이 증가합니다. Microsoft Gold 파트너는 추가 혜택을 받을 수 있습니다. 이러한 활동의 영향력을 최대화하기 위해 실행 계획을 준비하는 것이 좋습니다. 이러한 전술 대부분을 위해 방문 페이지를 활용할 수도 있습니다. OCP(One Commercial Partner) 카탈로그는 Microsoft 파트너 네트워크에 속한 멤버를 위한 혜택입니다. 훌륭한 방문 페이지를 작성하는 방법에 대한 지침은 [유용한 방문 페이지 구축](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page)을 참조하세요. 비즈니스를 홍보하기 위해 템플릿, 웹 콘텐츠, 교육 및 도구를 포함한 추가적인 시장 진출 지원은 [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com)을 방문하세요. 
+AppSource의 새 목록은 무료 마켓플레이스 GTM 혜택을 받을 수 있습니다. 일단 나열되면 마케팅 전문가 팀에서 사용자에게 연락하고 마케팅 담당자와 협력하여 이러한 활동을 시작합니다. 제공되는 활동은 Marketplace에서의 귀하의 솔루션 상태에 따라 다릅니다. 제품에 대해 평가판 체험과 함께 제공되는 혜택이 증가합니다. Microsoft Gold 파트너는 추가 혜택을 받을 수 있습니다. 이러한 활동의 영향력을 최대화하기 위해 실행 계획을 준비하는 것이 좋습니다. 이러한 전술 대부분을 위해 방문 페이지를 활용할 수도 있습니다. OCP(One Commercial Partner) 카탈로그는 Microsoft 파트너 네트워크에 속한 멤버를 위한 혜택입니다. 훌륭한 방문 페이지를 작성하는 방법에 대한 지침은 [유용한 방문 페이지 구축](https://docs.microsoft.com/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page)을 참조하세요. 비즈니스를 홍보하기 위해 템플릿, 웹 콘텐츠, 교육 및 도구를 포함한 추가적인 시장 진출 지원은 [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com)을 방문하세요. 
 
 #### <a name="enable-lead-sharing"></a>잠재 고객 공유 사이트 사용 
 앱을 사용해 보거나 서비스에 관심이 있는 비즈니스 사용자의 연락처 정보를 받을 수 있도록 Marketplace 제품에서 잠재 고객 관리를 사용하도록 설정되어 있는지 확인합니다. 이러한 잠재 고객은 육성 캠페인, 현장 영업 담당자의 판매 촉진 활동 및 제품 수행 방식에 대한 정보를 지원하기 위한 기초를 제공합니다. 이러한 잠재 고객을 사용하기 위한 모범 사례는 다음과 같습니다.

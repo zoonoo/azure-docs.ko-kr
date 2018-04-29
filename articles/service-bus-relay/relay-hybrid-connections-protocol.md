@@ -1,11 +1,11 @@
 ---
-title: "Azure 릴레이 하이브리드 연결 프로토콜 가이드 | Microsoft Docs"
-description: "Azure 릴레이 하이브리드 연결 프로토콜 가이드입니다."
+title: Azure 릴레이 하이브리드 연결 프로토콜 가이드 | Microsoft Docs
+description: Azure 릴레이 하이브리드 연결 프로토콜 가이드입니다.
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 릴레이 하이브리드 연결 프로토콜
 Azure 릴레이는 Azure Service Bus 플랫폼의 주요 기능 요소 중 하나입니다. 릴레이의 새로운 *하이브리드 연결* 기능은 HTTP 및 WebSockets를 기반으로 하는 안전한 개방형 프로토콜의 진화된 형태입니다. 이는 소유 프로토콜을 기반으로 빌드된, 동일한 이름의 이전 *BizTalk Services* 기능을 대체합니다. 하이브리드 연결을 Azure App Services에 통합하여 그 기능을 계속 수행합니다.
@@ -28,7 +28,7 @@ Azure 릴레이는 Azure Service Bus 플랫폼의 주요 기능 요소 중 하�
 ## <a name="interaction-model"></a>상호 작용 모델
 하이브리드 연결 릴레이는 두 당사자가 자신의 네트워크의 관점에서 검색하고 연결할 수 있는 Azure 클라우드에서 랑데부 지점을 제공하여 이 두 당사자를 연결합니다. 해당 랑데부 지점은 이 설명서와 다른 설명서에서 그리고 API 및 Azure Portal에서 "하이브리드 연결"이라고 합니다. 이 문서의 나머지 부분에서는 하이브리드 연결 서비스 끝점을 "서비스"라고 부릅니다. 상호 작용 모델은 다른 많은 네트워킹 API에 의해 정해진 용어 체계를 사용합니다.
 
-먼저 준비 상태를 표시하여 들어오는 연결을 처리하고 이후 도착하는 대로 연결을 수락하는 수신기가 있습니다. 다른 쪽에는 양방향 통신 경로를 설정하기 위해 해당 연결을 수락하는 수신기에 연결할 연결 클라이언트가 있습니다.
+먼저 준비 상태를 표시하여 들어오는 연결을 처리하고 이후 도착하는 대로 연결을 수락하는 수신기가 있습니다. 다른 쪽에는 양방향 통신 경로를 설정하기 위해 해당 연결을 수락하는 수신기에 대한 연결을 제공하는 연결 클라이언트가 있습니다.
 "연결", "수신", "수락"은 대부분의 소켓 API에서 사용되는 것과 동일한 용어입니다.
 
 릴레이 통신 모델에는 서비스 끝점에 대한 아웃바운드 연결을 지정하는 한쪽 당사자가 있습니다. 이렇게 하면 "수신기"도 통상적으로 "클라이언트"가 되기 때문에 다른 용어 오버로드가 발생할 수도 있습니다. 따라서 하이브리드 연결에 사용하는 정확한 용어는 다음과 같습니다.
@@ -90,7 +90,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 | `sb-hc-action` |예 |수신기 역할의 경우 매개 변수는 **sb-hc-action=listen**이어야 합니다. |
 | `{path}` |예 |이 수신기를 등록하기 위해 미리 구성된 하이브리드 연결의 URL 인코딩 네임스페이스 경로입니다. 이 식은 고정 `$hc/` 경로 부분에 추가됩니다. |
 | `sb-hc-token` |예\* |수신기는 네임스페이스 또는 **수신** 권한을 부여하는 하이브리드 연결의 유효한 URL 인코딩 Service Bus 공유 액세스 토큰을 제공해야 합니다. |
-| `sb-hc-id` |아니요 |이 클라이언트 제공 옵션 ID를 사용하면 종단 간 진단 추적을 수행할 수 있습니다. |
+| `sb-hc-id` |아니오 |이 클라이언트 제공 옵션 ID를 사용하면 종단 간 진단 추적을 수행할 수 있습니다. |
 
 등록되지 않은 하이브리드 연결 경로, 잘못되었거나 누락된 토큰 또는 일부 다른 오류로 인해 WebSocket 연결이 실패할 경우, 일반적인 HTTP 1.1 상태 피드백 모델을 사용하여 오류 피드백이 제공됩니다. 상태 설명에는 다음과 같이 Azure 지원 담당자에게 전달될 수 있는 오류 추적 ID를 포함됩니다.
 
@@ -195,7 +195,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 | 500 |내부 오류 |서비스에 오류가 발생했습니다. |
 
 ### <a name="listener-token-renewal"></a>수신기 토큰 갱신
-수신기 토큰이 만료 직전인 경우 설정된 제어 채널을 통해 텍스트 프레임 메시지를 서비스에 전송하여 교체할 수 있습니다. 메시지는 `renewToken`이라는 JSON 개체를 포함하며 이때 다음과 같은 속성을 정의합니다.
+수신기 토큰이 만료 직전인 경우 설정된 제어 채널을 통해 텍스트 프레임 메시지를 서비스에 전송하여 수신기를 교체할 수 있습니다. 메시지는 `renewToken`이라는 JSON 개체를 포함하며 이때 다음과 같은 속성을 정의합니다.
 
 * **token** – **수신** 권한을 부여하는 하이브리드 연결 또는 네임스페이스에 유효한 URL 인코드된 Service Bus 공유 액세스 토큰입니다.
 

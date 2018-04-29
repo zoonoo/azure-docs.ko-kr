@@ -8,63 +8,70 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 619b0a12122fcd6b51a4e34a3021bc99047f9251
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
-이 문서에서는 Azure Portal에서 Azure Automation 계정을 만드는 방법을 보여줍니다. 포털 Automation 계정을 사용하여 Azure Log Analytics에서 추가 관리 솔루션 또는 통합을 사용하지 않고 Automation에 대해 평가하고 자세히 알아볼 수 있습니다. 나중에 언제든지 Runbook 작업에 고급 모니터링을 사용하기 위해 해당 관리 솔루션을 추가하거나 Log Analytics를 통합할 수 있습니다. 
+
+이 문서에서는 Azure Portal에서 Azure Automation 계정을 만드는 방법을 보여줍니다. 포털 Automation 계정을 사용하여 Azure Log Analytics에서 추가 관리 솔루션 또는 통합을 사용하지 않고 Automation에 대해 평가하고 자세히 알아볼 수 있습니다. 나중에 언제든지 Runbook 작업에 고급 모니터링을 사용하기 위해 해당 관리 솔루션을 추가하거나 Log Analytics를 통합할 수 있습니다.
 
 Automation 계정에서는 Azure Resource Manager 또는 클래식 배포 모델에서 리소스를 관리하여 Runbook을 인증할 수 있습니다.
 
 Azure Portal에서 Automation 계정을 만드는 경우 이러한 계정이 자동으로 생성됩니다.
 
 * **실행 계정** 이 계정에서 수행하는 작업은 다음과 같습니다.
-  - Azure AD(Azure Active Directory)에서 서비스 주체 만들기
-  - 인증서 만들기
-  - Runbook을 사용하여 Azure Resource Manager 리소스를 관리하는 참가자 RBAC(역할 기반 액세스 제어)를 할당합니다.
+  * Azure AD(Azure Active Directory)에서 서비스 주체 만들기
+  * 인증서 만들기
+  * Runbook을 사용하여 Azure Resource Manager 리소스를 관리하는 참가자 RBAC(역할 기반 액세스 제어)를 할당합니다.
 * **클래식 실행 계정** 이 계정은 관리 인증서를 업로드합니다. 인증서는 Runbook을 사용하여 클래식 리소스를 관리합니다.
 
-이러한 계정을 만들면 Runbook을 신속하게 빌드하고 배포하기 시작하여 자동화 요구 사항을 지원할 수 있습니다.  
+이러한 계정을 만들면 Runbook을 신속하게 빌드하고 배포하기 시작하여 자동화 요구 사항을 지원할 수 있습니다.
 
 ## <a name="permissions-required-to-create-an-automation-account"></a>Automation 계정을 만드는 데 필요한 사용 권한
-Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다. 
 
-* Automation 계정을 만들려면 Azure AD 사용자 계정을 **Microsoft. Automation** 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.  
-* Azure Portal의 **Azure Active Directory** > **관리** > **앱 등록**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 응용 프로그램을 등록](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다. 
+Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
 
-사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 "만들 수 있는 권한이 없습니다."라는 메시지가 표시됩니다. 
+* Automation 계정을 만들려면 Azure AD 사용자 계정을 **Microsoft. Automation** 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
+* Azure Portal의 **Azure Active Directory** > **관리** > **앱 등록**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 응용 프로그램을 등록](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
+
+사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 "만들 수 있는 권한이 없습니다."라는 메시지가 표시됩니다.
 
 사용자가 전역 관리자/공동 관리자 역할에 먼저 추가된 경우, 구독의 Active Directory 인스턴스에서 제거한 다음 Active Directory의 전체 사용자 역할에 다시 추가할 수 있습니다.
 
 사용자 역할을 확인하려면 다음을 수행합니다.
+
 1. Azure Portal에서 **Azure Active Directory** 창으로 이동합니다.
-2. **사용자 및 그룹**을 선택합니다.
-3. **모든 사용자**를 선택합니다. 
-4. 특정 사용자를 선택한 후에 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 형식** 특성 값은 **게스트**가 아니어야 합니다.
+1. **사용자 및 그룹**을 선택합니다.
+1. **모든 사용자**를 선택합니다.
+1. 특정 사용자를 선택한 후에 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 형식** 특성 값은 **게스트**가 아니어야 합니다.
 
 ## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Azure Portal에서 새 Automation 계정 만들기
-Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완료합니다.    
+
+Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완료합니다.
 
 1. 구독 관리자 역할의 멤버 및 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
-2. **+ 리소스 만들기**를 선택합니다.
-3. **Automation**을 검색합니다. 검색 결과에서 **Automation**을 선택합니다.<br><br> ![Azure Marketplace에서 Automation & Control 검색 및 선택](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-4. 다음 화면에서 **만들기**를 선택합니다.
+1. **+ 리소스 만들기**를 선택합니다.
+1. **Automation**을 검색합니다. 검색 결과에서 **Automation**을 선택합니다.
+
+   ![Azure Marketplace에서 Automation & Control 검색 및 선택](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
+
+1. 다음 화면에서 **만들기**를 선택합니다.
   ![Automation 계정 추가](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-  
+
   > [!NOTE]
   > **Automation 계정 추가** 창에서 다음과 같은 경고가 표시되는 경우 사용자의 계정은 구독 관리자 역할의 구성원 및 구독의 공동 관리자가 아닙니다.
   >
   > ![Automation 계정 경고 추가](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-5. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다.
-6. 구독이 하나 이상인 경우는 **구독** 상자에서 새 계정에 사용하려는 구독을 지정합니다. 
-7. **리소스 그룹**에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다. 
-8. **위치**에서 Azure 데이터 센터 위치를 선택합니다.
-9. **Azure 실행 계정 만들기** 옵션에서 **예**를 선택한 다음 **만들기**를 선택하도록 합니다.
-    
+1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다.
+1. 구독이 하나 이상인 경우는 **구독** 상자에서 새 계정에 사용하려는 구독을 지정합니다.
+1. **리소스 그룹**에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다.
+1. **위치**에서 Azure 데이터 센터 위치를 선택합니다.
+1. **Azure 실행 계정 만들기** 옵션에서 **예**를 선택한 다음 **만들기**를 선택하도록 합니다.
+
   > [!NOTE]
   > **Azure 실행 계정 만들기**에서 **아니요**를 선택하여 실행 계정을 만들지 않는 경우 **Automation 계정 추가** 창에 메시지가 표시됩니다. Azure Portal에서 계정이 생성되지만 계정에는 클래식 모델 구독 또는 Azure Resource Manager 구독 디렉터리 서비스에서 해당하는 인증 ID가 없습니다. 따라서 Automation 계정에는 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 그러한 배포 모델의 리소스에 대해 작업을 인증하고 수행하지 못하도록 방지합니다.
   >
@@ -72,10 +79,12 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
   >
   > 서비스 주체가 생성되지 않은 경우 참여자 역할은 할당되지 않습니다.
   >
-10. Automation 계정을 생성하는 진행률을 추적하려면 메뉴에서 **알림**을 선택합니다.
+
+1. Automation 계정을 생성하는 진행률을 추적하려면 메뉴에서 **알림**을 선택합니다.
 
 ### <a name="resources-included"></a>포함된 리소스
-Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
+
+Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 만든 Runbook을 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
 | 리소스 | 설명 |
 | --- | --- |
@@ -94,8 +103,8 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 | AzureClassicRunAsCertificate |자동으로 만들어지는 인증서 자산입니다. 인증서는 Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure로 인증할 수 있습니다. 이 인증서는 수명이 1년입니다. |
 | AzureClassicRunAsConnection |자동으로 만들어지는 연결 자산입니다. 자산은 Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure로 인증할 수 있습니다. |
 
-
 ## <a name="next-steps"></a>다음 단계
+
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.

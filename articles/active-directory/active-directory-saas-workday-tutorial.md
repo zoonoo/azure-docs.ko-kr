@@ -1,6 +1,6 @@
 ---
-title: "자습서: Workday와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 Workday 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Workday와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 Workday 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>자습서: Workday와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ Workday가 Azure AD에 통합되도록 구성하려면 갤러리에서 Workday�
 
 **갤러리에서 Workday를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -119,9 +119,9 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 회신 URL에 하위 도메인(예: www, wd2, wd3, wd3-impl, wd5, wd5-impl)이 있어야 합니다. "*http://www.myworkday.com*"과 같은 것은 작동하지만 "*http://myworkday.com*"은 작동하지 않습니다. 이러한 값을 얻으려면 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의하세요.  
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 회신 URL에 하위 도메인(예: www, wd2, wd3, wd3-impl, wd5, wd5-impl)이 있어야 합니다. "*http://www.myworkday.com*"과 같이 사용해도 되지만 "*http://myworkday.com*"은 가능하지 않습니다. 이러한 값을 얻으려면 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의하세요.  
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-workday-tutorial/tutorial_workday_certificate.png) 
 
@@ -153,7 +153,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     >[!NOTE]
     > 테넌트 URL의 값에 연결된 환경 특성의 값은:  
-    >-Workday 테넌트 URL의 도메인 이름이 impl로 시작되는 경우(예: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*) **환경** 특성이 Implementation으로 설정되어있어야 합니다.  
+    >-Workday 테넌트 URL의 도메인 이름이 impl로 시작되는 경우(예: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*) **Environment** 특성이 Implementation으로 설정되어 있어야 합니다.  
     >-도메인 이름이 다르게 시작되면 일치하는 **환경** 값을 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의해야 합니다.
 
 11. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
@@ -172,9 +172,9 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     나. Azure Portal의 **로그온 구성** 창에서 **SAML 엔터티 ID**  값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
 
-    ![SAML ID 공급자](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "SAML ID 공급자")
+    ![SAML ID 공급자](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML ID 공급자")
    
-    다. **Enable Workday Initiated Logout**(Workday에서 시작된 로그아웃 사용)을 선택합니다.
+    다. **IdP 시작 로그아웃 사용**을 선택합니다.
    
     d. Azure Portal의 **로그온 구성** 창에서 **로그아웃 URL** 값을 복사한 다음, **로그아웃 응답 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -226,9 +226,6 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     d. **확인**을 클릭합니다. 
    
     ![확인](./media/active-directory-saas-workday-tutorial/IC782933.png "확인")
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -309,7 +306,6 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +319,3 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-
