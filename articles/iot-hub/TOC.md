@@ -1,7 +1,7 @@
+# [Azure IoT 기본 사항](../iot-fundamentals/index.yml)
 # [IoT Hub 설명서](index.md)
 
 # 개요
-## [Azure 및 IoT](iot-hub-what-is-azure-iot.md)
 ## [Azure IoT Hub란?](iot-hub-what-is-iot-hub.md)
 ## [장치 관리 개요](iot-hub-device-management-overview.md)
 
@@ -169,7 +169,7 @@
 ##### [인증서 만들기 - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET(서비스)](/dotnet/api/microsoft.azure.devices)
 ## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
@@ -186,11 +186,18 @@
 ## [REST(작업)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # 관련 항목
-## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure IoT Hub Device Provisioning 서비스](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## 솔루션 
+### [IoT Suite 미리 구성된 솔루션](/azure/iot-suite) 
+### [IoT 중부](https://docs.microsoft.com/microsoft-iot-central/) 
+## 플랫폼 서비스 
+### [IoT 허브](/azure/iot-hub) 
+### [IoT Hub Device Provisioning 서비스](/azure/iot-dps)
+### [IoT 서비스 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [위치 기반 서비스](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT 장치 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # 리소스
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
@@ -201,7 +208,7 @@
 ## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [가격](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)

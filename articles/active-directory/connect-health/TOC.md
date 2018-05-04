@@ -19,7 +19,7 @@
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 ## [Azure AD Connect Health 경고 카탈로그](active-directory-aadconnect-health-alert-catalog.md)
-## [GDPR 규정 준수 및 Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
+## [사용자 개인 정보 및 Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # 관련 항목
 ## [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)

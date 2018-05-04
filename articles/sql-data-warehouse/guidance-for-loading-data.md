@@ -1,25 +1,20 @@
 ---
-title: "데이터 로드 모범 사례 - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Azure SQL Data Warehouse를 사용하여 데이터를 로드하고 ELT를 수행하기 위한 권장 사항입니다."
+title: 데이터 로드 모범 사례 - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 48b0f0300ab563e8388c9e99f4f90cd24c56678d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다. 
@@ -62,11 +57,11 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
 ```
 staticRC20 리소스 클래스에 대한 리소스를 사용하여 로드를 실행하려면 단순히 LoaderRC20로 로그인하고 부하를 실행합니다.
 
-동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [서비스 수준](performance-tiers.md#service-levels)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다. 동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
+동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다. 동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
 
 ## <a name="allowing-multiple-users-to-load"></a>여러 사용자가 로드하도록 허용
 
-여러 사용자가 데이터 웨어하우스에 데이터를 로드해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]를 사용하여 로드하려면 데이터베이스에 대한 CONTROL 권한이 필요합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다. 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
+여러 사용자가 데이터 웨어하우스에 데이터를 로드해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)를 사용하여 로드하려면 데이터베이스에 대한 CONTROL 권한이 필요합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다. 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
 
 예를 들어, 데이터베이스 스키마, 부서 A에 대한 스키마_A 및 부서 B에 대한 스키마_B를 가정합니다. 데이터베이스 사용자, 사용자_A 및 사용자_B가 부서 A와 B 각각에서 PolyBase 로드에 대한 사용자가 되도록 합니다. 둘 모두 데이터베이스 CONTROL 권한을 부여 받습니다. 스키마 A와 B의 작성자는 이제 DENY를 사용하여 해당 스키마를 잠급니다.
 
@@ -94,18 +89,18 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="handling-loading-failures"></a>로드 처리 실패
 
-외부 테이블을 사용하는 로드가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."*오류로 인해 실패할 수 있습니다. 이 메시지는 외부 데이터에 더티 레코드가 포함되어 있음을 나타냅니다. 열의 수와 데이터 형식이 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식을 준수하지 않는 경우 데이터 레코드가 더티한 것으로 간주됩니다. 
+외부 테이블을 사용하는 로드가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."* 오류로 인해 실패할 수 있습니다. 이 메시지는 외부 데이터에 더티 레코드가 포함되어 있음을 나타냅니다. 열의 수와 데이터 형식이 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식을 준수하지 않는 경우 데이터 레코드가 더티한 것으로 간주됩니다. 
 
 더티 레코드 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지와 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티한 경우 CREATE EXTERNAL TABLE의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
 
 ## <a name="inserting-data-into-a-production-table"></a>프로덕션 테이블에 데이터 삽입
-[INSERT 문](/sql/t-sql/statements/insert-transact-sql.md)을 사용하는 작은 테이블에 한 번만 로드하거나 정기적으로 조회를 다시 로드하는 경우, `INSERT INTO MyLookup VALUES (1, 'Type 1')`와 같은 명령문으로 충분히 수행할 수 있습니다.  하지만, singleton 삽입은 대량 로드 수행만큼 효율적이지 않습니다. 
+[INSERT 문](/sql/t-sql/statements/insert-transact-sql)을 사용하는 작은 테이블에 한 번만 로드하거나 정기적으로 조회를 다시 로드하는 경우, `INSERT INTO MyLookup VALUES (1, 'Type 1')`와 같은 명령문으로 충분히 수행할 수 있습니다.  하지만, singleton 삽입은 대량 로드 수행만큼 효율적이지 않습니다. 
 
 하루 종일 수천 개 이상의 단일 삽입을 수행하는 경우 대량 로드할 수 있도록 로드를 일괄 처리합니다.  파일에 단일 삽입을 추가하는 프로세스를 개발하고 정기적으로 파일을 로드하는 다른 프로세스를 만듭니다.
 
 ## <a name="creating-statistics-after-the-load"></a>로드 후 통계 만들기
 
-쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  통계에 대한 자세한 설명은 [통계][통계]를 참조하세요. 다음 예제에서는 Customer_Speed 테이블에 있는 5개의 열에서 통계를 만듭니다.
+쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  통계에 대한 자세한 설명은 [통계](sql-data-warehouse-tables-statistics.md)를 참조하세요. 다음 예제에서는 Customer_Speed 테이블에 있는 5개의 열에서 통계를 만듭니다.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -120,17 +115,21 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Azure Storage 계정 키를 회전하려면:
 
-키가 변경된 각 저장소 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md)을 실행합니다.
+키가 변경된 각 저장소 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql)을 실행합니다.
 
 예:
 
 원래 키를 만드는 경우
 
-CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 키 1에서 키 2로 키를 회전하는 경우
 
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 기본 외부 데이터 원본에 대한 다른 변경은 필요하지 않습니다.
 

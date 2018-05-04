@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 17b2f1b65463f87f81ffe06bae5ac559a84bcb2a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>자습서: Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
-이 자습서는 시리즈의 4부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다. 
+이 자습서는 시리즈의 5부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다. 
 
 자습서 시리즈의 4부에서는 다음 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -35,6 +35,7 @@ ms.lasthandoff: 04/06/2018
 > [!div class="checklist"]
 > * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * 응용 프로그램에 대한 모니터링 및 진단 설정
 
@@ -68,7 +69,7 @@ Application Insights는 Azure의 응용 프로그램 성능 관리 플랫폼이�
 상승된 권한으로 Visual Studio 2017을 시작합니다. 시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하면 이 작업을 수행할 수 있습니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 응용 프로그램으로 이동합니다. *Voting.sln*을 열고, 응용 프로그램의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
 
 VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구성하려면 다음 단계를 따르세요.
-1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성...**을 클릭합니다.
+1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성...** 을 클릭합니다.
 
     ![AI 구성](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
 
@@ -86,7 +87,7 @@ VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구
 Application Insights에는 시나리오에 따라 사용할 수 있는 두 개의 Service Fabric 특정 NuGet이 있습니다. 하나는 Service Fabric의 네이티브 서비스에 사용되고, 다른 하나는 컨테이너 및 게스트 실행 파일에 사용됩니다. 이 경우 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet을 사용하여 가져오는 서비스 컨텍스트 정보를 활용합니다. Application Insights SDK 및 Service Fabric 특정 NuGet에 대한 자세한 내용은 [Service Fabric용 Microsoft Application Insights](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)를 참조하세요. 
 
 NuGet을 설정하는 단계는 다음과 같습니다.
-1. 솔루션 탐색기의 맨 위에서 **솔루션 ‘Voting’**을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리...**를 클릭합니다.
+1. 솔루션 탐색기의 맨 위에서 **솔루션 ‘Voting’**을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리...** 를 클릭합니다.
 2. “NuGet - 솔루션” 창의 맨 위 탐색 메뉴에서 **찾아보기**를 클릭하고 검색 표시줄 옆에 있는 **시험판 포함** 상자를 선택합니다.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
 
@@ -104,8 +105,7 @@ NuGet을 설정하는 단계는 다음과 같습니다.
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
     
-    2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()*의 중첩된 *return* 문에서 *ConfigureServices* > *services* 아래에 선언된 두 Singleton 서비스 사이에 다음을 추가합니다. `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
-    *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
+    2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *반환* 문에서, *ConfigureServices* > *서비스* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다. 그러면 원격 분석에 *서비스 컨텍스트*가 추가되어 Application Insights에서 원격 분석의 소스를 더 잘 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
     
     ```csharp
     return new WebHostBuilder()
@@ -190,7 +190,7 @@ Application Insights는 기본적으로 많은 원격 분석 데이터를 제공
 1. 다른 using 문의 끝에 `using Microsoft.ApplicationInsights;`를 추가합니다.
 2. 클래스 시작 부분의 *IReliableStateManager* 만들기 아래에서 새 *TelemetryClient*를 선언합니다. `private TelemetryClient telemetry = new TelemetryClient();`.
 3. *Put()* 함수에 응답이 추가되었음을 확인하는 이벤트를 추가합니다. 트랜잭션이 완료된 후 return *OkResult* 문 바로 앞에 `telemetry.TrackEvent($"Added a vote for {name}");`를 추가합니다.
-4. *Delete()*에는 *votesDictionary*에 지정된 응답 옵션에 대한 응답이 포함되는 조건에 따라 “if/else”가 있습니다. 
+4. *Delete()* 에는 *votesDictionary*에 지정된 응답 옵션에 대한 응답이 포함되는 조건에 따라 “if/else”가 있습니다. 
     1. *if* 문의 응답 삭제를 확인하는 이벤트를 *await tx.CommitAsync()* 뒤에 추가합니다. `telemetry.TrackEvent($"Deleted votes for {name}");`
     2. *else* 문에서 삭제가 수행되지 않았음을 보여 주는 이벤트를 return 문 앞에 추가합니다. `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 

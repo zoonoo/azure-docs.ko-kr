@@ -3,7 +3,7 @@ title: Azure 스택 서비스 정책 | Microsoft Docs
 description: Azure 스택 서비스 정책 및 지원 되는 상태가 통합된 시스템을 유지 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/18/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 160ba42c5cbdd3e8b999040cba8254d4c87f7c63
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>정책 서비스는 azure 스택
 이 문서에서는 Azure 스택 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 수행 해야 하는 것에 대 한 서비스 정책을 설명 합니다. 
@@ -55,6 +55,9 @@ Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 �
 예를 들어 경우 가장 최근에 사용 가능한 업데이트 버전이 1805, 이전 두 업데이트 패키지 다 1804 및 1803 버전, 1803와 1804 유지 지원 합니다. 그러나 1802 지원 되지 않습니다. 정책 두 개 또는 한 달에 대 한 릴리스 없는 경우에 마찬가지입니다. 예를 들어 현재 릴리스에서 1805 없는 1804 릴리스 했습니다 경우 1803 및 1802 이전 두 업데이트 패키지 지원 유지 합니다.
 
 Microsoft 소프트웨어 업데이트 패키지가 아닌 누적 되며이 필수 구성 요소로 이전 업데이트 패키지 해야 합니다. 하나 이상의 업데이트를 연기 하려는 경우를 최신 버전으로 가져올 경우 전체 런타임을 고려 합니다. 
+
+## <a name="get-support"></a>지원 받기
+Azure 스택 Azure와 같은 지원 프로세스를 따릅니다. 기업 고객에서 설명한 프로세스를 따를 수 [Azure 지원 요청을 만드는 방법을](/azure/azure-supportability/how-to-create-azure-support-request)합니다. 클라우드 서비스 공급자 (CSP)의 고객 인 경우 CSP을 지원에 문의 하십시오.  자세한 내용은 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 82fffa23a7688b66be486cc3147c134fa849a33e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 564bfb9c80fe835bd5defb4321607e0970c9f0aa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 응용 프로그램 빌드
 
@@ -41,9 +41,6 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
 * [Maven](http://maven.apache.org/)
 
 * [Linux 기반 Azure HDInsight 클러스터 및 HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > 이 문서의 단계는 HDInsight 클러스터 버전 3.4 및 3.5에서 테스트되었습니다. 예제에 제공되는 기본값은 HDInsight 3.5 클러스터에 대한 것입니다.
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 

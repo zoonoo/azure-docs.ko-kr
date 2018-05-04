@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a4a422e62940a535a6303339bd5712654881d304
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a026eafeb71c67a2cb98c20c4fc5af16073be083
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 MySQL 웹앱 작성
 
@@ -167,15 +167,19 @@ MySQL 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표�
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+>
+
 ### <a name="connect-to-production-mysql-server-locally"></a>로컬에서 프로덕션 MySQL 서버에 연결
 
-터미널 창에서 Azure의 MySQL 서버에 연결합니다. _&lt;mysql_server_name>_에 대해 이전에 지정한 값을 사용합니다.
+터미널 창에서 Azure의 MySQL 서버에 연결합니다. _&lt;mysql_server_name>_ 에 대해 이전에 지정한 값을 사용합니다.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
 
-암호를 묻는 메시지가 나타나면 데이터베이스 서버를 만들 때 지정한 _MY5up3r$tr0ngPa$w0rd!_를 사용합니다.
+암호를 묻는 메시지가 나타나면 데이터베이스 서버를 만들 때 지정한 _MY5up3r$tr0ngPa$w0rd!_ 를 사용합니다.
 
 ### <a name="create-a-production-database"></a>프로덕션 데이터베이스 만들기
 

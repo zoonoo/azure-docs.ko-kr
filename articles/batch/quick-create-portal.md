@@ -1,6 +1,6 @@
 ---
-title: "Azure 빠른 시작 - Batch 작업 실행 - 포털"
-description: "Azure Portal을 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다."
+title: Azure 빠른 시작 - Batch 작업 실행 - 포털
+description: Azure Portal을 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 Batch 작업 실행
 
@@ -37,7 +37,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 2. **계정 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 계정 이름은 선택한 Azure **위치** 내에서 고유해야 하며, 소문자 또는 숫자만 사용하고, 3-24자를 포함해야 합니다. 
 
-3. **저장소 계정**에서 기존의 범용 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다.
+3. **저장소 계정**에서 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다.
 
 4. 나머지 설정에 대한 기본값은 그대로 유지하고 **만들기**를 클릭하여 계정을 만듭니다.
 

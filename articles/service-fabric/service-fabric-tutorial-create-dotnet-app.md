@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: cbaca20c5226cd38b11288738b40cf7bf280e849
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7840dc86ec7753980bb2c35f932f132c50d65f9e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
 이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 응용 프로그램을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 응용 프로그램을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.  원하는 경우 이 자습서의 [비디오 연습](https://channel9.msdn.com/Events/Connect/2017/E100)도 시청할 수 있습니다.
@@ -37,6 +37,7 @@ ms.lasthandoff: 03/29/2018
 > [!div class="checklist"]
 > * .NET Service Fabric 응용 프로그램 빌드
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
@@ -63,7 +64,7 @@ ms.lasthandoff: 03/29/2018
    
    ![새 서비스 대화 상자에서 ASP.NET 웹 서비스 선택](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 응용 프로그램(모델-뷰-컨트롤러)**을 선택합니다. 
+6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 응용 프로그램(모델-뷰-컨트롤러)** 을 선택합니다. 
    
    ![ASP.NET 프로젝트 형식 선택](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -612,8 +613,8 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
     
     ![투표 프런트 엔드 서비스 추가](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. 먼저 백 엔드 서비스 **(1)**에 대해 ReverseProxy에 대한 URL을 구성합니다.
-    3. 그런 다음, ReverseProxy **(2)**에 HTTP PUT 요청을 보냅니다.
+    2. 먼저 백 엔드 서비스 **(1)** 에 대해 ReverseProxy에 대한 URL을 구성합니다.
+    3. 그런 다음, ReverseProxy **(2)** 에 HTTP PUT 요청을 보냅니다.
     4. 마지막으로 백 엔드 서비스에서 **(3)** 클라이언트로 응답을 반환합니다.
 
 4. 계속하려면 **F5** 키를 누릅니다.
@@ -622,7 +623,7 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
     ![투표 백 엔드 서비스 추가](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
     2. **(1)** 메서드의 첫 번째 줄에서는 `StateManager`를 사용하여 신뢰할 수 있는 사전 `counts`를 가져오거나 추가합니다.
-    3. 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문**(2)**으로 트랜잭션이 만들어집니다.
+    3. 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문 **(2)** 으로 트랜잭션이 만들어집니다.
     4. 트랜잭션에서는 투표 옵션에 대한 관련 키 값을 업데이트하고 **(3)** 작업을 커밋합니다. 커밋 메서드가 반환되면 사전에 데이터가 업데이트되고 클러스터의 다른 노드에 복제됩니다. 이제 데이터는 클러스터에 안전하게 저장되며 백 엔드 서비스는 데이터를 계속 제공하면서 다른 노드로 장애 조치할 수 있습니다.
 5. 계속하려면 **F5** 키를 누릅니다.
 

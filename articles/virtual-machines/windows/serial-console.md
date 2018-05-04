@@ -580,7 +580,7 @@ Windows VM에 연결할 때 상태 정보만 표시됩니다.| [Windows 상태 �
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. 으로 이동하여 피드백을 제공해 주세요https://aka.ms/serialconsolefeedback. 또는(대안으로) 을 통해서 또는 azserialhelp@microsoft.com의 가상 머신 범주에 피드백을 보내주세요http://feedback.azure.com 
+a. 으로 이동하여 피드백을 제공해 주세요 https://aka.ms/serialconsolefeedback . 또는(대안으로) 을 통해서 또는 azserialhelp@microsoft.com의 가상 머신 범주에 피드백을 보내주세요 http://feedback.azure.com 
 
 **Q. “기존 콘솔의 OS 유형 Windows가 요청된 Linux의 OS 유형과 충돌됩니다.”라는 오류가 발생합니다**.
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 673564ef7b5ff02a3809154a4dcf1669c2ed798b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2728c354a84c4b13b0ad8509d038837733251975
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
@@ -112,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 `http://localhost:5000`으로 이동합니다. **Register!**를 클릭하고 테스트 사용자를 만듭니다.
+브라우저에서 `http://localhost:5000`으로 이동합니다. **Register!** 를 클릭하고 테스트 사용자를 만듭니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -189,6 +189,10 @@ Azure CLI는 다음 예제와 비슷한 출력으로 방화벽 규칙 만들기�
 }
 ```
 
+> [!TIP] 
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+>
+
 ## <a name="connect-your-python-flask-application-to-the-database"></a>데이터베이스에 Python Flask 응용 프로그램 연결
 
 이 단계에서 Python Flask 샘플 응용 프로그램을 만든 PostgreSQL용 Azure 데이터베이스 서버에 연결합니다.
@@ -232,7 +236,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 http://localhost:5000으로 이동합니다. **Register!**를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
+브라우저에서 http://localhost:5000으로 이동합니다. **Register!** 를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -285,7 +289,7 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 
 ### <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
 
-컨테이너 레지스트리를 만드는 다음 명령에서 *\<registry_name>*을 선택한 Azure Container Registry의 고유한 이름으로 바꿉니다.
+컨테이너 레지스트리를 만드는 다음 명령에서 *\<registry_name>* 을 선택한 Azure Container Registry의 고유한 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az acr create --name <registry_name> --resource-group myResourceGroup --location "West US" --sku Basic

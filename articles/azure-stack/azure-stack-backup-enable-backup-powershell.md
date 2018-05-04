@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: d21bb919686e318b1caf7267b3115dae20938884
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 6fbd82c3d49a4d64523bf0e10b67ce3aabe96de2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Azure 스택 powershell에 대 한 백업을 사용 하도록 설정
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 04/19/2018
       -EnvironmentName AzureStackAdmin
     
     # Sign-in to the operator's console.
-    Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
     
    ```
 ## <a name="generate-a-new-encryption-key"></a>새 암호화 키 생성

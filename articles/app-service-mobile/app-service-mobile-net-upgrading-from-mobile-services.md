@@ -1,11 +1,11 @@
 ---
-title: "Mobile Services에서 Azure App Service로 업그레이드"
-description: "Mobile Services 응용 프로그램을 App Service 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다."
+title: Mobile Services에서 Azure App Service로 업그레이드
+description: Mobile Services 응용 프로그램을 App Service 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>기존 .NET Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
@@ -270,5 +270,5 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

@@ -1,31 +1,24 @@
 ---
 title: '자습서: Azure SQL Data Warehouse에 데이터 로드 | Microsoft Docs'
-description: 이 자습서에서는 Azure Portal과 SQL Server Management Studio를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 Azure Blob 저장소에서 Azure SQL Data Warehouse로 로드합니다.
+description: 이 자습서에서는 Azure Portal과 SQL Server Management Studio를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 공용 Azure Blob에서 Azure SQL Data Warehouse로 로드합니다.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/06/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 7e7d9a299e141ef8fd564e7f97077471264420ea
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: igorstan
+ms.openlocfilehash: 0e108487bac5154477988ad0b01378af4152836f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
-이 자습서에서는 WideWorldImportersDW 데이터 웨어하우스를 Azure Blob 저장소에서 Azure SQL Data Warehouse로 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md))를 사용합니다. 
+이 자습서에서는 PolyBase를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 Azure Blob 저장소에서 Azure SQL Data Warehouse로 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터 웨어하우스 만들기
@@ -42,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md))를 다운로드하여 설치합니다.
+이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
@@ -51,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>빈 SQL Data Warehouse 만들기
 
-Azure SQL Database가 정의된 [계산 리소스](performance-tiers.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
+Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
 
 빈 SQL Data Database를 만들려면 다음 단계를 수행합니다. 
 
@@ -92,7 +85,7 @@ Azure SQL Database가 정의된 [계산 리소스](performance-tiers.md)를 사�
     ![성능 구성](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. **Apply**를 클릭합니다.
-9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations.md)을 참조하세요.
+9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
 
 11. 이제 SQL Database 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
@@ -147,7 +140,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용하여 Azure SQL 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 
@@ -171,7 +164,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 
-서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. [메모리 최대값](performance-tiers.md#memory-maximums)은 [성능 계층](performance-tiers.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
+서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 [성능 계층](memory-and-concurrency-limits.md#performance-tiers), [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
@@ -238,7 +231,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) 문을 실행하여 Azure Blob의 위치를 정의합니다. 외부 택시 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. 외부 택시 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -249,7 +242,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     );
     ```
 
-5. 다음 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL 문을 실행하여 외부 데이터 파일에 대한 서식 특성 및 옵션을 지정합니다. 이 명령문은 외부 데이터는 텍스트로 저장되고 값은 파이프('|') 문자로 구분됨을 지정합니다.  
+5. 다음 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 문을 실행하여 외부 데이터 파일에 대한 서식 특성 및 옵션을 지정합니다. 이 명령문은 외부 데이터는 텍스트로 저장되고 값은 파이프('|') 문자로 구분됨을 지정합니다.  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +257,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     );
     ```
 
-6.  다음 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) 문을 실행하여 외부 파일 형식에 대한 스키마를 만듭니다. ext 스키마는 만들려는 외부 테이블을 구성하는 방법을 제공합니다. wwi 스키마는 데이터를 포함할 표준 테이블을 구성합니다. 
+6.  다음 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) 문을 실행하여 외부 파일 형식에 대한 스키마를 만듭니다. ext 스키마는 만들려는 외부 테이블을 구성하는 방법을 제공합니다. wwi 스키마는 데이터를 포함할 표준 테이블을 구성합니다. 
 
     ```sql
     CREATE SCHEMA ext;
@@ -559,7 +552,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 > 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
 > 
 
-이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택할 경우 SQL Data Warehouse는 데이터를 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
+이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택할 경우 SQL Data Warehouse는 데이터를 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
 
 이 스크립트는 wwi.dimension_Date 및 wwi.fact_Sales 테이블로 데이터를 로드하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
 
@@ -953,12 +946,13 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
         END;
 
     END;
+    ```
 
-## Generate millions of rows
-Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
+## <a name="generate-millions-of-rows"></a>수백만 개의 행 생성
+생성한 저장 프로시저를 사용하여 wwi.fact_Sales 테이블에 수백만 개의 행을 생성하고, wwi.dimension_Date 테이블에 해당 데이터를 생성합니다. 
 
 
-1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
+1. 이 절차를 실행하여 더 많은 행으로 [wwi].[seed_Sale]을 시드합니다.
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]

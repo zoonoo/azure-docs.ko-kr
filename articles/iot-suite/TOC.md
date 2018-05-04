@@ -1,3 +1,4 @@
+# [Azure IoT 기본 사항](../iot-fundamentals/index.yml)
 # [IoT Suite 설명서](index.md)
 
 # 개요
@@ -94,10 +95,20 @@
 ## [처음부터 보안을 고려](securing-iot-ground-up.md)
 
 # 관련 항목
+## 솔루션 
+### [IoT Suite 미리 구성된 솔루션](/azure/iot-suite) 
+### [IoT 중부](https://docs.microsoft.com/microsoft-iot-central/) 
+## 플랫폼 서비스 
+### [IoT 허브](/azure/iot-hub) 
+### [IoT Hub Device Provisioning 서비스](/azure/iot-dps)
+### [IoT 서비스 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [위치 기반 서비스](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT 장치 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
-## [IoT 허브](/azure/iot-hub/)
-## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # 리소스

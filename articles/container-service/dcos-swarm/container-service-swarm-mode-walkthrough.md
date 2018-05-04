@@ -1,19 +1,19 @@
 ---
-title: "빠른 시작 - Linux용 Azure Docker CE 클러스터"
-description: "Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker CE 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
+title: 빠른 시작 - Linux용 Azure Docker CE 클러스터
+description: Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker CE 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: nepeters
-ms.custom: 
-ms.openlocfilehash: 3c06aaa09366df89ad73cb60780511d2087d5994
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.custom: ''
+ms.openlocfilehash: cd52982fc650d5fd3b4edd8513946a721306a451
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE 클러스터 배포
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 02/27/2018
 
 Azure Container Service에서 Docker CE는 미리 보기 상태이며 **프로덕션 워크로드에는 사용할 수 없습니다**.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 

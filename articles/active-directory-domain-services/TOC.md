@@ -16,7 +16,7 @@
 ## [작업 2: 네트워크 설정 구성](active-directory-ds-getting-started-network.md)
 ## [작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화](active-directory-ds-getting-started-admingroup.md)
 ## [작업 4: 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-dns.md)
-## [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
+## [작업 5: 암호 해시 동기화 사용](active-directory-ds-getting-started-password-sync.md)
 
 # 방법
 ## [관리되는 도메인의 상태 확인](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # 관련 항목
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
@@ -67,6 +67,6 @@
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [문의처](active-directory-ds-contact-us.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)

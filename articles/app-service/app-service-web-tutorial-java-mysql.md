@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31951b609f7d819b532e6fa8cb02c702e9457253
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0f88ca7c0353c4ab63bf4f6ca5509b0e4504929f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>자습서: Azure에서 Java 및 MySQL 웹앱 빌드
 
@@ -137,25 +137,50 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>MySQL 서버 만들기
 
-Cloud Shell에서 [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL에 서버를 만듭니다. `<mysql_server_name>` 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다. 이 이름은 MySQL 서버의 호스트 이름인 `<mysql_server_name>.mysql.database.azure.com`에 속하므로 전역적으로 고유해야 합니다. 또한 `<admin_user>` 및 `<admin_password>`를 고유한 값으로 바꿉니다.
+Cloud Shell에서 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL에 서버를 만듭니다.
+
+다음 명령에서 *\<mysql_name>* 자리 표시자를 고유한 서버 이름으로, *\<admin_user>* 를 사용자 이름으로, *\<admin_password* 자리 표시자를 암호로 대체하세요. 서버 이름은 PostgreSQL 끝점(`https://<mysql_name>.mysql.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
+az mysql server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
+
+> [!NOTE]
+> 이 자습서에서 고려하는 자격 증명에는 여러 가지가 있으므로, 혼동을 피하기 위해 `--admin-user` 및 `--admin-password`는 dummy 값으로 설정됩니다. 프로덕션 환경에서 Azure의 MySQL 서버에 사용할 좋은 사용자 이름 및 암호를 선택하는 경우 보안 모범 사례를 따릅니다.
+>
+>
 
 MySQL 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
 ```json
 {
-  "administratorLogin": "admin_user",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mysql_server_name.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysql_server_name",
-  "location": "northeurope",
-  "name": "mysql_server_name",
-  "resourceGroup": "mysqlJavaResourceGroup",
-  ...
-  < Output has been truncated for readability >
+  "additionalProperties": {},
+  "administratorLogin": "<admin_user>",
+  "earliestRestoreDate": "2018-04-19T22:56:40.990000+00:00",
+  "fullyQualifiedDomainName": "<mysql_name>.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
+  "location": "westeurope",
+  "name": "<mysql_server_name>",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "additionalProperties": {},
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforMySQL/servers",
+  "userVisibleState": "Ready",
+  "version": "5.7"
 }
 ```
 
@@ -167,9 +192,13 @@ Cloud Shell에서 [`az mysql server firewall-rule create`](/cli/azure/mysql/serv
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](app-service-ip-addresses.md#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+>
+
 ## <a name="configure-the-azure-mysql-database"></a>Azure MySQL 데이터베이스 구성
 
-로컬 터미널 창에서 Azure의 MySQL 서버에 연결합니다. `<admin_user>` 및 `<mysql_server_name>`에 대해 이전에 지정한 값을 사용합니다.
+로컬 터미널 창에서 Azure의 MySQL 서버에 연결합니다. _&lt;mysql_server_name>_ 에 대해 이전에 지정한 값을 사용합니다. 암호를 묻는 메시지가 표시되면 Azure에서 데이터베이스를 만들 때 지정한 암호를 사용합니다.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p

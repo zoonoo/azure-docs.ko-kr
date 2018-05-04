@@ -69,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: 워크로드 보호
           items:
-            - name: Azure Backup Server를 사용하여 VMware 서버 백업
+            - name: VMware 서버
               href: backup-azure-backup-server-vmware.md
-            - name: Azure Backup Server를 사용하여 Exchange 백업
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Azure Backup Server를 사용하여 SharePoint 팜 백업
+            - name: Sharepoint 팜
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Azure Backup Server를 사용하여 SQL 백업
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: 시스템 상태 및 완전 복구 보호
               href: backup-mabs-system-state-and-bmr.md
+            - name: Azure Stack의 파일 및 응용 프로그램
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Azure Backup Server에서 데이터 복구
           href: backup-azure-alternate-dpm-server.md
     - name: Azure 파일 공유

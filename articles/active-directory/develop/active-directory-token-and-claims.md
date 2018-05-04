@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a28811437668488c2207535cef3aa4640f17aa54
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 토큰 참조
-Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
+Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다. 
 
 ## <a name="types-of-tokens"></a>토큰 형식
 Azure AD는 access_tokens 및 refresh_tokens 둘 다를 활용하는 [OAuth 2.0 인증 프로토콜](active-directory-protocols-oauth-code.md)을 지원합니다.  또한 세 번째 토큰 유형인 id_token을 도입하는 [OpenID Connect](active-directory-protocols-openid-connect-code.md)를 통해 인증 및 로그인을 지원합니다.  이러한 토큰은 각각 "전달자 토큰"으로 표시됩니다.
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT 클레임 | Name | 설명 |
 | --- | --- | --- |
-| `appid` |응용 프로그램 UI |토큰을 사용하여 리소스에 액세스하는 응용 프로그램을 식별합니다. 응용 프로그램은 자체적으로 작동할 수도 있고 사용자를 대신하여 작동할 수도 있습니다. 응용 프로그램 ID는 일반적으로 응용 프로그램 개체를 나타내지만 Azure AD의 서비스 사용자 개체를 나타낼 수도 있습니다. <br><br> **JWT 값 예제**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |대상 |토큰의 의도한 수신자입니다. 토큰을 받는 응용 프로그램에서는 대상 값이 올바른지 확인하여 대상이 다른 모든 토큰을 거부해야 합니다. <br><br> **SAML 값 예제**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **JWT 값 예제**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |응용 프로그램 인증 컨텍스트 클래스 참조 |클라이언트가 인증된 방법을 나타냅니다. 공용 클라이언트의 경우 값이 0입니다. 클라이언트 ID 및 클라이언트 암호가 사용되면 값이 1입니다. <br><br> **JWT 값 예제**: <br> `"appidacr": "0"` |
 | `acr` |인증 컨텍스트 클래스 참조 |응용 프로그램 인증 컨텍스트 클래스 참조 클레임의 클라이언트와는 반대로 주체가 인증된 방법을 나타냅니다. 값 "0"은 최종 사용자 인증이 ISO/IEC 29115 요구 사항을 충족하지 못했다는 뜻입니다. <br><br> **JWT 값 예제**: <br> `"acr": "0"` |
@@ -147,7 +146,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * **Nonce** - 토큰 재생 공격을 완화합니다.
 * 공유할 수 있습니다.
 
-앱이 ID 토큰에 대해 수행해야 하는 클레임 유효성 검사의 전체 목록은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)을 참조하세요. 이러한 클레임의 예상 값에 대한 자세한 내용은 위의 [id 토큰 섹션](#id-tokens)에 포함되어 있습니다.
+앱이 ID 토큰에 대해 수행해야 하는 클레임 유효성 검사의 전체 목록은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)을 참조하세요. 이러한 클레임의 예상 값에 대한 자세한 내용은 위의 [id_token](#id-tokens) 섹션에 포함되어 있습니다.
 
 ## <a name="token-revocation"></a>토큰 해지
 
@@ -163,9 +162,8 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
   * 비자발적 암호 변경: 관리자가 사용자의 암호를 변경하거나 다시 설정하도록 강제하는 경우 해당 암호를 사용하여 수행하면 사용자의 토큰은 무효화됩니다.  예외는 아래 메모를 참조하세요. 
   * 보안 위반: 보안 위반(예: 암호의 온-프레미스 저장소 위반)이 발생할 때 관리자는 현재 발급된 모든 새로 고침 토큰을 해지할 수 있습니다.  그러면 모든 사용자를 다시 인증하도록 강제합니다. 
 
-참고: 
-
-인증에 비암호 메서드를 사용(Windows Hello, Authenticator 앱, 얼굴 또는 지문과 같은 생체 인식)하여 토큰을 만드는 경우 사용자의 암호를 변경하면 사용자를 다시 인증하도록 강제하지 않습니다. (하지만 해당 Authenticator 앱을 다시 인증하도록 강제합니다.)  선택한 인증 입력(예: 얼굴)이 변경되지 않았기 때문입니다. 따라서 다시 인증하는 데 사용할 수 있습니다.
+> [!NOTE]
+>인증에 비암호 메서드를 사용(Windows Hello, Authenticator 앱, 얼굴 또는 지문과 같은 생체 인식)하여 토큰을 만드는 경우 사용자의 암호를 변경하면 사용자를 다시 인증하도록 강제하지 않습니다. (하지만 해당 Authenticator 앱을 다시 인증하도록 강제합니다.)  선택한 인증 입력(예: 얼굴)이 변경되지 않았기 때문입니다. 따라서 다시 인증하는 데 사용할 수 있습니다.
 
 ## <a name="sample-tokens"></a>샘플 토큰
 

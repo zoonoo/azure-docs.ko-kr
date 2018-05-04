@@ -1,8 +1,8 @@
 ---
-title: "네이티브 클라이언트 앱 게시 - Azure AD | Microsoft Docs"
-description: "Azure AD 응용 프로그램 프록시 커넥터와 통신하는 네이티브 클라이언트 앱을 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다."
+title: 네이티브 클라이언트 앱 게시 - Azure AD | Microsoft Docs
+description: Azure AD 응용 프로그램 프록시 커넥터와 통신하는 네이티브 클라이언트 앱을 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0753db5c5accf67411a9968f56aa9ad2158bad89
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 823939e76bcf982d37b58595795dca84c1830e19
+ms.sourcegitcommit: 4bc2aa08a116a0acca0af3b02b5c1d144d3cf9b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
@@ -73,7 +73,7 @@ Active Directory 인증 라이브러리(ADAL)의 인증 컨텍스트에서 네�
 ```
 // Acquire Access Token from AAD for Proxy Application
 AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
-AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
+AuthenticationResult result = await authContext.AcquireTokenAsync("< External Url of Proxy App >",
         "<App ID of the Native app>",
         new Uri("<Redirect Uri of the Native App>"),
         PromptBehavior.Never);

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -145,6 +145,9 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 관리자 사용자 이름 및 암호를 추가합니다. 암호 복잡성 요구 사항은 [암호 정책](/sql/relational-databases/security/password-policy)을 참조하세요.
 
 이 사용자 이름과 암호를 기억해 두세요. 나중에 논리 서버 인스턴스를 관리하는 데 필요합니다.
+
+> [!IMPORTANT]
+> 연결 문자열의 암호가 마스킹되었지만(Visual Studio 및 App Service에서도) 어딘가에서 유지 관리되기 때문에 앱의 공격 노출 영역이 늘어납니다. App Service는 [관리되는 서비스 ID](app-service-managed-service-identity.md)를 사용하기 때문에 코드 또는 앱 구성의 비밀을 유지 관리할 필요가 전혀 없어 이러한 위험이 사라집니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
 
 ![SQL Server 인스턴스 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -316,7 +319,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 
 마법사에서 **다음**을 클릭합니다.
 
-SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)**로 채워졌는지 확인합니다. 드롭다운에서 **myToDoAppDb** 데이터베이스를 선택해야 할 수 있습니다. 
+SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)** 로 채워졌는지 확인합니다. 드롭다운에서 **myToDoAppDb** 데이터베이스를 선택해야 할 수 있습니다. 
 
 **Execute Code First Migrations (runs on application start)**(Code First 마이그레이션 실행(응용 프로그램 시작 시 실행))를 선택한 다음 **저장**을 클릭합니다.
 
@@ -413,8 +416,6 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-<a name="next"></a>
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
@@ -427,7 +428,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 > * Azure에서 터미널로 로그 스트림
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+연결 Azure SQL Database의 보안을 쉽게 개선하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
+> [관리되는 서비스 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)

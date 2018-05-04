@@ -1,47 +1,53 @@
 ---
-title: "하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업 | Microsoft Docs"
-description: "Azure AD B2B 공동 작업을 사용하여 로컬 및 클라우드 리소스에 파트너 액세스 권한을 부여합니다."
+title: 하이브리드 조직에 대한 B2B 공동 작업 - Azure Active Directory | Microsoft Docs
+description: Azure AD B2B 공동 작업을 사용하여 온-프레미스 및 클라우드 리소스에 파트너 액세스 권한을 부여합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 04/20/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2e690eeea6a9f7e1cc10830a913774daa3c66689
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0ccf3eb381f42849b48f3d149942be13380b3670
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업
 
-온-프레미스 및 클라우드 리소스를 모두 포함하는 하이브리드 조직에서는 로컬 및 클라우드 리소스에 대한 외부 파트너 액세스 권한이 필요할 수 있습니다. 로컬 리소스에 대한 액세스의 경우 온-프레미스 Active Directory 환경에서 파트너 계정을 로컬로 관리할 수 있습니다. 파트너는 조직의 리소스에 액세스하기 위해 파트너 계정 자격 증명을 사용하여 로그인합니다. 이제 이렇게 동일한 자격 증명을 사용하여 클라우드 리소스에 파트너 액세스 권한을 부여하려면 Azure AD(Azure Active Directory) Connect를 사용하여 클라우드에 대한 파트너 계정을 Azure AD B2B 사용자로 동기화할 수 있습니다(예: UserType이 게스트인 사용자).
+Azure AD(Azure Active Directory) B2B 공동 작업을 사용하면 외부 파트너에게 조직의 앱과 리소스에 액세스할 수 있는 권한을 쉽게 부여할 수 있습니다. 이는 온-프레미스와 클라우드 기반 리소스가 모두 있는 하이브리드 구성에도 적용됩니다. Azure AD B2B 사용자로 클라우드의 외부 계정을 관리하는 경우이든 아니면 온-프레미스 ID 시스템에서 로컬로 외부 파트너 계정을 관리하는 경우든 상관 없습니다. 이제 두 환경 모두에 동일한 자격 증명을 사용하여 이러한 사용자가 모든 위치의 리소스에 액세스할 수 있도록 권한을 부여할 수 있습니다.
 
-## <a name="identify-unique-attributes-for-usertype"></a>UserType에 대한 고유한 특성 식별
+## <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-apps"></a>Azure AD의 B2B 사용자에게 온-프레미스 앱에 대한 액세스 권한 부여
 
-UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 온-프레미스 Active Directory에서 UserType 특성을 파생시키는 방법을 결정해야 합니다. 즉, 외부 협력자에 대해 고유한 온-프레미스 환경의 매개 변수를 알아봅니다. 해당 조직의 멤버와 이러한 외부 협력자를 구별하는 매개 변수를 확인합니다.
+조직에서 Azure AD B2B 공동 작업 기능을 사용하여 파트너 조직의 게스트 사용자를 Azure AD로 초대하는 경우 이제 이러한 B2B 사용자에게 온-프레미스 앱에 대한 액세스를 제공할 수 있습니다.
 
-이를 위한 두 가지 일반적인 방법은 다음과 같습니다.
+SAML 기반 인증을 사용하는 앱의 경우 인증에 Azure AD 응용 프로그램 프록시를 사용하여 Azure Portal을 통해 B2B 사용자들이 이러한 앱을 사용하도록 만들 수 있습니다.
 
-- 사용하지 않는 온-프레미스 Active Directory 특성(예: extensionAttribute1)을 원본 속성으로 사용하도록 지정합니다. 
-- 또는 UserType 특성의 값을 다른 속성에서 파생시킵니다. 예를 들어 온-프레미스 Active Directory UserPrincipalName 특성이 도메인 *@partners.fabrikam123.org*로 끝나는 경우 모든 사용자를 게스트로 동기화하는 것이 좋습니다.
+KCD(Kerberos 제한 위임)과 함께 IWA(Windows 통합 인증)를 사용하는 앱의 경우 인증에 Azure AD 프록시를 사용합니다. 단, 작업할 권한 부여의 경우 사용자 개체가 온-프레미스 Windows Server Active Directory에 있어야 합니다. B2B 게스트 사용자를 나타내는 로컬 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
+
+- Microsoft Graph용 MIM 관리 에이전트 및 MIM(Microsoft Identity Manager) 2016 SP1을 사용할 수 있습니다. (이를 위해서는 Azure AD Premium 1 구독이 필요합니다.)
+- PowerShell 스크립트를 사용할 수 있습니다. (이 솔루션에는 MIM 또는 AD Premium이 필요하지 않습니다.)
+
+이러한 솔루션을 구현하는 방법에 대한 자세한 내용은 [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](active-directory-b2b-hybrid-cloud-to-on-premises.md)를 참조하세요.
+
+## <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources"></a>로컬로 관리되는 파트너 계정에 클라우드 리소스에 대한 액세스 권한 부여
+
+Azure AD 이전에는 온-프레미스 ID 시스템이 있는 조직은 일반적으로 온-프레미스 디렉터리에서 파트너 계정을 관리해왔습니다. 그러한 조직이라면 앱 및 다른 리소스를 클라우드로 이동해도 파트너가 계속 액세스 권한을 유지하길 원합니다. 이상적으로는 이러한 사용자가 동일한 자격 증명 집합을 사용하여 클라우드와 온-프레미스 리소스 모두에 액세스하도록 하려는 것입니다. 
+
+이제 사용자가 Azure AD Connect를 사용하여 “게스트 사용자”로서 클라우드에 이러한 로컬 계정을 동기화할 수 있는 방법을 제공합니다. 여기서 계정은 Azure AD B2B 사용자와 동일한 동작을 수행합니다. 이 솔루션은 파트너가 해당 로그인 이름으로 자신의 외부 이메일 주소를 사용할 수 있는 온-프레미스 ID 시스템에 있는 경우에 작동합니다.
+
+회사 데이터 보호를 용이하게 하기 위해 올바른 리소스에 대한 액세스를 제어하고, 이러한 게스트 사용자를 직원과는 다르게 처리하는 권한 부여 정책을 구성할 수 있습니다.
+
+구현 세부 정보는 [Azure AD B2B 공동 작업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여](active-directory-b2b-hybrid-on-premises-to-cloud.md)를 참조하세요.
  
-자세한 특성 요구 사항은 [UserType의 동기화 사용](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요. 
-
-## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>클라우드로 사용자를 동기화하도록 Azure AD Connect 구성
-
-고유한 특성을 식별한 다음 클라우드에 이러한 사용자를 Azure AD B2B 사용자로 동기화하도록 Azure AD Connect를 구성할 수 있습니다(즉, UserType이 게스트인 사용자). 권한 부여라는 관점에서 이러한 사용자는 Azure AD B2B 공동 작업 초대 프로세스를 통해 만든 B2B 사용자와 구분될 수 없습니다.
-
-구현 지침은 [UserType의 동기화 사용](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
-- Azure AD B2B 공동 작업의 개요는 [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)을 참조하세요.
-- Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](connect/active-directory-aadconnect.md)을 참조하세요.
+- [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+- [Azure AD B2B 공동 작업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여](active-directory-b2b-hybrid-on-premises-to-cloud.md).
 

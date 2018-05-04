@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f41d8f508bb6ee5b50b7f304c703c4d9bed75d8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8f3d97e26b71c2e17753943f7004d7eb7ee19e44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>자습서: Cisco Cloud와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ Cisco Cloud와 Azure AD의 통합을 구성하려면 갤러리의 Cisco Cloud를
 
 **갤러리에서 Cisco Cloud를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -117,33 +117,17 @@ Cisco Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://<subdomain>.cloudapps.cisco.com`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Cisco Cloud 클라이언트 지원 팀](mailto:cpr-ops@cisco.com)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Cisco Cloud 클라이언트 지원 팀](mailto:cpr-ops@cisco.com)에 문의하세요.
 
-5. **저장** 단추를 클릭합니다.
+5. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+
+    ![인증서 다운로드 링크](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
+
+6. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-ciscocloud-tutorial/tutorial_general_400.png)
 
-6. **메타데이터 URL**을 생성하려면 다음 단계를 수행합니다.
-
-    a. **앱 등록**을 클릭합니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appregistrations.png)
-   
-    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpointicon.png)
-
-    다. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpoint.png)
-     
-    d. 이제 **Cisco Cloud**의 속성 페이지로 이동하고 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여넣습니다.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
-
-7. **Cisco Cloud** 쪽에서 Single Sign-On을 구성하려면, 다운로드한 **메타데이터 URL**을 [Cisco Cloud 지원 팀](mailto:cpr-ops@cisco.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+7. **Cisco Cloud** 쪽에서 Single Sign-On을 구성하려면, **앱 페더레이션 메타데이터 URL**을 [Cisco Cloud 지원 팀](mailto:cpr-ops@cisco.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

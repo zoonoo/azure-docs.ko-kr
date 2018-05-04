@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 44c28f45b7be8fbaa47a16d8ab07892ab146c39e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
 
@@ -83,7 +83,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    
    대상:   
    ```
-   $1sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
 
    ![CDN URL 다시 쓰기 규칙](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
@@ -93,7 +93,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    예:    
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   이제 SAS 토큰 사용 여부와 관계없이 누구나 CDN 엔드포인트의 파일에 액세스할 수 있습니다. 
+   이제 SAS 토큰 사용 여부와 관계 없이 누구나 CDN 엔드포인트의 파일에 액세스할 수 있습니다. 
 
 3. 캐싱 규칙을 사용하거나 원본 서버에서 `Cache-Control` 헤더를 추가하여 캐시 지속 기간을 미세 조정합니다. Azure CDN은 SAS 토큰을 일반 쿼리 문자열로 취급하므로 SAS 만료 시간 또는 이전에 만료되는 캐싱 기간을 설정하는 것이 좋습니다. 그러지 않으면 SAS가 활성 상태인 기간보다 오랫동안 파일이 캐시되는 경우 SAS 만료 시간이 지난 후에도 Azure CDN 원본 서버에서 파일에 액세스할 수 있습니다. 이러한 상황이 발생하는 경우 캐시된 파일에 액세스할 수 없도록 하려면 파일에서 제거 작업을 수행하여 캐시에서 파일을 지워야 합니다. Azure CDN에서 캐시 기간을 설정하는 방법은 [캐싱 규칙으로 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요.
 

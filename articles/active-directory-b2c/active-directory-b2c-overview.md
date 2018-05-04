@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: davidmu
-ms.openlocfilehash: 4f2c47f3e2debe0dc2b919858af9c347da00be5b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca9e45a214639da86cf8e0c4a39b3e3d6b6d6491
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
@@ -72,7 +72,7 @@ Azure AD B2C에 전송되는 각 요청은 정책을 지정합니다. 정책은 
 
 #### <a name="custom-policies"></a>사용자 지정 정책 
 
-사용자 지정 정책은 Azure AD B2C 테넌트에서 ID 경험 프레임워크의 동작을 정의하는 구성 파일입니다. 다양한 작업을 수행할 수 있게 사용자 지정 정책은 완전히 편집할 수 있습니다. 사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. 
+[사용자 지정 정책](active-directory-b2c-overview-custom.md)은 Azure AD B2C 테넌트에서 ID 경험 프레임워크의 동작을 정의하는 구성 파일입니다. 다양한 작업을 수행할 수 있게 사용자 지정 정책은 완전히 편집할 수 있습니다. 사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. 
 
 Azure AD B2C 테넌트에서는 필요에 따라 다양한 형식의 여러 사용자 지정 정책을 사용할 수 있고 다른 응용 프로그램에서 다시 사용할 수 있습니다. 이러한 유연성 덕분에 코드 변경 없이 또는 최소한의 변경으로 고객 ID 환경을 정의하고 수정할 수 있습니다. HTTP 인증 요청에 특수 쿼리 매개 변수를 추가하여 정책을 사용할 수 있습니다.
 

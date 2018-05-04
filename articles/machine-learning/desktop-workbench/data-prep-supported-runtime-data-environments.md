@@ -13,10 +13,10 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: bdd1c51c915787d9e9522f6691ae0ff06d546484
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>이 릴리스에 지원되는 행렬 
 코드가 Azure Machine Learning 데이터 원본을 사용하여 데이터를 로드하거나 Azure Machine Learning 데이터 준비에서 Pandas 또는 Spark 데이터 프레임을 가져올 때 다음과 같은 실험 계산 환경 및 데이터 위치의 조합이 지원됩니다.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>자습서: SignalFx와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ SignalFx의 Azure AD의 통합을 구성하려면 갤러리의 SignalFx를 관�
 
 **갤러리에서 SignalFx를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -140,49 +140,33 @@ SignalFx에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     
     e. **Ok**를 클릭합니다.
  
-6. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+6. **SAML 서명 인증서** 섹션에서 다음 단계를 수행합니다. 
 
-    ![인증서 다운로드 링크](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![인증서 다운로드 링크](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. 복사 단추를 클릭하고 **앱 페더레이션 메타데이터 URL**을 복사하여 메모장에 붙여넣습니다.
+
+    나. **인증서(Base64)** 를 클릭한 다음, 컴퓨터에 인증서 파일을 저장합니다.
 
 7. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. **메타데이터 URL**을 생성하려면 다음 단계를 수행합니다.
-
-    a. **앱 등록**을 클릭합니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    다. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. 이제 **SignalFx**의 속성 페이지로 이동하고, **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여넣습니다.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
-
-9. **SignalFx 구성** 섹션에서 **SignalFx 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID**를 복사합니다.
+8. **SignalFx 구성** 섹션에서 **SignalFx 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID**를 복사합니다.
 
     ![SignalFx 구성](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. SignalFx 회사 사이트에 관리자 권한으로 로그온합니다.
+9. SignalFx 회사 사이트에 관리자 권한으로 로그온합니다.
 
-11. SignalFx의 위쪽에서 **통합**을 클릭하여 통합 페이지를 엽니다.
+10. SignalFx의 위쪽에서 **통합**을 클릭하여 통합 페이지를 엽니다.
 
     ![SignalFx 통합](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. **로그인 서비스** 섹션 아래에서 **Azure Active Directory** 타일을 클릭합니다.
+11. **로그인 서비스** 섹션 아래에서 **Azure Active Directory** 타일을 클릭합니다.
  
     ![SignalFx SAML](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. **새 통합**을 클릭하고 **설치** 탭 아래에서 다음 단계를 수행합니다.
+12. **새 통합**을 클릭하고 **설치** 탭 아래에서 다음 단계를 수행합니다.
  
     ![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ SignalFx에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     d. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **발급자 URL** 텍스트 상자에 붙여넣습니다.
 
-    e. Azure Portal에서 생성한 **메타데이터 URL** 패턴을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
+    e. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
 
     f. **저장**을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

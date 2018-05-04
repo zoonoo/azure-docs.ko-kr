@@ -36,7 +36,7 @@
 ##### [작동 원리](active-directory-aadconnect-sso-how-it-works.md)
 ##### [질문과 대답](active-directory-aadconnect-sso-faq.md)
 ##### [문제 해결](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [사용자 개인 정보 및 Azure AD 원활한 Single Sign-on](active-directory-aadconnect-sso-gdpr.md)
 #### [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
 ##### [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [보안 심층 분석](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [사용자 개인 정보 및 Azure Active Directory 통과 인증](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md)
 ### [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,8 @@
 
 
 ## Azure AD Connect 동기화 관리
-### [GDPR 규정 준수 및 Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [사용자 개인 정보 및 Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [O365 리소스의 기본 데이터 위치](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [암호 해시 동기화](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [LocalDB 10GB 제한에서 복구하는 방법](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [포트 및 프로토콜이 필요한 하이브리드 ID](active-directory-aadconnect-ports.md)
 ## [미리 보기의 기능](active-directory-aadconnect-feature-preview.md)

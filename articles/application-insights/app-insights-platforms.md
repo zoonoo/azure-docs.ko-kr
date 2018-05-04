@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mbullwin
-ms.openlocfilehash: 7440bb38fc68ce49504188a40ca1aafbb1e07913
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fdc75c69008d2f448d8a077a42bfccd24db6579a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
@@ -39,11 +39,13 @@ ms.lasthandoff: 03/29/2018
 * [ASP.NET - 이미 운영 중인 앱용](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android)(App Center, HockeyApp)
+* [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * 웹 및 작업자 역할을 모두 포함하는 [Azure Cloud Services](app-insights-cloudservices.md)
 * [Azure 기능](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
+* [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)(App Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - 이미 운영 중인 앱용](app-insights-java-live.md)

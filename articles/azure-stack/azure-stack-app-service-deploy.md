@@ -1,12 +1,12 @@
 ---
-title: "앱 서비스 배포: Azure 스택 | Microsoft Docs"
-description: "Azure 스택에서 앱 서비스를 배포 하기 위한 세부 지침"
+title: '앱 서비스 배포: Azure 스택 | Microsoft Docs'
+description: Azure 스택에서 앱 서비스를 배포 하기 위한 세부 지침
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure 스택 앱 서비스 리소스 공급자 추가
 
@@ -163,11 +163,23 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 시간이 걸
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Azure 스택 설치에는 앱 서비스의 유효성을 검사합니다
 
-1. Azure 스택 관리자 포털에서로 이동 **앱 서비스 관리-**합니다.
+1. Azure 스택 관리자 포털에서로 이동 **앱 서비스 관리-** 합니다.
 
 2. 상태에서 개요를 볼 수 있듯이 확인는 **상태** 표시 **준비가 된 모든 역할**합니다.
 
     ![앱 서비스 관리](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> 기존 가상 네트워크 및 conenct 프로그램 파일 서버를 위해 내부 IP 주소에 배포 하려는 경우 추가 해야는 아웃 바운드 보안 규칙 작업자 서브넷 사이 파일 서버가 SMB 트래픽을 사용 하도록 설정 합니다.  이 작업을 수행 하려면 관리 포털에서 WorkersNsg으로 이동한 다음 속성으로 아웃 바운드 보안 규칙 추가:
+> * 원본: 모든
+> * 원본 포트 범위: *
+> * 대상: IP 주소
+> * 대상 IP 주소 범위: Ip 범위에 파일 서버에 대 한
+> * 대상 포트 범위: 445
+> * 프로토콜: TCP
+> * 동작: 허용
+> * 우선 순위: 700
+> * 이름: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Azure 스택 앱 서비스 드라이브를 테스트
 
@@ -198,9 +210,9 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 시간이 걸
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>(선택 사항) WordPress, DNN, 또는 Django 웹 사이트를 배포 합니다.
 
-1. Azure 스택 테 넌 트 포털에서 클릭  **+** , Azure 마켓플레이스로 이동, Django 웹 사이트를 배포 하 고 성공적으로 완료 될 때까지 기다립니다. Django 웹 플랫폼은 파일 시스템 기반 데이터베이스를 사용 합니다. 메서드를 SQL 또는 MySQL 같은 모든 리소스 공급자 필요 하지 않습니다.
+1. Azure 스택 테 넌 트 포털에서 클릭 **+**, Azure 마켓플레이스로 이동, Django 웹 사이트를 배포 하 고 성공적으로 완료 될 때까지 기다립니다. Django 웹 플랫폼은 파일 시스템 기반 데이터베이스를 사용 합니다. 메서드를 SQL 또는 MySQL 같은 모든 리소스 공급자 필요 하지 않습니다.
 
-2. MySQL 리소스 공급자에도 배포 하는 경우에 시장에서 WordPress 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수에 대 한 메시지가 면 사용자 이름으로 입력  *User1@Server1* , 사용자 이름 및 선택한 서버 이름을 사용 합니다.
+2. MySQL 리소스 공급자에도 배포 하는 경우에 시장에서 WordPress 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수에 대 한 메시지가 면 사용자 이름으로 입력 *User1@Server1*, 사용자 이름 및 선택한 서버 이름을 사용 합니다.
 
 3. SQL Server 리소스 공급자에도 배포 하는 경우에 시장에서 DNN 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수에 대 한 메시지가 면 리소스 공급자에 연결 된 SQL Server를 실행 하는 컴퓨터에는 데이터베이스를 선택 합니다.
 

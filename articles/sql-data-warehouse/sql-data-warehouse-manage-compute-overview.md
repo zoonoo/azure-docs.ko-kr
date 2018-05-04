@@ -2,24 +2,19 @@
 title: Azure SQL Data Warehouse에서 계산 리소스 관리 | Microsoft Docs
 description: Azure SQL Data Warehouse의 성능 확장 기능을 알아봅니다. DWU를 조정하여 확장하거나 데이터 웨어하우스를 일시 중지하여 비용을 절약합니다.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: ''
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
-ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: ca6d34d3b670bfd05a9b65fe9e6b260120e3a5b8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 계산 관리
 Azure SQL Data Warehouse에서 계산 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 
@@ -28,7 +23,7 @@ Azure SQL Data Warehouse에서 계산 리소스를 관리하는 방법에 대해
 SQL Data Warehouse는 저장소와 계산을 분리하여 각각의 성능을 독립적으로 조정할 수 있습니다. 이에 따라 데이터 저장소와는 관계없이 성능 요구 사항에 맞게 계산의 크기를 조정할 수 있습니다. 또한 계산 리소스를 일시 중지했다가 다시 시작할 수도 있습니다. 이 아키텍처의 당연한 결과는 계산 및 저장소에 대한 [청구](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)가 분리되어 있다는 것입니다. 한동안 데이터 웨어하우스를 사용할 필요가 없으면 계산을 일시 중지하여 계산 비용을 절약할 수 있습니다. 
 
 ## <a name="scaling-compute"></a>계산 크기 조정
-데이터 웨어하우스에 대한 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 설정을 조정하여 계산 크기를 확장 또는 축소할 수 있습니다. 데이터 웨어하우스 단위를 더 추가함에 따라 로드 및 쿼리 성능이 선형적으로 증가할 수 있습니다. SQL Data Warehouse는 확장하거나 축소할 때 성능상의 확실한 변화를 보장하는 데이터 웨어하우스 단위에 대해 [서비스 수준](performance-tiers.md#service-levels)을 제공합니다. 
+데이터 웨어하우스에 대한 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 설정을 조정하여 계산 크기를 확장 또는 축소할 수 있습니다. 데이터 웨어하우스 단위를 더 추가함에 따라 로드 및 쿼리 성능이 선형적으로 증가할 수 있습니다. 
 
 확장 단계는 [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) 또는 [T-SQL](quickstart-scale-compute-tsql.md) 빠른 시작을 참조하세요. 또한 확장 작업은 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 통해 수행할 수도 있습니다.
 
@@ -103,7 +98,7 @@ SQL Data Warehouse는 크기 조정 작업을 수행하기 위해 먼저 들어�
 
 SQL Data Warehouse를 일시 중지하거나 크기를 조정하는 경우 일시 중지 또는 크기 조정 요청을 시작하면 백그라운드에서 쿼리가 취소됩니다.  간단한 SELECT 쿼리를 취소하는 것은 빠른 작업이며 인스턴스를 일시 중지하거나 규모를 조정하는 데 소요되는 시간에 거의 영향을 주지 않습니다.  하지만 트랜잭션 쿼리는 데이터 또는 데이터 구조를 수정하므로 신속하게 중지되지 않을 수 있습니다.  **기본적으로 트랜잭션 쿼리는 전체를 완료하거나 변경 사항을 롤백해야 합니다.**  트랜잭션 쿼리로 완료된 작업을 롤백하는 데는 쿼리가 적용된 원래 변경 사항보다 시간이 훨씬 더 오래 걸릴 수 있습니다.  예를 들어 행을 삭제하고 1시간 동안 실행 중인 쿼리를 취소하는 경우 시스템에서 삭제된 행을 다시 삽입하는 데 1시간이 소요될 수 있습니다.  트랜잭션이 진행 중인 동안 일시 중지 또는 크기 조정을 실행할 경우 일시 중지 및 크기 조정 시 롤백이 완료될 때까지 기다린 후 진행할 수 있으므로 시간이 오래 소요되는 것처럼 보일 수 있습니다.
 
-[트랜잭션 이해](sql-data-warehouse-develop-transactions.md) 및 [트랜잭션 최적화][트랜잭션 최적화](sql-data-warehouse-develop-best-practices-transactions.md)도 참조하세요.
+[트랜잭션 이해](sql-data-warehouse-develop-transactions.md) 및 [트랜잭션 최적화](sql-data-warehouse-develop-best-practices-transactions.md)도 참조하세요.
 
 ## <a name="automating-compute-management"></a>계산 관리 자동화
 계산 관리 작업을 자동화하려면 [Azure Functions를 사용하여 계산 관리](manage-compute-with-azure-functions.md)를 참조하세요.
@@ -115,7 +110,7 @@ SQL Data Warehouse를 일시 중지하거나 크기를 조정하는 경우 일�
 
 ## <a name="permissions"></a>권한
 
-데이터 웨어하우스 크기를 조정하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md)에서 설명하는 권한이 필요합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
+데이터 웨어하우스 크기를 조정하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)에서 설명하는 권한이 필요합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../role-based-access-control/built-in-roles.md#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 86fb0ae7c9ee5a2856c81603a4e08ae7016b022f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
 
@@ -114,7 +114,7 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 
 응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 응용 프로그램을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
-Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>**을 바꿉니다.
+Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>** 을 바꿉니다.
 
 # <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
 export storageconnectionstring=\<yourconnectionstring\> 
@@ -145,7 +145,7 @@ Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 응용
 
 Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 요청을 다시 시도할 때까지 전에 대기할 시간(초)을 지정합니다. 1차 시도에 대한 초기 요청이 실패했을 때 2차 시도에 대해 다시 요청해야 하는 경우 **retry\_to\_secondary** 값을 true로 설정합니다. 샘플 응용 프로그램에서 사용자 지정 다시 시도 정책은 저장소 개체의 `retry_callback` 함수에 정의되어 있습니다.
  
-다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.  
+다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.  
 
 # <a name="java-tabjava"></a>[Java](#tab/java)
 다운로드한 응용 프로그램 폴더로 범위가 지정된 터미널 또는 명령 프롬프트를 열어 응용 프로그램을 실행할 수 있습니다. 여기에서 `mvn compile exec:java`를 입력하여 응용 프로그램을 실행합니다. 그런 다음, 응용 프로그램은 **HelloWorld.png** 이미지를 디렉터리에서 저장소 계정으로 업로드하고, 이미지가 보조 RA-GRS 끝점에 복제되었는지 확인합니다. 검사가 완료되면 다운로드하는 끝점을 다시 보고하는 동안 응용 프로그램은 이미지를 반복해서 다운로드하기 시작합니다.
@@ -211,7 +211,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.  
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.  
 
 ```python
 def retry_callback(retry_context):
@@ -234,7 +234,7 @@ def retry_callback(retry_context):
 
 ### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
 
-이미지 다운로드가 성공하면 `response_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에서 보조 끝점을 사용하고 있는 경우 응용 프로그램은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 응용 프로그램은 [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python)를 `PRIMARY`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 응용 프로그램은 기본 끝점에서 읽기를 계속합니다.
+이미지 다운로드가 성공하면 `response_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에서 보조 끝점을 사용하고 있는 경우 응용 프로그램은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 응용 프로그램은 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)를 `PRIMARY`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 응용 프로그램은 기본 끝점에서 읽기를 계속합니다.
 
 ```python
 def response_callback(response):

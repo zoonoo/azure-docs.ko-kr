@@ -9,11 +9,11 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: a3b703c96e309294e5327fb7fb013cbf28c369e4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2b47dfbac3ee5c91e416fb234468fe22aa936c4c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
@@ -72,9 +72,9 @@ SQL Database 관리되는 인스턴스는 미리 보기 상태이며 단일 서�
 
 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관하는 경우
-- **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우
-- **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
+- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
+- **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
+- **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)의 기능에 해당합니다.
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -84,8 +84,8 @@ Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/s
 
 - **[자동 백업](sql-database-automated-backups.md)**: SQL Database는 전체, 차등 및 트랜잭션 로그 백업을 자동으로 수행합니다.
 - **[지정 시간 복구](sql-database-recovery-using-backups.md)**: SQL Database는 자동 백업 보존 기간 내에 모든 시점으로 복구하도록 지원합니다.
-- **[활성 지역 복제](sql-database-geo-replication-overview.md)**: SQL Database를 사용하면 세계적으로 분산된 Azure 데이터 센터 중 하나에서 최대 4개의 읽기 가능한 보조 데이터베이스를 구성할 수 있습니다.  예를 들어 읽기 전용 동시 트랜잭션 양이 많은 카탈로그 데이터베이스와 SaaS 응용 프로그램이 있는 경우 활성 지역 복제를 사용하여 세계적인 읽기 규모를 사용하도록 설정하고 읽기 워크로드로 인한 주 서버의 병목 상태를 제거합니다. 
-- **[장애 조치 그룹](sql-database-geo-replication-overview.md)**: SQL Database를 사용하면 큰 집합의 데이터베이스와 탄력적 풀에 대해 투명한 지역에서 복제 및 장애 조치를 포함하여 세계적인 규모로 고가용성 및 부하 분산을 사용할 수 있습니다. 장애 조치 그룹 및 활성 지역 복제를 사용하면 SQL Database에 대한 복잡한 모니터링, 라우팅 및 장애 조치 오케스트레이션 없이 최소한의 관리 오버헤드를 포함하여 전 세계적으로 분산된 SaaS 응용 프로그램을 만들 수 있습니다.
+- **[활성 지역 복제](sql-database-geo-replication-overview.md)**: SQL Database를 사용하면 세계적으로 분산된 Azure 데이터 센터 중 하나에서 최대 4개의 읽기 가능한 보조 데이터베이스를 구성할 수 있습니다.  예를 들어 읽기 전용 동시 트랜잭션 양이 많은 카탈로그 데이터베이스와 SaaS 응용 프로그램이 있는 경우 활성 지역 복제를 사용하여 세계적인 읽기 규모를 사용하도록 설정하고 읽기 워크로드로 인한 주 서버의 병목 상태를 제거합니다. 활성 지리적 복제는 단일 데이터베이스의 장애 조치(failover)를 허용합니다. 
+- **[장애 조치 그룹](sql-database-geo-replication-overview.md)**: SQL Database를 사용하면 큰 집합의 데이터베이스와 탄력적 풀에 대해 투명한 지역에서 복제 및 장애 조치를 포함하여 세계적인 규모로 고가용성 및 부하 분산을 사용할 수 있습니다. 장애 조치 그룹 및 활성 지역 복제를 사용하면 SQL Database에 대한 복잡한 모니터링, 라우팅 및 장애 조치 오케스트레이션 없이 최소한의 관리 오버헤드를 포함하여 전 세계적으로 분산된 SaaS 응용 프로그램을 만들 수 있습니다. 장애 조치 그룹은 단일 그룹 내에서 여러 데이터베이스의 장애 조치(failover)를 허용합니다. 
 - **[영역 중복 데이터베이스](sql-database-high-availability.md)**: SQL Database를 사용하면 여러 가용성 영역에서 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스 또는 프리미엄 탄력적 풀을 프로비전할 수 있습니다. 이러한 데이터베이스와 탄력적 풀에는 고가용성을 위한 여러 중복 복제본이 있기 때문에 이러한 복제본을 여러 가용성 영역에 배치하면 데이터 손실 없이 데이터 센터 크기 조정 실패에서 자동으로 복구하는 기능을 포함하여 더 높은 복원력을 제공합니다. 이 기능은 현재 미리 보기로 제공됩니다. 
 
 ## <a name="built-in-intelligence"></a>기본 제공 인텔리전스
@@ -96,9 +96,9 @@ SQL Database에서 기본 제공 인텔리전스를 통해 데이터베이스를
 
 SQL Database는 모니터링해야 하는 쿼리에 대한 자세한 정보를 제공합니다. SQL Database는 데이터베이스 패턴을 인식하고 워크로드에 맞게 데이터베이스 스키마를 적용할 수 있습니다. SQL Database는 튜닝 작업을 검토하고 적용할 수 있는 [성능 튜닝 권장 사항](sql-database-advisor.md)을 제공합니다. 
 
-그러나 지속적으로 데이터베이스를 모니터링하는 것은 특히 많은 데이터베이스를 처리할 때 힘들고 지루한 작업입니다. [Intelligent Insights](sql-database-intelligent-insights.md)는 대규모로 SQL Database 성능을 자동으로 모니터링하여 이 작업을 수행하고 나서, 성능 저하 문제를 알리고, 문제의 근본 원인을 식별하고, 가능한 경우 성능 개선 권장 사항을 제공합니다.
+그러나 지속적으로 데이터베이스를 모니터링하는 것은 특히 많은 데이터베이스를 처리할 때 힘들고 지루한 작업입니다. [Intelligent Insights](sql-database-intelligent-insights.md)는 SQL Database 성능을 자동으로 모니터링하고 규모에 따른 성능 저하 문제를 알려줌으로써 이 작업을 수행합니다. Intelligent Insights는 근본 원인을 파악하고, 가능한 경우 성능 개선 권장 사항을 제공할 수 있습니다. 
 
-SQL Database 및 Azure Portal에서 제공하는 모든 사용 가능한 도구 및 보고서를 사용하더라도 상당히 많은 데이터베이스를 효율적으로 관리하기 어려울 수 있습니다. 수동으로 데이터베이스를 모니터링하고 튜닝하는 대신 [자동 튜닝](sql-database-automatic-tuning.md)을 사용하여 SQL Database에 대한 모니터링 및 튜닝 작업을 위임하도록 고려할 수 있습니다. SQL Database는 권장 사항, 테스트를 자동으로 적용하고 해당 튜닝 작업을 확인하여 성능이 계속 향상되도록 합니다. 이러한 방식으로 SQL Database는 자동으로 안전하게 제어된 방법으로 워크로드에 적용됩니다. 자동 튜닝은 데이터베이스 성능을 신중하게 모니터링하고 모든 튜닝 작업 전후와 비교함을 의미합니다. 성능이 개선되지 않는 경우 튜닝 작업은 되돌려집니다.
+SQL Database 및 Azure Portal에서 제공하는 모든 사용 가능한 도구 및 보고서를 사용하더라도 상당히 많은 데이터베이스를 효율적으로 관리하기 어려울 수 있습니다. 수동으로 데이터베이스를 모니터링하고 튜닝하는 대신 [자동 튜닝](sql-database-automatic-tuning.md)을 사용하여 SQL Database에 대한 모니터링 및 튜닝 작업을 위임하도록 고려할 수 있습니다. SQL Database는 자동으로 권장 사항을 적용한 다음, 성능이 향상되는 지 테스트합니다. SQL Database는 이처럼 안전하고 제어된 방법으로 워크로드에 맞게 자동으로 조정될 수 있습니다. 이 자동 튜닝은 데이터베이스 성능을 신중하게 모니터링하고 모든 튜닝 작업 전후와 비교함을 의미합니다. 성능이 개선되지 않는 경우 튜닝 작업은 되돌려집니다.
 
 현재 SQL Database를 기반으로 [SaaS 다중 테넌트 앱](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 실행하는 파트너는 대부분 자동 성능 튜닝을 사용하여 응용 프로그램이 항상 안정적이고 예측 가능한 성능을 제공하도록 합니다. 이 기능은 갑자기 성능 인시던트가 발생하는 위험을 크게 줄여 줍니다. 또한 일부 해당 고객이 SQL Server를 사용하기 때문에 SQL Database에서 제공하는 동일한 인덱싱 권장 사항을 사용하여 SQL Server 고객을 도울 수 있습니다.
 
@@ -113,7 +113,7 @@ SQL Database 및 Azure Portal에서 제공하는 모든 사용 가능한 도구 
 
 ### <a name="intelligent-threat-detection"></a>지능형 위협 검색
 
- [SQL 위협 요소 감지](sql-database-threat-detection.md)는 [SQL Database 감사](sql-database-auditing.md)를 활용하여 중요한 데이터에 액세스하는 잠재적으로 위험한 시도에 대해 Azure SQL Database를 지속적으로 모니터링합니다. SQL 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대한 경고를 받게 됩니다. SQL 위협 감지 경고는 의심스러운 활동에 대한 세부 정보 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다. 사용자는 데이터베이스의 데이터에 액세스, 침범 또는 악용하려는 시도로 이벤트가 발생했는지를 결정하기 위해서 의심스러운 이벤트를 탐색할 수 있습니다. 위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.
+ [SQL 위협 요소 감지](sql-database-threat-detection.md)는 [SQL Database 감사](sql-database-auditing.md)를 활용하여 중요한 데이터에 액세스하는 잠재적으로 위험한 시도에 대해 Azure SQL Database를 지속적으로 모니터링합니다. SQL 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상적인 데이터베이스 액세스 패턴에 대한 경고를 받게 됩니다. SQL 위협 감지 경고는 의심스러운 활동에 대한 세부 정보 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다. 사용자는 데이터베이스의 데이터에 액세스, 침범 또는 악용하려는 시도로 이벤트가 발생했는지를 결정하기 위해서 의심스러운 이벤트를 탐색할 수 있습니다. 위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.
 
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수
 
@@ -154,7 +154,7 @@ SQL Database로 응용 프로그램을 빌드하고 관리하는 작업의 편�
 - **[Azure Portal](https://portal.azure.com/)**: 모든 Azure 서비스를 관리하는 웹 기반 응용 프로그램 
 - **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**: SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리하는 체험 다운로드 가능한 클라이언트 응용 프로그램
 - **[Visual Studio의 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**: SQL Server 관계형 데이터베이스, Azure SQL Database, Integration Services 패키지, Analysis Services 데이터 모델 및 Reporting Services 보고서를 개발하는 체험 다운로드 가능한 클라이언트 응용 프로그램
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**: Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Windows, macOS 및 Linux용 체험 다운로드 가능한 오픈 소스 코드 편집기
+- **[Visual Studio Code](https://code.visualstudio.com/docs)**: Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Windows, macOS 및 Linux용 체험 다운로드 가능한 오픈 소스 코드 편집기입니다.
 
 SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 및 .NET을 사용하여 응용 프로그램을 빌드하도록 지원합니다. SQL Database는 동일한 [연결 라이브러리](sql-database-libraries.md)를 SQL Server로 지원합니다.
 
@@ -170,7 +170,7 @@ SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 
 - 단일 데이터베이스 및 탄력적 풀의 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
-- 이러한 빠른 시작 자습서를 참조하여 다음 항목을 시작하세요.
+- 이러한 빠른 시작을 참조하여 다음 항목을 시작하세요.
 
   - [Azure Portal에서 SQL Database 만들기](sql-database-get-started-portal.md)  
   - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-get-started-cli.md)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 456a0c63881f6eb15e8166bee0105e25c951b536
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 20d08fa6aac5a55480d2c11eb6e4f746ff863f78
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira-52"></a>자습서: JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On과 Azure Active Directory 통합
 
@@ -63,7 +63,8 @@ JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On과의 Azure A
 *   JIRA는 6.0 및 7.2.0도 지원합니다. 자세한 내용을 보려면 [JIRA에 대한 Microsoft Azure Active Directory Single Sign-On](./active-directory-saas-jiramicrosoft-tutorial.md)을 클릭하세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On 추가하기
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -73,7 +74,7 @@ JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On의 Azure AD �
 
 **갤러리에서 JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -114,7 +115,7 @@ JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On에서 Azure A
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_samlbase.png)
 
 3. **JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -127,29 +128,13 @@ JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On에서 Azure A
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 JIRA 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
- 
-4. **메타데이터** URL을 생성하려면 다음 단계를 수행합니다.
 
-    a. **앱 등록**을 클릭합니다.
+4. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
     
-    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\appregistrations.png)
-   
-    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpointicon.png)
-
-    다. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-msaadssojira5.2-tutorial/tutorial_metadataurl.png)
      
-    d. 이제 **JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On**의 속성 페이지로 이동하고, **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여넣습니다.
- 
-    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성하고 이 값을 메모장에 복사합니다. 나중에 플러그 인 구성에 사용되기 때문입니다.
-
 5. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_400.png)
@@ -178,8 +163,8 @@ JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On에서 Azure A
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
- 
-    a. **메타데이터 URL**에 Azure AD에서 생성된 **메타데이터 URL**을 붙여넣고 **해결** 단추를 클릭합니다. 그러면 IdP 메타데이터 URL을 읽어와서 모든 필드 정보가 채워집니다.
+
+    a. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL** 텍스트 상자에 붙여넣고 **해결** 단추를 클릭합니다. 그러면 IdP 메타데이터 URL을 읽어와서 모든 필드 정보가 채워집니다.
 
     나. **식별자, 회신 URL 및 로그온 URL** 값을 복사하고, Azure Portal의 **JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On 도메인 및 URL** 섹션에 있는 **식별자, 회신 URL 및 로그온 URL** 텍스트 상자에 각각 붙여넣습니다.
 
@@ -202,10 +187,6 @@ JIRA 5.2에 대한 Microsoft Azure Active Directory Single Sign-On에서 Azure A
 
     > [!NOTE]
     > 설치 및 문제 해결에 대한 자세한 내용은 [MS JIRA SSO 커넥터 관리자 가이드](ms-confluence-jira-plugin-adminguide.md)를 참조하시기 바라며, [FAQ](ms-confluence-jira-plugin-faq.md)도 도움이 될 것입니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -328,4 +309,3 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 [201]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_201.png
 [202]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_202.png
 [203]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_203.png
-

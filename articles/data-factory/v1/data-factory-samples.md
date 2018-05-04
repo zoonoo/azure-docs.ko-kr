@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1e85d5f48ce998ebaf4ccaa231bb75449e2bab16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0b8f56266f77724a60253991556b15a923e537f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory의 PowerShell 샘플 버전 2](../samples-powershell.md) 및 [Azure Code Samples 갤러리의 코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)을 참조하세요.
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory의 PowerShell 샘플 버전 2](../samples-powershell.md) 및 [Azure Code Samples 갤러리의 코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-factory)을 참조하세요.
 
 
 ## <a name="samples-on-github"></a>GitHub의 샘플

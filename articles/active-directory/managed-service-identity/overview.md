@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6b62baf1fdad6e08535b13f2ca461b00156a7f14
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Azure 리소스용 MSI(관리 서비스 ID)
 
@@ -32,14 +32,14 @@ Azure 서비스에 대해 관리 서비스 ID를 사용하도록 설정하면 Az
 
 Azure Virtual Machines에서 관리 서비스 ID가 작동하는 방식의 예제는 다음과 같습니다.
 
-![Virtual Machine MSI 예제](../media/msi-vm-example.png)
+![Virtual Machine MSI 예제](../media/msi-vm-imds-example.png)
 
-1. Azure Resource Manager가 VM에서 MSI를 사용하도록 설정하라는 메시지를 받습니다.
+1. Azure Resource Manager가 VM에서 시스템 할당 MSI(Managed Service Identity)를 사용하도록 설정하라는 메시지를 받습니다.
 2. Azure Resource Manager가 Azure AD에서 VM의 ID를 나타내는 서비스 주체를 만듭니다. 서비스 주체는 이 구독이 신뢰하는 Azure AD 테넌트에서 작성됩니다.
-3. Azure Resource Manager가 VM의 MSI VM 확장에서 서비스 주체 세부 정보를 구성합니다.  이 단계에서는 확장에서 사용하는 클라이언트 ID와 인증서가 Azure AD에서 액세스 토큰을 가져오도록 구성합니다.
-4. 이제 VM의 서비스 주체 ID가 확인되었으므로 Azure 리소스 액세스 권한을 해당 ID에 부여할 수 있습니다.  예를 들어 코드가 Azure Resource Manager를 호출해야 하는 경우 Azure AD에서 RBAC(역할 기반 액세스 제어)를 사용하여 VM 서비스 주체에 적절한 역할을 할당합니다.  코드가 Key Vault를 호출해야 하는 경우에는 Key Vault의 특정 비밀이나 키 액세스 권한을 코드에 부여합니다.
-5. VM에서 실행되는 코드가 MSI VM 확장이 호스팅하는 로컬 엔드포인트의 토큰을 요청합니다. http://localhost:50342/oauth2/token  리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. 예를 들어 코드가 Azure Resource Manager에 인증하도록 하려면 resource=https://management.azure.com/을 사용합니다.
-6. MSI VM 확장은 구성된 클라이언트 ID 및 인증서를 사용하여 Azure AD에서 액세스 토큰을 요청합니다.  Azure AD가 JWT(JSON Web Token) 액세스 토큰을 반환합니다.
+3. Azure Resource Manager가 VM의 Azure Instance Metadata Service에서 VM에 대한 서비스 사용자 세부 정보를 구성합니다. 이 단계에는 Azure AD에서 액세스 토큰을 가져오는 데 사용되는 클라이언트 ID와 인증서 구성이 포함됩니다. *참고: MSI IMDS 엔드포인트가 기존의 MSI VM 확장 엔드포인트를 대체하는 중입니다. 이 변경에 대한 자세한 내용은 FAQ 및 알려진 문제 페이지를 참조하세요.*
+4. 이제 VM의 서비스 주체 ID가 확인되었으므로 Azure 리소스 액세스 권한을 해당 ID에 부여할 수 있습니다. 예를 들어 코드가 Azure Resource Manager를 호출해야 하는 경우 Azure AD에서 RBAC(역할 기반 액세스 제어)를 사용하여 VM 서비스 주체에 적절한 역할을 할당합니다.  코드가 Key Vault를 호출해야 하는 경우에는 Key Vault의 특정 비밀이나 키 액세스 권한을 코드에 부여합니다.
+5. VM에서 실행 중인 코드가 Azure IMDS(Instance Metadata Service) MSI 엔드포인트에서 토큰을 요청합니다. 이 항목은 VM: http://169.254.169.254/metadata/identity/oauth2/token 안에서만 액세스할 수 있습니다. 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. 예를 들어 코드가 Azure Resource Manager에 인증하도록 하려면 resource=https://management.azure.com/을 사용합니다.
+6. Azure Instance Metadata가 VM에 대한 클라이언트 ID 및 인증서를 사용하여 Azure AD에서 액세스 토큰을 요청합니다. Azure AD가 JWT(JSON Web Token) 액세스 토큰을 반환합니다.
 7. 코드가 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다.
 
 관리 서비스 ID를 지원하는 각 Azure 서비스에는 코드가 액세스 토큰을 가져오는 데 사용할 수 있는 고유한 방법이 있습니다. 토큰을 가져오는 구체적인 방법을 확인하려면 각 서비스의 자습서를 참조하세요.

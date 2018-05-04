@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -99,6 +99,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하는 특정 지역의 저장소에 대한 연결을 허용할 수 있습니다. 인터넷 액세스를 차단하는 규칙보다 저장소 계정에 대한 액세스를 허용하는 규칙에 높은 우선 순위가 있는지 확인합니다. 
 
 ![지역에 대한 저장소 태그가 있는 네트워크 보안 그룹](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+서비스 태그를 구성하는 단계별 절차를 이해하려면 [이 비디오](https://youtu.be/1EjLQtbKm1M)를 시청합니다.
 
 > [!WARNING]
 > 저장소 서비스 태그는 미리 보기 상태입니다. 따라서 특정 지역에서만 사용할 수 있습니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.

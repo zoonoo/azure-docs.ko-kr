@@ -31,7 +31,7 @@
       href: monitoring-overview-of-diagnostic-logs.md
     - name: 활동 로그
       href: monitoring-overview-activity-logs.md
-    - name: 경고
+    - name: Alerts
       href: monitoring-overview-unified-alerts.md
     - name: 경고(클래식)
       href: monitoring-overview-alerts.md
@@ -67,6 +67,8 @@
           href: insights-alerts-powershell.md
         - name: 로그 경고에 대한 웹후크 작업
           href: monitor-alerts-unified-log-webhook.md
+        - name: Resource Manager 템플릿을 사용하여 새로운 메트릭 경고 만들기
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
           href: monitoring-enable-alerts-using-template.md
         - name: OMS 포털에서 Azure Portal에 경고 복사

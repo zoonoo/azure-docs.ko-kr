@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -232,9 +232,17 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 
 웹앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다.
 
-![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![TLS 1.1 또는 1.2 적용](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 작업이 완료되면 앱에서 더 낮은 TLS 버전과의 모든 연결을 거부합니다.
+
+## <a name="renew-certificates"></a>인증서 갱신
+
+바인딩이 IP 기반이라고 하더라도 바인딩을 삭제하면 인바운드 IP 주소가 변경될 수 있습니다. 이것은 IP 기반 바인딩에 이미 있는 인증서를 갱신할 때 특히 중요합니다. 앱의 IP 주소 변경을 방지하려면 다음 단계를 순서대로 수행합니다.
+
+1. 새 인증서 업로드
+2. 기존 인증서를 삭제하지 않고 원하는 사용자 지정 도메인에 새 인증서를 바인딩합니다. 이 작업은 기존 인증서를 제거하지 않고 바인딩을 바꿉니다.
+3. 기존 인증서를 삭제합니다. 
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
@@ -278,7 +286,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>공용 인증서(선택 사항)
-[공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 웹앱에 업로드할 수 있습니다. App Service Environments에서 응용 프로그램에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
+앱이 인증서 인증이 필요한 외부 서비스에 액세스할 수 있도록 [공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 웹앱에 업로드할 수 있습니다.  앱에서 공용 인증서를 로드 및 사용하는 방법에 대한 자세한 내용은 [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)을 참조하세요.  App Service Environments에서 앱에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
 
 ![공용 인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

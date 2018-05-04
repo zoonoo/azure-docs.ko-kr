@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/18/2018
 ms.author: jlian
-ms.openlocfilehash: 5ec67c0d51d24a7bb93a3f11bf3b73a223e8b583
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>프로그래밍 방식으로 Azure 엔터프라이즈 구독 만들기(미리 보기)
 
@@ -88,10 +88,10 @@ Azure는 액세스할 수 있는 모든 등록 계정의 목록으로 응답합�
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-[Get-EnrollmentAccount 명령](/powershell/module/azurerm.billing/get-azurermenrollmentaccount)을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다.
+[Get-AzureRmEnrollmentAccount 명령](/powershell/module/azurerm.billing/get-azurermenrollmentaccount)을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다.
 
 ```azurepowershell-interactive
-Get-EnrollmentAccount
+Get-AzureRmEnrollmentAccount
 ```
 
 Azure는 계정의 개체 ID 및 이메일 주소 목록으로 응답합니다.
@@ -207,8 +207,8 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | 아니오      | 문자열 | 구독의 표시 이름입니다. 지정되지 않은 경우 "Microsoft Azure 엔터프라이즈"와 같은 제품의 이름으로 설정됩니다.                                 |
 | `offer-type`   | 예      | 문자열 | 구독의 제품입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
-| `owner-object-id`      | 아니요       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 개체 ID입니다.  |
-| `owner-upn`    | 아니요       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 이메일 주소입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다.|
+| `owner-object-id`      | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 개체 ID입니다.  |
+| `owner-upn`    | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 이메일 주소입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다.|
 | `owner-spn` | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 응용 프로그램 ID입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다.| 
 
 모든 매개 변수의 전체 목록을 보려면 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create)를 참조하세요.

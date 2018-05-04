@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: dc83ac568ddf3b7a70ec2d39c94c8bb2952c8386
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6768b3e55af5e497c9424bc09130c9dd0948968b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-android-apps-and-firebase-cloud-messaging"></a>Android 앱 및 Firebase Cloud Messaging에 대한 Azure Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -63,7 +63,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="configure-a-new-notification-hub"></a>새 알림 허브 구성
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. **Notification Services** 아래에서 **Google(GCM)**을 선택합니다. [Firebase 콘솔](https://firebase.google.com/console/) 에서 이전에 복사한 FCM 서버 키를 입력하고 **저장**을 클릭합니다.
+&emsp;&emsp;6. **Notification Services** 아래에서 **Google(GCM)** 을 선택합니다. [Firebase 콘솔](https://firebase.google.com/console/) 에서 이전에 복사한 FCM 서버 키를 입력하고 **저장**을 클릭합니다.
 
 &emsp;&emsp;![Azure Notification Hubs - Google(GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
@@ -229,7 +229,7 @@ ms.lasthandoff: 04/16/2018
                         regID = hub.register(FCM_token).getRegistrationId();
    
                         // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
    
                         resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -248,7 +248,7 @@ ms.lasthandoff: 04/16/2018
                         regID = hub.register(FCM_token).getRegistrationId();
    
                         // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
    
                         resultString = "New NH Registration Successfully - RegId : " + regID;

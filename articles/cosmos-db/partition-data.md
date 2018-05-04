@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f4825d7393b4507b1cd512f3e33c5637fea8ba2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 35636543ac4cbd260e9db2f6ca5d1548a7329858
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Azure Cosmos DB의 파티션 및 확장
 
@@ -49,7 +49,7 @@ Azure Cosmos DB에서는 규모에 상관없이 몇 밀리초 대기 시간으�
 간단히 말해, Azure Cosmos DB에서 분할의 작동 방식은 다음과 같습니다.
 
 * **T**RU/s(초당 요청) 처리량으로 Azure Cosmos DB 컨테이너를 프로비전합니다.
-* 이를 위해 Azure Cosmos DB는 내부적으로 초당 **T** 요청을 서비스하는 데 필요한 파티션을 프로비전합니다. **T**가 파티션당 최대 처리량 **t**보다 높은 경우 Azure Cosmos DB는 **N = T/t** 파티션을 프로비전합니다.
+* 이를 위해 Azure Cosmos DB는 내부적으로 초당 **T** 요청을 서비스하는 데 필요한 파티션을 프로비전합니다. **T**가 파티션당 최대 처리량 **t**보다 높은 경우 Azure Cosmos DB는 **N = T/t** 파티션을 프로비전합니다. 파티션(t)당 최대 처리량 값은 Azure Cosmos DB에 의해 구성되며, 이 값은 사용된 하드웨어 구성 및 프로비전된 총 처리량에 따라 할당됩니다. 
 * Azure Cosmos DB는 **N** 파티션에 걸쳐 균등하게 파티션 키 해시의 주요 공간을 할당합니다. 따라서 각 파티션(실제 파티션)은 **1/N** 파티션 키 값(논리 파티션)을 호스팅합니다.
 * 실제 파티션 **p**가 저장소 한도에 도달하면 Azure Cosmos DB가 자연스럽게 **p**를 새로운 두 파티션 **p1**과 **p2**로 분할합니다. 각각의 새 파티션에는 키의 약 절반에 해당하는 값을 배포합니다. 이 분리 작업은 응용 프로그램에 전혀 나타나지 않습니다. 실제 파티션이 저장소 제한에 도달하고 실제 파티션의 모든 데이터가 동일한 논리 파티션 키에 속하는 경우 분할 작업이 발생하지 않습니다. 단일 논리 파티션 키에 대한 모든 데이터가 동일한 실제 파티션에 있어야 하기 때문입니다. 이 경우에 다른 파티션 키 전략을 사용해야 합니다.
 * **t*N**보다 높은 처리량을 프로비전할 경우 Azure Cosmos DB는 더 높은 처리량을 지원하기 위해 하나 이상의 파티션을 나눕니다.

@@ -112,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD(단일 테넌트)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: OpenID Connect 사용자 지정
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: 셀프 서비스 암호 재설정 설정
           href: active-directory-b2c-reference-sspr.md
         - name: UI 사용자 지정
@@ -159,6 +163,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: 다중 테넌트
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: SAML 공급자 구성
               items:
                 - name: ADFS
@@ -195,12 +201,12 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: 로그인 유지 사용
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: 사용자 동작 추적
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: 문제 해결
               items:
                 - name: Application Insights를 사용하여 로그 수집
                   href: active-directory-b2c-troubleshoot-custom.md
+                - name: 사용자 동작 추적
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: 참고 자료
           items:
             - name: 릴리스 정보

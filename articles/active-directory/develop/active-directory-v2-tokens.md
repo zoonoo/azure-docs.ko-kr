@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 토큰 참조
 Azure AD(Azure Active Directory) v2.0 끝점은 각 [인증 흐름](active-directory-v2-flows.md)에서 여러 유형의 보안 토큰을 내보냅니다. 이 참조에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 개체 ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 이 경우에 Microsoft ID 시스템에 있는 개체의 변경할 수 없는 식별자는 사용자 계정입니다.  데이터베이스 테이블의 키로써 안전하게 권한 부여 검사를 수행하는 데 사용할 수도 있습니다. 이 ID는 응용 프로그램에서 사용자를 고유하게 식별합니다. 동일한 사용자가 로그인한 두 개의 다른 응용 프로그램은 `oid` 클레임에서 동일한 값을 받습니다.  즉, Microsoft Graph와 같은 Microsoft Online Services에 대한 쿼리를 수행할 때 사용할 수 있습니다.  Microsoft Graph는 이 ID를 지정된 사용자 계정에 대한 `id` 속성으로 반환합니다.  `oid`를 사용하면 여러 앱에서 사용자의 상관 관계를 지정하기 때문에 이 클레임을 수신하기 위해 `profile` 범위가 필요합니다. 단일 사용자가 여러 테넌트에 존재하는 경우 사용자는 각 테넌트에서 다른 개체 ID를 포함합니다. 사용자가 동일한 자격 증명으로 각 계정에 로그인하더라도 서로 다른 계정으로 간주됩니다. |
 
 ### <a name="access-tokens"></a>액세스 토큰
-v2.0 끝점이 발급하는 액세스 토큰은 현재 Microsoft 서비스에서만 사용할 수 있습니다. 현재 지원되는 시나리오에 대해서는 앱이 액세스 토큰의 유효성 검사 또는 검사를 수행할 필요가 없습니다. 액세스 토큰을 완전 불투명으로 처리할 수 있습니다. 앱이 HTTP 요청을 통해 Microsoft에 전달할 수 있는 문자열일 뿐입니다.
 
-조만간 v2.0 끝점에 다른 클라이언트의 액세스 토큰을 받을 수 있는 기능이 도입될 예정입니다. 그때 이 참조 항목의 정보는 앱이 액세스 토큰 유효성 검사 및 기타 유사한 작업을 수행하는 데 필요한 정보로 업데이트될 것입니다.
+v2.0 엔드포인트는 Azure AD에 등록된 타사 앱이 Web API와 같은 안전한 리소스에 대한 액세스 토큰을 발급할 수 있도록 허용합니다. 액세스 토큰을 발급하도록 응용 프로그램을 설정하는 데 관한 자세한 내용은 [v2.0 엔드포인트로 앱을 등록하는 방법](active-directory-v2-app-registration.md)을 참조하세요. v2.0 엔드포인트로 응용 프로그램을 등록하면 개발자는 액세스 토큰이 발급되는 **범위**라고 하는 액세스의 수준을 지정할 수 있습니다. 예를 들어 Microsoft Graph API에 정의된 **calendars.read** 범위는 사용자의 일정을 읽을 수 있는 권한을 부여합니다. 응용 프로그램이 v2.0 엔드포인트에서 액세스 토큰을 받으면 시나리오에 따라 토큰의 서명, 발급자, 대상, 만료 시간 및 다른 클레임의 유효성을 검사해야 합니다. 
 
 v2.0 끝점의 액세스 토큰을 요청하는 경우 앱이 사용할 수 있도록 액세스 토큰에 대한 메타데이터도 v2.0 끝점에서 반환됩니다. 이 정보에는 액세스 토큰의 만료 시간 및 유효한 범위가 포함됩니다. 앱은 이 메타데이터를 사용하여 액세스 토큰 자체를 구문 분석하지 않고도 액세스 토큰의 지능형 캐싱을 수행할 수 있습니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
@@ -235,32 +235,32 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 | operationName | REST API 명령 |
 | --- | --- |
 | 인증 |Azure Active Directory 끝점을 통해 |
-| VaultGet |[키 자격 증명 모음에 대한 정보 가져오기](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[키 자격 증명 모음 만들기 또는 업데이트](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[키 자격 증명 모음 삭제](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[키 자격 증명 모음에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[키 자격 증명 모음 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[키 자격 증명 모음 삭제](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[키 자격 증명 모음 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[리소스 그룹의 모든 키 자격 증명 모음 목록](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[키 만들기](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[키에 대한 정보 가져오기](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[자격 증명 모음으로 키 가져오기](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[키 Backup](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[키 삭제](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[키 복원](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[키로 서명](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[키로 확인](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[키 래핑](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[키 래핑 취소](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[키로 암호화](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[키로 암호 해독](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[키 업데이트](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[자격 증명 모음에 키 나열](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[키 버전 나열](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[암호 만들기](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[암호 가져오기](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[암호 업데이트](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[암호 삭제](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[암호 버전 나열](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[리소스 그룹의 모든 키 자격 증명 모음 목록](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[키 만들기](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[키에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[자격 증명 모음으로 키 가져오기](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[키 Backup](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[키 삭제](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[키 복원](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[키로 서명](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[키로 확인](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[키 래핑](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[키 래핑 취소](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[키로 암호화](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[키로 암호 해독](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[키 업데이트](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[자격 증명 모음에 키 나열](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[키 버전 나열](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[암호 만들기](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[암호 가져오기](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[암호 업데이트](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[암호 삭제](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[암호 버전 나열](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Log Analytics 사용
 

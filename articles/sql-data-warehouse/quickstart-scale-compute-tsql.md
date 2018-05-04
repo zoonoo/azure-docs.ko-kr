@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b4e123475679cf1afce09630c157377ee67b5202
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure SQL Data Warehouse에서 계산 능력 조정
 
@@ -25,8 +25,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="before-you-begin"></a>시작하기 전에
 
 최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms.md)를 다운로드하여 설치합니다.
-
-여기서는 [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 완료했다고 가정합니다. 만들기 및 연결 빠른 시작을 완료한 후에는 연결하고, **mySampleDataWarehouse**라는 데이터 웨어하우스를 만들고, 클라이언트가 서버에 액세스하도록 허용하는 방화벽 규칙을 만들고, 설치하는 방법을 알 수 있게 됩니다.
  
 ## <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
 
@@ -91,11 +89,42 @@ SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산
 1. **master**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 문을 사용하여 서비스 목표를 수정합니다. 다음 쿼리를 실행하여 서비스 목표를 DW300으로 변경합니다. 
 
-```Sql
-ALTER DATABASE mySampleDataWarehouse
-MODIFY (SERVICE_OBJECTIVE = 'DW300')
-;
-```
+    ```Sql
+    ALTER DATABASE mySampleDataWarehouse
+    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    ;
+    ```
+
+## <a name="monitor-scale-change-request"></a>규모 변경 요청 모니터링
+이전 변경 요청의 진행률을 보려면 `WAITFORDELAY` T-SQL 구문을 사용하여 sys.dm_operation_status DMV(동적 관리 뷰)를 폴링할 수 있습니다.
+
+서비스 개체 변경 상태를 폴링하려면 다음을 수행합니다.
+
+1. **master**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+2. 다음 쿼리를 실행하여 sys.dm_operation_status DMV를 폴링합니다.
+
+    ```sql
+    WHILE 
+    (
+        SELECT TOP 1 state_desc
+        FROM sys.dm_operation_status
+        WHERE 
+            1=1
+            AND resource_type_desc = 'Database'
+            AND major_resource_id = 'MySampleDataWarehouse'
+            AND operation = 'ALTER DATABASE'
+        ORDER BY
+            start_time DESC
+    ) = 'IN_PROGRESS'
+    BEGIN
+        RAISERROR('Scale operation in progress',0,0) WITH NOWAIT;
+        WAITFOR DELAY '00:00:05';
+    END
+    PRINT 'Complete';
+    ```
+3. 결과 출력에 상태 폴링 로그가 표시됩니다.
+
+    ![작업 상태](media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## <a name="check-data-warehouse-state"></a>데이터 웨어하우스 상태 확인
 
@@ -103,7 +132,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 
 ## <a name="check-operation-status"></a>작업 상태 확인
 
-SQL Data Warehouse의 다양한 관리 작업에 대한 정보를 반환하려면 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV에 대해 다음 쿼리를 실행합니다. 예를 들어, 해당 작업과 IN_PROGRESS 또는 COMPLETED 중 하나인 작업 상태가 반환됩니다.
+SQL Data Warehouse의 다양한 관리 작업에 대한 정보를 반환하려면 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV에 대해 다음 쿼리를 실행합니다. 예를 들어 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)를 반환합니다.
 
 ```sql
 SELECT *
@@ -112,12 +141,12 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySQLDW'
+    major_resource_id = 'MySampleDataWarehouse'
 ```
 
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 데이터 웨어하우스에 대한 계산 성능을 조정하는 방법을 배웠습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
+지금까지 데이터 웨어하우스의 계산 규모를 조정하는 방법을 배웠습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 >[SQL 데이터 웨어하우스로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

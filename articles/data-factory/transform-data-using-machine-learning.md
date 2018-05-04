@@ -3,21 +3,20 @@ title: Azure Data Factory를 사용하여 예측 데이터 파이프라인 만�
 description: Azure Data Factory에서 Azure Machine Learning - Batch 실행 작업을 사용하여 예측 파이프라인을 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 8d87facdf1724ddbcb3bb6d7c189d8ff41d44973
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: douglasl
+ms.openlocfilehash: 1bb4ec7cbe9e5b4ab51b4929fc63401c543d5244
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -139,9 +138,9 @@ Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 �
 | description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니오       |
 | 형식              | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **AzureMLBatchExecution**입니다. | 예      |
 | linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
+| webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니오       |
 | webServiceOutputs | Azure Machine Learning 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 출력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니오       |
-| globalParameters  | Azure ML Batch 실행 서비스 끝점에 전달되는 키, 값 쌍입니다. 키는 게시된 Azure ML 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure ML Batch 실행 요청의 GlobalParameters 속성에서 전달됩니다. | 아니요       |
+| globalParameters  | Azure ML Batch 실행 서비스 끝점에 전달되는 키, 값 쌍입니다. 키는 게시된 Azure ML 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure ML Batch 실행 요청의 GlobalParameters 속성에서 전달됩니다. | 아니오       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 02a34111fbab62884c9ecbfc084a55d21d775182
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -236,6 +236,8 @@ C# 및 C# 스크립트에서 큐 또는 토픽 메시지에 대해 다음 매개
 * `byte[]` - 이진 데이터에 유용합니다.
 * 사용자 지정 형식 - 메시지에 JSON이 포함된 경우 Azure Functions는 JSON 데이터를 deserialize하려고 합니다.
 * `BrokeredMessage` - [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) 메서드를 사용하는 deserialize된 메시지가 표시됩니다.
+
+이러한 매개 변수는 Azure Functions 버전 1.x용이므로 2.x의 경우 `BrokeredMessage` 대신 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)를 사용합니다.
 
 JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽 메시지에 액세스합니다. Service Bus 메시지가 문자열 또는 JSON 개체로 함수에 전달됩니다.
 
@@ -479,6 +481,8 @@ C# 및 C# 스크립트에서 출력 바인딩에 대해 다음 매개 변수 형
 * `ICollector<T>` 또는 `IAsyncCollector<T>` - 여러 개의 메시지를 만들려는 경우. 메시지는 `Add` 메서드를 호출할 때 생성됩니다.
 
 비동기 함수에서는 `out` 매개 변수 대신, 반환 값 또는 `IAsyncCollector`를 사용합니다.
+
+이러한 매개 변수는 Azure Functions 버전 1.x용이므로 2.x의 경우 `BrokeredMessage` 대신 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)를 사용합니다.
 
 JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽에 액세스합니다. 문자열, 바이트 배열 또는 Javascript 개체(JSON으로 deserialize됨)를 `context.binding.<name>`에 할당할 수 있습니다.
 

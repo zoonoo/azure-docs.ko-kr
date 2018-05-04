@@ -1,25 +1,22 @@
 ---
-title: Azure AD에 연결할 때의 MVC 프로젝트 변경 내용 | Microsoft Docs
+title: Azure AD에 연결할 때의 MVC 프로젝트 변경 내용
 description: Visual Studio 연결된 서비스를 사용하여 Azure AD에 연결할 때 MVC 프로젝트의 변경 내용을 설명합니다.
 services: active-directory
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 1925a32ce5745673c08af3f9cfe63090d4adfa23
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
@@ -35,7 +32,7 @@ ms.lasthandoff: 03/30/2018
 
 프로젝트 파일(*.NET 참조) 및 `packages.config`(NuGet 참조)에 영향을 줍니다.
 
-| 유형 | 참고 자료 |
+| type | 참고 자료 |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -50,7 +47,7 @@ ms.lasthandoff: 03/30/2018
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 참조는 다음과 같습니다.
 
-| 유형 | 참고 자료 |
+| type | 참고 자료 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer(Visual Studio 2015만 해당) |
@@ -64,7 +61,7 @@ ms.lasthandoff: 03/30/2018
 
 다음 참조가 제거됩니다(Visual Studio 2015와 마찬가지로 ASP.NET 4 프로젝트만 해당).
 
-| 유형 | 참고 자료 |
+| type | 참고 자료 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

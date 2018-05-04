@@ -1,18 +1,22 @@
 # [Analysis Services 설명서](index.md)
 
 # 개요
-## [Analysis Services 정보](analysis-services-overview.md)
-## [지원되는 데이터 원본](analysis-services-datasource.md)
-## [인증 및 사용자 권한](analysis-services-manage-users.md)
-## [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)
-## [호환성 수준](analysis-services-compat-level.md)
-## [고가용성](analysis-services-bcdr.md)
+## [Azure Analysis Services란?](analysis-services-overview.md)
+
 
 # 시작하기
 ## [Azure portal에서 서버 만들기](analysis-services-create-server.md)
 ## [Azure PowerShell로 서버 만들기](analysis-services-create-powershell.md)
 ## [Visual Studio에서 모델 배포](analysis-services-deploy.md)
 ## [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
+
+# 개념
+## [지원되는 데이터 원본](analysis-services-datasource.md)
+## [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)
+## [서버에 연결](analysis-services-connect.md)
+## [인증 및 사용자 권한](analysis-services-manage-users.md)
+## [호환성 수준](analysis-services-compat-level.md)
+## [고가용성](analysis-services-bcdr.md)
 
 # 방법 
 ## [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)
@@ -21,9 +25,9 @@
 ## [REST API 사용하여 새로 고침](analysis-services-async-refresh.md)
 ## [스케일 아웃 구성](analysis-services-scale-out.md)
 ## 관리 작업 자동화
-### [서비스 사용자 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [서비스 사용자 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)
+### [서비스 주체 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [서비스 주체 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)
 ## 서버 관리
 ### [서버 이름 별칭 구성](analysis-services-server-alias.md)
 ### [서버 관리](analysis-services-manage.md)
@@ -31,7 +35,7 @@
 ### [서버 관리자 관리](analysis-services-server-admins.md)
 ### [서버 메트릭 모니터링](analysis-services-monitor.md)
 ### [진단 로깅 설정](analysis-services-logging.md)
-### [VNET의 데이터 원본에 대한 게이트웨이 사용](analysis-services-vnet-gateway.md)
+### [VNet의 데이터 원본에 대한 게이트웨이 사용](analysis-services-vnet-gateway.md)
 ## 연결
 ### [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ### [Excel과 연결](analysis-services-connect-excel.md)
@@ -71,7 +75,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure 상태](https://azure.microsoft.com/status/)
 ## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [가격](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)

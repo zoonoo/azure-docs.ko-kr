@@ -1,25 +1,22 @@
 ---
-title: Visual Studio에서 Azure VM에 웹앱 게시 | Microsoft Docs
+title: Visual Studio에서 Azure VM에 웹앱 게시
 description: Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹 응용 프로그램 게시
 services: virtual-machines-windows
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: dotnet
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: aspnet
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: f236a00ef86f58d4d266a19d74485984d9ddb691
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d9e2c1a941c25aedd9048f2784350106b8739dba
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
@@ -36,7 +33,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 다음 섹션에서는 Azure Virtual Machine에 기존 ASP.NET 웹 응용 프로그램을 게시하는 방법을 설명합니다.
 
 1. Visual Studio 2017에서 웹앱 솔루션을 엽니다.
-2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...**를 선택합니다.
+2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 3. 페이지 오른쪽의 화살표를 사용하여 **Microsoft Azure Virtual Machines**가 나올 때까지 게시 옵션을 탐색합니다.  
 
    ![게시 페이지 - 오른쪽 화살표]
@@ -91,7 +88,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 ### <a name="modify-publish-profile-settings"></a>게시 프로필 설정 수정
 
-게시 프로필 설정을 보고 수정하려면 **설정...**을 선택합니다.  
+게시 프로필 설정을 보고 수정하려면 **설정...** 을 선택합니다.  
 
 ![게시 페이지 - 설정 단추]
 

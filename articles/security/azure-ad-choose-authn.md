@@ -9,11 +9,11 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: e7f894733546fa8949902a82f4ae3a9c62b749c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 102fa06be3734fa6993616f752922433ee0dee7f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choosing-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -87,7 +87,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **사용자 환경:** 조직에서는 통과 인증을 사용하는 원활한 SSO(Single Sign-On)를 배포하여 사용자가 로그인한 후 불필요한 프롬프트를 방지함으로써 사용자의 로그인 환경을 개선하는 것이 좋습니다.
 
-* **고급 시나리오:** 통과 인증에서는 온-프레미스 사용자의 계정 상태가 사용할 수 없거나, 잠겨 있거나, 암호가 만료된 상태인 경우 인증 요청을 즉시 거부합니다. 통과 인증과 함께 다단계 인증을 필요로 하는 조직은 Azure AD 다단계 인증을 사용해야 하며 타사 또는 온-프레미스 다단계 인증 방법은 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
+* **고급 시나리오:** 통과 인증에서는 온-프레미스 사용자의 계정 상태가 사용할 수 없거나, 잠겨 있거나, 암호가 만료되었거나 사용자의 허용된 로그온 시간을 벗어난 경우 인증 요청을 즉시 거부합니다. 통과 인증과 함께 다단계 인증을 필요로 하는 조직은 Azure AD 다단계 인증을 사용해야 하며 타사 또는 온-프레미스 다단계 인증 방법은 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
 
 * **비즈니스 연속성:** 인증 요청의 높은 가용성을 보장하기 위해 Azure AD Connect 서버의 첫 번째 에이전트 외에도 두 개의 추가적인 통과 에이전트를 배포하는 것이 좋습니다. 세 개의 에이전트를 배포하면 유지 관리를 위해 에이전트 하나가 중지된 경우에도 다른 에이전트가 실패해도 괜찮습니다. 통과 인증에 더하여 암호 해시 동기화를 배포했을 때의 또 다른 이점은 온-프레미스 서버를 사용할 수 없는 경우 등과 같이 더 이상 기본 인증 방법을 사용할 수 없을 때 백업 인증 방법으로 작동할 수 있다는 것입니다.
 

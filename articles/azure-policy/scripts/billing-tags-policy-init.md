@@ -1,25 +1,25 @@
 ---
-title: "Azure Policy json 샘플 - 청구 태그 정책 이니셔티브 | Microsoft Docs"
-description: "이 json 샘플 정책 집합은 비용 센터 및 제품 이름에 대해 지정된 태그 값을 필요로 합니다."
+title: Azure Policy json 샘플 - 청구 태그 정책 이니셔티브 | Microsoft Docs
+description: 이 json 샘플 정책 집합은 비용 센터 및 제품 이름에 대해 지정된 태그 값을 필요로 합니다.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: d9f964ed6d2f04898b649194d0824cb7f3c31e2d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 45dea9bb8ed6826d0c95a8a89e4270b82503a262
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="billing-tags-policy-initiative"></a>청구 태그 정책 이니셔티브
 

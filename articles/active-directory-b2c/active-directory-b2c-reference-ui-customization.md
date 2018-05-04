@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: ea33fa95aa7b73668aeee313a9d71a7f78e89a77
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C UI(사용자 인터페이스)를 사용자 지정
 
@@ -345,3 +345,4 @@ UI 옵션이 있는 다른 서비스와 달리, Azure AD B2C는 간단한 최신
   * Internet Explorer 9, 8에 대한 지원 제한
   * Google Chrome 42.0 이상
   * Mozilla Firefox 38.0 이상
+* Azure AD B2C에서 삽입된 HTML에서 생성되는 POST 작업을 방해하므로 HTML에 `<form>` 태그가 포함되지 않도록 합니다.

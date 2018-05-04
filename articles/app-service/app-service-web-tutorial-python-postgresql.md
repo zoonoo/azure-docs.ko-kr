@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: f53ffdaa6c99d63bdab91f30ffa6b2b182c53848
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e342a10c2f3b6c32d8d0bc727bf3325c26fb53d6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>자습서: Azure에서 Python 및 PostgreSQL 웹앱 빌드
 
@@ -112,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 `http://localhost:5000`으로 이동합니다. **Register!**를 클릭하고 테스트 사용자를 만듭니다.
+브라우저에서 `http://localhost:5000`으로 이동합니다. **Register!** 를 클릭하고 테스트 사용자를 만듭니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -134,35 +134,43 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 
 [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) 명령을 사용하여 PostgreSQL 서버를 만듭니다.
 
-다음 명령에서 *\<postgresql_name>* 자리 표시자를 대신하여 고유한 서버 이름으로, *\<admin_username>* 자리 표시자를 대신하여 사용자 이름으로 바꿉니다. 서버 이름은 PostgreSQL 끝점(`https://<postgresql_name>.postgres.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. 사용자 이름은 초기 데이터베이스 관리 사용자 계정에 대한 이름입니다. 이 사용자의 암호를 선택하라는 메시지가 표시됩니다.
+다음 명령에서 *\<postgresql_name>* 자리 표시자를 고유한 서버 이름으로, *\<admin_username>* 을 사용자 이름으로, *\<admin_password* 자리 표시자를 암호로 대체하세요. 서버 이름은 PostgreSQL 끝점(`https://<postgresql_name>.postgres.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
+az postgres server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_username> --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
 ```json
 {
+  "additionalProperties": {},
   "administratorLogin": "<my_admin_username>",
+  "earliestRestoreDate": "2018-04-19T22:51:05.340000+00:00",
   "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
-  "location": "westus",
+  "location": "westeurope",
   "name": "<postgresql_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
-    "capacity": 100,
-    "family": null,
-    "name": "PGSQLS3M100",
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "additionalProperties": {},
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "9.6"
 }
 ```
 
@@ -178,14 +186,19 @@ Azure CLI는 다음 예제와 비슷한 출력으로 방화벽 규칙 만들기�
 
 ```json
 {
-  "endIpAddress": "0.0.0.0",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
-  "name": "AllowAzureIPs",
-  "resourceGroup": "myResourceGroup",
+  "additionalProperties": {},
+  "endIpAddress": "255.255.255.255",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
+  "name": "AllowAllIPs",
+ "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
 }
 ```
+
+> [!TIP] 
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](app-service-ip-addresses.md#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+>
 
 ### <a name="create-a-production-database-and-user"></a>프로덕션 데이터베이스 및 사용자 만들기
 
@@ -194,7 +207,7 @@ Azure CLI는 다음 예제와 비슷한 출력으로 방화벽 규칙 만들기�
 데이터베이스에 연결합니다(관리자 암호를 묻는 메시지가 표시됨).
 
 ```bash
-psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
+psql -h <postgresql_name>.postgres.database.azure.com -U <admin_username>@<postgresql_name> postgres
 ```
 
 PostgreSQL CLI에서 데이터베이스와 사용자를 만듭니다.
@@ -226,7 +239,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 http://localhost:5000으로 이동합니다. **Register!**를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
+브라우저에서 http://localhost:5000으로 이동합니다. **Register!** 를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -258,13 +271,13 @@ Git 리포지토리에는 App Service에서 Flask 웹앱을 실행하는 데 필
 
 이 단계에서는 App Service에서 [사이트 확장](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)을 통해 Python 3.6.2를 설치합니다. [배포 사용자 구성](#configure-a-deployment-user)에서 구성한 자격 증명을 사용하여 REST 엔드포인트에 대해 인증합니다.
 
-Python 3.6.2 패키지 정보를 가져오려면 Cloud Shell에서 다음 명령을 실행합니다. *\<deployment_user>*는 이전에 구성한 배포 사용자 이름으로 바꾸고, *\<app_name>*은 앱 이름으로 바꿉니다. 메시지가 표시되면 이전에 구성한 배포 암호를 사용합니다.
+Python 3.6.2 패키지 정보를 가져오려면 Cloud Shell에서 다음 명령을 실행합니다. *\<deployment_user>* 는 이전에 구성한 배포 사용자 이름으로 바꾸고, *\<app_name>* 은 앱 이름으로 바꿉니다. 메시지가 표시되면 이전에 구성한 배포 암호를 사용합니다.
 
 ```bash
 packageinfo=$(curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/extensionfeed/python362x86)
 ```
 
-Python 패키지를 설치하려면 Cloud Shell에서 다음 명령을 실행합니다. *\<deployment_user>*는 이전에 구성한 배포 사용자 이름으로 바꾸고, *\<app_name>*은 앱 이름으로 바꿉니다. 메시지가 표시되면 이전에 구성한 배포 암호를 사용합니다.
+Python 패키지를 설치하려면 Cloud Shell에서 다음 명령을 실행합니다. *\<deployment_user>* 는 이전에 구성한 배포 사용자 이름으로 바꾸고, *\<app_name>* 은 앱 이름으로 바꿉니다. 메시지가 표시되면 이전에 구성한 배포 암호를 사용합니다.
 
 ```bash
 curl -X PUT -u <deployment_user> -H "Content-Type: application/json" -d '$packageinfo' https://<app_name>.scm.azurewebsites.net/api/siteextensions/python362x86
@@ -278,7 +291,7 @@ curl -X PUT -u <deployment_user> -H "Content-Type: application/json" -d '$packag
 
 App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
 
-다음 예제에서는 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. *\<app_name>*을 앱 이름으로 바꾸고 *\<postgresql_name>*을 PostgreSQL 서버 이름으로 바꿉니다.
+다음 예제에서는 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. *\<app_name>* 을 앱 이름으로 바꾸고 *\<postgresql_name>* 을 PostgreSQL 서버 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration"

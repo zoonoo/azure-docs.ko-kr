@@ -246,11 +246,13 @@
       items:
         - name: 모니터링 개요
           href: service-fabric-diagnostics-overview.md
-        - name: 클러스터 이벤트
+        - name: 클러스터 모니터링
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: 작동 채널
-              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: 서비스 패브릭 이벤트
+              href: service-fabric-diagnostics-events.md
+            - name: EventStore 개요
+              href: service-fabric-diagnostics-eventstore.md
             - name: Reliable Services 이벤트
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors 이벤트
@@ -507,6 +509,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Azure 리소스 관리자
                   href: service-fabric-cluster-creation-via-arm.md
+                - name: 인증서 일반 이름을 사용하는 클러스터
+                  href: service-fabric-create-cluster-using-cert-cn.md
             - name: 확장
               items:
                 - name: 수동
@@ -519,6 +523,10 @@
               href: service-fabric-cluster-security-roles.md
             - name: Load Balancer에서 포트 열기
               href: create-load-balancer-rule.md
+            - name: 클러스터 인증서를 일반 이름으로 변경
+              href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+            - name: 수동 롤오버 클러스터 인증서
+              href: service-fabric-cluster-rollover-cert-cn.md
             - name: 클러스터 인증서 관리
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: 삭제
@@ -567,6 +575,8 @@
               href: service-fabric-diagnostics-oms-containers.md
         - name: 클러스터 모니터링
           items:
+            - name: EventStore API 쿼리
+              href: service-fabric-diagnostics-eventstore-query.md
             - name: Windows Azure 진단
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure 진단
@@ -630,6 +640,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST (영문)
       href: /rest/api/servicefabric
+    - name: 서비스 패브릭 이벤트
+      href: service-fabric-diagnostics-event-generation-operational.md
     - name: 클러스터 설정 및 패브릭 업그레이드 정책 구성
       href: service-fabric-cluster-fabric-settings.md
     - name: 서비스 모델 XML 스키마

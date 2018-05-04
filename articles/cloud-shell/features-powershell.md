@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: damaerte
-ms.openlocfilehash: 5c4cb6230d8509830d25caaf497e4e63ac7e5806
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8ab436900329d83f069b26cd11a60bce720c618c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell(미리 보기) 기능 및 도구
 
@@ -90,7 +90,7 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 |**범주**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure 도구     |[Azure PowerShell(5.6.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI(2.0.30)](https://docs.microsoft.com/cli/azure)|
+|Azure 도구     |[Azure PowerShell(5.7.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI(2.0.31)](https://docs.microsoft.com/cli/azure)|
 |텍스트 편집기    |vim<br> nano                             |
 |패키지 관리자 |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |소스 제어  |git                                      |
@@ -102,8 +102,8 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 |**언어**|**버전**|
 |------------|-----------|
 |.NET        |4.6        |
-|Node.js     |6.10       |
-|PowerShell  |5.1 및 [6.0.2](https://github.com/PowerShell/powershell/releases)       |
+|Node.js     |8.9.4       |
+|PowerShell  |5.1 및 [6.1.0-preview.1](https://github.com/PowerShell/powershell/releases)       |
 |파이썬      |2.7        |
 
 ## <a name="next-steps"></a>다음 단계

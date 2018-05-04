@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -40,6 +40,9 @@ ms.lasthandoff: 04/16/2018
 |**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* 보류 중인 작업 예측에서 해결합니다.
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 안정성 향상
@@ -74,6 +77,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |2018년 4월 18일 |--- |
 | [1.3.1](#1.3.1) |2018년 3월 13일 |--- |
 | [1.2.0](#1.2.0) |2017년 10월 31일 |--- |
 | [1.1.1](#1.1.1) |2017년 8월 29일 |--- |

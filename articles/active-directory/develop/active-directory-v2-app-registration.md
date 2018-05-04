@@ -1,11 +1,11 @@
 ---
-title: "포털을 사용하는 Azure AD v2.0 끝점에 응용 프로그램 등록 | Microsoft Docs"
-description: "v2.0 끝점을 사용하여 Microsoft 서비스 로그인 및 액세스를 사용하도록 설정하기 위해 Microsoft에 앱을 등록하는 방법"
+title: 포털을 사용하는 Azure AD v2.0 끝점에 응용 프로그램 등록 | Microsoft Docs
+description: v2.0 끝점을 사용하여 Microsoft 서비스 로그인 및 액세스를 사용하도록 설정하기 위해 Microsoft에 앱을 등록하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: lnalepa
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: eba8ecd27542b23676c08b8ce072c91134d27fa5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da9dd5099d8175f1f7347cb022f149979b618909
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>v2.0 끝점을 사용하여 앱을 등록하는 방법
 MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저 Microsoft에 앱을 등록해야 합니다.  지금은 Azure AD나 MSA를 사용하여 가지고 있는 기존의 앱은 사용할 수 없습니다. - 새 앱을 만들어야 합니다.
@@ -30,7 +30,7 @@ MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저
 > 
 
 ## <a name="visit-the-microsoft-app-registration-portal"></a>Microsoft 앱 등록 포털 방문
-가장 먼저 해야 할 일입니다. - [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)로 이동합니다.  이곳은 Microsoft 앱을 관리할 수 있는 새로운 앱 등록 포털입니다.
+우선 [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)로 이동합니다.  이곳은 Microsoft 앱을 관리할 수 있는 새로운 앱 등록 포털입니다.
 
 개인, 직장 또는 학교 Microsoft 계정 중 하나로 로그인 합니다.  계정이 하나라도 없다면, 새로운 개인 계정을 등록합니다. 그렇게 오래 걸리지 않으니 등록하세요 - 기다리겠습니다.
 
@@ -40,18 +40,20 @@ MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저
 
 다음으로, 앱에서 사용할 플랫폼을 추가합니다.
 
-* 웹 기반 앱의 경우 로그인 메시지를 보낼 수 있는 **리디렉션 URI** 를 제공합니다.
+* 웹 기반 앱의 경우 로그인 메시지를 보낼 수 있는 **리디렉션 URI**를 제공합니다.
 * 모바일 앱의 경우 자동으로 만들어진 기본 리디렉션 URI를 적어둡니다.
+* 웹 API의 경우 웹 API에 대한 기본 액세스 범위가 자동으로 생성됩니다. **범위 추가** 단추를 사용하여 추가 범위를 추가하도록 선택할 수 있습니다. **사전 승인된 응용 프로그램** 양식을 사용하여 웹 API를 사용하도록 미리 승인된 응용 프로그램을 추가할 수도 있습니다. 
+
 
 필요에 따라 프로필 섹션에서 로그인 페이지의 디자인을 사용자 할당할 수 있습니다.  다음 단계로 넘어가기 전에 **저장** 을 클릭하십시오.
 
 > [!NOTE]
-> [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)를 사용하여 응용 프로그램을 만드는 경우 응용 프로그램은 포털에 로그인하는 데 사용하는 계정의 홈 테넌트에 등록됩니다.  즉, 개인 Microsoft 계정을 사용하여 Azure AD 테넌트에 응용 프로그램을 등록할 수 없습니다.  응용 프로그램을 특정 테넌트에 명시적으로 등록하려면 해당 테넌트에 원래 만든 계정을 사용하여 로그인합니다.
+> [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)를 사용하여 응용 프로그램을 만드는 경우 응용 프로그램은 포털에 로그인하는 데 사용하는 계정의 홈 테넌트에 등록됩니다.  즉, 개인 Microsoft 계정을 사용하여 Azure AD 테넌트에 응용 프로그램을 등록할 수는 없습니다.  응용 프로그램을 특정 테넌트에 명시적으로 등록하려면 해당 테넌트에 원래 만든 계정을 사용하여 로그인합니다.
 > 
 > 
 
-## <a name="build-a-quick-start-app"></a>빠른 시작 앱 빌드하기
-이제 Microsoft 앱을 가지고 있으므로 v2.0 빠른 시작 자습서 중 하나를 완료할 수 있습니다.  몇가지 권장 사항입니다.
+## <a name="build-a-quickstart-app"></a>빠른 시작 앱 빌드
+이제 Microsoft 앱을 가지고 있으므로 v2.0 빠른 시작 자습서 중 하나를 완료할 수 있습니다.  몇 가지 권장 사항입니다.
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 데이터 준비 실행 API를 사용하는 방법에 대한 심층 가이드 | Microsoft Docs"
-description: "이 문서에서는 이전에 디자인한 데이터 원본 및 데이터 준비 패키지의 실행에 대한 자세한 정보를 제공합니다."
+title: Azure Machine Learning 데이터 준비 실행 API를 사용하는 방법에 대한 심층 가이드 | Microsoft Docs
+description: 이 문서에서는 이전에 디자인한 데이터 원본 및 데이터 준비 패키지의 실행에 대한 자세한 정보를 제공합니다.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 36814d238aabd12e7cc6947809c135130002eb46
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Python에서 데이터 원본 및 데이터 준비 패키지 실행
 

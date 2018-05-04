@@ -97,6 +97,8 @@
           href: durable-functions-bindings.md
         - name: 검사점 및 재생
           href: durable-functions-checkpointing-and-replay.md
+        - name: 사용자 지정 오케스트레이션 상태
+          href: durable-functions-custom-orchestration-status.md
         - name: 인스턴스 관리
           href: durable-functions-instance-management.md
         - name: HTTP API
@@ -181,6 +183,8 @@
           href: durable-functions-phone-verification.md
         - name: 단위 테스트
           href: durable-functions-unit-testing.md
+        - name: 이벤트 게시
+          href: durable-functions-event-publishing.md
 - name: 참고 자료
   items:
     - name: 바인딩
@@ -191,8 +195,7 @@
           href: functions-bindings-cosmosdb.md
         - name: Event Grid
           href: functions-bindings-event-grid.md
-        - name: |
-            Event Hubs
+        - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: 외부 파일
           href: functions-bindings-external-file.md

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: b2b740c2ececba2c3f95f8fbfbfb55e7f4811112
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9e8ef7243fcef990dae6ddc6509cd31b3f36e3d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure 진단 확장을 사용하여 성능 모니터링
 
@@ -44,7 +44,9 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
 
     `scheduledTransferPeriod`는 카운터의 값이 Azure 저장소 테이블 및 모든 구성된 싱크에 수집되고 전송되는 빈도를 정의합니다. 
 
-3. 이전 단계에서 선언된 `PerformanceCounterConfiguration`에 수집하려는 성능 카운터를 추가합니다. 수집하려는 각 카운터는 `counterSpecifier`, `sampleRate`, `unit`, `annotation` 및 관련 `sinks`로 정의됩니다. *총 프로세서 시간*(CPU를 처리 작업에 사용하는 시간)에 대한 카운터를 사용한 구성 및 Service Fabric 사용자 지정 성능 카운터 중 하나인 *초당 Service Fabric 작업자 메서드 호출*의 예제는 다음과 같습니다. Service Fabric 사용자 지정 성능 카운터의 전체 목록은 [Reliable Actor 성능 카운터](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) 및 [Reliable Service 성능 카운터](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters)를 참조하세요.
+3. 이전 단계에서 선언된 `PerformanceCounterConfiguration`에 수집하려는 성능 카운터를 추가합니다. 수집하려는 각 카운터는 `counterSpecifier`, `sampleRate`, `unit`, `annotation` 및 관련 `sinks`로 정의됩니다.
+
+*총 프로세서 시간*(CPU를 처리 작업에 사용하는 시간)에 대한 카운터를 사용한 구성 및 Service Fabric 사용자 지정 성능 카운터 중 하나인 *초당 Service Fabric 작업자 메서드 호출*의 예제는 다음과 같습니다. Service Fabric 사용자 지정 성능 카운터의 전체 목록은 [Reliable Actor 성능 카운터](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) 및 [Reliable Service 성능 카운터](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters)를 참조하세요.
 
  ```json
  "WadCfg": {
@@ -112,9 +114,8 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. 업그레이드가 롤아웃을 완료하면(15-45분 소요) WAD는 성능 카운터를 수집하고 클러스터와 연결된 저장소 계정에서 WADPerformanceCountersTable이라는 표로 보내야 합니다.
+5. 업그레이드가 롤아웃을 완료하면(15-45분 소요) WAD는 성능 카운터를 수집하고 클러스터와 연결된 저장소 계정에서 WADPerformanceCountersTable이라는 표로 보내야 합니다. [Resource Manager 템플릿에 AI 싱크를 추가](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)하여 Application Insights에서 성능 카운터를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Resource Manager 템플릿에 AI 싱크를 추가](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)하여 Application Insights에서 성능 카운터를 확인합니다.
 * 클러스터에 대한 더 많은 성능 카운터를 수집합니다. 수집해야 하는 카운터 목록은 [성능 메트릭](service-fabric-diagnostics-event-generation-perf.md)을 참조하세요.
 * [Windows VM 및 Azure Resource Manager 템플릿으로 모니터링 및 진단을 사용](../virtual-machines/windows/extensions-diagnostics-template.md)하여 진단 데이터를 보내는 추가 저장소 계정 구성을 포함한 `WadCfg`에 대한 추가 수정을 수행합니다.

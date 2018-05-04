@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
@@ -34,7 +34,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [최신 커넥터 다운로드](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [일반 LDAP 커넥터](active-directory-aadconnectsync-connector-genericldap.md) 참조 설명서
 * [일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md) 참조 설명서
-* [웹 서비스 커넥터](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 참조 설명서
+* [웹 서비스 커넥터](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 참조 설명서
 * [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
 

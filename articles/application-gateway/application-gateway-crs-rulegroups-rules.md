@@ -1,25 +1,22 @@
 ---
-title: "Azure Application Gateway 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙 | Microsoft Docs"
-description: "이 페이지는 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙에 대한 정보를 제공합니다."
+title: Azure Application Gateway의 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
+description: 이 페이지는 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙에 대한 정보를 제공합니다.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>제공되는 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙 목록
 
@@ -27,28 +24,8 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 
 다음 테이블은 Application Gateway를 웹 응용 프로그램 방화벽과 사용할 때 제공되는 규칙 그룹 및 규칙입니다.  각 테이블은 특정 CRS 버전의 규칙 그룹에서 찾을 수 있는 규칙을 나타냅니다.
 
-##<a name="owasp30"></a> OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-
-|RuleId|설명|
-|---|---|
-|910011|규칙 910011|
-|910012|규칙 910012|
-|910000|알려진 악의적인 클라이언트의 요청(이전 트래픽 위반 기준).|
-|910100|클라이언트 IP의 위치가 고위험 국가입니다.|
-|910120|규칙 910120|
-|910130|규칙 910130|
-|910150|검색 엔진 IP에 대한 HTTP 블랙리스트 일치|
-|910160|스팸 메일을 보내는 IP에 대한 HTTP 블랙리스트 일치|
-|910170|의심스러운 IP에 대한 HTTP 블랙리스트 일치|
-|910180|하베스터 IP에 대한 HTTP 블랙리스트 일치|
-|910013|규칙 910013|
-|910014|규칙 910014|
-|910015|규칙 910015|
-|910016|규칙 910016|
-|910017|규칙 910017|
-|910018|규칙 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -64,26 +41,6 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 |911017|규칙 911017|
 |911018|규칙 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-
-|RuleId|설명|
-|---|---|
-|912100|규칙 912100|
-|912012|규칙 912012|
-|912120|%@{tx.real_ip}에서 DoS(서비스 거부) 공격이 식별됨(마지막 경고 이후 %@{tx.dos_block_counter}회 적중)|
-|912130|규칙 912130|
-|912140|규칙 912140|
-|912150|규칙 912150|
-|912160|규칙 912160|
-|912170|%@{tx.real_ip}에서 DoS(서비스 거부) 공격 가능성 - 요청 급증 수 = %@{ip.dos_burst_counter}|
-|912013|규칙 912013|
-|912014|규칙 912014|
-|912019|규칙 912019|
-|912171|%@{tx.real_ip}에서 DoS(서비스 거부) 공격 가능성 - 요청 급증 수 = %@{ip.dos_burst_counter}|
-|912015|규칙 912015|
-|912016|규칙 912016|
-|912017|규칙 912017|
-|912018|규칙 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
@@ -117,9 +74,9 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 |920180|POST 요청에 콘텐츠-길이 헤더가 없습니다.|
 |920190|범위 = 마지막 바이트 값이 잘못되었습니다.|
 |920210|여러 개의 충돌하는 연결 헤더 데이터가 발견되었습니다.|
-|920220|URL 인코딩 남용 공격 시도|
-|920240|URL 인코딩 남용 공격 시도|
-|920250|UTF8 인코딩 남용 공격 시도|
+|920220|URL Encoding 남용 공격 시도|
+|920240|URL Encoding 남용 공격 시도|
+|920250|UTF8 Encoding 남용 공격 시도|
 |920260|유니코드 전자/반자 남용 공격 시도|
 |920270|요청에 잘못된 문자(null 문자)|
 |920280|호스트 헤더가 누락된 요청|
@@ -143,7 +100,7 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 |920014|규칙 920014|
 |920200|범위 = 필드가 너무 많음(6개 이상)|
 |920201|범위 = pdf 요청에 대한 필드가 너무 많음(35개 이상)|
-|920230|여러 URL 인코딩 감지됨|
+|920230|여러 URL Encoding 감지됨|
 |920300|Accept 헤더가 누락된 요청|
 |920271|요청에 잘못된 문자(인쇄할 수 없는 문자)|
 |920320|사용자 에이전트 헤더 누락|
@@ -280,8 +237,8 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 |941280|IE XSS 필터 - 공격 감지됨.|
 |941290|IE XSS 필터 - 공격 감지됨.|
 |941300|IE XSS 필터 - 공격 감지됨.|
-|941310|US-ASCII 잘못된 형식의 인코딩 XSS 필터 - 공격 감지됨.|
-|941350|UTF-7 인코딩 IE XSS - 공격 감지됨.|
+|941310|US-ASCII 잘못된 형식의 Encoding XSS 필터 - 공격 감지됨.|
+|941350|UTF-7 Encoding IE XSS - 공격 감지됨.|
 |941013|규칙 941013|
 |941014|규칙 941014|
 |941320|가능한 XSS 공격 감지됨 - HTML 태그 처리기|
@@ -310,7 +267,7 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 |942150|SQL 삽입 공격|
 |942410|SQL 삽입 공격|
 |942440|SQL 주석 시퀀스가 감지됨.|
-|942450|SQL 16진수 인코딩이 식별됨|
+|942450|SQL 16진수 Encoding이 식별됨|
 |942015|규칙 942015|
 |942016|규칙 942016|
 |942251|HAVING 삽입 감지|
@@ -348,16 +305,16 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 |960016|콘텐츠-길이 HTTP 헤더가 숫자가 아닙니다.|
 |960011|본문 콘텐츠를 통한 GET 또는 HEAD 요청.|
 |960012|POST 요청에 콘텐츠-길이 헤더가 없습니다.|
-|960902|ID 인코딩 사용이 잘못되었습니다.|
+|960902|ID Encoding 사용이 잘못되었습니다.|
 |960022|HTTP 1.0에는 예상 헤더가 허용되지 않습니다.|
 |960020|Pragma 헤더에는 HTTP/1.1 요청에 대한 캐시-제어 헤더가 필요합니다.|
 |958291|범위 = 필드가 존재하며 0부터 시작합니다.|
 |958230|범위 = 마지막 바이트 값이 잘못되었습니다.|
 |958295|여러 개의 충돌하는 연결 헤더 데이터가 발견되었습니다.|
-|950107|URL 인코딩 남용 공격 시도|
-|950109|여러 URL 인코딩 감지됨|
-|950108|URL 인코딩 남용 공격 시도|
-|950801|UTF8 인코딩 남용 공격 시도|
+|950107|URL Encoding 남용 공격 시도|
+|950109|여러 URL Encoding 감지됨|
+|950108|URL Encoding 남용 공격 시도|
+|950801|UTF8 Encoding 남용 공격 시도|
 |950116|유니코드 전자/반자 남용 공격 시도|
 |960901|요청에 잘못된 문자|
 |960018|요청에 잘못된 문자|
@@ -439,7 +396,7 @@ Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취�
 |RuleId|설명|
 |---|---|
 |981231|SQL 주석 시퀀스가 감지됨.|
-|981260|SQL 16진수 인코딩이 식별됨|
+|981260|SQL 16진수 Encoding이 식별됨|
 |981320|SQL 삽입 공격 = 일반 DB 이름 감지됨|
 |981300|규칙 981300|
 |981301|규칙 981301|

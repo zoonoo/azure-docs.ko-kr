@@ -181,7 +181,7 @@ Azure HPC 솔루션으로 비즈니스 문제를 해결한 고객은 다음과 �
 * [엔지니어링 시뮬레이션](https://simulation.azure.com/), [렌더링](https://simulation.azure.com/), [금융 및 자본 시장](https://finance.azure.com/) 및 [유전체학](https://enterprise.microsoft.com/en-us/industries/health/genomics/)에 대한 빅 컴퓨팅 솔루션에 대해 자세히 알아봅니다.
 * 최신 공지 사항은 [Microsoft HPC 및 Batch 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 
-* 확장성 있는 Azure [Batch](https://azure.microsoft.com/services/batch/) 관리 서비스를 사용하여 기본 인프라를 관리하지 않고 계산 집약적 작업을 실행합니다. [자세한 정보](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* 확장성 있는 Azure [Batch](https://azure.microsoft.com/services/batch/) 관리 서비스를 사용하여 기본 인프라를 관리하지 않고 계산 집약적 작업을 실행합니다. [자세한 정보](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

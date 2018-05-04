@@ -1,26 +1,24 @@
 ---
-title: "이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기 - Azure HDInsight | Microsoft Docs"
-description: "이벤트를 오직 한 번만 처리하도록 Spark 스트리밍을 설정하는 방법."
+title: 이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기 - Azure HDInsight | Microsoft Docs
+description: 이벤트를 오직 한 번만 처리하도록 Spark 스트리밍을 설정하는 방법.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: ebab9ebc92ae1dff8902d618d0a474ce2b2a0af3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 61162a845f6620d7c6e5662baedfdbfae9b9653a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기
 
@@ -88,5 +86,5 @@ Spark 스트리밍은 Write-Ahead Log의 사용을 지원하는데 받은 이벤
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Spark 스트리밍 개요](apache-spark-streaming-overview.md)
+* [Spark Streaming 개요](apache-spark-streaming-overview.md)
 * [YARN에서 항상 사용 가능한 Spark 스트리밍 작업 만들기](apache-spark-streaming-high-availability.md)

@@ -22,7 +22,7 @@
 ### [Stretch Database 사용 안 함](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=sql-server-database)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

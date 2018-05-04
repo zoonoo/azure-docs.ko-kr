@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -121,7 +121,6 @@ ms.lasthandoff: 04/16/2018
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -163,11 +162,14 @@ ms.lasthandoff: 04/16/2018
 * AD Domain Services
 * AD 하이브리드 상태 관리 서비스
 * Application Gateway
+* Azure Database for MySQL
 * BizTalk Services
+* 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * 컨테이너 서비스
-* Express 경로
+* Data Factory
 * DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동이 가능하지만, 구독 간 이동은 사용 가능하지 않습니다.
 * Dynamics LCS
+* Express 경로
 * 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Managed Applications
 * Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조

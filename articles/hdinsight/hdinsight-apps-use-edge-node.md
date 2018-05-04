@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>HDInsight의 Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -69,6 +69,9 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 >
 > Apache 기술을 사용하는 경우 [http://apache.org](http://apache.org)에서 [Hadoop](http://hadoop.apache.org/) 사이트 등의 Apache 프로젝트 사이트를 통해 지원을 찾을 수도 있습니다.
 
+> [!NOTE]
+> 클러스터처럼, 에지 노드도 패치 관리됩니다.  자세한 내용은 [HDInsight의 OS 패치](./hdinsight-os-patching.md)를 참조하세요.
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>기존 클러스터에 에지 노드 추가
 이 섹션에서는 Resource Manager 템플릿을 사용하여 기존 HDInsight 클러스터에 에지 노드를 추가합니다.  Resource Manager 템플릿은 [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/)에서 찾을 수 있습니다. Resource Manager 템플릿은 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh에 있는 스크립트 작업을 호출합니다. 스크립트는 어떤 작업도 수행하지 않습니다.  Resource Manager 템플릿에서 스크립트 호출 작업을 보여 주기 위한 것입니다.
 
@@ -115,6 +118,10 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
      
      클러스터 유형, 클러스터 작업자 노드 수, 에지 노드 크기 및 에지 노드 이름과 같은 일부 속성은 템플릿에 하드 코드되어 있습니다.
 4. **위에 명시된 사용 약관에 동의함**을 선택한 다음 **구매**를 클릭하여 에지 노드가 있는 클러스터를 만듭니다.
+
+## <a name="add-multiple-edge-nodes"></a>다중 에지 노드 추가
+
+HDInsight 클러스터에 다중 에지 노드를 추가할 수 있습니다.  다중 에지 노드 구성은 Azure Resource Manager 템플릿을 사용해서만 수행할 수 있습니다.  이 문서의 시작 부분에서 템플릿 샘플을 참조하세요.  만들려는 에지 노드 수를 반영하도록 **targetInstanceCount**를 업데이트해야 합니다.
 
 ## <a name="access-an-edge-node"></a>에지 노드 액세스
 에지 노드 ssh 끝점은 &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22입니다.  예: new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22

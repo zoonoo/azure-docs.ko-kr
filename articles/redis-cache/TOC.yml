@@ -2,23 +2,9 @@
   href: index.md
 - name: 개요
   items:
-    - name: Redis 캐시 사용 이유
-      href: 'https://azure.microsoft.com/services/cache/'
-    - name: 프리미엄 계층 기능 알아보기
-      href: cache-premium-tier-intro.md
-    - name: 시나리오
-      items:
-        - name: 캐시의 항목에 액세스
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache'
-        - name: 고가용성 구성
-          href: 'https://azure.microsoft.com/pricing/details/cache/'
-        - name: SSL로 안전하게 연결
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache'
-        - name: Managed Cache Service에서 마이그레이션
-          href: cache-migrate-to-redis.md
-        - name: 패턴 및 작업 방식 캐싱 안내
-          href: ../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json
-- name: 시작하기
+    - name: Azure Redis 캐시 정보
+      href: cache-overview.md
+- name: 빠른 시작
   items:
     - name: ASP.NET
       href: cache-web-app-howto.md
@@ -30,9 +16,27 @@
       href: cache-java-get-started.md
     - name: 파이썬
       href: cache-python-get-started.md
-    - name: Redis Cache FAQ
-      href: cache-faq.md
-- name: 방법
+- name: 자습서
+  items:
+    - name: 캐싱 순위표
+      href: cache-web-app-cache-aside-leaderboard.md
+- name: 샘플
+  items:
+    - name: Redis Cache 샘플
+      href: cache-redis-samples.md
+    - name: Azure PowerShell
+      href: cache-howto-manage-redis-cache-powershell.md
+    - name: Azure CLI
+      href: cli-samples.md
+- name: 개념
+  items:
+    - name: 모범 사례
+      items:
+        - name: Azure Redis Cache의 모범 사례
+          href: 'https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f'
+        - name: 캐싱에 대한 Azure Architecture 모범 사례
+          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+- name: 방법 가이드
   items:
     - name: 계획
       items:
@@ -72,6 +76,8 @@
           href: 'cache-administration.md#reboot'
         - name: 업데이트를 예약
           href: 'cache-administration.md#schedule-updates'
+        - name: redis-cli.exe 액세스 구성
+          href: cache-how-to-redis-cli-tool.md
     - name: 모니터링 및 문제 해결
       items:
         - name: Azure Portal에서 모니터링
@@ -114,5 +120,9 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cache/'
-    - name: Redis Cache 샘플
-      href: cache-redis-samples.md
+    - name: Redis Cache FAQ
+      href: cache-faq.md
+    - name: 동영상
+      href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc'

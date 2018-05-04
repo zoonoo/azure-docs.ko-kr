@@ -1,6 +1,6 @@
 ---
-title: "Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드 | Microsoft Docs"
-description: "Recovery Services 자격 증명 모음으로 Azure Backup 자격 증명 모음을 업그레이드하는 지침 및 지원 정보입니다."
+title: Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드 | Microsoft Docs
+description: Recovery Services 자격 증명 모음으로 Azure Backup 자격 증명 모음을 업그레이드하는 지침 및 지원 정보입니다.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드
 
@@ -84,7 +84,7 @@ PowerShell 스크립트는 자격 증명을 입력하라는 메시지를 표시�
 ### <a name="pre-requisites-checking"></a>필수 구성 요소 확인
 Azure 자격 증명을 입력하면 Azure에서는 환경이 다음과 같은 전제 조건을 충족하는지 확인합니다.
 
-- **최소 에이전트 버전** - Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드하려면 적어도 MARS 에이전트 버전 2.0.9083.0이 필요합니다. 항목이 2.0.9083.0보다 이전인 에이전트를 사용하여 백업 자격 증명 모음에 등록하는 경우 필수 구성 요소 검사에 실패합니다. 필수 구성 요소 확인이 실패하면 에이전트를 업데이트하고 자격 증명 모음을 다시 업그레이드합니다. [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 최신 버전의 에이전트를 다운로드할 수 있습니다.
+- **최소 에이전트 버전** - Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드하려면 적어도 MARS 에이전트 버전 2.0.9083.0이 필요합니다. 항목이 2.0.9083.0보다 이전인 에이전트를 사용하여 백업 자격 증명 모음에 등록하는 경우 필수 구성 요소 검사에 실패합니다. 필수 구성 요소 확인이 실패하면 에이전트를 업데이트하고 자격 증명 모음을 다시 업그레이드합니다. 최신 에이전트 버전은 [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 다운로드할 수 있습니다.
 - **진행 중인 구성 작업**: 누군가가 업그레이드할 Backup 자격 증명 모음에 대한 작업을 구성하거나 항목을 등록하는 경우 필수 구성 요소 검사가 실패합니다. 구성을 완료하거나 항목의 등록을 마치고 자격 증명 모음 업그레이드 프로세스를 시작합니다.
 - **저장소 기반 청구 모델**: Recovery Services 자격 증명 모음은 인스턴스 기반 청구 모델을 지원합니다. 저장소 기반 청구 모델을 사용하는 Backup 자격 증명 모음에 자격 증명 모음 업그레이드를 실행하면 자격 증명 모음과 함께 요금 청구 모델을 업그레이드하라는 메시지가 표시됩니다. 그렇지 않으면 청구 모델을 먼저 업데이트한 다음 자격 증명 모음 업그레이드를 실행할 수 있습니다.
 - Recovery Services 자격 증명 모음의 리소스 그룹을 식별합니다. Resource Manager 배포 기능을 활용하려면 리소스 그룹에서 Recovery Services 자격 증명 모음을 저장해야 합니다. 사용할 리소스 그룹을 모르는 경우 이름을 지정하고 업그레이드 프로세스에서 리소스 그룹을 만듭니다. 또한 업그레이드 프로세스는 새 리소스 그룹과 자격 증명 모음을 연결합니다.
@@ -106,7 +106,7 @@ Recovery Services 자격 증명 모음은 백업 정책에서 표준 시간대 �
 
 ## <a name="enhanced-security"></a>향상된 보안
 
-Recovery Services 자격 증명 모음에 Backup 자격 증명 모음을 업그레이드할 때 해당 자격 증명 모음에 대한 보안 설정은 자동으로 켜집니다. 보안 설정이 켜지면 백업 삭제 또는 암호 변경과 같은 특정 작업에는 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN이 필요합니다. 향상된 보안에 대한 자세한 내용은 [하이브리드 백업을 보호하는 보안 기능](backup-azure-security-feature.md) 문서를 참조하세요. 
+Recovery Services 자격 증명 모음에 Backup 자격 증명 모음을 업그레이드할 때 해당 자격 증명 모음에 대한 보안 설정은 자동으로 켜집니다. 보안 설정이 켜지면 백업 삭제 또는 암호 변경과 같은 특정 작업에는 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN이 필요합니다. 향상된 보안에 대한 자세한 내용은 [하이브리드 백업을 보호하는 보안 기능](backup-azure-security-feature.md) 문서를 참조하세요. 
 
 향상된 보안이 사용 설정된 경우 볼트에서 복구 지점 데이터가 삭제되고 최대 14일 후까지 데이터가 유지됩니다. 고객에게 이 보안 데이터의 저장에 대한 비용이 청구됩니다. 보안 이터 보존은 Azure Backup 에이전트, Azure Backup Server 및 System Center Data Protection Manager에 대해 가져온 복구 지점에 적용됩니다. 
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4ac6e85a0143fc083c22a92e99503689f463d813
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e8635cb057b579f10575cdaf846af9fa604b7993
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Xamarin.Android 앱용 Azure Mobile Engagement 시작
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/30/2018
 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 해당 시나리오에서 기본 데이터를 수집하고 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다.
 
 > [!NOTE]
-> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/)를 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/30/2018
 1. **Xamarin Studio**를 시작하고 **파일** -> **새로 만들기** -> **솔루션**으로 이동합니다. 
    
     ![][1]
-2. **Android 앱**을 선택한 후 선택한 언어가 **C#**인지 확인하고 **다음**을 클릭합니다.
+2. **Android 앱**을 선택한 후 선택한 언어가 **C#** 인지 확인하고 **다음**을 클릭합니다.
    
     ![][2]
 3. **앱 이름** 및 **조직 식별자**를 입력합니다. **Google Play Services**를 확인 표시한 후 **다음**을 클릭합니다. 
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/30/2018
 Xamarin Studio가 Mobile Engagement를 통합할 앱을 만듭니다. 
 
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Mobile Engagement 백 엔드에 앱 연결
-1. 솔루션 창에서 **패키지** 폴더를 마우스 오른쪽 단추로 클릭하고 **패키지 추가...**를 선택합니다.
+1. 솔루션 창에서 **패키지** 폴더를 마우스 오른쪽 단추로 클릭하고 **패키지 추가...** 를 선택합니다.
    
     ![][5]
 2. **Microsoft Azure Mobile Engagement Xamarin SDK**를 검색하고 이를 솔루션에 추가합니다.  

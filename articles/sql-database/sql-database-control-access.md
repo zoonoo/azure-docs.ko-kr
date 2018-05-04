@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: f7865ab165f1ef9377817b8110e35d516e01c0e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1844abbff660b175ea78d09bd2256aa5ba83ed83
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL Database 액세스 제어
 SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. 
@@ -37,7 +37,7 @@ SQL Database는 두 가지 인증 유형을 지원합니다.
 
 데이터베이스 엔진은 30분 이상 유휴 상태로 있는 연결을 닫습니다. 연결을 사용하기 전에 다시 로그인해야 합니다. SQL Database에 대한 연결을 지속적으로 활성화하려면 적어도 10시간 마다 권한을 다시 부여받아야 합니다(데이터베이스 엔진에서 수행함). 데이터베이스 엔진은 전송된 원래 암호를 사용하여 권한을 다시 부여하려고 하며 사용자 입력이 필요하지 않습니다. 성능상의 이유로 SQL Database에 암호를 다시 설정할 경우 연결 풀링으로 인해 연결을 재설정하더라도 연결은 다시 인증되지 않습니다. 온-프레미스 SQL Server의 동작과 다릅니다. 연결이 처음에 권한을 부여받은 이후에 암호가 변경되었다면 연결을 종료해야 하고 새 암호를 사용하여 새로 연결합니다. `KILL DATABASE CONNECTION` 권한이 있는 사용자는 [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql) 명령을 사용하여 SQL Database에 연결을 명시적으로 종료할 수 있습니다.
 
-사용자 계정을 마스터 데이터베이스에서 만들고 서버의 모든 데이터베이스에 대한 사용 권한을 부여할 수 있습니다. 또는 데이터베이스 자체(포함된 사용자라고 함)에서 만들 수 있습니다. 로그인 만들기 및 관리에 대한 자세한 내용은 [로그인 관리](sql-database-manage-logins.md)를 참조하세요. 이동성 및 확장성을 강화하려면 포함된 데이터베이스 사용자를 사용합니다. 포함된 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [사용자 만들기(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 및 [포함된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)를 참조하세요.
+사용자 계정을 마스터 데이터베이스에서 만들고 서버의 모든 데이터베이스에 대한 사용 권한을 부여할 수 있습니다. 또는 데이터베이스 자체(포함된 사용자라고 함)에서 만들 수 있습니다. 로그인 만들기 및 관리에 대한 자세한 내용은 [로그인 관리](sql-database-manage-logins.md)를 참조하세요. 이동성 및 확장성을 강화하려면 포함된 데이터베이스를 사용하세요. 포함된 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [사용자 만들기(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 및 [포함된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)를 참조하세요.
 
 가장 좋은 방법은 응용 프로그램이 전용 계정을 사용하여 인증하는 것입니다. 이 방법을 사용하면 응용 프로그램에 부여되는 사용 권한을 제한하여 응용 프로그램 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 응용 프로그램을 통해 데이터베이스에 직접 인증할 수 있는 [포함된 데이터베이스 사용자](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 만드는 것이 좋습니다. 
 

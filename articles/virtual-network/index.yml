@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/23/2018
   ms.author: jdial
-  ms.openlocfilehash: 80704fedebafe097d199a4f00fba04f51adfe2d9
-  ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+  ms.openlocfilehash: 1290371373b2373bb935ef81d722e0596df01e42
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/05/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
   description: Azure Virtual Network를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서, 예제 등에서는 가상 네트워크를 배포하고, 트래픽 필터링 및 라우팅을 제어하고, 가상 네트워크를 다른 가상 네트워크에 연결하는 방법을 보여줍니다.
 sections:
@@ -93,6 +93,6 @@ sections:
     - title: 명령줄
       html: <p><a href="/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>
     - title: 언어
-      html: <p><a href="/dotnet/api/overview/azure/network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
     - title: REST (영문)
       html: <p><a href="/rest/api/virtual-network/">REST API 참조</a></p>

@@ -16,6 +16,8 @@
       href: cdn-map-content-to-custom-domain.md
     - name: 사용자 지정 도메인에 HTTPS 구성
       href: cdn-custom-ssl.md
+    - name: 캐싱 규칙 설정
+      href: cdn-caching-rules-tutorial.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -156,6 +158,8 @@
           href: cdn-pop-locations.md
         - name: 약어별 POP 위치
           href: cdn-pop-abbreviations.md
+    - name: Azure CDN 청구 이해
+      href: cdn-billing.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 포럼

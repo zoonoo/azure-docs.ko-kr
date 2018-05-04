@@ -3,16 +3,17 @@ title: Fiddler 또는 Postman에서 REST API 탐색(Azure Search REST) | Microso
 description: Fiddler 또는 Postman을 사용하여 Azure Search에 HTTP 요청 및 REST API 호출을 발행하는 방법.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: 8a2e423d635c12f5d08395c03e4bc57ac71156ef
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler 또는 Postman을 사용하여 Azure Search REST API 탐
 
@@ -32,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 다음 도구는 웹 개발에 널리 사용되지만 다른 도구에 익숙하더라도 이 문서의 지침이 계속 적용됩니다.
 
-+ [Postman(Google Chrome 추가 기능)](https://www.getpostman.com/)
++ [Postman 데스크톱 앱](https://www.getpostman.com/)
 + [Telerik Fiddler](http://www.telerik.com/fiddler)
 
 ## <a name="get-the-api-key-and-endpoint"></a>API 키와 끝점 확보하기

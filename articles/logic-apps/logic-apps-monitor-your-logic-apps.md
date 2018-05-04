@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 04/05/2018
    ![단계 세부 정보](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다. 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다. [Azure 역할 기반 Access Control(RBAC)](../active-directory/role-based-access-control-what-is.md)을 통해서 이러한 이벤트에 대한 액세스를 제어할 수도 있습니다.
+   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다. 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다. [Azure 역할 기반 Access Control(RBAC)](../role-based-access-control/overview.md)을 통해서 이러한 이벤트에 대한 액세스를 제어할 수도 있습니다.
 
 6. 특정 트리거 이벤트에 대한 세부 정보를 얻으려면 **개요** 창으로 돌아갑니다. **트리거 기록** 아래에서 트리거 이벤트를 선택합니다. 이제 입력 및 출력과 같은 세부 정보를 검토할 수 있습니다. 예를 들어 다음과 같습니다.
 

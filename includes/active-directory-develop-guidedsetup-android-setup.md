@@ -1,17 +1,39 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 0ed42e4ace17db1e681152589cc46d82c26dddff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-대신, 이 샘플의 Android Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)하면 코드 샘플을 실행하기 전에 구성하는 [구성 단계](#create-an-application-express)를 건너뛸 수 있습니다.
+대신, 이 샘플의 Android Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)하면 코드 샘플을 실행하기 전에 구성하는 [구성 단계](#register-your-application)를 건너뛸 수 있습니다.
 
 ### <a name="create-a-new-project"></a>새 프로젝트 만들기 
 1.  Android Studio를 연 후 **파일** > **새로 만들기** > **새 프로젝트**를 선택합니다.
 2.  응용 프로그램 이름을 지정하고 **다음**을 선택합니다.
-3.  **API 21 이상(Android 5.0)**을 선택한 후 **다음**을 선택합니다.
+3.  **API 21 이상(Android 5.0)** 을 선택한 후 **다음**을 선택합니다.
 4.  **빈 활동**을 그대로 유지하고 **다음**을 선택한 후 **마침**을 선택합니다.
 
 
 ### <a name="add-msal-to-your-project"></a>프로젝트에 MSAL 추가
-1.  Android Studio에서 **Gradle Scripts** > **build.gradle(Module: app)**을 선택합니다.
+1.  Android Studio에서 **Gradle Scripts** > **build.gradle(Module: app)** 을 선택합니다.
 2.  **종속성** 아래에 다음 코드를 붙여넣습니다.
 
     ```ruby  

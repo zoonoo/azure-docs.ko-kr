@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b0bc6035c3004587ae50f1c331dd3976883e9d34
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>AKS(Azure Container Service)에서 HTTPS 수신
 
@@ -27,7 +27,7 @@ Helm CLI 설치 - 설치 지침에 대해서는 Helm CLI [설명서][helm-cli]�
 
 ## <a name="install-an-ingress-controller"></a>수신 컨트롤러 설치
 
-Helm을 사용하여 NGINX 수신 컨트롤러를 설치합니다. 자세한 배포 정보는 NGINX 수신 컨트롤러 [설명서][nginx-ingress]를 참조하세요. 
+Helm을 사용하여 NGINX 수신 컨트롤러를 설치합니다. 자세한 배포 정보는 NGINX 수신 컨트롤러 [설명서][nginx-ingress]를 참조하세요.
 
 차트 리포지토리를 업데이트합니다.
 
@@ -76,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-필요한 경우 다음 명령을 실행하여 FQDN을 검색합니다. 수신 컨트롤러의 값으로 IP 주소 값을 업데이트합니다.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-이제 FQDN을 통해 수신 컨트롤러에 액세스할 수 있습니다.
+이제 FQDN을 통해 수신 컨트롤러에 액세스할 수 있게 됩니다.
 
 ## <a name="install-kube-lego"></a>KUBE-LEGO 설치
 
@@ -181,14 +175,14 @@ Kubernetes 수신 컨트롤러의 FQDN으로 이동하면 hello world 응용 프
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서 보여준 소프트웨어에 대해 자세히 알아보세요. 
+이 문서에서 보여준 소프트웨어에 대해 자세히 알아보세요.
 
 - [Helm CLI][helm-cli]
 - [NGINX 수신 컨트롤러][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

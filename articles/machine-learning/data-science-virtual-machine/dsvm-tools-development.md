@@ -59,7 +59,7 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 | 무엇인가요?   | R용 웹 기반 IDE    |
 | 지원되는 DSVM 버전      | Linux      |
 | 일반적인 사용 용도      |  R 개발     |
-| 사용/실행 방법      | _systemctl enable rstudio-server_를 사용하여 서비스를 사용하도록 설정한 다음, _systemctl start rstudio-server_로 서비스를 시작합니다. 그런 다음, http://your-vm-ip:8787에서 RStudio Server에 로그인할 수 있습니다.       |
+| 사용/실행 방법      | _systemctl enable rstudio-server_를 사용하여 서비스를 사용하도록 설정한 다음, _systemctl start rstudio-server_로 서비스를 시작합니다. 그런 다음, http://your-vm-ip:8787 에서 RStudio Server에 로그인할 수 있습니다.       |
 | DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 

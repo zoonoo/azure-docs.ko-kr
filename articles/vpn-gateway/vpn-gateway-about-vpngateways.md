@@ -1,45 +1,44 @@
 ---
-title: 'VPN Gateway 개요: Azure 가상 네트워크에 대한 크로스-프레미스 VPN 연결 만들기 | Microsoft Docs'
-description: 이 문서에서는 VPN Gateway가 무엇인지 설명하고 VPN 연결을 사용하여 인터넷을 통해 Azure 가상 네트워크에 연결하는 방법을 보여줍니다. 기본 연결 구성의 다이어그램이 포함됩니다.
+title: Azure VPN Gateway | Microsoft Docs
+description: VPN Gateway란 무엇이고, VPN Gateway를 사용하여 Azure 가상 네트워크에 연결하는 방법은 무엇인지 알아봅니다. IPsec/IKE 사이트 간 크로스-프레미스 및 VNet 대 VNet 솔루션은 물론 지점과 사이트 간 VPN을 포함합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="about-vpn-gateway"></a>VPN Gateway 정보
+# <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
-VPN Gateway는 공용 연결을 통해 온-프레미스 위치에 암호화된 트래픽을 보내는 가상 네트워크 게이트웨이의 종류입니다. 또한 VPN Gateway를 사용하여 Microsoft 네트워크를 통해 Azure 가상 네트워크 간에 암호화된 트래픽을 보낼 수 있습니다. Azure 가상 네트워크와 온-프레미스 사이트 간에 암호화된 네트워크 트래픽을 보내려면 가상 네트워크에 대한 가상 VPN Gateway를 만들어야 합니다.
-
-각 가상 네트워크에는 하나의 VPN Gateway만이 있을 수 있지만 동일한 VPN Gateway에 여러 연결을 만들 수 있습니다. 한 가지 예로 다중 사이트 연결 구성이 있습니다. 동일한 VPN Gateway에 대한 여러 연결을 만들면 지점 및 사이트 간 VPN을 비롯한 모든 VPN 터널이 해당 게이트웨이의 사용 가능한 대역폭을 공유합니다.
+VPN Gateway는 공용 인터넷을 통해 Azure 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 데 사용되는 특정 유형의 가상 네트워크 게이트웨이입니다. VPN Gateway를 사용하여 Microsoft 네트워크를 통해 Azure 가상 네트워크 간에 암호화된 트래픽을 보낼 수도 있습니다. VPN Gateway는 각 가상 네트워크당 하나만 사용할 수 있습니다. 그러나 동일한 VPN Gateway에 대해 여러 연결을 만들 수 있습니다. 동일한 VPN Gateway에 대해 여러 연결을 만들면 모든 VPN 터널이 사용 가능한 게이트웨이 대역폭을 공유합니다.
 
 ## <a name="whatis"></a>가상 네트워크 게이트웨이란?
 
-가상 네트워크 게이트웨이는 GatewaySubnet이라는 특정 서브넷에 배포되는 두 개 이상의 가상 머신으로 구성됩니다. GatewaySubnet에 있는 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. VM을 구성한 가상 네트워크 게이트웨이는 라우팅 테이블 및 게이트웨이에 특정한 게이트웨이 서비스를 포함합니다. 가상 네트워크 게이트웨이의 일부인 VM을 직접 구성할 수 없고 GatewaySubnet에 추가 리소스를 배포하지 않아야 합니다.
+가상 네트워크 게이트웨이는 *게이트웨이 서브넷*이라는 특정 서브넷에 배포되는 둘 이상의 가상 머신으로 구성됩니다. 게이트웨이 서브넷에 있는 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. VM을 구성한 가상 네트워크 게이트웨이는 라우팅 테이블 및 게이트웨이에 특정한 게이트웨이 서비스를 포함합니다. 가상 네트워크 게이트웨이의 일부인 VM은 직접 구성할 수 없고 게이트웨이 서브넷에 추가 리소스를 배포해서는 안 됩니다.
 
-'Vpn' 게이트웨이 형식을 사용하여 가상 네트워크 게이트웨이를 만들 때 트래픽을 암호화하는 특정 종류의 가상 네트워크 게이트웨이인 VPN Gateway를 만듭니다. VPN Gateway를 만드는 데 최대 45분이 걸릴 수 있습니다. 이는 VPN Gateway에 대한 VM을 GatewaySubnet에 배포하고 사용자가 지정한 설정으로 구성하기 때문입니다. 선택한 Gateway SKU가 얼마나 강력한 VM인지 판단합니다.
+VPN 게이트웨이 만들기를 완료하는 데 최대 45분이 걸릴 수 있습니다. VPN Gateway를 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 지정한 설정으로 구성됩니다. VPN Gateway를 만든 후에 해당 VPN Gateway와 다른 VPN Gateway(VNet 대 VNet) 간에 IPsec/IKE VPN 터널 연결을 만들거나, VPN Gateway와 온-프레미스 VPN 장치 간(사이트 간)의 크로스-프레미스 IPsec/IKE VPN 터널 연결을 생성할 수 있습니다. 지점과 사이트 간 VPN 연결(IKEv2 또는 SSTP를 통한 VPN)을 생성하여 회의실의 또는 집과 같은 원격 위치에서 가상 네트워크에 연결할 수 있습니다.
 
 ## <a name="configuring"></a>VPN Gateway 구성
 
-VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 다릅니다. 대부분의 리소스를 특정 순서로 구성해야 하지만 어떤 경우에는 개별적으로 구성할 수 있습니다.
+VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 다릅니다. 대부분의 리소스는 개별적으로 구성할 수 있지만 일부 리소스는 특정 순서로 구성해야 합니다.
 
 ### <a name="settings"></a>설정
 
-각 리소스에 선택하는 설정은 성공적인 연결을 만드는 데 매우 중요합니다. VPN Gateway의 개별 리소스 및 설정에 대한 정보는 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요. 이 문서에는 게이트웨이 유형, VPN 유형, 연결 유형, 게이트웨이 서브넷, 로컬 네트워크 게이트웨이 및 고려해야 할 다른 다양한 리소스 설정을 이해하는 데 유용한 정보가 포함되어 있습니다.
+각 리소스에 선택하는 설정은 성공적인 연결을 만드는 데 매우 중요합니다. VPN Gateway의 개별 리소스 및 설정에 대한 정보는 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요. 이 아티클에는 게이트웨이 유형, 게이트웨이 SKU, VPN 유형, 연결 유형, 게이트웨이 서브넷, 로컬 네트워크 게이트웨이 및 고려해야 할 다른 다양한 리소스 설정을 이해하는 데 유용한 정보가 포함되어 있습니다.
 
 ### <a name="tools"></a>배포 도구
 
@@ -47,7 +46,7 @@ Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시�
 
 ### <a name="models"></a>배포 모델
 
-VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이 설정을 만들고 구성합니다. 배포 모델에 대한 자세한 내용은 [Resource Manager 배포 및 클래식 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+현재 Azure용 배포 모델은 두 가지가 있습니다. VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이 설정을 만들고 구성합니다. 배포 모델에 대한 자세한 내용은 [Resource Manager 배포 및 클래식 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 ### <a name="planningtable"></a>계획 표
 
@@ -83,7 +82,7 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 ### <a name="Multi"></a>다중 사이트
 
-사이트 간 연결에서 변형된 연결 유형입니다. 가상 네트워크 게이트웨이에서 일반적으로 여러 온-프레미스 사이트에 연결하는 둘 이상의 VPN 연결을 만듭니다. 여러 연결을 사용하는 경우 경로 기반 VPN 유형(클래식 VNet을 사용하는 경우 동적 게이트웨이)을 사용해야 합니다. 각 가상 네트워크가 하나의 VPN Gateway만 사용할 수 있으므로 게이트웨이를 통한 모든 연결은 사용 가능한 대역폭을 공유합니다. 이는 "다중 사이트" 연결이라고 합니다.
+사이트 간 연결에서 변형된 연결 유형입니다. 가상 네트워크 게이트웨이에서 일반적으로 여러 온-프레미스 사이트에 연결하는 둘 이상의 VPN 연결을 만듭니다. 여러 연결을 사용하는 경우 경로 기반 VPN 유형(클래식 VNet을 사용하는 경우 동적 게이트웨이)을 사용해야 합니다. 각 가상 네트워크가 하나의 VPN Gateway만 사용할 수 있으므로 게이트웨이를 통한 모든 연결은 사용 가능한 대역폭을 공유합니다. 이러한 유형의 연결은 흔히 "다중 사이트" 연결이라고 합니다.
 
 ![Azure VPN Gateway 다중 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
@@ -130,11 +129,11 @@ Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델�
 
 ## <a name="ExpressRoute"></a>ExpressRoute(개인 연결)
 
-Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
+ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
 
 ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
-ExpressRoute 연결은 필수 구성의 일부분으로 가상 네트워크 게이트웨이를 사용하지만 VPN Gateway는 사용하지 않습니다. ExpressRoute 연결에서 가상 네트워크 게이트웨이는 'Vpn'이 아닌 'ExpressRoute' 게이트웨이 유형으로 구성됩니다. ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
+ExpressRoute 연결은 필수 구성의 일부분으로 가상 네트워크 게이트웨이를 사용합니다. ExpressRoute 연결에서 가상 네트워크 게이트웨이는 'Vpn'이 아닌 'ExpressRoute' 게이트웨이 유형으로 구성됩니다. ExpressRoute 회로를 통해 전송되는 트래픽은 기본적으로 암호화되지 않으므로, ExpressRoute 회로를 통해 암호화된 트래픽을 보낼 수 있는 솔루션을 만듭니다. ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## <a name="coexisting"></a>사이트 간 및 ExpressRoute 공존 연결
 

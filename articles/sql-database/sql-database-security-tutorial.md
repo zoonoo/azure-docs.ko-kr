@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
 
-SQL Database는 방화벽 규칙, 사용자에게 ID 확인을 요구하는 인증 메커니즘 및 역할 기반 멤버 자격과 권한을 통한 데이터 인증을 사용하여 데이터베이스에 대한 액세스를 제한할 뿐만 아니라 행 수준 보안과 동적 데이터 마스킹을 사용하여 데이터베이스에 대한 액세스도 제한함으로써 데이터를 보호합니다.
+SQL Database는 다음을 통해 데이터를 보호합니다. 
+- 방화벽 규칙을 사용하여 데이터베이스에 대한 액세스 제한 
+- 해당 ID를 요구하는 인증 메커니즘 사용
+- 역할 기반 멤버 자격 및 권한을 통해 데이터에 대한 권한 부여 
+- 행 수준 보안
+- 동적 데이터 마스킹
+
+또한 SQL Database에는 정교한 모니터링, 감사 및 위협 탐지 기능이 있습니다. 
 
 몇 가지 간단한 단계만 거치면 악의적인 사용자 또는 무단 액세스로부터 데이터베이스를 보호하는 기능을 크게 향상시킬 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다. 
 
@@ -155,7 +162,7 @@ Azure SQL Database 투명한 데이터 암호화(TDE)는 암호화된 데이터�
 
 3. 필요한 경우 **데이터 암호화**를 켜짐으로 설정하고 **저장**을 클릭합니다.
 
-암호화 프로세스가 백그라운드에서 시작됩니다. [SQL Server Management Studio](./sql-database-connect-query-ssms.md)를 사용하여 `sys.dm_database_encryption_keys` 보기의 encryption_state 열을 쿼리하고 SQL Database에 연결하여 진행률을 모니터링할 수 있습니다.
+암호화 프로세스가 백그라운드에서 시작됩니다. [SQL Server Management Studio](./sql-database-connect-query-ssms.md)를 사용하여 SQL Database에 연결하고, [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) 뷰의 encryption_state 열을 쿼리하여 진행률을 모니터링할 수 있습니다. 상태 3은 데이터베이스가 암호화되었음을 나타냅니다. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>필요한 경우 SQL Database 감사를 사용합니다.
 
@@ -167,7 +174,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
     ![감사 블레이드](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. 서버 수준에서 지정된 형식과 다른 감사 형식(또는 위치)을 사용하는 경우 감사를 **켜고** **Blob** 감사 형식을 선택합니다. 서버 Blob 감사가 활성화되면 구성된 데이터베이스 감사가 서버 Blob 감사와 나란히 존재하게 됩니다.
+3. 서버 수준에서 지정된 형식과 다른 감사 형식(또는 위치)을 사용하는 경우 감사를 **켜고** **Blob** 감사 형식을 선택합니다. 서버 Blob 감사를 사용하는 경우 데이터베이스 구성 감사가 서버 Blob 감사와 나란히 존재합니다.
 
     ![감사 설정](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 

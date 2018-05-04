@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b6510024d1644f1e0b357126e2b971c66eb95dbc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4490ac9bccb406bd2e882fc8afcbaf05aa8ddfab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
 
@@ -56,6 +56,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |HBase REST API. [HBase를 사용하여 시작](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API. [Livy를 사용하여 원격으로 Spark 작업 제출](spark/apache-spark-livy-rest-interface.md) |
+| Spark Thrift 서버 |443 |HTTPS |Spark |Hive 쿼리를 전송하는 데 사용되는 Spark Thrift 서버입니다. [HDInsight의 Hive에 Beeline 사용](hadoop/apache-hadoop-use-hive-beeline.md)을 참조하세요. |
 | Storm |443 |HTTPS |Storm |Storm 웹 UI. [HDInsight에서 Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>인증

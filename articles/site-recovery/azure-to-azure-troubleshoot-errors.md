@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery의 Azure 간 복제 문제 및 오류 해결 | Microsoft Docs"
-description: "재해 복구를 위해 Azure 가상 머신을 복제할 때 오류 및 문제 해결"
+title: Azure Site Recovery의 Azure 간 복제 문제 및 오류 해결 | Microsoft Docs
+description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 오류 및 문제 해결
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -199,6 +199,17 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 
 - **provisioningState**가 **실패**이면 지원 서비스에 문제 해결을 위한 세부 정보를 문의합니다.
 - **provisioningState**가 **업데이트 중**이면 또 다른 확장을 배포할 수 있습니다. VM에서 계속 진행되는 작업이 있는지 확인한 후, 해당 작업이 완료될 때까지 기다렸다가 실패한 Site Recovery **복제 사용** 작업을 다시 시도합니다.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/볼륨 섀도 복사본 서비스 오류(오류 코드 151025)
+**오류 코드** | **가능한 원인** | **권장 사항**
+--- | --- | ---
+151025<br></br>**메시지**: 사이트 복구 확장 설치 실패 | - 'COM+ 시스템 응용 프로그램' 서비스가 비활성화되었습니다.</br></br>- '볼륨 섀도 복사본' 서비스가 비활성화되었습니다.| 'COM+ 시스템 응용 프로그램' 및 '볼륨 섀도 복사본' 서비스를 자동 또는 수동 시작 모드로 설정하세요.
+
+### <a name="fix-the-problem"></a>문제 해결
+
+'서비스' 콘솔을 열고, 'COM+ 시스템 응용 프로그램' 및 '볼륨 섀도 복사본'이 '시작 유형'에 대해 '사용 안 함'으로 설정되지 않았는지 확인합니다.
+  ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 가상 머신 복제](site-recovery-replicate-azure-to-azure.md)

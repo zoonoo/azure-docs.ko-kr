@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0e89b93764f51873d991524a5e226464c224b649
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="set-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB 컨테이너에 대한 처리량 설정
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB 컨테이너에 대한 처리량 설정 및 가져오기
 
 Azure Portal 또는 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테이너에 대한 처리량을 설정할 수 있습니다. 
 
@@ -96,6 +96,43 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
+## <a id="GetLastRequestStatistics"></a>MongoDB API의 GetLastRequestStatistics 명령을 사용하여 처리량 가져오기
+
+MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사용자 지정 명령인 *getLastRequestStatistics*를 지원합니다.
+
+예를 들어 Mongo Shell에서 요청 비용을 확인할 작업을 실행합니다.
+```
+> db.sample.find()
+```
+
+다음으로 *getLastRequestStatistics* 명령을 실행합니다.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+이 점을 염두에 두고, 응용 프로그램에 필요한 예약된 처리량을 예측하는 한 가지 방법은 응용 프로그램에서 사용하는 대표적인 항목에 대해 실행되는 일반 작업과 연결된 요청 단위 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다.
+
+> [!NOTE]
+> 인덱싱된 속성과 크기 및 개수가 완전히 다른 항목 유형이 있는 경우에는 일반 항목의 각 *유형*과 연결된 적용 가능한 작업 요청 단위 요금을 기록합니다.
+> 
+> 
+
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API 포털 메트릭을 사용하여 처리량 가져오기
+
+MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추정하는 가장 간단한 방법은 [Azure Portal](https://portal.azure.com) 메트릭을 사용하는 것입니다. *요청 수* 및 *요청 요금* 차트에서 각 작업에서 사용하는 요청 단위 수와 서로 상대적으로 사용하는 요청 단위 수를 추정할 수 있습니다.
+
+![MongoDB API 포털 메트릭][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
+컨테이너에 대한 프로비전된 처리량을 초과하는 응용 프로그램의 경우 사용률이 프로비전된 처리량 비율 아래로 떨어질 때까지 비율이 제한됩니다. 비율 제한이 발생하면 백 엔드는 `16500` 오류 코드 - `Too Many Requests`으로 요청을 먼저 종료합니다. 기본적으로 MongoDB API는 `Too Many Requests` 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. `Too Many Requests` 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 논리를 추가하거나 [컨테이너에 대해 프로비전된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
+
 ## <a name="throughput-faq"></a>처리량 FAQ
 
 **내 처리량을 400RU/s 미만으로 설정할 수 있나요?**
@@ -109,3 +146,5 @@ Cosmos DB 단일 파티션 컨테이너에서 사용할 수 있는 최소 처리
 ## <a name="next-steps"></a>다음 단계
 
 Cosmos DB를 사용하여 프로비전을 수행하고 대규모로 크기를 조정하려면 [Cosmos DB로 분할 및 크기 조정](partition-data.md)을 참조하세요.
+
+[1]: ./media/set-throughput/api-for-mongodb-metrics.png

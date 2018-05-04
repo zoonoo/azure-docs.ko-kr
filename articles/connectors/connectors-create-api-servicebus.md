@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps에 대한 Azure Service Bus 메시징 설정 | Microsoft Docs"
-description: "Azure Service Bus를 사용한 논리 앱을 통해 메시지 전송 및 수신"
+title: Azure Logic Apps에 대한 Azure Service Bus 메시징 설정 | Microsoft Docs
+description: Azure Service Bus를 사용한 논리 앱을 통해 메시지 전송 및 수신
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Azure Service Bus 커넥터를 통해 메시지 전송 및 수신
 
@@ -65,12 +65,17 @@ Service Bus 커넥터를 사용하려면 먼저 이러한 항목이 서로 볼 �
 
    ![Service Bus 트리거 선택](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > *Service Bus - 큐에 하나 이상의 메시지가 도착할 때(자동 완성)* 트리거와 같은 일부 트리거는 1 또는 메시지의 수를 반환합니다.
+   > 이러한 트리거가 발생되면 1과 트리거의 **최대 메시지 수** 속성으로 지정된 메시지 수 사이의 값을 반환합니다.
+
    1. Service Bus 네임스페이스에 대한 연결이 아직 없는 경우 이 연결을 지금 생성할지 묻는 메시지가 표시됩니다. 연결에 이름을 지정하고 사용할 Service Bus 네임스페이스를 선택합니다.
 
       ![Service Bus 연결 만들기](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       또는 연결 문자열을 수동으로 입력하려면 **연결 정보를 수동으로 입력**을 선택합니다. 
       [연결 문자열을 찾는 방법](#permissions-connection-string)을 알아보세요.
+      
 
    2. 이제 사용할 Service Bus 정책을 선택하고 **만들기**를 선택합니다.
 
@@ -79,6 +84,11 @@ Service Bus 커넥터를 사용하려면 먼저 이러한 항목이 서로 볼 �
 4. 사용할 Service Bus를 선택하고, 큐를 확인하는 시기에 대한 간격 및 빈도를 설정합니다.
 
    ![Service Bus 큐를 선택, 폴링 간격 설정](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > 모든 Service Bus 트리거는 **긴 폴링** 트리거입니다. 즉, 이 트리거는 발생될 때 모든 메시지를 처리한 다음, 더 많은 메시지가 큐 또는 토픽 구독에 나타날 때까지 30초 동안 기다립니다.
+   > 30초 후에 메시지가 수신되지 않으면 트리거 실행을 건너뜁니다. 그렇지 않으면 큐 또는 토픽 구독이 빈 상태가 될 때까지 트리거는 메시지를 계속 읽습니다.
+   > 다음 트리거 폴링은 트리거의 속성에 지정된 되풀이 간격을 기준으로 합니다.
 
 5. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 

@@ -10,23 +10,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8928a69436cfa0fc601c4a0c544433f3b87a90f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python을 사용하여 Azure SQL Database 쿼리
 
- 이 빠른 시작 자습서에서는 [Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. sdk에 대한 자세한 내용은 [참조](https://docs.microsoft.com/python/api/overview/azure/sql) 설명서, pyodbc [샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 리포지토리에서 확인하세요.
+ 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. sdk에 대한 자세한 내용은 [참조](https://docs.microsoft.com/python/api/overview/azure/sql) 설명서, pyodbc [샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 리포지토리에서 확인하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작 자습서를 완료하려면 다음 항목이 있어야 합니다.
+이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 이 빠른 시작 자습서에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)
+- 이 빠른 시작에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)
 
 - 운영 체제에 맞게 설치된 Python 및 관련 소프트웨어
 

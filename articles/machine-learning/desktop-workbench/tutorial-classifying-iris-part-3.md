@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 0b56b15af7c573304db9a1b6e6e9f37453a63458
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>자습서 3: 아이리스 분류: 배포 모델
 Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -120,7 +120,7 @@ Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 �
 
 이제 모델을 조작할 환경이 준비되었습니다.
 
-## <a name="prepare-to-operationalize-locally"></a>로컬에서 조작 준비
+## <a name="prepare-to-operationalize-locally-for-development-and-testing-your-service"></a>로컬에서 조작 준비 [서비스 개발 및 테스트용]
 _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너에서 실행합니다.
 
 개발 및 테스트에는 _로컬 모드_를 사용할 수 있습니다. 다음 단계를 수행하여 모델을 조작하려면 Docker 엔진이 로컬로 실행되어야 합니다. 각 명령의 끝에 `-h` 플래그를 사용하여 해당 도움말 메시지를 표시할 수 있습니다.
@@ -257,7 +257,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    docker ps
    ```
 
-## <a name="create-a-real-time-web-service-by-using-separate-commands"></a>별도의 명령을 사용하여 실시간 웹 서비스 만들기
+## <a name="optional-alternative-create-a-real-time-web-service-by-using-separate-commands"></a>[선택적 대안] 별도의 명령을 사용하여 실시간 웹 서비스 만들기
 이전에 표시된 **az ml service create realtime** 명령에 대한 대안으로 단계를 별도로 수행할 수도 있습니다. 
 
 먼저 모델을 등록합니다. 그런 다음 매니페스트를 생성하고 Docker 이미지를 빌드하며 웹 서비스를 만듭니다. 이 단계별 방법으로 각 단계마다 더 많은 유연성이 제공됩니다. 또한 이전 단계에서 생성한 엔터티를 다시 사용하고 필요한 경우에만 이 엔터티를 다시 작성할 수 있습니다.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: d893b55e2e771035bbd1097da678830fafb24e7a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc5b41da83f183aaf62723212f7197fb50dc536d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory 통합
 
@@ -61,7 +61,7 @@ ServiceNow의 Azure AD 통합을 구성하려면 갤러리의 ServiceNow를 관�
 
 **갤러리에서 ServiceNow를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -119,37 +119,21 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 이 값은 자습서의 뒷부분에 설명된 실제 로그온 URL과 식별자로 업데이트해야 합니다.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 다음 단계를 수행합니다. 
 
-    ![인증서 다운로드 링크](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+    ![인증서 다운로드 링크](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+    a. 복사 단추를 클릭하여 **앱 페더레이션 메타 데이터 URL**을 복사하여 메모장에 붙여넣습니다. 이 앱 페더레이션 메타데이터 URL은 자습서의 뒷부분에서 사용됩니다.
+
+    나. **인증서(Base64)** 를 클릭한 다음, 컴퓨터에 인증서 파일을 저장합니다.
 
 5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-6. **메타데이터** URL을 생성하려면 다음 단계를 수행합니다.
+6. ServiceNow 응용 프로그램에 관리자 권한으로 로그온합니다.
 
-    a. **앱 등록**을 클릭합니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
-
-    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
-    
-    다. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
-
-    d. 이제 **ServiceNow** 속성으로 이동해 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사한 후 메모장에 붙여넣습니다.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.  이 메타데이터 URL은 자습서의 뒷부분에서 사용되므로 생성된 값을 메모장에 복사합니다.
-
-7. ServiceNow 응용 프로그램에 관리자 권한으로 로그온합니다.
-
-8. 다음 단계를 따라 **통합 - 여러 공급자 Single Sign-On 설치 관리자** 플러그 인을 활성화합니다.
+7. 다음 단계를 따라 **통합 - 여러 공급자 Single Sign-On 설치 관리자** 플러그 인을 활성화합니다.
 
     a. 왼쪽 탐색 창의 검색 창에서 **시스템 정의** 섹션을 검색한 다음 **플러그 인**을 클릭합니다.
 
@@ -163,9 +147,9 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     d. **활성화** 단추를 클릭합니다.
 
-9. **ServiceNow**를 자동 및 수동으로 구성할 수 있는 두 가지 방법이 있습니다.
+8. **ServiceNow**를 자동 및 수동으로 구성할 수 있는 두 가지 방법이 있습니다.
 
-10. **ServiceNow**를 자동으로 구성하려면 다음 단계를 따르세요.
+9. **ServiceNow**를 자동으로 구성하려면 다음 단계를 따르세요.
 
     a. Azure Portal의 **ServiceNow** Signle-Sign On 페이지로 돌아갑니다.
 
@@ -201,15 +185,15 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     * 페이지의 오른쪽 위 모퉁이에서 **활성화**를 클릭합니다.
 
-11. **ServiceNow**를 수동으로 구성하려면 다음 단계를 따르세요.
+10. **ServiceNow**를 수동으로 구성하려면 다음 단계를 따르세요.
 
-12. ServiceNow 응용 프로그램에 관리자 권한으로 로그온합니다.
+11. ServiceNow 응용 프로그램에 관리자 권한으로 로그온합니다.
 
-13. 왼쪽 탐색 창의 검색 창에서 **Multi-Provider SSO** 섹션을 검색한 다음 **속성**을 클릭합니다.
+12. 왼쪽 탐색 창의 검색 창에서 **Multi-Provider SSO** 섹션을 검색한 다음 **속성**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "앱 URL 구성")
 
-14. **여러 공급자 SSO 속성** 대화 상자에서 다음 단계를 수행합니다.
+13. **여러 공급자 SSO 속성** 대화 상자에서 다음 단계를 수행합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "앱 URL 구성")
 
@@ -255,7 +239,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694977.png "Single Sign-On 구성")
 
-19. **ID 공급자** 대화 상자에서 **SAML2 Update1?**을 클릭합니다.
+19. **ID 공급자** 대화 상자에서 **SAML2 Update1?** 을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694978.png "Single Sign-On 구성")
 
@@ -265,7 +249,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **ID 공급자 메타데이터 가져오기** 대화 상자에서 **URL** 옵션을 선택합니다.
 
-    나. Azure Portal에서 생성된 **메타데이터 URL**을 입력합니다.
+    나. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 입력합니다.
 
     다. **가져오기**를 클릭합니다.
 
@@ -356,9 +340,9 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [ServiceNow 클라이언트 지원 팀](https://www.servicenow.com/support/contact-support.html)에 문의하세요.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificates.png)
 
 5. **저장** 단추를 클릭합니다.
 
@@ -459,11 +443,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > Azure Portal의 **ServiceNow > 특성 > Single Sign-On** 섹션으로 이동한 다음 원하는 필드를 **nameidentifier** 특성에 매핑하면 Azure AD 사용자 ID(사용자 계정 이름) 또는 전자 메일 주소를 SAML 토큰의 고유 식별자로 내보내도록 Azure AD를 구성할 수 있습니다. Azure AD에서 선택한 특성에 대해 저장되는 값(예: 사용자 계정 이름)은 입력하는 필드에 대해 ServiceNow에 저장된 값(예: user_name)과 일치해야 합니다.
 
     f. **저장**을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
-
+ 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.

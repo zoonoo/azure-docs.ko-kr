@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/19/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: c1e57ea28f597293d8bb52207bbbb76892b1d5f5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3267f649e360c512a5523ce1d5948719a1969934
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 ## <a name="deployment-considerations"></a>배포 고려 사항
 
-* N 시리즈 VM의 가용성에 대해서는 [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/regions/services/)을 참조하세요.
+* N 시리즈 VM의 가용성에 대해서는 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 
 * N 시리즈 VM은 Resource Manager 배포 모델에만 배포할 수 있습니다.
 

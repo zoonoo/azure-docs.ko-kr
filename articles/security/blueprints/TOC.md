@@ -6,7 +6,7 @@
 ## [운영 보안 사용](../azure-operational-security.md)
 ## [Azure에서 거버넌스](../governance-in-azure.md)
 ## [Azure 클라우드에서 격리](../azure-isolation.md)
-## [하이브리드 네트워크 아키텍처 보안](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [하이브리드 네트워크 아키텍처 보안](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [보안 기술 기능](../azure-security-technical-capabilities.md)
 
 # [데이터 보안 및 암호화](../security-azure-encryption-overview.md)

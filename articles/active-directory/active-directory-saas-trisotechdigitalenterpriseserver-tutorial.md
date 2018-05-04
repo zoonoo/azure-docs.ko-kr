@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82e88b0b2b7f04f2849bf5c3a780df3c8f1c9849
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a70962c63fdf9ab723ce437563a4670d536300aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>자습서: Trisotech Digital Enterprise Server와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ Trisotech Digital Enterprise Server가 Azure AD에 통합되도록 구성하려�
 
 **갤러리에서 Trisotech Digital Enterprise Server를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -111,31 +111,15 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-On을 구성하�
     나. **식별자** 텍스트 상자에서 `https://<companyname>.trisotech.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Trisotech Digital Enterprise Server 클라이언트 지원 팀](mailto:support@trisotech.com)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Trisotech Digital Enterprise Server 클라이언트 지원 팀](mailto:support@trisotech.com)에 문의하세요.
 
-4. **저장** 단추를 클릭합니다.
+4. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다. 
+
+    ![인증서 다운로드 링크](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+
+5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
-
-5. **메타데이터** URL을 생성하려면 다음 단계를 수행합니다.
-
-    a. **앱 등록**을 클릭합니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appregistrations.png)
-   
-    나. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpointicon.png)
-
-    다. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpoint.png)
-     
-    d. 이제 **Trisotech Digital Enterprise Server**의 속성 페이지로 이동하고 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여 넣습니다.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
 
 6. 다른 웹 브라우저 창에서 Trisotech Digital Enterprise Server Configuration 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -151,9 +135,9 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-On을 구성하�
 
     ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/user3.png)
 
-    a. **Authentication Method**(인증 방법)의 드롭다운에서 **SAML 2(Secured Assertion Markup Language 2)**를 선택합니다.
+    a. **Authentication Method**(인증 방법)의 드롭다운에서 **SAML 2(Secured Assertion Markup Language 2)** 를 선택합니다.
 
-    나. Azure Portal에서 복사한 **메타데이터 URL** 값을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
+    나. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
 
     다. **Application ID**(응용 프로그램 ID) 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<companyname>.trisotech.com`.
 
@@ -163,11 +147,7 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-On을 구성하�
 
     f. 페이지 맨 아래에 있는 **저장**
 
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+ ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 

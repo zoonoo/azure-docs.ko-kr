@@ -2,7 +2,7 @@
 title: 개발자용 Azure Active Directory | Microsoft Docs
 description: 이 문서에서는 Azure Active Directory를 사용하여 Microsoft 회사 및 학교 계정에 로그인하는 방법의 개요를 제공합니다.
 services: active-directory
-author: dstrockis
+author: jmprieur
 manager: mtillman
 editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
-ms.author: dastrock
+ms.date: 04/24/2018
+ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 580dc7414baea80ef005826d27fb5f2d35ee8895
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 02e182a090538588600f95c9be3fd57fc18ba532
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>개발자용 Azure Active Directory
+
 Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 계정으로 사용자를 안전하게 로그인하는 앱을 빌드할 수 있는 클라우드 ID 서비스입니다. Azure AD는 단일 테넌트 및 기간 업무 앱을 모두 빌드하는 개발자와 다중 테넌트 앱을 개발하는 개발자를 지원합니다. 기본 로그인 외에도, Azure AD는 앱에서 [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) 같은 Microsoft API와 Azure AD 플랫폼에서 빌드되는 사용자 지정 API를 호출하는 것을 허용합니다.  이 설명서에서는 OAuth2.0 및 OpenID Connect 같은 산업 표준 프로토콜을 사용하여 응용 프로그램에 Azure AD 지원을 추가하는 방법을 보여줍니다.
 
 > [!NOTE]
@@ -40,7 +41,7 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 | <center>![웹앱](./media/active-directory-developers-guide/Web_app.png)<br />웹앱</center> | [개요](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) | |
 | <center>![단일 페이지 앱](./media/active-directory-developers-guide/SPA.png)<br />단일 페이지 앱</center> | [개요](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![Web API](./media/active-directory-developers-guide/Web_API.png)<br />Web API</center> | [개요](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![서비스 간](./media/active-directory-developers-guide/Service_App.png)<br />서비스 간</center> | [개요](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
+| <center>![서비스 간](./media/active-directory-developers-guide/Service_App.png)<br />서비스 간</center> | [개요](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 
 ## <a name="how-to-guides"></a>방법 가이드
 아래 가이드는 Azure AD에서 가장 일반적인 작업 몇 가지를 안내합니다.

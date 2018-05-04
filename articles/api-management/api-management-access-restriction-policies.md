@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 액세스 제한 정책 | Microsoft Docs"
-description: "Azure API Management에 사용할 수 있는 액세스 제한 정책에 대해 알아봅니다."
+title: Azure API Management 액세스 제한 정책 | Microsoft Docs
+description: Azure API Management에 사용할 수 있는 액세스 제한 정책에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/21/2018
 |Name|설명|필수|  
 |----------|-----------------|--------------|  
 |check-header|루트 요소입니다.|예|  
-|값|허용된 HTTP 헤더 값입니다. 여러 값 요소가 지정된 경우 값 중 하나와 일치하면 확인에 성공한 것으로 간주됩니다.|아니요|  
+|값|허용된 HTTP 헤더 값입니다. 여러 값 요소가 지정된 경우 값 중 하나와 일치하면 확인에 성공한 것으로 간주됩니다.|아니오|  
   
 ### <a name="attributes"></a>특성  
   
@@ -88,8 +88,8 @@ ms.lasthandoff: 02/21/2018
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -113,8 +113,8 @@ ms.lasthandoff: 02/21/2018
 |Name|설명|필수|  
 |----------|-----------------|--------------|  
 |set-limit|루트 요소입니다.|예|  
-|api|제품 내에서 API에 호출 속도 제한을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 호출 속도 제한은 독립적으로 적용됩니다.|아니요|  
-|operation|API 내에서 작업에 호출 속도 제한을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품, API 및 작업 호출 속도 제한은 독립적으로 적용됩니다.|아니요|  
+|api|제품 내에서 API에 호출 속도 제한을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 호출 속도 제한은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니오|  
+|operation|API 내에서 작업에 호출 속도 제한을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품, API 및 작업 호출 속도 제한은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니오|  
   
 ### <a name="attributes"></a>특성  
   
@@ -179,7 +179,7 @@ ms.lasthandoff: 02/21/2018
 |----------|-----------------|--------------|-------------|  
 |calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|예|해당 없음|  
 |counter-key|속도 제한 정책에 사용할 키입니다.|예|해당 없음|  
-|increment-condition|요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).|아니요|해당 없음|  
+|increment-condition|요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).|아니오|해당 없음|  
 |renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
@@ -243,8 +243,8 @@ ms.lasthandoff: 02/21/2018
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -268,8 +268,8 @@ ms.lasthandoff: 02/21/2018
 |Name|설명|필수|  
 |----------|-----------------|--------------|  
 |quota|루트 요소입니다.|예|  
-|api|제품 내에서 API에 대한 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 할당량은 독립적으로 적용됩니다.|아니오|  
-|operation|API 내에서 작업에 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품, API 및 작업 할당량은 독립적으로 적용됩니다.|아니요|  
+|api|제품 내에서 API에 대한 호출 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 호출 할당량은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니오|  
+|operation|API 내에서 작업에 대한 호출 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품, API 및 작업 호출 할당량은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니오|  
   
 ### <a name="attributes"></a>특성  
   
@@ -486,11 +486,11 @@ ms.lasthandoff: 02/21/2018
 |요소|설명|필수|  
 |-------------|-----------------|--------------|  
 |validate-jwt|루트 요소입니다.|예|  
-|audiences|토큰에 제공할 수 있는 허용 가능한 대상 그룹 클레임 목록을 포함합니다. 여러 대상 그룹 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다. 한 명 이상의 대상 그룹을 지정해야 합니다.|아니요|  
-|issuer-signing-keys|서명된 토큰의 유효성을 검사하는 데 사용되는 Base64 인코딩 보안 키의 목록입니다. 보안 키가 여러 개 있는 경우 각 키는 모든 키가 소진(이 경우 유효성 검사 실패)되거나 한 개 키가 성공할 때까지 시도됩니다(토큰 롤오버에 유용함). 키 요소에는 `kid` 클레임에 대한 일치에 사용된 `id` 특성(선택적)이 포함됩니다.|아니요|  
-|issuers|토큰을 발행한 허용 가능한 보안 주체의 목록입니다. 여러 발급자 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다.|아니요|  
-|openid-config|서명 키 및 발급자를 획득할 수 있는 준수 Open ID 구성 끝점을 지정하는 데 사용됩니다.|아니요|  
-|required-claims|유효성을 고려할 토큰에 있을 것으로 예상되는 클레임 목록을 포함합니다. `match` 특성이 `all`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. `match` 특성이 `any`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.|아니요|  
+|audiences|토큰에 제공할 수 있는 허용 가능한 대상 그룹 클레임 목록을 포함합니다. 여러 대상 그룹 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다. 한 명 이상의 대상 그룹을 지정해야 합니다.|아니오|  
+|issuer-signing-keys|서명된 토큰의 유효성을 검사하는 데 사용되는 Base64 인코딩 보안 키의 목록입니다. 보안 키가 여러 개 있는 경우 각 키는 모든 키가 소진(이 경우 유효성 검사 실패)되거나 한 개 키가 성공할 때까지 시도됩니다(토큰 롤오버에 유용함). 키 요소에는 `kid` 클레임에 대한 일치에 사용된 `id` 특성(선택적)이 포함됩니다.|아니오|  
+|issuers|토큰을 발행한 허용 가능한 보안 주체의 목록입니다. 여러 발급자 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다.|아니오|  
+|openid-config|서명 키 및 발급자를 획득할 수 있는 준수 Open ID 구성 끝점을 지정하는 데 사용됩니다.|아니오|  
+|required-claims|유효성을 고려할 토큰에 있을 것으로 예상되는 클레임 목록을 포함합니다. `match` 특성이 `all`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. `match` 특성이 `any`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.|아니오|  
 |zumo-master-key|Azure Mobile Services에서 발급한 토큰에 대한 마스터 키|아니오|  
   
 ### <a name="attributes"></a>특성  
@@ -501,12 +501,12 @@ ms.lasthandoff: 02/21/2018
 |failed-validation-error-message|JWT가 유효성 검사를 통과하지 못한 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.|아니오|기본 오류 메시지는 유효성 검사 문제에 따라 달라집니다(예: "JWT not present(JWT 없음)").|  
 |failed-validation-httpcode|JWT가 유효성 검사를 통과하지 못한 경우 반환할 HTTP 상태 코드입니다.|아니오|401|  
 |header-name|토큰을 보유하는 HTTP 헤더의 이름입니다.|`header-name` 또는 `query-parameter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
-|id|`key` 요소에 있는 `id` 특성을 통해 토큰(있는 경우)에 있는 `kid` 클레임과 일치시킬 문자열을 지정하여 서명 유효성 검사에 사용할 적절한 키를 확인할 수 있습니다.|아니요|해당 없음|  
-|match|`claim` 요소에 있는 `match` 특성에 따라 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 하는지가 지정됩니다. 가능한 값은 다음과 같습니다.<br /><br /> -                          `all` - 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.<br /><br /> -                          `any` - 유효성 검사 성공을 위해 하나 이상의 클레임 값이 토큰에 표시되어야 합니다.|아니요|모두|  
+|id|`key` 요소에 있는 `id` 특성을 통해 토큰(있는 경우)에 있는 `kid` 클레임과 일치시킬 문자열을 지정하여 서명 유효성 검사에 사용할 적절한 키를 확인할 수 있습니다.|아니오|해당 없음|  
+|match|`claim` 요소에 있는 `match` 특성에 따라 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 하는지가 지정됩니다. 가능한 값은 다음과 같습니다.<br /><br /> -                          `all` - 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.<br /><br /> -                          `any` - 유효성 검사 성공을 위해 하나 이상의 클레임 값이 토큰에 표시되어야 합니다.|아니오|모두|  
 |query-paremeter-name|토큰을 보유하는 쿼리 매개 변수의 이름입니다.|`header-name` 또는 `query-paremeter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
 |require-expiration-time|부울 값입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.|아니오|true|
-|require-scheme|토큰 스키마의 이름입니다(예: "Bearer"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.|아니요|해당 없음|
-|require-signed-tokens|부울 값입니다. 토큰에 서명이 필요한지를 지정합니다.|아니요|true|  
+|require-scheme|토큰 스키마의 이름입니다(예: "Bearer"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.|아니오|해당 없음|
+|require-signed-tokens|부울 값입니다. 토큰에 서명이 필요한지를 지정합니다.|아니오|true|  
 |구분 기호|문자열입니다. 다중 값 클레임에서 값 집합을 추출하는 데 사용된 구분 기호(예: “,”)를 지정합니다.|아니오|해당 없음| 
 |URL|Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 끝점 URL입니다. 응답은 URL `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`에서 정의된 사양을 따라야 합니다.  Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`).|예|해당 없음|  
   

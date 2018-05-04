@@ -42,7 +42,7 @@
 
 
 > [!NOTE]
-> 현재 단일 IoT hub에 연결할 수는 장치의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/en-us/support/options/)에 문의하세요.
+> 현재 단일 IoT hub에 연결할 수는 장치의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 다음 할당량이 초과되면 IoT 허브 서비스가 요청을 제한합니다.
 

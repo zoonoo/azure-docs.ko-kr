@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service의 Mobile Apps 정보"
-description: "App Service가 엔터프라이즈 모바일 앱에 제공하는 이점을 알아봅니다."
+title: Azure App Service의 Mobile Apps 정보
+description: App Service가 엔터프라이즈 모바일 앱에 제공하는 이점을 알아봅니다.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e84ac98508b791b4617ead2b6bf3b0edc549bdb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
@@ -104,4 +104,4 @@ Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service]를
 [가상 네트워크]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service 환경]: ../app-service/environment/intro.md
-[학습 맵]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
+[학습 맵]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 2a53e34ed6f1eef3e54585587ddadd544b1ae728
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 47cc812f9dac606cf4f69df9eff6d48095eb6ef8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -65,7 +65,7 @@ Azure 가상 머신 확장은 기존 가상 머신에서 실행할 수 있습니
 
 ### <a name="azure-cli"></a>Azure CLI
 
-`az vm extension set` 명령을 사용하여 기존 가상 머신에 대해 Azure Virtual Machine 확장을 실행할 수 있습니다. 이 예제에서는 가상 머신에 대한 사용자 지정 스크립트 확장을 실행합니다.
+ph x="1" /> 명령을 사용하여 기존 가상 머신에 대해 Azure Virtual Machine 확장을 실행할 수 있습니다. 이 예제에서는 가상 머신에 대한 사용자 지정 스크립트 확장을 실행합니다.
 
 ```azurecli
 az vm extension set `
@@ -241,4 +241,4 @@ Azure Portal에서 다음 단계에 사용하여 확장을 제거할 수 있습�
 | Docker 확장 |원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다. |[Docker VM 확장](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

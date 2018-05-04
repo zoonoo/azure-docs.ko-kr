@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning을 위한 데이터 준비 시작 | Microsoft Docs"
-description: "AML Workbench의 데이터 준비 섹션에 대한 시작 가이드입니다."
+title: Azure Machine Learning을 위한 데이터 준비 시작 | Microsoft Docs
+description: AML Workbench의 데이터 준비 섹션에 대한 시작 가이드입니다.
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
 ms.openlocfilehash: b0fbb0af433cfad6693b022d7a00373dc39533aa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="getting-started-with-data-preparation"></a>데이터 준비 시작
 

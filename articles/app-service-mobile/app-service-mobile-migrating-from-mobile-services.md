@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-top"></a>기존 Azure Mobile Services를 Azure App Service로 마이그레이션
 [Azure App Service의 일반적인 가용성]을 사용하여 Azure Mobile Services 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure App Service의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure Mobile Services에서 Azure App Service에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
@@ -95,7 +95,7 @@ Scheduler 작업은 마이그레이션 후에 약 30분까지 표시되지 않�
 다시 표시된 예약된 작업을 보려면
 
 1. [Azure 포털] 에 로그인합니다.
-2. **찾아보기>**를 선택하고 *필터* 상자에 **일정**을 입력한 다음 **Scheduler 컬렉션**을 선택합니다.
+2. **찾아보기>** 를 선택하고 *필터* 상자에 **일정**을 입력한 다음 **Scheduler 컬렉션**을 선택합니다.
 
 마이그레이션 후에 사용 가능한 무료 스케줄러 작업의 수가 제한됩니다.  사용량 및 [Azure Scheduler 계획]을 검토합니다.
 
@@ -126,7 +126,7 @@ Azure App Service로 마이그레이션할 때 사이트의 게시 프로필이 
 PublishSettings 파일이 컴퓨터에 다운로드됩니다.  일반적으로 파일 이름은 *sitename*.PublishSettings입니다.  기존 프로젝트에 게시 설정을 가져옵니다.
 
 1. Visual Studio 및 Azure 모바일 서비스 프로젝트를 엽니다.
-2. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...**를 선택합니다.
+2. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 3. **가져오기**를 클릭합니다.
 4. **찾아보기**를 클릭하고 다운로드한 게시 설정 파일을 선택합니다.  **확인**
 5. **연결 유효성 검사**를 클릭하여 게시 설정이 작동하는지 확인합니다.
@@ -216,7 +216,7 @@ Mobile Services에서 *API* 탭은 Azure Portal 내에서 *쉬운 API*로 대체
 모든 Scheduler 작업은 Scheduler 작업 컬렉션 섹션을 통해 사용할 수 있습니다.  스케줄러 작업에 액세스하려면
 
 1. [Azure 포털] 에 로그인합니다.
-2. **찾아보기>**를 선택하고 *필터* 상자에 **일정**을 입력한 다음 **Scheduler 컬렉션**을 선택합니다.
+2. **찾아보기>** 를 선택하고 *필터* 상자에 **일정**을 입력한 다음 **Scheduler 컬렉션**을 선택합니다.
 3. 사이트에 대한 작업 컬렉션을 선택합니다.  *sitename*-Jobs로 이름이 지정됩니다.
 4. **설정**을 클릭합니다.
 5. 관리 아래에 있는 **Scheduler 작업**을 클릭합니다.
@@ -372,16 +372,16 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure 포털]: https://portal.azure.com
-[Azure Region]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler 계획]: ../scheduler/scheduler-plans-billing.md
 [지속적으로 배포]: ../app-service/app-service-continuous-deployment.md
-[혼합 네임스페이스를 변환]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler

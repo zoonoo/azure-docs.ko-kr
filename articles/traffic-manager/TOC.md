@@ -34,7 +34,7 @@
 ### [Azure Traffic Manager의 성능 저하된 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)

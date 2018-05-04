@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
@@ -68,14 +68,14 @@ az extension update --name rdbms
 
 `az mysql server create` 명령을 통해 서버를 만드는 동안 `--geo-redundant-backup` 매개 변수는 백업 중복성 옵션을 결정합니다. `Enabled`인 경우 지역 중복 백업이 수행됩니다. 또는 `Disabled`인 경우 로컬 중복 백업이 수행됩니다. 
 
-백업 보존 기간은 `--backup-retention-days` 매개 변수에 의해 설정됩니다. 
+백업 보존 기간은 `--backup-retention` 매개 변수에 의해 설정됩니다. 
 
 만드는 중에 이러한 값을 설정하는 방법에 대한 자세한 내용은 [Azure Database for MySQL 서버 CLI 빠른 시작](quickstart-create-mysql-server-database-using-azure-cli.md)을 참조하세요.
 
 서버의 백업 보존 기간은 다음과 같이 변경할 수 있습니다.
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 앞의 예제는 mydemoserver의 백업 보존 기간을 10일로 변경합니다.

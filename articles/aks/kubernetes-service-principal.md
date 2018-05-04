@@ -1,23 +1,23 @@
 ---
-title: "Azure Kubernetes 클러스터의 서비스 주체"
-description: "AKS에서 Kubernetes 클러스터에 대한 Azure Active Directory 서비스 주체를 만들기 및 관리"
+title: Azure Kubernetes 클러스터의 서비스 주체
+description: AKS에서 Kubernetes 클러스터에 대한 Azure Active Directory 서비스 주체를 만들기 및 관리
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 02/24/2018
+ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service(AKS)를 사용하는 서비스 주체
 
-Azure API와 상호 작용하기 위해 AKS 클러스터에는 [Azure Active Directory 서비스 주체][aad-service-principal]가 필요합니다. 서비스 주체는 [사용자 정의 경로][user-defined-routes] 및 [계층 4 Azure Load Balancer][azure-load-balancer-overview]와 같은 리소스를 동적으로 관리하는 데 필요합니다.
+Azure API와 상호 작용하기 위해 AKS 클러스터에는 [Azure Active Directory 서비스 주체][aad-service-principal]가 필요합니다. 서비스 주체는 [Azure Load Balancer][azure-load-balancer-overview]와 같은 리소스를 동적으로 만들고 관리하는 데 필요합니다.
 
 이 문서에서는 AKS의 Kubernetes 클러스터에 대한 서비스 주체를 설정하는 다양한 옵션을 보여줍니다.
 
@@ -80,10 +80,10 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 사항에 유의�
 
 * Kubernetes에 대한 서비스 주체는 클러스터 구성의 일부입니다. 그러나 클러스터를 배포하는 데에는 이 ID를 사용하지 마세요.
 * 모든 서비스 주체는 Azure AD 응용 프로그램과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 응용 프로그램 이름(예: `https://www.contoso.org/example`)과 연결할 수 있습니다. 응용 프로그램에 대한 URL은 실제 끝점일 필요가 없습니다.
-* 서비스 주체 **클라이언트 ID**를 지정하는 경우 `appId`(이 문서에서 표시한 대로) 또는 해당되는 `name` 서비스 주체(예: `https://www.contoso.org/example`)의 값을 사용할 수 있습니다.
+* 서비스 주체 **클라이언트 ID**를 지정하는 경우 `appId`(이 문서에서 표시한 대로) 또는 해당되는 `name` 서비스 주체(예: `https://www.contoso.org/example`)의 값을 사용합니다.
 * Kubernetes 클러스터의 마스터 및 노드 VM에서 서비스 주체 자격 증명은 `/etc/kubernetes/azure.json` 파일에 저장됩니다.
-* `az aks create` 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 컴퓨터의 `~/.azure/acsServicePrincipal.json` 파일에 기록됩니다.
-* `az aks create` 명령으로 만든 AKS 클러스터를 삭제해도 자동으로 생성된 서비스 주체는 삭제되지 않습니다. `az ad sp delete --id $clientID` 명령을 사용하여 삭제할 수 있습니다.
+* `az aks create` 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 컴퓨터의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
+* `az aks create` 명령으로 만든 AKS 클러스터를 삭제해도 자동으로 생성된 서비스 주체는 삭제되지 않습니다. `az ad sp delete --id $clientID`를 사용하여 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

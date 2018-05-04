@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 02/05/2018
+ms.date: 04/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f8a93e873f79e99777fe2d8675c9426f5fc5ecda
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5cd4ce6b04f9257de13aad6e59eb772fbe2fa558
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
-Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용량 기준 과금으로 제공합니다. Batch Rendering Service는 Autodesk Maya, 3ds Max, Arnold 및 V-Ray를 지원합니다. 이 자습서에서는 Azure 명령줄 인터페이스를 사용하여 Batch를 통해 작은 장면을 렌더링하는 단계를 보여 줍니다. 다음 방법에 대해 알아봅니다.
+Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용량 기준 과금으로 제공합니다. Batch Rendering Service는 Autodesk Maya, 3ds Max, Arnold, V-Ray 등의 렌더링 앱을 지원합니다. 이 자습서에서는 Azure 명령줄 인터페이스를 사용하여 Batch를 통해 작은 장면을 렌더링하는 단계를 보여 줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure 저장소에 장면 업로드
@@ -123,7 +123,7 @@ az storage blob upload-batch \
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "latest"
+      "version": "1.2.1"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -213,7 +213,7 @@ az batch job create \
 ```json
 {
   "id": "myrendertask",
-  "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
+  "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
         "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",

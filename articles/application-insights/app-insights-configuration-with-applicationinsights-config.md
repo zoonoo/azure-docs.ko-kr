@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 응용 프로그램에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
@@ -263,6 +263,91 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 ```
 
 새 키를 얻으려면 [Application Insights 포털에서 새 리소스를 만듭니다][new].
+
+
+
+## <a name="applicationid-provider"></a>응용 프로그램 ID 공급자
+
+_v2.6.0에서 시작 가능_
+
+이 공급자의 목적은 계측 키에 따라 응용 프로그램 ID를 조회하는 것입니다. 응용 프로그램 ID는 RequestTelemetry 및 DependencyTelemetry에 포함되며 포털에서 상관 관계를 결정하는 데 사용됩니다.
+
+이는 코드 또는 구성에서 `TelemetryConfiguration.ApplicationIdProvider`를 설정하여 사용할 수 있습니다.
+
+### <a name="interface-iapplicationidprovider"></a>인터페이스: IApplicationIdProvider
+
+```csharp
+public interface IApplicationIdProvider
+{
+    bool TryGetApplicationId(string instrumentationKey, out string applicationId);
+}
+```
+
+
+[Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) sdk에서 `ApplicationInsightsApplicationIdProvider` 및 `DictionaryApplicationIdProvider`라는 두 가지 구현을 제공합니다.
+
+### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
+
+프로필 API에 대한 래퍼입니다. 요청을 스로틀하고 결과를 캐시합니다.
+
+이 공급자는 [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) 또는 [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 중 하나를 설치할 때 사용자 구성 파일에 추가됩니다.
+
+이 클래스에는 선택적 속성 `ProfileQueryEndpoint`가 있습니다.
+기본적으로 `https://dc.services.visualstudio.com/api/profiles/{0}/appId`로 설정되어 있습니다.
+이 구성에 대한 프록시를 구성해야 하는 경우 기준 주소를 프록시하고 “/api/profiles/{0}/appId”를 포함하는 것이 좋습니다. 해당 ‘{0}’는 요청에 따라 런타임에 계측 키로 대체 됩니다.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>ApplicationInsights.config를 통해 구성 예제:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>코드를 통한 구성 예제:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
+```
+
+### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
+
+구성된 계측 키/응용 프로그램 ID 쌍을 사용하는 정적 공급자입니다.
+
+이 클래스에는 속성 `Defined`가 있으며, 이는 계측 키 - 응용 프로그램 ID 쌍의 사전<string,string>입니다.
+
+이 클래스에는 선택적 속성 `Next`가 있습니다. 이는 구성에서 존재하지 않는 계측 키가 요청되는 경우 사용할 다른 공급자를 구성하는 데 사용할 수 있습니다.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>ApplicationInsights.config를 통해 구성 예제:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.DictionaryApplicationIdProvider, Microsoft.ApplicationInsights">
+        <Defined>
+            <Type key="InstrumentationKey_1" value="ApplicationId_1"/>
+            <Type key="InstrumentationKey_2" value="ApplicationId_2"/>
+        </Defined>
+        <Next Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights" />
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>코드를 통한 구성 예제:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationIdProvider{
+ Defined = new Dictionary<string, string>
+    {
+        {"InstrumentationKey_1", "ApplicationId_1"},
+        {"InstrumentationKey_2", "ApplicationId_2"}
+    }
+};
+```
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 [API에 대해 자세히 알아보세요][api].

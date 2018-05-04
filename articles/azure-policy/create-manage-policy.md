@@ -1,19 +1,19 @@
 ---
-title: "Azure Policy를 사용하여 조직의 규정 준수를 적용하는 정책 만들기 및 관리 | Microsoft Docs"
-description: "Azure Policy를 사용하여 표준을 적용하고, 규정 준수 및 감사 요구 사항을 충족하며, 비용을 통제하고, 보안 및 성능 일관성을 유지하며, 엔터프라이즈 수준 디자인 원칙을 적용합니다."
+title: Azure Policy를 사용하여 조직의 규정 준수를 적용하는 정책 만들기 및 관리 | Microsoft Docs
+description: Azure Policy를 사용하여 표준을 적용하고, 규정 준수 및 감사 요구 사항을 충족하며, 비용을 통제하고, 보안 및 성능 일관성을 유지하며, 엔터프라이즈 수준 디자인 원칙을 적용합니다.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/18/2018
+ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e50c2330c03e5fc36e608b672fe8390a1f19e99b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/03/2018
 > * 규정 비준수 또는 거부된 리소스 해결
 > * 조직 전체에서 새 정책 구현
 
-기존 리소스의 현재 규정 준수 상태를 식별하는 정책을 할당하려는 경우 이 빠른 시작 문서를 통해 방법을 살펴보세요. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+기존 리소스의 현재 규정 준수 상태를 식별하는 정책을 할당하려는 경우 이 빠른 시작 문서를 통해 방법을 살펴보세요. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="assign-a-policy"></a>정책 할당
 
@@ -337,7 +337,7 @@ az policy definition list
 2. 페이지 위쪽에서 **이니셔티브 정의**를 선택합니다. 그러면 **이니셔티브 정의** 양식으로 이동합니다.
 3. 이니셔티브의 이름과 설명을 입력합니다.
 
-   이 예에서는 리소스가 보안 강화에 대한 정책 정의를 준수하는지 확인합니다. 이니셔티브의 이름은 **보안 가져오기**이고, 설명은 **이 이니셔티브는 리소스 보안과 관련된 모든 정책 정의를 처리하기 위해 만들어졌습니다.**입니다.
+   이 예에서는 리소스가 보안 강화에 대한 정책 정의를 준수하는지 확인합니다. 이니셔티브의 이름은 **보안 가져오기**이고, 설명은 **이 이니셔티브는 리소스 보안과 관련된 모든 정책 정의를 처리하기 위해 만들어졌습니다.** 입니다.
 
    ![이니셔티브 정의](media/create-manage-policy/initiative-definition.png)
 
@@ -372,7 +372,7 @@ az policy definition list
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>배제를 사용하여 규정 비준수 또는 거부된 리소스 제외
 
-위의 예제에 따라 SQL Server 버전 12.0을 요구하도록 정책 정의를 할당한 후에는 다른 버전으로 만든 SQL Server는 거부됩니다. 이 섹션에서는 제외를 요청하여 다른 버전의 SQL Server를 만들 때 거부된 시도를 해결하는 방법을 단계별로 안내합니다. 제외는 근본적으로 정책 적용을 차단합니다. 리소스 그룹에 제외를 적용하거나 제외 범위를 개별 리소스로 좁힐 수 있습니다.
+위의 예제에 따라 SQL Server 버전 12.0을 요구하도록 정책 정의를 할당한 후에는 다른 12.0 버전으로 만든 SQL Server가 거부됩니다. 이 섹션에서는 특정 리소스 제외를 요청하여 SQL 서버 생성 시도 거부 문제를 해결하는 방법을 단계별로 안내합니다. 제외는 근본적으로 정책 적용을 차단합니다. 다음 예제에서는 모든 SQL 서버 버전이 허용됩니다. 리소스 그룹에 제외를 적용하거나 제외 범위를 개별 리소스로 좁힐 수 있습니다.
 
 1. 왼쪽 창에서 **할당**을 선택합니다.
 2. 모든 정책 할당을 검색하고 *SQL Server 버전 12.0 필요* 할당을 엽니다.
@@ -384,7 +384,7 @@ az policy definition list
 
 4. **할당**을 클릭합니다.
 
-이 섹션에서는 리소스에 대한 제외를 요청하여 SQL 서버 버전 12.0 만들기 시도 거부를 해결했습니다.
+이 섹션에서는 리소스 제외를 요청하여 SQL 서버 생성 시도 거부 문제를 해결했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

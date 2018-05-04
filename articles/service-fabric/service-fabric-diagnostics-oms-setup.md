@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>클러스터에 대해 Log Analytics 설정
 
-Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analytics 작업 영역을 설정할 수 있습니다. 나중에 사용하기 위해 배포의 업데이트된 Resource Manager 템플릿을 유지 관리하는 경우 동일한 템플릿을 사용하여 OMS 환경을 설정합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. OMS를 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
+Log Analytics는 클러스터 수준 이벤트를 모니터링하기 위한 권장 사항입니다. Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analytics 작업 영역을 설정할 수 있습니다. 나중에 사용하기 위해 배포의 업데이트된 Resource Manager 템플릿을 유지 관리하는 경우 동일한 템플릿을 사용하여 Log Analytics 환경을 설정합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
 
 > [!NOTE]
-> 클러스터를 모니터링하도록 Log Analytics를 설정하려면 클러스터 수준 또는 플랫폼 수준 이벤트를 보기 위해 진단을 사용하도록 설정해야 합니다.
+> 클러스터를 모니터링하도록 Log Analytics를 설정하려면 클러스터 수준 또는 플랫폼 수준 이벤트를 보기 위해 진단을 사용하도록 설정해야 합니다. 자세한 내용은 [Windows 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-event-aggregation-wad.md) 및 [Linux 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-event-aggregation-lad.md)을 참조하세요.
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Azure Marketplace를 사용하여 OMS 배포
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Azure Marketplace를 사용하여 Log Analytics 작업 영역 배포
 
-클러스터를 배포한 후에 OMS 작업 영역을 추가하려면 포털에서 Azure Marketplace로 이동한 다음, **Service Fabric 분석**을 찾습니다.
+클러스터를 배포한 후에 Log Analytics 작업 영역을 추가하려면 포털에서 Azure Marketplace로 이동한 다음, **Service Fabric 분석**을 찾습니다. 이것은 Service Fabric 관련 데이터가 있는 Service Fabric 배포를 위한 사용자 지정 솔루션입니다. 이 프로세스에서 솔루션(정보를 보기 위한 대시보드)과 작업 영역(기본 클러스터 데이터의 집계)을 모두 만듭니다.
 
 1. 왼쪽 탐색 메뉴에서 **새로 만들기**를 선택합니다. 
 
@@ -39,7 +39,7 @@ Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analyt
 
     ![Marketplace의 OMS SF 분석](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Service Fabric 분석 만들기 창에서 **OMS 작업 영역** 필드에 대해 **작업 영역 선택**을 선택한 다음, **새 작업 영역 만들기**를 선택합니다. 필수 정보를 입력합니다. 단, Service Fabric 클러스터와 OMS 작업 영역에 대한 구독이 동일해야 합니다. 입력의 유효성이 검사되면 OMS 작업 영역이 배포되기 시작합니다. 배포에 몇 분밖에 걸리지 않습니다.
+4. Service Fabric 분석 만들기 창에서 **OMS 작업 영역** 필드에 대해 **작업 영역 선택**을 선택한 다음, **새 작업 영역 만들기**를 선택합니다. 필수 정보를 입력합니다. 단, Service Fabric 클러스터와 작업 영역에 대한 구독이 동일해야 합니다. 입력의 유효성이 검사되면 작업 영역이 배포되기 시작합니다. 배포에 몇 분밖에 걸리지 않습니다.
 
 5. 완료되면 Service Fabric 분석 만들기 창의 맨 아래에서 **만들기**를 다시 선택합니다. **OMS 작업 영역** 아래에 새 작업 영역이 표시되는지 확인합니다. 이 작업은 방금 만든 작업 영역에 솔루션을 추가합니다.
 
@@ -48,9 +48,9 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 >[!NOTE]
 >Linux 클러스터에 대해서는 이 환경을 설정할 수 없습니다. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>OMS 작업 영역을 클러스터에 연결 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics 작업 영역을 클러스터에 연결 
 
-1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 포털에 액세스할 수 있습니다.
+1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 포털에 액세스할 수 있습니다.
 
 2. 왼쪽 탐색 메뉴의 **작업 영역 데이터 원본**에서 **저장소 계정 로그**를 선택합니다.
 

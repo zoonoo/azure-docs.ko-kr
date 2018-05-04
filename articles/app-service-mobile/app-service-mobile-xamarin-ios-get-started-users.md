@@ -1,11 +1,11 @@
 ---
-title: "Xamarin iOS에서 Mobile Apps에 대한 인증 시작"
-description: "Mobile Apps를 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin iOS 앱 사용자를 인증하는 방법을 알아봅니다."
+title: Xamarin iOS에서 Mobile Apps에 대한 인증 시작
+description: Mobile Apps를 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin iOS 앱 사용자를 인증하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/04/2018
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. **Info.plist** 파일을 열고 **고급** 섹션의 **URL 형식**으로 이동합니다. 이제 URL 형식의 **식별자** 및 **URL 스키마**를 구성하고 **URL 형식 추가**를 클릭합니다. **URL 스키마**는 {url_scheme_of_your_app}와 동일해야 합니다.
-7. Mac 컴퓨터의 Xamarin 빌드 호스트에 연결된 Visual Studio 또는 Xamarin Studio에서 장치 또는 에뮬레이터를 대상으로 하는 클라이언트 프로젝트를 실행합니다. 앱이 데이터를 표시하지 않는지 확인합니다.
+7. Mac 호스트에 연결된 Visual Studio 또는 Mac용 Visual Studio에서 장치 또는 에뮬레이터를 대상으로 하는 클라이언트 프로젝트를 실행합니다. 앱이 데이터를 표시하지 않는지 확인합니다.
    
     항목 목록을 아래로 끌어서 새로 고침 제스처를 수행하고 로그인 화면이 나타나도록 합니다. 유효한 자격 증명을 성공적으로 입력하면 앱이 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
 

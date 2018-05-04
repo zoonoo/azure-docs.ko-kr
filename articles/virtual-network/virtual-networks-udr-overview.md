@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -122,7 +122,9 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 - **VPN**: 필요에 따라 BGP를 사용할 수 있습니다. 자세한 내용은 [사이트 간 VPN 연결에서 BGP 사용](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 대한 별도의 경로가 가상 네트워크에 있는 모든 서브넷의 경로 테이블에 추가됩니다. 원본 및 다음 홉 유형으로 나열되는 *가상 네트워크 게이트웨이*가 포함된 경로가 추가됩니다. 
- 
+
+경로 테이블의 속성을 사용하는 서브넷에서 BGP 경로 전파를 비활성화할 수 있습니다. BGP를 사용하여 Azure와 경로를 교환할 때 BGP 전파가 비활성화된 모든 서브넷의 경로 테이블에 경로가 추가되지 않습니다. VPN 연결을 통한 연결 기능은 다음 홉 형식의 VPN과 사용자 지정 경로(#custom-routes)를 사용하여 구현됩니다. 자세한 정보는 [BGP 경로 전파를 비활성화하는 방법](/manage-route-table#create-a-route-table.md)을 참조하세요.
+
 ## <a name="how-azure-selects-a-route"></a>Azure에서 경로를 선택하는 방법
 
 서브넷에서 아웃바운드 트래픽을 보내면 Azure에서 가장 긴 접두사 일치 알고리즘을 사용하여 대상 IP 주소에 기반한 경로를 선택합니다. 예를 들어 경로 테이블에는 두 개의 경로가 있습니다. 한 경로에는 10.0.0.0/24 주소 접두사가, 다른 한 경로에는 10.0.0.0/16 주소 접두사가 지정되어 있습니다. Azure는 10.0.0.5로 향하는 트래픽을 10.0.0.0/24 주소 접두사가 있는 경로에 지정된 다음 홉 유형으로 라우팅합니다. 이는 10.0.0.5가 두 주소 접두사 내에 있더라도 10.0.0.0/24가 10.0.0.0/16보다 긴 접두사이기 때문입니다. Azure는 10.0.1.5로 향하는 트래픽을 10.0.0.0/16 주소 접두사가 있는 경로에 지정된 다음 홉 유형으로 라우팅합니다. 이는 10.0.1.5가 10.0.0.0/24 주소 접두사에 포함되어 있지 않기 때문에 10.0.0.0/16 주소 접두사가 있는 경로가 일치하는 가장 긴 접두사입니다.

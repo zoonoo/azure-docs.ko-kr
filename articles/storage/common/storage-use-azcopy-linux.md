@@ -1,8 +1,8 @@
 ---
-title: "Linux에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs"
-description: "Linux에서 AzCopy 유틸리티를 사용하여 Blob 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다."
+title: Linux에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs
+description: Linux에서 AzCopy 유틸리티를 사용하여 Blob 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -12,48 +12,79 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 04/19/2018
 ms.author: seguler
-ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: fe13f8441bd91d0defebd0fa94bdb716b7ab9ca6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 
-AzCopy는 최적의 성능을 내도록 설계된 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
+AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob 및 파일 저장소에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 
-두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Linux에서 AzCopy는 POSIX 스타일 명령줄 옵션을 제공하는 Linux 플랫폼을 대상으로 하는 .NET Core Framework를 기반으로 합니다. [Windows에서 AzCopy](../storage-use-azcopy.md)는 .NET Framework를 기반으로 하며 Windows 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Linux에서 AzCopy를 설명합니다.
+두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Linux의 AzCopy는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. [Windows의 AzCopy](../storage-use-azcopy.md)는 Windows 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Linux에서 AzCopy를 설명합니다. 
+
+> [!NOTE]  
+> AzCopy 7.2 버전부터 .NET Core 종속성이 AzCopy 패키지에 패키징됩니다. 7.2 이상 버전을 사용하는 경우 더 이상 필수 구성 요소로 .NET Core를 설치할 필요가 없습니다.
 
 ## <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치
+
 ### <a name="installation-on-linux"></a>Linux에서 설치
 
-문서에는 다양한 버전의 Ubuntu에 대한 명령이 포함됩니다.  `lsb_release -a` 명령을 사용하여 배포 릴리스 및 코드명을 확인합니다. 
+> [!NOTE]
+> 배포에 따라 이 [.NET Core 필수 구성 요소 문서](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)에 강조된 .NET Core 2.1 종속성을 설치해야 할 수도 있습니다. Ubuntu 16.04 및 RHEL 7처럼 가장 많이 사용되는 배포인 경우 설치할 필요가 없습니다.
 
-Linux에서 AzCopy를 사용하려면 플랫폼에 .NET Core Framework(버전 2.0)가 있어야 합니다. [.NET Core](https://www.microsoft.com/net/download/linux) 페이지에서 설치 지침을 참조하세요.
+Linux(v7.2 이상)에 AzCopy를 설치하는 방법은 매우 간단합니다. tar 패키지를 추출하고 설치 스크립트를 실행하기만 하면 됩니다. 
 
-예를 들어, Ubuntu 16.04에 .NET Core를 설치해 보겠습니다. 최신 설치 가이드를 보려면 [Linux에서.NET Core](https://www.microsoft.com/net/download/linux) 설치 페이지를 확인하세요.
-
-
+**RHEL 6 기반 배포판**: [다운로드 링크](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-```
-
-.NET Core를 설치했으면 AzCopy를 다운로드 및 설치합니다.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Linux에서 AzCopy가 설치되면 추출한 파일을 제거할 수 있습니다. 또는 superuser 권한이 없는 경우 추출된 폴더에서 셸 스크립트 'azcopy'를 사용하여 AzCopy를 실행할 수도 있습니다. 
+**그 외의 Linux 배포판**: [다운로드 링크](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
 
+Linux에서 AzCopy가 설치되면 추출한 파일을 제거할 수 있습니다. 또는 슈퍼 사용자 권한이 없는 경우 추출된 폴더에서 셸 스크립트 azcopy를 사용하여 `azcopy`를 실행할 수도 있습니다.
+
+### <a name="alternative-installation-on-ubuntu"></a>Ubuntu에 대체 설치
+
+**Ubuntu 14.04**
+
+Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
+
+```bash
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
+
+**Ubuntu 16.04**
+
+Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
+
+```bash
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
 
 ## <a name="writing-your-first-azcopy-command"></a>첫 번째 AzCopy 명령 작성
 AzCopy 명령의 기본 구문은 다음과 같습니다.
@@ -205,6 +236,14 @@ azcopy \
 ```
 
 지정한 가상 디렉터리가 없으면 AzCopy는 Blob 이름에 가상 디렉터리를 포함하여 파일을 업로드합니다(*예*: 위 예의 `vd/abc.txt`).
+
+### <a name="redirect-from-stdin"></a>stdin에서 리디렉션
+
+```azcopy
+gzip myarchive.tar -c | azcopy \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/mydir/myarchive.tar.gz \
+    --dest-key <key>
+```
 
 ### <a name="upload-all-files"></a>모든 파일 업로드
 
@@ -601,10 +640,31 @@ azcopy \
 >[!TIP]
 >AzCopy 매개 변수의 전체 목록을 보려면, 'azcopy --help' 메뉴를 확인하세요.
 
-## <a name="known-issues-and-best-practices"></a>알려진 문제 및 모범 사례
-### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>오류: 시스템에서 .NET SDK 2.0을 찾을 수 없습니다.
-AzCopy 7.0 버전부터 AzCopy는 .NET SDK 2.0을 사용합니다. 이 버전 이전의 AzCopy는 .NET Core 1.1을 사용했습니다. 시스템에 .NET Core 2.0이 설치되지 않았다는 오류가 발생하면 [.NET Core installation instructions](https://www.microsoft.com/net/learn/get-started/linuxredhat)(.NET Core 설치 지침)에 따라 설치하거나 업그레이드해야 할 수 있습니다.
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>AzCopy 7.1 이하 버전의 설치 단계
 
+Linux(v7.1 이하)에서 AzCopy를 사용하려면 .NET Core 프레임워크가 필요합니다. 설치 지침은 [.NET Core 설치](https://www.microsoft.com/net/core#linuxubuntu) 페이지에 제공됩니다.
+
+예를 들어 Ubuntu 16.10에 .NET Core를 설치하여 시작합니다. 최신 설치 가이드를 보려면 [Linux에서.NET Core](https://www.microsoft.com/net/core#linuxubuntu) 설치 페이지를 확인하세요.
+
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
+```
+
+.NET Core를 설치했으면 AzCopy를 다운로드 및 설치합니다.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+Linux에서 AzCopy가 설치되면 추출한 파일을 제거할 수 있습니다. 또는 슈퍼 사용자 권한이 없는 경우 추출된 폴더에서 셸 스크립트 azcopy를 사용하여 `azcopy`를 실행할 수도 있습니다.
+
+## <a name="known-issues-and-best-practices"></a>알려진 문제 및 모범 사례
 ### <a name="error-installing-azcopy"></a>AzCopy 설치 오류
 AzCopy 설치 관련 문제가 발생하는 경우 추출된 `azcopy` 폴더에서 bash 스크립트를 사용하여 AzCopy를 실행해볼 수 있습니다.
 
@@ -618,8 +678,26 @@ AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동�
 
 다른 응용 프로그램이 복사 중인 Blob 또는 파일에 쓰지 못하게 할 수 없으면 작업이 완료될 때까지 복사된 리소스가 소스 리소스와 더 이상 완전히 동일하지 않을 수 있습니다.
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>한 컴퓨터에서 AzCopy 인스턴스 하나를 실행합니다.
-AzCopy는 데이터 전송 속도를 높이기 위해 컴퓨터 리소스를 최대한 활용할 수 있도록 설계되었습니다. 따라서 컴퓨터 한 대에서 AzCopy 인스턴스를 하나만 실행하는 것이 좋으며 더 많은 동시 작업을 수행해야 하는 경우에는 `--parallel-level` 옵션을 지정해야 합니다. 자세한 내용을 확인하려면 명령줄에 `AzCopy --help parallel-level` 를 입력하세요.
+### <a name="running-multiple-azcopy-processes"></a>여러 AzCopy 프로세스 실행
+여러 저널 폴더를 사용하는 경우 단일 클라이언트에서 여러 AzCopy 프로세스를 실행할 수 있습니다. 여러 AzCopy 프로세스에 단일 저널 폴더를 사용하는 것은 지원되지 않습니다.
+
+첫 번째 프로세스:
+```azcopy
+azcopy \
+    --source /mnt/myfiles1 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles1 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal1"
+```
+
+두 번째 프로세스:
+```azcopy
+azcopy \
+    --source /mnt/myfiles2 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles2 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal2"
+```
 
 ## <a name="next-steps"></a>다음 단계
 Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참조하세요.

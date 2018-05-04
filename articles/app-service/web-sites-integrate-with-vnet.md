@@ -1,8 +1,8 @@
 ---
-title: "Azure Virtual Network에 앱 통합"
-description: "신규 또는 기존 Azure 가상 네트워크에 Azure App Service의 앱을 연결하는 방법을 보여 줍니다."
+title: Azure Virtual Network에 앱 통합
+description: 신규 또는 기존 Azure 가상 네트워크에 Azure App Service의 앱을 연결하는 방법을 보여 줍니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. Azure Virtual Network(VNet)는 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있도록 하는 기능입니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요][VNETOverview]부터 참조하세요. 
@@ -57,7 +57,8 @@ VNet 통합이 지원하지 않는 사항에는 다음과 같은 내용이 포�
 
 * VNet 통합은 **표준**, **프리미엄** 또는 **격리** 요금제에 속하는 앱에서만 작동합니다. 이 기능을 사용하도록 설정한 후에 지원되는 않는 요금제로 App Service 계획을 확장하면 앱에서 사용하는 VNet에 대한 연결이 손실됩니다. 
 * 대상 가상 네트워크가 이미 있는 경우 동적 라우팅 게이트웨이와의 지점과 사이트 간 VPN을 사용하도록 설정해야 해당 가상 네트워크를 웹앱에 연결할 수 있습니다. 게이트웨이가 정적 라우팅을 사용하도록 구성된 경우에는 지점 및 사이트 간 VPN(가상 사설망)을 사용하도록 설정할 수 없습니다.
-* VNet은 ASP(App Service 계획)와 동일한 구독 내에 있어야 합니다. 
+* VNet은 ASP(App Service 계획)와 동일한 구독 내에 있어야 합니다.
+* 지점 및 사이트 간 사용 가능한 게이트웨이가 이미 존재하고, 기본 SKU에 없는 경우 지점 및 사이트 간 구성에서 IKEV2를 비활성화해야 합니다.
 * VNet과 통합되는 앱은 VNet에 대해 지정된 DNS를 사용합니다.
 * 기본적으로 통합하는 앱은 VNet에 정의된 경로를 기반으로 트래픽을 VNet에 라우팅합니다. 
 

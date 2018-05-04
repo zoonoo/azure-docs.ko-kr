@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 및 OpenID Connect 프로토콜 | Microsoft Docs"
-description: "OpenID Connect 인증 프로토콜의 Azure AD v2.0 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
+title: Azure Active Directory v2.0 및 OpenID Connect 프로토콜 | Microsoft Docs
+description: OpenID Connect 인증 프로토콜의 Azure AD v2.0 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 및 OpenID Connect 프로토콜
 OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0 기반의 인증 프로토콜입니다. v2.0 끝점의 OpenID Connect 구현을 사용하는 경우 로그인 및 API 액세스를 웹 기반 앱에 추가할 수 있습니다. 이 문서에서는 언어 독립적인 방식으로 이를 수행하는 방법을 보여 주며, Microsoft 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
@@ -29,7 +29,7 @@ OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인
 > 
 > 
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 [권한 부여 서버](active-directory-v2-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 안전하게 획득할 수 있습니다. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 응용 프로그램](active-directory-v2-flows.md#web-apps) 을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 [권한 부여 서버](active-directory-v2-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 안전하게 획득할 수 있습니다. 또한 v2.0 엔드포인트는 Azure AD에 등록된 타사 앱이 Web API와 같은 안전한 리소스에 대한 액세스 토큰을 발급할 수 있도록 허용합니다. 액세스 토큰을 발급하도록 응용 프로그램을 설정하는 방법에 대한 자세한 내용은 [v2.0 엔드포인트로 앱을 등록하는 방법](active-directory-v2-app-registration.md)을 참조하세요. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 응용 프로그램](active-directory-v2-flows.md#web-apps) 을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
 
 ## <a name="protocol-diagram-sign-in"></a>프로토콜 다이어그램: 로그인
 가장 기본적인 로그인 흐름은 다음 다이어그램에 표시된 단계를 포함합니다. 이 문서에서는 각 단계를 자세히 설명합니다.
@@ -78,7 +78,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 * `response_type` 매개 변수는 `id_token`을(를) 포함해야 합니다.
 * 요청은 `nonce` 매개 변수를 포함해야 합니다.
 
-예:
+예: 
 
 ```
 // Line breaks are for legibility only.

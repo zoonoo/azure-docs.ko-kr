@@ -13,11 +13,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 3dbd41756ede8577fee43d9758e39eb36130a6ab
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d7b832659272f01b6e939150fa89626620d5eab7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web Apps에서 PHP 구성
 
@@ -59,7 +59,7 @@ PHP 7.0 및 PHP 7.2 버전도 사용할 수 있지만 기본적으로는 사용�
 
 ### <a name="azure-cli-20-linux-mac-windows"></a>Azure CLI 2.0(Linux, Mac, Windows)
 
-Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI 2.0을 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)해야 합니다.
+Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI 2.0을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)해야 합니다.
 
 1. 터미널을 열고 계정에 로그인합니다.
 

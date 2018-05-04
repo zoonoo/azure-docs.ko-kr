@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics에서 데이터 원본 구성 | Microsoft Docs"
-description: "데이터 원본은 Log Analytics가 에이전트 및 기타 연결된 원본에서 수집하는 데이터를 정의합니다.  이 문서에서는 Log Analytics에서 데이터 원본을 사용하는 방법에 대한 개념을 제공하고, 데이터 원본을 구성하는 방법을 자세히 설명하며, 사용 가능한 여러 데이터 원본을 요약합니다."
+title: Azure Log Analytics에서 데이터 원본 구성 | Microsoft Docs
+description: 데이터 원본은 Log Analytics가 에이전트 및 기타 연결된 원본에서 수집하는 데이터를 정의합니다.  이 문서에서는 Log Analytics에서 데이터 원본을 사용하는 방법에 대한 개념을 제공하고, 데이터 원본을 구성하는 방법을 자세히 설명하며, 사용 가능한 여러 데이터 원본을 요약합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics의 데이터 원본
 Log Analytics는 연결된 원본에서 데이터를 수집하여 Log Analytics 작업 영역에 저장합니다.  각 원본에서 수집되는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  Log Analytics의 데이터는 레코드 집합으로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -29,16 +29,19 @@ Log Analytics는 연결된 원본에서 데이터를 수집하여 Log Analytics 
 
 
 ## <a name="summary-of-data-sources"></a>데이터 원본 요약
-다음 표에는 Log Analytics에서 현재 사용할 수 있는 데이터 원본이 나와 있습니다.  각각 해당 데이터 원본에 대한 세부 정보를 제공하는 별도의 문서에 대한 링크가 있습니다.
+다음 표에는 현재 Log Analytics에서 사용할 수 있는 데이터 원본이 나와 있습니다.  각각 해당 데이터 원본에 대한 세부 정보를 제공하는 별도의 문서에 대한 링크가 있습니다.   Log Analytics에 데이터를 수집하는 메서드 및 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 열에 대한 설명은 [Azure의 관리 솔루션에 대한 데이터 컬렉션 정보](../monitoring/monitoring-solutions-inventory.md)를 참조하세요.
 
-| 데이터 원본 | 이벤트 유형 | 설명 |
-|:--- |:--- |:--- |
-| [사용자 지정 로그](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |로그 정보가 포함된 Windows 또는 Linux 에이전트의 텍스트 파일. |
-| [Windows 이벤트 로그](log-analytics-data-sources-windows-events.md) |행사 |Windows 컴퓨터의 이벤트 로그온에서 수집된 이벤트. |
-| [Windows 성능 카운터](log-analytics-data-sources-performance-counters.md) |Perf |Windows 컴퓨터에서 수집한 성능 카운터. |
-| [Linux 성능 카운터](log-analytics-data-sources-performance-counters.md) |Perf |Linux 컴퓨터에서 수집한 성능 카운터. |
-| [IIS 로그](log-analytics-data-sources-iis-logs.md) |W3CIISLog |W3C 형식의 IIS(인터넷 정보 서비스) 로그. |
-| [Syslog](log-analytics-data-sources-syslog.md) |syslog |Windows 또는 Linux 컴퓨터의 Syslog 이벤트. |
+
+| 데이터 원본 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [사용자 지정 로그](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 도착 시 |
+| [사용자 지정 로그](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 도착 시 |
+| [IIS 로그](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5분 |
+| [성능 카운터](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |예약된 대로, 최소 10초 |
+| [성능 카운터](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |예약된 대로, 최소 10초 |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure 저장소: 10분, 에이전트: 도착 시 |
+| [Windows 이벤트 로그](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 도착 시 |
+
 
 ## <a name="configuring-data-sources"></a>데이터 원본 구성
 Log Analytics **고급 설정**의 **데이터** 메뉴에서 데이터 원본을 구성합니다.  모든 구성은 작업 영역의 모든 연결된 원본으로 전달됩니다.  현재 이 구성에서 에이전트를 제외할 수는 없습니다.

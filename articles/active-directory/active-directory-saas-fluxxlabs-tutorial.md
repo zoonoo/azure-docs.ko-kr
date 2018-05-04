@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5288ae3deaf82e76accb9c9584c250c7dbe2c9ca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bba820c14c5eddc6db99923e3fb1de58c110f4c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>자습서:Fluxx Labs와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ Fluxx Labs의 Azure AD 통합을 구성하려면 갤러리의 Fluxx Labs를 관�
 
 **갤러리에서 Fluxx Labs를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -114,20 +114,18 @@ Fluxx Labs에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     |-------------|------------|
     | 프로덕션 | `https://<subdomain>.fluxx.io` |
     | 사전 프로덕션 | `https://<subdomain>.preprod.fluxxlabs.com`|
-    | 스테이징    | `https://<subdomain>.stage.fluxxlabs.com`|
-    
+        
     나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
 
     | Environment | URL 패턴|
     |-------------|------------|
     | 프로덕션 | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | 사전 프로덕션 | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-    | 스테이징    | `https://<subdomain>.stage.fluxxlabs.com/auth/saml/callback`|
-    
+        
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Fluxx Labs 클라이언트 지원팀](mailto:travis@fluxxlabs.com)에 문의하세요.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-fluxxlabs-tutorial/tutorial_fluxxlabs_certificate.png) 
 
@@ -141,11 +139,11 @@ Fluxx Labs에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 7. 다른 웹 브라우저 창에서 Fluxx Labs 회사 사이트에 관리자로 로그인합니다.
 
-8. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘** 및 **관리자**를 차례로 클릭합니다.
+8. **설정** 섹션 아래에서 **관리**를 선택합니다.
 
     ![Fluxx Labs 구성](./media/active-directory-saas-fluxxlabs-tutorial/config1.png)
 
-9. 관리 패널에서 **플러그 인** > **통합**을 선택한 다음, **SAML SSO-(사용됨)**을 선택합니다.
+9. 관리 패널에서 **플러그 인** > **통합**을 차례로 선택한 다음, **SAML SSO - (사용 안 함)** 을 선택합니다.
 
     ![Fluxx Labs 구성](./media/active-directory-saas-fluxxlabs-tutorial/config2.png)
     
@@ -159,13 +157,13 @@ Fluxx Labs에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     다. **콜백 경로** 텍스트 상자에 **/auth/saml/callback**을 입력합니다.
 
-    d. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **ssertion Consumer Service URL** 텍스트 상자에 붙여넣습니다.
+    d. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **Assertion Consumer Service URL(Single Sign-On URL)** 텍스트 상자에 붙여넣습니다.
 
-    e. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
+    e. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **대상(SP 엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
-    f. Base64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음, **IDP 인증서** 텍스트 상자에 붙여 넣습니다.
+    f. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **ID 공급자 인증서** 텍스트 상자에 붙여넣습니다.
 
-    g.  **이름 식별자 형식** 텍스트 상자에 `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` 값을 입력합니다.
+    g. **이름 식별자 형식** 텍스트 상자에 `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` 값을 입력합니다.
 
     h. **저장**을 클릭합니다.
 
@@ -212,23 +210,21 @@ Azure AD 사용자가 Fluxx Labs에 로그인할 수 있도록 하려면 Fluxx L
 
 1. Fluxx Labs 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. 대시보드에서 아래 표시된 아이콘을 클릭하여 **새 사람** 카드를 엽니다.
+2. 아래 표시된 **아이콘**을 클릭합니다.
+
+    ![Fluxx Labs 구성](./media/active-directory-saas-fluxxlabs-tutorial/config6.png)
+
+3. 대시보드에서 아래 표시된 아이콘을 클릭하여 **새 사람** 카드를 엽니다.
 
     ![Fluxx Labs 구성](./media/active-directory-saas-fluxxlabs-tutorial/config4.png)
 
-3. **새 사람** 섹션에서 다음 단계를 수행합니다.
+4. **새 사람** 섹션에서 다음 단계를 수행합니다.
     
     ![Fluxx Labs 구성](./media/active-directory-saas-fluxxlabs-tutorial/config5.png)
 
-    a. **로그인** 텍스트 상자에 사용자의 이메일(예: Azure_Admin)을 입력합니다.
+    a. Fluxx Labs에서는 SSO 로그인에 대해 고유 식별자로 이메일을 사용합니다. **SSO UID** 필드를 사용자의 이메일 주소로 채웁니다. 해당 주소는SSO를 사용하여 로그인할 때 사용한 이메일 주소와 일치해야 합니다.
 
-    나. **암호** 텍스트 상자에 Azure_Admin 계정의 암호를 입력합니다.
-
-    다. **암호 확인** 텍스트 상자에 Azure_Admin 계정의 암호를 다시 입력합니다.
-
-    d. Fluxx Labs에서는 SSO 로그인에 대해 고유 식별자로 이메일을 사용합니다. **SSO UID** 필드를 사용자의 이메일 주소로 채웁니다. 해당 주소는SSO를 사용하여 로그인할 때 사용한 이메일 주소와 일치해야 합니다.
-
-    e. **사람 만들기**를 클릭합니다.
+    나. **저장**을 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -285,4 +281,3 @@ Azure AD 사용자가 Fluxx Labs에 로그인할 수 있도록 하려면 Fluxx L
 [201]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_203.png
-

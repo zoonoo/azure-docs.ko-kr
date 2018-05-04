@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 47629350967026f6901441ff20d182cd7fd5be3a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2bb6e6199caf0d5fd001bc83b91eb1ed3a8c0fc5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure Functions의 Azure Cosmos DB 바인딩
 
@@ -170,7 +170,13 @@ JavaScript 코드는 다음과 같습니다.
 |**leaseCollectionName** | **LeaseCollectionName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션의 이름입니다. 설정하지 않으면 `leases` 값이 사용됩니다. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (선택 사항) `true`로 설정하면 임대 컬렉션이 없는 경우 자동으로 임대 컬렉션이 생성됩니다. 기본값은 `false`입니다. |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (선택 사항) 임대 컬렉션이 생성될 때 할당할 요청 단위의 양을 정의합니다. 이 설정은 `createLeaseCollectionIfNotExists`가 `true`로 설정된 경우에만 사용됩니다. 이 매개 변수는 포털을 사용하여 바인딩이 생성될 때 자동으로 설정됩니다.
-| |**LeaseOptions** | [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) 클래스의 인스턴스에서 속성을 설정하여 임대 옵션을 구성합니다.
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (선택 사항) 설정하면 이 함수에 대한 임대 컬렉션에 생성된 임대에 접두사를 추가하여, 서로 다른 접두사를 사용하여 두 별도의 Azure Functions가 동일한 임대 컬렉션을 효과적으로 공유할 수 있도록 합니다.
+|**feedPollDelay**| **FeedPollDelay**| (선택 사항) 설정하면 현재 변경 내용이 모두 삭제된 후에 피드에 대한 새로운 변경 내용의 파티션을 폴링하는 작업 간의 지연을 밀리초로 정의합니다. 기본값은 5000(5초)입니다.
+|**leaseAcquireInterval**| **LeaseAcquireInterval**| (선택 사항) 설정하면 파티션이 알려진 호스트 인스턴스 간에 균등하게 배포되는지를 계산하는 태스크를 시작하는 간격을 밀리초로 정의합니다. 기본값은 13000(13초)입니다.
+|**leaseExpirationInterval**| **LeaseExpirationInterval**| (선택 사항) 설정하면 파티션을 나타내는 임대에 대한 임대 기간인 간격을 밀리초로 정의합니다. 이 간격 내에서 임대를 갱신하지 않으면 기간이 만료되어 다른 인스턴스로 파티션 소유권이 이동합니다. 기본값은 60000(60초)입니다.
+|**leaseRenewInterval**| **LeaseRenewInterval**| (선택 사항) 설정하면 인스턴스가 현재 보유한 파티션의 모든 임대에 대한 갱신 간격을 밀리초로 정의합니다. 기본값은 17000(17초)입니다.
+|**checkpointFrequency**| **CheckpointFrequency**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 성공적인 함수 호출 이후입니다.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (선택 사항) 설정하면 함수 호출당 받은 최대 항목 수를 사용자 지정합니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

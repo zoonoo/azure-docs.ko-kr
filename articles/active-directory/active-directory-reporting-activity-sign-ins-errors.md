@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory 포털의 로그인 활동 보고서 오류 코드 | Microsoft Docs"
-description: "로그인 활동 보고서 오류 코드에 대한 참조입니다."
+title: Azure Active Directory 포털의 로그인 활동 보고서 오류 코드 | Microsoft Docs
+description: 로그인 활동 보고서 오류 코드에 대한 참조입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/11/2018
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>실패한 로그인을 표시하려면 어떻게 해야 합니까? 
 
-모든 로그인 활동 데이터에 대한 첫 번째 진입점은 **Azure Active**의 **활동** 섹션에 있는 **[로그인](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)**입니다.
+모든 로그인 활동 데이터에 대한 첫 번째 진입점은 **Azure Active**의 **활동** 섹션에 있는 **[로그인](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)** 입니다.
 
 
 ![로그인 활동](./media/active-directory-reporting-activity-sign-ins-errors/61.png "로그인 활동")
@@ -65,6 +65,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |50055|잘못된 암호입니다. 만료된 암호를 입력했습니다.|
 |50057|사용자 계정을 사용할 수 없습니다.|
 |50058|제공된 자격 증명에서 사용자의 ID에 대한 정보가 없거나, 테넌트에서 사용자를 찾을 수 없거나, 자동 로그인 요청을 보냈지만 사용자가 로그인되지 않았거나 서비스에서 사용자를 인증하지 못했습니다.|
+|50072|사용자가 2단계 인증(대화형)에 등록해야 합니다.|
 |50074|사용자가 MFA 챌린지를 통과하지 못했습니다.|
 |50079|사용자는 2단계 인증에 등록해야 합니다.|
 |50089|흐름 토큰 만료로 인해 흐름 토큰 유효성 검사가 실패했습니다.|
@@ -97,7 +98,6 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |81013|사용자의 Kerberos 티켓 정보에 기반하여 사용자 개체를 찾을 수 없습니다.|
 |90014|예상된 필드가 자격 증명에 없는 다양한 경우에 사용됩니다.|
 |90093|요청에 대해 사용할 수 없는 오류 코드와 함께 반환된 그래프입니다.|
-
 
 
 ## <a name="next-steps"></a>다음 단계

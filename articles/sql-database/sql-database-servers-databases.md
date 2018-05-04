@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
 
@@ -52,7 +52,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 데이터베이스 액세스에 대한 연결 끝점을 제공합니다(<serverName>.database.windows.net).
 - 마스터 데이터베이스에 연결하여 DMV를 통해 포함된 리소스 관련 메타데이터에 대한 액세스를 제공합니다. 
 - 로그인, 방화벽, 감사, 위협 요소 탐지 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다. 
-- 상위 구독 내의 할당량으로 제한됩니다(기본적으로 구독 당 6대의 서버임. [여기에서 구독 제한 참조](../azure-subscription-service-limits.md)).
+- 상위 구독 내의 할당량으로 제한됩니다(기본적으로 구독당 서버 20대 - [여기서 구독 제한 참조](../azure-subscription-service-limits.md)).
 - 포함한 리소스에 대한 데이터베이스 할당량 및 DTU 또는 vCore 할당량의 범위를 제공합니다(예: 45000DTU).
 - 포함된 리소스에서 사용하도록 설정된 기능에 대한 버전 관리 범위입니다. 
 - 서버 수준 주체 로그인은 서버에 있는 모든 데이터베이스를 관리할 수 있습니다.
@@ -65,11 +65,11 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 만드는 동안 만들 수 있습니다. 새 SQL Server를 만들거나 새 데이터베이스 만들기의 일부분으로 새 SQL Server 양식을 가져오는 여러 방법이 있습니다. 
+Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 만드는 동안 만들 수 있습니다. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>비어 있는 SQL Server(논리 서버) 만들기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 (데이터베이스 없이) Azure SQL Database 서버를 만들려면 비어 있는 SQL Server(논리 서버) 양식으로 이동합니다.  
+[Azure Portal](https://portal.azure.com)을 사용하여 (데이터베이스 없이) Azure SQL Database 서버를 만들려면 비어 있는 SQL(논리) 서버 양식으로 이동합니다.  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>비어 있거나 샘플인 SQL Database 만들기
 
@@ -95,7 +95,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 >
 
 > [!TIP]
-> Azure Portal 빠른 시작 자습서는 [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
+> Azure Portal 빠른 시작은 [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
@@ -120,7 +120,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 | New-AzureRmSqlServerVirtualNetworkRule | Virtual Network 서비스 끝점인 서브넷을 기반으로 [*가상 네트워크 규칙*](sql-database-vnet-service-endpoint-rule-overview.md)을 만듭니다. |
 
 > [!TIP]
-> PowerShell 빠른 시작 자습서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요. PowerShell 예제 스크립트에 대해서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
+> PowerShell 빠른 시작은 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요. PowerShell 예제 스크립트에 대해서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
@@ -150,7 +150,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|방화벽 규칙 삭제|
 
 > [!TIP]
-> Azure CLI 빠른 시작 자습서는 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
+> Azure CLI 빠른 시작은 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
@@ -181,7 +181,7 @@ Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽�
 
 
 > [!TIP]
-> Microsoft Windows에서 SQL Server Management Studio를 사용하는 빠른 시작 자습서는 [Azure SQL Database: SQL Server Management Studio를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-ssms.md)를 참조하세요. Windows, Linux 또는 macOS에서 Visual Studio Code를 사용하는 빠른 시작 자습서는 [Azure SQL Database: Visual Studio Code를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
+> Microsoft Windows에서 SQL Server Management Studio를 사용하는 빠른 시작은 [Azure SQL Database: SQL Server Management Studio를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-ssms.md)를 참조하세요. Windows, Linux 또는 macOS에서 Visual Studio Code를 사용하는 빠른 시작은 [Azure SQL Database: Visual Studio Code를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>REST API를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 

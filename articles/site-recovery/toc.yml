@@ -129,6 +129,8 @@
           items:
             - name: Azure로 마이그레이션 이후 Azure VM의 재해 복구
               href: azure-to-azure-replicate-after-migration.md
+            - name: PowerShell을 사용하여 Azure VM의 재해 복구
+              href: azure-to-azure-powershell.md
         - name: '복제, 장애 조치(failover) 및 장애 복구(failback)'
           items:
             - name: Azure 간 복제 활성화

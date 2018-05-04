@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 676dff1ae651d4754b96da52a68a9c7a7f35c2b8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure 스택 Azure 등록
 등록 [Azure 스택](azure-stack-poc.md) Azure 사용 하면 Azure에서 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 합니다. Azure 스택 등록 한 후에 사용 현황 Azure commerce에 보고 되 고 해당 등록에 사용 되는 구독에서 볼 수 있습니다. 
@@ -94,7 +94,7 @@ Azure 스택은 사용량 기준 과금으로-있습니다-사용 가능한 요�
 2. 다음으로, 동일한 PowerShell 세션에서 올바른 Azure PowerShell 컨텍스트에 로그인 한 경우를 확인 합니다. 위의 Azure 스택 리소스 공급자를 등록 하는 데 사용 된 azure 계정입니다. Powershell을 실행 하려면: 
 
   ```powershell 
-  Login-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
+  Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
   ``` 
 
 3. 동일한 PowerShell 세션에서 실행 된 **집합 AzsRegistration** cmdlet. PowerShell을 실행 하려면:  
@@ -147,7 +147,7 @@ Azure 스택 환경에서 등록 하는 토큰을 가져올 다음 해당 토큰
 
   ```Powershell
   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<your agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
   ```
   
   > [!TIP]  
@@ -202,7 +202,7 @@ Azure 스택 환경에서 등록 하는 토큰을 가져올 다음 해당 토큰
 
 ## <a name="verify-azure-stack-registration"></a>Azure 스택 등록 확인
 Azure 스택이 Azure에 성공적으로 등록 하 고 있는지 확인 하려면 다음이 단계를 사용 합니다.
-1. Azure 스택에 로그인 [관리자 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;지역 > 합니다. &lt;fqdn >*합니다.
+1. Azure 스택에 로그인 [관리자 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;지역 > 합니다. &lt;fqdn >* 합니다.
 2. 클릭 **더 많은 서비스** > **마켓플레이스 관리** > **Azure에서 추가**합니다.
 
 (예: WordPress) Azure에서 사용할 수 있는 항목 목록이 표시 되 면 인증 과정에 성공 했습니다. 그러나 연결이 끊어진된 환경에 Azure 스택 시장에서 Azure 마켓플레이스 항목 되지 표시 됩니다.

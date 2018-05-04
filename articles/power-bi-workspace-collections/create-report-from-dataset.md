@@ -1,26 +1,26 @@
 ---
-title: "Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기 | Microsoft Docs"
-description: "Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램의 데이터 집합에서 만들 수 있습니다."
+title: Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기 | Microsoft Docs
+description: Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램의 데이터 집합에서 만들 수 있습니다.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: aa902cbc4992292420948b36d85e52fafc7224de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기
 
@@ -63,7 +63,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>비어 있는 새 보고서 만들기
 
-새 보고서를 만들기 위해 만들기 구성이 제공됩니다. 여기에는 보고서를 만들 액세스 토큰, embedURL 및 datasetID가 포함됩니다. 이렇게 하려면 nuget [Power BI JavaScript 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)를 설치해야 합니다. embedUrl은 https://embedded.powerbi.com/appTokenReportEmbed가 됩니다.
+새 보고서를 만들기 위해 만들기 구성이 제공됩니다. 여기에는 보고서를 만들 액세스 토큰, embedURL 및 datasetID가 포함됩니다. 이렇게 하려면 nuget [Power BI JavaScript 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)를 설치해야 합니다. embedUrl는 https://embedded.powerbi.com/appTokenReportEmbed일 뿐입니다.
 
 > [!NOTE]
 > [ 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)을 사용하여 기능을 테스트할 수 있습니다. 또한 사용할 수 있는 다양한 작업에 대한 코드 예제도 제공됩니다.
@@ -92,7 +92,7 @@ var embedCreateConfiguration = {
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
 ```
 
-*powerbi.createReport()*를 호출하면 편집 모드의 빈 캔버스가 *div* 요소 내에 표시됩니다.
+*powerbi.createReport()* 를 호출하면 편집 모드의 빈 캔버스가 *div* 요소 내에 표시됩니다.
 
 ![새 빈 보고서](media/create-report-from-dataset/create-new-report.png)
 

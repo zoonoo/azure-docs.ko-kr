@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: 기본 제공 정책
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>등록 또는 로그인 정책 만들기
 
-이 정책은 단일 구성으로 등록 및 로그인 환경을 모두 처리합니다. 소비자는 컨텍스트에 따라 올바른 경로(등록 또는 로그인)를 진행합니다. 또한 성공적인 등록 또는 로그인 시 응용 프로그램에서 수신할 토큰 내용도 설명합니다.  등록 또는 로그인 정책에 대한 코드 샘플은 [여기에서 사용할 수 있습니다](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  등록 정책 및 로그인 정책 대신 이 정책을 사용하는 것이 좋습니다.  
+이 정책은 단일 구성으로 등록 및 로그인 환경을 모두 처리합니다. 소비자는 컨텍스트에 따라 올바른 경로(등록 또는 로그인)를 진행합니다. 또한 성공적인 등록 또는 로그인 시 응용 프로그램에서 수신할 토큰 내용도 설명합니다.  **등록 또는 로그인** 정책에 대한 코드 샘플은 [여기에서 사용할 수 있습니다](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  **등록** 정책 및 **로그인** 정책 대신 이 정책을 사용하는 것이 좋습니다.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>등록 또는 로그인 정책을 암호 재설정 정책과 연결하려면 어떻게 하나요?
-등록 또는 로그인 정책을 만드는 경우(로컬 계정 사용) 환경의 첫 번째 페이지에서 **암호 찾기** 링크가 표시됩니다. 이 링크를 클릭해도 암호 재설정 정책이 자동으로 트리거되지는 않습니다. 
+**등록 또는 로그인** 정책을 만드는 경우(로컬 계정 사용) 환경의 첫 번째 페이지에서 **암호 찾기** 링크가 표시됩니다. 이 링크를 클릭해도 암호 재설정 정책이 자동으로 트리거되지는 않습니다. 
 
 대신 **`AADB2C90118`** 오류 코드가 앱에 반환됩니다. 앱에서 특정 암호 재설정 정책을 호출하여 이 오류 코드를 처리해야 합니다. 자세한 내용은 [정책을 연결하는 방법을 보여 주는 샘플](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)(영문)을 참조하세요.
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>등록 정책 또는 로그인 정책 또는 등록 정책 및 로그인 정책 중 어느 것을 사용해야 합니까?
-등록 정책 및 로그인 정책에 대한 등록 정책이나 로그인 정책을 사용하는 것이 좋습니다.  
+**등록** 정책 및 **로그인** 정책에 대한 **등록 정책이나 로그인** 정책을 사용하는 것이 좋습니다.  
 
-등록 정책 또는 로그인 정책에는 로그인 정책보다 많은 기능이 있습니다. 또한 페이지 UI 사용자 지정 기능을 사용할 수 있으며 지역화를 더 효율적으로 지원합니다. 
+**등록 정책 또는 로그인** 정책에는 **로그인** 정책보다 많은 기능이 있습니다. 또한 페이지 UI 사용자 지정 기능을 사용할 수 있으며 지역화를 더 효율적으로 지원합니다. 
 
-정책을 지역화할 필요가 없고, 브랜딩에 대한 약간의 사용자 지정 기능만 필요하고, 암호 재설정을 기본 제공하려는 경우에는 로그인 정책을 사용하는 것이 좋습니다.
+정책을 지역화할 필요가 없고, 브랜딩에 대한 약간의 사용자 지정 기능만 필요하고, 암호 재설정을 기본 제공하려는 경우에는 **로그인** 정책을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>빠른 시작: AKS(Azure Container Service) 클러스터 배포
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-http://portal.azure.com 에서 Azure Portal에 로그인합니다.
+http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 
@@ -51,7 +51,7 @@ Azure Portal에서 AKS 클러스터를 만들기 전에 서비스 주체를 만�
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-**리소스 만들기** > **컨테이너** > **Azure Container Service - AKS(미리 보기)**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **Azure Container Service - AKS(미리 보기)** 를 선택합니다.
 
 클러스터에 대한 클러스터 이름, DNS 접두사, 리소스 그룹 이름, 위치 및 Kubernetes 버전을 제공합니다. 클러스터에 연결할 때 필요하므로 클러스터 이름 및 리소스 그룹 이름을 기록해 둡니다.
 
@@ -83,6 +83,11 @@ Azure Portal 오른쪽 위 모서리에 있는 단추를 사용하여 Cloud Shel
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
+구독을 지정합니다(아직 지정되지 않은 경우).
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
+
 Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다.
 
 다음 명령을 Cloud Shell에 복사하여 붙여넣습니다. 필요한 경우 리소스 그룹 및 클러스터 이름을 수정합니다.
@@ -110,7 +115,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다.
 
-`azure-vote.yaml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우, 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 파일을 만들 수 있습니다.
+`azure-vote.yaml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하는 경우 가상 또는 실제 시스템에서 작업하는 것처럼 vi 또는 Nano를 사용하여 파일을 만듭니다.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +216,13 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-이제 외부 IP 주소로 이동하여 Azure Vote 앱을 볼 수 있습니다.
+이제 외부 IP 주소로 이동하여 Azure Vote 앱을 봅니다.
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>클러스터 삭제
 
-클러스터가 더 이상 필요하지 않은 경우 클러스터 리소스 그룹을 삭제할 수 있으며 그러면 연결된 모든 리소스가 삭제됩니다. 이 작업은 Azure Portal에서 리소스 그룹을 선택하고 [삭제] 단추를 클릭하여 완료할 수 있습니다. 또는 Cloud Shell에서 [az group delete][az-group-delete] 명령을 사용할 수 있습니다.
+클러스터가 더 이상 필요하지 않은 경우 클러스터 리소스 그룹을 삭제합니다. 그러면 연결된 모든 리소스도 삭제됩니다. 이 작업은 Azure Portal에서 리소스 그룹을 선택하고 [삭제] 단추를 클릭하여 완료할 수 있습니다. 또는 Cloud Shell에서 [az group delete][az-group-delete] 명령을 사용할 수 있습니다.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait
@@ -239,7 +244,6 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 > [AKS 자습서][aks-tutorial]
 
 <!-- LINKS - external -->
-[azure portal]: https://portal.azure.com
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

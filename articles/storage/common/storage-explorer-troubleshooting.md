@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: c409788ef68ab41a23e2991ea0ea1effce841a82
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f58fb5090aba3c5052d1bbdec76225d0ae50e8f2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -146,7 +146,7 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 ## <a name="linux-dependencies"></a>Linux 종속성
 
 Ubuntu 16.04 이외의 다른 Linux 배포판의 경우 몇 가지 종속성을 수동으로 설치해야 합니다. 일반적으로 다음과 같은 패키지가 필요합니다.
-* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * 최신 GCC

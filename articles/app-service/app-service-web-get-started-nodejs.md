@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 Node.js 웹앱 만들기 | Microsoft Docs"
-description: "몇 분 안에 Azure App Service Web Apps에서 첫 번째 Node.js Hello World를 배포합니다."
+title: Azure에서 Node.js 웹앱 만들기 | Microsoft Docs
+description: 몇 분 안에 Azure App Service Web Apps에서 첫 번째 Node.js Hello World를 배포합니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bc4f2fd72860278fcd6c41c64f6f55715eb1884c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936077f9445ec38fe8d05314fdf20d8412fb8b06
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -45,7 +45,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단�
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-[https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip)에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+[https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip)에서 Node.js 프로젝트 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 터미널 창에서 샘플 Node.js 프로젝트의 루트 디렉터리(_index.js_ 포함)로 이동합니다.
 
@@ -80,7 +80,10 @@ Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#a
 다음 예에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `NODE|6.9`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)를 실행합니다. 
 
 ```azurecli-interactive
+# Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# PowerShell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
 ```
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
@@ -99,7 +102,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 }
 ```
 
-새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_ 을 고유한 앱 이름으로 바꿉니다.
 
 ```bash
 http://<app name>.azurewebsites.net

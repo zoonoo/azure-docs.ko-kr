@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 7532e252638832ab6257d2edc97c98a03eef6316
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1e8ad7a85739f67bf8130011ba18243ad0b4b9d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>자습서 1: 아이리스 분류 - 데이터 준비
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    프로젝트 이름 | myIris |계정을 식별하는 고유한 이름을 입력합니다. 본인의 이름 또는 실험을 가장 잘 식별하는 부서나 프로젝트 이름을 사용할 수 있습니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. 
    프로젝트 디렉터리 | c:\Temp\ | 프로젝트가 만들어지는 디렉터리를 지정합니다.
    프로젝트 설명 | _비워 둠_ | 프로젝트를 설명하기에 유용한 선택적 필드입니다.
-   Visualstudio.com GIT 리포지토리 URL |_비워 둠_ | 선택적 필드입니다. 원본 제어 및 공동 작업을 위해 Visual Studio Team Services에서 Git 리포지토리와 프로젝트를 연결할 수 있습니다. [설정하는 방법 알아기](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo) 
+   Visualstudio.com GIT 리포지토리 URL |_비워 둠_ | 선택적 필드입니다. 원본 제어 및 공동 작업을 위해 Visual Studio Team Services에서 Git 리포지토리와 프로젝트를 연결할 수 있습니다. [설정하는 방법 알아기](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo) 
    선택한 작업 영역 | IrisGarden(있는 경우) | Azure Portal에서 실험 계정에 대해 만든 작업 영역을 선택합니다. <br/>빠른 시작을 수행한 경우 IrisGarden이라는 이름의 작업 영역이 있어야 합니다. 그렇지 않으면 실험 계정을 만들 때 생성한 항목을 선택하거나 원하는 다른 항목을 선택합니다.
    프로젝트 템플릿 | 아이리스 분류 | 템플릿에는 제품을 탐색하는 데 사용할 수 있는 스크립트와 데이터가 포함됩니다. 템플릿에는 이 설명서 사이트의 빠른 시작 및 기타 자습서에 필요한 스크립트와 데이터가 포함됩니다. 
 
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![Azure Machine Learning Workbench의 데이터 뷰](media/tutorial-classifying-iris/data_view.png)
 
-3. **텍스트 파일(\*.csv, \*.json, \*.txt., ...)**을 선택하고 **다음**을 클릭합니다.
+3. **텍스트 파일(\*.csv, \*.json, \*.txt., ...)** 을 선택하고 **다음**을 클릭합니다.
    ![Azure Machine Learning Workbench의 데이터 원본](media/tutorial-classifying-iris/data-source.png)
 
 4. **iris.csv** 파일을 찾아 **마침**을 클릭합니다. 이렇게 하면 구분 기호 및 데이터 형식과 같은 매개 변수에 대한 기본값이 사용됩니다.

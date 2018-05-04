@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c8966f3dfa16010b82d1fe9cd02c63bdde65463c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace 컨설팅 서비스
 Azure 사용을 지원하고 확장하는 서비스에 고객을 연결한다는 목표를 갖고 있는 Azure Marketplace는 Microsoft SI(시스템 통합자) 파트너의 컨설팅 서비스 제품 목록을 지원합니다. 
@@ -48,6 +48,9 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 *브리핑* 서비스 유형을 제외한 컨설팅 서비스는 직접(고객의 위치 또는 파트너의 시설에서 온사이트로) 또는 가상으로(전화 회의, 웹 회의 또는 원격 구현을 통해) 제공할 수 있습니다. 브리핑은 직접 제공해야 합니다.
 
 자세한 내용은 [Microsoft 파트너 네트워크를 통한 역량](https://partner.microsoft.com/en-US/membership/competencies)을 참조하세요. 
+
+>[!TIP]
+>이 정보는 Azure Marketplace 서비스에만 해당합니다. Azure Marketplace 상점에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Azure"를 선택하여 이러한 옵션을 선택합니다. AppSource에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Dynamics 365", "Power BI" 또는 "Power Apps"를 선택하여 이 옵션을 선택합니다. 
 
 ## <a name="supported-countries"></a>지원되는 국가
 
@@ -95,3 +98,31 @@ Azure Marketplace에 컨설팅 서비스 제품을 나열하려면 다음 단계
 4. **검토**: 마케팅 및 편집 팀에서 제출을 검토하고 가독성, 문법 및 효율성에 최적화합니다. 
 5. **준비**: 제출이 검토를 위해 준비됩니다. 
 6. **게시**: 제출자와 Microsoft가 준비된 콘텐츠에 만족하면 목록이 Azure Marketplace에 게시될 준비가 끝난 것입니다. 목록의 게시 날짜는 제품에 지정된 국가에 따라 다릅니다. 선택한 국가의 카탈로그가 Azure Marketplace에 이미 있는 경우 몇 시간 내에 목록이 표시됩니다. 그렇지 않으면 카탈로그가 게시되는 즉시 목록이 표시됩니다.
+
+## <a name="content-review-criteria"></a>콘텐츠 검토 기준
+
+위에 나열된 필수 요소를 구성한 경우, 콘텐츠 검토 팀에서는 사용자의 제품 설명이 대상 사용자를 위해 충분한 정보를 포함하고 완전한지 검사합니다. 
+
+제목 필드는 50자로 제한되며, 제품의 기간과 서비스 유형을 전달해야 합니다. 이렇게 하면 검색 엔진이 최대로 최적화될 수 있습니다. 필요한 형식은 NAME : DURATION TYPE입니다.
+
+예제:
+
+
+|샘플 제목  |올바른 형식  |
+|---------|---------|
+|제조에서 Azure IoT 시작    |   제조 IoT: 2일 평가      |
+|스마트 토스터에 대한 워크샵        |  스마트 토스터: 1-Wk 워크샵       |
+|  SQL Server 마이그레이션 PoC    | SQL 마이그레이션: 3Wk 개념 증명        |
+
+ 
+팀은 제품 설명과 제품 요약을 검토할 때 다음 기준을 적용합니다.
+
+|제품 유형  |필수 |권장  |
+|---------|---------|---------|
+|평가    |   여러 날 또는 여러 주 평가를 위한 자세한 주제를 포함하고 고객이 기대할 수 있는 결과물 결정      |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
+|요약 정보    |   객이 기대할 수 있는 결과물을 결정합니다. 요약 정보도 직접 제공해야 합니다. 가상 서비스를 제공하는 경우 다른 제품 유형을 선택하세요.    |  상위 검색 엔진 최적화 키워드로 제품 요약 최적화       |
+|구현    |  여러 날 또는 여러 주 구현에 대한 자세한 주제를 포함하고 고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트 결정       |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
+|개념 증명    |    고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트를 결정합니다.     | 상위 검색 엔진 최적화 키워드로 제품 요약 최적화        |
+|워크샵    |   선택한 제공 기간에 따라, 매일, 매주 또는 매월 자세한 주제를 포함합니다. 워크샵에서 다룰 학습 목적 또는 기타 결과물 결정     |   상위 검색 엔진 최적화 키워드로 제품 요약 최적화      |
+
+Cloud 파트너 포털 내에서 [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown)을 사용하여 목록에 서식을 추가할 수 있습니다. 이것은 목록을 정리하는 데 도움이 되는 간단한 디자인 언어입니다. 

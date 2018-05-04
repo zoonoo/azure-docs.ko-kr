@@ -62,7 +62,7 @@ Azure의 cloud-Init에 대한 자세한 정보
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell DSC(Desired State Configuration)](https://msdn.microsoft.com/en-us/powershell/dsc/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. 또한 DSC는 [OMI(Open Management Infrastructure) 서버](https://collaboration.opengroup.org/omi/)를 통해 Linux에서 사용할 수 있습니다.
+[PowerShell DSC(Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. 또한 DSC는 [OMI(Open Management Infrastructure) 서버](https://collaboration.opengroup.org/omi/)를 통해 Linux에서 사용할 수 있습니다.
 
 DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진은 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다. 풀 서버는 중앙 호스트에서 실행되어 DSC 구성 및 관련 리소스를 저장하는 웹 서비스이며, 각 대상 호스트의 LCM 엔진과 통신하여 필요한 구성을 제공하고 준수 여부를 보고합니다.
 

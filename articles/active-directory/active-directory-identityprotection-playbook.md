@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory ID 보호 플레이 북 | Microsoft Docs"
-description: "Azure AD ID 보호를 사용하여 손상된 ID 및 장치를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 장치를 보호할 수 있는 방법을 알아봅니다."
+title: Azure Active Directory ID 보호 플레이 북 | Microsoft Docs
+description: Azure AD ID 보호를 사용하여 손상된 ID 및 장치를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 장치를 보호할 수 있는 방법을 알아봅니다.
 services: active-directory
-keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
-documentationcenter: 
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/21/2018
 
 **익명 IP에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
-1. [Tor 브라우저](https://www.torproject.org/projects/torbrowser.html.en)를 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.   
+1. [Tor 브라우저](https://www.torproject.org/projects/torbrowser.html.en)를 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)로 이동합니다.   
 2. **익명 IP 주소에서 로그인** 보고서에 표시하려는 계정의 자격 증명을 입력합니다.
 
 로그인이 10 ~ 15분 이내에 ID 보호 대시보드에 나타납니다. 
@@ -94,14 +94,14 @@ ms.lasthandoff: 02/21/2018
 2. 불가능한 이동 위험 이벤트를 생성하려는 계정의 자격 증명을 입력합니다.
 3. 사용자 에이전트를 변경합니다. 사용자 에이전트 전환기 추가 기능을 사용하여 개발자 도구에서 Internet Explorer의 사용자 에이전트를 변경하거나 Firefox 또는 Chrome에서 사용자 에이전트를 변경할 수 있습니다.
 4. 사용자의 IP 주소를 변경합니다. VPN, Tor 추가 기능을 사용하거나 다른 데이터 센터의 Azure에서 새 컴퓨터를 스핀업하여 사용자의 IP 주소를 변경할 수 있습니다.
-5. 이전과 동일한 자격 증명을 사용하여 이전에 로그인한 후 몇 분 내에 [https://myapps.microsoft.com](https://myapps.microsoft.com) 에 로그인합니다.
+5. 이전과 동일한 자격 증명을 사용하여 이전 로그인 후 몇 분 내에 [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
 
 로그인이 2-4시간 이내에 ID 보호 대시보드에 나타납니다.
 
 ## <a name="simulating-vulnerabilities"></a>취약점 시뮬레이션
 취약점은 잘못된 행위자에 의해 악용될 수 있는 Azure AD 환경의 단점입니다. 현재 3가지 유형의 취약점은 Azure AD의 다른 기능을 활용하는 Azure AD ID 보호에 표시됩니다. 이러한 기능이 설정되면 이러한 취약성이 ID 보호 대시보드에 자동으로 표시됩니다.
 
-* Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 02/21/2018
 
 **사용자 위험 보안 정책을 테스트하려면 다음 단계를 수행합니다.**
 
-1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [https://portal.azure.com](https://portal.azure.com) 에 로그인합니다.
+1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 2. **ID 보호**로 이동합니다. 
 3. **Azure AD ID 보호** 페이지에서 **사용자 위험 정책**을 클릭합니다.
 4. **할당** 섹션에서 원하는 사용자(및 그룹)를 선택하고 사용자 위험 수준을 선택합니다.
@@ -145,7 +145,7 @@ ms.lasthandoff: 02/21/2018
 
 **로그인 위험 정책을 테스트하려면 다음 단계를 수행합니다.**
 
-1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [https://portal.azure.com ](https://portal.azure.com) 에 로그인합니다.
+1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
 2. **Azure AD ID 보호**로 이동합니다.
 

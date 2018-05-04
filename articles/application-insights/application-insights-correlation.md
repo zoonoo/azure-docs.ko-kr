@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights 원격 분석 상관 관계 | Microsoft 문서"
-description: "Application Insights 원격 분석 상관 관계"
+title: Azure Application Insights 원격 분석 상관 관계 | Microsoft 문서
+description: Application Insights 원격 분석 상관 관계
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -103,6 +103,31 @@ ASP.NET Core 2.0에서는 HTTP 헤더 추출 및 새 활동 시작을 지원합�
 ASP.NET 클래식에 대한 새로운 HTTP 모듈 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)이 있습니다. 이 모듈은 DiagnosticsSource를 사용하여 원격 분석 상관 관계를 구현합니다. 들어오는 요청 헤더를 기반으로 활동을 시작합니다. 또한 서로 다른 요청 처리 단계의 원격 분석을 상호 연결합니다. IIS 처리의 모든 단계가 서로 다른 관리 스레드에서 실행되는 경우에도 마찬가지입니다.
 
 Application Insights SDK 시작 버전 `2.4.0-beta1`에서는 DiagnosticsSource 및 활동을 사용하여 원격 분석을 수집하고 이를 현재 활동과 연결합니다. 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Java SDK의 원격 분석 상관 관계
+[Application Insights Java SDK](app-insights-java-get-started.md)는 버전 `2.0.0`부터 원격 분석의 자동 상관 관계를 지원합니다. 요청 범위 내에서 실행된 모든 원격 분석(추적, 예외, 사용자 지정 이벤트 등)에 대한 `operation_id`를 자동으로 채웁니다. 또한 [Java SDK 에이전트](app-insights-java-agent.md)가 구성된 경우, HTTP를 통한 서비스 간 호출에 대한 상관 관계 헤더(위에 설명됨) 전파도 관리합니다. 참고: Apache HTTP 클라이언트를 통해 수행되는 호출에 대해서만 상관 관계 기능이 지원됩니다. Spring Rest Template 또는 Feign을 사용하는 경우, 내부적으로 둘 다 Apache HTTP 클라이언트에서 사용할 수 있습니다.
+
+현재, 메시징 기술(예:: Kafka, RabbitMQ, Azure Service Bus)에서는 자동 컨텍스트 전파가 지원되지 않습니다. 그러나 `trackDependency` 및 `trackRequest` API를 사용하여 이러한 시나리오를 수동으로 코딩할 수 있습니다. 여기서 종속성 원격 분석은 생산자에 의해 큐에 추가되는 메시지를 나타내고 요청은 소비자에 의해 처리되는 메시지를 나타냅니다. 이 경우 `operation_id` 및 `operation_parentId` 둘 다 메시지의 속성에 전파되어야 합니다.
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>역할 이름
+경우에 따라, [응용 프로그램 맵](app-insights-app-map.md)에 구성 요소 이름에 표시되는 방식을 사용자 지정하려고 할 수 있습니다. 이렇게 하려면 다음 중 하나를 수행하여 `cloud_roleName`을 수동으로 설정할 수 있습니다.
+
+원격 분석 이니셜라이저를 통해(모든 원격 분석 항목에 태그 지정)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+[장치 컨텍스트 클래스](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context)를 통해(이 원격 분석 항목에만 태그 지정)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>다음 단계
 

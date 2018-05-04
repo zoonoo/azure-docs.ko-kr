@@ -102,6 +102,8 @@
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Write Accelerator를 사용하는 방법
+          href: how-to-enable-write-accelerator.md
         - name: 연결된 VHD 문제 해결
           href: troubleshoot-vhds.md
     - name: 네트워킹
@@ -187,6 +189,8 @@
           href: move-vm.md
         - name: VM 크기 변경
           href: resize-vm.md
+        - name: OS 디스크 교환
+          href: os-disk-swap.md
         - name: VM에 태그 지정
           href: tag.md
         - name: VM에서 스크립트 실행

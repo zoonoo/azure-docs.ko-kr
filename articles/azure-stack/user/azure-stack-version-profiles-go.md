@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure 스택에서 통용 API 버전 프로필을 사용 하 여
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/28/2018
 이동 SDK 프로필은 프로필에서 사용할 수 있는 / 경로에서 버전에는 **YYYY-월-일** 형식입니다. 지금 바로 최신 Azure 스택이 프로필 버전은 **2017-03-09**합니다. 프로필에서 지정된 된 서비스를 가져오려면 프로필에서 해당 해당 모듈을 가져와야 합니다. 예를 들어, 가져오려는 **계산** 서비스 **2017-03-09** 프로필:
 
 ````go
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compute" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
 ## <a name="install-azure-sdk-for-go"></a>이동에 대 한 Azure SDK를 설치 합니다.

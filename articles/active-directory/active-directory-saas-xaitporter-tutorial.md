@@ -1,10 +1,10 @@
 ---
-title: "자습서: XaitPorter와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 XaitPorter 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: XaitPorter와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 XaitPorter 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>자습서: XaitPorter와 Azure Active Directory 통합
 
@@ -58,7 +58,7 @@ XaitPorter의 Azure AD 통합을 구성하려면 갤러리의 XaitPorter를 관�
 
 **갤러리에서 XaitPorter를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -110,62 +110,42 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.xaitporter.com/saml/login`
 
-    b. **식별자** 텍스트 상자에서 `https://<subdomain>.xaitporter.com` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에서 `https://<subdomain>.xaitporter.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [XaitPorter 클라이언트 지원 팀](https://www.xait.com/support/)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [XaitPorter 클라이언트 지원 팀](https://www.xait.com/support/)에 문의하세요.
+     
+4. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다. 
 
-4. **저장** 단추를 클릭합니다.
+    ![인증서 다운로드 링크](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. **메타데이터** URL을 생성하려면 다음 단계를 수행합니다.
-
-    a. **앱 등록**을 클릭합니다.
-    
-    ![Single Sign-on 구성](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    b. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
-    
-    ![Single Sign-on 구성](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
-    
-    ![Single Sign-on 구성](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. 이제 **XaitPorter**의 속성 페이지로 이동하고 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여 넣습니다.
- 
-    ![Single Sign-on 구성](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
-
-6. **IP 주소** 또는 **메타데이터 URL**을 [SmartRecruiters 지원 팀](https://www.smartrecruiters.com/about-us/contact-us/)에 제공하므로 XaitPorter에서는 IP 주소가 해당하는 쪽의 허용 목록을 구성하는 XaitPorter 인스턴스에서 연결할 수 있는지 확인합니다. 
+6. **IP 주소** 또는 **앱 페더레이션 메타데이터 URL**을 [SmartRecruiters 지원 팀](https://www.smartrecruiters.com/about-us/contact-us/)에 제공하므로 XaitPorter에서는 IP 주소가 해당하는 쪽의 허용 목록을 구성하는 XaitPorter 인스턴스에서 연결할 수 있는지 확인합니다. 
 
 7. 다른 웹 브라우저 창에서 XaitPorter 회사 사이트에 관리자로 로그인합니다.
 
 8. **관리**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-xaitporter-tutorial/user1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user1.png)
 
 9. **시스템 설정** 드롭다운 목록에서 **Single Sign-On 관리**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-xaitporter-tutorial/user2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user2.png)
 
 10. **Single Sign-On 관리** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-xaitporter-tutorial/user3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user3.png)
 
     a. **Single Sign-On 인증 사용**을 선택합니다.
 
-    b. **ID 공급자 설정** 텍스트 상자에 Azure에서 복사한 **메타데이터 URL**을 붙여넣고 **페치**를 클릭합니다.
+    나. **ID 공급자 설정** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL**을 붙여넣고 **페치**를 클릭합니다.
 
-    c. **사용자 자동 생성 사용**을 선택합니다.
+    다. **사용자 자동 생성 사용**을 선택합니다.
 
     d. **확인**을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -193,9 +173,9 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -243,7 +223,7 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
 

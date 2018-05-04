@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory 조건부 액세스의 조건 | Microsoft Docs"
-description: "Azure Active Directory 조건부 액세스에 할당을 사용하여 정책을 트리거하는 방법을 알아봅니다."
+title: Azure Active Directory 조건부 액세스의 조건 | Microsoft Docs
+description: Azure Active Directory 조건부 액세스에 할당을 사용하여 정책을 트리거하는 방법을 알아봅니다.
 services: active-directory
-keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
-documentationcenter: 
+keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건 
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/13/2018
 
 선택 옵션:
 
-- 조직 전체에 기준 정책을 적용하려면 **모든 클라우드 앱** 선택합니다. 이 선택 옵션의 일반적인 사용 사례 중 하나는 클라우드 앱에 대한 로그인 위험이 감지되면 다단계 인증을 요구하는 정책입니다.
+- 조직 전체에 기준 정책을 적용하려면 **모든 클라우드 앱** 선택합니다. 이 선택 옵션의 일반적인 사용 사례 중 하나는 클라우드 앱에 대한 로그인 위험이 감지되면 다단계 인증을 요구하는 정책입니다. **모든 클라우드 앱**에 적용된 정책은 모든 웹 사이트 및 서비스에 대한 액세스에 적용됩니다. 이 설정은 **클라우드 앱 선택** 목록에 표시되는 클라우드 앱으로 제한되지 않습니다.
 
 - 정책에 의해 특정 서비스를 대상으로 지정하는 개별 클라우드 앱. 예를 들어 사용자가 SharePoint Online에 액세스하려면 [규격 장치](active-directory-conditional-access-policy-connected-applications.md)를 사용하도록 요구할 수 있습니다. 이 정책은 사용자가 SharePoint 콘텐츠(예: Microsoft Teams)팀에 액세스할 때 다른 서비스에도 적용됩니다. 
 

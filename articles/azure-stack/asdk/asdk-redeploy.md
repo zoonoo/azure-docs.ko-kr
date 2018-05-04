@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 33879187a912394b5cec6e9f9a8898f431134f5c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-redeploy-the-asdk"></a>자습서:는 ASDK 다시 배포
 이 자습서는 Azure 스택 개발 키트 (ASDK) 비-프로덕션 환경에서 다시 배포 하는 방법에 설명 합니다. 업그레이드는 ASDK 지원 되지 않는, 완전히 새 버전으로 이동 하 고 다시 배포 해야 합니다. 또한 언제 든 지 처음부터 다시 시작 하려는 ASDK를 다시 배포할 수 있습니다.
@@ -48,7 +48,7 @@ Azure와 함께 이전에 ASDK 설치를 등록 하는 경우 등록 리소스�
   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Provide Azure subscription admin credentials
-  Connect-AzureRmAccount
+  Add-AzureRmAccount
 
   # Provide ASDK admin credentials
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"

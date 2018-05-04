@@ -4,7 +4,7 @@
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 
-Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](../articles/sql-database/sql-database-service-tiers.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) 및 [Azure SQL Database 논리 서버](../articles/sql-database/sql-database-features.md)에서 만들어집니다. 
+Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](../articles/sql-database/sql-database-service-tiers-dtu.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) 및 [Azure SQL Database 논리 서버](../articles/sql-database/sql-database-features.md)에서 만들어집니다. 
 
 빈 SQL Database를 만들려면 다음 단계를 수행합니다. 
 

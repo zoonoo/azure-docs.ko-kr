@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2273a39f1c9da57072ca027e34c4acd6d86ea61a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -31,45 +31,88 @@ Visual Studio C# 개발자인 경우 Azure Functions은 [Visual Studio 2017과�
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
-[Azure Functions 핵심 도구]는 로컬 개발 컴퓨터에서 실행할 수 있는 Azure Functions 런타임의 로컬 버전입니다. 에뮬레이터 또는 시뮬레이터가 아닙니다. Azure에서 Functions를 작동하는 것과 동일한 런타임입니다. Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 하나는 런타임의 버전 1.x이고 다른 하나는 버전 2.x입니다. 두 가지 버전 모두 [npm 패키지](https://docs.npmjs.com/getting-started/what-is-npm)로 제공됩니다.
+[Azure Functions 핵심 도구]는 로컬 개발 컴퓨터에서 실행할 수 있는 Azure Functions 런타임의 로컬 버전입니다. 에뮬레이터 또는 시뮬레이터가 아닙니다. Azure에서 Functions를 작동하는 것과 동일한 런타임입니다. Azure Functions 핵심 도구에는 두 가지 버전이 있습니다.
 
->[!NOTE]  
-> 두 버전 중 하나를 설치하기 전에 npm이 포함된 [NodeJS를 설치](https://docs.npmjs.com/getting-started/installing-node)해야 합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다. 
++ [버전 1.x](#v1): 런타임 버전 1.x를 지원합니다. 이 버전은 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://docs.npmjs.com/getting-started/what-is-npm)에서 설치됩니다.
++ [버전 2.x](#v2): 런타임 버전 2.x를 지원합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 지원합니다. 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다. 
 
-### <a name="version-2x-runtime"></a>버전 2.x 런타임
+### <a name="v1"></a>버전 1.x
 
-버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 .NET Core 2.x가 지원하는 모든 플랫폼에서 지원됩니다. Functions 런타임 2.x가 필요할 때 플랫폼 간 개발에 이 버전을 사용하십시오. 
+원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework(4.7.1)를 사용하며 Windows 컴퓨터에서만 지원됩니다. 버전 1.x 도구를 설치하려면 먼저 npm이 포함된 [NodeJS를 설치](https://docs.npmjs.com/getting-started/installing-node)해야 합니다.
 
->[!IMPORTANT]   
-> Azure Functions 핵심 도구를 설치하기 전에 [.NET Core 2.0을 설치](https://www.microsoft.com/net/core)하십시오.  
->
-> Azure Functions 런타임 2.0은 미리 보기 상태이며, 현재 Azure Functions의 일부 기능은 지원되지 않습니다. 자세한 내용은 [Azure Functions 런타임 2.0 알려진 문제](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)를 참조하세요. 
-
- 다음 명령을 사용하여 버전 2.0 도구를 설치합니다.
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-Ubuntu에 설치하는 경우 다음과 같이 `sudo`를 사용합니다.
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-macOS 및 Linux에 설치하는 경우 다음과 같이 `unsafe-perm` 플래그를 포함해야 할 수 있습니다.
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
-
-### <a name="version-1x-runtime"></a>버전 1.x 런타임
-
-원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework를 사용하며 Windows 컴퓨터에서만 지원됩니다. 다음 명령을 사용하여 버전 1.x 도구를 설치합니다.
+다음 명령을 사용하여 버전 1.x 도구를 설치합니다.
 
 ```bash
 npm install -g azure-functions-core-tools
 ```
+
+### <a name="v2"></a>버전 2.x
+
+>[!NOTE]
+> Azure Functions 런타임 2.0은 미리 보기 상태이며, 현재 Azure Functions의 일부 기능은 지원되지 않습니다. 자세한 내용은 [Azure Functions 버전](functions-versions.md)을 참조하세요. 
+
+버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다.
+
+#### <a name="windows-npm"></a>Windows
+
+다음 단계에서는 npm을 사용하여 Windows에 핵심 도구를 설치합니다. [Chocolatey](https://chocolatey.org/)를 사용할 수도 있습니다. 자세한 내용은 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)를 참조하세요.
+
+1. [Windows용 .NET Core 2.0](https://www.microsoft.com/net/download/windows)을 설치합니다.
+
+2. [Node.js](npm 포함)를 설치합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
+
+3. 다음과 같이 핵심 도구 패키지를 설치합니다.
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>Homebrew가 있는 MacOS
+
+다음 단계에서는 Homebrew를 사용하여 macOS에 핵심 도구를 설치합니다.
+
+1. [macOS용 .NET Core 2.0](https://www.microsoft.com/net/download/macos)을 설치합니다.
+
+1. 아직 설치되지 않은 경우 [Homebrew](https://brew.sh/)를 설치합니다.
+
+2. 다음과 같이 핵심 도구 패키지를 설치합니다.
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="linux"></a>APT가 있는 Linux(Debian/Ubuntu)
+
+다음 단계에서는 [APT](https://wiki.debian.org/Apt)를 사용하여 Ubuntu/Debian Linux 배포판에 핵심 도구를 설치합니다. 다른 Linux 배포판의 경우 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)를 참조하세요.
+
+1. [Linux용 .NET Core 2.0](https://www.microsoft.com/net/download/linux)을 설치합니다.
+
+1. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  패키지 피드를 설정하고, 다음 명령의 `<version>`을 다음 표의 해당 버전 이름으로 바꿉니다.
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Linux 배포 | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+3. 다음과 같이 핵심 도구 패키지를 설치합니다.
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure Functions 핵심 도구 실행
  
@@ -137,15 +180,19 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 | 설정      | 설명                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | **true**로 설정하면 모든 값은 로컬 컴퓨터 키를 사용하여 암호화됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 **false**입니다. |
-| **값** | 로컬에서 실행될 때 사용되는 응용 프로그램 설정의 컬렉션입니다. **AzureWebJobsStorage** 및 **AzureWebJobsDashboard**는 예입니다. 전체 목록은 [app settings reference](functions-app-settings.md)를 참조하세요.  |
+| **값** | 로컬에서 실행될 때 사용되는 응용 프로그램 설정의 컬렉션입니다. **AzureWebJobsStorage** 및 **AzureWebJobsDashboard**는 예입니다. 전체 목록은 [app settings reference](functions-app-settings.md)를 참조하세요. 많은 트리거와 바인딩에는 Blob 저장소 트리거에 대한 **Connection**과 같은 앱 설정을 참조하는 속성이 있습니다. 이러한 속성의 경우 **Values** 배열에 정의된 응용 프로그램 설정이 필요합니다. 또한 백분율 기호로 값을 래핑하여(예: `%AppSettingName%`) 앱 설정 이름으로 설정한 모든 바인딩 속성에도 적용됩니다. |
 | **호스트** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. | 
 | **LocalHttpPort** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |
 | **CORS** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
 | **ConnectionStrings** | 함수에 대한 데이터베이스 연결 문자열을 포함합니다. 이 개체의 연결 문자열은 공급자 유형이 **System.Data.SqlClient**인 환경에 추가됩니다.  | 
 
-대부분의 트리거와 바인딩에는 환경 변수 또는 앱 설정의 이름에 매핑되는 **연결** 속성이 있습니다. 각 연결 속성에 대해 local.settings.json 파일에 정의된 앱 설정이 있어야 합니다. 
+이러한 설정은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
 
-이러한 설정은 코드에서 환경 변수로 읽을 수도 있습니다. C#에서는 [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) 또는 [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx)를 사용합니다. JavaScript에서는 `process.env`를 사용합니다. 시스템 환경 변수로 지정된 설정은 local.settings.json 파일의 값보다 우선합니다. 
++ [미리 컴파일된 C#](functions-dotnet-class-library.md#environment-variables)
++ [C# 스크립트(.csx)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도구에서만 사용됩니다. 기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다.
 
@@ -167,7 +214,7 @@ local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    두 명령 모두 먼저 Azure에 로그인해야 합니다.
+    두 명령을 사용하려면 모두 Azure에 먼저 로그인해야 합니다.
 
 <a name="create-func"></a>
 ## <a name="create-a-function"></a>함수 만들기
@@ -188,7 +235,7 @@ func new
 예를 들어 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
 
 ```
-func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
+func new --language JavaScript --template "HttpTrigger" --name MyHttpTrigger
 ```
 
 큐 트리거 함수를 만들려면 다음을 실행합니다.
@@ -275,7 +322,7 @@ curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-쿼리 문자열에서 데이터를 전달하는 브라우저에서 GET 요청을 만들 수 있습니다. 다른 모든 HTTP 메서드에서 cURL, Fiddler, Postman 또는 비슷한 HTTP 테스트 도구를 사용해야 합니다.  
+쿼리 문자열에서 데이터를 전달하는 브라우저에서 GET 요청을 수행할 수 있습니다. 다른 모든 HTTP 메서드에서 cURL, Fiddler, Postman 또는 비슷한 HTTP 테스트 도구를 사용해야 합니다.  
 
 #### <a name="non-http-triggered-functions"></a>HTTP가 아닌 트리거된 함수
 HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관리 끝점을 호출하여 로컬로 함수를 테스트할 수 있습니다. 로컬 서버에서 HTTP POST 요청으로 이 끝점을 호출하면 함수를 트리거합니다. 필요에 따라 POST 요청의 본문에서 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.  
@@ -361,3 +408,4 @@ Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](ht
 
 [Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a0f50ad6df1135e05cd69be78e6b7f7820f90c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
 [PowerBI.com](https://powerbi.microsoft.com/) 은 사용자 및 조직에 중요한 데이터로 대시보드와 보고서를 만들어 공유할 수 있는 온라인 서비스입니다.  Power BI 데스크톱은 다양한 데이터 원본에서 데이터를 검색하고, 데이터를 병합 및 변환하며, 강력한 보고서 및 시각화를 제작하고, 보고서를 Power BI에 게시할 수 있는 전용 보고서 제작 도구입니다.  Power BI Desktop의 최신 버전에서는 이제 Power BI용 Azure Cosmos DB 커넥터를 통해 Azure Cosmos DB 계정에 연결할 수 있습니다.   
@@ -85,7 +85,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서�
    
     ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. **홈** 리본 메뉴를 선택한 다음 **데이터 가져오기**를 클릭합니다.  **데이터 가져오기** 창이 나타납니다.
-5. **Azure**를 클릭하고 **Azure Cosmos DB(베타)**를 선택한 다음, **연결**을 클릭합니다. 
+5. **Azure**를 클릭하고 **Azure Cosmos DB(베타)** 를 선택한 다음, **연결**을 클릭합니다. 
 
     ![Power BI 데스크톱 데이터 가져오기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
 6. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Azure Cosmos DB** 창이 나타납니다.
@@ -103,9 +103,9 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서�
     > [!NOTE] 
     > "지정된 데이터베이스를 찾을 수 없습니다."라는 오류가 발생할 경우 이 [Power BI 문제](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200) 커뮤니티의 문제 해결 단계를 참조하세요.
     
-9. 계정이 성공적으로 연결되면 **탐색기** 가 표시됩니다.  **탐색기** 는 계정의 데이터베이스 목록을 표시합니다.
+9. 계정이 성공적으로 연결되면 **탐색기** 창이 표시됩니다.  **탐색기**는 계정의 데이터베이스 목록을 표시합니다.
 10. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장합니다. 데모 계정을 사용하는 경우 **volcanodb**를 선택합니다.   
-11. 이제 데이터를 가져올 컬렉션을 선택합니다. 데모 계정을 사용하는 경우 **volcano1**을 선택합니다.
+11. 이제 검색할 데이터가 들어 있는 컬렉션을 선택합니다. 데모 계정을 사용하는 경우 **volcano1**을 선택합니다.
     
     미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드**입니다.
     
@@ -115,28 +115,29 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서�
 ## <a name="flattening-and-transforming-json-documents"></a>JSON 문서 평면화 및 변환
 1. Power BI 쿼리 편집기 창으로 전환합니다. 가운데 창에 **문서** 열이 표시됩니다.
    ![Power BI 데스크톱 쿼리 편집기](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
-2. **문서** 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다.  필드 목록이 있는 상황에 맞는 메뉴가 표시됩니다.  화산 이름, 국가, 지역, 위치, 상승, 유형, 상태, 마지막 분출일 등, 보고서에 필요한 필드를 선택하고 **확인**을 클릭합니다.
+2. **문서** 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다.  필드 목록이 있는 상황에 맞는 메뉴가 표시됩니다.  화산 이름, 국가, 지역, 위치, 상승, 유형, 상태, 마지막 분출일 등 보고서에 필요한 필드를 선택합니다. **원래 열 이름을 접두사로 사용** 확인란의 선택을 취소하고 **확인**을 클릭합니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 문서 확장](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 3. 가운데 창에는 선택한 필드와 함께 결과의 미리 보기가 표시됩니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 결과 평면화](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. 이 예제에서 위치 속성은 문서의 GeoJSON 블록입니다.  보이는 것처럼 위치는 Power BI 데스크톱에서 **레코드** 형식으로 나타납니다.  
-5. 위치 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다.  유형 및 좌표 필드가 있는 상황에 맞는 메뉴가 표시됩니다.  좌표 필드를 선택하고 **확인**을 클릭해 보겠습니다.
+5. Document.Location 열 헤더의 오른쪽에 있는 확장 아이콘을 클릭합니다.  유형 및 좌표 필드가 있는 상황에 맞는 메뉴가 표시됩니다.  좌표 필드를 선택하고, **원래 열 이름을 접두사로 사용**의 선택을 취소하고, **확인**을 클릭합니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 위치 레코드](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. 이제 가운데 창에는 **목록** 유형의 좌표 열이 표시됩니다.  자습서의 시작 부분에서 본 것처럼 이 자습서의 GeoJSON 데이터는 지점 유형으로, 위도와 경도 값이 좌표 배열에 기록됩니다.
    
     좌표 [0] 요소는 경도를, 좌표 [1]은 위도를 나타냅니다.
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 좌표 목록](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. 좌표 배열을 평면화하기 위해 이름이 LatLong인 **사용자 지정 열** 을 만듭니다.  **열 추가** 리본을 선택하고 **사용자 지정 열 추가**를 클릭합니다.  **사용자 지정 열 추가** 창이 나타납니다.
+7. 좌표 배열을 평면화하기 위해 이름이 LatLong이라고 하는 **사용자 지정 열**을 만듭니다.  **열 추가** 리본을 선택하고 **사용자 지정 열**을 클릭합니다.  **사용자 지정 열** 창이 나타납니다.
 8. LatLong 등, 새 열에 대한 이름을 입력합니다.
 9. 다음으로 새 열에 사용자 지정 수식을 지정합니다.  이 예에서는 `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`수식을 사용하여 쉼표로 구분하여 위도와 경도 값을 연결합니다. **확인**을 클릭합니다.
    
     DAX 함수를 포함한 데이터 분석 식(DAX)에 대한 자세한 내용은 [Power BI 데스크톱의 DAX 기초](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop)를 참조하세요.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 사용자 지정 열 추가](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
-10. 이제 가운데 창에 쉼표로 구분한 위도와 경도 값이 입력된 새 LatLong 열이 표시됩니다.
+
+10. 이제 가운데 창에 값이 채워진 새 LatLong 열이 표시됩니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 사용자 지정 LatLong 열](./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
@@ -145,10 +146,8 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서�
     ![적용된 단계는 원본, 탐색, 확장된 문서, 확장된 Document.Location, 추가된 사용자 지정이어야 합니다.](./media/powerbi-visualize/power-bi-applied-steps.png)
     
     단계가 다른 경우 추가 단계를 삭제하고 사용자 지정 열을 다시 추가해 보십시오. 
-11. 이제 탭 형식으로 데이터를 평면화했습니다.  쿼리 편집기에서 사용 가능한 모든 기능을 활용하여 Cosmos DB에서 데이터를 형성 및 변환할 수 있습니다.  샘플을 사용하는 경우 **홈** 리본 메뉴에서 **데이터 형식**을 변경하여 상승의 데이터 형식을 **정수**로 변경합니다.
-    
-    ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 열 형식 변경](./media/powerbi-visualize/power_bi_connector_pbichangetype.png)
-12. **닫고 적용** 을 클릭하여 데이터 모델을 저장합니다.
+
+11. **닫고 적용** 을 클릭하여 데이터 모델을 저장합니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 닫기 및 적용](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -162,7 +161,7 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 
 1. **필드** 창. 보고서에 사용할 수 있는 필드와 데이터 모델 목록이 있습니다.
 2. **시각화** 창. 보고서는 단일 또는 여러 시각화 요소를 포함할 수 있습니다.  **시각화** 창에서 필요에 부합하는 시각화 형식을 선택합니다.
-3. **보고서** 캔버스. 보고서의 시각적 요소를 구성할 수 있습니다.
+3. **보고서** 캔버스. 보고서의 시각적 요소를 빌드할 수 있습니다.
 4. **보고서** 페이지. Power BI 데스크톱에서 여러 보고서 페이지를 추가할 수 있습니다.
 
 다음은 간단한 대화형 지도 보기 보고서를 만드는 기본적은 단계를 보여줍니다.
@@ -175,6 +174,7 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 6. 이제 기본 보고서를 만들었습니다.  다른 시각화 요소를 추가하여 보고서를 상세히 사용자 지정할 수 있습니다.  여기서는 화산 유형 슬라이서를 추가하여 보고서를 대화형으로 구성했습니다.  
    
     ![Azure Cosmos DB에 대한 Power BI 자습서 완료 시의 최종 Power BI Desktop 보고서 스크린샷](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+7. 파일 메뉴에서 **저장**을 클릭하고 파일을 PowerBITutorial.pbix로 저장합니다.
 
 ## <a name="publish-and-share-your-report"></a>보고서 게시 및 공유
 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.
@@ -201,26 +201,26 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 
 또한 대시보드를 만들기 전에 보고서에 대한 임시 수정을 수행할 수 있습니다. 그러나 Power BI 데스크톱을 사용하여 수정 작업을 수행하고 보고서를 PowerBI.com 다시 게시하는 것이 좋습니다.
 
-## <a name="refresh-data-in-powerbicom"></a>PowerBI.com에서 데이터 새로 고침
-임시 및 예약의 두 가지 방법으로 데이터를 새로 고칠 수 있습니다.
+<!-- ## Refresh data in PowerBI.com
+There are two ways to refresh data, ad hoc and scheduled.
 
-임시 새로 고침의 경우 **데이터 집**으로 줄임표(...)를 클릭합니다(예: PowerBITutorial). **지금 새로 고침**을 포함한 작업의 목록이 표시됩니다. **지금 새로 고침**을 클릭하여 데이터를 새로 고칩니다.
+For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![PowerBI.com에서 지금 새로 고침의 스크린샷](./media/powerbi-visualize/power-bi-refresh-now.png)
+![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
 
-예약된 새로 고침의 경우 다음을 수행합니다.
+For a scheduled refresh, do the following.
 
-1. 작업 목록에서 **새로 고침 예약** 을 클릭합니다. 
+1. Click **Schedule Refresh** in the action list. 
 
-    ![PowerBI.com에서 새로 고침 예약의 스크린샷](./media/powerbi-visualize/power-bi-schedule-refresh.png)
-2. **설정** 페이지에서 **데이터 원본 자격 증명**을 확장합니다. 
-3. **자격 증명 편집**을 클릭합니다. 
+    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+2. In the **Settings** page, expand **Data source credentials**. 
+3. Click on **Edit credentials**. 
    
-    구성 팝업이 나타납니다. 
-4. 키를 입력하여 해당 데이터 집합에 대한 Azure Cosmos DB 계정에 연결한 다음, **로그인**을 클릭합니다. 
-5. **새로 고침 예약** 을 확장하고 데이터 집합을 새로 고치려는 일정을 설정합니다. 
-6. **적용** 을 클릭하고 예약된 새로 고침 설정을 완료합니다.
-
+    The Configure popup appears. 
+4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
+5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
+6. Click **Apply** and you are done setting up the scheduled refresh.
+-->
 ## <a name="next-steps"></a>다음 단계
 * Power BI에 대한 자세한 내용은 [Power BI 시작](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 참조하세요.
 * Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 설명서 방문 페이지](https://azure.microsoft.com/documentation/services/cosmos-db/)를 참조하세요.

@@ -1,4 +1,4 @@
-응용 프로그램에서 등록을 사용하도록 설정하려면 등록 정책을 만들어야 합니다. 이 정책은 등록 시 소비자가 경험한 환경 및 성공적인 등록 후에 응용 프로그램에서 받는 토큰의 내용을 설명합니다.
+응용 프로그램에서 등록만 사용하려면 **등록** 정책을 사용합니다. 이 정책은 등록 시 고객이 경험하는 환경, 그리고 등록 성공 시 응용 프로그램에서 수신하는 토큰의 콘텐츠를 설명합니다.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

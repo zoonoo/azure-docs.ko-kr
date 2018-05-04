@@ -10,20 +10,74 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure 스택에서 프로필에서 지 원하는 리소스 공급자 API 버전
 
-Azure 리소스 공급자 리소스를 배포 하 고 Azure 리소스 관리자를 통해 관리할 수 있습니다를 제공 합니다. 각 공급자 리소스를 사용 하기 위한 작업을 제공 합니다. 몇 가지 일반 리소스 공급자 Microsoft.Compute이 가상 컴퓨터를 제공, 등 Microsoft.Storage이 저장소 계정 리소스를 제공 Microsoft.Web이 웹 앱에 관련 된 리소스를 제공 합니다. 자세한 내용은 [리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)을 참조하세요.
+Azure 스택이이 문서에서 사용 하는 각 API 프로필에 대 한 리소스 공급자 및 버전 번호를 찾을 수 있습니다. 이 문서의 표에 각 리소스 공급자 및 프로필의 API 버전에 대해 지원 되는 버전을 나열 합니다. 각 리소스 공급자 리소스 종류 및 특정 버전 번호의 집합을 포함 합니다.
 
-각 리소스 공급자에 대해 다음 표에서 프로필을 사용할 때 Azure 스택에 대 한 API 버전에서 지원 되는 버전을 나타냅니다.
+API 프로필 세 명명 규칙을 사용합니다.
+ - 최신
+ - Mm dd 하이브리드 Yyyy
+ - yyyy mm-dd 프로필
+
+에 대 한 API 프로필 및 버전 릴리스 일정의 설명은 Azure 스택에 대 한 참조 [스택에서 Azure 관리 API 버전 프로필](azure-stack-version-profiles.md)합니다.
+
+> [!note]  
+> **최신** API 프로필 리소스 공급자 API 버전을 최신을 포함 하며이 문서에 나타나지 않습니다.
+
+## <a name="overview-of-2018--03-01-hybrid"></a>2018-03-01-하이브리드 개요
+
+| 리소스 공급자 | api 버전 |
+|-----------------------------------------------|-----------------------------------------------------|
+| Microsoft.Compute | 2017-03-30 |
+| Microsoft.Network | 2017-10-01<br>VPN 게이트웨이가 2017-03-01 됩니다. |
+| Microsoft.Storage (데이터 평면) | 2017-04-17 |
+| Microsoft.Storage (제어 평면) | 2016-01-01 |
+| Microsoft. 웹 | 2016-08-01<br>Azure의 최신 (현재 진행 중)은 무엇입니까 |
+| Microsoft.KeyVault | 2016-10-01 (변경 하지) |
+| Microsoft.Resources (Azure 리소스 관리자 자체) | 2016-02-01 |
+| Microsoft.Authorization (정책 작업) | 2015-11-01 |
+| Microsoft.Insights | 2015-11-01 |
+| Microsoft.Keyvault | 2016-10-01 |
+| 정책 | 2016-10-01 |
+| 리소스 | 2016-10-01 |
+| Resources_Links | 2016-10-01 |
+| Resources_Locks | 2016-10-01 |
+| 구독 | 2016-10-01 |
+
+더 api 프로필에서 공급자에 대 한 각 리소스 유형에 대 한 버전의 목록은 참조 하세요. [2018-03-01-하이브리드에 대 한 세부 정보](#details-for-the-2018-03-01-hybrid) 프로필입니다.
+
+## <a name="overview-of-2017-03-09-profile"></a>2017-03-09-프로필의 개요
+
+| 리소스 공급자 | api 버전 |
+|------------------------------------------------|------------------------------|
+| Microsoft.Compute | 2016-03-30 |
+| Microsoft.Network | 2015-06-15 |
+| Microsoft.Storage (데이터 평면) | 2015-04-05  |
+| Microsoft.Storage (제어 평면) | 2016-01-01   |
+| Microsoft.Websites | 2016-01-01 |
+| Microsoft.KeyVault | 2016-10-01<br>(변경 하지) |
+| Microsoft.Resources<br>(Azure 리소스 관리자 자체) | 2016-02-01 |
+| Microsoft.Authorization<Br>(정책 작업) | 2015-11-01 |
+| Microsoft.Insights | 2015-11-01 |
+| Microsoft.Keyvault | 2016-10-01 |
+| 정책 | 2015-10-01-미리 보기 |
+| 리소스 | 2016-02-01 |
+| Resources_Links | 2016-09-01 |
+| Resources_Locks | 2016-09-01 |
+| 구독 | 2016-06-1 |
+
+더 api 프로필에서 공급자에 대 한 각 리소스 유형에 대 한 버전의 목록은 참조 하십시오. [2017 03 09 프로필에 대 한 세부 정보](#details-for-the-2017-03-09-profile)
+
+## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-하이브리드에 대 한 세부 정보
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -106,15 +160,6 @@ Azure 계산 Api 가상 컴퓨터 및 해당 관련 리소스에 프로그래밍
 | 자격 증명 모음 / 액세스 정책 | 2016-10-01 |
 | Vaults/secrets | 2016-10-01 |
 
-### <a name="microsoftkeyvaultadmin"></a>Microsoft.Keyvault.Admin
-
-키, 비밀 정보 및 사용자 키 자격 증명 모음 내에서 인증서 자격 증명 모음 키를 관리 합니다. 자세한 내용은 참조 [Azure 키 자격 증명 모음 REST API 참조](https://docs.microsoft.com/rest/api/keyvault/)합니다.
-
-| 리소스 종류 | API 버전 |
-|------------------|--------------------|
-| 위치 | 2017-02-01-미리 보기 |
-| 위치/할당량 | 2017-02-01-미리 보기 |
-
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
 작업 호출 결과는 사용 가능한 네트워크 클라우드 작업 목록의 표현입니다. 자세한 내용은 참조 [REST API 작업](https://docs.microsoft.com/rest/api/operation/)합니다.
@@ -172,6 +217,101 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
 저장소 리소스 공급자 (SRP)를 사용 하면 저장소 계정 및 키를 프로그래밍 방식으로 관리할 수 있습니다. 자세한 내용은 참조 [Azure 저장소 리소스 공급자 REST API 참조](https://docs.microsoft.com/rest/api/storagerp/)합니다.
+
+| 리소스 종류 | API 버전 |
+|-------------------------|--------------|
+| 이름 가용성을 확인합니다. | 2016-01-01 |
+| 위치 | 2016-01-01 |
+| 위치/할당량 | 2016-01-01 |
+| 작업 | 2016-01-01 |
+| storageaccounts 하는 중 | 2016-01-01 |
+| 사용 | 2016-01-01 |
+
+## <a name="details-for-the-2017-03-09-profile"></a>2017 03 09 프로필에 대 한 세부 정보
+
+### <a name="microsoft-authorization"></a>Microsoft 인증
+
+| 리소스 종류 | API 버전 |
+|---------------------|---------------------------------|
+| 잠금 | 2017-04-01 |
+| 작업 | 2015-07-01 |
+| 권한 | 2015-07-01 |
+| 정책 할당 | 2016-12-01 (2017-06-01-미리 보기) |
+| 정책 정의 | 2016-12-01 |
+| 공급자 작업 | 2015-07-01-미리 보기 |
+| 역할 할당 | 2015-07-01 |
+| 역할 정의 | 2015-07-01 |
+
+### <a name="microsoftcompute"></a>Microsoft.Compute
+
+| 리소스 종류 | API 버전 |
+|---------------------------------------------------------------|-------------|
+| 가용성 집합 | 2016-03-30 |
+| 위치 | 2016-03-30 |
+| 위치/작업 | 2016-03-30 |
+| Locations/publishers | 2016-03-30 |
+| 위치/용도 | 2016-03-30 |
+| 위치/vmSizes | 2016-03-30 |
+| 작업 | 2016-03-30 |
+| Virtual Machines | 2016-03-30 |
+| 가상 컴퓨터/확장 | 2016-03-30 |
+| Virtual Machine Scale Sets | 2016-03-30 |
+| 가상 컴퓨터 크기 집합/확장 | 2016-03-30 |
+| 가상 컴퓨터 크기 집합 네트워크 인터페이스 | 2016-03-30 |
+| 가상 컴퓨터 크기 조정 설정/가상 컴퓨터 | 2016-03-30 |
+| 가상 컴퓨터 크기 조정 설정/virtualMachines/networkInterfaces | 2016-03-30 |
+
+### <a name="microsoftnetwork"></a>Microsoft.Network
+
+| 리소스 종류 | API 버전 |
+|---------------------------|--------------|
+| 연결 | 2015-06-15 |
+| DNS 영역 | 2016-04-01 |
+| 부하 분산 장치 | 2015-06-15 |
+| 로컬 네트워크 게이트웨이 | 2015-06-15 |
+| 위치 | 2016-04-01 |
+| Location/operationResults | 2016-04-01 |
+| 위치/작업 | 2016-04-01 |
+| 위치/용도 | 2016-04-01 |
+| 네트워크 인터페이스 | 2015-06-15 |
+| 네트워크 보안 그룹 | 2015-06-15 |
+| 작업 | 2015-06-15 |
+| 공용 IP 주소 | 2015-06-15 |
+| 경로 테이블 | 2015-06-15 |
+| Virtual Network 게이트웨이 | 2015-06-15 |
+| Virtual Network | 2015-06-15 |
+
+### <a name="microsoftresources"></a>Microsoft.Resources
+
+| 리소스 종류 | API 버전 |
+|-----------------------------------------|--------------|
+| 응용 프로그램 등록 | 2015-01-01 |
+| 리소스 이름 확인 | 2016-09-01 |
+| 위임 된 공급자 | 2015-01-01 |
+| 위임 된 공급자/제안 | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
+| 배포 | 2016-09-01 |
+| 배포/작업 | 2016-09-01 |
+| 확장 메타 데이터 | 2015-01-01 |
+| 링크 | 2016-09-01 |
+| 위치 | 2015-01-01 |
+| 제품 | 2015-01-01 |
+| 작업 | 2015-01-01 |
+| 공급자 | 2017-08-01 |
+| 리소스 그룹 | 2016-09-01 |
+| 리소스 | 2016-09-01 |
+| 구독 | 2016-09-01 |
+| 구독/위치 | 2016-09-01 |
+| 구독/작업 결과 | 2016-09-01 |
+| 구독/공급자 | 2017-08-01 |
+| 구독/리소스 그룹 | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
+| 구독/리소스 | 2016-09-01 |
+| Subscriptiosn/tagNames | 2016-09-01 |
+| 구독/tagNames/tagValues | 2016-09-01 |
+| 테 넌 트 | 2017-08-01 |
+
+### <a name="microsoftstorage"></a>Microsoft.Storage
 
 | 리소스 종류 | API 버전 |
 |-------------------------|--------------|

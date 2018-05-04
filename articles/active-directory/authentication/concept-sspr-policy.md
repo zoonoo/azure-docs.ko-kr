@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 9f75ba47dd0e076041c7c9c69ef6cfb29178fdd3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b8079c5dffd4d426d62267e77f226d2dda183665
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -96,7 +96,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 | 자산 | 요구 사항 |
 | --- | --- |
 | 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만: "\@\"" 기호 바로 앞에 "."(점) 문자를 사용할 수 없습니다.</li></ul> |
+| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만 가능</li></ul> |
 | 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>강력한 암호만: 다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 |<ul><li>기본값: **90**일</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전)</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
@@ -156,7 +156,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 * [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
-* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](../active-directory-passwords-writeback.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
 * [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)

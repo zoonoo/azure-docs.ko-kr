@@ -14,8 +14,6 @@
 ## [단일 인스턴스 SAP HANA 설치](hana-get-started.md)
 ## [S/4 HANA 또는 BW/4 HANA SAP CAL 배포 가이드](cal-s4h.md)
 ## [Azure 운영 가이드의 SAP HANA](hana-vm-operations.md)
-### 방법
-#### [SAP 배포용 Azure Write Accelerator](how-to-enable-write-accelerator.md)
 ## Azure Virtual Machines의 SAP HANA 가용성
 ### [Azure의 SAP HANA 가용성 개요](sap-hana-availability-overview.md)
 ### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)

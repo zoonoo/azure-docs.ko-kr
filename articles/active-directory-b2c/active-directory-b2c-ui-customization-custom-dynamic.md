@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 끝점으로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -65,7 +68,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 프로젝트를 만듭니다.
 
-2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET Core 웹 응용 프로그램(.NET Core)**을 선택합니다.
+2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET Core 웹 응용 프로그램(.NET Core)** 을 선택합니다.
 
 3. 응용 프로그램 이름(예:*Contoso.AADB2C.UI*)을 지정한 후 **확인**을 선택합니다.
 
@@ -193,7 +196,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
     >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](http://test-cors.org/) 웹 사이트로 이동합니다. 
 
 * 제공된 콘텐츠는 **HTTPS**를 통해 보호됩니다.
-* 모든 링크 및 CSS 콘텐츠와 이미지에 *절대 URL*(예: *https://yourdomain/content*)을 사용합니다.
+* 모든 링크, CSS 콘텐츠 및 이미지에 대해 *절대 URL*(예: *https://yourdomain/content*)을 사용합니다.
 
 ## <a name="step-5-configure-your-content-definition"></a>5단계: 콘텐츠 정의 구성
 `ContentDefinition`을 구성하려면 다음을 수행합니다.

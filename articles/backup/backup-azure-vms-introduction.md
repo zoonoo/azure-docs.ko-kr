@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure에서 VM 백업 인프라 계획
 이 문서에서는 성능 및 리소스를 제안하여 VM 백업 인프라를 계획할 수 있도록 합니다. 또한 Backup 서비스의 핵심 요소를 정의합니다. 이러한 측면은 아키텍처, 용량 계획 및 예약을 결정하는 데 중요한 요인이 될 수 있습니다. [환경을 준비](backup-azure-arm-vms-prepare.md)했다면 계획은 [VM 백업](backup-azure-arm-vms.md)을 시작하기 전의 다음 단계입니다. Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
@@ -99,7 +99,8 @@ Backup 데이터가 저장소 계정에서 복사되면 저장소 계정의 초�
 
 * [백업 확장 설치 또는 업데이트](backup-azure-arm-vms.md)하는 데 필요한 시간
 * 스냅숏 시간 - 스냅숏을 트리거하는 데 걸리는 시간입니다. 스냅숏은 예약된 백업 시간에 가깝게 트리거됩니다.
-* 큐 대기 시간입니다. Backup 서비스는 여러 고객의 백업을 처리하기 때문에 스냅숏의 백업 데이터를 백업 또는 Recovery Services 자격 증명 모음에 복사하는 작업이 즉시 시작되지 않을 수도 있습니다. 사용량이 많은 시간에는 처리되는 백업 수로 인해 대기가 최대 8시간까지 연장될 수 있습니다. 그러나 일별 백업 정책의 경우 총 VM 백업 시간은 24시간 미만입니다.
+* 큐 대기 시간입니다. Backup 서비스는 여러 고객의 백업을 처리하기 때문에 스냅숏의 백업 데이터를 백업 또는 Recovery Services 자격 증명 모음에 복사하는 작업이 즉시 시작되지 않을 수도 있습니다. 사용량이 많은 시간에는 처리되는 백업 수로 인해 대기가 최대 8시간까지 연장될 수 있습니다. 그러나 일별 백업 정책의 경우 총 VM 백업 시간은 24시간 미만입니다. <br>
+**이는 증분 백업에만 유효하며, 첫 번째 백업에는 유효하지 않습니다. 첫 번째 백업 시간은 비례하며, 데이터 크기 및 백업 수행 시간에 따라 24시간을 초과할 수 있습니다.**
 * 데이터 전송 시간은 이전 백업에서 증분 변경 내용을 계산하고 해당 변경 내용을 자격 증명 모음 저장소에 전송하는 백업 서비스에 필요한 시간입니다.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>백업 시간이 길어진(12시간 초과) 이유는 무엇인가요?

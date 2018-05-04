@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. 다음 명령을 실행하여 Azure Data Factory 공급자를 등록합니다.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/23/2018
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>문제: 데이터 팩터리 cmdlet을 실행할 때 권한 없음 오류 발생
 Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있지 않습니다. 다음 cmdlet을 사용하여 Azure PowerShell에서 사용할 올바른 Azure 계정 및 구독을 선택합니다.
 
-1. Login-AzureRmAccount - 올바른 사용자 ID 및 암호를 사용합니다.
+1. Connect-AzureRmAccount - 올바른 사용자 ID 및 암호 사용
 2. Get-AzureRmSubscription - 계정의 모든 구독을 확인합니다.
 3. Select-AzureRmSubscription &lt;구독 이름&gt; - 올바른 구독을 선택합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
 

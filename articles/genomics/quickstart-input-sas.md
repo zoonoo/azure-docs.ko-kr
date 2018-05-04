@@ -1,7 +1,7 @@
 ---
-title: "저장소 계정 키 대신 SAS를 사용하여 워크플로 제출 | Microsoft Docs"
+title: 저장소 계정 키 대신 SAS를 사용하여 워크플로 제출 | Microsoft Docs
 titleSuffix: Azure
-description: "빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다."
+description: 빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,11 +11,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: b6d84428749d8f5f78374efcca22ef913ee96c5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>저장소 계정 키 대신 SAS를 사용하여 워크플로 제출
 
@@ -50,7 +50,7 @@ Azure Storage 탐색기를 사용하거나 프로그래밍 방식의 두 가지 
 
 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 Azure Storage에 저장한 리소스를 관리하는 도구입니다.  [여기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)에서 Azure Storage 탐색기를 사용하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-입력 파일에 대한 SAS는 특정 입력 파일(Blob)로 범위가 지정되어야 합니다. SAS 토큰을 만들려면 [이러한 지침](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures)에 따릅니다. SAS를 만들면 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 화면에서 복사할 수 있습니다.
+입력 파일에 대한 SAS는 특정 입력 파일(Blob)로 범위가 지정되어야 합니다. SAS 토큰을 만들려면 [이러한 지침](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures)에 따릅니다. SAS를 만들면 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 화면에서 복사할 수 있습니다.
 
  ![Genomics SAS Storage 탐색기](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage 탐색기")
 

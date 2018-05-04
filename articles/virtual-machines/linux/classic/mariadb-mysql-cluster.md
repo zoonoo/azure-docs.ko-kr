@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB(MySQL) 클러스터: Azure 자습서
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 사용하기 위한 별도의 두 가지 배포 모델, 즉 [Azure Resource Manager](../../../resource-manager-deployment-model.md)와 클래식 모델이 있습니다. 이 문서에서는 클래식 배포 모델에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
 
 > [!NOTE]
-> Azure Marketplace에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 새로운 이 서비스는 Azure Resource Manager에 MariaDB Galera 클러스터를 자동으로 배포합니다. [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/)에서 이 서비스를 사용해야 합니다.
+> Azure Marketplace에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 새로운 이 서비스는 Azure Resource Manager에 MariaDB Galera 클러스터를 자동으로 배포합니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/)에서 이 서비스를 사용해야 합니다.
 >
 >
 
@@ -281,8 +281,8 @@ ms.lasthandoff: 04/05/2018
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    줄의 시작 부분에서 **#**을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`**의 주석을 제거합니다.
-    또한 **`wsrep_node_address`**의 **`<ServerIP>`** 및 **`wsrep_node_name`**의 **`<NodeName>`**을 각각 VM의 IP 주소와 이름으로 바꾸고 해당 줄의 주석도 제거합니다.
+    줄의 시작 부분에서 **#** 을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 의 주석을 제거합니다.
+    또한 **`wsrep_node_address`** 의 **`<ServerIP>`** 및 **`wsrep_node_name`** 의 **`<NodeName>`** 을 각각 VM의 IP 주소와 이름으로 바꾸고 해당 줄의 주석도 제거합니다.
 5. MariaDB1에서 클러스터를 시작하고 시작 시 실행되도록 합니다.
 
         sudo service mysql bootstrap

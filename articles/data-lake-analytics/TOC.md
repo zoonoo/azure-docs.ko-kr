@@ -24,26 +24,30 @@
 ### [할당량 한도 조정](data-lake-analytics-quota-limits.md)
 
 ## U-SQL 프로그램 개발
-### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
-### [U-SQL 언어 참조](https://msdn.microsoft.com/library/azure/mt591959)
-### [U-SQL 카탈로그](data-lake-analytics-u-sql-catalog.md)
-### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-### [U-SQL Python 확장](data-lake-analytics-u-sql-python-extensions.md)
-### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
-### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
-### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
-### [Visual Studio Code용 U-SQL 사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-### [Visual Studio 코드용 U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
-### [U-SQL 데이터베이스 내보내기](data-lake-analytics-data-lake-tools-export-database.md)
 
-## U-SQL 프로그램 디버그
-### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [비정상적인 되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
-### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
-### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
-### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-### [VSCode에서 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
-### [U-SQL 프로그래밍 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
+### U-SQL 언어
+#### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
+#### [U-SQL 언어 참조](https://msdn.microsoft.com/library/azure/mt591959)
+#### [U-SQL 카탈로그](data-lake-analytics-u-sql-catalog.md)
+#### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+#### [U-SQL Python 확장](data-lake-analytics-u-sql-python-extensions.md)
+#### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
+#### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
+#### [U-SQL 프로그래밍 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
+#### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
+#### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+### Visual Studio
+#### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
+#### [비정상적인 되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+#### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+#### [U-SQL 데이터베이스 내보내기](data-lake-analytics-data-lake-tools-export-database.md)
+
+### Visual Studio Code
+#### [Visual Studio 코드용 U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [Visual Studio Code용 U-SQL 사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [VSCode에서 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

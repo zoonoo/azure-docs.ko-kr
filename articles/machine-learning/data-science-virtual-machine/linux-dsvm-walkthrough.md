@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -264,7 +264,7 @@ XGBoost는 python 또는 명령줄에서 호출할 수도 있습니다.
 Python을 사용하여 개발하는 경우를 위해 Anaconda Python 배포 2.7 및 3.5가 DSVM에 설치되었습니다.
 
 > [!NOTE]
-> Anaconda 배포에는 다른 버전 및/또는 패키지가 설치된 Python용 사용자 지정 환경을 만드는 데 사용할 수 있는 [Condas](http://conda.pydata.org/docs/index.html)가 포함되어 있습니다.
+> Anaconda 배포에는 다른 버전 및/또는 패키지가 설치된 Python용 사용자 지정 환경을 만드는 데 사용할 수 있는 [Conda](http://conda.pydata.org/docs/index.html)가 포함되어 있습니다.
 >
 >
 
@@ -315,7 +315,25 @@ AzureML에 모델을 게시하려면
 >
 
 ## <a name="jupyterhub"></a>Jupyterhub
-DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플랫폼 간 환경 또는 Julia 코드 및 분석이 함께 제공됩니다. JupyterHub을 통해 Jupyter Notebook에 액세스합니다. ***https://\<VM DNS 이름 또는 IP 주소\>:8000/***에서 로컬 Linux 사용자 이름 및 암호를 사용하여 로그인합니다. JupyterHub에 대한 모든 구성 파일은 **/etc/jupyterhub**디렉터리에서 찾을 수 있습니다.
+DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플랫폼 간 환경 또는 Julia 코드 및 분석이 함께 제공됩니다. JupyterHub을 통해 Jupyter Notebook에 액세스합니다. ***https://\<VM DNS 이름 또는 IP 주소\>:8000/*** 에서 로컬 Linux 사용자 이름 및 암호를 사용하여 로그인합니다. JupyterHub에 대한 모든 구성 파일은 **/etc/jupyterhub**디렉터리에서 찾을 수 있습니다.
+
+> [!NOTE]
+> 현재 커널의 Jupyter Notebook에서 (`pip` 명령을 통해) Python 패키지 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
+```python
+   import sys
+   ! {sys.executable} -m pip install numpy -y
+```
+>
+>
+
+> [!NOTE]
+> 현재 커널의 Jupyter Notebook에서 (`conda` 명령을 통해) Conda 설치 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
+```python
+   import sys
+   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+```
+>
+>
 
 몇 가지 샘플 노트북이 VM에 이미 설치되어 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning Workbench를 사용하여 예제별 열 분할 변환"
+title: Azure Machine Learning Workbench를 사용하여 예제별 열 분할 변환
 description: "'예제별 열 분할' 변환에 대한 참조 문서"
 services: machine-learning
 author: ranvijaykumar
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 497c1725fc4554792add11c0ec069d1628a89fbd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="split-column-by-example-transformation"></a>예제별 열 분할 변환
 이 변환은 사용자가 입력할 필요 없이 의미 있는 경계에서 열의 내용을 자동으로 분할합니다. 분할 알고리즘은 열의 내용을 분석한 후 경계를 선택합니다. 이러한 경계는 다음에 따라 정의될 수 있습니다.

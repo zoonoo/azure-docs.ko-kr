@@ -1,13 +1,13 @@
 ---
-title: "동적 그룹 및 Azure Active Directory B2B 공동 작업 | Microsoft Docs"
-description: "Azure Active Directory B2B 공동 작업 기능에서 Azure AD 동적 그룹을 사용하는 방법을 보여줍니다."
+title: 동적 그룹 및 Azure Active Directory B2B 공동 작업 | Microsoft Docs
+description: Azure Active Directory B2B 공동 작업 기능에서 Azure AD 동적 그룹을 사용하는 방법을 보여줍니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb700e513947034a783c6b6574c8daddf96844b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>동적 그룹 및 Azure Active Directory B2B 공동 작업
 
@@ -55,7 +55,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
 * [B2B 공동 작업 코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
 * [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
-* [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
-* [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
-* [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
-* [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
+

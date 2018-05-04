@@ -1,11 +1,11 @@
 ---
-title: "Azure AD v2.0 암시적 흐름을 사용하여 단일 페이지 응용 프로그램 보호 | Microsoft Docs"
-description: "단일 페이지 앱에 대해 Azure AD의 v2.0 암시적 흐름 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
+title: Azure AD v2.0 암시적 흐름을 사용하여 단일 페이지 응용 프로그램 보호 | Microsoft Docs
+description: 단일 페이지 앱에 대해 Azure AD의 v2.0 암시적 흐름 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.workload: identity
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b855dcaae99e16aa21a0e19ad37d933cb18c678a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
-v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 사용하여 단일 페이지 앱에 사용자를 로그인할 수 있습니다.  주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련된 흥미로운 난제가 몇 가지 있습니다.
+v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 사용하여 단일 페이지 앱에 사용자를 로그인할 수 있습니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련된 흥미로운 난제가 몇 가지 있습니다.
 
-* 이러한 앱의 보안적인 특성은 기존의 서버 기반 웹 응용 프로그램과 확실한 차이가 있습니다.
+* 이러한 앱의 보안 특성은 기존의 서버 기반 웹 응용 프로그램과 상당히 다릅니다.
 * 다수의 인증 서버 및 ID 공급자는 CORS 요청을 지원하지 않습니다.
 * 앱에서 멀어지는 전체 페이지 브라우저 리디렉션은 사용자 환경에 특히 방해가 됩니다.
 
@@ -40,7 +40,7 @@ v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을
 > 
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
-전체 암시적 로그인 흐름은 다음과 같습니다. - 각 단계를 아래에서 자세히 설명합니다.
+전체 암시적 로그인 흐름은 다음과 같으며, 각 단계에 대해 아래에서 자세히 설명합니다.
 
 ![OpenId Connect 스윔 레인](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
@@ -70,15 +70,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다.  허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다.  자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | client_id |필수 |등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList))에서 앱에 할당한 응용 프로그램 ID입니다. |
-| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  response_type `token`을 포함할 수도 있습니다. `token` 을 여기서 사용하면 앱은 권한 부여 끝점에 두 번째 요청을 수행하지 않고 권한 부여 끝점에서 즉시 액세스 토큰을 받을 수 있습니다.  `token` response_type을 사용하는 경우 `scope` 매개 변수는 토큰을 발행할 리소스를 나타내는 범위를 포함해야 합니다. |
-| redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다.  URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
-| scope |필수 |공백으로 구분된 범위 목록입니다.  OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다.  필요에 따라 추가 사용자 데이터에 액세스하기 위해 `email` 또는 `profile` [범위](active-directory-v2-scopes.md)를 포함할 수도 있습니다.  다양한 리소스에 대한 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
-| response_mode |권장 |결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다.  암시적 흐름의 경우 `fragment` 이어야 합니다. |
-| state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다.  원하는 모든 콘텐츠의 문자열일 수 있습니다.  일반적으로 [교차 사이트 요청 위조 공격을 방지](http://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다.  상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
-| nonce |필수 |결과 id_token에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다.  그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다.  값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
-| prompt |선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다.  이 경우 유효한 값은 'login', 'none', 'consent'뿐입니다.  `prompt=login` 은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다.  `prompt=none` 은 그 반대로 사용자에게 어떠한 대화형 프롬프트도 표시되지 않도록 합니다.  Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 v2.0 끝점은 오류를 반환합니다.  `prompt=consent` 는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
-| login_hint |선택 사항 |사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다.  `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다. |
-| domain_hint |선택 사항 |`consumers` 또는 `organizations` 중 하나일 수 있습니다.  포함된 경우, v2.0 로그인 페이지를 거친 사용자가 좀 더 효율적인 사용자 경험을 가질 수 있도록 전자 메일 기반 검색 프로세스를 건너뜁니다.  앱이 id_token에서 `tid` 클레임을 추출하여 재인증 과정에서 이 매개 변수를 종종 사용합니다.  `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용해야 합니다.  그렇지 않으면 `domain_hint=organizations`를 사용합니다. |
+| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  response_type `token`을 포함할 수도 있습니다. `token` 을 여기서 사용하면 앱은 권한 부여 끝점에 두 번째 요청을 수행하지 않고 권한 부여 끝점에서 즉시 액세스 토큰을 받을 수 있습니다. `token` response_type을 사용하는 경우 `scope` 매개 변수는 토큰을 발행할 리소스를 나타내는 범위를 포함해야 합니다. |
+| redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
+| scope |필수 |공백으로 구분된 범위 목록입니다. OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 필요에 따라 추가 사용자 데이터에 액세스하기 위해 `email` 또는 `profile` [범위](active-directory-v2-scopes.md)를 포함할 수도 있습니다. 다양한 리소스에 대한 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
+| response_mode |권장 |결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 암시적 흐름의 경우 `fragment` 이어야 합니다. |
+| state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다.  일반적으로 [교차 사이트 요청 위조 공격을 방지](http://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
+| nonce |필수 |결과 id_token에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다.  그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
+| prompt |선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 'login', 'none', 'consent'뿐입니다.  `prompt=login` 은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다.  `prompt=none` 은 그 반대로 사용자에게 어떠한 대화형 프롬프트도 표시되지 않도록 합니다. Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 v2.0 끝점은 오류를 반환합니다.  `prompt=consent` 는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
+| login_hint |선택 사항 |사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다. |
+| domain_hint |선택 사항 |`consumers` 또는 `organizations` 중 하나일 수 있습니다. 포함된 경우, v2.0 로그인 페이지를 거친 사용자가 좀 더 효율적인 사용자 경험을 가질 수 있도록 전자 메일 기반 검색 프로세스를 건너뜁니다.  앱이 id_token에서 `tid` 클레임을 추출하여 재인증 과정에서 이 매개 변수를 종종 사용합니다.  `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용해야 합니다.  그렇지 않으면 `domain_hint=organizations`를 사용합니다. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다.  v2.0 끝점은 사용자가 `scope` 쿼리 매개 변수에 표시된 사용 권한에 동의했는지도 확인합니다.  사용자가 이러한 사용 권한 중 하나에 동의하지 않은 경우 필요한 사용 권한에 동의하라는 메시지가 표시됩니다.  [사용 권한, 동의 및 다중 테넌트 앱의 세부 정보는 여기에 제공되어 있습니다](active-directory-v2-scopes.md).
 
@@ -99,9 +99,9 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| access_token |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다.  액세스 토큰을 디코딩하지 않거나 그렇지 않은 경우 검사하지 않아야 불투명 문자열로 처리할 수 있습니다. |
-| token_type |`response_type`이 `token`을 포함하는 경우 포함됩니다.  항상 `Bearer`입니다. |
-| expires_in |`response_type`이 `token`을 포함하는 경우 포함됩니다.  캐싱 목적으로 토큰이 유효한 시간(초)을 나타냅니다. |
+| access_token |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다. 액세스 토큰을 디코딩하지 않거나 그렇지 않은 경우 검사하지 않아야 불투명 문자열로 처리할 수 있습니다. |
+| token_type |`response_type`이 `token`을 포함하는 경우 포함됩니다. 항상 `Bearer`입니다. |
+| expires_in |`response_type`이 `token`을 포함하는 경우 포함됩니다. 캐싱 목적으로 토큰이 유효한 시간(초)을 나타냅니다. |
 | scope |`response_type`이 `token`을 포함하는 경우 포함됩니다.  access_token이 유효한 범위를 나타냅니다. |
 | id_token |앱이 요청한 id_token입니다. id_token을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다.  Id_token 및 해당 콘텐츠에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)에 포함되어 있습니다. |
 | state |요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
@@ -115,7 +115,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | --- | --- |
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -192,7 +192,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | --- | --- |
 | access_token |앱이 요청한 토큰입니다. |
 | token_type |항상 `Bearer`입니다. |
@@ -215,6 +215,16 @@ error=user_authentication_required
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다.  어떠한 방식이든 응용 프로그램에 적합한 방식으로 이러한 경우를 처리하도록 선택할 수 있습니다.
+
+## <a name="validating-access-tokens"></a>액세스 토큰의 유효성 검사
+
+access_token를 받으면 다음 클레임뿐 아니라 토큰 서명의 유효성을 검사해야 합니다. 시나리오에 따라 추가 클레임의 유효성을 검사하도록 선택할 수도 있습니다. 
+
+* **대상** 클레임 - 앱에 제공하려고 의도했던 토큰이 맞는지 확인합니다.
+* **발급자** 클레임 - v2.0 끝점이 앱에 토큰을 발급했는지 확인합니다.
+* **이전이 아님** 및 **만료 시간** 클레임 - 토큰이 만료되지 않았는지 확인합니다.
+
+액세스 토큰에 있는 클레임에 대한 자세한 내용은 [v2.0 엔드포인트 토큰 참조](active-directory-v2-tokens.md)를 참조하세요.
 
 ## <a name="refreshing-tokens"></a>토큰 새로 고침
 `id_token`과 `access_token`은 모두 짧은 시간 안에 만료되기 때문에 앱은 주기적으로 토큰을 새로 고치도록 준비가 되어야 합니다.  이러한 유형의 토큰을 새로 고치려면, Azure AD의 동작을 제어하도록 `prompt=none` 매개 변수를 사용하여 위와 동일한 숨겨진 iFrame 요청을 수행합니다.  새 `id_token`을 받으려면 `response_type=id_token` 및 `scope=openid`는 물론 `nonce` 매개 변수를 사용해야 합니다.

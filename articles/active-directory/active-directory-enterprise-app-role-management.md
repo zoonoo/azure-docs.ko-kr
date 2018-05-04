@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory의 엔터프라이즈 응용 프로그램에 대해 SAML 토큰에서 발급된 역할 클레임 구성
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/18/2018
 
 5. 응용 프로그램이 추가되면 **속성** 페이지로 이동하여 **개체 ID**를 복사합니다.
 
-    ![속성 페이지](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![속성 페이지](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
 
@@ -253,7 +253,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="next-steps"></a>다음 단계
 
-[앱 설명서](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list)에서 추가 단계를 참조하세요.
+[앱 설명서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)에서 추가 단계를 참조하세요.
 
 <!--Image references-->
 <!--Image references-->

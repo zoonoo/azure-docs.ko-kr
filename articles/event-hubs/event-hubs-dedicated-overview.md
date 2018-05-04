@@ -1,24 +1,24 @@
 ---
-title: "Azure Event Hubs Dedicated 용량 개요 | Microsoft Docs"
-description: "Azure Event Hubs Dedicated 용량에 대한 개요입니다."
+title: Azure Event Hubs Dedicated 용량 개요 | Microsoft Docs
+description: Azure Event Hubs Dedicated 용량에 대한 개요입니다.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
-ms.author: sethm;babanisa
-ms.openlocfilehash: 563152a019464f3d0342383ff13e6ee1c87a22fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/30/2018
+ms.author: sethm
+ms.openlocfilehash: 7009710328c96660accdcf9c88313ad92d25d41c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 | 기능 | Standard | 전용 |
 | --- |:---:|:---:|:---:|
-| 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함됨 |
+| 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
 | 처리량 단위(1MB/초 수신, 2MB/초 송신) | 시간당 요금 부과 | 포함됨 |
 | 메시지 크기 | 256 KB | 1MB |
 | 게시자 정책 | 예 | 예 |   
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/21/2017
 | 조정된 연결 | 1,000개 포함 | 100,000개 포함 |
 | 추가 조정된 연결 | 예 | 예 |
 | 메시지 보존 | 1일 포함 | 최대 7일 포함 |
-| 캡처 | 시간당 요금 부과 | 포함됨 |
+| 캡처 | 시간당 요금 부과 | 포함 |
 
 ## <a name="benefits-of-event-hubs-dedicated-capacity"></a>Event Hubs Dedicated 용량의 이점
 

@@ -1,3 +1,5 @@
+- name: Azure IoT 기본 사항
+  href: ../iot-fundamentals/index.yml
 - name: Azure IoT Edge 설명서
   href: index.yml
 - name: 개요
@@ -76,6 +78,32 @@
       href: security.md
     - name: IoT Edge 용어집
       href: iot-edge-glossary.md
+- name: 관련 항목
+  items:
+    - name: 솔루션
+      items:
+        - name: IoT Suite 미리 구성된 솔루션
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: 플랫폼 서비스
+      items:
+        - name: IoT 허브
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning 서비스
+          href: /azure/iot-dps
+        - name: 위치 기반 서비스
+          href: /azure/location-based-services
+        - name: 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 장치 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
     - name: IoT용 Azure Certified 장치 카탈로그

@@ -10,23 +10,23 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: adc2436bfe74fed343ac2796dec51ae90619312d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d785436f157fb694ccf4447db91f28b25c9f2a3a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Visual Studio에서 .NET(C#)을 사용하여 Azure SQL Database 연결 및 쿼리
 
-이 빠른 시작 자습서에서는 [.NET Framework](https://www.microsoft.com/net/)를 통해 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 C# 프로그램을 Visual Studio에서 만드는 방법을 보여 줍니다.
+이 빠른 시작에서는 [.NET Framework](https://www.microsoft.com/net/)를 사용하여 Visual Studio에서 C# 프로그램을 만들어 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작 자습서를 완료하려면 다음 항목이 있어야 합니다.
+이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 이 빠른 시작 자습서에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)
+- 이 빠른 시작에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)
 
 - 설치된 [Visual Studio Community 2017, Visual Studio Professional 2017 또는 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="create-a-new-visual-studio-project"></a>새 Visual Studio 프로젝트 만들기
 
 1. Visual Studio에서 **파일**, **새로 만들기**, **프로젝트**를 차례로 선택합니다. 
-2. **새 프로젝트** 대화 상자에서 **Visual C#**을 펼칩니다.
+2. **새 프로젝트** 대화 상자에서 **Visual C#** 을 펼칩니다.
 3. **콘솔 앱**을 선택하고 프로젝트 이름으로 *sqltest*를 입력합니다.
 4. **확인**을 클릭하여 Visual Studio에서 새 프로젝트를 만들고 엽니다.
 4. [솔루션 탐색기]에서 **sqltest**를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. 

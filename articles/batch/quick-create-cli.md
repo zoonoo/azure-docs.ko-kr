@@ -1,6 +1,6 @@
 ---
-title: "Azure 빠른 시작 - Batch 작업 실행 - CLI"
-description: "Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다."
+title: Azure 빠른 시작 - Batch 작업 실행 - CLI
+description: Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
@@ -40,7 +40,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure 범용 저장소 계정과 배치 계정을 연결할 수 있습니다. 저장소 계정은 이 빠른 시작에서 필요하지 않지만, 응용 프로그램을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 리소스 그룹에 저장소 계정을 만듭니다.
+Azure Storage 계정과 배치 계정을 연결할 수 있습니다. 저장소 계정은 이 빠른 시작에서 필요하지 않지만, 응용 프로그램을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 리소스 그룹에 저장소 계정을 만듭니다.
 
 ```azurecli-interactive
 az storage account create \

@@ -13,22 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21862bb110801a43f13e3e65811e10726c188614
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
 허용 목록이나 거부 목록을 사용하여 특정 조직의 B2B 사용자 초대를 허용 또는 차단할 수 있습니다. 예를 들어 개인 이메일 주소 도메인을 차단하기 위해 Outlook.com Gmail.com 등을 포함하는 거부 목록을 설정할 수 있습니다. Contoso.com, Fabrikam.com 및 Litware.com 같은 다른 기업과 비즈니스 파트너 관계에 있고 초대를 이 조직으로만 제한하려는 경우 Contoso.com, Fabrikam.com 및 Litware.com을 허용 목록에 추가할 수 있습니다.
   
-> [!NOTE]
-> 현재는 거부 목록만 사용할 수 있습니다. 허용 목록 기능은 곧 제공됩니다.
-
 ## <a name="important-considerations"></a>중요 고려 사항
 
 - 허용 목록 또는 거부 목록을 만들 수 있습니다. 두 목록을 모두 설정할 수는 없습니다. 기본적으로 허용 목록에 없는 모든 도메인은 거부 목록에 있게 되고 반대의 경우도 마찬가지가 됩니다. 
@@ -50,22 +47,34 @@ ms.lasthandoff: 04/18/2018
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
 3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택합니다.
 4. **공동 작업 제한**에서 **지정된 도메인에 초대 거부**를 선택합니다.
-5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다.
+5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예: 
 
    ![추가된 도메인에 거부 옵션 표시](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. 완료되면 **저장**을 클릭합니다.
 
-정책을 설정한 후 차단된 도메인의 사용자를 초대하려 하면 해당 사용자가 초대 정책에 따라 차단된 상태라고 설명하는 메시지가 나타납니다.
+정책을 설정한 후 차단된 도메인의 사용자를 초대하려 하면 해당 사용자의 도메인이 초대 정책에 따라 차단된 상태라고 설명하는 메시지가 나타납니다.
  
 ### <a name="add-an-allow-list"></a>허용 목록 추가
-
-> [!NOTE]
-> 현재는 **지정된 도메인에만 초대 허용** 설정은 사용할 수 없습니다. 허용 목록 기능은 곧 제공됩니다.
 
 더 제한적인 구성으로, 허용 목록에서 특정 도메인을 설정하여 여기에 없는 다른 조직이나 도메인에 대한 초대를 제한할 수 있습니다. 
 
 허용 목록을 사용하려면 비즈니스 요구를 완벽하게 평가할 수 있는 충분한 시간이 필요합니다. 이 정책은 지나치게 제한적이기 때문에 사용자가 협력을 위해 이메일로 문서를 보내거나 규제를 받지 않는 다른 IT 방식을 모색할 수 있습니다.
+
+
+허용 목록을 추가하려면
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
+3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택합니다.
+4. **공동 작업 제한**에서 **지정된 도메인에 초대 거부(가장 제한적)** 를 선택합니다.
+5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예: 
+
+   ![추가된 도메인에 허용 옵션 표시](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. 완료되면 **저장**을 클릭합니다.
+
+정책을 설정한 후 허용 목록에 없는 도메인의 사용자를 초대하려 하면 해당 사용자의 도메인이 초대 정책에 따라 차단된 상태라고 설명하는 메시지가 나타납니다.
 
 ### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>허용 목록과 거부 목록 간 전환 
 
@@ -115,9 +124,6 @@ PowerShell을 사용하여 허용 또는 거부 목록을 설정하려면 Azure 
     ````
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>AzureADPolicy cmdlet을 사용한 정책 구성
-
-> [!NOTE]
-> 현재는 거부 목록만 구성할 수 있습니다. 허용 목록 기능은 곧 제공됩니다.
 
 허용 또는 거부 목록을 만들려면 [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 다음 예제에서는 "live.com" 도메인을 차단하는 거부 목록을 설정하는 방법을 보여줍니다.
 

@@ -27,7 +27,7 @@
 
 PowerShell 사용하여 진단 설정을 켜려면 다음 코드를 사용합니다.
 
-```
+```azurepowershell
 Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true

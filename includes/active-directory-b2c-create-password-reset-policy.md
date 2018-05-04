@@ -1,4 +1,4 @@
-응용 프로그램에서 세분화된 암호 재설정을 사용하려면 암호 재설정 정책을 만들어야 합니다. [여기](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md)에 테넌트 범위의 암호 재설정 옵션이 지정되어 있습니다. 이 정책은 암호를 재설정하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 완료를 수신하는 토큰의 콘텐츠를 설명합니다.
+응용 프로그램에서 세분화된 암호 재설정을 사용하려면 **암호 재설정** 정책을 사용합니다. [여기](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md)에 테넌트 범위의 암호 재설정 옵션이 지정되어 있습니다. 이 정책은 암호를 재설정하는 동안 고객이 경험하게 될 환경, 그리고 성공적으로 완료 시 응용 프로그램에서 수신하게 될 토큰의 콘텐츠를 설명합니다.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

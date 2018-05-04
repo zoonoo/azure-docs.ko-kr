@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -44,7 +44,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 | **Azure 지역** | **4세대** | **5세대** |
 |:---|:----------:|:--------------------:|
-| 미국 중부 |  | X |
+| 미국 중부 | X |  |
 | 미국 동부 | X | X |
 | 미국 동부 2 | X | X |
 | 미국 중북부 | X |  |
@@ -55,14 +55,16 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | 캐나다 동부 | X | X |
 | 브라질 남부 | X | X |
 | 북유럽 | X | X |
-| 서유럽 | X | X |
+| 서유럽 |  | X |
 | 영국 서부 |  | X |
 | 영국 남부 |  | X |
 | 동아시아 | X |  |
 | 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
+| 오스트레일리아 남동부 |  | X |
 | 인도 중부 | X |  |
 | 인도 서부 | X |  |
+| 인도 남부 |  | X |
 | 일본 동부 | X | X |
 | 일본 서부 | X | X |
 | 한국 남부 |  | X |

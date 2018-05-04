@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/16/2018
 2.  전체 데이터 크기에 따라 필요한 2.5" SSD 또는 2.5"/3.5" SATA II/III 하드 디스크 드라이브 수를 확보합니다.
 3.  SATA를 사용하여 하드 드라이브를 직접, 또는 외부 USB 어댑터를 통해 Windows 컴퓨터에 연결합니다.
 1.  각 하드 드라이브에서 단일 NTFS 볼륨을 만들고 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 없습니다.
-2.  Windows 컴퓨터에서 암호화를 사용하도록 설정하려면 NTFS 볼륨에 비트 보관 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx의 지침을 사용합니다.
+2.  Windows 컴퓨터에서 암호화를 사용하도록 설정하려면 NTFS 볼륨에 비트 보관 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/library/cc731549(v=ws.10).aspx의 지침을 사용합니다.
 3.  복사하여 붙여넣기, 끌어서 놓기 또는 Robocopy나 기타 도구를 사용하여 디스크에서 이러한 암호화된 단일 NTFS 볼륨에 데이터를 완전히 복사합니다.
 7.  https://www.microsoft.com/en-us/download/details.aspx?id=42659에서 WAImportExport V1을 다운로드합니다.
 8.  기본 폴더 waimportexportv1에 압축을 풉니다. 예를 들어 C:\WaImportExportV1입니다.  

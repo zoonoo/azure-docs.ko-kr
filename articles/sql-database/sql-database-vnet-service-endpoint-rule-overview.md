@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -140,7 +140,7 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 Azure SQL Database에 대해 서비스 끝점을 사용하는 경우 다음 고려 사항을 검토합니다.
 
 - **Azure SQL Database 공용 IP에 대한 아웃 바운드가 필요함**: 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하면 됩니다.
-- **Azure Database for PostgreSQL 및 Azure Database for MySQL이 지원되지 않음**: Azure Database for PostgreSQL 및 Azure Database for MySQL에 대해 서비스 끝점이 지원되지 않습니다. SQL Database에 서비스 끝점을 사용하도록 설정하면 이러한 서비스에 대한 연결이 끊어집니다. 이 문제에 대한 완화 방법이 있습니다. *dmalik@microsoft.com*에 문의하세요.
+- **Azure Database for PostgreSQL 및 Azure Database for MySQL이 지원되지 않음**: Azure Database for PostgreSQL 및 Azure Database for MySQL에 대해 서비스 끝점이 지원되지 않습니다. SQL Database에 서비스 끝점을 사용하도록 설정하면 이러한 서비스에 대한 연결이 끊어집니다. 이 문제에 대한 완화 방법이 있으며 자세한 내용은 *dmalik@microsoft.com*에 문의하세요.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Azure Storage는 사용자가 저장소 계정에 대한 연결성을 제한하�
 Azure SQL Server에서 사용 중인 저장소 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQLDB 기능의 목록 및 토론입니다.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase는 대개 저장소 계정에서 Azure SQLDW로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 저장소 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. 이 문제에 대한 완화 방법이 있습니다. 자세한 내용은 *dmalik@microsoft.com*에 문의하세요.
+PolyBase는 대개 저장소 계정에서 Azure SQLDW로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 저장소 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. 이 문제에 대한 완화 방법이 있으며 자세한 내용은 *dmalik@microsoft.com*에 문의하세요.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 감사
 Blob 감사는 사용자 고유의 저장소 계정에 감사 로그를 푸시합니다. 이 저장소 계정이 VENT 서비스 엔드포인트 기능을 사용하는 경우 Azure SQLDB에서 저장소 계정으로의 연결은 중단됩니다.
@@ -227,8 +227,9 @@ PowerShell을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정�
 이 섹션에서는 [Azure Portal][http-azure-portal-link-ref-477t]을 사용하여 Azure SQL Database에서 *가상 네트워크 규칙*을 만드는 방법을 보여 줍니다. 이 규칙은 *Virtual Network 서비스 끝점*으로 태그가 지정된 특정 서브넷에서 보낸 통신을 수락하도록 SQL Database에 지시합니다.
 
 > [!NOTE]
-> 서버의 VNET 방화벽 규칙에 추가할 VNET/서브넷에 대해 서비스 엔드포인트가 설정되어 있는지 확인하세요.
-> VNET/서브넷에 대해 서비스 엔드포인트가 설정되어 있지 않으면 포털에서 활성화할지 묻는 메시지가 표시되며 규칙을 추가하는 블레이드에서 활성화를 클릭하세요.
+> Azure SQL Database 서버의 VNet 방화벽 규칙에 서비스 엔드포인트를 추가하려면 먼저 서브넷에 대해 서비스 엔드포인트가 설정되어 있는지 확인하세요.
+>
+> 서브넷에 대해 서비스 엔드포인트가 설정되어 있지 않으면 포털에서 설정하라는 메시지가 표시됩니다. 규칙을 추가한 동일한 블레이드에서 **사용** 단추를 클릭합니다.
 
 #### <a name="powershell-alternative"></a>PowerShell 대체
 

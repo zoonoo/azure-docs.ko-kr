@@ -69,9 +69,9 @@
 ## [ACS 마이그레이션](active-directory-acs-migration.md)
 ## [ADAL에 대한 모범 사례 오류 처리](active-directory-devhowto-adal-error-handling.md)
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)
-## [코드 샘플 문서](active-directory-code-samples.md)
+## [시나리오별 코드 샘플](active-directory-code-samples.md)
 ## [용어](active-directory-dev-glossary.md)
 ## [인증 프로토콜](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -97,7 +97,8 @@
 ### 모바일 및 데스크톱 앱
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET(Windows 데스크톱)](guidedsetups/active-directory-windesktop.md)
+#### [Windows 데스크톱 .NET](guidedsetups/active-directory-windesktop.md)
+#### [유니버설 Windows 플랫폼](guidedsetups/active-directory-uwp-v2.md)
 ### 웹 앱
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
@@ -109,8 +110,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## 가이드
 ### [앱 등록](active-directory-v2-app-registration.md)
+### [앱 등록 참조](active-directory-v2-registration-portal.md)
 ## 참고 자료
 ### [인증 라이브러리](active-directory-v2-libraries.md)
+### [시나리오별 v2.0 코드 샘플](active-directory-v2-code-samples.md)
 ### [v2.0 인증 프로토콜](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [OAuth 2.0 인증 코드 부여](active-directory-v2-protocols-oauth-code.md)

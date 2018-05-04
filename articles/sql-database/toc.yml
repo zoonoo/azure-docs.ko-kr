@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: 관리되는 인스턴스
       href: sql-database-managed-instance.md
-    - name: 서비스 계층
-      href: sql-database-service-tiers.md
+    - name: DTU 기반 서비스 계층
+      href: sql-database-service-tiers-dtu.md
+    - name: vCore 기반 서비스 계층
+      href: sql-database-service-tiers-vcore.md
     - name: 읽기 확장
       href: sql-database-read-scale-out.md
     - name: DTU 기반 리소스 제한
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: 교차 테넌트 보고
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: 분석용 ETL
-              href: saas-tenancy-tenant-analytics.md
+            - name: 테넌트 분석
+              items:
+                - name: SQL DB 사용
+                  href: saas-tenancy-tenant-analytics.md
+                - name: SQL DW 사용
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: 지역 복원을 사용하여 재해 복구
               href: saas-dbpertenant-dr-geo-restore.md
             - name: 데이터베이스 지역 복제를 사용하여 재해 복구

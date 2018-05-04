@@ -1,12 +1,12 @@
 ---
-title: "Azure Notification Hubs를 사용하여 Android에 푸시 알림 보내기 | Microsoft Docs"
-description: "이 자습서에서 Azure Notification Hubs를 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다."
+title: Azure Notification Hubs를 사용하여 Android에 푸시 알림 보내기 | Microsoft Docs
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
-keywords: "푸시 알림,푸시알림,android 푸시 알림"
+keywords: 푸시 알림,푸시알림,android 푸시 알림
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
-ms.openlocfilehash: fff043abea0a88f5f39bf8bfcd0be206772439bc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 2f7212fafc7b92d2848a58212bf1dc542aa6cd45
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 Android에 푸시 알림 보내기
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -53,7 +53,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 ## <a name="configure-a-new-notification-hub"></a>새 알림 허브 구성
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6.   **설정** 블레이드에서 **알림 서비스**를 선택한 다음 **Google(GCM)**을 선택합니다. API 키를 입력하고 **저장**을 클릭합니다.
+&emsp;&emsp;6.   **설정** 블레이드에서 **알림 서비스**를 선택한 다음 **Google(GCM)** 을 선택합니다. API 키를 입력하고 **저장**을 클릭합니다.
 
 &emsp;&emsp;![Azure Notification Hubs - Google(GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
@@ -64,7 +64,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
    
    ![Android Studio - 새 프로젝트][13]
-2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **다음**을 클릭합니다.
+2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
    
    ![Android Studio - 프로젝트 만들기 워크플로][14]
 3. **빈 활동**을 기본 활동으로 선택하고 **다음**, **마침**을 차례로 클릭합니다.
@@ -213,7 +213,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
                         regID = hub.register(token).getRegistrationId();
    
                         // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
    
                         resultString = "Registered Successfully - RegId : " + regID;
@@ -572,7 +572,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
    
                             // Include any tags
                             // Example below targets 3 specific tags
-                            // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                            // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                             // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
                             //        "tag1 || tag2 || tag3");
    

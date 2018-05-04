@@ -1,4 +1,4 @@
-# [Key Vault 설명서](index.md)
+# [Key Vault 설명서](index.yml)
 
 # 개요
 ## [Key Vault 개요](key-vault-overview.md)
@@ -9,13 +9,13 @@
 ## [Key Vault 만들기 - Portal](quick-create-portal.md)
 
 # 자습서
-## [Key Vault에서 비밀을 읽을 Azure 웹 응용 프로그램 구성 ](tutorial-web-application-keyvault.md)
-# 샘플
-## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=key-vault)
-# 개념
+## [키 자격 증명 모음에서 비밀 읽기](tutorial-web-application-keyvault.md)
 ## [Key Vault 시작하기](key-vault-get-started.md)
 ## [키 회전 및 감사 설정](key-vault-key-rotation-log-monitoring.md)
 ## [웹앱에서 Key Vault 사용](key-vault-use-from-web-application.md)
+# 샘플
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# 개념
 ## [보안 권역](key-vault-ovw-security-worlds.md)
 ## [일시 삭제](key-vault-ovw-soft-delete.md)
 ## [Storage 계정 키](key-vault-ovw-storage-keys.md)
@@ -62,5 +62,5 @@
 ## [블로그](http://blogs.technet.com/b/kv/)
 ## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
-## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
+## [가격](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
