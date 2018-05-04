@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 9b182935ad6a328afa4ee25049b3651f62277d45
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -45,7 +45,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 | **Azure 지역** | **4세대** | **5세대** |
 |:---|:----------:|:--------------------:|
-| 미국 중부 |  | X |
+| 미국 중부 | X |  |
 | 미국 동부 | X | X |
 | 미국 동부 2 | X | X |
 | 미국 중북부 | X |  |
@@ -56,7 +56,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 캐나다 동부 | X | X |
 | 브라질 남부 | X | X |
 | 북유럽 | X | X |
-| 서유럽 | X | X |
+| 서유럽 |  | X |
 | 영국 서부 |  | X |
 | 영국 남부 |  | X |
 | 동아시아 | X |  |

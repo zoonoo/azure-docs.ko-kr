@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: fe13f8441bd91d0defebd0fa94bdb716b7ab9ca6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 
@@ -34,7 +34,7 @@ AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터�
 ### <a name="installation-on-linux"></a>Linux에서 설치
 
 > [!NOTE]
-> 배포에 따라 이 [.NET Core 필수 구성 요소 문서](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)에 강조된 .NET Core 2.1 종속성을 설치해야 할 수도 있습니다. Ubuntu 16.04 및 RHEL 7처럼 가장 많이 사용되는 배포인 경우 설치할 필요가 없습니다.
+> 배포에 따라 이 [.NET Core 필수 구성 요소 문서](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)에 강조된 .NET Core 2.1 종속성을 설치해야 할 수도 있습니다. Ubuntu 16.04 및 RHEL 7처럼 가장 많이 사용되는 배포인 경우 설치할 필요가 없습니다.
 
 Linux(v7.2 이상)에 AzCopy를 설치하는 방법은 매우 간단합니다. tar 패키지를 추출하고 설치 스크립트를 실행하기만 하면 됩니다. 
 
@@ -61,7 +61,7 @@ Linux에서 AzCopy가 설치되면 추출한 파일을 제거할 수 있습니�
 Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
 
 ```bash
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
 apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```
@@ -76,7 +76,7 @@ sudo apt-get install azcopy
 Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
 
 ```bash
-sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
 apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```

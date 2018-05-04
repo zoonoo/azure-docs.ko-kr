@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: 이벤트 구독 쿼리
       href: query-event-subscriptions.md
+    - name: CloudEvents 스키마 사용
+      href: cloudevents-schema.md
 - name: 참고 자료
   items:
     - name: Azure CLI

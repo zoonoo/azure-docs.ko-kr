@@ -71,6 +71,7 @@
 #### [장치 ID 관리](iot-hub-devguide-identity-registry.md)
 #### [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)
 #### [쌍 장치 이해](iot-hub-devguide-device-twins.md)
+#### [모듈 트윈스 이해](iot-hub-devguide-module-twins.md)
 #### [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
 #### [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
 #### [IoT Hub 끝점](iot-hub-devguide-endpoints.md)
@@ -78,6 +79,7 @@
 #### [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)
 #### [가격 책정 예](iot-hub-devguide-pricing.md)
 #### [장치 및 서비스 SDK](iot-hub-devguide-sdks.md)
+#### [모바일 장치용 개발](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT 지원](iot-hub-mqtt-support.md)
 #### [용어](iot-hub-devguide-glossary.md)
 ### [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
@@ -105,6 +107,9 @@
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-getstarted.md)
 #### [Python 백 엔드/Python 장치](iot-hub-python-twin-getstarted.md)
+### 모듈 트윈스 시작
+#### [포털 백 엔드/.NET 장치](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### 직접 메서드 사용
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-direct-methods.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-direct-methods.md)

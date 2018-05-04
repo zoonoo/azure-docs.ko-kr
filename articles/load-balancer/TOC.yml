@@ -22,6 +22,8 @@
       href: powershell-samples.md
 - name: 자습서
   items:
+    - name: VM에 내부 트래픽 부하 분산
+      href: tutorial-load-balancer-basic-internal-portal.md
     - name: 가용성 영역에 VM 부하 분산
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: 특정 가용성 영역 내에 VM 부하 분산

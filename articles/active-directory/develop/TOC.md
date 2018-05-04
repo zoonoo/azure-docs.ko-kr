@@ -36,6 +36,7 @@
 ## [응용 프로그램 등록](active-directory-integrating-applications.md)
 ## [다중 테넌트 앱](active-directory-devhowto-multi-tenant-overview.md)
 ## [조건부 액세스](active-directory-conditional-access-developer.md)
+## [권한](active-directory-permissions.md)
 ## OAuth 및 OpenID Connect
 ### [OpenID Connect 프로토콜](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0 인증 코드 부여](active-directory-protocols-oauth-code.md)

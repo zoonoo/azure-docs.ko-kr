@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 855088de338d3f240d9c675028ce88ec4e4995e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>cloud-init와 함께 사용하기 위해 기존 Linux Azure VM 이미지 준비
 이 문서는 기존 Azure 가상 머신을 사용하고 다시 배포하고 cloud-init를 사용할 수 있도록 준비하는 방법을 보여 줍니다. 결과 이미지는 새 가상 머신이나 가상 머신 확장 집합을 배포하는 데 사용할 수 있습니다. 그런 다음 가상 머신 또는 가상 머신 확장 집합은 배포 시 cloud-init에 의해 더 사용자 지정될 수 있습니다.  Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -43,22 +43,20 @@ sudo yum install cloud-init -y
 
 다음은 범용 `cloud_init_modules` 섹션이 표시되는 샘플입니다.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 사용 후 삭제 디스크 프로비전 및 처리와 관련된 다양한 작업은 `/etc/waagent.conf`에서 업데이트되어야 합니다. 다음 명령을 실행하여 적절한 설정을 업데이트합니다. 
 ```bash

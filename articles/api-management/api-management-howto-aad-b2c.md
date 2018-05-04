@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ef0d6cc34b19b9bc8fe8d0b88f73a2657848747
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a6e7aad6c3d20a67ecba66c49be4efcdebdf718a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 > [!WARNING]
-> Azure Active Directory B2C 통합은 [개발자, 표준 및 프리미엄](https://azure.microsoft.com/en-us/pricing/details/api-management/) 계층에서만 사용 가능합니다.
+> Azure Active Directory B2C 통합은 [개발자, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/api-management/) 계층에서만 사용 가능합니다.
 
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 ## <a name="overview"></a>개요

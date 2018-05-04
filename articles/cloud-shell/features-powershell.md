@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: damaerte
-ms.openlocfilehash: 8ab436900329d83f069b26cd11a60bce720c618c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cd1582697307219bf3710139c6b44b5957b176e4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell(미리 보기) 기능 및 도구
 
@@ -77,7 +77,7 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 설치가 끝나면 모듈이 Azure Cloud Shell 세션 전반에 걸쳐 자동으로 유지됩니다.
 
 > [!TIP]
-> 사용자가 설치한 모듈은 `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` 폴더에 저장됩니다. 이 폴더에 대한 바로 가기 링크는 사용자의 문서 폴더(`$home\Documents\WindowsPowerShell`)에 만들어집니다.
+> 사용자가 설치한 모듈은 `$Home\clouddrive\.pscloudshell\WindowsPowerShell` 폴더에 저장됩니다. 이 폴더에 대한 바로 가기 링크는 사용자의 문서 폴더(`$home\Documents\WindowsPowerShell`)에 만들어집니다.
 
 ![](media/features-powershell/powershellget-module.png)
 

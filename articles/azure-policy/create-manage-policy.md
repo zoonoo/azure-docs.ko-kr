@@ -3,17 +3,17 @@ title: Azure Policy를 사용하여 조직의 규정 준수를 적용하는 정�
 description: Azure Policy를 사용하여 표준을 적용하고, 규정 준수 및 감사 요구 사항을 충족하며, 비용을 통제하고, 보안 및 성능 일관성을 유지하며, 엔터프라이즈 수준 디자인 원칙을 적용합니다.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: e50c2330c03e5fc36e608b672fe8390a1f19e99b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0b6e77d080ce4e4483709b9a5e47dca21c22e1d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 

@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: f94889c234299c2dceb49c0ab554c1eb4b68d2c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 55ff6b7a70bcdcceacb1484f9969337f9853ce50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법
 
@@ -95,7 +95,7 @@ SAML 토큰이 포함된 Azure AD의 응답은 일반적으로 https://login.mic
 
 SAML 반응에서 누락되거나 잘못된 항목에 대한 더 자세한 정보는 [로그인 후 응용 프로그램의 페이지에 표시된 오류](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML) 문제 해결 지침을 방문해 보세요.
 
-SAML 응답을 검토하는 방법에 대한 자세한 내용은 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response)을 방문해 보세요.
+SAML 응답을 검토하는 방법에 대한 자세한 내용은 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response)을 방문해 보세요.
 
 
 ## <a name="related-articles"></a>관련 문서

@@ -53,6 +53,7 @@
 #### [초대 전자 메일](active-directory-b2b-invitation-email.md)
 #### [초대 상환](active-directory-b2b-redemption-experience.md)
 #### [초대 없이 B2B 사용자 추가](active-directory-b2b-add-user-without-invite.md)
+#### [초대 허용 또는 차단](active-directory-b2b-allow-deny-list.md)
 #### [B2B에 대한 조건부 액세스](active-directory-b2b-mfa-instructions.md)
 #### [B2B 공유 정책](active-directory-b2b-delegate-invitations.md)
 #### [역할에 B2B 사용자 추가](active-directory-b2b-add-guest-to-role.md)
@@ -273,6 +274,7 @@
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 ### [긴급 액세스 관리 계정 관리](active-directory-admin-manage-emergency-access-accounts.md)
+### [권한 있는 역할 보안](admin-roles-best-practices.md)
 
 ## 액세스 검토
 ### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)

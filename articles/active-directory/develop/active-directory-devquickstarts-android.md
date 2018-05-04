@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 8ea69fbc95b9d9b2452f041e99c46d223581bdac
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 25a908c542bf8fdd8008841a1865cdfb40d847fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/18/2018
 
 보호된 리소스에 액세스해야 하는 Android 클라이언트의 경우 Azure AD는 ADAL(Active Directory 인증 라이브러리)를 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 다음을 수행하는 Android 할 일 목록 응용 프로그램을 작성해 보겠습니다.
 
-* [OAuth 2.0 인증 프로토콜](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 할 일 목록 API를 호출하기 위한 액세스 토큰을 가져옵니다.
+* [OAuth 2.0 인증 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 할 일 목록 API를 호출하기 위한 액세스 토큰을 가져옵니다.
 * 사용자의 할 일 목록을 가져옵니다.
 * 사용자를 로그아웃합니다.
 
@@ -274,7 +274,7 @@ ADAL은 프롬프트 동작을 지정하기 위한 옵션을 제공합니다. �
 #### <a name="errors--exceptions"></a>오류 및 예외
 예외는 첫 번째 진단입니다. 저희는 유용한 오류 메시지를 제공하기 위해 노력하고 있습니다. 유용하지 않은 오류 메시지가 표시되면 문제를 정리한 후 알려주세요. 모델 및 SDK 번호와 같은 장치 정보도 포함합니다.
 
-앱에서 처리해야 하는 오류에 대한 자세한 내용은 [오류 처리 모범 사례](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling)를 확인하세요. 
+앱에서 처리해야 하는 오류에 대한 자세한 내용은 [오류 처리 모범 사례](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling)를 확인하세요. 
 
 #### <a name="logs"></a>로그
 문제를 진단하는 데 도움을 주기 위해 사용할 수 있는 로그 메시지를 생성하도록 라이브러리를 구성할 수 있습니다. 다음을 호출하여 ADAL에서 생성되는 각 로그 메시지를 전달하는 데 사용하는 콜백을 구성하도록 로깅을 구성합니다.

@@ -31,6 +31,8 @@
       href: powershell-samples.md
     - name: 리소스 관리자 템플릿
       href: template-samples.md
+    - name: Azure Policy 템플릿
+      href: policy-samples.md
 - name: 개념
   items:
     - name: 보안

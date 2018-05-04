@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 04/09/2018
-ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b418d1114cf6b906dcdee46bbf7e094cbc4a0521
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 이 문서에서는 이벤트 허브를 생성 및 구성하고 이벤트를 푸시하는 샘플 응용 프로그램을 실행하는 방법을 설명합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우 이 자습서를 건너뛰고 [시계열 정보](https://insights.timeseries.azure.com)에서 환경을 봅니다.
@@ -59,7 +59,7 @@ TSI에서 참조 데이터를 사용하여 원격 분석 데이터의 맥락을 
 
 참조 데이터를 관리하기 위해 TSI 탐색기에는 웹 기반 사용자 인터페이스가 있으며 프로그래밍 방식 C# API도 있습니다. TSI 탐색기에는 파일을 업로드하거나 기존 참조 데이터 집합을 JSON 또는 CSV 형식으로 붙여넣기 위한 시각적 사용자 환경이 있습니다. 해당 API를 사용하여 필요할 때 사용자 지정 앱을 빌드할 수 있습니다.
 
-Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자세한 내용은 [참조 데이터 문서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
+Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자세한 내용은 [참조 데이터 문서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
 
 ## <a name="create-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 1. 아직 이벤트 원본을 만들지 않은 경우 [다음된 지침](time-series-insights-how-to-add-an-event-source-eventhub.md)에 따라 이벤트 원본을 만듭니다.
@@ -312,7 +312,7 @@ namespace Microsoft.Rdx.DataGenerator
 
 chId  Measure               Unit 24    Engine Oil Pressure   PSI 25    CALC Pump Rate        bbl/min
 
-Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자세한 내용은 [참조 데이터 문서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
+Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자세한 내용은 [참조 데이터 문서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
 
 첫 번째 페이로드의 또 다른 문제는 타임스탬프가 밀리초 단위라는 것입니다. TSI는 ISO 형식 타임스탬프만 허용합니다. 한 가지 해결 방법은 TSI에서 큐에 대기된 타임스탬프를 사용하는 것을 의미하는 기본 타임스탬프 동작을 그대로 유지하는 것입니다.
 

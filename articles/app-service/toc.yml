@@ -187,6 +187,10 @@
           href: web-sites-create-web-jobs.md
         - name: VS를 사용하여 WebJob 개발
           href: websites-dotnet-deploy-webjobs.md
+        - name: WebJobs SDK 시작
+          href: webjobs-sdk-get-started.md
+        - name: WebJobs SDK 사용
+          href: webjobs-sdk-how-to.md
 - name: 참고 자료
   items:
     - name: Azure CLI

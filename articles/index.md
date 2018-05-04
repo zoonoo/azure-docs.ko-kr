@@ -6,11 +6,11 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 8ce6872615c25da7c479d1ad9d1cdb0c48b53112
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cd33973a4786b722ff4eafbf6be53ef9fb509f48
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -975,9 +975,9 @@ Terraform </a>
                                     <h3>사물 인터넷</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                            <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT 개발자 센터</p>
+                                                <p>IoT 기본 사항</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2638,7 +2638,7 @@ Terraform </a>
                         <a href="#iot">사물 인터넷</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/">
+                                <a href="/azure/iot-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2648,7 +2648,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT 개발자 센터</h3>
+                                                    <h3>IoT 기본 사항</h3>
                                                     <p>장치 연결 시작</p>
                                                 </div>
                                             </div>
@@ -3900,7 +3900,7 @@ Azure CLI </h3>
                                                     <a href="/cli/azure">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azurereference-index">참조</a>
+                                                    <a href="/cli/azure/reference-index">참조</a>
                                                 </p>
                                             </div>
                                         </div>

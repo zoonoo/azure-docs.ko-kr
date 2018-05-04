@@ -61,6 +61,8 @@
           href: logic-apps-content-type.md
         - name: 오류 및 예외 처리
           href: logic-apps-exception-handling.md
+        - name: 대용량 메시지 처리
+          href: logic-apps-handle-large-messages.md
         - name: 논리 앱 보안
           href: logic-apps-securing-a-logic-app.md
         - name: 사용자 지정 커넥터 개발
