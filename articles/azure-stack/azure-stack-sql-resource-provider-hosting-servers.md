@@ -1,39 +1,35 @@
 ---
-title: "SQL 호스팅 서버에 Azure 스택 | Microsoft Docs"
-description: "SQL 어댑터 리소스 공급자를 통해 프로 비전에 대 한 SQL 인스턴스를 추가 하는 방법"
+title: SQL 호스팅 서버에 Azure 스택 | Microsoft Docs
+description: SQL 어댑터 리소스 공급자를 통해 프로 비전에 대 한 SQL 인스턴스를 추가 하는 방법
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>SQL 어댑터에서 사용 하기 위해 호스팅 서버 추가
-
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
-
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 내부 Vm에서 SQL 인스턴스를 사용할 수 있습니다 프로그램 [Azure 스택](azure-stack-poc.md), 또는 리소스 공급자를 제공 하 여 Azure 스택 환경 외부에서 인스턴스 데이터베이스에 연결할 수 있습니다. 일반 요구 사항은 같습니다.
 
 * SQL 인스턴스 RP 및 사용자 작업에 사용 하기 위해 전용 이어야 합니다. 응용 프로그램 서비스를 포함 한 모든 다른 소비자에 의해 사용 되는 SQL 인스턴스를 사용할 수 없습니다.
-* RP 어댑터 도메인에 가입 되지 않은 및 SQL 인증을 사용 하 여 연결할 수 있습니다.
-* RP에서 사용 하기 위해 적절 한 권한이 있는 계정을 구성 해야 합니다.
-* RP 및 웹 앱 등 사용자가이 네트워크에서 SQL 인스턴스 연결이 필요 하므로 사용자 네트워크를 사용 합니다. 이 요구 사항은 SQL 인스턴스에 대 한 IP는 공용 네트워크에 있어야 합니다. 일반적으로 의미 합니다.
-* SQL 인스턴스 및 호스트의 관리가 결정 합니다. RP가 패치, 백업 수행 하지, 회전 등 자격 증명.
+* VM의 SQL 리소스 공급자가 도메인에 가입 되지 하 고 SQL 인증을 사용 하 여 연결할 수 있습니다.
+* 리소스 공급자에서 사용 하기 위해 적절 한 권한이 있는 계정을 구성 해야 합니다.
+* 리소스 공급자와 같이 웹 응용 프로그램 사용자를이 네트워크에서 SQL 인스턴스 연결이 필요 하므로 사용자 네트워크를 사용 합니다. 이 요구 사항은 SQL 인스턴스에 대 한 IP는 공용 네트워크에 있어야 합니다. 일반적으로 의미 합니다.
+* SQL 인스턴스 및 호스트의 관리가 결정 합니다. 리소스 공급자가 패치, 백업 수행 하지, 회전 등 자격 증명.
 * Sku 항상에 등 SQL 기능, 성능 등의 다양 한 클래스를 만드는 데 사용할 수 있습니다.
 
-
-SQL IaaS 가상 컴퓨터 이미지의 많은 마켓플레이스 관리 기능을 통해 사용할 수 있습니다. 사용 하면 항상 마켓플레이스 항목을 사용 하는 VM을 배포 하기 전에 SQL IaaS 확장의 최신 버전을 다운로드 합니다. SQL 이미지는 Azure에서 사용할 수 있는 SQL Vm와 동일 합니다. 이러한 이미지를 IaaS 확장에서 만들어지고 포털의 향상 된 기능에 해당 vm의 SQL 자동 패치 및 백업 기능 등의 기능을 제공 합니다.
+SQL IaaS 가상 컴퓨터 이미지의 많은 마켓플레이스 관리 기능을 통해 사용할 수 있습니다. 항상 최신 버전의를 다운로드할 수 있는지 확인은 **SQL IaaS 확장** 마켓플레이스 항목을 사용 하는 VM을 배포 하기 전에 합니다. SQL 이미지는 Azure에서 사용할 수 있는 SQL Vm와 동일 합니다. 이러한 이미지를 IaaS 확장에서 만들어지고 포털의 향상 된 기능에 해당 vm의 SQL 자동 패치 및 백업 기능 등의 기능을 제공 합니다.
 
 서식 파일을 비롯 한 SQL Vm을 배포 하기 위한 다른 옵션은는 [Azure 스택 퀵 스타트 갤러리](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
 
@@ -84,7 +80,10 @@ SQL IaaS 가상 컴퓨터 이미지의 많은 마켓플레이스 관리 기능�
 
   사용자가 해당 데이터베이스를 적절 하 게 배치할 수 있도록 SKU 이름 속성을 반영 해야 합니다. SKU의 모든 호스팅 서버와 동일한 기능 있어야 합니다.
 
-    예제:
+> [!IMPORTANT]
+> 특수 문자, 공백 및 마침표를 포함 하 여에서 지원 되지 않습니다는 **제품군** 또는 **계층** SQL 및 MySQL 리소스 공급자에 대 한 SKU를 만들 때 이름을 지정 합니다.
+
+예제:
 
 ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -140,27 +139,6 @@ GO
 계획 및 사용자에 대 한 SQL 데이터베이스를 사용할 수 있게 제안을 만듭니다. Microsoft.SqlAdapter 서비스 계획에 추가 하 고는 기존 할당량 지정을 추가 하거나 새를 만듭니다. 할당량을 만들면 50 사용자 수를 지정 합니다.
 
 ![계획 및 데이터베이스를 포함 하도록 제안 만들기](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="maintenance-of-the-sql-adapter-rp"></a>SQL 어댑터 RP의 유지 관리
-
-SQL 인스턴스의 유지 관리 암호 회전 정보를 제외 하 고 여기에서 설명 하지 않습니다. 사용자는 패치 및 SQL 어댑터와 함께 사용 되는 데이터베이스 서버 백업/복구에 대 한입니다.
-
-### <a name="patching-and-updating"></a>패치 및 업데이트
- SQL 어댑터는 추가 구성 요소 이므로 Azure 스택의 일환으로 서비스 되지 있습니다. Microsoft 업데이트를 필요에 따라 SQL 어댑터 제공할 것입니다. SQL 어댑터는 인스턴스화되는 _사용자_ 공급자 기본 구독에서 가상 컴퓨터. 따라서은 Windows 패치, 바이러스 백신 서명 등을 제공 해야 합니다. Windows는 Windows VM에 업데이트를 적용할 패치 업데이트 주기의 일부로 사용할 수 있습니다에 제공 되는 패키지를 업데이트 합니다. 업데이트 된 어댑터를 놓을 때 업데이트를 적용 하는 스크립트 제공 됩니다. 이 스크립트는 새 RP VM 만들고 이미 있는 모든 상태를 마이그레이션할 합니다.
-
- ### <a name="backuprestoredisaster-recovery"></a>백업/복원/장애 복구
- SQL 어댑터 백업 되지 않습니다 Azure 스택 BC DR 프로세스의 일부로 추가 구성 요소 이므로 합니다. 용이 하 게 스크립트를 제공 합니다.
-- 필요한 상태 정보 (Azure 스택 저장소 계정에 저장)를 백업 합니다.
-- 전체 스택 복구를 수행 해야 경우에 RP를 복원 합니다.
-데이터베이스 서버를 복구 해야 먼저 (필요한 경우), RP 복원 되기 전에 합니다.
-
-### <a name="updating-sql-credentials"></a>SQL 자격 증명 업데이트
-
-사용자는 생성 및 SQL server에서 시스템 관리자 계정 유지 관리에 대 한입니다. RP 필요한 이러한 권한이 데이터베이스 사용자를 대신 하 여 관리할 수 있는 계정을-해당 데이터베이스의 데이터에 액세스할 필요는 없습니다. SQL server의 sa 암호를 업데이트 해야 할 경우에 RP에서 사용 되는 저장 된 암호를 변경 하려면 RP의 관리자 인터페이스의 업데이트 기능을 사용할 수 있습니다. 이 암호는 Azure 스택 인스턴스에서 키 자격 증명 모음에 저장 됩니다.
-
-설정을 수정 하려면 **찾아보기** &gt; **관리 리소스** &gt; **SQL 호스팅 서버** &gt; **SQL 로그인** 로그인 이름을 선택 합니다. 변경 내용을 SQL 인스턴스에서 먼저 수행 되어야 합니다 (및 필요한 경우 모든 복제본). 에 **설정** 패널에서 클릭 **암호**합니다.
-
-![관리자 암호를 업데이트 합니다.](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## <a name="next-steps"></a>다음 단계

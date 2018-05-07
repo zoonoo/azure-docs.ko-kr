@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure 스택 데이터 센터 통합-Identity
 Id 공급자와 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택을 배포할 수 있습니다. Azure 스택을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 Azure 스택 연결이 끊어진된 모드에서 배포는 라고도 합니다.
@@ -60,6 +60,8 @@ Requirements:
 
 ## <a name="setting-up-graph-integration"></a>그래프와 통합을 설정
 
+그래프는 단일 Active Directory 포리스트에와 통합을 지원합니다. 여러 포리스트에 있는 경우 사용자 및 그룹을 인출 하는 구성에 지정 된 포리스트만 사용 됩니다.
+
 다음 정보는 자동화 매개 변수에 대 한 입력으로 필요 합니다.
 
 
@@ -95,12 +97,14 @@ Requirements:
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   메시지가 표시 되 면 (예: graphservice) 그래프 서비스에 대 한 사용 하려는 사용자 계정에 대 한 자격 증명을 지정 합니다.
+   메시지가 표시 되 면 (예: graphservice) 그래프 서비스에 대 한 사용 하려는 사용자 계정에 대 한 자격 증명을 지정 합니다. 레지스터 DirectoryService cmdlet에 대 한 입력 포리스트 이름/도메인 포리스트의 아닌 포리스트의 다른 도메인 루트 있어야 합니다.
 
    > [!IMPORTANT]
    > 팝업 자격 증명에 대 한 대기 (Get-credential은 권한 있는 끝점에는 지원 되지 않음) 하 고 그래프 서비스 계정 자격 증명을 입력 합니다.
 
 #### <a name="graph-protocols-and-ports"></a>그래프 프로토콜 및 포트
+
+Azure 스택에서 그래프 서비스 키 배포 센터 (KDC) Active Directory 포리스트 대상에서 로그인 요청을 처리할 수 있는 쓰기 가능한 서버 GC (글로벌 카탈로그)와 통신 하는 다음 프로토콜 및 포트를 사용 합니다.
 
 Azure 스택에서 그래프 서비스는 대상 Active Directory와 통신 하는 다음 프로토콜 및 포트를 사용 합니다.
 

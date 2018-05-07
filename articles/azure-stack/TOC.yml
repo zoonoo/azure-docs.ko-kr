@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: 할당량 유형
               href: azure-stack-quota-types.md
-        - name: SQL 또는 MySQL을 PaaS로 제공
+        - name: PaaS 서비스 개요
+          href: azure-stack-tools-paas-services.md
+        - name: SQL PaaS로 제공
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: PaaS 서비스 개요
-              href: azure-stack-tools-paas-services.md
-            - name: MySQL 리소스 공급자 배포
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: SQL 리소스 공급자 배포
+            - name: SQL Server 리소스 공급자를 배포 합니다.
               href: azure-stack-sql-resource-provider-deploy.md
             - name: 호스팅 서버 추가
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL 데이터베이스 만들기
               href: azure-stack-sql-resource-provider-databases.md
+            - name: SQL Server 리소스 공급자 업데이트
+              href: azure-stack-sql-resource-provider-update.md
+            - name: SQL Server 리소스 공급자를 유지 관리
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: SQL Server 리소스 공급자를 제거 합니다.
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: PaaS로 MySQL을 제공 합니다.
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: App Service를 PaaS로 제공
           items:
             - name: Azure Stack 개요에 대한 App Service

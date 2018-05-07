@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 개발 키트 (ASDK)에 대 한 배포 구성을 게시 | Microsoft Docs"
-description: "Azure 스택 개발 키트 (ASDK)를 설치한 후에 권장 되는 구성 변경 내용이 설명 합니다."
+title: Azure 스택 개발 키트 (ASDK)에 대 한 배포 구성을 게시 | Microsoft Docs
+description: Azure 스택 개발 키트 (ASDK)를 설치한 후에 권장 되는 구성 변경 내용이 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2183576e87aa2fb31f8be8f676a5aee7d52f68df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 후 [설치는 ASDK](asdk-install.md), 몇 가지 권장된 설치 후 구성을 변경할 수 있습니다. 
@@ -37,7 +37,10 @@ Set-PSRepository `
 
  Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니다. Azure 스택 AzureRM.Bootstrapper 모듈을 설치 하 여 액세스할 수 있는 2017-03-09-프로필 API 버전 프로필이 필요 합니다. 
  
- Azure 스택 PowerShell 또는 ASDK 호스트 컴퓨터에 인터넷 연결 없이 설치할 수 있습니다.
+ 또는 ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure 스택 PowerShell 모듈을 설치할 수 있습니다.
+
+> [!IMPORTANT]
+> 필요한 버전을 설치 하기 전에 확인 하면 [기존 Azure PowerShell 모듈을 모두 제거](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell)합니다.
 
 - **인터넷에 연결 된** ASDK 호스트 컴퓨터에서 합니다. 개발 키트 설치에 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
 

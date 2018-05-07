@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -82,6 +82,7 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 ## <a name="linux-distributions"></a>Linux 배포
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
+| ![Linux 운영 체제의 선택을 취소합니다](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux 운영 체제의 선택을 취소합니다](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Intel 아키텍처에 대 한 액세스에 최적화 된 Linux 배포판 참조입니다. | Linux 프로젝트의 선택을 취소합니다 |
 | ![CoreOS 하 여 Linux 컨테이너](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS 하 여 Linux 컨테이너](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Linux 컨테이너는 컨테이너를 실행 하 고 클러스터를 관리할 서버를 원활 하 게 업데이트 하는 쉬운 방법을 제공 현대적이 고 최소한의 Linux 배포판-웨어하우스 확장을 사용할 수 있는 모든 구성 요소를 계산 합니다. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server는 클라우드 환경에 세계적으로 가장 많이 사용되는 Linux입니다. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "제시"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다. | credativ |

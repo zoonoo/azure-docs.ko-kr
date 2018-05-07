@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cbc1efaee7404c3ffc82acea0846136c43eba2a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b65d0d88fd57dea59c79d2f72bab60967856e015
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure 스택 인증서 서명 요청 만들기
 
-이 문서에서 설명 하는 Azure 스택 준비 검사기 도구를 사용할 수 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker)합니다. 이 도구 Azure 스택 배포에 대 한 적합 한 인증서 서명 요청 (Csr)를 만듭니다. 인증서 요청, 생성와 충분 한 시간을 배포 하기 전에 테스트와 유효성을 검사 합니다. 
+이 문서에서 설명 하는 Azure 스택 준비 검사기 도구를 사용할 수 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker)합니다. 이 도구 Azure 스택 배포에 대 한 적합 한 인증서 서명 요청 (Csr)를 만듭니다. 인증서 요청, 생성와 충분 한 시간을 배포 하기 전에 테스트와 유효성을 검사 합니다.
 
 Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인증서 요청을 수행합니다.
 
  - **표준 인증서 요청**  
-    요청에 따라 [Azure 스택 배포를 위한 PKI 인증서를 생성할](azure-stack-get-pki-certs.md)합니다. 
+    요청에 따라 [Azure 스택 배포를 위한 PKI 인증서를 생성할](azure-stack-get-pki-certs.md)합니다.
  - **요청 유형**  
-    단일 와일드 카드 인증서를 요청에 여러 와일드 카드 SAN에 여러 도메인 인증서를 요청 합니다.
+    단일 요청 또는 여러 개의 요청에 인증서 서명 요청 될 것 여부를 지정 합니다.
  - **플랫폼-as a Service**  
     필요에 따라 플랫폼으로-서비스 (PaaS) 이름에 지정 된 대로 인증서를 요청 [Azure 스택 공개 키 인프라 인증서 요구 사항-옵션 PaaS 인증서](azure-stack-pki-certs.md#optional-paas-certificates)합니다.
 
@@ -44,6 +44,9 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     - 외부 정규화 된 도메인 이름 (FQDN)
     - 제목
  - Windows 10 또는 Windows Server 2016
+ 
+  > [!NOTE]
+  > 메시지가 나타나면 인증서를 다시 인증 기관에서의 단계 [준비 Azure 스택 PKI 인증서](azure-stack-prepare-pki-certs.md) 동일한 시스템에서 완료 해야 합니다!
 
 ## <a name="generate-certificate-signing-requests"></a>인증서 서명 요청을 생성 합니다.
 
@@ -68,10 +71,23 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     ````PowerShell  
     $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
     ````
+4.  선언 시스템을 식별 합니다.
 
-4. 선언 **지역 이름** 및 **외부 FQDN** Azure 스택 배포를 위한 것입니다.
+    Azure Active Directory
 
-    ```PowerShell  
+    ```PowerShell
+    $IdentitySystem = "AAD"
+    ````
+
+    Active Directory Federation Services
+
+    ```PowerShell
+    $IdentitySystem = "ADFS"
+    ````
+
+5. 선언 **지역 이름** 및 **외부 FQDN** Azure 스택 배포를 위한 것입니다.
+
+    ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ````
@@ -79,19 +95,23 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     > [!note]  
     > `<regionName>.<externalFQDN>` 에 Azure 스택의 모든 외부 DNS 이름을 만들어지면이 예제의 기본을 형성, 포털 것 `portal.east.azurestack.contoso.com`합니다.
 
-5. 생성 하려면 단일 인증서 요청 PaaS 서비스에 필요한 포함 하는 여러 주체 대체 이름을 사용:
+6. 에 단일 인증서 요청을 여러 개의 주체 대체 이름을 생성 합니다.
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-6. 생성 하려면 PaaS 서비스 없이 각 DNS 이름에 대 한 요청을 서명 하는 개별 인증서:
+    PaaS 서비스를 포함 하도록 스위치를 지정 ```-IncludePaaS```
+
+7. 생성 하려면 각 DNS 이름에 대 한 요청을 서명 하는 개별 인증서:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-7. 출력을 검토 합니다.
+    PaaS 서비스를 포함 하도록 스위치를 지정 ```-IncludePaaS```
+
+8. 출력을 검토 합니다.
 
     ````PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
@@ -109,9 +129,8 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     AzsReadinessChecker Completed
     ````
 
-8.  제출 된 **합니다. 필수** CA (내부 또는 공용)에 생성 된 파일입니다.  출력 디렉터리 **시작 AzsReadinessChecker** 인증 기관에 제출 하는 데 필요한 CSR(s)를 포함 합니다.  또한 참조로의 인증서 요청 생성 시 사용할 INF 파일이 들어 있는 하위 디렉터리를 포함 합니다. CA을 충족 하는 생성 된 요청을 사용 하 여 인증서를 생성 해야는 [Azure 스택 PKI 요구 사항](azure-stack-pki-certs.md)합니다.
+9.  제출 된 **합니다. 필수** CA (내부 또는 공용)에 생성 된 파일입니다.  출력 디렉터리 **시작 AzsReadinessChecker** 인증 기관에 제출 하는 데 필요한 CSR(s)를 포함 합니다.  또한 참조로의 인증서 요청 생성 시 사용할 INF 파일이 들어 있는 하위 디렉터리를 포함 합니다. CA을 충족 하는 생성 된 요청을 사용 하 여 인증서를 생성 해야는 [Azure 스택 PKI 요구 사항](azure-stack-pki-certs.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure 스택 PKI 인증서를 준비 합니다.](azure-stack-prepare-pki-certs.md)
-

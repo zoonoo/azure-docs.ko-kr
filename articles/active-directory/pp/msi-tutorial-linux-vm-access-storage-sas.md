@@ -1,8 +1,8 @@
 ---
-title: "Linux VM MSI를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스"
-description: "Linux VM MSI(관리 서비스 ID)를 사용하여 저장소 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여 주는 자습서입니다."
+title: Linux VM MSI를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
+description: Linux VM MSI(관리 서비스 ID)를 사용하여 저장소 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여 주는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 1e2dbc6020dd317e96c4116811f8e3bf87680bfb
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure 스택에서 PowerShell을 사용 하 여 Linux 서버 가상 컴퓨터 만들기
 
@@ -28,6 +28,7 @@ ms.lasthandoff: 04/28/2018
 Azure 스택 PowerShell을 사용 하 여 서버 16.04 Ubuntu LTS 가상 컴퓨터를 만들 수 있습니다. 이 문서를 만들고 가상 컴퓨터를 사용의 단계를 수행 합니다.  이 문서의 단계를 제공합니다.
 
 * 가상 컴퓨터 원격 클라이언트와 연결 합니다.
+* NGINX 웹 서버를 설치 하 고 기본 홈 페이지를 봅니다.
 * 사용 되지 않는 리소스를 정리 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -218,6 +219,26 @@ ssh <Public IP Address>
 ```
 
 메시지가 표시 되 면 로그인 사용자로 azureuser를 입력 합니다. SSH 키를 만들 때 암호를 사용한 경우에 암호를 제공 해야 합니다.
+
+## <a name="install-the-nginx-web-server"></a>NGINX 웹 서버를 설치 합니다.
+
+패키지 리소스를 업데이트 하 고 최신 NGINX 패키지 설치를 하려면 다음 스크립트를 실행 합니다.
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-nginx-welcome-page"></a>NGINX 시작 페이지 보기
+
+설치 NGINX 및 포트 80 가상 컴퓨터에서 열려 사용 하 여 가상 컴퓨터의 공용 IP 주소를 사용 하 여 웹 서버를 액세스할 수 있습니다. 웹 브라우저를 열고 ```http://<public IP address>```합니다.
+
+![NGINX 웹 서버에 대 한 시작 페이지](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

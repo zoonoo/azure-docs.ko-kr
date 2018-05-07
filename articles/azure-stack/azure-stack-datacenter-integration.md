@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 통합 고려 사항 일반 데이터 센터에 시스템 통합 | Microsoft Docs"
-description: "이제 계획 하 고 다중 노드 Azure 스택와 데이터 센터의 통합에 대 한 준비를 수행할 수 있는 작업에 대해 알아봅니다."
+title: Azure 스택 통합 고려 사항 일반 데이터 센터에 시스템 통합 | Microsoft Docs
+description: 이제 계획 하 고 다중 노드 Azure 스택와 데이터 센터의 통합에 대 한 준비를 수행할 수 있는 작업에 대해 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure 스택 통합 시스템에 대 한 데이터 센터 통합 고려 사항
 Azure 스택 통합 시스템에 관심이 있다면 배포 및 시스템 데이터 센터에 얼마나 적합 한지 주요 계획 고려 사항 중 일부를 이해 해야 합니다. 이 문서에서는 Azure 스택 multi-node 시스템에 대 한 중요 한 인프라 결정을 내릴 수 있도록 이러한 고려 사항에 대 한 고급 개요를 제공 합니다. 이러한 고려 사항에 대 한 이해가는 Azure 스택 데이터 센터에 배포할 때 OEM 하드웨어 공급 업체를 작업할 때 도움이 됩니다.  
@@ -50,7 +50,9 @@ Azure 스택을 배포 하려면 배포를 신속 하 고 원활 하 게 이동 
 ## <a name="identity-considerations"></a>Identity 고려 사항
 
 ### <a name="choose-identity-provider"></a>Id 공급자를 선택 합니다.
-Azure 스택 배포의 경우 Azure AD 또는 AD FS 사용 하려면 id 공급자를 고려해 야 합니다. 전체 시스템 재배포 하지 않고 배포 후 id 공급자를 전환할 수 없습니다.
+Azure 스택 배포의 경우 Azure AD 또는 AD FS 사용 하려면 id 공급자를 고려해 야 합니다. 전체 시스템 재배포 하지 않고 배포 후 id 공급자를 전환할 수 없습니다. Azure AD 계정을 소유 하지 않은 경우 클라우드 서비스 공급자가 제공한 인 계정을 사용 하 고 공급자를 전환 하 고 다른 Azure AD를 사용 하려는 경우 계정,이 시점에서 f 솔루션 다시 배포 하려면 솔루션 공급자에 게 문의 해야 합니다 또는 비용에 있습니다.
+
+
 
 Identity provider 선택한 테 넌 트 가상 컴퓨터, id 시스템 및 사용 하는 계정에는 영향을 주지 않습니다는 등 Active Directory 도메인에 참가 합니다. 이 별개입니다.
 

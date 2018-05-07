@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure 스택에 대 한 VPN 게이트웨이에 대 한
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
@@ -94,7 +94,7 @@ SKU를 선택 하면 다음을 고려 하십시오.
 |**고성능 SKU** | 200Mbps    | 5 |
 ***(1)***  있는 VPN 처리량은 하지 크로스-프레미스 연결에 대 한 보장된 처리량 인터넷을 통해. 가능한 최대 처리량 측정값입니다.  
 ***(2)***  최대 터널 번호는 모든 구독에 대 한 Azure 스택 배포 당 총 합니다.  
-***(3)***  기본 SKU에 대 한 BGP 지원 되지 않습니다.  
+***(3)***  기본 SKU에 대 한 BGP 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 에 대 한 자세한 내용은 [VPN 게이트웨이에 대 한 설정을](azure-stack-vpn-gateway-settings.md) Azure 스택에 대 한 합니다.
