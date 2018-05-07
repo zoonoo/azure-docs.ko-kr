@@ -51,7 +51,7 @@ ms.lasthandoff: 04/20/2018
 
 System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 절차를 사용합니다.
 
-1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)**를 찾습니다.
+1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
 
@@ -204,7 +204,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 절차에 따라 ServiceNow 연결을 만듭니다.
 
 
-1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)**를 찾습니다.
+1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
     ![새 연결](./media/log-analytics-itsmc/add-new-itsm-connection.png)
@@ -293,7 +293,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 절차에 따라 Provance 연결을 만듭니다.
 
-1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)**를 찾습니다.
+1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
     ![새 연결](./media/log-analytics-itsmc/add-new-itsm-connection.png)
@@ -344,7 +344,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 절차에 따라 Provance 연결을 만듭니다.
 
-1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)**를 찾습니다.
+1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
     ![새 연결](./media/log-analytics-itsmc/add-new-itsm-connection.png)
