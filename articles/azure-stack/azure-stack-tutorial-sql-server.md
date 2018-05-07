@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Azure 스택 사용자에 게 SQL 데이터베이스를 사용할 수 있게
 Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있습니다 (테 넌 트) 클라우드-네이티브 앱, 웹 사이트 및 작업 함께 사용할 수 있는 SQL 데이터베이스를 만듭니다. 이러한 사용자 지정, 주문형, 클라우드 기반 데이터베이스를 사용자에 게 제공 하 여 시간 및 리소스가 저장할 수 있습니다. 이 설정 하려면 다음을 수행 합니다.
@@ -34,8 +34,8 @@ Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있
 
 배포 프로세스에 자세히 설명 되어는 [Azure 스택 아티클에서 사용 하 여 SQL 데이터베이스](azure-stack-sql-resource-provider-deploy.md), 다음과 같은 기본 단계로 구성 되 고 있습니다.
 
-1. [SQL 리소스 공급자를 배포]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider)합니다.
-2. [배포 확인]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)합니다.
+1. [SQL 리소스 공급자를 배포](azure-stack-sql-resource-provider-deploy.md)합니다.
+2. [배포 확인](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)합니다.
 3. 호스팅 SQL server에 연결 하 여 용량을 제공 합니다.
 
 ## <a name="create-an-offer"></a>제품 만들기
