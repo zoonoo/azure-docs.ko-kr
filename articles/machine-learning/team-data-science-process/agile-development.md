@@ -2,7 +2,7 @@
 title: 데이터 과학 프로젝트의 Agile 개발 - Azure Machine Learning | Microsoft Docs
 description: TDSP(Team Data Science Process)를 사용하여 개발자가 프로젝트 팀 내에서 체계적이고 버전을 제어하고 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 실행할 수 있는 방법.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev
-ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 03bc287969559308e743a5b8cc192cddfdc085cc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>데이터 과학 프로젝트의 Agile 개발
 

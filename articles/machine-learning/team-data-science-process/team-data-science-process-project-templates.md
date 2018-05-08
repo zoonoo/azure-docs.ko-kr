@@ -2,7 +2,7 @@
 title: Team Data Science Process 프로젝트 계획 - Azure | Microsoft Docs
 description: 데이터 과학 프로젝트를 계획하고 관리하는 데 도움이 되는 Microsoft Project 및 Excel 템플릿
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
-ms.author: bradsev
-ms.openlocfilehash: cc2dd8bd6d7733b3f35ce697d71c0abdab5f11dc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 2e5a010482bcde5a401d400c12dce7321acea7c5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
 

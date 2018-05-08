@@ -2,7 +2,7 @@
 title: Git를 사용하여 공동 코딩 - Azure Machine Learning | Microsoft Docs
 description: Agile 계획과 함께 Git를 사용하여 데이터 과학 프로젝트용 공동 코드 개발을 수행하는 방법입니다.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev
-ms.openlocfilehash: f3eabf0b754f777f25811d30c158b647b1d3954e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 55b47362f334d7366b6cc537a96dc7d046c23733
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
 
@@ -46,7 +46,7 @@ VSTS는 작업 항목(스토리 또는 작업)을 Git 분기와 연결하는 편
 
     git checkout <branch name>
 
-*<branch name\>*을 **master**로 변경하면 **마스터** 분기로 다시 전환됩니다. 작업 중인 분기로 전환하면 해당 작업 항목에 대한 작업을 시작하여 항목을 완성하는 데 필요한 코드 또는 문서 아티팩트를 개발할 수 있습니다. 
+*<branch name\>* 을 **master**로 변경하면 **마스터** 분기로 다시 전환됩니다. 작업 중인 분기로 전환하면 해당 작업 항목에 대한 작업을 시작하여 항목을 완성하는 데 필요한 코드 또는 문서 아티팩트를 개발할 수 있습니다. 
 
 또한 작업 항목을 기존 분기에 연결할 수도 있습니다. 작업 항목의 **세부 정보** 페이지에서 **새 분기 만들기**를 클릭하는 대신 **+ 링크 추가**를 클릭합니다. 그런 다음 작업 항목을 연결할 분기를 선택합니다. 
 

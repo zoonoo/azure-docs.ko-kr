@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동 | Microsoft Docs"
-description: "SQL 테이블 만들기 및 SQL 테이블로 데이터 로드"
+title: Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동 | Microsoft Docs
+description: SQL 테이블 만들기 및 SQL 테이블로 데이터 로드
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 323861d078e9beeb197333dc7e2d0314014dfdb0
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure 기계 학습을 위해 Azure SQL Database로 데이터 이동
+# <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동
 이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장된 데이터에서 Azure SQL Database로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
 Machine Learning을 위해 온-프레미스 SQL Server로 데이터를 이동하기 위한 옵션을 간략히 설명하는 토픽은 [Azure Virtual Machine의 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md)을 참조하세요.
@@ -62,7 +62,7 @@ Machine Learning을 위해 온-프레미스 SQL Server로 데이터를 이동하
 3. [데이터베이스 백업 및 복원](#db-migration)
 4. [Azure Data Factory](#adf)
 
-처음 세 개 단계는 이와 동일한 절차를 다루는 [Azure 가상 컴퓨터의 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md) 의 해당 섹션과 매우 유사합니다. 이 항목의 해당 섹션에 대한 링크가 다음 절차에 제공됩니다.
+처음 세 개 단계는 이와 동일한 절차를 다루는 [Azure 가상 머신의 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md) 의 해당 섹션과 매우 유사합니다. 이 항목의 해당 섹션에 대한 링크가 다음 절차에 제공됩니다.
 
 ### <a name="export-flat-file"></a>플랫 파일로 내보내기
 플랫 파일로 내보내기 위한 단계는 [플랫 파일로 내보내기](move-sql-server-virtual-machine.md#export-flat-file)에서 다루는 내용과 유사합니다.

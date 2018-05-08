@@ -3,7 +3,7 @@ title: 차량 상태 및 주행 습관 예측 - Azure | Microsoft Docs
 description: Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: bradsev
-ms.openlocfilehash: 02b3e0e0808cb9a1a8a2186b1abe6da7dd13e56e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: deguhath
+ms.openlocfilehash: 6fa8f11d48909a003deb976ad4d7408e84694222
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>차량 원격 분석 솔루션 플레이북
 이 메뉴는 이 플레이북 장에 연결됩니다. 
@@ -32,7 +32,7 @@ Cortana 인텔리전스는 데이터를 지능형 작업으로 변환하는 데 
 
 이 솔루션은 실시간 일괄 처리를 위해 Cortana Intelligence 플랫폼의 전체 잠재력을 보여 주는 [람다 아키텍처 패턴](https://en.wikipedia.org/wiki/Lambda_architecture) 으로 구현되었습니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 다음 다이어그램은 차량 원격 분석 솔루션 아키텍처를 보여 줍니다.
 
 ![솔루션 아키텍처 다이어그램](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)

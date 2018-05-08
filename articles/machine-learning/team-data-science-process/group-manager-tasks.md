@@ -2,7 +2,7 @@
 title: Team Data Science Process 그룹 관리자 작업 - Azure | Microsoft Docs
 description: 데이터 과학 팀 프로젝트의 그룹 관리자 작업에 대한 개요.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: deguhath
+ms.openlocfilehash: 9f9cdd52aff5445f64a4780d6e04590a06c21105
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="group-manager-tasks"></a>그룹 관리자 작업
 
@@ -87,7 +87,7 @@ Microsoft 계정이 없는 경우 **지금 등록**을 클릭하여 Microsoft �
 다음 값을 사용하여 **계정 만들기** 마법사에서 만들려는 VSTS 서버에 대한 정보를 입력합니다. 
 
 - **서버 URL**: *mysamplegroup*을 해당 *서버 이름*으로 바꿉니다. 서버 URL은 *https://\<servername\>. visualstudio.com* 형식입니다. 
-- **코드 관리 앱:** **_Git_**를 선택합니다.
+- **코드 관리 앱:** **_Git_** 를 선택합니다.
 - **프로젝트 이름:** *GroupCommon*을 입력합니다. 
 - **다음을 사용하여 작업 구성:** *Agile*을 선택합니다.
 - **프로젝트를 호스트할 위치:** 지역 위치를 선택합니다. 이 예제에서는 *미국 중남부*를 선택합니다. 
@@ -146,7 +146,7 @@ VSTS 그룹 서버용 리포지토리를 설정하는 과정은 다음 두 작�
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
-- 왼쪽 패널의 **GroupCommon** 리포지토리 오른쪽에 있는 **...**를 클릭하고 **리포지토리 이름 바꾸기**를 선택합니다. 
+- 왼쪽 패널의 **GroupCommon** 리포지토리 오른쪽에 있는 **...** 를 클릭하고 **리포지토리 이름 바꾸기**를 선택합니다. 
 
 ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
         

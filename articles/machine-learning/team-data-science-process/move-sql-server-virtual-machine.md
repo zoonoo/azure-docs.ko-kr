@@ -1,9 +1,9 @@
 ---
-title: "Azure 가상 컴퓨터에서 SQL Server로 데이터 이동 | Microsoft Docs"
-description: "플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동합니다."
+title: Azure 가상 머신에서 SQL Server로 데이터 이동 | Microsoft Docs
+description: 플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동합니다.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b8c936163e8e0880d3518f44dba107a0393fd11f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 56a03347556f9ae3452548e85ce5d46f3961ed93
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
-이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
+# <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
+이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 머신의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
-기계 학습을 위해 Azure SQL Database로 데이터를 이동하기 위한 옵션을 설명하는 토픽은 [Azure 기계 학습을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
+Machine Learning을 위해 Azure SQL Database로 데이터를 이동하기 위한 옵션을 설명하는 토픽은 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
 
 다음 **메뉴** 는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 토픽에 연결됩니다.
 
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
-다음 표에서는 Azure 가상 컴퓨터에서 SQL Server로 데이터를 이동하는 옵션을 요약합니다.
+다음 표에서는 Azure 가상 머신에서 SQL Server로 데이터를 이동하는 옵션을 요약합니다.
 
 | <b>원본</b> | <b>대상: Azure VM의 SQL Server</b> |
 | --- | --- |

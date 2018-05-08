@@ -3,7 +3,7 @@ title: 고급 Spark로 데이터 탐색 및 모델링 | Microsoft Docs
 description: HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: bradsev
-ms.openlocfilehash: 3d4cd29596b14e6de07fdf06191f7d69c2d39641
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: deguhath
+ms.openlocfilehash: 9f24d05a344e0042fa498b62c874617ba7466f8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 
 또한 모델링 단계에는 각 모델 유형을 학습, 평가 및 저장하는 방법을 보여주는 코드가 포함되어 있습니다. 이 항목에는 [Spark로 데이터 탐색 및 모델링](spark-data-exploration-modeling.md) 항목과 동일한 기본적인 내용이 일부 포함되어 있습니다. 하지만 좀 더 "고급" 내용으로, 하이퍼 매개 변수 비우기와 교차 유효성 검사를 함께 사용하여 정확한 분류 및 회귀 모델을 최적으로 학습할 수 있습니다. 
 
-**CV(교차 유효성 검사)**는 알려진 데이터 집합에서 학습된 모델이 학습되지 않은 데이터 집합의 기능 예측을 얼마나 잘 일반화하는지 평가하는 기술입니다.  여기에 사용된 일반적인 구현은 데이터 집합을 K 접기로 나눈 다음 접기 중 하나를 제외한 모든 접기에서 라운드 로빈 방식으로 모델을 학습하는 것입니다. 이 접기에서 모델을 테스트하는 데 사용되지 않은 독립 데이터 집합에 대해 모델을 테스트할 때 모델이 정확히 예측하는 기능이 평가됩니다.
+**CV(교차 유효성 검사)** 는 알려진 데이터 집합에서 학습된 모델이 학습되지 않은 데이터 집합의 기능 예측을 얼마나 잘 일반화하는지 평가하는 기술입니다.  여기에 사용된 일반적인 구현은 데이터 집합을 K 접기로 나눈 다음 접기 중 하나를 제외한 모든 접기에서 라운드 로빈 방식으로 모델을 학습하는 것입니다. 이 접기에서 모델을 테스트하는 데 사용되지 않은 독립 데이터 집합에 대해 모델을 테스트할 때 모델이 정확히 예측하는 기능이 평가됩니다.
 
 **하이퍼 매개 변수 최적화** 는 학습 알고리즘에 대한 하이퍼 매개 변수 집합을 선택하는 문제이며, 일반적으로 독립된 데이터 집합에서의 알고리즘 성능 측정값을 최적화하는 것을 목표로 합니다. **하이퍼 매개 변수** 는 모델 학습 절차 외부에서 지정해야 하는 값입니다. 이러한 값에 대한 가정은 모델의 유연성 및 정확도에 영향을 줄 수 있습니다. 의사 결정 트리에는 원하는 깊이와 트리의 리프 수와 같은 하이퍼 매개 변수가 있습니다. SVM(Support Vector Machine)은 오분류 페널티 조건을 설정해야 합니다. 
 
