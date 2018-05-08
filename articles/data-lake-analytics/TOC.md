@@ -6,7 +6,6 @@
 # 시작하기
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -20,41 +19,41 @@
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
 ### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [정책](data-lake-analytics-policies.md)
 ### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
 ### [할당량 한도 조정](data-lake-analytics-quota-limits.md)
 
 ## U-SQL 프로그램 개발
 
 ### U-SQL 언어
-#### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
-#### [U-SQL 언어 참조](https://msdn.microsoft.com/library/azure/mt591959)
-#### [U-SQL 카탈로그](data-lake-analytics-u-sql-catalog.md)
-#### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-#### [U-SQL Python 확장](data-lake-analytics-u-sql-python-extensions.md)
-#### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
-#### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
-#### [U-SQL 프로그래밍 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
+#### [기본 사항](data-lake-analytics-u-sql-get-started.md)
+#### [언어 참조](https://msdn.microsoft.com/library/azure/mt591959)
+#### [카탈로그](data-lake-analytics-u-sql-catalog.md)
+#### [사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+#### [Python 확장](data-lake-analytics-u-sql-python-extensions.md)
+#### [R 확장](data-lake-analytics-u-sql-r-extensions.md)
+#### [인지 확장](data-lake-analytics-u-sql-cognitive.md)
+#### [프로그램 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
+
+### Visual Studio
+#### [작업 검색 및 보기](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [사용자 정의 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
+#### [되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+#### [꼭짓점 실행 세부 정보](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+#### [U-SQL 데이터베이스 내보내기](data-lake-analytics-data-lake-tools-export-database.md)
 #### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 #### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-### Visual Studio
-#### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
-#### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
-#### [비정상적인 되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
-#### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-#### [U-SQL 데이터베이스 내보내기](data-lake-analytics-data-lake-tools-export-database.md)
-
 ### Visual Studio Code
-#### [Visual Studio 코드용 U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
-#### [Visual Studio Code용 U-SQL 사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-#### [VSCode에서 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
+#### [작성](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [로컬 실행 및 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
+## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
@@ -68,3 +67,4 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

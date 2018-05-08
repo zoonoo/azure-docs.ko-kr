@@ -8,18 +8,16 @@ ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: ''
-ms.assetid: ''
+ms.component: users-groups-roles
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fc6cc88cabab1bc56b0a04ce8778823647c5b2bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Azure AD 시작
 인증된 사용자에게만 응용 프로그램 및 서비스의 고가용성을 보장하기 위해 최신 ID 관리에는 확장 가능하고 일관된 안정성이 필요합니다. 사용자의 ID 관리 요구를 적절하게 지원하기 위해 IT 부서에는 승인된 공용 SaaS(software as a service) 앱에 대한 액세스를 제공하는 방법, 내부 기간 업무 앱을 호스트하는 방법 및 온-프레미스 앱 개발 및 사용을 강화하는 방법이 필요합니다. 이러한 요구 사항은 모두 클라우드 기반 ID 관리 솔루션의 필요성을 의미합니다.      

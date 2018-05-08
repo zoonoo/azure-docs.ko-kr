@@ -1,9 +1,9 @@
 ---
-title: "Azure Storage 탐색기를 사용하여 Blob Storage의 데이터 이동 | Microsoft Docs"
-description: "Azure Storage 탐색기를 사용하여 Azure Blob Storage의 데이터 이동"
+title: Azure Storage 탐색기를 사용하여 Blob Storage의 데이터 이동 | Microsoft Docs
+description: Azure Storage 탐색기를 사용하여 Azure Blob Storage의 데이터 이동
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 10bd283f-0875-4c67-af63-6492270b7656
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 3db06eed16191ef906f2c565d78fd0063cdb2f7b
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: c20bf045b156400e38e111337908d76b3016c0ea
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용하여 Azure Blob Storage 간에 데이터 이동
 Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이터 작업 시에 사용할 수 있는 Microsoft의 무료 도구입니다. 이 항목에서는 Azure Storage Explorer를 사용하여 Azure Blob 저장소에서 데이터를 업로드 및 다운로드하는 방법을 설명합니다. 이 도구는 [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다.
@@ -26,7 +26,7 @@ Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이�
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]
-> [Azure의 데이터 과학 가상 컴퓨터](virtual-machines.md)에서 제공하는 스크립트를 통해 설정된 VM을 사용하는 경우 Azure Storage 탐색기가 VM에 이미 설치되어 있습니다.
+> [Azure의 데이터 과학 가상 머신](virtual-machines.md)에서 제공하는 스크립트를 통해 설정된 VM을 사용하는 경우 Azure Storage 탐색기가 VM에 이미 설치되어 있습니다.
 > 
 > [!NOTE]
 > Azure Blob Storage에 대한 전체 소개 내용은 [Azure Blob 기본 사항](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.   
@@ -52,6 +52,6 @@ Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이�
 5. **계정 이름** 상자에 저장소 계정 이름을 입력한 후에 **다음**을 클릭합니다. ![외부 저장소 연결](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. 그러면 추가한 저장소 계정이 목록에 표시됩니다. 저장소 계정에서 Blob 컨테이너를 만들려면 해당 계정의 **Blob 컨테이너** 노드를 마우스 오른쪽 단추로 클릭하고 **Blob 컨테이너 만들기**를 선택한 후에 이름을 입력합니다.
 7. 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![Storage 계정](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
-8. **파일** 상자 오른쪽의 **...**를 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![파일 업로드](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
+8. **파일** 상자 오른쪽의 **...** 를 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![파일 업로드](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. 데이터를 다운로드하려면 해당 컨테이너에서 다운로드하려는 Blob를 선택한 후에 **다운로드**를 클릭합니다. ![파일 다운로드](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 

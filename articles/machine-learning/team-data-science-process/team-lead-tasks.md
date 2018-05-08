@@ -2,7 +2,7 @@
 title: Team Data Science Process 팀 리더 작업 - Azure | Microsoft Docs
 description: 데이터 과학 팀 프로젝트의 팀 리더 작업 개요입니다.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: deguhath
+ms.openlocfilehash: d17c6c7543416d3f279b7e25152a421dd233a806
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-lead-tasks"></a>팀 리더 작업
 
@@ -100,17 +100,17 @@ ms.lasthandoff: 04/05/2018
 
     ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
-- **축하합니다!**라는 팝업 창이 표시되면 **코드 추가**(빨간색 상자의 단추)를 클릭합니다. 그렇지 않은 경우 **코드**(노란색 상자)를 클릭합니다. 그러면 팀 프로젝트의 Git 리포지토리 페이지로 이동합니다. 
+- **축하합니다!** 라는 팝업 창이 표시되면 **코드 추가**(빨간색 상자의 단추)를 클릭합니다. 그렇지 않은 경우 **코드**(노란색 상자)를 클릭합니다. 그러면 팀 프로젝트의 Git 리포지토리 페이지로 이동합니다. 
 
     ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Git에 MyProjectTemplate 리포지토리(R3) 만들기
 
-- 팀 프로젝트의 Git 리포지토리 페이지에서 리포지토리 이름 **MyTeam** 옆의 아래쪽 화살표를 클릭하고 **리포지토리 관리...**를 선택합니다.
+- 팀 프로젝트의 Git 리포지토리 페이지에서 리포지토리 이름 **MyTeam** 옆의 아래쪽 화살표를 클릭하고 **리포지토리 관리...** 를 선택합니다.
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
-- 팀 프로젝트의 제어판에 있는 **버전 제어** 탭에서 **MyTeam**을 클릭한 다음 **리포지토리 이름 바꾸기...**를 선택합니다. 
+- 팀 프로젝트의 제어판에 있는 **버전 제어** 탭에서 **MyTeam**을 클릭한 다음 **리포지토리 이름 바꾸기...** 를 선택합니다. 
 
     ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 04/05/2018
 
 ### <a name="create-the-myteamutilities-repository-r4-on-git"></a>Git에서 MyTeamUtilities 리포지토리(R4) 만들기
 
-- 팀 프로젝트에 새 리포지토리 *<팀 이름\>Utilities*를 만들려면 팀 프로젝트 제어판의 **버전 제어** 탭에서 **새 리포지토리...**를 클릭합니다.  
+- 팀 프로젝트에 새 리포지토리 *<팀 이름\>Utilities*를 만들려면 팀 프로젝트 제어판의 **버전 제어** 탭에서 **새 리포지토리...** 를 클릭합니다.  
 
     ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 

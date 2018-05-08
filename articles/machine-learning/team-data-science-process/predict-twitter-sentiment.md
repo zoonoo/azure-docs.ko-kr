@@ -3,7 +3,7 @@ title: Azure에서 Team Data Science Process를 사용하여 단어 포함으로
 description: 데이터 과학 프로젝트를 실행하는 데 필요한 단계입니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: bradsev
-ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: deguhath
+ms.openlocfilehash: fd14096813c0178761df707503ce96b1d56f2e0e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Team Data Science Process를 사용하여 단어 포함으로 Twitter 감정 예측
 

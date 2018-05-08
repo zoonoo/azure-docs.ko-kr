@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e2af462d6fe0a6a9811e885199d70a182bf145c7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d7c35b79dcdf75dbb3f891dc4c66cbf893b61c03
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 머신 준비
 * [Azure용 CentOS 6.x 가상 머신 준비](#centos-6x)
@@ -305,7 +305,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
    
    initramfs를 다시 빌드합니다.
    
-        # sudo dracut –f -v
+        # sudo dracut -f -v
 
 11. Azure Linux 에이전트 및 종속성을 설치합니다.
 

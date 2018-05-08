@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: e342a10c2f3b6c32d8d0bc727bf3325c26fb53d6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 49ec67d06446d6c48e45aef90e2bd528a1b541a9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>자습서: Azure에서 Python 및 PostgreSQL 웹앱 빌드
 
@@ -137,20 +137,15 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 다음 명령에서 *\<postgresql_name>* 자리 표시자를 고유한 서버 이름으로, *\<admin_username>* 을 사용자 이름으로, *\<admin_password* 자리 표시자를 암호로 대체하세요. 서버 이름은 PostgreSQL 끝점(`https://<postgresql_name>.postgres.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_username> --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
 
 PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
 ```json
 {
-  "additionalProperties": {},
-  "administratorLogin": "<my_admin_username>",
-  "earliestRestoreDate": "2018-04-19T22:51:05.340000+00:00",
-  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
   "location": "westeurope",
-  "name": "<postgresql_name>",
+  "name": "<postgresql_server_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
@@ -161,16 +156,8 @@ PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 �
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  "storageProfile": {
-    "additionalProperties": {},
-    "backupRetentionDays": 7,
-    "geoRedundantBackup": "Disabled",
-    "storageMb": 5120
-  },
-  "tags": null,
-  "type": "Microsoft.DBforPostgreSQL/servers",
-  "userVisibleState": "Ready",
-  "version": "9.6"
+  ...   +  
+  -  < Output has been truncated for readability >
 }
 ```
 

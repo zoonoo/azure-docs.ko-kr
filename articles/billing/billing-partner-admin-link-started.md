@@ -7,14 +7,14 @@ ms.author: dhgandhi
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: abab0e63f91ad34d2671c37773d47c31eeeb8339
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b135f62e9cb7946dfda106640497850716410a29
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결 
 파트너로써 고객의 리소스를 관리하기 위해 사용하는 계정에 파트너 ID를 연결하여 고객 관리에 대한 영향을 추적할 수 있습니다.

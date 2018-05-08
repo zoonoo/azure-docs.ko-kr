@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -86,7 +86,7 @@ Azure Active Directory 테넌트에 Azure Active Directory 장치 등록 서비�
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3부: Azure AD에서 장치 쓰기 저장 사용
 | Task | 참고 자료 |
 | --- | --- |
-| "Azure AD Connect에서 장치 쓰기 저장 사용"의 2부를 완료합니다. 완료한 후에 이 가이드로 돌아옵니다. |[Azure AD Connect에서 장치 쓰기 저장 사용](#upgrade-your-active-directory-domain-services-schema) |
+| "Azure AD Connect에서 장치 쓰기 저장 사용"의 2부를 완료합니다. 완료한 후에 이 가이드로 돌아옵니다. |[Azure AD Connect에서 장치 쓰기 저장 사용](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[선택 사항] 4부: Multi-Factor Authentication 사용
 Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 것이 좋습니다. Multi-Factor Authentication을 요구하려면 [사용자를 위한 Multi-Factor Authentication 보안 솔루션 선택](authentication/concept-mfa-whichversion.md)을 참조하세요. 여기에는 각 솔루션에 대한 설명, 선택한 솔루션을 구성하는 데 도움이 되는 링크가 포함되어 있습니다.
@@ -116,7 +116,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 > 
 
 1. 엔터프라이즈 관리자 및 스키마 관리자 권한이 모두 있는 계정으로 도메인 컨트롤러에 로그인합니다.
-2. **[media]\support\adprep** 디렉터리 및 하위 디렉터리를 Active Directory 도메인 컨트롤러 중 하나(여기서 **[media]**는 Windows Server 2012 R2 설치 미디어의 경로임)에 복사합니다.
+2. **[media]\support\adprep** 디렉터리 및 하위 디렉터리를 Active Directory 도메인 컨트롤러 중 하나(여기서 **[media]** 는 Windows Server 2012 R2 설치 미디어의 경로임)에 복사합니다.
 4. 명령 프롬프트에서 **adprep** 디렉터리로 이동하여 **adprep.exe /forestprep**을 실행합니다. 화면의 지시에 따라 스키마 업그레이드를 완료합니다.
 
 ## <a name="prepare-your-active-directory-to-support-devices"></a>장치를 지원하도록 Active Directory 준비

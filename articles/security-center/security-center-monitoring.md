@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 보안 모니터링 | Microsoft Docs"
-description: "이 문서는 Azure Security Center의 모니터링 기능을 시작하는 데 도움이 됩니다."
+title: Azure Security Center에서 보안 모니터링 | Microsoft Docs
+description: 이 문서는 Azure Security Center의 모니터링 기능을 시작하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 330a12f851ef0191adc4dc46102b798f1b752589
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Security Center에서 보안 상태 모니터링
 이 문서는 Azure Security Center의 모니터링 기능을 사용하여 정책 준수를 모니터링하는 데 도움이 됩니다.
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/09/2018
 **누락된 시스템 업데이트**에는 Windows 및 Linux에 대한 그래프 형식인 중요 업데이트의 요약이 있습니다. 두 번째 부분에는 다음 정보가 포함된 테이블이 있습니다.
 
 * **이름**: 누락된 업데이트의 이름입니다.
-*  **VM 및 컴퓨터 수**: 이 업데이트를 누락한 VM 및 컴퓨터의 총 수입니다.
+* **VM 및 컴퓨터 수**: 이 업데이트를 누락한 VM 및 컴퓨터의 총 수입니다.
 * **상태**: 권장 사항의 현재 상태입니다.
   * **열기**: 아직 해결되지 않은 권장 사항이 있습니다.
   * **진행 중**: 현재 권장 사항이 해당 리소스에 적용되고 있으며 아무런 작업도 수행할 필요가 없습니다.

@@ -3,7 +3,7 @@ title: Azure Security Center 플랫폼 마이그레이션 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center 데이터를 수집하는 방법에 대한 일부 변경 내용을 설명합니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 ms.assetid: 80246b00-bdb8-4bbc-af54-06b7d12acf58
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 2e2e8d7213504ccd71df7048045925bf566c76d5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 67cb532b6c8a5d00923bc3b41709956971ead5c3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure Security Center 플랫폼 마이그레이션
 

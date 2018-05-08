@@ -1,6 +1,6 @@
 ---
-title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 유지 관리"
-description: "FedRAMP 웹 응용 프로그램 자동화 - 유지 관리"
+title: Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 유지 관리
+description: FedRAMP 웹 응용 프로그램 자동화 - 유지 관리
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="maintenance-ma"></a>유지 관리(MA)
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure Reserve VM Instances Windows 소프트웨어 비용 | Microsoft Docs"
-description: "예약 가상 머신 인스턴스 비용에 포함되지 않은 Windows 소프트웨어 미터에 대해 알아봅니다."
+title: Azure Reserve VM Instances Windows 소프트웨어 비용 | Microsoft Docs
+description: 예약 가상 머신 인스턴스 비용에 포함되지 않은 Windows 소프트웨어 미터에 대해 알아봅니다.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Reserved Instances를 포함하지 않는 Windows 소프트웨어 비용
 

@@ -1,24 +1,24 @@
 ---
-title: "Apache Kafka를 통한 고가용성 - Azure HDInsight | Microsoft Docs"
-description: "Azure HDInsight의 Apache Kafka를 사용하여 고가용성을 보장하는 방법을 알아봅니다. HDInsight가 포함된 Azure 지역 내의 여러 장애 도메인에 있도록 Kafka에서 파티션 복제본의 균형을 다시 조정하는 방법을 알아봅니다."
+title: Apache Kafka를 통한 고가용성 - Azure HDInsight | Microsoft Docs
+description: Azure HDInsight의 Apache Kafka를 사용하여 고가용성을 보장하는 방법을 알아봅니다. HDInsight가 포함된 Azure 지역 내의 여러 장애 도메인에 있도록 Kafka에서 파티션 복제본의 균형을 다시 조정하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
 editor: cgronlun
+manager: jhubbard
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: hero-article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 9abd2c970a0429b908bd5650b0002c002bcdea83
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13b57957bac728befd9c79e7aff262c538b02b54
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka를 통한 데이터 고가용성
 

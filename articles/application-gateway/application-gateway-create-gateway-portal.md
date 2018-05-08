@@ -2,37 +2,37 @@
 title: Application Gateway 만들기 - Azure Portal | Microsoft Docs
 description: Azure Portal을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 0df71c445d2c5fc6827b69f708203a3b3e6e2b53
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 응용 프로그램 게이트웨이 만들기
 
 Azure Portal을 사용하여 응용 프로그램 게이트웨이를 만들거나 관리할 수 있습니다. 이 빠른 시작에서는 네트워크 리소스, 백 엔드 서버 및 응용 프로그램 게이트웨이를 만드는 방법을 보여 줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합니다.
+[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간에 통신하는 데 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
+가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
-2. **네트워킹**을 선택한 다음, 추천 목록에서 **응용 프로그램 게이트웨이**를 선택합니다.
+2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 응용 프로그램 게이트웨이에 대해 다음 값을 입력합니다.
 
     - *myAppGateway* - 응용 프로그램 게이트웨이의 이름
@@ -41,7 +41,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     ![새 응용 프로그램 게이트웨이 만들기](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
-5. **가상 네트워크 선택**을 클릭하고, **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
+5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
 
     - *myVNet* - 가상 네트워크 이름
     - *10.0.0.0/16* - 가상 네트워크 주소 공간
@@ -51,7 +51,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     ![가상 네트워크 만들기](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
 6. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
-6. **공용 IP 주소 선택**을 클릭하고, **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
+6. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 8. 수신기 구성에 대한 기본값을 적용하고, 웹 응용 프로그램 방화벽을 사용하지 않도록 설정한 상태로 둔 다음, **확인**을 클릭합니다.
 9. 요약 페이지에서 설정을 검토한 다음, **확인**을 클릭하여 가상 네트워크, 공용 IP 주소 및 응용 프로그램 게이트웨이를 만듭니다. 응용 프로그램 게이트웨이를 만드는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다린 후 다음 섹션으로 이동합니다.
 
@@ -62,11 +62,11 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
     ![서브넷 만들기](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-3. 서브넷 이름으로 *myBackendSubnet*을 입력한 다음, **확인**을 클릭합니다.
+3. 서브넷 이름에 *myBackendSubnet*을 입력한 다음, **확인**을 클릭합니다.
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 가상 머신에 IIS를 설치하여 응용 프로그램 게이트웨이가 성공적으로 만들어졌는지 확인합니다.
+이 예제에서는 응용 프로그램 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -77,13 +77,13 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     - *myVM* - 가상 머신의 이름
     - *azureuser* - 관리자 사용자 이름
     - *Azure123456!* - 암호
-    - **기존 항목 사용**, *myResourceGroupAG*를 차례로 선택합니다.
+    - **기존 항목 사용**을 선택한 다음, *myResourceGroupAG*를 선택합니다.
 
 4. **확인**을 클릭합니다.
 5. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
 6. 가상 네트워크에 대해 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
 7. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
-8. **확인**을 클릭하고, 요약 페이지에서 설정을 검토한 다음, **만들기** 클릭합니다.
+8. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
 
 ### <a name="install-iis"></a>IIS 설치
 
@@ -134,4 +134,4 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그런 다음, 이러한 리소스를 사용하여 응용 프로그램 게이트웨이를 만들었습니다. 응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 사용법 문서를 참조하세요.
+이 빠른 시작에서는 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그런 다음, 이러한 리소스를 사용하여 응용 프로그램 게이트웨이를 만들었습니다. 응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 방법 문서를 참조하세요.

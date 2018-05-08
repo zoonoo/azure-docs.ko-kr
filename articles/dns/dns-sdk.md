@@ -3,8 +3,8 @@ title: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합 
 description: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합을 만드는 방법입니다.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: jonatul
-ms.openlocfilehash: f6f10649670dac523289724603e2aecaf17fa67d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: kumud
+ms.openlocfilehash: 645bf755cc3cb4036104145765196fc97039c551
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/16/2018
 Azure DNS .NET SDK를 사용하려면 **Azure DNS 관리 라이브러리** NuGet 패키지 및 기타 필수 Azure 패키지를 설치해야 합니다.
 
 1. **Visual Studio**에서 프로젝트 또는 새 프로젝트를 엽니다.
-2. **도구** **>** **NuGet 패키지 관리자** **>** **솔루션의 NuGet 패키지 관리...**로 이동합니다.
+2. **도구** **>** **NuGet 패키지 관리자** **>** **솔루션의 NuGet 패키지 관리...** 로 이동합니다.
 3. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 사용하도록 설정한 후, 검색 상자에 **Microsoft.Azure.Management.Dns**를 입력합니다.
 4. 패키지를 선택하고 **설치** 를 클릭하여 Visual Studio 프로젝트에 추가합니다.
 5. 또한 위의 프로세스를 반복하여 **Microsoft.Rest.ClientRuntime.Azure.Authentication** 및 **Microsoft.Azure.Management.ResourceManager** 패키지를 설치합니다.

@@ -1,24 +1,24 @@
 ---
-title: "Azure 청구서 이해"
-description: "Azure 구독에 대한 사용량 및 청구를 읽고 이해하는 방법에 대해 알아봅니다."
-services: 
-documentationcenter: 
+title: Azure 청구서 이해
+description: Azure 구독에 대한 사용량 및 청구를 읽고 이해하는 방법에 대해 알아봅니다.
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 38126e4539719ba56e6e5eac5e860cea9b49d446
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서의 조건 이해
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/09/2018
 | --- | --- |
 | 고객 PO 번호 |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
 | 청구서 번호 |추적을 위해 사용할 고유하게 생성된 Microsoft 청구서 번호 |
-| 대금 청구 주기 |이 청구서에 해당되는 날짜 범위 |
+| 청구 주기 |이 청구서에 해당되는 날짜 범위 |
 | 청구서 날짜 |청구서를 만든 날짜이며 일반적으로 청구 주기 종료 다음날 |
 | 결제 방법 |계정에 사용되는 지불 유형(청구서 또는 신용 카드) |
 | 청구지 |계정에 나열된 청구 주소 |
@@ -98,12 +98,12 @@ ms.lasthandoff: 01/09/2018
 
 | 용어 |설명 |
 | --- | --- |
-| 이름 |사용 현황의 최상위 서비스를 식별합니다. |
+| Name |사용 현황의 최상위 서비스를 식별합니다. |
 | type |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
 | 리소스 |사용 중인 미터에 대한 측정 단위를 식별합니다. |
 | 지역 |데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
 | 사용 |청구 기간 동안 사용된 미터의 양입니다. |
-| 포함됨 |현재 청구 기간 동안 무료로 제공되는 미터의 양입니다. |
+| 포함 |현재 청구 기간 동안 무료로 제공되는 미터의 양입니다. |
 | 청구 가능 |소비된 수량과 포함된 수량 간의 차이를 나타냅니다. 이 수량에 대해 요금이 청구됩니다. 수량이 제품에 포함되지 않는 종량제 제품의 경우 이 합계는 사용량과 동일합니다. |
 | 비용 |청구 가능 단위당 청구되는 요율입니다. |
 | 값 |평균 수량 열과 요율 열을 곱한 결과를 보여 줍니다. 소비된 수량이 포함된 수량을 초과하지 않으면 이 열에 청구되는 비용이 없습니다. |
@@ -113,5 +113,5 @@ ms.lasthandoff: 01/09/2018
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>청구서의 요금이 맞는지 확인하려면 어떻게 할까요?
 청구서의 요금에 대한 더 자세한 내용을 보려는 경우 [Microsoft Azure의 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

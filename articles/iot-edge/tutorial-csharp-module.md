@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 09e20d9a80b881075d9bb6be7d4daafc739340a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>C# IoT Edge 모듈을 개발하여 시뮬레이트된 장치에 배포 - 미리 보기
 
@@ -115,9 +115,10 @@ ms.lasthandoff: 03/28/2018
     // Read TemperatureThreshold from Module Twin Desired Properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
     var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
+    try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    } catch(ArgumentOutOfRangeException e) {
+        Console.WriteLine("Proerty TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates
@@ -223,6 +224,7 @@ ms.lasthandoff: 03/28/2018
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   이 명령에서 사용할 사용자 이름, 암호 및 로그인 서버를 찾으려면 [Azure Portal](https://portal.azure.com))로 이동합니다. **모든 리소스**에서 Azure Container Registry에 대한 타일을 클릭하여 속성을 연 다음 **액세스 키**를 클릭합니다. **사용자 이름**, **암호** 및 **로그인 서버** 필드의 값을 복사합니다. 
 
 2. VS Code 탐색기에서 **module.json** 파일을 마우스 오른쪽 단추로 클릭하고 **Build and Push IoT Edge module Docker image**(IoT Edge 모듈 Docker 이미지 빌드 및 푸시)를 클릭합니다. VS Code 창의 맨 위에 있는 팝업 드롭다운 상자에서 컨테이너 플랫폼을 선택합니다. Linux 컨테이너의 경우 **amd64**, Windows 컨테이너의 경우 **windows-amd64**를 선택합니다. 그러면 VS Code에서 코드가 작성되고 `FilterModule.dll`이 컨테이너화되어 지정한 컨테이너 레지스트리로 푸시됩니다.
 
@@ -247,7 +249,7 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
 ## <a name="run-the-solution"></a>솔루션 실행
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub로 이동합니다.
-2. **IoT Edge(미리 보기)**로 이동하여 IoT Edge 장치를 선택합니다.
+2. **IoT Edge(미리 보기)** 로 이동하여 IoT Edge 장치를 선택합니다.
 3. **모듈 설정**을 선택합니다. 
 4. **tempSensor** 모듈이 자동으로 채워지는지 확인합니다. 그렇지 않은 경우 다음 단계를 사용하여 추가합니다.
     1. **IoT Edge 모듈 추가**를 선택합니다.
@@ -291,7 +293,7 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
 IoT Edge 장치에서 IoT Hub로 보낸 장치-클라우드 메시지를 모니터하려면 다음을 수행하세요.
 1. IoT Hub용 연결 문자열로 Azure IoT Toolkit 확장을 구성합니다. 
     1. **보기** > **탐색기**를 선택하여 VS Code 탐색기를 엽니다. 
-    2. 탐색기에서 **IOT HUB 장치**를 클릭하고 **...**을 클릭합니다. **IoT Hub 연결 문자열 설정**을 클릭하고, 팝업 창에서 IoT Edge 장치를 연결할 IoT Hub용 연결 문자열을 입력합니다. 
+    2. 탐색기에서 **IOT HUB 장치**를 클릭하고 **...** 을 클릭합니다. **IoT Hub 연결 문자열 설정**을 클릭하고, 팝업 창에서 IoT Edge 장치를 연결할 IoT Hub용 연결 문자열을 입력합니다. 
 
         연결 문자열을 찾으려면 Azure Portal에서 IoT Hub의 타일을 클릭한 다음 **공유 액세스 정책**을 클릭합니다. **공유 액세스 정책**에서 **iothubowner** 정책을 클릭한 다음 **iothubowner** 창에 있는 IoT Hub 연결 문자열을 복사합니다.   
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight Hive 테이블에서 데이터 샘플링 | Microsoft Docs"
-description: "Azure HDInsight(Hadopop) Hive 테이블에서 데이터 다운 샘플링"
+title: Azure HDInsight Hive 테이블에서 데이터 샘플링 | Microsoft Docs
+description: Azure HDInsight(Hadopop) Hive 테이블에서 데이터 다운 샘플링
 services: machine-learning,hdinsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: f31e8d01-0fd4-4a10-b1a7-35de3c327521
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: d765c2adc8a3aa77d903490875c7f8ad622ef4d2
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: b40aae9d494f3e7ebeae56fcad48f0ff47798bbc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive 테이블에서 데이터 샘플링
 이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블에 저장된 데이터를 다운 샘플링함으로써 분석을 위해 보다 관리하기 쉬운 크기로 줄이는 방법에 대해 설명합니다. 일반적으로 다음 세 가지 샘플링 방법이 사용됩니다.

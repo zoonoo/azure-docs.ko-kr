@@ -1,24 +1,24 @@
 ---
-title: "Enterprise용 Azure Reserved Instance 사용 이해 | Microsoft Docs"
-description: "Enterprise 등록에서 Reserved Instance의 적용을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다."
+title: Enterprise용 Azure Reserved Instance 사용 이해 | Microsoft Docs
+description: Enterprise 등록에서 Reserved Instance의 적용을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Enterprise 등록의 Reserved Instance 사용 이해
 [예약 페이지](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade )의 ReservationId 및 [EA 포털](https://ea.azure.com)의 사용량 파일을 사용하여 Reserved Instance의 활용을 이해합니다. [EA 포털](https://ea.azure.com)의 사용량 요약 페이지에서도 예약 사용량을 파악할 수 있습니다.
@@ -67,6 +67,6 @@ Reserved Instance 사용량은 EA 포털: ![EA 사용량 요약](./media/billing
 - [종량제 구독에서 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

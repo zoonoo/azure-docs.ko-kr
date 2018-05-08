@@ -3,18 +3,18 @@ title: '자습서: Azure Portal을 사용하여 Stream Analytics 작업을 만�
 description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 종단 간 일러스트레이션을 제공합니다.
 services: stream-analytics
 author: SnehaGunda
+ms.author: sngun
 manager: kfile
 ms.service: stream-analytics
+ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: 0c8fb0430d41babba1eb2bb3edd57d0ad4f3bede
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 전화 통화 데이터를 분석하고 결과를 시각화하는 Stream Analytics 작업 만들기
 
@@ -135,7 +135,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    |구독    |  \<사용자의 구독\>   |   작업을 만들 Azure 구독을 선택합니다.       |
    |리소스 그룹   |   MyASADemoRG      |   **기존 항목 사용**을 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.      |
    |위치   |    미국 서부2     |      작업을 배포할 수 있는 위치입니다. 최상의 성능을 위해 동일한 지역에 작업 및 이벤트 허브를 배치하는 것이 좋으며 지역 간에 데이터를 전송하는 데 비용을 지불하지 않아도 됩니다.      |
-   |호스팅 환경    | 클라우드        |     Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT 에지 장치에 배포할 수 있습니다.    |
+   |호스팅 환경    | 클라우드        |     Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure Cloud에 배포할 수 있고, 에지를 사용하면 IoT 에지 장치에 배포할 수 있습니다.    |
    |스트리밍 단위     |    1       |      스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.      |
 
    ![작업 만들기](media/stream-analytics-manage-job/create-a-job.png)   

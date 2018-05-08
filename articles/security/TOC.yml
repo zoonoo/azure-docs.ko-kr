@@ -162,44 +162,13 @@
         - name: Azure 보고 도구를 사용하여 개인 데이터 보호
           href: protection-personal-data-azure-reporting-tools.md
     - name: FEDRAMP
-      href: ./blueprints/fedramp.md
       items:
-        - name: 보안 제어 개요
-          href: ./blueprints/fedramp-controls-overview.md
-        - name: Access Control
-          href: ./blueprints/fedramp-access-controls.md
-        - name: 감사 및 책임
-          href: ./blueprints/fedramp-audit-accountability-controls.md
-        - name: 인식 및 교육
-          href: ./blueprints/fedramp-awareness-training-controls.md
-        - name: 구성 관리
-          href: ./blueprints/fedramp-configuration-manager-controls.md
-        - name: 대체 계획
-          href: ./blueprints/fedramp-contingency-planning-controls.md
-        - name: 식별 및 인증
-          href: ./blueprints/fedramp-identification-authentication-controls.md
-        - name: 사고 대응
-          href: ./blueprints/fedramp-incident-response-controls.md
-        - name: 유지 관리
-          href: ./blueprints/fedramp-maintenance-controls.md
-        - name: 미디어 보호
-          href: ./blueprints/fedramp-media-protection-controls.md
-        - name: 직원 보안
-          href: ./blueprints/fedramp-personnel-security-controls.md
-        - name: 물리적 및 환경적 보호
-          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-        - name: 계획
-          href: ./blueprints/fedramp-planning-controls.md
-        - name: 위험 평가
-          href: ./blueprints/fedramp-risk-assessment-controls.md
-        - name: 보안 평가 및 권한 부여
-          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-        - name: 시스템 및 통신 보호
-          href: ./blueprints/fedramp-system-communications-protection-controls.md
-        - name: 시스템 및 정보 무결성
-          href: ./blueprints/fedramp-system-information-integrity-controls.md
-        - name: 시스템 및 서비스 획득
-          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+        - name: 데이터 분석
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: 데이터 웨어하우스
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: IaaS 웹 응용 프로그램
+          href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:

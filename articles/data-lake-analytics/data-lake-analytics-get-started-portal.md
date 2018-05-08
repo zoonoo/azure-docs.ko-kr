@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: saveenr
-ms.openlocfilehash: bdd9ff78e8f720a7f1318c320d10070cbdd2d566
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -68,8 +68,7 @@ OUTPUT @a
 2. 위에 표시된 U-SQL 스크립트의 텍스트에 붙여넣습니다. 
 3. **작업 제출**을 클릭합니다.   
 4. 작업 상태가 **Succeeded**로 바뀔 때까지 기다립니다.
-5. 작업이 실패한 경우 [Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)을 참조하세요.
-6. **출력** 탭을 클릭하고 `data.csv`를 클릭합니다. 
+5. **출력** 탭을 클릭하고 `data.csv`를 클릭합니다. 
 
 ## <a name="see-also"></a>참고 항목
 

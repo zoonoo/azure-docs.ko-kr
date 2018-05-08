@@ -1,24 +1,24 @@
 ---
-title: "무료 서비스 사용량 모니터링 및 추적 - Azure| Microsoft Docs"
-description: "무료 서비스 사용량을 확인하는 방법을 알아봅니다. Azure Portal 및 사용량 csv를 사용합니다."
-services: 
-documentationcenter: 
+title: 무료 서비스 사용량 모니터링 및 추적 - Azure| Microsoft Docs
+description: 무료 서비스 사용량을 확인하는 방법을 알아봅니다. Azure Portal 및 사용량 csv를 사용합니다.
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 560137d92491da46fda950dec84a0a7caa3ed720
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인 
 
@@ -54,9 +54,9 @@ ms.lasthandoff: 02/21/2018
 * **사용/한도:** 현재 월의 사용량 및 측정기의 제한입니다. 이 정보는 상태 표시줄에서 찾을 수 있습니다.
 * **상태:** 측정기의 사용 상태입니다. 사용 패턴에 따라, 다음 상태 중 하나일 수 있습니다.
   * **사용 중이 아님:** 측정기를 사용하지 않았거나 측정기의 사용량이 청구 시스템에 연결되지 않았습니다.
-  * **\<Date>**에 초과됨: \<Date>에 측정기 제한에 도달했습니다.
+  * **\<Date>** 에 초과됨: \<Date>에 측정기 제한에 도달했습니다.
   * **초과할 가능성이 낮음:** 측정기의 제한을 초과할 가능성이 낮습니다.
-  * **\<Date>**에 초과: \<Date>에 측정기 제한에 도달할 가능성이 높습니다.
+  * **\<Date>** 에 초과: \<Date>에 측정기 제한에 도달할 가능성이 높습니다.
 
 
 ## <a name="check-usage-through-the-usage-file"></a>사용량 파일을 통해 사용량 확인
@@ -68,6 +68,6 @@ ms.lasthandoff: 02/21/2018
 ![무료 서비스의 사용량을 보여 주는 스크린샷](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

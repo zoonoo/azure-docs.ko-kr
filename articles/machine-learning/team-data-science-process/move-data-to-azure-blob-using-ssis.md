@@ -1,9 +1,9 @@
 ---
-title: "SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동 | Microsoft Docs"
-description: "SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동"
+title: SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동 | Microsoft Docs
+description: SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 39feca23532264c1f4c17017f89b064af09e9c1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
 [Azure용 SQL Server Integration Services 기능 팩](https://msdn.microsoft.com/library/mt146770.aspx) 에서는 Azure에 연결하고, Azure와 온-프레미스 데이터 원본 간에 데이터를 전송하며, Azure에 저장된 데이터를 처리하는 구성 요소를 제공합니다.
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-고객은 온-프레미스 데이터를 클라우드로 이동한 후 Azure 서비스에서 데이터에 액세스하여 Azure 기술의 완전한 기능을 활용할 수 있습니다. 예를 들어 Azure 기계 학습 또는 HDInsight 클러스터에서 사용할 수 있습니다.
+고객은 온-프레미스 데이터를 클라우드로 이동한 후 Azure 서비스에서 데이터에 액세스하여 Azure 기술의 완전한 기능을 활용할 수 있습니다. 예를 들어 Azure Machine Learning 또는 HDInsight 클러스터에서 사용할 수 있습니다.
 
 이는 일반적으로 [SQL](sql-walkthrough.md) 및 [HDInsight](hive-walkthrough.md) 연습의 첫 번째 단계입니다.
 

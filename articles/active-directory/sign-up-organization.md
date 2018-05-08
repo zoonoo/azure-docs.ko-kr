@@ -1,25 +1,23 @@
 ---
-title: "조직으로 Azure 등록"
-description: "회사 또는 학교 계정을 사용하여 이미 소유하고 있는 기존 사용자 계정, 정책, 설정 또는 온-프레미스 서버 배포를 활용하고 조직의 온-프레미스 ID 인프라와 Azure AD 간의 효율성을 개선하는 방법에 대해 알아봅니다."
+title: 조직으로 Azure 등록
+description: 회사 또는 학교 계정을 사용하여 이미 소유하고 있는 기존 사용자 계정, 정책, 설정 또는 온-프레미스 서버 배포를 활용하고 조직의 온-프레미스 ID 인프라와 Azure AD 간의 효율성을 개선하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: eab79e4c1b579697f702c41e40f6b27b2d3d0864
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5d8bb9769cbaa10a62fd2cf923235049429b7018
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>조직으로 Azure 등록
 얼마 전까지만 해도 Microsoft 계정(Windows Live ID)을 사용해서만 새 Microsoft Azure 구독에 등록할 수 있었습니다. 이제 Azure에서는 다음 두 계정 방법 중 하나를 사용하여 등록할 수 있습니다.

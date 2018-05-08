@@ -2,7 +2,7 @@
 title: Team Data Science Process 역할 및 작업 - Azure | Microsoft Docs
 description: 주요 구성 요소, 담당자 역할 및 데이터 과학 팀 프로젝트에 대한 관련 작업의 개요입니다.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 00d8761a7afe4b727c04626c0ba7c032b2277f48
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 역할 및 작업
 
@@ -82,7 +82,7 @@ Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예�
 - 버전 관리 및 공동 작업에 대한 코드 호스팅 플랫폼으로 VSTS를 선택한 경우 그룹의 VSTS 서버에 **팀 프로젝트**를 만듭니다. 그렇지 않은 경우 이 작업은 건너뛸 수 있습니다.
 - 팀 프로젝트 아래 **팀 프로젝트 템플릿 리포지토리**를 만들고 그룹 관리자 또는 관리자의 대리인이 설정한 그룹 프로젝트 템플릿 리포지토리에서 시드합니다. 
 - **팀 유틸리티 리포지토리**를 만들고 팀별 유틸리티를 리포지토리에 추가합니다. 
-- (선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 **[Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)**를 만듭니다. 다른 팀 구성원도 팀의 분석 데스크톱에 이 공유 클라우드 파일 저장소를 탑재할 수 있습니다.
+- (선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 **[Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)** 를 만듭니다. 다른 팀 구성원도 팀의 분석 데스크톱에 이 공유 클라우드 파일 저장소를 탑재할 수 있습니다.
 - (선택 사항) Azure 파일 저장소를 팀 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 데이터 자산을 추가합니다.
 - 팀 구성원을 추가하고 권한을 구성하여 **보안 제어**를 설정합니다. 
 

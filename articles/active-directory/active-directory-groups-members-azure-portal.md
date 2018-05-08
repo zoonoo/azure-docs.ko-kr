@@ -1,26 +1,24 @@
 ---
-title: "Azure Active Directory에서 그룹의 멤버 관리 | Microsoft Docs"
-description: "Azure Active Directory의 그룹에서 사용자 및 장치를 추가 또는 제거하는 방법"
+title: Azure Active Directory에서 그룹의 멤버 관리 | Microsoft Docs
+description: Azure Active Directory의 그룹에서 사용자 및 장치를 추가 또는 제거하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: d399a97d-fd2a-4b2d-b73d-0975db83f41b
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 31ab2ae51174061fc4b4a232ebbc7acab86e1ab8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a35e85feb10997f458c7f3764920891e7932de59
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리
 이 문서는 Azure AD(Azure Active Directory)에서 그룹의 멤버를 관리하는 방법을 설명합니다.

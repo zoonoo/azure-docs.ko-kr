@@ -1,9 +1,9 @@
 ---
-title: "Azure VM에서 SQL Server를 사용하여 기계 학습 모델 빌드 및 배포 | Microsoft Docs"
-description: "활성 중인 고급 분석 프로세스 및 기술"
+title: Azure VM에서 SQL Server를 사용하여 기계 학습 모델 빌드 및 배포 | Microsoft Docs
+description: 활성 중인 고급 분석 프로세스 및 기술
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 1e53814c0c0598380944d576e1937e38d1e1d792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
@@ -69,8 +69,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 Azure 데이터 과학 환경을 설정하려면
 
 1. [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md)
-2. 
-            [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
+2. [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
 3. [데이터 과학 Virtual Machine 프로비전](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)(SQL Server 및 IPython Notebook 서버 제공)
    
    > [!NOTE]
@@ -379,7 +378,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 ![그릴 #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>SQL에서 데이터 하위 샘플링
-[Azure Machine Learning 스튜디오](https://studio.azureml.net)에서 모델을 빌드하기 위해 데이터를 준비할 때 **데이터 가져오기 모듈에서 직접 사용할 SQL 쿼리**를 결정하거나, 간단한 **SELECT * FROM <your\_new\_table\_name>**을 사용하여 [데이터 가져오기][import-data] 모듈에서 사용할 수 있는 엔지니어링 및 샘플링된 데이터를 새 테이블에 유지할 수 있습니다.
+[Azure Machine Learning 스튜디오](https://studio.azureml.net)에서 모델을 빌드하기 위해 데이터를 준비할 때 **데이터 가져오기 모듈에서 직접 사용할 SQL 쿼리**를 결정하거나, 간단한 **SELECT * FROM <your\_new\_table\_name>** 을 사용하여 [데이터 가져오기][import-data] 모듈에서 사용할 수 있는 엔지니어링 및 샘플링된 데이터를 새 테이블에 유지할 수 있습니다.
 
 이 섹션에서는 샘플링 및 엔지니어링된 데이터를 유지할 새 테이블을 만듭니다. 모델 빌드를 위한 직접 SQL 쿼리 예제는 SQL Server에서 [데이터 탐색 및 기능 엔지니어링 섹션](#dbexplore) 에서 제공됩니다.
 
@@ -557,8 +556,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 모델링 연습을 시작하려면 Azure Machine Learning 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)를 참조하세요.
 
 1. Azure Machine Learning을 시작하려면 [Azure Machine Learning Studio란?](../studio/what-is-ml-studio.md)
-2. 
-            [Azure Machine Learning Studio](https://studio.azureml.net)에 로그인합니다.
+2. [Azure Machine Learning Studio](https://studio.azureml.net)에 로그인합니다.
 3. 스튜디오 홈 페이지에서는 다양한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공합니다. Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 일반적인 학습 실험은 다음으로 구성됩니다.
@@ -576,8 +574,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 
 이 연습에서는 이미 SQL Server에서 데이터를 탐색 및 엔지니어링하고 Azure Machine Learning에서 수집할 샘플 크기를 결정했습니다. 결정한 예측 모델 중 하나 이상을 빌드하려면 다음을 수행합니다.
 
-1. 
-            **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure Machine Learning으로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
+1. **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure Machine Learning으로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
    
     ![Azure Machine Learning 데이터 가져오기][17]
 2. **속성** 패널에서 **Azure SQL Database**를 **데이터 원본**으로 선택합니다.

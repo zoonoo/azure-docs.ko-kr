@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스 | Microsoft Docs"
-description: "REST를 사용하여 Azure Active Directory 인증으로 Azure Media Services API를 액세스하는 방법을 알아봅니다."
+title: Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스 | Microsoft Docs
+description: REST를 사용하여 Azure Active Directory 인증으로 Azure Media Services API를 액세스하는 방법을 알아봅니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스
 

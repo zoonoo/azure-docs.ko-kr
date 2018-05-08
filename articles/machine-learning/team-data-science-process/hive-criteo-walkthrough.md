@@ -3,7 +3,7 @@ title: 실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에
 description: HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 팀 데이터 과학 프로세스를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다.
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 72d958c4-3205-49b9-ad82-47998d400d2b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: deguhath
+ms.openlocfilehash: 187171d75a6bcc54a48c891aa2eafd8408b06ddb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -80,10 +80,10 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 1. 이 공용 Blob Storage의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
    
-   1. 하위 폴더 *raw/count/*는 처음 21일간의 데이터(day\_00~day\_20)를 포함합니다.
-   2. 하위 폴더 *raw/train/*은 단일 날짜의 데이터(day\_21)를 포함합니다.
-   3. 하위 폴더 *raw/test/*는 2일간의 데이터(day\_22 및 day\_23)를 포함합니다.
-2. 원시 gzip 데이터로 시작하려는 경우 기본 폴더 *raw/*에서 day_NN.gz(여기서 NN은 00~23)로 제공됩니다.
+   1. 하위 폴더 *raw/count/* 는 처음 21일간의 데이터(day\_00~day\_20)를 포함합니다.
+   2. 하위 폴더 *raw/train/* 은 단일 날짜의 데이터(day\_21)를 포함합니다.
+   3. 하위 폴더 *raw/test/* 는 2일간의 데이터(day\_22 및 day\_23)를 포함합니다.
+2. 원시 gzip 데이터로 시작하려는 경우 기본 폴더 *raw/* 에서 day_NN.gz(여기서 NN은 00~23)로 제공됩니다.
 
 로컬 다운로드가 필요 없는 이 데이터를 액세스, 탐색 및 모델링하는 다른 방법은 이 연습의 뒷부분에서 Hive 테이블을 만들 때 설명합니다.
 

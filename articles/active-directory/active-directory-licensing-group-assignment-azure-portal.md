@@ -1,26 +1,24 @@
 ---
-title: "Azure Active Directory에서 그룹에 라이선스 할당 | Microsoft Docs"
-description: "Azure Active Directory 그룹 기반 라이선스를 사용하여 사용자에게 라이선스를 할당하는 방법"
+title: Azure Active Directory에서 그룹에 라이선스 할당 | Microsoft Docs
+description: Azure Active Directory 그룹 기반 라이선스를 사용하여 사용자에게 라이선스를 할당하는 방법
 services: active-directory
-keywords: "Azure AD 라이선스"
-documentationcenter: 
+keywords: Azure AD 라이선스
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 091750d7cadd460ac46d3293951bf4423383c3c5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
 
@@ -49,7 +47,7 @@ ms.lasthandoff: 02/21/2018
 
    ![그룹 선택](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. **라이선스 할당** 창에서 **할당 옵션(선택 사항)**을 클릭하여 앞서 선택한 두 가지 제품에 포함된 모든 서비스 계획을 표시합니다. **Yammer Enterprise**를 찾은 후 **해제**하여 제품 라이선스에서 해당 서비스를 사용하지 않도록 설정합니다. **할당 옵션** 맨 아래에서 **확인**을 클릭하여 확인합니다.
+6. **라이선스 할당** 창에서 **할당 옵션(선택 사항)** 을 클릭하여 앞서 선택한 두 가지 제품에 포함된 모든 서비스 계획을 표시합니다. **Yammer Enterprise**를 찾은 후 **해제**하여 제품 라이선스에서 해당 서비스를 사용하지 않도록 설정합니다. **할당 옵션** 맨 아래에서 **확인**을 클릭하여 확인합니다.
 
    ![할당 옵션](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 

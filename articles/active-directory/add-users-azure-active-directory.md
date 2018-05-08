@@ -1,25 +1,23 @@
 ---
-title: "Azure Active Directory에서 사용자 추가 또는 삭제 | Microsoft Docs"
-description: "Azure Active Directory에서 새 사용자를 추가하거나 기존 사용자를 삭제하는 방법을 설명합니다."
+title: Azure Active Directory에서 사용자 추가 또는 삭제 | Microsoft Docs
+description: Azure Active Directory에서 새 사용자를 추가하거나 기존 사용자를 삭제하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3e8b7061e57c1baf222e5f565a5b7efc6b997507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>빠른 시작: Azure Active Directory에 새 사용자 추가
 이 문서에서는 Azure Porta을 사용하거나 온-프레미스 Windows Server AD 사용자 계정 데이터를 동기화하여 조직의 Azure AD(Azure Active Directory) 테넌트에서 조직의 사용자를 삭제 또는 추가하는 방법을 설명합니다. 

@@ -1,22 +1,22 @@
 ---
-title: "Azure 무료 계정으로 무료 계정 만들기 | Microsoft Docs"
-description: "Azure 무료 계정에 포함된 서비스를 만드는 방법을 알아봅니다."
-documentationcenter: 
+title: Azure 무료 계정으로 무료 계정 만들기 | Microsoft Docs
+description: Azure 무료 계정에 포함된 서비스를 만드는 방법을 알아봅니다.
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: dfcf4c98a27f6ea31b92f51737e9ca3768da8f5c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 84b73d3f1481c0c1a551da50b9f6292cd835d567
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure 무료 계정에 포함된 서비스 만들기
 
@@ -33,6 +33,6 @@ Azure 무료 계정에는 12개월 동안 사용할 수 있는 제한 수량의 
 ## <a name="multiple-instances-of-services-can-be-created-within-allowed-limits"></a>허용된 제한 내에서 서비스의 여러 인스턴스를 만들 수 있음
 사용량 합계가 사용 한도를 벗어나지만 않으면 서비스의 여러 인스턴스를 만들 수 있습니다. 예를 들어 Azure 무료 계정을 사용하여 매월 750시간 동안 B1S Windows 가상 머신을 무료로 사용할 수 있습니다. 원하는 어떤 조합이든 750시간을 사용할 수 있습니다. 예를 들어 B1S Windows 가상 머신을 5개 만들고 각각 150시간씩 사용할 수 있습니다. 
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

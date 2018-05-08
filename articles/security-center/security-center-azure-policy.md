@@ -1,11 +1,11 @@
 ---
-title: "Azure Policy를 사용하여 Azure Security Center 보안 정책 통합 | Microsoft Docs"
-description: "이 문서를 통해 Azure Policy를 사용하여 Azure Security Center 보안 정책 통합을 구성할 수 있습니다."
+title: Azure Policy를 사용하여 Azure Security Center 보안 정책 통합 | Microsoft Docs
+description: 이 문서를 통해 Azure Policy를 사용하여 Azure Security Center 보안 정책 통합을 구성할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: d0092f57c162cc8727cfed33218e440d4da11f1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure Policy를 사용하여 Security Center 보안 정책 통합
 이 문서를 사용하면 Azure Policy에서 제공하는 Azure Security Center 보안 정책을 구성할 수 있습니다.

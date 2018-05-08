@@ -1,11 +1,11 @@
 ---
-title: "Python 및 Azure Cloud Services 시작 | Microsoft Docs"
-description: "Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다."
+title: Python 및 Azure Cloud Services 시작 | Microsoft Docs
+description: Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다.
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6bd89c160387abbb2b0339a5a5f62d998c0c84e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Python 웹 및 작업자 역할 정의
-Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure App Service의 Web Apps 기능][execution model-web sites], [Azure Virtual Machines][execution model-vms] 및 [Azure Cloud Services][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)*를 제공합니다. Cloud Service 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
+Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure App Service의 Web Apps 기능][execution model-web sites], [Azure Virtual Machines][execution model-vms] 및 [Azure Cloud Services][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)* 를 제공합니다. Cloud Service 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
 
 자세한 내용은 [Cloud Service란?]을 참조하세요.
 
@@ -63,7 +63,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 ![역할 추가 명령](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다.  예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C# 작업자 역할이 포함될 수 있습니다.  서비스 버스 큐 또는 저장소 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
+클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다.  예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C# 작업자 역할이 포함될 수 있습니다.  Service Bus 큐 또는 저장소 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
 
 ## <a name="install-python-on-the-cloud-service"></a>클라우드 서비스에 Python 설치
 > [!WARNING]
@@ -172,6 +172,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 이 스크립트는 Python을 설치합니다. **PYTHON2** 환경 변수가 **켜기**로 설정된 경우 Python 2.7이 설치되고 그렇지 않으면 Python 3.5가 설치됩니다.
 
 ```powershell
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
@@ -326,7 +327,7 @@ PTVS를 에뮬레이터에서 시작할 수는 있지만 중단점 등의 디버
 몇 분 후에 배포가 완료되고 웹 및/또는 작업자 역할이 Azure에서 실행됩니다.
 
 ### <a name="investigate-logs"></a>로그 조사
-클라우드 서비스 가상 컴퓨터가 시작되고 Python을 설치한 후에 로그를 보고 오류 메시지를 찾을 수 있습니다. 이러한 로그는 **C:\Resources\Directory\\{role}\LogFiles** 폴더에 있습니다. 스크립트에서 Python이 설치되어 있는지 검색하려고 할 때 **PrepPython.err.txt**에는 하나 이상의 오류가 발견됩니다. **PipInstaller.err.txt**는 PIP의 이전 버전과 호환되지 않을 수 있습니다.
+클라우드 서비스 가상 머신이 시작되고 Python을 설치한 후에 로그를 보고 오류 메시지를 찾을 수 있습니다. 이러한 로그는 **C:\Resources\Directory\\{role}\LogFiles** 폴더에 있습니다. 스크립트에서 Python이 설치되어 있는지 검색하려고 할 때 **PrepPython.err.txt**에는 하나 이상의 오류가 발견됩니다. **PipInstaller.err.txt**는 PIP의 이전 버전과 호환되지 않을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Python Tools for Visual Studio에서 웹 및 작업자 역할을 사용하는 방법에 대한 자세한 내용은 PTVS 설명서를 참조하세요.

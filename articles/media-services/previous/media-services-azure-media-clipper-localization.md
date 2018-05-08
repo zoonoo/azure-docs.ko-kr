@@ -1,8 +1,8 @@
 ---
-title: "Azure Media Clipper 지역화 구성 | Microsoft Docs"
-description: "Azure Media Clipper 지원 언어 및 지역화 지원에 대해 알아봅니다."
+title: Azure Media Clipper 지역화 구성 | Microsoft Docs
+description: Azure Media Clipper 지원 언어 및 지역화 지원에 대해 알아봅니다.
 services: media-services
-keywords: "클립;서브클립;인코딩;미디어"
+keywords: 클립, 하위 클립, 인코딩, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-localization"></a>지역화 구성
 Azure Media Clipper는 18개 언어로 제공됩니다. 위젯 언어를 설정하려면 초기화 중에 `language` 매개 변수를 정의해야 합니다. 다음 목록에서 원하는 언어 코드 문자열에서 전달합니다.

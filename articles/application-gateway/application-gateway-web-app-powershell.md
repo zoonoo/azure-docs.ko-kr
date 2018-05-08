@@ -1,23 +1,23 @@
 ---
-title: "Azure Application Gateway로 웹앱 보호 - PowerShell | Microsoft Docs"
-description: "이 문서에서는 기존 또는 새 응용 프로그램 게이트웨이에 웹앱을 백 엔드 호스트로 구성하는 방법을 안내합니다."
+title: Azure Application Gateway로 웹앱 보호 - PowerShell | Microsoft Docs
+description: 이 문서에서는 기존 또는 새 응용 프로그램 게이트웨이에 웹앱을 백 엔드 호스트로 구성하는 방법을 안내합니다.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: davidmu
-ms.openlocfilehash: f00ad4c3f2cf08461d0258aa31fcedd7045934d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: victorh
+ms.openlocfilehash: abe48c484a232eff6f7ec1cd68e7010353d488d5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway를 사용하여 App Service Web Apps 구성 
 

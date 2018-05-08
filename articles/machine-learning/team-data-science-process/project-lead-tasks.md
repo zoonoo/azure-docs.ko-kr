@@ -2,7 +2,7 @@
 title: Team Data Science Process 프로젝트 리더 작업 - Azure | Microsoft Docs
 description: 프로젝트 리더가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 3cc938e7d573c146b688acabdcfcb8e674e185cf
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="project-lead-tasks"></a>프로젝트 리더 작업
 
@@ -143,7 +143,7 @@ VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *�
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _Project 리포지토리의 HTTPS URL_은 ***https://\<VSTS 서버 이름\>.visualstudio.com/\<팀 프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>***입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***을 사용합니다.
+VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _Project 리포지토리의 HTTPS URL_은 ***https://\<VSTS 서버 이름\>.visualstudio.com/\<팀 프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>*** 입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***을 사용합니다.
 
 **Linux**
 
@@ -186,7 +186,7 @@ VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _Pr
 
 ### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>그룹 VSTS 서버의 D5에 R5의 DSProject1 콘텐츠 추가
 
-이제 **_DSProject1_**의 콘텐츠를 그룹의 VSTS 서버에 있는 팀 프로젝트의_R5_ 리포지토리에 푸시해야 합니다. 
+이제 **_DSProject1_** 의 콘텐츠를 그룹의 VSTS 서버에 있는 팀 프로젝트의_R5_ 리포지토리에 푸시해야 합니다. 
 
 
 - **D5** 디렉터리로 변경합니다. 

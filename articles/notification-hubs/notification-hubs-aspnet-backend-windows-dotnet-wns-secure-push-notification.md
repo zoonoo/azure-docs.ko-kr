@@ -1,10 +1,10 @@
 ---
-title: "Azure Notification Hubs 보안 푸시"
-description: "Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
+title: Azure Notification Hubs 보안 푸시
+description: Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다.
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 9c626ec1534c4899588150a58c0da57b9d963f6f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 8d051107a5e114ed8aa5f4b5a629a439519157b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs 보안 푸시
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 다음은 푸시 백그라운드 구성 요소를 만드는 단계입니다.
 
 1. 솔루션 탐색기에서 솔루션의 최상위 노드(이 경우 **Solution SecurePush**)를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 프로젝트**를 차례로 클릭합니다.
-2. **스토어 앱**을 확장하고 **Windows Phone 앱**, **Windows 런타임 구성 요소(Windows Phone)**를 차례로 클릭합니다. 프로젝트 이름을 **PushBackgroundComponent**로 지정하고 **확인**을 클릭하여 프로젝트를 만듭니다.
+2. **스토어 앱**을 확장하고 **Windows Phone 앱**, **Windows 런타임 구성 요소(Windows Phone)** 를 차례로 클릭합니다. 프로젝트 이름을 **PushBackgroundComponent**로 지정하고 **확인**을 클릭하여 프로젝트를 만듭니다.
    
     ![][12]
 3. 솔루션 탐색기에서 **PushBackgroundComponent(Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 **PushBackgroundTask.cs**로 지정합니다. **추가** 를 클릭하여 클래스를 생성합니다.
@@ -146,7 +146,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
         using Newtonsoft.Json;
         using Windows.UI.Notifications;
         using Windows.Data.Xml.Dom;
-11. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가...**를 클릭합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent** 옆의 상자를 선택하고 **확인**을 클릭합니다.
+11. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가...** 를 클릭합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent** 옆의 상자를 선택하고 **확인**을 클릭합니다.
 12. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **Package.appxmanifest**를 두 번 클릭합니다. **알림**에서 **알림 가능**을 **예**로 설정합니다.
     
     ![][3]

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 82499df1261cf3288f37ab68c5fc582cf027f3b3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6b2dc2e8859efdcc57c45831381bc1870495ecf6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 인프라 만들기
 
@@ -57,7 +57,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-추가 섹션에서 *${azurerm_resource_group.myterraformgroup.name}*을 사용하여 리소스 그룹을 참조합니다.
+추가 섹션에서 *${azurerm_resource_group.myterraformgroup.name}* 을 사용하여 리소스 그룹을 참조합니다.
 
 ## <a name="create-virtual-network"></a>가상 네트워크 만들기
 다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVnet*이라는 가상 네트워크를 만듭니다.
@@ -111,7 +111,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    ;
+    
     security_rule {
         name                       = "SSH"
         priority                   = 1001

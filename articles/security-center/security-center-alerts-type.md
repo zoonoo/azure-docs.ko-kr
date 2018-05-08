@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 유형별 보안 경고 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center에서 사용할 수 있는 다양한 종류의 보안 경고를 설명합니다."
+title: Azure Security Center에서 유형별 보안 경고 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center에서 사용할 수 있는 다양한 종류의 보안 경고를 설명합니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3337736ebcf31ec6aa75725c37e51b1c733f5d9d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 이해
 이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고 및 관련된 정보를 이해할 수 있습니다. 경고 및 인시던트를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.

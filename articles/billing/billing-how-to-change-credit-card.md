@@ -1,25 +1,25 @@
 ---
-title: "Azure에 대한 신용 카드 변경 | Microsoft Docs"
-description: "Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법에 대해 설명합니다."
-services: 
-documentationcenter: 
+title: Azure에 대한 신용 카드 변경 | Microsoft Docs
+description: Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법에 대해 설명합니다.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 15252ced-1841-4a66-ae79-2e58af1d3370
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: d1239b04bbdaf4e98323fbaaad688b2d238c1a38
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Azure에 대한 신용 카드 또는 직불 카드 추가, 업데이트 또는 제거
 
@@ -101,6 +101,6 @@ ms.lasthandoff: 12/23/2017
 
 세금 ID를 추가 또는 업데이트하려면 [Azure 계정 센터에서 **프로필**로 이동](https://account.azure.com/Profile)한 다음 **세금 레코드**를 선택합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

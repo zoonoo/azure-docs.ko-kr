@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Indexer의 미리 설정된 작업"
-description: "이 항목에서는 Azure Media Indexer의 미리 설정된 작업 개요를 제공합니다."
+title: Azure Media Indexer의 미리 설정된 작업
+description: 이 항목에서는 Azure Media Indexer의 미리 설정된 작업 개요를 제공합니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Asolanki
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
 ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer의 미리 설정된 작업
 
@@ -29,7 +29,7 @@ Azure Media Indexer는 미디어 파일 및 콘텐츠를 검색 가능하도록 
 
 다음 표에는 구성 XML의 요소 및 특성이 설명되어 있습니다.
 
-|이름|필요|설명|
+|Name|필요|설명|
 |---|---|---|
 |입력|true|인덱싱할 자산 파일입니다.<br/>Azure Media Indexer는 MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV의 미디어 파일 형식을 지원합니다. <br/><br/>아래에 표시된 것처럼 **input** 요소의 **name** 또는 **list** 특성에 파일 이름을 지정할 수 있습니다. 인덱싱할 자산 파일을 지정하지 않으면 기본 파일이 선택됩니다. 기본 자산 파일이 설정되지 않은 경우 입력 자산의 첫 번째 파일이 인덱싱됩니다.<br/><br/>자산 파일 이름을 명시적으로 지정하려면 다음을 수행합니다.<br/>```<input name="TestFile.wmv" />```<br/><br/>한 번에 여러 자산 파일을 인덱싱할 수도 있습니다(최대 10개 파일). 다음을 수행합니다.<br/>- 텍스트 파일(매니페스트 파일)을 만들고 .lst 확장명을 지정합니다.<br/>- 입력 자산에 있는 모든 자산 파일 이름 목록을 이 매니페스트 파일에 추가합니다.<br/>- 자산에 매니페스트 파일을 추가(업로드)합니다.<br/>- 입력의 목록 특성에 매니페스트 파일의 이름을 지정합니다.<br/>```<input list="input.lst">```<br/><br/>**참고:** 매니페스트 파일에 10개가 넘는 파일을 추가하면 인덱싱 작업이 실패하며 2006 오류 코드가 표시됩니다.|
 |metadata|false|지정된 자산 파일에 대한 메타데이터입니다.<br/>```<metadata key="..." value="..." />```<br/><br/>미리 정의된 키의 값을 제공할 수 있습니다. <br/><br/>현재 다음 키가 지원됩니다.<br/><br/>**title** 및 **description** - 음성 인식 정확도를 개선하기 위해 언어 모델을 업데이트하는 데 사용됩니다.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** 및 **password** - http 또는 https를 통해 인터넷 파일을 다운로드할 때 인증에 사용됩니다.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>username 및 password 값은 입력 매니페스트의 모든 미디어 URL에 적용됩니다.|

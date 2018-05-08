@@ -1,26 +1,26 @@
 ---
-title: "Azure 외부 서비스 요금의 이해 | Microsoft Docs"
-description: "이전에는 Marketplace로 알려진 외부 서비스의 요금 청구, Azure의 요금에 대해 알아봅니다."
-services: 
-documentationcenter: 
+title: Azure 외부 서비스 요금의 이해 | Microsoft Docs
+description: 이전에는 Marketplace로 알려진 외부 서비스의 요금 청구, Azure의 요금에 대해 알아봅니다.
+services: ''
+documentationcenter: ''
 author: adpick
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 64bfd8581141001aa6c11ca17ec1af681054f490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8b89806e1f6d59e1a64e589558cd972f4fdc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure 외부 서비스 요금 청구의 이해
 외부 서비스는 Azure Marketplace의 타사 소프트웨어 공급 업체에 의해 게시됩니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
     ![외부 서비스 청구 내역 보기](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
 ## <a name="view-external-service-spending-for-enterprise-agreement-ea-customers"></a>EA(기업 계약) 고객의 외부 서비스 지출 보기
-EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로드할 수 있습니다. 시작 방법은 [EA 고객을 위한 Azure Marketplace](https://ea.azure.com/helpdocs/azureMarketplace)를 참조하세요.
+EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로드할 수 있습니다. 시작 방법은 [EA 고객을 위한 Azure Marketplace](https://ea.azure.com/helpdocs/azureMarketplace) 를 참조하세요.
 
 ## <a name="manage-payment-methods-for-external-service-orders"></a>외부 서비스 주문에 대한 지불 방법 관리
 [계정 센터](https://account.windowsazure.com/)에서 외부 서비스 주문에 대한 결제 방법을 업데이트합니다.
@@ -67,9 +67,9 @@ EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로�
 > 
 > 
 
-1. [계정 센터](https://account.windowsazure.com/)에 로그인하고 [**Marketplace** 탭으로 이동](https://account.windowsazure.com/Store)
+1. [계정 센터](https://account.windowsazure.com/)에 로그인하고 [**마켓플레이스** 탭으로 이동](https://account.windowsazure.com/Store)
    
-    ![계정 센터에서 Marketplace 선택](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
+    ![계정 센터에서 마켓플레이스 선택](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
 2. 관리하려는 외부 서비스 선택
    
     ![관리하려는 외부 서비스 선택](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
@@ -85,6 +85,6 @@ EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로�
 
 ![리소스 삭제](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

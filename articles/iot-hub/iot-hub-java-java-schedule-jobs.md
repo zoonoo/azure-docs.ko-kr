@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
 
@@ -64,7 +64,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-프로그래밍 방식으로 장치 ID를 만들려면 [Java를 사용하여 IoT 허브에 장치 연결](iot-hub-java-java-getstarted.md#create-a-device-identity) 문서의 해당 섹션을 참조하세요. [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 IoT Hub에 장치를 추가할 수도 있습니다.
+[Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 IoT Hub에 장치를 추가할 수도 있습니다.
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 

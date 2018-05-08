@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center 자습서 - 보안 정책 정의 및 평가 | Microsoft Docs"
-description: "Azure Security Center 자습서 - 보안 정책 정의 및 평가"
+title: Azure Security Center 자습서 - 보안 정책 정의 및 평가 | Microsoft Docs
+description: Azure Security Center 자습서 - 보안 정책 정의 및 평가
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: yurid
-ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>자습서: 보안 정책 정의 및 평가
 Security Center는 보안 정책을 사용하여 원하는 작업 구성을 정의함으로써 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure 구독에 대한 정책을 정의하고 이 정책을 작업 유형 또는 데이터의 민감도에 적용하면, Security Center에서 계산, 네트워킹, SQL/저장소 및 응용 프로그램 리소스에 대한 보안 권장 사항을 제공할 수 있습니다. 이 자습서에서는 다음 방법을 알아봅니다.

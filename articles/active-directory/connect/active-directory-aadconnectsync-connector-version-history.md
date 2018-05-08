@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 039e21cb3c35f8eb024ad2fca56e8a59e3182d3a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
@@ -32,11 +32,11 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 관련 링크:
 
 * [최신 커넥터 다운로드](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [일반 LDAP 커넥터](active-directory-aadconnectsync-connector-genericldap.md) 참조 설명서
-* [일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md) 참조 설명서
+* [일반 LDAP 커넥터](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 참조 설명서
+* [일반 SQL 커넥터](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) 참조 설명서
 * [웹 서비스 커넥터](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 참조 설명서
-* [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
-* [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
+* [PowerShell 커넥터](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) 참조 설명서
+* [Lotus Domino 커넥터](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) 참조 설명서
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -117,7 +117,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 
 * 일반 SQL:
   * **시나리오: 다시 설계되고 구현됨:** "*" 기능
-  * **솔루션 설명:** [다중 값 참조 특성 처리](active-directory-aadconnectsync-connector-genericsql.md) 접근 방식이 변경되었습니다.
+  * **솔루션 설명:** [다중 값 참조 특성 처리](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) 접근 방식이 변경되었습니다.
 
 
 ### <a name="fixed-issues"></a>수정된 문제:
@@ -194,7 +194,7 @@ LDAP MA의 Novel 서버에 대한 파티션과 형식이 비슷한 개체가 표
 출시 날짜: 2016년 3월
 
 **일반 SQL 커넥터**  
-의 [일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md)초기 릴리스입니다.
+의 [일반 SQL 커넥터](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)초기 릴리스입니다.
 
 **새로운 기능:**
 

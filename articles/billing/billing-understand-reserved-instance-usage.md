@@ -1,24 +1,24 @@
 ---
-title: "종량제 구독에서 Azure Reserved Instance 사용량 이해 | Microsoft Docs"
-description: "종량제 구독에서 Reserved Instance의 적용을 이해하기 위해 사용량을 참고하는 자세한 방법"
+title: 종량제 구독에서 Azure Reserved Instance 사용량 이해 | Microsoft Docs
+description: 종량제 구독에서 Reserved Instance의 적용을 이해하기 위해 사용량을 참고하는 자세한 방법
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 142e172b3f4ab4b88bb3733f70d5e0fb252854ca
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독에서 Reserved Instance 사용량 이해
 
@@ -67,6 +67,6 @@ csv의 이 섹션에서는 예약의 총 사용량을 보여줍니다. "Reservat
 - [Enterprise 등록의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -3,7 +3,7 @@ title: Azure Security Center에 Microsoft Advanced Threat Analytics 연결 | Mic
 description: Azure Security Center를 Microsoft Advanced Threat Analytics와 통합하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
 editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: fb32fc55288229fb1d09dce98b6092d38c10abf2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a3444b9d42ffdd5f81568f0e9e09557096b4415f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Azure Security Center에 Microsoft Advanced Threat Analytics 연결
 이 문서는 Microsoft Advanced Threat Analytics와 Azure Security Center 간에 통합을 구성하는 데 도움이 됩니다.

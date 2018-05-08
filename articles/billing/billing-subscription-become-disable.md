@@ -1,26 +1,26 @@
 ---
-title: "비활성화된 Azure 구독 다시 활성화 | Microsoft Docs"
-description: "사용하지 않도록 설정한 Azure 구독을 다시 활성화하는 방법을 설명합니다."
-keywords: "비활성화된 Azure 구독"
-services: 
-documentationcenter: 
+title: 비활성화된 Azure 구독 다시 활성화 | Microsoft Docs
+description: 사용하지 않도록 설정한 Azure 구독을 다시 활성화하는 방법을 설명합니다.
+keywords: 비활성화된 Azure 구독
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 4529d685-3a87-49d9-8d7a-49baad552d76
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 0b573a3745cbaa3deb583458159faaa0ac93f202
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 76ca118accf91850168f35ee3b7f66337ed96592
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>내 Azure 구독이 비활성화된 이유 및 다시 활성화하는 방법은 무엇인가요?
 
@@ -60,6 +60,6 @@ Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청�
 
 다른 구독 유형의 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 구독을 다시 활성화합니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -13,11 +13,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.openlocfilehash: f482b1273f83f5ae5bb4f1e64609767ee0c5fe32
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 03/23/2017
+ms.openlocfilehash: 6fb83fbd3106eef9885c50e140a4344e03d901e7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>연습 2단계: Azure Machine Learning 실험에 기존 데이터 업로드
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
@@ -81,7 +82,7 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 
 7. 데이터 집합의 이름을 입력합니다. 이 연습에서는 데이터 집합을 "UCI 독일 신용 카드 데이터"라고 합니다.
 
-8. 데이터 형식으로 **머리글 없는 일반 CSV 파일(.nh.csv)**을 선택합니다.
+8. 데이터 형식으로 **머리글 없는 일반 CSV 파일(.nh.csv)** 을 선택합니다.
 
 9. 원하는 경우 설명을 추가합니다.
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: daee95c177ecddfea1cf7d6d162906fcc86938b4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4238d241ec5daacd06485b118a8ccf9b68a9d6d9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI 요소
 서식 없는 텍스트를 편집하는 데 사용할 수 있는 컨트롤입니다.
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="sample-output"></a>샘플 출력
 
 ```json
-"foobar"
+"my value"
 ```
 
 ## <a name="next-steps"></a>다음 단계

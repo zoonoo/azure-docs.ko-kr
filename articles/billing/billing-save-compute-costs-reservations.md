@@ -1,23 +1,23 @@
 ---
-title: "Azure 가상 머신 선불로 비용 절감 - Azure | Microsoft Docs"
-description: "가상 머신 비용을 절약하려면 Azure Reserved Virtual Machine Instance에 대해 알아보세요."
+title: Azure 가상 머신 선불로 비용 절감 - Azure | Microsoft Docs
+description: 가상 머신 비용을 절약하려면 Azure Reserved Virtual Machine Instance에 대해 알아보세요.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>예약 가상 머신 인스턴스를 사용하여 가상 머신에서 비용을 절감합니다. 
 예약 가상 머신 인스턴스를 사용하면 1년 또는 3년 계산 용량을 선불로 결제하여 사용하는 가상 머신에서 할인을 받을 수 있습니다. 1년 또는 3년 사전 약정을 통해 종량제 가격으로 최대 72%까지 가상 머신 비용을 크게 절감할 수 있습니다. 예약 가상 머신 인스턴스는 청구 할인으로, 가상 머신의 런타임 상태에 영향을 주지 않습니다.

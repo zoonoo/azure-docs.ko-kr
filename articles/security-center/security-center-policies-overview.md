@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center 보안 정책 소개 | Microsoft Docs"
-description: "Azure Security Center 보안 정책 및 주요 기능에 대해 알아봅니다."
+title: Azure Security Center 보안 정책 소개 | Microsoft Docs
+description: Azure Security Center 보안 정책 및 주요 기능에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-policies-overview"></a>보안 정책 개요
 이 문서에서는 Security Center의 보안 정책에 대한 개요를 제공합니다.

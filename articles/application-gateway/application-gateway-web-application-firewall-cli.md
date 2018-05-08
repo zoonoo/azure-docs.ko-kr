@@ -1,36 +1,36 @@
 ---
-title: "웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs"
-description: "Azure CLI를 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다."
+title: 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs
+description: Azure CLI를 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 87125b68c81af07d0ecd9693fdf7e2dc00a93324
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Azure CLI를 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만듭니다.
 
-Azure CLI를 사용하여 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 WAF([웹 응용 프로그램 방화벽](application-gateway-web-application-firewall-overview.md))에서 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 응용 프로그램을 보호합니다. 이러한 규칙을 통해 SQL 주입과 같은 공격, 사이트 간 스크립팅 공격 및 세션 도용으로부터 보호합니다. 
+Azure CLI를 사용하여 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 WAF([웹 응용 프로그램 방화벽](application-gateway-web-application-firewall-overview.md))에서 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 응용 프로그램을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+> * WAF를 사용하는 응용 프로그램 게이트웨이 만들기
 > * 가상 머신 확장 집합 만들기
 > * 저장소 계정 만들기 및 진단 구성
 
 ![웹 응용 프로그램 방화벽 예제](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -129,12 +129,12 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
 
-이 자습서에서 응용 프로그램 게이트웨이는 감지 및 방지를 위해 데이터를 저장할 저장소 계정을 사용합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수 있습니다. 
+이 자습서에서 응용 프로그램 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다. 
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -181,7 +181,7 @@ az network public-ip show \
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+> * WAF를 사용하는 응용 프로그램 게이트웨이 만들기
 > * 가상 머신 확장 집합 만들기
 > * 저장소 계정 만들기 및 진단 구성
 

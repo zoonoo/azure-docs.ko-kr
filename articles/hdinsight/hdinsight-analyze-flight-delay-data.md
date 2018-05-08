@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]* 을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.
@@ -259,6 +259,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
     <tr><td>Filter Period</td><td>January</td></tr>
     <tr><td>필드</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay*(다른 모든 필드는 선택하지 않음)</td></tr>
     </table>
+
 3. **다운로드**를 클릭합니다.
 4. 압축 파일을 **C:\Tutorials\FlightDelays\2013Data** 폴더에 풉니다. 각 파일은 CSV 파일이며 크기가 60GB 정도입니다.
 5. 파일 이름을 데이터가 포함된 달로 변경합니다. 예를 들어 1월 데이터가 포함된 파일의 이름은 *January.csv*가 됩니다.
@@ -273,6 +274,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
     <tr><td>$storageAccountName</td><td>데이터를 업로드할 Azure Storage 계정입니다.</td></tr>
     <tr><td>$blobContainerName</td><td>데이터를 업로드할 Blob 컨테이너입니다.</td></tr>
     </table>
+    
 2. Azure PowerShell ISE를 엽니다.
 3. 다음 스크립트를 스크립트 창에 붙여 넣습니다.
 

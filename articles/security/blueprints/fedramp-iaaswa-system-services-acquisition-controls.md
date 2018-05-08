@@ -1,6 +1,6 @@
 ---
-title: "Azure 보안 및 규정 준수 청사진 - FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 서비스 취득"
-description: "FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 서비스 취득"
+title: Azure 보안 및 규정 준수 청사진 - FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 서비스 취득
+description: FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 서비스 취득
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>SA(시스템 및 서비스 획득)
 

@@ -1,24 +1,24 @@
 ---
-title: "청구서로 Azure 구독 비용 지불 | Microsoft Docs"
-description: "청구서로 Azure 구독 비용을 지불하는 방법을 설명합니다."
-services: 
-documentationcenter: 
+title: 청구서로 Azure 구독 비용 지불 | Microsoft Docs
+description: 청구서로 Azure 구독 비용을 지불하는 방법을 설명합니다.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: b9f785a8f24c013f01dd429539239a7396a94953
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3bcd170ece7c85ee3fadaa952a539a7f2364ea48
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용을 지불하기 위한 요청 제출
 
@@ -49,6 +49,6 @@ Azure 지원에 요청을 제출하여 Azure 구독에 대한 지불 방법을 �
 
 필요한 신용 수준 때문에 신용 검사를 실행해야 할 경우 신용 검사 신청서를 보내 드립니다. 신청서를 제출하면 신용 신청을 처리하는 데 5-7일 정도 걸릴 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

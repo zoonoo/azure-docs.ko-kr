@@ -1,8 +1,8 @@
 ---
-title: "Azure Media Services에서 권장되는 인코더 알아보기 | Microsoft Docs"
-description: "Media Services에서 권장되는 인코더 알아보기"
+title: Azure Media Services에서 권장되는 인코더 알아보기 | Microsoft Docs
+description: Media Services에서 권장되는 인코더 알아보기
 services: media-services
-keywords: "인코딩, 인코더, 미디어"
+keywords: 인코딩, 인코더, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: d0c5536d2339470eac058250cc14e1f250b86d90
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="recommended-on-premises-encoders"></a>권장 온-프레미스 인코더
 Azure Media Services를 통해 라이브 스트리밍을 사용하는 경우 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 라이브 인코딩 채널을 사용하여 온-프레미스 인코더를 사용할 경우에는 인코더가 고품질 단일 비트 전송률 스트림을 출력으로 푸시해야 합니다. 통과 채널을 통해 온-프레미스 인코더를 사용할 경우에는 인코더가 다중 비트 전송률 스트림을 원하는 모든 출력 품질이 포함된 출력으로 푸시해야 합니다. 자세한 내용은 [온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.

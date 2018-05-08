@@ -1,25 +1,23 @@
 ---
-title: "Azure AD Privileged Identity Management 시작 | Microsoft Docs"
-description: "Azure 포털에서 Azure Active Directory Privileged Identity Management 응용 프로그램을 사용하여 권한 있는 ID를 관리하는 방법을 알아봅니다."
+title: Azure AD Privileged Identity Management 시작 | Microsoft Docs
+description: Azure 포털에서 Azure Active Directory Privileged Identity Management 응용 프로그램을 사용하여 권한 있는 ID를 관리하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
+editor: ''
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2017
-ms.author: barclayn
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 9f51daabef7d1e02917869e4e6943b8ea28b56f5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7137d7ba53c055c869bd967a04085d0c65aec683
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 시작
 
@@ -45,11 +43,11 @@ Azure AD Privileged Identity Management를 설정하면 응용 프로그램을 �
 ![PIM의 최상위 태스크 - 스크린샷](./media/active-directory-privileged-identity-management-getting-started/PIM_Tasks_New.png)
 
 - **내 역할**은 사용자에게 할당된 적합하며 활성 상태인 역할 목록을 표시합니다. 여기서 할당된 적합한 역할을 활성화할 수 있습니다.
-- **요청 승인(미리 보기)**은 승인하도록 지정된 디렉터리에 있는 사용자가 적합한 Azure AD 디렉터리 역할을 활성화하기 위한 요청 목록을 표시합니다. [자세한 정보](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
-- **보류 중인 요청(미리 보기)**은 적합한 역할 할당을 활성화하기 위한 보류 중인 요청을 표시합니다.
+- **요청 승인(미리 보기)** 은 승인하도록 지정된 디렉터리에 있는 사용자가 적합한 Azure AD 디렉터리 역할을 활성화하기 위한 요청 목록을 표시합니다. [자세한 정보](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
+- **보류 중인 요청(미리 보기)** 은 적합한 역할 할당을 활성화하기 위한 보류 중인 요청을 표시합니다.
 - **액세스 검토**는 자신 또는 다른 사용자에 대한 액세스를 검토하는지와 관계 없이 완료하도록 지정된 활성 액세스 검토를 나열합니다.
 - 왼쪽 탐색 메뉴의 관리 섹션 아래에 있는 **Azure AD 디렉터리 역할**은 권한 있는 역할 관리자가 역할 할당을 관리하고, 역할 활성화 설정을 변경하고, 액세스 검토 등을 시작하는 대시보드입니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다.
-- 왼쪽 탐색 메뉴의 관리 섹션 아래에 있는 **Azure 리소스 역할(미리 보기)**은 선택한 역할 할당이 있는 구독 리소스 목록을 표시합니다. 
+- 왼쪽 탐색 메뉴의 관리 섹션 아래에 있는 **Azure 리소스 역할(미리 보기)** 은 선택한 역할 할당이 있는 구독 리소스 목록을 표시합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Privileged Identity Management 개요](active-directory-privileged-identity-management-configure.md) 에는 조직의 관리 액세스 권한을 관리할 수 있는 방법에 대한 자세한 정보가 포함되어 있습니다.

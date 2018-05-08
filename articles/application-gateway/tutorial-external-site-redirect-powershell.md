@@ -2,19 +2,19 @@
 title: 외부 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
 description: Azure Powershell을 사용하여 웹 트래픽을 외부 사이트로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 430c8b64a9e9bafb655357f4ceadd8980c1de3bd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: victorh
+ms.openlocfilehash: 6e2f0dadcb1158863282090bf6f81b0ae368416f
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 외부 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기
 

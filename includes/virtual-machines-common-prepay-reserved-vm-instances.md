@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/03/2018
+---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>예약 VM 인스턴스를 사용하여 Virtual Machines 선불 결제
 
 가상 머신에 대해 선불 결제하고 예약 가상 머신 인스턴스를 사용하여 비용을 절감합니다. 자세한 내용은 참조 [예약 가상 머신 인스턴스 제품](https://azure.microsoft.com/pricing/reserved-vm-instances/)을 참조하세요.

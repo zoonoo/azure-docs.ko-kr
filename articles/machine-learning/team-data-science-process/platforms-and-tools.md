@@ -2,7 +2,7 @@
 title: 데이터 과학 팀 프로젝트용 플랫폼 및 도구 - Azure | Microsoft Docs
 description: Team Data Science Process를 표준화하는 기업에서 사용할 수 있는 데이터 및 분석 리소스를 항목별로 정리하고 설명합니다.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: bb1843b56f19715b5d1d81fd39e072e437dec663
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>데이터 과학 팀 프로젝트용 플랫폼 및 도구
 
@@ -109,7 +109,7 @@ Microsoft의 TDSP 팀은 SQL Server 2016 R Services에서 R 프로그래머용 �
 
 ### <a name="install-git-credential-manager-on-windows"></a>Windows에 Git Credential Manager 설치
 
-**Windows**에서 TDSP를 수행하는 경우 Git 리포지토리와 통신하기 위해 **GCM(Git Credential Manager)**을 설치해야 합니다. GCM을 설치하려면 먼저 **Chocolaty**를 설치해야 합니다. Chocolatey 및 GCM을 설치하려면 Windows PowerShell에서 **관리자** 권한으로 다음 명령을 실행합니다.  
+**Windows**에서 TDSP를 수행하는 경우 Git 리포지토리와 통신하기 위해 **GCM(Git Credential Manager)** 을 설치해야 합니다. GCM을 설치하려면 먼저 **Chocolaty**를 설치해야 합니다. Chocolatey 및 GCM을 설치하려면 Windows PowerShell에서 **관리자** 권한으로 다음 명령을 실행합니다.  
 
     iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
     choco install git-credential-manager-for-windows -y
@@ -135,7 +135,7 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 VSTS �
 
 - *ssh-rsa*가 포함된 ssh 키 전체를 복사합니다. 
 - VSTS 서버에 로그인합니다. 
-- 페이지의 오른쪽 위 모서리에 있는 **<사용자 이름\>**을 클릭하고 **보안**을 클릭합니다. 
+- 페이지의 오른쪽 위 모서리에 있는 **<사용자 이름\>** 을 클릭하고 **보안**을 클릭합니다. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)
 

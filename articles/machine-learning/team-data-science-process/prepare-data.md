@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning을 위한 데이터 정리 및 준비 | Microsoft Docs"
-description: "기계 학습을 준비하기 위해 데이터를 전처리 및 정리."
+title: Azure Machine Learning을 위한 데이터 정리 및 준비 | Microsoft Docs
+description: 기계 학습을 준비하기 위해 데이터를 전처리 및 정리.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 7f0c1f0f549e746cc99db3b47f6c90bb51145d5d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: f3d05030e293c53c958aa1ba501fe9a2ba7a11b5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>확장된 기계 학습을 위한 데이터 준비 작업
 데이터 전처리 및 정리는 일반적으로 기계 학습에 데이터 집합을 효과적으로 사용할 수 있기 전에 수행해야 하는 중요한 작업입니다. 원시 데이터는 노이즈가 많고, 불안정하고, 값이 누락된 경우가 종종 있습니다. 이러한 데이터를 모델링에 사용하면 결과가 잘못될 수 있습니다. 이러한 작업은 TDSP(팀 데이터 과학 프로세스)의 일부이며 일반적으로 필요한 전처리를 검색하고 계획하는 데 사용되는 데이터 집합의 초기 탐색을 수행합니다. TDSP 프로세스에 대한 자세한 지침은 [팀 데이터 과학 프로세스](overview.md)에 설명된 단계를 참조하세요.
 
-데이터 탐색 작업 등의 전처리 및 정리 작업은 데이터가 저장된 위치와 포맷 방식에 따라 R 또는 Python 등의 다양한 도구 및 언어와 함께 SQL나 Hive 또는 Azure 기계 학습 스튜디오와 같은 다양한 환경에서 수행할 수 있습니다. TDSP는 반복 성향을 띠기 때문에, 이러한 작업은 프로세스의 워크플로 내의 다양한 단계에서 발생할 수 있습니다.
+데이터 탐색 작업 등의 전처리 및 정리 작업은 데이터가 저장된 위치와 포맷 방식에 따라 R 또는 Python 등의 다양한 도구 및 언어와 함께 SQL나 Hive 또는 Azure Machine Learning Studio와 같은 다양한 환경에서 수행할 수 있습니다. TDSP는 반복 성향을 띠기 때문에, 이러한 작업은 프로세스의 워크플로 내의 다양한 단계에서 발생할 수 있습니다.
 
-이 문서에서는 Azure 기계 학습에 데이터를 수집하기 전 또는 후에 수행할 수 있는 다양한 데이터 처리 개념 및 작업을 소개합니다.
+이 문서에서는 Azure Machine Learning에 데이터를 수집하기 전 또는 후에 수행할 수 있는 다양한 데이터 처리 개념 및 작업을 소개합니다.
 
-Azure 기계 학습 스튜디오 내부에서 수행된 데이터 탐색 및 전처리의 예는 [Azure 기계 학습 스튜디오에서 데이터 전처리](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) 비디오를 참조하세요.
+Azure Machine Learning Studio 내부에서 수행된 데이터 탐색 및 전처리의 예는 [Azure Machine Learning Studio에서 데이터 전처리](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) 비디오를 참조하세요.
 
 ## <a name="why-pre-process-and-clean-data"></a>데이터 전처리 및 정리가 필요한 이유
 실제 데이터는 다양한 소스 및 프로세스에서 수집되며 데이터 집합의 품질을 떨어트리는 이상값 또는 손상된 값이 포함될 수 있습니다. 다음과 같은 일반적인 데이터 품질 문제가 자주 발생합니다.
@@ -53,7 +53,7 @@ Azure 기계 학습 스튜디오 내부에서 수행된 데이터 탐색 및 전
 
 데이터 문제를 찾았으면 **처리 단계**가 필요합니다. 처리 단계에서는 누락된 값 정리, 데이터 정규화, 분할, 텍스트 처리를 통해 데이터 정렬, 공통 필드의 혼합된 데이터 유형 등에 영향을 미칠 수 있는 포함된 문자를 제거 및/또는 대체하는 작업이 주로 수행됩니다.
 
-**Azure 기계 학습에서는 올바르게 구성된 테이블 형식 데이터를 사용합니다**.  데이터가 이미 테이블 형식이면 기계 학습 스튜디오에서 Azure 기계 학습을 사용하여 바로 데이터 전처리를 수행할 수 있습니다.  데이터가 테이블 형식이 아닌 XML 형식이라고 한다면 데이터를 테이블 형식으로 변환하려면 구분 분석이 필요할 수 있습니다.  
+**Azure Machine Learning에서는 올바르게 구성된 테이블 형식 데이터를 사용합니다**.  데이터가 이미 테이블 형식이면 Machine Learning Studio에서 Azure Machine Learning을 사용하여 바로 데이터 전처리를 수행할 수 있습니다.  데이터가 테이블 형식이 아닌 XML 형식이라고 한다면 데이터를 테이블 형식으로 변환하려면 구분 분석이 필요할 수 있습니다.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>데이터 전처리의 주요 작업
 * **데이터 정리**: 누락된 값을 채우거나 노이즈가 많은 데이터와 이상값을 감지하여 제거합니다.

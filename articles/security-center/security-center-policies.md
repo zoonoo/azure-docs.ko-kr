@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 보안 정책 설정 | Microsoft Docs"
-description: "이 문서를 통해 Azure Security Center에서 보안 정책을 구성할 수 있습니다."
+title: Azure Security Center에서 보안 정책 설정 | Microsoft Docs
+description: 이 문서를 통해 Azure Security Center에서 보안 정책을 구성할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 4d1a30b046c0c398d934291a907af891e9ac7fdf
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: a993338e5a16514e855d771e25aac3e451faab45
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Azure Security Center에서 보안 정책 설정
 이 문서를 통해 Security Center에서 보안 정책을 구성할 수 있습니다.

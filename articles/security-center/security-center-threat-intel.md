@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center의 위협 인텔리전스 | Microsoft Docs"
-description: "Azure Security Center에서 위협 인텔리전스 기능을 사용하여 VM 및 컴퓨터에서 잠재적 위협을 식별하는 방법을 알아봅니다."
+title: Azure Security Center의 위협 인텔리전스 | Microsoft Docs
+description: Azure Security Center에서 위협 인텔리전스 기능을 사용하여 VM 및 컴퓨터에서 잠재적 위협을 식별하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
-ms.openlocfilehash: b5bdeb1c70893c2477413df02c7b1a4a07999e93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure Security Center의 위협 인텔리전스
 이 문서를 통해 Azure Security Center 위협 인텔리전스를 사용하여 보안 관련 문제를 해결할 수 있습니다.
@@ -64,9 +64,9 @@ Security Center에서 위협 인텔리전스 정보를 사용하여 이러한 �
 
     a.  **위협 형식** 선택한 작업 영역에서 검색된 위협의 유형을 요약합니다.
 
-    b.  **국적** 해당 원본 위치에 따라 트래픽 양을 집계합니다.
+    나.  **국적** 해당 원본 위치에 따라 트래픽 양을 집계합니다.
 
-    c.  **위협 위치** 사용자 환경과 통신하는 전 세계의 현재 위치를 식별할 수 있습니다. 표시된 맵에서 주황색(들어옴)과 빨간색(보냄) 화살표는 트래픽 방향을 식별합니다. 이러한 화살표 중 하나를 선택하는 경우 위협의 유형 및 트래픽 방향이 나타납니다.
+    다.  **위협 위치** 사용자 환경과 통신하는 전 세계의 현재 위치를 식별할 수 있습니다. 표시된 맵에서 주황색(들어옴)과 빨간색(보냄) 화살표는 트래픽 방향을 식별합니다. 이러한 화살표 중 하나를 선택하는 경우 위협의 유형 및 트래픽 방향이 나타납니다.
 
     d.  **위협 세부 정보** 맵에서 선택된 위협에 대한 세부 정보를 표시합니다.
 

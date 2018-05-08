@@ -1,11 +1,11 @@
 ---
-title: "REST를 사용하여 Azure Media Services 계정에 파일 업로드 | Microsoft Docs"
-description: "자산을 만들고 업로드하여 Media Services에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다."
+title: REST를 사용하여 Azure Media Services 계정에 파일 업로드 | Microsoft Docs
+description: 자산을 만들고 업로드하여 Media Services에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 > * 업로드 URL을 사용하여 Blob 저장소에 파일 업로드
 > * 자산에 업로드한 미디어 파일에 대한 메타데이터 만들기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
@@ -184,8 +184,8 @@ SAS URL의 형식은 다음과 같습니다.
 업로드 요청은 **AzureMedia** 컬렉션의 일부가 아닙니다. 
 
 새 요청을 만들고 설정합니다.
-1. **+**를 눌러 새 요청 탭을 만듭니다.
-2. **PUT** 작업을 선택하고 URL에 **{{UploadURL}}**을 붙여넣습니다.
+1. **+** 를 눌러 새 요청 탭을 만듭니다.
+2. **PUT** 작업을 선택하고 URL에 **{{UploadURL}}** 을 붙여넣습니다.
 2. **권한 부여** 탭을 그대로 유지합니다(**전달자 토큰**으로 설정 안 함).
 3. **헤더** 탭에서 **키**를 “x-ms-blob-type”으로, **값**을 “BlockBlob”으로 지정합니다.
 2. **본문** 탭에서 **이진**을 클릭합니다.

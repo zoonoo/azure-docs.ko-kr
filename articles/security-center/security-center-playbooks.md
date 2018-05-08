@@ -3,7 +3,7 @@ title: Azure Security Center의 보안 플레이북 | Microsoft Docs
 description: 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 인시던트에 대한 사용자 응답을 자동화할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 76f2666df76b802c175eadc38d2ac4100799ceae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1d6fee9cb46fcfec32c0ecdb91eec09a56063c4e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Security Center의 보안 플레이북(미리 보기)
 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 관련 문제에 응답할 수 있습니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/16/2018
 다음 단계를 따라 Security Center에서 보안 플레이 북을 만듭니다.
 
 1.  **Security Center** 대시보드를 엽니다.
-2.  왼쪽 창의 **자동화 및 오케스트레이션** 섹션 아래에서 **플레이북(미리 보기)**을 클릭합니다.
+2.  왼쪽 창의 **자동화 및 오케스트레이션** 섹션 아래에서 **플레이북(미리 보기)** 을 클릭합니다.
 
     ![논리 앱](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  

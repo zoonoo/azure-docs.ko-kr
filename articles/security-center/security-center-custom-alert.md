@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center의 사용자 지정 경고 규칙 | Microsoft Docs"
-description: "이 문서를 통해 Azure Security Center에서 사용자 지정 경고 규칙을 만들 수 있습니다."
+title: Azure Security Center의 사용자 지정 경고 규칙 | Microsoft Docs
+description: 이 문서를 통해 Azure Security Center에서 사용자 지정 경고 규칙을 만들 수 있습니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: yurid
-ms.openlocfilehash: 10c5c3e6f714aac4c08cb810f54eb09c3d2bbe70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e43d925317e32d2fcbdeb75eff71de0cc5a91378
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Security Center의 사용자 지정 경고 규칙(미리 보기)
 이 문서를 통해 Azure Security Center에서 사용자 지정 경고 규칙을 만들 수 있습니다.
@@ -33,7 +33,7 @@ Security Center에서 사용자 지정 경고 규칙을 사용하면 환경에�
 
 **Security Center** 대시보드를 열고 다음 단계를 따라 사용자 지정 경고 규칙을 만듭니다.
 
-1.  왼쪽 창의 **감지** 아래에서 **사용자 지정 경고 규칙(미리 보기)**을 클릭합니다.
+1.  왼쪽 창의 **감지** 아래에서 **사용자 지정 경고 규칙(미리 보기)** 을 클릭합니다.
 2.  **Security Center – 사용자 지정 경고 규칙(미리 보기)** 페이지에서 **새 사용자 지정 경고 규칙**을 클릭합니다.
 
     ![사용자 지정 경고](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
@@ -67,7 +67,7 @@ Security Center에서 사용자 지정 경고 규칙을 사용하면 환경에�
 규칙을 만드는 동안 설정된 매개 변수(검색 쿼리, 임계값 등)를 이 사용자 지정 규칙의 경고에서 사용할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
-이 문서에서는 Azure Security Center에서 사용자 지정 경고 규칙을 만드는 방법을 알아보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Azure Security Center에서 사용자 지정 경고 규칙을 만드는 방법을 알아보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

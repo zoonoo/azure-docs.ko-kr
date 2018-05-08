@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -79,7 +79,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 ### <a name="change-a-network-security-group"></a>네트워크 보안 그룹 변경
 
 1. 포털 맨 위에 있는 검색 상자에 *네트워크 보안 그룹*를 입력합니다. 검색 결과에 표시된 **네트워크 보안 그룹**을 선택합니다.
-2. 변경하려는 네트워크 보안 그룹을 선택합니다. 가장 일반적인 변경은 보안 규칙을 [추가](#create-a-security-rule) 또는 [제거](#delete-a-security-rule)하고 [서브넷 또는 네트워크 인터페이스에서 네트워크 보안 그룹 연결 또는 분리](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)하는 것입니다.
+2. 변경하려는 네트워크 보안 그룹을 선택합니다. 가장 일반적인 변경은 보안 규칙을 [추가](#create-a-security-rule) 또는 [제거](#delete-a-security-rule)하고 [서브넷 또는 네트워크 인터페이스에서 네트워크 보안 그룹 연결 또는 분리](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface)하는 것입니다.
 
 **명령**
 
