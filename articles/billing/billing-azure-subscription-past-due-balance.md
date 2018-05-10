@@ -1,25 +1,25 @@
 ---
-title: "Azure의 미지불금액 전자 메일 | Microsoft Docs"
-description: "Azure 구독에 미지불금액이 있는 경우 결제 방법에 대해 설명합니다."
-services: 
-documentationcenter: 
+title: Azure의 미지불금액 전자 메일 | Microsoft Docs
+description: Azure 구독에 미지불금액이 있는 경우 결제 방법에 대해 설명합니다.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 20761f9c6caf029b2b6bbc8e02b2f041c45abf01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37e305f185afbc2c1f4b2c6e7ca0b30fb5102d74
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Azure에서 전자 메일을 받은 후 Azure 구독의 미지불금액 해결
 
@@ -47,6 +47,6 @@ ms.lasthandoff: 10/11/2017
 
 서비스는 취소되고 리소스는 더 이상 사용할 수 없게 됩니다. 귀하의 Azure 데이터는 서비스가 종료된 후 90일 후에 삭제됩니다. 자세한 내용은 [Microsoft 보안 센터 - 데이터 관리 방법](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -275,7 +275,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 설치 및 구성된 Azure AD Connect | 문서 블록: [디렉터리 동기화 - 암호 해시 동기화](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| ADLDS 인스턴스 모임 요구 사항 | [일반 LDAP 커넥터 기술 참조: 일반 LDAP 커넥터의 개요](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| ADLDS 인스턴스 모임 요구 사항 | [일반 LDAP 커넥터 기술 참조: 일반 LDAP 커넥터의 개요](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | 사용자가 사용 중인 작업 목록 및 이러한 작업과 연결된 특성 | [Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -283,7 +283,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 단계 | 리소스 |
 | --- | --- |
-| 일반 LDAP 커넥터를 추가합니다. | [일반 LDAP 커넥터 기술 참조: 새 커넥터 만들기](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| 일반 LDAP 커넥터를 추가합니다. | [일반 LDAP 커넥터 기술 참조: 새 커넥터 만들기](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | 생성된 커넥터에 대한 실행 프로필을 만듭니다(전체 가져오기, 델타 가져오기, 전체 동기화, 델타 동기화, 내보내기) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)(관리 에이전트 실행 프로필 만들기)<br/> [Azure AD Connect Sync Service Manager에서 커넥터 사용](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | 전체 가져오기 프로필을 실행하고 커넥터 공간에 개체가 있는지 확인합니다. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)(커넥터 공간 개체 검색)<br/>[Azure AD Connect Sync Service Manager에서 커넥터 사용: 커넥터 공간 검색](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Metaverse의 개체에 작업에 필요한 특성이 포함되도록 동기화 규칙을 만듭니다. | [Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례: 동기화 규칙 변경](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 동기화: 선언적 프로비전 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: 선언적 프로비전 식 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

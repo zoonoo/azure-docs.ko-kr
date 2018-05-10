@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Services 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "확장 가능한 클라우드 플랫폼인 Media Services를 사용하여 주문형 또는 브로드캐스트 품질 라이브 비디오를 안전하게 스트리밍하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
+title: Azure Media Services 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 확장 가능한 클라우드 플랫폼인 Media Services를 사용하여 주문형 또는 브로드캐스트 품질 라이브 비디오를 안전하게 스트리밍하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="media-services-documentation"></a>Media Services 설명서
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 10/11/2017
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

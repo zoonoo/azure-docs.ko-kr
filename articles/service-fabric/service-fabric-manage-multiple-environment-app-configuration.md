@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 응용 프로그램 관리
 
@@ -48,8 +48,8 @@ Azure Service Fabric 클러스터를 사용하면 하나의 컴퓨터에서 수�
 
 Service Fabric에서 명명된 응용 프로그램 인스턴스를 만들 때 매개 변수를 전달하는 옵션을 사용할 수 있습니다. 이렇게 하는 방법은 응용 프로그램 인스턴스를 만드는 방법에 따라 달라집니다.
 
-  - PowerShell에서 [`New-ServiceFabricApplication`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet은 응용 프로그램 매개 변수를 해시 테이블로 사용합니다.
-  - sfctl를 사용하여 [`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 명령은 매개 변수를 JSON 문자열로 사용합니다. install.sh 스크립트는 sfctl을 사용합니다.
+  - PowerShell에서 [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet은 응용 프로그램 매개 변수를 해시 테이블로 사용합니다.
+  - sfctl를 사용하여 [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 명령은 매개 변수를 JSON 문자열로 사용합니다. install.sh 스크립트는 sfctl을 사용합니다.
   - Visual Studio에서는 응용 프로그램 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Visual Studio Team Service 또는 Team Foundation Server를 사용하여 Visual Studio에서 게시할 때 사용됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -3,21 +3,20 @@ title: Azure Virtual Network에서 Hive를 사용하여 데이터 변환 | Micro
 description: 이 자습서에서는 Azure Data Factory에서 Hive 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
-ms.author: shengc
-ms.openlocfilehash: a5f75990ab29dc09b6c45ddae17a654f9c3dab78
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: e9ec338e04c456a9a91d51a7a4741e4760f1b3c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 활동을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -80,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
       
      ![새 데이터 팩터리 페이지](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
  
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameMyAzureSsisDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameMyAzureSsisDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
@@ -90,7 +89,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
       리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2(미리 보기)**를 선택합니다.
+4. **버전**에 **V2(미리 보기)** 를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 데이터 팩터리 만들기를 지원하는 위치만 목록에 표시됩니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
@@ -204,7 +203,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 - **scriptPath**는 MyStorageLinkedService에 사용한 Azure Storage 계정의 Hive 스크립트 경로를 가리킵니다. 경로는 대/소문자를 구분합니다.
 - **output**은 Hive 스크립트에서 사용되는 인수입니다. `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리킵니다. 경로는 대/소문자를 구분합니다. 
 
-1. Data Factory UI의 왼쪽 창에서 **+(더하기)**를 클릭하고, **파이프라인**을 클릭합니다. 
+1. Data Factory UI의 왼쪽 창에서 **+(더하기)** 를 클릭하고, **파이프라인**을 클릭합니다. 
 
     ![새 파이프라인 메뉴](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png)
 2. **활동** 도구 상자에서 **HDInsight**를 펼치고, **Hive** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
@@ -236,7 +235,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 
-1. 먼저 도구 모음에서 **유효성 검사** 단추를 클릭하여 파이프라인에 대한 유효성을 검사합니다. **오른쪽 화살표(>>)**를 클릭하여 **파이프라인 유효성 검사 출력** 창을 닫습니다. 
+1. 먼저 도구 모음에서 **유효성 검사** 단추를 클릭하여 파이프라인에 대한 유효성을 검사합니다. **오른쪽 화살표(>>)** 를 클릭하여 **파이프라인 유효성 검사 출력** 창을 닫습니다. 
 
     ![파이프라인 유효성 검사](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. 파이프라인 실행을 트리거하려면 도구 모음에서 [트리거], [지금 트리거]를 차례로 클릭합니다. 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
-ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource 게시 가이드
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 AppSource는 BDM(비즈니스 의사 결정자)이 파트너가 빌드하고 Microsoft에서 평가한 비즈니스 솔루션/앱을 검색하고 매끄럽게 시도하기 위한 단일 대상입니다. AppSource의 작동 방식을 알아보려면 [이 동영상](https://youtu.be/hpq_Y9LuIB8)을 시청하세요. 
 
 다음과 같은 경우 Microsoft 파트너는 AppSource에 게시하여 실제로 혜택을 얻을 수 있습니다.
-- [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable)를 사용하여 지능형 솔루션/앱을 빌드한 경우
+- [Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/?cdn=disable)를 사용하여 지능형 솔루션/앱을 빌드한 경우
 - 솔루션 또는 앱이 특정 비즈니스 문제를 다루는 경우
 - 고객이 예측 가능한 방식으로 비교적 신속하게 다시 사용할 수 있는 모듈 또는 지적 재산을 빌드한 경우
 
@@ -48,7 +48,6 @@ AppSource에 이미 게시된 [Cortana Intelligence 솔루션](https://appsource
     - HDInsight
     - Machine Learning
     - Data Lake Analytics
-
     - Stream Analytics
     - Cognitive Services
     - Bot Framework

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7a65ba691b9cf8b0ce989f0c54bd0b74edd43b85
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -128,9 +128,9 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미지(Windows 7 이상 버전)를 사용하려면 다음 중 하나를 수행해야 합니다.
 
 - [MSDN 구독을 구입하세요](https://www.visualstudio.com/products/how-to-buy-vs).
-- 기업 계약이 있는 경우 [Enterprise 개발/테스트 제품](https://azure.microsoft.com/en-us/offers/ms-azr-0148p)을 사용하여 Azure 구독을 만드세요.
+- 기업 계약이 있는 경우 [Enterprise 개발/테스트 제품](https://azure.microsoft.com/offers/ms-azr-0148p)을 사용하여 Azure 구독을 만드세요.
 
-각 MSDN 제품의 Azure 크레딧에 대한 자세한 내용은 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+각 MSDN 제품의 Azure 크레딧에 대한 자세한 내용은 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>사용자 지정 이미지를 만들도록 VHD 파일 업로드 과정을 어떻게 자동화합니까?
 사용자 지정 이미지를 만들도록 VHD 파일 업로드를 자동화하기 위해 두 가지 옵션이 있습니다.

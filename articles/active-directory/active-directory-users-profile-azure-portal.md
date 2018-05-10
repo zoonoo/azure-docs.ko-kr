@@ -1,25 +1,23 @@
 ---
-title: "Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경 | Microsoft Docs"
-description: "Azure Active Directory에서 프로필 사진을 포함하여 사용자 프로필을 추가하는 방법을 설명합니다."
+title: Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경 | Microsoft Docs
+description: Azure Active Directory에서 프로필 사진을 포함하여 사용자 프로필을 추가하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: aa38ab92-a867-45d7-9dc1-7f1c628f7ed3
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/03/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 1f82f0f867173da10907d06c6c093ddcc569565f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4d3b9d83bc949a2a77ac384b803521726b1bf09b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경
 이 문서에서는 Azure AD(Azure Active Directory)에서 프로필 사진 또는 전화 및 전자 메일 인증 정보와 같은 사용자 프로필 정보를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.

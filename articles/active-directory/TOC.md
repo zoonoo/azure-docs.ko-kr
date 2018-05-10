@@ -289,6 +289,7 @@
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
 #### [조건](active-directory-conditional-access-conditions.md)
+#### [위치 조건](active-directory-conditional-access-locations.md)
 #### [컨트롤](active-directory-conditional-access-controls.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [모범 사례](active-directory-conditional-access-best-practices.md)

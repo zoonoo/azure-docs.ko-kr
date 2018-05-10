@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -73,7 +73,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. [Azure Portal](https://portal.azure.com)에서 Vnet이 ExpressRoute 회로에 연결된 구독을 선택합니다. 그런 후 **Marketplace**의 서비스 목록에서 ‘네트워크 성능 모니터’를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
 
    >[!NOTE]
-   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.  기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [자세한 정보...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.  기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [자세한 정보...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
@@ -92,7 +92,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
   
     ![작업 영역](.\media\how-to-npm\4.png)<br><br>
 4. **확인**을 클릭하여 설정 템플릿을 저장 및 배포합니다. 템플릿의 유효성이 확인되면 **만들기**를 클릭하여 작업 영역을 배포합니다.
-5. 작업 영역이 배포된 후 만든 **NetworkMonitoring(name)** 리소스로 이동합니다. 설정이 유효한지 확인한 후 **솔루션에 추가 구성이 필요합니다.**를 클릭합니다.
+5. 작업 영역이 배포된 후 만든 **NetworkMonitoring(name)** 리소스로 이동합니다. 설정이 유효한지 확인한 후 **솔루션에 추가 구성이 필요합니다.** 를 클릭합니다.
 
    ![추가 구성](.\media\how-to-npm\5.png)
 
@@ -118,7 +118,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
   >
   
   >[!NOTE]
-  >SCOM([MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx) 포함)에서 푸시한 에이전트가 Azure에서 호스팅되는 경우 자체 위치를 일관되게 검색하지 못할 수 있습니다.  ExpressRoute를 모니터링할 때는 Azure VNET에서 이러한 에이전트를 사용하지 않는 것이 좋습니다.
+  >SCOM([MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx) 포함)에서 푸시한 에이전트가 Azure에서 호스팅되는 경우 자체 위치를 일관되게 검색하지 못할 수 있습니다.  ExpressRoute를 모니터링할 때는 Azure VNET에서 이러한 에이전트를 사용하지 않는 것이 좋습니다.
   >
   >
 
@@ -139,7 +139,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
     ![계좌](.\media\how-to-npm\10.png)
 6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
-8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Azure Log Analytics(OMS)에 연결되었는지 확인합니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지가 표시됩니다.
+8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Azure Log Analytics(OMS)에 연결되었는지 확인합니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
 
 9. 모니터링해야 하는 각 VNET에 대해 이 작업을 반복합니다.
 

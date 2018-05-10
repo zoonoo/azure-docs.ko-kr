@@ -10,11 +10,11 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: d29ccd2d4dce1d1550bac5b5ab97bb44c9960ed6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b25bb73a9f7227fbe3c15610a5b91016505bae4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse 데이터 관리 파트너
 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL Data Warehouse를 지원하는 데이터 관리 도구 및 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.
@@ -63,12 +63,12 @@ ms.lasthandoff: 04/19/2018
 <!--[sql_sentry_datasheet]:-->
 
 <!--Marketplace Links -->
-[coffing_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/nexus/nexus-chameleon-9/ 
+[coffing_marketplace]:https://azure.microsoft.com/marketplace/partners/nexus/nexus-chameleon-9/ 
 <!--[inbrein_marketplace]:-->
-[infolibrarian_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
-[redpoint_it_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/redpoint-global/redpoint-interaction/
-[redpoint_dm_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/redpoint-global/redpoint-rpdm/ 
-[sql_sentry_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/sqlsentry/sqlsentryplatform/
+[infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
+[redpoint_it_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/
+[redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ 
+[sql_sentry_marketplace]:https://azure.microsoft.com/marketplace/partners/sqlsentry/sqlsentryplatform/
 
 <!--Press links-->
 [coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/

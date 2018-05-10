@@ -13,12 +13,14 @@
 
 ## Data Lake Analytics 관리
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### 명령 줄
+#### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDK
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [정책](data-lake-analytics-policies.md)
 ### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
 ### [할당량 한도 조정](data-lake-analytics-quota-limits.md)
@@ -36,6 +38,7 @@
 #### [프로그램 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [설치](data-lake-analytics-data-lake-tools-install.md)
 #### [작업 검색 및 보기](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [사용자 정의 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
 #### [되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

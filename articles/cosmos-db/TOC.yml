@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: 서버를 사용하지 않는 데이터베이스
         href: serverless-computing-database.md
+      - name: BulkExecutor 개요
+        href: bulk-executor-overview.md
       - name: 보안
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: 데이터에 대한 액세스 보안
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: 사용 사례
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: 방법 가이드
             items:
+              - name: BulkExecutor - .NET
+                href: bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: bulk-executor-java.md
               - name: 쿼리
                 items:
                   - name: SQL 쿼리 수행
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: 파이썬
                 href: sql-api-sdk-python.md
+              - name: BulkExecutor - .NET
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST (영문)
                 href: /rest/api/cosmos-db/
               - name: REST 리소스 공급자
@@ -257,8 +265,6 @@ items:
             items:
               - name: Visual Studio Code 확장
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: 스키마와 관계 없는 인덱싱 문서
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: SQL 실습
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: MongoDB API 문서
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: 방화벽 지원
         href: firewall-support.md
+      - name: 가상 네트워크 서비스 엔드포인트 설정
+        href: vnet-service-endpoint.md
       - name: 메트릭
         href: use-metrics.md
       - name: 모니터 SLA
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: 야구를 통해 설명하는 데이터 일관성
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: 백서
+        href: whitepapers.md

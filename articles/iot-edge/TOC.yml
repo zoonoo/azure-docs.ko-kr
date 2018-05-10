@@ -90,12 +90,12 @@
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
     - name: 플랫폼 서비스
       items:
-        - name: IoT 허브
+        - name: IoT Hub
           href: /azure/iot-hub
         - name: IoT Hub Device Provisioning 서비스
           href: /azure/iot-dps
-        - name: 위치 기반 서비스
-          href: /azure/location-based-services
+        - name: 지도
+          href: /azure/azure-maps
         - name: 서비스 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights

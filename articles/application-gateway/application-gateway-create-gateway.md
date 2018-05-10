@@ -1,10 +1,10 @@
 ---
-title: "Application Gateway 만들기, 시작 또는 삭제 | Microsoft Docs"
-description: "이 페이지에서는 Azure 응용 프로그램 게이트웨이를 만들고, 구성하고, 시작하고 삭제하기 위한 지침을 제공합니다."
+title: Application Gateway 만들기, 시작 또는 삭제 | Microsoft Docs
+description: 이 페이지에서는 Azure 응용 프로그램 게이트웨이를 만들고, 구성하고, 시작하고 삭제하기 위한 지침을 제공합니다.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
-ms.openlocfilehash: 7fb54e96d20d34f453b7b016094b84504348335b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: victorh
+ms.openlocfilehash: a1cfd42f5b1c31b911005b2539047630c6d320dd
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell을 사용하여 Application Gateway 만들기, 시작 또는 삭제 
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
@@ -109,7 +109,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 다음 예제에서는 XML 파일을 사용하여 모든 응용 프로그램 게이트웨이 설정을 구성하고 응용 프로그램 게이트웨이 리소스에 커밋합니다.  
 
-#### <a name="step-1"></a>1단계:
+#### <a name="step-1"></a>1단계
 
 다음 텍스트를 메모장에 복사합니다.
 
@@ -210,7 +210,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 </ApplicationGatewayConfiguration>
 ```
 
-#### <a name="step-2"></a>2단계:
+#### <a name="step-2"></a>2단계
 
 다음으로 응용 프로그램 게이트웨이를 설정합니다. 구성 XML 파일에 `Set-AzureApplicationGatewayConfig` cmdlet를 사용합니다.
 
@@ -225,7 +225,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 > [!NOTE]
 > 각 구성 개체에 값을 할당하기 전에 PowerShell에서 저장소에 사용할 개체 종류를 선언해야 합니다. 개별 항목을 만드는 첫 줄은 어떤 `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`이 사용되는지 정의합니다.
 
-#### <a name="step-1"></a>1단계:
+#### <a name="step-1"></a>1단계
 
 모든 개별 구성 항목을 만듭니다.
 
@@ -296,7 +296,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-#### <a name="step-2"></a>2단계:
+#### <a name="step-2"></a>2단계
 
 응용 프로그램 게이트웨이 구성 개체 ($appgwconfig)에 모든 개별 구성 항목을 할당합니다.
 
@@ -342,7 +342,7 @@ $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.Lis
 $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
-### <a name="step-3"></a>3단계:
+### <a name="step-3"></a>3단계
 `Set-AzureApplicationGatewayConfig`를 사용하여 구성 개체를 응용 프로그램 게이트웨이 리소스에 커밋합니다.
 
 ```powershell

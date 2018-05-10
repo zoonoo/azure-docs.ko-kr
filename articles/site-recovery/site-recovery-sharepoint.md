@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 재해 복구를 위해 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs
 
@@ -53,7 +53,7 @@ Microsoft SharePoint는 그룹 또는 부서가 정보를 구성, 공동 작업 
 
 ## <a name="sharepoint-architecture"></a>SharePoint 아키텍처
 
-SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 이상의 서버에 배포되어 특정 목적 및 목표를 충족하는 팜 디자인을 구현할 수 있습니다. 수 많은 동시 사용자 및 콘텐츠 항목을 지원하는 일반적인 큰 규모의 많은 처리량을 요구하는 SharePoint 서버 팜은 확장성 전략의 일부로 서비스 그룹화를 사용합니다. 이 접근 방식에는 전용 서버에서 서버를 실행하고, 이러한 서비스를 함께 그룹화한 다음, 서버를 그룹으로 확장하는 것이 포함됩니다. 다음과 같은 토폴로지는 3계층 SharePoint 서버 팜에 대한 서비스 및 서버 그룹화를 보여 줍니다. 다양한 SharePoint 토폴로지에 대한 자세한 지침은 SharePoint 문서 및 제품 라인 아키텍처를 참조하세요. SharePoint 2013 배포에 대한 자세한 내용은 [이 문서](https://technet.microsoft.com/en-us/library/cc303422.aspx)에서 확인할 수 있습니다.
+SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 이상의 서버에 배포되어 특정 목적 및 목표를 충족하는 팜 디자인을 구현할 수 있습니다. 수 많은 동시 사용자 및 콘텐츠 항목을 지원하는 일반적인 큰 규모의 많은 처리량을 요구하는 SharePoint 서버 팜은 확장성 전략의 일부로 서비스 그룹화를 사용합니다. 이 접근 방식에는 전용 서버에서 서버를 실행하고, 이러한 서비스를 함께 그룹화한 다음, 서버를 그룹으로 확장하는 것이 포함됩니다. 다음과 같은 토폴로지는 3계층 SharePoint 서버 팜에 대한 서비스 및 서버 그룹화를 보여 줍니다. 다양한 SharePoint 토폴로지에 대한 자세한 지침은 SharePoint 문서 및 제품 라인 아키텍처를 참조하세요. SharePoint 2013 배포에 대한 자세한 내용은 [이 문서](https://technet.microsoft.com/library/cc303422.aspx)에서 확인할 수 있습니다.
 
 
 

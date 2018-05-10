@@ -1,8 +1,8 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 Hadoop
+- name: 개요
   items:
-    - name: 개요
+    - name: HDInsight의 Hadoop 정보
       href: apache-hadoop-introduction.md
     - name: HDInsight의 Hadoop 아키텍처
       href: ../hdinsight-hadoop-architecture.md
@@ -10,20 +10,32 @@
     - name: HDInsight의 Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: 시작하기
+- name: 빠른 시작
   items:
-    - name: Hadoop으로 시작
+    - name: Hadoop 클러스터 만들기 - 포털
+      href: apache-hadoop-linux-create-cluster-get-started-portal.md
+    - name: Hadoop 클러스터 만들기 - Resource Manager
       href: apache-hadoop-linux-tutorial-get-started.md
-    - name: Hadoop 샌드박스
-      href: apache-hadoop-emulator-get-started.md
-    - name: HDInsight 앱 설치
-      href: ../hdinsight-apps-install-applications.md
+- name: 자습서
+  items:
+    - name: ETL 작업 수행
+      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
+    - name: 주문형 클러스터 만들기
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+- name: 개념
+  items:
     - name: 클러스터 용량 계획
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: 가용성 및 안정성
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
 - name: 방법
   items:
+    - name: Hadoop 샌드박스 사용
+      href: apache-hadoop-emulator-get-started.md
     - name: 클러스터 저장소 사용
       items:
         - name: Azure Storage 사용
@@ -144,9 +156,6 @@
         - name: 저장된 트윗 분석
           href: ../hdinsight-analyze-twitter-data-linux.md
           maintainContext: true
-        - name: 비행 지연 데이터 분석
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
-          maintainContext: true
         - name: Mahout를 사용하여 추천 생성
           href: apache-hadoop-mahout-linux-mac.md
         - name: Hive를 사용하여 웹 사이트 로그 분석
@@ -164,6 +173,9 @@
           maintainContext: true
     - name: 클러스터 확장
       items:
+        - name: HDInsight 앱 설치
+          href: ../hdinsight-apps-install-applications.md
+          maintainContext: true
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
@@ -260,9 +272,6 @@
             - name: Azure 리소스 관리자 템플릿 사용
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: 주문형 클러스터 만들기
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
         - name: Hadoop 클러스터 관리
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
@@ -329,9 +338,6 @@
           maintainContext: true
         - name: 리소스 관리자 개발 도구로 마이그레이션
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
-        - name: 가용성 및 안정성
-          href: ../hdinsight-high-availability-linux.md
           maintainContext: true
         - name: HDInsight 클러스터를 최신 버전으로 업그레이드
           href: ../hdinsight-upgrade-cluster.md

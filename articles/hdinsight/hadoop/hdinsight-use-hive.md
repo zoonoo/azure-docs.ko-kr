@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/26/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: ddd27af47edd9bf4ffbf688ef6e5f12a34c681cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9f67bc93758b98060efbef2cb7f1c200a62d7e65
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -102,7 +102,7 @@ Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니�
 
 ## <a name="user-defined-functions-udf"></a>UDF(사용자 정의 함수)
 
-Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다. Hive와 함께 UDF를 사용하는 방법의 예는 다음 문서를 참조하세요.
+Hive는 **사용자 정의 함수(UDF)** 를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다. Hive와 함께 UDF를 사용하는 방법의 예는 다음 문서를 참조하세요.
 
 * [Hive와 함께 Java 사용자 정의 함수 사용](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -188,7 +188,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 * `STORED AS ORC`: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
 
-* `INSERT OVERWRITE ... SELECT`: **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
+* `INSERT OVERWRITE ... SELECT`: **[ERROR]** 가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
 
 > [!NOTE]
 > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.

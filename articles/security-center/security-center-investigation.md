@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 인시던트 및 경고 조사 | Microsoft Docs"
-description: "이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다."
+title: Azure Security Center에서 인시던트 및 경고 조사 | Microsoft Docs
+description: 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: yurid
-ms.openlocfilehash: 818c257d1959936f0dc326486e372677aacb065a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Security Center에서 인시던트 및 경고 조사(미리 보기)
 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.
@@ -39,7 +39,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 ### <a name="investigation-path"></a>조사 경로
 사용자가 다른 엔터티를 탐색하는 동안 조사 경로를 통해 조사 컨텍스트를 추적하고 빠르게 탐색할 수 있습니다. 조사 결과를 포함하는 인시던트는 항상 조사 경로에서 맨 왼쪽의 인시던트에 있습니다.
 
-![Path](./media/security-center-investigation/security-center-investigation-fig2.png)
+![path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>일반 정보
 엔터티가 그래프에 표시되면 탭이 이 엔터티에 대한 추가 정보를 보여줍니다. **정보** 탭에서는 사용할 수 있는 다양한 정보 원본의 엔터티에 대한 일반 정보를 제공합니다. 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure 스택 1803 업데이트
 
@@ -40,8 +40,18 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 
 ### <a name="prerequisites"></a>필수 조건
-- Azure 스택 설치 [1802 업데이트](azure-stack-update-1802.md) Azure 스택 1803 업데이트를 적용 하기 전에.    
+- Azure 스택 설치 [1802 업데이트](azure-stack-update-1802.md) Azure 스택 1803 업데이트를 적용 하기 전에.   
 
+- 설치 **AzS 핫픽스 – 1.0.180312.1-빌드 20180222.2** Azure 스택 1803 업데이트를 적용 하기 전에. 이 핫픽스는 Windows Defender 업데이트 하 고 Azure 스택에 대 한 업데이트를 다운로드할 때 됩니다.
+
+  에 대 한 일반적인 절차에 따라 핫픽스를 설치 하려면 [Azure 스택에 대 한 업데이트를 설치](azure-stack-apply-updates.md)합니다. 업데이트의 이름으로 표시 **AzS 핫픽스 – 1.0.180312.1**, 다음 파일을 포함 합니다. 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  이러한 파일을 저장소 계정 및 컨테이너에 업로드 한 후 관리 포털에서 업데이트 타일에서 설치를 실행 합니다. 
+  
+  Azure 스택 업데이트를와 달리이 업데이트를 설치 하는 Azure 스택의 버전을 변경 되지 않습니다. 이 업데이트가 설치를 확인 하려면 목록을 보려면 **설치 된 업데이트**합니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 - 1803 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.

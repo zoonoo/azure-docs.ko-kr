@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Suite 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "Azure IoT Suite에 대한 설명서에는 시작 가이드, 방법 문서, 자습서 및 API 참조가 포함되어 있습니다."
+title: Azure IoT 솔루션 가속기 설명서 - 자습서, API 참조 | Microsoft Docs기
+description: Azure IoT 솔루션 가속기 설명서에는 시작 가이드, 방법 문서, 자습서 및 API 참조가 포함되어 있습니다.
 services: iot-suite
 author: czeumault
 manager: carolz
@@ -9,72 +9,81 @@ ms.service: iot-suite
 ms.topic: landing-page
 ms.date: 11/27/2017
 ms.author: carolz
-ms.openlocfilehash: 8cb979f645f0c1405ebd424d39cc2d67c5b59ba0
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 62a414697e5ce217f1533d64020d4ce06c222d10
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="iot-suite-documentation"></a>IoT Suite 설명서
+# <a name="iot-solution-accelerators-documentation"></a>IoT 솔루션 가속기 설명서
 
-Microsoft Azure IoT Suite를 빨리 시작해 보세요. 미리 구성된 솔루션을 사용하고 IoT(사물 인터넷) 솔루션 개발을 가속화하세요. Linux, Windows 및 실시간 운영 체제를 포함한 여러 플랫폼에 대해 장치 SDK를 사용하여 새로운 장치를 추가하고 기존 장치를 연결하세요. 단 몇 개의 센서에서 동시에 연결된 수백만 개의 장치들로 쉽게 확장하고, 프로젝트의 규모가 어떻든 Azure의 세계적 가용성을 믿어 보세요.
+IoT 솔루션 가속기로 빠르게 시작하여 IoT 솔루션을 빌드합니다. Linux, Windows 및 실시간 운영 체제를 포함한 여러 플랫폼에 대해 장치 SDK를 사용하여 새로운 장치를 추가하고 기존 장치를 연결하세요. 단 몇 개의 센서에서 동시에 연결된 수백만 개의 장치까지 쉽게 확장하고, 프로젝트의 규모에 관계없이 Azure의 글로벌 가용성을 사용할 수 있습니다.
 
-<ul class="panelContent cardsFTitle">
+<h2>탐색</h2>
+<ul class="panelContent cardsW">
     <li>
-        <a href="/azure/iot-suite/iot-suite-what-are-preconfigured-solutions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/iot-suite.svg" alt="Learn about IoT Suite" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>IoT Suite에 대해 알아보기</h3>
+                        <p>솔루션 가속기, 주요 시나리오 및 시작 방법을 알아봅니다.</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-what-are-solution-accelerators">솔루션 가속기 개요</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">솔루션 가속기 배포</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">기본 제공 솔루션 기능</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">모니터링 기능</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-automate">규칙 관리 기능</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-automate">장치 관리 기능</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
+</ul> 
+
+---
+
+<h2>연결</h2>
+<ul class="panelContent cardsW">
     <li>
-        <a href="https://azure.microsoft.com/resources/videos/index/?sort=newest&tag=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="Azure Video Library" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Azure 비디오 라이브러리</h3>
+                        <p>솔루션 가속기에 장치를 연결하는 방법을 알아봅니다.</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">장치 모델 개요</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">시뮬레이션된 장치 사용자 지정</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">물리적 장치 연결</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="Deploy the remote monitoring preconfigured solution" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>미리 구성된 원격 모니터링 솔루션 배포</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>    
 </ul>
+
+---
+
+<h2>사용자 지정</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>솔루션 가속기를 사용자 지정하는 방법을 알아봅니다.</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy-local">로컬로 솔루션 실행</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-customize#presentation-and-visualization">UX 사용자 지정</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul> 
 
 ---
 

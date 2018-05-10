@@ -10,11 +10,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 974f2df8c4c9c9730f176a1e8472199960b359f6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/23/2018
 > 
 
 이 항목에서는 Azure Search 서비스에 대한 다양한 관리 작업을 수행하는 PowerShell 명령을 설명합니다. 검색 서비스 만들기, 확장 및 해당 API 키 관리 과정을 설명합니다.
-이러한 명령은 [Azure Search 관리 REST API](http://msdn.microsoft.com/library/dn832684.aspx)에서 사용할 수 있는 관리 옵션과 유사합니다.
+이러한 명령은 [Azure Search 관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement)에서 사용할 수 있는 관리 옵션과 유사합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure PowerShell 1.0 이상이 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.

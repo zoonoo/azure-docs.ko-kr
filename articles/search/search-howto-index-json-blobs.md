@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 Azure Blob Storage의 JSON Blob에서 구조화된 콘텐츠를 추출하도록 Azure Search Blob 인덱서를 구성하는 방법을 보여줍니다.
@@ -36,7 +36,7 @@ JSON Blob을 인덱싱하는 작업은 Azure Search에 있는 모든 인덱서�
 
 첫 번째 단계는 인덱서에서 사용하는 데이터 원본 연결 정보를 제공하는 것입니다. `azureblob`으로 지정된 데이터 원본 형식은 인덱서에 의해 호출되는 데이터 추출 동작을 결정합니다. JSON Blob 인덱싱의 경우 데이터 원본 정의는 JSON 문서 및 배열 모두에서 동일합니다. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -88,7 +88,7 @@ Azure Search Blob 인덱서를 사용하여 이전 예제와 비슷한 JSON 문�
 
 전체 지정된 요청은 다음과 같이 표시될 수 있습니다.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -190,7 +190,7 @@ JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 �
 
 필드 매핑을 비롯하여 완전히 지정된 인덱서 페이로드는 다음과 같습니다.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

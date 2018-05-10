@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 52d469236d607a145430134c24c4237346dafb4c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure 스택에서 할당량 유형
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 04/23/2018
 | 저장소 계정의 총 수 |20 |이 위치에 구독을 만들 수 있는 저장소 계정 최대 수입니다. |
 
 > [!NOTE]  
-> 새 저장소 할당량 적용 되기 전에 최대 2 시간이 걸릴 수 있습니다. 
+> 저장소 할당량 적용 되기 전에 최대 2 시간이 걸릴 수 있습니다. 
 > 
-> 
+
 
 ## <a name="network-quota-types"></a>네트워크 할당량 유형
 | **항목** | **기본값** | **설명** |

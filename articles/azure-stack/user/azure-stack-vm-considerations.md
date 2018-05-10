@@ -1,24 +1,24 @@
 ---
-title: "차이점 및 스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항 | Microsoft Docs"
-description: "스택에서 Azure 가상 컴퓨터와 작업 하는 경우의 차이점과 고려 사항에 알아봅니다."
+title: 차이점 및 스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항 | Microsoft Docs
+description: 스택에서 Azure 가상 컴퓨터와 작업 하는 경우의 차이점과 고려 사항에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/04/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure 스택의 가상 컴퓨터에 대 한 고려 사항
 
@@ -48,7 +48,7 @@ Azure는 리소스 제한 (로컬 및 서비스 수준에는 서버) 리소스�
 
 다음 표에서 Vm에서 지원 되는 Azure 스택 해당 구성과 함께 보여 줍니다.
 
-| 형식           | 크기          | 지원 되는 크기의 범위 |
+| type           | 크기          | 지원 되는 크기의 범위 |
 | ---------------| ------------- | ------------------------ |
 |범용 가상 컴퓨터 |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |범용 가상 컴퓨터 |표준 A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
@@ -61,7 +61,7 @@ Azure는 리소스 제한 (로컬 및 서비스 수준에는 서버) 리소스�
 |메모리에 최적화|Dv2 시리즈     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |메모리에 최적화|DSv2 시리즈-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-가상 컴퓨터 크기와 해당 관련된 리소스 수량 Azure 스택와 Azure 간에 일치 됩니다. 예를 들어이 일관성 메모리, 코어 수 및 만들 수 있는 데이터 디스크의 수/크기 걸린 시간이 포함 됩니다. 그러나 Azure 스택에는 동일한 VM 크기의 성능을 특정 Azure 스택 환경의 기본 특성에 따라 달라 집니다.
+가상 컴퓨터 크기와 해당 관련된 리소스 수량 Azure 스택와 Azure 간에 일치 됩니다. 이러한 일관성 메모리, 코어 수 및 만들 수 있는 데이터 디스크의 수/크기 걸린 시간이 포함 됩니다. 그러나 Azure 스택에는 동일한 VM 크기의 성능을 특정 Azure 스택 환경의 기본 특성에 따라 달라 집니다.
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
@@ -93,6 +93,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 지원 되는 리소스 종류 및 API 버전 목록을 통해 클라우드 운영자는 새 버전으로 Azure 스택 환경을 업데이트 하는 경우 달라질 수 있습니다.
+
+## <a name="windows-activation"></a>Windows 정품 인증
+
+Windows 제품이 제품 사용권 및 Microsoft 사용 조건에 따라 사용 해야 합니다. Azure 스택 사용 하 여 [자동 VM 정품 인증](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) AVMA ()를 Windows Server 가상 컴퓨터 (Vm)를 활성화 합니다. 
+ - AVMA 키를 가진 Windows Server 2016에 대 한 Azure 스택 호스트를 활성화, 때문에 모든 Vm 하는 Windows Server 2012를 실행 하거나 나중가 자동으로 활성화 합니다.
+ - Vm을 실행된 하는 Windows Server 2008 R2가 자동으로 활성화를 사용 하 여 활성화 되어야 합니다 [MAK 정품 인증](https://technet.microsoft.com/library/ff793438.aspx)합니다. 
+
+Microsoft Azure는 Windows Vm을 활성화 하기 위해 KMS 정품 인증을 사용 합니다. 문제를 활성화 하는 Azure 스택에서 Azure 발생 하는 VM을 이동 하는 경우 참조 [문제를 해결 하는 Azure Windows 가상 컴퓨터 정품 인증 문제](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)합니다. 추가 정보를 찾을 수 있습니다는 [Azure Vm에서 문제 해결 Windows 정품 인증 오류](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure 지원 팀 블로그 게시물입니다.
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

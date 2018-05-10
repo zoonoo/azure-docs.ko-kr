@@ -1,7 +1,7 @@
 - name: 컨테이너용 Azure
   href: index.yml
   items:
-    - name: 컨테이너 서비스(AKS)
+    - name: AKS(Azure Kubernetes Service)
       href: 'https://docs.microsoft.com/azure/aks/'
       expanded: true
       items:

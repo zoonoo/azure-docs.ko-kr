@@ -161,7 +161,7 @@
           href: protect-personal-data-in-transit-encryption.md
         - name: Azure 보고 도구를 사용하여 개인 데이터 보호
           href: protection-personal-data-azure-reporting-tools.md
-    - name: FEDRAMP
+    - name: FedRAMP
       items:
         - name: 데이터 분석
           href: ./blueprints/fedramp-analytics-overview.md

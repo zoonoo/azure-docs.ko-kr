@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -137,7 +137,7 @@ Workbench 앱 내에서 프로젝트 및 작업 영역을 삭제할 수도 있�
 Windows 10 Fall Creators Update가 있으며 프로젝트를 OneDrive에 매핑된 로컬 폴더에 만든 경우 Workbench에서 파일을 열 수 없습니다. 이 문제는 Fall Creators Update에 의해 도입된 버그 때문에 node.js 코드가 OneDrive 폴더에서 실패하기 때문입니다. 이 버그는 Windows 업데이트를 통해 곧 해결될 예정이지만 그때까지는 OneDrive 폴더에 프로젝트를 만들지 마세요.
 
 ## <a name="file-name-too-long-on-windows"></a>Windows에서 파일 이름이 너무 깁니다.
-Windows에서 Workbench를 사용하는 경우 기본 최대 260자 파일 이름 길이 제한이 발생할 수 있습니다. 그러면 "시스템이 지정된 경로를 찾을 수 없습니다."라는 오류가 표시될 수 있습니다. 레지스트리 키 설정을 수정하여 긴 파일 경로 이름을 늘릴 수 있습니다. _MAX_PATH_ 레지스트리 키를 설정하는 방법에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)를 검토하세요.
+Windows에서 Workbench를 사용하는 경우 기본 최대 260자 파일 이름 길이 제한이 발생할 수 있습니다. 그러면 "시스템이 지정된 경로를 찾을 수 없습니다."라는 오류가 표시될 수 있습니다. 레지스트리 키 설정을 수정하여 긴 파일 경로 이름을 늘릴 수 있습니다. _MAX_PATH_ 레지스트리 키를 설정하는 방법에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)를 검토하세요.
 
 ## <a name="interrupt-cli-execution-output"></a>CLI 실행 출력 중단
 `az ml experiment submit` 또는 `az ml notebook start`를 사용하여 실험을 실행하기 시작한 상태에서 출력을 중단하려면: 

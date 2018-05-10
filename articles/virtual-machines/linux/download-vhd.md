@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d62fe702e42929fde2bb2a0dee4ea2cc8621ff99
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 93f165d08813506f9c4d4c0fbb885ddc958e8391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -35,7 +35,7 @@ Azure에서 VM(가상 머신)은 운영 체제, 응용 프로그램 및 데이�
 
 VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계를 완료합니다.
 
-1. VM의 SSH, 계정 이름 및 공용 IP 주소를 사용하여 연결하고 프로비전 해제합니다. [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 공용 IP 주소를 찾을 수 있습니다. +user 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. 계정 자격 증명을 VM에 굽는 경우 이 +user 매개 변수를 그대로 둡니다. 다음 예제는 마지막 프로비전된 사용자 계정을 제거합니다.
+1. VM의 SSH, 계정 이름 및 공용 IP 주소를 사용하여 연결하고 프로비전 해제합니다. [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 공용 IP 주소를 찾을 수 있습니다. +user 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. 계정 자격 증명을 VM에 굽는 경우 이 +user 매개 변수를 그대로 둡니다. 다음 예제는 마지막 프로비전된 사용자 계정을 제거합니다.
 
     ```bash
     ssh azureuser@<publicIpAddress>

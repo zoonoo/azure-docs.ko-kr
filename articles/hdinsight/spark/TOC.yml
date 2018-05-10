@@ -1,27 +1,32 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 Spark
+- name: 개요
   items:
-    - name: 개요
+    - name: HDInsight의 Spark 정보
       href: apache-spark-overview.md
     - name: HDInsight의 Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: 시작하기
+- name: 빠른 시작
   items:
-    - name: Spark 클러스터 만들기
+    - name: Spark 클러스터 만들기 - 포털
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: Spark 클러스터 만들기 - PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Spark 클러스터 만들기 - 템플릿
       href: apache-spark-jupyter-spark-sql.md
+- name: 자습서
+  items:
     - name: Spark 클러스터에서 쿼리 실행
       href: apache-spark-load-data-run-query.md
     - name: BI 도구를 사용하여 데이터 분석
       href: apache-spark-use-bi-tools.md
-    - name: 클러스터 리소스 관리
-      href: apache-spark-resource-manager.md
-    - name: Spark 작업 디버그
-      href: apache-spark-job-debugging.md
-    - name: HDInsight 앱 설치
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: 스트리밍 작업 실행
+      href: apache-spark-eventhub-streaming.md
+    - name: 기계 학습 응용 프로그램 만들기
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: IntelliJ를 사용하여 Spark 응용 프로그램 만들기
+      href: apache-spark-create-standalone-application.md
 - name: 방법
   items:
     - name: 클러스터 저장소 사용
@@ -34,8 +39,6 @@
           maintainContext: true
     - name: 개발
       items:
-        - name: 독립 실행형 앱 만들기
-          href: apache-spark-create-standalone-application.md
         - name: 대화형 Spark Shell 사용
           href: apache-spark-shell.md
         - name: Livy를 사용하는 원격 작업
@@ -110,8 +113,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark 및 Machine Learning
       items:
-        - name: HVAC 성능 예측
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: 식품 검사 결과 예측
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: 웹 사이트 로그 분석
@@ -205,6 +206,8 @@
           maintainContext: true
     - name: 관리
       items:
+        - name: 클러스터 리소스 관리
+          href: apache-spark-resource-manager.md
         - name: Spark 설정 구성
           href: apache-spark-settings.md
         - name: Spark 작업 최적화
@@ -311,6 +314,8 @@
           maintainContext: true
     - name: 문제 해결
       items:
+        - name: Spark 작업 디버그
+          href: apache-spark-job-debugging.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

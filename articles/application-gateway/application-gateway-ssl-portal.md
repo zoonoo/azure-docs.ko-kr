@@ -1,21 +1,21 @@
 ---
-title: "SSL 종료로 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs"
-description: "Azure Portal을 사용하여 응용 프로그램 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다."
+title: SSL 종료로 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs
+description: Azure Portal을 사용하여 응용 프로그램 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 10796000f913428e39a0ffbd0aa2cbe0c515eb7a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 종료로 응용 프로그램 게이트웨이 만들기
 
@@ -28,11 +28,11 @@ Azure Portal을 사용하여 백엔드 서버에 가상 시스템을 사용하�
 > * 인증서가 있는 응용 프로그램 게이트웨이 만들기
 > * 백 엔드 서버로 사용되는 가상 머신 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합니다.
+[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -68,9 +68,9 @@ Export-PfxCertificate \
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷이 생성됩니다. 하나는 응용 프로그램 게이트웨이용이고 다른 하나는 백 엔드 서버용입니다. 가상 네트워크는 응용 프로그램 게이트웨이를 만들 때 동시에 만들 수 있습니다.
+가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기**를 클릭합니다.
+1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 응용 프로그램 게이트웨이의 이름으로 *myAppGateway*를 입력하고 새 리소스 그룹에 대해 *myResourceGroupAG*를 입력합니다.
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
@@ -87,7 +87,7 @@ Export-PfxCertificate \
 7. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 8. 수신기의 프로토콜에 대해 **HTTPS**를 누르고 포트가 **443**으로 정의되어 있는지 확인합니다.
 9. 폴더 아이콘을 클릭하고 이전에 만든 *appgwcert.pfx* 인증서를 찾아서 업로드합니다.
-10. 인증서의 이름에 *mycert1*을 입력하고 암호에 *Azure123456!*를 입력한 다음, **확인**을 클릭합니다.
+10. 인증서의 이름에 *mycert1*을 입력하고 암호에 *Azure123456!* 를 입력한 다음, **확인**을 클릭합니다.
 
     ![새 응용 프로그램 게이트웨이 만들기](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
@@ -104,7 +104,7 @@ Export-PfxCertificate \
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이의 백 엔드 서버로 사용될 두 개의 가상 머신을 만듭니다. 또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
+이 예제에서는 응용 프로그램 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -114,12 +114,12 @@ Export-PfxCertificate \
 
     - *myVM* - 가상 머신의 이름
     - *azureuser* - 관리자 사용자 이름
-    - *Azure123456!* 암호
+    - *Azure123456!* - 암호
     - **기존 항목 사용**을 선택한 다음, *myResourceGroupAG*를 선택합니다.
 
 4. **확인**을 클릭합니다.
-5. 가상 머신의 크기에 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
-6. 가상 네트워크에 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
+5. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
+6. 가상 네트워크에 대해 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
 7. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 8. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
 
@@ -143,7 +143,7 @@ Export-PfxCertificate \
       -Location EastUS
     ```
 
-3. 두 번째 가상 머신을 만들고 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension의 VMName 및 이름에 *myVM2*를 입력합니다.
+3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension의 이름 및 VMName에 대해 *myVM2*를 입력합니다.
 
 ### <a name="add-backend-servers"></a>백 엔드 서버 추가
 

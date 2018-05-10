@@ -14,12 +14,6 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: 표준 부하 분산 장치 만들기 - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: 자습서
   items:
     - name: VM에 내부 트래픽 부하 분산
@@ -28,6 +22,12 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: 특정 가용성 영역 내에 VM 부하 분산
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+- name: 샘플
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: 개념
   items:
     - name: 부하 분산 장치 표준이란?

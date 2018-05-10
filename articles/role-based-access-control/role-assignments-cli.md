@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9a4489c575de9f63740c68bda8cbf921592402ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f783b08b25b7dd00351537f4dd404d9c8d02044d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리
 
@@ -38,7 +38,7 @@ Azure CLI를 사용하여 역할 할당을 관리하려면 먼저 다음 필수 
 
 ## <a name="list-role-definitions"></a>역할 정의 나열
 
-사용 가능한 모든 역할 정의를 나열하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용합니다.
+사용 가능한 모든 역할 정의를 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
 
 ```azurecli
 az role definition list
@@ -95,7 +95,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 
 ### <a name="list-actions-of-a-role-definition"></a>역할 정의의 작업 나열
 
-역할 정의의 작업을 나열하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용합니다.
+역할 정의의 작업을 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
 
 ```azurecli
 az role definition list --name <role_name>
@@ -185,7 +185,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-assignments-for-a-user"></a>사용자에 대한 역할 할당 목록
 
-특정 사용자에 대한 역할 할당을 나열하려면 [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list)를 사용합니다.
+특정 사용자에 대한 역할 할당을 나열하려면 [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)를 사용합니다.
 
 ```azurecli
 az role assignment list --assignee <assignee>
@@ -214,7 +214,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ### <a name="list-role-assignments-for-a-resource-group"></a>리소스 그룹에 대한 역할 할당 목록
 
-리소스 그룹에 존재하는 역할 할당을 나열하려면 다[az role assignment list](/cli/azure/role/assignment#az_role_assignment_list)를 사용합니다.
+리소스 그룹에 존재하는 역할 할당을 나열하려면 다[az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)를 사용합니다.
 
 ```azurecli
 az role assignment list --resource-group <resource_group>
@@ -243,7 +243,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ### <a name="create-a-role-assignment-for-a-user"></a>사용자에 대한 역할 할당 만들기
 
-리소스 그룹 범위에서 사용자에 대한 역할 할당을 만들려면 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)를 사용합니다.
+리소스 그룹 범위에서 사용자에 대한 역할 할당을 만들려면 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용합니다.
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
@@ -257,13 +257,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 
 ### <a name="create-a-role-assignment-for-a-group"></a>그룹에 대한 역할 할당 만들기
 
-그룹에 대한 역할 할당을 만들려면 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)를 사용합니다.
+그룹에 대한 역할 할당을 만들려면 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용합니다.
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-다음 예제에서는 구독 범위에서 ID 22222222-2222-2222-2222-222222222222인 *Ann Mack Team* 그룹에 *Reader* 역할을 할당합니다. 그룹의 ID를 가져오기 위해 [az ad group list](/cli/azure/ad/group#az_ad_group_list) 또는 [az ad group show](/cli/azure/ad/group#az_ad_group_show)를 사용할 수 있습니다.
+다음 예제에서는 구독 범위에서 ID 22222222-2222-2222-2222-222222222222인 *Ann Mack Team* 그룹에 *Reader* 역할을 할당합니다. 그룹의 ID를 가져오기 위해 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 또는 [az ad group show](/cli/azure/ad/group#az-ad-group-show)를 사용할 수 있습니다.
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -277,13 +277,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application"></a>응용 프로그램에 대한 역할 할당 만들기
 
-응용 프로그램에 역할을 만들려면 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)를 사용합니다.
+응용 프로그램에 역할을 만들려면 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용합니다.
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-다음 예제에서는 *pharma-sales-projectforecast* 리소스 그룹 범위에서 개체 ID 44444444-4444-4444-4444-444444444444의 응용 프로그램에 *Virtual Machine Contributor* 역할을 부여합니다. 응용 프로그램의 개체 ID를 가져오기 위해 [az ad app list](/cli/azure/ad/app#az_ad_app_list) 또는 [az ad app show](/cli/azure/ad/app#az_ad_app_show)를 사용할 수 있습니다.
+다음 예제에서는 *pharma-sales-projectforecast* 리소스 그룹 범위에서 개체 ID 44444444-4444-4444-4444-444444444444의 응용 프로그램에 *Virtual Machine Contributor* 역할을 부여합니다. 응용 프로그램의 개체 ID를 가져오기 위해 [az ad app list](/cli/azure/ad/app#az-ad-app-list) 또는 [az ad app show](/cli/azure/ad/app#az-ad-app-show)를 사용할 수 있습니다.
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -291,7 +291,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>역할 할당 제거
 
-역할 할당을 제거하려면 [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete)를 사용합니다.
+역할 할당을 제거하려면 [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)를 사용합니다.
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -303,7 +303,7 @@ az role assignment delete --assignee <assignee> --role <role> --resource-group <
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-다음 예제에서는 구독 범위에서 ID 22222222-2222-2222-2222-222222222222인 *Ann Mack Team* 그룹에서 *Reader* 역할을 제거합니다. 그룹의 ID를 가져오기 위해 [az ad group list](/cli/azure/ad/group#az_ad_group_list) 또는 [az ad group show](/cli/azure/ad/group#az_ad_group_show)를 사용할 수 있습니다.
+다음 예제에서는 구독 범위에서 ID 22222222-2222-2222-2222-222222222222인 *Ann Mack Team* 그룹에서 *Reader* 역할을 제거합니다. 그룹의 ID를 가져오기 위해 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 또는 [az ad group show](/cli/azure/ad/group#az-ad-group-show)를 사용할 수 있습니다.
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -313,7 +313,7 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ### <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
-범위에서 할당할 수 있는 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용합니다.
+범위에서 할당할 수 있는 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
 
 다음 예제는 모두 현재 구독의 모든 사용자 지정 역할을 나열합니다.
 
@@ -344,7 +344,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ### <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 
-사용자 지정 역할을 만들려면 [az role definition create](/cli/azure/role/definition#az_role_definition_create)를 사용합니다. 역할 정의는 JSON 설명이거나, JSON 설명이 포함된 파일에 대한 경로가 될 수 있습니다.
+사용자 지정 역할을 만들려면 [az role definition create](/cli/azure/role/definition#az-role-definition-create)를 사용합니다. 역할 정의는 JSON 설명이거나, JSON 설명이 포함된 파일에 대한 경로가 될 수 있습니다.
 
 ```azurecli
 az role definition create --role-definition <role_definition>
@@ -386,7 +386,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ### <a name="update-a-custom-role"></a>사용자 지정 역할 업데이트
 
-사용자 지정 역할을 업데이트하려면 먼저 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 [az role definition update](/cli/azure/role/definition#az_role_definition_update)를 사용하여 업데이트된 역할 정의를 저장합니다.
+사용자 지정 역할을 업데이트하려면 먼저 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 [az role definition update](/cli/azure/role/definition#az-role-definition-update)를 사용하여 업데이트된 역할 정의를 저장합니다.
 
 ```azurecli
 az role definition update --role-definition <role_definition>
@@ -429,7 +429,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ### <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
 
-사용자 지정 역할을 삭제하려면 [az role definition delete](/cli/azure/role/definition#az_role_definition_delete)를 사용합니다. 삭제할 역할을 지정하려면 역할 이름이나 역할 ID를 사용합니다. 역할 ID를 결정하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용합니다.
+사용자 지정 역할을 삭제하려면 [az role definition delete](/cli/azure/role/definition#az-role-definition-delete)를 사용합니다. 삭제할 역할을 지정하려면 역할 이름이나 역할 ID를 사용합니다. 역할 ID를 결정하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
 
 ```azurecli
 az role definition delete --name <role_name or role_id>

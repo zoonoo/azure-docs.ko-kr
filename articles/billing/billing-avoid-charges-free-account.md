@@ -1,24 +1,24 @@
 ---
-title: "Azure 무료 계정에 대한 요금 청구 방지 - Azure | Microsoft Docs"
-description: "Azure 무료 계정에 요금이 표시되는 이유를 이해합니다. 이러한 요금을 방지하는 방법을 알아봅니다."
-services: 
-documentationcenter: 
+title: Azure 무료 계정에 대한 요금 청구 방지 - Azure | Microsoft Docs
+description: Azure 무료 계정에 요금이 표시되는 이유를 이해합니다. 이러한 요금을 방지하는 방법을 알아봅니다.
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 527e77d7ab8c67ea538d2452357f31a698b2b6ea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7a6b60abe3319c787d1fa2b5ff7bf3985bd7cd2
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Azure 무료 계정에 대한 요금 청구 방지
 
@@ -61,6 +61,6 @@ Azure 체험 계정에 체험용으로 포함되지 않은 서비스를 사용�
 
 체험 서비스 및 수량이 만료되면 Azure에서는 사용자에게 사용 중인 모든 서비스에 대해 종량제 요금을 청구합니다. Azure Portal을 사용하여 사용하지 않는 서비스에 대한 리소스를 삭제할 수 있습니다. 모든 Azure 서비스를 사용하지 않으려는 경우 [구독을 취소](billing-how-to-cancel-azure-subscription.md)할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

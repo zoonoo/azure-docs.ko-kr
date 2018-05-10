@@ -1,24 +1,24 @@
 ---
-title: "Azure 세부 사용량 이해"
-description: "Azure 구독에 대한 세부 사용량 CSV 섹션을 읽고 이해하는 방법을 알아봅니다."
-services: 
-documentationcenter: 
+title: Azure 세부 사용량 이해
+description: Azure 구독에 대한 세부 사용량 CSV 섹션을 읽고 이해하는 방법을 알아봅니다.
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0f698bff1506484e1dd4afe22f7c14e0a710937c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
 
@@ -42,14 +42,14 @@ ms.lasthandoff: 01/09/2018
 | 용어 | 설명 |
 | --- | --- |
 |청구 기간 |측정기가 사용된 청구 기간입니다. |
-|측정기 범주 |사용 현황의 최상위 서비스를 식별합니다. |
+|미터 범주 |사용 현황의 최상위 서비스를 식별합니다. |
 |측정기 하위 범주 |요율에 영향을 줄 수 있는 Azure 서비스의 유형을 정의합니다. |
-|측정기 이름 |사용 중인 측정기에 대한 측정 단위를 식별합니다. |
+|미터 이름 |사용 중인 측정기에 대한 측정 단위를 식별합니다. |
 |측정기 영역 |데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
 |SKU |각 Azure 측정기에 대한 고유한 시스템 식별자를 식별합니다. |
 |단위 |서비스 요금이 청구되는 단위를 식별합니다. GB, 시간, 10,000초 등을 예로 들 수 있습니다. |
-|소비된 수량 |청구 기간 동안 사용된 측정기의 양입니다. |
-|표함된 수량 |현재 청구 기간 동안 무료로 제공되는 측정기의 양입니다. |
+|사용량 |청구 기간 동안 사용된 측정기의 양입니다. |
+|포함된 수량 |현재 청구 기간 동안 무료로 제공되는 측정기의 양입니다. |
 |초과 수량 |소비된 수량과 포함된 수량 간의 차이를 나타냅니다. 이 수량에 대해 요금이 청구됩니다. 제품에 포함된 수량이 없는 종량제 제품의 경우 이 합계는 소비된 수량과 동일합니다. |
 |약정 기간 내 |6개월 또는 12개월 제품과 관련된 약정 금액에서 공제된 측정기 요금을 나타냅니다. 측정기 요금은 시간순으로 공제됩니다. |
 |통화 |현재 청구 기간에 사용된 통화입니다. |
@@ -65,13 +65,13 @@ CSV 파일의 일일 사용량 섹션에는 청구 요금에 영향을 주는 �
 | 용어 | 설명 |
 | --- | --- |
 |사용 날짜 |측정기가 사용된 날짜입니다. |
-|측정기 범주 |이 사용 현황이 속한 최상위 서비스를 식별합니다. |
+|미터 범주 |이 사용 현황이 속한 최상위 서비스를 식별합니다. |
 |측정기 ID |가격 결제에 사용하는 대금 청구 측정기 식별자입니다. |
 |측정기 하위 범주 |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
 |측정기 이름 |사용 중인 측정기에 대한 측정 단위를 식별합니다. |
 |측정기 영역 |데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
 |단위 |측정기 요금이 청구되는 단위를 식별합니다. GB, 시간, 10,000초 등을 예로 들 수 있습니다. |
-|소비된 수량 |해당 날짜에 사용된 측정기의 양입니다. |
+|사용량 |해당 날짜에 사용된 측정기의 양입니다. |
 |리소스 위치 |측정기가 실행되고 있는 데이터 센터를 식별합니다. |
 |사용되는 서비스 |사용한 Azure 플랫폼 서비스입니다. |
 |리소스 그룹 |배포된 측정기가 실행되는 리소스 그룹입니다. <br/><br/>자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요. |
@@ -87,5 +87,5 @@ CSV 파일의 일일 사용량 섹션에는 청구 요금에 영향을 주는 �
 ## <a name="external"></a>외부 서비스 요금은 어떤가요?
 외부 서비스(또는 Marketplace 주문)는 독립 서비스 공급업체에서 제공하며 별도로 청구됩니다. Azure 청구서에 요금이 표시되지 않습니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?)하여 문제를 신속하게 해결하세요.

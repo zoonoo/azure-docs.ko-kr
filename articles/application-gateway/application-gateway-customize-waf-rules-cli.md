@@ -1,24 +1,24 @@
 ---
-title: "Azure Application Gateway에서 웹 응용 프로그램 방화벽 규칙 사용자 지정 - Azure CLI 2.0 | Microsoft Docs"
-description: "이 문서에서는 Azure CLI 2.0을 통해 Application Gateway에서 웹 응용 프로그램 방화벽 규칙을 사용자 지정하는 방법을 설명합니다."
+title: Azure Application Gateway에서 웹 응용 프로그램 방화벽 규칙 사용자 지정 - Azure CLI 2.0 | Microsoft Docs
+description: 이 문서에서는 Azure CLI 2.0을 통해 Application Gateway에서 웹 응용 프로그램 방화벽 규칙을 사용자 지정하는 방법을 설명합니다.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
-ms.openlocfilehash: 3051f71f269e409b76e6a19fdcd2feae2a04b8fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: b0bd79bb7ce584a9abaffbb6c30d6fbfe64f87c2
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Azure CLI 2.0을 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정
 

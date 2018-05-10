@@ -1,24 +1,24 @@
 ---
-title: "Azure 지출 한도 이해 | Microsoft Docs"
-description: "Azure 지출 한도의 작동 방식 및 제거 방법을 설명합니다."
-services: 
-documentationcenter: 
+title: Azure 지출 한도 이해 | Microsoft Docs
+description: Azure 지출 한도의 작동 방식 및 제거 방법을 설명합니다.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fa7ed4ff1cb7d686dd4459a0be89a8dd9f513e70
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure 지출 한도의 작동 방식 및 제거 방법 이해
 
@@ -86,6 +86,6 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 
 ![Marketplace 구매 경고](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -2,8 +2,8 @@
 title: 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
 description: Azure PowerShell을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -11,12 +11,12 @@ ms.devlang: azurepowershell
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: d0956a4e7e6f9cd6a1b075efc2b87c27d3660233
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: victorh
+ms.openlocfilehash: 1ad0fcd135e664b2b97fd16ebe851c817f567d7f
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>Azure PowerShell을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -65,7 +65,7 @@ New-AzureRmPublicIpAddress `
 
 ### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
 
-[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 네트워크 인터페이스를 만듭니다. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)를 사용하여 가상 머신 구성을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. 사용자 이름으로 *azureuser*를 입력하고, 암호로 *Azure123456!*를 암호 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 머신을 만듭니다.
+[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 네트워크 인터페이스를 만듭니다. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)를 사용하여 가상 머신 구성을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. 사용자 이름으로 *azureuser*를 입력하고, 암호로 *Azure123456!* 를 암호 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 머신을 만듭니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet

@@ -2,20 +2,20 @@
 title: 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs
 description: Azure Portal을 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: fdddcfd6ac44a0675e33e7f389a03d6dbdcfb223
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: victorh
+ms.openlocfilehash: e8bd4a9e4c14edd8ba122caa44cde5aa4e3b6125
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만듭니다.
 

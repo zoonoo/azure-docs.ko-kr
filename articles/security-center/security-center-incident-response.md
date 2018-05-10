@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 보안 인시던트에 대한 대응 | Microsoft Docs"
-description: "이 문서에서는 사고 대응 시나리오에서 Azure Security Center를 사용하는 방법을 설명합니다."
+title: Azure Security Center에서 보안 인시던트에 대한 대응 | Microsoft Docs
+description: 이 문서에서는 사고 대응 시나리오에서 Azure Security Center를 사용하는 방법을 설명합니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cca874c0511135b0b041d5d38a3986905b671393
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>사고 대응에 Azure Security Center 사용
 대부분의 조직은 공격을 받은 후에 보안 사고에 대응하는 방법을 알아봅니다. 비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/06/2017
 다음에 나오는 시나리오에서는 보안 사고의 감지, 평가 및 진단/대응 단계에서 Security Center를 활용하는 방법을 보여 줍니다. Security Center에서 [보안 사고](security-center-incident.md)는 리소스에 대해 [킬 체인(kill chain)](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) 패턴과 일치하는 모든 경고의 집계입니다. 사고는 [보안 경고](security-center-managing-and-responding-alerts.md) 타일 및 블레이드에서 표시됩니다. 사고는 관련된 경고의 목록을 표시하며, 여기서 각 항목에 대한 자세한 정보를 얻을 수 있습니다. 또한 Security Center는 의심스러운 활동을 추적하는 데 사용할 수 있는 독립 실행형 보안 경고도 표시합니다.
 
 ## <a name="scenario"></a>시나리오
-Contoso는 최근에 일부 가상 컴퓨터 기반 LOB(기간 업무) 워크로드 및 SQL 데이터베이스를 포함하여 온-프레미스 리소스 일부를 Azure에 마이그레이션했습니다. 현재 Contoso의 CSIRT(주요 컴퓨터 보안 사고 대응 팀)에는 현재의 사고 대응 도구와 통합되지 않는 보안 인텔리전스로 인해 보안 문제를 조사하는 데 문제가 있습니다. 부족한 조사로 인해 감지(너무 많은 가양성)뿐만 아니라 평가와 진단 단계에서도 문제가 발생하고 있습니다. 이 마이그레이션의 일부로 이 문제를 해결할 수 있도록 Security Center에 옵트인하기로 했습니다.
+Contoso는 최근에 일부 가상 머신 기반 LOB(기간 업무) 워크로드 및 SQL 데이터베이스를 포함하여 온-프레미스 리소스 일부를 Azure에 마이그레이션했습니다. 현재 Contoso의 CSIRT(주요 컴퓨터 보안 사고 대응 팀)에는 현재의 사고 대응 도구와 통합되지 않는 보안 인텔리전스로 인해 보안 문제를 조사하는 데 문제가 있습니다. 부족한 조사로 인해 감지(너무 많은 가양성)뿐만 아니라 평가와 진단 단계에서도 문제가 발생하고 있습니다. 이 마이그레이션의 일부로 이 문제를 해결할 수 있도록 Security Center에 옵트인하기로 했습니다.
 
 이 마이그레이션의 첫 번째 단계는 Security Center에서 모든 리소스를 등록하고 모든 보안 권장 사항을 해결한 후에 완료되었습니다. Contoso CSIRT는 컴퓨터 보안 사고를 처리하는 초점입니다. 팀은 보안 사고를 해결할 책임이 있는 사용자의 그룹으로 구성됩니다. 팀 구성원에게는 대응의 모든 영역을 다루어야 하는 의무가 명확하게 정의되었습니다.
 

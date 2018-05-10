@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>REST API를 사용하여 Azure Search에 데이터 업로드
 > [!div class="op_single_selector"]
@@ -60,9 +60,9 @@ REST API를 사용하는 경우 Azure Search 인덱스의 끝점 URL에 대한 J
 인덱스 작업에 필요한 필드 값을 수집했다면 실제 HTTP 요청 및 JSON 요청 본문을 생성하여 데이터를 가져올 준비가 되었습니다.
 
 #### <a name="request-and-request-headers"></a>요청 및 요청 헤더
-URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니라 적절한 API 버전을 제공해야 합니다(이 문서를 게시할 때 현재 API 버전은 `2016-09-01` 임). `Content-Type` 및 `api-key` 요청 헤더를 정의해야 합니다. 후자의 경우 서비스의 관리 키 중 하나를 사용합니다.
+URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니라 적절한 API 버전을 제공해야 합니다(이 문서를 게시할 때 현재 API 버전은 `2017-11-11` 임). `Content-Type` 및 `api-key` 요청 헤더를 정의해야 합니다. 후자의 경우 서비스의 관리 키 중 하나를 사용합니다.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

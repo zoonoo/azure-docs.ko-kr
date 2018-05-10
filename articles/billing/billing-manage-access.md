@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure의 요금 청구 정보에 대한 액세스 관리
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/16/2018
 
 1. Azure Portal의 [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다.
 
-1. **Access Control(IAM)**를 선택하고 **추가**를 클릭합니다.
+1. **Access Control(IAM)** 를 선택하고 **추가**를 클릭합니다.
 
     ![구독 블레이드에서 IAM을 보여 주는 스크린샷](./media/billing-manage-access/select-iam.PNG)
 

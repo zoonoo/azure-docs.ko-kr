@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: b0d268937300abd105349d340f7bf1dae398fa8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>자습서 2: 아이리스 분류: 모델 빌드
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -280,7 +280,7 @@ Azure Machine Learning Workbench에서는 모든 스크립트 실행이 실행 �
    >[!IMPORTANT]
    >다음 단계를 완수하려면 이 CLI 창을 사용해야 합니다.
 
-1. CLI 창에서 Azure에 로그인합니다. [Azure에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. CLI 창에서 Azure에 로그인합니다. [Azure에 대해 자세히 알아봅니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    이미 로그인됐을 수 있습니다. 이 경우이 단계를 건너뛸 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Blob 저장소를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs"
-description: "Linux에 FUSE가 있는 Azure Blob 저장소 컨테이너를 탑재합니다."
+title: Azure Blob 저장소를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
+description: Linux에 FUSE가 있는 Azure Blob 저장소 컨테이너를 탑재합니다.
 services: storage
 documentationcenter: linux
 author: seguler
@@ -10,11 +10,11 @@ ms.devlang: bash
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: seguler
-ms.openlocfilehash: 299b96c783fb3606347bb448d00d44f0071da429
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>blobfuse(미리 보기)를 사용하여 Blob 저장소를 파일 시스템으로 탑재하는 방법
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/23/2018
 이 가이드에서는 blobfuse를 사용하고, Blob 저장소 컨테이너를 Linux에 탑재하고, 데이터에 액세스하는 방법을 보여 줍니다. blobfuse에 대한 자세한 내용은 [blobfuse 리포지토리](https://github.com/Azure/azure-storage-fuse)의 세부 정보를 참조하세요.
 
 > [!WARNING]
-> blobfuse는 단순히 요청을 [Blob REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api)로 변환하기 때문에 100% POSIX 준수를 보장하지 않습니다. 예를 들어 이름 바꾸기 작업은 POSIX에서 원자성이지만, blobfuse에서는 그렇지 않습니다.
+> blobfuse는 단순히 요청을 [Blob REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)로 변환하기 때문에 100% POSIX 준수를 보장하지 않습니다. 예를 들어 이름 바꾸기 작업은 POSIX에서 원자성이지만, blobfuse에서는 그렇지 않습니다.
 > 네이티브 파일 시스템과 blobfuse의 차이점에 대한 전체 목록은 [blobfuse 소스 코드 리포지토리](https://github.com/azure/azure-storage-fuse)를 방문하세요.
 > 
 

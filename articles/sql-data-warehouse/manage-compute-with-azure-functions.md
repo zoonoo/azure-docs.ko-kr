@@ -7,18 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
-ms.date: 04/17/2018
+ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c5b47a2d30f4533455b4e0eaacb777299aff4d43
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 48428ef329de4719a25afd20c21ac102bba540a8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Azure Functions를 사용하여 Azure SQL Data Warehouse에서 계산 리소스 관리
 
-이 자습서에서는 Azure Functions를 사용하여 Azure SQL Data Warehouse에서 데이터 웨어하우스의 계산 리소스를 관리합니다. 이러한 아키텍처는 [탄력성에 최적화된][Performance Tiers] SQL Data Warehouse에 사용하는 것이 좋습니다.
+이 자습서에서는 Azure Functions를 사용하여 Azure SQL Data Warehouse에서 데이터 웨어하우스의 계산 리소스를 관리합니다.
 
 SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우스 인스턴스와 동일한 구독에 속한 참가자 액세스 권한으로 [서비스 사용자 계정](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 만들어야 합니다. 
 
@@ -183,5 +183,3 @@ SQL Data Warehouse [샘플 리포지토리](https://github.com/Microsoft/sql-dat
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
-
-[Performance Tiers]: memory-and-concurrency-limits.md#performance-tiers

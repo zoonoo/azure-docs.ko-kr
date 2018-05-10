@@ -1,25 +1,25 @@
 ---
-title: "Azure 구독 취소 | Microsoft Docs"
-description: "무료 평가판 구독과 같은 Azure 구독을 취소하는 방법을 설명합니다."
-services: 
-documentationcenter: 
+title: Azure 구독 취소 | Microsoft Docs
+description: 무료 평가판 구독과 같은 Azure 구독을 취소하는 방법을 설명합니다.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 51fe2ab891e86ae4bd7402622231af47f35aa01d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f9ff68d91e2ac3daba817f6d5e2bee0398d096e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure 구독 취소
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 10/11/2017
 
 구독을 취소하기 전에 다음을 수행합니다.
 
-* 데이터를 백업합니다. 예를 들어 Azure Storage 또는 SQL에 데이터를 저장하는 경우 복사본을 다운로드합니다. 가상 컴퓨터를 사용하는 경우 해당 이미지를 로컬로 저장합니다.
-* 서비스를 종료합니다. [관리 포털의 페이지 리소스](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)로 이동한 후 실행 중인 가상 컴퓨터, 응용 프로그램 또는 기타 서비스를 모두 **중지**합니다.
+* 데이터를 백업합니다. 예를 들어 Azure Storage 또는 SQL에 데이터를 저장하는 경우 복사본을 다운로드합니다. 가상 머신을 사용하는 경우 해당 이미지를 로컬로 저장합니다.
+* 서비스를 종료합니다. [관리 포털의 페이지 리소스](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)로 이동한 후 실행 중인 가상 머신, 응용 프로그램 또는 기타 서비스를 모두 **중지**합니다.
 * 데이터를 마이그레이션하는 것이 좋습니다. [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 
 유료 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)을 취소해도 6개월 중 남은 기간에 대해 월별 요금이 계속 청구됩니다.
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 취소하면 청구가 즉시 중지됩니다. 그러나 취소가 포털에 표시되기까지 최대 10분 정도 걸릴 수 있습니다.
 
-그 후에는 서비스를 사용할 수 없습니다. 즉, 가상 컴퓨터의 할당이 취소되고 임시 IP 주소가 해제되며 저장소는 읽기 전용이 됩니다.
+그 후에는 서비스를 사용할 수 없습니다. 즉, 가상 머신의 할당이 취소되고 임시 IP 주소가 해제되며 저장소는 읽기 전용이 됩니다.
 
 청구 기간 중에 취소하는 경우 기간이 만료된 후 일반적인 청구서 날짜에 최종 청구서를 보냅니다. 
 
@@ -57,6 +57,6 @@ ms.lasthandoff: 10/11/2017
 
 종량제 구독이 아닌 경우 구독을 다시 활성화하려면 취소 후 90일 이내에 지원 센터로 문의하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

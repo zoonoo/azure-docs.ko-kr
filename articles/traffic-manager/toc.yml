@@ -8,12 +8,6 @@
   items:
     - name: Traffic Manager 프로필 만들기
       href: traffic-manager-create-profile.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: 자습서
   items:
     - name: 엔드포인트의 지리적 위치에 따라 트래픽 라우팅
@@ -24,6 +18,12 @@
       href: traffic-manager-configure-weighted-routing-method.md
     - name: 우선순위 엔드포인트로 트래픽 라우팅
       href: traffic-manager-configure-priority-routing-method.md
+- name: 샘플
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: 개념
   items:
     - name: 라우팅 방법

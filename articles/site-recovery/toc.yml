@@ -145,6 +145,12 @@
           items:
             - name: Azure 간 복제 문제 해결
               href: azure-to-azure-troubleshoot-errors.md
+            - name: Azure Site Recovery 확장 문제 해결
+              href: site-recovery-extension-troubleshoot.md
+        - name: 관리
+          items:
+            - name: 모바일 서비스 확장의 자동 업데이트
+              href: azure-to-azure-autoupdate.md
     - name: VMware/물리적 서버에서 Azure로
       items:
         - name: 네트워킹
@@ -171,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: 재해 복구
           items:
-            - name: 다중 테넌트 지원 및 CSP를 통해 VMware VM의 재해 복구
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: PowerShell을 사용하여 Azure에 VMware 가상 머신 복제
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Azure에 대한 물리적 서버의 재해 복구
@@ -193,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: VMware VM 복제 사용
               href: vmware-azure-enable-replication.md
+            - name: CSP를 통한 다중 테넌트 VMWare VM 복제
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: 모바일 서비스 배포
           items:
+            - name: 모바일 서비스 개요
+              href: vmware-azure-install-mobility-service.md
             - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Azure 자동화 DSC를 사용하여 모바일 서비스 배포
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: 장애 조치 및 장애 복구
           items:
             - name: Azure로 재해 복구 훈련 실행

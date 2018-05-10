@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경 계획
 
@@ -87,14 +87,14 @@ Time Series Insights 환경에서 최대 400일까지 데이터가 보존되도�
 제한 및 대기 시간을 방지하는 자세한 방법은 [대기 시간 및 제한 완화](time-series-insights-environment-mitigate-latency.md)를 참조하세요. 
 
 ## <a name="shaping-your-events"></a>이벤트 셰이핑
-TSI에 이벤트를 보내는 방식이 프로비전하는 환경의 크기를 지원하도록 하는 것이 중요합니다(반대로 TSI가 읽는 이벤트 수와 각 이벤트의 크기에 환경 크기를 맞출 수 있음).  마찬가지로, 데이터를 쿼리할 때 조각화 및 필터링 기준으로 사용할 특성도 고려해야 합니다.  이러한 사항을 고려할 때, *이벤트 전송* 설명서[설명서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events)의 JSON 셰이핑 섹션을 검토하는 것이 좋습니다.  페이지의 아래쪽에 있습니다.  
+TSI에 이벤트를 보내는 방식이 프로비전하는 환경의 크기를 지원하도록 하는 것이 중요합니다(반대로 TSI가 읽는 이벤트 수와 각 이벤트의 크기에 환경 크기를 맞출 수 있음).  마찬가지로, 데이터를 쿼리할 때 조각화 및 필터링 기준으로 사용할 특성도 고려해야 합니다.  이러한 사항을 고려할 때, *이벤트 전송* 설명서[설명서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events)의 JSON 셰이핑 섹션을 검토하는 것이 좋습니다.  페이지의 아래쪽에 있습니다.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>참조 데이터가 제대로 준비되어 있는지 확인
 참조 데이터 집합은 이벤트 원본의 이벤트로 확장된 항목의 컬렉션입니다. Time Series Insights 수신 엔진은 이벤트 원본의 각 이벤트와 참조 데이터 집합의 해당 데이터 행을 조인합니다. 이렇게 보강된 이벤트는 쿼리에 사용할 수 있습니다. 이 조인은 참조 데이터 집합에서 정의된 기본 키 열을 기준으로 합니다.
 
 참조 데이터는 소급되어 조인되지 않습니다. 즉, 참조 데이터 집합이 일단 구성되고 업로드되면, 현재 및 미래의 수신 데이터만 일치되고 참조 데이터 집합에 조인됩니다.  많은 양의 기록 데이터를 TSI로 전송하려고 하며, TSI에서 참조 데이터를 먼저 업로드하거나 만들지 않을 경우 작업을 다시 실행해야 할 수 있습니다(중요 참고 사항).  
 
-TSI에서 참조 데이터를 만들고, 업로드하고, 관리하는 방법에 대한 자세한 내용은 *참조 데이터* 설명서[설명서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
+TSI에서 참조 데이터를 만들고, 업로드하고, 관리하는 방법에 대한 자세한 내용은 *참조 데이터* 설명서[설명서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

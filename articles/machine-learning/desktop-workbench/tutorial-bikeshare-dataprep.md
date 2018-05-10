@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 77729ad52f101f0d57fe24115525795c6b4f2db2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>자습서: 고급 데이터 준비를 위해 Azure Machine Learning Workbench 사용(자전거 공유 데이터)
 Azure Machine Learning(미리 보기)은 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure Machine Learning Workbench가 로컬에 설치되어 있습니다. 자세한 내용은 [설치 빠른 시작](../service/quickstart-installation.md)을 참조하세요.
-* Azure CLI가 설치되어 있지 않으면 지침에 따라 [최신 Azure CLI 버전](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치하세요.
+* Azure CLI가 설치되어 있지 않으면 지침에 따라 [최신 Azure CLI 버전](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치하세요.
 * Azure에 [HDInsights Spark 클러스터](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)가 만들어져 있습니다.
 * Azure 저장소 계정.
 * Workbench에서 새 프로젝트는 만드는 방법에 익숙해야 합니다.
@@ -189,7 +189,7 @@ Azure Blob 저장소를 사용하여 데이터 파일을 호스트할 수 있습
 
    계속하려면 **다음**을 선택합니다.
 
-6. **경로 열**: 전체 파일 경로를 가져온 데이터의 열로 포함 시키려면 __경로 열__ 섹션을 사용합니다. __경로 열을 포함하지 않습니다.__를 선택합니다.
+6. **경로 열**: 전체 파일 경로를 가져온 데이터의 열로 포함 시키려면 __경로 열__ 섹션을 사용합니다. __경로 열을 포함하지 않습니다.__ 를 선택합니다.
 
    > [!TIP]
    > 경로를 열로 포함하면 파일 이름이 다른 많은 파일의 폴더를 가져오는 경우에 유용합니다. 나중에 추출하려는 정보가 파일 이름에 포함된 경우에도 유용합니다.
@@ -376,7 +376,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
     ![변환 메뉴](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
 
-2. 데이터를 요약하려면 페이지의 맨 아래에서 맨 위의 왼쪽 및 오른쪽 창으로 그리드의 열을 끌어옵니다. 왼쪽 창에는 **데이터를 그룹화하려면 여기에 열을 끌어오세요.**라는 텍스트가 포함됩니다. 오른쪽 창에는 **데이터를 요약하려면 여기에 열을 끌어오세요.**라는 텍스트가 포함됩니다. 
+2. 데이터를 요약하려면 페이지의 맨 아래에서 맨 위의 왼쪽 및 오른쪽 창으로 그리드의 열을 끌어옵니다. 왼쪽 창에는 **데이터를 그룹화하려면 여기에 열을 끌어오세요.** 라는 텍스트가 포함됩니다. 오른쪽 창에는 **데이터를 요약하려면 여기에 열을 끌어오세요.** 라는 텍스트가 포함됩니다. 
 
     a. 아래쪽에 있는 그리드에서 왼쪽 창으로 **날짜 시간 범위** 열을 끌어옵니다. 오른쪽 창으로 **HOURLYDRYBULBTEMPF**, **HOURLYRelativeHumidity** 및 **HOURLYWindSpeed**를 끌어옵니다. 
 
@@ -388,7 +388,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
 숫자 열의 데이터를 0~1 범위로 변경하면 일부 모델을 신속하게 수렴할 수 있습니다. 현재는 이 변환을 일반적으로 수행하도록 기본 제공되는 변환이 없습니다. 이 작업을 수행하려면 Python 스크립트를 사용하세요.
 
-1. **변환** 메뉴에서 **데이터 흐름 변환(스크립트)**을 선택합니다.
+1. **변환** 메뉴에서 **데이터 흐름 변환(스크립트)** 을 선택합니다.
 
 2. 표시되는 텍스트 상자에 다음 코드를 입력합니다. 열 이름을 사용한 경우 수정하지 않고 코드가 작동해야 합니다. Python으로 간단한 최소 최대 정규화 논리를 작성합니다.
 
@@ -485,7 +485,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
 ## <a name="add-a-column-by-using-script"></a>스크립트를 사용하여 열 추가
 
-1. **대여 시간**을 마우스 오른쪽 단추로 클릭하고 **열 추가(스크립트)**를 선택합니다.
+1. **대여 시간**을 마우스 오른쪽 단추로 클릭하고 **열 추가(스크립트)** 를 선택합니다.
 
     ![열 추가(스크립트) 메뉴](media/tutorial-bikeshare-dataprep/computecolscript.png)
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -36,7 +36,7 @@ Azure Service Bus가 Azure Event Grid와의 새로운 통합을 시작했습니�
 
 ### <a name="verify-that-you-have-contributor-access"></a>참가자 액세스 권한이 있는지 확인
 
-Service Bus 네임스페이스로 이동하여 여기에 표시된 바와 같이 **액세스 제어(IAM)**를 선택합니다.
+Service Bus 네임스페이스로 이동하여 여기에 표시된 바와 같이 **액세스 제어(IAM)** 를 선택합니다.
 
 ![1][]
 
@@ -47,9 +47,9 @@ Service Bus 네임스페이스로 이동하여 여기에 표시된 바와 같이
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-또한 Service Bus는 표준 Event Grid 보안 및 [인증 메커니즘](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication)을 사용합니다.
+또한 Service Bus는 표준 Event Grid 보안 및 [인증 메커니즘](https://docs.microsoft.com/azure/event-grid/security-authentication)을 사용합니다.
 
-자세한 내용은 [Azure Event Grid 이벤트 스키마](https://docs.microsoft.com/en-us/azure/event-grid/event-schema)를 참조하세요.
+자세한 내용은 [Azure Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema)를 참조하세요.
 
 #### <a name="active-messages-available-event"></a>활성 메시지 이벤트
 
@@ -138,7 +138,7 @@ Service Bus 네임스페이스로 이동하여 여기에 표시된 바와 같이
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 지침
 
-먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 다음 코드를 실행합니다.
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell 지침
 
-Azure PowerShell이 설치되어 있는지 확인합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+Azure PowerShell이 설치되어 있는지 확인합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 ## <a name="next-steps"></a>다음 단계
 
 * Service Bus 및 Event Grid [예제](service-bus-to-event-grid-integration-example.md)를 가져옵니다.
-* [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/)에 대해 자세히 알아봅니다.
-* [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)에 대해 자세히 알아봅니다.
-* [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)에 대해 자세히 알아봅니다.
-* [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/)에 대한 자세히 알아봅니다.
+* [Event Grid](https://docs.microsoft.com/azure/azure-functions/)에 대해 자세히 알아봅니다.
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)에 대해 자세히 알아봅니다.
+* [Logic Apps](https://docs.microsoft.com/azure/logic-apps/)에 대해 자세히 알아봅니다.
+* [Service Bus](https://docs.microsoft.com/azure/azure-functions/)에 대한 자세히 알아봅니다.
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

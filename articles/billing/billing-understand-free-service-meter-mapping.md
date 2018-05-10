@@ -1,24 +1,24 @@
 ---
-title: "무료 계정에 대한 미터 매핑 서비스 - Azure | Microsoft Docs"
-description: "무료 계정에 포함된 서비스에 대한 미터 매핑 서비스를 이해합니다."
-services: 
-documentationcenter: 
+title: 무료 계정에 대한 미터 매핑 서비스 - Azure | Microsoft Docs
+description: 무료 계정에 포함된 서비스에 대한 미터 매핑 서비스를 이해합니다.
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 9d7e355e755f2bac8929ab16f7f71aa3b0702658
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>매핑을 계산하는 무료 서비스 이해
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="service-to-meter-mapping-for-free-account-eligible-services"></a>무료 계정에 적합한 서비스에 대한 미터 매핑 서비스 
 
-|    부여   | Azure Portal에서 미터 이름 | 사용량 파일/API에서 미터 이름 | 측정기 ID |
+|    서비스   | Azure Portal에서 미터 이름 | 사용량 파일/API에서 미터 이름 | 측정기 ID |
 | ------------ | -------------------------- | -------------------------| -------- |
 | B1S Linux VM | 계산 시간 - Standard_B1 VM | 계산 시간 - 무료 | 8260cba2-4437-47d1-a31e-2561cd370f50
 | B1S Windows VM | 계산 시간 - Standard_B1 VM(Windows) | 계산 시간 - 무료 | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
@@ -45,17 +45,17 @@ ms.lasthandoff: 10/11/2017
 | Managed Disk *  | 표준 관리 디스크/스냅숏(GB) - 로컬 중복 | 표준 관리 디스크/스냅숏(GB) - 무료 | ad94c237-52a5-4804-ae65-38c5bf85ef42
 | Managed Disk *  | 표준 관리 디스크 작업(10,000초 기준) | 표준 관리 디스크 작업(10,000초 기준) - 무료 | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
 | Managed Disk *  | Premium Storag - 페이지 Blob/P6(단위) - 로컬 중복 | Premium Storag - 페이지 Blob/P6(단위) - 무료 | 2b98c168-27ca-4cc1-b509-e887dec87657
-| SQL 데이터베이스 | 표준 S0 데이터베이스 일 수 - SQL Database | 표준 S0 데이터베이스 일 수 - 무료 | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
+| SQL Database | 표준 S0 데이터베이스 일 수 - SQL Database | 표준 S0 데이터베이스 일 수 - 무료 | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | 공유 - 대역폭 ** | 데이터 송신(GB) | 데이터 송신(GB) - 무료 | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-\* Windows 가상 컴퓨터를 만들고 관리 디스크를 선택하면 가상 컴퓨터의 일부로 관리 디스크 미터를 사용합니다.
+\* Windows 가상 머신을 만들고 관리 디스크를 선택하면 가상 머신의 일부로 관리 디스크 미터를 사용합니다.
 
-\** 공유 미터는 여러 서비스에서 사용할 수 있습니다. 예를 들어 가상 컴퓨터와 저장소는 모두 데이터 송신(GB) 미터에 대해 사용량을 내보냅니다.
-
-
+\** 공유 미터는 여러 서비스에서 사용할 수 있습니다. 예를 들어 가상 머신과 저장소는 모두 데이터 송신(GB) 미터에 대해 사용량을 내보냅니다.
 
 
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+
+
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

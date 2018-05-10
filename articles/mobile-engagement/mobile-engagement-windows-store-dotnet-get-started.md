@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 4f1de1092458bfc12236802d829a2043dcc74540
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f3e0a369157bbf4c89982f8e1acbc1ed51340
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Windows 유니버설 앱용 Azure Mobile Engagement 시작
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/30/2018
 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다.
 
 > [!NOTE]
-> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/30/2018
 다음 단계에서는 Visual Studio 2015를 사용한다고 가정하지만 이전 버전의 Visual Studio에서도 단계는 유사합니다.
 
 1. Visual Studio를 시작하고 **홈** 화면에서 **새 프로젝트**를 선택합니다.
-2. 팝업에서 **Windows** -> **유니버설** -> **비어 있는 앱(유니버설 Windows)**을 선택합니다. 앱 **이름** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
+2. 팝업에서 **Windows** -> **유니버설** -> **비어 있는 앱(유니버설 Windows)** 을 선택합니다. 앱 **이름** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
 
     ![][1]
 
@@ -134,12 +134,12 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
 
 ### <a name="enable-your-app-to-receive-wns-push-notifications"></a>WNS 푸시 알림을 받도록 앱 설정
-1. `Package.appxmanifest` 파일의 **응용 프로그램** 탭에서 **알림**에 있는 **알림 가능:**을 **예**로 설정합니다.
+1. `Package.appxmanifest` 파일의 **응용 프로그램** 탭에서 **알림**에 있는 **알림 가능:** 을 **예**로 설정합니다.
 
     ![][5]
 
 ### <a name="initialize-the-reach-sdk"></a>도달률 SDK 초기화
-`App.xaml.cs`에서 에이전트 초기화 직후 **InitEngagement** 함수에서 **EngagementReach.Instance.Init(e);**를 호출합니다.
+`App.xaml.cs`에서 에이전트 초기화 직후 **InitEngagement** 함수에서 **EngagementReach.Instance.Init(e);** 를 호출합니다.
 
         private void InitEngagement(IActivatedEventArgs e)
         {

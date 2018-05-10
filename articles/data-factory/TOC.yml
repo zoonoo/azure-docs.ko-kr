@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: 흐름 제어
       items:
-        - name: If 조건 작업
-          href: control-flow-if-condition-activity.md
-        - name: Until 작업
-          href: control-flow-until-activity.md
-        - name: 웹 작업
-          href: control-flow-web-activity.md
-        - name: 조회 작업
-          href: control-flow-lookup-activity.md
-        - name: 메타데이터 작업 가져오기
-          href: control-flow-get-metadata-activity.md
         - name: 파이프라인 작업 실행
           href: control-flow-execute-pipeline-activity.md
+        - name: 활동 필터링
+          href: control-flow-filter-activity.md
         - name: ForEach 작업
           href: control-flow-for-each-activity.md
+        - name: 메타데이터 작업 가져오기
+          href: control-flow-get-metadata-activity.md
+        - name: If 조건 작업
+          href: control-flow-if-condition-activity.md
+        - name: 조회 작업
+          href: control-flow-lookup-activity.md
+        - name: Until 작업
+          href: control-flow-until-activity.md
         - name: Wait 작업
           href: control-flow-wait-activity.md
+        - name: 웹 작업
+          href: control-flow-web-activity.md
         - name: 식 언어
           href: control-flow-expression-language-functions.md
         - name: 시스템 변수

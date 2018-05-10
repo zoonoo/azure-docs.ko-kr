@@ -1,6 +1,6 @@
 ---
-title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 직원 보안"
-description: "FedRAMP 웹 응용 프로그램 자동화 - 직원 보안"
+title: Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 직원 보안
+description: FedRAMP 웹 응용 프로그램 자동화 - 직원 보안
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="personnel-security-ps"></a>PS(직원 보안)
 

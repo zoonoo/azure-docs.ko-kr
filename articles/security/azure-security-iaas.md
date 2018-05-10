@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -85,7 +85,7 @@ Azure 구독을 관리할 수 있는 계정을 보호하는 것은 매우 중요
 
 [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 서비스는 [Azure 역할 기반 Access Control(RBAC)](../role-based-access-control/overview.md)을 사용합니다. RBAC를 사용하면 팀 내의 책임을 사용자가 작업을 수행하는 데 필요한 액세스 권한 수준만 부여되는 역할로 구분할 수 있습니다. RBAC에는 미리 정의된 역할(소유자, 실습 사용자 및 참가자)이 제공됩니다. 이러한 역할을 사용하여 외부 파트너에게 권한을 할당하고 공동 작업을 간소화할 수도 있습니다.
 
-DevTest Lab에서는 RBAC를 사용하므로 추가 [사용자 지정 역할](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md)을 만들 수도 있습니다. DevTest Lab은 권한 관리를 간소화할 뿐만 아니라 환경이 프로비전되는 프로세스도 간소화합니다. 또한 개발 및 테스트 환경에서 작업하는 팀의 전형적인 문제점들을 처리하는 데도 도움이 됩니다. 몇 가지 준비가 필요하지만 장기적으로는 팀에 훨씬 편리한 결과를 가져옵니다.
+DevTest Lab에서는 RBAC를 사용하므로 추가 [사용자 지정 역할](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md)을 만들 수도 있습니다. DevTest Lab은 권한 관리를 간소화할 뿐만 아니라 환경이 프로비전되는 프로세스도 간소화합니다. 또한 개발 및 테스트 환경에서 작업하는 팀의 전형적인 문제점들을 처리하는 데도 도움이 됩니다. 몇 가지 준비가 필요하지만 장기적으로는 팀에 훨씬 편리한 결과를 가져옵니다.
 
 Azure DevTest Lab의 기능은 다음과 같습니다.
 

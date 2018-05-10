@@ -12,10 +12,6 @@
       href: dns-getstarted-powershell.md
     - name: DNS 영역 및 레코드 만들기 - CLI
       href: dns-getstarted-cli.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: 자습서
   items:
     - name: 개인 DNS 영역 및 레코드 만들기
@@ -24,6 +20,10 @@
       href: dns-delegate-domain-azure-dns.md
     - name: 웹앱에 대한 사용자 지정 DNS 레코드 만들기
       href: dns-web-sites-custom-domain.md
+- name: 샘플
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
 - name: 개념
   items:
     - name: DNS 영역 및 레코드

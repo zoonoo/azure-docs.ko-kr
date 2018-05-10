@@ -10,16 +10,16 @@ tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
-ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: mobandyo
+ms.openlocfilehash: 487636ffb0efc35c282e14d835c6669ed9d47315
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>클라우드 크루저 및 Microsoft Azure 청구 API 통합
 이 문서는 새로운 Microsoft Azure 청구 API로부터 수집한 정보를 Cloud Cruiser에서 워크플로 비용 시뮬레이션 및 분석에 사용할 수 있는 방법을 설명합니다.
@@ -170,7 +170,7 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 ### <a name="import-data-from-the-usage-api-into-cloud-cruiser"></a>사용량 API에서 클라우드 크루저로 데이터 가져오기
 클라우드 크루저 워크북은 사용량 API에서 정보를 수집하고 처리하는 자동화된 방법을 제공합니다. ETL(추출-변환-로드) 워크북을 사용하면 클라우드 크루저 데이터베이스에서 데이터를 수집, 변환 및 게시하도록 구성할 수 있습니다.
 
-각 워크북은 하나 또는 여러 컬렉션을 가질 수 있습니다. 이를 사용하여 사용 데이터를 보완하거나 보강할 다른 소스에서 정보를 상호 연결할 수 있습니다. 이 예에서는 Azure 템플릿 워크북에서 새 시트(*UsageAPI)*를 만들고 사용량 API의 정보를 가져오는 새 *컬렉션*을 설정합니다.
+각 워크북은 하나 또는 여러 컬렉션을 가질 수 있습니다. 이를 사용하여 사용 데이터를 보완하거나 보강할 다른 소스에서 정보를 상호 연결할 수 있습니다. 이 예에서는 Azure 템플릿 워크북에서 새 시트(*UsageAPI)* 를 만들고 사용량 API의 정보를 가져오는 새 *컬렉션*을 설정합니다.
 
 ![그림 3 - UsageAPI 시트로 가져온 사용량 API 데이터][12]
 

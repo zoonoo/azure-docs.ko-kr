@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9c8472e74cab779e417e68316a6125d40410ef1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터
 
@@ -390,7 +390,7 @@ DASHEventMessageBox의 필드는 아래와 같이 정의됩니다.
 
 [SCTE-35] 메시지는 부드러운 수집의 경우 **"urn:scte:scte35:2013a:bin"** 구성표, RTMP 수집의 경우 **"scte35"** 형식을 사용하여 이진 형식으로 수집됩니다. MPEG-2 전송 스트림 PTS(프레젠테이션 시간스탬프)를 기반으로 하는 [SCTE-35] 타이밍을 쉽게 변환할 수 있도록 하기 위해 PTS(splice_time()의 pts_time + pts_adjustment)와 미디어 타임라인 간의 매핑은 이벤트 프레젠테이션 시간(부드러운 수집의 fragment_absolute_time 필드 및 RTMP 수집의 시간 필드)에서 제공됩니다. 33비트 PTS 값이 대략 26.5시간마다 롤오버되기 때문에 매핑이 필요합니다.
 
-부드러운 스트리밍 수집의 경우, 미디어 데이터 상자('mdat')가 [SCTE-35]의 표 8-1에서 정의한 **splice_info_section()**을 포함해야 합니다. RTMP 수집의 경우, AMF 메시지의 cue 특성은 base64로 인코딩된 **splice_info_section()**으로 설정됩니다. 메시지가 위에서 설명한 형식이면 [SCTE-67]에 따라 메시지가 HLS, Smooth 및 Dash 클라이언트로 전송됩니다.
+부드러운 스트리밍 수집의 경우, 미디어 데이터 상자('mdat')가 [SCTE-35]의 표 8-1에서 정의한 **splice_info_section()** 을 포함해야 합니다. RTMP 수집의 경우, AMF 메시지의 cue 특성은 base64로 인코딩된 **splice_info_section()** 으로 설정됩니다. 메시지가 위에서 설명한 형식이면 [SCTE-67]에 따라 메시지가 HLS, Smooth 및 Dash 클라이언트로 전송됩니다.
 
 
 ## <a name="5-references"></a>5 참고 자료
@@ -407,7 +407,7 @@ DASHEventMessageBox의 필드는 아래와 같이 정의됩니다.
 
 **[AMF0]** ["동작 메시지 형식 AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[LIVE-FMP4]** [Azure Media Services 조각난 MP4 라이브 수집 사양](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
+**[LIVE-FMP4]** [Azure Media Services 조각난 MP4 라이브 수집 사양](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]** ISO/IEC 14496-12: 12부 ISO 기본 미디어 파일 형식, 제4판, 2012년 7월 15일
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT Suite란?
 
@@ -97,7 +97,7 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 * [Azure Time Series Insights](../time-series-insights/index.yml) - 미리 구성된 솔루션에서 이 서비스를 사용하여 장치의 원격 분석 데이터를 분석하고 표시합니다.
 * [Azure Container Service](../container-service/index.yml) - 미리 구성된 솔루션의 마이크로 서비스를 호스팅하고 관리합니다.
 * [Azure Cosmos DB](../cosmos-db/index.yml) 및 [Azure Storage](../storage/index.yml)(데이터 저장용)
-* [Azure Stream Analytics](../stream-analytics/index.md) - 미리 구성된 예측 유지 관리 솔루션에서 이 서비스를 사용하여 들어오는 원격 분석을 처리하고, 집계를 수행하며, 이벤트를 검색합니다. 또한 미리 구성된 솔루션에서 Stream Analytics를 사용하여 장치의 메타데이터 또는 명령 응답과 같은 데이터가 포함된 정보 메시지를 처리합니다.
+* [Azure Stream Analytics](../stream-analytics/index.yml) - 미리 구성된 예측 유지 관리 솔루션에서 이 서비스를 사용하여 들어오는 원격 분석을 처리하고, 집계를 수행하며, 이벤트를 검색합니다. 또한 미리 구성된 솔루션에서 Stream Analytics를 사용하여 장치의 메타데이터 또는 명령 응답과 같은 데이터가 포함된 정보 메시지를 처리합니다.
 * [Azure Web Apps](../app-service/index.yml) - 미리 구성된 솔루션에서 사용자 지정 응용 프로그램 코드를 호스팅합니다.
 
 일반적인 IoT 솔루션의 아키텍처에 대한 개요는 [Microsoft Azure 및 IoT(사물 인터넷)](iot-suite-what-is-azure-iot.md)를 참조하세요.
@@ -106,7 +106,7 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 
 Microsoft는 미리 구성된 솔루션을 새로운 마이크로 서비스 기반 아키텍처로 업데이트하고 있습니다. 다음 표에서는 미리 구성된 솔루션의 현재 상태를 보여 줍니다.
 
-| 미리 구성된 솔루션 | 건축  | 언어     |
+| 미리 구성된 솔루션 | 아키텍처  | 언어     |
 | ---------------------- | ------------- | ------------- |
 | 원격 모니터링      | 마이크로 서비스 | Java 및 .NET |
 | 예측 유지 관리 | MVC           | .NET          |

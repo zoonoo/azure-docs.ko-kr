@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus-Azure Event Grid 통합 예제
 
@@ -62,7 +62,7 @@ Service Bus 프리미엄 네임스페이스를 만들고 두 개의 구독이 �
 
 시나리오 전체를 수행하려면 적어도 현재 진행 중인 이벤트를 디버그하고 살펴볼 수 있는 작은 테스트 함수가 필요합니다.
 
-1. Azure Portal에서 새 Azure Functions 응용 프로그램을 만듭니다. Azure 함수의 기본 사항을 알아보려면 [Azure Functions 설명서](https://docs.microsoft.com/en-us/azure/azure-functions/)를 참조합니다.
+1. Azure Portal에서 새 Azure Functions 응용 프로그램을 만듭니다. Azure 함수의 기본 사항을 알아보려면 [Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/)를 참조합니다.
 
 2. 새로 만든 함수에서 더하기 기호(+)를 선택하여 HTTP 트리거 함수를 추가합니다.
 

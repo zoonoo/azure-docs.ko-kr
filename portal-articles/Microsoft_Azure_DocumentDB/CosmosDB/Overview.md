@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB 개요 | Microsoft Docs"
-description: "Azure Portal 내에 있는 Azure Cosmos DB의 도움말 콘텐츠 개요"
+title: Azure Cosmos DB 개요 | Microsoft Docs
+description: Azure Portal 내에 있는 Azure Cosmos DB의 도움말 콘텐츠 개요
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -8,11 +8,11 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 13fe8d81c656aeb07947fcd8b2c8a9157b810ca6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-documentation"></a>Azure Cosmos DB 설명서
 
@@ -26,20 +26,20 @@ Azure Cosmos DB를 사용하여 다중 모델 API 중 하나를 사용하여 전
 
 - [.NET](/azure/cosmos-db/create-sql-api-dotnet)
 - [Java](/azure/cosmos-db/create-sql-api-java)
-- [Node.JS](/azure/cosmos-db/create-sql-api-nodejs)
+- [Node.js](/azure/cosmos-db/create-sql-api-nodejs)
 - [Python](/azure/cosmos-db/create-sql-api-python)
 
 ### <a name="mongodb-api"></a>MongoDB API
 
 - [.NET](/azure/cosmos-db/create-mongodb-dotnet)
 - [Java](/azure/cosmos-db/create-mongodb-java)
-- [Node.JS](/azure/cosmos-db/create-mongodb-nodejs)
+- [Node.js](/azure/cosmos-db/create-mongodb-nodejs)
 
 ### <a name="graph-api"></a>그래프 API
 
 - [.NET](/azure/cosmos-db/create-graph-dotnet)
 - [Java](/azure/cosmos-db/create-graph-java)
-- [Node.JS](/azure/cosmos-db/create-graph-nodejs)
+- [Node.js](/azure/cosmos-db/create-graph-nodejs)
 - [Gremlin](/azure/cosmos-db/create-graph-gremlin-console)
 
 ### <a name="graph-api"></a>그래프 API
@@ -50,7 +50,7 @@ Azure Cosmos DB를 사용하여 다중 모델 API 중 하나를 사용하여 전
 
 Azure Cosmos DB를 사용하여 앱을 개발하는 방법에 대해 알아봅니다.
 
-- Cosmos DB를 사용하여 앱 개발: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Cosmos DB를 사용하여 앱 개발: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb-nodejs) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
 - Cosmos DB로 데이터 가져오기: [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
 - Cosmos DB를 사용하여 데이터 쿼리: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
 - Cosmos DB에서 전역 데이터베이스 복제: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [테이블](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)

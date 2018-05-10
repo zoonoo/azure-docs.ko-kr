@@ -54,6 +54,12 @@
 ### [.NET 2.0으로 마이그레이션](key-vault-dotnet2api-release-notes.md)
 ### [Web App 암호 저장](vs-secure-secret-appsettings.md)
 ### [.NET을 사용하여 서비스 인증](service-to-service-authentication.md)
+### Visual Studio 사용
+#### [Key Vault 연결된 서비스 사용](vs-key-vault-add-connected-service.md)
+#### [ASP.NET 프로젝트 시작](vs-key-vault-aspnet-get-started.md)
+#### [내 ASP.NET 프로젝트가 어떻게 되었습니까?](vs-key-vault-aspnet-what-happened.md)
+#### [ASP.NET Core 프로젝트 시작](vs-key-vault-aspnet-core-get-started.md)
+#### [내 ASP.NET Core 프로젝트가 어떻게 되었습니까?](vs-key-vault-aspnet-core-what-happened.md)
 
 # 리소스
 ## [서비스 개요](https://azure.microsoft.com/services/key-vault/)

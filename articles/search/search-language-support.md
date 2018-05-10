@@ -6,13 +6,13 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: cb011ee54894f53cda81d9d116899dcaeb558b6d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure Search에서 다국어 문서에 대한 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/23/2018
 
 쿼리를 실행한 에이전트의 언어를 아는 경우 검색 요청의 범위를 **searchFields** 쿼리 매개 변수를 사용하여 특정 필드로 지정할 수 있습니다. 다음 쿼리는 폴란드어로 된 설명에 대해서만 실행됩니다.
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 **탐색기 검색** 을 사용하여 위에 표시된 것과 유사한 쿼리를 붙여 넣으면 포털에서 인덱스를 쿼리할 수 있습니다. 탐색기 검색은 서비스 블레이드의 명령 모음에서 사용할 수 있습니다. 세부 정보는 [포털에서 Azure Search 인덱스 쿼리](search-explorer.md) 를 참조하세요.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/23/2018
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 .NET 개발자인 경우 [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search)를 사용하여 언어 분석기를 구성할 수 있습니다. 최신 릴리스에는 Microsoft 언어 분석기에 대한 지원도 포함되어 있습니다.
 

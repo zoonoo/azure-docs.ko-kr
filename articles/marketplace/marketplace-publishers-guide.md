@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 999c9bc04cffcfe3e352d877ebf9e19fc7c7df35
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드
 
@@ -253,7 +253,7 @@ Marketplace 참여는 무료로 진행됩니다. 명단 등록, 체험 및 BYOL 
 
 |**요구 사항**  | **세부 정보**  |**게시 옵션**  |
 |---------|---------|---------|
-|**무료 평가 기간 및 체험 환경**     |  고객은 제한된 기간 동안 앱을 무료로 사용해볼 수 있어야 합니다.<br><br>즉, 고객에게는 제품에 대한 라이선스 또는 구독 요금 뿐만 아니라, 기본 Microsoft 자사 제품 또는 서비스 비용이 청구되지 않습니다. 모든 체험 옵션은 게시자의 Microsoft 제품 구독으로 배포되므로, 체험 비용 최적화 및 관리는 게시자가 단독으로 제어합니다.<br><br>평가판, 대화형 데모 또는 시험 사용 중에서 선택할 수 있습니다. 어떤 방식을 선택하든, 평가판은 추가 비용 없이 앱을 사용해볼 수 있는 최소한의 시간을 제공해야 합니다.<br><br>시험 사용 생성 프로세스를 시작하려면 cloudmarketplace@microsoft.com을 참조하세요. <br><br>참고로 Azure Marketplace SaaS 체험 환경에서는 사용자가 Active Directory 회사 자격 증명으로 로그인할 수 있도록 해야 합니다. [자세히 알아보기](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   평가판      | 
+|**무료 평가 기간 및 체험 환경**     |  고객은 제한된 기간 동안 앱을 무료로 사용해볼 수 있어야 합니다.<br><br>즉, 고객에게는 제품에 대한 라이선스 또는 구독 요금 뿐만 아니라, 기본 Microsoft 자사 제품 또는 서비스 비용이 청구되지 않습니다. 모든 체험 옵션은 게시자의 Microsoft 제품 구독으로 배포되므로, 체험 비용 최적화 및 관리는 게시자가 단독으로 제어합니다.<br><br>평가판, 대화형 데모 또는 시험 사용 중에서 선택할 수 있습니다. 어떤 방식을 선택하든, 평가판은 추가 비용 없이 앱을 사용해볼 수 있는 최소한의 시간을 제공해야 합니다.<br><br>시험 사용 생성 프로세스를 시작하려면 cloudmarketplace@microsoft.com을 참조하세요. <br><br>참고로 Azure Marketplace SaaS 체험 환경에서는 사용자가 Active Directory 회사 자격 증명으로 로그인할 수 있도록 해야 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   평가판      | 
 | **쉽게 구성 가능한 턴키 솔루션**    |  앱은 구성 및 설정이 빠르고 쉬워야 합니다.       |  평가판       |
 |**가용성/작동 시간**    |    SaaS 또는 플랫폼의 가동 시간은 최소 99.9%여야 합니다.     |    평가판     |
 |**Azure Active Directory**    |    제품은 동의가 이루어질 경우 Azure AD(Azure Active Directory) 페더레이션 SSO(Single Sign-On)를 허용해야 합니다.      |  평가판|
@@ -264,7 +264,7 @@ Marketplace 참여는 무료로 진행됩니다. 명단 등록, 체험 및 BYOL 
 |**요구 사항**  |**세부 정보** |**게시 옵션**  |
 |---------|---------|---------|
 |**청구 및 계량**    |  가상 머신은 사용자 라이선스 필요 또는 사용량 기반 월별 청구를 지원해야 합니다.       |    트랜잭션    |
-|**Azure 호환 VHD(가상 하드 디스크)**     |   [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 또는 [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)에서 가상 머신을 빌드해야 합니다.    |   트랜잭션      |
+|**Azure 호환 VHD(가상 하드 디스크)**     |   [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 또는 [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)에서 가상 머신을 빌드해야 합니다.    |   트랜잭션      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>컨설팅 서비스 게시 관련 필수 구성 요소
 
@@ -277,7 +277,7 @@ Marketplace 참여는 무료로 진행됩니다. 명단 등록, 체험 및 BYOL 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원
 Azure Active Directory는 업계 표준 프로토콜인 OAuth 및 OpenID Connect를 사용하여 Microsoft 회사 또는 학교 계정으로 인증할 수 있도록 하는 클라우드 ID 서비스입니다. [제품 웹 페이지](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)에서 Azure AD에 대해 알아보세요. 
 
-Microsoft는 Azure AD를 통해 모든 Marketplace 사용자를 인증합니다. 인증된 사용자가 Marketplace에서 체험 항목을 클릭하고 체험 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 체험 단계로 직접 프로비전할 수 있습니다. [인증하는 동안 앱이 Azure AD에서 받는 토큰](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)은 앱에서 사용자 계정을 만드는 데 사용할 수 있는 중요 사용자 정보를 포함합니다. 그런 다음 프로비전 환경을 자동화하고 전환의 가능성을 높일 수 있습니다. 
+Microsoft는 Azure AD를 통해 모든 Marketplace 사용자를 인증합니다. 인증된 사용자가 Marketplace에서 체험 항목을 클릭하고 체험 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 체험 단계로 직접 프로비전할 수 있습니다. [인증하는 동안 앱이 Azure AD에서 받는 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)은 앱에서 사용자 계정을 만드는 데 사용할 수 있는 중요 사용자 정보를 포함합니다. 그런 다음 프로비전 환경을 자동화하고 전환의 가능성을 높일 수 있습니다. 
 
 Azure AD를 사용하면 다음과 같이 앱 또는 체험에 대한 원클릭 인증이 가능해집니다.
 
@@ -292,20 +292,20 @@ Azure AD를 사용하면 다음과 같이 앱 또는 체험에 대한 원클릭 
 
 - Azure Portal에서 응용 프로그램을 등록합니다.
 - Azure AD의 다중 테넌트 지원 기능으로 원클릭 체험 환경을 사용할 수 있습니다.
-- [자세히 알아보기](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).
+- [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 Azure AD 페더레이션 SSO를 처음 접하는 경우:
 
 - Azure Portal에서 응용 프로그램을 등록합니다.
-- [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 Azure AD를 통해 SSO를 개발합니다.
+- [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 Azure AD를 통해 SSO를 개발합니다.
 - Azure AD의 다중 테넌트 지원 기능으로 원클릭 체험 환경을 사용할 수 있습니다.
-- [자세히 알아보기](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
 
 ### <a name="certify-your-azure-ad-integration-for-the-marketplace-single-tenant-applications"></a>Marketplace에 대한 Azure AD 통합 인증: 단일 테넌트 응용 프로그램
 
 단일 테넌트 응용 프로그램의 경우 다음과 같은 다양한 옵션이 있습니다.
 
-- [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 사용하여 디렉터리에 게스트 사용자로 사용자를 추가합니다.
+- [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 사용하여 디렉터리에 게스트 사용자로 사용자를 추가합니다.
 - 나에게 연락을 통해 고객에게 평가판을 수동으로 프로비전합니다.
 - 고객별로 시험 사용을 개발합니다.
 - SSO를 통해 다중 테넌트 샘플 데모 앱을 빌드합니다.
@@ -316,11 +316,11 @@ Office, Dynamics 및 Power BI를 확장하는 AppSource 앱의 경우 이 섹션
 
 |제품 |게시 정보  |
 |---------|---------|
-|Office 365     |    [게시 프로세스 및 지침]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)을 검토합니다.     |
-|Dynamics 365 for Finance and Operations  |   Enterprise Edition을 빌드하는 경우 [게시 프로세스 및 지침](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다.      |
-|Dynamics 365 for Customer Engagement |[게시 프로세스 및 지침](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)을 검토합니다. |
-|Power BI   |     [게시 프로세스 및 지침]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)을 검토합니다.    |
-|Cortana Intelligence     |    [AppSource의 Cortana](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)에 대해 알아봅니다.     |
+|Office 365     |    [게시 프로세스 및 지침]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)을 검토합니다.     |
+|Dynamics 365 for Finance and Operations  |   Enterprise Edition을 빌드하는 경우 [게시 프로세스 및 지침](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다.      |
+|Dynamics 365 for Customer Engagement |[게시 프로세스 및 지침](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)을 검토합니다. |
+|Power BI   |     [게시 프로세스 및 지침]( https://docs.microsoft.com/power-bi/developer/office-store)을 검토합니다.    |
+|Cortana Intelligence     |    [AppSource의 Cortana](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)에 대해 알아봅니다.     |
 |AppSource 컨설팅 제품     |  [지침을 검토하고 제품을 제출하는 방법을 알아봅니다](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
 
 
@@ -522,11 +522,11 @@ Azure Marketplace에 대한 지원 옵션 목록은 다음과 같습니다.
 
 개발자 계정은 주로 신뢰할 수 있는 PC에서 액세스해야 합니다. 이는 주당 계정별로 생성되는 코드 수에 제한이 있기 때문에 중요합니다. 또한 신뢰할 수 있는 PC를 사용하면 가장 원활한 로그인 환경을 가능하게 됩니다.
 
-추가 개발자 계정 지침 및 보안에 대한 자세한 내용은 [개발자 계정 열기](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account)를 참조하세요.
+추가 개발자 계정 지침 및 보안에 대한 자세한 내용은 [개발자 계정 열기](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account)를 참조하세요.
 
 ### <a name="guidance-for-microsoft-ids-in-an-azure-ad-federated-domain"></a>Azure AD 페더레이션 도메인의 Microsoft ID에 대한 지침
 
-회사 계정은 [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/)를 통해 페더레이션될 수 있습니다. 회사 이메일 주소를 사용하여 Microsoft ID를 만들려고 하면 오류가 반환됩니다. 오류가 발생하면 먼저 IT 팀에 이러한 경우에 해당하는지 확인하세요. 이것은 알려진 문제이며, 해결 작업이 진행 중입니다. 
+회사 계정은 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)를 통해 페더레이션될 수 있습니다. 회사 이메일 주소를 사용하여 Microsoft ID를 만들려고 하면 오류가 반환됩니다. 오류가 발생하면 먼저 IT 팀에 이러한 경우에 해당하는지 확인하세요. 이것은 알려진 문제이며, 해결 작업이 진행 중입니다. 
 
 해결 방법으로, @outlook.com 도메인에 새 이메일 주소를 만들고 규칙을 만드는 것이 좋습니다. 다음 단계를 수행하세요.
 
@@ -562,7 +562,7 @@ Azure Marketplace에 대한 지원 옵션 목록은 다음과 같습니다.
 5. **계정 형식**으로 **회사**를 선택하고 **다음** 단추를 선택합니다.
 
    >[!IMPORTANT]
-   >계정 형식 및 최선의 선택에 대해 더 잘 이해하려면 [계정 형식, 위치 및 수수료](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees)를 참조하세요.
+   >계정 형식 및 최선의 선택에 대해 더 잘 이해하려면 [계정 형식, 위치 및 수수료](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)를 참조하세요.
 
 6. **게시자 표시 이름**을 입력합니다. 이는 일반적으로 여러분의 회사 이름입니다.
 

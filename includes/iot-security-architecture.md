@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-architecture"></a>사물 인터넷 보안 아키텍처
 
 시스템을 디자인하고 아키텍처를 설계할 때 해당 시스템에 대한 잠재적 위협을 파악하고, 그에 따라 적절한 방어 수단을 추가해야 합니다. 처음부터 보안을 염두에 두고 제품을 설계하는 것이 매우 중요합니다. 공격자가 시스템을 손상시킬 수 있는 방법을 파악하면 처음부터 적절한 위협 완화 조치를 수행할 수 있기 때문입니다.

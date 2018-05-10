@@ -1,19 +1,34 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 Kafka
+- name: 개요
   items:
-    - name: 개요
+    - name: HDInsight의 Kafka 정보
       href: apache-kafka-introduction.md
     - name: 구성 요소 버전 관리
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: 시작하기
+- name: 빠른 시작
   items:
-    - name: Kafka 클러스터 만들기
+    - name: Kafka 클러스터 만들기 - 포털
       href: apache-kafka-get-started.md
-    - name: HDInsight 앱 설치
-      href: ../hdinsight-apps-install-applications.md
+    - name: Kafka 클러스터 만들기 - PowerShell
+      href: apache-kafka-quickstart-powershell.md
+    - name: Kafka 클러스터 만들기 - 템플릿
+      href: apache-kafka-quickstart-resource-manager-template.md
+- name: 자습서
+  items:
+    - name: Kafka 및 Spark
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
+    - name: Kafka 및 Storm
+      href: ../hdinsight-apache-storm-with-kafka.md
+      maintainContext: true
+    - name: Kafka 생산자 및 소비자 API
+      href: apache-kafka-producer-consumer-api.md
+    - name: Kafka 스트림 API
+      href: apache-kafka-streams-api.md
+- name: 개념
+  items:
     - name: 용량 계획
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -23,6 +38,11 @@
       href: apache-kafka-high-availability.md
 - name: 방법
   items:
+    - name: 자동 항목 만들기 사용
+      href: apache-kafka-auto-create-topics.md
+    - name: HDInsight 앱 설치
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: 가상 네트워크에서 Kafka 사용
       href: apache-kafka-connect-vpn-gateway.md
     - name: Kafka 데이터 복제
@@ -31,17 +51,11 @@
       href: apache-kafka-log-analytics-operations-management.md
     - name: 스트리밍 파이프라인 만들기
       items:
-        - name: Kafka 및 Spark(구조적 스트림)
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-          maintainContext: true
-        - name: Kafka에서 Azure Cosmos DB로의 구조적 스트림
+        - name: 'Spark, Kafka, 및 Azure Cosmos DB'
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka 및 Spark(DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
-          maintainContext: true
-        - name: Kafka 및 Storm
-          href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
         - name: Azure Container Service에서 Kafka 사용
           href: apache-kafka-azure-container-services.md
@@ -49,10 +63,6 @@
           href: apache-kafka-azure-functions.md
     - name: 개발
       items:
-        - name: Kafka 생산자 및 소비자 API 사용
-          href: apache-kafka-producer-consumer-api.md
-        - name: Kafka 스트림 API 사용
-          href: apache-kafka-streams-api.md
         - name: 빈 에지 노드 사용
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

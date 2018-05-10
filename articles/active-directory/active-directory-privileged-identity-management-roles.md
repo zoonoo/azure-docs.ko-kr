@@ -3,23 +3,21 @@ title: Azure AD Privileged Identity Management의 역할 | Microsoft Docs
 description: Azure 권위 있는 ID 관리 확장을 사용하여 권한 있는 ID에 사용되는 역할을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 03/04/2018
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 464b8c3433f6fbfb9e29f57ee96dd6d5e8f2109a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM의 다른 관리자 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -50,7 +48,7 @@ Privileged Identity Management를 사용하면 사용자를 다음과 같이 일
   > 
 * **사용자 관리 관리자** 는 암호를 다시 설정하고, 서비스 상태를 모니터링하고, 사용자 계정과 사용자 그룹 및 서비스 요청을 관리합니다. 사용자 관리 관리자는 전역 관리자를 삭제하거나 다른 관리자 역할을 만들거나 청구, 전역 및 서비스 관리를 위해 암호를 재설정할 수 없습니다.
 * **Exchange 관리자** 는 Exchange 관리 센터(EAC)를 통해 Exchange Online에 대한 관리 액세스 권한을 보유하고 Exchange Online에서 거의 모든 태스크를 수행할 수 있습니다.
-* **SharePoint 관리자(미리 보기)**는 SharePoint Online 관리 센터를 통해 SharePoint Online에 대한 관리 액세스 권한을 보유하고 SharePoint Online에서 거의 모든 태스크를 수행할 수 있습니다. 현재, 이 역할은 미리 보기로 제공되고 있습니다. 적격 사용자는 PIM에서 정품 인증을 한 후 SharePoint 내에서 이 역할을 사용할 때 지연이 발생할 수 있습니다.
+* **SharePoint 관리자(미리 보기)** 는 SharePoint Online 관리 센터를 통해 SharePoint Online에 대한 관리 액세스 권한을 보유하고 SharePoint Online에서 거의 모든 태스크를 수행할 수 있습니다. 현재, 이 역할은 미리 보기로 제공되고 있습니다. 적격 사용자는 PIM에서 정품 인증을 한 후 SharePoint 내에서 이 역할을 사용할 때 지연이 발생할 수 있습니다.
 * **비즈니스용 Skype 관리자** 는 비즈니스용 Skype 관리 센터를 통해 비즈니스용 Skype에 대한 관리 액세스 권한을 보유하고 비즈니스용 Skype Online에서 거의 모든 태스크를 수행할 수 있습니다.
 
 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md) 및 [Office 365에서 관리자 역할 할당](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504)에 대한 자세한 내용을 보려면 이 문서를 읽으세요.

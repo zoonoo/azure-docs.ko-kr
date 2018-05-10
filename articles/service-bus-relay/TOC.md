@@ -8,8 +8,10 @@
 ## [네임스페이스 만들기](relay-create-namespace-portal.md)
 ## [하이브리드 온-프레미스/클라우드 응용 프로그램 만들기](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## 하이브리드 연결
-### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Node](relay-hybrid-connections-node-get-started.md)
+### [.NET Websocket](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+### [노드 Websocket](relay-hybrid-connections-node-get-started.md)
+### [노드 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 ## [WCF 릴레이](relay-wcf-dotnet-get-started.md)
 ## [WCF 릴레이 자습서](service-bus-relay-tutorial.md)
 ## [WCF 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)

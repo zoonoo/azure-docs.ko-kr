@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 ID 및 액세스 모니터링 | Microsoft Docs"
-description: "Azure Security Center의 ID 및 액세스 기능을 사용하여 사용자의 액세스 작업과 ID 관련 문제를 모니터링하는 방법을 알아봅니다."
+title: Azure Security Center에서 ID 및 액세스 모니터링 | Microsoft Docs
+description: Azure Security Center의 ID 및 액세스 기능을 사용하여 사용자의 액세스 작업과 ID 관련 문제를 모니터링하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
-ms.openlocfilehash: 842045fbcb5b4f661cc006a207f4087370a7b4ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ee263ef8fb0f20049215eda53e0d58a45342b7e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center"></a>Azure Security Center에서 ID 및 액세스 모니터링
 이 문서를 통해 Azure Security Center를 사용하여 사용자의 ID를 모니터링하고 작업에 액세스할 수 있습니다.
@@ -54,9 +54,9 @@ ID 및 액세스와 관련된 현재 작업을 보려면 **ID 및 액세스** �
 
     a. **ID 상태** 이 작업 영역에서 수행된 ID 관련 작업을 요약합니다.
 
-    b. **실패한 로그인** 실패한 로그인 시도에 대한 주요 원인을 신속하게 식별할 수 있습니다. 로그온하려는 대부분의 시도가 실패한 상위 10개의 계정 목록이 표시됩니다.
+    나. **실패한 로그인** 실패한 로그인 시도에 대한 주요 원인을 신속하게 식별할 수 있습니다. 로그온하려는 대부분의 시도가 실패한 상위 10개의 계정 목록이 표시됩니다.
 
-    c. **시간에 따른 로그인** 시간에 따른 로그인 횟수를 신속하게 식별할 수 있습니다. 컴퓨터 계정 로그인 시도의 상위 목록을 보여줍니다.
+    다. **시간에 따른 로그인** 시간에 따른 로그인 횟수를 신속하게 식별할 수 있습니다. 컴퓨터 계정 로그인 시도의 상위 목록을 보여줍니다.
     
 선택한 타일에 관계 없이 표시되는 대시보드는 로그 검색 쿼리를 기반으로 합니다. 유일한 차이점은 쿼리 및 결과의 유형입니다. 여전히 컴퓨터와 같은 항목을 선택할 수 있으며 관련 데이터를 볼 수 있습니다. 
 

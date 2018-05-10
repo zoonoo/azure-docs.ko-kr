@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: e871fa8cd2228067b3a1511b74ff7a425d1dc9fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 86260e1929e8bd5c31682ef7f59cacae19a66020
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -83,12 +83,12 @@ Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비�
 위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [언어 지원 항목](https://docs.microsoft.com/rest/api/searchservice/Language-support)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
 
 ## <a name="issue-the-http-request"></a>HTTP 요청 발급
-1. 인덱스 정의를 요청 본문으로 사용하여 Azure Search 서비스 끝점 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2016-09-01`임).
+1. 인덱스 정의를 요청 본문으로 사용하여 Azure Search 서비스 끝점 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2017-11-11`임).
 2. 요청 헤더에서 `Content-Type`을 `application/json`으로 지정합니다. `api-key` 헤더의 I 단계에서 식별하는 서비스의 관리 키를 제공해야 합니다.
 
 아래와 같이 요청을 실행할 고유한 서비스 이름 및 api 키를 제공해야 합니다.
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [api-key]
 
@@ -97,7 +97,7 @@ Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비�
 
 인덱스 관련 작업을 완료하고 삭제하려는 경우 HTTP 삭제 요청을 발급합니다. 예를 들어 "호텔" 인덱스를 삭제하는 방법입니다.
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11
     api-key: [api-key]
 
 

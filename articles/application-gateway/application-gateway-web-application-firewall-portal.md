@@ -1,21 +1,21 @@
 ---
-title: "웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs"
-description: "Azure Portal을 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다."
+title: 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs
+description: Azure Portal을 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만듭니다.
 
@@ -32,13 +32,13 @@ Azure Portal을 사용하여 WAF([웹 응용 프로그램 방화벽](application
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합니다.
+[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷이 생성됩니다. 하나는 응용 프로그램 게이트웨이용이고 다른 하나는 백 엔드 서버용입니다. 가상 네트워크는 응용 프로그램 게이트웨이를 만들 때 동시에 만들 수 있습니다.
+가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기**를 클릭합니다.
+1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 응용 프로그램 게이트웨이에 대해 다음 값을 입력합니다.
 
@@ -74,7 +74,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이의 백 엔드 서버로 사용될 두 개의 가상 머신을 만듭니다. 또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
+이 예제에서는 응용 프로그램 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -84,12 +84,12 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
     - *myVM* - 가상 머신의 이름
     - *azureuser* - 관리자 사용자 이름
-    - *Azure123456!* 암호
+    - *Azure123456!* - 암호
     - **기존 항목 사용**을 선택한 다음, *myResourceGroupAG*를 선택합니다.
 
 4. **확인**을 클릭합니다.
-5. 가상 머신의 크기에 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
-6. 가상 네트워크에 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
+5. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
+6. 가상 네트워크에 대해 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
 7. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 8. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
 
@@ -113,7 +113,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
       -Location EastUS
     ```
 
-3. 두 번째 가상 머신을 만들고 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension의 VMName 및 이름에 *myVM2*를 입력합니다.
+3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension의 이름 및 VMName에 대해 *myVM2*를 입력합니다.
 
 ### <a name="add-backend-servers"></a>백 엔드 서버 추가
 
@@ -151,11 +151,11 @@ ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog 및 ApplicationGat
 
 ## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
 
-1. 개요 화면에서 응용 프로그램 게이트웨이의 공용 IP 주소를 찾습니다. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
+1. [개요] 화면에서 응용 프로그램 게이트웨이에 대한 공용 IP 주소를 찾습니다. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
 
-    ![응용 프로그램 게이트웨이 공용 IP 주소 기록](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
+    ![응용 프로그램 게이트웨이에 대한 공용 IP 주소 기록](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
-2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
+2. 공용 IP 주소를 복사한 다음, 브라우저의 주소 표시줄에 붙여넣습니다.
 
     ![응용 프로그램 게이트웨이 테스트](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 

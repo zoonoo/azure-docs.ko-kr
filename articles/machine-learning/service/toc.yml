@@ -4,17 +4,17 @@
   expanded: true
   items:
     - name: Azure Machine Learning 정보
-      href: ../desktop-workbench/overview-what-is-azure-ml.md
+      href: overview-what-is-azure-ml.md
     - name: 모델 관리 개요
       href: ../desktop-workbench/model-management-overview.md
     - name: 기타 ML 제품
-      href: ../desktop-workbench/overview-more-machine-learning.md
+      href: overview-more-machine-learning.md
     - name: 새로운 기능
       href: ../desktop-workbench/azure-machine-learning-release-notes.md
 - name: 빠른 시작
   items:
     - name: 설치 및 시작
-      href: ../desktop-workbench/quickstart-installation.md
+      href: quickstart-installation.md
 - name: 자습서
   items:
     - name: '1: 데이터 준비'
@@ -29,6 +29,8 @@
   items:
     - name: 주요 개념
       href: ../desktop-workbench/overview-general-concepts.md
+    - name: FPGA 가속
+      href: concept-accelerate-with-fpgas.md
 - name: 방법 가이드
   items:
     - name: 상위 CLI 작업
@@ -92,8 +94,10 @@
           href: ../desktop-workbench/how-to-read-write-files.md
         - name: MMLSpark 라이브러리 사용
           href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: 모델 운영
+    - name: 모델 배포 및 사용
       items:
+        - name: FPGA에 모델 배포
+          href: how-to-deploy-fpga-web-service.md
         - name: 모델 관리 설정
           href: ../desktop-workbench/deployment-setup-configuration.md
         - name: 클러스터 및 서비스 크기 조정
@@ -142,6 +146,31 @@
           href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: 참고 자료
   items:
+    - name: Python 패키지
+      href: reference-python-package-overview.md
+      items:
+        - name: Computer Vision
+          items:
+            - name: 패키지 개요 및 설치
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
+            - name: 이미지 분류 모델 빌드 및 배포
+              href: how-to-build-deploy-image-classification-models.md
+            - name: 모델 정확도
+              href: how-to-improve-accuracy-for-computer-vision-models.md
+        - name: 예측
+          items:
+            - name: 개요 및 설치
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview'
+            - name: 예측 모델 빌드 및 배포
+              href: how-to-build-deploy-forecast-models.md
+        - name: FPGA 가속
+          href: reference-fpga-package-overview.md
+        - name: 텍스트 분석
+          items:
+            - name: 개요 및 설치
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics'
+            - name: 텍스트 분류 모델 빌드 및 배포
+              href: how-to-build-deploy-text-classification-models.md
     - name: 데이터 준비
       items:
         - name: 데이터 준비용 Python 확장
@@ -191,13 +220,13 @@
     - name: 질문과 대답
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 문제 및 문제 해결
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+      href: known-issues-and-troubleshooting-guide.md
     - name: 지원 및 교육
-      href: ../desktop-workbench/support-for-aml-services.md
+      href: support-for-aml-services.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격
-      href: ../desktop-workbench/aml-pricing.md
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Team Data Science Process

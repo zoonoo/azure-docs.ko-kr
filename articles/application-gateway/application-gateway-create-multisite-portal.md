@@ -1,20 +1,20 @@
 ---
-title: "여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs"
-description: "Azure Portal을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
+title: 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs
+description: Azure Portal을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기
 
@@ -31,11 +31,11 @@ Azure Portal을 사용하여 [응용 프로그램 게이트웨이](application-g
 
 ![다중 사이트 라우팅 예](./media/application-gateway-create-multisite-portal/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합니다.
+[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
@@ -102,7 +102,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -125,7 +125,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     ![백 엔드 서버 추가](./media/application-gateway-create-multisite-portal/application-gateway-multisite-backendpool.png)
 
 4. **확인**을 클릭합니다.
-5. **백 엔드 풀**을 클릭한 다음, **추가**를 클릭합니다.
+5. **백엔드 풀**을 클릭한 다음, **추가**를 클릭합니다.
 6. 방금 완료한 단계를 사용하여 *fabrikamVM*으로 *fabrikamPool*을 만듭니다.
 
 ## <a name="create-listeners-and-routing-rules"></a>수신기 및 라우팅 규칙 만들기
@@ -166,7 +166,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
 
-1. 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com.
+1. 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
 
     ![응용 프로그램 게이트웨이에서 contoso 사이트 테스트](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 

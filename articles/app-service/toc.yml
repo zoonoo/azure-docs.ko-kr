@@ -55,6 +55,8 @@
       href: app-service-web-tutorial-content-delivery-network.md
     - name: 사용자 인증
       href: app-service-web-tutorial-auth-aad.md
+    - name: VSTS 및 CI/CD가 있는 Azure App Service에 앱 배포
+      href: 'https://docs.microsoft.com/learn/deploy-apps-to-azure/index'
 - name: 샘플
   items:
     - name: Azure CLI
@@ -177,6 +179,8 @@
           href: web-sites-backup.md
         - name: 백업 복원
           href: web-sites-restore.md
+        - name: 스냅숏 복원
+          href: app-service-web-restore-snapshots.md
         - name: 앱 복제
           href: app-service-web-app-cloning.md
         - name: 리소스 이동

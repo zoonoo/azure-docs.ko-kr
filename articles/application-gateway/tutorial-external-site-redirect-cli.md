@@ -1,9 +1,9 @@
 ---
-title: "외부 트래픽 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs"
-description: "Azure CLI를 사용하여 내부 웹 트래픽을 해당 풀로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
+title: 외부 트래픽 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs
+description: Azure CLI를 사용하여 내부 웹 트래픽을 해당 풀로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: fed23c7138516b3af8af170383948b14c49a61a9
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: victorh
+ms.openlocfilehash: 3ded6fc0950c82d0aa36da89fdd5635afef7be0b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 외부 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기
 
@@ -29,7 +29,7 @@ Azure CLI를 사용하여 [응용 프로그램 게이트웨이](application-gate
 > * 수신기 및 리디렉션 규칙 만들기
 > * 응용 프로그램 게이트웨이 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

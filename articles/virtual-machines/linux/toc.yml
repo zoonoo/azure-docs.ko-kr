@@ -199,6 +199,8 @@
           href: use-remote-desktop.md
         - name: VM을 Azure Active Directory에 가입시키기
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+        - name: Azure Active Directory 자격 증명으로 로그인
+          href: login-using-aad.md
         - name: 업데이트 및 패치
           items:
             - name: Red Hat 업데이트 인프라

@@ -3,20 +3,19 @@ title: Azure Data Factory에서 지원하는 Compute 환경 | Microsoft Docs
 description: '데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 계산 환경을 알아봅니다.'
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: shengc
-ms.openlocfilehash: 806d0db3536a00dea4e421f847cf0f75bcfc218c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: douglasl
+ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 계산 환경을 설명합니다. 또한 이러한 계산 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
@@ -108,16 +107,16 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | clusterType                  | 만들 HDInsight 클러스터의 형식입니다. 허용되는 값은 "hadoop" 및 "spark"입니다. 지정하지 않으면 기본값은 hadoop입니다. | 아니오       |
 | 버전                      | HDInsight 클러스터의 버전입니다. 지정하지 않으면 현재 HDInsight에 정의된 기본 버전을 사용하는 것입니다. | 아니오       |
 | hostSubscriptionId           | HDInsight 클러스터를 만드는 데 사용되는 Azure 구독 ID입니다. 지정하지 않으면 Azure 로그인 컨텍스트의 구독 ID를 사용합니다. | 아니오       |
-| clusterNamePrefix           | HDI 클러스터 이름의 접두사로, 클러스터 이름 끝에 타임스탬프가 자동으로 추가됩니다.| 아니요       |
+| clusterNamePrefix           | HDI 클러스터 이름의 접두사로, 클러스터 이름 끝에 타임스탬프가 자동으로 추가됩니다.| 아니오       |
 | sparkVersion                 | 클러스터 형식이 "Spark"인 경우 Spark 버전입니다. | 아니오       |
-| additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다.  이러한 저장소 계정은 linkedServiceName에 지정된 저장소 계정과 동일한 지역에 생성된 HDInsight 클러스터와 동일한 지역에 있어야 합니다. | 아니요       |
+| additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다.  이러한 저장소 계정은 linkedServiceName에 지정된 저장소 계정과 동일한 지역에 생성된 HDInsight 클러스터와 동일한 지역에 있어야 합니다. | 아니오       |
 | osType                       | 운영 체제 유형입니다. 허용되는 값은 Linux 및 Windows(HDInsight 3.3에만 해당)입니다. 기본값은 Linux입니다. | 아니오       |
 | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL Database를 metastore로 사용하여 만들어집니다. | 아니오       |
 | connectVia                   | 이 HDInsight 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. 주문형 HDInsight 연결된 서비스의 경우 Azure 통합 런타임만 지원합니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오       |
-| clusterUserName                   | 클러스터에 액세스하기 위한 사용자 이름입니다. | 아니요       |
+| clusterUserName                   | 클러스터에 액세스하기 위한 사용자 이름입니다. | 아니오       |
 | clusterPassword                   | 클러스터에 액세스하기 위한 보안 문자열 형식의 암호입니다. | 아니오       |
 | clusterSshUserName         | SSH을 통해 클러스터 노드에 원격으로 연결하기 위한 사용자 이름입니다(Linux용). | 아니오       |
-| clusterSshPassword         | SSH를 통해 클러스터 노드에 원격으로 연결하기 위한 보안 문자열 형식의 암호입니다(Linux용). | 아니요       |
+| clusterSshPassword         | SSH를 통해 클러스터 노드에 원격으로 연결하기 위한 보안 문자열 형식의 암호입니다(Linux용). | 아니오       |
 
 
 > [!IMPORTANT]
@@ -156,11 +155,11 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 | 자산               | 설명                              | 필수 |
 | :--------------------- | :--------------------------------------- | :------- |
-| coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml에서 처럼)를 지정합니다. | 아니요       |
+| coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml에서 처럼)를 지정합니다. | 아니오       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 아니오       |
 | hdfsConfiguration      | HDInsight 클러스터에 대한 HDFS 구성 매개 변수(hdfs-site.xml)를 지정합니다. | 아니오       |
 | hiveConfiguration      | HDInsight 클러스터에 대한 hive 구성 매개 변수(hive-site.xml)를 지정합니다. | 아니오       |
-| mapReduceConfiguration | HDInsight 클러스터에 대한 MapReduce 구성 매개 변수(mapred-site.xml)를 지정합니다. | 아니요       |
+| mapReduceConfiguration | HDInsight 클러스터에 대한 MapReduce 구성 매개 변수(mapred-site.xml)를 지정합니다. | 아니오       |
 | oozieConfiguration     | HDInsight 클러스터에 대한 Oozie 구성 매개 변수(oozie-site.xml)를 지정합니다. | 아니오       |
 | stormConfiguration     | HDInsight 클러스터에 대한 Storm 구성 매개 변수(storm-site.xml)를 지정합니다. | 아니오       |
 | yarnConfiguration      | HDInsight 클러스터에 대한 Yarn 구성 매개 변수(yarn-site.xml)를 지정합니다. | 아니오       |
@@ -224,9 +223,9 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 | 자산          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 아니요       |
+| headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 아니오       |
 | dataNodeSize      | 데이터 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. | 아니오       |
-| zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. | 아니요       |
+| zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. | 아니오       |
 
 #### <a name="specifying-node-sizes"></a>노드 크기 지정
 이전 섹션에 언급된 속성에 대해 지정해야 하는 문자열 값은 [Virtual Machines 크기](../virtual-machines/linux/sizes.md) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
@@ -376,7 +375,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 �
 | type                   | 형식 속성은 **AzureML**로 설정해야 합니다. | 예                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | 예                                      |
 | apiKey                 | 게시된 작업 영역 모델의 API입니다.     | 예                                      |
-| updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure ML Web Service 끝점에 대한 업데이트 리소스 URL입니다. | 아니요                                       |
+| updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure ML Web Service 끝점에 대한 업데이트 리소스 URL입니다. | 아니오                                       |
 | servicePrincipalId     | 응용 프로그램의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | servicePrincipalKey    | 응용 프로그램의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | tenant                 | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
@@ -424,7 +423,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | servicePrincipalId   | 응용 프로그램의 클라이언트 ID를 지정합니다.     | 예                                      |
 | servicePrincipalKey  | 응용 프로그램의 키를 지정합니다.           | 예                                      |
 | tenant               | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예                                      |
-| connectVia           | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요                                       |
+| connectVia           | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오                                       |
 
 
 
@@ -483,7 +482,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 내용](https://docs.databricks.com/user-guide/clusters/tags.html). | 아니오 
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 아니오  |
 | newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. "1"과 같은 Int32 형식의 문자열에서 numOfWorker는 1을 의미하고, "1:10"은 최소 1~최대 10 범위의 자동 크기 조정을 의미합니다.  | 아니오                |
-| newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 계산 집약적 워크로드에 대해 프로비전되고 최적화될 수 있습니다. 이 필드는 새 클러스터에 필요합니다.                | 아니요               |
+| newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 계산 집약적 워크로드에 대해 프로비전되고 최적화될 수 있습니다. 이 필드는 새 클러스터에 필요합니다.                | 아니오               |
 | newClusterSparkConf  | 선택적인 사용자 지정 Spark 구성 키-값 쌍의 집합입니다. 또한 사용자는 각각 spark.driver.extraJavaOptions 및 spark.executor.extraJavaOptions를 통해 드라이버와 실행기에 추가 JVM 옵션 문자열을 전달할 수 있습니다. | 아니오  |
 
 

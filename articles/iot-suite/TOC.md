@@ -1,22 +1,22 @@
 # [Azure IoT 기본 사항](../iot-fundamentals/index.yml)
-# [IoT Suite 설명서](index.md)
+# [IoT 솔루션 가속기 설명서](index.md)
 
 # 개요
 ## [IoT 아키텍처 개념](iot-suite-what-is-azure-iot.md)
 ## [Azure IoT 옵션 비교](iot-suite-options.md)
-## [미리 구성된 솔루션 개요](iot-suite-what-are-preconfigured-solutions.md)
+## [솔루션 가속기 개요](iot-suite-what-are-solution-accelerators.md)
 
 # 시작하기
 ## 원격 모니터링
-### [미리 구성된 솔루션 배포](iot-suite-remote-monitoring-deploy.md)
-### [미리 구성된 솔루션 작동](iot-suite-remote-monitoring-explore.md)
+### [솔루션 가속기 배포](iot-suite-remote-monitoring-deploy.md)
+### [솔루션 가속기 작동](iot-suite-remote-monitoring-explore.md)
 
 ## 원격 모니터링(이전 버전)
-### [미리 구성된 솔루션이란?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [솔루션 가속기란?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [FAQ](iot-suite-v1-faq.md)
 
 ### 시작
-#### [미리 구성된 솔루션 시작](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [솔루션 가속기 시작](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [azureiotsuite.com의 사용 권한](iot-suite-v1-permissions.md)
 #### [원격 모니터링 솔루션 연습](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Raspberry Pi에 연결](iot-suite-v1-raspberry-pi-kit-get-started.md)
@@ -36,22 +36,20 @@
 ##### [Linux에서 C](iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](iot-suite-v1-connecting-devices-node.md)
 #### [논리 앱을 원격 모니터링 솔루션에 연결](iot-suite-v1-logic-apps-tutorial.md)
-#### [미리 구성된 솔루션 사용자 지정](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [솔루션 가속기 사용자 지정](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-v1-dynamic-telemetry.md)
 #### [원격 모니터링 솔루션에서 사용자 지정 규칙 만들기](iot-suite-v1-custom-rule.md)
 #### [원격 모니터링 솔루션의 장치 정보](iot-suite-v1-remote-monitoring-device-info.md)
 
 
-
-
 ## 예측 유지 관리
-### [예측 유지 관리 솔루션 개요](iot-suite-predictive-overview.md)
-### [예측 유지 관리 솔루션 연습](iot-suite-predictive-walkthrough.md)
+### [예측 유지 관리 솔루션 가속기 개요](iot-suite-predictive-overview.md)
+### [예측 유지 관리 솔루션 가속기 연습](iot-suite-predictive-walkthrough.md)
 
-## 연결된 공장
+## 연결된 팩터리
 ### [연결된 팩터리란?](iot-suite-connected-factory-features.md)
-### [연결된 공장 솔루션 개요](iot-suite-connected-factory-overview.md)
-### [연결된 공장 솔루션 연습](iot-suite-connected-factory-sample-walkthrough.md)
+### [연결된 팩터리 솔루션 개요](iot-suite-connected-factory-overview.md)
+### [연결된 팩터리 솔루션 연습](iot-suite-connected-factory-sample-walkthrough.md)
 
 ## 장치 시뮬레이션
 ### [장치 시뮬레이션 배포](iot-suite-device-simulation-deploy.md)
@@ -61,14 +59,19 @@
 ## 원격 모니터링
 ### [고급 모니터링 수행](iot-suite-remote-monitoring-monitor.md)
 ### [문제를 감지하는 규칙 사용](iot-suite-remote-monitoring-automate.md)
+### [SIM 데이터 통합](iot-suite-remote-monitoring-telefonica-sim.md)
 ### [장치 관리](iot-suite-remote-monitoring-manage.md)
 ### [장치 문제 해결](iot-suite-remote-monitoring-maintain.md)
 ### [장치 모델 스키마 이해](iot-suite-remote-monitoring-device-schema.md)
 ### [장치 모델 동작 이해](iot-suite-remote-monitoring-device-behavior.md)
 ### [시뮬레이션된 새 장치 만들기](iot-suite-remote-monitoring-test.md)
-### [솔루션 사용자 지정](iot-suite-remote-monitoring-customize.md)
+### [Power BI를 사용하여 시각화](iot-suite-integrate-data-powerbi.md)
+### [솔루션 UI 사용자 지정](iot-suite-remote-monitoring-customize.md)
+### [마이크로 서비스 사용자 지정 및 재배포](iot-suite-microservices-example.md)
 ### [CLI를 사용하여 배포](iot-suite-remote-monitoring-deploy-cli.md)
 ### [로컬로 배포](iot-suite-remote-monitoring-deploy-local.md)
+### [Time Series Insights를 사용하여 데이터 시각화](iot-suite-time-series-insights.md)
+### [Data Lake와 통합](iot-suite-integrate-data-lake.md)
 ### 실제 장치 연결
 #### [Windows에서 C](iot-suite-connecting-devices.md)
 #### [Linux에서 C](iot-suite-connecting-devices-linux.md)
@@ -77,11 +80,12 @@
 #### [Raspberry Pi의 C](iot-suite-connecting-pi-c.md)
 
 ### 개념
-#### [원격 모니터링 아키텍처](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [원격 모니터링 구현 세부 정보](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [원격 모니터링 아키텍처 선택](iot-suite-remote-monitoring-architectural-choices.md)
 
-## 연결된 공장
-### [연결된 공장에 대한 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
-### [연결된 공장 사용자 지정](iot-suite-connected-factory-customize.md)
+## 연결된 팩터리
+### [연결된 팩터리에 대한 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
+### [연결된 팩터리 사용자 지정](iot-suite-connected-factory-customize.md)
 ### [연결된 팩터리에 OPC 게시자 사용](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [연결된 팩터리 구성](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com의 사용 권한](iot-suite-permissions.md)
@@ -102,7 +106,7 @@
 ### [IoT 허브](/azure/iot-hub) 
 ### [IoT Hub Device Provisioning 서비스](/azure/iot-dps)
 ### [IoT 서비스 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
-### [위치 기반 서비스](/azure/location-based-services) 
+### [Maps](/azure/azure-maps) 
 ### [Time Series Insights](/azure/time-series-insights) 
 ## Edge 
 ### [IoT Edge](/azure/iot-edge) 
@@ -117,4 +121,4 @@
 ## [원격 모니터링 FAQ](iot-suite-faq-rm-v2.md)
 ## [연결된 팩터리 FAQ](iot-suite-faq-cf.md)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-iot-suite)
-## [IoT Suite 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [IoT 솔루션 가속기 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

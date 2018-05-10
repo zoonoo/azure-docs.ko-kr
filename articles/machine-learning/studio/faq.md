@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
@@ -372,7 +372,7 @@ Machine Learning 무료 계층은 별도의 저장소를 필요로 하지 않거
 
 **Machine Learning에서 고가용성 작업을 지원하나요?**
 
-예. 자세한 내용은 [Machine Learning 가격 책정](https://azure.microsoft.com/en-us/pricing/details/machine-learning/)에서 Service Level Agreement(서비스 수준 약정)에 대한 설명을 참조하세요.
+예. 자세한 내용은 [Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)에서 Service Level Agreement(서비스 수준 약정)에 대한 설명을 참조하세요.
 
 **내 프로덕션 API 호출이 실행될 계산 리소스의 구체적인 종류는 무엇인가요?**
 

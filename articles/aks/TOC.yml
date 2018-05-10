@@ -1,4 +1,4 @@
-- name: Azure Container Service(AKS)
+- name: AKS(Azure Kubernetes Service)
   href: ./index.yml
 - name: 개요
   items:
@@ -25,9 +25,7 @@
       href: tutorial-kubernetes-scale.md
     - name: 6 - 응용 프로그램 업데이트
       href: tutorial-kubernetes-app-update.md
-    - name: 7 - Log Analytics로 모니터링
-      href: tutorial-kubernetes-monitor.md
-    - name: 8 - 클러스터 업그레이드
+    - name: 7- 클러스터 업그레이드
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: 개념
   items:
@@ -57,12 +55,16 @@
           href: azure-files-dynamic-pv.md
     - name: 네트워킹 구성
       items:
+        - name: 네트워킹 개요
+          href: networking-overview.md
         - name: 고정 IP 주소
           href: static-ip.md
         - name: 내부 부하 분산 장치
           href: internal-lb.md
         - name: 수신 및 TLS
           href: ingress.md
+        - name: HTTP 응용 프로그램 라우팅
+          href: http-application-routing.md
     - name: 보안 및 인증
       items:
         - name: 서비스 주체 만들기

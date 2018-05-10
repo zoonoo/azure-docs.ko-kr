@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5694207f9283a5db5a937d9f8867d1a5f661aac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7049a4b5159687ab928cda7ddc6b1a35959529ac
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA 고가용성
 
@@ -67,8 +67,8 @@ Azure 구성 요소에서 제공할 수 있는 SLA에 대한 가용성 요구 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [단일 Azure 지역 내 SAP HANA 가용성](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)에 대해 알아봅니다.
-- [Azure 지역 간 SAP HANA 가용성](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)에 대해 알아봅니다. 
+- [단일 Azure 지역 내 SAP HANA 가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)에 대해 알아봅니다.
+- [Azure 지역 간 SAP HANA 가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)에 대해 알아봅니다. 
 
 
 
