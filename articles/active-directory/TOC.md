@@ -174,10 +174,6 @@
 #### [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
 #### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### 에이전트 기반 검색
-##### [Cloud App Discovery는 무엇입니까?](active-directory-cloudappdiscovery-whatis.md)
-##### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
@@ -328,7 +324,7 @@
 #### [FAQ](active-directory-identity-protection-faqs.md)
 #### [용어](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Azure AD와 다른 서비스 통합]()
 ### [LinkedIn 통합 사용](linkedin-integration.md)

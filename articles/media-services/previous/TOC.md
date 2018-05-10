@@ -118,7 +118,6 @@
 #### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [클라우드 인코더와 함께 사용할 온-프레미스 인코더 구성](media-services-live-encoders-overview.md)
-#### [Elemental Live 인코더](media-services-configure-elemental-live-encoder.md)
 #### [FMLE 인코더](media-services-configure-fmle-live-encoder.md)
 #### [Haivision KB 인코더](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster 인코더](media-services-configure-tricaster-live-encoder.md)

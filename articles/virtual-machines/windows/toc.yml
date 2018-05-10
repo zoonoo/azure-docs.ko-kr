@@ -206,7 +206,7 @@
         - name: 템플릿 다운로드
           href: download-template.md
         - name: Azure VM 에이전트
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: 계획된 유지 보수
           href: maintenance-notifications.md
         - name: 투기적 실행 완화
@@ -369,7 +369,7 @@
         - name: Network Watcher 에이전트
           href: extensions-nwa.md
         - name: 확장 설치 제한
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: VM 마이그레이션
       items:
         - name: AWS 및 온-프레미스 VM 마이그레이션

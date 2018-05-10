@@ -208,7 +208,7 @@
         - name: Azure VM 에이전트
           items:
             - name: 개요
-              href: agent-user-guide.md
+              href: ../extensions/agent-linux.md
             - name: 에이전트 업데이트
               href: update-agent.md
         - name: 계획된 유지 보수
@@ -434,7 +434,7 @@
         - name: VMAccess 확장
           href: using-vmaccess-extension.md
         - name: 확장 설치 제한
-          href: extensions-rmpolicy-howto-cli.md
+          href: ../extensions/extensions-rmpolicy-howto-cli.md
     - name: VM 마이그레이션
       items:
         - name: AWS 및 온-프레미스 VM 마이그레이션
