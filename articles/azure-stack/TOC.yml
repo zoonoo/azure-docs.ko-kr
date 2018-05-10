@@ -61,8 +61,22 @@
               href: azure-stack-prepare-pki-certs.md
             - name: PKI 인증서의 유효성을 검사합니다
               href: azure-stack-validate-pki-certs.md
-        - name: Id 통합
-          href: azure-stack-integrate-identity.md
+            - name: PKI 인증서를 수정 합니다.
+              href: azure-stack-remediate-certs.md
+            - name: 배포 리소스
+              items:
+                - name: 시작 AzsReadiness cmdlet 참조
+                  href: azure-stack-azsreadiness-cmdlet.md
+                - name: 준비 보고서 보기
+                  href: azure-stack-validation-report.md
+            - name: Id 통합
+              items:
+                - name: Id 공급자를 선택 합니다.
+                  href: azure-stack-integrate-identity.md
+                - name: Azure id 유효성 검사
+                  href: azure-stack-validate-identity.md
+        - name: Azure 등록 유효성 검사
+          href: azure-stack-validate-registration.md
         - name: 외부 모니터링
           href: azure-stack-integrate-monitor.md
         - name: 보안 통합
@@ -123,7 +137,7 @@
               href: azure-stack-manage-storage-accounts.md
             - name: 저장소 용량 관리
               href: azure-stack-manage-storage-shares.md
-            - name: Azure 스택에 대 한 실제 저장소 용량 관리
+            - name: 실제 메모리 용량 관리
               href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: 하드웨어 교체
           items:
@@ -253,6 +267,10 @@
               href: azure-stack-compute-add-scalesets.md
             - name: Linux 가상 컴퓨터를 제공 합니다.
               href: azure-stack-linux.md
+            - name: Red Hat 가상 컴퓨터 추가
+              href: azure-stack-redhat-create-upload-vhd.md
+            - name: Kubernetes 클러스터를 제공 합니다.
+              href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 사용량 및 결제
           items:
             - name: 개요

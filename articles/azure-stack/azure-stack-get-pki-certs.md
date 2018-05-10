@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b65d0d88fd57dea59c79d2f72bab60967856e015
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure 스택 인증서 서명 요청 만들기
 
@@ -33,6 +33,8 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     단일 요청 또는 여러 개의 요청에 인증서 서명 요청 될 것 여부를 지정 합니다.
  - **플랫폼-as a Service**  
     필요에 따라 플랫폼으로-서비스 (PaaS) 이름에 지정 된 대로 인증서를 요청 [Azure 스택 공개 키 인프라 인증서 요구 사항-옵션 PaaS 인증서](azure-stack-pki-certs.md#optional-paas-certificates)합니다.
+
+
 
 ## <a name="prerequisites"></a>필수 조건
 

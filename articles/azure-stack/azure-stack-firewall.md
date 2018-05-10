@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 계획 azure 스택 방화벽 시스템을 통합 | Microsoft Docs"
-description: "다중 노드 배포 Azure 스택 Azure에 연결 된 Azure 스택 방화벽 고려 사항에 설명합니다."
+title: Azure 스택 계획 azure 스택 방화벽 시스템을 통합 | Microsoft Docs
+description: 다중 노드 배포 Azure 스택 Azure에 연결 된 Azure 스택 방화벽 고려 사항에 설명합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure 스택 방화벽 통합
 Azure 스택 보안을 위해 방화벽 장치를 사용 하는 것이 좋습니다. 하지만 방화벽 등으로 분산 된 서비스 거부 (DDOS) 공격, 침입 감지 및 콘텐츠 검사에 도움이 될 수, blob, 테이블 및 큐와 같은 Azure 저장소 서비스에 대 한 처리량 병목 지점이 될 수도 있습니다.
@@ -44,7 +44,7 @@ NAT에서 외부 네트워크 또는 공용 Vip에 공용 IP 주소에 대 한 �
 현재 모든 Azure 스택 트래픽을 SSL 암호 해독을 사용 하지 않도록 설정 하는 것이 좋습니다. 향후 업데이트에서 지원 않을 경우 Azure 스택에 대 한 SSL 암호 해독을 설정 하는 방법에 대 한 지침을 제공 됩니다.
 
 ## <a name="edge-firewall-scenario"></a>가장자리 방화벽 시나리오
-가장자리 배포에서 Azure 스택은에 지 라우터 또는 방화벽 뒤에 직접 배포 됩니다. 이러한 시나리오에서는 테두리 또는 같은 비용 다중 경로 ECMP ()를 BGP 또는 정적 라우팅를 지 원하는 경우 테두리 장치 역할을 초과 하는 방화벽에 대 한 지원 됩니다.
+가장자리 배포에서 Azure 스택은에 지 라우터 또는 방화벽 뒤에 직접 배포 됩니다. 이러한 시나리오에서 액티브-액티브 및 액티브-패시브 방화벽 구성 또는 액티브-액티브 방화벽만 지원 하므로 여기서 역할 테두리 장치 (시나리오 2)을 모두 지원 여기서 테두리 (시나리오 1)을 초과 하는 방화벽에 지원 됩니다. 신뢰에 같은 비용 다중 경로 ECMP ()를 BGP 또는 장애 조치에 대 한 정적 라우팅 구성입니다.
 
 일반적으로 라우팅 가능한 공용 IP 주소는 외부 네트워크에서 공용 VIP 풀에 대 한 배포 시에 지정 됩니다. 가장자리 시나리오에서는 다른 네트워크에 보안을 위해 라우팅할 수 있는 공용 Ip를 사용 하도록 하지 좋습니다. 이 시나리오에는 사용자를를 Azure와 같은 공용 클라우드 처럼 전체 자체 제어 클라우드 환경을 경험할 수 있습니다.  
 

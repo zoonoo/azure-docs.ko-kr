@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure 스택 공개 키 인프라 인증서 요구 사항
 
@@ -35,7 +35,7 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 ## <a name="certificate-requirements"></a>인증서 요구 사항
 다음 목록에서는 Azure 스택을 배포 하는 데 필요한 인증서 요구 사항을 설명 합니다. 
 - 인증서는 내부 인증 기관 또는 공용 인증 기관에서 발급 되어야 합니다. 공용 인증 기관 사용 되는 경우 Microsoft 신뢰할 수 있는 루트 인증 기관 프로그램의 일부로 기본 운영 체제 이미지에 포함 되어야 합니다. 전체 목록은 여기를 찾을 수 있습니다. https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Azure 스택 인프라 네트워크 인증서를 서명에 사용 되는 인증 기관에 액세스할 수 있어야 합니다.
+- Azure 스택 인프라 인증서에 게시 하는 인증 기관의 인증서 해지 목록 (CRL) 위치에 대 한 네트워크 액세스를 있어야 합니다. 이 CRL http 끝점이 있어야 합니다.
 - 인증서를 회전 하는 경우 인증서 배포 또는 위쪽에서 모든 공용 인증 기관에서 제공 하는 인증서에 서명 하는 데 사용 되는 동일한 내부 인증 기관에서 발행 중 하나 이어야 합니다.
 - 자체 서명 된 인증서의 사용은 지원 되지 않습니다.
 - 인증서 이름 SAN (주체 대체) 필드에서 모든 네임 스페이스를 포함 하는 단일 와일드 카드 인증서를 수 있습니다. 또는 같은 끝점에 대 한 와일드 카드를 사용 하는 개별 인증서를 사용할 수 있습니다 **acs** 및 키 자격 증명 모음은 필요 합니다. 
@@ -45,6 +45,7 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 - 인증서 pfx 파일 "확장 된 키 사용" 필드에 "서버 인증 (1.3.6.1.5.5.7.3.1)" 및 "클라이언트 인증 (1.3.6.1.5.5.7.3.2)" 값을 가져야 합니다.
 - 인증서의 "발급 대상:" 필드 아니어야 동일 해당 "에서 발급 한:" 필드입니다.
 - 모든 인증서 pfx 파일에 암호가 동일 해야 배포 시
+- 인증서 pfx 암호는 복잡 한 암호를 같아야 합니다.
 - 주체 이름 및 모든 인증서의 주체 대체 이름을 실패 한 배포를 방지 하기 위해이 문서에 설명 된 사양은 일치 하는지 확인 합니다.
 
 > [!NOTE]
@@ -56,7 +57,7 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 ## <a name="mandatory-certificates"></a>필수 인증서
 이 섹션의 표는 모두 Azure AD에 대 한 필요한 Azure 스택 공용 끝점 PKI 인증서에 설명 하 고 AD FS Azure 스택 배포 합니다. 인증서 요구 사항으로 영역에서 사용 되는 네임 스페이스 별로 그룹화 되어 및 각 네임 스페이스에 대 한 요구 되는 인증서입니다. 또한 테이블 솔루션 공급자는 공용 끝점 마다 다른 인증서를 복사 하는 폴더를 설명 합니다. 
 
-각 Azure 스택 공개 인프라 끝점에 대 한 적절 한 DNS 이름 가진 인증서가 필요 합니다. 각 끝점의 DNS 이름 형식으로 표현 됩니다:  *&lt;접두사 >.&lt; 지역 > 합니다. &lt;fqdn >*합니다. 
+각 Azure 스택 공개 인프라 끝점에 대 한 적절 한 DNS 이름 가진 인증서가 필요 합니다. 각 끝점의 DNS 이름 형식으로 표현 됩니다:  *&lt;접두사 >.&lt; 지역 > 합니다. &lt;fqdn >* 합니다. 
 
 배포 [region]에 [externalfqdn] 값 영역과 Azure 스택 시스템에 대해 선택한 외부 도메인 이름을 일치 해야 합니다. 예를 들어 영역 이름이 경우 *Redmond* 외부 도메인 이름 되었으며 *contoso.com*, DNS 이름 형식을 갖기 *&lt;접두사 >. redmond.contoso.com*.  *&lt;접두사 >* 값은 인증서로 보호 하는 끝점을 설명 하기 위해 Microsoft에서 폴더도 있습니다. 또한는  *&lt;접두사 >* 값 외부 인프라 끝점의 특정 끝점을 사용 하는 Azure 스택을 서비스에 따라 다릅니다. 
 
@@ -118,7 +119,7 @@ Azure 스택 Azure AD 배포 모드를 사용 하 여 배포 하는 경우 앞�
 
 <sup>1</sup> 여러 와일드 카드 주체 대체 이름으로 하나의 인증서가 필요 합니다. 단일 인증서에 San 여러 와일드 카드 모든 공용 인증 기관에서 지원 되지 않는 경우 
 
-<sup>2</sup> A &#42;.appservice. *&lt;지역 > 합니다. &lt;fqdn >* 와일드 카드 인증서는 이러한 3 개의 인증서를 대신 사용할 수 없습니다 (api.appservice. *&lt;지역 > 합니다. &lt;fqdn >*, ftp.appservice. *&lt;지역 > 합니다. &lt;fqdn >*, 및 sso.appservice. *&lt;지역 > 합니다. &lt;fqdn >*합니다. 앱 서비스는 이러한 끝점에 대 한 별도 인증서를 사용 하도록 명시적으로 필요합니다. 
+<sup>2</sup> A &#42;.appservice. *&lt;지역 > 합니다. &lt;fqdn >* 와일드 카드 인증서는 이러한 3 개의 인증서를 대신 사용할 수 없습니다 (api.appservice. *&lt;지역 > 합니다. &lt;fqdn >*, ftp.appservice. *&lt;지역 > 합니다. &lt;fqdn >*, 및 sso.appservice. *&lt;지역 > 합니다. &lt;fqdn >* 합니다. 앱 서비스는 이러한 끝점에 대 한 별도 인증서를 사용 하도록 명시적으로 필요합니다. 
 
 ## <a name="learn-more"></a>자세한 정보
 자세한 방법 [Azure 스택 배포를 위한 PKI 인증서를 생성](azure-stack-get-pki-certs.md)합니다. 

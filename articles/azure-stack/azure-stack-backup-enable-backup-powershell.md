@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6fbd82c3d49a4d64523bf0e10b67ce3aabe96de2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 15c916d2374d941c15190ef3bde3bfe1f60d27b4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Azure 스택 powershell에 대 한 백업을 사용 하도록 설정
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 04/28/2018
 동일한 PowerShell 세션에서 다음 명령을 실행 합니다.
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
+   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
    ```
 
 결과 JSON 다음과 같이 표시 됩니다.

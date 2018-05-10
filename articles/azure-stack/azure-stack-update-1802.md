@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure 스택 1802 업데이트
 
@@ -84,6 +84,8 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
 - **역할 기반 액세스 제어 (RBAC) 개선 사항** -위임 하려면 유니버설 사용자 그룹에 AD FS와 Azure 스택을 배포할 때 이제 RBAC를 사용할 수 있습니다. RBAC에 대 한 자세한 참조 [RBAC 관리](azure-stack-manage-permissions.md)합니다.
 
 - **여러 오류 도메인에 대 한 지원이 추가 됩니다**합니다.  자세한 내용은 참조 [Azure 스택에 대 한 고가용성](azure-stack-key-features.md#high-availability-for-azure-stack)합니다.
+
+- **실제 메모리 업그레이드를 지원** -초기 배포 후 이제 Azure 스택 통합 시스템의 메모리 용량을 확장할 수 있습니다. 자세한 내용은 참조 [Azure 스택에 대 한 실제 메모리 용량 관리](azure-stack-manage-storage-physical-memory-capacity.md)합니다.
 
 - **다양 한 수정 프로그램이** 성능, 안정성, 보안 및 Azure 스택에서 사용 되는 운영 체제에 대 한 합니다.
 
