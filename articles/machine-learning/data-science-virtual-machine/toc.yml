@@ -32,6 +32,16 @@
       href: use-deep-learning-dsvm.md
     - name: Geo AI 데이터 과학 VM 사용
       href: use-geo-ai-dsvm.md
+- name: 엔터프라이즈 지침
+  items:
+    - name: 개요
+      href: dsvm-enterprise-overview.md
+    - name: 확장
+      href: dsvm-pools.md
+    - name: Active Directory 통합
+      href: dsvm-common-identity.md
+    - name: 안전한 리소스 액세스 자격 증명
+      href: dsvm-secure-access-keys.md
 - name: 참고 자료
   expanded: true
   items:

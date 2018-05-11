@@ -51,6 +51,8 @@
       href: tutorial-mean-stack.md
     - name: 16 - SSL로 웹 서버 보안
       href: tutorial-secure-web-server.md
+    - name: Packer 이미지 및 앱을 확장 집합에 배포
+      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: 샘플
   items:
     - name: Azure CLI

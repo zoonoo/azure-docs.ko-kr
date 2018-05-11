@@ -63,7 +63,13 @@
 
 # 리소스
 ## [서비스 개요](https://azure.microsoft.com/services/key-vault/)
-## [키, 비밀 및 인증서에 대한 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)
+### [인증서 시작](certificate-scenarios.md)
+#### [인증서 생성 방법](create-certificate.md)
+#### [인증서 생성 모니터링 및 관리](create-certificate-scenarios.md)
+## [인증, 요청 및 응답](authentication-requests-and-responses.md)
+## [공통 매개 변수 및 헤더](common-parameters-and-headers.md)
+## [키 자격 증명 모음 버전](key-vault-versions.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [블로그](http://blogs.technet.com/b/kv/)
 ## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
