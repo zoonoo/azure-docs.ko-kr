@@ -28,6 +28,11 @@
 ### [가용성 및 일관성](event-hubs-availability-and-consistency.md)
 ### [처리량 단위 규모를 자동으로 조정](event-hubs-auto-inflate.md)
 ### [Apache Spark와 Event Hubs 통합](event-hubs-spark-connector.md)
+## Kafka용 Event Hubs
+### [Kafka 에코시스템용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+### [Kafka 사용 Event Hubs 만들기](event-hubs-create-kafka-enabled.md) 
+### [Kafka 에코시스템용 Azure Event Hubs로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [Kafka 에코시스템용 Azure Event Hub와 함께 Kafka MirrorMaker 사용](event-hubs-kafka-mirror-maker-tutorial.md)
 ## 개발
 ### [.NET Framework를 사용하여 이벤트 보내기](event-hubs-dotnet-framework-getstarted-send.md)
 ### [.NET Framework를 사용하여 이벤트 받기](event-hubs-dotnet-framework-getstarted-receive-eph.md)

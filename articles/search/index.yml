@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/01/2018
   ms.author: heidist
-  ms.openlocfilehash: e947f678905e15619577f3dd5feb0287c6a14d54
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: ac99a23ede3a8adbf60d210b74f642ce4b0131a4
+  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 05/10/2018
 abstract:
   description: Azure Search를 사용하여 비공개, 이기종 콘텐츠에 대한 엔터프라이즈 검색 솔루션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 검색 가능한 콘텐츠를 광범위한 시나리오에서 단순 및 고급 구문을 통해 쿼리 가능한 단일 고속 인덱스로 통합하는 방법을 보여 줍니다. <p/><b>새 인지 검색 미리 보기입니다.</b> 시험판 REST API를 사용하여 AI 지원 알고리즘을 인덱싱 파이프라인에 바인딩합니다. 데이터를 추출하고 자연어 및 이미지 처리를 호출하여 Azure Search 인덱스에서 원시 비구조적 콘텐츠를 검색 가능한 콘텐츠로 변환합니다. <p/><a href="/azure/search/cognitive-search-quickstart-blob">리소스 및 샘플 데이터</a>를 시작하거나 <a href="/azure/search/cognitive-search-concept-intro">개념</a>에서 자세히 알아보세요.
   aside:
@@ -56,7 +56,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-get-start-preview">인지 기술을 사용하여 보강된 인덱싱</a>
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">인식 기술 REST API 학습</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">.NET에서 Azure Search를 사용하는 방법</a>
     - html: <a href="/azure/search/search-indexer-tutorial">.NET으로 Azure SQL Database 콘텐츠 인덱싱</a>
     - html: <a href="/azure/search/search-semi-structured-data">REST를 사용하여 Azure Blob Storage에서 반구조적 데이터 인덱싱</a>

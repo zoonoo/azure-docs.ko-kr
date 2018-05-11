@@ -91,6 +91,8 @@
       href: tutorial-url-route-powershell.md
     - name: Azure PowerShell을 사용하여 웹 트래픽 리디렉션
       href: tutorial-url-redirect-powershell.md
+    - name: 영역 중복 응용 프로그램 게이트웨이 만들기
+      href: create-zone-redundant.md
 - name: 참고 자료
   items:
     - name: Azure CLI

@@ -406,19 +406,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: 리소스
   items:
-    - name: FAQ
-      href: frequently-asked-questions.md
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: 스택 오버플로
+    - name: 질문하기 - MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: 질문하기 - 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: 기능 요청
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: 지역 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: FAQ
+      href: frequently-asked-questions.md
+    - name: 로드맵
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: 지역별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 지원 옵션
       href: 'https://azure.microsoft.com/support/options/'

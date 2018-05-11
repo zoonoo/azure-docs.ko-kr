@@ -24,23 +24,27 @@
       href: blockchain-workbench-use-API.md
     - name: 응용 프로그램 문제 해결
       href: blockchain-workbench-troubleshooting.md
-    - name: Workbench DB 세부 정보 가져오기
-      href: blockchain-workbench-getdb-details.md
-    - name: Workbench SQL DB 방화벽 구성
-      href: blockchain-workbench-database-firewall.md
-    - name: Excel에서 Workbench 데이터 사용
-      href: blockchain-workbench-data-excel.md
-    - name: Power BI에서 Workbench 데이터 사용
-      href: blockchain-workbench-data-powerbi.md
-    - name: SQL Management Studio에서 Workbench 데이터 사용
-      href: blockchain-workbench-data-sql-management-studio.md
+    - name: Workbench 데이터 사용
+      items:
+        - name: DB 방화벽 구성
+          href: blockchain-workbench-database-firewall.md
+        - name: DB 세부 정보 가져오기
+          href: blockchain-workbench-getdb-details.md
+        - name: Excel에서 데이터 사용
+          href: blockchain-workbench-data-excel.md
+        - name: Power BI에서 데이터 사용
+          href: blockchain-workbench-data-powerbi.md
+        - name: SQL Management Studio에서 데이터 사용
+          href: blockchain-workbench-data-sql-management-studio.md
 - name: 참고 자료
   items:
+    - name: 코드 샘플
+      href: 'https://github.com/Azure-Samples/blockchain'
     - name: 구성
       href: blockchain-workbench-configuration-overview.md
     - name: 데이터베이스 뷰
       href: blockchain-workbench-database-views.md
-    - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
     - name: 메시징 API
       href: blockchain-workbench-messages-overview.md
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'

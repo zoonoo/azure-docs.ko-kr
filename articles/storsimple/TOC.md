@@ -62,7 +62,7 @@
 ### [StorSimple 학습 맵](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [보안 고려 사항](storsimple-8000-security.md)
 ### [지역 가용성](storsimple-regions.md)
-### [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## 시작하기
 
@@ -189,10 +189,11 @@
 ## 릴리스 정보
 ### [업데이트 5 - 현재](storsimple-update5-release-notes.md)
 ### [업데이트 4](storsimple-update4-release-notes.md)
-### [업데이트 3](storsimple-update3-release-notes.md)
-### [업데이트 2.2](storsimple-update21-release-notes.md)
+
 
 ### 보관
+#### [업데이트 3](storsimple-update3-release-notes.md)
+#### [업데이트 2.2](storsimple-update21-release-notes.md)
 #### [업데이트 2](storsimple-update2-release-notes.md)
 #### [업데이트 1](storsimple-update1-release-notes.md)
 #### [업데이트 0.3](storsimple-february-2015-release-notes.md)
@@ -240,7 +241,7 @@
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [StorSimple 지원 옵션](storsimple-8000-support-options.md)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
+## [가격](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
 ## [지원 블로그](http://blogs.msdn.com/b/storsimple/)

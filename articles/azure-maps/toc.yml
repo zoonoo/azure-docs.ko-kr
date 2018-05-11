@@ -30,6 +30,8 @@
       href: render-coverage.md
     - name: 라우팅 검사
       href: routing-coverage.md
+    - name: 검색 범주
+      href: search-categories.md
     - name: 지원되는 언어
       href: supported-languages.md
 - name: 방법 가이드

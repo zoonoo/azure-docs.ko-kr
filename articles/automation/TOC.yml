@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Hybrid Runbook Worker
       items:
-        - name: Hybrid Runbook Worker 배포
+        - name: Hybrid Runbook Worker 개요
           href: automation-hybrid-runbook-worker.md
-        - name: Azure Automation Windows Hybrid Runbook Worker
+        - name: Windows Hybrid Runbook Worker 배포
           href: automation-windows-hrw-install.md
-        - name: Azure Automation Linux Hybrid Runbook Worker
+        - name: Linux Hybrid Runbook Worker 배포
           href: automation-linux-hrw-install.md
-        - name: Worker에서 Runbook 실행
+        - name: Hybrid Runbook Worker에서 Runbook 실행
           href: automation-hrw-run-runbooks.md
-        - name: Azure Automation Hybrid Runbook Worker 제거
-          href: automation-remove-hrw.md
     - name: 배포 구성 관리(DSC)
       items:
         - name: DSC(필요한 상태 구성) 개요

@@ -167,16 +167,16 @@
 #### [하이브리드 Azure AD 가입 레거시 Windows 장치](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## 앱 관리
-### [개요](active-directory-enable-sso-scenario.md)
-### [시작](active-directory-integrating-applications-getting-started.md)
+### [개요](manage-apps/what-is-application-management.md)
+### [시작](manage-apps/plan-an-application-integration.md)
 ### [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
-### [클라우드 앱 검색](cloudappdiscovery-get-started.md)
-#### [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
+### [클라우드 앱 검색](manage-apps/cloud-app-discovery.md)
+#### [스냅숏 보고서 만들기](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
+### [앱 프록시를 사용하여 원격으로 앱에 액세스](manage-apps/application-proxy.md)
 #### 시작하기
 ##### [앱 프록시 사용](active-directory-application-proxy-enable.md)
 ##### [앱 게시](application-proxy-publish-azure-portal.md)

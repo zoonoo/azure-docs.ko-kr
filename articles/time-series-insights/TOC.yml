@@ -7,10 +7,13 @@
     - name: Time Series Insights 정보
       href: time-series-insights-overview.md
 - name: 빠른 시작
-  expanded: true
   items:
     - name: Time Series Insights 탐색
       href: time-series-quickstart.md
+- name: 자습서
+  items:
+    - name: TSI JavaScript 클라이언트 라이브러리 탐색
+      href: tutorial-explore-js-client-lib.md
 - name: 개념
   items:
     - name: 환경 계획
