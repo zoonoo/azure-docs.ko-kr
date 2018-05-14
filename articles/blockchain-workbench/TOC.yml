@@ -14,10 +14,10 @@
   items:
     - name: Workbench 배포
       href: blockchain-workbench-deploy.md
-    - name: Workbench 사용자 관리
-      href: blockchain-workbench-manage-users.md
     - name: 블록체인 응용 프로그램 만들기
       href: blockchain-workbench-create-app.md
+    - name: Workbench 사용자 관리
+      href: blockchain-workbench-manage-users.md
     - name: 블록체인 응용 프로그램 사용
       href: blockchain-workbench-use.md
     - name: Workbench API 사용
