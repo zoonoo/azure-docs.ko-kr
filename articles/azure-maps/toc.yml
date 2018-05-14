@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: 지원되는 언어
       href: supported-languages.md
+    - name: 소비 모델
+      href: consumption-model.md
 - name: 방법 가이드
   items:
     - name: Maps 계정 관리
@@ -115,7 +117,7 @@
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates'
     - name: 스택 오버플로
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: 동영상
