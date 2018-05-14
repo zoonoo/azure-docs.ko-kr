@@ -114,6 +114,8 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD(단일 테넌트)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
             - name: OpenID Connect 사용자 지정
               href: active-directory-b2c-setup-oidc-idp.md
         - name: 셀프 서비스 암호 재설정 설정
