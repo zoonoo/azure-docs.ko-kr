@@ -43,6 +43,7 @@
 ### [결제 정보 업데이트](billing-how-to-change-credit-card.md)
 ### [청구서에 따른 구독에 대한 요금 지불](billing-how-to-pay-by-invoice.md)
 ### [파트너 ID 연결](billing-partner-admin-link-started.md)
+### [청구 계정 보기](billing-view-all-accounts.md)
 ## [예약 VM 인스턴스 관리](billing-manage-reserved-vm-instance.md)
 ## 문제 해결
 ### [등록 문제](https://support.microsoft.com/en-us/help/4042959)

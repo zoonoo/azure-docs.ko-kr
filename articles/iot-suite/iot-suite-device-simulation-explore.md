@@ -1,6 +1,6 @@
 ---
 title: 장치 시뮬레이션 솔루션 시작 - Azure | Microsoft Docs
-description: IoT Suite 시뮬레이션 솔루션은 IoT 솔루션의 개발 및 테스트를 지원하기 위해 사용할 수 있는 도구입니다. 시뮬레이션 서비스는 미리 구성된 다른 솔루션과 함께 사용하거나 사용자 고유의 사용자 지정 솔루션에서 사용할 수 있는 독립 실행형 서비스입니다.
+description: IoT 솔루션 가속기 시뮬레이션 솔루션은 IoT 솔루션의 개발 및 테스트를 지원하기 위해 사용할 수 있는 도구입니다. 시뮬레이션 서비스는 다른 솔루션 가속기와 함께 사용하거나 사용자 고유의 사용자 지정 솔루션에서 사용할 수 있는 독립 실행형 서비스입니다.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,15 +12,15 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7dfd56d06e180dd163fa84d4289e6daf4baefc51
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-simulation-walkthrough"></a>장치 시뮬레이션 연습
 
-Azure IoT 장치 시뮬레이션은 IoT 솔루션의 개발 및 테스트를 지원하기 위해 사용할 수 있는 도구입니다. 장치 시뮬레이션은 미리 구성된 다른 솔루션과 함께 사용하거나 사용자 고유의 사용자 지정 솔루션에서 사용할 수 있는 독립 실행형 서비스입니다.
+Azure IoT 장치 시뮬레이션은 IoT 솔루션의 개발 및 테스트를 지원하기 위해 사용할 수 있는 도구입니다. 장치 시뮬레이션은 다른 솔루션 가속기와 함께 사용하거나 사용자 고유의 사용자 지정 솔루션에서 사용할 수 있는 독립 실행형 서비스입니다.
 
 이 자습서에서는 장치 시뮬레이션의 기능 중 일부를 안내합니다. 작동 방식을 표시하며, 사용자 고유의 IoT 솔루션을 테스트하는 데 사용할 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure IoT 장치 시뮬레이션은 IoT 솔루션의 개발 및 테스트를 지
 
 ## <a name="configuring-device-simulation"></a>장치 시뮬레이션 구성
 
-대시보드 내에서 장치 시뮬레이션을 완전히 구성하고 실행할 수 있습니다. IoT Suite의 [프로비전된 솔루션](https://www.azureiotsuite.com/) 페이지에서 대시보드를 엽니다. 새 장치 시뮬레이션 배포에서 **시작**을 클릭합니다.
+대시보드 내에서 장치 시뮬레이션을 완전히 구성하고 실행할 수 있습니다. IoT 솔루션 가속기 [프로비전된 솔루션](https://www.azureiotsuite.com/) 페이지에서 대시보드를 엽니다. 새 장치 시뮬레이션 배포에서 **시작**을 클릭합니다.
 
 ### <a name="target-iot-hub"></a>대상 IoT Hub
 

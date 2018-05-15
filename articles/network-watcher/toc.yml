@@ -17,8 +17,12 @@
   items:
     - name: VM 라우팅 문제 진단
       href: diagnose-vm-network-routing-problem.md
-    - name: 네트워크 연결 모니터링
+    - name: VM 간 통신 모니터링
       href: connection-monitor.md
+    - name: 네트워크 간 통신 문제 진단
+      href: diagnose-communication-problem-between-networks.md
+    - name: VM 네트워크 트래픽 로깅
+      href: network-watcher-nsg-flow-logging-portal.md
 - name: 개념
   items:
     - name: VM 네트워크 트래픽 필터 문제 진단
@@ -35,8 +39,8 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: 네트워크 보안 그룹 보기
       href: network-watcher-security-group-view-overview.md
-    - name: 네트워크 토폴로지 보기
-      href: network-watcher-topology-overview.md
+    - name: 역할 기반 액세스 제어 권한
+      href: required-rbac-permissions.md
 - name: 방법 가이드
   items:
     - name: Network Watcher 구성
@@ -93,8 +97,6 @@
       items:
         - name: NSG 흐름 로그 구성
           items:
-            - name: Azure portal
-              href: network-watcher-nsg-flow-logging-portal.md
             - name: Azure PowerShell
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
@@ -136,8 +138,6 @@
       items:
         - name: 문제 해결
           items:
-            - name: Azure portal
-              href: network-watcher-troubleshoot-manage-portal.md
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Azure CLI
@@ -151,15 +151,7 @@
         - name: VPN Gateway를 통한 온-프레미스 연결 진단
           href: network-watcher-diagnose-on-premises-connectivity.md
     - name: 네트워크 토폴로지 보기
-      items:
-        - name: Azure PowerShell
-          href: network-watcher-topology-powershell.md
-        - name: Azure CLI
-          href: network-watcher-topology-cli.md
-        - name: Azure CLI 1.0
-          href: network-watcher-topology-cli-nodejs.md
-        - name: REST (영문)
-          href: network-watcher-topology-rest.md
+      href: view-network-topology.md
     - name: 위치와 Azure 지역 간의 상대적 대기 시간 결정
       href: view-relative-latencies.md
 - name: 참고 자료

@@ -16,6 +16,7 @@
 ## [Azure AD에 사용자 추가](add-users-azure-active-directory.md)
 ## [사용자에게 라이선스 할당](license-users-groups.md)
 ## [셀프 서비스 암호 재설정 구성](authentication/quickstart-sspr.md)
+## [Azure AD에 조직의 개인 정보 추가](active-directory-properties-area.md)
 
 
 # 방법
@@ -58,6 +59,7 @@
 #### [B2B 공유 정책](active-directory-b2b-delegate-invitations.md)
 #### [역할에 B2B 사용자 추가](active-directory-b2b-add-guest-to-role.md)
 #### [동적 그룹 및 B2B 사용자](active-directory-b2b-dynamic-groups.md)
+#### [조직 나가기](active-directory-b2b-leave-the-organization.md)
 #### [감사 및 보고서](active-directory-b2b-auditing-and-reporting.md)
 #### [하이브리드 조직에 대한 B2B](active-directory-b2b-hybrid-organizations.md)
 ##### [B2B 사용자에게 로컬 앱에 대한 액세스 권한 부여](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](manage-apps/application-proxy.md)
 #### 시작하기
-##### [앱 프록시 사용](active-directory-application-proxy-enable.md)
-##### [앱 게시](application-proxy-publish-azure-portal.md)
-##### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
-#### [Single Sign-On](application-proxy-sso-overview.md)
-##### [KCD와 SSO](active-directory-application-proxy-sso-using-kcd.md)
+##### [앱 프록시 사용](manage-apps/application-proxy-enable.md)
+##### [앱 게시](manage-apps/application-proxy-publish-azure-portal.md)
+##### [사용자 지정 도메인](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Single Sign-On](manage-apps/application-proxy-single-sign-on.md)
+##### [KCD와 SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [헤더와 SSO](application-proxy-ping-access.md)
 ##### [암호 보관을 사용하는 SSO](application-proxy-sso-azure-portal.md)
 #### 개념

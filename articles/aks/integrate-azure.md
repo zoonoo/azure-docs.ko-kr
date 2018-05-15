@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdc97e9e28dd2af090c82378457b3c93b276cc58
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/16/2018
 
 * Azure 구독에서 Contributor 역할로 서비스 사용자를 만드는 권한
 
-* 기존 AKS(Azure Container Service) 클러스터. AKS 클러스터가 필요한 경우 [AKS 클러스터 만들기][create-aks-cluster] 빠른 시작을 따릅니다.
+* 기존 AKS(Azure Kubernetes Service) 클러스터. AKS 클러스터가 필요한 경우 [AKS 클러스터 만들기][create-aks-cluster] 빠른 시작을 따릅니다.
 
 ## <a name="install-service-catalog"></a>서비스 카탈로그 설치
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 따라 서비스 카탈로그를 AKS(Azure Container Service)에 배포했습니다. Open Service Broker for Azure를 사용하여 Azure에서 관리되는 서비스(이 경우 Azure Database for MySQL)를 사용하는 WordPress 설치를 배포했습니다.
+이 문서에 따라 서비스 카탈로그를 AKS(Azure Kubernetes Service)에 배포했습니다. Open Service Broker for Azure를 사용하여 Azure에서 관리되는 서비스(이 경우 Azure Database for MySQL)를 사용하는 WordPress 설치를 배포했습니다.
 
 다른 업데이트된 OSBA 기반 Helm 차트에 액세스하려면 [Azure/helm-charts][helm-charts] 저장소를 참조하세요. OSBA와 함께 작동하는 자신만의 차트를 만들려는 경우 [새 차트 만들기][helm-create-new-chart]를 참조하세요.
 

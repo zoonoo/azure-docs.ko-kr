@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: 콘솔
           href: application-insights-console.md
+        - name: 응용 프로그램 대시보드
+          href: app-insights-overview-dashboard.md
     - name: Java 앱 모니터링
       items:
         - name: 웹 앱
@@ -228,6 +230,8 @@
           href: app-insights-automate-with-flow.md
         - name: Azure 논리 앱과 자동화
           href: automate-with-logic-apps.md
+        - name: 사용자 지정 이메일 보고서
+          href: automate-custom-reports.md
     - name: 개발
       items:
         - name: 사용자 지정 이벤트 및 메트릭용 API

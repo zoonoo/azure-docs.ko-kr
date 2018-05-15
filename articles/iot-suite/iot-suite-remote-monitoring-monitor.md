@@ -1,7 +1,7 @@
 ---
-title: "원격 모니터링 솔루션에서 고급 모니터링 - Azure | Microsoft Docs"
-description: "이 자습서에서는 원격 모니터링 솔루션 대시보드를 사용하여 장치를 모니터링하는 방법을 보여 줍니다."
-services: 
+title: 원격 모니터링 솔루션에서 고급 모니터링 - Azure | Microsoft Docs
+description: 이 자습서에서는 원격 모니터링 솔루션 대시보드를 사용하여 장치를 모니터링하는 방법을 보여 줍니다.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>원격 모니터링 솔루션을 사용하여 고급 모니터링 수행
 
 이 자습서에서는 원격 모니터링 대시보드의 기능을 보여 줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso IoT 응용 프로그램에서 시나리오를 사용합니다.
 
-이 자습서에서는 두 개의 시뮬레이트된 Contoso 트럭 장치를 사용하여 미리 구성된 솔루션 대시보드에서 장치를 모니터링하는 방법을 알아봅니다. Contoso 운영자로서 필드에서 트럭의 위치 및 동작을 모니터링해야 합니다.
+이 자습서에서는 두 개의 시뮬레이트된 Contoso 트럭 장치를 사용하여 솔루션 가속기 대시보드에서 장치를 모니터링하는 방법을 알아봅니다. Contoso 운영자로서 필드에서 트럭의 위치 및 동작을 모니터링해야 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 02/27/2018
 > * 대시보드에서 장치 필터링
 > * 실시간 원격 분석 보기
 > * 장치 세부 정보 보기
-> * 장치에서 경보 보기
+> * 장치에서 경고 보기
 > * 시스템 KPI 보기
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 수행하려면 Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스가 필요합니다.
 
-원격 모니터링 솔루션을 아직 배포하지 않은 경우 [미리 구성된 원격 모니터링 솔루션 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 ## <a name="choose-the-devices-to-display"></a>표시할 장치 선택
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="view-real-time-telemetry"></a>실시간 원격 분석 보기
 
-미리 구성된 솔루션은 **대시보드** 페이지의 차트에 자세한 실시간 원격 분석 데이터를 그립니다. 원격 분석 차트는 현재 필터에 의해 선택된 장치에 대한 원격 분석 정보를 보여 줍니다.
+솔루션 가속기는 **대시보드** 페이지의 차트에 자세한 실시간 원격 분석 데이터를 그립니다. 원격 분석 차트는 현재 필터에 의해 선택된 장치에 대한 원격 분석 정보를 보여 줍니다.
 
 ![트럭 원격 분석 그림](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
@@ -65,39 +65,41 @@ ms.lasthandoff: 02/27/2018
 
 ![트럭 원격 분석 그림](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
-라이브 원격 분석 표시를 일시 중지하려면 **흐름**을 선택합니다. 라이브 표시를 다시 활성화하려면 **일시 중지**를 선택합니다.
+<!-- 05/01 - this features appears to have been removed
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![원격 분석 표시 일시 중지 및 다시 시작](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## <a name="use-the-map"></a>맵 사용
 
-맵은 현재 필터에 의해 선택된 시뮬레이트된 트럭에 대한 정보를 표시합니다. 맵을 확대/축소 및 이동하여 위치를 더 자세하게 혹은 덜 자세하게 표시할 수 있습니다. 맵의 장치 아이콘은 장치에 대해 활성 상태인 **경보** 또는 **경고**를 나타냅니다. **경보** 및 **경고** 수의 요약은 맵의 왼쪽에 표시됩니다.
+맵은 현재 필터에 의해 선택된 시뮬레이트된 트럭에 대한 정보를 표시합니다. 맵을 확대/축소 및 이동하여 위치를 더 자세하게 혹은 덜 자세하게 표시할 수 있습니다. 맵의 장치 아이콘은 장치에 대해 활성 상태인 **경고** 또는 **알림**을 나타냅니다. **경고** 및 **알림** 수의 요약은 맵의 왼쪽에 표시됩니다.
 
-장치 세부 정보를 보려면 맵을 이동하고 확대/축소하여 장치를 찾은 다음 맵에서 장치를 클릭합니다. 세부 정보는 다음과 같습니다.
+<!-- 05/01 - cannot select a deice on the map
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
-* 최근 원격 분석 값
-* 장치에서 지원하는 메서드
-* 장치 속성
+* Recent telemetry values
+* Methods the device supports
+* Device properties
 
-![대시보드에서 장치 세부 정보 보기](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## <a name="view-alarms-from-your-devices"></a>장치에서 경보 보기
+## <a name="view-alerts-from-your-devices"></a>장치에서 경고 보기
 
-맵은 **경보** 및 **경고**로 현재 필터에서 장치를 강조 표시합니다. **시스템 경보** 패널은 장치에서 가장 최근의 경보에 대한 자세한 정보를 표시합니다.
+맵은 **경고** 및 **알림**으로 현재 필터에서 장치를 강조 표시합니다. **경고** 패널은 장치에서 가장 최근의 경고에 대한 자세한 정보를 표시합니다.
 
-![대시보드에서 시스템 경보 보기](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
+![대시보드에서 시스템 경고 보기](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-**시스템 경보** 필터를 사용하여 최근 경보에 대한 시간 범위를 조정할 수 있습니다. 기본적으로 패널은 지난 1시간 동안의 경보를 표시합니다.
+**대시보드** 필터를 사용하여 최근 경고에 대한 시간 범위를 조정할 수 있습니다. 기본적으로 패널은 지난 1시간 동안의 경고를 표시합니다.
 
-![시간별로 경보 필터링](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+![시간별 경고 필터링](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## <a name="view-the-system-kpis"></a>시스템 KPI 보기
 
 **대시보드** 페이지는 시스템 KPI를 표시합니다.
 
-![시간별로 경보 필터링](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![대시보드 KPI](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-**시스템 KPI** 필터를 사용하여 KPI 집계에 대한 시간 범위를 조정할 수 있습니다. 기본적으로 패널은 지난 1시간에 걸쳐 집계된 KPI를 표시합니다.
+**대시보드** 필터를 사용하여 KPI 집계에 대한 시간 범위를 조정할 수 있습니다. 기본적으로 패널은 지난 1시간에 걸쳐 집계된 KPI를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -108,7 +110,7 @@ ms.lasthandoff: 02/27/2018
 > * 대시보드에서 장치 필터링
 > * 실시간 원격 분석 보기
 > * 장치 세부 정보 보기
-> * 장치에서 경보 보기
+> * 장치에서 경고 보기
 > * 시스템 KPI 보기
 
 이제 장치를 모니터링하는 방법을 배웠으므로 제안된 다음 단계는 다음 방법을 배우기 위한 것입니다.

@@ -19,6 +19,10 @@
   items:
     - name: Spark 클러스터에서 쿼리 실행
       href: apache-spark-load-data-run-query.md
+    - name: VSCode를 사용하여 Spark 쿼리 실행
+      href: ../hdinsight-for-vscode.md
+    - name: IntelliJ를 사용하여 Spark 쿼리 실행
+      href: apache-spark-intellij-tool-plugin.md
     - name: BI 도구를 사용하여 데이터 분석
       href: apache-spark-use-bi-tools.md
     - name: 스트리밍 작업 실행
@@ -47,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: IntelliJ를 사용하여 앱 만들기
           href: apache-spark-intellij-tool-plugin.md
-        - name: IntelliJ를 사용하여 VPN을 통해 원격으로 Spark 작업 디버그
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: IntelliJ를 사용하여 SSH를 통해 원격으로 Spark 작업 디버그
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: IntelliJ를 사용하여 VPN을 통해 원격으로 Spark 작업 디버그
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -316,6 +320,8 @@
       items:
         - name: Spark 작업 디버그
           href: apache-spark-job-debugging.md
+        - name: IntelliJ를 사용하여 Spark 작업 디버깅
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

@@ -1,6 +1,6 @@
 ---
 title: 'IoT DevKit에서 클라우드로: Azure IoT Hub에 IoT MXChip DevKit 연결 | Microsoft Docs'
-description: 이 자습서에서는 모니터링 및 시각화를 위해 IoT DevKit AZ3166의 센서 상태를 Azure IoT Suite로 보내는 방법을 알아봅니다.
+description: 이 자습서에서는 IoT DevKit AZ3166의 센서 상태를 Azure IoT 원격 모니터링 솔루션 가속기로 보내는 방법을 알아봅니다.
 services: iot-hub
 documentationcenter: ''
 author: liydu
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 17b24244180436c2d1f97433e13a530dae565a10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d59a739e2222aca27993f6ae944a1d3bda567041
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>원격 모니터링을 위해 MXChip IoT DevKit를 Azure IoT Suite에 연결
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
 
-이 자습서에서는 DevKit에서 샘플 앱을 실행하여 Azure IoT Suite에 센서 데이터를 보내는 방법을 알아봅니다.
+이 자습서에서는 DevKit에서 샘플 앱을 실행하여 Azure IoT 원격 모니터링 솔루션 가속기에 센서 데이터를 보내는 방법을 알아봅니다.
 
 [MXChip IoT DevKit](https://aka.ms/iot-devkit)은 풍부한 주변 장치 및 센서가 포함된 올인원 Arduino 호환 보드입니다. [Arduino용 Visual Studio Code 확장](https://aka.ms/arduino)을 사용하여 개발할 수 있습니다. 그리고 Microsoft Azure 서비스를 활용하는 IoT(사물 인터넷) 솔루션의 프로토타입을 안내하기 위해 확장 중인 [프로젝트 카탈로그](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)가 제공됩니다.
 
@@ -38,12 +38,12 @@ ms.lasthandoff: 04/28/2018
 * [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
-## <a name="create-an-azure-iot-suite"></a>Azure IoT Suite 만들기
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Azure IoT 원격 모니터링 솔루션 가속기 만들기
 
-1. [Azure IoT Suite 사이트](https://www.azureiotsuite.com/)로 이동하여 **새 솔루션 만들기**를 클릭합니다.
-  ![Azure IoT Suite 유형 선택](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
+1. [Azure IoT 솔루션 가속기 사이트](https://www.azureiotsuite.com/)로 이동하여 **새 솔루션 만들기**를 클릭합니다.
+  ![Azure IoT 솔루션 가속기 유형 선택](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
-  > 기본적으로 이 샘플은 IoT Suite를 하나 만든 후에 S2 IoT Hub를 만듭니다. 이 IoT 허브가 다수의 장치에 사용되지 않는 경우 S2에서 S1로 다운그레이드하고 더 이상 필요 없는 관련 IoT 허브도 삭제되도록 IoT Suite를 삭제하는 것이 좋습니다. 
+  > 기본적으로 이 샘플은 하나의 IoT 원격 모니터링 솔루션 가속기를 만든 후 S2 IoT Hub를 만듭니다. 이 IoT Hub가 다수의 장치에 사용되지 않는 경우 S2에서 S1로 다운그레이드하고 더 이상 필요 없는 관련 IoT Hub도 삭제되도록 IoT 원격 모니터션 솔루션 가속기를 삭제하는 것이 좋습니다. 
 
 2. **원격 모니터링**을 선택합니다.
 
@@ -100,13 +100,13 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="test-the-project"></a>프로젝트 테스트
 
-샘플 앱을 실행하면 DevKit에서 Wi-Fi를 통해 센서 데이터를 Azure IoT Suite로 보냅니다. 결과를 보려면 다음 단계를 수행합니다.
+샘플 앱을 실행하면 DevKit에서 Wi-Fi를 통해 센서 데이터를 Azure IoT 원격 모니터링 솔루션 가속기로 보냅니다. 결과를 보려면 다음 단계를 수행합니다.
 
-1. Azure IoT Suite로 이동하여 **대시보드**를 클릭합니다.
+1. Azure IoT 원격 모니터링 솔루션 가속기로 이동하고 **대시보드**를 클릭합니다.
 
-2. Azure IoT Suite 솔루션 콘솔에 DevKit 센서 상태가 표시됩니다.
+2. 원격 모니터링 솔루션 콘솔에 DevKit 센서 상태가 표시됩니다.
 
-![Azure IoT Suite의 센서 데이터](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
+![Azure IoT 원격 모니터링 솔루션 가속기의 센서 데이터](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## <a name="change-device-id"></a>장치 ID 변경
 
@@ -121,7 +121,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-DevKit 장치를 Azure IoT Suite에 연결하고 센서 데이터를 시각화하는 방법을 알아보았습니다. 다음 제안 단계는 다음과 같습니다.
+DevKit 장치를 Azure IoT 원격 모니터션 솔루션 가속기에 연결하고 센서 데이터를 시각화하는 방법을 알아보았습니다. 다음 제안 단계는 다음과 같습니다.
 
-* [Azure IoT Suite 개요](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 * [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

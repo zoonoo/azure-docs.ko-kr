@@ -45,6 +45,8 @@
       href: ssl-overview.md
     - name: URL 리디렉션
       href: redirect-overview.md
+    - name: 상태 모니터링
+      href: application-gateway-probe-overview.md
 - name: 방법 가이드
   items:
     - name: 응용 프로그램 게이트웨이 만들기
@@ -93,6 +95,20 @@
       href: tutorial-url-redirect-powershell.md
     - name: 영역 중복 응용 프로그램 게이트웨이 만들기
       href: create-zone-redundant.md
+    - name: 사용자 지정 프로브
+      items:
+        - name: 포털
+          href: application-gateway-create-probe-portal.md
+        - name: 클래식 PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: 문제 해결
+      items:
+        - name: 잘못된 게이트웨이(502) 오류 문제 해결
+          href: application-gateway-troubleshooting-502.md
+        - name: 진단
+          href: application-gateway-diagnostics.md
 - name: 참고 자료
   items:
     - name: Azure CLI

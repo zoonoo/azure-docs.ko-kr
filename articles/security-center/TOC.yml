@@ -153,6 +153,8 @@
           href: security-center-events-dashboard.md
         - name: 검색
           href: security-center-search.md
+        - name: 규정 준수 검토(REST)
+          href: security-center-review-policy-compliance.md
     - name: 시나리오
       items:
         - name: 사고 대응

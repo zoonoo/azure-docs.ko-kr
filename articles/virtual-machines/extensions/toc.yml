@@ -22,7 +22,7 @@
       href: features-windows.md
 - name: 방법 가이드
   items:
-    - name: 사용자 지정 스크립트 확장
+    - name: Custom Script
       items:
         - name: Linux - 버전 2
           href: custom-script-linux.md
@@ -30,13 +30,13 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
-    - name: OMS 확장
+    - name: Operations Management Suite
       items:
         - name: Linux
           href: oms-linux.md
         - name: Windows
           href: oms-windows.md
-    - name: 진단 확장
+    - name: 진단
       items:
         - name: Linux
           href: diagnostics-linux.md
@@ -50,7 +50,7 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
-    - name: Powershell DSC 확장
+    - name: PowerShell DSC
       href: dsc-overview.md
       items:
         - name: DSC 및 Windows
@@ -61,9 +61,9 @@
           href: dsc-template.md
     - name: Windows용 IaaS 맬웨어 방지
       href: iaas-antimalware-windows.md
-    - name: 주요 자격 증명 모음 확장
+    - name: Key Vault
       href: key-vault-windows.md
-    - name: VM 스냅샷 확장
+    - name: VM Snapshot
       items:
         - name: Linux
           href: vmsnapshot-linux.md
@@ -77,7 +77,7 @@
           href: symantec.md
     - name: 사용되지 않는 확장
       items:
-        - name: 로그 수집기 확장
+        - name: 로그 수집기
           href: log-collector.md
         - name: Trend Micro Deep Security
           href: trend.md

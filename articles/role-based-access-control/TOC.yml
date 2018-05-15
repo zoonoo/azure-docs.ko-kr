@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: 활동 로그
       href: change-history-report.md
-    - name: 테넌트 관리자 액세스 권한 상승
+    - name: 전역 관리자를 위한 액세스 권한 상승
       href: elevate-access-global-admin.md
     - name: 문제 해결
       href: troubleshooting.md

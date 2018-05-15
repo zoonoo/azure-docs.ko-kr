@@ -10,6 +10,7 @@
 ## 방법
 ### [STONITH로 HA 설치](ha-setup-with-stonith.md)
 ### [Type II SKU용 OS 백업](os-backup-type-ii-skus.md)
+### [HANA 대형 인스턴스를 위한 OS 업그레이드](os-upgrade-hana-large-instance.md)
 # Azure Virtual Machines의 SAP HANA
 ## [단일 인스턴스 SAP HANA 설치](hana-get-started.md)
 ## [S/4 HANA 또는 BW/4 HANA SAP CAL 배포 가이드](cal-s4h.md)

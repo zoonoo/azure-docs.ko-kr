@@ -1,12 +1,12 @@
 ---
-title: "연결된 팩터리 토폴로지 구성 | Microsoft Docs"
-description: "연결된 팩터리의 미리 구성된 솔루션의 토폴로지를 구성하는 방법입니다."
-services: 
+title: 연결된 팩터리 토폴로지 구성 | Microsoft Docs
+description: 연결된 팩터리 솔루션 가속기의 토폴로지를 구성하는 방법입니다.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>연결된 팩터리의 미리 구성된 솔루션 구성
+# <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
-연결된 팩터리의 미리 구성된 솔루션은 가상 회사의 Contoso에 대한 시뮬레이트된 대시보드를 보여 줍니다. 이 회사는 전 세계 여러 위치에 팩터리를 보유합니다.
+연결된 팩터리 솔루션 가속기는 가상 회사의 Contoso에 대한 시뮬레이트된 대시보드를 보여 줍니다. 이 회사는 전 세계 여러 위치에 팩터리를 보유합니다.
 
 이 문서에서는 Contoso를 예로 사용하여 연결된 팩터리 솔루션의 토폴로지 구성 방법을 설명합니다.
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="topology-configuration-file"></a>토폴로지 구성 파일
 
-이전 섹션에 나열된 속성을 구성하기 위해 연결된 팩터리 솔루션은 [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json)라는 구성 파일을 사용합니다.
+이전 섹션에 나열된 속성을 구성하기 위해 연결된 팩터리 솔루션은 [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json)이라는 구성 파일을 사용합니다.
 
 `WebApp/Contoso/Topology` 폴더의 솔루션 소스 코드에서 이 파일을 찾을 수 있습니다.
 
@@ -287,7 +287,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결된 팩터리는 http://oeeindustrystandard.oeefoundation.org에 게시된 OEE 수식을 사용합니다.
+연결된 팩터리는 http://oeeindustrystandard.oeefoundation.org에서 게시하는 대로 OEE 수식을 사용합니다.
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 
@@ -345,4 +345,4 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로 [연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)를 학습하는 것이 좋습니다.
+다음으로 [연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)를 학습하는 것이 좋습니다.
