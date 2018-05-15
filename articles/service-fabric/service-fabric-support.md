@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 지원 옵션 살펴보기 | Microsoft Docs"
-description: "지원되는 Azure Service Fabric 클러스터 버전 및 파일 지원 티켓에 대한 링크"
+title: Azure Service Fabric 지원 옵션 살펴보기 | Microsoft Docs
+description: 지원되는 Azure Service Fabric 클러스터 버전 및 파일 지원 티켓에 대한 링크
 services: service-fabric
 documentationcenter: .net
 author: pkcsf
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -30,7 +30,7 @@ Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure 
 
 다음에 대해 자세히 알아봅니다.
  
-- [Azure에 대한 Microsoft의 지원](https://azure.microsoft.com/en-us/support/plans/?b=16.44)
+- [Azure에 대한 Microsoft의 지원](https://azure.microsoft.com/support/plans/?b=16.44)
 - [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)
 
 <a id="getlivesitesupportonprem"></a>
@@ -77,7 +77,8 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 | 5.6.* | 5.4.164.* |버전 2.6보다 작거나 같음 |2017년 10월 13일   |
 | 5.7.* | 5.4.164.* |버전 2.7보다 작거나 같음 |2017년 12월 15일  |
 | 6.0.* | 5.6.205.* |버전 2.8보다 작거나 같음 |2018년 3월 30일     | 
-| 6.1.* | 5.7.221.* |버전 3.0보다 작거나 같음 |현재 버전 및 종료 날짜 |
+| 6.1.* | 5.7.221.* |버전 3.0보다 작거나 같음 |2018년 6월 15일      |
+| 6.2.* | 6.0.232.* |버전 3.1보다 작거나 같음 |현재 버전 및 종료 날짜 |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.
 종종 피드백이 필요한 중요한 기능이 포함된 버전이 미리 보기로 릴리스됩니다. 이러한 미리 보기 버전은 테스트 용도로만 사용해야 합니다. 프로덕션 클러스터는 항상 지원되는 안정적인 Service Fabric 버전으로 실행해야 합니다. 미리 보기 버전은 항상 주 버전과 부 버전 번호가 255로 시작합니다. 예를 들어 Service Fabric 버전 255.255.5703.949가 표시되면 해당 릴리스 버전은 테스트 클러스터에서만 미리 보기로 사용됩니다. 이러한 미리 보기 릴리스는 포함된 기능에 관한 자세한 내용과 함께 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric)에서 발표됩니다.

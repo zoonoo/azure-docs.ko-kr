@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 및 Event Hubs 통합"
-description: "Azure Event Grid 및 Event Hubs를 사용하여 SQL Data Warehouse로 데이터를 마이그레이션하는 방법 설명"
+title: Azure Event Grid 및 Event Hubs 통합
+description: Azure Event Grid 및 Event Hubs를 사용하여 SQL Data Warehouse로 데이터를 마이그레이션하는 방법 설명
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>데이터 웨어하우스로 빅 데이터 스트림
 
@@ -68,7 +68,7 @@ Event Grid는 구독자에게 이벤트 데이터를 배포합니다. 다음 예
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발용 작업이 포함된 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
 * 컴퓨터에 다운로드한 [EventHubsCaptureEventGridDemo 샘플 프로젝트](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)
 
@@ -118,71 +118,45 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Visual Studio 2017(15.3.2 이상)에서 [EventHubsCaptureEventGridDemo 샘플 프로젝트](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)를 엽니다.
 
-2. 솔루션 탐색기에서 **FunctionDWDumper**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1. 솔루션 탐색기에서 **FunctionEGDWDumper**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
    ![함수 앱 게시](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. **Azure 함수 앱**과 **기존 항목 선택**을 차례로 선택합니다. **확인**을 선택합니다.
+1. **Azure 함수 앱**과 **기존 항목 선택**을 차례로 선택합니다. **게시**를 선택합니다.
 
    ![대상 함수 앱](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. 템플릿을 통해 배포한 함수 앱을 선택합니다. **확인**을 선택합니다.
+1. 템플릿을 통해 배포한 함수 앱을 선택합니다. **확인**을 선택합니다.
 
    ![함수 앱 선택](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. Visual Studio에서 프로필이 구성되었으면 **게시**를 선택합니다.
+1. Visual Studio에서 프로필이 구성되었으면 **게시**를 선택합니다.
 
    ![게시 선택](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. 함수를 게시한 후 [Azure Portal](https://portal.azure.com/)로 이동합니다. 리소스 그룹 및 함수 앱을 선택합니다.
-
-   ![함수 앱 보기](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. 함수를 선택합니다.
-
-   ![함수 선택](media/event-grid-event-hubs-integration/select-function.png)
-
-8. 함수의 URL을 가져옵니다. 이벤트 구독을 만들 때 이 URL이 필요합니다.
-
-   ![함수 URL 가져오기](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. 값을 복사합니다.
-
-   ![URL 복사](media/event-grid-event-hubs-integration/copy-url.png)
+함수를 게시한 후에는 이벤트를 구독할 수 있습니다.
 
 ## <a name="subscribe-to-the-event"></a>이벤트 구독
 
-Azure CLI 또는 Portal을 사용하여 이벤트를 구독할 수 있습니다. 이 문서에서는 두 가지 방식을 모두 설명합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 리소스 그룹 및 함수 앱을 선택합니다.
 
-### <a name="portal"></a>포털
+   ![함수 앱 보기](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. Event Hubs 네임스페이스의 왼쪽에서 **Event Grid**를 선택합니다.
+1. 함수를 선택합니다.
 
-   ![Event Grid 선택](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![함수 선택](media/event-grid-event-hubs-integration/select-function.png)
 
-2. 이벤트 구독을 추가합니다.
+1. **Event Grid 구독 추가**를 선택합니다.
 
-   ![이벤트 구독 추가](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![구독 추가](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. 이벤트 구독의 값을 입력합니다. 복사한 Azure Functions URL을 사용하세요. **만들기**를 선택합니다.
+9. Event Grid 구독의 이름을 지정합니다. 이벤트 형식으로 **Event Hubs 네임스페이스**를 사용합니다. 값을 입력하여 Event Hubs 네임스페이스의 인스턴스를 선택합니다. 구독자 엔드포인트에서는 입력된 값을 그대로 둡니다. **만들기**를 선택합니다.
 
-   ![구독 값 입력](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>Azure CLI
-
-이벤트를 구독하려면 다음 명령을 실행합니다(Azure CLI 버전 2.0.24 이상 필요).
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![구독 만들기](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>앱을 실행하여 데이터 생성
 
-이벤트 허브, SQL Data Warehouse, Azure 함수 앱 및 이벤트 구독 설정이 완료되었습니다. 이제 솔루션이 이벤트 허브에서 데이터 웨어하우스로 데이터를 마이그레이션할 준비가 되었습니다. 이벤트 허브에 대한 데이터를 생성하는 응용 프로그램을 실행하기 전에 몇 가지 값을 구성해야 합니다.
+이벤트 허브, SQL 데이터 웨어하우스, Azure 함수 앱 및 이벤트 구독 설정이 완료되었습니다. 이제 솔루션이 이벤트 허브에서 데이터 웨어하우스로 데이터를 마이그레이션할 준비가 되었습니다. 이벤트 허브에 대한 데이터를 생성하는 응용 프로그램을 실행하기 전에 몇 가지 값을 구성해야 합니다.
 
 1. Portal에서 이벤트 허브 네임스페이스를 선택합니다. **연결 문자열**을 선택합니다.
 
@@ -198,10 +172,10 @@ az eventgrid event-subscription create \
 
 4. Visual Studio 프로젝트로 돌아옵니다. WindTurbineDataGenerator 프로젝트에서 **program.cs**를 엽니다.
 
-5. 두 상수 값을 바꿉니다. **EventHubConnectionString**에는 복사한 값을 사용하고, **EventHubName**에는 이벤트 허브 이름을 사용합니다.
+5. 두 상수 값을 바꿉니다. **EventHubConnectionString**에는 복사한 값을 사용하고, Event Hubs 이름으로 **hubdatamigration**을 사용합니다.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 

@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 942c2bce3a5907917b8d1cc9e8c251b5779542b5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Key Vault 만들기
 
@@ -58,7 +58,7 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 경우 응용 프로그램에서 사용할 수 있는 암호를 추가합니다. 암호는 **ExamplePassword**라고 명명되며 **Pa$$w0rd** 값을 저장합니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 경우 응용 프로그램에서 사용할 수 있는 암호를 추가합니다. 암호를 **ExamplePassword**라고 명명하고 그 안에 **Pa$$w0rd** 값을 저장하겠습니다.
 
 1. Key Vault 속성 페이지에서 **비밀**을 선택합니다.
 2. **생성/가져오기**를 클릭합니다.
@@ -87,4 +87,4 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 이 빠른 시작에서는 Key Vault를 만들고 비밀을 저장했습니다. Key Vault와 이 Key Vault를 응용 프로그램과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 응용 프로그램에 대한 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [웹 응용 프로그램에서 Azure Key Vault 사용](key-vault-use-from-web-application.md) [관리되는 서비스 ID](/active-directory/managed-service-identity/overview.md)를 사용하는 웹 응용 프로그램을 사용하여 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성](tutorial-web-application-keyvault.md) 자습서를 진행합니다.
+> 관리 서비스 ID를 사용하여 웹 응용 프로그램의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성](tutorial-web-application-keyvault.md) 자습서를 계속 진행하세요.

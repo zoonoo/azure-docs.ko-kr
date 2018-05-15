@@ -1,8 +1,7 @@
 ---
-title: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기 | Microsoft Docs
+title: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 description: 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Stream Analytics 작업을 배포하고 실행하는 방법을 자세히 설명합니다.
 services: stream-analytics
-keywords: Stream Analytics, 클라우드 작업, Azure PowerShell, 작업 입력, 작업 출력, 작업 변환
 author: SnehaGunda
 ms.author: sngun
 ms.date: 03/16/2018
@@ -10,11 +9,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 8a1036531ea0e7c1426224bc4d42c83e9049cabf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0be8cee9e6c7874282f4e8f43f75fa7f2490c14e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
@@ -34,9 +33,11 @@ Azure PowerShell 모듈은 PowerShell cmdlet 또는 스크립트를 사용하여
 # Log in to your Azure account
 Connect-AzureRmAccount
 
-# Select the Azure subscription you want to use to create the resource group.
-Get-AzureRmSubscription `
-  -SubscriptionName “<your subscription>” | Select-AzureRmSubscription
+# List all available subscriptions.
+Get-AzureRmSubscription
+
+# Select the Azure subscription you want to use to create the resource group and resources.
+Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
 ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -257,7 +258,7 @@ Start-AzureRMStreamAnalyticsJob `
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-리소스 그룹, 스트리밍 작업 및 모든 관련 리소스가 더 이상 필요하지 않으면 삭제합니다. 작업을 삭제하면 작업에서 사용되는 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음과 같은 cmdlet을 실행하여 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음과 같은 cmdlet을 실행하여 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 ```powershell
 Remove-AzureRmResourceGroup `

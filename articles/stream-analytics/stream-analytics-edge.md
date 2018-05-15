@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge의 Azure Stream Analytics(미리 보기)
 
@@ -60,11 +60,10 @@ ASA는 IoT Hub를 사용하여 장치에 Edge 작업을 배포합니다. [IoT Ed
 
 
 #### <a name="create-an-asa-edge-job"></a>ASA Edge 작업 만들기
-1. Azure Portal에서 새 "Stream Analytics 작업"을 만듭니다. [새 ASA 작업을 만들기 위한 직접 링크](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)
-
 > [!Note]
-> **"미국 서부 2" 지역**을 제외하고 ASA가 지원하는 모든 지역에서 Edge 작업을 작성할 수 있습니다.
-> 이러한 제한 사항은 곧 없어집니다.
+> 이 자습서에서는 Azure Portal을 사용하여 ASA 작업 만들기에 중점을 둡니다. [Visual Studio 플러그 인을 사용하여 ASA Edge 작업 만들기](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)도 사용할 수 있습니다.
+
+1. Azure Portal에서 새 "Stream Analytics 작업"을 만듭니다. [새 ASA 작업을 만들기 위한 직접 링크](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)
 
 2. 생성 화면에서 **Edge**를 **호스팅 환경**으로 선택합니다(다음 그림 참조). ![작업 생성](media/stream-analytics-edge/ASAEdge_create.png)
 3. 작업 정의
@@ -147,7 +146,6 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 끝점으로
 * Azure ML 함수
 * 한 번에 15개 이상의 집계 사용
 * AVRO 형식의 입/출력 현재 CSV 및 JSON만 지원됩니다.
-* JSON 입력의 압축
 * 다음 SQL 연산자:
     * AnomalyDetection
     * 지리 공간적 연산자:
@@ -210,6 +208,7 @@ Iot Edge에서 ASA에 대한 참조 데이터를 사용하려면 다음 단계�
 * [Azure Iot Edge에 대한 추가 정보](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [IoT Edge의 ASA 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [이 설문 조사를 사용하여 팀에 의견 보내기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

@@ -2,7 +2,7 @@
 
 이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 iOS 응용 프로그램(Swift)을 *Microsoft에 로그인*과 통합하는 방식을 설명하기 위해 새 프로젝트를 만드는 방법에 대한 단계별 지침을 제공합니다.
 
-> 이 예제의 XCode 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)하면 실행 전 코드 예제를 구성하는 [구성 단계](#create-an-application-express)를 건너뛸 수 있습니다.
+> 이 예제의 XCode 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)하면 실행 전 코드 예제를 구성하는 [구성 단계](#register-your-application)를 건너뛸 수 있습니다.
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>Carthage를 설치하여 MSAL 다운로드 및 빌드
@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>응용 프로그램 UI 만들기
 Main.storyboard 파일은 프로젝트 템플릿의 일부로 자동으로 만들어져야 합니다. 앱 UI를 만들려면 아래 지침을 따르세요.
 
-1.  Ctrl 키를 누른 채로 `Main.storyboard`를 클릭하여 상황에 맞는 메뉴를 표시한 후 다음을 클릭합니다. `Open As` > `Source Code`
+1.  Ctrl 키를 누른 채로 `Main.storyboard`를 클릭하여 상황에 맞는 메뉴를 표시한 후 `Open As` > `Source Code`를 클릭합니다.
 2.  `<scenes>` 노드를 아래 코드로 바꿉니다.
 
 ```xml

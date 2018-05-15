@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: 0d9848a6477dbf1b93a7f640bc44adf627b40a45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
@@ -230,7 +230,7 @@ ms.lasthandoff: 04/18/2018
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -506,10 +506,9 @@ Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 
 * [Log Analytics VM 확장을 사용하여 Linux를 실행하는 가상 머신 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [기존 Log Analytics 작업 영역을 사용하여 Azure Site Recovery 모니터링](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [기존 Log Analytics 작업 영역을 사용하여 Azure Web Apps 모니터링](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [기존 Log Analytics 작업 영역을 사용하여 SQL Azure 모니터링](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Service Fabric 클러스터 배포 및 기존 Log Analytics 작업 영역을 사용하여 모니터링](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Service Fabric 클러스터 배포 및 해당 클러스터를 모니터링할 Log Analytics 작업 영역 만들기](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [기존 저장소 계정을 OMS에 추가](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>다음 단계
-* [Resource Manager 템플릿을 사용하여 Azure VM에 에이전트 배포](log-analytics-azure-vm-extension.md)
+* [Resource Manager 템플릿을 사용하여 Azure VM에 Windows 에이전트 배포](../virtual-machines/windows/extensions-oms.md).
+* [Resource Manager 템플릿을 사용하여 Azure VM에 Linux 에이전트 배포](../virtual-machines/linux/extensions-oms.md).
 

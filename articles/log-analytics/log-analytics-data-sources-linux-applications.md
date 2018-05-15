@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Log Analytics에서 Linux 응용 프로그램에 대한 성능 카운터 수집 
 이 문서에서는 특정 응용 프로그램에 대한 성능 카운터를 수집하도록 [Linux용 OMS 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 세부 정보를 제공합니다.  이 문서에 포함된 응용 프로그램은 다음과 같습니다.  
@@ -78,9 +78,9 @@ MySQL OMI 공급자의 설치에 포함된 것은 MySQL OMI 인증 파일 편집
 
 | 작업 | 예 | 설명
 |:--|:--|:--|
-| autoupdate *false\|true* | mycimprovauth autoupdate false | 다시 시작 또는 업데이트 시 인증 파일이 자동으로 업데이트될지 여부를 설정합니다. |
+| autoupdate *false or true* | mycimprovauth autoupdate false | 다시 시작 또는 업데이트 시 인증 파일이 자동으로 업데이트될지 여부를 설정합니다. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | MySQL OMI 인증 파일에서 기본 인스턴스를 설정합니다.<br>암호 필드는 일반 텍스트로 입력되어야 하며 MySQL OMI 인증 파일의 암호는 Base 64로 인코딩됩니다. |
-| delete *default\|port_num* | mycimprovauth 3308 | 기본값 또는 포트 번호로 지정된 인스턴스를 삭제합니다. |
+| delete *default or port_num* | mycimprovauth 3308 | 기본값 또는 포트 번호로 지정된 인스턴스를 삭제합니다. |
 | help | mycimprov help | 사용할 명령 목록을 인쇄합니다. |
 | print | mycimprov print | 읽기 쉬운 MySQL OMI 인증 파일을 인쇄합니다. |
 | update port_num *bind-address username password* | mycimprov update 3307 127.0.0.1 root pwd | 지정된 인스턴스를 업데이트하거나 존재하지 않는 경우 인스턴스를 추가합니다. |

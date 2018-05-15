@@ -12,21 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1ba02afa775343f496a2b5fec98699e593a330ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>클러스터 및 플랫폼 모니터링
 
 하드웨어와 클러스터가 예상대로 동작하는지 확인하려면 플랫폼 수준에서 모니터링해야 합니다. Service Fabric은 하드웨어 오류 시에도 응용 프로그램을 계속 실행할 수 있지만, 응용 프로그램이나 기본 인프라에서 오류가 발생하는지를 여전히 진단해야 합니다. 하드웨어 추가 또는 제거에 대한 결정 시 도움이 되도록 용량 계획을 개선하려면 클러스터를 모니터링해야 합니다.
 
-Service Fabric에는 다음 로그 채널이 기본 제공됩니다.
+Service Fabric은 EventStore 및 다양한 기본 제공 로그 채널을 통해 여러 구조적 플랫폼 이벤트를 "[Service Fabric 이벤트](service-fabric-diagnostics-events.md)"로 노출합니다. 
 
-* **작동**  
+EventStore는 엔터티 단위로(클러스터, 노드, 응용 프로그램, 서비스, 파티션, 복제본 및 컨테이너를 포함한 엔터티) 클러스터의 이벤트에 대한 액세스를 제공하고 REST API 및 Service Fabric 클라이언트 라이브러리를 통해 이벤트를 노출합니다. EventStore를 사용하여 개발/테스트 클러스터를 모니터링하고, 특정 시점에 프로덕션 클러스터의 상태를 이해할 수 있습니다. [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 자세한 내용을 알아보세요.
+
+Service Fabric은 프로덕션 클러스터를 모니터링하는 파이프라인을 설정할 수 있는 다음과 같은 로그 채널을 기본적으로 제공합니다.
+
+* [**작동**](service-fabric-diagnostics-event-generation-operational.md)  
 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램 또는 업그레이드 롤백 등이 포함된 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업
 
 * **작동 - 상세**  

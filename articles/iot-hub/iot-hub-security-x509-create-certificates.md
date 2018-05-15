@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e58096d4bde9c947f199b4696c0b5c28291956d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트
 
@@ -33,7 +33,9 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 ## <a name="create-x509-certificates"></a>X.509 인증서 만들기
 다음 단계에서는 로컬로 X.509 루트 인증서를 만드는 방법의 예를 보여줍니다. 
 
-1. 관리자 권한으로 *PowerShell* 창을 엽니다. 
+1. 관리자 권한으로 *PowerShell* 창을 엽니다.  
+   **참고:** PowerShell ISE, Visual Studio Code 또는 기본 PowerShell 콘솔을 래핑하는 기타 도구가 아닌 PowerShell 자체에서 열어야 합니다.  비-콘솔 기반 PowerShell을 사용하면 아래의 `openssl` 명령이 중지됩니다.
+
 2. 작업 디렉터리로 이동합니다. 다음 스크립트를 실행하여 전역 변수를 설정합니다. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"

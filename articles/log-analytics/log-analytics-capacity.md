@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 머신 용량 계획(미리 보기)
 
 ![용량 및 성능 기호](./media/log-analytics-capacity/capacity-solution.png)
+
+> [!NOTE]
+> 용량 및 성능 솔루션은 더 이상 사용되지 않습니다.  솔루션을 이미 설치한 고객은 계속해서 솔루션을 사용할 수 있지만, 새 작업 영역에는 용량 및 성능 솔루션을 추가할 수 없습니다.
 
 Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
 

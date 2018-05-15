@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Azure의 콘텐츠 배달 네트워크란?
 CDN(콘텐츠 배달 네트워크)은 사용자에게 웹 콘텐츠를 효율적으로 제공할 수 있는 서버의 분산 네트워크입니다. CDN은 최종 사용자와 가까운 POP(point-of-presence) 위치의 Edge 서버에 캐시된 콘텐츠를 저장하여 대기 시간을 최소화합니다. 
@@ -50,7 +50,7 @@ Azure CDN을 사용하여 웹 사이트 자산을 배달하면 다음과 같은 
 6. 파일의 TTL이 만료되지 않았으면, POP 에지 서버는 캐시로부터 직접 파일을 반환합니다. 이러한 프로세스를 통해 보다 신속하고 응답성이 뛰어난 사용자 환경이 가능해집니다.
 
 ## <a name="requirements"></a>요구 사항
-Azure CDN을 사용하려면 Azure 구독을 하나 이상 소유해야 합니다. CDN 엔드포인트의 컬렉션인 CDN 프로필도 하나 이상 만들어야 합니다. 모든 CDN 엔드포인트는 콘텐츠 배달 동작 및 액세스에 대한 특정 구성을 나타냅니다. 인터넷 도메인, 웹 응용 프로그램 또는 일부 기타 조건으로 CDN 엔드포인트를 구성하려면 여러 프로필을 사용하면 됩니다. [Azure CDN 가격](https://azure.microsoft.com/pricing/details/cdn/)은 CDN 프로필 수준에서 적용되기 때문에 다양한 가격 책정 계층을 사용하려면 여러 CDN 프로필을 만들어야 합니다.
+Azure CDN을 사용하려면 Azure 구독을 하나 이상 소유해야 합니다. CDN 엔드포인트의 컬렉션인 CDN 프로필도 하나 이상 만들어야 합니다. 모든 CDN 엔드포인트는 콘텐츠 배달 동작 및 액세스에 대한 특정 구성을 나타냅니다. 인터넷 도메인, 웹 응용 프로그램 또는 일부 기타 조건으로 CDN 엔드포인트를 구성하려면 여러 프로필을 사용하면 됩니다. [Azure CDN 가격](https://azure.microsoft.com/pricing/details/cdn/)은 CDN 프로필 수준에서 적용되기 때문에 다양한 가격 책정 계층을 사용하려면 여러 CDN 프로필을 만들어야 합니다. Azure CDN 청구 구조에 대한 내용은 [Azure CDN 청구 이해](cdn-billing.md)를 참조하세요.
 
 ### <a name="limitations"></a>제한 사항
 Azure 구독마다 다음 리소스에 대한 기본 제한이 있습니다.
@@ -77,4 +77,5 @@ Azure CDN은 다음과 같은 주요 기능을 제공합니다.
 - [Microsoft Azure Portal](https://portal.azure.com) 또는 [PowerShell](cdn-manage-powershell.md)을 통해 CDN 끝점을 관리합니다.
 - [.NET](cdn-app-dev-net.md) 또는 [Node.js](cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 - 작업 중인 Azure CDN을 보려면 [Azure CDN 비디오](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest)를 시청하세요.
+- 최신 Azure CDN 기능에 대한 내용은 [Azure CDN 블로그](https://azure.microsoft.com/blog/tag/azure-cdn/)를 참조하세요.
 

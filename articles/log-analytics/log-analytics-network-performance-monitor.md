@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -102,7 +102,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
-3.  *솔루션에 추가 구성이 필요합니다.*라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
+3.  *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
 
    ![네트워크 성능 모니터 타일](media/log-analytics-network-performance-monitor/npm-config.png)
 
@@ -132,7 +132,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     
 이러한 피어링에 대한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링하려는 각 피어링을 선택하고 오른쪽의 세부 정보 보기에서 모니터링을 구성합니다. 구성을 저장하려면 **저장**을 선택합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
 
-설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.*라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 후 Operations Management Suite 에이전트가 설치된 노드 및 사용자 환경에서 검색된 서브넷의 모니터링을 편집할 수 있습니다.
+설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 후 Operations Management Suite 에이전트가 설치된 노드 및 사용자 환경에서 검색된 서브넷의 모니터링을 편집할 수 있습니다.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>서브넷 및 노드에 대한 모니터링 설정 편집 
 
@@ -249,6 +249,24 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 ## <a name="log-analytics-search"></a>Log Analytics 검색 
 
 네트워크 성능 모니터 대시보드 및 드릴다운 페이지를 통해 그래픽으로 노출되는 모든 데이터는 [Log Analytics 검색](log-analytics-log-search-new.md)에서도 기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
+
+## <a name="alerts"></a>Alerts
+
+네트워크 성능 모니터는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)의 경고 기능을 사용합니다.
+
+즉, 모든 경고는 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)을 사용하여 관리됩니다.  
+
+OMS를 통해 경고를 만드는 NPM 사용자인 경우: 
+1. Azure Portal로 리디렉션하는 링크가 보입니다. 이 링크를 클릭하여 포털에 액세스합니다.
+2. 네트워크 성능 모니터 솔루션 타일을 클릭합니다. 
+3. [구성]으로 이동합니다.  
+4. 경고를 만들려는 테스트를 선택하고 아래에 설명된 단계를 따릅니다.
+
+Azure Portal을 통해 경고를 만드는 NPM 사용자인 경우:  
+1. 이메일을 직접 입력할 수도 있고 작업 그룹을 통해 경고를 만들 수도 있습니다.
+2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup**이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
+3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
+4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
 ##<a name="pricing"></a>가격
 

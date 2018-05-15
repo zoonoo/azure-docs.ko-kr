@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3c7fc83e379bcd1ad084d20555d9a82697cb5069
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -43,7 +43,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
         * [SQL API](sql-api-introduction.md): 풍부한 SQL 쿼리 기능이 있지만 스키마가 없는 JSON 데이터베이스 엔진입니다.
         * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB 플랫폼에서 구동하는 대규모로 확장 가능한 *MongoDB-as-a-Service*입니다. 기존 MongoDB 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
         * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB 플랫폼에서 구동하는 전 세계적으로 분산된 Cassandra-as-a-Service입니다. 기존 [Apache Cassandra](https://cassandra.apache.org/) 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
-        * [Gremlin(Graph) API](graph-introduction.md): 개방형 Graph API([Apache TinkerPop 사양](http://tinkerpop.apache.org/), Apache Gremlin을 기반으로 함)를 지원하는 고도로 연결된 데이터 집합을 사용하는 응용 프로그램을 쉽게 빌드하고 실행할 수 있게 해주는 완전히 관리되고 수평적으로 확장 가능한 그래프 데이터베이스 서비스입니다.
+        * [Gremlin API](graph-introduction.md): 개방형 Graph API([Apache TinkerPop 사양](http://tinkerpop.apache.org/), Apache Gremlin을 기반으로 함)를 지원하는 고도로 연결된 데이터 집합을 사용하는 응용 프로그램을 쉽게 빌드하고 실행할 수 있게 해주는 완전히 관리되고 수평적으로 확장 가능한 그래프 데이터베이스 서비스입니다.
         * [Table API](table-introduction.md): 앱을 변경하지 않고도 기존 Azure Table 저장소 응용 프로그램에 프리미엄 기능(예: 자동 인덱싱, 짧은 대기 시간 보장, 전역 배포)을 제공하도록 만들어진 키-값 데이터베이스 서비스입니다.
         * 추가 데이터 모델 및 API 제공 예정
 
@@ -97,7 +97,7 @@ Azure Cosmos DB는 기존의 관계형 및 비관계형 데이터베이스의 �
 * [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
 * [Azure Cosmos DB MongoDB API 시작](create-mongodb-nodejs.md)
 * [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
-* [Azure Cosmos DB Graph API 시작](create-graph-dotnet.md)
+* [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
 * [Azure Cosmos DB Table API 시작](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure에서 심층 학습 Virtual Machine 프로비전 
 
@@ -44,9 +44,9 @@ DLVM에는 몇 가지 AI용 도구가 포함되어 있습니다. 즉 인기 있�
       6. **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다. 
       
 > [!NOTE]
-> DLVM은 Azure NC 시리즈 GPU VM 인스턴스에서 프로비전되므로 Azure에서 GPU가 있는 위치 중 하나를 선택해야 합니다. 현재 GPU VM이 있는 위치는 **미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 북유럽, 유럽 서부**입니다. 최신 목록은 [지역별 Azure 제품 페이지](https://azure.microsoft.com/en-us/regions/services/)를 확인하고 **Compute** 아래에서 **NC 시리즈**를 찾으세요. 
+> DLVM은 모든 NC 및 ND 시리즈 GPU VM 인스턴스를 지원합니다. DLVM을 프로비전할 때 Azure에서 GPU가 있는 위치 중 하나를 선택해야 합니다. [지역별 Azure 제품](https://azure.microsoft.com/regions/services/) 페이지에서 사용 가능한 위치를 확인하고 **계산** 아래에서 **NC 시리즈**, **NCv2 시리즈**, **NCv3 시리즈** 또는 **ND 시리즈**를 찾습니다. 
 
-   2. **설정**: 기능 요구 사항 및 비용 제약 조건이 충족되는 NC 시리즈 GPU 가상 머신 크기 중 하나를 선택합니다. VM에 대한 저장소 계정을 만듭니다.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **설정**: 기능 요구 사항 및 비용 제약 조건을 충족하는 NC 시리즈(NC, NCv2, NCv3) 또는 ND 시리즈 GPU 가상 머신 크기 중 하나를 선택합니다. VM에 대한 저장소 계정을 만듭니다.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **요약**: 입력한 모든 정보가 올바른지 확인합니다.
    5. **구입**: **구입**을 클릭하여 프로비전을 시작합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 

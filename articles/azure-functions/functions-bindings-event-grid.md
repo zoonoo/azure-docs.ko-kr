@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -337,6 +337,9 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ## <a name="local-testing-with-requestbin"></a>RequestBin을 사용한 로컬 테스트
 
+> [!NOTE]
+> 현재 RequestBin 사이트를 사용할 수 없지만, 그 대신 https://hookbin.com에 이 방법을 사용할 수 있습니다. 해당 사이트가 중지된 경우 [ngrok](#local-testing-with-ngrok)를 사용하면 됩니다.
+
 Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에서 로컬 컴퓨터로 전달된 Event Grid HTTP 요청을 가져와야 합니다. 이 작업을 수행하는 한 가지 방법은 온라인으로 요청을 캡처하고 로컬 컴퓨터에서 수동으로 다시 전송하는 것입니다.
 
 2. [RequestBin 끝점을 만듭니다](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 
 ### <a name="create-a-requestbin-endpoint"></a>RequestBin 끝점 만들기
 
-RequestBin은 HTTP 요청을 수락하고 요청 본문을 표시하는 오픈 소스 도구입니다. http://requestb.in URL은 Azure Event Grid에서 특수하게 처리됩니다. 테스트를 용이하게 진행하기 위해 Event Grid는 구독 유효성 검사 요청에 대한 올바른 응답을 요구하지 않고, RequestBin URL로 이벤트를 전송합니다. http://webhookinbox.com 및 http://hookbin.com 등 다른 두 개의 테스트 도구는 동일하게 처리됩니다.
+RequestBin은 HTTP 요청을 수락하고 요청 본문을 표시하는 오픈 소스 도구입니다. http://requestb.in URL은 Azure Event Grid에서 특수하게 처리됩니다. 테스트를 용이하게 진행하기 위해 Event Grid는 구독 유효성 검사 요청에 대한 올바른 응답을 요구하지 않고, RequestBin URL로 이벤트를 전송합니다. 다른 테스트 도구 하나(http://hookbin.com)는 동일하게 처리됩니다.
 
 처리량이 높은 경우에는 RequestBin 사용이 적합하지 않습니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
 

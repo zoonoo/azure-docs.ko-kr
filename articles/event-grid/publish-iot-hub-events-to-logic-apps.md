@@ -1,22 +1,22 @@
 ---
-title: "IoT Hub 이벤트를 사용하여 Azure Logic Apps 트리거 | Microsoft Docs"
-description: "IoT Hub 이벤트를 기반으로 Azure Logic Apps 작업을 수행하도록 Azure Event Grid의 이벤트 라우팅 서비스를 사용하여 자동화된 프로세스를 만듭니다."
+title: IoT Hub 이벤트를 사용하여 Azure Logic Apps 트리거 | Microsoft Docs
+description: IoT Hub 이벤트를 기반으로 Azure Logic Apps 작업을 수행하도록 Azure Event Grid의 이벤트 라우팅 서비스를 사용하여 자동화된 프로세스를 만듭니다.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: f54db95b0dfe5dc39c8e2a85375e56a93d1562ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4fed42a45f8d291bd3ba1e4fd5d636b7d0b0fbfc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기
 
@@ -32,7 +32,7 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 응용 프로그�
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 
-먼저 논리 앱을 만들고 가상 컴퓨터에 대한 리소스 그룹을 모니터링하는 Azure Event Grid 트리거를 추가합니다. 
+먼저 논리 앱을 만들고 가상 컴퓨터에 대한 리소스 그룹을 모니터링하는 Event Grid 트리거를 추가합니다. 
 
 ### <a name="create-a-logic-app-resource"></a>논리 앱 리소스 만들기
 
@@ -155,8 +155,8 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 이 섹션에서는 일어나는 순서대로 이벤트를 게시하도록 Azure IoT Hub 를 구성합니다. 
 
-1. Azure Portal에서 Azure IoT Hub로 이동합니다. 
-2. **Event Grid**를 선택합니다.
+1. Azure Portal에서 IoT Hub로 이동합니다. 
+2. **이벤트**를 선택합니다.
 
    ![Event Grid 세부 정보 열기](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 
@@ -198,7 +198,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 IoT 허브에 몇 개의 장치를 추가한 후 이메일을 확인하여 어떤 장치가 논리 앱을 트리거했는지 알아봅니다. 
 
-## <a name="use-the-azure-cli"></a>Azure 명령줄 인터페이스 사용
+## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
 Azure Portal을 사용하는 대신 Azure 명령줄 인터페이스를 사용하여 Azure IoT Hub 단계를 수행할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) 및 [IoT 장치 만들기](https://docs.microsoft.com/cli/azure/iot/device)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
 

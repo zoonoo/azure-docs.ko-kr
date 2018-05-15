@@ -1,10 +1,26 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-from-the-ground-up"></a>처음부터 사물 인터넷 보안
 
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 장치의 안전한 프로비전, 이러한 장치 및 클라우드 간의 보안 연결, 처리 및 저장 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 장치, 배포의 지리적 분산 및 솔루션 내 많은 수의 장치에 대한 작업이 포함됩니다.
 
-이 문서에서는 Microsoft Azure IoT Suite가 어떻게 안전한 사설 사물 인터넷 클라우드 솔루션을 제공하는지 살펴봅니다. Azure IoT Suite는 처음부터 모든 단계에서 보안을 기본 제공하는 완전한 종단 간 솔루션을 제공합니다. Microsoft에서 보안 소프트웨어 개발은 보안 소프트웨어 개발에 대한 Microsoft의 수십 년에 걸친 경험을 기반으로 하는 소프트웨어 엔지니어링 업무의 일환입니다. 이를 위해 SDL(보안 개발 수명 주기)은 OSA(운영 보안 보증) 및 Microsoft Digital Crimes Unit, Microsoft 보안 응답 센터, Microsoft 맬웨어 보호 센터와 같은 인프라 수준 보안 서비스 등과 함께 기본 개발 방법론입니다.
+이 문서에서는 IoT 솔루션 가속기가 어떤 방식으로 안전한 비공개 사물 인터넷 클라우드 솔루션을 제공하는지 살펴봅니다. 솔루션 가속기는 처음부터 모든 단계에서 보안을 기본 제공하는 완전한 통합형 솔루션을 제공합니다. Microsoft에서 보안 소프트웨어 개발은 보안 소프트웨어 개발에 대한 Microsoft의 수십 년에 걸친 경험을 기반으로 하는 소프트웨어 엔지니어링 업무의 일환입니다. 이를 위해 SDL(보안 개발 수명 주기)은 OSA(운영 보안 보증) 및 Microsoft Digital Crimes Unit, Microsoft 보안 응답 센터, Microsoft 맬웨어 보호 센터와 같은 인프라 수준 보안 서비스 등과 함께 기본 개발 방법론입니다.
 
-Azure IoT Suite는 장치를 프로비전하고 연결하며 IoT 장치에서 간편하고 투명하게 데이터를 저장하며 이 모두를 안전하게 수행하는 고유한 기능을 제공합니다. 이 문서에서는 보안, 개인 정보 및 규정 준수 과제를 해결하기 위한 Azure IoT Suite 보안 기능 및 배포 전략을 살펴봅니다.
+솔루션 가속기는 장치를 프로비전 및 연결하고 IoT 장치의 데이터를 저장하는 작업을 간편하고 투명하게 그리고 무엇보다도 안전하게 수행할 수 있는 고유의 기능을 제공합니다. 이 문서에서는 보안, 개인 정보 및 규정 준수 과제를 해결하기 위한 Azure IoT 솔루션 가속기의 보안 기능 및 배포 전략을 살펴봅니다.
 
 ## <a name="introduction"></a>소개
 
@@ -26,17 +42,17 @@ Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 �
 
 Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거부 공격 방지, 일반적인 침투 테스트, 외부 도구를 통해 위협을 식별하고 완화할 수 있습니다. [다단계 인증](../articles/active-directory/authentication/multi-factor-authentication.md) 은 최종 사용자가 네트워크에 액세스하는 추가 보안 계층을 제공합니다. 또한 Microsoft는 응용 프로그램 및 호스트 공급자를 위해 액세스 제어, 모니터링, 맬웨어 방지, 취약점 검색, 패치 및 구성 관리를 제공합니다.
 
-Microsoft Azure IoT Suite는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다.
+솔루션 가속기는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다.
 
-[IoT Suite](../articles/iot-suite/iot-suite-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
+[IoT 솔루션 가속기](../articles/iot-suite/iot-suite-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
 
-이 문서에서는 Azure IoT Suite에 기본 제공되는 보안 및 개인 정보 기능을 가장 잘 전달하기 위해 Azure IoT Suite를 세 가지 주요 보안 영역으로 세분화했습니다.
+이 문서에서는 Azure IoT 솔루션 가속기에 기본 제공되는 보안 및 개인 정보 기능을 가장 잘 전달하기 위해 솔루션 가속기를 세 가지 주요 보안 영역으로 세분화했습니다.
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Azure IoT 솔루션 가속기](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>보안 장치를 프로비전 및 인증
 
-Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치와 통신하는 데 사용할 수 있는 고유한 ID 키를 제공하여 현장에 없는 동안 장치를 보안 설정합니다. 이 프로세스는 빠르고 쉽게 설정할 수 있습니다. 사용자가 선택한 장치 ID로 생성된 키는 장치와 Azure IoT Hub 간의 모든 통신에 사용되는 토큰의 기초를 구성합니다.
+솔루션 가속기는 각 장치에 대해 IoT 인프라에서 작업 중인 장치와 통신하는 데 사용할 수 있는 고유한 ID 키를 제공하여 현장에 나가 있는 동안 장치를 안전하게 보호합니다. 이 프로세스는 빠르고 쉽게 설정할 수 있습니다. 사용자가 선택한 장치 ID로 생성된 키는 장치와 Azure IoT Hub 간의 모든 통신에 사용되는 토큰의 기초를 구성합니다.
 
 장치 ID는 제조 중에 장치에 연결하거나(즉, 하드웨어 트러스트 모듈에서 플래시됨) 기존 고정된 ID를 프록시로 사용할 수 있습니다(예: CPU 일련 번호). 장치에서 이 식별 정보를 변경하는 것은 간단하지 않으므로 기본 장치 하드웨어가 변경되지만 논리적 장치는 동일하게 유지되는 경우 논리적 장치 ID를 도입하는 것이 중요합니다. 일부 경우 장치 ID의 연결이 장치 배포 시 발생할 수 있습니다(예: 솔루션 백 엔드와 통신하는 동안 인증된 현장 엔지니어가 새 장치를 물리적으로 구성). [Azure IoT Hub ID 레지스트리](../articles/iot-hub/iot-hub-devguide.md) 는 장치 ID에 대한 보안 저장소와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 장치 ID를 허용 목록 또는 차단 목록에 추가하여 장치 액세스를 완벽하게 제어할 수 있습니다.
 
@@ -64,9 +80,9 @@ Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>보안 처리 및 클라우드 저장소
 
-암호화된 통신에서 클라우드 데이터 처리까지, Azure IoT Suite를 통해 데이터 보안을 유지할 수 있습니다. 추가적인 암호화를 구현하고 보안 키를 관리하는 유연성을 제공합니다.
+암호화된 통신에서 클라우드 데이터 처리까지, 솔루션 가속기로 데이터 보안을 유지할 수 있습니다. 추가적인 암호화를 구현하고 보안 키를 관리하는 유연성을 제공합니다.
 
-Azure IoT Suite는 사용자 인증 및 권한 부여를 위해 AAD(Azure Active Directory)를 사용하여 클라우드 데이터에 대해 정책 기반 권한 부여 모델을 제공할 수 있으며 감사 및 검토가 가능한 간편한 액세스 관리를 허용합니다. 이 모델을 사용하면 클라우드 데이터 및 Azure IoT Suite에 연결된 장치에 대한 거의 즉각적인 액세스 해제가 가능합니다.
+Azure IoT 솔루션 가속기는 사용자 인증 및 권한 부여를 위해 AAD(Azure Active Directory)를 사용하여 클라우드 데이터에 대해 정책 기반 권한 부여 모델을 제공할 수 있으며 감사 및 검토가 가능한 간편한 액세스 관리를 허용합니다. 이 모델을 사용하면 클라우드 데이터 및 Azure IoT 솔루션 가속기에 연결된 장치에 대한 거의 즉각적인 액세스 해제가 가능합니다.
 
 데이터가 클라우드에 있는 경우 사용자가 정의한 워크플로에 처리 및 저장할 수 있습니다. 데이터의 각 부분에 대한 액세스는 사용된 저장소 서비스에 따라 Azure Active Directory로 제어됩니다.
 
@@ -76,11 +92,11 @@ IoT 인프라에서 사용되는 모든 키는 보안 저장소의 클라우드�
 
 사물 인터넷은 비즈니스와 가장 밀접한 사물에서 시작합니다. IoT는 비용 절감, 수익 증대 및 비즈니스 변환으로 비즈니스에 놀라운 가치를 선사합니다. 이 변환의 성공 여부는 주로 적합한 IoT 소프트웨어 및 서비스 공급자를 선택하느냐에 달려 있습니다. 즉, 비즈니스 요구 및 요구 사항을 이해하여 이 변환을 촉진시킬 뿐만 아니라 주요 설계 고려 사항으로 보안, 개인 정보, 투명성 및 규정 준수가 기본 제공되는 서비스 및 소프트웨어를 제공하는 공급자를 찾는 것입니다. Microsoft는 보안 소프트웨어 및 서비스를 개발 및 배포하는 데 풍부한 경험을 보유하고 있으며 새로운 시대의 사물 인터넷 분야에 앞장서고 있습니다.
 
-Microsoft Azure IoT Suite는 설계부터 보안 조치로 구축되어 자산의 보안 모니터링을 통해 효율성을 개선하며 운영 성능을 개선하여 혁신을 실현하고 고급 데이터 분석을 도입해 비즈니스를 변환합니다. Azure IoT Suite는 보안, 여러 보안 기능 및 디자인 패턴을 중심으로 한 계층화된 접근 방식으로 비즈니스를 변환하는 데 신뢰할 수 있는 인프라를 배포할 수 있도록 합니다.
+처음부터 보안을 중심으로 설계된 솔루션 가속기는 자산의 보안 모니터링을 통해 효율성을 개선하고, 운영 성능을 개선하여 혁신을 실현하고, 고급 데이터 분석을 사용하여 비즈니스를 변환합니다. 계층화된 보안 방식, 다양한 보안 기능, 여러 디자인 패턴을 갖춘 솔루션 가속기는 비즈니스를 변화시키는 신뢰할 수 있는 인프라를 배포할 수 있습니다.
 
 ## <a name="additional-information"></a>추가 정보
 
-미리 구성된 각 Azure IoT Suite 솔루션은 다음과 같은 Azure 서비스의 인스턴스를 만듭니다.
+각 솔루션 가속기는 다음과 같은 Azure 서비스 인스턴스를 만듭니다.
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): 클라우드를 장치에 연결하는 게이트웨이입니다. 솔루션의 보안을 설정하는 장치별 인증 지원을 통해 허브당 수백만 개의 연결까지 확장할 수 있으며 대량의 데이터를 처리할 수 있습니다.
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Azure Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.

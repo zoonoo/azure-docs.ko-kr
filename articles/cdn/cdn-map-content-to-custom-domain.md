@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 끝점에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 끝점을 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -28,9 +27,9 @@ ms.lasthandoff: 04/16/2018
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> - CNAME DNS 레코드 만들기
-> - CDN 끝점과 사용자 지정 도메인 연결
-> - 사용자 지정 도메인 확인
+> - CNAME DNS 레코드 만들기.
+> - CDN 끝점과 사용자 지정 도메인 연결.
+> - 사용자 지정 도메인 확인.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -211,16 +210,16 @@ cdnverify 하위 도메인이 끝점에 성공적으로 매핑되었음을 확�
 
 ## <a name="next-steps"></a>다음 단계
 
-학습한 내용은 다음과 같습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> - CNAME DNS 레코드 만듬
-> - CDN 끝점과 사용자 지정 도메인 연결함
-> - 사용자 지정 도메인 확인함
+> - CNAME DNS 레코드 만들기.
+> - CDN 끝점과 사용자 지정 도메인 연결.
+> - 사용자 지정 도메인 확인.
 
 Azure CDN 사용자 지정 도메인에서 HTTPS를 구성하는 방법을 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure CDN 사용자 지정 도메인에서 HTTPS 구성](cdn-custom-ssl.md).
+> [자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성](cdn-custom-ssl.md)
 
 

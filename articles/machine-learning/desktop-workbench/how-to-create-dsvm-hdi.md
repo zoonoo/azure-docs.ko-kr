@@ -1,6 +1,6 @@
 ---
-title: "Azure ML의 계산 대상으로 DSVM 및 HDI를 만드는 방법"
-description: "Azure ML 실험을 위한 계산 대상으로 DSVM 및 HDI Spark 클러스터를 만듭니다."
+title: Azure ML의 계산 대상으로 DSVM 및 HDI를 만드는 방법
+description: Azure ML 실험을 위한 계산 대상으로 DSVM 및 HDI Spark 클러스터를 만듭니다.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>계산 대상으로 DSVM 및 HDI Spark 클러스터 만들기
 
@@ -27,7 +27,7 @@ Ubuntu 기반 DSVM(Data Science Virtual Machine) 및 Azure HDInsight 클러스�
 
 Azure Portal에서 DSVM을 만들 수 있습니다. 
 
-1. https://portal.azure.com에서 Azure Portal에 로그온합니다.
+1. https://portal.azure.com에서 Azure Portal에 로그온
 2. **+새로 만들기** 링크를 클릭하고 "Linux용 데이터 과학 가상 머신"를 검색합니다.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
 4. 목록에서 **Linux(Ubuntu)용 데이터 과학 Virtual Machine**을 선택하고 화면의 지침에 따라 DSVM을 만듭니다.
@@ -148,19 +148,19 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>DSVM OS 디스크 확장
-Azure의 Linux VM에는 일반적으로 30GB 운영 체제 디스크가 제공됩니다. Azure ML의 계산 대상으로 사용되는 경우, Docker 엔진이 Docker 이미지를 끌어 당기고 그 위에 conda 레이어를 작성하여 디스크가 신속하게 소진될 수 있습니다. 실행 도중 "디스크 꽉 참"오류를 피하려면 OS 디스크를 더 큰 크기(예: 200GB)로 확장하는 것이 좋습니다. azure-cli에서 이것을 쉽게 수행하는 방법을 알아보려면 [Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법](../../virtual-machines/linux/expand-disks.md)을 참조하세요. 
+Ubuntu DSVM은 50GB OS 디스크 및 100GB 데이터 디스크가 함께 제공됩니다. Docker는 더 많은 공간을 사용할 수 있는 데이터 디스크에 이미지를 저장합니다. Azure ML의 계산 대상으로 사용할 경우 이 디스크는 Docker 엔진이 Docker 이미지를 끌어 당기고 그 위에 conda 레이어를 빌드하는 데 사용될 수 있습니다. 실행 중에 "디스크 꽉 참"오류를 피하려면 디스크를 더 큰 크기(예: 200GB)로 확장해야 할 수도 있습니다. azure-cli에서 이것을 쉽게 수행하는 방법을 알아보려면 [Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법](../../virtual-machines/linux/expand-disks.md)을 참조하세요. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Azure Portal에 Azure HDInsight용 Apache Spark 클러스터 생성
 
 스케일 아웃 Spark 작업을 실행하려면 Azure Portal에서 Azure HDInsight용 Apache Spark 클러스터를 만들어야 합니다.
 
-1. https://portal.azure.com에서 Azure Portal에 로그온합니다.
+1. https://portal.azure.com에서 Azure Portal에 로그온
 2. **+새로 만들기** 링크를 클릭하고 "HDInsight"를 검색합니다.
 
     ![hdi 찾기](media/how-to-create-dsvm-hdi/hdi.png)
     
 3. 목록에서 **HDInsight**를 선택한 다음 **만들기** 단추를 클릭합니다.
-4. **기본** 구성 화면의 **클러스터 유형** 설정에서 _클러스터 유형_에 **Spark**를 선택하고 _운영 체제_에 **Linux**를 선택하고 버전으로 **Spark 2.1.0(HDI 3.6)**을 선택합니다.
+4. **기본** 구성 화면의 **클러스터 유형** 설정에서 _클러스터 유형_에 **Spark**를 선택하고 _운영 체제_에 **Linux**를 선택하고 버전으로 **Spark 2.1.0(HDI 3.6)** 을 선택합니다.
 
     ![hdi 구성](media/how-to-create-dsvm-hdi/configure_hdi.png)
 

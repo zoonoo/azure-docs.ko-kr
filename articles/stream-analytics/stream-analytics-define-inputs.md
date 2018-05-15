@@ -8,16 +8,14 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/19/2018
-ms.openlocfilehash: 5ebf2d1025c8f9469a83a408cb79e3d944a601bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/27/2018
+ms.openlocfilehash: 2b2ef68622f96d87a25d203d3d67aa0877397072
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
-
-Stream Analytics는 여러 종류의 이벤트 소스에서 들어오는 데이터를 수용합니다. Stream Analytics 작업에 입력으로 제공된 데이터 연결을 작업의 *입력*이라고 합니다. 
 
 Stream Analytics는 세 종류 리소스의 입력으로 Azure 데이터 스트림과 최고급 통합을 수행합니다.
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
@@ -25,17 +23,6 @@ Stream Analytics는 세 종류 리소스의 입력으로 Azure 데이터 스트�
 - [Azure Blob 저장소](https://azure.microsoft.com/services/storage/blobs/) 
 
 이러한 입력 리소스는 Stream Analytics 작업과 동일한 Azure 구독 또는 다른 구독에 존재할 수 있습니다.
-
-## <a name="compare-stream-and-reference-inputs"></a>스트림 및 참조 입력 비교
-데이터가 해당 데이터 원본에 푸시되면 Stream Analytics 작업에서 사용되고 실시간으로 처리됩니다. 입력은 데이터 스트림 입력과 참조 데이터 입력의 두 가지 형식으로 나뉩니다.
-
-### <a name="data-stream-input"></a>데이터 스트림 입력
-데이터 스트림은 시간이 지남에 따라 생성되는 이벤트의 제한 없는 시퀀스입니다. Stream Analytics 작업은 하나 이상의 데이터 스트림 입력을 포함해야 합니다. Event Hubs, IoT Hub 및 Blob Storage는 데이터 스트림 입력 원본으로 지원됩니다. 이벤트 허브는 여러 장치 및 서비스에서 이벤트 스트림을 수집하는 데 사용됩니다. 이러한 스트림은 소셜 미디어 활동 피드, 주식 거래 정보 또는 센서 데이터를 포함할 수 있습니다. IoT 허브는 IoT(사물 인터넷) 시나리오에서 연결된 장치로부터 데이터를 수집하는 데 최적화됩니다.  Blob Storage를 로그 파일과 같은 스트림으로 대량 데이터 수집을 위한 입력 원본으로 사용할 수 있습니다.  
-
-### <a name="reference-data-input"></a>참조 데이터 입력
-Stream Analytics은 *참조 데이터*라는 입력도 지원합니다. 고정적이거나 천천히 변하는 보조 데이터입니다. 참조 데이터는 일반적으로 상관 관계 및 조회를 수행하는 데 사용됩니다. 예를 들어 정적 값을 조회하기 위해 SQL 조인을 수행하기는 하지만 데이터 스트림 입력의 데이터를 참조 데이터의 데이터로 조인할 수 있습니다. Azure Blob 저장소는 현재 유일하게 지원되는 참조 데이터용 입력 소스입니다. 참조 데이터 원본 Blob은 크기가 100MB로 제한됩니다.
-
-참조 데이터 입력을 만드는 방법을 알아보려면 [참조 데이터 사용](stream-analytics-use-reference-data.md)을 참조하세요.  
 
 ### <a name="compression"></a>압축
 Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지원합니다. 현재 지원되는 참조 형식은 None, GZip 및 Deflate 압축입니다. 참조 데이터에는 압축이 지원되지 않습니다. 입력 형식이 압축된 Avro 데이터인 경우 투명하게 처리됩니다. Avro serialization에서는 압축 형식을 지정할 필요가 없습니다. 
@@ -50,7 +37,6 @@ Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지
 7. 입력 세부 사항 페이지에서 **테스트**를 선택하여 연결 옵션이 유효하고 작동하는지 확인합니다. 
 8. 기존 입력의 이름을 마우스 오른쪽 단추로 클릭하고 추가 테스트를 위해 필요에 따라 **입력의 예제 데이터**를 선택합니다.
 
-또 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input) 및 [Visual Studio](stream-analytics-tools-for-visual-studio.md)를 사용하여 Stream Analytics 작업 입력을 만들고, 편집하고 테스트할 수 있습니다.
 
 ## <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍
 
@@ -59,7 +45,7 @@ Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공
 Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프가 `EventEnqueuedUtcTime`인 이벤트 허브에 이벤트가 도착한 타임스탬프입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
 
 ### <a name="consumer-groups"></a>소비자 그룹
-각 Stream Analytics 이벤트 허브 입력마다 고유한 소비자 그룹이 있도록 구성해야 합니다. 작업에 셀프 조인이 포함되거나 입력이 여러 개인 경우 둘 이상의 판독기 다운스트림으로 일부 입력을 읽을 수 있습니다. 이러한 상황은 단일 소비자 그룹의 판독기 수에 영향을 줍니다. 파티션당 소비자 그룹마다 5개 판독기의 Event Hubs 한도 초과를 방지하려면 각 Stream Analytics 작업에 대한 소비자 그룹을 지정하는 것이 좋습니다. 또한 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 자세한 내용은 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조하세요.
+각 Stream Analytics 이벤트 허브 입력마다 고유한 소비자 그룹이 있도록 구성해야 합니다. 작업에 셀프 조인이 포함되거나 입력이 여러 개인 경우 둘 이상의 판독기 다운스트림으로 일부 입력을 읽을 수 있습니다. 이러한 상황은 단일 소비자 그룹의 판독기 수에 영향을 줍니다. 파티션당 소비자 그룹마다 5개 판독기의 Event Hubs 한도 초과를 방지하려면 각 Stream Analytics 작업에 대한 소비자 그룹을 지정하는 것이 좋습니다. 또한 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 자세한 내용은 [이벤트 허브 수신기로 Azure Stream Analytics 문제 해결](stream-analytics-event-hub-consumer-groups.md)을 참조하세요.
 
 ### <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍
 다음 표는 이벤트 허브에서 데이터 입력을 스트리밍하는 Azure Portal의 **새 입력** 페이지의 각 속성을 설명합니다.
@@ -72,7 +58,7 @@ Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프�
 | **이벤트 허브 이름** | 입력으로 사용할 이벤트 허브의 이름입니다. |
 | **이벤트 허브 정책 이름** | 이벤트 허브에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다.|
 | **이벤트 허브 소비자 그룹**(권장) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다.  |
-| **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다. |
+| **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **Encoding** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
 
@@ -95,7 +81,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> Event Hub를 IoT Hub Route의 끝점으로 사용하는 경우에는 [GetMetadataPropertyValue 함수](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx)를 사용하여 IoT Hub 메타데이터에 액세스할 수 있습니다.
+> Event Hub를 IoT Hub Route의 끝점으로 사용하는 경우에는 [GetMetadataPropertyValue 함수](https://msdn.microsoft.com/library/azure/mt793845.aspx)를 사용하여 IoT Hub 메타데이터에 액세스할 수 있습니다.
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>IoT Hub에서 데이터 스트리밍
@@ -117,12 +103,12 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 | --- | --- |
 | **입력 별칭** | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 | **구독** | IoT Hub 리소스가 있는 구독을 선택합니다. | 
-| **IoT Hub** | 입력으로 사용할 IoT Hub의 이름입니다. |
+| **IoT 허브** | 입력으로 사용할 IoT Hub의 이름입니다. |
 | **끝점** | IoT Hub에 대한 엔드포인트입니다.|
 | **공유 액세스 정책 이름** | IoT Hub에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | **공유 액세스 정책 키** | IoT Hub에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다.  IoT Hub 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 | **소비자 그룹** | 각 Stream Analytics 작업마다 서로 다른 소비자 그룹을 사용하는 것이 좋습니다. 소비자 그룹은 IoT Hub에서 데이터를 수집하는 데 사용됩니다. Stream Analytics에서는 달리 지정하지 않는 한 $Default 소비자 그룹을 사용합니다.  |
-| **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다. |
+| **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **Encoding** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
 
@@ -171,7 +157,7 @@ Stream Analytics는 현재 이벤트 허브 캡처 또는 IoT Hub Azure Storage 
 | **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. |
 | **날짜 형식**(선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예제: `YYYY/MM/DD` |
 | **시간 형식**(선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
-| **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다. |
+| **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **Encoding** | CSV 및 JSON의 경우 UTF-8이 현재 지원되는 유일한 인코딩 형식입니다. |
 | **압축** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
 
@@ -195,12 +181,8 @@ FROM Input
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Stream Analytics 작업을 위한 Azure의 데이터 연결 옵션에 대해 알아보았습니다. Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.
-
-* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

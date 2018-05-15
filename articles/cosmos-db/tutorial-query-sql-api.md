@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 74ea4753e36da7686ac88d4426391a38dac0b436
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -72,7 +72,7 @@ SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 Azure Cosmos DB 계정과 컬렉션이 있다고 가정합니다. 이들 중 하나라도 없는가요? 그러면 [5분 퀵 스타트](create-mongodb-nodejs.md) 또는 [개발자 자습서](tutorial-develop-mongodb.md)를 수행하여 계정과 컬렉션을 만들어 놓으세요.
+이 자습서에서는 Azure Cosmos DB 계정과 컬렉션이 있다고 가정합니다. 이들 중 하나라도 없는가요? [5분 빠른 시작](create-mongodb-nodejs.md)을 완료하세요.
 
 ## <a name="example-query-1"></a>예제 쿼리 1
 

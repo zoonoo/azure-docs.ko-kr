@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 7d7cd8a197a89781a75f47bb4b4e2ec8fe7c3cb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="secure-your-iot-deployment"></a>IoT 배포 보안 유지
 
 이 문서에서는 Azure IoT 기반 IoT(사물 인터넷) 인프라를 보호하기 위한 세부 정보를 제공합니다. 또한 각 구성 요소의 구성 및 배포에 대한 구현 수준의 세부 정보에 연결됩니다. 그밖에도 다양한 경쟁 방법 간을 비교하고 선택 항목을 제공합니다.
@@ -12,7 +28,7 @@ Azure IoT 배포 보안 유지 과정은 다음과 같은 세 가지 보안 영�
 
 ## <a name="secure-device-provisioning-and-authentication"></a>보안 장치를 프로비전 및 인증
 
-Azure IoT Suite는 다음 두 가지 방법으로 IoT 장치의 보안을 유지합니다.
+IoT 솔루션 가속기는 다음 두 가지 방법으로 IoT 장치를 보호합니다.
 
 * 각 장치에 대해 IoT Hub와 통신하는 데 사용할 수 있는 고유한 ID 키(보안 토큰) 제공
 * 장치의 [X.509 인증서][lnk-x509] 및 개인 키를 IoT Hub에 장치를 인증하는 수단으로 사용 이 인증 방법은 장치의 개인 키를 장치 외부에서 항상 알 수 없도록 하여 더 높은 수준의 보안을 제공합니다.
@@ -89,7 +105,7 @@ Azure IoT Hub를 통해 수집된 데이터는 Azure Stream Analytics, Azure Blo
 [lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-protocols]: ../articles/iot-hub/iot-hub-devguide-security.md
-[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246

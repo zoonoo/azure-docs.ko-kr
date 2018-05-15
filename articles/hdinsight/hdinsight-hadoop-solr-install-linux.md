@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 707f25a71a22f136a3cfc537ec3dd939e06dea08
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
@@ -87,7 +87,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
      > [!IMPORTANT]
-     > 이 문서의 뒷부분에 나오는 단계에서 SSL 터널을 사용하여 Solr 웹 UI에 연결합니다. 이러한 단계를 사용하려면 SSL 터널을 설정하고 브라우저를 구성하여 사용해야 합니다.
+     > 이 문서의 뒷부분에 나오는 단계에서 SSH 터널을 사용하여 Solr 웹 UI에 연결합니다. 이러한 단계를 사용하려면 SSH 터널을 설정하고 브라우저를 구성하여 사용해야 합니다.
      >
      > 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
 
@@ -114,7 +114,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    이 명령은 **\*:\*** (쿼리 문자열에서 \*%3A\* 로 인코딩)와 일치하는 모든 문서에 대해 **collection1** 을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
+    이 명령은 **\*:\***(쿼리 문자열에서 \*%3A\*로 인코딩)와 일치하는 모든 문서에 대해 **collection1**을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
 
             "response": {
                 "numFound": 2,

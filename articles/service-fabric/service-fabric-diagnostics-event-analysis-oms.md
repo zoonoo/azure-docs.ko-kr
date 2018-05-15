@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: da78f88f0c79c0ad853dd644ef278f8402824760
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8efbc1d400f1d32e6aee2c1e2d78847bea786940
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Log Analytics를 사용하여 이벤트 분석 및 시각화
 
@@ -36,7 +36,7 @@ Log Analytics가 데이터를 수신한 후 Azure는 들어오는 데이터를 �
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric 분석 솔루션에 액세스
 
-1. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. resource**ServiceFabric\<nameOfOMSWorkspace\>** 를 선택하고 개요 페이지로 이동합니다.
+1. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>** 리소스를 선택하고 개요 페이지로 이동합니다.
 
 2. 개요 페이지에서 위쪽의 링크를 클릭하여 OMS 포털로 이동합니다.
 
@@ -67,13 +67,14 @@ Log Analytics가 데이터를 수신한 후 Azure는 들어오는 데이터를 �
     
     ![OMS 쿼리 작동 채널](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-또는 왼쪽에 있는 돋보기를 클릭하고 Kusto 쿼리 언어를 사용하여 원하는 항목을 찾을 수 있습니다. 예를 들어 클러스터가 노드에 수행한 작업과 관련된 모든 이벤트를 찾으려면 다음 쿼리를 사용하면 됩니다. 아래에 사용된 이벤트 ID는 [운영 채널 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md)에서 찾을 수 있습니다.
+또는 왼쪽에 있는 돋보기를 클릭하고 Kusto 쿼리 언어를 사용하여 원하는 항목을 찾을 수 있습니다. 예를 들어 클러스터의 노드에서 수행된 모든 작업을 찾으려면 다음 쿼리를 사용하면 됩니다. 아래에 사용된 이벤트 ID는 [운영 채널 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md)에서 찾을 수 있습니다.
 
 ```kusto
 ServiceFabricOperationalEvent
-| where EventId < 29627 and EventId > 29619 
+| where EventId < 25627 and EventId > 25619 
 ```
-특정 노드(컴퓨터), 시스템 서비스(TaskName) 등 더 많은 필드를 쿼리할 수 있습니다.
+
+특정 노드(컴퓨터), 시스템 서비스(TaskName) 같은 더 많은 필드를 쿼리할 수 있습니다.
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Service Fabric Reliable Service 및 Actor 이벤트 보기
 
