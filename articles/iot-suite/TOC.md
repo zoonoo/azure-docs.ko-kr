@@ -78,6 +78,7 @@
 #### [Node.js(일반)](iot-suite-connecting-devices-node.md)
 #### [Raspberry Pi의 Node.js](iot-suite-connecting-pi-node.md)
 #### [Raspberry Pi의 C](iot-suite-connecting-pi-c.md)
+#### [MX 칩 AZ3166 DevKit](iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 ### 개념
 #### [원격 모니터링 구현 세부 정보](iot-suite-remote-monitoring-sample-walkthrough.md)

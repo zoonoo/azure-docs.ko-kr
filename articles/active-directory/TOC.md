@@ -185,27 +185,27 @@
 ##### [사용자 지정 도메인](manage-apps/application-proxy-configure-custom-domain.md)
 #### [Single Sign-On](manage-apps/application-proxy-single-sign-on.md)
 ##### [KCD와 SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-##### [헤더와 SSO](application-proxy-ping-access.md)
-##### [암호 보관을 사용하는 SSO](application-proxy-sso-azure-portal.md)
+##### [헤더와 SSO](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [암호 보관을 사용하는 SSO](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### 개념
-##### [커넥터](application-proxy-understand-connectors.md)
-##### [보안](application-proxy-security-considerations.md)
-##### [네트워크](application-proxy-network-topology-considerations.md)
+##### [커넥터](manage-apps/application-proxy-connectors.md)
+##### [보안](manage-apps/application-proxy-security.md)
+##### [네트워크](manage-apps/application-proxy-network-topology.md)
 
 
-##### [TMG 또는 UAG에서 업그레이드](application-proxy-transition-from-uag-tmg.md)
+##### [TMG 또는 UAG에서 업그레이드](manage-apps/application-proxy-migration.md)
 
 #### 고급 구성
-##### [별도 네트워크에 게시](active-directory-application-proxy-connectors-azure-portal.md)
-##### [프록시 서버](application-proxy-working-with-proxy-servers.md)
-##### [클레임 인식 앱](active-directory-application-proxy-claims-aware-apps.md)
-##### [네이티브 클라이언트 앱](active-directory-application-proxy-native-client.md)
-##### [자동 설치](active-directory-application-proxy-silent-installation.md)
-##### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
-##### [인라인 링크 변환](application-proxy-link-translation.md)
+##### [별도 네트워크에 게시](manage-apps/application-proxy-connector-groups.md)
+##### [프록시 서버](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [클레임 인식 앱](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [네이티브 클라이언트 앱](manage-apps/application-proxy-configure-native-client-application.md)
+##### [자동 설치](manage-apps/application-proxy-register-connector-powershell.md)
+##### [사용자 지정 홈 페이지](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [인라인 링크 변환](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### 게시 연습
-##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [원격 데스크톱](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft 팀](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

@@ -1,19 +1,21 @@
 ---
-title: "Azure 빠른 시작 - DSC를 사용하여 VM 구성 | Microsoft Docs"
-description: "DSC(Desired State Configuration)를 사용하여 Linux 가상 머신에서 LAMP 스택을 구성합니다."
+title: Azure 빠른 시작 - DSC를 사용하여 VM 구성 | Microsoft Docs
+description: DSC(Desired State Configuration)를 사용하여 Linux 가상 머신에서 LAMP 스택을 구성합니다.
 services: automation
-keywords: "DSC, 구성, 자동화"
+ms.service: automation
+ms.component: dsc
+keywords: DSC, 구성, 자동화
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>DSC를 사용하여 Linux 가상 머신 구성
 
@@ -28,7 +30,7 @@ DSC(Desired State Configuration)를 사용하면 Windows 및 Linux 서버의 구
 * Red Hat Enterprise Linux, CentOS 또는 Oracle Linux를 실행하는 Azure Resource Manager VM(클래식이 아님). VM 만들기에 대한 지침은 [Azure Portal에서 첫 번째 Linux 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md)를 참조하세요.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-https://portal.azure.com에서 Azure에 로그인합니다.
+https://portal.azure.com에서 Azure에 로그인
 
 ## <a name="onboard-a-virtual-machine"></a>가상 머신 등록
 여러 가지 방법으로 컴퓨터를 등록하고 DSC를 사용하도록 설정할 수 있습니다. 이 빠른 시작에서는 Automation 계정을 통한 등록에 대해 설명합니다. [등록](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) 문서를 참조하여 컴퓨터를 DSC에 등록하는 방법에 대해 자세히 알아볼 수 있습니다.

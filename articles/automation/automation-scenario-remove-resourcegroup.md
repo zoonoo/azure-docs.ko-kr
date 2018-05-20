@@ -3,16 +3,17 @@ title: Azure Automation을 사용하여 리소스 그룹 제거 자동화
 description: 구독에서 모든 리소스 그룹을 제거하는 runbook을 포함하는 Azure Automation 시나리오의 PowerShell 워크플로 버전입니다.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 1d54e03c1b5518dece4e11d76593b12fe83dc8c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c8fcb7abbc28aef06c43b6ece89eb7bd6916694e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation 시나리오 - 리소스 그룹 제거 자동화
 많은 고객이 하나 이상의 리소스 그룹을 만듭니다. 일부는 프로덕션 응용 프로그램을 관리하는 데 사용하고 일부는 환경을 개발, 테스트 및 스테이징하는 데 사용할 수 있습니다. 이러한 리소스의 배포를 자동화하는 것이 중요하지만 단추를 한 번 클릭하여 리소스 그룹을 해제하는 것도 중요합니다. Azure Automation를 사용하여 이 일반 관리 태스크를 간소화할 수 있습니다. MSDN 또는 Microsoft 파트너 네트워크 Cloud Essentials 프로그램과 같은 구성원 혜택을 통해 지출 한도가 있는 Azure 구독을 사용하는 경우에도 유용합니다.

@@ -3,23 +3,23 @@ title: Azure AD 응용 프로그램 프록시를 사용하여 앱 게시 | Micro
 description: Azure Portal에서 Azure AD 응용 프로그램 프록시를 사용하여 클라우드에 온-프레미스 응용 프로그램을 게시합니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b9750212925294dec2220e6ef3e6e19d3bc7c3c6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
@@ -27,7 +27,7 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 
 이 문서에서는 응용 프로그램 프록시를 통해 온-프레미스 앱을 게시하는 방법을 단계별로 안내합니다. 이 문서를 완료하면 사용자가 원격으로 앱에 액세스할 수 있습니다. 그리고 Single Sign-On, 개인 설정 정보 및 보안 요구 사항과 같이 응용 프로그램에 대한 추가 기능을 구성할 준비가 된 것입니다.
 
-응용 프로그램 프록시를 처음 사용하는 경우 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md) 문서에서 이 기능에 대해 자세히 알아보세요.
+응용 프로그램 프록시를 처음 사용하는 경우 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](manage-apps/application-proxy.md) 문서에서 이 기능에 대해 자세히 알아보세요.
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>원격 액세스를 위한 온-프레미스 앱 게시

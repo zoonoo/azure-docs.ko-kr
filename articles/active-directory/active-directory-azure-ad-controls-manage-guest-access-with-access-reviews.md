@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2ac28c278b9ac832f05cdb19a48ea576526104b3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](active-di
 
 ## <a name="prerequisites"></a>필수 조건 
 
-액세스 검토는 Microsoft Enterprise Mobility + Security, E5에 포함된 Azure AD의 Premium P2 버전에서 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요. 이 기능과 상호 작용하여 검토를 만들거나 검토에 액세스하거나 검토를 적용하는 각 사용자에게는 라이선스가 필요합니다.
+액세스 검토는 Microsoft Enterprise Mobility + Security, E5에 포함된 Azure AD의 Premium P2 버전에서 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-whatis.md)을 참조하세요. 이 기능과 상호 작용하여 검토를 만들거나 검토에 액세스하거나 검토를 적용하는 각 사용자에게는 라이선스가 필요합니다.
 
 게스트 사용자에게 자신의 액세스 검토를 요청하려는 경우 게스트 사용자 라이선스에 대해 알아보세요. 자세한 내용은 [Azure AD B2B 공동 작업 라이선스](active-directory-b2b-licensing.md)를 참조하세요.
 

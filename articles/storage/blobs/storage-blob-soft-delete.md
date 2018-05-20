@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Azure Storage Blob에 대한 일시 삭제(미리 보기)
 
@@ -292,7 +292,7 @@ blockBlob.StartCopy(copySource);
 
 **일시 삭제가 설정된 상태로 전체 계정 또는 컨테이너를 삭제하는 경우 연결된 모든 Blob 저장되나요?**
 
-아니요, 전체 계정 또는 컨테이너를 삭제하면 연결된 모든 Blob은 영구적으로 삭제됩니다. 예기치 않은 삭제로부터 저장소 계정을 보호하는 방법을 알아보려면 Azure Resource Manager 문서 [예기치 않은 변경을 방지하기 위해 리소스 잠그기](/azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
+아니요, 전체 계정 또는 컨테이너를 삭제하면 연결된 모든 Blob은 영구적으로 삭제됩니다. 예기치 않은 삭제로부터 저장소 계정을 보호하는 방법을 알아보려면 Azure Resource Manager 문서 [예기치 않은 변경을 방지하기 위해 리소스 잠그기](../../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
 
 **삭제된 데이터에 대한 용량 메트릭을 볼 수 있나요?**
 

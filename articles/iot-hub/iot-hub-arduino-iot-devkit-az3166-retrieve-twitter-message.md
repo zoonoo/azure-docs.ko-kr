@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색!
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/03/2018
 
 활성 Azure 구독. 아직 구독이 없으면 다음 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/en-us/free/) 활성화
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="open-the-project-folder"></a>프로젝트 폴더 열기
@@ -44,10 +44,6 @@ ms.lasthandoff: 04/03/2018
 - VS Code를 시작합니다.
 - DevKit를 컴퓨터에 연결합니다.
 
-VS Code는 자동으로 DevKit를 찾아서 소개 페이지를 표시합니다.
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > VS Code를 시작할 때 Arduino IDE 또는 관련 보드 패키지를 찾을 수 없다는 오류 메시지가 나타날 수 있습니다. 이 오류가 발생할 경우 VS Code를 닫고 Arduino IDE를 다시 시작합니다. 이제 VS Code가 Arduino IDE 경로를 제대로 찾을 것입니다.
 
@@ -57,7 +53,8 @@ VS Code는 자동으로 DevKit를 찾아서 소개 페이지를 표시합니다.
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+> [!NOTE]
+> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
@@ -68,7 +65,7 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 ![클라우드 프로비전](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> Azure에 로그인하려고 시도하면 페이지가 로딩 상태에서 중지되는 경우 [FAQ 단계]({{"/docs/faq/#page-hangs-when-log-in-azure" 문서를 참조하세요. | 
+> Azure에 로그인하려고 시도할 때 페이지가 로딩 상태에서 중지되는 경우 이 [FAQ 단계](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure)를 참조하세요.
  
 ## <a name="modify-the-hashtag"></a>#해시태그 수정
 
@@ -191,6 +188,6 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 DevKit 장치를 Azure IoT Suite에 연결하고 트윗을 검색하는 방법을 알아보았으며, 이제부터는 다음 단계를 살펴볼 것을 권장합니다.
+지금까지 DevKit 장치를 Azure IoT 원격 모니터링 솔루션 가속기에 연결하고 트윗을 검색하는 방법을 알아보았으며, 이제부터는 다음 단계를 살펴볼 것을 권장합니다.
 
-* [Azure IoT Suite 개요](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)

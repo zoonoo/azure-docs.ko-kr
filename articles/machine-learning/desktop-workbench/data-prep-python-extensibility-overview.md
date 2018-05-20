@@ -4,19 +4,17 @@ description: 이 문서에서는 Python 코드를 사용하여 데이터 준비�
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
 기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
@@ -24,14 +22,10 @@ ms.lasthandoff: 04/19/2018
 ## <a name="custom-code-steps"></a>사용자 지정 코드 단계 
 데이터 준비에는 사용자가 코드를 작성할 수는 다음과 같은 사용자 지정 단계가 있습니다.
 
-* 파일 판독기*
-* 기록기*
 * 열 추가
 * 고급 필터
 * 데이터 흐름 변환
 * 파티션 변환
-
-*이러한 단계는 현재 Spark 실행에서 지원되지 않습니다.
 
 ## <a name="code-block-types"></a>코드 블록 형식 
 위 각 단계에 대해 두 가지 코드 블록 형식이 지원됩니다. 첫째, 있는 그대로 실행되는 기본 Python 식이 지원됩니다. 둘째, 제공한 코드에서 알려진 서명을 사용하여 특정 함수를 호출하는 Python 모듈이 지원됩니다.
@@ -158,74 +152,6 @@ def newvalue(row):
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>파일 판독기 
-### <a name="purpose"></a>목적 
-파일 판독기 확장 지점에서 데이터 흐름으로 파일을 읽는 프로세스를 완벽하게 제어할 수 있습니다. 시스템은 코드를 호출하고 처리해야 하는 파일 목록을 전달합니다. 코드는 Pandas 데이터 프레임을 만들어 반환해야 합니다. 
-
->[!NOTE]
->이 확장 지점은 Spark에서 작동하지 않습니다. 
-
-
-### <a name="how-to-use"></a>사용 방법 
-**데이터 원본 열기** 마법사에서 이 확장 지점에 액세스합니다. 첫 번째 페이지에서 **파일**을 선택하고 파일 위치를 선택합니다. **파일 매개 변수 선택** 페이지의 **파일 형식** 드롭다운 목록에서 **사용자 지정 파일(스크립트)**을 선택합니다. 
-
-코드에는 읽어야 하는 파일에 대한 정보가 포함된 “df”라는 Pandas 데이터 프레임이 제공됩니다. 여러 파일이 포함된 디렉터리를 열기로 선택한 경우 데이터 프레임에 둘 이상의 행이 포함됩니다.  
-
-이 데이터 프레임에는 다음과 같은 열이 있습니다.
-
-- Path: 읽을 파일입니다.
-- PathHint: 파일이 있는 위치를 알려줍니다. 값: Local, AzureBlobStorage 및 AzureDataLakeStorage
-- AuthenticationType: 파일에 액세스하는 데 사용되는 인증 유형입니다. 값: None, SasToken 및 OAuthToken
-- AuthenticationValue: None 또는 사용할 토큰을 포함합니다.
-
-### <a name="syntax"></a>구문 
-식 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-모듈  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>기록기 
-### <a name="purpose"></a>목적 
-이러한 기록기 확장 지점에서 데이터 흐름으로부터 파일을 쓰는 프로세스를 완벽하게 제어할 수 있습니다. 시스템은 코드를 호출하고 데이터 프레임을 전달합니다. 코드는 해당 데이터 프레임을 사용하여 사용자가 원하는 방식으로 데이터를 쓸 수 있습니다. 
-
->[!NOTE]
->이 기록기 확장 지점은 Spark에서 작동하지 않습니다.
-
-
-### <a name="how-to-use"></a>사용 방법 
-데이터 흐름 쓰기(스크립트) 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 **변환** 메뉴에서 사용할 수 있습니다.
-
-### <a name="syntax"></a>구문 
-식
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-모듈
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-이 사용자 지정 쓰기 블록은 단계 목록 중간에 있을 수 있습니다. 모듈을 사용하는 경우 쓰기 함수는 다음 단계에 대한 입력이 되는 데이터 프레임을 반환해야 합니다. 
 
 ## <a name="add-column"></a>열 추가 
 ### <a name="purpose"></a>목적

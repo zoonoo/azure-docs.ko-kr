@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c1c3191ba198b56386f813b6f9d2588b895633c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50f95dc1af334468db25bce68f2ca00e0965a28b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>IoT Hub를 사용한 장치-클라우드 및 클라우드-장치 메시징
 
@@ -31,7 +31,7 @@ IoT Hub 메시징을 사용하여 다음과 같은 방법으로 장치와 통신
 
 IoT Hub 메시징 기능의 핵심 속성은 메시지의 안정성 및 내구성입니다. 이 속성을 사용하여 장치 쪽에서 일시적인 연결 및 클라우드 쪽에서 이벤트 처리에 급증한 부하를 복원합니다. IoT Hub는 장치-클라우드 및 클라우드-장치 메시징 모두에 대해 *한 번 이상* 전달 보증을 구현합니다.
 
-IoT Hub 기능에 대한 소개는 [Azure 및 사물 인터넷][lnk-azure-iot]과 [Azure IoT Hub 서비스 개요][lnk-iot-hub-overview] 문서를 참조하세요.
+IoT Hub 기능에 대한 소개는 [Azure IoT Hub 서비스 개요][lnk-iot-hub-overview]를 참조하세요.
 
 ## <a name="when-to-use-iot-hub-messaging"></a>IoT Hub 메시징을 사용하는 경우
 

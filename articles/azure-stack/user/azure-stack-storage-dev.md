@@ -1,29 +1,30 @@
 ---
-title: "Azure 스택 저장소 개발 도구 시작"
-description: "Azure 스택 저장소 개발 도구를 사용 하 여 시작에 대 한 지침"
+title: Azure 스택 저장소 개발 도구 시작
+description: Azure 스택 저장소 개발 도구를 사용 하 여 시작에 대 한 지침
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 02/21/2018
+ms.date: 05/14/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 81c62fc569e9f758d08bfca0bdfc5bcc9ed5860f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure 스택 저장소 개발 도구 시작
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Microsoft Azure 스택 Azure Blob, 테이블 및 큐 저장소를 포함 하 여 저장소 서비스의 집합을 제공 합니다.
+Microsoft Azure 스택 저장소 서비스의 blob, 테이블 및 큐 저장소를 포함 하는 집합을 제공 합니다.
 
-이 문서는 Azure 스택 저장소 개발 도구를 사용 하 여 시작 하는 방법에 빠른 지침을 제공 합니다. 해당 하는 Azure 저장소 자습서에 보다 자세한 정보 및 예제 코드를 찾을 수 있습니다.
+지침으로이 문서를 사용 하 여 Azure 스택 저장소 개발 도구를 사용 하 여 시작 합니다. Azure 저장소의 해당 자습서에서 보다 자세한 정보 및 예제 코드를 찾을 수 있습니다.
 
-Azure 저장소와 각 플랫폼에 대 한 몇 가지 특정 요구 사항을 포함 하 여 Azure 스택 저장소와 차이점 알려져 있습니다. 예를 들어 특정 클라이언트 라이브러리 및 Azure 스택에 대 한 특정 끝점 접미사 요구 됩니다. 자세한 내용은 참조 [Azure 스택 저장소: 차이점과 고려 사항을](azure-stack-acs-differences.md)합니다.
+>[!NOTE]
+>Azure 스택 저장소와 Azure 저장소의 경우 각 플랫폼에 대 한 특정 요구 사항을 비롯 한 차이점으로 알려져 있습니다. 예를 들어 특정 클라이언트 라이브러리 및 Azure 스택에 대 한 특정 끝점 접미사 요구 됩니다. 자세한 내용은 참조 [Azure 스택 저장소: 차이점과 고려 사항을](azure-stack-acs-differences.md)합니다.
 
 ## <a name="azure-client-libraries"></a>Azure 클라이언트 라이브러리
 
@@ -37,15 +38,16 @@ Azure 스택 저장소에 대 한 지원 되는 REST API 버전은 2017-04-17, 2
 | 자바 | 6.1.0 | Maven 패키지:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | 연결 문자열 설정 |
 | Node.js | 2.7.0 | NPM 링크:<br>https://www.npmjs.com/package/azure-storage<br>(실행: `npm install azure-storage@2.7.0`)<br> <br>Github 릴리스:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | 서비스 인스턴스 선언 |
 | C++ | 3.1.0 | Nuget 패키지:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | 연결 문자열 설정 |
-| PHP | 1.0.0 | GitHub 릴리스:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Table: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>작성기를 통해 설치 (에 대해 [아래의 세부 정보를 보려면](#install-php-client-via-composer---current).) | 연결 문자열 설정 |
+| PHP | 1.0.0 | GitHub 릴리스:<br>일반적인: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Table: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>작성기를 통해 설치 (에 대해 [아래의 세부 정보를 보려면](#install-php-client-via-composer---current).) | 연결 문자열 설정 |
 | 파이썬 | 1.0.0 | GitHub 릴리스:<br>일반적인:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Blob:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | 서비스 인스턴스 선언 |
-| Ruby | 1.0.1 | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Queue: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Table: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub 릴리스:<br>Common: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Queue: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Table: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | 연결 문자열 설정 |
+| Ruby | 1.0.1 | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>큐: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Table: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub 릴리스:<br>일반적인: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>큐: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Table: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | 연결 문자열 설정 |
 
 #### <a name="install-php-client-via-composer---current"></a>작성기-현재 통해 PHP 클라이언트를 설치 합니다.
 
 작성기를 통해 설치 하려면: (take blob 예제).
 
 1. 라는 파일을 만들어 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에서:
+
   ```php
     {
       "require": {
@@ -53,6 +55,7 @@ Azure 스택 저장소에 대 한 지원 되는 REST API 버전은 2017-04-17, 2
       }
     }
   ```
+
 2. 다운로드 [composer.phar](http://getcomposer.org/composer.phar) 프로젝트 루트에 있습니다.
 3. `php composer.phar install`을 실행합니다.
 
@@ -73,6 +76,7 @@ Azure 스택 저장소에 대 한 지원 되는 REST API 버전은 2017-04-17, 2
 작성기를 통해 설치 하는 방법
 
 1. 라는 파일을 만들어 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에서:
+
   ```php
     {
           "require":{
@@ -80,6 +84,7 @@ Azure 스택 저장소에 대 한 지원 되는 REST API 버전은 2017-04-17, 2
           }
     }
   ```
+
 2. 다운로드 [composer.phar](http://getcomposer.org/composer.phar) 프로젝트 루트에 있습니다.
 3. `php composer.phar install`을 실행합니다.
 
@@ -91,16 +96,16 @@ Azure 스택 개발 키트에 기본 끝점은 **local.azurestack.external**합�
 
 ## <a name="examples"></a>예
 
-
 ### <a name="net"></a>.NET
 
 Azure 스택에 대 한 끝점 접미사는 app.config 파일에 지정 됩니다.
 
 ```
-<add key="StorageConnectionString" 
+<add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
 ```
+
 ### <a name="java"></a>자바
 
 Azure 스택에 대 한 끝점 접미사는 설치 하는 연결 문자열에에서 지정 됩니다.
@@ -121,6 +126,7 @@ Azure 스택에 대 한 끝점 접미사 선언 인스턴스에 지정 됩니다
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
+
 ### <a name="c"></a>C++
 
 Azure 스택에 대 한 끝점 접미사는 설치 하는 연결 문자열에에서 지정 됩니다.
@@ -152,6 +158,7 @@ block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
 ```
+
 ### <a name="ruby"></a>Ruby
 
 Azure 스택에 대 한 끝점 접미사는 설치 하는 연결 문자열에에서 지정 됩니다.
@@ -187,7 +194,6 @@ EndpointSuffix=local.azurestack.external
 * [PHP에서 큐 저장소를 사용하는 방법](../../storage/queues/storage-php-how-to-use-queues.md)
 * [Python에서 큐 저장소를 사용하는 방법](../../storage/queues/storage-python-how-to-use-queue-storage.md)
 * [Ruby에서 큐 저장소를 사용하는 방법](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
-
 
 ## <a name="table-storage"></a>테이블 저장소
 

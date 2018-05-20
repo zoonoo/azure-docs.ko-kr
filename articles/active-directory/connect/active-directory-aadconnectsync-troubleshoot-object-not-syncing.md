@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD와 동기화되지 않는 개체 문제 해결
 
@@ -139,7 +139,7 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 - 사용자가 표시되는 각 Active Directory 포리스트. 이 표시에는 foreignSecurityPrincipals 및 Contact 개체가 포함될 수 있습니다.
 - Azure AD의 커넥터.
 
-Azure AD에 대한 커넥터가 없으면 [MV 특성](#MV-attributes)을 읽어 Azure AD로 프로비전되기 위한 기준을 확인합니다.
+Azure AD에 대한 커넥터가 없으면 [MV 특성](#mv-attributes)을 읽어 Azure AD로 프로비전되기 위한 기준을 확인합니다.
 
 이 탭을 사용하여 [커넥터 공간 개체](#connector-space-object-properties)로 이동할 수도 있습니다. 행을 선택하고 **속성**을 클릭합니다.
 

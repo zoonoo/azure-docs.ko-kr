@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
 
@@ -49,15 +49,15 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
 
 ### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>옵션 1: Azure CDN에서 Blob 저장소로 통과된 SAS 사용
 
-이 옵션은 Azure CDN에서 원본 서버로 전달된 단일 SAS 토큰만 사용하는 가장 단순한 방법입니다. **Verizon의 Azure CDN** 및 **Akamai의 Azure CDN**에서 지원됩니다. 
+이 옵션은 Azure CDN에서 원본 서버로 전달된 단일 SAS 토큰만 사용하는 가장 단순한 방법입니다. **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에서 지원됩니다. 
  
 1. 엔드포인트를 선택하고 **캐싱 규칙**을 선택한 다음, **쿼리 문자열 캐싱** 목록에서 **각 고유한 URL 캐시**를 선택합니다.
 
     ![CDN 캐싱 규칙](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
-2. 저장소 계정에서 SAS를 설정한 후 Azure CDN URL과 함께 SAS 토큰을 사용하여 파일에 액세스합니다. 
+2. 저장소 계정에서 SAS를 설정한 후 CDN 엔드포인트 및 원본 서버 URL과 함께 SAS 토큰을 사용하여 파일에 액세스해야 합니다. 
    
-   결과 URL의 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   결과 CDN 엔드포인트 URL의 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    예:    
    ```
@@ -66,9 +66,9 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    
 3. 캐싱 규칙을 사용하거나 원본 서버에서 `Cache-Control` 헤더를 추가하여 캐시 지속 기간을 미세 조정합니다. Azure CDN은 SAS 토큰을 일반 쿼리 문자열로 취급하므로 SAS 만료 시간 또는 이전에 만료되는 캐싱 기간을 설정하는 것이 좋습니다. 그러지 않으면 SAS가 활성 상태인 기간보다 오랫동안 파일이 캐시되는 경우 SAS 만료 시간이 지난 후에도 Azure CDN 원본 서버에서 파일에 액세스할 수 있습니다. 이러한 상황이 발생하는 경우 캐시된 파일에 액세스할 수 없도록 하려면 파일에서 제거 작업을 수행하여 캐시에서 파일을 지워야 합니다. Azure CDN에서 캐시 기간을 설정하는 방법은 [캐싱 규칙으로 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요.
 
-### <a name="option-2-hidden-cdn-security-token-using-a-rewrite-rule"></a>옵션 2: 다시 쓰기 규칙을 사용하여 숨긴 CDN 보안 토큰
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>옵션 2: 다시 쓰기 규칙을 사용하여 숨긴 CDN SAS 토큰
  
-이 옵션을 사용하면 Azure CDN 사용자가 URL에서 SAS 토큰을 사용할 필요 없이 원본 Blob 저장소를 보호할 수 있습니다. 파일에 대한 특정 액세스 제한이 필요하지 않지만 사용자가 저장소 원본에 직접 액세스하지 못하게 하여 Azure CDN 오프로드 시간을 개선하려는 경우 이 옵션을 사용할 수 있습니다. 이 옵션은 **Verizon의 Azure CDN Premium** 프로필에서만 사용할 수 있습니다. 
+이 옵션은 **Verizon의 Azure CDN Premium** 프로필에서만 사용할 수 있습니다. 이 옵션을 사용하여 원본 서버에서 Blob 저장소를 보호할 수 있습니다. 파일에 대한 특정 액세스 제한이 필요하지 않지만 사용자가 저장소 원본에 직접 액세스하지 못하게 하여 Azure CDN 오프로드 시간을 개선하려는 경우 이 옵션을 사용할 수 있습니다. 원본 서버의 지정된 컨테이너에서 파일에 액세스하는 모든 사용자에게 알려지지 않은 SAS 토큰이 필요합니다. 그러나 URL 다시 쓰기 규칙으로 인해 SAS 토큰은 CDN 엔드포인트에 필요하지 않습니다.
  
 1. [규칙 엔진](cdn-rules-engine.md)을 사용하여 URL 다시 쓰기 규칙을 만듭니다. 새 규칙이 전파되는 데 90분 정도 걸립니다.
 
@@ -79,7 +79,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    다음 샘플 URL 다시 쓰기 규칙은 캡처링 그룹 및 *storagedemo*라는 엔드포인트와 함께 정규식 패턴을 사용합니다.
    
    원본:   
-   `(/test/*.)`
+   `(/test/.*)`
    
    대상:   
    ```
@@ -88,22 +88,21 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
 
    ![CDN URL 다시 쓰기 규칙](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
-2. 새 규칙이 활성화되면 다음 형식으로 URL에서 SAS 토큰을 사용하지 않고 Azure CDN의 파일에 액세스할 수 있습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. 새 규칙이 활성화되면 URL에서 SAS 토큰을 사용하는지 여부에 관계 없이 누구나 CDN 엔드포인트에 지정된 컨테이너에서 파일에 액세스할 수 있습니다. 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    예:    
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   이제 SAS 토큰 사용 여부와 관계 없이 누구나 CDN 엔드포인트의 파일에 액세스할 수 있습니다. 
 
 3. 캐싱 규칙을 사용하거나 원본 서버에서 `Cache-Control` 헤더를 추가하여 캐시 지속 기간을 미세 조정합니다. Azure CDN은 SAS 토큰을 일반 쿼리 문자열로 취급하므로 SAS 만료 시간 또는 이전에 만료되는 캐싱 기간을 설정하는 것이 좋습니다. 그러지 않으면 SAS가 활성 상태인 기간보다 오랫동안 파일이 캐시되는 경우 SAS 만료 시간이 지난 후에도 Azure CDN 원본 서버에서 파일에 액세스할 수 있습니다. 이러한 상황이 발생하는 경우 캐시된 파일에 액세스할 수 없도록 하려면 파일에서 제거 작업을 수행하여 캐시에서 파일을 지워야 합니다. Azure CDN에서 캐시 기간을 설정하는 방법은 [캐싱 규칙으로 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요.
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>옵션 3: 다시 쓰기 규칙과 함께 CDN 보안 토큰 인증 사용
 
-이 옵션은 가장 안전하며 사용자 지정이 가능합니다. Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium** 프로필이 있어야 합니다. 클라이언트 액세스는 보안 토큰에 설정된 보안 매개 변수를 기반으로 합니다. 그러나 SAS가 나중에 잘못되는 경우 Azure CDN은 원본 서버에서 콘텐츠의 유효성을 다시 검사할 수 없습니다.
+Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium** 프로필이 있어야 합니다. 이 옵션은 가장 안전하며 사용자 지정이 가능합니다. 클라이언트 액세스는 보안 토큰에 설정된 보안 매개 변수를 기반으로 합니다. 보안 토큰을 생성하고 설정하면 모든 CDN 엔드포인트 URL에서 필요합니다. 그러나 URL 다시 쓰기 규칙으로 인해 SAS 토큰은 CDN 엔드포인트에 필요하지 않습니다. SAS 토큰이 나중에 잘못되는 경우 Azure CDN은 원본 서버에서 콘텐츠의 유효성을 더 이상 다시 검사할 수 없습니다.
 
 1. [Azure CDN 보안 토큰을 만들고](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) CDN 엔드포인트에 대한 규칙 엔진과 사용자가 파일에 액세스할 수 있는 경로를 사용하여 이 토큰을 활성화합니다.
 
-   보안 토큰 URL의 형식은 다음과 같습니다.   
+   보안 토큰 엔드포인트 URL의 형식은 다음과 같습니다.   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
    예:    
@@ -111,14 +110,14 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
-   보안 토큰 인증에 대한 매개 변수 옵션은 SAS 토큰에 대한 매개 변수 옵션과 다릅니다. 보안 토큰을 만들 때 만료 시간을 사용하는 경우 SAS 토큰의 만료 시간과 같은 값으로 설정합니다. 이렇게 하면 만료 시간을 예측할 수 있게 됩니다. 
+   보안 토큰 인증에 대한 매개 변수 옵션은 SAS 토큰에 대한 매개 변수 옵션과 다릅니다. 보안 토큰을 만들 때 만료 시간을 사용하는 경우 SAS 토큰의 만료 시간과 같은 값으로 설정해야 합니다. 이렇게 하면 만료 시간을 예측할 수 있게 됩니다. 
  
 2. [규칙 엔진](cdn-rules-engine.md)으로 URL 다시 쓰기 규칙을 만들어 컨테이너의 모든 Blob에 대한 SAS 토큰 액세스를 사용하도록 설정합니다. 새 규칙이 전파되는 데 90분 정도 걸립니다.
 
    다음 샘플 URL 다시 쓰기 규칙은 캡처링 그룹 및 *storagedemo*라는 엔드포인트와 함께 정규식 패턴을 사용합니다.
    
    원본:   
-   `(/test/*.)`
+   `(/test/.*)`
    
    대상:   
    ```
@@ -127,7 +126,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
 
    ![CDN URL 다시 쓰기 규칙](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
-3. SAS를 갱신하는 경우 새 SAS 토큰을 사용하여 URL 다시 쓰기 규칙을 업데이트합니다. 
+3. SAS를 갱신하는 경우 새 SAS 토큰을 사용하여 URL 다시 쓰기 규칙을 업데이트해야 합니다. 
 
 ## <a name="sas-parameter-considerations"></a>SAS 매개 변수 고려 사항
 

@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid로부터 HTTP 엔드포인트로 이벤트 수신"
-description: "HTTP 엔드포인트의 유효성을 검사한 다음, Azure Event Grid로부터 이벤트를 수신하고 직렬화를 해제하는 방법을 설명합니다. "
+title: Azure Event Grid로부터 HTTP 엔드포인트로 이벤트 수신
+description: 'HTTP 엔드포인트의 유효성을 검사한 다음, Azure Event Grid로부터 이벤트를 수신하고 직렬화를 해제하는 방법을 설명합니다. '
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 179f7c46186762eed2f7f8ac90620ac2fec9caf3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
@@ -23,13 +23,13 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 간단한 [HTTP 트리거 함수](../azure-functions/functions-create-generic-webhook-triggered-function.md)가 있는 함수 앱을 만들어야 합니다.
+* [HTTP 트리거 함수](../azure-functions/functions-create-generic-webhook-triggered-function.md)가 있는 함수 앱을 만들어야 합니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-.Net에서 개발할 때는 `Microsoft.Azure.EventGrid` [Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)에 대해 함수에 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies)합니다. 다른 언어에 대한 SDK는 [SDK 게시](./sdk-overview.md#publish-sdks) 참조에서 제공합니다. 이 패키지에는 `EventGridEvent`, `StorageBlobCreatedEventData`, `EventHubCaptureFileCreatedEventData` 등의 원시 이벤트 형식에 대한 모델이 들어 있습니다.
+.NET에서 개발할 때는 `Microsoft.Azure.EventGrid` [Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)에 대해 함수에 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies)합니다. 다른 언어에 대한 SDK는 [SDK 게시](./sdk-overview.md#data-plane-sdks) 참조에서 제공합니다. 이 패키지에는 `EventGridEvent`, `StorageBlobCreatedEventData`, `EventHubCaptureFileCreatedEventData` 등의 원시 이벤트 형식에 대한 모델이 들어 있습니다.
 
-이를 위해 Azure Function(Azure Functions Portal)에서 "파일 보기" 링크를 클릭하고 이름이 project.json인 파일을 만듭니다. 다음 콘텐츠를 `project.json` 파일에 추가하고 저장합니다.
+Azure Function에서 "파일 보기" 링크를 클릭하고(Azure 함수 포털의 가장 오른쪽 창) 이름이 project.json인 파일을 만듭니다. 다음 콘텐츠를 `project.json` 파일에 추가하고 저장합니다.
 
  ```json
 {
@@ -41,19 +41,17 @@ ms.lasthandoff: 02/24/2018
     }
    }
 }
-
 ```
 
-![추가된 NuGet 패키지 ](./media/receive-events/add-dependencies.png)
+![추가된 NuGet 패키지](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>엔드포인트 유효성 검사
 
-먼저 수행할 작업은 `Microsoft.EventGrid.SubscriptionValidationEvent` 이벤트를 처리하는 것입니다. 새 이벤트 구독을 만들 때마다 Event Grid는 유효성 검사 이벤트를 데이터 페이로드에 `validationCode`가 있는 엔드포인트에 보냅니다. 엔드포인트는 응답 본문에서 [엔드포인트가 유효하며 자신의 소유임을 증명하기 위해](security-authentication.md#webhook-event-delivery) 이를 다시 에코하는 데 필요합니다. 웹후크 트리거 함수가 아닌 [Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md)를 사용할 경우 엔드포인트 유효성 검사가 자동으로 처리됩니다.
+먼저 수행할 작업은 `Microsoft.EventGrid.SubscriptionValidationEvent` 이벤트를 처리하는 것입니다. 누군가가 이벤트를 구독할 때마다 Event Grid는 유효성 검사 이벤트를 데이터 페이로드에 `validationCode`가 있는 엔드포인트에 보냅니다. 엔드포인트는 응답 본문에서 [엔드포인트가 유효하며 자신의 소유임을 증명하기 위해](security-authentication.md#webhook-event-delivery) 이를 다시 에코하는 데 필요합니다. 웹후크 트리거 함수가 아닌 [Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md)를 사용할 경우 엔드포인트 유효성 검사가 자동으로 처리됩니다. 타사 API 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 프로그래밍 방식으로 유효성 검사 코드를 에코하지 못할 수 있습니다. 이러한 서비스의 경우 구독 유효성 검사 이벤트에 전송된 유효성 검사 URL을 사용하여 수동으로 구독의 유효성을 검사할 수 있습니다. `validationUrl` 속성에 해당 URL을 복사하고 REST 클라이언트 또는 웹 브라우저를 통해 GET 요청을 보냅니다.
 
-다음 코드를 사용하여 구독 유효성 검사를 처리합니다.
+프로그래밍 방식으로 유효성 검사 코드를 에코하려면 다음 코드를 사용합니다.
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -102,7 +100,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -122,7 +119,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### <a name="test-validation-response"></a>유효성 검사 응답 테스트
@@ -130,7 +126,6 @@ module.exports = function (context, req) {
 샘플 이벤트를 함수에 대한 테스트 필드에 붙여넣어 유효성 검사 응답 함수를 테스트합니다.
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -143,7 +138,6 @@ module.exports = function (context, req) {
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 실행을 클릭하면 출력 본문에 200 OK 및 `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}`이 있어야 합니다.
@@ -152,10 +146,9 @@ module.exports = function (context, req) {
 
 ## <a name="handle-blob-storage-events"></a>BLOB 저장소 이벤트 처리
 
-이제 함수를 확장하여 `Microsoft.Storage.BlobCreated`를 처리할 수 있습니다.
+이제 함수를 확장하여 `Microsoft.Storage.BlobCreated`를 처리해 보겠습니다.
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -211,7 +204,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -245,7 +237,6 @@ module.exports = function (context, req) {
 [Blob 저장소 이벤트](./event-schema-blob-storage.md#example-event)를 테스트 필드에 놓고 실행하여 함수의 새 기능을 테스트할 수 있습니다.
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -269,23 +260,21 @@ module.exports = function (context, req) {
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 함수 로그에 Blob URL 출력이 있어야 합니다.
 
 ![출력 로그](./media/receive-events/blob-event-response.png)
 
-Blob 저장소 계정이나 GPv2(General Purpose V2) 저장소 계정을 만들고 [이벤트 구독을 추가한 다음](../storage/blobs/storage-blob-event-quickstart.md) 엔드포인트를 함수 URL로 설정해서 이 출력을 라이브로 테스트할 수도 있습니다.
+Blob 저장소 계정이나 GPv2(General Purpose V2) 저장소 계정을 만들고 [이벤트 구독을 추가한 다음](../storage/blobs/storage-blob-event-quickstart.md) 엔드포인트를 함수 URL로 설정해서 테스트할 수도 있습니다.
 
 ![함수 URL](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>사용자 지정 이벤트 처리
 
-마지막으로, 사용자 지정 이벤트를 처리할 수 있도록 함수를 더 확장할 수 있습니다. 고유 이벤트인 `Contoso.Items.ItemReceived`에 대해 확인을 추가합니다. 최종 코드는 다음과 유사할 것입니다.
+마지막으로, 사용자 지정 이벤트를 처리할 수 있도록 함수를 더 확장할 수 있습니다. 이벤트 `Contoso.Items.ItemReceived`에 대한 검사를 추가합니다. 최종 코드는 다음과 같이 표시됩니다.
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -354,7 +343,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -401,7 +389,6 @@ module.exports = function (context, req) {
 마지막으로, 확장된 함수가 이제 사용자 지정 이벤트 형식을 처리할 수 있는지 테스트합니다.
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -415,7 +402,6 @@ module.exports = function (context, req) {
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 [포털의 CURL로 사용자 지정 이벤트를 보내거나](./custom-event-quickstart-portal.md), [Postman](https://www.getpostman.com/)처럼 엔드포인트에 POST할 수 있는 서비스나 응용 프로그램을 사용하여 [사용자 지정 토픽에 게시하여](./post-to-custom-topic.md) 이 기능을 라이브로 테스트할 수도 있습니다. 함수 URL로 설정된 엔드포인트를 통해 사용자 지정 토픽과 이벤트 구독을 만듭니다.

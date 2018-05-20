@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -79,7 +79,7 @@ Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니�
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Linux 데이터를 이벤트 허브로 스트리밍
 
-[Linux Azure 진단 에이전트](../virtual-machines/linux/diagnostic-extension.md)를 사용하여 Linux 컴퓨터에서 이벤트 허브로 모니터링 데이터를 보낼 수 있습니다. 이렇게 하려면 LAD 구성 파일의 보호 설정 JSON에서 이벤트 허브를 싱크로 추가합니다. [Linux Azure 진단 에이전트에 이벤트 허브 싱크를 추가하는 방법에 대한 자세한 내용은 이 문서를 참조하세요](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+[Linux Azure 진단 에이전트](../virtual-machines/extensions/diagnostics-linux.md)를 사용하여 Linux 컴퓨터에서 이벤트 허브로 모니터링 데이터를 보낼 수 있습니다. 이렇게 하려면 LAD 구성 파일의 보호 설정 JSON에서 이벤트 허브를 싱크로 추가합니다. [Linux Azure 진단 에이전트에 이벤트 허브 싱크를 추가하는 방법에 대한 자세한 내용은 이 문서를 참조하세요](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > 게스트 OS 모니터링 데이터는 포털의 이벤트 허브로 스트리밍하도록 설정할 수 없습니다. 대신 구성 파일을 수동으로 편집해야 합니다.

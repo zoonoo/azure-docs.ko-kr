@@ -1,23 +1,23 @@
 ---
-title: "AKS(Azure Container Service) 부하 분산 장치에 고정 IP 주소 사용"
-description: "AKS(Azure Container Service) 부하 분산 장치에 고정 IP 주소를 사용합니다."
+title: AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소를 사용합니다.
+description: AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소를 사용합니다.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c250ef3520079f58eea2362212d861fdb134e1af
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>AKS(Azure Container Service) 부하 분산 장치에 고정 IP 주소 사용
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소를 사용합니다.
 
-AKS(Azure Container Service) 부하 분산 장치가 만들어지거나 LoadBalancer 유형의 Kubernetes 서비스가 다시 만들어지는 경우와 비슷한 상황에서는 Kubernetes 서비스의 공용 IP 주소가 변경될 수 있습니다. 이 문서에서는 Kubernetes 서비스에 대한 고정 IP 주소를 구성하는 방법을 자세히 설명합니다.
+AKS(Azure Kubernetes Service) 부하 분산 장치가 만들어지거나 LoadBalancer 유형의 Kubernetes 서비스가 다시 만들어지는 경우와 비슷한 상황에서는 Kubernetes 서비스의 공용 IP 주소가 변경될 수 있습니다. 이 문서에서는 Kubernetes 서비스에 대한 고정 IP 주소를 구성하는 방법을 자세히 설명합니다.
 
 ## <a name="create-static-ip-address"></a>고정 IP 주소 만들기
 
@@ -59,9 +59,11 @@ IP 주소를 기록해 둡니다.
 
  필요한 경우 [az network public-ip list][az-network-public-ip-list] 명령을 사용하여 주소를 검색할 수 있습니다.
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 고정 IP 주소가 만들어지지 않았거나 잘못된 리소스 그룹에 만들어진 경우 서비스 만들기가 실패합니다. 문제를 해결하려면 [kubectl describe][kubectl-describe] 명령을 사용하여 서비스 만들기 이벤트로 돌아갑니다.
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>
@@ -112,7 +116,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

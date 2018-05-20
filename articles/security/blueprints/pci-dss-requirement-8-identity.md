@@ -1,9 +1,9 @@
 ---
-title: "Azure Payment Processing Blueprint - ID 요구 사항"
-description: "PCI DSS 요구 사항 8"
+title: Azure Payment Processing Blueprint - ID 요구 사항
+description: PCI DSS 요구 사항 8
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 ID 요구 사항 
 ## <a name="pci-dss-requirement-8"></a>PCI DSS 요구 사항 8
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **시스템 구성 요소에 대한 액세스 식별 및 인증**
 
 > [!NOTE]
-> 이러한 요구 사항은 [PCI DSS(데이터 보안 표준) 버전 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss)의 일부로 [PCI(지불 카드 업계) 보안 표준 협의회](https://www.pcisecuritystandards.org/pci_security/)에 의해 정의됩니다. 각 요구 사항에 대한 테스트 절차 및 지침에 대한 정보는 PCI DSS를 참조하세요.
+> 이러한 요구 사항은 [PCI DSS(데이터 보안 표준) 버전 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss)의 일부로 [PCI(결제 카드 산업) 보안 표준 위원회](https://www.pcisecuritystandards.org/pci_security/)에 의해 정의됩니다. 각 요구 사항에 대한 테스트 절차 및 지침에 대한 정보는 PCI DSS를 참조하세요.
 
 액세스할 수 있는 각 사용자에게 고유한 식별(ID)를 할당하면 각 개별 사용자는 해당 작업에서 고유하게 책임을 집니다. 이러한 책임을 사용하면 중요 데이터와 시스템에서 취해진 조치는 알려지고 권한이 부여된 사용자 및 프로세스별로 수행되고 추적될 수 있습니다.
 암호의 유효성은 인증 시스템의 디자인 및 구현에 의해 크게 좌우됩니다. 특히 공격자에 의한 암호 시도 빈도 및 진입 지점, 전송 중 및 저장 중에 사용자 암호를 보호하는 보안 방법이 여기에 해당합니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 샘플 배포에서 관리자가 올바르게 사용하는 방법에 대한 사용 사례 및 설명을 제공합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 샘플 배포에서 관리자가 올바르게 사용하는 방법에 대한 사용 사례 및 설명을 제공합니다.|
 
 
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 사용자가 고유 ID를 갖도록 Azure Active Directory 및 Azure Active Directory RBAC(역할 기반 액세스 제어)를 구현합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 사용자가 고유 ID를 갖도록 Azure Active Directory 및 Azure Active Directory RBAC(역할 기반 액세스 제어)를 구현합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
 
 
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 모든 사용자가 고유 ID를 갖도록 Azure Active Directory 및 Azure Active Directory RBAC(역할 기반 액세스 제어)를 구현합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 모든 사용자가 고유 ID를 갖도록 Azure Active Directory 및 Azure Active Directory RBAC(역할 기반 액세스 제어)를 구현합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
 
 
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 사용자 관리를 위해 Azure Active Directory를 활용합니다. 사용자의 해지는 Active Directory에서 수행할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 사용자 관리를 위해 Azure Active Directory를 활용합니다. 사용자의 해지는 Active Directory에서 수행할 수 있습니다.|
 
 
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 사용자 관리를 위해 Azure Active Directory를 사용합니다. 암호가 90일 이내에 만료되도록 `-enableADDomainPasswordPolicy` 옵션을 설정할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 사용자 관리를 위해 Azure Active Directory를 사용합니다. 암호가 90일 이내에 만료되도록 `-enableADDomainPasswordPolicy` 옵션을 설정할 수 있습니다.|
 
 
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure는 정보 보안 정책을 비롯하여 적용 가능한 기업 및 조직 보안 정책을 채택했습니다. 정책이 Microsoft Azure에 승인되고, 게시되고, 전달되었습니다. 정보 보안 정책은 자산 소유자 권한을 사용하여 비즈니스 근거에 따라 Microsoft Azure 자산에 대한 액세스를 부여하고 "알아야 할 필요" 및 "최소 권한" 원칙에 따라 제한해야 합니다. 또한 정책은 액세스 프로비전, 인증, 액세스 권한 부여, 액세스 권한 제거 및 정기적 액세스 검토를 비롯한 액세스 관리 수명 주기에 대한 요구 사항을 해결합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore 데모는 Azure Active Directory 및 Azure Active Directory 역할 기반 액세스 제어를 구현하여 설치에 대한 사용자 액세스 권한을 관리했습니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore 데모는 Azure Active Directory 및 Azure Active Directory 역할 기반 액세스 제어를 구현하여 설치에 대한 사용자 액세스 권한을 관리했습니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
 
 
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 데모의 모든 사용자에 대한 SOD(의무 분리)를 명확하게 구현했습니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)의 "Azure Active Directory Identity Protection"을 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 데모의 모든 사용자에 대한 SOD(의무 분리)를 명확하게 구현했습니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)의 "Azure Active Directory Identity Protection"을 참조하세요.|
 
 
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 고객은 PCI DSS 요구 사항을 준수하는 암호 정책을 생성하고, 적용하고, 모니터링하는 일을 담당합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 고객은 PCI DSS 요구 사항을 준수하는 암호 정책을 생성하고, 적용하고, 모니터링하는 일을 담당합니다.|
 
 
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 고객은 PCI DSS 요구 사항을 준수하는 암호 정책을 생성하고, 적용하고, 모니터링하는 일을 담당합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 고객은 PCI DSS 요구 사항을 준수하는 암호 정책을 생성하고, 적용하고, 모니터링하는 일을 담당합니다.|
 
 
 
@@ -165,7 +165,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Multi-Factor Authentication을 위해 Contoso Webstore를 구현하지 않도록 비활성화되어 데모에 대한 사용 편의성을 제공합니다. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)을 사용하여 Multi-Factor Authentication을 구현할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Multi-Factor Authentication을 위해 Contoso Webstore를 구현하지 않도록 비활성화되어 데모에 대한 사용 편의성을 제공합니다. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)을 사용하여 Multi-Factor Authentication을 구현할 수 있습니다.|
 
 
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure에서는 해당 수명 주기 전체에서 암호화 키를 관리하도록 키 관리 절차를 설정했습니다(예: 생성, 배포, 해지). Microsoft Azure에서는 Microsoft의 회사 PKI 인프라를 사용합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.<br /><br />|
 
 
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure에서는 해당 수명 주기 전체에서 암호화 키를 관리하도록 키 관리 절차를 설정했습니다(예: 생성, 배포, 해지). Microsoft Azure에서는 Microsoft의 회사 PKI 인프라를 사용합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.|
 
 
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다.|
 
 
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 사용자 관리를 위해 Azure Active Directory를 사용합니다. 암호가 90일마다 한 번 이상 만료되도록 `-enableADDomainPasswordPolicy` 옵션을 설정할 수 있습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 사용자 관리를 위해 Azure Active Directory를 사용합니다. 암호가 90일마다 한 번 이상 만료되도록 `-enableADDomainPasswordPolicy` 옵션을 설정할 수 있습니다.|
 
 
 
@@ -234,7 +234,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
 
 
 
@@ -247,7 +247,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 가이드에서 설명한 강력한 암호를 적용합니다. 자세한 내용은 [PCI 지침 - ID 관리](payment-processing-blueprint.md#identity-management)를 참조하세요.<br /><br />|
 
 
 
@@ -264,7 +264,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Azure 관리자가 Azure 시스템 및 서버를 유지 관리하고 관리하는 경우 액세스하기 위해 다단계 인증을 사용해야 합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
 
 
 
@@ -273,14 +273,14 @@ ms.lasthandoff: 11/16/2017
 **8.3.1** 관리 액세스를 사용하여 직원의 CDE에 대한 모든 콘솔이 아닌 액세스에 다단계 인증을 통합합니다.
 
 > [!NOTE]
-> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고 그 후에는 요구 사항이 됩니다.
+> 이 요구 사항은 2018년 1월 31일까지 모범 사례이고, 이후에는 요구 사항이 됩니다.
 
 **책임:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Azure 관리자가 Azure 시스템 및 서버를 유지 관리하고 관리하는 경우 액세스하기 위해 다단계 인증을 사용해야 합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
 
 
 
@@ -294,7 +294,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Azure 관리자가 Azure 시스템 및 서버를 유지 관리하고 관리하는 경우 액세스하기 위해 다단계 인증을 사용해야 합니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
 
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 고객은 지침을 따르고 모든 사용자에게 인증 절차 및 정책을 문서화하고 전달하는 역할을 담당합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 고객은 지침을 따르고 모든 사용자에게 인증 절차 및 정책을 문서화하고 전달하는 역할을 담당합니다.|
 
 
 
@@ -327,7 +327,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다.|
 
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 고객에 적용되지 않습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Microsoft Azure 고객에 적용되지 않습니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Microsoft Azure 고객에 적용되지 않습니다.|
 
 
 
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다. 모든 액세스는 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 통해 관리됩니다. 해당 기능은 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. |
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 배포 중에 admin, sqladmin 및 edna(데모 실행 중에 웹앱에 로그인한 기본 사용자)라는 세 개의 계정을 만듭니다. 다단계 인증은 데모에서 구현되지 않습니다. 모든 액세스는 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 통해 관리됩니다. 해당 기능은 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. |
 
 
 
@@ -374,7 +374,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore는 Azure Key Vault를 사용하여 모든 카드 소유자 데이터를 보호하고 레코드의 암호화는 배포 설명서에 나와 있습니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.<br /><br />|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | Contoso Webstore는 Azure Key Vault를 사용하여 모든 카드 소유자 데이터를 보호하고 레코드의 암호화는 배포 설명서에 나와 있습니다. 자세한 내용은 [PCI 지침 - 암호화](payment-processing-blueprint.md#encryption-and-secrets-management)를 참조하세요.<br /><br />|
 
 
 
@@ -387,7 +387,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **공급자<br />(Microsoft&nbsp;Azure)** | 사용할 수 없습니다. |
-| **고객<br />(PCI&#8209;DSS&nbsp;Blueprint)** | 고객은 식별 및 인증을 위한 보안 정책과 운영 절차가 문서화되고 사용 중이며 모든 해당 당사자가 알고 있어야 하는 작업을 담당합니다.|
+| **고객<br />(PCI&#8209;DSS&nbsp;청사진)** | 고객은 식별 및 인증을 위한 보안 정책과 운영 절차가 문서화되고 사용 중이며 모든 해당 당사자가 알고 있어야 하는 작업을 담당합니다.|
 
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 템플릿 | Microsoft Docs"
-description: "항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿입니다."
+title: 예측 유지 관리 솔루션에 대한 Azure AI 플레이 북 | Microsoft Docs
+description: 여러 수직 산업 분야에서 예측 유지 관리 솔루션을 구동하는 데이터 과학에 대해 포괄적으로 설명합니다.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿 플레이 북
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 플레이 북 
 ## <a name="executive-summary"></a>요약
 예측 유지 관리는 엄청난 비용 절감을 비롯한 확실한 이점을 제공하는 가장 까다로운 예측 분석 응용 프로그램 중 하나입니다. 이 플레이 북은 주요 사용 사례에 중점을 두고 예측 유지 관리 솔루션을 위한 참조를 제공하려고 합니다.
 독자가 예측 유지 관리의 가장 일반적인 비즈니스 시나리오, 이러한 솔루션에 대한 비즈니스 문제를 한정하는 과제, 이러한 비즈니스 문제를 해결하는 데 필요한 데이터, 샘플 솔루션 아키텍처와 함께 이러한 데이터 및 모범 사례를 사용하여 솔루션을 빌드하는 예측 모델링 기술에 대해 이해할 수 있도록 합니다.
-또한 기능 엔지니어링, 모델 개발 및 성능 평가와 같은 개발된 예측 모델에 대해서도 설명합니다. 기본적으로 이 플레이 북은 예측 유지 관리 솔루션의 성공적인 개발 및 배포에 필요한 비즈니스 및 분석 지침을 함께 제공합니다. 이러한 지침을 통해 사용자는 장기 예측 유지 관리 전략의 시작점으로 Cortana Intelligence Suite와 특히, Azure Machine Learning을 사용하여 초기 솔루션을 만들 수 있습니다. Cortana Intelligence Suite 및 Azure 기계 학습 관련 설명서는 [Cortana 분석](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) 및 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 페이지에서 확인할 수 있습니다.
+또한 기능 엔지니어링, 모델 개발 및 성능 평가와 같은 개발된 예측 모델에 대해서도 설명합니다. 기본적으로 이 플레이 북은 예측 유지 관리 솔루션의 성공적인 개발 및 배포에 필요한 비즈니스 및 분석 지침을 함께 제공합니다. 이러한 지침을 통해 사용자는 장기 예측 유지 관리 전략의 시작점으로 Cortana Intelligence Suite와 특히, Azure Machine Learning을 사용하여 초기 솔루션을 만들 수 있습니다. Cortana Intelligence Suite 및 Azure Machine Learning 관련 설명서는 [Cortana 분석](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) 및 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 페이지에서 확인할 수 있습니다.
 
 > [!TIP]
 > 이 솔루션 템플릿 구현에 대한 기술 가이드는 [예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드](cortana-analytics-technical-guide-predictive-maintenance.md)를 참조하세요.
@@ -88,7 +88,7 @@ ms.lasthandoff: 12/07/2017
 항공사에서 직면하는 주요 비즈니스 문제 중 하나는 기계적인 문제로 인해 비행이 지연됨으로써 발생하는 상당한 비용입니다. 기계적 오류를 복구할 수 없는 경우 항공편이 취소될 수도 있습니다. 지연으로 인해 일정 및 운항에 문제가 생기며, 평판이 나빠지고 고객 불만을 유도함으로써 기타 여러 문제와 함께 상당한 비용을 초래합니다. 항공사는 이러한 기계적 오류를 사전에 예측하여 비행 지연 또는 취소를 줄이는 데 특히 주의를 기울입니다. 이러한 경우 예측 유지 관리 솔루션의 목표는 유지 관리 기록 및 비행 경로 정보 등의 관련 데이터 원본을 기반으로 항공기가 지연되거나 취소될 확률을 예측하는 것입니다. 이 사용 사례에 대한 두 가지 주요 데이터 원본은 비행 구간 및 페이지 로그입니다. 비행 구간 데이터에는 출발/도착 날짜 및 시간, 출발 및 도착 공항 등 비행 경로 정보에 대한 데이터가 포함됩니다. 페이지 로그 데이터에는 유지 관리 담당자가 기록한 일련의 오류 및 유지 관리 코드가 포함됩니다.
 
 ##### <a name="business-value-of-the-predictive-model"></a>*예측 모델의 비즈니스 가치*
-제공되는 기록 데이터와 다중 분류 알고리즘을 사용하여 예측 모델을 구축하여 다음 24시간 이내 지연 또는 취소를 일으킬 기계적 문제 유형을 예측합니다. 이러한 예측으로 필요한 유지 관리 작업을 수행하여 항공기에 서비스가 제공되는 동안 위험을 완화할 수 있으므로 가능한 지연 또는 취소를 방지합니다. Azure 기계 학습 웹 서비스를 사용하면 이 예측 모델을 항공사의 기존 운영 플랫폼에 쉽고 원활하게 통합할 수 있습니다. 
+제공되는 기록 데이터와 다중 분류 알고리즘을 사용하여 예측 모델을 구축하여 다음 24시간 이내 지연 또는 취소를 일으킬 기계적 문제 유형을 예측합니다. 이러한 예측으로 필요한 유지 관리 작업을 수행하여 항공기에 서비스가 제공되는 동안 위험을 완화할 수 있으므로 가능한 지연 또는 취소를 방지합니다. Azure Machine Learning 웹 서비스를 사용하면 이 예측 모델을 항공사의 기존 운영 플랫폼에 쉽고 원활하게 통합할 수 있습니다. 
 
 #### <a name="use-case-2-aircraft-component-failure"></a>사용 사례 2: 항공기 구성 요소 오류
 ##### <a name="business-problem-and-data-sources"></a>*비즈니스 문제 및 데이터 원본*
@@ -126,7 +126,7 @@ ms.lasthandoff: 12/07/2017
 ##### <a name="business-problem-and-data-sources"></a>*비즈니스 문제 및 데이터 원본*
 일반적으로 대부분의 대규모 엘리베이터 회사는 전 세계에 수백만 대의 엘리베이터를 보유하고 있습니다. 이들은 경쟁력을 확보하기 위해 고객이 가장 중요 시하는 안정성에 집중하고 있습니다. 사물 인터넷을 토대로 엘리베이터를 클라우드에 연결하고 엘리베이터 센서 및 시스템에서 데이터를 수집하여 데이터를 유용한 비즈니스 인텔리전스로 변환하고 경쟁업체와 차별화된 예측 및 예방적 유지 관리를 제공하여 작업을 크게 향상시킬 수 있습니다. 이 사례에 대한 비즈니스 요구 사항은 도어 오류의 잠재적인 원인을 예측할 기술 자료 예측 응용 프로그램을 제공하는 것입니다. 구현을 위해 필요한 데이터는 3부분으로 구성됩니다. 엘리베이터 정적 기능(예: 식별자, 계약 유지 관리 빈도, 건물 유형 등), 사용 정보(예: 도어 주기 횟수, 평균 도어 닫기 시간 등), 오류 기록(예: 과거 오류 레코드 및 해당 원인)입니다.
 
-정적 기능 및 사용 데이터를 기능으로 통합하고, 과거 오류 레코드를 클래스 레이블로 포함하여 Azure 기계 학습을 통해 다중 클래스 로지스틱 회귀 모델을 빌드하여 예측 문제를 해결합니다. 이 예측 모델은 모바일 장치의 앱에 적용되어 현장 기술자의 업무 효율성을 개선합니다. 기술자가 엘리베이터 수리를 위해 현장에 있는 경우 이 앱을 참조하여 권장되는 원인과 엘리베이터 수리를 위해 가장 적절한 유지 관리 작업을 가능한 신속하게 찾아낼 수 있습니다.
+정적 기능 및 사용 데이터를 기능으로 통합하고, 과거 오류 레코드를 클래스 레이블로 포함하여 Azure Machine Learning을 통해 다중 클래스 로지스틱 회귀 모델을 빌드하여 예측 문제를 해결합니다. 이 예측 모델은 모바일 장치의 앱에 적용되어 현장 기술자의 업무 효율성을 개선합니다. 기술자가 엘리베이터 수리를 위해 현장에 있는 경우 이 앱을 참조하여 권장되는 원인과 엘리베이터 수리를 위해 가장 적절한 유지 관리 작업을 가능한 신속하게 찾아낼 수 있습니다.
 
 ### <a name="transportation-and-logistics"></a>운송 및 물류
 #### <a name="use-case-1-brake-disc-failures"></a>사용 사례 1: 브레이크 디스크 오류
@@ -240,7 +240,7 @@ ms.lasthandoff: 12/07/2017
 | ... |... | | |
 
 ## <a name="modeling-techniques"></a>모델링 기술
-예측 유지 관리는 다양한 예측 모델링 관점에서 접근할 수 있는 비즈니스 질문을 주로 사용하는 매우 풍부한 도메인입니다. 다음 섹션에서는 예측 유지 관리 솔루션으로 응답할 수 있는 다양한 비즈니스 질문을 모델링하는 데 사용되는 주요 기술을 제공합니다. 유사성도 있지만 각 모델은 레이블을 생성하는 고유한 방식을 포함하며 이에 대해서는 자세히 설명합니다. 함께 제공되는 리소스로 Azure 기계 학습 내에서 제공된 샘플 실험에 포함된 예측 유지 관리 템플릿을 참조할 수 있습니다. 이 템플릿에 대한 온라인 자료에 대한 링크는 리소스 섹션에 제공됩니다. 위에서 설명한 기능 엔지니어링 기술 중 일부와 다음 섹션에서 다룰 모델링 기술을 Azure Machine Learning을 사용하여 항공기 엔진 오류 예측에 어떻게 적용하는지 확인할 수 있습니다.
+예측 유지 관리는 다양한 예측 모델링 관점에서 접근할 수 있는 비즈니스 질문을 주로 사용하는 매우 풍부한 도메인입니다. 다음 섹션에서는 예측 유지 관리 솔루션으로 응답할 수 있는 다양한 비즈니스 질문을 모델링하는 데 사용되는 주요 기술을 제공합니다. 유사성도 있지만 각 모델은 레이블을 생성하는 고유한 방식을 포함하며 이에 대해서는 자세히 설명합니다. 함께 제공되는 리소스로 Azure Machine Learning 내에서 제공된 샘플 실험에 포함된 예측 유지 관리 템플릿을 참조할 수 있습니다. 이 템플릿에 대한 온라인 자료에 대한 링크는 리소스 섹션에 제공됩니다. 위에서 설명한 기능 엔지니어링 기술 중 일부와 다음 섹션에서 다룰 모델링 기술을 Azure Machine Learning을 사용하여 항공기 엔진 오류 예측에 어떻게 적용하는지 확인할 수 있습니다.
 
 ### <a name="binary-classification-for-predictive-maintenance"></a>예측 유지 관리를 위한 이진 분류
 예측 유지 관리를 위한 이진 분류는 장비가 향후 기간 내에 실패할 확률을 예측하는 데 사용됩니다. 이 기간은 제공된 비즈니스 규칙 및 데이터에 따라 결정됩니다. 몇 가지 공통적인 기간은 구성 요소가 손상될 가능성으로 교체할 예비 부품을 구매하는 데 필요한 최소 지연 시간 또는 기간 내에 발생할 수 있는 문제를 해결하는 유지 관리 루틴을 수행할 유지 관리 리소스를 배포하는 데 필요한 시간입니다. 이것을 향후 예측 가능 기간 "X"라고 합니다.

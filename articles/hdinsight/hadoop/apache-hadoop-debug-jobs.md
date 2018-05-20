@@ -37,7 +37,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 * ambariserverlog
 * ambariagentlog
 
-테이블 파일 이름은 **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**입니다.
+테이블 파일 이름은 **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>** 입니다.
 
 이 테이블은 다음 필드를 포함합니다.
 
@@ -82,7 +82,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 7. **확인** 을 클릭하여 데이터를 가져옵니다.
 8. **TraceLevel**, 역할 및 **ComponentName** 열을 선택한 다음 리본 메뉴에서 **그룹별** 컨트롤을 클릭합니다.
 9. 그룹별 대화 상자에서 **확인** 을 클릭합니다.
-10. ** 적용 및 닫기**를 클릭합니다.
+10. **적용 및 닫기**를 클릭합니다.
 
 이제 Excel을 사용하여 필요에 따라 필터링하고 정렬할 수 있습니다. 문제가 발생할 때 문제를 드릴 다운하기 위해 다른 열(예: 메시지)을 포함하려하지만 위에서 설명한 열을 선택하고 그룹화하면 Hadoop 서비스를 사용하여 발생하는 사항에 훌륭한 그림을 제공합니다. Setuplog 및 hadoopinstalllog 테이블에 동일한 개념을 적용할 수 있습니다.
 
@@ -293,11 +293,11 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 * **설명**: DNS *yourDnsUrl*을(를) 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
-* **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://*로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
+* **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://* 로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 * **설명**: *yourDnsUrl*리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
-* **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://*로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
+* **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://* 로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 * **설명**: *specifiedVersion* 버전 및 *yourSubscriptionId* 구독 ID에서 사용할 수 없는 버전 정보 값입니다.  

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>심층 학습 및 AI 프레임워크
 [데이터 과학 Virtual Machine](http://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](http://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 응용 프로그램을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다. 
@@ -80,6 +80,7 @@ ms.lasthandoff: 04/20/2018
 | 무엇인가요?   | 심층 학습 프레임워크      |
 | 지원되는 DSVM 버전      | Ubuntu     |
 | DSVM에 구성/설치 방법  | Caffe는 `/opt/caffe`에 설치됩니다.    |
+| 파이썬 2.7로 전환하는 방법 | `source activate root` 실행 |
 | 샘플에 대한 링크      | 샘플은 `/opt/caffe/examples`에 포함됩니다.      |
 | DSVM의 관련 도구      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>사용/실행 방법  
@@ -88,12 +89,15 @@ X2Go를 사용하여 VM에 로그인한 다음 새 터미널을 시작하고 입
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 새 브라우저 창이 샘플 노트북과 함께 열립니다.
 
-이진 파일은 /opt/caffe/build/install/bin에 설치됩니다. 
+이진 파일은 /opt/caffe/build/install/bin에 설치됩니다.
+
+설치된 Caffe 버전은 Python 2.7이 필요하며 기본적으로 활성화되는 Python 3.5에서는 작동하지 않습니다. Anaconda 환경을 전환하려면 `source activate root`을 실행합니다. 
 
 ## <a name="caffe2"></a>Caffe2
 

@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/05/2018
 4. 네트워크 공유에서 **MobSvc.passphrase** 파일을 **MobSvcWindows** 폴더로 복사합니다.
 5. 다음 명령을 실행하여 구성 서버의 설치 관리자 리포지토리를 찾아봅니다.
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. 네트워크 공유에서 **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe**를 **MobSvcWindows** 폴더로 복사합니다.
 7. 다음 코드를 복사하여 **MobSvcWindows** 폴더에 **install.bat**으로 저장합니다.
@@ -192,7 +192,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="deploy-the-package"></a>패키지 배포
 1. Configuration Manager 콘솔에서 패키지를 마우스 오른쪽 단추로 클릭하고 **콘텐츠 배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**을 선택합니다.
+2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 을 선택합니다.
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
@@ -211,7 +211,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 > [!TIP]
 > 불필요한 재부팅을 방지하려면 매월 유지 관리 시간 또는 소프트웨어 업데이트 시간에 패키지 설치를 예약합니다.
 
-Configuration Manager 콘솔을 사용하여 배포 진행률을 모니터링할 수 있습니다. **모니터링** > **배포** > *[패키지 이름]*으로 이동합니다.
+Configuration Manager 콘솔을 사용하여 배포 진행률을 모니터링할 수 있습니다. **모니터링** > **배포** > *[패키지 이름]* 으로 이동합니다.
 
   ![배포를 모니터링하는 Configuration Manager 옵션의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 
@@ -230,7 +230,7 @@ Configuration Manager 콘솔을 사용하여 배포 진행률을 모니터링할
 4. 네트워크 공유에서 **MobSvc.passphrase** 파일을 **MobSvcLinux** 폴더로 복사합니다.
 5. 다음 명령을 실행하여 구성 서버에서 설치 관리자 리포지토리를 찾아봅니다.
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. 네트워크 공유에서 다음 파일을 **MobSvcLinux** 폴더로 복사합니다.
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
@@ -415,7 +415,7 @@ cd /tmp
 ### <a name="deploy-the-package"></a>패키지 배포
 1. Configuration Manager 콘솔에서 패키지를 마우스 오른쪽 단추로 클릭하고 **콘텐츠 배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**을 선택합니다.
+2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 을 선택합니다.
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)

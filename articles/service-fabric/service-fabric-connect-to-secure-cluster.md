@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric 클러스터에 안전하게 연결 | Microsoft Docs"
-description: "Service Fabric 클러스터에 대한 클라이언트 액세스를 인증하는 방법 및 클라이언트와 클러스터 간의 통신을 보호하는 방법을 설명합니다."
+title: Azure Service Fabric 클러스터에 안전하게 연결 | Microsoft Docs
+description: Service Fabric 클러스터에 대한 클라이언트 액세스를 인증하는 방법 및 클라이언트와 클러스터 간의 통신을 보호하는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2ddb72f267fc46d7980007d41c5d512f50eaf47e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 
@@ -89,25 +89,32 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
-다음 PowerShell 명령을 실행하여 관리자 액세스 권한을 부여하는 데 클라이언트 인증서를 사용하는 보안 클러스터에 연결합니다. 클러스터 관리에 대한 권한이 부여된 클러스터 인증서 지문과 클라이언트 인증서 지문을 제공합니다. 인증서 세부 정보는 클러스터 노드의 인증서와 일치해야 합니다.
+다음 PowerShell 명령을 실행하여 관리자 액세스 권한을 부여하는 데 클라이언트 인증서를 사용하는 보안 클러스터에 연결합니다. 
+
+#### <a name="connect-using-certificate-common-name"></a>인증서 일반 이름을 사용하는 커넥터
+클러스터 관리에 대한 권한이 부여된 클러스터 인증서 일반 이름 및 클라이언트 인증서의 일반 이름을 제공합니다. 인증서 세부 정보는 클러스터 노드의 인증서와 일치해야 합니다.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName <certificate common name>  `
+    -FindType FindBySubjectName `
+    -FindValue <certificate common name> `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
-
-*ServerCertThumbprint* 는 클러스터 노드에 설치된 서버 인증서의 지문입니다. *FindValue* 는 관리자 클라이언트 인증서의 지문입니다.
-매개 변수가 입력되면 명령은 다음 예와 같아집니다. 
-
+*ServerCommonName*은 클러스터 노드에 설치된 서버 인증서의 일반 이름입니다. *FindValue*는 관리자 클라이언트 인증서의 일반 이름입니다. 매개 변수가 입력되면 명령은 다음 예와 같아집니다.
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
-          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
-          -StoreLocation CurrentUser -StoreName My
+$ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
+$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName $certCN  `
+    -FindType FindBySubjectName `
+    -FindValue $certCN `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Windows Active Directory를 사용하여 보안 클러스터에 연결
@@ -312,7 +319,7 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 전체 URL은 Azure 포털의 클러스터 필수 창에서도 사용 가능합니다.
 
-브라우저를 사용하여 Windows 또는 OS X의 보안 클러스터에 연결하기 위해 클라이언트 인증서를 가져올 수 있으며, 그러면 브라우저에서 클러스터에 연결하는 데 사용할 인증서에 대한 메시지를 표시합니다.  Linux 컴퓨터에서는 고급 브라우저 설정을 사용하여 인증서를 가져오고(각 브라우저에 서로 다른 메커니즘이 있는 경우) 디스크상의 인증서 위치를 지정해야 합니다.
+브라우저를 사용하여 Windows 또는 OS X의 보안 클러스터에 연결하기 위해 클라이언트 인증서를 가져올 수 있으며, 그러면 브라우저에서 클러스터에 연결하는 데 사용할 인증서에 대한 메시지를 표시합니다.  Linux 컴퓨터에서는 고급 브라우저 설정을 사용하여 인증서를 가져오고(각 브라우저에 서로 다른 메커니즘이 있는 경우) 디스크상의 인증서 위치로 지정해야 합니다.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory를 사용하여 보안 클러스터에 연결
 

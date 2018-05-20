@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory v2.0 끝점 | Microsoft Docs"
-description: "Microsoft 계정 및 Azure Active Directory 로그인을 사용하는 응용 프로그램 빌드를 소개합니다."
+title: Azure Active Directory v2.0 끝점 | Microsoft Docs
+description: Microsoft 계정 및 Azure Active Directory 로그인을 사용하는 응용 프로그램 빌드를 소개합니다.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>단일 응용 프로그램의 로그인 Microsoft 계정 및 Azure Active Directory 사용자
 과거 Azure Active Directory에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 응용 프로그램 개발자는 별도의 두 시스템과 통합해야 했습니다. Azure AD(Azure Active Directory) v 2.0 끝점에서는 이 프로세스를 간소화하는 새 인증 API 버전을 도입합니다. Azure AD v2.0 끝점에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있도록 합니다. 또한 Azure AD v2.0 끝점을 사용하는 응용 프로그램은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://graph.microsoft.io)의 REST API를 사용할 수 있습니다.

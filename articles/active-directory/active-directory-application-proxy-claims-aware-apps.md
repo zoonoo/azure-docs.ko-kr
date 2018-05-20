@@ -1,24 +1,24 @@
 ---
-title: "클레임 인식 앱 - Azure AD 앱 프록시 | Microsoft Docs"
-description: "사용자의 안전한 원격 액세스를 위해 ADFS 클레임을 허용하는 온-프레미스 ASP.NET 응용 프로그램을 게시하는 방법입니다."
+title: 클레임 인식 앱 - Azure AD 앱 프록시 | Microsoft Docs
+description: 사용자의 안전한 원격 액세스를 위해 ADFS 클레임을 허용하는 온-프레미스 ASP.NET 응용 프로그램을 게시하는 방법입니다.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: a732687e47cffff6b6aae687f8e780bba630243e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 74af858c433db2a178d5fa346315e3f8a2dbd4f2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>응용 프로그램 프록시에서 클레임 인식 앱으로 작업
 [클레임 인식 앱](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx)은 STS(보안 토큰 서비스)에 대한 리디렉션을 수행합니다. STS는 토큰의 교환으로 사용자의 자격 증명을 요청한 다음 응용 프로그램에 사용자를 리디렉션합니다. 응용 프로그램 프록시를 이러한 리디렉션과 함께 작동하도록 하는 몇 가지 방법이 있습니다. 이 문서를 사용하여 클레임 인식 앱에 대한 배포를 구성합니다. 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="publish-your-application"></a>응용 프로그램 게시
 
-1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-publish-azure-portal.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
+1. [응용 프로그램 프록시로 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
 2. 포털에서 응용 프로그램 페이지로 이동하고 **Single Sign-On**을 선택합니다.
 3. **Azure Active Directory**를 **사전 인증 방법**으로 선택했다면 **Azure AD Single Sign-On 비활성화**를 **내부 인증 방법**으로 선택합니다. **사전 인증 방법**으로 **통과**를 선택하면 아무 것도 변경할 필요가 없습니다.
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="option-1-custom-domains"></a>옵션 1: 사용자 지정 도메인
 
-응용 프로그램에 대한 모든 내부 URL이 FQDN(정규화된 도메인 이름)인 경우 응용 프로그램에 대한 [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)을 구성할 수 있습니다. 사용자 지정 도메인을 사용하여 내부 URL과 동일한 외부 URL을 만듭니다. 외부 URL이 내부 URL과 일치하는 경우 사용자가 온-프레미스 또는 원격인지 관계 없이 STS 리디렉션이 작동합니다. 
+응용 프로그램에 대한 모든 내부 URL이 FQDN(정규화된 도메인 이름)인 경우 응용 프로그램에 대한 [사용자 지정 도메인](manage-apps/application-proxy-configure-custom-domain.md)을 구성할 수 있습니다. 사용자 지정 도메인을 사용하여 내부 URL과 동일한 외부 URL을 만듭니다. 외부 URL이 내부 URL과 일치하는 경우 사용자가 온-프레미스 또는 원격인지 관계 없이 STS 리디렉션이 작동합니다. 
 
 ### <a name="option-2-ws-federation"></a>옵션 2: WS-Federation
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/01/2018
    ![끝점 추가 - 신뢰할 수 있는 URL 값 설정 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>다음 단계
-* 클레임 인식이 아닌 응용 프로그램에 대한 [Single Sign-On 사용](application-proxy-sso-overview.md)
+* 클레임 인식이 아닌 응용 프로그램에 대한 [Single Sign-On 사용](manage-apps/application-proxy-single-sign-on.md)
 * [네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용](active-directory-application-proxy-native-client.md)
 
 

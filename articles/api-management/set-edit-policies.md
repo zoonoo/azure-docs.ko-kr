@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 정책을 설정 및 편집하는 방법 | Microsoft Docs"
-description: "이 항목에서는 Azure API Management 정책을 설정하거나 편집하는 방법을 보여 줍니다."
+title: Azure API Management 정책을 설정 및 편집하는 방법 | Microsoft Docs
+description: 이 항목에서는 Azure API Management 정책을 설정하거나 편집하는 방법을 보여 줍니다.
 services: api-management
-documentationcenter: 
-author: Juliako
+documentationcenter: ''
+author: vladvino
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 409069cbc382610a48139df75f0f64b1682d8ee6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
 
@@ -134,5 +134,5 @@ API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
 다음 관련 항목을 참조하세요.
 
 + [API 변환](transform-api.md)
-+ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)

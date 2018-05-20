@@ -5,18 +5,18 @@ services: iot-dps
 keywords: ''
 author: bryanla
 ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>이전에 자동으로 프로비전된 장치의 프로비전을 해제하는 방법 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/16/2018
    - 장치의 등록을 해제하는 방법을 알아보려면 [Azure IoT Hub Device Provisioning 서비스에서 장치 등록을 해제하는 방법](how-to-revoke-device-access-portal.md)을 참조하세요.
    - 프로비전 서비스 SDK 중 하나를 사용하여 프로그래밍 방식으로 장치 등록을 해제하는 방법을 알아보려면 [서비스 SDK를 사용하여 장치 등록 관리](how-to-manage-enrollments-sdks.md)를 참조하세요.
 
-2. 향후 통신 및 데이터 전송을 방지하기 위해 IoT Hub에서 장치 등록을 취소합니다. 다시, 프로비전된 IoT Hub에 대한 ID 레지스트리에서 해당 장치의 항목을 일시적으로 사용하지 않도록 설정하거나 영구적으로 삭제할 수 있습니다. 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [장치 사용 안 함](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices)을 참조하세요. [Azure Portal](https://portal.azure.com)의 IoT Hub 리소스에 대해서는 "장치 관리/IoT 장치"를 참조하세요.
+2. 향후 통신 및 데이터 전송을 방지하기 위해 IoT Hub에서 장치 등록을 취소합니다. 다시, 프로비전된 IoT Hub에 대한 ID 레지스트리에서 해당 장치의 항목을 일시적으로 사용하지 않도록 설정하거나 영구적으로 삭제할 수 있습니다. 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [장치 사용 안 함](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices)을 참조하세요. [Azure Portal](https://portal.azure.com)의 IoT Hub 리소스에 대해서는 "장치 관리/IoT 장치"를 참조하세요.
 
 장치의 프로비전을 해제하기 위해 수행하는 정확한 단계는 프로비전 서비스에 대한 증명 메커니즘 및 해당 등록 항목에 따라 달라집니다. 다음 섹션에서는 등록 및 증명 형식을 기준으로 하는 프로세스의 개요를 제공합니다.
 

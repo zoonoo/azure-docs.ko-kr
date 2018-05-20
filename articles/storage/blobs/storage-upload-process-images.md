@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드 | Microsoft Docs"
-description: "웹앱에서 Azure Blob Storage를 사용하여 응용 프로그램 데이터 저장"
+title: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드 | Microsoft Docs
+description: 웹앱에서 Azure Blob Storage를 사용하여 응용 프로그램 데이터 저장
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: jeconnoc
 ms.service: storage
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -72,7 +72,7 @@ az storage account create --name <blob_storage_account> \
 이 경우 `<blob_storage_account>`는 만든 BLOB 저장소 계정의 이름입니다. _이미지_ 컨테이너 공용 액세스는 `off`로 설정되고, _썸네일_ 컨테이너 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 모든 사람이 해당 썸네일을 볼 수 있습니다.
  
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 

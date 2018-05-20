@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: be5f5a6c39e27ae7fedab32fea12f5cf9b7cd3bd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -193,7 +193,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **A:** Azure AD 응용 프로그램 프록시는 선택한 온-프레미스 웹 응용 프로그램에 대해 손쉽고 안전한 액세스를 제공합니다. Azure AD에서 SaaS(Software as a Service) 앱에 액세스하는 것과 동일한 방식으로 이러한 응용 프로그램에 액세스할 수 있습니다. 네트워크 인프라 변경이나 VPN이 필요하지 않습니다.  
 
-자세한 내용은 [온-프레미스 응용 프로그램에 보안 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)을 참조하세요.
+자세한 내용은 [온-프레미스 응용 프로그램에 보안 원격 액세스를 제공하는 방법](manage-apps/application-proxy.md)을 참조하세요.
 
 - - -
 **Q: 특정 응용 프로그램에 액세스하는 사용자의 Multi-Factor Authentication을 어떻게 요청하나요?**

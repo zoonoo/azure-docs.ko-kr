@@ -1,11 +1,11 @@
 ---
-title: "비갤러리 응용 프로그램에 대해 비갤러리 Single Sign-On 구성 문제 | Microsoft Docs"
-description: "Azure AD 응용 프로그램 갤러리에 나열되지 않은 사용자 지정 SAML 응용 프로그램에 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결"
+title: 비갤러리 응용 프로그램에 대해 비갤러리 Single Sign-On 구성 문제 | Microsoft Docs
+description: Azure AD 응용 프로그램 갤러리에 나열되지 않은 사용자 지정 SAML 응용 프로그램에 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 77f4bf0fc38043afd7a6634bcf16a0f10f7ddfeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1990f6595be86d7f3a50f6c764a855aedf2cbcbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 비갤러리 Single Sign-On 구성 문제
 
@@ -68,4 +68,4 @@ Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니�
 응용 프로그램에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
+[Azure Active Directory로 응용 프로그램 관리](manage-apps/what-is-application-management.md)

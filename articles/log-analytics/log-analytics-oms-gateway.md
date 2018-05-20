@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 207b7ab0968f775dba99c2f48c1961d74b4f11c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, OMS 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
@@ -36,7 +36,7 @@ Operations Manager 관리 그룹이 Log Analytics와 통합되면, OMS 게이트
 
 게이트웨이를 통해 Log Analytics와 통신하는 직접 연결 또는 Operations Management 그룹에 고가용성을 제공하려면 네트워크 부하 분산을 사용하여 트래픽을 여러 게이트웨이 서버로 리디렉션하고 배포할 수 있습니다.  한 게이트웨이 서버가 다운되면 트래픽이 사용 가능한 다른 노드로 리디렉션됩니다.  
 
-OMS 게이트웨이 소프트웨어를 실행하는 컴퓨터에 OMS 에이전트를 설치하여 OMS 게이트웨이를 모니터링하고 성능 또는 이벤트 데이터를 분석하는 것이 좋습니다. 또한 에이전트는 OMS 게이트웨이가 통신해야 하는 서비스 끝점을 식별하도록 도와줍니다.
+OMS 에이전트가 통신에 필요한 서비스 엔드포인트를 식별하고 성능 또는 이벤트 데이터 분석을 위한 OMS 게이트웨이를 모니터링하기 위해 OMS 게이트웨이를 실행하는 컴퓨터에 필요합니다.
 
 각 에이전트는 게이트웨이에 네트워크로 연결되어 있어야 게이트웨이와 데이터를 자동으로 송수신할 수 있습니다. 도메인 컨트롤러에 게이트웨이를 설치하는 것은 권장되지 않습니다.
 
@@ -56,6 +56,7 @@ OMS 게이트웨이를 실행하는 컴퓨터를 지정할 때 이 컴퓨터에�
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .Net Framework 4.5
 * 최소 4코어 프로세서 및 8GB 메모리 
+* Windows용 OMS 에이전트 
 
 ### <a name="language-availability"></a>사용 가능한 언어
 

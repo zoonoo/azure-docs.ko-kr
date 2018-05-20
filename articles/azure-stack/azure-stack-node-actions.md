@@ -1,24 +1,23 @@
 ---
-title: "Azure 스택으로 단위 노드 작업 크기를 조정 | Microsoft Docs"
-description: "노드 상태 보고는 전원 켜기, 전원 끄기, 드레이닝을 사용 하 고 통합 하는 Azure 스택 시스템 노드 작업을 다시 시작 하는 방법에 알아봅니다."
+title: Azure 스택으로 단위 노드 작업 크기를 조정 | Microsoft Docs
+description: 노드 상태 보고는 전원 켜기, 전원 끄기, 드레이닝을 사용 하 고 통합 하는 Azure 스택 시스템 노드 작업을 다시 시작 하는 방법에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: dbb68b10-c721-4188-aa07-584d0cd63138
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure 스택에서 배율 단위 노드 작업
 

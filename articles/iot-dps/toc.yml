@@ -155,6 +155,8 @@
       href: 'https://catalog.azureiotsuite.com/'
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'
+    - name: 고객 데이터 요청
+      href: iot-dps-customer-data-requests.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Device Explorer 도구

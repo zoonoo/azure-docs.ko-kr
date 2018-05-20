@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Suite 원격 모니터링 FAQ | Microsoft Docs
-description: IoT Suite 원격 모니터링 미리 구성된 솔루션에 대한 질문과 대답
+title: 원격 모니터링 솔루션 가속기 FAQ | Microsoft Docs
+description: 원격 모니터링 솔루션 가속기에 대한 질문과 대답
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b0d6dbb567f66537c599d7ac3e4337988b3374c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1cc260710d025428a1ca77c41c104dc172447e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-remote-monitoring-preconfigured-solution"></a>IoT Suite 원격 모니터링 미리 구성된 솔루션에 대한 질문과 대답
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 대한 질문과 대답
 
 일반 [FAQ](iot-suite-faq.md)도 참조하세요.
 
 ### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>새 원격 모니터링 솔루션을 프로비전하는 비용은 얼마인가요?
 
-새로운 사전 구성 솔루션은 두 가지 배포 옵션을 제공합니다.
+새로운 솔루션 가속기는 두 가지 배포 옵션을 제공합니다.
 
 * *기본* 옵션은 낮은 개발 비용을 원하는 개발자나 데모 또는 개념 증명을 빌드하려는 고객을 위해 설계되었습니다.
 * *표준* 옵션은 프로덕션이 준비된 인프라를 배포하려는 기업을 위해 설계되었습니다.
@@ -44,15 +44,11 @@ ms.lasthandoff: 04/23/2018
 
 자세한 내용은 [동적 맵에서 장치를 보기 위해 맵 키 업그레이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map)를 참조하세요.
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
-
-2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜젝션 Level 1 계획을 사용하여 기본으로 프로비전됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
-
 ### <a name="next-steps"></a>다음 단계
 
-미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
+IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [미리 구성된 원격 모니터링 솔루션의 기능 탐색](iot-suite-remote-monitoring-explore.md)
-* [예측 유지 관리 사전 구성 솔루션 개요](iot-suite-predictive-overview.md)
-* [연결된 팩터리 미리 구성된 솔루션 개요](iot-suite-connected-factory-overview.md)
+* [원격 모니터링 솔루션 가속기의 기능 탐색](iot-suite-remote-monitoring-explore.md)
+* [예측 유지 관리 솔루션 가속기 개요](iot-suite-predictive-overview.md)
+* [연결된 팩터리 솔루션 가속기 개요](iot-suite-connected-factory-overview.md)
 * [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)

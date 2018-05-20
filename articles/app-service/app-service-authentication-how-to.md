@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여 사용자 지정
 
@@ -25,7 +25,8 @@ ms.lasthandoff: 04/16/2018
 
 지금 바로 시작하려면 다음 자습서 중 하나를 참조하세요.
 
-* [자습서: Azure App Service에서 종단 간 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)
+* [자습서: Azure App Service에서 종단 간 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
+* [자습서: Azure App Service에서 Linux용 종단 간 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)
 * [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Facebook 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Google 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-google-authentication.md)
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/16/2018
 
 먼저 Azure Portal의 **인증/권한 부여** 페이지에서 사용하도록 설정하려는 각 ID 공급자를 구성합니다.
 
-**요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)**을 선택합니다.
+**요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
 로그인 페이지, 탐색 모음 또는 웹앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예: 
 
@@ -93,7 +94,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 응용 프�
     1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
     1. 왼쪽 브라우저에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **사이트** > _**\<app\_name>**_ > **config** > **authsettings**로 이동합니다. 
     1. **편집**을 클릭합니다.
-    1. 다음 속성을 수정합니다. _\<app\_id>_를 액세스하려는 서비스의 Azure Active Directory 응용 프로그램 ID로 바꿉니다.
+    1. 다음 속성을 수정합니다. _\<app\_id>_ 를 액세스하려는 서비스의 Azure Active Directory 응용 프로그램 ID로 바꿉니다.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
@@ -140,7 +141,7 @@ Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로�
 
 [https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **사이트** > _**\<app\_name>**_ > **config** > **authsettings**로 이동합니다. 
 
-**편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. _\<domain\_name>_을 원하는 도메인으로 바꿨는지 확인합니다.
+**편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. _\<domain\_name>_ 을 원하는 도메인으로 바꿨는지 확인합니다.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -148,4 +149,5 @@ Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 종단 간 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)
+> [자습서: 종단 간 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
+> [자습서: 종단 간 사용자 인증 및 권한 부여(Linux)](containers/tutorial-auth-aad.md)

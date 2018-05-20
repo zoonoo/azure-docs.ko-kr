@@ -3,23 +3,24 @@ title: 개발자용 Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 개발자 가이드에 있는 가이드 및 참조 문서의 모든 목록입니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/08/2018
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: fe5d344eaaecc40f6d1937943603eda0404a1ca9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c0ff64f7cc3a0482dc513954869765178613b53
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 개발자 가이드의 문서
 Azure Active Directory 개발자 가이드에서 다루는 모든 항목의 목록은 다음과 같습니다.

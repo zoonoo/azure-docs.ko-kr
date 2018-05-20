@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery를 통한 VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정 | Microsoft Docs"
-description: "Azure Site Recovery 서비스를 통한 System Center VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다."
+title: Azure Site Recovery를 통한 VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery 서비스를 통한 System Center VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 99477757c89fe2df7ae24b7ffe95c8fb7f470c93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a8bbbe0a5aca20222ff7385be9d0ecf0a4224d5c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 02/22/2018
 1. **모든 서비스** > **Recovery Services 자격 증명 모음**에서 이러한 자습서에서 사용할 자격 증명 모음 이름인 **ContosoVMVault**를 클릭합니다.
 2. **시작**에서**Site Recovery**를 클릭합니다. 그런 다음 **인프라 준비**를 클릭합니다.
 3. **보호 목표** > **컴퓨터가 있는 위치**에서 **온-프레미스**를 선택합니다.
-4. **컴퓨터를 복제할 위치를 선택하세요.**에서 **Azure**를 선택합니다.
-5. **컴퓨터가 가상화되어 있습니까?**에서 **예, Hyper-V 사용**을 선택합니다.
-6. **System Center VMM을 사용하고 있습니까?**에서 **예**를 선택합니다. 그런 후 **OK**를 클릭합니다.
+4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
+5. **컴퓨터가 가상화되어 있습니까?** 에서 **예, Hyper-V 사용**을 선택합니다.
+6. **System Center VMM을 사용하고 있습니까?** 에서 **예**를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
     ![복제 목표](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/22/2018
 4. Azure Site Recovery 구독 및 자격 증명 모음 이름(**ContosoVMVault**)을 지정합니다. 자격 증명 모음에서 식별할 수 있도록 VMM 서버의 식별 이름을 지정합니다.
 5. **프록시 설정**에서 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
 6. 데이터를 암호화하는 데 사용되는 인증서의 기본 위치를 적용합니다. 장애 조치(failover) 시에는 암호화된 데이터의 암호가 해독됩니다.
-7. **클라우드 메타데이터 동기화**에서 **클라우드 메타데이터를 Site Recovery 포털에 동기화하세요.**를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 그런 후에 **등록**을 클릭합니다.
+7. **클라우드 메타데이터 동기화**에서 **클라우드 메타데이터를 Site Recovery 포털에 동기화하세요.** 를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 그런 후에 **등록**을 클릭합니다.
 8. 서버를 자격 증명 모음에 등록한 후 **마침**을 클릭합니다.
 
 등록이 완료되면 Azure Site Recovery에서 서버의 메타데이터가 검색되며 VMM 서버가 **Site Recovery 인프라**에 표시됩니다.

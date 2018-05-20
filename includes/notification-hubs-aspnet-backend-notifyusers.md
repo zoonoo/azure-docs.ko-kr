@@ -1,13 +1,27 @@
+---
+title: 포함 파일
+description: 백 엔드 ASP.NET WebAPI 프로젝트를 만드는 코드가 포함된 포함 파일입니다.
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: 634bb14cfef3df2cf944eeafbfa8d671afa4ac98
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
 다음 섹션에서는 새 ASP.NET WebAPI 백 엔드 만들기를 설명합니다. 이 프로세스에는 세 가지 주요 목적이 있습니다.
 
-* **클라이언트 인증**: 나중에 클라이언트 요청을 인증하고 사용자를 요청과 연결하는 메시지 처리기를 추가합니다.
+- **클라이언트 인증**: 클라이언트 요청을 인증하고 사용자를 요청과 연결하는 메시지 처리기를 추가합니다.
+- **WebAPI 백 엔드를 사용하여 알림 등록**: 클라이언트 장치에서 알림을 받을 수 있도록 새 등록을 처리하는 컨트롤러를 추가합니다. 인증된 사용자 이름은 [태그](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md)로 등록에 자동으로 추가됩니다.
+- **클라이언트로 알림 보내기**: 사용자가 태그와 연결된 장치 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가합니다. 
 
-* **WebAPI 백 엔드를 사용하여 알림 등록**: 클라이언트 장치에서 알림을 받을 수 있도록 새 등록을 처리하는 컨트롤러를 추가합니다. 인증된 사용자 이름은 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)로 등록에 자동으로 추가됩니다.
-
-* **클라이언트로 알림 보내기**: 사용자가 태그와 연결된 장치 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가합니다. 
-
-다음을 수행하여 새 ASP.NET WebAPI 백 엔드를 만듭니다. 
+다음 작업을 수행하여 새 ASP.NET WebAPI 백 엔드를 만듭니다. 
 
 > [!IMPORTANT]
 > Visual Studio 2015 이하를 사용하는 경우 이 자습서를 시작하기 전에 Visual Studio에 대한 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인합니다. 
@@ -17,15 +31,15 @@
 ![][B4]
 
 > [!NOTE]
-> 웹 사이트 배포를 위해 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.
-> 
+> 웹 사이트 배포를 위해 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.> 
 > 
 
 1. Visual Studio 또는 Visual Studio Express를 시작합니다. 
 
 2. **서버 탐색기**를 선택하고 Azure 계정에 로그인합니다. 계정에 웹 사이트 리소스를 만들려면 로그인해야 합니다.
 
-3. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택하고 **템플릿**, **Visual C#**을 차례로 확장한 다음 **웹** 및 **ASP.NET 웹 응용 프로그램**을 선택합니다.
+3. Visual Studio에서 Visual Studio 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음, **새 프로젝트**를 클릭합니다. 
+4. **Visual C#** 을 확장하고 **웹**을 선택한 다음, **ASP.NET 웹 응용 프로그램**을 클릭합니다.
 
 4. **이름** 상자에 **AppBackend**를 입력한 다음 **확인**을 선택합니다. 
    
@@ -35,7 +49,7 @@
    
     ![새 ASP.NET 프로젝트 창][B2]
 
-6. **Microsoft Azure 웹앱 구성** 창에서 구독을 선택한 다음 **App Service 계획** 목록에서 다음 중 하나를 수행합니다.
+6. **Microsoft Azure 웹앱 구성** 창에서 구독을 선택한 다음, **App Service 계획** 목록에서 다음 작업 중 하나를 수행합니다.
 
     * 이미 작성한 앱 서비스 계획을 선택합니다. 
     * **새 앱 서비스 계획 만들기**를 선택한 다음 새로 만듭니다. 
@@ -44,7 +58,7 @@
    
     ![Microsoft Azure 웹앱 구성 창][B5]
 
-## <a name="authenticate-clients-to-the-webapi-back-end"></a>WebAPI 백 엔드에 클라이언트 인증
+## <a name="authenticate-clients-to-the-webapi-backend"></a>WebAPI 백 엔드에 클라이언트 인증
 이 섹션에서는 새 백 엔드에 대해 **AuthenticationTestHandler**라는 새 메시지 처리기 클래스를 만듭니다. 이 클래스는 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx)에서 파생되며 백 엔드로 들어오는 모든 요청을 처리할 수 있도록 메시지 처리기로 추가됩니다. 
 
 1. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 선택합니다. 
@@ -53,12 +67,14 @@
 
 3. AuthenticationTestHandler.cs에 다음 `using` 문을 추가합니다.
    
-        using System.Net.Http;
-        using System.Threading;
-        using System.Security.Principal;
-        using System.Net;
-        using System.Text;
-        using System.Threading.Tasks;
+    ```csharp
+    using System.Net.Http;
+    using System.Threading;
+    using System.Security.Principal;
+    using System.Net;
+    using System.Text;
+    using System.Threading.Tasks;
+    ```
 
 4. AuthenticationTestHandler.cs에서 `AuthenticationTestHandler` 클래스 정의를 다음 코드로 바꿉니다. 
    
@@ -68,68 +84,68 @@
    * 요청이 *기본* 인증을 사용합니다. 
    * 사용자 이름 문자열과 암호 문자열은 동일한 문자열입니다.
      
-  그렇지 않으면 요청이 거부됩니다. 이는 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 매우 간단한 예제일 뿐입니다.
+  그렇지 않으면 요청이 거부됩니다. 이 인증은 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 간단한 예제일 뿐입니다.
      
   요청 메시지가 `AuthenticationTestHandler`에 의해 인증되고 권한이 부여되면 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)의 현재 요청에 기본 인증 사용자가 연결됩니다. HttpContext의 사용자 정보는 나중에 다른 컨트롤러(RegisterController)에서 알림 등록 요청에 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)를 추가하는 데 사용됩니다.
-     
-       public class AuthenticationTestHandler : DelegatingHandler
-       {
-           protected override Task<HttpResponseMessage> SendAsync(
-           HttpRequestMessage request, CancellationToken cancellationToken)
-           {
-               var authorizationHeader = request.Headers.GetValues("Authorization").First();
-     
-               if (authorizationHeader != null && authorizationHeader
-                   .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
-               {
-                   string authorizationUserAndPwdBase64 =
-                       authorizationHeader.Substring("Basic ".Length);
-                   string authorizationUserAndPwd = Encoding.Default
-                       .GetString(Convert.FromBase64String(authorizationUserAndPwdBase64));
-                   string user = authorizationUserAndPwd.Split(':')[0];
-                   string password = authorizationUserAndPwd.Split(':')[1];
-     
-                   if (verifyUserAndPwd(user, password))
-                   {
-                       // Attach the new principal object to the current HttpContext object
-                       HttpContext.Current.User =
-                           new GenericPrincipal(new GenericIdentity(user), new string[0]);
-                       System.Threading.Thread.CurrentPrincipal =
-                           System.Web.HttpContext.Current.User;
-                   }
-                   else return Unauthorized();
-               }
-               else return Unauthorized();
-     
-               return base.SendAsync(request, cancellationToken);
-           }
-     
-           private bool verifyUserAndPwd(string user, string password)
-           {
-               // This is not a real authentication scheme.
-               return user == password;
-           }
-     
-           private Task<HttpResponseMessage> Unauthorized()
-           {
-               var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
-               var tsc = new TaskCompletionSource<HttpResponseMessage>();
-               tsc.SetResult(response);
-               return tsc.Task;
-           }
-       }
-     
-     > [!NOTE]
-     > 보안 정보: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.                
-     > 
-     > 
-5. 메시지 처리기를 등록하려면 **App_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가합니다.
-   
-        config.MessageHandlers.Add(new AuthenticationTestHandler());
 
+    ```csharp     
+    public class AuthenticationTestHandler : DelegatingHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var authorizationHeader = request.Headers.GetValues("Authorization").First();
+    
+            if (authorizationHeader != null && authorizationHeader
+                .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
+            {
+                string authorizationUserAndPwdBase64 =
+                    authorizationHeader.Substring("Basic ".Length);
+                string authorizationUserAndPwd = Encoding.Default
+                    .GetString(Convert.FromBase64String(authorizationUserAndPwdBase64));
+                string user = authorizationUserAndPwd.Split(':')[0];
+                string password = authorizationUserAndPwd.Split(':')[1];
+    
+                if (verifyUserAndPwd(user, password))
+                {
+                    // Attach the new principal object to the current HttpContext object
+                    HttpContext.Current.User =
+                        new GenericPrincipal(new GenericIdentity(user), new string[0]);
+                    System.Threading.Thread.CurrentPrincipal =
+                        System.Web.HttpContext.Current.User;
+                }
+                else return Unauthorized();
+            }
+            else return Unauthorized();
+    
+            return base.SendAsync(request, cancellationToken);
+        }
+    
+        private bool verifyUserAndPwd(string user, string password)
+        {
+            // This is not a real authentication scheme.
+            return user == password;
+        }
+    
+        private Task<HttpResponseMessage> Unauthorized()
+        {
+            var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+    }
+    ``` 
+    > [!NOTE]
+    > 보안 정보: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.                
+5. 메시지 처리기를 등록하려면 **App_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가합니다.
+
+    ```csharp   
+    config.MessageHandlers.Add(new AuthenticationTestHandler());
+    ```
 6. 변경 내용을 저장합니다.
 
-## <a name="register-for-notifications-by-using-the-webapi-back-end"></a>WebAPI 백 엔드를 사용하여 알림 등록
+## <a name="register-for-notifications-by-using-the-webapi-backend"></a>WebAPI 백 엔드를 사용하여 알림 등록
 이 섹션에서는 알림 허브에 클라이언트 라이브러리를 사용하여 알림을 위한 사용자 및 장치 등록 요청을 처리하는 새 컨트롤러를 WebAPI 백 엔드에 추가합니다. 이 컨트롤러는 `AuthenticationTestHandler`에 의해 인증되고 HttpContext에 연결된 사용자에 대한 사용자 태그를 추가합니다. 태그의 문자열 형식은 `"username:<actual username>"`입니다.
 
 1. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
@@ -146,21 +162,25 @@
 
 5. Notifications.cs에서 파일의 맨 위에 `using` 문을 추가합니다.
    
-        using Microsoft.Azure.NotificationHubs;
+    ```csharp
+    using Microsoft.Azure.NotificationHubs;
+    ```
 
 6. `Notifications` 클래스 정의를 다음 코드로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure Portal](http://portal.azure.com)에서 제공)으로 바꿉니다.
    
-        public class Notifications
-        {
-            public static Notifications Instance = new Notifications();
-   
-            public NotificationHubClient Hub { get; set; }
-   
-            private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("<your hub's DefaultFullSharedAccessSignature>", 
-                                                                             "<hub name>");
-            }
+    ```csharp
+    public class Notifications
+    {
+        public static Notifications Instance = new Notifications();
+
+        public NotificationHubClient Hub { get; set; }
+
+        private Notifications() {
+            Hub = NotificationHubClient.CreateClientFromConnectionString("<your hub's DefaultFullSharedAccessSignature>", 
+                                                                            "<hub name>");
         }
+    }
+    ```
 7. 다음으로 **RegisterController**라는 새 컨트롤러를 만듭니다. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **컨트롤러**를 차례로 선택합니다. 
 
 8. **웹 API 2 컨트롤러 - 비어 있음**을 선택한 다음 **추가**를 선택합니다.
@@ -173,187 +193,191 @@
 
 10. RegiterController.cs에 다음 `using` 문을 추가합니다.
    
-        using Microsoft.Azure.NotificationHubs;
-        using Microsoft.Azure.NotificationHubs.Messaging;
-        using AppBackend.Models;
-        using System.Threading.Tasks;
-        using System.Web;
-
+    ```csharp
+    using Microsoft.Azure.NotificationHubs;
+    using Microsoft.Azure.NotificationHubs.Messaging;
+    using AppBackend.Models;
+    using System.Threading.Tasks;
+    using System.Web;
+    ```
 11. 다음 코드를 `RegisterController` 클래스 정의 내에 추가합니다. 이 코드에서 HttpContext에 연결된 사용자에 대한 사용자 태그를 추가합니다. 사용자는 추가한 메시지 필터 `AuthenticationTestHandler`에 의해 인증되고 HttpContext에 연결되었습니다. 또한 선택적인 검사를 추가하여 사용자에게 요청된 태그에 등록할 수 있는 권한이 있는지 확인합니다.
    
-        private NotificationHubClient hub;
-   
-        public RegisterController()
+    ```csharp
+    private NotificationHubClient hub;
+
+    public RegisterController()
+    {
+        hub = Notifications.Instance.Hub;
+    }
+
+    public class DeviceRegistration
+    {
+        public string Platform { get; set; }
+        public string Handle { get; set; }
+        public string[] Tags { get; set; }
+    }
+
+    // POST api/register
+    // This creates a registration id
+    public async Task<string> Post(string handle = null)
+    {
+        string newRegistrationId = null;
+
+        // make sure there are no existing registrations for this push handle (used for iOS and Android)
+        if (handle != null)
         {
-            hub = Notifications.Instance.Hub;
-        }
-   
-        public class DeviceRegistration
-        {
-            public string Platform { get; set; }
-            public string Handle { get; set; }
-            public string[] Tags { get; set; }
-        }
-   
-        // POST api/register
-        // This creates a registration id
-        public async Task<string> Post(string handle = null)
-        {
-            string newRegistrationId = null;
-   
-            // make sure there are no existing registrations for this push handle (used for iOS and Android)
-            if (handle != null)
+            var registrations = await hub.GetRegistrationsByChannelAsync(handle, 100);
+
+            foreach (RegistrationDescription registration in registrations)
             {
-                var registrations = await hub.GetRegistrationsByChannelAsync(handle, 100);
-   
-                foreach (RegistrationDescription registration in registrations)
+                if (newRegistrationId == null)
                 {
-                    if (newRegistrationId == null)
-                    {
-                        newRegistrationId = registration.RegistrationId;
-                    }
-                    else
-                    {
-                        await hub.DeleteRegistrationAsync(registration);
-                    }
+                    newRegistrationId = registration.RegistrationId;
+                }
+                else
+                {
+                    await hub.DeleteRegistrationAsync(registration);
                 }
             }
-   
-            if (newRegistrationId == null) 
-                newRegistrationId = await hub.CreateRegistrationIdAsync();
-   
-            return newRegistrationId;
         }
-   
-        // PUT api/register/5
-        // This creates or updates a registration (with provided channelURI) at the specified id
-        public async Task<HttpResponseMessage> Put(string id, DeviceRegistration deviceUpdate)
+
+        if (newRegistrationId == null) 
+            newRegistrationId = await hub.CreateRegistrationIdAsync();
+
+        return newRegistrationId;
+    }
+
+    // PUT api/register/5
+    // This creates or updates a registration (with provided channelURI) at the specified id
+    public async Task<HttpResponseMessage> Put(string id, DeviceRegistration deviceUpdate)
+    {
+        RegistrationDescription registration = null;
+        switch (deviceUpdate.Platform)
         {
-            RegistrationDescription registration = null;
-            switch (deviceUpdate.Platform)
-            {
-                case "mpns":
-                    registration = new MpnsRegistrationDescription(deviceUpdate.Handle);
-                    break;
-                case "wns":
-                    registration = new WindowsRegistrationDescription(deviceUpdate.Handle);
-                    break;
-                case "apns":
-                    registration = new AppleRegistrationDescription(deviceUpdate.Handle);
-                    break;
-                case "gcm":
-                    registration = new GcmRegistrationDescription(deviceUpdate.Handle);
-                    break;
-                default:
-                    throw new HttpResponseException(HttpStatusCode.BadRequest);
-            }
-   
-            registration.RegistrationId = id;
-            var username = HttpContext.Current.User.Identity.Name;
-   
-            // add check if user is allowed to add these tags
-            registration.Tags = new HashSet<string>(deviceUpdate.Tags);
-            registration.Tags.Add("username:" + username);
-   
-            try
-            {
-                await hub.CreateOrUpdateRegistrationAsync(registration);
-            }
-            catch (MessagingException e)
-            {
-                ReturnGoneIfHubResponseIsGone(e);
-            }
-   
-            return Request.CreateResponse(HttpStatusCode.OK);
+            case "mpns":
+                registration = new MpnsRegistrationDescription(deviceUpdate.Handle);
+                break;
+            case "wns":
+                registration = new WindowsRegistrationDescription(deviceUpdate.Handle);
+                break;
+            case "apns":
+                registration = new AppleRegistrationDescription(deviceUpdate.Handle);
+                break;
+            case "gcm":
+                registration = new GcmRegistrationDescription(deviceUpdate.Handle);
+                break;
+            default:
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-   
-        // DELETE api/register/5
-        public async Task<HttpResponseMessage> Delete(string id)
+
+        registration.RegistrationId = id;
+        var username = HttpContext.Current.User.Identity.Name;
+
+        // add check if user is allowed to add these tags
+        registration.Tags = new HashSet<string>(deviceUpdate.Tags);
+        registration.Tags.Add("username:" + username);
+
+        try
         {
-            await hub.DeleteRegistrationAsync(id);
-            return Request.CreateResponse(HttpStatusCode.OK);
+            await hub.CreateOrUpdateRegistrationAsync(registration);
         }
-   
-        private static void ReturnGoneIfHubResponseIsGone(MessagingException e)
+        catch (MessagingException e)
         {
-            var webex = e.InnerException as WebException;
-            if (webex.Status == WebExceptionStatus.ProtocolError)
-            {
-                var response = (HttpWebResponse)webex.Response;
-                if (response.StatusCode == HttpStatusCode.Gone)
-                    throw new HttpRequestException(HttpStatusCode.Gone.ToString());
-            }
+            ReturnGoneIfHubResponseIsGone(e);
         }
+
+        return Request.CreateResponse(HttpStatusCode.OK);
+    }
+
+    // DELETE api/register/5
+    public async Task<HttpResponseMessage> Delete(string id)
+    {
+        await hub.DeleteRegistrationAsync(id);
+        return Request.CreateResponse(HttpStatusCode.OK);
+    }
+
+    private static void ReturnGoneIfHubResponseIsGone(MessagingException e)
+    {
+        var webex = e.InnerException as WebException;
+        if (webex.Status == WebExceptionStatus.ProtocolError)
+        {
+            var response = (HttpWebResponse)webex.Response;
+            if (response.StatusCode == HttpStatusCode.Gone)
+                throw new HttpRequestException(HttpStatusCode.Gone.ToString());
+        }
+    }
+    ```
 12. 변경 내용을 저장합니다.
 
-## <a name="send-notifications-from-the-webapi-back-end"></a>WebAPI 백 엔드에서 알림 보내기
-이 섹션에서는 클라이언트 장치에서 알림을 보내기 위한 방법을 노출하는 새 컨트롤러를 추가합니다. 알림은 ASP.NET WebAPI 백 엔드에서 Azure Notification Hubs 서비스 관리 라이브러리를 사용하는 사용자 이름 태그를 기반으로 합니다.
+## <a name="send-notifications-from-the-webapi-backend"></a>WebAPI 백 엔드에서 알림 보내기
+이 섹션에서는 클라이언트 장치에서 알림을 보내기 위한 방법을 노출하는 새 컨트롤러를 추가합니다. 알림은 ASP.NET WebAPI 백 엔드에서 Azure Notification Hubs .NET 라이브러리를 사용하는 사용자 이름 태그를 기반으로 합니다.
 
 1. 이전 섹션에서 **RegisterController**를 만들었던 동일한 방식으로 **NotificationsController**라는 다른 새 컨트롤러를 만듭니다.
 
 2. NotificationsController.cs에 다음 `using` 문을 추가합니다.
    
-        using AppBackend.Models;
-        using System.Threading.Tasks;
-        using System.Web;
-
+    ```csharp
+    using AppBackend.Models;
+    using System.Threading.Tasks;
+    using System.Web;
+    ```
 3. **NotificationsController** 클래스에 다음 메서드를 추가합니다.
    
     이 코드는 PNS(Platform Notification Service) `pns` 매개 변수를 기반으로 알림 유형을 보냅니다. `to_tag` 값은 메시지에서 *사용자 이름* 태그를 지정하는 데 사용됩니다. 이 태그는 활성 알림 허브 등록의 사용자 이름 태그와 일치해야 합니다. 알림 메시지는 POST 요청의 본문에서 가져오고 대상 PNS에 맞게 형식이 지정됩니다. 
    
     알림을 수신하기 위해 지원되는 장치가 사용하는 PNS에 따라 다양한 형식으로 알림을 지원합니다. 예를 들어 Windows 장치에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)을 사용할 수 있습니다. 이러한 상황에서 백 엔드는 알림을 지원하려는 장치의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)에서 적절한 보내기 API를 사용합니다.
    
-        public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
+    ```csharp
+    public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
+    {
+        var user = HttpContext.Current.User.Identity.Name;
+        string[] userTag = new string[2];
+        userTag[0] = "username:" + to_tag;
+        userTag[1] = "from:" + user;
+
+        Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+        HttpStatusCode ret = HttpStatusCode.InternalServerError;
+
+        switch (pns.ToLower())
         {
-            var user = HttpContext.Current.User.Identity.Name;
-            string[] userTag = new string[2];
-            userTag[0] = "username:" + to_tag;
-            userTag[1] = "from:" + user;
-   
-            Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
-            HttpStatusCode ret = HttpStatusCode.InternalServerError;
-   
-            switch (pns.ToLower())
-            {
-                case "wns":
-                    // Windows 8.1 / Windows Phone 8.1
-                    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + 
-                                "From " + user + ": " + message + "</text></binding></visual></toast>";
-                    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-                    break;
-                case "apns":
-                    // iOS
-                    var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
-                    outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
-                    break;
-                case "gcm":
-                    // Android
-                    var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
-                    outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
-                    break;
-            }
-   
-            if (outcome != null)
-            {
-                if (!((outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Abandoned) ||
-                    (outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Unknown)))
-                {
-                    ret = HttpStatusCode.OK;
-                }
-            }
-   
-            return Request.CreateResponse(ret);
+            case "wns":
+                // Windows 8.1 / Windows Phone 8.1
+                var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + 
+                            "From " + user + ": " + message + "</text></binding></visual></toast>";
+                outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+                break;
+            case "apns":
+                // iOS
+                var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
+                outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
+                break;
+            case "gcm":
+                // Android
+                var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
+                outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                break;
         }
 
+        if (outcome != null)
+        {
+            if (!((outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Abandoned) ||
+                (outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Unknown)))
+            {
+                ret = HttpStatusCode.OK;
+            }
+        }
+
+        return Request.CreateResponse(ret);
+    }
+    ```
 4. 응용 프로그램을 실행하고 지금까지 작업의 정확성을 확인하려면 **F5** 키를 선택합니다. 앱은 웹 브라우저를 열고 ASP.NET 홈페이지에 표시됩니다. 
 
-## <a name="publish-the-new-webapi-back-end"></a>새 WebAPI 백 엔드 게시
+## <a name="publish-the-new-webapi-backend"></a>새 WebAPI 백 엔드 게시
 다음으로 모든 장치에서 액세스할 수 있도록 앱을 Azure 웹 사이트에 배포합니다. 
 
 1. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
-2. **Microsoft Azure App Service**를 게시 대상으로 선택한 다음 **게시**를 선택합니다.  
-    App Service 만들기 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
+2. **Microsoft Azure App Service**를 게시 대상으로 선택한 다음, [게시]를 선택합니다. App Service 만들기 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
 
     ![Microsoft Azure App Service 타일][B15]
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: cfc8ac74f626ada30dda72b58e4b4bc7f0d9e806
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 이 항목에서는 가장 중요한 Media Services 개념에 대한 개요를 제공합니다.
@@ -108,7 +108,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 Azure Media Services에서 채널은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
 * 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각화된 MP4)을 채널에 보냅니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. RTMP를 출력하는 라이브 인코더는 Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision 및 Tricaster 인코더입니다. 어떠한 추가적인 트랜스코딩 및 인코딩 없이 채널을 통해 수집된 스트림이 통과합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
-* 단일 비트 전송률 스트림(RTP(MPEG-TS), RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식 중 하나)은 Media Services를 사용하여 라이브 인코딩을 수행할 수 있는 채널에 전송됩니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
+* 단일 비트 전송률 스트림(RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식 중 하나)은 Media Services를 사용하여 라이브 인코딩을 수행할 수 있는 채널에 전송됩니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 
 ### <a name="channel"></a>채널
 Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operations/channel)은 라이브 스트리밍 콘텐츠 처리를 담당합니다. 채널은 라이브 트랜스코더에 제공될 입력 끝점(수집 URL)을 제공합니다. 채널은 라이브 트랜스코더에서 라이브 입력 스트림을 수신하여 하나 이상의 StreamingEndpoints를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 채널은 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 끝점(미리 보기 URL)을 제공합니다.

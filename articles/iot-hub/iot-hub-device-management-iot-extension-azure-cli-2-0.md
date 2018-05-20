@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 1bf2c10c5267157f6d74962c00d587a6956fc574
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27a8dca68000e3f4b7f33508fc6dbc3450fc80b4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Azure CLI 2.0용 IoT 확장을 사용하여 Azure IoT Hub 장치 관리
 
@@ -96,10 +96,10 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 다음 명령을 실행하여 장치의 reported 속성을 가져옵니다.
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.reported.interval = 3000
+az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-속성 중 하나인 $metadata.$lastUpdated는 이 장치에서 메시지를 보내거나 받은 마지막 시간을 보여 줍니다.
+쌍 reported 속성 중 하나는 $metadata.$lastUpdated로서 장치 앱이 해당 reported 속성 집합을 업데이트한 마지막 시간을 나타냅니다.
 
 ## <a name="device-twin-tags"></a>장치 쌍 태그
 

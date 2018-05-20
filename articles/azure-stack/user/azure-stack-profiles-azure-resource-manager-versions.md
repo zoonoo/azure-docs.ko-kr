@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure 스택에서 프로필에서 지 원하는 리소스 공급자 API 버전
 
@@ -30,7 +30,7 @@ API 프로필 세 명명 규칙을 사용합니다.
 
 에 대 한 API 프로필 및 버전 릴리스 일정의 설명은 Azure 스택에 대 한 참조 [스택에서 Azure 관리 API 버전 프로필](azure-stack-version-profiles.md)합니다.
 
-> [!note]  
+> [!Note]  
 > **최신** API 프로필 리소스 공급자 API 버전을 최신을 포함 하며이 문서에 나타나지 않습니다.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>2018-03-01-하이브리드 개요
@@ -224,7 +224,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 위치 | 2016-01-01 |
 | 위치/할당량 | 2016-01-01 |
 | 작업 | 2016-01-01 |
-| storageaccounts 하는 중 | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | 사용 | 2016-01-01 |
 
 ## <a name="details-for-the-2017-03-09-profile"></a>2017 03 09 프로필에 대 한 세부 정보
@@ -319,7 +319,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 위치 | 2016-01-01 |
 | 위치/할당량 | 2016-01-01 |
 | 작업 | 2016-01-01 |
-| storageaccounts 하는 중 | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | 사용 | 2016-01-01 |
 
 ## <a name="next-steps"></a>다음 단계

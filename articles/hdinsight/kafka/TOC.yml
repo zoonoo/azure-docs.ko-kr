@@ -40,6 +40,8 @@
   items:
     - name: 자동 항목 만들기 사용
       href: apache-kafka-auto-create-topics.md
+    - name: IoT Hub와 Kafka 사용
+      href: apache-kafka-connector-iot-hub.md
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true

@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b7f0aa514cfffb8fb2ca76238a6a65a8e6443e56
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Linux 또는 MacOS에서 시뮬레이션된 장치에 Azure IoT Edge 배포 - 미리 보기
 
@@ -40,6 +40,7 @@ Azure IoT Edge에서는 클라우드로 모든 데이터를 푸시하는 대신,
      * _특정 배포(예: Raspbian)에서 특정 pip 패키지를 업그레이드하고 추가 종속성을 설치해야 할 수도 있습니다._
      ```
      sudo pip install --upgrade setuptools pip
+     
      sudo apt-get install python2.7-dev libffi-dev libssl-dev
      ```
    * MacOS: `sudo easy_install pip`

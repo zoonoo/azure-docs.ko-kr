@@ -11,6 +11,7 @@
 ## [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
 
 # 개념
+## [서비스 보안 주체를 사용한 자동화](analysis-services-service-principal.md)
 ## [지원되는 데이터 원본](analysis-services-datasource.md)
 ## [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)
 ## [서버에 연결](analysis-services-connect.md)

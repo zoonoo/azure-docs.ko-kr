@@ -3,24 +3,24 @@ title: Azure Active Directory에서 관리할 수 있는 모든 엔터프라이�
 description: Azure Active Directory에서 관리하는 권한이 있는 엔터프라이즈 앱의 목록을 표시하는 방법
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 64946b3bbf39cf8153fcc8c7aa548ed6055fb47f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: dd2d941cb4066bc4f7d1cfebe17d701feb105269
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Azure Active Directory에서 관리할 수 있는 모든 엔터프라이즈 앱 보기
 Azure AD(Azure Active Directory)에서 엔터프라이즈 응용 프로그램을 관리할 수 있습니다. 관리할 수 있는 앱을 보고, 앱에 사용자 또는 그룹을 할당하고, 응용 프로그램 이름/로고와 같은 앱에 대한 속성을 유지하고, 사용자가 로그인할 수 없도록 응용 프로그램을 비활성화할 수 있습니다.

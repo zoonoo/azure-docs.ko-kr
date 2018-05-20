@@ -1,5 +1,5 @@
 ---
-title: Azure CDN 프로필 및 끝점 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure CDN 프로필 및 엔드포인트 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 새로운 CDN 프로필 및 끝점을 만들어서 Azure CDN을 활성화하는 방법을 설명합니다.
 services: cdn
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 끝점 만들기
 이 빠른 시작에서는 새로운 CDN 프로필 및 CDN 끝점을 만들어서 Azure CDN(Content Delivery Network)을 사용하도록 설정합니다. 프로필과 끝점을 만든 후에 고객에게 콘텐츠를 제공하기 시작할 수 있습니다.
@@ -70,7 +70,9 @@ CDN 프로필을 만든 후에 끝점을 만드는 데 사용할 수 있습니�
    ![CDN 끝점](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    등록이 전파되는 등록에 시간이 걸리기 때문에, 엔드포인트를 즉시 사용할 수는 없습니다. 
-
+   - **Microsoft의 Azure CDN 표준** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
+   - **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
+   - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 90분 이내에 전파가 완료됩니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이전 단계에서 리소스 그룹에 CDN 프로필 및 끝점을 만들었습니다. [다음 단계](#next-steps)로 이동하려는 경우 이러한 리소스를 저장하고, 끝점에 사용자 지정 도메인을 추가하는 방법에 대해 알아봅니다. 하지만 이러한 리소스를 나중에 사용하지 않을 경우 리소스 그룹을 삭제한 다음, 추가 요금을 방치하여 해당 리소스를 삭제할 수 있습니다.
@@ -85,6 +87,6 @@ CDN 프로필을 만든 후에 끝점을 만드는 데 사용할 수 있습니�
 사용자 지정 도메인을 CDN 끝점에 추가하는 방법에 대해 알아보려면 다음 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
+> [자습서: Azure CDN을 웹앱에 추가](app-service-web-tutorial-content-delivery-network.md)
 
 

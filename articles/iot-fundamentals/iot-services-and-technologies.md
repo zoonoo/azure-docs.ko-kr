@@ -14,31 +14,31 @@ ms.workload: na
 ms.date: 03/30/2018
 ms.author: bryanla; v-clay
 ms.custom: ''
-ms.openlocfilehash: 04b4079038ab0ef3f87cfceea521a1424e93cce1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT 기술 및 솔루션: PaaS 및 SaaS
 
 Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록 모든 고객의 요구 사항을 지원하는 포트폴리오를 만들었습니다. Azure IoT 제품 포트폴리오는 사용 가능한 PaaS/SaaS 기술 및 솔루션의 개요를 보여줍니다. 고객이 고유의 솔루션을 구축하는 데 사용할 수 있는 두 가지 경로를 제공합니다.
-- PaaS(Platform as a Service): 사용자 지정 IoT 솔루션의 개발을 가속화하는 미리 구성된 엔터프라이즈급 솔루션 컬렉션인 [Azure IoT Suite](https://www.azureiotsuite.com/)를 사용하여 응용 프로그램을 빌드하세요.
+- PaaS(Platform as a Service): 사용자 지정 IoT 솔루션의 개발을 가속화하는 미리 구성된 엔터프라이즈급 솔루션 컬렉션인 [Azure IoT 솔루션 가속기](https://www.azureiotsuite.com/)를 사용하여 응용 프로그램을 빌드하세요.
 - SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 장치 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
 
-![업계에서 가장 포괄적인 기술 및 솔루션 포트폴리오][img-paas-saas-technologies-solutions]
+![Azure IoT 기술 및 솔루션][img-paas-saas-technologies-solutions]
 
 ## <a name="solutions"></a>솔루션
 
-Azure IoT Suite 및 SaaS 제품으로 신속하게 시작하세요. 원격 모니터링, 예측 유지 관리, 연결된 팩터리 등의 일반적인 IoT 시나리오를 지원하는 미리 구성된 솔루션 중에서 선택하여 완전히 사용자 지정 가능한 솔루션을 만들어 보세요. 또는 클라우드 솔루션에 대한 전문 지식이 없어도 강력한 IoT 시나리오를 지원할 수 있는 완전히 관리되는 통합형 솔루션인 Azure IoT Central을 사용하세요.
+솔루션 가속기 및 SaaS 제품을 사용하여 빠르게 시작합니다. 원격 모니터링, 예측 유지 관리, 연결된 팩터리 등의 일반적인 IoT 시나리오를 지원하는 미리 구성된 솔루션 중에서 선택하여 완전히 사용자 지정 가능한 솔루션을 만들어 보세요. 또는 클라우드 솔루션에 대한 전문 지식이 없어도 강력한 IoT 시나리오를 지원할 수 있는 완전히 관리되는 통합형 솔루션인 Azure IoT Central을 사용하세요.
 
-### <a name="azure-iot-suite-paas"></a>Azure IoT Suite(PaaS)
+### <a name="azure-iot-solution-accelerators-paas"></a>Azure IoT 솔루션 가속기(PaaS)
 
-Azure IoT Suite는 사용자 지정이 가능한 엔터프라이즈급 PaaS 솔루션 컬렉션으로 IoT 솔루션을 보다 철저하게 제어할 수 있습니다. 연결된 작업을 위한 IoT를 구현하려는 기업 또는 연결된 제품에 대한 구체적인 사용자 지정 요구 사항을 갖고 있는 기업을 위해 Azure IoT Suite는 고객에게 필요한 제어 기능을 제공합니다. 
+Azure IoT 솔루션 가속기는 사용자 지정이 가능한 PaaS 솔루션으로 IoT 솔루션을 보다 철저하게 제어할 수 있습니다. 연결된 작업을 위한 IoT를 구현하려는 기업 또는 연결된 제품에 대한 구체적인 사용자 지정 요구 사항을 갖고 있는 기업을 위해 Azure IoT 솔루션 가속기는 고객에게 필요한 제어 기능을 제공합니다. 
 
-장치 또는 장치 모델의 수가 많은 조직, 그리고 연결된 팩터리 솔루션을 찾는 제조업체는 Azure IoT Suite의 혜택을 볼 수 있는 대표적인 예입니다. 복잡한 요구 사항에 적합하도록 고도로 사용자 지정 가능한 솔루션을 만드는 IoT Suite는 다음 기능을 제공합니다.
+장치 또는 장치 모델의 수가 많은 조직, 그리고 연결된 팩터리 솔루션을 찾는 제조업체는 IoT 솔루션 가속기의 혜택을 볼 수 있는 대표적인 예입니다. 복잡한 요구 사항에 적합하도록 고도로 사용자 지정 가능한 솔루션을 만드는 IoT 솔루션 가속기는 다음 기능을 제공합니다. 
 
-- 미리 구성된 솔루션
+- 미리 작성된 솔루션
     - 원격 모니터링
     - 연결된 공장
     - 예측 유지 관리
@@ -58,26 +58,26 @@ Azure IoT Central은 최소의 IoT 경험만 있으면 빠르게 시작할 수 �
 - 요구 사항에 맞게 구성 가능
 - 간단한 IoT 요구 사항에 적합
 
-### <a name="compare-azure-iot-suite-and-azure-iot-central"></a>Azure IoT Suite와 Azure IoT Central 비교
+### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Azure IoT 솔루션 가속기와 Azure IoT Central 비교
 
-일반적인 [IoT 솔루션 아키텍처](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture)를 구현하기 위해 Azure IoT는 [Azure IoT Suite](/azure/iot-suite) 및 [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)을 제공하며, 각각은 서로 다른 고객 요구 사항 집합에 적합합니다.
+일반적인 [IoT 솔루션 아키텍처](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture)를 구현하기 위해 Azure IoT는 [Azure IoT 솔루션 가속기](/azure/iot-suite) 및 [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)을 제공하며, 각각은 서로 다른 고객 요구 사항 집합에 적합합니다.
 
-[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 Azure IoT Central 및 Azure IoT Suite 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub를 사용하면 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 Azure IoT Central 및 Azure IoT 솔루션 가속기 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub를 사용하면 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
 
 * 대용량 장치 연결 및 관리
 * 대용량 원격 분석 수집
 * 장치 명령 및 제어
 * 장치 보안 강화
 
-Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT Suite 또는 Azure IoT Central을 사용할 필요가 없습니다. Azure IoT Suite와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 Azure IoT Suite와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
+Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT 솔루션 가속기 또는 Azure IoT Central을 사용할 필요가 없습니다. Azure IoT 솔루션 가속기와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 Azure IoT 솔루션 가속기와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
 
-|                        | Azure IoT Suite | Azure IoT Central |
+|                        | Azure IoT 솔루션 가속기 | Azure IoT Central |
 | ---------------------- | --------- | ----------- |
 | 기본 사용 | 최대한의 유연성이 필요한 사용자 지정 IoT 솔루션의 개발을 가속화합니다. | 자세한 서비스 사용자 지정이 필요하지 않은 간단한 IoT 솔루션의 출시 시간을 가속화합니다. |
 | 기본 PaaS 서비스에 대한 액세스          | 기본 Azure 서비스에 액세스하여 이를 관리하거나 필요에 따라 바꿀 수 있습니다. | SaaS - 완벽하게 관리되는 솔루션이며, 기본 서비스가 노출되지 않습니다. |
 | 유연성            | 높음. 마이크로 서비스에 대한 코드는 오픈 소스이며, 원하는 대로 적절히 수정할 수 있습니다. 또한 배포 인프라를 사용자 지정할 수 있습니다.| 중간. 기본 제공 브라우저 기반 사용자 환경을 사용하여 솔루션 모델 및 UI 측면을 사용자 지정할 수 있습니다. 다른 구성 요소가 노출되지 않기 때문에 인프라는 사용자 지정할 수 없습니다.|
 | 기술 수준                 | 약간 높음 - 솔루션 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요합니다. 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다. | 낮음. 솔루션을 사용자 지정하려면 모델링 기술이 필요합니다. 코딩 기술은 필요하지 않습니다. |
-| 시작 환경 | 미리 구성된 솔루션에서 일반적인 IoT 시나리오를 구현합니다. 몇 분 안에 배포할 수 있습니다. | 응용 프로그램 템플릿 및 장치 템플릿은 미리 빌드된 모델을 제공합니다. 몇 분 안에 배포할 수 있습니다. |
+| 시작 환경 | 솔루션 가속기에서 일반적인 IoT 시나리오를 구현합니다. 몇 분 안에 배포할 수 있습니다. | 응용 프로그램 템플릿 및 장치 템플릿은 미리 빌드된 모델을 제공합니다. 몇 분 안에 배포할 수 있습니다. |
 | 가격                | 비용을 제어하기 위해 서비스를 자세히 튜닝할 수 있습니다. | 간단하고 예측 가능한 가격 책정 구조입니다. |
 
 궁극적으로 IoT 솔루션을 빌드하는 데 사용할 제품은 다음 조건에 따라 결정할 수 있습니다.

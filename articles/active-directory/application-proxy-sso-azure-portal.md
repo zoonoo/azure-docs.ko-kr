@@ -1,33 +1,33 @@
 ---
-title: "Azure AD 응용 프로그램 프록시를 사용하여 앱에 SSO(Single sign-on) | Microsoft Docs"
-description: "Azure Portal에서 Azure AD 응용 프로그램을 사용하여 게시된 온-프레미스 응용 프로그램에 대한 SSO(Single sign-on)를 켭니다."
+title: Azure AD 응용 프로그램 프록시를 사용하여 앱에 SSO(Single sign-on) | Microsoft Docs
+description: Azure Portal에서 Azure AD 응용 프로그램을 사용하여 게시된 온-프레미스 응용 프로그램에 대한 SSO(Single sign-on)를 켭니다.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 501017ae416cc8aa473077c98ae0a213db749547
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 77e7288060abd2577867023a777eb3bdd4331e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>응용 프로그램 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정
 
 Azure Active Directory 응용 프로그램 프록시는 원격 직원들이 안전하게 액세스할 수 있도록 온-프레미스 응용 프로그램을 게시하여 생산성을 개선하는 데 도움을 줍니다. Azure Portal에서는 이러한 앱에 대한 SSO(Single Sign-On)을 설정할 수도 있습니다. 사용자는 Azure AD만으로 인증해야 하며, 다시 로그인할 필요 없이 엔터프라이즈 응용 프로그램에 액세스할 수 있습니다.
 
-응용프로그램 프록시에서는 여러 [Single Sign-On 모드](application-proxy-sso-overview.md)를 지원합니다. 암호 기반 로그인은 인증에 사용자 이름/암호 조합을 사용하는 응용 프로그램을 위한 것입니다. 응용 프로그램에 대한 암호 기반 로그인을 구성하는 경우 사용자는 온-프레미스 응용 프로그램에 한 번 로그인해야 합니다. 그런 다음 Azure Active Directory에서 로그인 정보를 저장하고 사용자가 원격으로 액세스할 때 응용 프로그램에 자동으로 제공합니다. 
+응용프로그램 프록시에서는 여러 [Single Sign-On 모드](manage-apps/application-proxy-single-sign-on.md)를 지원합니다. 암호 기반 로그인은 인증에 사용자 이름/암호 조합을 사용하는 응용 프로그램을 위한 것입니다. 응용 프로그램에 대한 암호 기반 로그인을 구성하는 경우 사용자는 온-프레미스 응용 프로그램에 한 번 로그인해야 합니다. 그런 다음 Azure Active Directory에서 로그인 정보를 저장하고 사용자가 원격으로 액세스할 때 응용 프로그램에 자동으로 제공합니다. 
 
-이미 응용 프로그램 프록시를 사용하여 앱을 게시하고 테스트했을 것입니다. 그렇지 않은 경우 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)의 단계를 수행한 다음 여기로 다시 돌아옵니다. 
+이미 응용 프로그램 프록시를 사용하여 앱을 게시하고 테스트했을 것입니다. 그렇지 않은 경우 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md)의 단계를 수행한 다음 여기로 다시 돌아옵니다. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>응용 프로그램에 대한 암호 보관 설정
 
@@ -55,5 +55,5 @@ Azure Active Directory 응용 프로그램 프록시는 원격 직원들이 안�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [응용 프로그램 프록시를 사용하는 Single Sign-On](application-proxy-sso-overview.md)을 구현하는 다른 방법에 대해 읽기
+- [응용 프로그램 프록시를 사용하는 Single Sign-On](manage-apps/application-proxy-single-sign-on.md)을 구현하는 다른 방법에 대해 읽기
 - [Azure AD 응용 프로그램 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](application-proxy-security-considerations.md)을 알아봅니다

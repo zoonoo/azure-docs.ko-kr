@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -35,7 +35,15 @@ Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티�
 
 ### <a name="outputs"></a>outputs
 
-Stream Analytics로 작업할 때 대부분의 출력 싱크에 대해 분할을 활용할 수 있습니다. 출력 분할에 대한 자세한 내용은 [출력 페이지의 섹션 분할](stream-analytics-define-outputs.md#partitioning)을 참조하세요.
+Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 있습니다.
+-   Azure Data Lake 저장소
+-   Azure 기능
+-   Azure 테이블
+-   Blob 저장소(파티션 키를 명시적으로 설정할 수 있음)
+-   CosmosDB(파티션 키를 명시적으로 설정해야 함)
+-   EventHub(파티션 키를 명시적으로 설정해야 함)
+-   IoT Hub(파티션 키를 명시적으로 설정해야 함)
+-   Service Bus
 
 PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-step-query-with-different-partition-by-values)에 설명된 대로 입력은 여전히 분할할 수 있습니다. 
 
@@ -54,13 +62,13 @@ PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니�
 
 3. 대부분의 출력은 분할을 활용할 수 있지만 분할을 지원하지 않는 출력 형식을 사용하는 경우 작업이 완벽하게 병렬 처리되지 않습니다. 자세한 내용은 [출력 섹션](#outputs)을 참조하세요.
 
-4. 입력 파티션 수가 출력 파티션 수와 같아야 합니다. Blob Storage 출력은 현재 파티션을 지원하지 않습니다. 하지만 업스트림 쿼리의 분할 스키마를 상속하므로 문제되지 않습니다. 다음은 완전한 병렬 작업을 허용하는 파티션 값의 예입니다.  
+4. 입력 파티션 수가 출력 파티션 수와 같아야 합니다. Blob 저장소 출력은 파티션을 지원할 수 있고 업스트림 쿼리의 파티션 구성표를 상속합니다. Blob 저장소에 대한 파티션 키가 지정되면 데이터는 입력 파티션별로 분할되므로 결과는 여전히 완전 병렬 상태입니다. 다음은 완전한 병렬 작업을 허용하는 파티션 값의 예입니다.
 
    * 8개의 이벤트 허브 입력 파티션 및 8개의 이벤트 허브 출력 파티션
-   * 8개의 이벤트 허브 입력 파티션 및 Blob Storage 출력  
-   * 8개의 IoT 허브 입력 파티션 및 8개의 이벤트 허브 출력 파티션
-   * 8개의 Blob Storage 입력 파티션 및 Blob Storage 출력  
-   * 8개의 Blob Storage 입력 파티션 및 8개의 이벤트 허브 출력 파티션  
+   * 8개의 이벤트 허브 입력 파티션 및 Blob Storage 출력
+   * 임의 카디널리티를 사용하여 사용자 지정 필드별로 분할되는 8개의 이벤트 허브 입력 파티션 및 Blob 저장소 출력
+   * 8개의 Blob Storage 입력 파티션 및 Blob Storage 출력
+   * 8개의 Blob Storage 입력 파티션 및 8개의 이벤트 허브 출력 파티션
 
 다음 섹션에서는 병렬 처리가 적합한 작업의 몇 가지 예제 시나리오를 살펴봅니다.
 

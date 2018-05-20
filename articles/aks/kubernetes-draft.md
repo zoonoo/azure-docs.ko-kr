@@ -3,19 +3,19 @@ title: AKS 및 Azure Container Registry에서 Draft 사용
 description: AKS 및 Azure Container Registry에서 Draft 사용
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Azure Container Service(AKS)에서 Draft 사용
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Draft 사용
 
 Draft는 Kubernetes 클러스터에 이러한 컨테이너를 포함하고 배포하게 하면서 집중 개발의 "내부 루프" 곧 개발 주기에 자유롭게 집중하게 하는 오픈 소스 도구입니다. Draft는 코드가 개발되고 있을 때 그러나 버전 제어에 커밋하기 전에 작동합니다. Draft를 사용하면 코드가 변경될 때 Kubernetes에 응용 프로그램을 신속하게 재배포할 수 있습니다. Draft에 대한 자세한 내용은 [Github의 Draft 설명서][draft-documentation]를 참조하세요.
 
@@ -27,7 +27,7 @@ Draft는 Kubernetes 클러스터에 이러한 컨테이너를 포함하고 배�
 
 ACR(Azure Container Registry)에서 개인 Docker 레지스트리도 필요합니다. ACR 인스턴스를 배포하는 지침은 [Azure Container Registry 빠른 시작][acr-quickstart]을 참조하세요.
 
-또한 Helm을 AKS 클러스터에 설치해야 합니다. Helm을 설치하는 방법에 대한 자세한 내용은 [AKS(Azure Container Service)에서 AKS 사용][aks-helm]을 참조하세요.
+또한 Helm을 AKS 클러스터에 설치해야 합니다. Helm을 설치하는 방법에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)에서 Helm 사용][aks-helm]을 참조하세요.
 
 마지막으로 [Docker](https://www.docker.com)를 설치해야 합니다.
 

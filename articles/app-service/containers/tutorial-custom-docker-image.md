@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: acfe066d9ad4882bcff85b7fd51dc7d3b2278235
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 887ed316605ab423159ef0d2e07f0960c702ed8b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -42,7 +42,6 @@ ms.lasthandoff: 03/16/2018
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Git](https://git-scm.com/downloads)
-* 활성 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
 * [Docker 허브 계정](https://docs.docker.com/docker-id/)
 
@@ -85,7 +84,7 @@ EXPOSE 8000 2222
 ENTRYPOINT ["init.sh"]
 ```
 
-Docker 이미지를 빌드하려면 `docker build` 명령을 실행하고 이름을 _mydockerimage_로 지정하고 태그를 _v1.0.0_으로 입력합니다. _\<docker-id>_를 Docker 허브 계정 ID로 바꿉니다.
+Docker 이미지를 빌드하려면 `docker build` 명령을 실행하고 이름을 _mydockerimage_로 지정하고 태그를 _v1.0.0_으로 입력합니다. _\<docker-id>_ 를 Docker 허브 계정 ID로 바꿉니다.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
@@ -126,6 +125,10 @@ docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 
 ![로컬로 웹앱 테스트](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
+> [!NOTE] 
+> SSH, SFTP 또는 Visual Studio Code를 사용하여 로컬 개발 컴퓨터에서 직접 앱 컨테이너에 연결할 수도 있습니다(Node.js 앱 라이브 디버깅을 위해). 자세한 내용은 [Linux App Service의 원격 디버깅 및 SSH](https://aka.ms/linux-debug)를 참조하세요.
+>
+
 ## <a name="push-the-docker-image-to-docker-hub"></a>Docker 허브에 Docker 이미지 푸시
 
 레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 응용 프로그램입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. 
@@ -143,7 +146,7 @@ Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또�
 <docker-id>/image-name:tag
 ```
 
-이미지를 푸시하려면 먼저 [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Docker 허브에 로그인해야 합니다. _\<docker-id>_를 사용자의 계정 이름으로 바꾸고, 콘솔의 프롬프트에서 암호를 입력합니다.
+이미지를 푸시하려면 먼저 [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Docker 허브에 로그인해야 합니다. _\<docker-id>_ 를 사용자의 계정 이름으로 바꾸고, 콘솔의 프롬프트에서 암호를 입력합니다.
 
 ```bash
 docker login --username <docker-id>
@@ -201,7 +204,7 @@ Azure Web Apps를 사용하여 클라우드에서 네이티브 Linux 응용 프�
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. _<appname>_을 고유한 앱 이름으로, _\<docker-ID>_를 Docker ID로 바꾸어야 합니다.
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. _<appname>_ 을 고유한 앱 이름으로, _\<docker-ID>_ 를 Docker ID로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -349,7 +352,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 [웹앱 만들기](#create-a-web-app)에서 Docker 허브에 대한 이미지를 `az webapp create` 명령에 지정했습니다. 공용 이미지에는 이것으로 충분합니다. 개인 이미지를 사용하려면 Azure 웹앱에서 Docker 계정 ID와 암호를 구성해야 합니다.
 
-Cloud Shell에서 `az webapp create` 명령 뒤에 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)를 지정합니다. *\<app_name>*, _\<docker-id>_ 및 _\<password>_를 Docker ID 및 암호로 바꿉니다.
+Cloud Shell에서 `az webapp create` 명령 뒤에 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)를 지정합니다. *\<app_name>*, _\<docker-id>_ 및 _\<password>_ 를 Docker ID 및 암호로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -513,14 +516,14 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Cloud Shell에서 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) 명령을 실행하여 사용자 지정 Docker 이미지를 웹앱에 할당합니다. *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ 및 _\<password>_를 바꿉니다. Azure Container Registry의 경우 *\<docker-registry-server-url>*은 `https://<azure-container-registry-name>.azurecr.io` 형식입니다. Docker 허브 외에 사용하는 레지스트리가 있을 경우 이미지 이름이 레지스트리의 FQDN(정규화된 도메인 이름)으로 시작해야 합니다. Azure Container Registry의 경우 `<azure-container-registry>.azurecr.io/mydockerimage`와 유사합니다. 
+Cloud Shell에서 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) 명령을 실행하여 사용자 지정 Docker 이미지를 웹앱에 할당합니다. *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ 및 _\<password>_ 를 바꿉니다. Azure Container Registry의 경우 *\<docker-registry-server-url>* 은 `https://<azure-container-registry-name>.azurecr.io` 형식입니다. Docker 허브 외에 사용하는 레지스트리가 있을 경우 이미지 이름이 레지스트리의 FQDN(정규화된 도메인 이름)으로 시작해야 합니다. Azure Container Registry의 경우 `<azure-container-registry>.azurecr.io/mydockerimage`와 유사합니다. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> `https://`가 *\<docker-registry-server-url>*에 필요합니다.
+> `https://`가 *\<docker-registry-server-url>* 에 필요합니다.
 >
 
 명령은 JSON 문자열에서 다음과 같은 출력을 표시하여 구성 변경에 성공했는지 보여줍니다.

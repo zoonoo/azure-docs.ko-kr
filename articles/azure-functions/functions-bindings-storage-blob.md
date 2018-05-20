@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -31,23 +31,42 @@ ms.lasthandoff: 04/23/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> Blob 트리거에 [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)은 지원되지 않습니다. Blob Storage 트리거에는 범용 저장소 계정이 필요합니다. 입력 및 출력 바인딩의 경우 Blob 전용 저장소 계정을 사용할 수 있습니다.
-
 ## <a name="packages"></a>패키지
 
 Blob Storage 바인딩은 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> BLOB 전용 저장소 계정 및 높은 확장성을 위해 또는 콜드 부팅 지연을 방지하기 위해 Blob 저장소 트리거 대신 Event Grid 트리거를 사용합니다. 자세한 내용은 다음 **트리거** 섹션을 참조하세요. 
+
 ## <a name="trigger"></a>트리거
 
-Blob Storage 트리거를 사용하여 신규 또는 업데이트된 Blob를 검색할 때 함수를 사용합니다. Blob 내용은 함수의 입력으로 제공됩니다.
+Blob Storage 트리거는 신규 또는 업데이트된 Blob를 검색할 때 함수를 시작합니다. Blob 내용은 함수의 입력으로 제공됩니다.
 
-> [!NOTE]
-> 소비 계획에서 Blob 트리거를 사용하는 경우 함수 앱이 유휴 상태가 된 후 새 Blob을 처리하는 데 최대 10분이 지연될 수 있습니다. 함수 앱이 실행된 후에는 Blob이 즉시 처리됩니다. 이 초기 지연을 방지하려면 다음 옵션 중 하나를 고려합니다.
-> - 무중단이 사용되는 App Service 계획을 사용합니다.
-> - Blob 이름을 포함하는 큐 메시지와 같은 다른 메커니즘을 사용하여 Blob 처리를 트리거합니다. 예를 들어 [이 문서의 뒷부분에 나오는 Blob 입력 바인딩 예제](#input---example)를 참조하세요.
+[Event Grid 트리거](functions-bindings-event-grid.md)는 [BLOB 이벤트](../storage/blobs/storage-blob-event-overview.md)에 대해 기본 지원하며 신규 또는 업데이트된 BLOB을 검색할 때 함수를 시작하는 데 사용할 수 있습니다. 예를 들어 [Event Grid를 사용하여 이미지 크기 조정](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조합니다.
+
+다음과 같은 시나리오에 대해 Blob 저장소 트리거 대신 Event Grid를 사용합니다.
+
+* BLOB 전용 저장소 계정
+* 높은 확장성
+* 콜드 부팅 지연 시간
+
+### <a name="blob-only-storage-accounts"></a>BLOB 전용 저장소 계정
+
+[Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)은 BLOB 입력 및 바인딩 출력을 지원하지만 Blob 트리거는 지원하지 않습니다. Blob Storage 트리거에는 범용 저장소 계정이 필요합니다.
+
+### <a name="high-scale"></a>높은 확장성
+
+높은 확장성은 100,000개 이상의 BLOB이 있는 컨테이너 또는 초당 100개 이상의 BLOB 업데이트가 있는 저장소 계정으로 정의할 수 있습니다.
+
+### <a name="cold-start-delay"></a>콜드 부팅 지연 시간
+
+함수 앱이 소비 계획에 있는 경우 함수 앱이 유휴 상태가 되면 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 이 콜드 부팅 지연 시간을 방지하려면 Always On을 사용하도록 설정한 App Service 계획으로 전환하거나 다른 트리거 유형을 사용합니다.
+
+### <a name="queue-storage-trigger"></a>Queue Storage 트리거
+
+Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue 저장소 트리거이지만 BLOB 이벤트에 대해 기본 지원은 되지 않습니다. Blob을 만들거나 업데이트할 때 큐 메시지를 만들어야 합니다. 완료했다고 가정하는 예제는 [이 문서의 뒷부분에 나오는 Blob 입력 바인딩 예제](#input---example)를 참조하세요.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 

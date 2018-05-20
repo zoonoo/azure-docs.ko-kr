@@ -1,52 +1,69 @@
 ---
-title: "Azure 스택에서 VM 디스크 관리 | Microsoft Docs"
-description: "Azure 스택에 대 한 가상 컴퓨터에 대 한 디스크를 프로 비전 합니다."
+title: Azure 스택에서 VM 디스크 관리 | Microsoft Docs
+description: Azure 스택의 가상 컴퓨터에 대 한 디스크를 프로 비전 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>가상 컴퓨터의 디스크 저장소를 Azure 스택
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Azure 스택에서 가상 컴퓨터 디스크 저장소를 프로 비전
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure 스택 사용을 지원 [디스크를 관리 되지 않는](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) 운영 체제 (OS) 디스크 및 데이터 디스크 둘 다로 가상 컴퓨터에 있습니다. 만들 관리 되지 않는 디스크를 사용 하려면 한 [저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) 다음 디스크는 저장소 계정 내의 컨테이너에 페이지 blob으로 저장 합니다. 이러한 디스크는 다음 VM 디스크 라고 합니다.
+이 문서에서는 Azure 스택 포털을 사용 하 여 또는 PowerShell을 사용 하 여 가상 컴퓨터 디스크 저장소를 프로 비전 하는 방법을 설명 합니다.
 
-성능을 개선 하 고 Azure 스택 시스템의 관리 비용 절감을 별도 컨테이너에서 각 VM 디스크를 배치 하는 것이 좋습니다. 컨테이너 중 운영 체제 디스크 또는 데이터 디스크를 하나만 동시에 포함 해야 합니다. 그러나 동일한 컨테이너에 둘 다 설정 하지 못하도록 하는 제한이 없으며 있습니다.
+## <a name="overview"></a>개요
 
-VM에 하나 이상의 데이터 디스크를 추가 하는 경우 해당 디스크를 저장할 수 있는 위치로 추가 컨테이너를 사용 하도록 계획 합니다. 데이터 디스크와 같은 추가 Vm에 대 한 OS 디스크 자신의 별도 컨테이너에 속해 있어야 합니다.
+Azure 스택 사용을 지원 [디스크를 관리 되지 않는](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) 운영 체제 (OS) 및 데이터 디스크 둘 다로 가상 컴퓨터에 있습니다.
 
-여러 Vm을 만들 때 각 새 VM에 대 한 동일한 저장소 계정을 다시 사용할 수 있습니다. 만들 컨테이너에만 고유 해야 합니다.  
+만들 관리 되지 않는 디스크를 사용 하려면 한 [저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) 디스크를 저장 하려면. 만들 디스크는 VM 디스크 라고 하 고 저장소 계정에서 컨테이너에 저장 됩니다.
 
-VM에 디스크를 추가 하려면 사용자 포털 또는 PowerShell을 사용 합니다.
+### <a name="best-practice-guidelines"></a>모범 사례 지침
 
-| 메서드 | 옵션
+성능을 개선 하 고 전반적인 비용 절감, 별도 컨테이너에서 각 VM 디스크를 배치 하는 것이 좋습니다. 컨테이너 중 운영 체제 디스크 또는 데이터 디스크를 하나만 동시에 포함 해야 합니다. 그러나 (없는 두 가지 유형의 디스크를 모두 동일한 컨테이너에 넣는 않게 됩니다.)
+
+VM에 하나 이상의 데이터 디스크를 추가 하는 경우 이러한 디스크를 저장 하려면 추가 컨테이너 위치로 사용 합니다. 추가 Vm에 대 한 OS 디스크 자신의 컨테이너에도 있어야 합니다.
+
+여러 Vm을 만들 때 각 새 가상 컴퓨터에 대 한 동일한 저장소 계정을 다시 사용할 수 있습니다. 만들 컨테이너에만 고유 해야 합니다.
+
+### <a name="adding-new-disks"></a>새 디스크를 추가합니다.
+
+다음 표에서 포털을 사용 하 고 PowerShell을 사용 하 여 디스크를 추가 하는 방법을 요약 합니다.
+
+| 방법 | 옵션
 |-|-|
-|[사용자 포털](#use-the-portal-to-add-additional-disks-to-a-vm)|-이전에 프로 비전 하는 VM에 새 데이터 디스크를 추가 합니다. 새 디스크는 Azure 스택에 의해 생성 됩니다. </br> </br>-이전에 프로 비전 된 VM에 디스크로 기존.vhd 파일을 추가 합니다. 이렇게 하려면 준비 하 고 Azure 스택에.vhd 파일을 업로드 먼저 해야 합니다. |
+|[사용자 포털](#use-the-portal-to-add-additional-disks-to-a-vm)|-기존 VM을 새 데이터 디스크를 추가 합니다. 새 디스크는 Azure 스택에 의해 생성 됩니다. </br> </br>-이전에 프로 비전 된 VM에 기존 디스크 (.vhd) 파일을 추가 합니다. 이 위해.vhd를 준비 하 고 Azure 스택에 파일을 업로드 해야 합니다. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -OS 디스크에서 새 VM을 만들고 동시에 해당 VM에 하나 이상의 데이터 디스크를 추가 합니다. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>포털을 사용 하 여 VM에 디스크를 추가 하려면
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>포털을 사용 하 여 VM에 추가 디스크를 추가 하려면
-기본적으로 대부분의 마켓플레이스 항목에 대 한 VM을 만듭니다 포털을 사용할 때만 운영 체제 디스크가 만들어집니다. Azure에서 만든 디스크를 관리 하는 디스크 라고 합니다.
+기본적으로 대부분의 마켓플레이스 항목에 대 한 VM을 만듭니다 포털을 사용할 때만 운영 체제 디스크가 만들어집니다.
 
-VM을 프로 비전 한 후에 해당 VM에 새로운 데이터 디스크 또는 기존 데이터 디스크를 추가 하는 포털을 사용할 수 있습니다. 각 추가 디스크가 별도 컨테이너에 저장 되어야 합니다. 디스크는 VM에 추가 하는 관리 되지 않는 디스크 라고 합니다.
+VM을 만든 후 포털을 사용할 수 있습니다.
+* 새 데이터 디스크를 VM에 연결 합니다.
+* 기존 데이터 디스크를 업로드 하 고 VM에 연결 합니다.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>새 데이터 디스크를 VM에 연결 하는 포털을 사용 하 여
+각 관리 되지 않는 디스크를 추가 하면 별도 컨테이너에 저장 되어야 합니다.
+
+>[!NOTE]
+>Azure에서 만들고 관리 하는 디스크 라고 [관리 디스크](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview)합니다.
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>만들고 새 데이터 디스크를 연결 합니다. 포털을 사용 합니다.
 
 1.  포털에서 클릭 **가상 컴퓨터**합니다.    
     ![예: VM 대시보드](media/azure-stack-manage-vm-disks/vm-dashboard.png)
@@ -71,6 +88,7 @@ VM을 프로 비전 한 후에 해당 VM에 새로운 데이터 디스크 또는
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>VM에 기존 데이터 디스크 추가
+
 1.  [.Vhd 파일을 준비](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) VM에 대 한 데이터 디스크로 사용 하기 위해. .Vhd 파일을 첨부 하려면 VM과 함께 사용 하는 저장소 계정에 해당.vhd 파일을 업로드 합니다.
 
   다른 컨테이너를 사용 하 여 컨테이너 OS 디스크를 포함 하는 보다.vhd 파일을 저장 하도록 계획 합니다.   

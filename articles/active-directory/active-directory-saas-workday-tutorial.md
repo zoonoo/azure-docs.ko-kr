@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>자습서: Workday와 Azure Active Directory 통합
 
@@ -174,19 +174,17 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![SAML ID 공급자](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML ID 공급자")
    
-    다. **IdP 시작 로그아웃 사용**을 선택합니다.
-   
-    d. Azure Portal의 **로그온 구성** 창에서 **로그아웃 URL** 값을 복사한 다음, **로그아웃 응답 URL** 텍스트 상자에 붙여넣습니다.
+    다. Azure Portal의 **로그온 구성** 창에서 **로그아웃 URL** 값을 복사한 다음, **로그아웃 응답 URL** 텍스트 상자에 붙여넣습니다.
 
-    e. Azure Portal의 **로그온 구성** 창에서 **SAML Single Sign-On 서비스 URL** 값을 복사한 다음 **IdP SSO 서비스 URL** 텍스트 상자에 붙여넣습니다.
+    d. Azure Portal의 **로그온 구성** 창에서 **SAML Single Sign-On 서비스 URL** 값을 복사한 다음 **IdP SSO 서비스 URL** 텍스트 상자에 붙여넣습니다.
 
-    f. **환경에 사용됨** 텍스트 상자에서 환경 이름을 선택합니다.
+    e. **환경에 사용됨** 텍스트 상자에서 환경 이름을 선택합니다.
 
-    g. **ID 공급자 공개 키 인증서**를 클릭한 다음 **만들기**를 클릭합니다. 
+    f. **ID 공급자 공개 키 인증서**를 클릭한 다음 **만들기**를 클릭합니다. 
 
     ![만들기](./media/active-directory-saas-workday-tutorial/IC782928.png "만들기")
 
-    h. **x509 공개 키 만들기**를 클릭합니다. 
+    g. **x509 공개 키 만들기**를 클릭합니다. 
 
     ![만들기](./media/active-directory-saas-workday-tutorial/IC782929.png "만들기")
 

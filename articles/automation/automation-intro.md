@@ -3,17 +3,18 @@ title: Azure Automation 개요
 description: Azure Automation을 사용하여 인프라 및 응용 프로그램의 수명 주기를 자동화하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: c44968dbceee2fdd29818a65e14f5b64ffcccade
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 

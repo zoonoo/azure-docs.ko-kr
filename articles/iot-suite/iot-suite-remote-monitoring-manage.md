@@ -1,22 +1,22 @@
 ---
-title: "원격 모니터링 솔루션에서 장치 관리 - Azure | Microsoft Docs"
-description: "이 자습서에서는 원격 모니터링 솔루션에 연결된 장치를 관리하는 방법을 보여 줍니다."
-services: 
+title: 원격 모니터링 솔루션에서 장치 관리 - Azure | Microsoft Docs
+description: 이 자습서에서는 원격 모니터링 솔루션에 연결된 장치를 관리하는 방법을 보여 줍니다.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>장치 관리 및 구성
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/27/2018
 
 Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 확인하는 시뮬레이션을 실행하려고 합니다. 운영자로서 원격 모니터링 솔루션에서 장치를 관리하고 구성하려고 합니다.
 
-장치를 관리 및 구성하는 확장 가능한 방법을 제공하기 위해 원격 모니터링 솔루션은 [작업](../iot-hub/iot-hub-devguide-jobs.md) 및 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)와 같은 IoT Hub 기능을 사용합니다. 장치 개발자가 물리적 장치에서 메서드를 구현하는 방법을 알아보려면 [미리 구성된 원격 모니터링 솔루션 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.
+장치를 관리 및 구성하는 확장 가능한 방법을 제공하기 위해 원격 모니터링 솔루션은 [작업](../iot-hub/iot-hub-devguide-jobs.md) 및 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)와 같은 IoT Hub 기능을 사용합니다. 장치 개발자가 물리적 장치에서 메서드를 구현하는 방법을 알아보려면 [원격 모니터링 솔루션 가속기 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -38,7 +38,7 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 이 자습서를 수행하려면 Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스가 필요합니다.
 
-원격 모니터링 솔루션을 아직 배포하지 않은 경우 [미리 구성된 원격 모니터링 솔루션 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 ## <a name="add-a-simulated-device"></a>시뮬레이트된 장치 추가
 
@@ -50,7 +50,7 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 ![시뮬레이트된 엔진 장치 프로비전](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
-*물리적* 장치를 프로비전하는 방법을 알아보려면 [미리 구성된 원격 모니터링 솔루션에 장치 연결](iot-suite-connecting-devices-node.md)을 참조하세요.
+*물리적* 장치를 프로비전하는 방법을 알아보려면 [원격 모니터링 솔루션 가속기에 장치 연결](iot-suite-connecting-devices-node.md)을 참조하세요.
 
 ## <a name="test-the-simulated-device"></a>시뮬레이트된 장치 테스트
 
@@ -68,11 +68,11 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 ## <a name="act-on-a-device"></a>장치에서 작동
 
-하나 이상의 장치에서 작동하려면 장치 목록에서 장치를 선택한 후 **일정**을 선택합니다. **엔진** 장치 모델은 장치에서 지원해야 하는 4개의 메서드를 지정합니다.
+하나 이상의 장치에서 작동하려면 장치 목록에서 장치를 선택한 후 **작업**을 선택합니다. **엔진** 장치 모델은 장치에서 지원해야 하는 3개의 메서드를 지정합니다.
 
 ![엔진 메서드](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-**다시 시작**을 선택하고, 작업 이름을 **RestartEngine**으로 설정한 다음 **적용**을 선택합니다.
+**FillTank**를 선택하고 작업 이름을 **FillEngineTank**로 설정한 후 **적용**을 선택합니다.
 
 ![다시 시작 메서드 예약](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
@@ -84,11 +84,11 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 서로 다른 시뮬레이트된 장치 유형을 탐색하는 경우 다른 장치 유형이 다른 메서드를 지원하는 것을 확인할 수 있습니다. 물리적 장치로 배포에서 장치 모델은 장치에서 지원해야 하는 메서드를 지정합니다. 일반적으로 장치 개발자는 장치가 메서드 호출에 대한 응답으로 작동하도록 하는 코드 개발을 담당합니다.
 
-메서드를 여러 장치에서 실행되도록 예약하기 위해 **장치** 페이지의 목록에서 여러 장치를 선택할 수 있습니다. **일정** 패널은 선택한 모든 장치에 공통적인 메서드의 유형을 표시합니다.
+메서드를 여러 장치에서 실행되도록 예약하기 위해 **장치** 페이지의 목록에서 여러 장치를 선택할 수 있습니다. **작업** 패널은 선택한 모든 장치에 공통적인 메서드의 유형을 표시합니다.
 
 ## <a name="reconfigure-a-device"></a>장치 다시 구성
 
-장치의 구성을 변경하려면 **장치** 페이지의 장치 목록에서 선택한 다음 **다시 구성**을 선택합니다. 다시 구성 패널은 변경할 수 있는 선택한 장치에 대한 속성 값을 보여 줍니다.
+장치의 구성을 변경하려면 **장치** 페이지의 장치 목록에서 선택한 다음, **작업**을 선택하고 **다시 구성**을 선택합니다. 작업 패널은 변경할 수 있는 선택한 장치에 대한 속성 값을 보여줍니다.
 
 ![장치 다시 구성](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
@@ -113,6 +113,6 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 * [장치 문제 해결 및 수정](iot-suite-remote-monitoring-maintain.md)
 * [시뮬레이트된 장치로 솔루션 테스트](iot-suite-remote-monitoring-test.md)
-* [미리 구성된 원격 모니터링 솔루션에 장치 연결](iot-suite-connecting-devices-node.md)
+* [장치를 원격 모니터링 솔루션 가속기에 연결](iot-suite-connecting-devices-node.md)
 
 <!-- Next tutorials in the sequence -->

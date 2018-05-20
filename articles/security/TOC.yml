@@ -143,24 +143,14 @@
       href: ./blueprints/financial-services-regulated-workloads.md
     - name: GDPR
       items:
-        - name: 개인 데이터 관리
-          href: manage-personal-data-azure.md
-        - name: '개인 데이터 검색, 식별 및 분류'
-          href: how-to-discover-classify-personal-data-azure.md
-        - name: Azure에서 개인 데이터 보호
-          href: protect-personal-data-azure.md
-        - name: Security Center를 사용하여 개인 데이터 보호
-          href: protect-personal-data-azure-security-center.md
-        - name: Application Gateway를 사용하여 개인 데이터 보호
-          href: protect-personal-data-network-security.md
-        - name: ID 및 액세스 제어를 사용하여 개인 데이터 보호
-          href: protect-personal-data-identity-access-controls.md
-        - name: 암호화를 사용하여 미사용 개인 데이터 보호
-          href: protect-personal-data-at-rest.md
-        - name: 암호화를 사용하여 전송 중 개인 데이터 보호
-          href: protect-personal-data-in-transit-encryption.md
-        - name: Azure 보고 도구를 사용하여 개인 데이터 보호
-          href: protection-personal-data-azure-reporting-tools.md
+        - name: 데이터 분석
+          href: ./blueprints/gdpr-analytics-overview.md
+        - name: 데이터 웨어하우스
+          href: ./blueprints/gdpr-datawarehouse-overview.md
+        - name: IaaS 웹 응용 프로그램
+          href: ./blueprints/gdpr-iaaswa-overview.md
+        - name: PaaS 웹 응용 프로그램
+          href: ./blueprints/gdpr-paaswa-overview.md
     - name: FedRAMP
       items:
         - name: 데이터 분석

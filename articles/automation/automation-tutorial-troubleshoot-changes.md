@@ -1,19 +1,21 @@
 ---
-title: "Azure 가상 머신의 변경 내용 문제 해결 | Microsoft Docs"
-description: "변경 내용 추적을 사용하여 Azure 가상 머신의 변경 내용 문제를 해결합니다."
+title: Azure 가상 머신의 변경 내용 문제 해결 | Microsoft Docs
+description: 변경 내용 추적을 사용하여 Azure 가상 머신의 변경 내용 문제를 해결합니다.
 services: automation
-keywords: "변경 내용, 추적, 자동화"
+ms.service: automation
+ms.component: change-inventory-management
+keywords: 변경 내용, 추적, 자동화
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -40,7 +42,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal( http://portal.azure.com )에 로그인합니다.
+Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -109,7 +111,7 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
 |그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
-|경로 입력     | 파일을 확인할 경로. 예: "c:\temp\myfile.txt"       |
+|경로 입력     | 파일을 확인할 경로입니다. 예: "c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>Linux 파일 추가
 
@@ -125,8 +127,8 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 |경로 입력     | 파일을 확인할 경로. 예: "/etc/*.conf"       |
 |경로 유형     | 추적할 항목 유형입니다. 가능한 값은 파일 및 디렉터리입니다.        |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
-|Sudo 사용     | 이 설정은 항목을 확인할 때 sudo가 사용되는지 결정합니다.         |
-|링크     | 이 설정은 디렉터리를 트래버스할 때 심볼 링크가 처리되는 방법을 결정합니다.<br> **Ignore** - 심볼 링크를 무시하고 참조된 파일/디렉터리를 포함하지 않음<br>**Follow** - 재귀 중에 심볼 링크를 따르고 참조된 파일/디렉터리도 포함<br>**Manage** - 심볼 링크를 따르고 반환된 콘텐츠의 처리를 변경하도록 허용      |
+|sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
+|링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 심볼 링크를 무시하고 참조된 파일/디렉터리를 포함하지 않음<br>**Follow** - 재귀 중에 심볼 링크를 따르고 참조된 파일/디렉터리도 포함<br>**Manage** - 심볼 링크를 따르고 반환된 콘텐츠의 처리를 변경하도록 허용      |
 
    > [!NOTE]   
    > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.

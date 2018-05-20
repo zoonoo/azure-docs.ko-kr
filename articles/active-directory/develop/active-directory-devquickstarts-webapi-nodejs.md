@@ -1,24 +1,25 @@
 ---
-title: "Azure AD Node.js Web API 시작 | Microsoft Docs"
-description: "인증을 위해 Azure AD와 통합되는 Node.js REST Web API를 빌드하는 방법."
+title: Azure AD Node.js Web API 시작 | Microsoft Docs
+description: 인증을 위해 Azure AD와 통합되는 Node.js REST Web API를 빌드하는 방법.
 services: active-directory
 documentationcenter: nodejs
-author: craigshoemaker
+author: CelesteDG
 manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: cshoe
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 2ed0874b79601976e0d5a73fe82c7c03331d9bea
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 24591c46858970724fbd1fe36336f7f2b0b2fefd
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js Web API 시작
 

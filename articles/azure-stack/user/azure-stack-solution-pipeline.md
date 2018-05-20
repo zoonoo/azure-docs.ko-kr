@@ -14,9 +14,9 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 2a51169fa74384778d3351d48055d05e387d0ea6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
 ---
@@ -71,7 +71,7 @@ Azure Stack
     - ASDK 배포에 대 한 자세한 지침을 찾을 수 있습니다 "[자습서: 설치 관리자를 사용 하 여 ASDK 배포](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
     - 다양 한 다음 PowerShell 스크립트를 사용 하면 ASDK 배포 후 단계를 자동화할 수 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 )합니다.
 
-    > [!note]  
+    > [!Note]  
     > ASDK 설치 과정이 완료 되기를 수 있으므로 적절 하 게 계획 7 시간.
 
  - 배포 [앱 서비스](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure 스택에 PaaS 서비스입니다. 
@@ -87,7 +87,7 @@ Azure Stack
  - [Visual Studio 2017 설치](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 및 [VSTS 로그인](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)합니다.
  - 프로젝트에 연결 하 고 [로컬로 복제](https://www.visualstudio.com/docs/git/gitquickstart)합니다.
  
- > [!note]  
+ > [!Note]  
  > Azure 스택 (Windows Server 및 SQL)를 실행 하 고 배포 하는 응용 프로그램 서비스를 게시 하는 적절 한 이미지와 함께 필요 합니다.
  
 ## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>개인 빌드 및 릴리스 에이전트 Visual Studio Team Services 통합을 준비
@@ -207,7 +207,7 @@ Azure 역할 기반 액세스 제어 (RBAC) Azure에 대 한 세분화 된 액�
 
 3. 토큰을 복사 합니다.
     
-    > [!note]  
+    > [!Note]  
     > 토큰 정보를 가져옵니다. 이 화면을 종료 한 후에 다시 표시 되지 않습니다. 
     
     ![대체 텍스트](media\azure-stack-solution-hybrid-pipeline\000_19.png)
@@ -268,7 +268,7 @@ Azure 역할 기반 액세스 제어 (RBAC) Azure에 대 한 세분화 된 액�
 
 Azure 스택와 Azure에 웹 앱을 배포 하려면 하이브리드 CI/CD를 설정 하 고 자동 푸시 두 클라우드 모두로 변경 됩니다.
 
-> [!note]  
+> [!Note]  
 > Azure 스택 (Windows Server 및 SQL)를 실행 하 고 배포 하는 응용 프로그램 서비스를 게시 하는 적절 한 이미지와 함께 필요 합니다. Azure 스택 연산자 요구 사항에 대 한 앱 서비스 설명서 "전제 조건" 섹션을 검토 합니다.
 
 ### <a name="add-code-to-vsts-project"></a>VSTS 프로젝트에 코드 추가
@@ -399,7 +399,7 @@ Visual Studio Team Services VSTS () 및 Team Foundation Server (TFS) 제공 고�
 
 21. 모든 변경 내용을 저장 합니다.
 
-> [!note]  
+> [!Note]  
 > 작업에 대 한 일부 설정을 수 자동으로 정의 된 [환경 변수](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) 템플릿에서 릴리스 정의 만들 때. 작업 설정;에서 이러한 설정은 수정할 수 없습니다. 대신 이러한 설정을 편집 하려면 부모 환경 항목을 선택 해야 합니다.
 
 ## <a name="create-a-release"></a>릴리스 만들기

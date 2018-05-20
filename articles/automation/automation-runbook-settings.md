@@ -3,16 +3,17 @@ title: Azure Automation의 Runbook 설정
 description: Azure Automation의 Runbook에 대한 구성 설정 및 Azure Portal과 Windows PowerShell을 사용하여 이를 변경하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 548a168055a63ee8cb5147b56fb77ef0bc801e17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 064fdc6b50bf21b78d122c650ae22f8b4f70c608
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-settings"></a>Runbook 설정
 Azure Automation의 각 Runbook에는 해당 로깅 동작을 쉽게 식별하고 변경하는 데 유용한 여러 설정이 있습니다. 이러한 각 설정은 아래에서 해당 설정을 수정하는 방법에 대한 절차 다음에 설명되어 있습니다.

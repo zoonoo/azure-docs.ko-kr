@@ -1,30 +1,30 @@
 ---
-title: AKS(Azure Container Service)에서 OpenFaaS 사용
-description: AKS(Azure Container Service)에서 OpenFaaS 배포 및 사용
+title: AKS(Azure Kubernetes Service)에서 OpenFaaS 사용
+description: AKS(Azure Kubernetes Service)에서 OpenFaaS 배포 및 사용
 services: container-service
 author: justindavies
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e26f1c298b05153736edd2b2efd0f1b27162bc3d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
-[OpenFaaS][open-faas]는 컨테이너에서 서버가 없는 함수를 빌드하는 프레임워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Container Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
+[OpenFaaS][open-faas]는 컨테이너에서 서버가 없는 함수를 빌드하는 프레임워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
 * Kubernetes에 대한 기본적인 이해
-* AKS(Azure Container Service) 클러스터 및 개발 시스템에 구성된 AKS 자격 증명
+* AKS(Azure Kubernetes Service) 클러스터 및 개발 시스템에 구성된 AKS 자격 증명
 * 개발 시스템에 설치된 Azure CLI.
 * 시스템에 설치된 Git 명령줄 도구
 
@@ -39,7 +39,7 @@ git clone https://github.com/openfaas/faas-netes
 복제된 리포지토리의 디렉터리로 변경합니다.
 
 ```azurecli-interactive
-cd faas-netes 
+cd faas-netes
 ```
 
 ## <a name="deploy-openfaas"></a>OpenFaaS 배포
@@ -54,7 +54,7 @@ kubectl create namespace openfaas
 
 OpenFaaS 함수에 대한 두 번째 네임스페이스를 만듭니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 kubectl create namespace openfaas-fn
 ```
 
@@ -64,7 +64,7 @@ OpenFaaS에 대한 Helm 차트는 복제된 리포지토리에 포함됩니다. 
 helm install --namespace openfaas -n openfaas \
   --set functionNamespace=openfaas-fn, \
   --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/ 
+  --set rbac=false chart/openfaas/
 ```
 
 출력
@@ -95,7 +95,7 @@ OpenFaaS 게이트웨이에 액세스하기 위해 공용 IP 주소를 생성합
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-출력 
+출력
 
 ```console
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -130,8 +130,8 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 출력
 
 ```console
- _   _      _ _            _                        
-| | | | ___| | | ___      / \    _____   _ _ __ ___ 
+ _   _      _ _            _
+| | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
 |  _  |  __/ | | (_) |  / ___ \  / /| |_| | | |  __/
 |_| |_|\___|_|_|\___/  /_/   \_\/___|\__,_|_|  \___|
@@ -140,7 +140,7 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 
 ## <a name="create-second-function"></a>두 번째 함수 만들기
 
-이제 두 번째 함수를 만듭니다. 이 예제는 OpenFaaS CLI를 사용하여 배포되고 사용자 지정 컨테이너 이미지 및 Cosmos DB의 검색 데이터를 포함합니다. 함수를 만들기 전에 몇 가지 항목을 구성해야 합니다. 
+이제 두 번째 함수를 만듭니다. 이 예제는 OpenFaaS CLI를 사용하여 배포되고 사용자 지정 컨테이너 이미지 및 Cosmos DB의 검색 데이터를 포함합니다. 함수를 만들기 전에 몇 가지 항목을 구성해야 합니다.
 
 먼저 Cosmos DB에 대한 새 리소스 그룹을 만듭니다.
 
@@ -148,13 +148,13 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 az group create --name serverless-backing --location eastus
 ```
 
-`MongoDB` 종류의 CosmosDB 인스턴스를 배포합니다. 인스턴스는 고유한 이름을 입력하고, `openfaas-cosmos`를 환경에 고유한 이름으로 업데이트합니다. 
+`MongoDB` 종류의 CosmosDB 인스턴스를 배포합니다. 인스턴스는 고유한 이름을 입력하고, `openfaas-cosmos`를 환경에 고유한 이름으로 업데이트합니다.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Cosmos 데이터베이스 연결 문자열을 가져오고 변수에 저장합니다. 
+Cosmos 데이터베이스 연결 문자열을 가져오고 변수에 저장합니다.
 
 `--resource-group` 인수의 값을 리소스 그룹의 이름으로 업데이트하고 `--name` 인수를 Cosmos DB 이름으로 업데이트합니다.
 
@@ -180,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
 }
 ```
 
-*mongoimport* 도구를 사용하여 데이터가 포함된 CosmosDB 인스턴스를 로드합니다. 
+*mongoimport* 도구를 사용하여 데이터가 포함된 CosmosDB 인스턴스를 로드합니다.
 
 필요한 경우 MongoDB 도구를 설치합니다. 다음 예제에서는 brew를 사용하여 이러한 도구를 설치합니다. 기타 옵션은 [MongoDB 설명서][install-mongo]를 참조하세요.
 
@@ -232,7 +232,7 @@ OpenFaaS UI 내에서 함수를 테스트할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-OpenFaas의 기본 배포는 OpenFaaS 게이트웨이 및 함수 모두에 대해 잠겨 있어야 합니다. [Alex Ellis 블로그 게시물](https://blog.alexellis.io/lock-down-openfaas/)에는 보안 구성 옵션에 대한 더 많은 세부 정보가 포함됩니다. 
+OpenFaas의 기본 배포는 OpenFaaS 게이트웨이 및 함수 모두에 대해 잠겨 있어야 합니다. [Alex Ellis 블로그 게시물](https://blog.alexellis.io/lock-down-openfaas/)에는 보안 구성 옵션에 대한 더 많은 세부 정보가 포함됩니다.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 70d2f159c5485009e36aa80dfa8b73f9b3cf4ec1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
@@ -69,4 +69,4 @@ Microsoft AAD 응용 프로그램 프록시 커넥터는 아웃바운드 연결�
 사용자 계정을 선택한 다음 결과 메뉴에서 "디렉터리 역할"을 선택합니다. 선택한 역할이 "전역 관리자"인지 확인합니다. 이 단계에서 페이지에 액세스할 수 없으면 전역 관리자가 아닙니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
+[Azure AD 응용 프로그램 프록시 커넥터 이해](manage-apps/application-proxy-connectors.md)

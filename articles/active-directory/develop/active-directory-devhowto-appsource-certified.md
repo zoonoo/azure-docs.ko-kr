@@ -3,23 +3,25 @@ title: Azure Active Directory에 대해 인증된 AppSource 가져오는 방법 
 description: Azure Active Directory에 대해 인증된 응용 프로그램 AppSource 가져오는 방법에 대한 세부 정보.
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/03/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 [Microsoft AppSource](https://appsource.microsoft.com/)는 기간 업무 SaaS 응용 프로그램을 검색, 시도 및 관리하는 비즈니스 사용자에 대한 대상입니다(기존 Microsoft SaaS 제품에 대한 독립 실행형 SaaS 및 추가 기능).
@@ -35,7 +37,7 @@ Open ID를 사용하여 응용 프로그램을 Azure Active Directory와 통합�
 
 응용 프로그램에서 다중 테넌트를 활성화하기 위해:
 - [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)의 응용 프로그램 등록 정보에서 `Multi-Tenanted` 속성을 `Yes`로 설정합니다(기본적으로 Azure Portal에서 만든 응용 프로그램은 *단일 테넌트*로 구성됨).
-- 코드를 업데이트하여 요청을 '`common`' 끝점으로 전송합니다(*https://login.microsoftonline.com/{yourtenant}*에서 *https://login.microsoftonline.com/common*으로 끝점 업데이트).
+- 코드를 업데이트하여 요청을 '`common`' 끝점으로 전송합니다(*https://login.microsoftonline.com/{yourtenant}* 에서 *https://login.microsoftonline.com/common*으로 끝점 업데이트).
 - ASP.NET과 같은 일부 플랫폼의 경우 여러 발급자를 허용하도록 코드를 업데이트해야 합니다.
 
 다중 테넌트에 대한 정보는 [다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure AD(Active Directory) 사용자를 로그인하는 방법](./active-directory-devhowto-multi-tenant-overview.md)을 참조하세요.

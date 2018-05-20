@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
@@ -26,9 +26,11 @@ ms.lasthandoff: 04/23/2018
 
 * Ev3 시리즈는 하이퍼 스레드 구성에서 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 사용하며, 대부분의 범용 워크로드에 대해 더 나은 가치를 제공하고 Ev3을 다른 대부분 클라우드의 범용 VM과 맞춥니다.  하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(7GiB/vCPU에서 8GiB/vCPU로).  Ev3는 D/Dv2 제품군의 상위 메모리 VM 크기에 대한 후속 시리즈입니다.
 
-## <a name="esv3-series-sup1sup"></a>Esv3 시리즈 <sup>1</sup>
+* Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.  격리된 VM 옵션은 아래 가상 머신 제품군의 표를 참조하세요.
 
-ACU: 160-190
+## <a name="esv3-series"></a>Esv3 시리즈 
+
+ACU: 160-190 <sup>1</sup>
 
 ESv3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성하고 프리미엄 저장소를 사용할 수 있습니다. Ev3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 응용 프로그램에 적합합니다.
 
@@ -51,9 +53,9 @@ ESv3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로�
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
 
-## <a name="ev3-series-sup1sup"></a>Ev3 시리즈 <sup>1</sup>
+## <a name="ev3-series"></a>Ev3 시리즈 
 
-ACU: 160-190 
+ACU: 160 - 190 <sup>1</sup>
 
 Ev3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성할 수 있습니다. Ev3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 응용 프로그램에 적합합니다.
 
@@ -75,9 +77,9 @@ Ev3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로�
 <sup>2</sup> 사용 가능한 코어 크기 제한 
 
 
-## <a name="m-series-sup1sup"></a>M 시리즈 <sup>1</sup>
+## <a name="m-series"></a>M 시리즈 
 
-ACU: 160-180
+ACU: 160-180 <sup>1</sup>
 
 | 크기            | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +97,9 @@ ACU: 160-180
 <sup>4</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 <br>
 
-## <a name="gs-series-sup1sup"></a>GS 시리즈 <sup>1</sup>
+## <a name="gs-series"></a>GS 시리즈 
 
-ACU: 180-240
+ACU: 180 - 240 <sup>1</sup>
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +133,9 @@ ACU: 180-240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>DSv2 시리즈 <sup>1</sup>
+## <a name="dsv2-series"></a>DSv2 시리즈 
 
-ACU: 210-250
+ACU: 210 - 250 <sup>1</sup>
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +176,9 @@ ACU: 210-250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>DS 시리즈 <sup>1</sup>
+## <a name="ds-series"></a>DS 시리즈 
 
-ACU: 160
+ACU: 160 <sup>1</sup>
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

@@ -53,11 +53,19 @@
 ### [Enterprise 비용 보기 사용 안 함](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # 참고 자료
-## [API 개요](billing-usage-rate-card-overview.md)
-## [Enterprise Reporting API 개요](billing-enterprise-api.md)
-## [청구서 REST](/rest/api/billing)
-## [사용 현황 및 RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [파트너 솔루션: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Azure Billing API 개요](billing-usage-rate-card-overview.md)
+### [Azure Billing REST API](https://docs.microsoft.com/rest/api/billing)
+### [파트너 솔루션 – Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## Azure Consumption API
+### [Azure Consumption REST API](https://docs.microsoft.com/rest/api/consumption) 
+### [RateCard REST API](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [REST API 사용](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Enterprise Reporting 개요](billing-enterprise-api.md)
+### [Enterprise Reporting REST API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
+## 청구 코드 샘플
+### [청구서 API 코드 샘플](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [사용량 API 코드 샘플](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [RateCard API 코드 샘플](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

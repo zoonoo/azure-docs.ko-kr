@@ -45,14 +45,14 @@
           href: delete-cluster.md
     - name: 데이터 볼륨 구성
       items:
-        - name: Kubernetes 볼륨 - 디스크
-          href: azure-disk-volume.md
-        - name: Kubernetes 볼륨 - 파일
-          href: azure-files-volume.md
-        - name: 영구적 볼륨 - 디스크
+        - name: AzureDisk 동적 프로비저닝
           href: azure-disks-dynamic-pv.md
-        - name: 영구적 볼륨 - 파일
+        - name: AzureDisk 정적 프로비저닝
+          href: azure-disk-volume.md
+        - name: AzureFile 동적 프로비저닝
           href: azure-files-dynamic-pv.md
+        - name: AzureFile 정적 프로비저닝
+          href: azure-files-volume.md
     - name: 네트워킹 구성
       items:
         - name: 네트워킹 개요

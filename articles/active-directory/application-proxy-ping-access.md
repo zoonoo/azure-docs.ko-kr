@@ -1,29 +1,29 @@
 ---
-title: "Azure AD 응용 프로그램 프록시용 PingAccess를 통한 헤더 기반 인증 | Microsoft Docs"
-description: "PingAccess 및 앱 프록시를 사용하여 응용 프로그램을 게시하여 헤더 기반 인증을 지원합니다."
+title: Azure AD 응용 프로그램 프록시용 PingAccess를 통한 헤더 기반 인증 | Microsoft Docs
+description: PingAccess 및 앱 프록시를 사용하여 응용 프로그램을 게시하여 헤더 기반 인증을 지원합니다.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5554260ad2b47cf4c66046c95007c95e44f188bd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
-Azure Active Directory 응용 프로그램 프록시 및 PingAccess는 Azure Active Directory 고객에게 더 많은 응용 프로그램에 대한 액세스를 제공하도록 파트너 관계를 맺고 있습니다. PingAccess는 [기존 응용 프로그램 프록시 제품](active-directory-application-proxy-get-started.md)을 확장하여 인증에 헤더를 사용하는 응용 프로그램에 대한 Single Sign-On 액세스를 포함하고 있습니다.
+Azure Active Directory 응용 프로그램 프록시 및 PingAccess는 Azure Active Directory 고객에게 더 많은 응용 프로그램에 대한 액세스를 제공하도록 파트너 관계를 맺고 있습니다. PingAccess는 [기존 응용 프로그램 프록시 제품](manage-apps/application-proxy.md)을 확장하여 인증에 헤더를 사용하는 응용 프로그램에 대한 Single Sign-On 액세스를 포함하고 있습니다.
 
 ## <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess는 무엇입니까?
 
@@ -50,7 +50,7 @@ Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 응용 
 
 이미 응용 프로그램 프록시를 사용하도록 설정되어 있고 커넥터가 설치되어 있는 경우 이 섹션을 건너뛰고 [응용 프로그램 프록시를 사용하여 Azure AD에 앱 추가](#add-your-app-to-azure-ad-with-application-proxy)로 이동할 수 있습니다.
 
-응용 프로그램 프록시 커넥터는 원격 직원의 트래픽을 게시된 앱으로 전달하는 Windows Server 서비스입니다. 자세한 설치 지침은 [Azure Portal에서 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)을 참조하세요.
+응용 프로그램 프록시 커넥터는 원격 직원의 트래픽을 게시된 앱으로 전달하는 Windows Server 서비스입니다. 자세한 설치 지침은 [Azure Portal에서 응용 프로그램 프록시 사용](manage-apps/application-proxy-enable.md)을 참조하세요.
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **응용 프로그램 프록시**를 선택합니다.
@@ -65,7 +65,7 @@ Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 응용 
 
 Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시해야 합니다. 그런 다음 PingAccess 단계에서 사용할 수 있는 해당 앱에 대한 정보를 수집해야 합니다.
 
-앱을 게시하려면 다음 단계를 수행합니다. 1 ~ 8 단계에 대한 자세한 연습은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
+앱을 게시하려면 다음 단계를 수행합니다. 1 ~ 8 단계에 대한 자세한 연습은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
 
 1. 마지막 섹션에 있지 않았던 경우 전역 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **Enterprise 응용 프로그램**을 선택합니다.
@@ -181,5 +181,5 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD에 대한 PingAccess 구성(영문)](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Azure AD 응용 프로그램 프록시에서 Single Sign-On을 제공하는 방법](application-proxy-sso-overview.md)
+- [Azure AD 응용 프로그램 프록시에서 Single Sign-On을 제공하는 방법](manage-apps/application-proxy-single-sign-on.md)
 - [응용 프로그램 프록시 문제 해결](active-directory-application-proxy-troubleshoot.md)

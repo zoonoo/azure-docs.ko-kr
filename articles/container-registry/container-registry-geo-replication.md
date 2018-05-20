@@ -1,28 +1,22 @@
 ---
-title: "Azure Container Registry의 지리적 복제"
-description: "지리적 복제된 Azure Container Registry 만들기 및 관리를 시작합니다."
+title: Azure Container Registry의 지리적 복제
+description: 지리적 복제된 Azure Container Registry 만들기 및 관리를 시작합니다.
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
-로컬 상태나 핫 백업이 필요한 기업은 둘 이상의 Azure 지역에서 서비스를 실행하도록 선택할 수 있습니다. 이미지가 실행되는 각 지역에 컨테이너 레지스트리를 배치하면 네트워크와 가까운 곳에서 작업하여 이미지 레이어를 빠르고 안정적으로 전송할 수 있습니다.
-
-지리적 복제를 사용하면 Azure Container Registry가 단일 레지스트리로 기능하여 다중 마스터 지역 레지스트리가 있는 둘 이상의 지역에 서비스를 제공할 수 있습니다.
-
-> [!IMPORTANT]
-> Azure Container Registry의 지리적 복제 기능은 현재 **미리 보기** 상태입니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
->
+로컬 상태나 핫 백업이 필요한 기업은 둘 이상의 Azure 지역에서 서비스를 실행하도록 선택할 수 있습니다. 이미지가 실행되는 각 지역에 컨테이너 레지스트리를 배치하면 네트워크와 가까운 곳에서 작업하여 이미지 레이어를 빠르고 안정적으로 전송할 수 있습니다. 지리적 복제를 사용하면 Azure Container Registry가 단일 레지스트리로 기능하여 다중 마스터 지역 레지스트리가 있는 둘 이상의 지역에 서비스를 제공할 수 있습니다.
 
 지리적 복제된 레지스트리는 다음과 같은 이점을 제공합니다.
 
@@ -70,7 +64,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 ![Azure Portal에서 SKU 전환하기](media/container-registry-skus/update-registry-sku.png)
 
-Premium 레지스트리의 지리적 복제를 구성하려면 Azure Portal(http://portal.azure.com)에 로그인합니다.
+프리미엄 레지스트리의 지리적 복제를 구성하려면 Azure Portal(http://portal.azure.com)에 로그인합니다.
 
 Azure Container Registry로 이동하여 **복제**:
 

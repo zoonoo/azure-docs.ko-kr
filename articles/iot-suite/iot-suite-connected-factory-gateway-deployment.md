@@ -1,12 +1,12 @@
 ---
-title: "연결된 팩터리 게이트웨이 배포 - Azure | Microsoft Docs"
-description: "Windows 또는 Linux에서 게이트웨이를 배포하여 연결된 팩터리 미리 구성된 솔루션에 대한 연결을 사용하도록 설정하는 방법."
-services: 
+title: 연결된 팩터리 게이트웨이 배포 - Azure | Microsoft Docs
+description: Windows 또는 Linux에서 게이트웨이를 배포하여 연결된 팩터리 솔루션 가속기에 대한 연결을 사용하도록 설정하는 방법.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>연결된 팩터리 미리 구성된 솔루션을 위해 Windows 또는 Linux에 경계 게이트웨이 배포
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 경계 게이트웨이 배포
 
-*연결된 팩터리* 미리 구성된 솔루션의 경계 게이트웨이를 배포하기 위해서는 두 개의 소프트웨어 구성 요소가 필요합니다.
+*연결된 팩터리* 솔루션 가속기의 경계 게이트웨이를 배포하기 위해서는 두 개의 소프트웨어 구성 요소가 필요합니다.
 
 - *OPC 프록시*는 연결된 팩터리에 대한 연결을 설정합니다. OPC 프록시는 연결된 팩터리 솔루션 포털에서 실행되는 통합된 OPC 브라우저의 명령 및 제어 메시지를 기다립니다.
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/17/2018
 
 각 구성 요소의 게이트웨이 방화벽에는 공용 IP 주소 또는 개방 인바운드 포트가 필요하지 않습니다. OPC 프록시 및 OPC 게시자 구성 요소는 아웃바운드 포트 443만 사용합니다.
 
-이 문서의 단계에서는 Windows 또는 Linux에서 Docker를 사용하여 경계 게이트웨이를 배포하는 방법을 보여 줍니다. 게이트웨이를 사용하면 연결된 팩터리 미리 구성된 솔루션에 대한 연결을 사용하도록 설정할 수 있습니다. 또한 연결된 팩터리 없이 구성 요소를 사용할 수 있습니다.
+이 문서의 단계에서는 Windows 또는 Linux에서 Docker를 사용하여 경계 게이트웨이를 배포하는 방법을 보여 줍니다. 게이트웨이를 사용하면 연결된 팩터리 솔루션 가속기에 대한 연결을 사용하도록 설정할 수 있습니다. 또한 연결된 팩터리 없이 구성 요소를 사용할 수 있습니다.
 
 > [!NOTE]
 > 두 구성 요소는 [Azure IoT Edge](https://github.com/Azure/iot-edge)에서 모듈로 사용할 수 있습니다.
@@ -143,7 +143,7 @@ OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음
 
 ## <a name="enable-your-gateway"></a>게이트웨이 사용 설정
 
-연결된 팩터리 미리 구성된 솔루션에서 게이트웨이를 사용하도록 설정하려면 다음 단계를 완료합니다.
+연결된 팩터리 솔루션 가속기에서 게이트웨이를 사용하도록 설정하려면 다음 단계를 완료합니다.
 
 1. 두 구성 요소를 실행 중인 경우 연결된 팩터리 솔루션 포털에서 **자체 OPC UA 서버 연결** 페이지로 이동합니다. 이 페이지는 솔루션에서 관리자에게만 제공됩니다. 게시자 엔드포인트 URL(opc.tcp://publisher:62222)을 입력하고 **연결**을 클릭합니다.
 
@@ -153,7 +153,7 @@ OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음
 
 ## <a name="add-your-own-opc-ua-servers"></a>사용자 자신의 OPC UA 서버 추가
 
-사용자 자신의 OPC UA 서버를 연결된 팩터리 미리 구성된 솔루션에 추가하려면 다음을 수행합니다.
+사용자 자신의 OPC UA 서버를 연결된 팩터리 솔루션 가속기에 추가하려면 다음을 수행합니다.
 
 1. 연결된 팩터리 솔루션 포털에서 **사용자 자신의 OPC UA 서버 연결** 페이지로 이동합니다.
 
@@ -170,6 +170,6 @@ OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-연결된 팩터리 미리 구성된 솔루션의 아키텍처에 대한 자세한 내용은 [연결된 팩터리 미리 구성된 솔루션 연습](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough)을 참조하세요.
+연결된 팩터리 솔루션 가속기의 아키텍처에 대한 자세한 내용은 [연결된 팩터리 솔루션 가속기 연습](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough)을 참조하세요.
 
 [OPC 게시자 참조 구현](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher)에 대해 살펴봅니다.

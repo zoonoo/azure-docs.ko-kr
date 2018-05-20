@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -32,7 +32,7 @@ Azure Application Insights는 응용 프로그램 모니터링 및 진단을 위
 
 ## <a name="monitoring-in-app-insights"></a>App Insights에서 모니터링
 
-Application Insights는 기본적으로 Service Fabric과 통합됩니다. 개요 페이지에서, AI는 응답 시간, 처리된 요청 수 등 서비스에 대한 핵심 정보를 제공합니다. 맨 위에서 '검색' 단추를 클릭하면 응용 프로그램의 최근 요청 목록을 볼 수 있습니다. 또한 여기에 실패한 요청을 보고 어떤 오류가 발생했는지 진단할 수 있습니다.
+Application Insights는 Service Fabric을 사용할 때 바로 사용 가능한 환경을 제공합니다. 개요 페이지에서, AI는 응답 시간, 처리된 요청 수 등 서비스에 대한 핵심 정보를 제공합니다. 맨 위에서 '검색' 단추를 클릭하면 응용 프로그램의 최근 요청 목록을 볼 수 있습니다. 또한 여기에 실패한 요청을 보고 어떤 오류가 발생했는지 진단할 수 있습니다.
 
 ![AI 개요](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

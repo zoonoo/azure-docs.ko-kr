@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준
 Azure Cosmos DB는 처음부터 모든 데이터 모델에 대한 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 Azure Cosmos DB는 5가지 일관성 수준(강력, 제한된 부실, 세션, 일관적인 접두사 및 최종)을 제공합니다. 제한된 부실, 세션, 일관된 접두사 및 최종은 가능한 가장 일관성 높은 모델인 강력보다는 일관성이 낮기 때문에 "관대한 일관성 모델"로 간주됩니다. 
@@ -44,7 +44,7 @@ Azure Cosmos DB 프로그램 관리자인 Andrew Liu는 다음 비디오에서 �
 | 일관성 수준 | 보증 |
 | --- | --- |
 | 강력 | 선형화 가능성 읽기를 통해 항목의 최신 버전 반환이 보장됩니다.|
-| 제한된 부실 | 일관적인 접두사 k 접두사 또는 t 간격을 통해 쓰기 뒤 읽기 지연 |
+| 제한된 부실 | 일관적인 접두사 최대한 k 접두사 또는 t 간격을 통해 쓰기 뒤 읽기 지연 |
 | 세션   | 일관적인 접두사 단조 읽기, 단조 쓰기, 쓰기 읽기, 읽기 뒤 쓰기 |
 | 일관적인 접두사 | 간격 없이 모든 업데이트의 일부 접두어의 업데이트 반환 |
 | 최종  | 순서 외 읽기 |

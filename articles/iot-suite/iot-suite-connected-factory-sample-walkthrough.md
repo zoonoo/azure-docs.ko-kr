@@ -1,12 +1,12 @@
 ---
-title: "연결된 팩터리 솔루션 연습 - Azure | Microsoft Docs"
-description: "미리 구성된 Azure IoT 솔루션 연결된 팩터리 및 해당 아키텍처에 대한 설명입니다."
-services: 
+title: 연결된 팩터리 솔루션 연습 - Azure | Microsoft Docs
+description: Azure IoT 솔루션 가속기 연결된 팩터리 및 해당 아키텍처에 대한 설명입니다.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65eb24cf5f995570b7b1752fc850b596209ea59a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
+# <a name="connected-factory-solution-accelerator-walkthrough"></a>연결된 팩터리 솔루션 가속기 연습
 
-IoT Suite 연결된 팩터리 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 종단 간 산업 솔루션의 구현입니다.
+연결된 팩터리 [솔루션 가속기][lnk-preconfigured-solutions]는 다음을 수행하는 종단 간 산업 솔루션의 구현입니다.
 
 * 시뮬레이션된 공장 생산 라인에서 OPC UA 서버를 실행하는 시뮬레이션된 산업 장치 및 실제 OPC UA 서버 장치에 연결합니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-suite-faq-cf.md)를 참조하세요.
 * 이러한 장치 및 생산 라인의 운영 KPI 및 OEE를 보여 줍니다.
@@ -34,7 +34,7 @@ IoT Suite 연결된 팩터리 [미리 구성된 솔루션][lnk-preconfigured-sol
 
 솔루션을 고유한 구현을 위한 출발점으로 사용하고 사용자의 특정 비즈니스 요구 사항을 충족하도록 [사용자 지정][lnk-customize]할 수 있습니다.
 
-이 문서는 작동 방식을 이해할 수 있도록 연결된 공장 솔루션의 핵심 요소 중 일부를 안내합니다. 문서에서는 솔루션을 통해 데이터 흐름 방식도 설명합니다. 이 정보는 다음 항목을 도울 수 있습니다.
+이 문서는 작동 방식을 이해할 수 있도록 연결된 팩터리 솔루션의 핵심 요소 중 일부를 안내합니다. 문서에서는 솔루션을 통해 데이터 흐름 방식도 설명합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
 * 솔루션의 문제를 해결합니다.
 * 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다.
@@ -44,9 +44,9 @@ OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-suite-faq-cf.
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
-다음 다이어그램에서는 미리 구성된 솔루션의 논리적 구성 요소를 간략히 보여줍니다.
+다음 다이어그램에서는 솔루션 가속기의 논리적 구성 요소를 간략히 보여 줍니다.
 
-![연결된 공장 논리 아키텍처][connected-factory-logical]
+![연결된 팩터리 논리 아키텍처][connected-factory-logical]
 
 ## <a name="communication-patterns"></a>통신 패턴
 
@@ -111,7 +111,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 
 노드 데이터의 시계열 보기는 timespan에 대한 집계를 사용하여 TSI에서 직접 제공됩니다.
 
-## <a name="iot-hub"></a>IoT 허브
+## <a name="iot-hub"></a>IoT Hub
 [IoT Hub][lnk-IoT Hub]는 OPC 게시자 모듈에서 클라우드로 전송된 데이터를 수신하고 Azure TSI 서비스에 사용할 수 있도록 합니다. 
 
 또한 솔루션에서 IoT Hub는:
@@ -122,7 +122,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 솔루션은 VM에 대 한 디스크 저장소로 Azure Blob 저장소를 사용하여 배포 데이터를 저장합니다.
 
 ## <a name="web-app"></a>웹앱
-미리 구성된 솔루션의 일부로 배포된 웹앱은 통합된 OPC UA 클라이언트, 경고 처리 및 원격 분석 시각화로 이루어집니다.
+솔루션 가속기의 일부로 배포된 웹앱은 통합된 OPC UA 클라이언트, 경고 처리 및 원격 분석 시각화로 이루어집니다.
 
 ## <a name="telemetry-data-flow"></a>원격 분석 데이터 흐름
 
@@ -229,15 +229,15 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서를 참조하여 IoT Suite 시작 작업을 계속할 수 있습니다.
+다음 문서를 참조하여 IoT 솔루션 가속기 시작 작업을 계속할 수 있습니다.
 
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
-* [연결된 팩터리 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
+* [연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
 * [OPC 게시자 참조 구현](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

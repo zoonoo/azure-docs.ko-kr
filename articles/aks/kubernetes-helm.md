@@ -3,19 +3,19 @@ title: Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포
 description: Helm 패키징 도구를 사용하여 AKS Kubernetes 클러스터에 컨테이너 배포
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 05/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6a8565c70097b3ac9a419b652a652824adebba88
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="use-helm-with-azure-container-service-aks"></a>AKS(Azure Container Service)에서 Helm 사용
+# <a name="use-helm-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm 사용
 
 [Helm][helm]은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
@@ -53,7 +53,7 @@ Bash completion has been installed to:
 [helm init][helm-init] 명령은 Kubernetes 클러스터에 Helm 구성 요소를 설치하고 클라이언트 쪽 구성을 만드는 데 사용됩니다. 다음 명령을 실행하여 AKS 클러스터에 Helm을 설치하고 Helm 클라이언트를 구성하세요.
 
 ```azurecli-interactive
-helm init
+helm init --upgrade --service-account default
 ```
 
 출력
@@ -118,7 +118,7 @@ Update Complete. ⎈ Happy Helming!⎈
 NGINX 수신 컨트롤러를 배포하려면 [helm install][helm-install] 명령을 사용합니다.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 다음과 유사한 출력이 표시되지만, Kubernetes 배포 사용 방법에 대한 지침 등의 추가 정보가 포함되어 있습니다.

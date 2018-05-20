@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f6986df19482800ff676c0e05ad680e14dfeca1f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/10/2018
+---
 ## <a name="view-device-telemetry"></a>장치 원격 분석 보기
 
 솔루션의 **장치** 페이지에서 장치에서 보낸 원격 분석을 볼 수 있습니다.
@@ -24,7 +40,7 @@
 
     ![물리적 장치 선택](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. 장치에서 호출할 수 있는 메서드의 목록을 표시하려면 **일정**을 선택합니다. 메서드를 여러 장치에서 실행되도록 예약하기 위해 목록에서 여러 장치를 선택할 수 있습니다. **일정** 패널은 선택한 모든 장치에 공통적인 메서드의 유형을 표시합니다.
+1. 장치에서 호출할 수 있는 메서드의 목록을 표시하려면 **작업**을 선택한 다음, **메서드 실행**을 선택합니다. 여러 장치에서 작업이 실행되도록 예약하려면 목록에서 여러 장치를 선택하면 됩니다. **작업** 패널에 선택한 모든 장치에 공통된 메서드 형식이 표시됩니다.
 
 1. **FirmwareUpdate**를 선택하고 작업 이름을 **UpdatePhysicalChiller**라고 설정합니다. **펌웨어 버전**을 **2.0.0**으로 설정하고, **펌웨어 URI**를 **http://contoso.com/updates/firmware.bin**으로 설정한 다음, **적용**을 선택합니다.
 
@@ -41,4 +57,4 @@
 
 ## <a name="next-steps"></a>다음 단계
 
-[미리 구성된 원격 모니터링 솔루션 사용자 지정](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) 문서는 미리 구성된 솔루션을 사용자 지정하는 몇 가지 방법을 설명합니다.
+[원격 모니터링 솔루션 가속기 사용자 지정](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) 문서에서는 솔루션 가속기를 사용자 지정하는 몇 가지 방법에 대해 설명합니다.

@@ -1,13 +1,13 @@
 ---
-title: "연결된 팩터리 솔루션 FAQ - Azure | Microsoft Docs"
-description: "IoT Suite 연결된 팩터리에 대한 질문과 대답"
-services: 
+title: 연결된 팩터리 솔루션 FAQ - Azure | Microsoft Docs
+description: 연결된 팩터리 솔루션 가속기에 대한 질문과 대답
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IoT Suite 연결된 팩터리 미리 구성된 솔루션에 대한 질문과 대답
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
 
-IoT Suite에 대한 일반 [FAQ](iot-suite-faq.md)도 참조하세요.
+IoT 솔루션 가속기에 대한 일반 [FAQ](iot-suite-faq.md)도 참조하세요.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>어디에서 미리 구성된 솔루션의 소스 코드를 찾을 수 있습니까?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>어디에서 솔루션 가속기에 대한 소스 코드를 찾을 수 있나요?
 
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
 
-* [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory)
+* [연결된 팩터리 솔루션 가속기](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>OPC UA란?
 
@@ -40,7 +40,7 @@ IoT Suite에 대한 일반 [FAQ](iot-suite-faq.md)도 참조하세요.
 * 기술
 * 프로세스
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Microsoft가 연결된 팩터리 미리 구성된 솔루션으로 OPC UA를 선택한 이유
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Microsoft가 연결된 팩터리 솔루션 가속기로 OPC UA를 선택한 이유
 
 Microsoft는 플랫폼 독립적이고 업계에서 통용되며 입증된 오픈 비독점 표준인 OPC UA를 선택했습니다. 광범위한 제조 프로세스 및 장비 간의 상호 운용성을 보장하는 Industrie 4.0(RAMI4.0) 참조 아키텍처 솔루션을 위해 이 제품이 필요합니다. Microsoft는 Industrie 4.0 솔루션을 빌드하려는 고객의 요청을 확인했습니다. OPC UA에 대한 지원은 고객의 목표 달성을 가로막는 장애물을 해소하는 데 도움을 주고 즉각적인 비즈니스 가치를 제공합니다.
 
@@ -182,9 +182,9 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 대시보드의 홈페이지에서 표시되는 고정 이미지를 변경하려면 `WebApp\Content\img\world.jpg` 이미지를 바꿉니다. 그러면 WebApp을 다시 빌드하고 다시 배포합니다.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>연결된 팩터리에서 비OPC UA 장치를 사용하려면 어떻게 할까요?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>연결된 팩터리에서 비 OPC UA 장치를 사용하려면 어떻게 할까요?
 
-비OPC UA 장치에서 연결된 팩터리에 원격 분석 데이터를 보내려면:
+비 OPC UA 장치에서 연결된 팩터리에 원격 분석 데이터를 보내려면:
 
 1. `ContosoTopologyDescription.json` 파일에서 [연결된 팩터리 토폴로지의 새 스테이션을 구성](iot-suite-connected-factory-configure.md)합니다.
 
@@ -210,8 +210,8 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 ### <a name="next-steps"></a>다음 단계
 
-미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
+IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [예측 유지 관리 사전 구성 솔루션 개요](iot-suite-predictive-overview.md)
-* [연결된 팩터리 미리 구성된 솔루션 개요](iot-suite-connected-factory-overview.md)
+* [예측 유지 관리 솔루션 가속기 개요](iot-suite-predictive-overview.md)
+* [연결된 팩터리 솔루션 가속기 개요](iot-suite-connected-factory-overview.md)
 * [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)

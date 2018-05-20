@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -29,34 +29,46 @@ ms.lasthandoff: 03/30/2018
 
 ![Application Insights 메트릭 탐색기](media/functions-monitoring/metrics-explorer.png)
 
-Functions도 Application Insights를 사용하지 않는 기본 모니터링을 제공합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하는 Application Insights를 권장합니다. 기본 모니터링에 대한 내용은 [이 문서의 마지막 섹션](#monitoring-without-application-insights)을 참조하세요.
+Functions도 [Application Insights를 사용하지 않는 기본 모니터링](#monitoring-without-application-insights)을 제공합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하는 Application Insights를 권장합니다.
 
-## <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
+## <a name="application-insights-pricing-and-limits"></a>Application Insights 가격 책정 및 제한
 
-함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 인스턴스의 계측 키를 알고 있어야 합니다. [Azure Portal](https://portal.azure.com)에서 이 연결을 설정하는 두 가지 방법이 있습니다.
+무료로 함수 앱과 Application Insights 통합을 사용해 볼 수 있습니다. 그러나 무료로 처리될 수 있는 데이터 크기에 대한 일일 제한이 있으며 테스트하는 동안 해당 제한에 도달할 수 있습니다. Azure는 일일 제한에 가까워질 때 포털 및 전자 메일 알림을 제공합니다.  그렇지만 이러한 경고를 놓치고 제한에 도달하면 Application Insights 쿼리에 새 로그가 표시되지 않습니다. 따라서 불필요한 문제 해결 시간을 방지하려면 이러한 제한을 잘 알고 있어야 합니다. 자세한 내용은 [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../application-insights/app-insights-pricing.md)를 참조하세요.
 
-* [함수 앱을 만들 때 연결된 Application Insights 인스턴스 만들기](#new-function-app)합니다.
-* [Application Insights 인스턴스를 기존 함수 앱에 연결](#existing-function-app).
+## <a name="enable-app-insights-integration"></a>App Insights 통합 사용
+
+함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 리소스의 계측 키를 알고 있어야 합니다. 이 키는 APPINSIGHTS_INSTRUMENTATIONKEY라는 앱 설정에 제공되어야 합니다.
+
+[Azure Portal](https://portal.azure.com)에서 다음 방법으로 이 연결을 설정할 수 있습니다.
+
+* [새 함수 앱에 대해 자동으로](#new-function-app)
+* [App Insights 리소스를 수동으로 연결](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>새 함수 앱
 
-함수 앱 **만들기** 페이지에서 Application Insights 사용:
+1. 함수 앱의 **만들기** 페이지로 이동합니다.
 
 1. **Application Insights** 스위치를 **켜기**로 설정합니다.
 
 2. **Application Insights 위치**를 선택합니다.
 
+   [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용자의 함수 앱 지역에 가장 가까우면서 데이터를 저장할 지역을 선택합니다.
+
    ![함수 앱을 만들 때 Application Insights 사용](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>기존 함수 앱
+3. 기타 필요한 정보를 입력합니다.
 
-계측 키를 가져와서 함수 앱에 저장합니다.
+1. **만들기**를 선택합니다.
 
-1. Application Insights 인스턴스를 만듭니다. 응용 프로그램 형식을 **일반**으로 설정합니다.
+다음 단계는 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)하는 것입니다.
 
-   ![일반 형식의 Application Insights 인스턴스 만들기](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>App Insights 리소스를 수동으로 연결 
 
-2. Application Insights 인스턴스의 **Essentials** 페이지에서 계측 키를 복사합니다. 표시된 키 값의 맨 뒤에 마우스를 가져가서 **복사하려면 클릭** 단추를 불러옵니다.
+1. Application Insights 리소스를 만듭니다. 응용 프로그램 형식을 **일반**으로 설정합니다.
+
+   ![일반 형식의 Application Insights 리소스 만들기](media/functions-monitoring/ai-general.png)
+
+2. Application Insights 리소스의 **Essentials** 페이지에서 계측 키를 복사합니다. 표시된 키 값의 맨 뒤에 마우스를 가져가서 **복사하려면 클릭** 단추를 불러옵니다.
 
    ![Application Insights 계측 키 복사](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ Functions도 Application Insights를 사용하지 않는 기본 모니터링을 
 
 Application Insight를 사용하도록 설정하면 [Azure 저장소를 사용하는 기본 제공 로깅](#logging-to-storage)을 사용하지 않도록 설정하는 것이 좋습니다. 기본 제공 로깅은 가벼운 워크로드를 테스트하기에 유용하지만 부하가 높은 프로덕션 용도로는 적합하지 않습니다. 프로덕션 모니터링에는 Application Insights를 사용하는 것이 좋습니다. 프로덕션에 기본 제공 로깅이 사용되면 Azure Storage의 제한으로 인해 로깅 레코드가 불완전할 수 있습니다.
 
-기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **응용 프로그램 설정** 섹션을 참조하세요.
+기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **응용 프로그램 설정** 섹션을 참조하세요. 앱 설정을 삭제하기 전에 동일한 함수 앱에 Azure Storage 트리거 또는 바인딩을 위해 해당 설정을 사용하는 기존 함수가 없는지 확인합니다.
 
-Application Insights를 사용하도록 설정하고 기본 제공 로깅을 사용하지 않도록 설정하면 Azure Portal의 함수에 대한 **모니터** 탭에 Application Insights가 열립니다.
+## <a name="view-telemetry-in-monitor-tab"></a>모니터 탭에서 원격 분석 보기
 
-## <a name="view-telemetry-data"></a>원격 분석 데이터 보기
+이전 섹션에 나와 있는 것처럼 Application Insights 통합을 설정한 후에 **모니터** 탭에서 원격 분석 데이터를 볼 수 있습니다.
 
-포털의 함수 앱에서 연결된 Application Insights 인스턴스로 이동하려면 함수 앱의 **개요** 페이지에서 **Application Insights** 연결을 선택합니다.
+1. 함수 앱 페이지에서 Application Insights가 구성된 후 1번 이상 실행된 함수를 선택하고 **모니터** 탭을 선택합니다.
+
+   ![모니터 탭 선택](media/functions-monitoring/monitor-tab.png)
+
+2. 함수 호출 목록이 나타날 때까지 **새로 고침**을 주기적으로 선택합니다.
+
+   원격 분석 클라이언트 일괄 처리 데이터가 서버에 전송되기 때문에 이 목록이 표시되는 데 최대 5분 정도 걸릴 수 있습니다. (이러한 지연 시간이 [라이브 메트릭 스트림](../application-insights/app-insights-live-stream.md)에는 적용되지 않습니다. 해당 서비스는 페이지를 로드할 때 함수 호스트에 연결되므로 로그가 페이지에 직접 스트리밍됩니다.)
+
+   ![호출 목록](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. 특정 함수 호출에 대한 로그를 보려면 해당 호출에 대한 **날짜** 열 링크를 선택합니다.
+
+   ![호출 정보 링크](media/functions-monitoring/invocation-details-link-ai.png)
+
+   해당 호출에 대한 로깅 출력이 새 페이지에 나타납니다.
+
+   ![호출 정보](media/functions-monitoring/invocation-details-ai.png)
+
+두 페이지(호출 목록 및 호출 정보) 모두 데이터를 검색하는 Application Insights 분석 쿼리에 연결됩니다.
+
+![Application Insights에서 실행](media/functions-monitoring/run-in-ai.png)
+
+![Application Insights 분석 호출 목록](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+이러한 쿼리에서 호출 목록은 마지막 30일까지 20개 이하의 행으로 제한되며(`where timestamp > ago(30d) | take 20`) 호출 정보 목록은 마지막 30일 동안 제한이 없습니다.
+
+자세한 내용은 이 문서의 뒷부분에 나오는 [원격 분석 데이터 쿼리](#query-telemetry-data)를 참조하세요.
+
+## <a name="view-telemetry-in-app-insights"></a>App Insights에서 원격 분석 보기
+
+Azure Portal의 함수 앱에서 Application Insights를 열려면 함수 앱의 **개요** 페이지에서 **구성된 기능** 섹션에 있는 **Application Insights** 링크를 선택합니다.
+
+![개요 페이지의 Application Insights 링크](media/functions-monitoring/ai-link.png)
+
 
 Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/application-insights/)를 참조하세요. 이 섹션에서는 Application Insights에서 데이터를 보는 방법에 대한 몇 가지 예를 보여줍니다. 이미 Application Insights에 익숙한 경우 [원격 분석 데이터 구성 및 사용자 지정에 대한 섹션](#configure-categories-and-log-levels)으로 바로 넘어가도 됩니다.
 
@@ -256,7 +301,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 ## <a name="configure-sampling"></a>샘플링 구성
 
-Application Insights에는 최대 부하 시 원격 분석 데이터를 너무 많이 생성하지 않도록 보호하는 [샘플링](../application-insights/app-insights-sampling.md) 기능이 포함되어 있습니다. 원격 분석 항목 수가 지정된 비율을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. *host.json*에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
+Application Insights에는 최대 부하 시 원격 분석 데이터를 너무 많이 생성하지 않도록 보호하는 [샘플링](../application-insights/app-insights-sampling.md) 기능이 포함되어 있습니다. 원격 분석 항목 수가 지정된 비율을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 항목의 최대 수에 대한 기본 설정은 5입니다. *host.json*에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -489,13 +534,19 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ## <a name="monitoring-without-application-insights"></a>Application Insights 없이 모니터링
 
-함수 모니터링에는 Application Insights를 권장합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하기 때문입니다. 하지만 함수 앱에 대한 Azure Portal 페이지에서 로크 및 원격 분석 데이터를 찾을 수도 있습니다.
+함수 모니터링에는 Application Insights를 권장합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하기 때문입니다. 그러나 Azure Storage를 사용하는 기본 제공 로깅 시스템을 선호하는 경우 해당 방식을 계속 사용할 수 있습니다.
 
 ### <a name="logging-to-storage"></a>저장소에 로깅
 
-기본 로깅은 `AzureWebJobsDashboard` 앱 설정의 연결 문자열에 지정된 저장소 계정을 사용합니다. 해당 앱 설정이 구성되면 Azure Portal에서 로깅 데이터를 볼 수 있습니다. Storage 리소스에서 파일로 이동하고 함수에 대한 파일 서비스를 선택한 다음, `LogFiles > Application > Functions > Function > your_function`으로 이동하여 로그 파일을 볼 수 있습니다. 함수 앱 페이지에서 함수를 선택한 다음 **모니터** 탭을 선택하면 함수 실행 목록이 표시됩니다. 함수 실행을 선택하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다.
+기본 로깅은 `AzureWebJobsDashboard` 앱 설정의 연결 문자열에 지정된 저장소 계정을 사용합니다. 함수 앱 페이지에서 함수를 선택한 다음 **모니터** 탭을 선택하고 클래식 보기를 유지하도록 선택합니다.
 
-Application Insights를 사용하면서 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)하면 **모니터** 탭에 Application Insights가 열립니다.
+![클래식 모드 전환](media/functions-monitoring/switch-to-classic-view.png)
+
+ 함수는 실행 목록이 표시됩니다. 함수 실행을 선택하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다.
+
+이전에 Application Insights를 사용하도록 설정했으나 지금은 기본 제공 로깅으로 돌아가려는 경우 Application Insights을 수동으로 사용하지 않도록 설정한 후 **모니터** 탭을 선택합니다. Application Insights 통합을 사용하지 않도록 설정하려면 APPINSIGHTS_INSTRUMENTATIONKEY 앱 설정을 삭제합니다.
+
+**모니터** 탭에 Application Insights 데이터가 표시되지만 아직 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)하지 않았으면 로그 데이터를 파일 시스템에서 볼 수 있습니다. Storage 리소스에서 파일로 이동하고 함수에 대한 파일 서비스를 선택한 다음, `LogFiles > Application > Functions > Function > your_function`으로 이동하여 로그 파일을 볼 수 있습니다.
 
 ### <a name="real-time-monitoring"></a>실시간 모니터링
 

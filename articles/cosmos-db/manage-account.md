@@ -64,7 +64,7 @@ Azure Cosmos DB 계정을 사용하는 웹 응용 프로그램이나 클라우�
 
 1. Azure Cosmos DB 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 액세스 키를 업데이트합니다.
 2. Azure Cosmos DB 계정의 기본 액세스 키를 다시 생성합니다. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정에 액세스합니다.
-3. **Azure Cosmos DB 계정** 페이지에서 **키**(또는 MongoDB 계정의**연결 문자열****)를 클릭합니다.
+3. **Azure Cosmos DB 계정** 페이지에서 **키**(또는 MongoDB 계정의**연결 문자열**\*\*)를 클릭합니다.
 4. **키**/**연결 문자열** 페이지에서 다시 생성 단추를 클릭한 다음 **확인**을 클릭하여 새 키를 생성할 것임을 확인합니다.
     ![액세스 키 다시 생성](./media/manage-account/regenerate-keys.png)
 5. 키를 다시 생성하고 약 5분 후에 새 키를 사용할 수 있는지 확인한 후 응용 프로그램 코드에서 새 기본 액세스 키를 참조하도록 액세스 키를 업데이트합니다.

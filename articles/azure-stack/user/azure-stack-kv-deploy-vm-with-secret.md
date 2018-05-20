@@ -1,35 +1,42 @@
 ---
-title: "Azure 스택에 안전 하 게 저장 된 암호를 사용 하 여 VM 배포 | Microsoft Docs"
-description: "Azure 스택 키 자격 증명 모음에 저장 된 암호를 사용 하는 VM을 배포 하는 방법에 알아봅니다"
+title: Azure 스택에 안전 하 게 저장 된 암호를 사용 하 여 VM 배포 | Microsoft Docs
+description: Azure 스택 키 자격 증명 모음에 저장 된 암호를 사용 하는 VM을 배포 하는 방법에 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>키 자격 증명 모음에 저장 된 암호를 검색 하 여 가상 컴퓨터 만들기
+# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Azure 스택 주요 자격 증명 모음에 저장 된 보안 암호를 사용 하 여 가상 컴퓨터 만들기
 
-를 배포 하는 동안 암호 같은 보안 값을 전달 해야 하는 경우는 스택 Azure 키 자격 증명 모음에는 암호로 해당 값을 저장 하 고 Azure 리소스 관리자 템플릿을에서 참조할 수 있습니다. 하지 필요 수동으로 암호를 입력 하는 리소스를 배포할 때마다 지정할 수도 있습니다 있는 사용자 작업을 수행한 또는 서비스 사용자는 암호에 액세스할 수 있습니다. 
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-이 문서에서는 우리 과정을 단계별로 주요 자격 증명 모음에 저장 된 암호를 검색 하 여 Azure 스택의 Windows 가상 컴퓨터를 배포 하는 데 필요한 단계. 따라서 템플릿 매개 변수 파일에 일반 텍스트 암호 입력 되지 됩니다. VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 외부 클라이언트에서 다음이 단계를 사용할 수 있습니다.
+이 문서는 Azure 스택 키 자격 증명 모음에 저장 된 암호를 사용 하 여 Windows Server 가상 컴퓨터를 배포 하는 과정 단계입니다. 주요 자격 증명 모음 암호를 사용 하는 일반 텍스트 암호를 전달 하는 보다 더 안전 합니다.
+
+## <a name="overview"></a>개요
+
+스택의 Azure 키 자격 증명 모음에서 암호로 암호 등의 값을 저장할 수 있습니다. 암호를 만든 후에 Azure 리소스 관리자 템플릿을에서 참조할 수 있습니다. 리소스 관리자와 암호를 사용 하 여 다음과 같은 이점을 제공 합니다.
+
+* 리소스를 배포할 때마다 암호를 수동으로 입력할 필요가 없습니다.
+* 암호에 액세스할 수 있는 사용자 또는 서비스 사용자를 지정할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
- 
-* 키 자격 증명 모음 서비스를 포함 하는 서비스를 구독 해야 합니다.  
-* [Azure 스택에 대 한 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)  
+
+* 키 자격 증명 모음 서비스를 포함 하는 서비스를 구독 해야 합니다.
+* [Azure 스택에 대 한 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)
 * [Azure 스택 사용자의 PowerShell 환경을 구성 합니다.](azure-stack-powershell-configure-user.md)
 
 다음 단계를 키 자격 증명 모음에 저장 된 암호를 검색 하 여 가상 컴퓨터를 만드는 데 필요한 프로세스를 설명 합니다.
@@ -37,6 +44,8 @@ ms.lasthandoff: 12/11/2017
 1. 비밀 키 자격 증명 모음을 만듭니다.
 2. Azuredeploy.parameters.json 파일을 업데이트 합니다.
 3. 템플릿을 배포합니다.
+
+>[참고] VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 외부 클라이언트에서 다음이 단계를 사용할 수 있습니다.
 
 ## <a name="create-a-key-vault-secret"></a>키 자격 증명 모음 암호 만들기
 
@@ -74,7 +83,7 @@ Set-AzureKeyVaultSecret `
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Azuredeploy.parameters.json 파일 업데이트
 
-KeyVault uri가 secretName, 사용자 환경에 따라 가상 컴퓨터 값의 adminUsername azuredeploy.parameters.json 파일을 업데이트 합니다. 다음 JSON 파일 템플릿 매개 변수 파일의 예를 보여 줍니다. 
+KeyVault uri가 secretName, 사용자 환경에 따라 가상 컴퓨터 값의 adminUsername azuredeploy.parameters.json 파일을 업데이트 합니다. 다음 JSON 파일 템플릿 매개 변수 파일의 예를 보여 줍니다.
 
 ```json
 {
@@ -114,13 +123,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+
 템플릿이 성공적으로 배포 되 면 그 결과 다음과 같은 출력:
 
 ![배포 출력](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
-
 ## <a name="next-steps"></a>다음 단계
+
 [키 자격 증명 모음 샘플 응용 프로그램 배포](azure-stack-kv-sample-app.md)
 
 [주요 자격 증명 모음 인증서를 사용 하 여 VM 배포](azure-stack-kv-push-secret-into-vm.md)
-

@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 하위 오케스트레이션 - Azure"
-description: "Azure Functions의 지속성 함수 확장에서 오케스트레이션을 호출하는 방법을 설명합니다."
+title: 지속성 함수의 하위 오케스트레이션 - Azure
+description: Azure Functions의 지속성 함수 확장에서 오케스트레이션을 호출하는 방법을 설명합니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5184bef81d1cd6ca7b41c1634def24031a4a5942
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 하위 오케스트레이션(Azure Functions)
 
@@ -28,7 +28,10 @@ ms.lasthandoff: 10/26/2017
 
 하위 오케스트레이터 함수는 호출자의 관점에서 작업 함수처럼 작동합니다. 이러한 함수는 값을 반환하고, 예외를 throw하며, 부모 오케스트레이터 함수에서 기다릴 수 있습니다.
 
-## <a name="example"></a>예제
+> [!NOTE]
+> `CallSubOrchestratorAsync` 및 `CallSubOrchestratorWithRetryAsync` 메서드는 아직 JavaScript에서 사용할 수 없습니다.
+
+## <a name="example"></a>예
 
 다음 예제에서는 프로비전해야 하는 여러 장치가 있는 IoT("사물 인터넷") 시나리오를 보여 줍니다. 다음과 같이 각 장치마다 수행해야 하는 특정 오케스트레이션이 있습니다.
 

@@ -30,6 +30,8 @@
           href: sql-database-connect-query-dotnet-visual-studio.md
         - name: .NET core
           href: sql-database-connect-query-dotnet-core.md
+        - name: Active Directory MFA를 사용하는 .NET
+          href: active-directory-interactive-connect-azure-sql-db.md
         - name: Go
           href: sql-database-connect-query-go.md
         - name: 자바
@@ -102,6 +104,16 @@
       items:
         - name: 개요
           href: sql-database-security-overview.md
+        - name: 고급 위협 보호
+          href: sql-advanced-threat-protection.md
+        - name: 데이터 검색 및 분류
+          href: sql-database-data-discovery-and-classification.md
+        - name: 취약점 평가
+          href: sql-vulnerability-assessment.md
+        - name: 위협 감지 - SQL Database
+          href: sql-database-threat-detection.md
+        - name: 위협 감지 - 관리되는 인스턴스
+          href: sql-database-managed-instance-threat-detection.md
         - name: 방화벽 규칙
           href: sql-database-firewall-configure.md
         - name: 방화벽 가상 네트워크 규칙
@@ -118,18 +130,10 @@
           href: sql-database-auditing.md
         - name: 감사 - 관리되는 인스턴스
           href: sql-database-managed-instance-auditing.md
-        - name: 위협 감지 - SQL Database
-          href: sql-database-threat-detection.md
-        - name: 위협 감지 - 관리되는 인스턴스
-          href: sql-database-managed-instance-threat-detection.md
         - name: 테이블 감사 및 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: 동적 데이터 마스킹
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: 취약점 평가
-          href: sql-vulnerability-assessment.md
-        - name: 데이터 검색 및 분류
-          href: sql-database-data-discovery-and-classification.md
     - name: 비즈니스 연속성
       items:
         - name: 개요

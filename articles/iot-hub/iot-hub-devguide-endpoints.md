@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 17479fce776b0786e2fa32054eec8b0456871aae
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d9378a084d8ff421539a445986a5a18d073f3ce6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 끝점
 
@@ -88,7 +88,7 @@ IoT Hub는 데이터를 Azure Storage 컨테이너에 [Apache Avro](http://avro.
 * 일괄 처리가 특정 크기에 도달할 경우
 * 또는 특정 시간이 경과할 경우
 
-쓸 데이터가 없으면 IoT Hub가 빈 BLOB를 작성합니다.
+쓸 데이터가 없으면 IoT Hub가 빈 Blob을 작성합니다.
 
 IoT Hub는 기본적으로 다음 파일 명명 규칙을 따릅니다.
 

@@ -1,36 +1,34 @@
 ---
-title: Azure Container Service에 대한 질문과 대답
-description: Azure Container Service에 대한 일반적인 질문에 대한 답변을 제공합니다.
+title: Azure Kubernetes Service에 대한 질문과 대답
+description: Azure Kubernetes Service에 대한 일반적인 질문에 대한 답변을 제공합니다.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 5eb949e420d9b055d014b973d452dc95fc358f83
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="frequently-asked-questions-about-azure-container-service-aks"></a>AKS(Azure Container Service)에 대한 질문과 대답
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
-이 문서에서는 AKS(Azure Container Service)에 대한 질문과 대답을 제공합니다.
+이 문서에서는 AKS(Azure Kubernetes Service)에 대한 질문과 대답을 제공합니다.
 
 > [!IMPORTANT]
-> AKS(Azure Container Service)는 현재 **미리 보기**로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> AKS(Azure Kubernetes Service)는 현재 **미리 보기**로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 >
 
-## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>현재 AKS(Azure Container Service)는 어떤 Azure 지역에서 제공되나요?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>현재 AKS(Azure Kubernetes Service)는 어떤 Azure 지역에서 제공되나요?
 
 - 캐나다 중부
 - 캐나다 동부
 - 미국 중부
 - 미국 동부
-- 동남아시아
 - 서유럽
-- 미국 서부 2
 
 ## <a name="when-will-additional-regions-be-added"></a>추가 지역은 언제 추가되나요?
 
@@ -62,7 +60,7 @@ ACS는 AKS가 GA가 될 때쯤에 지원이 종료될 예정입니다. 이 날�
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>AKS를 기존 가상 네트워크에 배포할 수 있습니까?
 
-아니요, 아직 사용할 수 없지만 곧 제공될 예정입니다.
+예, 이것은 [고급 네트워킹 기능](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md)을 통해 지원됩니다.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault는 AKS와 통합되나요?
 
@@ -70,7 +68,7 @@ ACS는 AKS가 GA가 될 때쯤에 지원이 종료될 예정입니다. 이 날�
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server 컨테이너를 AKS에서 실행할 수 있습니까?
 
-아니요, AKS는 현재 Windows Server 기반 에이전트 노드를 제공하지 않으므로 Windows Server 컨테이너를 실행할 수 없습니다. Azure에서 Kubernetes에 Windows Server 컨테이너를 실행해야 하는 경우 [acs-engine에 대한 설명서](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)를 참조하세요.
+Windows Server 컨테이너를 실행하려면 Windows Server 기반 노드를 실행해야 합니다. Windows Server 기반 노드는 현재 [비공개 미리보기](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)에 있습니다. 미리 보기 밖의 Azure에서 Kubernetes에 Windows Server 컨테이너를 실행해야 하는 경우 [acs-engine에 대한 설명서](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)를 참조하세요.
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 

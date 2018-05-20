@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 계층적 리소스 모델 및 핵심 개념
 
@@ -50,7 +50,7 @@ Azure Cosmos DB에서 관리하는 데이터베이스 엔터티를 **리소스**
 ![Azure Cosmos DB 계층적 리소스 모델][1]  
 **계층적 리소스 모델**   
 
-리소스 작업을 시작하려면 Azure 구독을 사용해서 [데이터베이스 계정을 만들어야](create-sql-api-dotnet.md) 합니다. 데이터베이스 계정은 각각 여러 **컬렉션**을 포함하는 **데이터베이스** 집합으로 구성될 수 있고, 각 컬렉션에는 다시 **저장 프로시저, 트리거, UDF, 문서 및 관련 **첨부 파일**이 포함됩니다. 또한 데이터베이스에는 **사용자**가 연관될 수 있으며, 이러한 각 사용자는 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 수 있는 **권한** 집합을 갖고 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.  
+리소스 작업을 시작하려면 Azure 구독을 사용해서 [데이터베이스 계정을 만들어야](create-sql-api-dotnet.md) 합니다. 데이터베이스 계정은 각각 여러 **컬렉션**을 포함하는 **데이터베이스** 집합으로 구성될 수 있고, 각 컬렉션에는 다시 **저장 프로시저, 트리거, UDF, 문서 및 관련 첨부 파일**이 포함됩니다. 또한 데이터베이스에는 **사용자**가 연관될 수 있으며, 이러한 각 사용자는 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 수 있는 **권한** 집합을 갖고 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.  
 
 | 리소스 | 설명 |
 | --- | --- |

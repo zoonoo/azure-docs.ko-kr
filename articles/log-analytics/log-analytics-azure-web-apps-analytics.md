@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>모든 Azure Web Apps 리소스의 메트릭에 대한 분석 데이터 보기
 
 ![Web Apps 기호](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> Azure Web Apps 분석 솔루션은 더 이상 사용되지 않습니다.  솔루션이 이미 설치되어 있는 고객은 계속해서 사용할 수 있지만 Azure Web Apps 분석을 모든 새 작업 영역에 추가할 수 없습니다.
+
 Azure Web Apps 분석(미리 보기) 솔루션은 모든 Azure Web Apps 리소스의 다양한 메트릭을 수집함으로써 [Azure Web Apps](../app-service/app-service-web-overview.md)에 대한 자세한 정보를 제공합니다. 이 솔루션을 사용하여 웹앱 리소스 메트릭 데이터를 분석하고 검색할 수 있습니다.
 
 이 솔루션을 사용하면 다음을 확인할 수 있습니다.
@@ -39,10 +43,10 @@ Azure Web Apps 분석(미리 보기) 솔루션은 모든 Azure Web Apps 리소�
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,7 +57,7 @@ Azure Web Apps 분석(미리 보기) 솔루션은 모든 Azure Web Apps 리소�
 다음 단계를 수행하여 작업 영역에 대해 Azure Web Apps 분석 솔루션을 구성합니다.
 
 1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
-2. [PowerShell을 사용하여 OMS에 대한 Azure 리소스 메트릭 로깅을 사용하도록 설정](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)합니다.
+2. [PowerShell을 사용하여 Log Analytics에 대한 Azure 리소스 메트릭 로깅을 사용하도록 설정](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)합니다.
 
 Azure Web Apps 분석 솔루션은 Azure에서 다음과 같은 두 가지 메트릭 집합을 수집합니다.
 
@@ -73,10 +77,6 @@ Azure Web Apps 분석 솔루션은 Azure에서 다음과 같은 두 가지 메�
   - 메모리 비율
 
 전용 서비스 계획을 사용하는 경우 App Service 계획 메트릭이 수집됩니다. 무료 또는 공유 App Service 계획에는 적용되지 않습니다.
-
-OMS 포털을 사용하여 솔루션을 추가하면 다음 타일이 표시됩니다. [PowerShell을 사용하여 OMS에 대한 Azure 리소스 메트릭 로깅을 사용하도록 설정](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)해야 합니다.
-
-![평가 알림 수행](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 이 솔루션을 구성한 후 15분 내에 작업 영역으로 데이터가 흐르기 시작해야 합니다.
 

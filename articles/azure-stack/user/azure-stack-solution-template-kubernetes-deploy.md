@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71d920ea1c143ed65510b77e1804e9c5e38cc180
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/10/2018
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-> [!note]  
+> [!Note]  
 > Azure 스택 Azure 컨테이너 서비스 (ACS) Kubernetes 비공개 미리 보기 버전에서입니다. Azure 스택 연산자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes 마켓플레이스 항목에 대 한 액세스를 요청 해야 합니다.
 
 다음 문서를 배포 하 고 단일, 통합 작업에서 Kubernetes에 대 한 리소스를 프로 비전 하는 Azure 리소스 관리자 솔루션 템플릿을 사용 하 여 살펴 봅니다. 필요한 Azure 스택 설치 프로그램에 대 한 필요한 정보를 수집 하 고 서식 파일을 생성을 다음을 클라우드에 배포.
@@ -121,7 +121,7 @@ Kubernetes를 사용할 수 있습니다.
 
 6. 입력은 **마스터 프로필 DNS 접두사** 지역에 고유 합니다. 와 같은 지역 고유 이름 이어야 합니다 `k8s-12345`합니다. 하려고 선택 이름과 같은 리소스 그룹으로 이름을 모범 사례입니다.
 
-    > [!note]  
+    > [!Note]  
     > 각 클러스터에 대 한 새롭고 고유한 마스터 프로필 DNS 접두사를 사용 합니다.
 
 7. 클러스터의 에이전트의 수를 입력 합니다. 이 값으로 참조 되는 **에이전트 풀 프로 파일 수**합니다. 있을 수에서 1부터 32

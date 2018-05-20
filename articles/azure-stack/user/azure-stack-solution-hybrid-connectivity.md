@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8b5f59d3fea402efa50bdafd7fc0439a93051e69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 048e2636aabe406728c8fe1b93ef861f13346256
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>자습서: 하이브리드 클라우드 연결을 Azure 및 Azure 스택 구성
 
@@ -93,7 +93,7 @@ Azure OEM/하드웨어 파트너 Azure 스택 프로덕션에 배포할 수 있�
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>전역 Azure 및 Azure 스택에서 가상 네트워크 만들기
 
-> [!note]  
+> [!Note]  
 > Azure 또는 Azure 스택 vNet 주소 공간에서 Ip 순위 임을 확인 해야 합니다. 
 
 Azure 포털을 사용 하 여 리소스 관리자 배포 모델에서 vNet을 만들려면 합니다. 이러한 단계를 자습서로 사용하는 경우 [예제 값](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values)을 사용합니다. 이러한 단계를 자습서로 사용하지 않는 경우 고유한 값으로 바꿔야 합니다. 
@@ -129,7 +129,7 @@ Azure 포털을 사용 하 여 리소스 관리자 배포 모델에서 vNet을 �
         - 클릭 **+ 새로 만들기** 열려는 **공용 IP 주소 만들기** 페이지.
         - 입력 한 **이름** 공용 IP 주소에 대 한 합니다. SKU로 두고 **기본**을 선택한 후 **확인** 변경 내용을 저장 하려면이 페이지의 맨 아래에 있습니다.
 
-    > [!note]  
+    > [!Note]  
     > VPN 게이트웨이 현재 지원 동적 공용 IP 주소를 할당 합니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
 
 4. 설정을 확인합니다. 

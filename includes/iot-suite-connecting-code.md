@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/10/2018
+---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>IoT 장치의 동작 지정
 
 IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장치가 IoT Hub와 교환하는 메시지의 형식을 지정합니다.
@@ -78,7 +94,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
 
 이제 모델에 정의된 동작을 구현하는 코드를 추가합니다.
 
-1. 장치가 미리 구성된 솔루션에 새 reported 속성 값을 전송했을 때 실행되는 다음 콜백 처리기를 추가합니다.
+1. 장치가 솔루션 가속기에 새 reported 속성 값을 전송했을 때 실행되는 다음 콜백 처리기를 추가합니다.
 
     ```c
     /* Callback after sending reported properties */
@@ -124,7 +140,8 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
       }
       ThreadAPI_Sleep(5000);
 
-      chiller->Firmware = _strdup(chiller->new_firmware_version);
+    #pragma warning(suppress : 4996)
+      chiller->Firmware = strdup(chiller->new_firmware_version);
       chiller->FirmwareUpdateStatus = "waiting";
       /* Send reported properties to IoT Hub */
       if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
@@ -171,8 +188,10 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
       }
       else
       {
-        chiller->new_firmware_version = _strdup(Firmware);
-        chiller->new_firmware_URI = _strdup(FirmwareUri);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_version = strdup(Firmware);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_URI = strdup(FirmwareUri);
         THREAD_HANDLE thread_apply;
         THREADAPI_RESULT t_result = ThreadAPI_Create(&thread_apply, do_firmware_update, chiller);
         if (t_result == THREADAPI_OK)
@@ -221,7 +240,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
     }
     ```
 
-1. 미리 구성된 솔루션으로 속성을 가진 메시지를 보내는 다음 함수를 추가합니다.
+1. 솔루션 가속기로 속성을 가진 메시지를 보내는 다음 함수를 추가합니다.
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +279,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
     }
     ```
 
-1. 다음 함수를 추가하여 클라우드의 미리 구성된 솔루션에 장치를 연결하고 데이터를 교환합니다. 이 함수는 다음 단계를 수행합니다.
+1. 다음 함수를 추가하여 클라우드의 솔루션 가속기에 장치를 연결하고 데이터를 교환합니다. 이 함수는 다음 단계를 수행합니다.
 
     - 플랫폼을 초기화합니다.
     - serialization 라이브러리와 함께 Contoso 네임스페이스를 등록합니다.
@@ -396,7 +415,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
     }
     ```
 
-    참고로, 미리 구성된 솔루션으로 전송되는 샘플 **원격 분석** 메시지는 다음과 같습니다.
+    참고로, 솔루션 가속기로 전송되는 샘플 **원격 분석** 메시지는 다음과 같습니다.
 
     ```
     Device: [myCDevice],

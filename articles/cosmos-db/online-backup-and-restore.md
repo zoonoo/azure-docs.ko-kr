@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a51b7d115a8287340450b3525a9b1a325702485b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Azure Cosmos DB로 자동 온라인 백업 및 복원
 Azure Cosmos DB는 자동으로 모든 데이터의 백업을 정기적으로 수행합니다. 자동 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. 모든 백업은 다른 저장소 서비스에 개별적으로 저장되고 이러한 백업은 지역 재해에 대한 복원을 위해 전역적으로 복제됩니다. 자동 백업은 Cosmos DB 컨테이너를 실수로 삭제했다가 나중에 데이터 복구 또는 재해 복구 솔루션이 필요한 시나리오를 위한 것입니다.  
@@ -50,7 +50,11 @@ Cosmos DB 내에 저장된 데이터와 달리 자동 백업은 Azure Blob Stora
 ## <a name="backup-retention-period"></a>Backup 보존 기간
 위에서 설명한 대로 Azure Cosmos DB는 4시간마다 파티션 수준으로 데이터의 스냅숏을 생성합니다. 지정된 시간에는 마지막 두 스냅숏만 유지됩니다. 단, 컬렉션/데이터베이스가 삭제된 경우 지정된 컬렉션/데이터베이스 내 삭제된 모든 파티션의 기존 스냅숏은 30일 동안 유지합니다.
 
-사용자 고유의 스냅숏을 유지하려는 경우 Azure Cosmos DB [데이터 마이그레이션 도구](import-data.md#export-to-json-file)에서 JSON으로 내보내기 옵션을 사용하여 추가 백업을 예약할 수 있습니다.
+SQL API의 경우 사용자 고유의 스냅숏을 유지하려는 경우 Azure Cosmos DB [데이터 마이그레이션 도구](import-data.md#export-to-json-file)에서 JSON으로 내보내기 옵션을 사용하여 추가 백업을 예약할 수 있습니다.
+
+> [!NOTE]
+> "데이터베이스 수준에서 컨테이너의 집합에 대한 처리량을 프로비전"하는 경우 복원은 전체 데이터베이스 계정 수준에서 발생한다는 것을 기억하세요. 이 새 기능을 사용하는 경우 컨테이너 - 컬렉션/테이블/그래프를 실수로 삭제한 경우 8시간 이내에 지원 팀에 연락해야 합니다. 
+
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>온라인 백업에서 데이터베이스 복원
 데이터베이스 또는 컬렉션을 실수로 삭제한 경우 [지원 티켓](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출하거나 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하여 마지막 자동 백업에서 데이터를 복원할 수 있습니다. 데이터 손상 문제로 인해 데이터베이스를 복원해야 하는 경우(컬렉션 내 문서가 삭제된 경우 포함) 손상된 데이터가 기존 백업에 덮어쓰이는 것을 방지하기 위해 추가 단계를 수행해야 할 때는 [데이터 손상 처리](#handling-data-corruption)를 참조하세요. 백업의 특정 스냅숏을 복원하려면 Cosmos DB에서 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.

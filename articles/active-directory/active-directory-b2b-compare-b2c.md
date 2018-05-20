@@ -2,25 +2,19 @@
 title: Azure Active Directory에서 B2B 공동 작업과 B2C 비교 | Microsoft Docs
 description: Azure Active Directory B2B 공동 작업과 Azure AD B2C 간의 차이는 무엇인가요?
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 32d7d135e67a05b59279e647c1fb2aa8c9686cef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e8781fcf2710b00ba352bff29a370cbb73e0648
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
 
@@ -41,16 +35,6 @@ B2B 공동 작업 기능 |     Azure AD B2C 독립 실행형 제품
 
 ### <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
+- [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [B2B 공동 작업 사용자 속성](active-directory-b2b-user-properties.md)
 
-* [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 공동 작업 사용자 속성](active-directory-b2b-user-properties.md)
-* [역할에 B2B 공동 작업 사용자 추가](active-directory-b2b-add-guest-to-role.md)
-* [B2B 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
-* [동적 그룹 및 B2B 공동 작업](active-directory-b2b-dynamic-groups.md)
-* [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
-* [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
-* [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
-* [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
-* [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
-* [B2B 공동 작업에 대한 지원 받기](active-directory-b2b-support.md)

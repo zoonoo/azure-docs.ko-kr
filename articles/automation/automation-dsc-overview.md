@@ -4,16 +4,17 @@ description: Azure Automation DSC(필요한 상태 구성)의 개요, 용어 및
 keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 4282333fc8c6f0835c451b781f70dfaed0697d96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d055fbc5c4a5ea0d33ae08d30d3aff1d53fc5da
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure Automation DSC 개요
 

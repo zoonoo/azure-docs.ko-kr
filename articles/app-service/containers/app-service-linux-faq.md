@@ -1,13 +1,13 @@
 ---
-title: "Linux의 Azure App Service에 대한 FAQ | Microsoft Docs"
-description: "Linux의 Azure App Service에 대한 FAQ."
-keywords: "Azure App Service, 웹앱, faq, linux, oss"
+title: Linux의 Azure App Service에 대한 FAQ | Microsoft Docs
+description: Linux의 Azure App Service에 대한 FAQ.
+keywords: Azure App Service, 웹앱, faq, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -43,9 +43,13 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 이 작업은 Docker 다시 시작과 동일합니다.
 
-**앱 컨테이너 가상 컴퓨터(VM)에 연결하기 위해 Secure Shell(SSH)을 사용할 수 있나요?**
+**앱 컨테이너 가상 머신(VM)에 연결하기 위해 Secure Shell(SSH)을 사용할 수 있나요?**
 
 예. SCM(원본 제어 관리) 사이트를 통해 수행할 수 있습니다.
+
+> [!NOTE] 
+> SSH, SFTP 또는 Visual Studio Code를 사용하여 로컬 개발 컴퓨터에서 직접 앱 컨테이너에 연결할 수도 있습니다(Node.js 앱 라이브 디버깅을 위해). 자세한 내용은 [Linux App Service의 원격 디버깅 및 SSH](https://aka.ms/linux-debug)를 참조하세요.
+>
 
 **SDK 또는 Azure Resource Manager 템플릿을 통해 Linux App Service 계획을 어떻게 만들 수 있나요?**
 

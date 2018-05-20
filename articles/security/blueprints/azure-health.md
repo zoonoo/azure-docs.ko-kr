@@ -3,7 +3,7 @@ title: Azure 의료 분석 청사진
 description: HIPAA/HITRUST 의료 분석 청사진을 배포하기 위한 지침입니다.
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
-ms.author: simorjay
-ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: jomolesk
+ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -282,7 +282,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **2. Key Vault**에 요청한 토큰과 연결된 비밀을 요청합니다.
 
-**3. Azure 역할에서 요청의 유효성을 검사하고 액세스 요청에 대한 권한을 Key Vault에 부여합니다.
+\*\*3. Azure 역할에서 요청의 유효성을 검사하고 액세스 요청에 대한 권한을 Key Vault에 부여합니다.
 
 **4. Key Vault**에서 비밀(이 경우 SQL DB 연결 문자열)을 반환합니다.
 

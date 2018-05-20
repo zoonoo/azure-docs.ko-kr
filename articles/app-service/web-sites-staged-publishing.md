@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ ms.lasthandoff: 04/16/2018
 * 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
 * 교환 후에는 이전의 준비된 앱이 들어 있던 슬롯 안에 이전의 프로덕션 앱이 들어갑니다. 프로덕션 슬롯과 교환한 변경 내용이 예상과 다른 경우 같은 교환 작업을 즉시 수행하여 "마지막 양호 상태"로 돌아갈 수 있습니다.
 
-각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 앱 계층이 지원하는 슬롯의 수를 알아보려면 [App Service 제한](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits)을 참조하세요.
-
-* 앱에 여러 슬롯이 있을 때에는 계층을 변경할 수 없습니다.
-* 프로덕션이 아닌 슬롯에 대해 크기 조정을 사용할 수 없습니다.
-* 연결된 리소스 관리는 프로덕션이 아닌 슬롯에 대해 지원되지 않습니다. 특별히 [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) 에서는 프로덕션이 아닌 슬롯을 다른 App Service 계획 계층으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 프로덕션 슬롯이 아닌 경우에는 두 슬롯을 교환하려면 프로덕션 슬롯과 같은 계층을 다시 한 번 공유해야 합니다.
+각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 앱 계층이 지원하는 슬롯의 수를 알아보려면 [App Service 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits)을 참조하세요. 다른 계층으로 앱의 크기를 조정하려면 대상 계층은 앱에서 이미 사용하는 슬롯 수를 지원해야 합니다. 예를 들어 앱에 5개 이상의 슬롯이 있는 경우 **표준** 계층은 5개의 배포 슬롯만을 지원하므로 **표준** 계층으로 축소할 수 없습니다.
 
 <a name="Add"></a>
 
@@ -67,8 +63,8 @@ ms.lasthandoff: 04/16/2018
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>배포 슬롯의 구성
-다른 배포 슬롯으로부터 구성을 복제할 때 복제된 구성을 편집할 수 있습니다. 또한, 교환 후(특정 슬롯) 다른 구성 요소는 동일한 슬롯에 남아 있지만 일부 구성 요소는 교환(특정 슬롯 아님)에 따라 콘텐츠를 따릅니다. 다음 목록은 슬롯을 교환할 때 변경되는 구성을 보여 줍니다.
+## <a name="which-settings-are-swapped"></a>어떤 설정이 교환되나요?
+다른 배포 슬롯으로부터 구성을 복제할 때 복제된 구성을 편집할 수 있습니다. 또한, 교환 후(특정 슬롯) 다른 구성 요소는 동일한 슬롯에 남아 있지만 일부 구성 요소는 교환(특정 슬롯 아님)에 따라 콘텐츠를 따릅니다. 다음 목록은 슬롯을 교환할 때 변경되는 설정을 보여줍니다.
 
 **교환된 설정**:
 
@@ -146,7 +142,7 @@ ms.lasthandoff: 04/16/2018
 > [!NOTE]
 > 자동 교환은 Linux의 웹앱에서 지원되지 않습니다.
 
-슬롯에 대한 자동 교환 구성은 쉽습니다. 다음 단계를 따르세요.
+슬롯에 대한 자동 교환 구성은 쉽습니다. 다음 단계를 수행하세요.
 
 1. **배포 슬롯**에서 비프로덕션 슬롯을 선택하고 해당 슬롯의 리소스 블레이드에서 **응용 프로그램 설정**을 선택합니다.  
    
@@ -165,22 +161,32 @@ ms.lasthandoff: 04/16/2018
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>교환 후 프로덕션 앱을 롤백하려면
+## <a name="roll-back-a-production-app-after-swap"></a>교환 후 프로덕션 앱 롤백
 슬롯 교환 후 프로덕션에서 오류가 발견되면 같은 두 슬롯을 즉시 교환하여 슬롯을 교환 전 상태로 롤백하세요.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>교환하기 전에 사용자 지정 준비
-일부 앱에는 사용자 지정 준비 작업이 필요할 수 있습니다. web.config의 `applicationInitialization` 구성 요소를 사용하면 요청을 받기 전에 수행할 사용자 지정 초기화 작업을 지정할 수 있습니다. 스왑 작업은 이 사용자 지정 준비가 완료될 때까지 대기합니다. 샘플 web.config 조각은 다음과 같습니다.
+일부 앱에는 사용자 지정 준비 작업이 필요할 수 있습니다. web.config의 `applicationInitialization` 구성 요소를 사용하면 요청을 받기 전에 수행할 사용자 지정 초기화 작업을 지정할 수 있습니다. 교환 작업은 이 사용자 지정 준비가 완료될 때까지 대기합니다. 샘플 web.config 조각은 다음과 같습니다.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>교환 진행률 모니터링
+
+경우에 따라 교환 작업은 교환된 앱이 긴 준비 시간을 갖는 것처럼 완료하는 데 다소 시간이 걸립니다. [Azure Portal](https://portal.azure.com)의 [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)에서 교환 작업에 대한 자세한 정보를 얻을 수 있습니다.
+
+포털의 앱 페이지에서 왼쪽 탐색의 **활동 로그**를 선택합니다.
+
+교환 작업은 `Slotsswap`으로 로그 쿼리에 표시됩니다. 이를 확장하고 하위 작업 또는 오류 중 하나를 선택하여 세부 정보를 볼 수 있습니다.
+
+![슬롯 교환에 대한 활동 로그](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>배포 슬롯을 삭제하려면
+## <a name="delete-a-deployment-slot"></a>배포 슬롯 삭제
 배포 슬롯의 블레이드에서 배포 슬롯의 블레이드를 열고 **개요**(기본 페이지)를 클릭한 후 명령 모음에서 **삭제**를 클릭합니다.  
 
 ![배포 슬롯 삭제][DeleteStagingSiteButton]
@@ -189,41 +195,47 @@ ms.lasthandoff: 04/16/2018
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>배포 슬롯용 Azure PowerShell cmdlet
+## <a name="automate-with-azure-powershell"></a>Azure PowerShell을 사용하여 자동화
+
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈로, Azure App Service에서 배포 슬롯을 관리하는 기능도 지원합니다.
 
 * Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.  
 
 - - -
 ### <a name="create-a-web-app"></a>웹앱 만들기
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>배포 슬롯 만들기
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>미리 보기가 있는 교환(다단계 교환) 시작 및 대상 슬롯 구성을 원본 슬롯에 적용
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>보류 중인 교환(검토가 있는 교환) 취소 및 원본 슬롯 구성 복원
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>배포 슬롯 교환
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>활동 로그에서 교환 이벤트 모니터링
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,53 +249,14 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>배포 슬롯에 대한 Azure CLI(Azure 명령줄 인터페이스) 명령
-Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Service 배포 슬롯을 관리하는 기능을 지원합니다.
+## <a name="automate-with-azure-cli"></a>Azure CLI를 사용하여 자동화
 
-* Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하세요.
-* Azure CLI에서 Azure App Service에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다.
-
-> [!NOTE] 
-> 배포 슬롯에 대한 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 명령은 [az webapp deployment slot](/cli/azure/webapp/deployment/slot)을 참조하세요.
-
-- - -
-### <a name="azure-site-list"></a>azure site list
-현재 구독의 앱 관련 정보를 확인하려면 다음 예에서와 같이 **azure site list**를 호출합니다.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>azure site create
-배포 슬롯을 만들려면 다음 예에서와 같이 **azure site create**를 호출하고 기존 앱의 이름과 만들 슬롯의 이름을 지정합니다.
-
-`azure site create webappslotstest --slot staging`
-
-새 슬롯의 소스 제어를 사용하도록 설정하려면 다음 예에서와 같이 **--git** 옵션을 사용합니다.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>azure site swap
-업데이트된 배포 슬롯을 프로덕션 앱으로 만들려면 다음 예에서와 같이 **azure site swap** 명령을 사용하여 교환 작업을 수행합니다. 이때 프로덕션 앱에는 중단 시간이나 콜드 부팅이 발생하지 않습니다.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>azure site delete
-더 이상 필요하지 않은 배포 슬롯을 삭제하려면 다음 예에서와 같이 **azure site delete** 명령을 사용합니다.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> 작업에서 웹앱을 확인합니다. [App Service 체험](https://azure.microsoft.com/try/app-service/) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
-> 
-> 
+배포 슬롯에 대한 [Azure CLI](https://github.com/Azure/azure-cli) 명령은 [az webapp deployment slot](/cli/azure/webapp/deployment/slot)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure App Service 웹앱 - 비프로덕션 배포 슬롯에 대한 웹 액세스 차단(영문)](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Linux의 App Service 소개](../app-service/containers/app-service-linux-intro.md)
-[Microsoft Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)
+[Azure App Service 웹앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Linux의 App Service 소개](../app-service/containers/app-service-linux-intro.md)  
+[Microsoft Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Reporting 알림"
-description: "의심스러운 로그인에 Azure Active Directory Reporting 알림을 사용하는 방법입니다."
+title: Azure Active Directory Reporting 알림
+description: 의심스러운 로그인에 Azure Active Directory Reporting 알림을 사용하는 방법입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory Reporting 알림
 ## <a name="what-reports-generate-email-notifications"></a>어떤 보고서가 전자 메일 알림을 생성하나요?
@@ -39,7 +39,7 @@ Active Directory Premium 라이선스가 할당된 모든 전역 관리자에게
 링크를 클릭하면 Azure Portal 내의 보고서 페이지로 리디렉션됩니다. 보고서에 액세스하려면 다음 조건을 둘 다 충족해야 합니다.
 
 * Azure 구독의 관리자 또는 공동 관리자
-* 디렉터리의 전역 관리자 및 Active Directory Premium 라이선스가 할당됨. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+* 디렉터리의 전역 관리자 및 Active Directory Premium 라이선스가 할당됨. 자세한 내용은 [Azure Active Directory 버전](active-directory-whatis.md)을 참조하세요.
 
 ## <a name="can-i-turn-off-these-emails"></a>이러한 전자 메일을 끌 수 있나요?
 예, Azure Portal 내에서 비정상적인 로그인과 관련된 알림을 끄려면 **구성**을 클릭한 다음 **알림** 아래에서 **사용 안 함**을 선택합니다.

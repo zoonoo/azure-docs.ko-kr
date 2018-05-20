@@ -3,23 +3,23 @@ title: 네이티브 클라이언트 앱 게시 - Azure AD | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시 커넥터와 통신하는 네이티브 클라이언트 앱을 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 823939e76bcf982d37b58595795dca84c1830e19
-ms.sourcegitcommit: 4bc2aa08a116a0acca0af3b02b5c1d144d3cf9b1
+ms.openlocfilehash: 79ee3aca783d7c29959c2730696a313bf821b3bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/30/2018
 이 문서에서는 응용 프로그램 프록시 및 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시하는 네 가지 단계를 안내합니다. 
 
 ## <a name="step-1-publish-your-application"></a>1단계: 응용 프로그램 게시
-다른 응용 프로그램과 마찬가지로 프록시 응용 프로그램을 게시하고 응용 프로그램에 액세스하도록 사용자를 할당합니다. 자세한 내용은 [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)를 참조하세요.
+다른 응용 프로그램과 마찬가지로 프록시 응용 프로그램을 게시하고 응용 프로그램에 액세스하도록 사용자를 할당합니다. 자세한 내용은 [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
 
 ## <a name="step-2-configure-your-application"></a>2단계: 응용 프로그램 구성
 네이티브 응용 프로그램을 다음과 같이 구성합니다.
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/30/2018
    ![새 앱 등록 만들기](./media/active-directory-application-proxy-native-client/create.png)
 5. **만들기**를 선택합니다.
 
-새 앱 등록 만들기에 대한 자세한 정보는 [Azure Active Directory와 응용 프로그램 통합](.//develop/active-directory-integrating-applications.md)을 참조하세요.
+새 앱 등록 만들기에 대한 자세한 정보는 [Azure Active Directory와 응용 프로그램 통합](./develop/active-directory-integrating-applications.md)을 참조하세요.
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>3단계: 다른 응용 프로그램에 액세스 허용
@@ -97,4 +97,4 @@ ADAL을 이러한 매개 변수로 편집하면 사용자가 회사 네트워크
 
 네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)을 참조하세요.
 
-[응용 프로그램 프록시에 대한 Single Sign-On](application-proxy-sso-overview.md) 설정에 대한 자세히 알아보세요.
+[응용 프로그램 프록시에 대한 Single Sign-On](manage-apps/application-proxy-single-sign-on.md) 설정에 대한 자세히 알아보세요.

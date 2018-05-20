@@ -1,27 +1,20 @@
 ---
-title: "Azure Active Directory B2B 공동 작업 사용자를 역할에 추가 | Microsoft Docs"
-description: "Azure Active Directory의 역할에 게스트 사용자 추가"
+title: Azure Active Directory B2B 공동 작업 사용자를 역할에 추가 | Microsoft Docs
+description: Azure Active Directory의 역할에 게스트 사용자 추가
 services: active-directory
-documentationcenter: 
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/08/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/15/2017
-ms.author: twooley
 ms.reviewer: sasubram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d9889a15bd4e09863640e8c8e7ea03220d23bb23
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 파트너 조직의 사용자에게 권한 부여
 
@@ -41,15 +34,5 @@ Azure AD(Azure Active Directory) B2B 공동 작업 사용자가 디렉터리에 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
-
-* [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 공동 작업 사용자 속성](active-directory-b2b-user-properties.md)
-* [B2bB 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
-* [동적 그룹 및 B2B 공동 작업](active-directory-b2b-dynamic-groups.md)
-* [B2B 공동 작업 코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
-* [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
-* [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
-* [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
-* [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
-* [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
+- [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [B2B 공동 작업 사용자 속성](active-directory-b2b-user-properties.md)

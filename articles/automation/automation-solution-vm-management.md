@@ -3,16 +3,17 @@ title: 작업 시간 외 VM 시작/중지 솔루션(미리 보기)
 description: VM 관리 솔루션은 Azure Resource Manager 가상 머신을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 410f76d406ab65ff1732525a501fe007eeeb5f6a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Automation의 작업 시간 외 VM 시작/중지 솔루션(미리 보기)
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Runbook이 [Azure 실행 계정](automation-offering-get-started.md#authentication-methods)으로 작동됩니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.
+* Runbook이 [Azure 실행 계정](automation-create-runas-account.md)으로 작동됩니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.
 * 이 솔루션은 Azure Automation 계정과 동일한 구독에 있는 VM만 관리합니다.
 * 이 솔루션은 오스트레일리아 남동부, 캐나다 중부, 인도 중부, 미국 동부, 일본 동부, 동남 아시아, 영국 남부 및 유럽 서부의 Azure 지역에만 배포됩니다.
 
@@ -80,8 +81,8 @@ ms.lasthandoff: 04/19/2018
    * **일정**을 선택합니다. 이는 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간입니다. 기본적으로 일정은 UTC 표준 시간대로 구성됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedule)을 참조하세요.
    * SendGrid에서 **전자 메일 알림** 받으려면 기본값인 **예**를 그대로 두고 유효한 전자 메일 주소를 제공합니다. **아니요**를 선택했지만 나중에 이메일 알림을 수신하고자 한다면, **External_EmailToAddress** 변수를 쉼표로 구분된 유효한 이메일 주소로 업데이트한 다음, **External_IsSendEmail** 변수를 **예** 값으로 수정할 수 있습니다.
 
-> [!IMPORTANT]
-> **대상 ResourceGroup 이름**의 기본값은 **&ast;** 입니다. 이것은 구독에 포함된 모든 VM을 대상으로 합니다. 솔루션에서 구독의 모든 VM을 대상으로 지정하지 않으려면 일정을 사용하기 전에 이 값을 리소스 그룹 이름 목록으로 업데이트해야 합니다.
+    > [!IMPORTANT]
+    > **대상 ResourceGroup 이름**의 기본값은 **&ast;** 입니다. 이것은 구독에 포함된 모든 VM을 대상으로 합니다. 솔루션에서 구독의 모든 VM을 대상으로 지정하지 않으려면 일정을 사용하기 전에 이 값을 리소스 그룹 이름 목록으로 업데이트해야 합니다.
 
 1. 솔루션에 필요한 초기 설정을 구성한 후에 **확인**을 클릭하여 **매개 변수** 페이지를 닫고 **만들기**를 선택합니다. 모든 설정이 확인되면 솔루션이 구독에 배포됩니다. 이 프로세스는 완료하는 데 수 초가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 
@@ -218,7 +219,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 ### <a name="schedules"></a>일정
 
-다음 표에서는 Automation 계정에서 만든 각 기본 일정을 나열합니다.  일정을 수정하거나 고유한 사용자 지정 일정을 만들 수 있습니다. 기본적으로 이러한 각 일정은 **Scheduled_StartVM** 및 **Scheduled-StopVM** 외에는 사용되지 않도록 설정됩니다.
+다음 표에서는 Automation 계정에서 만든 각 기본 일정을 나열합니다. 일정을 수정하거나 고유한 사용자 지정 일정을 만들 수 있습니다. 기본적으로 이러한 각 일정은 **Scheduled_StartVM** 및 **Scheduled-StopVM** 외에는 사용되지 않도록 설정됩니다.
 
 일정 작업이 겹칠 수 있기 때문에 모든 일정을 사용하도록 설정해서는 안 됩니다. 그에 맞게 수행하고 수정할 최적화를 결정하는 것이 가장 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
@@ -226,7 +227,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | AutoStop_CreateAlert_Parent Runbook을 8시간 간격으로 실행합니다. 그러면 Azure Automation 변수에서 External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames 및 External_ExcludeVMNames에서 VM 기반 값이 중지됩니다. 또는 VMList 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수 있습니다.|
 |Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 *Stop* 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 자산 변수를 통해 정의된 규칙을 충족하는 모든 VM이 자동으로 중지됩니다. 관련된 일정 **Scheduled-StartVM**을 사용하도록 설정해야 합니다.|
-|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 *Start* 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다.  적절한 변수로 정의된 규칙을 충족하는 모든 VM이 자동으로 시작됩니다. 관련된 일정 **Scheduled-StopVM**을 사용하도록 설정해야 합니다.|
+|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 *Start* 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 적절한 변수로 정의된 규칙을 충족하는 모든 VM이 자동으로 시작됩니다. 관련된 일정 **Scheduled-StopVM**을 사용하도록 설정해야 합니다.|
 |Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 *Stop* 매개 변수를 사용하여 Sequenced_Parent Runbook이 실행됩니다. 적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요. 관련된 일정 **Sequenced-StartVM**을 사용하도록 설정해야 합니다.|
 |Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 *Start* 매개 변수를 사용하여 Sequenced_Parent Runbook이 실행됩니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요. 관련된 일정 **Sequenced-StopVM**을 사용하도록 설정해야 합니다.|
 

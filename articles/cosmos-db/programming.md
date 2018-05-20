@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 25ae6bde2ca89b2f944a8879c746dcedcf798ec2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
-Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행하므로 개발자가 기본적으로 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성할 수 있는 방법을 알아봅니다. 이 Javascript 통합을 사용하여 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다. 
+Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행하므로 개발자가 기본적으로 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)** 를 작성할 수 있는 방법을 알아봅니다. Javascript 통합을 사용하여 데이터베이스 저장소 파티션 내에서 직접 전달되고 실행될 수 있는 프로그램 논리를 작성할 수 있습니다. 
 
 먼저 Andrew Liu가 Azure Cosmos DB의 서버 쪽 데이터베이스 프로그래밍 모델을 소개하는 다음 비디오를 시청하시기 바랍니다. 
 
@@ -58,7 +58,7 @@ Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행�
 이 자습서에서는 [Q Promise와 함께 Node.js SDK](http://azure.github.io/azure-documentdb-node-q/)를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.   
 
 ## <a name="stored-procedures"></a>저장 프로시저
-### <a name="example-write-a-simple-stored-procedure"></a>예: 간단한 저장 프로시저 작성
+### <a name="example-write-a-stored-procedure"></a>예: 저장 프로시저 작성
 먼저 "Hello World" 응답을 반환하는 단순한 저장 프로시저로 시작하겠습니다.
 
     var helloWorldStoredProc = {
@@ -96,7 +96,7 @@ Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행�
         });
 
 
-컨텍스트 개체는 Cosmos DB 저장소에서 수행할 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정했습니다. 자세한 내용은 [Azure Cosmos DB JavaScript 서버 SDK 설명서](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.  
+컨텍스트 개체는 Cosmos DB 저장소에서 수행할 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정합니다. 자세한 내용은 [Azure Cosmos DB JavaScript 서버 SDK 설명서](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.  
 
 이 예제를 확장하여 저장 프로시저에 데이터베이스 관련 기능을 더 추가하겠습니다. 저장 프로시저는 컬렉션 내의 문서와 첨부 파일을 만들고 업데이트하고 읽고 쿼리 및 삭제할 수 있습니다.    
 
@@ -148,16 +148,16 @@ Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행�
     });
 
 
-문서 본문 배열을 입력으로 사용하고 여러 네트워크 요청을 통해 각각 개별적으로 만드는 대신 동일한 저장 프로시저 실행에서 모두 만들도록 이 저장 프로시저를 수정할 수 있습니다. 이 저장 프로시저를 사용하여 Cosmos DB에 대한 효율적인 대량 가져오기를 구현할 수 있습니다(이 자습서의 뒷부분에서 설명).   
+문서 본문 배열을 입력으로 사용하고 여러 요청을 통해 각각 개별적으로 만드는 대신 동일한 저장 프로시저 실행에서 모두 만들도록 이 저장 프로시저를 수정할 수 있습니다. 이 저장 프로시저를 사용하여 Cosmos DB에 대한 효율적인 대량 가져오기를 구현할 수 있습니다(이 자습서의 뒷부분에서 설명).   
 
-설명한 예제에서는 저장 프로시저를 사용하는 방법을 보여 주었습니다. 트리거와 UDF(사용자 정의 함수)는 자습서의 뒷부분에서 설명합니다.
+설명한 예제에서는 저장 프로시저를 사용하는 방법을 보여 주었습니다. 다음으로 자습서의 뒷부분에서 트리거와 UDF(사용자 정의 함수)에 대해 알아봅니다.
 
 ## <a name="database-program-transactions"></a>데이터베이스 프로그램 트랜잭션
 일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서 **ACID 보장**을 제공합니다. ACID는 원자성, 일관성, 격리 및 내구성의 네 가지 속성을 나타내는 잘 알려진 머리글자어입니다.  
 
 간단히 설명하면, 원자성은 트랜잭션 내부에서 수행된 모든 작업이 하나의 단위로 처리되어 모두 커밋되거나 커밋되지 않도록 합니다. 일관성은 데이터가 트랜잭션 간에 항상 양호한 내부 상태로 유지되도록 합니다. 격리는 두 트랜잭션이 서로를 방해하지 않도록 합니다. 일반적으로 대부분의 상용 시스템은 응용 프로그램 요구에 따라 사용할 수 있는 여러 격리 수준을 제공합니다. 내구성은 데이터베이스에서 커밋된 변경 내용이 항상 유지되도록 합니다.   
 
-Cosmos DB에서 JavaScript는 데이터베이스와 동일한 메모리 공간에 호스트됩니다. 따라서 저장 프로시저 및 트리거 내에서 수행된 요청이 동일한 데이터베이스 세션 범위에서 실행됩니다. 이렇게 하면 Cosmos DB에서 단일 저장 프로시저/트리거에 속하는 모든 작업에 대해 ACID를 보장할 수 있습니다. 다음 저장 프로시저 정의를 고려해 보세요.
+Cosmos DB에서 JavaScript는 데이터베이스와 동일한 메모리 공간에 호스트됩니다. 따라서 저장 프로시저 및 트리거 내에서 수행된 요청이 동일한 데이터베이스 세션 범위에서 실행됩니다. 이 기능을 통해 Cosmos DB에서 단일 저장 프로시저/트리거에 속하는 모든 작업에 대해 ACID를 보장할 수 있습니다. 다음 저장 프로시저 정의를 고려해 보세요.
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -239,7 +239,7 @@ Cosmos DB에서 JavaScript는 데이터베이스와 동일한 메모리 공간�
 
 시간 제한을 처리하는 저장 프로시저 및 트리거 개발을 간소화하기 위해 컬렉션 개체 아래의 모든 함수(문서와 첨부 파일 만들기, 읽기, 바꾸기 및 삭제)는 해당 작업이 완료되는지 여부를 나타내는 부울 값을 반환합니다. 이 값이 false이면 시간 제한이 만료되며 프로시저 실행이 종료되어야 함을 나타냅니다.  수락되지 않은 첫 번째 저장소 작업 전에 대기된 작업은 저장 프로시저가 제시간에 완료되고 더 이상 요청을 대기열에 추가하지 않을 경우 완료됩니다.  
 
-JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. Cosmos DB는 프로비전된 데이터베이스 계정 크기에 따라 컬렉션당 처리량을 예약합니다. 처리량은 요청 단위 또는 RU라고 하는 정규화된 CPU, 메모리 및 IO 사용 단위로 표현됩니다. JavaScript 함수는 짧은 시간 내에 다수의 RU를 사용할 수 있으며, 컬렉션 한도에 도달할 경우 비율이 제한될 수 있습니다. 기본 데이터베이스 작업의 가용성을 위해 리소스를 많이 사용하는 저장 프로시저가 보장될 수도 있습니다.  
+JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. Cosmos DB는 컬렉션별 또는 컨테이너의 집합에 대한 처리량을 예약합니다. 처리량은 요청 단위 또는 RU라고 하는 정규화된 CPU, 메모리 및 IO 사용 단위로 표현됩니다. JavaScript 함수는 짧은 시간 내에 다수의 RU를 사용할 수 있으며, 컬렉션 한도에 도달할 경우 비율이 제한될 수 있습니다. 기본 데이터베이스 작업의 가용성을 위해 리소스를 많이 사용하는 저장 프로시저가 보장될 수도 있습니다.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>예: 데이터베이스 프로그램으로 데이터 대량 가져오기
 다음은 문서를 컬렉션으로 대량 가져오기 위해 작성된 저장 프로시저의 예입니다. 저장 프로시저가 createDocument의 부울 반환 값을 검사하여 제한된 실행을 처리한 다음 각 저장 프로시저 호출에 삽입된 문서 수를 사용하여 일괄 처리의 진행 상황을 추적하고 다시 시작하는 방법을 확인합니다.
@@ -349,7 +349,7 @@ Cosmos DB는 문서 작업에 의해 실행되거나 트리거되는 트리거�
 
 사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 요청 개체를 사용하여 작업과 연결된 요청 메시지를 조작할 수 있습니다. 여기서는 문서를 만들어 사전 트리거를 실행하며 요청 메시지 본문에 JSON 형식으로 만들 문서가 포함됩니다.   
 
-사용자는 트리거를 등록할 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 이 트리거는 TriggerOperation.Create로 만들어졌으므로 다음이 허용되지 않습니다.
+사용자는 트리거를 등록할 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 이 트리거는 TriggerOperation.Create를 사용하여 만들어졌습니다. 즉, 다음 코드에 나와 있는 것처럼 바꾸기 작업에 트리거를 사용하는 것은 허용되지 않습니다.
 
     var options = { preTriggerInclude: "validateDocumentContents" };
 
@@ -479,7 +479,7 @@ UDF(사용자 정의 함수)는 Azure Cosmos DB SQL 쿼리 언어 문법을 확�
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript 언어 통합 쿼리 API
-Azure Cosmos DB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 Azure Cosmos DB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
+Azure Cosmos DB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 Azure Cosmos DB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
 
 > [!NOTE]
 > `__`(이중 밑줄)은 `getContext().getCollection()`에 대한 별칭입니다.
@@ -503,7 +503,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 <b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-출력 문서를 결과 집합으로 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. 이 동작은 SQL의 WHERE 절과 유사합니다.
+출력 문서를 결과 집합으로 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. 이 기능은 SQL의 WHERE 절과 유사하게 작동합니다.
 </li>
 </ul>
 </li>
@@ -511,7 +511,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 <b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
-각 입력 항목을 JavaScript 개체 또는 값에 매핑하는 변환 함수에 대해 프로젝션을 적용합니다. 이 동작은 SQL의 SELECT 절과 유사합니다.
+각 입력 항목을 JavaScript 개체 또는 값에 매핑하는 변환 함수에 대해 프로젝션을 적용합니다. 이 기능은 SQL의 SELECT 절과 유사하게 작동합니다.
 </li>
 </ul>
 </li>
@@ -519,7 +519,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 <b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-각 입력 항목에서 단일 속성의 값을 추출하는 맵에 대한 바로 가기입니다.
+이 기능은 각 입력 항목에서 단일 속성의 값을 추출하는 맵에 대한 바로 가기입니다.
 </li>
 </ul>
 </li>
@@ -527,7 +527,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 <b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
-각 입력 항목의 배열을 단일 배열로 결합하고 평면화합니다. 이 동작은 LINQ의 SelectMany와 유사합니다.
+각 입력 항목의 배열을 단일 배열로 결합하고 평면화합니다. 이 기능은 LINQ의 SelectMany와 유사하게 작동합니다.
 </li>
 </ul>
 </li>
@@ -535,7 +535,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 <b>sortBy([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-주어진 조건자를 사용하여 입력 문서 스트림의 문서를 오름차순으로 정렬하여 새 문서 집합을 생성합니다. 이 동작은 SQL의 ORDER BY 절과 유사합니다.
+주어진 조건자를 사용하여 입력 문서 스트림의 문서를 오름차순으로 정렬하여 새 문서 집합을 생성합니다. 이 기능은 SQL의 ORDER BY 절과 유사하게 작동합니다.
 </li>
 </ul>
 </li>
@@ -543,7 +543,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 <b>sortByDescending([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-주어진 조건자를 사용하여 입력 문서 스트림의 문서를 내림차순으로 정렬하여 새 문서 집합을 생성합니다. 이 동작은 SQL의 ORDER BY x DESC 절과 유사합니다.
+주어진 조건자를 사용하여 입력 문서 스트림의 문서를 내림차순으로 정렬하여 새 문서 집합을 생성합니다. 이 기능은 SQL의 ORDER BY x DESC 절과 유사하게 작동합니다.
 </li>
 </ul>
 </li>
@@ -648,7 +648,7 @@ SQL 쿼리와 마찬가지로, 문서 속성 키(예: `doc.id`)는 대/소문자
 JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데이터베이스 수준의 스냅숏 트랜잭션 격리를 통과하지 않고 다른 스크립트로 누출되지 않도록 샌드박스됩니다. 런타임 환경은 풀링되지만 각 실행 후에 컨텍스트가 정리됩니다. 따라서 서로 간의 의도치 않은 파생 작업으로부터 보호됩니다.
 
 ### <a name="pre-compilation"></a>사전 컴파일
-저장 프로시저, 트리거 및 UDF는 각 스크립트 호출 시 컴파일 비용을 방지하기 위해 암시적으로 바이트 코드 형식으로 사전 컴파일됩니다. 이렇게 하면 저장 프로시저 호출이 빠르며 사용 공간이 적습니다.
+저장 프로시저, 트리거 및 UDF는 각 스크립트 호출 시 컴파일 비용을 방지하기 위해 암시적으로 바이트 코드 형식으로 사전 컴파일됩니다. 사전 컴파일을 사용하면 저장 프로시저 호출이 빠르며 사용 공간이 적습니다.
 
 ## <a name="client-sdk-support"></a>클라이언트 SDK 지원
 Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 외에도 Azure Cosmos DB에는 SQL API용 [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) 및 [Python SDK](sql-api-sdk-python.md)도 있습니다. 이러한 SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 만들고 실행할 수도 있습니다. 다음 예제에서는 .NET 클라이언트를 사용하여 저장 프로시저를 만들고 실행하는 방법을 보여 줍니다. .NET 유형을 저장 프로시저에 JSON으로 전달하고 다시 읽는 방법을 확인합니다.
@@ -723,7 +723,7 @@ Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 외에도 Azure Cosmos DB에�
     }
 
 ## <a name="rest-api"></a>REST API
-모든 Azure Cosmos DB 작업은 RESTful 방식으로 수행할 수 있습니다. HTTP POST를 사용하여 저장 프로시저, 트리거 및 사용자 정의 함수를 컬렉션 아래에 등록할 수 있습니다. 다음은 저장 프로시저를 등록하는 방법의 예입니다.
+모든 Azure Cosmos DB 작업은 RESTful 방식으로 수행할 수 있습니다. HTTP POST를 사용하여 저장 프로시저, 트리거 및 사용자 정의 함수를 컬렉션 아래에 등록할 수 있습니다. 다음 예제는 저장 프로시저를 등록하는 방법을 보여줍니다.
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -795,7 +795,7 @@ Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 외에도 Azure Cosmos DB에�
 ## <a name="sample-code"></a>샘플 코드
 [GitHub 리포지토리](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)에서 더 많은 서버 쪽 코드 예제([bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 및 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js) 포함)를 찾을 수 있습니다.
 
-저장된 프로시저를 공유하시겠습니까? 끌어오기 요청을 보내주세요. 
+놀라운 저장 프로시저를 공유하시겠습니까? 리포지토리에 참여하고 끌어오기 요청을 만드세요! 
 
 ## <a name="next-steps"></a>다음 단계
 하나 이상의 저장된 프로시저, 트리거 및 생성된 사용자 정의 함수가 있다면 데이터 탐색기를 사용하여 Azure Portal에서 해당 함수를 로드하고 볼 수 있습니다.

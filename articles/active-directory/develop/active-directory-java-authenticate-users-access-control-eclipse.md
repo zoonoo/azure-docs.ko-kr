@@ -7,6 +7,7 @@ author: rmcmurray
 manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -14,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 67a185f4478ab343f93b055a3c54e44ad0bd6889
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Eclipse를 사용하여 Azure Access Control Service를 통해 웹 사용자를 인증하는 방법
 이 가이드에서는 Eclipse용 Azure 도구 키트 내에서 Azure ACS(Access Control Service)를 사용하는 방법을 보여 줍니다. ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.

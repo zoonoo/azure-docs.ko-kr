@@ -1,24 +1,25 @@
 ---
-title: "Azure 스택 인프라 백업 서비스 참조 | Microsoft Docs"
-description: "이 문서는 Azure 스택 인프라 백업 서비스에 대 한 참조 자료를 포함합니다."
+title: Azure 스택 인프라 백업 서비스 참조 | Microsoft Docs
+description: 이 문서는 Azure 스택 인프라 백업 서비스에 대 한 참조 자료를 포함합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e6e0a52b2c55239e38757223f54e5e94dc98c42
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.reviewer: hectorl
+ms.openlocfilehash: 608f3043e0e4b851820274ca743cbc44d1c8c0f1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="infrastructure-backup-service-reference"></a>인프라 백업 서비스 참조
 
@@ -67,7 +68,7 @@ Azure 스택 Azure 리소스 관리자 포털을 구성 하는 여러 서비스�
 
 ### <a name="software-requirements"></a>소프트웨어 요구 사항
 
-#### <a name="supported-storage-locations"></a>지원 되는 저장소 위치
+#### <a name="supported-storage-locations"></a>지원되는 저장소 위치
 
 | 저장 위치                                                                 | 세부 정보                                                                                                                                                  |
 |----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|

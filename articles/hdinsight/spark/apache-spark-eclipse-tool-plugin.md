@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -95,7 +95,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에 Spark Scala 프로젝트 설정
 
 1. Eclipse IDE 작업 영역에서 **파일**을 선택하고 **새로 만들기**를 선택한 후 **프로젝트**를 선택합니다. 
-2. 새 프로젝트 마법사에서 **HDInsight**를 확장하고 **HDInsight의 Spark(Scala)**를 선택한 후 **다음**을 선택합니다.
+2. 새 프로젝트 마법사에서 **HDInsight**를 확장하고 **HDInsight의 Spark(Scala)** 를 선택한 후 **다음**을 선택합니다.
 
    ![HDInsight의 Spark(Scala) 프로젝트 선택](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. Scala 프로젝트 생성 마법사는 Scala 플러그 인이 설치되어 있는지 여부를 자동으로 검색합니다. **확인**을 선택하여 Scala 플러그 인 다운로드를 계속 진행한 후 지침에 따라 Eclipse를 다시 시작합니다.
@@ -214,7 +214,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 1. Eclipse를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음과 같이 선택하고 **다음**을 선택합니다.
    
    * 왼쪽 창에서 **HDInsight**를 선택합니다.
-   * 오른쪽 창에서 **HDInsight의 Spark 로컬 실행 샘플(Scala)**을 선택합니다.
+   * 오른쪽 창에서 **HDInsight의 Spark 로컬 실행 샘플(Scala)** 을 선택합니다.
 
    ![새 프로젝트 대화 상자](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
    
@@ -229,13 +229,15 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
    ![Spark 응용 프로그램 로컬 실행 결과](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>알려진 문제
-응용 프로그램을 Azure Data Lake Store에 제출하려면 Azure 로그인 프로세스 중에 **대화형** 모드를 선택합니다. **자동화된** 모드를 선택하는 경우 오류가 발생할 수 있습니다.
+클러스터를 연결하는 경우 저장소의 자격 증명을 제공하는 것이 좋습니다.
 
-![대화형 로그인](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![대화형 로그인](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-임의의 로그인 방법으로 응용 프로그램을 제출하기 위해 Azure Data Lake 클러스터를 선택할 수 있습니다.
+작업을 제출하는 두 가지 모드가 있습니다. 저장소 자격 증명을 제공하는 경우 작업을 제출하는 데 일괄 처리 모드가 사용됩니다. 그렇지 않으면 대화형 모드가 사용됩니다. 클러스터가 사용 중인 경우 아래 오류가 발생할 수 있습니다.
 
-현재 직접 Spark 출력 보기는 지원되지 않습니다.
+![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>사용자 의견
 의견이 있거나 이 도구를 사용할 때 다른 문제가 발생하는 경우 hdivstool@microsoft.com으로 메일을 보내 주시기 바랍니다.

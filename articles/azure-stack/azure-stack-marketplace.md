@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 588da055d06d7e63510085ff48169f3ea756c53c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure 스택 마켓플레이스 개요
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 
 Azure 스택 연산자로 결정 추가할 항목을 마켓플레이스에 (게시). 데이터베이스, 응용 프로그램 서비스 등과 같은 항목을 게시할 수 있습니다. 게시에 모든 사용자에 게 표시 되도록 만듭니다. 작성 한 사용자 지정 항목을 게시할 수 있습니다. 증가 하는 항목을 게시할 수도 있습니다 [Azure 마켓플레이스 항목 목록이](azure-stack-marketplace-azure-items.md)합니다. 마켓플레이스 항목을 게시할 때 사용자가 5 분 이내 볼 수 있습니다.
 
-Marketplace를 열려면 **새로 만들기**를 클릭합니다.
+마켓플레이스를 열려면 선택에 관리 콘솔에서 **새로**합니다.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -47,5 +47,6 @@ Azure 스택 마켓플레이스 항목 서비스, 응용 프로그램 또는 사
 1803 이상 버전, Azure 스택 또는 사용자 지정 이미지를 업로드 하는 경우 Azure에서 사이트 설정을 다운로드 하는 경우 스파스 파일에 이미지를 변환 합니다. 이 프로세스는 시간 추가 이미지를 추가할 때 하지만 공간을 절약 하며 해당 이미지의 배포 빨라집니다. 변환 새 이미지에만 적용 됩니다.  기존 이미지는 변경 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
+[마켓플레이스 항목을 다운로드](azure-stack-download-azure-marketplace-item.md)  
 [만들기 및 마켓플레이스 항목을 게시](azure-stack-create-and-publish-marketplace-item.md)
 

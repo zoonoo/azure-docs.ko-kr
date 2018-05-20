@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -215,7 +215,7 @@ ms.lasthandoff: 04/20/2018
 |-------------------|-----------------|  
 |int|매개 변수를 정수로 변환합니다. 예를 들어 다음 식은 문자열 `int('100')`이 아닌 숫자로 100을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 정수로 변환할 값입니다.|  
 |string|매개 변수를 문자열로 변환합니다. 예를 들어 다음 식은 `'10'`:  `string(10)`를 반환합니다. 개체를 문자열로 변환할 수도 있습니다. 예를 들어 **foo** 매개 변수가 한 속성 `bar : baz`가 있는 개체이면 다음은 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 문자열로 변환할 값입니다.|  
-|json :|매개 변수를 JSON 형식 값으로 변환합니다. String()의 반대입니다. 예를 들어 다음 식은 문자열이 아닌 배열로 `[1,2,3]`를 반환합니다.<br /><br /> `parse('[1,2,3]')`<br /><br /> 마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 `json('{"bar" : "baz"}')`는 다음을 반환합니다.<br /><br /> `{ "bar" : "baz" }`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 기본 형식 값으로 변환할 문자열입니다.<br /><br /> JSON 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 다음 json으로 변환됩니다.<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json :|매개 변수를 JSON 형식 값으로 변환합니다. String()의 반대입니다. 예를 들어 다음 식은 문자열이 아닌 배열로 `[1,2,3]`를 반환합니다.<br /><br /> `json('[1,2,3]')`<br /><br /> 마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 `json('{"bar" : "baz"}')`는 다음을 반환합니다.<br /><br /> `{ "bar" : "baz" }`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 기본 형식 값으로 변환할 문자열입니다.<br /><br /> JSON 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 다음 json으로 변환됩니다.<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|매개 변수 인수를 부동 소수점 숫자로 변환합니다. 예를 들어 다음 식은 `10.333`:  `float('10.333')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 부동 소수점 숫자로 변환할 값입니다.|  
 |bool|매개 변수를 부울로 변환합니다. 예를 들어 다음 식은 `false`:  `bool(0)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 부울로 변환할 값입니다.|  
 |coalesce|전달된 인수에서 첫 번째 null이 아닌 개체를 반환합니다. 참고: 빈 문자열은 null이 아닙니다. 예를 들어 매개 변수 1 및 2가 정의되지 않은 경우 이 함수는 `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Object*n*<br /><br /> **설명**: 필수. `null`에 대해 검사할 개체입니다.|  

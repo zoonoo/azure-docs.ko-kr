@@ -1,37 +1,43 @@
 ---
-title: "관리 포털에서 Azure 스택에 대 한 백업을 사용 하도록 설정 | Microsoft Docs"
-description: "오류가 발생 하는 경우 Azure 스택 복원할 수 있도록 관리 포털을 통해 인프라 백업 서비스를 설정 합니다."
+title: 관리 포털에서 Azure 스택에 대 한 백업을 사용 하도록 설정 | Microsoft Docs
+description: 오류가 발생 하는 경우 Azure 스택 복원할 수 있도록 관리 포털을 통해 인프라 백업 서비스를 설정 합니다.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
 ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: mabrigg
-ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
-ms.translationtype: MT
+ms.date: 05/11/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>관리 포털에서 Azure 스택에 대 한 백업을 사용 하도록 설정
+Azure 스택 백업을 생성할 수 있도록 관리 포털을 통해 인프라 백업 서비스를 활성화 합니다. 이러한 백업을 사용 하 여의 경우 클라우드 복구를 사용 하 여 환경을 복원할 수 [치명적인 오류](.\azure-stack-backup-recover-data.md)합니다. 클라우드 복구의 목적은 연산자 및 사용자가 로그인 수 있는지 포털에 복구가 완료 된 후 확인 하는 것입니다. 사용자 역할 기반 액세스 권한 및 역할, 원본 계획가 제공 하 고 이전에 정의 된 계산, 저장소 및 네트워크 할당량을 비롯 하 여 복원 구독 해야 합니다.
 
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
+그러나 IaaS Vm, 네트워크 구성 및 저장소 리소스 저장소 계정, blob, 테이블, 예: 인프라 백업 서비스를 백업 하지 않습니다. 이며 클라우드 복구 후에 로그인 하는 사용자가 완료 되므로 이런 식으로 이전에 기존 중 표시 되지 않습니다. 리소스입니다. 플랫폼 서비스 (PaaS)로 리소스 및 데이터는 또한 의해 백업 되지 않습니다 서비스입니다. 
 
-Azure 스택 백업을 생성할 수 있도록 관리 포털을 통해 인프라 백업 서비스를 활성화 합니다. 오류가 발생할 경우 환경을 복원 하는 이러한 백업을 사용할 수 있습니다.
+관리자와 사용자를 백업 하 고 인프라 백업 프로세스에서 IaaS 및 PaaS 리소스를 별도로 복원에 대 한 책임이 있습니다. IaaS 및 PaaS 리소스 백업에 대 한 내용은 다음 링크 참조:
+
+- [Virtual Machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
+- [App Service](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+
 
 > [!Note]  
 > 콘솔을 통해 백업을 사용 하기 전에 백업 서비스를 구성 해야 합니다. PowerShell을 사용 하 여 백업 서비스를 구성할 수 있습니다. 자세한 내용은 참조 [PowerShell과 함께 Azure 스택에 대 한 백업 사용](azure-stack-backup-enable-backup-powershell.md)합니다.
 
 ## <a name="enable-backup"></a>백업을 사용 하도록 설정
 
-1. 스택 Azure 관리 포털을 열고 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)합니다.
+1. 스택 Azure 관리 포털을 열고 [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external)합니다.
 2. 선택 **더 많은 서비스** > **인프라 백업**합니다. 선택 **구성** 에 **인프라 백업** 블레이드입니다.
 
     ![Azure 스택-백업 컨트롤러 설정](media\azure-stack-backup\azure-stack-backup-settings.png)에서도 확인할 수 있습니다.
@@ -49,5 +55,5 @@ Azure 스택 도구를 다운로드 하 고 다음 PowerShell cmdlet을 실행 �
 
 ## <a name="next-steps"></a>다음 단계
 
- - 백업을 실행 방법을 설명 합니다. 참조 [Azure 스택 백업을](azure-stack-backup-back-up-azure-stack.md )합니다.
-- 백업 실행 되었는지 확인 방법을 설명 합니다. 참조 [관리 포털에서 완료 된 확인 백업](azure-stack-backup-back-up-azure-stack.md )합니다.
+- 백업을 실행 방법을 설명 합니다. 참조 [Azure 스택 백업을](azure-stack-backup-back-up-azure-stack.md )합니다.
+- 백업 실행 되었는지 확인 방법을 설명 합니다. 참조 [관리 포털에서 완료 된 확인 백업](azure-stack-backup-back-up-azure-stack.md)합니다.

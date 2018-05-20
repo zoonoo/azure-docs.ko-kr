@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/18/2018
+ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>프로그래밍 방식으로 Azure 엔터프라이즈 구독 만들기(미리 보기)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/23/2018
 - 하나 이상의 EA 또는 EA 개발/테스트 구독이 있습니다. 즉, 한 번 이상 수동 등록을 완료했습니다.
 - 기본적으로 구독이 생성되는 디렉터리인 계정 소유자의 *홈 디렉터리*에 로그인했습니다.
 
-위의 두 조건이 충족되면 `enrollmentAccount` 리소스가 반환되고 해당 계정 아래에서 구독 만들기를 시작할 수 있습니다. 계정에서 만든 모든 구독은 계정이 있는 EA 등록으로 청구됩니다.
+위의 세 조건이 충족되면 `enrollmentAccount` 리소스가 반환되고 해당 계정 아래에서 구독 만들기를 시작할 수 있습니다. 계정에서 만든 모든 구독은 계정이 있는 EA 등록으로 청구됩니다.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -65,19 +65,19 @@ Azure는 액세스할 수 있는 모든 등록 계정의 목록으로 응답합�
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -98,8 +98,8 @@ Azure는 계정의 개체 ID 및 이메일 주소 목록으로 응답합니다.
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -117,19 +117,19 @@ Azure는 계정의 개체 ID 및 이메일 주소 목록으로 응답합니다.
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -142,14 +142,14 @@ Azure는 계정의 개체 ID 및 이메일 주소 목록으로 응답합니다.
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>특정 등록 계정 아래에서 구독 만들기 
 
-다음 예제에서는 *개발 팀 구독*이라는 구독을 만드는 요청을 만들고 구독 제품은 *MS-AZR-0017P*(일반 EA)입니다. 등록 계정은 MobileOnboardingEng@contoso.com에 대한 등록 계정인 `<enrollmentAccountId>`입니다. 또한 구독에 대한 RBAC 소유자로 두 명의 사용자를 선택적으로 추가합니다.
+다음 예제에서는 *개발 팀 구독*이라는 구독을 만드는 요청을 만들고 구독 제품은 *MS-AZR-0017P*(일반 EA)입니다. 등록 계정은 SignUpEngineering@contoso.com에 대한 등록 계정인 `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(자리 표시자 값, GUID)입니다. 또한 구독에 대한 RBAC 소유자로 두 명의 사용자를 선택적으로 추가합니다.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 요청 경로에 있는 `enrollmentAccount`의 `id`를 사용하여 구독을 만듭니다.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -177,16 +177,17 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 이 미리 보기 모듈을 사용하려면 `Install-Module AzureRM.Subscription -AllowPrerelease`를 먼저 실행하여 설치합니다. `-AllowPrerelease`가 작동하는지 확인하려면 [Get PowerShellGet Module](/powershell/gallery/psget/get_psget_module)에서 최신 버전의 PowerShellGet을 설치합니다.
 
-`EnrollmentAccountObjectId` 매개 변수로 `enrollmentAccount` 이름과 함께 [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview)을 사용하여 새 구독을 만듭니다. 
+`enrollmentAccount` 개체 ID와 함께 [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview)을 `EnrollmentAccountObjectId` 매개 변수로 사용하여 새 구독을 만듭니다. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | 요소 이름  | 필수 | 형식   | 설명                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | 아니오      | 문자열 | 구독의 표시 이름입니다. 지정되지 않은 경우 "Microsoft Azure 엔터프라이즈"와 같은 제품의 이름으로 설정됩니다.                                 |
 | `OfferType`   | 예      | 문자열 | 구독의 제품입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
+| `EnrollmentAccountObjectId`      | 예       | 문자열 | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. `Get-AzureRmEnrollmentAccount`에서 가져온 GUID 값입니다. |
 | `OwnerObjectId`      | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 개체 ID입니다.  |
 | `OwnerSignInName`    | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 이메일 주소입니다. `OwnerObjectId` 대신 이 매개 변수를 사용할 수 있습니다.|
 | `OwnerApplicationId` | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 응용 프로그램 ID입니다. `OwnerObjectId` 대신 이 매개 변수를 사용할 수 있습니다.| 
@@ -197,16 +198,17 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 
 이 미리 보기 확장을 사용하려면 `az extension add --name subscription`을 먼저 실행하여 설치합니다.
 
-`enrollment_account_name` 매개 변수로 `enrollmentAccount` 이름과 함께 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create)를 사용하여 새 구독을 만듭니다.
+`enrollmentAccount` 개체 ID와 함께 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create)를 `enrollment-account-object-id` 매개 변수로 사용하여 새 구독을 만듭니다.
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | 요소 이름  | 필수 | 형식   | 설명                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | 아니오      | 문자열 | 구독의 표시 이름입니다. 지정되지 않은 경우 "Microsoft Azure 엔터프라이즈"와 같은 제품의 이름으로 설정됩니다.                                 |
 | `offer-type`   | 예      | 문자열 | 구독의 제품입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
+| `enrollment-account-object-id`      | 예       | 문자열 | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. `az billing enrollment-account list`에서 가져온 GUID 값입니다. |
 | `owner-object-id`      | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 개체 ID입니다.  |
 | `owner-upn`    | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 이메일 주소입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다.|
 | `owner-spn` | 아니오       | 문자열 | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 응용 프로그램 ID입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다.| 
@@ -217,12 +219,12 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 ## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>RBAC를 사용하여 등록 계정에 대한 액세스 위임
 
-다른 사용자 또는 서비스 사용자에게 특정 계정에 대한 구독을 만들 수 있는 기능을 부여하려면 [등록 계정의 범위에서 RBAC 소유자 역할을 제공합니다](../active-directory/role-based-access-control-manage-access-rest.md). 다음 예제에서는 테넌트의 사용자에게 `<userObjectId>`의 `principalId`로(MobileOnboardingEng@contoso.com에 대한) 등록 계정의 소유자 역할을 제공합니다. 
+다른 사용자 또는 서비스 사용자에게 특정 계정에 대한 구독을 만들 수 있는 기능을 부여하려면 [등록 계정의 범위에서 RBAC 소유자 역할을 제공합니다](../active-directory/role-based-access-control-manage-access-rest.md). 다음 예제에서는 테넌트의 사용자에게 `<userObjectId>`의 `principalId`로(SignUpEngineering@contoso.com에 대한) 등록 계정의 소유자 역할을 제공합니다. 
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -238,7 +240,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -255,7 +257,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md)를 사용하여 다른 사용자 소유자에게 등록 계정에 대한 액세스를 제공합니다.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -263,7 +265,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md)를 사용하여 다른 사용자 소유자에게 등록 계정에 대한 액세스를 제공합니다.
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----

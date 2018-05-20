@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: feb31b0cc89c511f7487f995ba6045f89767abbb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -90,10 +90,10 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ## <a name="next-steps"></a>다음 단계
 
 다음 방법에 대해 알아보았습니다.
-- MXChip IoT DevKit 장치를 Azure IoT Suite에 연결합니다.
+- MXChip IoT DevKit 장치를 Azure IoT 원격 모니터링 솔루션 가속기에 연결합니다.
 - Azure IoT 장치 쌍 함수를 사용하여 DevKit의 RGB LED 색상을 감지하고 제어합니다.
 
 권장되는 단계는 다음과 같습니다.
 
-* [Azure IoT Suite 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

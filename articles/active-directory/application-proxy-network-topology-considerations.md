@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항 | Microsoft Docs"
-description: "Azure AD 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 다룹니다."
+title: Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항 | Microsoft Docs
+description: Azure AD 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 다룹니다.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f4ca4856333bf8b10a00952356080ed332dc266b
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e8f292f41c61ef208c316325f768dbdeaac88d84
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -172,7 +172,7 @@ ExpressRoute 개인 피어링을 통해 회사 네트워크에 연결된 Azure �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
-- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+- [응용 프로그램 프록시 사용](manage-apps/application-proxy-enable.md)
+- [Single Sign-On 사용](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 - [조건부 액세스 사용](application-proxy-enable-remote-access-sharepoint.md)
 - [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)

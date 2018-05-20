@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>지속성 함수의 인스턴스 관리(Azure Functions)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-비.NET 언어의 경우 함수 출력 바인딩을 사용하여 새 인스턴스를 시작할 수도 있습니다. 이 경우 위의 세 매개 변수를 필드로 사용하는 JSON 직렬화 가능 개체를 사용할 수 있습니다. 예를 들어 다음 Node.js 함수를 살펴보세요.
+비.NET 언어의 경우 함수 출력 바인딩을 사용하여 새 인스턴스를 시작할 수도 있습니다. 이 경우 위의 세 매개 변수를 필드로 사용하는 JSON 직렬화 가능 개체를 사용할 수 있습니다. 예를 들어 다음 JavaScript 함수를 살펴보세요.
 
 ```js
 module.exports = function (context, input) {
@@ -77,6 +77,7 @@ module.exports = function (context, input) {
 * **CreatedTime**: 오케스트레이터 함수가 실행되기 시작한 시간입니다.
 * **LastUpdatedTime**: 오케스트레이션에서 마지막으로 검사점을 설정한 시간입니다.
 * **Input**: JSON 값의 함수 입력입니다.
+* **CustomStatus**: JSON 형식의 사용자 지정 오케스트레이션 상태입니다. 
 * **Output**: JSON 값의 함수 출력입니다(함수가 완료된 경우). 오케스트레이터 함수가 실패하면 이 속성에 오류 세부 정보가 포함됩니다. 오케스트레이터 함수가 종료되면 이 속성에 제공된 종료 이유가 포함됩니다(있는 경우).
 * **RuntimeStatus**: 다음 값 중 하나입니다.
     * **실행 중**: 인스턴스가 실행되기 시작했습니다.
@@ -99,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> 인스턴스 쿼리는 현재 C# 오케스트레이터 함수에서만 지원됩니다.
-
 ## <a name="terminating-instances"></a>인스턴스 종료
 
 실행 중인 오케스트레이션 인스턴스는 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 클래스의 [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) 메서드를 사용하여 종료할 수 있습니다. 두 가지 매개 변수는 `instanceId` 및 `reason` 문자열이며, 로그 및 인스턴스 상태에 기록됩니다. 종료된 인스턴스는 다음 `await` 지점에 도달하는 즉시 실행을 중지하거나 이미 `await`에 있는 경우 즉시 종료됩니다. 
@@ -116,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> 인스턴스 종료는 현재 C# 오케스트레이터 함수에서만 지원됩니다.
 
 > [!NOTE]
 > 현재 인스턴스 종료는 전파되지 않았습니다. 활동 함수 및 하위 오케스트레이션은 호출된 오케스트레이션 인스턴스가 종료되었는지 여부에 관계 없이 완료될 때까지 실행됩니다.
@@ -145,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> 이벤트 발생은 현재 C# 오케스트레이터 함수에서만 지원됩니다.
 
 > [!WARNING]
 > 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없거나 인스턴스에서 지정된 *이벤트 이름*을 기다리지 않는 경우 해당 이벤트 메시지는 버려집니다. 이 동작에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-extension/issues/29)를 참조하세요.

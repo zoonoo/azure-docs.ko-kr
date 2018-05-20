@@ -1,74 +1,85 @@
 ---
-title: "Azure Notification Hubs를 사용하여 Chrome 앱에 푸시 알림 보내기 | Microsoft Docs"
-description: "Azure Notification Hubs를 사용하여 Chrome 앱에 푸시 알림을 보내는 방법을 알아봅니다."
+title: Azure Notification Hubs를 사용하여 Chrome 앱에 알림 푸시 | Microsoft Docs
+description: Azure Notification Hubs를 사용하여 Chrome 앱에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
-keywords: "모바일 푸시 알림, 푸시 알림, 푸시 알림, Chrome 푸시 알림"
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+keywords: 모바일 푸시 알림, 푸시 알림, 푸시 알림, Chrome 푸시 알림
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 75d4ff59-d04a-455f-bd44-0130a68e641f
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-chrome
 ms.devlang: JavaScript
-ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 33ef17f1556822c78783cc56b8ea7867eef2ec71
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 Chrome 앱에 푸시 알림 보내기
+# <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Chrome 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 문서에서는 Azure Notification Hubs를 사용하여 Google Chrome 브라우저의 컨텍스트 내에서 표시되는 Chrome 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 [GCM(Google Cloud Messaging)](https://developers.google.com/cloud-messaging/)을 사용하여 푸시 알림을 받는 Chrome 앱을 만듭니다. 
-
-> [!NOTE]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)을 참조하세요.
-> 
-> 
-
-이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 차례로 안내합니다.
-
-* [Google Cloud Messaging 사용](#register)
-* [알림 허브 구성](#configure-hub)
-* [알림 허브에 Chrome 앱 연결](#connect-app)
-* [Chrome 앱에 푸시 알림 보내기](#send)
-* [추가 기능 및 성능](#next-steps)
+이 자습서에서는 알림 허브를 만들고 [GCM(Google Cloud Messaging)](https://developers.google.com/cloud-messaging/)을 사용하여 샘플 Google Chrome 앱에 푸시 알림을 보내는 과정을 안내합니다. Chrome 앱은 Google Chrome 브라우저의 컨텍스트에서 실행되며 알림 허브에 등록됩니다. 
 
 > [!NOTE]
 > Chrome 앱 푸시 알림은 일반적인 브라우저 내 알림이 아닙니다. 브라우저 확장성 모델에 특정됩니다(자세한 내용은 [Chrome 앱 개요] 참조). 데스크톱 브라우저 외에도 Chrome 앱은 모바일(Android 및 iOS)에서 Apache Cordova를 통해 실행됩니다. 자세한 내용은 [모바일의 Chrome 앱]을 참조하세요.
-> 
-> 
 
-GCM과 Azure Notification Hubs를 구성하는 작업은 Android용 구성 작업과 같습니다. [Google Cloud Messaging for Chrome]은 더 이상 사용되지 않으며, 이제는 동일한 GCM이 Android 장치와 Chrome 인스턴스를 모두 지원하기 때문입니다.
+이 자습서에서 수행하는 단계는 다음과 같습니다.
+
+> [!div class="checklist"]
+> * [Google Cloud Messaging 사용](#register)
+> * [알림 허브 구성](#configure-hub)
+> * [알림 허브에 Chrome 앱 연결](#connect-app)
+> * [Chrome 앱에 푸시 알림 보내기](#send)
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a id="register"></a>Google Cloud Messaging 사용
-1. [Google 클라우드 콘솔] 웹 사이트로 이동하여 Google 계정 자격 증명으로 로그인한 후에 **프로젝트 만들기** 단추를 클릭합니다. 적합한 **프로젝트 이름**을 입력하고 **만들기** 단추를 클릭합니다.
-   
-    ![Google 클라우드 콘솔 - 프로젝트 만들기][1]
-2. 만든 프로젝트에 대한 **프로젝트** 페이지에서 **프로젝트 번호**를 적어 둡니다. 이 프로젝트 번호는 Chrome 앱에서 GCM에 등록하기 위해 **GCM 보낸 사람 ID**로 사용합니다.
-   
-    ![Google 클라우드 콘솔 - 프로젝트 번호][2]
-3. 왼쪽 창에서 **API 및 인증**을 클릭하고 아래로 스크롤한 다음 토글을 클릭하여 **Google Cloud Messaging for Android**를 사용하도록 설정합니다. **Google Cloud Messaging for Chrome**을 사용하도록 설정할 필요는 없습니다.
-   
-    ![Google 클라우드 콘솔 - 서버 키][3]
-4. 왼쪽 창에서 **자격 증명** > **새 키 만들기** > **서버 키** > **만들기**를 클릭합니다.
-   
-    ![Google 클라우드 콘솔 - 자격 증명][4]
-5. 서버 **API 키**값을 적어 둡니다. 다음 섹션에서 이 값으로 알림 허브를 구성하여 GCM에 푸시 알림을 보낼 수 있습니다.
-   
-    ![Google 클라우드 콘솔 - API 키][5]
+1. [Google 클라우드 콘솔](https://console.cloud.google.com/cloud-resource-manager) 웹 사이트로 이동하고 Google 계정 자격 증명으로 로그인합니다.
+2. 도구 모음에서 **프로젝트 만들기**를 선택합니다. 
 
-## <a id="configure-hub"></a>알림 허브 구성
+    ![프로젝트 만들기 단추](media/notification-hubs-chrome-get-started/create-project-button.png)
+1. 적합한 **프로젝트 이름**을 입력하고 **만들기** 단추를 클릭합니다.
+2. 도구 모음에서 알림 아이콘(종모양)을 선택하고 **프로젝트 만들기** 메시지를 선택합니다. 
+
+    ![프로젝트 만들기 알림](media/notification-hubs-chrome-get-started/project-creation-notification.png)
+1. 만든 프로젝트에 대한 **프로젝트** 페이지에서 **프로젝트 번호**를 적어 둡니다. 이 프로젝트 번호는 Chrome 앱에서 GCM에 등록하기 위해 **GCM 보낸 사람 ID**로 사용합니다.
+   
+    ![Google 클라우드 콘솔 - 프로젝트 번호](media/notification-hubs-chrome-get-started/gcm-project-number.png)
+3. 대시보드에서 **API 개요로 이동**을 선택합니다. 
+
+    ![API 개요로 이동 단추](media/notification-hubs-chrome-get-started/go-to-apis-overview-button.png)
+1. API 및 서비스 페이지에서 **API 및 서비스 사용**을 선택합니다. 
+
+    ![API 및 서비스 사용](media/notification-hubs-chrome-get-started/enable-apis-and-services.png)
+1. **클라우드 메시징** 키워드를 사용하여 목록을 검색합니다. 필터링된 목록에서 **Google Cloud Messaging**을 선택합니다. 
+
+    ![Google Cloud Messaging API](media/notification-hubs-chrome-get-started/google-cloud-messaging-api.png)
+1. **Google Cloud Messaging** 페이지에서 **사용**을 선택합니다.
+
+    ![GCM 사용](media/notification-hubs-chrome-get-started/enable-gcm.png)
+1. **API 및 서비스** 페이지에서 **자격 증명** 탭으로 전환합니다. **자격 증명 만들기**를 선택한 후 **API 키**를 선택합니다. 
+
+    ![API 키 만들기 단추](media/notification-hubs-chrome-get-started/create-api-key-button.png)
+1. **API 키가 생성됨** 대화 상자에서 복사 단추를 선택하여 키를 클립보드에 복사합니다. 그런 후 아무 위치에나 저장합니다. 다음 섹션에서 이 값으로 알림 허브를 구성하여 GCM에 푸시 알림을 보낼 수 있습니다.
+
+    ![API 페이지](media/notification-hubs-chrome-get-started/api-created-page.png)
+12. **API 키** 목록에서 API 키를 선택합니다. API 키 페이지에서 **IP 주소(웹 서버, cron 작업 등)** 를 선택하고 IP 주소로 **0.0.0.0/0**을 입력한 후 저장을 클릭합니다. 
+
+    ![IP 주소 사용](media/notification-hubs-chrome-get-started/enable-ip-addresses.png)
+
+## <a id="configure-hub"></a>알림 허브 만들기
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-6.   **설정** 페이지에서 **알림 서비스**를 선택한 다음, **Google(GCM)**을 선택합니다. API 키를 입력하고 저장합니다.
+6. **알림 설정** 범주에서 **Google(GCM)** 을 선택하고 GCM 프로젝트에 대한 **API 키**를 입력한 후 **저장**을 클릭합니다.
 
-        ![Azure Notification Hubs - Google(GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+      ![Azure Notification Hubs - Google(GCM)](media/notification-hubs-chrome-get-started/configure-gcm-api-key.png)
 
 ## <a id="connect-app"></a>알림 허브에 Chrome 앱 연결
 이제 알림 허브가 GCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
@@ -101,8 +112,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
           "icons": { "128": "gcm_128.png" }
         }
    
-    이 Chrome 앱이 GCM에서 푸시 알림을 받을 수 있도록 지정하는 `permissions` 요소를 확인합니다. 이 요소는 Chrome 앱에서 등록하기 위해 REST 호출을 수행하는 Azure Notification Hubs URI도 지정해야 합니다.
-    또한 샘플 앱에서 원본 GCM 샘플로부터 다시 사용되는 원본에서 찾은 `gcm_128.png` 아이콘 파일도 사용합니다. [아이콘 조건](https://developer.chrome.com/apps/manifest/icons)에 맞는 이미지로 대체할 수 있습니다.
+    이 Chrome 앱이 GCM에서 푸시 알림을 받을 수 있도록 지정하는 `permissions` 요소를 확인합니다. 또한 샘플 앱에서 원본 GCM 샘플로부터 다시 사용되는 원본에서 찾은 `gcm_128.png` 아이콘 파일도 사용합니다. [아이콘 조건](https://developer.chrome.com/apps/manifest/icons)에 맞는 이미지로 대체할 수 있습니다.
 4. 다음 코드를 사용하여 `background.js` 라는 파일을 만듭니다.
    
         // Returns a new notification ID used in the notification.
@@ -353,10 +363,10 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
    * **registerWithNH** 는 Notification Hubs로 등록하는 두 번째 단추 클릭 처리기입니다. 사용자가 지정한 `hubName` 및 `connectionString`을 가져와 Notification Hubs 등록 REST API 호출을 만듭니다.
    * **splitConnectionString** 및 **generateSaSToken**은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](http://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
    * **sendNHRegistrationRequest**는 Azure Notification Hubs에 대한 HTTP REST 호출을 수행하는 함수입니다.
-   * **registrationPayload** 는 등록 XML 페이로드를 정의합니다. 자세한 내용은 [등록 NH REST API 만들기]를 참조하세요. GCM에서 받은 값을 사용하여 등록 ID를 업데이트해야 합니다.
+   * **registrationPayload** 는 등록 XML 페이로드를 정의합니다. 자세한 내용은 [등록 NH REST API 만들기]를 참조하세요. GCM에서 받은 값을 사용하여 등록 ID를 업데이트합니다.
    * **client**는 응용 프로그램에서 HTTP POST 요청을 수행하는 데 사용하는 **XMLHttpRequest** 인스턴스입니다. `sasToken`을 사용하여 `Authorization` 헤더를 업데이트합니다. 이 호출이 성공적으로 완료되면 이 Chrome 앱 인스턴스가 Azure Notification Hubs에 등록됩니다.
 
-이 프로젝트에 대한 전체 폴더 구조는 ![Google Chrome 앱 - 폴더 구조][21]와 비슷합니다.
+        이 프로젝트에 대한 전체 폴더 구조는 ![Google Chrome 앱 - 폴더 구조][21]와 비슷합니다.
 
 ### <a name="set-up-and-test-your-chrome-app"></a>Chrome 앱 설치 및 테스트
 1. Chrome 브라우저를 엽니다. **Chrome 확장**을 열고 **개발자 모드**를 사용하도록 설정합니다.
@@ -383,13 +393,13 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 > 
 > 
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#**에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.  이 단계에서는 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
+1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#** 에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.  이 단계에서는 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
 2. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 아래쪽 창에 패키지 관리자 콘솔이 표시됩니다.
 3. 콘솔 창에서 다음 명령을 실행합니다.
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-       This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+   <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지를 포함하는 Azure Service Bus SDK에 대한 참조는 프로젝트에 자동으로 추가됩니다.</a>
 4. `Program.cs`을 열고 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.NotificationHubs;
@@ -402,12 +412,10 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
             await hub.SendGcmNativeNotificationAsync(message);
         }
    
-       Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
+    `<hub name>` 자리 표시자를 알림 허브 페이지의 [포털](https://portal.azure.com)에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 또한 연결 문자열 자리 표시자를 알림 허브 구성 섹션에서 가져온 `DefaultFullSharedAccessSignature` 이라는 연결 문자열로 바꿉니다.
    
-   > [!NOTE]
-   > **수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. **수신** 액세스 연결 문자열은 푸시 알림을 보내는 권한을 부여하지 않습니다.
-   > 
-   > 
+    > [!NOTE]
+    > **수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. **수신** 액세스 연결 문자열은 푸시 알림을 보내는 권한을 부여하지 않습니다.
 6. `Main` 메서드에 다음 호출을 추가합니다.
    
          SendNotificationAsync();
@@ -426,15 +434,12 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 > 
 
 ## <a name="next-steps"> </a>다음 단계
-Notification Hubs에 대한 자세한 내용은 [Notification Hubs 개요]를 참조하세요.
+이 자습서에서는 백 엔드에 등록되어 있는 모든 클라이언트에 브로드캐스트 알림을 보냈습니다. 특정 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
-특정 사용자를 대상으로 하려면 [Azure Notification Hubs 알릴 사용자] 자습서를 참조하세요. 
-
-사용자를 관심 그룹별로 분할하려면 [Azure Notification Hubs 뉴스 속보] 자습서를 수행할 수 있습니다.
+> [!div class="nextstepaction"]
+>[특정 장치에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
-[2]: ./media/notification-hubs-chrome-get-started/GoogleProjectNumber.png
 [3]: ./media/notification-hubs-chrome-get-started/EnableGCM.png
 [4]: ./media/notification-hubs-chrome-get-started/CreateServerKey.png
 [5]: ./media/notification-hubs-chrome-get-started/ServerKey.png
@@ -457,8 +462,7 @@ Notification Hubs에 대한 자세한 내용은 [Notification Hubs 개요]를 �
 
 <!-- URLs. -->
 [Chrome 앱 알림 허브 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
-[Google 클라우드 콘솔]: http://cloud.google.com/console
-[Notification Hubs 개요]: notification-hubs-push-notification-overview.md
+[Notification Hubs Overview]: notification-hubs-push-notification-overview.md
 [Chrome 앱 개요]: https://developer.chrome.com/apps/about_apps
 [Chrome 앱 GCM 샘플]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
@@ -467,5 +471,5 @@ Notification Hubs에 대한 자세한 내용은 [Notification Hubs 개요]를 �
 [crypto-js 라이브러리]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs 알릴 사용자]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Azure Notification Hubs 뉴스 속보]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Azure Notification Hubs breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

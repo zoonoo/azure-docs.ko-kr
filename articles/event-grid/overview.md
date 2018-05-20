@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -24,11 +24,15 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 
 * 동남아시아
 * 아시아 동부
+* 오스트레일리아 동부
+* 오스트레일리아 남동부
 * 미국 중부
 *   미국 동부
 *   미국 동부 2
 * 서유럽
 * 북유럽
+* 일본 동부
+* 일본 서부
 *   미국 중서부
 *   미국 서부
 *   미국 서부 2
@@ -44,11 +48,14 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 * Azure 구독(관리 작업)
 * 사용자 지정 토픽
 * Event Hubs
-* IoT 허브
+* IoT Hub
+* Media Services
 * 리소스 그룹(관리 작업)
 * Service Bus
 * 저장소 Blob
 * 저장소 범용 v2(GPv2)
+
+각 이벤트 원본을 사용하는 방법을 보여 주는 문서에 대한 링크를 보려면 [Azure Event Grid의 이벤트 원본](event-sources.md)을 참조하세요.
 
 ## <a name="event-handlers"></a>이벤트 처리기
 
@@ -57,11 +64,15 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 * Azure Automation
 * Azure 기능
 * Event Hubs
+* 하이브리드 연결
 * Logic Apps
 * Microsoft Flow
+* Queue Storage
 * 웹후크
 
 Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Event Grid 트리거를 사용합니다. Event Grid는 Event Grid Function 트리거의 유효성을 자동으로 검사합니다. 일반 HTTP 트리거를 사용하면 [유효성 검사 응답](security-authentication.md#webhook-event-delivery)을 구현해야 합니다.
+
+각 이벤트 처리기를 사용하는 방법을 보여 주는 문서에 대한 링크를 보려면 [Azure Event Grid의 이벤트 처리기](event-handlers.md)를 참조하세요.
 
 ## <a name="concepts"></a>개념
 

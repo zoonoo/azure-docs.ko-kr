@@ -1,7 +1,6 @@
 ---
-title: Azure HDInsight에서 데이터 시각화 도구를 사용하는 Spark BI | Microsoft Docs
-description: HDInsight 클러스터에서 Apache Spark BI를 사용하는 분석에 대해 데이터 시각화 도구 사용
-keywords: apache spark bi,spark bi, spark 데이터 시각화, spark 비즈니스 인텔리전스
+title: '자습서: Azure HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 | Microsoft Docs'
+description: Microsoft Power BI를 사용하여 Spark 데이터 저장 HDInsight 클러스터 시각화
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,28 +9,34 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/14/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ece0132573f25f4d288309d2e7bb6710f8fd9519
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI
+# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Spark 데이터 분석 
 
-[Microsoft Power BI](http://powerbi.microsoft.com)를 사용하여 Azure HDInsight의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+Microsoft Power BI를 사용하여 Azure HDInsight의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * Power BI를 사용하여 Spark 데이터 시각화
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **[HDInsight의 Spark 클러스터에서 대화형 쿼리 실행](./apache-spark-load-data-run-query.md) 문서를 완료합니다**.
+* **문서 [자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md)을 완료합니다**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 및 [Power BI 평가판 구독](https://app.powerbi.com/signupredirect?pbi_source=web)(선택 사항)
 
 
-## <a name="hivetable"></a>데이터 확인
+## <a name="verify-the-data"></a>데이터 확인
 
 [이전 자습서](apache-spark-load-data-run-query.md)에서 만든 Jupyter 노트북은 `hvac` 테이블을 만드는 코드를 포함합니다. 이 테이블은 **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** 모든 HDInsight Spark 클러스터에서 사용 가능한 CSV 파일을 기반으로 합니다. 데이터를 확인하려면 다음 절차를 따릅니다.
 
@@ -46,8 +51,7 @@ ms.lasthandoff: 04/18/2018
 
     ![Spark에 테이블 표시](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    이 자습서를 시작하기 전에 Notebook을 닫은 경우 `hvactemptable`이 정리되므로 출력에 포함되지 않습니다.
-    metastore에 저장된 Hive 테이블만(**isTemporary** 열 아래에서 **False**로 표시됨) BI 도구에서 액세스할 수 있습니다. 이 자습서에서는 사용자가 만든 **hvac** 테이블에 연결합니다.
+    이 자습서를 시작하기 전에 Notebook을 닫은 경우 `hvactemptable`이 정리되므로 출력에 포함되지 않습니다.  metastore에 저장된 Hive 테이블만(**isTemporary** 열 아래에서 **False**로 표시됨) BI 도구에서 액세스할 수 있습니다. 이 자습서에서는 사용자가 만든 **hvac** 테이블에 연결합니다.
 
 2. 빈 셀에 다음 코드를 붙여넣은 다음 **Shift + Enter**를 누릅니다. 코드가 테이블의 데이터를 확인합니다.
 
@@ -62,21 +66,7 @@ ms.lasthandoff: 04/18/2018
 
 3. 노트북의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. Notebook을 종료하여 리소스를 해제합니다. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## <a name="powerbi"></a>Power BI 사용
+## <a name="visualize-the-data"></a>데이터 시각화
 
 이 섹션에서는 Power BI를 사용하여 Spark 클러스터 데이터에서 시각화, 보고서 및 대시보드를 만듭니다. 
 
@@ -92,7 +82,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
     ![HDInsight Apache Spark에서 Power BI Desktop으로 데이터 가져오기](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Apache Spark BI에서 Power BI로 데이터 가져오기")
 
 
-2. 검색 상자에 `Spark`를 입력하고 **Azure HDInsight Spark(베타)**를 선택한 후 **연결**을 클릭합니다.
+2. 검색 상자에 `Spark`를 입력하고 **Azure HDInsight Spark(베타)** 를 선택한 후 **연결**을 클릭합니다.
 
     ![Apache Spark BI에서 Power BI로 데이터 가져오기](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Apache Spark BI에서 Power BI로 데이터 가져오기")
 
@@ -226,8 +216,11 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 클러스터를 만들고 Spark 데이터 프레임을 만들어 데이터를 쿼리한 다음 BI 도구에서 해당 데이터에 액세스하는 방법을 배웠습니다. 이제 클러스터 리소스를 관리하고 HDInsight Spark 클러스터에서 실행 중인 작업을 디버그하는 방법에 대한 지침을 살펴볼 수 있습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
-* [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
+- Power BI를 사용하여 Spark 데이터 시각화
+
+다음 문서로 진행하여 Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
+> [!div class="nextstepaction"]
+> [Spark 스트리밍 작업 실행](apache-spark-eventhub-streaming.md)
 

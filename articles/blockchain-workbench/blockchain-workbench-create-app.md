@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기
 
 Azure Blockchain Workbench를 사용하여 구성 및 스마트 계약 코드로 정의된 다자간 워크플로를 나타내는 블록체인 응용 프로그램을 만들 수 있습니다.
 
-이 문서에서 배울 내용은 다음과 같습니다.
+다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 블록체인 응용 프로그램 구성
@@ -36,9 +36,11 @@ Azure Blockchain Workbench를 사용하여 구성 및 스마트 계약 코드로
 
 요청자가 요청을 보내고 응답자가 요청에 대한 응답을 보내는 기본 응용 프로그램을 빌드해 봅시다. 예를 들어 요청이 "안녕하세요?"라고 하면 응답은 "좋습니다!"라고 할 수 있습니다. 요청과 응답 모두 기본 블록체인에 기록됩니다. 
 
+응용 프로그램 파일을 만드는 단계를 따르거나 [GitHub에서 샘플을 다운로드](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain)할 수 있습니다. 
+
 ## <a name="configuration-file"></a>구성 파일
 
-구성 메타데이터는 블록체인 응용 프로그램의 고급 워크플로 및 상호 작용 모델을 정의합니다. 구성 메타데이터는 블록체인 응용 프로그램의 워크플로 단계 및 상호 작용 모델을 나타냅니다.
+구성 메타데이터는 블록체인 응용 프로그램의 높은 수준 워크플로 및 상호 작용 모델을 정의합니다. 구성 메타데이터는 블록체인 응용 프로그램의 워크플로 단계 및 상호 작용 모델을 나타냅니다.
 
 1. 자주 사용하는 편집기에서 `HelloBlockchain.json`이라는 파일을 만듭니다.
 2. 다음 JSON을 추가하여 블록체인 응용 프로그램의 구성을 정의합니다.
@@ -398,4 +400,7 @@ Blockchain Workbench에서 사용자를 관리하는 방법에 대한 자세한 
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 응용 프로그램을 만들었으므로 [블록체인 응용 프로그램을 사용](blockchain-workbench-use.md)하여 시도합니다.
+이 방법 도움말 문서에서는 기본 요청 및 응답 응용 프로그램을 만들어 보았습니다. 응용 프로그램을 사용하는 방법을 알려면 다음의 방법 도움말 문서를 계속 사용합니다.
+
+> [!div class="nextstepaction"]
+> [블록체인 응용 프로그램 사용](blockchain-workbench-use.md)

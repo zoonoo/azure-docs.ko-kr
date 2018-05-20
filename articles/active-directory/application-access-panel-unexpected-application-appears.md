@@ -1,11 +1,11 @@
 ---
-title: "응용 프로그램이 액세스 패널에 표시되는 방식 | Microsoft Docs"
-description: "응용 프로그램이 액세스 패널에 표시되는 문제 해결"
+title: 응용 프로그램이 액세스 패널에 표시되는 방식 | Microsoft Docs
+description: 응용 프로그램이 액세스 패널에 표시되는 문제 해결
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d4203ea39adf027d783a482198f523e18cbc246
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>응용 프로그램이 액세스 패널에 표시되는 방식
 
@@ -151,4 +151,4 @@ ms.lasthandoff: 02/21/2018
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
+[Azure Active Directory로 응용 프로그램 관리](manage-apps/what-is-application-management.md)

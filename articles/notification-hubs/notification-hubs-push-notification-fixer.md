@@ -1,36 +1,36 @@
 ---
-title: "Azure Notification Hubs 삭제된 알림 진단"
-description: "Azure Notification Hubs의 삭제된 알림과 관련된 일반적인 문제를 진단하는 방법을 알아봅니다."
+title: Azure Notification Hubs 삭제된 알림 진단
+description: Azure Notification Hubs의 삭제된 알림과 관련된 일반적인 문제를 진단하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Notification Hubs에서 삭제된 알림 진단
 
 Azure Notification Hubs 고객이 가장 자주 하는 질문 중 하나는 응용 프로그램에서 보낸 알림이 클라이언트 장치에 나타나지 않는 문제를 해결하는 방법입니다. 고객은 알림이 삭제되는 위치와 이유 그리고 문제 해결 방법을 알고 싶어합니다. 이 문서에서는 알림이 삭제되거나 장치에서 알림을 받지 못하는 이유를 알아봅니다. 근본 원인을 분석하고 확인하는 방법을 알아봅니다. 
 
-먼저 Notification Hubs가 장치에 알림을 푸시하는 방법을 이해해야 합니다.
+먼저 Notification Hubs 서비스가 장치에 알림을 푸시하는 방법을 이해해야 합니다.
 
 ![Notification Hubs 아키텍처][0]
 
 일반적인 알림 보내기 흐름에서는 메시지가 *응용 프로그램 백 엔드*에서 Notification Hubs로 전송됩니다. Notification Hubs는 모든 등록에서 일부 처리를 수행합니다. 처리 시 구성된 태그 및 태그 식을 고려하여 "대상"이 결정됩니다. 푸시 알림을 받아야 하는 모든 등록이 대상입니다. 이러한 등록은 지원되는 모든 플랫폼(iOS, Google, Windows, Windows Phone, Kindle 및 중국 Android용 Baidu)에 적용될 수 있습니다.
 
-대상이 설정되면 Notification Hubs는 장치 플랫폼에 대한 *푸시 알림 서비스*에 알림을 푸시합니다. APNs(Apple Push Notification service) for Apple 및 FCM(Firebase Cloud Messaging) for Google을 예로 들 수 있습니다. Notification Hubs는 여러 등록 일괄 처리에 걸쳐 분할된 알림을 푸시합니다. Notification Hubs는 Azure Portal의 **알림 허브 구성**에 설정된 자격 증명을 기반으로 각 푸시 알림 서비스를 인증합니다. 그러면 푸시 알림 서비스가 각 *클라이언트 장치*에 알림을 전달합니다. 
+대상이 설정되면 Notification Hubs 서비스는 장치 플랫폼에 대한 *푸시 알림 서비스*에 알림을 푸시합니다. APNs(Apple Push Notification service) for Apple 및 FCM(Firebase Cloud Messaging) for Google을 예로 들 수 있습니다. Notification Hubs는 여러 등록 일괄 처리에 걸쳐 분할된 알림을 푸시합니다. Notification Hubs는 Azure Portal의 **알림 허브 구성**에 설정된 자격 증명을 기반으로 각 푸시 알림 서비스를 인증합니다. 그러면 푸시 알림 서비스가 각 *클라이언트 장치*에 알림을 전달합니다. 
 
 최종 알림 배달 레그는 플랫폼 푸시 알림 서비스와 장치 사이에서 발생합니다. 푸시 알림 프로세스의 네 가지 주요 구성 요소(클라이언트, 응용 프로그램 백 엔드, Notification Hubs 및 플랫폼 푸시 알림 서비스) 때문에 알림이 삭제될 수 있습니다. Notification Hubs 아키텍처에 대한 자세한 내용은 [Notification Hubs 개요]를 참조하세요.
 
@@ -39,7 +39,7 @@ Azure Notification Hubs 고객이 가장 자주 하는 질문 중 하나는 응�
 다음 섹션에서는 일반적인 문제부터 희귀한 문제까지 알림이 삭제될 수 있는 시나리오를 살펴보겠습니다.
 
 ## <a name="notification-hubs-misconfiguration"></a>Notification Hubs 구성 오류
-각 푸시 알림 서비스에 알림을 성공적으로 보내려면 Notification Hubs는 개발자의 응용 프로그램 컨텍스트에서 자신을 인증해야 합니다. 그러기 위해 개발자는 각 플랫폼(Google, Apple, Windows 등)으로 개발자 계정을 만듭니다. 그런 다음 자격 증명을 받게 되는 플랫폼에 응용 프로그램을 등록합니다. 
+각 푸시 알림 서비스에 알림을 성공적으로 보내려면 Notification Hubs 서비스는 개발자의 응용 프로그램 컨텍스트에서 자신을 인증해야 합니다. 그러기 위해 개발자는 각 플랫폼(Google, Apple, Windows 등)으로 개발자 계정을 만듭니다. 그런 다음 자격 증명을 받게 되는 플랫폼에 응용 프로그램을 등록합니다. 
 
 Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 장치에 도달하는 알림이 하나도 없을 때 가장 먼저 할 일은 Notification Hubs에서 올바른 자격 증명이 구성되었는지 확인하는 것입니다. 자격 증명이 플랫폼별 개발자 계정에서 만든 응용 프로그램과 일치해야 합니다. 
 
@@ -88,7 +88,7 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 장치에 도
 
 * **잘못된 등록**
 
-    알림 허브가 올바르게 구성되고 태그 또는 태그 식이 올바르게 사용된다면 유효한 대상이 발견됩니다. 이러한 대상에 알림을 보내야 합니다. 그런 다음 Notification Hubs가 여러 일괄 처리 프로세스를 병렬로 시작합니다. 각 일괄 처리는 등록 집합에 메시지를 보냅니다. 
+    알림 허브가 올바르게 구성되고 태그 또는 태그 식이 올바르게 사용된다면 유효한 대상이 발견됩니다. 이러한 대상에 알림을 보내야 합니다. 그런 다음, Notification Hubs 서비스가 여러 일괄 처리 프로세스를 병렬로 시작합니다. 각 일괄 처리는 등록 집합에 메시지를 보냅니다. 
 
     > [!NOTE]
     > 처리가 병렬로 수행되므로 알림이 배달되는 순서는 보장되지 않습니다. 
@@ -102,7 +102,7 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 장치에 도
     등록 시 실패한 배달 시도에 대한 더 많은 오류 정보를 얻으려면 Notification Hubs REST API [메시지별 원격 분석: 알림 메시지 원격 분석 가져오기](https://msdn.microsoft.com/library/azure/mt608135.aspx) 및 [PNS 피드백](https://msdn.microsoft.com/library/azure/mt705560.aspx)을 사용하세요. 샘플 코드는 [REST 보내기 예제](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample)를 참조하세요.
 
 ## <a name="push-notification-service-issues"></a>푸시 알림 서비스 문제
-플랫폼 푸시 알림 서비스가 알림 메시지를 받은 후에는 푸시 알림 서비스가 장치에 알림을 보내야 합니다. Notification Hubs는 여기에 관여하지 않으며 알림이 장치로 전달되는지 여부 또는 그 시기를 제어하지 않습니다. 
+플랫폼 푸시 알림 서비스가 알림 메시지를 받은 후에는 푸시 알림 서비스가 장치에 알림을 보내야 합니다. Notification Hubs 서비스는 여기에 관여하지 않으며 알림이 장치로 전달되는지 여부 또는 그 시기를 제어하지 않습니다. 
 
 플랫폼 알림 서비스가 매우 견고하기 때문에 알림은 푸시 알림 서비스로부터 몇 초 이내에 장치에 도달하게 됩니다. 푸시 알림 서비스가 제한하는 경우 Notification Hubs는 지수 백오프 전략을 적용합니다. 30분 동안 푸시 알림 서비스에 도달할 수 없는 경우 해당 메시지를 만료하고 영구적으로 삭제하는 정책이 있습니다. 
 
@@ -120,7 +120,7 @@ Azure Notification Hubs를 사용하면 제네릭 SendNotification API를 사용
    
     각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [Azure Notification Hubs 시작]을 참조하세요.
 
-* **Azure 포털**
+* **Azure Portal**
    
     자격 증명을 검토하고 푸시 알림 서비스 개발자 포털에서 얻은 자격 증명과 일치시키려면 Azure Portal에서 **액세스 정책** 탭으로 이동합니다. 
    
@@ -146,7 +146,7 @@ Azure Notification Hubs를 사용하면 제네릭 SendNotification API를 사용
     많은 고객이 [Service Bus 탐색기]를 사용하여 알림 허브를 살펴보고 관리합니다. Service Bus 탐색기는 오픈 소스 프로젝트입니다. 샘플을 보려면 [Service Bus 탐색기 코드]를 참조하세요.
 
 ### <a name="verify-message-notifications"></a>알림 메시지 확인
-* **Azure 포털**
+* **Azure Portal**
    
     서비스 백 엔드를 실행하지 않고 클라이언트에 테스트 알림을 보내려면 **지원 + 문제 해결**에서 **테스트 보내기**를 선택합니다. 
    
@@ -226,7 +226,7 @@ REST 호출에 **EnableTestSend** 속성을 사용하려면 송신 호출 끝에
    
         ![Notification Hubs 개요 대시보드][5]
    
-    2. **모니터** 탭에서 세부 분석을 위한 다른 여러 플랫폼별 메트릭을 추가할 수 있습니다. Notification Hubs가 푸시 알림 서비스에 알림을 보내려고 시도할 때 반환되는 푸시 알림 서비스와 관련된 오류를 자세히 살펴볼 수 있습니다. 
+    2. **모니터** 탭에서 세부 분석을 위한 다른 여러 플랫폼별 메트릭을 추가할 수 있습니다. Notification Hubs 서비스가 푸시 알림 서비스에 알림을 보내려고 시도할 때 반환되는 푸시 알림 서비스와 관련된 오류를 자세히 살펴볼 수 있습니다. 
    
         ![Azure Portal 활동 로그][6]
    

@@ -1,22 +1,23 @@
 ---
-title: "홈 영역 검색 정책을 사용한 응용 프로그램에 대한 로그인 자동 가속화 구성 | Microsoft Docs"
-description: "Azure AD 테넌트가 무엇이며, Azure Active Directory를 통해 Azure를 관리하는 방법이 무엇인지에 대해 설명합니다."
+title: 홈 영역 검색 정책을 사용한 응용 프로그램에 대한 로그인 자동 가속화 구성 | Microsoft Docs
+description: Azure AD 테넌트가 무엇이며, Azure Active Directory를 통해 Azure를 관리하는 방법이 무엇인지에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
-ms.author: billmath
-ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.openlocfilehash: 5df12f905595c9b3e8caa8f372b9ba7b54672f81
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용한 응용 프로그램에 대한 로그인 자동 가속화 구성
 
@@ -158,7 +159,7 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 
 #### <a name="step-1-create-an-hrd-policy"></a>1단계: HRD 정책 만들기
 ``` powershell
-New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 응용 프로그램에 대해 사용자를 인증하는 페더레이션된 도메인이 1개인 경우 HRD 정책은 1개만 만들면 됩니다.  

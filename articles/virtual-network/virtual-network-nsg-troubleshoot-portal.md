@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 문제 해결
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 
 VM 자체에서 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 있습니다. 이러한 작업을 수행할 권한이 있는 경우 유효 규칙 블레이드에서 NIC 및 서브넷 NSG 규칙을 추가, 수정 및 삭제할 수도 있습니다.
 
-1. Azure 계정을 사용하여 https://portal.azure.com에서 Azure Portal에 로그인합니다. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
+1. Azure 계정을 사용하여 https://portal.azure.com에서 Azure Portal에 로그인합니다. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 2. **모든 서비스**를 클릭한 다음, 표시되는 목록에서 **가상 머신**을 클릭합니다.
 3. 표시되는 목록에서 문제를 해결할 VM을 선택합니다. 그러면 옵션을 포함하는 VM 블레이드가 나타납니다.
 4. **문제 진단 및 해결**을 클릭하고 일반적인 문제를 선택합니다. 이 예제에서는 **Windows VM에 연결할 수 없습니다.** 가 선택됩니다. 

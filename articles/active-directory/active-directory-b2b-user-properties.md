@@ -1,26 +1,20 @@
 ---
-title: "Azure Active Directory B2B 공동 작업 사용자 속성 | Microsoft Docs"
-description: "Azure Active Directory B2B 공동 작업 사용자 속성은 구성 가능합니다."
+title: Azure Active Directory B2B 공동 작업 사용자 속성 | Microsoft Docs
+description: Azure Active Directory B2B 공동 작업 사용자 속성은 구성 가능합니다.
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e1eb709124262d55fc4c6a5bfd8c1ccb33fa8bb
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 401c001f897a926de1b7d68403b6945164f3333b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 공동 작업 사용자 속성
 
@@ -93,16 +87,6 @@ Azure AD(Azure Active Directory) B2B 공동 작업 사용자는 UserType이 Gues
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
-
 * [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [역할에 B2B 공동 작업 사용자 추가](active-directory-b2b-add-guest-to-role.md)
-* [B2B 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
-* [B2B 공동 작업 사용자 감사 및 보고](active-directory-b2b-auditing-and-reporting.md)
-* [동적 그룹 및 B2B 공동 작업](active-directory-b2b-dynamic-groups.md)
-* [B2B 공동 작업 코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
-* [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
 * [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
 * [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
-* [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
-* [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)

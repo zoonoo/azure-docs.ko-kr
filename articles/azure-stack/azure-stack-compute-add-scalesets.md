@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>가상 컴퓨터 크기 집합에서에서 사용할 수 있도록 Azure 스택
 
@@ -38,14 +36,15 @@ Azure 스택, 가상 컴퓨터 크기 집합에는 자동 크기 조정 지원 �
    설치 하 고 Azure 스택에 대해 구성 된 PowerShell 및 Azure 스택 도구. 참조 [스택에서 Azure PowerShell을 시작 하 고 실행](azure-stack-powershell-configure-quickstart.md)합니다.
 
    Azure 스택 도구를 설치한 후 다음 PowerShell 모듈을 가져올 수 있는지 확인 (기준으로 경로. AzureStack 도구 마스터 폴더에 \ComputeAdmin 폴더):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **운영 체제 이미지**
 
    Azure 스택 마켓플레이스로 운영 체제 이미지를 추가 하지 않았다면, 참조 [Azure 스택 시장에 Windows Server 2016 VM 이미지를 추가](azure-stack-add-default-image.md)합니다.
 
-   Linux 지원 Ubuntu Server 16.04를 다운로드 하 고 사용 하 여 추가 ```Add-AzsVMImage``` 는 다음 매개 변수: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```합니다.
+   Linux 지원 Ubuntu Server 16.04를 다운로드 하 고 사용 하 여 추가 ```Add-AzsPlatformImage``` 는 다음 매개 변수: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```합니다.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합 추가
@@ -54,7 +53,7 @@ Azure 스택, 가상 컴퓨터 크기 집합에는 자동 크기 조정 지원 �
 
 ``$User`` 관리자 포털을 연결 하는 데 사용할 계정이입니다. 예: serviceadmin@contoso.onmicrosoft.com
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합의 이미지 업데이트 
 가상 컴퓨터 크기 집합을 만든 후 사용자가 크기 집합 다시 생성 하지 않고 설정 규모에 맞게 이미지를 업데이트할 수 있습니다. 이미지를 업데이트 하는 프로세스는 다음과 같은 시나리오에 따라 달라 집니다.
@@ -83,12 +82,14 @@ Add-AzsVMSSGalleryItem -Location $Location
 
    다음은 지정 하는 예로 *최신*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    수직 확장 새 이미지를 사용 하려면 먼저 해당 새 이미지를 다운로드 해야 합니다.  
 
@@ -110,12 +111,12 @@ Add-AzsVMSSGalleryItem -Location $Location
 
 가상 컴퓨터를 제거 하려면 set 갤러리 항목의 크기를 조정, 다음 PowerShell 명령을 실행 합니다.
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > 갤러리 항목은 즉시 제거할 수 없습니다. 야를 새로 고쳐야 포털 여러 번 전에 시장에서 제거할 항목을 보여 줍니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 [Azure 스택 질문과 대답](azure-stack-faq.md)
-

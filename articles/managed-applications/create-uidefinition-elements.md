@@ -13,14 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6f96d4aa66839518023b4d567caf1ff839a29fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cbfc9c02cbde8bcf9a253144ff41497676c98f13
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 요소
-이 문서에서는 CreateUiDefinition에 지원되는 모든 요소에 대한 스키마와 속성에 대해 설명합니다. 대부분의 요소에 대한 스키마는 다음과 같습니다.
+이 문서에서는 CreateUiDefinition에 지원되는 모든 요소에 대한 스키마와 속성에 대해 설명합니다. 
+
+## <a name="schema"></a>스키마
+
+대부분의 요소에 대한 스키마는 다음과 같습니다.
 
 ```json
 {
@@ -41,10 +45,10 @@ ms.lasthandoff: 04/03/2018
 | 형식 | 예 | 요소에 대해 렌더링할 UI 컨트롤입니다. 지원되는 형식 목록은 [요소](#elements)를 참조하세요. |
 | label | 예 | 요소의 표시 텍스트입니다. 일부 요소 형식에는 여러 개의 레이블이 포함되므로 값은 여러 문자열을 포함하는 개체가 될 수 있습니다. |
 | defaultValue | 아니오 | 요소의 기본값입니다. 일부 요소 형식에서 복잡한 기본값을 지원하므로 이 값은 개체가 될 수 있습니다. |
-| toolTip | 아니요 | 요소의 도구 설명에 표시할 텍스트입니다. `label`과 마찬가지로 일부 요소에서 여러 개의 도구 설명 문자열을 지원합니다. Markdown 구문을 사용하여 인라인 링크를 포함할 수 있습니다.
+| toolTip | 아니오 | 요소의 도구 설명에 표시할 텍스트입니다. `label`과 마찬가지로 일부 요소에서 여러 개의 도구 설명 문자열을 지원합니다. Markdown 구문을 사용하여 인라인 링크를 포함할 수 있습니다.
 | constraints | 아니오 | 요소의 유효성 검사 동작을 사용자 지정하는 데 사용되는 하나 이상의 속성입니다. 제약 조건에 지원되는 속성은 요소 형식에 따라 다릅니다. 일부 요소 형식에서는 유효성 검사 동작의 사용자 지정을 지원하지 않으므로 제약 조건 속성이 없습니다. |
-| options | 아니요 | 요소의 동작을 사용자 지정하는 추가 속성입니다. `constraints`과 마찬가지로 지원되는 속성은 요소 형식에 따라 다릅니다. |
-| visible | 아니요 | 요소가 표시되는지 여부를 나타냅니다. `true`이면 요소 및 적용 가능한 자식 요소가 표시됩니다. 기본값은 `true`입니다. [논리 함수](create-uidefinition-functions.md#logical-functions)를 사용하여 이 속성의 값을 동적으로 제어합니다.
+| options | 아니오 | 요소의 동작을 사용자 지정하는 추가 속성입니다. `constraints`과 마찬가지로 지원되는 속성은 요소 형식에 따라 다릅니다. |
+| visible | 아니오 | 요소가 표시되는지 여부를 나타냅니다. `true`이면 요소 및 적용 가능한 자식 요소가 표시됩니다. 기본값은 `true`입니다. [논리 함수](create-uidefinition-functions.md#logical-functions)를 사용하여 이 속성의 값을 동적으로 제어합니다.
 
 ## <a name="elements"></a>요소
 
@@ -52,13 +56,16 @@ ms.lasthandoff: 04/03/2018
 
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
+- [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
 - [Microsoft.Common.TextBox](microsoft-common-textbox.md)
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.Network.AvailabilityZoneDropDown](microsoft-network-availabilityzonedropdown.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)

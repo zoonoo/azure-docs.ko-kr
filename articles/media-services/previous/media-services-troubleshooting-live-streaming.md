@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 7e2fe84c51f93bdeb6cd99e23624d1796aff6c1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>라이브 스트리밍 문제 해결 가이드
-이 토픽에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.
+이 문서에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>온-프레미스 인코더와 관련된 문제
 이 섹션에서는 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내도록 구성된 온-프레미스 인코더와 관련된 문제를 해결하는 방법에 대한 제안을 제공합니다.
@@ -44,23 +44,10 @@ ms.lasthandoff: 05/07/2018
     **문제 해결 단계**: 인코더가 더 이상 AMS에 푸시하지 않는지 확인하고 채널을 중지한 다음 다시 설정합니다. 다시 실행한 후 새 설정으로 인코더를 연결해 보십시오. 여전히 문제가 해결되지 않으면 새 채널을 전체적으로 다시 만들어 보십시오. 때에 따라 여러 번 시도가 실패한 후 채널이 손상될 수 있습니다.  
 * **잠재적인 문제**: GOP 크기 또는 키프레임 설정이 최적의 상태가 아닙니다. 
   
-    **문제 해결 단계**: 권장 GOP 크기 또는 키프레임 간격은 2초입니다. 일부 인코더는 이 설정을 프레임 단위로 계산하는 반면, 다른 인코더는 초를 사용합니다. 예: 30fps를 출력할 때 GOP 크기는 60 프레임이며, 이는 2초와 같습니다.  
+    **문제 해결 단계**: 권장 GOP 크기 또는 키프레임 간격은 2초입니다. 일부 인코더는 이 설정을 프레임 단위로 계산하는 반면, 다른 인코더는 초를 사용합니다. 예: 30fps를 출력할 때 GOP 크기는 60프레임이며, 이는 2초와 같습니다.  
 * **잠재적인 문제**: 닫힌 포트가 스트림을 차단하고 있습니다. 
   
-    **문제 해결 단계**: RTMP 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 점검하여 아웃바운드 포트 1935 및 1936이 열려 있는지 확인합니다. RTP 스트리밍을 사용하는 경우 아웃바운드 포트 2010이 열려 있는지 확인합니다. 
-
-### <a name="problem-when-configuring-the-encoder-to-stream-with-the-rtp-protocol-there-is-no-place-to-enter-a-host-name"></a>문제: RTP 프로토콜을 사용하여 인코더를 스트림으로 구성하면 호스트 이름을 입력할 장소가 없습니다.
-* **잠재적인 문제**: 많은 인코더는 호스트 이름에 허용되지 않으며 IP 주소를 획득해야 합니다.  
-  
-    **문제 해결 단계**: IP 주소를 찾으려면 모든 컴퓨터에서 명령 프롬프트를 엽니다. Windows에서 이 작업을 수행하려면 실행 시작 관리자(WIN + R)를 열고 "cmd"를 입력하여 엽니다.  
-  
-    명령 프롬프트를 연 후에 "Ping [AMS 호스트 이름]"을 입력합니다. 
-  
-    호스트 이름은 다음 예제에서 강조한 것처럼 Azure Ingest URL에서 포트 번호를 생략하여 파생시킬 수 있습니다. 
-  
-    rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
-  
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    **문제 해결 단계**: RTMP 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 점검하여 아웃바운드 포트 1935 및 1936이 열려 있는지 확인합니다. 
 
 > [!NOTE]
 > 문제 해결 단계를 수행한 후에도 여전히 성공적으로 스트리밍되지 않으면 Azure Portal을 사용하여 지원 티켓을 제출하세요.

@@ -3,7 +3,7 @@ title: Azure Portal을 사용한 모의 API 응답 | Microsoft Docs
 description: 이 자습서에서는 모의 응답을 반환하도록 APIM(API Management)을 사용하여 API에 대한 정책을 설정하는 방법을 보여 줍니다. 이 메서드를 통해 개발자는 백 엔드가 실제 응답을 보낼 수 없는 경우 API Management 인스턴스의 구현 및 테스트를 진행할 수 있습니다.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="mock-api-responses"></a>모의 API 응답
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 0118e78ee7240c139ff808582d6b9b47c6b64b4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -114,7 +114,7 @@ Cosmos DB를 사용할 수 있는 모든 Azure 지역에 PreferredLocations 값�
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Azure의 데이터 센터를 통해 전 세계에서 데이터를 배포하는 경우 알아야 할 점이 있나요? 
 Azure Cosmos DB는 [Azure 지역](https://azure.microsoft.com/regions/) 페이지에 지정된 대로 모든 Azure 지역에 존재합니다. 핵심 서비스이기 때문에 새로운 데이터 센터에는 모두 Azure Cosmos DB가 갖춰집니다. 
 
-지역을 설정할 때 Azure Cosmos DB는 국가 및 정부 클라우드를 따른다는 점을 염두에 두어야 합니다. 즉, 국가 지역에 계정을 만든 경우 해당 국가 지역 외부로 복제할 수 없습니다. 마찬가지로 외부 계정에서 다른 국가 위치로 복제할 수 없습니다. 
+지역을 설정할 때 Azure Cosmos DB는 국가 및 정부 클라우드를 따른다는 점을 염두에 두어야 합니다. 즉, [국가 지역](https://azure.microsoft.com/global-infrastructure/)에 계정을 만든 경우 해당 [국가 지역](https://azure.microsoft.com/global-infrastructure/) 외부로 복제할 수 없습니다. 마찬가지로 외부 계정에서 다른 국가 위치로 복제할 수 없습니다. 
 
 ## <a name="develop-against-the-sql-api"></a>SQL API에 대해 개발
 
@@ -170,6 +170,9 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>SQL API의 로컬 인스턴스를 사용할 수 있나요?
 예. [Azure Cosmos DB 에뮬레이터](local-emulator.md)는 신뢰도 있는 Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB와 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 끝점에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>이유는 포털의 데이터 탐색기에서 볼 때 반올림되는 문서에서 긴 부동 소수점 값이기 때문입니다. 
+이는 JavaScript의 제한 사항입니다. JavaScript는 IEEE 754에 지정된 배정밀도 부동 소수점 형식 숫자를 사용하고 -(253 - 1)과 253 – 1 사이의 숫자(즉, 9007199254740991)를 안전하게 나타낼 수 있습니다.
+
 ## <a name="develop-against-the-api-for-mongodb"></a>API for MongoDB에 대해 개발
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB란 무엇인가요?
 Azure Cosmos DB API for MongoDB는 응용 프로그램에서 기존의 커뮤니티 지원 Apache MongoDB API 및 드라이버를 사용하여 네이티브 Azure Cosmos DB 데이터베이스 엔진과 간편하고 투명하게 통신할 수 있도록 도와주는 호환성 계층입니다. 이제 개발자는 기존 MongoDB 도구 체인 및 기술을 사용하여 Azure Cosmos DB를 활용하는 응용 프로그램을 빌드할 수 있습니다. 개발자는 자동 인덱싱, 백업 유지 관리, 재정적으로 뒷받침되는 SLA(서비스 수준 계약) 등 Azure Cosmos DB의 고유한 기능을 활용할 수 있습니다.
@@ -187,7 +190,7 @@ MongoDB API는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 
 
 | 오류               | 코드  | 설명  | 해결 방법  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컬렉션의 처리량을 늘리거나 다시 시도해 보세요. |
+| TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br>예: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Table API를 사용하여 개발
@@ -211,6 +214,7 @@ Azure Cosmos DB Table API를 사용하여 테이블을 만들려는 Azure Table 
 * Azure Table Storage의 테이블 이름은 대/소문자를 구분하지 않지만 Azure Cosmos DB Table API에 위치합니다.
 * 이진 필드 같은 정보 인코딩을 위한 일부 Azure Cosmos DB의 내부 형식은 현재 생각만큼 효율이 좋지는 않습니다. 따라서 데이터 크기에 예기치 않은 제한이 발생할 수 있습니다. 예를 들어 데이터를 인코딩하면 데이터 크기가 커지기 때문에 현재는 테이블 엔터티 1Meg를 이진 데이터 저장에 모두 사용할 수 없습니다.
 * 엔터티 속성 이름 “Id”는 현재 지원되지 않습니다.
+* TableQuery TakeCount는 1000으로 제한됩니다.
 
 REST API를 기준으로 Azure Cosmos DB Table API에서 지원하지 않는 많은 끝점/쿼리 옵션이 있습니다.
 | Rest 메서드 | Rest 끝점/쿼리 옵션 | 문서 URL | 설명 |
@@ -382,7 +386,7 @@ Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Table API에 대한 TableThroughput은 언제 변경해야 하나요?
 다음 조건 중 하나가 적용된 경우 TableThroughput을 변경해야 합니다.
 * 데이터의 ETL(추출, 변환 및 로드)을 수행하거나, 짧은 시간 내에 많은 양의 데이터를 업로드할 때 
-* 백 엔드에서 컨테이너에 추가 처리량이 필요할 때. 예를 들어 사용되는 처리량이 프로비전된 처리량보다 많은 경우 제한에 이르게 됩니다. 자세한 내용은 [Azure Cosmos DB 컨테이너에 대한 처리량 설정](set-throughput.md)을 참조하세요.
+* 백 엔드의 컨테이너 또는 컨테이너 집합에서 추가 처리량이 필요합니다. 예를 들어 사용되는 처리량이 프로비전된 처리량보다 많은 경우 제한에 이르게 됩니다. 자세한 내용은 [Azure Cosmos DB 컨테이너에 대한 처리량 설정](set-throughput.md)을 참조하세요.
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>내 Table API 테이블의 처리량을 늘리거나 줄일 수 있나요? 
 예, Azure Cosmos DB Azure 포털의 배율 창을 사용하여 처리량의 크기를 조정할 수 있습니다. 자세한 내용은 [처리량 설정](set-throughput.md)을 참조하세요.
@@ -397,7 +401,7 @@ Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 
 가격은 할당된 TableThroughput에 따라 달라집니다. 
 
 ### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Table API 제품에서 테이블에 대한 제한을 처리하려면 어떻게 할까요? 
-요청 속도가 기본 컨테이너에 대해 프로비전된 처리량의 용량을 초과하면 오류가 발생하고 SDK에서 다시 시도 정책을 적용하여 호출을 다시 시도합니다.
+요청 속도가 기본 컨테이너 또는 컨테이너 집합에 대해 프로비전된 처리량의 용량을 초과하면 오류가 발생하고, SDK에서 다시 시도 정책을 적용하여 호출을 다시 시도합니다.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Azure Cosmos DB의 Table API 제품을 활용하기 위해 PartitionKey 및 RowKey와 별도로 처리량을 선택해야 하는 이유는 무엇인가요?
 사용자가 app.config 파일에서 또는 포털을 통해 기본 처리량을 제공하지 않으면 Azure Cosmos DB가 사용자의 컨테이너에 대해 기본 처리량을 설정합니다. 

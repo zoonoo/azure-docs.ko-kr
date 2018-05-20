@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 9a025716c2bb6266c1c1c552a2d0791b39429cac
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5224fe4682509f92e1f18d865e5cc5afb1218ad1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-with-azure-and-azure-stack-applications"></a>자습서: Azure와 Azure 스택 응용 프로그램과 하이브리드 클라우드 id 구성
 
@@ -60,7 +60,7 @@ Azure 스택 설치 된 Azure Active Directory 구독에 액세스할 수 있습
 
 코드를 사용 하 여 Azure 스택을 연결 하려면 Azure 스택 설치를 위한 인증 및 그래프 끝점 가져오고 다음 REST 요청을 사용 하 여를 인증 하는 Azure 리소스 관리자 끝점 API을 사용 합니다. 샘플 응용 프로그램을 찾을 수 있습니다 [여기](https://github.com/shriramnat/HybridARMApplication)합니다.
 
-> [!note]  
+> [!Note]  
 선택한 언어에 대 한 Azure SDK의 Azure API 프로필을 지원 하지 않는 한 Azure 스택 SDK 작동 하지 않을 수 있습니다. Azure API 프로필에 대 한 자세한 내용은 이동 [여기](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles)합니다.
 
 ## <a name="next-steps"></a>다음 단계

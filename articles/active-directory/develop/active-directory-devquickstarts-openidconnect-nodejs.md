@@ -3,23 +3,25 @@ title: Azure AD Node.js 웹앱 시작 | Microsoft Docs
 description: 로그인을 위해 Azure AD와 통합되는 Node.js Express MVC 웹앱을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e92c50525efdf2854710d7e62781a5c6efb2cf3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js 웹앱 시작
 여기서는 Passport를 통해 다음 작업을 수행합니다.
@@ -37,7 +39,7 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 3. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청을 실행합니다.
 4. 사용자에 대한 데이터를 인쇄합니다.
 
-이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)에서 유지 관리됩니다.  자습서에 따라 [.zip 파일로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)에서 유지 관리됩니다. 자습서에 따라 [.zip 파일로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -55,7 +57,7 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 5. 프롬프트에 따라 새 **웹 응용 프로그램** 및/또는 **WebAPI**를 만듭니다.
   * 응용 프로그램의 **이름**은 사용자에게 응용 프로그램을 설명합니다.
 
-  * **로그온 URL** 은 앱의 기본 URL입니다.  기본값은 `http://localhost:3000/auth/openid/return`입니다.
+  * **로그온 URL** 은 앱의 기본 URL입니다. 기본값은 `http://localhost:3000/auth/openid/return`입니다.
 
 6. 등록 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
 7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>` 형식(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
@@ -78,7 +80,7 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 이는 `passport-azure-ad`가 의존하는 라이브러리를 설치합니다.
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3단계: passport-node-js 전략을 사용하도록 앱 설정
-여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express를 구성합니다.  Passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express를 구성합니다. Passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 1. 시작하려면 프로젝트의 루트에서 `config.js` 파일을 열고 `exports.creds` 섹션에 앱의 구성 값을 입력합니다.
 
@@ -181,7 +183,7 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
             };
     ```
 
-5.  다음에는 Express 엔진을 로드하는 코드를 추가하겠습니다. 여기서 Express가 제공하는 기본 /views 및 /routes 패턴이 사용되는 것을 확인할 수 있습니다.
+5. 다음에는 Express 엔진을 로드하는 코드를 추가하겠습니다. 여기서 Express가 제공하는 기본 /views 및 /routes 패턴이 사용되는 것을 확인할 수 있습니다.
 
     ```JavaScript
 
@@ -252,7 +254,7 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4단계: Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
-이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 끝점과 통신하도록 올바르게 구성되었습니다.  `passport-azure-ad`가 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 끝점과 통신하도록 올바르게 구성되었습니다. `passport-azure-ad`가 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
 
 1. 우선 기본값, 로그인, 계정 및 로그아웃 메서드를 `app.js` 파일에 추가해 보겠습니다.
 
@@ -282,7 +284,7 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 
     ```
 
-2.  자세히 살펴보겠습니다.
+2. 자세히 살펴보겠습니다.
 
   * `/` 경로는 요청에 사용자를 전달하여(있는 경우) index.ejs 뷰로 리디렉션됩니다.
   * `/account` 경로는 먼저 *인증되었는지 확인*하고(다음 예제에서 구현) 사용자에 대한 추가 정보를 얻을 수 있도록 요청에 사용자를 전달합니다.

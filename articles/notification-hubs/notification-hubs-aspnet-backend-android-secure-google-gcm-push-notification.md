@@ -1,11 +1,11 @@
 ---
-title: "Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기"
-description: "Azure에서 Android 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java 및 C#으로 작성되었습니다."
+title: Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
+description: Azure에서 Android 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java 및 C#으로 작성되었습니다.
 documentationcenter: android
-keywords: "푸시 알림,푸시알림,푸시 메시지,android 푸시 알림"
-author: ysxu
-manager: erikre
-editor: 
+keywords: 푸시 알림,푸시알림,푸시 메시지,android 푸시 알림
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: 58f6967c59a5060baa10ff83752b9c6ed08226cb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
    * Android 장치가 보안 페이로드를 요청하는 백 엔드에 접속합니다.
    * 앱이 장치에서 페이로드를 알림으로 표시할 수 있습니다.
 
-앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 장치가 인증 토큰을 로컬 저장소에 저장한다고 가정합니다. 이렇게 하면 장치가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 매우 원활한 환경이 보장됩니다. 응용 프로그램이 인증 토큰을 장치에 저장하지 않거나 이 토큰이 만료될 수 없으면 푸시 알림 수신 시 장치 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
+앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 장치가 인증 토큰을 로컬 저장소에 저장한다고 가정합니다. 이렇게 하면 장치가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 원활한 환경이 보장됩니다. 응용 프로그램이 인증 토큰을 장치에 저장하지 않거나 이 토큰이 만료될 수 없으면 푸시 알림 수신 시 장치 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
 
 이 자습서에서는 보안 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) 자습서를 기반으로 빌드되므로 해당 자습서의 단계를 아직 완료하지 않은 경우 먼저 완료해야 합니다.
 
@@ -60,7 +60,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-android-project"></a>Android 프로젝트 수정
-푸시 알림의 *id* 만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 Android 앱을 변경해야 합니다.
+푸시 알림의 *ID*만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 Android 앱을 변경해야 합니다.
 이 목표를 달성하려면 Android 앱이 푸시 알림을 받을 때 백 엔드에 인증하는 방법을 알고 있어야 합니다.
 
 이제 앱의 공유 기본 설정에서 인증 헤더 값을 저장하기 위해 *로그인* 흐름을 수정합니다. 유사 메커니즘을 사용하여 사용자 앱에서 자격 증명 없이 사용해야 하는 인증 토큰(예: OAuth 토큰)을 저장할 수 있습니다.
@@ -129,7 +129,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 백 엔드에 의해 거부되거나 인증 헤더 속성이 누락되는 경우를 처리하는 것이 좋습니다. 이러한 경우의 특수 처리는 대부분 대상 사용자 환경에 따라 다릅니다. 한 가지 옵션은 실제 알림을 검색하기 위해 사용자가 인증을 받도록 하는 일반 프롬프트가 포함된 알림을 표시하는 것입니다.
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
-응용 프로그램을 실행하려면 다음을 수행합니다.
+응용 프로그램을 실행하려면 다음 작업을 수행합니다.
 
 1. **AppBackend** 가 Azure에 배포되었는지 확인합니다. Visual Studio를 사용할 경우 **AppBackend** Web API 응용 프로그램을 실행합니다. ASP.NET 웹 페이지가 표시됩니다.
 2. Eclipse에서는 실제 Android 장치나 에뮬레이터에서 앱을 실행합니다.

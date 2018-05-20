@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -83,7 +83,7 @@ Azure 구독 권한을 확인하려면
 
    ![앱 추가](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API**를 선택합니다. [네이티브 응용 프로그램](../active-directory/active-directory-application-proxy-native-client.md)에 대한 자격 증명을 만들 수 없으므로 해당 형식은 자동화된 응용 프로그램에 대해 작동하지 않습니다. 값을 설정한 후 **만들기**를 선택합니다.
+1. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API**를 선택합니다. [네이티브 응용 프로그램](../active-directory/manage-apps/application-proxy-configure-native-client-application.md)에 대한 자격 증명을 만들 수 없으므로 해당 형식은 자동화된 응용 프로그램에 대해 작동하지 않습니다. 값을 설정한 후 **만들기**를 선택합니다.
 
    ![응용 프로그램 이름 지정](./media/resource-group-create-service-principal-portal/create-app.png)
 

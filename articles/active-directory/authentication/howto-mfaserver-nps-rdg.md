@@ -2,26 +2,22 @@
 title: RADIUS를 사용하는 RDG 및 Azure MFA 서버 | Microsoft Docs
 description: RADIUS를 사용하여 RD(Remote Desktop) 게이트웨이 및 Azure Multi-Factor Authentication을 배포하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/27/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 5bec531d1d14bf3aaac3950762fc8d2ed545fb4b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ef090b51141e8d77f23472058f9c3a8d096ca171
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
+
 종종 RD(Remote Desktop) 게이트웨이는 로컬 NPS(Network Policy Services)를 사용하여 사용자를 인증합니다. 이 문서에서는 원격 데스크톱 게이트웨이(로컬 NPS를 통해)에서 Multi-Factor Authentication 서버까지 RADIUS 요청을 라우팅하는 방법을 설명합니다. Azure MFA와 RD 게이트웨이를 함께 사용하면 사용자가 강력한 인증을 수행하면서 어디서든 자신의 작업 환경에 액세스할 수 있습니다. 
 
 터미널 서비스에 대한 Windows 인증이 Server 2012 R2에 대해 지원되지 않으므로 MFA 서버와 통합하려면 RD 게이트웨이 및 RADIUS를 사용합니다. 
@@ -49,7 +45,7 @@ RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 R
 1. NPS의 왼쪽 열에서 **RADIUS 클라이언트 및 서버** 메뉴를 열고 **원격 RADIUS 서버 그룹**을 선택합니다. 
 2. **TS 게이트웨이 서버 그룹**을 선택합니다. 
 3. **부하 분산** 탭으로 이동합니다. 
-4. **응답 없이 다음 시간(초)이 경과되면 요청이 손실된 것으로 간주** 및 **서버가 사용 불가능 상태로 표시된 경우 요청 사이의 시간(초)**을 모두 30-60초 사이로 변경합니다. (인증하는 동안 여전히 서버가 시간 초과되는 경우 여기로 돌아와서 초 수를 늘립니다.)
+4. **응답 없이 다음 시간(초)이 경과되면 요청이 손실된 것으로 간주** 및 **서버가 사용 불가능 상태로 표시된 경우 요청 사이의 시간(초)** 을 모두 30-60초 사이로 변경합니다. (인증하는 동안 여전히 서버가 시간 초과되는 경우 여기로 돌아와서 초 수를 늘립니다.)
 5. **인증/계정** 탭으로 이동하고 지정된 RADIUS 포트가 Multi-Factor Authentication 서버에서 수신 대기하는 포트와 일치하는지 확인합니다.
 
 ### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>MFA 서버에서 인증을 받도록 NPS 준비

@@ -1,7 +1,7 @@
 ---
-title: "원격 모니터링 솔루션에서 장치 시뮬레이션 - Azure | Microsoft Docs"
-description: "이 자습서는 미리 구성된 원격 모니터링 솔루션으로 장치 시뮬레이터를 사용하는 방법을 보여 줍니다."
-services: 
+title: 원격 모니터링 솔루션에서 장치 시뮬레이션 - Azure | Microsoft Docs
+description: 이 자습서는 원격 모니터링 솔루션 가속기에서 장치 시뮬레이터를 사용하는 방법을 보여줍니다.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>시뮬레이션된 새 장치 만들기
 
-이 자습서는 미리 구성된 원격 모니터링 솔루션에서 장치 시뮬레이터 마이크로 서비스를 사용자 지정하는 방법을 보여 줍니다. 장치 시뮬레이터의 기능을 표시하기 위해 이 자습서에서는 Contoso IoT 응용 프로그램에서 두 가지 시나리오를 사용합니다.
+이 자습서는 원격 모니터링 솔루션 가속기에서 장치 시뮬레이터 마이크로 서비스를 사용자 지정하는 방법을 보여 줍니다. 장치 시뮬레이터의 기능을 표시하기 위해 이 자습서에서는 Contoso IoT 응용 프로그램에서 두 가지 시나리오를 사용합니다.
+
+다음 비디오는 장치 시뮬레이터 마이크로 서비스를 사용자 지정하기 위한 옵션의 개요를 제공합니다.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 첫 번째 시나리오에서 Contoso는 새 스마트 전구 장치를 테스트하려고 합니다. 테스트를 수행하려면 다음 특징을 가진 시뮬레이트된 새 장치를 만듭니다.
 
@@ -68,7 +72,7 @@ ms.lasthandoff: 03/09/2018
 
 두 번째 시나리오에서 Contoso의 기존 **냉각기** 장치에 새 원격 분석 유형을 추가합니다.
 
-이 자습서는 미리 구성된 원격 모니터링 솔루션으로 장치 시뮬레이터를 사용하는 방법을 보여 줍니다.
+이 자습서는 원격 모니터링 솔루션 가속기에서 장치 시뮬레이터를 사용하는 방법을 보여줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -86,7 +90,7 @@ ms.lasthandoff: 03/09/2018
 
 이 자습서를 수행하려면 다음이 필요합니다.
 
-* Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스. 원격 모니터링 솔루션을 아직 배포하지 않은 경우 [미리 구성된 원격 모니터링 솔루션 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+* Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스. 원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 * Visual Studio 2017. Visual Studio 2017이 설치되지 않은 경우 체험판 [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) Edition을 다운로드할 수 있습니다.
 
@@ -221,7 +225,7 @@ ms.lasthandoff: 03/09/2018
 1. **storage-adapter** 리포지토리의 .NET 버전을 복제하려면 다음 명령을 실행합니다.
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     장치 시뮬레이션 서비스는 저장소 어댑터 서비스를 사용하여 Azure에서 Cosmos DB 서비스에 연결합니다. 원격 모니터링 솔루션은 Cosmos DB 데이터베이스에 시뮬레이션된 장치 구성 데이터를 저장합니다.
@@ -254,7 +258,11 @@ ms.lasthandoff: 03/09/2018
 
 1. **환경 변수** 섹션에서 **PCS\_IOTHUB\_CONNSTRING** 변수를 이전에 적어 두었던 IoT Hub 연결 문자열로 편집합니다. 그런 다음, 변경 사항을 저장합니다.
 
-1. 솔루션 탐색기에서 **device-simulation** 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **한 개의 시작 프로젝트**를 선택하고 **SimulationAgent**를 선택합니다. 그런 후 **OK**를 클릭합니다.
+1. 솔루션 탐색기에서 **WebService** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **디버그**를 선택합니다.
+
+1. **환경 변수** 섹션에서 **PCS\_IOTHUB\_CONNSTRING** 변수를 이전에 적어 두었던 IoT Hub 연결 문자열로 편집합니다. 그런 다음, 변경 사항을 저장합니다.
+
+1. 솔루션 탐색기에서 **device-simulation** 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **한 개의 시작 프로젝트**를 선택하고 **WebService**를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
 1. 각 장치 유형에는 **Services/data/devicemodels** 폴더에 JSON 모델 파일 및 관련된 스크립트가 있습니다. 솔루션 탐색기에서 **냉각기** 파일을 복사하여 다음 표에 나와 있는 것처럼 **전구** 파일을 만듭니다.
 
@@ -289,11 +297,13 @@ ms.lasthandoff: 03/09/2018
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
-      }
+      "Interval": "00:00:20",
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -464,7 +474,7 @@ ms.lasthandoff: 03/09/2018
 
 이제 장치 시뮬레이션 프로젝트를 로컬로 실행하여 새 시뮬레이션된 전구 형식을 테스트할 준비가 되었습니다.
 
-1. 솔루션 탐색기에서 **SimulationAgent**를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 다음, **새 인스턴스 시작**을 선택합니다.
+1. 솔루션 탐색기에서 **WebService**를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 다음, **새 인스턴스 시작**을 선택합니다.
 
 1. 두 개의 시뮬레이션된 장치가 사용자의 IoT Hub에 연결되어 있는지 확인하려면 브라우저에서 Azure Portal을 엽니다.
 
@@ -474,7 +484,7 @@ ms.lasthandoff: 03/09/2018
 
     ![연결된 장치 수](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. 브라우저에서 원격 모니터링 솔루션에 대한 **대시보드**로 이동합니다. 원격 분석 패널의 **대시보드**에서 **온도**를 선택합니다. 두 개의 시뮬레이션된 장치에 대한 온도가 차트에 표시됩니다.
+1. 브라우저에서 원격 모니터링 솔루션에 대한 **대시보드**로 이동합니다. 원격 분석 패널의 **대시보드**에서 **온도**를 선택합니다. 모든 시뮬레이션된 장치에 대한 온도가 차트에 표시됩니다.
 
     ![온도 원격 분석](media/iot-suite-remote-monitoring-test/telemetry.png)
 

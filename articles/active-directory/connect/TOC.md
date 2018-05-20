@@ -83,7 +83,8 @@
 
 
 ## 문제 해결
-### [연결](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Azure AD Connect로 Azure AD 연결](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [SQL 연결](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [동기화 중 오류](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [개체가 동기화되지 않음](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [문제 해결 작업을 사용한 개체 동기화](active-directory-aadconnect-troubleshoot-objectsync.md)

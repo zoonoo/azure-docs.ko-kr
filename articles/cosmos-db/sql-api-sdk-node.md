@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68c124bc2a89c819eb72310138ddd5d0c7739c4d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -33,8 +33,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
@@ -61,6 +61,16 @@ ms.lasthandoff: 04/16/2018
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="1.14.4"/>1.14.4</a>
+* npm 설명서가 수정되었습니다.
+
+### <a name="1.14.3"/>1.14.3</a>
+* 연결 문제에 대한 기본 재시도 지원이 추가되었습니다.
+* 컬렉션 변경 피드 읽기에 대한 지원이 추가되었습니다.
+* 일시적인 "읽기 세션을 사용할 수 없음" 세션 일관성 버그가 수정되었습니다.
+* 쿼리 메트릭에 대한 지원이 추가되었습니다.
+* http 에이전트의 최대 연결 수가 수정되었습니다.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Azure DocumentDB 대신 Azure Cosmos DB를 참조하도록 업데이트된 설명서입니다.
@@ -193,6 +203,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |2018년 5월 3일 |--- |
+| [1.14.3](#1.14.3) |2018년 5월 3일 |--- |
 | [1.14.2](#1.14.2) |2017년 12월 21일 |--- |
 | [1.14.1](#1.14.1) |2017년 11월 10일 |--- |
 | [1.14.0](#1.14.0) |2017년 11월 9일 |--- |

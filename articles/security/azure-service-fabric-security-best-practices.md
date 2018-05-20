@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 보안 모범 사례 | Microsoft Docs"
-description: "이 문서에서는 Azure Service Fabric 보안을 위한 여러 모범 사례를 제공합니다."
+title: Azure Service Fabric 보안 모범 사례 | Microsoft Docs
+description: 이 문서에서는 Azure Service Fabric 보안을 위한 여러 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 응용 프로그램을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 응용 프로그램을 배포하기 전에 응용 프로그램에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
@@ -57,7 +57,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 또한 다음 구성 옵션을 고려합니다.
 -   Azure Network Security Groups(NSG)를 사용하여 경계 네트워크(완충 지역, DMZ 및 스크린된 서브넷이라고도 함)를 만듭니다.
--   클러스터 가상 컴퓨터(VM)를 액세스하거나 원격 데스크톱 연결로 점프 서버를 사용하여 클러스터를 관리합니다.
+-   클러스터 가상 머신(VM)를 액세스하거나 원격 데스크톱 연결로 점프 서버를 사용하여 클러스터를 관리합니다.
 
 특히 프로덕션에서 클러스터가 실행 중일 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지해야 합니다. 보안이 되지 않은 클러스터를 만들 수 있지만 클러스터가 공용 인터넷에 관리 끝점을 노출하는 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다.
 
@@ -152,7 +152,7 @@ SSL 인증서 사용에 대한 자세한 내용은 [Azure 응용 프로그램에
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Azure Service Fabric을 통한 네트워크 격리 및 보안 사용
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
 
-템플릿에는 각 가상 컴퓨터 확장 집합(VMSS)에 대한 NSG가 있으며, 이 집합을 드나드는 트래픽을 제어하는 데 사용됩니다. 규칙은 기본적으로 템플릿에서 지정된 시스템 서비스와 응용 프로그램 포트에 필요한 모든 트래픽을 허용하도록 구성됩니다. 이러한 규칙을 검토하고 응용 프로그램에 대한 새 규칙을 추가하는 등 필요에 따라 변경합니다.
+템플릿에는 각 가상 머신 확장 집합(VMSS)에 대한 NSG가 있으며, 이 집합을 드나드는 트래픽을 제어하는 데 사용됩니다. 규칙은 기본적으로 템플릿에서 지정된 시스템 서비스와 응용 프로그램 포트에 필요한 모든 트래픽을 허용하도록 구성됩니다. 이러한 규칙을 검토하고 응용 프로그램에 대한 새 규칙을 추가하는 등 필요에 따라 변경합니다.
 
 자세한 내용은 [Azure Service Fabric의 일반적인 네트워킹 시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)를 참조하세요.
 

@@ -1,23 +1,24 @@
 ---
-title: "Azure AD 응용 프로그램 프록시를 구성하는 문제”"
-description: "Azure AD 응용 프로그램 프록시를 구성하는 문제”"
+title: Azure AD 응용 프로그램 프록시를 구성하는 문제”
+description: Azure AD 응용 프로그램 프록시를 구성하는 문제”
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: 06b4116291c0adb2bb7b13b681a090cb68189dc3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ad19676d18a968eae56302daf8655c74226fb51e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="problems-configuring-the-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 구성하는 문제
 

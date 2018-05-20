@@ -39,7 +39,7 @@
           href: search-fiddler.md
 - name: 자습서
   items:
-    - name: 인지 검색을 사용하여 인덱싱
+    - name: 인식 검색 개발
       href: cognitive-search-tutorial-blob.md
     - name: Azure SQL Database 인덱싱
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: 계획 및 디자인
       items:
-        - name: SKU 선택
+        - name: 계층 선택
           href: search-sku-tier.md
         - name: 서비스 제한
           href: search-limits-quotas-capacity.md
-        - name: 서비스 확장성
+        - name: 파티션 및 복제본 할당
           href: search-capacity-planning.md
         - name: 다중 테넌트 지원을 위한 디자인 패턴
           href: search-modeling-multitenant-saas-applications.md

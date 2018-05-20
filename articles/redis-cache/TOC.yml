@@ -6,19 +6,19 @@
       href: cache-overview.md
 - name: 빠른 시작
   items:
-    - name: ASP.NET
+    - name: ASP.NET 앱 만들기
       href: cache-web-app-howto.md
-    - name: .NET
+    - name: .NET 앱 만들기
       href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: 노드
+    - name: Node.js 앱 만들기
       href: cache-nodejs-get-started.md
-    - name: 자바
+    - name: Java 앱 만들기
       href: cache-java-get-started.md
-    - name: 파이썬
+    - name: Python 앱 만들기
       href: cache-python-get-started.md
 - name: 자습서
   items:
-    - name: 캐싱 순위표
+    - name: 순위표와 함께 캐싱 사용
       href: cache-web-app-cache-aside-leaderboard.md
 - name: 샘플
   items:

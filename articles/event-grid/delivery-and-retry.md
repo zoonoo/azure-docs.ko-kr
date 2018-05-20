@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 27ad4351bdcf9d7d655b19343dcf41d334f079f9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도 
 
@@ -35,7 +35,7 @@ Event Grid는 HTTP 응답 코드를 사용하여 이벤트의 수신을 승인�
 
 ### <a name="failure-codes"></a>실패 코드
 
-다음 HTTP 응답 코드는 이벤트 배달 시도가 실패했음을 나타냅니다. Event Grid는 이벤트를 전송하기 위해 다시 시도합니다. 
+다음 HTTP 응답 코드는 이벤트 배달 시도가 실패했음을 나타냅니다. 
 
 - 400 잘못된 요청
 - 401 권한 없음
@@ -46,9 +46,9 @@ Event Grid는 HTTP 응답 코드를 사용하여 이벤트의 수신을 승인�
 - 503 서비스를 사용할 수 없음
 - 504 게이트웨이 시간 초과
 
-다른 모든 응답 코드 또는 응답의 부족은 오류가 발생했음을 나타냅니다. Event Grid는 배달을 다시 시도합니다. 
+Event Grid는 끝점을 사용할 수 없다는 오류를 수신하면 해당 이벤트를 보내려고 다시 시도합니다. 
 
-## <a name="retry-intervals"></a>재시도 간격
+## <a name="retry-intervals-and-duration"></a>다시 시도 간격 및 기간
 
 Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 사용합니다. 웹후크가 응답하지 않거나 오류 코드를 반환하는 경우 Event Grid는 다음 일정에 따라 배달을 다시 시도합니다.
 
@@ -62,9 +62,7 @@ Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 �
 
 Event Grid는 약간의 불규칙을 모든 다시 시도 간격에 추가합니다. 한 시간 후에 이벤트 배달은 한 시간에 한 번 다시 시도됩니다.
 
-## <a name="retry-duration"></a>다시 시도 기간
-
-Azure Event Grid는 24시간 이내에 배달되지 않는 모든 이벤트를 만료합니다.
+기본적으로 Event Grid는 24시간 이내에 배달되지 않는 모든 이벤트를 만료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

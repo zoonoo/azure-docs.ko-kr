@@ -1,65 +1,75 @@
 ---
-title: "Azure 스택의 DNS | Microsoft Docs"
-description: "Azure Stack의 DNS"
+title: Azure 스택의 DNS | Microsoft Docs
+description: Azure 스택에 DNS를 사용 하 여
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4e854a2751ce366e3ca3a353487f2c972401c248
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="dns-in-azure-stack"></a>Azure Stack의 DNS
+# <a name="using-dns-in-azure-stack"></a>Azure 스택에 DNS를 사용 하 여
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure 스택에는 다음과 같은 DNS 기능이 포함 됩니다.
-* DNS 호스트 이름 확인에 대 한 지원
-* DNS 영역 및 API를 사용 하 여 레코드 만들기 및 관리
+Azure 스택 다음 이름을 DNS (도메인) 기능을 지원 합니다.
+
+* DNS 호스트 이름 확인
+* DNS 영역 및 API를 사용 하 여 레코드 생성 및 관리
 
 ## <a name="support-for-dns-hostname-resolution"></a>DNS 호스트 이름 확인에 대 한 지원
-에 대 한 매핑을 만듭니다 공용 IP 리소스에 대 한 DNS 도메인 이름 레이블을 지정할 수 있습니다 *domainnamelabel.location*. cloudapp.azurestack.external Azure 스택에서 공용 IP 주소를 관리 하는 DNS 서버입니다.  
 
-예를 들어 있는 공용 IP 리소스를 만들 경우 **contoso** 로컬 Azure 스택 위치, 정규화 된 도메인 이름 (FQDN)에 있는 도메인 이름 레이블과 **contoso.local.cloudapp.azurestack.external**리소스의 공용 IP 주소로 확인 합니다. Azure 스택에서 공용 IP 주소를 가리키는 CNAME 레코드는 사용자 지정 도메인을 만드는이 FQDN을 사용할 수 있습니다.
+공용 IP 리소스에 대 한 DNS 도메인 이름 레이블을 지정할 수 있습니다. Azure 스택 사용 하 여 *domainnamelabel.location*. cloudapp.azurestack.external 레이블 이름 및 Azure 스택의 주소이 공용 IP에 지도 대 한 DNS 서버를 관리 합니다.
+
+예를 들어 있는 공용 IP 리소스를 만들 경우 **contoso** 로컬 Azure 스택 위치에 있는 도메인 이름 레이블과 [정규화 된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN)  **contoso.local.cloudapp.azurestack.external** 리소스의 공용 IP 주소로 확인 합니다. Azure 스택에서 공용 IP 주소를 가리키는 CNAME 레코드는 사용자 지정 도메인을 만드는이 FQDN을 사용할 수 있습니다.
+
+이름 확인에 대 한 자세한 내용은 참조는 [DNS 확인](https://docs.microsoft.com/en-us/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서.
 
 > [!IMPORTANT]
-> 만든 각 도메인 이름 레이블이 해당 Azure 스택 위치 내에서 고유 해야 합니다.
+> 도메인 이름 레이블을 만들 Azure 스택 위치 내에서 고유 해야 합니다.
 
-포털을 사용 하 여 공용 IP 주소를 만드는 경우 다음과 같이 보입니다.
+다음 화면 캡처 프로그램은 **공용 IP 주소 만들기** 포털을 사용 하 여 공용 IP 주소를 만들기 위한 대화 상자.
 
 ![공용 IP 주소 만들기](media/azure-stack-whats-new-dns/image01.png)
 
-이 구성은 공용 IP 주소를 부하 분산 된 리소스와 연결 하려는 경우에 유용 합니다. 예를 들어 웹 응용 프로그램에서 요청을 처리 하는 부하 분산 장치를 할 수 있습니다. 뒤에 부하 분산 장치는 하나 이상의 가상 컴퓨터에 있는 웹 사이트입니다. 이제 IP 주소 대신 DNS 이름을 부하 분산 된 웹 사이트를 액세스할 수 있습니다.
+**예제 시나리오**
 
-## <a name="create-and-manage-dns-zones-and-records-using-api"></a>DNS 영역 및 API를 사용 하 여 레코드 만들기 및 관리
-수 만들고 DNS 영역 및 Azure 스택의 레코드를 관리 합니다.  
+부하 분산 장치는 웹 응용 프로그램에서 요청을 처리 해야 합니다. 뒤에 부하 분산 장치 하나 이상의 가상 컴퓨터에서 실행 중인 웹 사이트입니다. 부하 분산 된 웹 사이트는 IP 주소 대신 DNS 이름을 사용 하 여 액세스할 수 있습니다.
 
-Azure 스택 Azure의 DNS Api와 일치 하는 Api를 사용 하 여 Azure의 같은 DNS 서비스를 제공 합니다.  Azure 스택 dns에서 도메인을 호스트 하 여 다른 Azure 서비스와 동일한 자격 증명, Api, 도구, 대금 청구 및 지원 DNS 레코드를 관리할 수 있습니다. 
+## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>DNS 영역 및 API를 사용 하 여 레코드 만들기 및 관리
 
-가장 큰 이유에 대 한 Azure 스택 DNS 인프라는 Azure의 보다 더욱 간결 합니다. 따라서, 범위, 배율 및 성능 Azure 스택 배포 및 배포 된 환경의 규모에 따라 다릅니다.  따라서 성능, 가용성, 글로벌 메일 및 고가용성 (HA) 등 배포 마다 달라질 수 있습니다.
+수 만들고 DNS 영역 및 Azure 스택의 레코드를 관리 합니다.
+
+Azure 스택 Azure의 DNS Api와 일치 하는 Api를 사용 하 여 Azure의 같은 DNS 서비스를 제공 합니다.  Azure 스택 dns에서 도메인을 호스트 하 여 동일한 자격 증명, Api 및 도구를 사용 하 여 DNS 레코드를 관리할 수 있습니다. 동일한 대금 청구를 사용 하 고 다른 Azure 서비스를 지원 수도 있습니다.
+
+Azure 스택 DNS 인프라는 Azure의 보다 더욱 간결 합니다. Azure 스택 배포의 위치와 크기에 영향을 줍니다 DNS 범위, 배율 및 성능. 즉, 성능, 가용성, 글로벌 메일 및 고가용성 배포 마다 달라질 수 있습니다.
 
 ## <a name="comparison-with-azure-dns"></a>Azure DNS와 비교
-Azure 스택에 있는 DNS는 두 가지 주요 차이점이 azure에서 DNS와 비슷합니다.
+
+Azure 스택의 DNS를 azure에서 DNS 유사 하지만을 이해 해야 하는 주요 예외가 있습니다.
+
 * **AAAA 레코드를 지원 하지 않습니다.**
 
     Azure 스택 IPv6 주소를 지원 하지 않으므로 azure 스택 AAAA 레코드를 지원 하지 않습니다.  이것이 Azure에서 DNS 및 Azure 스택 간의 주요 차이점입니다.
 * **다중 테 넌 트가 아닙니다.**
 
-    Azure에서 달리 Azure 스택의 DNS 서비스는 다중 테 넌 트 아닙니다. 따라서 각 테 넌 트 동일한 DNS 영역을 만들 수 없습니다. 첫 번째 구독 영역을 만들려고 시도 성공 하 고 이후 요청 실패.  알려진된 문제 및 Azure와 Azure 스택 DNS 간의 주요 차이점 않습니다. 이 문제는 향후 릴리스에서 해결 됩니다.
+    Azure 스택에서 DNS 서비스는 다중 테 넌 트입니다. 각 테 넌 트 동일한 DNS 영역을 만들 수 없습니다. 첫 번째 구독 영역을 만들려고 시도 성공 하 고 이후 요청 실패.  알려진된 문제 및 Azure와 Azure 스택 DNS 간의 주요 차이점 않습니다. 이 문제는 향후 릴리스에서 해결 됩니다.
+* **태그, 메타 데이터 및 Etags**
 
-또한 Azure 스택 DNS 태그, 메타 데이터, Etag, 및 제한을 구현 하는 방법에서 약간의 차이가 있습니다.
+    Azure 스택 태그, 메타 데이터, Etag, 및 제한을 처리 하는 방법에서 약간의 차이가 있습니다.
 
-다음 정보가 Azure 스택 DNS에만 적용 하 고 Azure DNS에서 약간 다릅니다. Azure DNS에 대 한 자세한 참조 [DNS 영역 및 기록](../../dns/dns-zones-records.md) Microsoft Azure 설명서 사이트입니다.
+Azure DNS에 대 한 자세한 참조 [DNS 영역 및 기록](../../dns/dns-zones-records.md)합니다.
 
 ### <a name="tags-metadata-and-etags"></a>태그, 메타 데이터 및 Etags
 
@@ -99,4 +109,5 @@ Azure 스택 DNS를 사용 하는 경우는 다음과 같은 기본 제한 값�
 | 레코드 집합당 레코드| 20|
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure 스택에 대 한 Idn 소개](azure-stack-understanding-dns.md)

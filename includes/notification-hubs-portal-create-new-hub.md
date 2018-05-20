@@ -1,5 +1,19 @@
-
-
+---
+title: 포함 파일
+description: 포함 파일
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: c718fa972b9d6cba13a13edd3c7e8df29fa63207
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/07/2018
+---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **리소스 만들기** > **웹 + 모바일** > **알림 허브**를 선택합니다.
@@ -18,10 +32,9 @@
    
       ![Azure Portal - 알림 허브 속성 설정](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. 네임스페이스 및 알림 허브를 만든 후에는 **모든 리소스**를 선택하여 목록을 열고 이 목록에서 만든 알림 허브를 선택합니다. 
-   
-      ![Azure Portal - 알림 허브 포털 페이지](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
+4. **알림**(벨 아이콘)을 선택하고 **리소스로 이동**을 선택합니다. 
 
+      ![[Azure Portal] - [알림] -> [리소스로 이동]](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
 5. 목록에서 **액세스 정책**을 선택합니다. 사용할 수 있는 두 가지 연결 문자열을 적어 둡니다. 나중에 푸시 알림을 처리하는 데 필요합니다.
 
       >[!IMPORTANT]

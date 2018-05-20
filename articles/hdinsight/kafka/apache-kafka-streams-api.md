@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka Streams API 사용 - Azure HDInsight | Microsoft Docs
+title: '자습서: Apache Kafka Streams API 사용 - Azure HDInsight | Microsoft Docs'
 description: HDInsight의 Kafka에서 Apache Kafka Streams API를 사용하는 방법에 대해 알아봅니다. 이 API를 사용하면 Kafka에서 토픽 간 스트림 처리를 수행할 수 있습니다.
 services: hdinsight
 documentationcenter: ''
@@ -9,23 +9,41 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/10/2018
+ms.topic: tutorial
+ms.date: 04/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 36d67cdb99871f3948db1f6497b1a4638df4f3f1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8aff28079a0aaa7c02d8a187cb379ecdbedcd854
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="apache-kafka-streams-api"></a>Apache Kafka Streams API
+# <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
-Kafka Streams API를 사용하는 응용 프로그램을 만들고 HDInsight의 Kafka에서 이를 실행하는 방법을 알아봅니다.
+Kafka Streams API를 사용하는 응용 프로그램을 만들고 HDInsight의 Kafka에서 이를 실행하는 방법을 알아봅니다. 
 
-Apache Kafka로 작업할 때 스트림 처리는 종종 Apache Spark 또는 Storm을 사용하여 수행됩니다. Kafka 0.10.0 버전(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 Kafka에서 실행되는 응용 프로그램을 사용하여 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https://kafka.apache.org/10/documentation/streams/) 문서를 참조하세요.
+이 자습서에서 사용되는 응용 프로그램은 스트리밍 워드 카운트입니다. 이 응용 프로그램은 Kafka 토픽에서 텍스트 데이터를 읽고, 개별 단어를 추출한 다음, 워드 카운트를 다른 Kafka 토픽에 저장합니다.
+
+> [!NOTE]
+> Kafka 스트림 처리는 종종 Apache Spark 또는 Storm을 사용하여 수행됩니다. Kafka 0.10.0 버전(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. 
+>
+> Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https://kafka.apache.org/10/documentation/streams/) 문서를 참조하세요.
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 개발 환경 설정
+> * 코드 이해
+> * 응용 프로그램 빌드 및 배포
+> * Kafka 토픽 구성
+> * 코드 실행
+
+## <a name="prerequisites"></a>필수 조건
+
+* HDInsight 3.6 클러스터의 Kafka HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
+
+* [Kafka 소비자 및 생산자 API](apache-kafka-producer-consumer-api.md) 문서의 단계를 완료합니다. 이 문서의 단계는 이 자습서에서 만든 예제 응용 프로그램 및 토픽을 사용합니다.
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
@@ -37,9 +55,89 @@ Apache Kafka로 작업할 때 스트림 처리는 종종 Apache Spark 또는 Sto
 
 * SSH 클라이언트 및 `scp` 명령입니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
-## <a name="set-up-your-deployment-environment"></a>배포 환경 설정
+## <a name="understand-the-code"></a>코드 이해
 
-이 예제에서는 HDInsight 3.6의 Kafka가 필요합니다. HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
+예제 응용 프로그램은 `Streaming` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 응용 프로그램은 다음 두 파일로 구성되어 있습니다.
+
+* `pom.xml`: 이 파일은 프로젝트 종속성, Java 버전 및 패키징 메서드를 정의합니다.
+* `Stream.java`: 이 파일은 스트리밍 논리를 구현합니다.
+
+### <a name="pomxml"></a>Pom.xml
+
+`pom.xml` 파일에서 이해할 중요한 사항은 다음과 같습니다.
+
+* 종속성: 이 프로젝트는 `kafka-clients` 패키지에서 제공하는 Kafka 스트림 API에 의존합니다. 다음 XML 코드는 이 종속성을 정의합니다.
+
+    ```xml
+    <!-- Kafka client for producer/consumer operations -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > `${kafka.version}` 항목은 `pom.xml`의 `<properties>..</properties>` 섹션에서 선언되며, HDInsight 클러스터의 Kafka 버전으로 구성됩니다.
+
+* 플러그 인: Maven 플러그 인은 다양한 기능을 제공합니다. 이 프로젝트에서는 다음 플러그 인이 사용됩니다.
+
+    * `maven-compiler-plugin`: 프로젝트에서 사용하는 Java 버전을 8로 설정하는 데 사용됩니다. HDInsight 3.6에는 Java 8이 필요합니다.
+    * `maven-shade-plugin`: 이 응용 프로그램 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 응용 프로그램의 진입점을 설정하는 데 사용됩니다.
+
+### <a name="streamjava"></a>Stream.java
+
+`Stream.java` 파일은 스트림 API를 사용하여 워드 카운트 응용 프로그램을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
+
+다음 코드는 워드 카운트 응용 프로그램을 정의합니다.
+
+```java
+package com.microsoft.example;
+
+import org.apache.kafka.common.serialization.Serde;
+import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.KeyValue;
+import org.apache.kafka.streams.StreamsConfig;
+import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KStreamBuilder;
+
+import java.util.Arrays;
+import java.util.Properties;
+
+public class Stream
+{
+    public static void main( String[] args ) {
+        Properties streamsConfig = new Properties();
+        // The name must be unique on the Kafka cluster
+        streamsConfig.put(StreamsConfig.APPLICATION_ID_CONFIG, "wordcount-example");
+        // Brokers
+        streamsConfig.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, args[0]);
+        // SerDes for key and values
+        streamsConfig.put(StreamsConfig.KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+        streamsConfig.put(StreamsConfig.VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+
+        // Serdes for the word and count
+        Serde<String> stringSerde = Serdes.String();
+        Serde<Long> longSerde = Serdes.Long();
+
+        KStreamBuilder builder = new KStreamBuilder();
+        KStream<String, String> sentences = builder.stream(stringSerde, stringSerde, "test");
+        KStream<String, Long> wordCounts = sentences
+                .flatMapValues(value -> Arrays.asList(value.toLowerCase().split("\\W+")))
+                .map((key, word) -> new KeyValue<>(word, word))
+                .countByKey("Counts")
+                .toStream();
+        wordCounts.to(stringSerde, longSerde, "wordcounts");
+
+        KafkaStreams streams = new KafkaStreams(builder, streamsConfig);
+        streams.start();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
+    }
+}
+```
+
 
 ## <a name="build-and-deploy-the-example"></a>예제 빌드 및 배포
 
@@ -53,77 +151,92 @@ Apache Kafka로 작업할 때 스트림 처리는 종종 Apache Spark 또는 Sto
     mvn clean package
     ```
 
-    이 명령은 `kafka-streaming-1.0-SNAPSHOT.jar`라는 파일이 포함된 `target`이라는 디렉터리를 만듭니다.
+    이 명령은 `target/kafka-streaming-1.0-SNAPSHOT.jar`에 패키지를 만듭니다.
 
 3. 다음 명령을 사용하여 `kafka-streaming-1.0-SNAPSHOT.jar` 파일을 HDInsight 클러스터에 복사합니다.
    
     ```bash
-    scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-streaming.jar
+    scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
    
-    **SSHUSER**는 클러스터의 SSH 사용자로 바꾸고, **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다. HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+    `sshuser`은 클러스터의 SSH 사용자로, `clustername`은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다. HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-## <a name="run-the-example"></a>예제 실행
+## <a name="create-kafka-topics"></a>Kafka 토픽 만들기
 
 1. 클러스터에 대한 SSH 연결을 열려면 다음 명령을 사용합니다.
 
     ```bash
-    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    **SSHUSER**는 클러스터의 SSH 사용자로 바꾸고, **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다. HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+    `sshuser`은 클러스터의 SSH 사용자로, `clustername`은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다. HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-4. 이 예제에서 사용되는 Kafka 토픽을 만들려면 다음 명령을 사용합니다.
+2. 변수에 클러스터 이름을 저장하고 유틸리티(`jq`)를 구문 분석하는 JSON을 설치하려면 다음 명령을 사용합니다. 메시지가 표시되면 Kafka 클러스터 이름을 입력합니다.
 
     ```bash
     sudo apt -y install jq
+    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
+    ```
 
-    CLUSTERNAME='your cluster name'
+3. Kafka broker 호스트와 Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다. 암호를 2번 입력하라는 메시지가 나타납니다.
 
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
+    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    ```
 
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+4. 스트리밍 작업에서 사용되는 토픽을 만들려면 다음 명령을 사용합니다.
 
+    > [!NOTE]
+    > `test` 토픽이 이미 있다는 오류가 표시될 수 있습니다. 생산자 및 소비자 API 자습서에서 토픽이 만들어졌을 수 있으므로 이것은 정상적인 것입니다.
+
+    ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
+
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
-    __클러스터 이름__을 HDInsight 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 HDInsight 클러스터 로그인 계정에 대한 암호를 입력합니다.
+    토픽은 다음과 같은 용도로 사용됩니다.
+
+    * `test`: 이 토픽은 레코드가 수신되는 위치입니다. 여기에서 스트리밍 응용 프로그램이 읽습니다.
+    * `wordcounts`: 이 토픽은 스트리밍 응용 프로그램이 출력을 저장하는 위치입니다.
+    * `RekeyedIntermediateTopic`: 이 토픽은 `countByKey` 연산자에 의해 카운트가 업데이트되므로 데이터를 다시 분할하는 데 사용됩니다.
+    * `wordcount-example-Counts-changelog`: 이 토픽은 `countByKey` 작업에서 사용되는 상태 저장소입니다.
+
+    > [!IMPORTANT]
+    > HDInsight의 Kafka를 자동으로 토픽을 만들도록 구성할 수도 있습니다. 자세한 내용은 [자동 토픽 만들기 구성](apache-kafka-auto-create-topics.md) 문서를 참조하세요.
+
+## <a name="run-the-code"></a>코드 실행
+
+1. 스트리밍 응용 프로그램을 백그라운드 프로세스로 시작하려면 다음 명령을 사용합니다.
+
+    ```bash
+    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
+    ```
 
     > [!NOTE]
-    > 클러스터 로그인이 `admin`의 기본값과 다른 경우 이전 명령의 `admin` 값을 클러스터 로그인 이름으로 바꿉니다.
+    > log4j에 대한 경고가 발생할 수 있습니다. 이 경고는 무시해도 됩니다.
 
-5. 이 예제를 실행하려면 다음 세 가지를 수행해야 합니다.
+2. `test` 토픽으로 레코드를 보내려면 다음 명령을 사용하여 생산자 응용 프로그램을 시작합니다.
 
-    * `kafka-streaming.jar`에 포함된 Streams 솔루션을 시작합니다.
-    * `test` 토픽에 쓰는 생산자를 시작합니다.
-    * `wordcounts` 토픽에 쓴 출력을 볼 수 있도록 소비자를 시작합니다.
+    ```bash
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    ```
+
+3. 생산자가 완료되면 다음 명령을 사용하여 `wordcounts` 토픽에 저장된 정보를 확인합니다.
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
+    ```
 
     > [!NOTE]
-    > Kafka Broker 구성 파일에서 `auto.create.topics.enable` 속성이 `true`로 설정되어 있는지 확인해야 합니다. Ambari 웹 UI를 사용하여 고급 Kafka Broker 구성 파일에서 이 속성을 확인 및 수정할 수 있습니다. 그렇지 않은 경우 다음 명령을 사용하여 이 예제를 실행하기 전에 수동으로 중간 `RekeyedIntermediateTopic` 항목을 만들어야 합니다.
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
-    ```
-    
-    3개의 SSH 세션을 열어 이러한 작업을 수행할 수 있습니다. 그러나 각 SSH 세션의 이 섹션에서 4단계를 실행하여 각각에 대해 `$KAFKABROKERS` 및 `$KAFKAZKHOSTS`를 설정해야 합니다. 더 쉬운 솔루션은 현재 SSH 디스플레이를 여러 섹션으로 나눌 수 있는 `tmux` 유틸리티를 사용하는 것입니다. `tmux`를 사용하여 스트림, 생산자, 소비자를 시작하려면 다음 명령을 사용합니다.
+    > `--property` 매개 변수는 콘솔 소비자에게 개수(값)와 함께 키(단어)를 인쇄하도록 지시합니다. 또한 이 매개 변수는 Kafka에서 이 값을 읽을 때 사용할 역직렬 변환기를 구성합니다.
 
-    ```bash
-    tmux new-session '/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer' \; split-window -h 'java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS' \; split-window -v '/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test' \; attach
-    ```
-
-    이 명령은 SSH 디스플레이를 세 가지 섹션으로 분할합니다.
-
-    * 왼쪽 섹션은 콘솔 소비자를 실행하여 `wordcounts` 토픽에서 메시지를 읽습니다. `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
-
-        > [!NOTE]
-        > `--property` 매개 변수는 콘솔 소비자에게 개수(값)와 함께 키(단어)를 인쇄하도록 지시합니다. 또한 이 매개 변수는 Kafka에서 이 값을 읽을 때 사용할 역직렬 변환기를 구성합니다.
-
-    * 오른쪽 위의 섹션은 Streams API 솔루션을 실행합니다. `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
-
-    * 오른쪽 아래의 섹션은 콘솔 생산자를 실행하고 `test` 토픽에 보낼 메시지 입력을 기다립니다. `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
- 
-6. `tmux` 명령으로 디스플레이가 분할되면 커서가 오른쪽 아래 섹션에 있습니다. 문장 입력을 시작합니다. 각 문장이 끝나면 왼쪽 창에 고유 단어 수가 표시됩니다. 다음 텍스트와 유사하게 출력됩니다.
+    다음 텍스트와 유사하게 출력됩니다.
    
         dwarfs  13635
         ago     13664
@@ -139,7 +252,7 @@ Apache Kafka로 작업할 때 스트림 처리는 종종 Apache Spark 또는 Sto
         jumped  13641
    
     > [!NOTE]
-    > 단어가 발생할 때마다 개수가 증가합니다.
+    > 매개 변수 `--from-beggining`은 토픽에 저장된 레코드의 시작 부분에서 소비자가 시작되도록 구성합니다. 단어를 만날 때마다 카운트가 증가하며 토픽은 각 단어에 대해 카운트를 늘리는 여러 항목을 포함합니다.
 
 7. __Ctrl + C__를 사용하여 생산자를 종료합니다. __Ctrl + C__를 한 번 더 사용하여 응용 프로그램 및 소비자를 종료합니다.
 
@@ -149,9 +262,3 @@ Apache Kafka로 작업할 때 스트림 처리는 종종 Apache Spark 또는 Sto
 
 * [Kafka 로그 분석](apache-kafka-log-analytics-operations-management.md)
 * [Kafka 클러스터 간 데이터 복제](apache-kafka-mirroring.md)
-* [HDInsight의 Kafka 생산자 및 소비자 API](apache-kafka-producer-consumer-api.md)
-* [HDInsight의 Kafka에서 Apache Spark 스트리밍(DStream) 사용](../hdinsight-apache-spark-with-kafka.md)
-* [HDInsight의 Kafka에서 Apache Spark 구조적 스트리밍 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Apache Spark 구조적 스트리밍을 사용하여 HDInsight의 Kafka에서 Cosmos DB로 데이터 이동](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [HDInsight의 Kafka에서 Apache Storm 사용](../hdinsight-apache-storm-with-kafka.md)
-* [Azure Virtual Network를 통해 Kafka에 연결](apache-kafka-connect-vpn-gateway.md)

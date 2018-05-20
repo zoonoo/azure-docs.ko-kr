@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines-linux, virtual-machines-windows
+author: dlepow
+ms.service: multiple
+ms.topic: include
+ms.date: 05/11/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/12/2018
+---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
 Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 HPC 시뮬레이션에 이르기까지 계산 집약적인 Linux 및 Windows 작업을 효율적으로 실행합니다. 선택한 계산 서비스, 그리드 관리자, Marketplace 솔루션 및 공급 업체 호스트(SaaS) 응용 프로그램을 사용하여 Azure 인프라에서 HPC 및 배치 워크로드를 실행합니다. Azure는 작업을 배포하고 수천 대의 VM 또는 코어로 규모를 조정한 후 더 적은 리소스가 필요한 경우 규모를 축소하는 유연한 솔루션을 제공합니다. 
@@ -21,6 +37,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
 * **빅 컴퓨팅 솔루션을 서비스로 제공**
     * [Azure Batch](#azure-batch) 및 관련 [Azure 서비스](#related-azure-services)를 사용하여 사용자 지정 빅 컴퓨팅 솔루션 및 워크플로를 개발합니다.
     * [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) 및 [Cycle Computing](https://cyclecomputing.com/)(이제 [Microsoft와 조인됨](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/))을 포함하여 공급 업체에서 Azure를 사용할 수 있는 엔지니어링 및 시뮬레이션 솔루션을 실행합니다.
+    * Azure에서 호스팅된 서비스로 [Cray 슈퍼 컴퓨터](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure)를 사용합니다.
 * **Marketplace 솔루션**
     * [Azure Marketplace](https://azuremarketplace.microsoft.com/)에서 제공되는 [HPC 응용 프로그램](#hpc-applications) 및 [솔루션](#marketplace-solutions)의 규모를 사용합니다. 
     
@@ -107,17 +124,18 @@ SaaS 공급자 및 개발자는 Batch SDK 및 도구를 사용하여 HPC 응용 
 * [Azure Batch 샘플 코드 사용(영문)](https://github.com/Azure/azure-batch-samples)
 * [Batch에서 낮은 우선 순위 VM 사용](../articles/batch/batch-low-pri-vms.md)
 * [Batch Shipyard를 사용하여 컨테이너화된 HPC 작업 실행(영문)](https://github.com/Azure/batch-shipyard)
-* [Batch에서 R 언어 사용(영문)](https://github.com/Azure/doAzureParallel)
-* [Batch에서 Azure 분산 데이터 엔지니어링 도구 키트 실행](https://github.com/Azure/aztk)
+* [일괄 처리에서 병렬 R 워크로드 실행](https://github.com/Azure/doAzureParallel)
+* [일괄 처리에서 주문형 Spark 작업 실행](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>워크로드 관리자
 
 Azure 인프라에서 실행할 수 있는 클러스터 및 워크로드 관리자의 예는 다음과 같습니다. Azure VM에서 독립 실행형 클러스터 또는 온-프레미스 클러스터에서 Azure VM에 대한 버스트를 만듭니다. 
+* [Alces 비행 계산](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview)
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
 * [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 * [IBM Spectrum Symphony 및 Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
-* [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) - [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM에서 실행할 옵션을 확인합니다. 
+* [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx) - [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM에서 실행할 옵션을 확인합니다. 
 
 
 
@@ -127,7 +145,7 @@ Azure 인프라에서 실행할 수 있는 클러스터 및 워크로드 관리�
 
 자세한 정보:
 
-* [Azure의 HPC 저장소를 위한 병렬 파일 시스템](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* [Azure에서 병렬 가상 파일 시스템](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/)
 * [Avere](http://www.averesystems.com/about-us/about-avere)(현재 [Microsoft와 연합](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))의 고성능 클라우드 저장소 솔루션
 
 
@@ -144,11 +162,13 @@ Azure 가상 머신, 가상 머신 확장 집합, Batch 및 관련 계산 서비
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
-* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
-### <a name="ai-and-cognitive-services"></a>AI 및 Cognitive Services
+### <a name="ai-and-machine-learning"></a>AI 및 기계 학습
+* [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
 * [Batch AI](../articles/batch-ai/overview.md)
+* [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>네트워킹
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
@@ -156,6 +176,7 @@ Azure 가상 머신, 가상 머신 확장 집합, Batch 및 관련 계산 서비
 
 ### <a name="containers"></a>컨테이너
 * [컨테이너 서비스](../articles/container-service/dcos-swarm/container-service-intro.md)
+* [AKS(Azure Kubernetes Service)](../articles/aks/intro-kubernetes.md)
 * [컨테이너 레지스트리](../articles/container-registry/container-registry-intro.md)
 
 
@@ -168,6 +189,7 @@ Azure HPC 솔루션으로 비즈니스 문제를 해결한 고객은 다음과 �
 * [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
@@ -178,7 +200,7 @@ Azure HPC 솔루션으로 비즈니스 문제를 해결한 고객은 다음과 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [엔지니어링 시뮬레이션](https://simulation.azure.com/), [렌더링](https://simulation.azure.com/), [금융 및 자본 시장](https://finance.azure.com/) 및 [유전체학](https://enterprise.microsoft.com/en-us/industries/health/genomics/)에 대한 빅 컴퓨팅 솔루션에 대해 자세히 알아봅니다.
+* [엔지니어링 시뮬레이션](https://simulation.azure.com/), [렌더링](https://azure.microsoft.com/solutions/big-compute/rendering/), [금융 및 자본 시장](https://finance.azure.com/) 및 [유전체학](https://enterprise.microsoft.com/en-us/industries/health/genomics/)에 대한 빅 컴퓨팅 솔루션에 대해 자세히 알아봅니다.
 * 최신 공지 사항은 [Microsoft HPC 및 Batch 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 
 * 확장성 있는 Azure [Batch](https://azure.microsoft.com/services/batch/) 관리 서비스를 사용하여 기본 인프라를 관리하지 않고 계산 집약적 작업을 실행합니다. [자세한 정보](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)

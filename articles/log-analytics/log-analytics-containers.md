@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -34,8 +34,9 @@ ms.lasthandoff: 03/28/2018
 - Service Fabric
 - Red Hat OpenShift
 
+AKS(Azure Container Service)에 호스트된 Kubernetes에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Container Service 모니터링](../monitoring/monitoring-container-health.md)을 참조하세요.  컨테이너 모니터링 솔루션은 해당 플랫폼을 모니터링하도록 지원하지 않습니다.  
 
-다음 다이어그램에서는 OMS에서 다양한 컨테이너 호스트와 에이전트 간의 관계를 보여 줍니다.
+다음 다이어그램에서는 Log Analytics에서 다양한 컨테이너 호스트와 에이전트 간의 관계를 보여줍니다.
 
 ![컨테이너 다이어그램](./media/log-analytics-containers/containers-diagram.png)
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
 
 2. OMS 에이전트를 사용하여 Docker를 설치 및 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
   - 독립 실행형 호스트의 경우:
@@ -116,15 +117,15 @@ ms.lasthandoff: 03/28/2018
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Linux 컨테이너 호스트 설치 및 구성
 
-Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 OMS 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작** > **컴퓨터**를 클릭하여 **작업 영역 ID** 및 **기본 키**를 확인합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
+Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 Log Analytics 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작** > **컴퓨터**를 클릭하여 **작업 영역 ID** 및 **기본 키**를 확인합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
 **CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
-- Linux용 OMS 에이전트를 설치하는 방법에 대한 자세한 내용과 해당 단계는 [OMS(Operations Management Suite)에 Linux 컴퓨터 연결](log-analytics-agent-linux.md)을 참조하세요.
+- Linux용 OMS 에이전트를 설치하는 방법에 대한 자세한 내용과 해당 단계는 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-concept-hybrid.md)을 참조하세요.
 
 **CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우:**
 
-모니터링하려는 OMS 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
+모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -132,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 **CoreOS를 포함한 모든 Azure Government Linux 컨테이너 호스트의 경우:**
 
-모니터링하려는 OMS 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
+모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -144,7 +145,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm용 OMS 에이전트 구성
 
-Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습니다. 다음 정보를 사용하여 OMS 에이전트 서비스를 만듭니다. OMS 작업 영역 ID 및 기본 키를 삽입해야 합니다.
+Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습니다. 다음 정보를 사용하여 OMS 에이전트 서비스를 만듭니다. Log Analytics 작업 영역 ID와 기본 키를 제공해야 합니다.
 
 - 마스터 노드에서 다음을 실행합니다.
 
@@ -190,8 +191,8 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
 
 이 섹션에서는 OpenShift 디먼 집합으로 OMS 에이전트를 설치하는 데 필요한 단계를 다룹니다.  
 
-1. OpenShift 마스터 노드에 로그온하고, GitHub에서 마스터 노드로 yaml 파일 [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml)을 복사하고, OMS 작업 영역 ID와 기본 키로 값을 수정합니다.
-2. 다음 명령을 실행하여 OMS에 대한 프로젝트를 만들고 사용자 계정을 설정합니다.
+1. OpenShift 마스터 노드에 로그온하고, GitHub에서 마스터 노드로 yaml 파일 [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml)을 복사하고, Log Analytics 작업 영역 ID와 기본 키로 값을 수정합니다.
+2. 다음 명령을 실행하여 Log Analytics에 대한 프로젝트를 만들고 사용자 계정을 설정합니다.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -227,10 +228,10 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
     No events.  
     ```
 
-OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 OMS 작업 영역 ID와 기본 키를 보호하기 위해 비밀을 사용하려는 경우 다음 단계를 수행합니다.
+OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 Log Analytics 작업 영역 ID와 기본 키를 보호하기 위해 비밀을 사용하려는 경우 다음 단계를 수행합니다.
 
-1. OpenShift 마스터 노드에 로그온하고 GitHub에서 yaml 파일 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 및 비밀 생성 스크립트 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)를 복사합니다.  이 스크립트는 비밀 정보를 보호하기 위해 OMS 작업 영역 ID와 기본 키에 대한 비밀 yaml 파일을 생성합니다.  
-2. 다음 명령을 실행하여 OMS에 대한 프로젝트를 만들고 사용자 계정을 설정합니다. 비밀 생성 스크립트는 OMS 작업 영역 ID<WSID> 및 기본 키<KEY>를 요청하고, 완료되면 ocp-secret.yaml 파일이 생성됩니다.  
+1. OpenShift 마스터 노드에 로그온하고 GitHub에서 yaml 파일 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 및 비밀 생성 스크립트 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)를 복사합니다.  이 스크립트는 비밀 정보를 보호하기 위해 Log Analytics 작업 영역 ID와 기본 키에 대한 비밀 yaml 파일을 생성합니다.  
+2. 다음 명령을 실행하여 Log Analytics에 대한 프로젝트를 만들고 사용자 계정을 설정합니다. 비밀 생성 스크립트는 Log Analytics 작업 영역 ID<WSID> 및 기본 키<KEY>를 요청하고, 완료되면 ocp-secret.yaml 파일이 생성됩니다.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -314,7 +315,7 @@ Kubernetes의 경우 Linux용 OMS 에이전트를 설치하려면 스크립트�
     1. 스크립트 및 비밀 템플릿 파일을 복사하고 이들이 같은 디렉터리에 있는지 확인합니다.
         - 비밀 생성 스크립트 - secret-gen.sh
         - 비밀 템플릿 - secret-template.yaml
-    2. 다음 예제와 같이 스크립트를 실행합니다. 스크립트에서 OMS 작업 영역 ID 및 기본 키를 요청하고 사용자가 이를 입력하면 스크립트에서 비밀 yaml 파일을 생성하며 사용자가 실행할 수 있습니다.   
+    2. 다음 예제와 같이 스크립트를 실행합니다. 스크립트에서 Log Analytics 작업 영역 ID 및 기본 키를 요청하고 사용자가 이를 입력하면 스크립트에서 비밀 yaml 파일을 생성하며 사용자가 실행할 수 있습니다.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -561,7 +562,7 @@ Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에�
 
 
 ## <a name="monitor-containers"></a>모니터 컨테이너
-OMS 포털에서 솔루션을 사용하도록 설정한 후에는 **컨테이너** 타일에 컨테이너 호스트와 호스트에서 실행 중인 컨테이너에 대한 요약 정보가 표시됩니다.
+Log Analytics 포털에서 솔루션을 사용하도록 설정한 후에는 **컨테이너** 타일에 컨테이너 호스트와 호스트에서 실행 중인 컨테이너에 대한 요약 정보가 표시됩니다.
 
 ![컨테이너 타일](./media/log-analytics-containers/containers-title.png)
 

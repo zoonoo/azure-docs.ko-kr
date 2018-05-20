@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지원하고 비동기 작업을 제공하기 때문에 SQL API Java SDK와는 다릅니다. 기존 [SQL API Java SDK](sql-api-sdk-java.md)는 비동기 작업을 지원하지 않습니다. 
 
@@ -55,13 +55,23 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지�
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* 쿼리에서 백 압력 지원이 추가되었습니다.
+* 쿼리에서 파티션 키 범위 ID에 대한 지원이 추가되었습니다.
+* 요청 헤더에서 더 큰 연속 토큰을 허용하도록 수정합니다(bugfix github #24).
+* 주 스레드가 완료된 후 JVM이 종료하도록 4.1.22.Final로 Netty 종속성이 업그레이드되었습니다.
+* 마스터 리소스를 읽을 때 세션 토큰을 전달하지 못하도록 수정합니다.
+* 더 많은 예제가 추가되었습니다.
+* 더 많은 벤치마킹 시나리오가 추가되었습니다.
+* 적절한 java 문서 생성을 위한 Java 헤더 파일을 수정했습니다.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * 게이트웨이 모드에서 [Netty 라이브러리](http://netty.io/)를 사용하여 비차단 IO에 대한 종단 간 지원을 제공하는 GA SDK입니다. 
 
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
 
-새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
+새로운 기능 및 최적화는 현재 SDK에만 추가됩니다. 따라서 가능한 빨리 항상 최신 SDK 버전으로 업그레이드하는 것이 좋습니다.
 
 사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 
@@ -69,6 +79,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |2018년 4월 20일|--- |
 | [1.0.0](#1.0.0) |2018년 2월 27일|--- |
 
 ## <a name="faq"></a>FAQ

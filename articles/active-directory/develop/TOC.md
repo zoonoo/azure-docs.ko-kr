@@ -41,7 +41,7 @@
 ### [OAuth 2.0 인증 코드 부여](active-directory-protocols-oauth-code.md)
 ### [OAuth 2.0 암시적 허용](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [역할 클레임 구성](active-directory-enterprise-app-role-management.md)
+### [역할 클레임 구성](../active-directory-enterprise-app-role-management.md)
 ### [차트 사용자 지정](active-directory-saml-claims-customization.md)
 ### [SAML 기반 SSO 디버그](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML 프로토콜](active-directory-single-sign-on-protocol-reference.md)

@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 검사점 및 재생 - Azure"
-description: "Azure Functions의 지속성 함수 확장에서 검사점 설정 및 회신이 작동하는 방법을 알아봅니다."
+title: 지속성 함수의 검사점 및 재생 - Azure
+description: Azure Functions의 지속성 함수 확장에서 검사점 설정 및 회신이 작동하는 방법을 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -29,6 +29,8 @@ ms.lasthandoff: 12/15/2017
 ## <a name="orchestration-history"></a>오케스트레이션 기록
 
 다음 오케스트레이터 함수가 있다고 가정합니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +48,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-각각의 `await` 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 테이블 저장소에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+각각의 `await`(C#) 또는 `yield`(JavaScript) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 테이블 저장소에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
 
 ## <a name="history-table"></a>기록 테이블
 

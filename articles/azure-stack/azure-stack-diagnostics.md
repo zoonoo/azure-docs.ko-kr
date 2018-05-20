@@ -1,25 +1,23 @@
 ---
-title: "Azure Stack의 진단"
-description: "Azure 스택에서 진단 로그 파일을 수집 하는 방법"
+title: Azure Stack의 진단
+description: Azure 스택에서 진단 로그 파일을 수집 하는 방법
 services: azure-stack
 author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 04/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure 스택 진단 도구
 
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
- 
 Azure 스택은 큰 컬렉션 함께 작동 하 고 서로 상호 작용 하는 구성 요소입니다. 이러한 모든 구성이 요소가 자신의 고유한 로그가 생성 됩니다. 진단 문제 여러 Azure 스택 구성 요소 상호 작용에서 발생 하는 오류에 대 한 특히 까다로운 작업 크기 수 있습니다. 
 
 로그 수집 메커니즘은 쉽고 효율적으로 우리의 진단 도구 도움이 됩니다. 다음 다이어그램에 표시 된 Azure 스택 작업에서 수집 도구를 어떻게 로그:
@@ -79,7 +77,36 @@ PowerShell cmdlet **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>통합 시스템 Azure 스택에 AzureStackLog Get을 실행 하려면
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>통합 시스템 버전 1804 이상 Azure 스택에 AzureStackLog Get을 실행 하려면
+
+통합된 된 시스템에서 로그 수집 도구를 실행 하려면 액세스 권한을 가진 끝점 (PEP)가 필요 합니다. 다음은 예제 스크립트는 PEP 통합된 된 시스템에 로그를 수집 하려면 사용 하 여 실행할 수 있습니다.
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- 매개 변수 **OutputSharePath** 및 **OutputShareCredential** 외부 공유 폴더에 로그를 업로드 하는 데 사용 됩니다.
+- 이전 예에서 같이 **FromDate** 및 **ToDate** 특정 기간에 대 한 로그를 수집 하도록 매개 변수를 사용할 수 있습니다. 이 제공 될 수 있습니다 시나리오 같은 통합된 된 시스템에 업데이트 패키지를 적용 한 후 로그를 수집 하는 데 편리 합니다.
+
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>통합 시스템 1803 이전 버전 Azure 스택에 AzureStackLog Get을 실행 하려면
 
 통합된 된 시스템에서 로그 수집 도구를 실행 하려면 액세스 권한을 가진 끝점 (PEP)가 필요 합니다. 다음은 예제 스크립트는 PEP 통합된 된 시스템에 로그를 수집 하려면 사용 하 여 실행할 수 있습니다.
 
@@ -108,6 +135,7 @@ if($s)
 - 매개 변수 **OutputSharePath** 및 **OutputShareCredential** 선택 사항이 며 외부 공유 폴더에 로그를 업로드 하는 경우에 사용 됩니다. 이러한 매개 변수를 사용 하 여 *또한* 를 **OutputPath**합니다. 경우 **OutputPath** 를 지정 하지 않으면 로그 컬렉션 도구 PEP VM의 시스템 드라이브를 사용 하 여 저장소에 대 한 합니다. 드라이브 공간이 제한 되기 때문에 실패 하는 스크립트를 않을 수 있습니다.
 - 이전 예에서 같이 **FromDate** 및 **ToDate** 특정 기간에 대 한 로그를 수집 하도록 매개 변수를 사용할 수 있습니다. 이 제공 될 수 있습니다 시나리오 같은 통합된 된 시스템에 업데이트 패키지를 적용 한 후 로그를 수집 하는 데 편리 합니다.
 
+
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK와 통합 된 시스템에 대 한 매개 변수 고려 사항
 
 - 경우는 **FromDate** 및 **ToDate** 매개 변수가 지정 되지 않은 경우, 기본적으로 지난 4 시간 동안 로그가 수집 됩니다.
@@ -117,35 +145,44 @@ if($s)
 
    |   |   |   |
    | - | - | - |
-   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
-   | ACS                     | ACSFabric              | ACSFrontEnd        |
-   | ACSTableMaster          | ACSTableServer         | ACSWac             |
-   | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | CPI                |
-   | CRP                     | DeploymentMachine      | DHCP               |
-   | 도메인                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | FRP                |
-   | 게이트웨이                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
-   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
-   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | Storage                | StorageController  |
-   | URP                     | UsageBridge            | VirtualMachines    |  
-   | 했습니다.                     | WASPUBLIC              | WDS                |
-
+   | ACS                    | DeploymentMachine                | NC                         |
+   | ACSBlob                | DiskRP                           | 네트워크                    |
+   | ACSFabric              | 도메인                           | NonPrivilegedAppGateway    |
+   | ACSFrontEnd            | ECE                              | NRP                        |
+   | ACSMetrics             | ExternalDNS                      | OEM                        |
+   | ACSMigrationService    | Fabric                           | PXE                        |
+   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
+   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
+   | ACSTableMaster         | FRP                              | SLB                        |   
+   | ACSTableServer         | 갤러리                          | SlbVips                    |
+   | ACSWac                 | 게이트웨이                          | SQL                        |   
+   | ADFS                   | HealthMonitoring                 | SRP                        |
+   | ASAppGateway           | HRP                              | Storage                    |   
+   | NCAzureBridge          | IBC                              | StorageAccounts            |    
+   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
+   | AzureStackBitlocker    | Idn                             | 테넌트                     |
+   | BareMetal              | InfraServiceController           | TraceCollector             |
+   | BRP                    | 인프라                   | URP                        |
+   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
+   | 클라우드                  | KeyVaultControlPlane             | VirtualMachines            |
+   | 프로비전                | KeyVaultDataPlane                | 했습니다.                        |
+   | 컴퓨팅                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
+   | CRP                    | KeyVaultNamingService            |                            |
+   | DatacenterIntegration  | MonitoringAgent                  |                            |
+   |                        |                                  |                            |
 
 ### <a name="bkmk_gui"></a>그래픽 사용자 인터페이스를 사용 하 여 로그를 수집 합니다.
-Azure 스택 로그를 검색할 Get AzureStackLog cmdlet에 대 한 필수 매개 변수를 제공 하는 대신 주 Azure 스택 도구 GitHub 도구에서 리포지토리 http://aka.ms/AzureStackTools에 사용할 수 있는 오픈 소스 Azure 스택 도구를 활용할 수 있습니다.
+기본 Azure 스택 도구 GitHub 도구에서 리포지토리에 사용할 수 있는 오픈 소스 Azure 스택 도구를 활용할 수 Azure 스택 로그를 검색할 Get AzureStackLog cmdlet에 대 한 필수 매개 변수를 제공 하는 대신 http://aka.ms/AzureStackTools합니다.
 
-**ERCS_AzureStackLogs.ps1** PowerShell 스크립트 GitHub 도구 저장소에 저장 되 고 정기적으로 업데이트 됩니다. 사용 가능한 최신 버전을 보장 하려면 http://aka.ms/ERCS에서 직접 다운로드 해야 합니다. 관리자 PowerShell 세션에서 시작 스크립트가 권한 있는 끝점에 연결 하 고 제공 된 매개 변수를 사용 하 여 Get AzureStackLog를 실행 합니다. 매개 변수를 제공 하는 스크립트 기본적으로 그래픽 사용자 인터페이스를 통해 매개 변수에 대 한 메시지를 표시 합니다.
+**ERCS_AzureStackLogs.ps1** PowerShell 스크립트 GitHub 도구 저장소에 저장 되 고 정기적으로 업데이트 됩니다. 하는지를 확인 하기 위해 사용 가능한 최신 버전에서 직접 다운로드 해야 http://aka.ms/ERCS합니다. 관리자 PowerShell 세션에서 시작 스크립트가 권한 있는 끝점에 연결 하 고 제공 된 매개 변수를 사용 하 여 Get AzureStackLog를 실행 합니다. 매개 변수를 제공 하는 스크립트 기본적으로 그래픽 사용자 인터페이스를 통해 매개 변수에 대 한 메시지를 표시 합니다.
 
 ERCS_AzureStackLogs.ps1 PowerShell 스크립트에 대 한 자세한 내용은 볼 수 있습니다 [짧은 동영상](https://www.youtube.com/watch?v=Utt7pLsXEBc) 스크립트의 보거나 [추가 정보 파일](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure 스택 도구 GitHub 리포지토리에 있는 합니다. 
 
 ### <a name="additional-considerations"></a>추가 고려 사항
 
 * 이 명령은 다소 시간이 걸릴 수 로그를 수집 하는 어떤 역할에 따라 실행 합니다. 영향을 주는 요소는 로그 수집 및 Azure 스택 환경에 있는 노드의 숫자에 대해 지정 된 기간도 포함 됩니다.
-* 로그 수집 완료 된 후 확인에서 만든 새 폴더는 **OutputPath** 명령에 지정 된 매개 변수입니다.
+* 컬렉션 실행 로그를 검사에서 만든 새 폴더는 **OutputSharePath** 명령에 지정 된 매개 변수입니다.
 * 각 역할에는 개별 zip 파일 내의 해당 로그에 있습니다. 수집 된 로그의 크기에 따라 역할에는 해당 로그를 여러 개의 zip 파일에 분할 수 있을 수 있습니다. 이러한 역할에 대 한 단일 폴더에 압축을 푼 모든 로그 파일을 원하는 경우 (예: 7zip) 대량에서 압축을 풀 수 있는 도구를 사용 합니다. 역할의 경우 압축 된 파일을 모두 선택 하 고 선택 **여기 추출**합니다. 이 압축을 풀고 단일 병합 된 폴더에 해당 역할에 대 한 모든 로그 파일입니다.
 * 이라는 파일 **Get AzureStackLog_Output.log** 압축 된 로그 파일이 포함 된 폴더에 만들어집니다. 이 파일은 로그 수집 하는 동안 문제 해결에 사용할 수 있는 명령 출력의 로그입니다.
 * 특정 오류를 조사 하려면 둘 이상의 구성 요소에서 로그를 필요할 수 있습니다.

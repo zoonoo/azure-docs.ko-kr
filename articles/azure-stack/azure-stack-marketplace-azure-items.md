@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: MT
+ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -220,5 +220,6 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![NooBaa 하이브리드 AWS S3 호환-Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 하이브리드 AWS S3 compatibe-Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3 호환 저장소 서비스 공개에 걸쳐 있고 온-프레미스 리소스 용량입니다. | NooBaa |
 | ![PT 응용 프로그램 방화벽](media/azure-stack-marketplace-azure-items/pt.png) | [PT 응용 프로그램 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT 응용 프로그램 방화벽 알려진 & 알 수 없는 보안 문제를 감지 하 고 웹 응용 프로그램에 대 한 공격을 방지 합니다. <b>두 PT 마켓플레이스 항목을 다운로드 합니다.</b> | 양수 기술 |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure 스택 인프라의 전체 수명 주기를 자동화할 수 있습니다. <b>Puppet 마켓플레이스 항목을 모두 다운로드 합니다.</b> | Puppet |
+| ![퀘스트 신속한 복구](media/azure-stack-marketplace-azure-items/quest.png) | [퀘스트 신속한 복구 코어](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 데이터 보호 고급 신속한 복구에는 백업, 복제 및 복구 하나의 사용 하기 쉬운 소프트웨어 솔루션에 통합 합니다. | 퀘스트 소프트웨어 |
 | ![SUSE Manager 3.0 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 프록시 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 클래스의 가장 오픈 소스 인프라 관리 합니다. | SUSE |
 | ![ZeroDown 소프트웨어 도구](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown 소프트웨어 도구 ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown 소프트웨어 도구 v7.1-마이그레이션할 + HA 합니다. | ZeroDown 소프트웨어 |

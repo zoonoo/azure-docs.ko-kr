@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -183,9 +183,6 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 또는 동적 자산을 제공하는 DSA를 사용하여 최적화된 끝점과 일반 웹 배달 등의 고정 최적화 형식을 사용하여 최적화된 다른 끝점 등 두 개의 CDN 끝점을 사용하여 캐싱 가능한 자산을 제공할 수 있습니다. 웹 페이지 URL을 수정하여 사용하려는 CDN 끝점의 자산에 직접 연결합니다. 
 
 예: `mydynamic.azureedge.net/index.html`은 동적 페이지이고 DSA 끝점에서 로드됩니다.  html 페이지는 `mystatic.azureedge.net/banner.jpg` 및 `mystatic.azureedge.net/scripts.js` 등의 정적 CDN 끝점에서 로드한 JavaScript 라이브러리 또는 이미지와 같은 여러 정적 자산을 참조합니다. 
-
-ASP.NET 웹 응용 프로그램에서 컨트롤러를 사용하여 특정 CDN URL을 통해 콘텐츠를 제공하는 방법에 대한 예제는 [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller)을 참조하세요.
-
 
 
 

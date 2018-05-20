@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동
 이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장된 데이터에서 Azure SQL Database로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
@@ -33,8 +33,8 @@ Machine Learning을 위해 온-프레미스 SQL Server로 데이터를 이동하
 
 | <b>원본</b> | <b>대상: Azure SQL Database</b> |
 | --- | --- |
-| <b>플랫 파일(CSV 또는 TSV 형식)</b> |<a href="#bulk-insert-sql-query">대량 삽입 SQL 쿼리 |
-| <b>온-프레미스 SQL Server</b> |1. <a href="#export-flat-file">플랫 파일로 내보내기<br> 2. <a href="#insert-tables-bcp">SQL Database 마이그레이션 마법사<br> 3. <a href="#db-migration">데이터베이스 백업 및 복원<br> 4. <a href="#adf">Azure 데이터 팩터리 |
+| <b>플랫 파일(CSV 또는 TSV 형식)</b> |[대량 삽입 SQL 쿼리](#bulk-insert-sql-query) |
+| <b>온-프레미스 SQL Server</b> |1.[플랫 파일로 내보내기](#export-flat-file)<br> 2. [SQL Database 마이그레이션 마법사](#insert-tables-bcp)<br> 3. [데이터베이스 백업 및 복원](#db-migration)<br> 4. [Azure 데이터 팩터리](#adf) |
 
 ## <a name="prereqs"></a>필수 조건
 여기에 설명된 절차를 위해서는 다음이 필요합니다.

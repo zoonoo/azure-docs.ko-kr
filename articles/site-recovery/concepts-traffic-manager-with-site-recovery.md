@@ -1,19 +1,19 @@
 ---
-title: "Azure Site Recovery를 사용한 Azure Traffic Manager | Microsoft Docs"
-description: "재해 복구 및 마이그레이션에 Azure Site Recovery를 사용한 Azure Traffic Manager를 사용하는 방법 설명"
+title: Azure Site Recovery를 사용한 Azure Traffic Manager | Microsoft Docs
+description: 재해 복구 및 마이그레이션에 Azure Site Recovery를 사용한 Azure Traffic Manager를 사용하는 방법 설명
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d5b8887d4013f688cd20a0b2e4f6c0dbd5bdc9b6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure Traffic Manager
 
@@ -31,14 +31,14 @@ Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요�
 
 설정 방법은 다음과 같습니다.
 - **A사**에서 [Traffic Manager 프로필](../traffic-manager/traffic-manager-create-profile.md)을 만듭니다.
-- **A사**에서 **우선 순위** 라우팅 메서드를 활용하여 온-프레미스에 사용할 **기본** 엔드포인트와 Azure로 **장애 조치(failover)**에 사용할 엔드포인트를 만듭니다. **기본** 엔드포인트는 우선 순위 1에 할당되고 **장애 조치(failover)** 엔드포인트는 우선 순위 2에 할당됩니다.
+- **A사**에서 **우선 순위** 라우팅 메서드를 활용하여 온-프레미스에 사용할 **기본** 엔드포인트와 Azure로 **장애 조치(failover)** 에 사용할 엔드포인트를 만듭니다. **기본** 엔드포인트는 우선 순위 1에 할당되고 **장애 조치(failover)** 엔드포인트는 우선 순위 2에 할당됩니다.
 - **기본** 엔드포인트는 Azure 외부에 호스트되므로 엔드포인트가 [외부](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) 엔드포인트로 생성됩니다.
 - Azure Site Recovery를 사용하면 장애 조치(failover) 전에는 Azure 사이트에서 가상 컴퓨터 또는 응용 프로그램이 실행되지 않습니다. 따라서 **장애 조치(failover)** 엔드포인트도 **외부** 엔드포인트로 생성됩니다.
 - 기본적으로 사용자 트래픽은 엔드포인트에 가장 높은 우선 순위가 연결되므로 온-프레미스 응용 프로그램으로 전송됩니다. **기본** 엔드포인트가 정상이면 Azure로 트래픽이 전송되지 않습니다.
 
 ![장애 조치(Failover) 전 온-프레미스-Azure](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-before.png)
 
-재해 발생 시 A사는 Azure로 [장애 조치(failover)](site-recovery-failover.md)를 트리거하여 Azure에서 응용 프로그램을 복구할 수 있습니다. Azure Traffic Manager는 **기본** 엔드포인트가 정상이 아닌 것을 감지하면 자동으로 DNS 응답에 **장애 조치(failover)**를 사용하며, 사용자는 Azure에 복구된 응용 프로그램에 연결하게 됩니다.
+재해 발생 시 A사는 Azure로 [장애 조치(failover)](site-recovery-failover.md)를 트리거하여 Azure에서 응용 프로그램을 복구할 수 있습니다. Azure Traffic Manager는 **기본** 엔드포인트가 정상이 아닌 것을 감지하면 자동으로 DNS 응답에 **장애 조치(failover)** 를 사용하며, 사용자는 Azure에 복구된 응용 프로그램에 연결하게 됩니다.
 
 ![장애 조치(Failover) 후 온-프레미스-Azure](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-after.png)
 
@@ -66,14 +66,14 @@ Azure Traffic Manager의 [가중치](../traffic-manager/traffic-manager-configur
 
 설정 방법은 다음과 같습니다.
 - **C사**에서 [Traffic Manager 프로필](../traffic-manager/traffic-manager-create-profile.md)을 만듭니다.
-- **C사**에서 **우선 순위** 라우팅 메서드를 활용하여 원본 지역(Azure 동아시아)에 사용할 **기본** 엔드포인트와 복구 지역(동남 아시아)으로 **장애 조치(failover)**에 사용할 엔드포인트를 만듭니다. **기본** 엔드포인트는 우선 순위 1에 할당되고 **장애 조치(failover)** 엔드포인트는 우선 순위 2에 할당됩니다.
+- **C사**에서 **우선 순위** 라우팅 메서드를 활용하여 원본 지역(Azure 동아시아)에 사용할 **기본** 엔드포인트와 복구 지역(동남 아시아)으로 **장애 조치(failover)** 에 사용할 엔드포인트를 만듭니다. **기본** 엔드포인트는 우선 순위 1에 할당되고 **장애 조치(failover)** 엔드포인트는 우선 순위 2에 할당됩니다.
 - **기본** 엔드포인트가 Azure에 호스트되므로 엔드포인트는 [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) 엔드포인트일 수 있습니다.
 - Azure Site Recovery를 사용하면 장애 조치(failover) 전에는 복구 Azure 사이트에서 가상 컴퓨터 또는 응용 프로그램이 실행되지 않습니다. 따라서 **장애 조치(failover)** 엔드포인트가 [외부](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) 엔드포인트로 생성될 수 있습니다.
 - 기본적으로 사용자 트래픽은 엔드포인트에 가장 높은 우선 순위가 연결되므로 원본 지역(동아시아) 응용 프로그램으로 전송됩니다. **기본** 엔드포인트가 정상이면 복구 지역으로 트래픽이 전송되지 않습니다.
 
 ![장애 조치(failover) 전 Azure-Azure](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
 
-재해 발생 시 **C사**는 [장애 조치(failover)](azure-to-azure-tutorial-failover-failback.md)를 트리거하여 복구 Azure 지역에 응용 프로그램을 복구할 수 있습니다. Azure Traffic Manager는 기본 엔드포인트가 정상이 아닌 것을 감지하면 자동으로 DNS 응답에 **장애 조치(failover)**를 사용하며, 사용자는 복구 Azure 지역(동남 아시아)에 복구된 응용 프로그램에 연결하게 됩니다.
+재해 발생 시 **C사**는 [장애 조치(failover)](azure-to-azure-tutorial-failover-failback.md)를 트리거하여 복구 Azure 지역에 응용 프로그램을 복구할 수 있습니다. Azure Traffic Manager는 기본 엔드포인트가 정상이 아닌 것을 감지하면 자동으로 DNS 응답에 **장애 조치(failover)** 를 사용하며, 사용자는 복구 Azure 지역(동남 아시아)에 복구된 응용 프로그램에 연결하게 됩니다.
 
 ![장애 조치(failover) 후 Azure-Azure](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
 

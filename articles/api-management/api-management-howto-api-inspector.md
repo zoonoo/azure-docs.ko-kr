@@ -3,7 +3,7 @@ title: Azure API Management에서 요청 추적을 사용하여 API 디버그 | 
 description: 이 자습서의 단계에 따라 Azure API Management의 요청 처리 단계를 검사하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 4db89b52a3fa9585572322d546d87513da41c3f0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 01a9120af2fb240eed1463613f7a6f946a9c16ed
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>요청 추적을 사용하여 API 디버그
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/19/2018
 3. **GetSpeakers** 작업을 선택합니다.
 4. **테스트** 탭으로 전환합니다.
 5. 값이 **true**로 설정된 **Ocp-Apim-Trace**라는 HTTP 헤더를 포함해야 합니다.
-6. **"보내기"**를 클릭하여 API 호출을 수행합니다. 
+6. **"보내기"** 를 클릭하여 API 호출을 수행합니다. 
 7. 호출이 완료될 때까지 기다립니다. 
 8. **API 콘솔**의 **추적** 탭으로 이동합니다. **인바운드**, **백 엔드**, **아웃바운드** 링크 중 하나를 클릭하여 자세한 추적 정보로 이동할 수 있습니다.
 

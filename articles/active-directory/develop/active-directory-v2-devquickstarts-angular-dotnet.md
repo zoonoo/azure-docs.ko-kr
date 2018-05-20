@@ -1,25 +1,27 @@
 ---
-title: "Azure AD v2.0 .NET AngularJS 단일 페이지 앱 시작하기 | Microsoft Docs"
-description: "개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하는 Angular JS 단일 페이지 앱을 빌드하는 방법입니다."
+title: Azure AD v2.0 .NET AngularJS 단일 페이지 앱 시작하기 | Microsoft Docs
+description: 개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하는 Angular JS 단일 페이지 앱을 빌드하는 방법입니다.
 services: active-directory
-documentationcenter: 
-author: jmprieur
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d1ddeb957096dc506bc76e1aac600eaa5bc2fbc
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>AngularJS 단일 페이지 앱에 로그인 추가 - .NET
 이 문서에서는 Azure Active Directory v2.0 끝점을 사용하여 Microsoft 지원 계정을 사용한 로그인을 AngularJS 앱에 추가합니다.  v2.0 끝점을 사용하면 앱 내에서 단일 통합을 수행할 수 있고 개인 및 회사/학교 계정을 사용하여 사용자를 인증할 수 있습니다.
@@ -224,7 +226,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-축하합니다.  Azure AD 통합 단일 페이지 앱이 완성되었습니다.  수고 많으셨습니다.  이제 앱에서 사용자를 인증하고, OpenID Connect를 사용하여 백 엔드 REST API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있습니다.  기본적으로, 개인 Microsoft 계정이나 Azure AD의 회사/학교 계정이 있는 모든 사용자를 지원합니다.  앱을 실행하고 브라우저에서 `https://localhost:44326/`으로 이동합니다.  개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다.  사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다.  다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을 알아봅니다(무료)](active-directory-howto-tenant.md) .
+축하합니다!  Azure AD 통합 단일 페이지 앱이 완성되었습니다.  수고 많으셨습니다.  이제 앱에서 사용자를 인증하고, OpenID Connect를 사용하여 백 엔드 REST API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있습니다.  기본적으로, 개인 Microsoft 계정이나 Azure AD의 회사/학교 계정이 있는 모든 사용자를 지원합니다.  앱을 실행하고 브라우저에서 `https://localhost:44326/`으로 이동합니다.  개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다.  사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다.  다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을 알아봅니다(무료)](active-directory-howto-tenant.md) .
 
 v2.0 끝점에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요.  추가 리소스는 다음을 확인해보세요.
 

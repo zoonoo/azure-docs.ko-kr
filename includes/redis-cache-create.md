@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 55bc2bd4e065c301f11a5fc4d3b58aa443b83e2d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e035b49d9e386287baf67bba756f7b58a764acc5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 캐시를 만들려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 만들기** > **데이터베이스** > **Redis Cache**를 클릭합니다.
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2018
 | ------------ |  ------- | -------------------------------------------------- |
 | **DNS 이름** | 전역적으로 고유한 이름 | 캐시 이름은 1~63자의 문자열로, 숫자, 영문자 및 `-` 문자만 포함할 수 있습니다. 캐시 이름은 `-` 문자로 시작하거나 끝날 수 없고 연속되는 `-` 문자는 유효하지 않습니다.  | 
 | **구독** | 사용자의 구독 | 이 새 Azure Redis Cache가 만들어지는 구독입니다. | 
-| **리소스 그룹** |  *TestResourceGroup* | 캐시를 만들 새 리소스 그룹의 이름입니다. 앱의 모든 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 앱과 연결된 모든 리소스가 삭제됩니다. | 
+| **리소스 그룹** |  *TestResources* | 캐시를 만들 새 리소스 그룹의 이름입니다. 앱의 모든 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 앱과 연결된 모든 리소스가 삭제됩니다. | 
 | **위치**: | 미국 동부 | 캐시를 사용할 다른 서비스와 가까이 있는 [영역](https://azure.microsoft.com/regions/)을 선택합니다. |
 | **[가격 책정 계층](https://azure.microsoft.com/pricing/details/cache/)** |  기본 C0(250MB 캐시) |  가격 책정 계층은 캐시에 사용 가능한 크기, 성능 및 기능을 결정합니다. 자세한 내용은 [Azure Redis Cache 개요](../articles/redis-cache/cache-overview.md)를 참조하세요. |
 | **대시보드에 고정** |  선택 | [고정]을 클릭하여 새 캐시를 대시보드에 고정하면 새 캐시를 쉽게 찾을 수 있습니다. |

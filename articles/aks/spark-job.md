@@ -1,23 +1,23 @@
 ---
-title: AKS(Azure Container Service)로 Apache Spark 작업 실행
-description: AKS(Azure Container Service)를 사용하여 Apache Spark 작업 실행
+title: AKS(Azure Kubernetes Service)로 Apache Spark 작업 실행
+description: AKS(Azure Kubernetes Service)를 사용하여 Apache Spark 작업 실행
 services: container-service
 author: lenadroid
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 627cb80a055fb4b66fcc428a1de87d754af6991e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cb23c21fd22a35a3e8a5920a94aa5a89fe966cfa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
-[Apache Spark][apache-spark]는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-latest-release]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Container Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Container Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
+[Apache Spark][apache-spark]는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-latest-release]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-Spark는 대규모 데이터 처리에 사용되며 Kubernetes 노드의 크기가 Spark 리소스 요구 사항을 충족해야 합니다. AKS(Azure Container Service) 노드의 최소 권장 크기는 `Standard_D3_v2`입니다.
+Spark는 대규모 데이터 처리에 사용되며 Kubernetes 노드의 크기가 Spark 리소스 요구 사항을 충족해야 합니다. AKS(Azure Kubernetes Service) 노드의 최소 권장 크기는 `Standard_D3_v2`입니다.
 
 이 최소 권장 사항을 충족하는 AKS 클러스터가 필요한 경우 다음 명령을 실행합니다.
 

@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리 
 관리 그룹은 여러 구독에서 액세스, 정책 및 규정 준수를 관리하는 데 도움이 되는 컨테이너입니다. 이러한 컨테이너를 변경하고 삭제하고 관리하여 [Azure Policy](../azure-policy/azure-policy-introduction.md) 및 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)에서 사용할 수 있는 계층 구조를 유지할 수 있습니다. 관리 그룹에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](management-groups-overview.md)을 참조하세요.
@@ -103,9 +103,9 @@ C:\> az account management-group delete --group-name Contoso
 ### <a name="view-in-the-portal"></a>포털에서 보기
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **관리 그룹**을 선택합니다. 
-3. 사용자에게 액세스 권한이 있는 모든 그룹이 표시되는 관리 그룹 계층 구조 페이지가 로드됩니다. 
+3. 관리 그룹 계층 페이지는 액세스 권한이 있는 모든 관리 그룹 및 구독을 탐색할 경우 로드됩니다. 그룹 이름을 선택하면 계층에서 한 수준 아래로 이동합니다. 탐색은 파일 탐색기처럼 작동합니다. 
     ![기본](media/management-groups/main.png)
-4. 세부 정보를 보려면 개별 관리 그룹을 선택합니다.  
+4. 관리 그룹의 세부 정보를 보려면 관리 그룹의 제목 옆에 있는 **(세부 정보)** 링크를 선택합니다. 이 링크를 사용할 수 없으면 해당 관리 그룹을 볼 수 있는 권한이 없습니다.  
 
 ### <a name="view-in-powershell"></a>PowerShell에서 보기
 모든 그룹을 검색하려면 Get-AzureRmManagementGroup 명령을 사용합니다.  

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원
 
@@ -29,7 +29,7 @@ HTTP/2의 이점은 다음과 같습니다.
 
 *   **멀티플렉싱 및 동시성**
 
-    HTTP 1.1을 사용하여 여러 개의 리소스 요청을 여러 번 수행하려면 여러 개의 TCP 연결이 필요하며 각 연결에는 이와 관련된 성능 오버헤드가 있습니다. HTTP/2를 통해 단일 TCP 연결에서 여러 리소스가 요청되도록 할 수 있습니다.
+    HTTP 1.1을 사용하여 여러 리소스 요청을 수행하려면 여러 개의 TCP 연결이 필요하며 각 연결에는 이와 관련된 성능 오버헤드가 있습니다. HTTP/2를 통해 단일 TCP 연결에서 여러 리소스가 요청되도록 할 수 있습니다.
 
 *   **헤더 압축**
 
@@ -54,7 +54,7 @@ HTTP/2의 이점은 다음과 같습니다.
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원 활성화
 
-현재 **Akamai의 Azure CDN** 및 **Verizon의 Azure CDN** 프로필에 대해 HTTP/2 지원이 활성화되어 있습니다. 고객의 별도의 작업이 필요하지 않습니다.
+현재, HTTP/2 지원은 모든 Azure CDN 프로필에 대해 활성화되어 있습니다. 고객의 별도의 작업이 필요하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

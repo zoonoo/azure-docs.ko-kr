@@ -1,78 +1,75 @@
 ---
-title: "iOS 앱에 대한 Azure Notification Hubs 시작 | Microsoft Docs"
-description: "이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다."
+title: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시 | Microsoft Docs
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
-keywords: "푸시 알림, 푸시알림,ios 푸시 알림"
-author: jwhitedev
+keywords: 푸시 알림, 푸시알림,ios 푸시 알림
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
-ms.topic: hero-article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 0e9e7ab196eef790b74074be319cd8122cf3ff5c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 083b0c956055ab5b54a4af2eec57f096613cbe65
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-azure-notification-hubs-for-ios-apps"></a>iOS 앱에 대한 Azure Notification Hubs 시작
+# <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>개요
-> [!NOTE]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
-> 
-> 
+이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 알림을 푸시합니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
+이 자습서에서 수행하는 단계는 다음과 같습니다.
 
-완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치에 푸시 알림을 브로드캐스트할 수 있습니다.
-
-## <a name="before-you-begin"></a>시작하기 전에
-[!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+> [!div class="checklist"]
+> * 인증서 서명 요청 파일 생성
+> * 푸시 알림에 대해 앱 요청
+> * 앱용 프로비저닝 프로필 만들기
+> * iOS 푸시 알림에 대해 알림 허브 구성
+> * 알림 허브에 iOS 앱 연결
+> * 테스트 푸시 알림 보내기
+> * 앱에 알림을 수신되는지 확인
 
 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)에서 찾을 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 사용하려면 다음이 필요합니다.
 
-* [Windows Azure Messaging 프레임워크]
-* [Xcode]
-* iOS 10 이상 지원 장치
-* [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [평가판 계정](https://azure.microsoft.com/free)을 만들 수 있습니다. 
+- [Windows Azure Messaging 프레임워크]
+- [Xcode]
+- iOS 10 이상 지원 장치
+- [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
   
   > [!NOTE]
   > 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
-  > 
-  > 
-
+  
 이 자습서를 완료해야 다른 모든 iOS 앱용 Notification Hubs 자습서를 진행할 수 있습니다.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>iOS 푸시 알림에 대해 알림 허브 구성
-이 섹션에서는 새 알림 허브를 만들고, APNS와 함께 이전에 만든 **.p12** 푸시 인증서를 사용하여 인증을 구성하는 단계를 안내합니다. 이미 만든 알림 허브를 사용하려는 경우 5단계로 건너뛸 수 있습니다.
+이 섹션에서는 알림 허브를 만들고, APNS와 함께 이전에 만든 **.p12** 푸시 인증서를 사용하여 인증을 구성합니다. 이미 만든 알림 허브를 사용하려는 경우 5단계로 건너뛸 수 있습니다.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="6">
+### <a name="configure-your-notification-hub-with-apns-information"></a>APNS 정보로 알림 허브 구성
 
-<li>
+1. **Notification Services** 아래에서 **Apple(APNS)** 을 선택합니다. 
+2. **인증서**를 선택합니다.
+3. **파일 아이콘**을 선택합니다.
+4. 이전에 내보낸 **.p12** 파일을 선택합니다.
+5. 올바른 **암호**를 지정합니다.
+6. **샌드박스** 모드를 선택합니다. 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 **프로덕션**을 사용합니다.
 
-<p><b>Notification Services</b> 아래에서 <b>Apple(APNS)</b>을 선택합니다. <b>인증서</b>를 선택하고, 파일 아이콘을 클릭한 다음, 이전에 내보낸 <b>.p12</b> 파일을 선택합니다. 또한 올바른 암호를 지정합니다.</p>
-
-<p>개발용이므로 <b>샌드박스</b> 모드를 선택합니다. 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 <b>프로덕션</b>을 사용합니다.</p>
-</li>
-</ol>
-&emsp;&emsp;&emsp;&emsp;![Azure Portal에서 APNS 구성][6]
-
-&emsp;&emsp;&emsp;&emsp;![Azure Portal에서 APNS 인증 구성][7]
+    ![Azure Portal에서 APNS 인증 구성][7]
 
 이제 APNS를 사용하여 알림 허브를 구성했으며, 앱을 등록하고 푸시 알림을 보내기 위한 연결 문자열이 있습니다.
 
@@ -167,31 +164,31 @@ ms.lasthandoff: 01/02/2018
 11. 오류가 없는지 확인하려면 장치에서 앱을 빌드하고 실행합니다.
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
-[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림을 장치에 보냅니다.
+[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 장치로 전송됩니다.
 
 ![Azure Portal - 보내기 테스트][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 
-## <a name="checking-if-your-app-can-receive-push-notifications"></a>앱이 푸시 알림을 받을 수 있는지 확인합니다.
+## <a name="verify-that-your-app-receives-push-notifications"></a>앱에 푸시 알림이 수신되는지 확인
 iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포해야 합니다. iOS 시뮬레이터를 사용하여 Apple 푸시 알림을 보낼 수 없습니다.
 
 1. 앱을 실행하고 등록이 성공했는지 확인한 다음 **확인**을 누릅니다.
    
     ![iOS 앱 푸시 알림 등록 테스트][33]
-2. 다음으로, 위에서 설명한 대로 [Azure Portal]에서 테스트 푸시 알림을 보냅니다. 
+2. 다음으로, 이전 섹션에 설명한 대로 [Azure Portal]에서 테스트 푸시 알림을 보냅니다. 
 
 3. 특정 알림 허브에서 보내는 알림을 수신하도록 등록된 모든 장치에 푸시 알림이 전송됩니다.
    
     ![iOS 앱 푸시 알림 수신 테스트][35]
 
 ## <a name="next-steps"></a>다음 단계
-이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 학습에서 권장되는 다음 단계는 [.NET 백 엔드를 통한 Azure Notification Hubs의 iOS 사용자 알림] 자습서를 시작하는 것입니다. 이 가이드는 태그를 사용하여 푸시 알림을 보내는 백 엔드를 만드는 방법을 안내합니다. 
+이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 특정 iOS 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
-또한 사용자를 관심 그룹별로 분할하려면 [Notification Hubs를 사용하여 뉴스 속보 보내기] 자습서로 이동할 수 있습니다. 
+> [!div class="nextstepaction"]
+>[특정 장치에 알림 푸시](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
-Notification Hubs에 대한 일반적인 정보는 [Notification Hubs 지침]을 참조하세요.
 
 <!-- Images. -->
 
@@ -220,13 +217,13 @@ Notification Hubs에 대한 일반적인 정보는 [Notification Hubs 지침]을
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Notification Hubs 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[.NET 백 엔드를 통한 Azure Notification Hubs의 iOS 사용자 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Notification Hubs를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com

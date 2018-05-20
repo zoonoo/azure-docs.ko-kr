@@ -10,6 +10,7 @@
 ## [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
 ## [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 ## [동기화 중 오류](../active-directory-aadconnect-troubleshoot-sync-errors.md)
+## [중복된 특성 동기화 오류 진단](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 # 문제 해결
 ## [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)

@@ -11,14 +11,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: ca4a248e9da2c0d50aaf320370b1f3050a0ff263
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f3eccfb63b127f3cbb8f9d95ec2fa802861d8c9d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Spark 구조적 스트리밍 개요
 
@@ -132,7 +132,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>검사점 및 미리 쓰기 로그
 
-복원력 및 내결함성을 제공하기 위해 구조적 스트리밍은 *검사점*을 사용하여 노드 오류가 있는 경우에도 중단 없이 스트림 처리를 계속할 수 있도록 합니다. HDInsight에서 Spark는 영구 저장소(Azure Storage 또는 Data Lake Store 중 하나)에 대한 검사점을 만듭니다. 이러한 검사점은 스트리밍 쿼리에 대한 진행 정보를 저장합니다. 또한 구조적 스트리밍은 *WAL(미리 쓰기 로그)*을 사용합니다. WAL은 받았지만 아직 쿼리에서 처리하지 않은 수집된 데이터를 캡처합니다. 오류가 발생하고 WAL에서 처리가 다시 시작되면 원본에서 받은 모든 이벤트가 손실되지 않습니다.
+복원력 및 내결함성을 제공하기 위해 구조적 스트리밍은 *검사점*을 사용하여 노드 오류가 있는 경우에도 중단 없이 스트림 처리를 계속할 수 있도록 합니다. HDInsight에서 Spark는 영구 저장소(Azure Storage 또는 Data Lake Store 중 하나)에 대한 검사점을 만듭니다. 이러한 검사점은 스트리밍 쿼리에 대한 진행 정보를 저장합니다. 또한 구조적 스트리밍은 *WAL(미리 쓰기 로그)* 을 사용합니다. WAL은 받았지만 아직 쿼리에서 처리하지 않은 수집된 데이터를 캡처합니다. 오류가 발생하고 WAL에서 처리가 다시 시작되면 원본에서 받은 모든 이벤트가 손실되지 않습니다.
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark 스트리밍 응용 프로그램 배포
 

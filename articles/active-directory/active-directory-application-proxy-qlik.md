@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>응용 프로그램 프록시 및 Qlik Sense 
 Azure Active Directory 응용 프로그램 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 응용 프로그램 프록시를 쉽게 사용할 수 있도록 합니다.  
@@ -25,13 +25,13 @@ Azure Active Directory 응용 프로그램 프록시 및 Qlik Sense를 함께 �
 이 시나리오의 나머지 부분에서는 다음 작업을 완료했다고 가정합니다.
  
 - [Qlik Sense](https://community.qlik.com/docs/DOC-19822) 구성 
-- [응용 프로그램 프록시 커넥터 설치](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [응용 프로그램 프록시 커넥터 설치](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Azure에 응용 프로그램 게시 
 QlikSense를 게시하려면 Azure에서 두 개의 응용 프로그램을 게시해야 합니다.  
 
 ### <a name="application-1"></a>응용 프로그램 #1: 
-앱을 게시하려면 다음 단계를 수행합니다. 1 ~ 8 단계에 대한 자세한 연습은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요. 
+앱을 게시하려면 다음 단계를 수행합니다. 1 ~ 8 단계에 대한 자세한 연습은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요. 
 
 
 1. 전역 관리자 권한으로 Azure Portal에 로그인합니다. 
@@ -58,5 +58,5 @@ QlikSense를 게시하려면 Azure에서 두 개의 응용 프로그램을 게�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)
-- [응용 프로그램 프록시 커넥터 작업](active-directory-application-proxy-connectors-azure-portal.md)
+- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md)
+- [응용 프로그램 프록시 커넥터 작업](manage-apps/application-proxy-connector-groups.md)

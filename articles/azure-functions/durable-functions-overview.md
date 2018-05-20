@@ -1,5 +1,5 @@
 ---
-title: 지속성 함수 개요 - Azure(미리 보기)
+title: 지속성 함수 개요 - Azure
 description: Azure Functions의 지속성 함수 확장을 소개합니다.
 services: functions
 author: cgillum
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="durable-functions-overview-preview"></a>지속성 함수 개요(미리 보기)
+# <a name="durable-functions-overview"></a>지속성 함수 개요
 
 *지속성 함수*는 서버를 사용하지 않는 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](functions-overview.md) 및 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2018
 * 함수에서 기다릴 때마다 자동으로 진행 상황 검사점을 설정합니다. 프로세스가 재활용되거나 VM이 다시 부팅되더라도 로컬 상태가 손실되지 않습니다.
 
 > [!NOTE]
-> 지속성 함수는 미리 보기로, Azure Functions의 고급 확장이며 모든 응용 프로그램에 적합하지는 않습니다. 이 문서의 나머지 부분에서는 [Azure Functions](functions-overview.md) 개념과 서버를 사용하지 않는 응용 프로그램 개발과 관련된 문제에 대해 잘 알고 있다고 가정합니다.
+> 지속성 함수는 모든 응용 프로그램에 적합하지는 않는 Azure Functions의 고급 확장입니다. 이 문서의 나머지 부분에서는 [Azure Functions](functions-overview.md) 개념과 서버를 사용하지 않는 응용 프로그램 개발과 관련된 문제에 대해 잘 알고 있다고 가정합니다.
 
 지속성 함수에 대한 기본 사용 사례는 서버를 사용하지 않는 응용 프로그램에서 복잡한 상태 저장 조정 문제를 단순화하는 것입니다. 다음 섹션에서는 지속성 함수를 활용할 수 있는 몇 가지 일반적인 응용 프로그램 패턴에 대해 설명합니다.
 
@@ -42,6 +42,8 @@ ms.lasthandoff: 03/17/2018
 ![함수 체이닝 다이어그램](media/durable-functions-overview/function-chaining.png)
 
 지속성 함수를 사용하면 코드에서 이 패턴을 간결하게 구현할 수 있습니다.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -60,6 +62,19 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const x = yield ctx.df.callActivityAsync("F1");
+    const y = yield ctx.df.callActivityAsync("F2", x);
+    const z = yield ctx.df.callActivityAsync("F3", y);
+    return yield ctx.df.callActivityAsync("F4", z);
+});
+```
+
 "F1", "F2", "F3" 및 "F4" 값은 함수 앱에 있는 다른 함수의 이름입니다. 제어 흐름은 일반적인 명령적 코딩 구조를 사용하여 구현됩니다. 즉 코드는 하향식으로 실행되며 조건부 및 반복과 같은 기존 언어 제어 흐름 의미 체계를 포함할 수 있습니다.  오류 처리 논리는 try/catch/finally 블록에 포함될 수 있습니다.
 
 `ctx` 매개 변수([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html))는 이름에 따라 다른 함수를 호출하고, 매개 변수를 전달하며, 함수 출력을 반환하는 메서드를 제공합니다. 코드에서 `await`를 호출할 때마다 지속성 함수 프레임워크는 현재 함수 인스턴스의 진행 상황 *검사점을 설정*합니다. 프로세스 또는 VM이 실행 중간에 재활용되는 경우 함수 인스턴스가 이전 `await` 호출에서 다시 시작됩니다. 이 다시 시작 동작에 대해서는 나중에 자세히 설명합니다.
@@ -71,6 +86,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ![팬아웃/팬인 다이어그램](media/durable-functions-overview/fan-out-fan-in.png)
 
 일반 함수를 사용하면 함수에서 여러 메시지를 큐에 보내도록 하여 팬아웃/팬인을 수행할 수 있습니다. 그러나 다시 팬인하는 것은 훨씬 더 어렵습니다. 큐 트리거 함수가 종료되고 함수 출력을 저장하는 시기를 추적하기 위한 코드를 작성해야 합니다. 지속성 함수 확장에서는 비교적 간단한 코드로 이 패턴을 처리합니다.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -91,6 +108,28 @@ public static async Task Run(DurableOrchestrationContext ctx)
     int sum = parallelTasks.Sum(t => t.Result);
     await ctx.CallActivityAsync("F3", sum);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const parallelTasks = [];
+
+    // get a list of N work items to process in parallel
+    const workBatch = yield ctx.df.callActivityAsync("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+    }
+
+    yield ctx.df.task.all(parallelTasks);
+
+    // aggregate all N outputs and send result to F3
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield ctx.df.callActivityAsync("F3", sum);
+});
 ```
 
 팬아웃 작업은 `F2` 함수의 여러 인스턴스에 배포되며 동적 작업 목록을 사용하여 작업을 추적합니다. `Task.WhenAll` .NET API는 호출된 모든 함수가 완료될 때까지 기다리기 위해 호출됩니다. 그런 다음 동적 작업 목록에서 `F2` 함수 출력이 집계되고 `F3` 함수로 전달됩니다.
@@ -151,7 +190,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 매개 변수는 지속성 함수 확장의 일부인 `orchestrationClient` 출력 바인딩의 값입니다. 새 오케스트레이터 또는 기존 오케스트레이터 함수 인스턴스에 대한 시작, 이벤트 보내기, 종료 및 쿼리를 수행하는 메서드를 제공합니다. 위의 예제에서 HTTP 트리거 함수는 들어오는 URL에서 `functionName` 값을 가져와서 해당 값을 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)에 전달합니다. 그런 다음 이 바인딩 API는 `Location` 헤더 및 나중에 시작된 인스턴스의 상태를 찾거나 종료하는 데 사용할 수 있는 인스턴스에 대한 추가 정보가 포함된 응답을 반환합니다.
+[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 매개 변수는 지속성 함수 확장의 일부인 `orchestrationClient` 출력 바인딩의 값입니다. 새 오케스트레이터 또는 기존 오케스트레이터 함수 인스턴스에 대한 시작, 이벤트 보내기, 종료 및 쿼리를 수행하는 메서드를 제공합니다. 이전 예제에서 HTTP 트리거 함수는 들어오는 URL에서 `functionName` 값을 가져와서 해당 값을 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)에 전달합니다. 그런 다음 이 바인딩 API는 `Location` 헤더 및 나중에 시작된 인스턴스의 상태를 찾거나 종료하는 데 사용할 수 있는 인스턴스에 대한 추가 정보가 포함된 응답을 반환합니다.
 
 ## <a name="pattern-4-monitoring"></a>패턴 #4: 모니터링
 
@@ -162,6 +201,8 @@ public static async Task<HttpResponseMessage> Run(
 ![모니터 다이어그램](media/durable-functions-overview/monitor.png)
 
 지속성 함수를 사용하면, 임의의 엔드포인트를 관찰하는 여러 모니터를 몇 줄의 코드로 작성할 수 있습니다. 모니터는 일정 조건이 충족되면 실행을 끝내거나 [DurableOrchestrationClient](durable-functions-instance-management.md)에 의해 종료될 수 있으며 대기 간격은 일부 조건(예: 지수 백오프)에 따라 변경될 수 있습니다. 다음 코드는 기본 모니터를 구현합니다.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -189,6 +230,34 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```js
+const df = require("durable-functions");
+const df = require("moment");
+
+module.exports = df(function*(ctx) {
+    const jobId = ctx.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform action when condition met
+            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield ctx.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform further work here, or let the orchestration end
+});
+```
+
 요청을 받으면 해당 작업 ID에 대해 새 오케스트레이션 인스턴스가 만들어집니다. 조건이 충족되고 루프가 종료될 때까지 인스턴스는 상태를 폴링합니다. 지속성 타이머는 폴링 간격을 제어하는 데 사용됩니다. 그런 다음, 추가로 작업을 수행하거나 오케스트레이션을 종료할 수 있습니다. `ctx.CurrentUtcDateTime`이 `expiryTime`을 초과하면 모니터가 종료됩니다.
 
 ## <a name="pattern-5-human-interaction"></a>패턴 #5: 인간 상호 작용
@@ -200,6 +269,8 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ![인간 상호 작용 다이어그램](media/durable-functions-overview/approval.png)
 
 이 패턴은 오케스트레이터 함수를 사용하여 구현할 수 있습니다. 오케스트레이터는 [지속성 타이머](durable-functions-timers.md)를 사용하여 승인을 요청하고 시간이 초과된 경우 에스컬레이션합니다. 이 경우 [외부 이벤트](durable-functions-external-events.md)를 기다릴 것입니다. 이 이벤트는 어떤 인간 상호 작용으로 생성된 알림입니다.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -224,7 +295,39 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```js
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df(function*(ctx) {
+    yield ctx.df.callActivityAsync("RequestApproval");
+
+    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+    } else {
+        yield ctx.df.callActivityAsync("Escalate");
+    }
+});
+```
+
 지속성 타이머는 `ctx.CreateTimer`를 호출하여 만듭니다. `ctx.WaitForExternalEvent`에서 알림을 받습니다. 그리고 에스컬레이션(시간 제한이 먼저 발생) 또는 프로세스 승인(시간 제한 전에 승인 수신)을 결정하기 위해 `Task.WhenAny`가 호출됩니다.
+
+외부 클라이언트는 [기본 제공 HTTP API](durable-functions-http-api.md#raise-event)를 사용하거나 다른 함수의 [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API를 사용하여 대기 중인 오케스트레이터 함수에 이벤트 알림을 배달할 수 있습니다.
+
+```csharp
+public static async Task Run(string instanceId, DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
 
 ## <a name="the-technology"></a>기술
 
@@ -244,7 +347,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ## <a name="language-support"></a>언어 지원
 
-현재 C#은 지속성 함수에 지원되는 유일한 언어입니다. 여기에는 오케스트레이터 함수 및 작업 함수가 포함됩니다. 나중에 Azure Functions에서 지원하는 모든 언어에 대한 지원을 추가할 예정입니다. Azure Functions [GitHub 리포지토리 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)을 참조하여 추가 언어 지원 작업의 최신 상태를 확인하세요.
+현재 C#(Functions v1 및 v2) 및 JavaScript(Functions v2만)가 지속성 함수에 대해 지원되는 유일한 언어입니다. 여기에는 오케스트레이터 함수 및 작업 함수가 포함됩니다. 나중에 Azure Functions에서 지원하는 모든 언어에 대한 지원을 추가할 예정입니다. Azure Functions [GitHub 리포지토리 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)을 참조하여 추가 언어 지원 작업의 최신 상태를 확인하세요.
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
@@ -275,7 +378,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ## <a name="known-issues-and-faq"></a>알려진 문제 및 FAQ
 
-일반적으로 알려진 모든 문제는 [GitHub 문제](https://github.com/Azure/azure-functions-durable-extension/issues) 목록에서 추적해야 합니다. 문제가 발생하여 GitHub에서 해당 문제를 찾을 수 없는 경우 새 문제를 열고 해당 문제에 대한 자세한 설명을 제공해 주세요. 단순히 질문만 하려는 경우에도 GitHub 문제를 자유롭게 열어 질문으로 태그를 지정해 주세요.
+알려진 모든 문제는 [GitHub 문제](https://github.com/Azure/azure-functions-durable-extension/issues) 목록에서 추적해야 합니다. 문제가 발생하여 GitHub에서 해당 문제를 찾을 수 없는 경우 새 문제를 열고 해당 문제에 대한 자세한 설명을 제공해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

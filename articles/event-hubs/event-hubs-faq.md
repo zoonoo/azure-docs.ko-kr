@@ -1,11 +1,11 @@
 ---
 title: Azure Event Hubs FAQ | Microsoft Docs
-description: "Azure Event Hubs FAQ(질문과 대답)"
+description: Azure Event Hubs FAQ(질문과 대답)
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -112,7 +112,7 @@ Event Hubs 할당량의 목록은 [할당량](event-hubs-quotas.md)을 참조하
 Event Hubs는 두 가지 유형의 [진단 로그](event-hubs-diagnostic-logs.md)인 캡처 오류 로그와 작업 로그를 지원합니다. 두 로그 모두 json으로 표시되며 Azure Portal을 통해 설정할 수 있습니다.
 
 ### <a name="support-and-sla"></a>지원 및 SLA
-Event Hubs에 대한 기술 지원은 [커뮤니티 포럼](https://social.msdn.microsoft.com/forums/azure/home)을 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
+Event Hubs에 대한 기술 지원은 [커뮤니티 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus)을 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
 
 SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 페이지를 참조하세요.
 

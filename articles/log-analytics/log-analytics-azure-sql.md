@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
 
@@ -44,9 +44,9 @@ Azure SQL 분석 솔루션은 Log Analytics 서비스에 연결하는 데 에이
 | 연결된 소스 | 지원 | 설명 |
 | --- | --- | --- |
 | [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 직접 Linux 에이전트는 솔루션에 사용되지 않습니다. |
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 직접 Linux 에이전트는 솔루션에 사용되지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |
 | [Azure 진단](log-analytics-azure-storage.md) | 예 | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
 
 ## <a name="prerequisites"></a>필수 조건
@@ -63,9 +63,9 @@ Azure SQL 분석 솔루션을 작업 영역에 추가하려면 다음 단계를 
 2. Azure Portal에서 **리소스 만들기** > **모니터링 + 관리**를 클릭합니다.  
     ![모니터링 + 관리](./media/log-analytics-azure-sql/monitoring-management.png)
 3. **모니터링 + 관리** 목록에서 **모두 표시**를 클릭합니다.
-4. **권장** 목록에서 **자세히**를 클릭한 후 새 목록에서 **Azure SQL 분석(미리 보기)**을 찾아 선택합니다.  
+4. **권장** 목록에서 **자세히**를 클릭한 후 새 목록에서 **Azure SQL 분석(미리 보기)** 을 찾아 선택합니다.  
     ![Azure SQL Analytics 솔루션](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. **Azure SQL 분석(미리 보기)**영역에서 **만들기**를 클릭합니다.  
+5. **Azure SQL 분석(미리 보기)** 영역에서 **만들기**를 클릭합니다.  
     ![만들기](./media/log-analytics-azure-sql/portal-create.png)
 6. **새 솔루션 만들기** 영역에서 솔루션을 추가할 작업 영역을 선택한 후 **만들기**를 클릭합니다.  
     ![작업 영역에 추가](./media/log-analytics-azure-sql/add-to-workspace.png)
@@ -136,7 +136,8 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ### <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
 
-Azure SQL Database 리소스에서 가져온 데이터와 경고를 쉽게 만들 수 있습니다. 다음은 경고 생성에 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-log-searches.md) 쿼리입니다.
+Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-log-searches.md) 쿼리입니다.
+
 
 
 *Azure SQL Database에 대한 높은 DTU*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-이러한 경고 기반 쿼리를 사용하여 Azure SQL Database와 탄력적 풀에 대한 특정 임계값에 대해 경고를 발생할 수 있습니다. Log Analytics 작업 영역에 대한 경고를 구성하려면
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>작업 영역에 대해 경고를 구성하려면
-
-1. [OMS 포털](http://mms.microsoft.com/)로 이동하고 로그인합니다.
-2. 솔루션에 대해 구성된 작업 영역을 엽니다.
-3. 개요 페이지에서 **Azure SQL Analytics(미리 보기)** 타일을 클릭합니다.
-4. 예제 쿼리 중 하나를 실행합니다.
-5. 로그 검색에서 **경고**를 클릭합니다.  
-![검색에서 경고 만들기](./media/log-analytics-azure-sql/create-alert01.png)
-6. **경고 규칙 추가** 페이지에서 원하는 적절한 속성과 특정 임계값을 구성한 후 **저장**을 클릭합니다. 
-![경고 규칙 추가](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>다음 단계
 

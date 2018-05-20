@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure 스택 저장소: 차이점과 고려 사항
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 Azure 스택 저장소는 Microsoft Azure 스택에서 저장소 클라우드 서비스의 집합입니다. Azure 스택 저장소는 blob, 테이블, 큐 및 Azure에 일관 된 의미 체계를 포함 하는 계정 관리 기능을 제공 합니다.
 
-이 문서는 Azure 저장소에서 알려진된 Azure 스택 저장소 차이점을 요약 합니다. 또한 Azure 스택을 배포할 때 유의 해야 할 기타 고려 사항을 요약 되어 있습니다. Azure 스택와 Azure 간의 대략적인 차이 대 한 자세한 내용은 [고려 사항 키](azure-stack-considerations.md) 항목입니다.
+이 문서는 Azure 저장소 서비스에서 알려진된 Azure 스택 저장소 차이점을 요약 합니다. 또한 Azure 스택을 배포할 때 고려해 야 할 사항 나열 합니다. Azure 스택와 Azure 간의 대략적인 차이 대 한 자세한 내용은 [고려 사항 키](azure-stack-considerations.md) 항목입니다.
 
 ## <a name="cheat-sheet-storage-differences"></a>치트 시트: 저장소의 차이
 
@@ -49,26 +49,28 @@ Blob 저장소에 대 한 일시 삭제|미리 보기|아직 지원 되지 않�
 |테이블 파티션 키와 행 키 크기|1, 024 자 (2, 048 바이트)|400 문자 (800 바이트)
 |Blob 스냅숏|최대 하나의 blob의 스냅숏 수 제한 하지 않습니다.|한 blob의 스냅숏의 최대 수는 1, 000입니다.|
 
-### <a name="metrics"></a>메트릭
-저장소 메트릭 사용 하 여 몇 가지 차이점이 있습니다.
+저장소 메트릭 사용 하 여 차이점 있습니다.
+
 * 저장소 메트릭의 트랜잭션 데이터를 내부 또는 외부 네트워크 대역폭 달라 지지 않습니다.
 * 저장소 메트릭에서 트랜잭션 데이터는 탑재 된 디스크에 대 한 가상 컴퓨터 액세스를 포함 되지 않습니다.
 
 ## <a name="api-version"></a>API 버전
+
 Azure 스택 저장소와 다음과 같은 버전이 지원 됩니다.
 
 Azure 저장소 서비스 Api:
 
 1802 업데이트 이상 버전:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 이전 버전:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure 저장소 서비스 관리 Api:
 
@@ -78,7 +80,7 @@ Azure 저장소 서비스 관리 Api:
 
 ## <a name="sdk-versions"></a>SDK 버전
 
-Azure 스택 저장소 클라이언트 라이브러리 지원 됩니다.
+Azure 스택 저장소 클라이언트 라이브러리를 지원합니다.
 
 | 클라이언트 라이브러리 | Azure 스택 지원 되는 버전 | 링크                                                                                                                                                                                                                                                                                                                                     | 끝점 지정       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +96,3 @@ Azure 스택 저장소 클라이언트 라이브러리 지원 됩니다.
 
 * [Azure 스택 저장소 개발 도구 시작](azure-stack-storage-dev.md)
 * [Azure 스택 저장소 소개](azure-stack-storage-overview.md)
-

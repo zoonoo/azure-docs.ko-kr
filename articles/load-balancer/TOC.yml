@@ -49,7 +49,7 @@
 - name: 방법
   items:
     - name: 영역 중복 공용 표준 부하 분산 장치 만들기
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      href: load-balancer-get-started-internet-az-portal.md
       items:
         - name: 영역 중복 공용 표준 부하 분산 장치 만들기(PowerShell)
           href: load-balancer-get-started-internet-az-powershell.md

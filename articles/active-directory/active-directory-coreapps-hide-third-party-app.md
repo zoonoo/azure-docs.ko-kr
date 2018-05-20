@@ -3,23 +3,24 @@ title: Azure Active Directory의 사용자 환경에서 응용 프로그램 숨�
 description: Azure Active Directory 액세스 패널 또는 Office 365 시작 관리자의 사용자 환경에서 응용 프로그램을 숨기는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 7da8c60feed7cbb630e5b48653c657cc8fed9e99
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 564b724ab3971e0566fb2b1dc3a75c2eeac3d391
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기
 
@@ -45,7 +46,7 @@ ms.lasthandoff: 03/28/2018
 5.  **Enterprise 응용 프로그램 - 모든 응용 프로그램** 화면에서 앱을 선택합니다.</br>
 ![Enterprise 앱](media/active-directory-coreapps-hide-third-party-app/app2.png)
 6.  ***appname*** 화면(즉, 제목에서 선택된 앱의 이름을 사용한 화면)에서 속성을 선택합니다.
-7.  ***appname* -속성** 화면에서, **사용자에게 보입니까?**에 대해 **예**를 선택합니다.
+7.  ***appname* -속성** 화면에서, **사용자에게 보입니까?** 에 대해 **예**를 선택합니다.
 ![Enterprise 앱](media/active-directory-coreapps-hide-third-party-app/app3.png)
 8.  **저장** 명령을 선택합니다.
 

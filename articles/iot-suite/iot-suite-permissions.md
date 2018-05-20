@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite 및 Azure Active Directory | Microsoft Docs"
-description: "Azure IoT Suite에서 Azure Active Directory를 사용하여 사용 권한을 관리하는 방법을 설명합니다."
-services: 
+title: Azure IoT 솔루션 가속기 및 Azure Active Directory | Microsoft Docs
+description: Azure IoT 솔루션 가속기에서 Azure Active Directory를 사용하여 사용 권한을 관리하는 방법을 설명합니다.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com 사이트에 대한 사용 권한
 
@@ -29,35 +29,35 @@ ms.lasthandoff: 12/18/2017
 
 1. 로그인 사용자 이름 옆에 표시되는 테넌트 목록을 채우려면 먼저 사이트가 Azure로부터 사용자가 속하는 AAD 테넌트를 알아내야 합니다. 현재 사이트는 테넌트에 대한 사용자 토큰을 한 번에 하나만 가져올 수 있습니다. 따라서 오른쪽 상단 모서리의 드롭다운을 사용하여 테넌트로 전환하면, 사이트는 이 테넌트에 대한 토큰을 가져오기 위해서 해당 테넌트로 사용자를 다시 로그인합니다.
 
-2. 다음으로, 사이트는 사용자가 선택한 테넌트와 연결된 구독을 Azure로부터 알아냅니다. 미리 구성된 솔루션을 새로 만들 때 사용할 수 있는 구독이 표시됩니다.
+2. 다음으로, 사이트는 사용자가 선택한 테넌트와 연결된 구독을 Azure로부터 알아냅니다. 솔루션 가속기를 새로 만들 때 사용할 수 있는 구독이 표시됩니다.
 
-3. 마지막으로 사이트는 미리 구성된 솔루션으로 태그가 지정된 구독 및 리소스 그룹에서 모든 리소스를 가져와서 홈 페이지에 타일을 채웁니다.
+3. 마지막으로 사이트는 솔루션 가속기로 태그가 지정된 구독 및 리소스 그룹에서 모든 리소스를 가져와서 홈 페이지에 타일을 채웁니다.
 
-다음 섹션은 미리 구성된 솔루션에 대한 액세스를 제어하는 역할을 설명합니다.
+다음 섹션은 솔루션 가속기에 대한 액세스를 제어하는 역할을 설명합니다.
 
 ## <a name="aad-roles"></a>AAD 역할
 
-AAD 역할은 권한 프로비전 미리 구성된 솔루션을 제어하고 미리 구성된 솔루션의 사용자를 관리합니다.
+AAD 역할은 권한 프로비전 솔루션 가속기를 제어하고 솔루션 가속기의 사용자를 관리합니다.
 
-AAD에서 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당][lnk-aad-admin]에서 찾을 수 있습니다. 현재 문서에서는 미리 구성된 솔루션에서 사용된 대로 **전역 관리자** 및 **사용자** 디렉터리 역할에 중점을 둡니다.
+AAD에서 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당][lnk-aad-admin]에서 찾을 수 있습니다. 현재 문서에서는 솔루션 가속기에서 사용된 대로 **전역 관리자** 및 **사용자** 디렉터리 역할에 중점을 둡니다.
 
 ### <a name="global-administrator"></a>전역 관리자
 
 AAD 테넌트에는 여러 명의 전역 관리자가 있을 수 있습니다.
 
 * AAD 테넌트를 만들 때, 만드는 사람은 기본적으로 해당 테넌트의 전역 관리자입니다.
-* 전역 관리자는 기본 및 표준 사전 구성 솔루션을 프로비전할 수 있습니다.
+* 전역 관리자는 기본 및 표준 솔루션 가속기를 프로비전할 수 있습니다.
 
 ### <a name="domain-user"></a>도메인 사용자
 
 AAD 테넌트에는 여러 명의 도메인 사용자가 있을 수 있습니다.
 
-* 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 기본 사전 구성 솔루션을 프로비전할 수 있습니다.
-* 도메인 사용자는 CLI를 사용하여 기본 사전 구성 솔루션을 만들 수 있습니다.
+* 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 기본 솔루션 가속기를 프로비전할 수 있습니다.
+* 도메인 사용자는 CLI를 사용하여 기본 솔루션 가속기를 만들 수 있습니다.
 
 ### <a name="guest-user"></a>게스트 사용자
 
-AAD 테넌트에는 여러 명의 게스트 사용자가 있을 수 있습니다. 게스트 사용자는 AAD 테넌트 내에서 제한된 권한 집합을 갖습니다. 결과적으로 게스트 사용자는 AAD 테넌트 내에서 미리 구성된 솔루션을 프로비전할 수 없습니다.
+AAD 테넌트에는 여러 명의 게스트 사용자가 있을 수 있습니다. 게스트 사용자는 AAD 테넌트 내에서 제한된 권한 집합을 갖습니다. 결과적으로 게스트 사용자는 AAD 테넌트 내에서 솔루션 가속기를 프로비전할 수 없습니다.
 
 AAD의 사용자 및 역할에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
@@ -94,7 +94,7 @@ Azure 관리자 역할은 Azure 구독을 AD 텐넌트에 매핑할 수 있는 �
 Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑의 유효성을 검사하고 드롭다운에 올바른 테넌트가 선택되어 있는지 확인하세요. 원하는 테넌트가 맞는다는 것을 확인했으면, 이전의 다이어그램에 따라서 구독과 이 AAD 테넌트 매핑의 유효성을 검사합니다.
 
 ## <a name="next-steps"></a>다음 단계
-IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용자 지정][lnk-customize]하는 방법을 참조하세요.
+IoT 솔루션 가속기에 대해 계속 알아보려면 [솔루션 가속기 사용자 지정][lnk-customize] 방법을 참조하세요.
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

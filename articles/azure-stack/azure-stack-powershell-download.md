@@ -1,24 +1,24 @@
 ---
-title: "GitHub에서 Azure 스택 도구를 다운로드 합니다. | Microsoft Docs"
-description: "Azure 스택 작업에 필요한 도구를 다운로드 하는 방법을 알아봅니다."
+title: GitHub에서 Azure 스택 도구를 다운로드 합니다. | Microsoft Docs
+description: Azure 스택 작업에 필요한 도구를 다운로드 하는 방법을 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 219fd8e4e164df8c3002044719a90a7be56a9edf
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: thoroet
+ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-azure-stack-tools-from-github"></a>GitHub에서 Azure 스택 도구 다운로드
 
@@ -53,13 +53,10 @@ cd AzureStack-Tools-master
 | 기능 | 설명 | 이 모듈을 사용할 수 있는? |
 | --- | --- | --- |
 | [클라우드 기능](user/azure-stack-validate-templates.md) | 이 모듈을 사용 하 여 클라우드의 클라우드 기능을 얻으려고 합니다. 예를 들어이 모듈을 사용 하 여 API 버전 및 Azure 리소스 관리자 리소스와 같은 클라우드 기능을 가져올 수 있습니다. 이 모듈을 사용 하 여 Azure 스택 및 Azure 클라우드에 대 한 VM 확장을 가져올 수도 있습니다. | 클라우드 운영자 및 사용자 |
-| [Azure 스택 계산 관리](azure-stack-add-vm-image.md) | 이 모듈을 사용 하 여 추가 하거나 스택 Azure marketplace에서 VM 이미지를 제거 합니다. | 클라우드 운영자 |
-| [Azure 스택 인프라 관리](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | 이 모듈을 사용 하 여 Azure 스택 인프라 Vm, 경고, 업데이트 및 등을 관리할 수 있습니다. |  클라우드 운영자|
 | [리소스 관리자 정책에 대 한 Azure 스택](user/azure-stack-policy-module.md) | Azure 스택 동일한 버전 관리 및 서비스 가용성과 함께 Azure 구독 또는 Azure 리소스 그룹을 구성 하려면이 모듈을 사용 합니다. | 클라우드 운영자 및 사용자 |
 | [Azure에 등록](azure-stack-register.md) | 이 모듈을 사용 하 여 Azure를 사용한 개발 키트 인스턴스를 등록 합니다. 등록 한 후, Azure에서 마켓플레이스 항목을 다운로드 하 고 Azure 스택에서 사용할 수입니다. | 클라우드 운영자 |
 | [Azure 스택 배포](azure-stack-run-powershell-script.md) | 이 모듈을 사용 하 여 배포 하 고 Azure 스택 가상 하드 디스크 (VHD) 이미지를 사용 하 여 다시 배포할 Azure 스택 호스트 컴퓨터를 준비 합니다. | 클라우드 운영자|
-| [Azure 스택에 연결](azure-stack-connect-powershell.md) | 이 모듈을 사용 하 여 PowerShell 통해 Azure 스택 인스턴스에 연결 하 고 Azure 스택에 VPN 연결을 구성 합니다. | 클라우드 운영자 및 사용자 |
-| [Azure 스택 서비스 관리](azure-stack-create-offer.md) | 이 모듈을 사용 하 여 계산, Azure 저장소, 네트워크 및 주요 자격 증명 모음 서비스에 걸쳐 기본 테 넌 트 제안 무제한 할당량이 있는 만드는 합니다.   | 클라우드 운영자|
+| [Azure 스택에 연결](azure-stack-connect-powershell.md) | 이 모듈을 사용 하 여 Azure 스택에 VPN 연결을 구성 합니다. | 클라우드 운영자 및 사용자 |
 | [서식 파일 유효성 검사기](user/azure-stack-validate-templates.md) | 이 모듈 Azure 스택에 기존 또는 새 템플릿을 배포 하는 경우 확인을 사용 합니다. | 클라우드 운영자 및 사용자|
 
 

@@ -1,24 +1,24 @@
 ---
-title: "Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 | Microsoft Docs"
-description: "Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법을 보여 줍니다."
+title: Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 | Microsoft Docs
+description: Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법을 보여 줍니다.
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 6bf5c991e8a96cfdcbad971e0f2ea2dfd01f2893
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 7c78c80e5eaceb210a50549e2885e56c0d9ec7f1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/03/2018
 네트워크 인터페이스를 다시 설정하려면 다음 단계를 따르세요.
 
 1.  [Azure 포털]( https://ms.portal.azure.com)로 이동합니다.
-2.  **Virtual Machines(클래식)**를 선택합니다.
+2.  **Virtual Machines(클래식)** 를 선택합니다.
 3.  영향을 받는 Virtual Machine을 선택합니다.
 4.  **IP 주소**를 선택합니다.
 5.  **개인 IP 할당**이 **정적**이 아닌 경우 **정적**으로 변경합니다.

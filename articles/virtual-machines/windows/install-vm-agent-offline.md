@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: genli
-ms.openlocfilehash: 8b9d1ea3e4b5bf959484a737453d7f6f1f63d1e6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
 
@@ -130,5 +130,5 @@ Resource Manager 배포 모델을 사용하여 VM을 만든 경우 Azure PowerSh
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 가상 머신 에이전트 개요](agent-user-guide.md)
+- [Azure 가상 머신 에이전트 개요](../extensions/agent-windows.md)
 - [Windows용 가상 머신 확장 및 기능](extensions-features.md)

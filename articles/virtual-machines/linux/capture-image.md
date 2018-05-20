@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 9fa87f8dc0c94ec93e049e35be727c031b4b06ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
 
@@ -45,7 +45,7 @@ Azure에서 사용할 가상 머신(VM)의 복사본을 여러 개 만들려면 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>1단계: VM 프로비전 해제
-Azure VM 에이전트로 VM 프로비전을 해제하여 컴퓨터 특정 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 *-deprovision+user* 매개 변수와 함께 `waagent` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../windows/agent-user-guide.md)를 참조하세요.
+Azure VM 에이전트로 VM 프로비전을 해제하여 컴퓨터 특정 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 *-deprovision+user* 매개 변수와 함께 `waagent` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)를 참조하세요.
 
 1. SSH 클라이언트를 사용하여 Linux VM에 연결합니다.
 2. SSH 창에서 다음 명령을 입력합니다.

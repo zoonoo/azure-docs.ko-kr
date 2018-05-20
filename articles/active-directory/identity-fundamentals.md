@@ -1,29 +1,29 @@
 ---
-title: "Azure ID 관리의 기초"
-description: "클라우드 기반 ID는 현재, 사용자가 회사 응용 프로그램 및 데이터에 액세스하는 방법과 시기를 제어하고 가시성을 유지하는 가장 좋은 방법입니다."
-keywords: 
+title: Azure ID 관리의 기초
+description: 클라우드 기반 ID는 현재, 사용자가 회사 응용 프로그램 및 데이터에 액세스하는 방법과 시기를 제어하고 가시성을 유지하는 가장 좋은 방법입니다.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure ID 관리의 기초
 
 더 많은 회사의 디지털 리소스가 회사 네트워크 외부의 클라우드와 장치에 상주함에 따라 뛰어난 클라우드 기반 ID 및 액세스 관리 솔루션이 필요하게 되었습니다. 클라우드 기반 ID는 현재, 사용자가 회사 응용 프로그램 및 데이터에 액세스하는 방법과 시기를 제어하고 가시성을 유지하는 가장 좋은 방법입니다.
 
-Microsoft는 10년 넘게 클라우드 기반 ID를 보호했으며 이제 [Azure AD(Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-editions)를 사용하여 이러한 동일한 보호 시스템을 사용자에게 제공할 수 있습니다. 엔터프라이즈 관리자는 Azure AD를 통해 이전보다 더 우수한 보안 및 관리 기능으로 사용자 및 관리자의 책임을 쉽게 확인할 수 있습니다.
+Microsoft는 10년 넘게 클라우드 기반 ID를 보호했으며 이제 [Azure AD(Active Directory)](active-directory-whatis.md)를 사용하여 이러한 동일한 보호 시스템을 사용자에게 제공할 수 있습니다. 엔터프라이즈 관리자는 Azure AD를 통해 이전보다 더 우수한 보안 및 관리 기능으로 사용자 및 관리자의 책임을 쉽게 확인할 수 있습니다.
 
 Azure AD Premium은 고급 보호 기능이 있는 클라우드 기반 ID 및 액세스 관리 솔루션으로 모든 앱에 하나의 보안 ID와 ID 보호([Microsoft 인텔리전스 보안 그래프](https://www.microsoft.com/en-us/security/intelligence)로 향상됨) 및 Privileged Identity Management를 사용할 수 있습니다. Azure AD Premium은 다른 모니터링 또는 보고 도구뿐만 아니라 사용자의 ID를 실시간으로 보호할 수 있으며 위험 기반의 적응 액세스 정책을 만들어 조직의 데이터를 보호할 수 있습니다.
 

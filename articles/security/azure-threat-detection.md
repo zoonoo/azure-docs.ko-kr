@@ -1,12 +1,12 @@
 ---
-title: "Azure 고급 위협 검색 | Microsoft Docs"
-description: "ID 보호 및 해당 기능에 대해 알아봅니다."
+title: Azure 고급 위협 검색 | Microsoft Docs
+description: ID 보호 및 해당 기능에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 고급 위협 검색
 ## <a name="introduction"></a>소개
@@ -181,7 +181,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다.
 
 또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure Security Center는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다. 일부 사례:
 
--   **강력한 기계 학습 기능 활용** - Azure Security Center는 Azure 배포를 대상으로 하는 위협을 검색하는 데 사용할 수 있는 방대한 양의 클라우드 네트워크 활동 데이터에 액세스할 수 있습니다. 예:
+-   **강력한 Machine Learning 기능 활용** - Azure Security Center는 Azure 배포를 대상으로 하는 위협을 검색하는 데 사용할 수 있는 방대한 양의 클라우드 네트워크 활동 데이터에 액세스할 수 있습니다. 예: 
 
 -   **무차별 암호 대입 검색** - 기계 학습은 SSH, RDP 및 SQL 포트에 대한 무차별 암호 대입 공격을 검색할 수 있는 원격 액세스 시도의 기록 패턴을 만드는 데 사용됩니다.
 
@@ -198,7 +198,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다.
 ![동작 분석](./media/azure-threat-detection/azure-threat-detection-fig11.jpg)
 
 
-또한 전문 분석가가 악의적인 행동을 신중하게 분석하여 결정합니다. Azure Security Center는 동작 분석을 사용하여 가상 컴퓨터 로그, 가상 네트워크 장치 로그, 패브릭 로그, 크래시 덤프 및 기타 원본에 대한 분석에 따라 손상된 리소스를 식별할 수 있습니다.
+또한 전문 분석가가 악의적인 행동을 신중하게 분석하여 결정합니다. Azure Security Center는 동작 분석을 사용하여 가상 머신 로그, 가상 네트워크 장치 로그, 패브릭 로그, 크래시 덤프 및 기타 원본에 대한 분석에 따라 손상된 리소스를 식별할 수 있습니다.
 
 또한 광범위한 캠페인의 증거 지원을 확인하는 다른 신호와의 상관 관계가 있습니다. 이 상관 관계를 통해 설정된 손상 표시기와 일치하는 이벤트를 식별할 수 있습니다.
 
@@ -209,15 +209,15 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다.
 
 -   **수평 이동 및 내부 정찰**: 손상된 네트워크에서 유지하고 중요한 데이터를 찾거나 수집하기 위해 공격자는 종종 손상된 컴퓨터에서 동일한 네트워크 내의 다른 컴퓨터로 수평 이동하려고 합니다. Security Center는 프로세스 및 로그인 활동을 모니터링하여 원격 명령 실행, 네트워크 검색 및 계정 열거와 같이 네트워크 내에서 공격자의 발판을 확장하려는 시도를 검색합니다.
 
--   **악의적인 PowerShell 스크립트**: 공격자는 PowerShell을 사용하여 대상 가상 컴퓨터에서 다양한 목적으로 악성 코드를 실행할 수 있습니다. 보안 센터는 의심스러운 활동의 증거에 대해 PowerShell 작업을 검사합니다.
+-   **악의적인 PowerShell 스크립트**: 공격자는 PowerShell을 사용하여 대상 가상 머신에서 다양한 목적으로 악성 코드를 실행할 수 있습니다. 보안 센터는 의심스러운 활동의 증거에 대해 PowerShell 작업을 검사합니다.
 
--   **발신 공격**: 공격자는 종종 클라우드 리소스를 사용하여 추가 공격을 탑재할 목적으로 해당 클라우드 리소스를 대상으로 지정합니다. 예를 들어 손상된 가상 컴퓨터를 사용하여 다른 가상 컴퓨터에 무차별 암호 대입 공격을 시작하거나, 스팸을 보내거나, 인터넷에서 열려 있는 포트와 다른 장치를 검색할 수 있습니다. 보안 센터는 네트워크 트래픽에 기계 학습을 적용하여 아웃바운드 네트워크 통신이 표준을 초과하는 경우를 감지할 수 있습니다. 또한 스팸의 경우 Security Center는 Office 365의 인텔리전스와 비정상적인 전자 메일 트래픽을 상호 연결하여 전자메일이 부정한 것인지 또는 합법적인 전자 메일 캠페인의 결과인지 여부를 결정합니다.
+-   **발신 공격**: 공격자는 종종 클라우드 리소스를 사용하여 추가 공격을 탑재할 목적으로 해당 클라우드 리소스를 대상으로 지정합니다. 예를 들어 손상된 가상 머신을 사용하여 다른 가상 머신에 무차별 암호 대입 공격을 시작하거나, 스팸을 보내거나, 인터넷에서 열려 있는 포트와 다른 장치를 검색할 수 있습니다. 보안 센터는 네트워크 트래픽에 기계 학습을 적용하여 아웃바운드 네트워크 통신이 표준을 초과하는 경우를 감지할 수 있습니다. 또한 스팸의 경우 Security Center는 Office 365의 인텔리전스와 비정상적인 전자 메일 트래픽을 상호 연결하여 전자메일이 부정한 것인지 또는 합법적인 전자 메일 캠페인의 결과인지 여부를 결정합니다.
 
 ### <a name="anomaly-detection"></a>이상 감지
 
 Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
 
--   **인바운드 RDP/SSH 무차별 암호 대입 공격**: 배포에는 매일 많은 로그인이 있는 바쁜 가상 컴퓨터와 로그인이 거의 없는 다른 가상 컴퓨터가 있을 수 있습니다. Azure Security Center는 이러한 가상 컴퓨터에 대한 기준 로그인 활동을 결정하고, 기계 학습을 사용하여 정상적인 로그인 활동을 정의할 수 있습니다. 로그인 관련 특성에 정의된 기준과의 불일치가 있으면 경고가 생성될 수 있습니다. 다시, 기계 학습은 무엇이 중요한지를 결정합니다.
+-   **인바운드 RDP/SSH 무차별 암호 대입 공격**: 배포에는 매일 많은 로그인이 있는 바쁜 가상 머신과 로그인이 거의 없는 다른 가상 머신이 있을 수 있습니다. Azure Security Center는 이러한 가상 머신에 대한 기준 로그인 활동을 결정하고, 기계 학습을 사용하여 정상적인 로그인 활동을 정의할 수 있습니다. 로그인 관련 특성에 정의된 기준과의 불일치가 있으면 경고가 생성될 수 있습니다. 다시, 기계 학습은 무엇이 중요한지를 결정합니다.
 
 ### <a name="continuous-threat-intelligence-monitoring"></a>연속 위협 인텔리전스 모니터링
 
@@ -237,7 +237,7 @@ Azure Security Center는 전 세계의 보안 연구 및 데이터 과학 팀과
 
 ### <a name="virtual-machine-microsoft-antimalware"></a>Virtual Machine: Microsoft 맬웨어 방지 프로그램
 
-Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 응용 프로그램 및 테넌트 환경을 위한 단일 에이전트 솔루션이며, 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 응용 프로그램 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 컴퓨터에 자동으로 설치됩니다.
+Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 응용 프로그램 및 테넌트 환경을 위한 단일 에이전트 솔루션이며, 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 응용 프로그램 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 머신에 자동으로 설치됩니다.
 
 **응용 프로그램용 Microsoft 맬웨어 방지 프로그램을 배포 및 활성화하는 Azure 기능**
 

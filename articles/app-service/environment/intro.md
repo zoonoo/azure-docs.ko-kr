@@ -11,26 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6be6bb3b6b75b278a7c28307d93d6273c5bb18d6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  
 ## <a name="overview"></a>개요 ##
 
-Azure App Service Environment는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. 이 기능은 웹앱, [모바일 앱][mobileapps], API 앱 및 [함수][Functions]를 호스트할 수 있습니다.
+Azure App Service Environment는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. 이 기능은 다음을 호스트할 수 있습니다.
+
+* Windows 웹앱
+* Linux 웹앱(미리 보기)
+* Docker 컨테이너(미리 보기)
+* 모바일 앱
+* Functions
 
 ASE(App Service Environment)는 다음을 필요로 하는 응용 프로그램 워크로드에 적합합니다.
 
-- 매우 높은 확장성
-- 격리 및 보안된 네트워크 액세스
-- 높은 메모리 사용률
+* 매우 높은 확장성
+* 격리 및 보안된 네트워크 액세스
+* 높은 메모리 사용률
 
 고객은 단일 Azure 지역 내 또는 여러 Azure 지역에 걸쳐서 여러 ASE를 만들 수 있습니다. 따라서 ASE는 높은 RPS 워크로드를 지원하여 상태 비저장 응용 프로그램 계층을 수평적으로 크기 조정하는 데 적합합니다.
 
@@ -39,7 +45,7 @@ ASE는 단일 고객의 응용 프로그램만을 실행하도록 격리되며 �
 * ASE를 통해 보안 네트워크 액세스 권한이 있는 확장성이 뛰어난 앱 호스팅을 사용할 수 있습니다. 자세한 내용은 ASE의 [AzureCon 심층 분석](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/)을 참조하세요.
 * 여러 ASE를 수평적 크기 조정에 사용할 수 있습니다. 자세한 내용은 [지리적으로 분산된 앱 설치 공간 설정 방법](app-service-app-service-environment-geo-distributed-scale.md)을 참조하세요.
 * AzureCon 심층 분석에 표시된 대로 ASE는 보안 아키텍처를 구성하는 데 사용할 수 있습니다. AzureCon 심층 분석에 표시된 보안 아키텍처가 어떻게 구성되었는지 확인하려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처를 구현하는 방법에 대한 문서](app-service-app-service-environment-layered-security.md)를 참조하세요.
-* ASE에서 실행 중인 앱은 WAF(웹 응용 프로그램 방화벽) 등의 업스트림 장치에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [App Service Environment에 대한 WAF 구성](app-service-app-service-environment-web-application-firewall.md)을 참조하세요.
+* ASE에서 실행 중인 앱은 WAF(웹 응용 프로그램 방화벽) 등의 업스트림 장치에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [ILB App Service Environment와 Azure Application Gateway 통합][AppGW]을 참조하세요.
 
 ## <a name="dedicated-environment"></a>전용 환경 ##
 
@@ -59,7 +65,7 @@ ASE는 프런트 엔드 및 작업자로 구성됩니다. 프런트 엔드는 AS
 
 ## <a name="virtual-network-support"></a>가상 네트워크 지원 ##
 
-ASE는 Azure Resource Manager 가상 네트워크에서만 만들 수 있습니다. Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/)를 참조하세요. ASE는 항상 가상 네트워크 내 존재하며, 더 정확하게는 가상 네트워크의 서브넷 내에 있습니다. 가상 네트워크의 보안 기능을 사용하여 앱에 대한 인바운드 및 아웃바운드 네트워크 통신을 제어할 수 있습니다.
+ASE 기능은 고객의 Azure Resource Manager 가상 네트워크에 직접 Azure App Service를 배포하는 것입니다. Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/)를 참조하세요. ASE는 항상 가상 네트워크 내 존재하며, 더 정확하게는 가상 네트워크의 서브넷 내에 있습니다. 가상 네트워크의 보안 기능을 사용하여 앱에 대한 인바운드 및 아웃바운드 네트워크 통신을 제어할 수 있습니다.
 
 ASE는 공개 IP 주소가 있는 인터넷 연결이거나 Azure ILB(내부 부하 분산 장치) 주소만 있는 내부 연결일 수 있습니다.
 

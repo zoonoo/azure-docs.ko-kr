@@ -1,6 +1,6 @@
 ---
-title: AKS(Azure Container Service)에서 kubelet 로그 가져오기
-description: AKS(Azure Container Service) 클러스터 노드에서 kubelet 로그 가져오기
+title: AKS(Azure Kubernetes Service)에서 kubelet 로그 가져오기
+description: AKS(Azure Kubernetes Service) 클러스터 노드에서 kubelet 로그 가져오기
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 56e20a9f9d17eac01e6f85007db41dcc417f83e4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0467be7e91fdbf4685fc41a375ea86a503e26009
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-kubelet-logs-from-azure-container-service-aks-cluster-nodes"></a>AKS(Azure Container Service) 클러스터 노드에서 kubelet 로그 가져오기
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>AKS(Azure Kubernetes Service) 클러스터 노드에서 kubelet 로그 가져오기
 
-경우에 따라 문제 해결을 위해 AKS(Azure Container Service) 노드에서 kubelet 로그를 가져와야 합니다. 이 문서에서는 이러한 로그를 가져오는 한 가지 옵션을 자세히 설명합니다.
+경우에 따라 문제 해결을 위해 AKS(Azure Kubernetes Service) 노드에서 kubelet 로그를 가져와야 합니다. 이 문서에서는 이러한 로그를 가져오는 한 가지 옵션을 자세히 설명합니다.
 
 ## <a name="create-an-ssh-connection"></a>SSH 연결 만들기
 
-먼저 kubelet 로그를 가져와야 하는 노드와 SSH 연결을 만듭니다. 이 작업 방법은 [AKS(Azure Container Service) 클러스터 노드에 대한 SSH 연결 만들기][aks-ssh] 문서에 자세히 설명되어 있습니다.
+먼저 kubelet 로그를 가져와야 하는 노드와 SSH 연결을 만듭니다. 이 작업 방법은 [AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH 연결 만들기][aks-ssh] 문서에 자세히 설명되어 있습니다.
 
 ## <a name="get-kubelet-logs"></a>kubelet 로그 가져오기
 

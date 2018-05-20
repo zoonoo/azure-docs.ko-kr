@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집
 
@@ -28,7 +28,7 @@ Azure Log Analytics는 다음 환경에 있는 Windows 또는 Linux 컴퓨터에
 * 실제 서버 또는 가상 머신으로 사용되는 데이터 센터
 * AWS(Amazon Web Services) 같은 클라우드에 호스트된 서비스의 가상 머신
 
-사용자 환경에 호스트된 컴퓨터는 Log Analytics에 직접 연결할 수도 있고, System Center Operations Manager 2012 R2 또는 2016에서 해당 컴퓨터를 이미 모니터링하고 있는 경우에는 Operations Management 관리 그룹을 Log Analytics와 통합하고 서비스 작업 프로세스 및 전략을 계속 유지 관리할 수도 있습니다.  
+사용자 환경에 호스트된 컴퓨터는 Log Analytics에 직접 연결할 수도 있고, System Center Operations Manager 2012 R2, 2016 또는 버전 1801에서 해당 컴퓨터를 이미 모니터링하고 있는 경우에는 Operations Management 관리 그룹을 Log Analytics와 통합하고 IT 서비스 작업 프로세스를 계속 유지 관리할 수도 있습니다.  
 
 ## <a name="overview"></a>개요
 
@@ -36,15 +36,11 @@ Azure Log Analytics는 다음 환경에 있는 Windows 또는 Linux 컴퓨터에
 
 수집된 데이터를 분석하고 그에 대한 조치를 취하기 전에 먼저 Log Analytics 서비스에 데이터를 보내려는 모든 컴퓨터에 대한 에이전트를 설치 및 연결해야 합니다. Azure Automation에서 설치 프로그램, 명령줄 또는 DSC(필요한 상태 구성)를 사용하여 온-프레미스 컴퓨터에 에이전트를 설치할 수 있습니다. 
 
-Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Log Analytics 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 [프록시 서버 또는 OMS 게이트웨이에서 사용하도록 에이전트 구성](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway)을 검토하여 적용해야 하는 구성 변경 내용을 이해하세요. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 Log Analytics 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 [Operations Manager](log-analytics-om-agents.md)에서 계속 모니터링될 수도 있습니다. Log Analytics와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다. Windows 에이전트는 최대 4개의 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
+Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Log Analytics 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 [필수 조건 섹션](#prerequisites)을 검토하여 필요한 네트워크 구성을 이해하세요.  IT 보안 정책에는 네트워크의 컴퓨터가 인터넷에 연결할 수 있도록 허용하지 않을 경우 [OMS 게이트웨이](log-analytics-oms-gateway.md)를 설정한 후 에이전트가 게이트웨이를 통해 Log Analytics에 연결하도록 구성할 수 있습니다. 그러면 에이전트는 구성 정보를 수신하고, 사용하도록 설정한 데이터 수집 규칙 및 솔루션에 따라 수집된 데이터를 보낼 수 있습니다. 
 
-Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라, 변경 내용 추적 및 업데이트 관리와 같은 Hybrid Runbook Worker 역할 및 관리 솔루션을 호스트하도록 Azure Automation과의 연결도 지원합니다.  Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview)를 참조하세요.  
+System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 Log Analytics 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 [Operations Manager](log-analytics-om-agents.md)에서 계속 모니터링될 수도 있습니다. Log Analytics와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다. Windows 에이전트는 최대 4개의 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
 
-IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 OMS 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 에이전트를 구성할 수 있습니다. Linux 또는 Windows 에이전트가 OMS 게이트웨이를 통해 Log Analytics와 통신할 수 있도록 구성하는 방법에 대한 자세한 내용 및 단계에 대해서는 [OMS 게이트웨이를 사용하여 OMS에 컴퓨터 연결](log-analytics-oms-gateway.md)을 참조하세요. 
-
-> [!NOTE]
-> Windows용 에이전트는 TLS(전송 계층 보안) 1.0 및 1.1만 지원합니다.  
-> 
+Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라, 변경 내용 추적 및 업데이트 관리와 같은 Hybrid Runbook Worker 역할 및 관리 솔루션을 호스트하도록 Azure Automation도 지원합니다.  Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 시작하기 전에 다음 세부 정보를 검토하여 최소 시스템 요구 사항을 충족하는지 확인합니다.
@@ -54,6 +50,9 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 * Windows Server 2008 SP1(서비스 팩 1) 이상
 * Windows 7 SP1 이상.
+
+> [!NOTE]
+> Windows용 에이전트는 TLS(전송 계층 보안) 1.0 및 1.1만 지원합니다.  
 
 #### <a name="network-configuration"></a>네트워크 구성
 아래 정보는 Windows 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다. 트래픽은 네트워크에서 Log Analytics 서비스로 아웃바운드됩니다. 

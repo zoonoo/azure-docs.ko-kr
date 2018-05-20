@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 79059fbd088d15ca62b39dacba766726119e6048
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d37913caa94dc4cf79aef9c2c12a7aacce7c03ce
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
@@ -83,7 +83,7 @@ DLT(분산 원장 기술) 메시지에는 블록체인에 쓰여지는 트랜잭
 
 인바운드 메시지 브로커의 메시지를 블록체인에 기록해야 하는 경우 DLT 소비자가 처리합니다. DLT 소비자는 실행하려고 하는 트랜잭션에 대한 메타데이터가 포함된 메시지를 검색한 다음 해당 정보를 *트랜잭션 작성기 및 서명자*에게 전송하는 서비스입니다. *트랜잭션 작성기 및 서명자*는 데이터 및 원하는 블록체인 대상을 기반으로 블록체인 트랜잭션을 어셈블합니다. 어셈블되면 트랜잭션이 서명됩니다. 개인 키는 Azure Key Vault에 저장됩니다.
 
-현재 Azure Key Vault는 Key Vault 내에서 블록체인 트랜잭션의 소프트웨어 서명을 지원하지 않습니다. 대신 Blockchain Workbench는 Key Vault에서 적절한 개인 키를 검색하고 Key Vault 외부에서 트랜잭션을 서명합니다. 서명되면 트랜잭션 라우터와 원장으로 트랜잭션이 전송됩니다.
+ Blockchain Workbench는 Key Vault에서 적절한 개인 키를 검색하고 Key Vault 외부에서 트랜잭션에 서명합니다. 서명되면 트랜잭션 라우터와 원장으로 트랜잭션이 전송됩니다.
 
 ## <a name="transaction-routers-and-ledgers"></a>트랜잭션 라우터 및 원장
 
@@ -118,4 +118,5 @@ Azure Monitor는 블록체인 네트워크의 상태에 대한 정보를 제공�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Blockchain Workbench 배포](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench 배포](blockchain-workbench-deploy.md)

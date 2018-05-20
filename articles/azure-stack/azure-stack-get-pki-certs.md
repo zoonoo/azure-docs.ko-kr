@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 69a4529e009d9fdd7081bc4d4b53c468befd8e6d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure 스택 인증서 서명 요청 만들기
 
@@ -68,10 +68,10 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     > [!note]  
     > CN (일반 이름)를 제공 하는 경우 인증서 요청의 첫 번째 DNS 이름으로 덮어쓰게 됩니다.
 
-3.  이미 존재 하는 출력 디렉터리를 선언 합니다.
+3.  이미 존재 하는 출력 디렉터리를 선언 합니다. 예: 
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
 4.  선언 시스템을 식별 합니다.
 
@@ -95,7 +95,7 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     ````
 
     > [!note]  
-    > `<regionName>.<externalFQDN>` 에 Azure 스택의 모든 외부 DNS 이름을 만들어지면이 예제의 기본을 형성, 포털 것 `portal.east.azurestack.contoso.com`합니다.
+    > `<regionName>.<externalFQDN>` 에 Azure 스택의 모든 외부 DNS 이름을 만들어지면이 예제의 기본을 형성, 포털 것 `portal.east.azurestack.contoso.com`합니다.  
 
 6. 에 단일 인증서 요청을 여러 개의 주체 대체 이름을 생성 합니다.
 

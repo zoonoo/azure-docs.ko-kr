@@ -1,26 +1,20 @@
 ---
-title: "Azure Active Directory B2B 공동 작업 사용자 감사 및 보고 | Microsoft Docs"
-description: "Azure Active Directory B2B 공동 작업에서 구성 가능한 게스트 사용자 속성"
+title: Azure Active Directory B2B 공동 작업 사용자 감사 및 보고 | Microsoft Docs
+description: Azure Active Directory B2B 공동 작업에서 구성 가능한 게스트 사용자 속성
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/12/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 38ae8f5f1a8f4292eaf617c15c6a59a48dd348c5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 58b84688ded993b4e592af3dcf6a070d6bf52d6a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 공동 작업 사용자 감사 및 보고
 게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 다음은 초대한 Sam Oogle의 초대 및 상환 기록에 대한 예제입니다.
@@ -35,16 +29,5 @@ Azure AD에서 이러한 로그를 내보낸 후 원하는 보고 도구를 사�
 
 ### <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
+- [B2B 공동 작업 사용자 속성](active-directory-b2b-user-properties.md)
 
-* [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 공동 작업 사용자 속성](active-directory-b2b-user-properties.md)
-* [역할에 B2B 공동 작업 사용자 추가](active-directory-b2b-add-guest-to-role.md)
-* [B2B 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
-* [동적 그룹 및 B2B 공동 작업](active-directory-b2b-dynamic-groups.md)
-* [B2B 공동 작업 코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
-* [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
-* [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
-* [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
-* [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
-* [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)

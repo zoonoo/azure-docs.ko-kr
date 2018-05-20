@@ -1,6 +1,7 @@
 - name: Azure Blockchain Workbench(공개 미리 보기)
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Azure Blockchain Workbench 정보
       href: blockchain-workbench-overview.md
@@ -11,6 +12,7 @@
     - name: 통합 패턴
       href: blockchain-workbench-integration-patterns.md
 - name: 방법 가이드
+  expanded: true
   items:
     - name: Workbench 배포
       href: blockchain-workbench-deploy.md

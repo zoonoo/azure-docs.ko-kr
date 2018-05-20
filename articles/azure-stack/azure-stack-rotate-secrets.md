@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure 스택의 암호를 회전
 
@@ -49,6 +48,24 @@ Azure 스택 연산자에 의해 제공 되는 외부 연결 서비스에 대 �
 
 Azure 스택 인프라의 무결성을 유지 하기 위해 연산자에는 조직의 보안 요구 사항과 일치 하는 것에 해당 인프라의 암호를 정기적으로 회전 하는 기능이 필요 합니다.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>새 인증 기관에서 외부 인증서와 암호를 회전
+
+Azure 스택 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 사용 하 여 비밀 회전을 지원합니다.
+
+|설치 된 인증서 CA|CA를 회전 하려면|지원됨|지원 되는 버전 azure 스택|
+|-----|-----|-----|-----|-----|
+|자체 서명 된|엔터프라이즈에|지원되지 않음||
+|자체 서명 된|자체 서명 하려면|지원되지 않음||
+|자체 서명 된|Public에<sup>*</sup>|지원됨|1803 & 이상|
+|엔터프라이즈에서|엔터프라이즈에|고객 동일한 엔터프라이즈 배포에 사용 되는 CA를 사용 하 여으로 지원 합니다.|1803 & 이상|
+|엔터프라이즈에서|자체 서명 하려면|지원되지 않음||
+|엔터프라이즈에서|Public에<sup>*</sup>|지원됨|1803 & 이상|
+|Public<sup>*</sup>|엔터프라이즈에|지원되지 않음|1803 & 이상|
+|Public<sup>*</sup>|자체 서명 하려면|지원되지 않음||
+|Public<sup>*</sup>|Public에<sup>*</sup>|지원됨|1803 & 이상|
+
+<sup>*</sup> 다음 공용 인증 기관은 Windows 신뢰할 수 있는 루트 프로그램의 일부인 것입니다. 전체 목록을 찾을 수 있습니다 [Microsoft 신뢰할 수 있는 루트 인증서 프로그램: 2017 년 6 월 27) (현재 참가자](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)합니다.
+
 ## <a name="alert-remediation"></a>경고 관리
 
 암호 만료의 30 일 이내에, 관리자 포털에 다음과 같은 경고가 생성 됩니다. 
@@ -74,7 +91,7 @@ Azure 스택 인프라의 무결성을 유지 하기 위해 연산자에는 조�
 
 ## <a name="rotating-external-and-internal-secrets"></a>외부 및 내부 암호를 회전
 
-두 외부 내부 비밀 회전 합니다.
+두 외부 내부 비공식 회전 하려면:
 
 1. 새로 만든 내 **/인증서** 사전 단계에서 만든 디렉터리 필수 인증서 섹션에 설명 된 형식에 따라 디렉터리 구조에 새 인증서 집합을 대체 외부 배치 [Azure 스택 PKI 인증서 요구 사항](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates)합니다.
 2. PowerShell 세션을 만들기는 [권한 있는 끝점](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) 를 사용 하는 **CloudAdmin** 계정 및 세션 변수로 저장 합니다. 이 변수는 다음 단계에서 매개 변수로 사용 합니다.

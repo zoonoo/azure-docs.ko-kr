@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: fd51ad8289ac03bf7b4d2a5bd0222db98bcf6737
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 24d7c206211e85fc4418e0381a40c8da3e94a69e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Azure Marketplace를 사용한 비즈니스 성장
 
@@ -129,8 +129,7 @@ Marketplace의 새 명단에 오르면 Marketplace GTM 혜택을 무료로 받�
 >[!NOTE]
 >OCP 카탈로그(One Commercial Partner Catalog)는 Microsoft 파트너 네트워크에 속하는 멤버를 위한 혜택입니다. 
 
-[Marketplace GTM 혜택](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
-
+![Marketplace GTM 이점](./media/marketplace-publishers-guide/gtmmay2018.png)
 
 지원이 필요하면 [Microsoft 시장 진출](https://www.microsoftgotomarket.com)을 참조하세요. 이곳에서 비즈니스를 홍보할 수 있는 템플릿, 웹 콘텐츠, 학습 및 도구를 찾을 수 있습니다.
 

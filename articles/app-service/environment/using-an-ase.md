@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Environment 사용"
-description: "Azure App Service Environment에서 앱을 작성, 게시 및 확장하는 방법에 대해 알아봅니다."
+title: Azure App Service Environment 사용
+description: Azure App Service Environment에서 앱을 작성, 게시 및 확장하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -58,19 +58,28 @@ ASE에서 웹앱을 만들려면:
 
 4. 새 리소스 그룹의 이름을 입력하거나 **기존 항목 사용**을 선택하고 드롭다운 목록에서 이름을 선택합니다.
 
+5. OS를 선택합니다. 
+
+    * ASE에서 Linux 앱을 호스트하는 것은 새로운 미리 보기 기능이므로, 현재 프로덕션 워크로드를 실행 중인 ASE에는 Linux 앱을 추가하지 않는 것이 좋습니다. 
+    * ASE에 Linux 앱을 추가하게 되면 ASE도 미리 보기 모드가 됩니다. 
+
 5. ASE에서 기존 App Service 계획을 선택하거나 다음 단계를 통해 새 App Service 계획을 만듭니다.
 
     a. **새로 만들기**를 선택합니다.
 
     나. App Service 계획의 이름을 입력합니다.
 
-    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다.
+    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. ASE에서 Linux 앱을 호스트하는 것은 현재 **미국 서 부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. 
 
     d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
     e. **확인**을 선택합니다.
     
     ![격리 가격 책정 계층][2]
+
+    > [!NOTE]
+    > Linux 웹앱 및 Windows 웹앱은 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service 환경에는 있을 수 있습니다. 
+    >
 
 6. **만들기**를 선택합니다.
 

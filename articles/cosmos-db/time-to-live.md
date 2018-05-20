@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
 응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
@@ -124,7 +124,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="removing-ttl-from-a-document"></a>문서에서 TTL 제거
 문서에서 TTL을 설정했지만 해당 문서가 더 이상 만료되지 않게 하려면 문서를 검색하고 TTL 필드를 제거하여 서버에 있는 문서를 바꿀 수 있습니다. 문서에서 TTL 필드를 제거하면 컬렉션의 기본값이 적용됩니다. 문서가 만료되지 않도록 중지하고 컬렉션에서 상속하지 않으려면 TTL 값을 -1로 설정해야 합니다.
@@ -136,7 +136,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disabling-ttl"></a>TTL 사용 안 함
 컬렉션에서 TTL을 사용하지 않고 만료된 문서를 찾는 백그라운드 프로세스를 중지하려면 컬렉션에서 DefaultTTL 속성을 삭제해야 합니다. 이 속성을 삭제하는 것은 -1로 설정하는 것과 다릅니다. -1로 설정하면 컬렉션에 추가된 새 문서는 계속 존재하게 되지만 컬렉션에 있는 특정 문서에서 이를 재정의할 수 있습니다. 컬렉션에서 이 속성을 완전히 제거하면 이전의 기본값을 명시적으로 재정의한 문서가 있더라도 문서가 만료되지 않습니다.

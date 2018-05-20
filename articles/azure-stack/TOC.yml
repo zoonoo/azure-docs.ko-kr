@@ -111,8 +111,6 @@
               href: azure-stack-powershell-download.md
             - name: PowerShell 구성 - 클라우드 운영자
               href: azure-stack-powershell-configure-admin.md
-            - name: PowerShell로 시작 및 실행
-              href: azure-stack-powershell-configure-quickstart.md
         - name: 권한 있는 액세스 끝점
           href: azure-stack-privileged-endpoint.md
         - name: 업데이트 관리

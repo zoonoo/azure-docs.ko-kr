@@ -1,25 +1,27 @@
 ---
-title: "Azure AD의 OAuth2 암시적 허용 흐름 이해 | Microsoft Docs"
-description: "Azure Active Directory의 OAuth2 암시적 허용 흐름 구현 및 이 구현이 응용 프로그램에 적합한지 여부에 대해 자세히 알아봅니다."
+title: Azure AD의 OAuth2 암시적 허용 흐름 이해 | Microsoft Docs
+description: Azure Active Directory의 OAuth2 암시적 허용 흐름 구현 및 이 구현이 응용 프로그램에 적합한지 여부에 대해 자세히 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 263a093d5cf4b48ed1dadd4a288e548065ddf282
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Azure AD(Active Directory)의 OAuth2 암시적 허용 흐름 이해
 OAuth2 암시적 허용은 OAuth2 사양에서 보안 문제가 가장 많은 허용으로 악명이 높습니다. 그런데도 이는 ADAL JS가 구현한 방법이며 SPA 응용 프로그램을 작성할 때 권장하는 방법입니다. 무엇을 제공하나요? 모두 절충의 문제이며 이미 판명되었듯이 암시적 허용은 브라우저에서 JavaScript를 통해 웹 API를 사용하는 응용 프로그램에 대해 추진할 수 있는 최선의 방법입니다.

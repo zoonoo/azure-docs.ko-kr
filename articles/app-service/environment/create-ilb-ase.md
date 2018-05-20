@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -63,6 +63,8 @@ ILB ASE를 만들려면
 
 4. VNet을 선택하거나 만듭니다.
 
+    * 새 VNet을 선택하면 이름 및 위치를 지정할 수 있습니다. 이러한 ASE에서 Linux 앱을 호스트하려는 경우 현재 **미국 서부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남아시아**의 6개 지역만 지원됩니다. 
+
 5. 기존 VNet을 선택한 경우 ASE를 보유하는 서브넷을 만들어야 합니다. ASE의 향후 증가에 맞게 충분히 큰 서브넷 크기를 설정해야 합니다. `/25` 크기를 사용하는 것이 좋습니다. 그러면 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 선택할 수 있는 최소 크기는 `/28`입니다. 인프라에서 요구하면 이 크기는 최대 3개의 인스턴스로 확장될 수 있습니다.
 
     * App Service 계획에서 기본 최대 100개를 초과합니다.
@@ -106,7 +108,7 @@ ILB ASE를 만들려면
 
 일반적으로 ASE에서 앱을 만드는 것과 동일한 방식으로 ILB ASE에서 앱을 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **웹 + 모바일** > **웹** 또는 **모바일** 또는 **API 앱**을 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
 
 2. 앱의 이름을 입력합니다.
 
@@ -114,9 +116,13 @@ ILB ASE를 만들려면
 
 4. 리소스 그룹을 선택하거나 만듭니다.
 
-5. App Service 계획을 선택하거나 만듭니다. 새 App Service 계획을 만들려는 경우 ASE를 위치로 선택합니다. App Service 계획을 만들려는 작업자 풀을 선택합니다. App Service 계획을 만들 때 위치 및 작업자 풀로 ASE를 선택합니다. 앱의 이름을 지정하면 앱 이름 아래의 도메인을 ASE에 대한 도메인으로 바꿉니다.
+5. OS를 선택합니다. 
 
-6. **만들기**를 선택합니다. 앱을 대시보드에 표시하려면 **대시보드에 고정** 확인란을 선택합니다.
+    * 사용자 지정 Docker 컨테이너를 사용하여 Linux 앱을 만들려는 경우 여기에 나오는 지침을 사용하여 사용자 고유의 컨테이너를 가져올 수 있습니다. 
+
+6. App Service 계획을 선택하거나 만듭니다. 새 App Service 계획을 만들려는 경우 ASE를 위치로 선택합니다. App Service 계획을 만들려는 작업자 풀을 선택합니다. App Service 계획을 만들 때 위치 및 작업자 풀로 ASE를 선택합니다. 앱의 이름을 지정하면 앱 이름 아래의 도메인을 ASE에 대한 도메인으로 바꿉니다.
+
+7. **만들기**를 선택합니다. 앱을 대시보드에 표시하려면 **대시보드에 고정** 확인란을 선택합니다.
 
     ![App Service 계획 생성][2]
 
@@ -203,7 +209,7 @@ ILB ASE 도메인이 해당 ASE 외부에서 여러 작업에 사용되는 경�
 
 ## <a name="publish-with-an-ilb-ase"></a>ILB ASE로 게시 ##
 
-만든 모든 앱에는 두 개의 끝점이 있습니다. ILB ASE에는 *&lt;앱 이름>.&lt;ILB ASE 도메인>*과 *&lt;앱 이름>.scm.&lt; ILB ASE 도메인>*이 있습니다. 
+만든 모든 앱에는 두 개의 끝점이 있습니다. ILB ASE에는 *&lt;앱 이름>.&lt;ILB ASE 도메인>* 과 *&lt;앱 이름>.scm.&lt; ILB ASE 도메인>* 이 있습니다. 
 
 SCM 사이트 이름은 Azure Portal 내에서 **고급 포털**이라고 하는 Kudu 콘솔로 이동합니다. Kudu 콘솔을 통해 환경 변수를 확인하고, 디스크를 탐색하고, 콘솔을 사용할 수 있습니다. 자세한 내용은 [Azure App Service의 Kudu 콘솔][Kudu]을 참조하세요. 
 

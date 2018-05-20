@@ -1,21 +1,21 @@
 ---
-title: "웹 UI를 사용하여 Azure Kubernetes 클러스터 관리"
-description: "AKS에서 Kubernetes 대시보드 사용"
+title: 웹 UI를 사용하여 Azure Kubernetes 클러스터 관리
+description: AKS에서 Kubernetes 대시보드 사용
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Azure Container Service(AKS)와 Kubernetes 대시보드
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)와 Kubernetes 대시보드
 
 Azure CLI를 사용하여 Kubernetes 대시보드를 시작할 수 있습니다. 이 문서는 Azure CLI를 사용하여 Kubernetes 대시보드를 시작하는 과정 및 기본적인 일부 대시보드 작업 과정도 안내합니다. Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
 

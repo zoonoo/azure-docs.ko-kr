@@ -1,13 +1,14 @@
 ---
-title: "Azure Single Sign On SAML 프로토콜 | Microsoft Docs"
-description: "이 문서에서는 Azure Active Directory에서 Single Sign On SAML 프로토콜을 설명합니다."
+title: Azure Single Sign On SAML 프로토콜 | Microsoft Docs
+description: 이 문서에서는 Azure Active Directory에서 Single Sign On SAML 프로토콜을 설명합니다.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 이 문서에서는 Azure AD(Azure Active Directory)에서 Single Sign-On에 대해 지원하는 SAML 2.0 인증 요청 및 응답에 대해 설명합니다.
@@ -96,7 +97,7 @@ Azure AD에서는 서명된 인증 요청을 지원하지 않으므로 `AuthnReq
 ### <a name="subject"></a>제목
 Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
-## <a name="response"></a>응답
+## <a name="response"></a>response
 요청한 로그온이 성공적으로 완료되면 Azure AD는 클라우드 서비스에 응답을 게시합니다. 성공적인 로그온 시도에 대한 샘플 응답은 다음과 같습니다.
 
 ```
@@ -142,7 +143,7 @@ Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 </samlp:Response>
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 `Response` 요소는 권한 부여 요청의 결과를 포함합니다. Azure AD는 `Response` 요소에 `ID`, `Version` 및 `IssueInstant` 값을 설정합니다. 다음 특성도 설정합니다.
 
 * `Destination`: 로그온이 성공적으로 완료되면 서비스 공급자(클라우드 서비스)의 `RedirectUri`로 설정됩니다.
@@ -157,7 +158,7 @@ Azure AD는 `Issuer` 요소를 `https://login.microsoftonline.com/<TenantIDGUID>
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### <a name="status"></a>가동 상태
+### <a name="status"></a>상태
 `Status` 요소가 로그온의 성공 여부를 전달합니다. 여기에는 요청 상태를 나타내는 코드 또는 중첩 코드 집합을 포함하는 `StatusCode` 요소가 포함됩니다. 또한 로그온 프로세스 중에 생성된 사용자 지정 오류 메시지를 포함하는 `StatusMessage` 요소도 포함됩니다.
 
 <!-- TODO: Add a authentication protocol error reference -->

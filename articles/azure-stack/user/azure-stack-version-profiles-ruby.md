@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 98d285bf8ec92e7b6baf709d4796ce2f4420c4f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd8130ac12f9c7c2095f9329dc4ce8a34187cf62
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure 스택에서 Ruby API 버전 프로필 사용
 
@@ -36,7 +36,7 @@ API 프로필은 리소스 공급자와 서비스 버전의 조합입니다. 여
  - 서비스의 최신 api 버전을 사용 하려면 사용 된 **최신** 특정 보석의 프로필입니다. 예를 들어 단독 계산 서비스의 최신 api 버전을 사용 하려는 경우 사용 하 여는 **최신** 의 프로필은 **계산** 보석 합니다.
  - 서비스에 대 한 특정 api 버전을 사용 하려면 보석 내에 정의 된 특정 API 버전을 사용 합니다.
 
-> [!note] 
+> [!Note]   
 > 동일한 응용 프로그램에서 옵션을 모두를 결합할 수 있습니다.
 
 ## <a name="install-the-azure-ruby-sdk"></a>Ruby Azure SDK 설치
@@ -96,7 +96,8 @@ Azure 스택 Ruby Azure SDK를 사용 하려면 다음 값을 제공 하 고 환
 Microsoft Azure 리소스 관리자는 관리자가 배포, 관리 및 Azure 리소스를 모니터링할 수 있도록 관리 합니다. Azure 리소스 관리자는 그룹을 구성원으로, 단일 작업에서 이러한 작업을 처리할 수 있습니다.
 
 리소스 관리자 끝점에서 메타 데이터 정보를 가져올 수 있습니다. 끝점 사용자 코드를 실행 하는 데 필요한 정보로 JSON 파일을 반환 합니다.
-  > [!note]  
+
+  > [!Note]  
   > **ResourceManagerUrl** Azure 스택 개발 키트 (ASDK)에: `https://management.local.azurestack.external/`  
   > **ResourceManagerUrl** 통합된 시스템의은: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -208,7 +209,7 @@ end
 
 이 샘플을 실행 하려면 Ruby를 설치 했는지 확인 합니다. Visual Studio 코드를 사용 하는 경우에 확장으로 Ruby SDK를 다운로드 합니다. 
 
-> [!note]  
+> [!Note]  
 > 에 있는 샘플에 대 한 저장소를 얻을 수 있습니다 "[관리 Azure 리소스와 Ruby 있는 리소스 그룹을](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)"입니다.
 
 1. 리포지토리를 복제 합니다.
@@ -243,7 +244,7 @@ end
   - AZURE_SUBSCRIPTION_ID 내보내기 = {구독 id}
   - ARM_ENDPOINT 내보내기 = {AzureStack 리소스 관리자 url을 (를)
 
-  > [!note]  
+  > [!Note]  
   > Windows에서 내보내기 하는 대신 집합을 사용 합니다.
 
 4. 위치 변수 AzureStack 위치로 설정 되었는지 확인 합니다. 예를 들어 로컬 = "local"

@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Hub(Java)를 사용한 메시지 라우팅 | Microsoft Docs"
-description: "다른 백 엔드 서비스에 메시지를 발송하기 위해 경로 규칙 및 사용자 지정 끝점을 사용하여 Azure IoT Hub 장치-클라우드 메시지를 처리하는 방법을 설명합니다."
+title: Azure IoT Hub(Java)를 사용한 메시지 라우팅 | Microsoft Docs
+description: 다른 백 엔드 서비스에 메시지를 발송하기 위해 경로 규칙 및 사용자 지정 끝점을 사용하여 Azure IoT Hub 장치-클라우드 메시지를 처리하는 방법을 설명합니다.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ff45e9d717b93f89eb8f751294788f08a2fd4592
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용한 메시지 라우팅
 
@@ -176,7 +176,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
    ```
    
-   ![simulated-device 실행][simulateddevice]
+   ![simulateddevice][simulateddevice]
 
 ## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(선택 사항) 저장소 컨테이너를 IoT Hub에 추가 및 메시지 라우팅
 
@@ -200,7 +200,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 1. 이전 응용 프로그램이 실행되고 있는지 확인합니다. 
 
-1. Azure Portal에서 저장소 계정으로 이동한 후 **Blob Service** 아래에서 **Blob 찾아보기...**를 클릭합니다.  컨테이너를 선택하고 JSON 파일로 이동한 후 클릭하고 **다운로드**를 클릭하여 데이터를 확인합니다.
+1. Azure Portal에서 저장소 계정으로 이동한 후 **Blob Service** 아래에서 **Blob 찾아보기...** 를 클릭합니다.  컨테이너를 선택하고 JSON 파일로 이동한 후 클릭하고 **다운로드**를 클릭하여 데이터를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -208,7 +208,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 [IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법][lnk-c2d]에서는 솔루션 백 엔드에서 장치로 메시지를 보내는 방법을 보여줍니다.
 
-IoT Hub를 사용하는 전체 종단 간 솔루션의 예를 보려면 [Azure IoT Suite][lnk-suite]를 참조하세요.
+IoT Hub를 사용하는 전체 종단 간 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기][lnk-suite]를 참조하세요.
 
 IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드]를 참조하세요.
 

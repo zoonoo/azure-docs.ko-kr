@@ -3,22 +3,22 @@ title: AKS에서 Azure 디스크 사용
 description: AKS에서 Azure 디스크 사용
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Azure 디스크가 포함된 영구적 볼륨
 
 영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 저장소 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. Kubernetes 영구적 볼륨에 대한 자세한 내용은 [Kubernetes 영구적 볼륨][kubernetes-volumes]을 참조하세요.
 
-이 문서에서는 AKS(Azure Container Service) 클러스터에서 Azure 디스크와 함께 영구 볼륨을 사용하는 방법을 자세히 설명합니다.
+이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 Azure 디스크와 함께 영구 볼륨을 사용하는 방법을 자세히 설명합니다.
 
 > [!NOTE]
 > Azure 디스크는 액세스 모드 형식 ReadWriteOnce만 사용하여 탑재할 수 있으며, 이 모드는 단일 AKS 노드에서만 사용할 수 있습니다. 여러 노드에서 영구 볼륨을 공유해야 하는 경우, [Azure 파일][azure-files-pvc]을 사용하는 것이 좋습니다.
@@ -60,10 +60,10 @@ spec:
       storage: 5Gi
 ```
 
-[kubectl create][kubectl-create] 명령을 사용하여 영구 볼륨 클레임을 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 영구 볼륨 클레임을 만듭니다.
 
 ```azurecli-interactive
-kubectl create -f azure-premimum.yaml
+kubectl apply -f azure-premimum.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>영구적 볼륨 사용
@@ -90,10 +90,10 @@ spec:
         claimName: azure-managed-disk
 ```
 
-[kubectl create][kubectl-create] 명령을 사용하여 Pod를 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 Pod를 만듭니다.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-disk.yaml
+kubectl apply -f azure-pvc-disk.yaml
 ```
 
 이제 Azure 디스크가 `/mnt/azure` 디렉터리에 탑재된 Pod가 실행되고 있습니다. 이 구성은 `kubectl describe pod mypod`를 통해 Pod를 검사할 때 볼 수 있습니다.
@@ -107,7 +107,7 @@ Azure 디스크를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/

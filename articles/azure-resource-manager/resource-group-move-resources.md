@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/23/2018
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다. 
+  원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다.
 
   * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
   * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -114,6 +114,7 @@ ms.lasthandoff: 04/23/2018
 * Application Insights
 * Automation
 * Azure Cosmos DB
+* Azure Relay
 * Batch
 * Bing 지도
 * CDN
@@ -121,6 +122,7 @@ ms.lasthandoff: 04/23/2018
 * Cognitive Services
 * Content Moderator
 * Data Catalog
+* Data Factory - V1은 이동될 수 있지만 V2 이동(미리 보기)은 지원되지 않습니다.
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -129,6 +131,7 @@ ms.lasthandoff: 04/23/2018
 * IoT Hub
 * Key Vault
 * 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
+* Log Analytics
 * Logic Apps
 * 기계 학습 - Machine Learning Studio 웹 서비스는 동일한 구독의 리소스 그룹으로 이동할 수 있지만 다른 구독으로 이동할 수는 없습니다. 다른 Machine Learning 리소스는 구독 간에 이동할 수 있습니다.
 * Media Services
@@ -136,7 +139,7 @@ ms.lasthandoff: 04/23/2018
 * Notification Hubs
 * Operational Insights
 * 운영 관리
-* Power BI
+* Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
 * Redis Cache
 * Scheduler
@@ -147,7 +150,7 @@ ms.lasthandoff: 04/23/2018
 * Storage
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Stream Analytics - 실행 중 상태일 때는 Stream Analytics 작업을 이동할 수 없습니다.
-* SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다.
+* SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다. 
 * Traffic Manager
 * Virtual Machines - 관리 디스크가 있는 VM은 이동할 수 없습니다. [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Virtual Machines(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
@@ -163,10 +166,11 @@ ms.lasthandoff: 04/23/2018
 * AD 하이브리드 상태 관리 서비스
 * Application Gateway
 * Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure Migrate
 * BizTalk Services
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
-* 컨테이너 서비스
-* Data Factory
+* Kubernetes 서비스
 * DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동이 가능하지만, 구독 간 이동은 사용 가능하지 않습니다.
 * Dynamics LCS
 * Express 경로
@@ -189,6 +193,11 @@ ms.lasthandoff: 04/23/2018
 * 관리 디스크에서 만든 스냅숏
 * 관리 디스크가 있는 가상 머신이 포함된 가용성 집합
 
+관리 디스크를 이동할 수는 없지만 복사본을 만든 후 기존 관리 디스크에서 새 가상 시스템을 작성할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+
+* [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) 또는 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)를 사용하여 같은 구독 또는 다른 구독에 관리 디스크를 복사합니다.
+* [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) 또는 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md)와 함께 기존 관리 OS 디스크를 사용하여 가상 머신을 만듭니다.
+
 연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독의 가상 머신을 프로비전 해제하고 새 구독에 다시 배포합니다.
 
 Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
@@ -201,15 +210,17 @@ Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독�
 
 리소스 탐색 링크가 있는 서브넷이 가상 네트워크에 있는 경우 가상 네트워크를 다른 구독으로 이동할 수 없습니다. 예를 들어 Redis Cache 리소스가 서브넷에 배포된 경우 해당 서브넷에는 리소스 탐색 링크가 있습니다.
 
+사용자 지정 DNS 서버가 가상 네트워크에 있는 경우 가상 네트워크를 다른 구독으로 이동할 수 없습니다. 가상 네트워크를 이동하려면 Default(Azure 제공) DNS 서버로 설정합니다. 이동 후 사용자 지정 DNS 서버를 다시 구성합니다.
+
 ## <a name="app-service-limitations"></a>App Service 제한
 
-App Service 리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 리소스 이동에 대한 제한 사항이 다릅니다. 
+App Service 리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 리소스 이동에 대한 제한 사항이 다릅니다.
 
 이 섹션에서 설명한 제한 사항은 App Service Certificates가 아닌 업로드된 인증서에 적용됩니다. 아무런 제한 없이 App Service Certificate를 새 리소스 그룹 또는 구독으로 이동시킬 수 있습니다. 동일한 App Service Certificate를 사용하는 여러 웹앱이 있는 경우 먼저 모든 웹앱을 이동한 다음, 인증서를 이동합니다.
 
 ### <a name="moving-within-the-same-subscription"></a>동일한 구독 내에서 이동
 
-_동일한 구독 내에서_ Web App을 이동할 때 업로드된 SSL 인증서는 이동할 수 없습니다. 그러나 업로드된 SSL 인증서를 이동하지 않고 Web App을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다. 
+_동일한 구독 내에서_ Web App을 이동할 때 업로드된 SSL 인증서는 이동할 수 없습니다. 그러나 업로드된 SSL 인증서를 이동하지 않고 Web App을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다.
 
 Web App을 사용하여 SSL 인증서를 이동하려면 다음 단계를 수행합니다.
 
@@ -227,7 +238,7 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
     - 업로드되거나 가져온 SSL 인증서
     - App Service Environment
 - 리소스 그룹의 모든 App Service 리소스는 함께 이동해야 합니다.
-- App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래의 리소스 그룹에 더 이상 없으면 먼저 원래의 리소스 그룹으로 다시 이동해야 합니다. 그런 다음 구독 간에 App Service 리소스를 이동하면 됩니다. 
+- App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래의 리소스 그룹에 더 이상 없으면 먼저 원래의 리소스 그룹으로 다시 이동해야 합니다. 그런 다음 구독 간에 App Service 리소스를 이동하면 됩니다.
 
 ## <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
 

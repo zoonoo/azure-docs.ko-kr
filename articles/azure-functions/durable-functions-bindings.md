@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 바인딩 - Azure"
-description: "Azure Functions의 지속성 함수 확장에 트리거 및 바인딩을 사용하는 방법을 설명합니다."
+title: 지속성 함수의 바인딩 - Azure
+description: Azure Functions의 지속성 함수 확장에 트리거 및 바인딩을 사용하는 방법을 설명합니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -36,17 +36,12 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration`은 오케스트레이션의 이름입니다. 이 오케스트레이터 함수의 새 인스턴스를 시작하려고 할 때 클라이언트에서 사용해야 하는 값입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
-* `version`은 오케스트레이션의 버전 레이블입니다. 오케스트레이션의 새 인스턴스를 시작하는 클라이언트는 일치하는 버전 레이블을 포함해야 합니다. 이 속성은 선택 사항입니다. 지정하지 않으면 빈 문자열이 사용됩니다. 버전 관리에 대한 자세한 내용은 [버전 관리](durable-functions-versioning.md)를 참조하세요.
-
-> [!NOTE]
-> `orchestration` 또는 `version` 속성의 값은 이 시점에서 설정하지 않는 것이 좋습니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 저장소 계정에 있는 일련의 큐를 폴링합니다. 이러한 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
@@ -69,12 +64,11 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 * **입력** - 오케스트레이션 함수는 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)만 매개 변수 형식으로 지원합니다. 함수 시그니처에서 직접적인 역직렬화 입력은 지원되지 않습니다. 코드에서는 오케스트레이터 함수 입력을 가져오기 위해 [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) 메서드를 사용해야 합니다. 이러한 입력은 JSON 직렬화 가능 형식이어야 합니다.
 * **출력** - 오케스트레이션 트리거는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
 
-> [!NOTE]
-> 오케스트레이션 트리거는 현재 C#에서만 지원됩니다.
-
 ### <a name="trigger-sample"></a>트리거 샘플
 
-다음은 가장 간단한 "Hello World" C# 오케스트레이터 함수 예제입니다.
+다음은 가장 간단한 "Hello World" 오케스트레이터 함수 예제입니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,17 +79,45 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> JavaScript 오케스트레이터는 `return`을 사용해야 합니다. `durable-functions` 라이브러리는 `context.done` 메서드 호출을 처리합니다.
+
 대부분의 오케스트레이터 함수에서 작업 함수를 호출하므로 작업 함수를 호출하는 방법을 보여 주는 "Hello World" 예제가 여기에 있습니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string name = await context.GetInput<string>();
+    string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>작업 트리거
@@ -110,17 +132,12 @@ Visual Studio를 사용하는 경우 작업 트리거는 [ActvityTriggerAttribut
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity`은 작업의 이름입니다. 오케스트레이터 함수에서 이 작업 함수를 호출하는 데 사용하는 값입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
-* `version`은 작업의 버전 레이블입니다. 작업을 호출하는 오케스트레이터 함수는 일치하는 버전 레이블을 포함해야 합니다. 이 속성은 선택 사항입니다. 지정하지 않으면 빈 문자열이 사용됩니다. 자세한 내용은 [버전 관리](durable-functions-versioning.md)를 참조하세요.
-
-> [!NOTE]
-> `activity` 또는 `version` 속성의 값은 이 시점에서 설정하지 않는 것이 좋습니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 저장소 계정에 있는 큐를 폴링합니다. 이 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
@@ -144,12 +161,11 @@ Visual Studio를 사용하는 경우 작업 트리거는 [ActvityTriggerAttribut
 * **출력** - 작업 함수는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
 * **메타데이터** - 작업 함수는 `string instanceId` 매개 변수에 바인딩하여 부모 오케스트레이션의 인스턴스 ID를 가져올 수 있습니다.
 
-> [!NOTE]
-> 작업 트리거는 현재 Node.js 함수에서 지원되지 않습니다.
-
 ### <a name="trigger-sample"></a>트리거 샘플
 
-다음은 간단한 "Hello World" C# 작업 함수 예제입니다.
+다음은 간단한 "Hello World" 작업 함수 예제입니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,13 +176,69 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 `ActivityTriggerAttribute` 바인딩에 대한 기본 매개 변수 형식은 `DurableActivityContext`입니다. 그러나 작업 트리거는 JSON 직렬화 가능 형식(기본 형식 포함)에 대한 직접 바인딩도 지원하므로 동일한 함수를 다음과 같이 단순화할 수 있습니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
+}
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
+```
+
+### <a name="passing-multiple-parameters"></a>여러 매개 변수 전달 
+
+작업 함수에 직접 여러 매개 변수를 전달하는 것은 불가능합니다. 이 경우 개체의 배열에 전달하거나 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용하는 것이 좋습니다.
+
+다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
+
+```csharp
+[FunctionName("GetCourseRecommendations")]
+public static async Task<dynamic> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string major = "ComputerScience";
+    int universityYear = context.GetInput<int>();
+
+    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    // parse input for student's major and year in university 
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
 }
 ```
 
@@ -264,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Node.js 샘플
+#### <a name="javascript-sample"></a>JavaScript 샘플
 
-다음 샘플에서는 지속성 오케스트레이션 클라이언트 바인딩을 사용하여 Node.js 함수에서 새 함수 인스턴스를 시작하는 방법을 보여 줍니다.
+다음 샘플에서는 지속성 오케스트레이션 클라이언트 바인딩을 사용하여 JavaScript 함수에서 새 함수 인스턴스를 시작하는 방법을 보여줍니다.
 
 ```js
 module.exports = function (context, input) {

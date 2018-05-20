@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 작업 허브 - Azure"
-description: "Azure Functions의 지속성 함수 확장에 있는 작업 허브 및 작업 허브 구성 방법을 알아봅니다."
+title: 지속성 함수의 작업 허브 - Azure
+description: Azure Functions의 지속성 함수 확장에 있는 작업 허브 및 작업 허브 구성 방법을 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b241bad7b0060551eba5e78efbb1b729bf5d0098
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 563667684accf8b434052cd412bf6e93c77ea63a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
@@ -28,13 +28,14 @@ ms.lasthandoff: 10/18/2017
 
 ![공유 및 전용 저장소 계정을 표시하는 다이어그램](media/durable-functions-task-hubs/task-hubs-storage.png)
 
-## <a name="azure-storage-resources"></a>Azure 저장소 리소스
+## <a name="azure-storage-resources"></a>Azure Storage 리소스
 
 작업 허브는 다음과 같은 저장소 리소스로 구성됩니다. 
 
 * 하나 이상의 제어 큐
 * 하나의 작업 항목 큐
 * 하나의 기록 테이블
+* 하나의 인스턴스 테이블
 * 하나 이상의 저장소 Blob을 포함하는 하나의 저장소 컨테이너
 
 오케스트레이터 또는 작업 함수가 실행되거나 실행되도록 예약된 경우 이러한 모든 리소스는 기본 Azure Storage 계정에 자동으로 만들어집니다. [성능 및 크기 조정](durable-functions-perf-and-scale.md) 문서에서는 이러한 리소스를 사용하는 방법을 설명합니다.

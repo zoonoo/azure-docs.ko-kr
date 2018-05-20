@@ -3,29 +3,31 @@ title: Azure AD AngularJS 시작 | Microsoft 문서
 description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 AngularJS 단일 페이지 응용 프로그램을 빌드하는 방법.
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS 시작
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순하고 간편하게 로그인, 로그아웃 및 보안 OAuth API 호출을 추가할 수 있습니다.  또한 앱에서 Windows Server Active Directory 계정으로 사용자를 인증하고 Azure AD를 통해 보호되는 Web API(예: Office 365 API) 또는 Azure API를 사용할 수 있습니다.
+Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순하고 간편하게 로그인, 로그아웃 및 보안 OAuth API 호출을 추가할 수 있습니다. 또한 앱에서 Windows Server Active Directory 계정으로 사용자를 인증하고 Azure AD를 통해 보호되는 Web API(예: Office 365 API) 또는 Azure API를 사용할 수 있습니다.
 
 브라우저에서 실행되는 JavaScript 응용 프로그램의 경우 Azure AD가 ADAL(Active Directory 인증 라이브러리) 또는 adal.js를 제공합니다. adal.js의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 이 작업이 얼마나 쉬운지 보여 주기 위해 여기서는 다음 작업을 수행하는 AngularJS To Do List 응용 프로그램을 빌드할 것입니다.
 
@@ -53,7 +55,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 5. 프롬프트에 따라 새 웹 응용 프로그램 및/또는 Web API를 만듭니다.
   * **이름**은 사용자에게 응용 프로그램을 설명합니다.
   * **로그온 URL**은 Azure AD가 토큰을 반환할 위치입니다. 이 샘플의 기본 위치는 `https://localhost:44326/`입니다.
-6. 등록을 완료한 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다.  이 값은 다음 섹션에서 필요하므로 응용 프로그램 탭에서 복사해 둡니다.
+6. 등록을 완료한 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 탭에서 복사해 둡니다.
 7. Adal.js는 OAuth 암시적 흐름을 사용하여 Azure AD와 통신합니다. 응용 프로그램에 대한 암시적 흐름을 사용하도록 설정해야 합니다.
   1. 응용 프로그램을 클릭하고 **매니페스트**를 선택하여 인라인 매니페스트 편집기를 엽니다.
   2. `oauth2AllowImplicitFlow` 속성을 찾습니다. 해당 값을 `true`로 설정합니다.
@@ -118,11 +120,11 @@ Adal.js는 AngularJS 경로 및 HTTP 공급자와 통합되므로 단일 페이�
     ```
 
 ## <a name="summary"></a>요약
-이제 사용자를 로그인하고 전달자 토큰으로 보호된 요청을 해당 백 엔드 API에 실행할 수 있는 보안 단일 페이지 앱을 사용할 수 있습니다. 사용자가 **TodoList** 링크를 클릭하면 adal.js는 필요한 경우 로그인을 위해 Azure AD에 자동으로 리디렉션합니다. 또한 adal.js는 앱의 백 엔드로 전송되는 모든 Ajax 요청에 자동으로 액세스 토큰을 연결합니다.  
+이제 사용자를 로그인하고 전달자 토큰으로 보호된 요청을 해당 백 엔드 API에 실행할 수 있는 보안 단일 페이지 앱을 사용할 수 있습니다. 사용자가 **TodoList** 링크를 클릭하면 adal.js는 필요한 경우 로그인을 위해 Azure AD에 자동으로 리디렉션합니다. 또한 adal.js는 앱의 백 엔드로 전송되는 모든 Ajax 요청에 자동으로 액세스 토큰을 연결합니다. 
 
 위의 단계는 adal.js를 사용하여 단일 페이지 앱을 빌드하는 데 필요한 최소 기본 사항입니다. 하지만 단일 페이지 앱에서 유용한 몇 가지 다른 기능이 있습니다.
 
-* 로그인 및 로그아웃 요청을 명시적으로 실행하기 위해 adal.js를 호출하는 컨트롤러에서 함수를 정의할 수 있습니다.  `App/Scripts/homeCtrl.js`:
+* 로그인 및 로그아웃 요청을 명시적으로 실행하기 위해 adal.js를 호출하는 컨트롤러에서 함수를 정의할 수 있습니다. `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -143,7 +145,7 @@ Adal.js는 AngularJS 경로 및 HTTP 공급자와 통합되므로 단일 페이�
     ...
     ```
 
-* 사용자가 로그인했는지 여부를 확인하고 싶은 경우가 많이 있을 수 있습니다. `userInfo` 개체를 사용하여 이 정보를 수집할 수도 있습니다.  예를 들어 `index.html`에서는 인증 상태에 따라 **로그인** 또는 **로그아웃** 단추를 표시할 수 있습니다.
+* 사용자가 로그인했는지 여부를 확인하고 싶은 경우가 많이 있을 수 있습니다. `userInfo` 개체를 사용하여 이 정보를 수집할 수도 있습니다. 예를 들어 `index.html`에서는 인증 상태에 따라 **로그인** 또는 **로그아웃** 단추를 표시할 수 있습니다.
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

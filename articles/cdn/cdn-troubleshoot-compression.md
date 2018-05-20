@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN의 파일 압축 문제 해결 | Microsoft Docs"
-description: "Azure CDN 파일 압축과 관련된 문제를 해결합니다."
+title: Azure CDN의 파일 압축 문제 해결 | Microsoft Docs
+description: Azure CDN 파일 압축과 관련된 문제를 해결합니다.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
 이 문서는 [CDN 파일 압축](cdn-improve-performance.md)관련 문제를 해결하는 데 도움이 됩니다.
@@ -61,9 +61,9 @@ ms.lasthandoff: 10/11/2017
 
 ![CDN 요청 헤더](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>압축 설정 확인(Standard CDN 프로필)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>압축 설정 확인(표준 CDN 프로필)
 > [!NOTE]
-> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN Standard** 또는 **Akamai의 Azure CDN Standard** 프로필인 경우에만 적용됩니다. 
+> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Akamai의 Azure CDN 표준** 프로필인 경우에만 적용됩니다. 
 > 
 > 
 
@@ -74,9 +74,9 @@ ms.lasthandoff: 10/11/2017
 
 ![CDN 압축 설정](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>압축 설정 확인(Premium CDN 프로필)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>압축 설정 확인(프리미엄 CDN 프로필)
 > [!NOTE]
-> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN Premium** 프로필인 경우에만 적용됩니다.
+> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN 프리미엄** 프로필인 경우에만 적용됩니다.
 > 
 > 
 
@@ -88,22 +88,22 @@ ms.lasthandoff: 10/11/2017
 
 ![CDN 프리미엄 압축 설정](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>콘텐츠 캐시 여부 확인
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>콘텐츠 캐시 여부 확인(Verizon CDN 프로필)
 > [!NOTE]
-> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN** 프로필(Standard 또는 Premium)인 경우에만 적용됩니다.
+> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필인 경우에만 적용됩니다.
 > 
 > 
 
 브라우저의 개발자 도구를 사용하여, 요청되는 지역에서 파일이 캐시되는지 응답 헤더를 확인합니다.
 
-* **Server** 응답 헤더를 확인합니다.  헤더에는 **Platform(POP/Server ID)**형식이 포함되어야 합니다(다음 예제 참조).
+* **Server** 응답 헤더를 확인합니다.  헤더에는 **Platform(POP/Server ID)** 형식이 포함되어야 합니다(다음 예제 참조).
 * **X-Cache** 응답 헤더를 확인합니다.  헤더는 **HIT**여야 합니다.  
 
 ![CDN 응답 헤더](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>파일의 크기 요건 충족 여부 확인
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>파일의 크기 요건 충족 여부 확인(Verizon CDN 프로필)
 > [!NOTE]
-> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN** 프로필(Standard 또는 Premium)인 경우에만 적용됩니다.
+> 이 단계는 CDN 프로필이 **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필인 경우에만 적용됩니다.
 > 
 > 
 

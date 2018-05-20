@@ -1,23 +1,23 @@
 ---
-title: Azure Container Service에서 Kubernetes와 Jenkins 연속 배포
-description: Jenkins로 연속 배포 프로세스를 자동화하여 Azure Container Service의 Kubernetes에서 컨테이너화된 앱을 배포 및 업그레이드하는 방법
+title: Azure Kubernetes Service에서 Kubernetes와 Jenkins 연속 배포
+description: Jenkins로 연속 배포 프로세스를 자동화하여 Azure Kubernetes Service의 Kubernetes에서 컨테이너화된 앱을 배포 및 업그레이드하는 방법
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 376d3b916c4e01ea6111e6c1db63e976dd1ea320
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Azure Container Service에서 Jenkins와 연속 배포
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Jenkins 및 Azure Kubernetes Service를 사용한 연속 배포
 
-이 문서에서는 Jenkins와 AKS(Azure Container Service) 클러스터 간의 기본 연속 배포 워크플로를 설정하는 방법을 보여줍니다.
+이 문서에서는 Jenkins와 AKS(Azure Kubernetes Service) 클러스터 간의 기본 연속 배포 워크플로를 설정하는 방법을 보여줍니다.
 
 예제 워크플로에는 다음 단계가 포함됩니다.
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/19/2018
 이 아티클의 단계를 완료하려면 다음 항목이 필요합니다.
 
 - Kubernetes, Git, CI/CD 및 ACR(Azure Container Registry)에 대한 기본적인 이해.
-- [AKS(Azure Container Service) 클러스터][aks-quickstart] 및 개발 시스템에 [구성된 AKS 자격 증명][aks-credentials].
+- [AKS(Azure Kubernetes Service) 클러스터][aks-quickstart] 및 개발 시스템에 [구성된 AKS 자격 증명][aks-credentials]
 - [ACR(Azure Container Registry) 레지스트리][acr-quickstart], ACR 로그인 서버 이름, 푸시 및 풀 액세스 권한이 있는 [ACR 자격 증명][acr-authentication].
 - 개발 시스템에 설치된 Azure CLI.
 - 개발 시스템에 설치된 Docker.
@@ -112,10 +112,10 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-다음으로, [kubectl create][kubectl-create] 명령을 사용하여 응용 프로그램을 실행합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
+다음으로 응용 프로그램을 실행하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
 
 ```bash
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 인터넷에 응용 프로그램을 노출하는 [Kubernetes 서비스][kubernetes-service]가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다.
@@ -297,7 +297,7 @@ SHOWHOST = 'false'
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [git-access-token]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 

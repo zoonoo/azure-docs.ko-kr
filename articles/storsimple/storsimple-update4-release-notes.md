@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 업데이트 4 릴리스 정보 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 업데이트 4의 새로운 기능, 문제 및 해결 방법을 설명합니다."
+title: StorSimple 8000 시리즈 업데이트 4 릴리스 정보 | Microsoft Docs
+description: StorSimple 8000 시리즈 업데이트 4의 새로운 기능, 문제 및 해결 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f4db5a49b71b0c384da7af2b90bd5426a4f35c72
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 시리즈 업데이트 4 릴리스 정보
-> [!NOTE]
-> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
-
 
 ## <a name="overview"></a>개요
 
@@ -68,10 +65,10 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 다음 테이블에서 업데이트 4에서 해결된 문제를 간략하게 설명합니다.    
 
-| 아니요 | 기능 | 문제 | 실제 장치에 적용 | 가상 장치에 적용 |
+| 아니오 | 기능 | 문제 | 실제 장치에 적용 | 가상 장치에 적용 |
 | --- | --- | --- | --- | --- |
 | 1 |장애 조치(failover) |이전 릴리스에서 장애 조치(failover) 후 고객 쪽에서 관찰된 정리와 관련된 문제가 있었습니다. 이 문제는 이 릴리스에서 해결되었습니다. |예 |예 |
-| 2 |로컬로 고정된 볼륨 |이전 릴리스에서 볼륨 만들기 실패를 초래할 수 있는 로컬로 고정된 볼륨에 대한 볼륨 만들기와 관련된 문제가 있었습니다. 이 문제는 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. |예 |아니요 |
+| 2 |로컬로 고정된 볼륨 |이전 릴리스에서 볼륨 만들기 실패를 초래할 수 있는 로컬로 고정된 볼륨에 대한 볼륨 만들기와 관련된 문제가 있었습니다. 이 문제는 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. |예 |아니오 |
 | 3 |지원 패키지 |이전 릴리스에서 System.OutOfMemory 예외를 초래할 수 있는 지원 패키지 또는 지원 패키지 만들기 실패를 가져오는 다른 오류와 관련된 문제가 있었습니다. 이러한 버그는 이 릴리스에서 해결되었습니다. |예 |예 |
 | 4 |모니터링 |이전 릴리스에서 EB에서 소비가 표시되었던 로컬로 고정된 볼륨에 대한 모니터링 차트와 관련된 문제가 있었습니다. 이 버그는 이 릴리스에서 해결되었습니다. |예 |예 |
 | 5 |마이그레이션 |이전 릴리스에서 5000-7000 시리즈에서 8000 시리즈 장치로 마이그레이션의 안정성과 관련된 몇 가지 문제가 있었습니다. 이러한 문제는 이 릴리스에서 해결되었습니다. |예 |예 |

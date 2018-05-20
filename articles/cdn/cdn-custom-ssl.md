@@ -12,36 +12,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/12/2018
-ms.author: rli
+ms.date: 05/01/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: a8f2da5a68552c35a55a7bbb764afc7b36af6962
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+> [!IMPORTANT]
+> 이 기능은 **Akamai의 Azure CDN 표준** 제품에서 사용할 수 없습니다. CDN 기능을 비교하려면 [Azure CDN 개요](cdn-features.md)를 참조하세요.
 
-이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 연결된 사용자 지정 도메인에 HTTP 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 SSL 암호화를 통해 안전하게 보호됩니다. HTTPS는 신뢰할 수 있는 인증을 제공하며 공격으로부터 웹 응용 프로그램을 보호합니다. HTTPS를 사용하도록 설정하는 워크플로는 원클릭 설정 및 완전한 인증서 관리를 통해 간단하게 처리할 수 있으며, 추가 비용은 하나도 없습니다.
+이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 연결된 사용자 지정 도메인에 HTTPS 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 SSL 암호화를 통해 안전하게 보호됩니다. HTTPS는 신뢰할 수 있는 인증을 제공하며 공격으로부터 웹 응용 프로그램을 보호합니다. 
 
 Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다. 예를 들어 CDN 엔드포인트를 만드는 경우(예: https:\//contoso.azureedge.net) HTTPS가 자동으로 사용하도록 설정됩니다.  
 
-HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
+사용자 지정 HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 
 - 추가 비용 없음: 인증서 얻기 또는 갱신에 대해 비용이 없으며 HTTPS 트래픽에 대한 추가 비용이 없습니다. CDN에서 송신되는 양(GB)에 대한 비용만 지불합니다.
 
 - 간단한 사용: [Azure Portal](https://portal.azure.com)에서 한 번 클릭으로 프로비전을 사용할 수 있습니다. REST API 또는 기타 개발자 도구를 사용하여 기능을 활성화할 수도 있습니다.
 
-- 완전한 인증서 관리: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
+- 완전한 인증서 관리 사용 가능: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하도록 설정
+> - CDN 관리되는 인증서 사용 
+> - 사용자 고유의 인증서 사용
 > - 도메인의 유효성 검사
-> - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정
+> - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,11 +52,13 @@ HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 
 또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)를 참조하세요.
 
-## <a name="enable-the-https-feature"></a>HTTPS 기능을 사용하도록 설정
+## <a name="option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate"></a>옵션 1(기본값): CDN 관리되는 인증서를 사용하여 HTTPS 기능을 사용하도록 설정  
+
+이 옵션을 사용하여 사용자 지정 HTTPS 기능을 단 몇 번의 클릭으로 켤 수 있습니다. Azure CDN은 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 CDN 엔드포인트에 이미 매핑된 경우 추가 조치가 필요하지 않습니다. Azure CDN은 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
 
 사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** CDN 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Microsoft의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필로 이동합니다.
 
 2. CDN 엔드포인트 목록에서 사용자 지정 도메인을 포함하고 있는 엔드포인트를 선택합니다.
 
@@ -67,9 +72,60 @@ HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 
     **사용자 지정 도메인** 페이지가 나타납니다.
 
-4. **켜기**를 선택하여 HTTPS를 사용하도록 설정한 다음, **적용**을 선택합니다.
+4. 인증서 관리 유형에서 **CDN 관리**를 선택합니다.
 
-    ![사용자 지정 도메인 HTTPS 상태](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
+4. **켜기**를 선택하여 HTTPS를 사용하도록 설정합니다.
+
+    ![사용자 지정 도메인 HTTPS 상태](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
+
+
+## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 기능을 사용하도록 설정 
+ 
+Azure CDN에서 사용자 고유의 인증서를 사용하여 HTTPS를 통해 콘텐츠를 배달할 수 있습니다. 이 프로세스는 Azure Key Vault와 통합을 통해 수행됩니다. Azure Key Vault를 통해 고객은 해당 인증서를 안전하게 저장할 수 있습니다. Azure CDN 서비스는 이 보안 메커니즘을 활용하여 인증서를 가져옵니다. 사용자 고유의 인증서를 사용하려면 몇 가지 추가 단계가 필요합니다.
+
+### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>1단계: Azure 키 자격 증명 모음 계정 및 인증서 준비
+ 
+1. Azure Key Vault: 사용자 지정 HTTPS를 활성화하려는 Azure CDN 프로필 및 CDN 엔드포인트와 동일한 구독에서 Azure Key Vault 계정을 실행해야 합니다. 아직 Azure Key Vault 계정이 없는 경우 새로 하나 만듭니다.
+ 
+2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA(Certificate Authorities) 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 
+
+### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>2단계: 키 자격 증명 모음에 Azure CDN 액세스 권한 부여
+ 
+Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN 사용 권한을 부여해야 합니다.
+1. 키 자격 증명 모음 계정의 설정에서 **액세스 정책**을 선택한 다음, **새로 추가**를 선택하여 새 정책을 만듭니다.
+
+    ![새 액세스 정책 만들기](./media/cdn-custom-ssl/cdn-new-access-policy.png)
+
+    ![액세스 정책 설정](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+
+2. **보안 주체 선택**에서 검색하고, **Azure CDN**을 선택합니다.
+
+3. **비밀 권한**에서 **가져오기**를 선택하여 CDN에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 허용합니다. 
+
+4. **확인**을 선택합니다. 
+
+    Azure CDN은 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다.
+ 
+### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>3단계: 배포할 Azure CDN에 대한 인증서 선택
+ 
+1. Azure CDN 포털로 돌아와서 사용자 지정 HTTPS를 활성화하려는 프로필 및 CDN 엔드포인트를 선택합니다. 
+
+2. 사용자 지정 도메인 목록에서 HTTPS를 사용하도록 설정할 사용자 지정 도메인을 선택합니다.
+
+    **사용자 지정 도메인** 페이지가 나타납니다.
+
+3. 인증서 관리 유형에서 **내 인증서 사용**을 선택합니다. 
+
+    ![인증서 구성](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+
+4. 키 자격 증명 모음, 인증서(비밀)및 인증서 버전을 선택합니다.
+
+    Azure CDN은 다음 정보를 나열합니다. 
+    - 구독 ID에 대한 키 자격 증명 모음 계정 
+    - 선택한 키 자격 증명 모음의 인증서(비밀) 
+    - 사용 가능한 인증서 버전 
+ 
+5. **켜기**를 선택하여 HTTPS를 사용하도록 설정합니다.
 
 
 ## <a name="validate-the-domain"></a>도메인의 유효성 검사
@@ -87,7 +143,7 @@ CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용�
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records)를 참조하세요.
+CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records)를 참조하세요.
 
 CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인 이름을 자동으로 확인하고 SAN(주체 대체 이름) 인증서에 추가합니다. DigitCert는 확인 메일을 보내지 않으며 요청을 승인할 필요가 없습니다. 인증서는 1년 동안 유효하며 만료되기 전에 자동으로 갱신됩니다. [전파 대기](#wait-for-propagation)를 진행합니다. 
 
@@ -160,13 +216,15 @@ postmaster@&lt;your-domain-name.com&gt;
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+
+
 ## <a name="clean-up-resources---disable-https"></a>리소스 정리 - HTTPS를 사용하지 않도록 설정
 
 이전 단계에서는 사용자 지정 도메인에 HTTPS 프로토콜을 사용했습니다. 더 이상 HTTPS에 사용자 지정 도메인을 사용하지 않으려면 다음 단계를 수행하여 HTTPS를 사용하지 않도록 설정하면 됩니다.
 
 ### <a name="disable-the-https-feature"></a>HTTPS 기능을 사용하지 않도록 설정 
 
-1. [Azure Portal](https://portal.azure.com)에서 **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** CDN 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Microsoft의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필로 이동합니다.
 
 2. 끝점 목록에서 사용자 지정 도메인을 포함하는 끝점을 클릭합니다.
 
@@ -198,11 +256,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 1. *인증서 공급자는 누구이며 어떤 유형의 인증서가 사용되나요?*
 
-    Microsoft는 DigiCert에서 제공하는 SAN(주체 대체 이름) 인증서를 사용합니다. SAN 인증서는 하나의 인증서로 정규화된 여러 도메인 이름을 보호할 수 있습니다.
+    **Verizon의 Azure CDN**과 함께 DigiCert에서 제공하는 SAN(주체 대체 이름) 인증서가 사용됩니다. SAN 인증서는 하나의 인증서로 정규화된 여러 도메인 이름을 보호할 수 있습니다. **Microsoft의 Azure CDN 표준**과 함께 DigiCert에서 제공하는 단일 인증서가 사용됩니다.
 
-2. *전용 인증서를 사용할 수 있나요?*
-    
-    현재는 불가능하지만 준비 중입니다.
+2. IP 기반 또는 SNI TLS/SSL을 사용하나요?
+
+    **Verizon의 Azure CDN**은 IP 기반 TLS/SSL을 사용합니다. **Microsoft의 Azure CDN 표준**은 SNI TLS/SSL을 사용합니다.
 
 3. *DigiCert로부터 도메인 확인 메일을 받지 못한 경우 어떻게 하나요?*
 
@@ -214,7 +272,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 5. *Akamai의 Azure CDN에서 사용자 지정 도메인 HTTPS를 사용할 수 있나요?*
 
-    현재 이 기능은 Verizon의 Azure CDN에만 사용할 수 있습니다. Microsoft는 앞으로 몇 달 안에 Akamai의 Azure CDN을 통해 이 기능을 지원하기 위해 노력하고 있습니다.
+    현재 이 기능은 **Akamai의 Azure CDN 표준** 프로필에서 사용할 수 없습니다. Microsoft는 앞으로 몇 달 안에 이 기능을 지원하기 위해 노력하고 있습니다.
 
 6. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
 
@@ -223,15 +281,17 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="next-steps"></a>다음 단계
 
-학습한 내용은 다음과 같습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하도록 설정
-> - 도메인 유효성 검사
-> - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정
+> - CDN 관리되는 인증서 사용 
+> - 사용자 고유의 인증서 사용
+> - 도메인의 유효성 검사
+> - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정합니다.
 
 그 다음 자습서로 넘어가서 CDN 엔드포인트에서 캐싱을 구성하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)
+> [자습서: Azure CDN 캐싱 규칙 설정](cdn-caching-rules-tutorial.md)
 

@@ -1,25 +1,24 @@
 ---
-title: "만들기 및 Azure 스택의 마켓플레이스 항목을 게시 | Microsoft Docs"
-description: "만들고 스택의 Azure 마켓플레이스 항목을 게시 합니다."
+title: 만들기 및 Azure 스택의 마켓플레이스 항목을 게시 | Microsoft Docs
+description: 만들고 스택의 Azure 마켓플레이스 항목을 게시 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
@@ -101,14 +100,14 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="reference-marketplace-item-manifestjson"></a>마켓플레이스 항목 manifest.json 참조:
 ### <a name="identity-information"></a>ID 정보
-| 이름 | 필수 | 형식 | 제약 조건 | 설명 |
+| 이름 | 필수 | type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | 이름 |X |문자열 |[A-Za-z0-9]+ | |
 | 게시자 |X |문자열 |[A-Za-z0-9]+ | |
 | 버전 |X |문자열 |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
-| 이름 | 필수 | 형식 | 제약 조건 | 설명 |
+| 이름 | 필수 | type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |문자열 |문자의 경우 80 자의 권장 사항 |문자의 경우 80 자 보다 긴 경우 포털 항목 이름 정상적으로 표시 되지 수도 있습니다. |
 | PublisherDisplayName |X |문자열 |30 자의 권장 사항 |30 자 보다 긴 경우 포털 게시자 이름을 적절 하 게 표시 되지 수도 있습니다. |
@@ -134,7 +133,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="links"></a>링크
 각 마켓플레이스 항목 추가 내용에 대 한 다양 한 링크를 포함할 수 있습니다. 링크는 이름 및 URI 목록으로 지정됩니다.
 
-| 이름 | 필수 | 형식 | 제약 조건 | 설명 |
+| 이름 | 필수 | type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |문자열 |최대 64 자 | |
 | Uri |X |URI | | |
@@ -142,7 +141,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="additional-properties"></a>추가 속성
 이전 메타 데이터 뿐 아니라 마켓플레이스 작성자는 다음 폼의 사용자 지정 키/값 쌍 데이터를 제공할 수 있습니다.
 
-| 이름 | 필수 | 형식 | 제약 조건 | 설명 |
+| 이름 | 필수 | type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |문자열 |최대 25 자 | |
 | 값 |X |문자열 |최대 30 자 | |

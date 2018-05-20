@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: c993e55193ffb140f6c3aabfa7626b501ab24b9d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="geo-replicate-multi-region-deployments"></a>다중 지역 배포 지리적 복제
 
-여러 영역에 컨테이너를 배포하려는 경우 Azure Container Registry의 [지리적 복제](container-registry-geo-replication.md) 기능을 사용합니다. 로컬 데이터 센터에서 글로벌 고객에게 서비스를 제공하거나 개발 팀이 여러 다른 위치에 있더라도, 레지스트리를 지리적으로 복제하여 레지스트리 관리를 간소화하고 대기 시간을 최소화할 수 있습니다. 현재 미리 보기로 제공되는 이 기능은 [프리미엄](container-registry-skus.md) 레지스트리를 통해 사용할 수 있습니다.
+여러 영역에 컨테이너를 배포하려는 경우 Azure Container Registry의 [지리적 복제](container-registry-geo-replication.md) 기능을 사용합니다. 로컬 데이터 센터에서 글로벌 고객에게 서비스를 제공하거나 개발 팀이 여러 다른 위치에 있더라도, 레지스트리를 지리적으로 복제하여 레지스트리 관리를 간소화하고 대기 시간을 최소화할 수 있습니다. 지역 복제는 [프리미엄](container-registry-skus.md) 레지스트리에서만 사용할 수 있습니다.
 
 지리적 복제 사용 방법을 알아보려면 총 3부로 구성된 자습서 시리즈 [Azure Container Registry의 지리적 복제](container-registry-tutorial-prepare-registry.md)를 참조하세요.
 

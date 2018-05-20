@@ -1,17 +1,17 @@
 ---
-title: "Azure Site Recovery를 사용하여 Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery를 사용하여 Azure로 마이그레이션한 후 Azure 지역 간에 재해 복구를 설정하기 위해 컴퓨터를 준비하는 방법을 설명합니다."
+title: Azure Site Recovery를 사용하여 Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 마이그레이션한 후 Azure 지역 간에 재해 복구를 설정하기 위해 컴퓨터를 준비하는 방법을 설명합니다.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 034052c0406ee51f33c598634f92d27867c7cbe7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="install-the-azure-vm-agent"></a>Azure VM 에이전트 설치
 
-Site Recovery가 복제할 수 있도록 VM에 Azure [VM 에이전트](../virtual-machines/windows/agent-user-guide.md)가 설치되어 있어야 합니다.
+Site Recovery가 복제할 수 있도록 VM에 Azure [VM 에이전트](../virtual-machines/extensions/agent-windows.md)가 설치되어 있어야 합니다.
 
 
 1. Windows를 실행하는 VM에 VM 에이전트를 설치하려면 [에이전트 설치 관리자](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 실행합니다. 설치를 완료하려면 VM에 대한 관리자 권한이 필요합니다.
-2. Linux를 실행하는 VM에 VM 에이전트를 설치하려면 최신 [Linux 에이전트](../virtual-machines/linux/agent-user-guide.md)를 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. 배포 리포지토리에서 설치하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 설치하지 않는 것이 좋습니다. 
+2. Linux를 실행하는 VM에 VM 에이전트를 설치하려면 최신 [Linux 에이전트](../virtual-machines/extensions/agent-linux.md)를 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. 배포 리포지토리에서 설치하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 설치하지 않는 것이 좋습니다. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Windows VM에서 설치 유효성 검사

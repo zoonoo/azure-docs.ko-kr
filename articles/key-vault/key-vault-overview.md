@@ -5,20 +5,20 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/08/2018
 ms.author: barclayn
-ms.openlocfilehash: d31318b1c2a2cd2b9f3b17e77d8deb66d5de21a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -57,8 +57,6 @@ Key Vault를 두 개 만들었으면 키와 비밀이 액세스되는 방법 및
 - 저장소 계정에 보관합니다.
 - 이벤트 허브로 스트리밍합니다.
 - 로그를 Log Analytics로 보냅니다.
-
-![Key Vault의 속성을 보여주는 페이지](./media/key-vault-overview/key-vault-overview.png)
 
 로그를 제어하고 로그에 대한 액세스를 제한하여 보호할 수 있으며 더 이상 필요하지 않은 로그를 삭제할 수도 있습니다.
 

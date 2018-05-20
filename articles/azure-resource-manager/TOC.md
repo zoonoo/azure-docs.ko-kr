@@ -102,6 +102,7 @@
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [개인 데이터 관리](resource-manager-personal-data.md)
 ## [제한 요청](resource-manager-request-limits.md)
 ## [비동기 작업 추적](resource-manager-async-operations.md)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

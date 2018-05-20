@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 63bf7d5a0ad988ff7a6b498b4e91e90de97b507b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
@@ -87,7 +87,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
     **Shift+Enter**를 눌러 코드 셀을 실행합니다.  
 
-2. 다음 코드 조각은 API가 매개 변수를 포함할 `Properties` 개체를 만드는 Spark 데이터 프레임에 전달할 수 있는 JDBC URL을 빌드합니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
+2. 다음 코드 조각을 사용하여 API가 매개 변수를 포함할 `Properties` 개체를 만드는 Spark 데이터 프레임에 전달할 수 있는 JDBC URL을 빌드합니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
 
        import java.util.Properties
 
@@ -96,7 +96,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. 다음 코드 조각은 Azure SQL Database의 테이블에 있는 데이터로 데이터 프레임을 만듭니다. 이 코드 조각에서는 **AdventureWorksLT** 데이터베이스의 일부로 사용할 수 있는 **SalesLT.Address** 테이블을 사용합니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
+3. 다음 코드 조각을 사용하여 Azure SQL Database의 테이블에 있는 데이터로 데이터 프레임을 만듭니다. 이 코드 조각에서는 **AdventureWorksLT** 데이터베이스의 일부로 사용할 수 있는 **SalesLT.Address** 테이블을 사용합니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -141,7 +141,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. 다음 코드 조각은 HVAC.csv에 있는 데이터의 스키마를 추출하고, 이 스키마를 사용해서 CSV의 데이터를 데이터 프레임 `readDf`로 로드합니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
+3. 다음 코드 조각을 사용하여 HVAC.csv에 있는 데이터의 스키마를 추출하고, 이 스키마를 사용해서 CSV의 데이터를 데이터 프레임 `readDf`로 로드합니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -165,6 +165,10 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
     ![SSMS를 사용하여 SQL Database에 연결](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "SSMS를 사용하여 SQL Database에 연결")
 
+7. SSMS에서 쿼리를 실행하여 테이블에 열을 표시합니다.
+
+        SELECT * from hvactable
+
 ## <a name="stream-data-into-azure-sql-database"></a>Azure SQL Database으로 데이터 스트리밍
 
 이 섹션에서는 이전 섹션에서 Azure SQL Database에 미리 만든 **hvactable**로 데이터를 스트리밍합니다.
@@ -181,10 +185,10 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-3. **HVAC.csv**의 데이터를 hvactable로 스트리밍합니다. HVAC.csv 파일은 */HdiSamples/HdiSamples/SensorSampleData/HVAC/*의 클러스터에서 사용할 수 있습니다. 다음 코드 조각에서는 먼저 스트리밍할 데이터의 스키마를 가져옵니다. 그런 다음 해당 스키마를 사용하여 스트리밍 데이터 프레임을 만듭니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
+3. **HVAC.csv**의 데이터를 hvactable로 스트리밍합니다. HVAC.csv 파일은 */HdiSamples/HdiSamples/SensorSampleData/HVAC/* 의 클러스터에서 사용할 수 있습니다. 다음 코드 조각에서는 먼저 스트리밍할 데이터의 스키마를 가져옵니다. 그런 다음 해당 스키마를 사용하여 스트리밍 데이터 프레임을 만듭니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
 4. 출력에는 **HVAC.csv**의 스키마가 표시됩니다. **hvactable** 또한 동일한 스키마를 갖습니다. 출력에는 테이블의 열이 표시됩니다.

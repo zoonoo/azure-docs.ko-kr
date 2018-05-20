@@ -1,12 +1,12 @@
 ---
-title: "미리 구성된 원격 모니터링 솔루션 연습 | Microsoft Docs"
-description: "Azure IoT에 대한 설명은 원격 모니터링 솔루션 및 해당 아키텍처를 미리 구성합니다."
-services: 
+title: 미리 구성된 원격 모니터링 솔루션 연습 | Microsoft Docs
+description: Azure IoT에 대한 설명은 원격 모니터링 솔루션 및 해당 아키텍처를 미리 구성합니다.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>미리 구성된 원격 모니터링 솔루션 연습
 
@@ -35,7 +35,17 @@ ms.lasthandoff: 11/06/2017
 
 다음 다이어그램에서는 미리 구성된 솔루션의 논리적 구성 요소를 간략히 보여줍니다.
 
-![논리 아키텍처](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![논리 아키텍처](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>마이크로 서비스 및 Docker 컨테이너
+원격 모니터링은 마이크로 서비스 아키텍처를 활용하도록 미리 구성된 첫 번째 솔루션입니다. 솔루션은 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) 및 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 모두에서 사용할 수 있습니다.
+마이크로 서비스는 개발 속도를 손상시키지 않고 확장성 및 유연성을 달성하기 위해(컨테이너를 개별적으로 크기 조정하도록 허용하여) 널리 알려진 패턴으로 부상했습니다.
+마이크로 서비스는 코드를 구분하고 솔루션을 이해하기 쉽고 덜 모놀리식이 되도록 하는 잘 정의된 인터페이스를 제공합니다. 또한 수익화될 수 있는 완성된 솔루션을 빌드하도록 현재 솔루션을 확장하려는 파트너를 위해 추가로 옵션을 확장합니다.
+
+**Docker 컨테이너에 대해 자세히 알아보기**
+* [Docker 설치](https://docs.docker.com/engine/installation/)
+* [원격 모니터링에 대한 일반적인 Docker 명령](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Docker 시작](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>시뮬레이션된 장치
 
@@ -58,7 +68,7 @@ ms.lasthandoff: 11/06/2017
 
 시뮬레이션된 장치는 *reported 속성*으로 IoT Hub의 [쌍][lnk-device-twins]에 다음 장치 속성을 보냅니다. 장치는 시작 시와 **장치 상태 변경** 명령 또는 메서드에 대한 응답으로 reported 속성을 보냅니다.
 
-| 속성 | 목적 |
+| 자산 | 목적 |
 | --- | --- |
 | Config.TelemetryInterval | 장치가 원격 분석을 전송하는 빈도(초) |
 | Config.TemperatureMeanValue | 시뮬레이션된 온도 원격 분석에 대한 평균 값을 지정합니다. |
@@ -92,7 +102,7 @@ ms.lasthandoff: 11/06/2017
 
 시뮬레이션된 장치는 IoT Hub를 통해 솔루션 포털에서 호출된 다음 메서드([직접 메서드][lnk-direct-methods])를 처리할 수 있습니다.
 
-| 메서드 | 설명 |
+| 방법 | 설명 |
 | --- | --- |
 | InitiateFirmwareUpdate |펌웨어 업데이트를 수행하도록 장치를 지시합니다. |
 | Reboot |다시 부팅하도록 장치를 지시합니다. |
@@ -116,7 +126,7 @@ ms.lasthandoff: 11/06/2017
 > [!NOTE]
 > 이러한 명령(클라우드-장치 메시지) 및 메서드(직접 메서드)의 비교는 [클라우드-장치 통신 지침][lnk-c2d-guidance]을 참조하세요.
 
-## <a name="iot-hub"></a>IoT 허브
+## <a name="iot-hub"></a>IoT Hub
 
 [IoT Hub][lnk-iothub]는 장치에서 클라우드로 전송된 데이터를 수집하고 ASA(Azure Stream Analytics) 작업에 사용할 수 있도록 합니다. 각 스트림 ASA 작업은 장치에서 메시지 스트림을 읽는 데 별도 IoT Hub 소비자 그룹을 사용합니다.
 
@@ -226,7 +236,7 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## <a name="event-hubs"></a>Event Hubs(영문)
+## <a name="event-hubs"></a>Event Hubs
 
 **장치 정보** 및 **규칙** ASA 작업은 Event Hubs에 해당 데이터를 출력하여 WebJob에서 실행되는 **이벤트 프로세서**에 안전하게 전달합니다.
 

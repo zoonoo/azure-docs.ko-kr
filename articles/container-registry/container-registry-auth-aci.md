@@ -1,18 +1,18 @@
 ---
-title: "Azure Container Instances의 Azure Container Registry를 사용하여 인증"
-description: "Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다."
+title: Azure Container Instances의 Azure Container Registry를 사용하여 인증
+description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 00d9632a5d0c42eceee1b412f8963bbadbea651f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: daa9c098de0c410bd4033cc62ee911631eb3b634
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Instances의 Azure Container Registry를 사용하여 인증
 
@@ -44,15 +44,24 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
+## <a name="sample-scripts"></a>샘플 스크립트
+
+GitHub에서 Azure CLI에 대한 이전 샘플 스크립트 및 Azure PowerShell에 대한 버전을 찾을 수 있습니다.
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서에는 서비스 주체 및 ACR 작업에 대한 추가 세부 정보가 포함되어 있습니다.
 
 * [서비스 주체로 Azure Container Registry 인증](container-registry-auth-service-principal.md)
-* [Azure Container Service의 Azure Container Registry를 사용하여 인증(AKS)](container-registry-auth-aks.md)
+* [AKS(Azure Kubernetes Service)의 Azure Container Registry를 사용하여 인증](container-registry-auth-aks.md)
 
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="door-monitor"></a>문 모니터링          
 
@@ -44,7 +44,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 
 활성 Azure 구독. 구독이 없으면 다음과 같은 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/en-us/free/)을 활성화합니다.
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/)을 활성화합니다.
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>Azure에서 SendGrid 서비스 배포
@@ -69,7 +69,7 @@ Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합
 
 등록 양식을 작성합니다.
 
-  * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal)(영문)를 참조하세요.
+  * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)(영문)를 참조하세요.
 
   * **이름**: SendGrid 서비스의 이름입니다. 이미 설치된 다른 서비스와 다른 고유한 이름을 선택합니다.
 
@@ -111,7 +111,7 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 
 등록 양식을 작성합니다.
 
-  * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal)(영문)를 참조하세요.
+  * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)(영문)를 참조하세요.
 
   * **IoT Hub이름**: IoT Hub의 이름. 이미 설치된 다른 서비스와 다른 고유한 이름을 선택합니다.
 
@@ -132,10 +132,6 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 - VS Code를 시작합니다.
 - DevKit를 컴퓨터에 연결합니다.
 
-VS Code는 자동으로 DevKit를 검색하고 소개 페이지를 엽니다.
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > VS Code를 시작할 때 Arduino IDE 또는 관련 보드 패키지를 찾을 수 없다는 오류 메시지가 표시될 수 있습니다. 이 오류를 수신한 경우 VS Code를 닫고 Arduino IDE를 다시 시작하면 VS Code는 Arduino IDE 경로를 올바르게 찾습니다.
 
@@ -145,7 +141,8 @@ VS Code는 자동으로 DevKit를 검색하고 소개 페이지를 엽니다.
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+> [!NOTE]
+> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
 
 ### <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
@@ -213,7 +210,7 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Suite에 DevKit 장치를 연결하고 SendGrid 서비스를 사용하여 이메일을 보내는 방법에 대해 알아보았습니다. 권장되는 단계는 다음과 같습니다.
+Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 장치를 연결하고 SendGrid 서비스를 사용하여 이메일을 보내는 방법에 대해 알아보았습니다. 권장되는 단계는 다음과 같습니다.
 
-* [Azure IoT Suite 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
+* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

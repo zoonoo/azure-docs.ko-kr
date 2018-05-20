@@ -1,6 +1,6 @@
 ---
-title: AKS(Azure Container Service) 내부 부하 분산 장치 만들기
-description: AKS(Azure 컨테이너 서비스)를 통해 내부 부하 분산 장치를 사용합니다.
+title: AKS(Azure Kubernetes Service) 내부 부하 분산 장치 만들기
+description: AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치를 사용합니다.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6a657df82e1670f7a9d604dd5166ab53bb38bf74
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>AKS(Azure 컨테이너 서비스)를 통해 내부 부하 분산 장치 사용
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
-내부 부하 분산은 Kubernetes 서비스가 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 응용 프로그램에 액세스할 수 있게 합니다. 이 문서는 AKS(Azure 컨테이너 서비스)를 사용하여 내부 부하 분산 장치 만들기를 자세히 설명합니다.
+내부 부하 분산은 Kubernetes 서비스가 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 응용 프로그램에 액세스할 수 있게 합니다. 이 문서에서는 AKS(Azure Kubernetes Service)를 사용하여 내부 부하 분산 장치를 만드는 방법을 자세히 설명합니다.
 
 ## <a name="create-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-일단 배포되면 AKS 클러스터와 동일한 가상 네트워크에서 Azure 부하 분산 장치를 만들고 사용할 수 있습니다. 
+일단 배포되면 AKS 클러스터와 동일한 가상 네트워크에서 Azure 부하 분산 장치를 만들고 사용할 수 있습니다.
 
 ![AKS 내부 부하 분산 장치 이미지](media/internal-lb/internal-lb.png)
 
-서비스 세부 정보를 검색할 경우 `EXTERNAL-IP` 열의 IP 주소는 내부 부하 분산 장치의 IP 주소입니다. 
+서비스 세부 정보를 검색할 경우 `EXTERNAL-IP` 열의 IP 주소는 내부 부하 분산 장치의 IP 주소입니다.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-서비스 세부 정보를 검색할 경우 `EXTERNAL-IP`의 IP 주소는 지정된 IP 주소를 반영해야 합니다. 
+서비스 세부 정보를 검색할 경우 `EXTERNAL-IP`의 IP 주소는 지정된 IP 주소를 반영해야 합니다.
 
 ```console
 $ kubectl get service azure-vote-front

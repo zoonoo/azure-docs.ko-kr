@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -271,7 +271,10 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 > [!NOTE]
 
-> ITSM 커넥터는 ServiceNow 인스턴스에 설치된 다른 모듈 없이 ServiceNow에 인시던트를 보낼 수 있습니다. ServiceNow 인스턴스에서 EventManagement 모듈을 사용하고 커넥터를 사용하여 ServiceNow에서 이벤트 또는 경고를 만들려는 경우 통합 사용자에게 다음 역할을 추가합니다. evt_mgmt_integration - evt_mgmt_operator  
+> ITSM 커넥터는 ServiceNow 인스턴스에 설치된 다른 모듈 없이 ServiceNow에 인시던트를 보낼 수 있습니다. ServiceNow 인스턴스에서 EventManagement 모듈을 사용하고 커넥터를 사용하여 ServiceNow에서 이벤트 또는 경고를 만들려는 경우 통합 사용자에게 다음 역할을 추가합니다.
+
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Province를 Azure의 IT 서비스 관리 커넥터에 연결

@@ -1,25 +1,25 @@
 ---
-title: AKS(Azure Container Service) 클러스터로 수신 구성
-description: AKS(Azure Container Service) 클러스터에 NGINX 수신 컨트롤러를 설치하고 구성합니다.
+title: AKS(Azure Kubernetes Service) 클러스터로 수신 구성
+description: AKS(Azure Kubernetes Service) 클러스터에 NGINX 수신 컨트롤러를 설치하고 구성합니다.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9246fccb1713f69d2c6c655b09f0daf51055596f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="https-ingress-on-azure-container-service-aks"></a>AKS(Azure Container Service)에서 HTTPS 수신
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 HTTPS 수신
 
 수신 컨트롤러는 역방향 프록시, 구성 가능한 트래픽 라우팅, Kubernetes 서비스에 대한 TLS 종료를 제공하는 소프트웨어입니다. Kubernetes 수신 리소스는 개별 Kubernetes 서비스에 대한 수신 규칙 및 라우팅을 구성하는 데 사용됩니다. 수신 컨트롤러 및 수신 규칙을 사용하면 단일 외부 주소를 사용하여 Kubernetes 클러스터의 여러 서비스에 트래픽을 라우팅할 수 있습니다.
 
-이 문서에서는 AKS(Azure Container Service) 클러스터에서 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 샘플을 연습합니다. 또한 [KUBE-LEGO][kube-lego] 프로젝트는 [Let's Encrypt][lets-encrypt] 인증서를 자동으로 생성하고 구성하는 데 사용됩니다. 마지막으로, 여러 응용 프로그램이 AKS 클러스터에서 실행되며 단일 주소를 통해 각 응용 프로그램에 액세스할 수 있습니다.
+이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 샘플을 연습합니다. 또한 [KUBE-LEGO][kube-lego] 프로젝트는 [Let's Encrypt][lets-encrypt] 인증서를 자동으로 생성하고 구성하는 데 사용됩니다. 마지막으로, 여러 응용 프로그램이 AKS 클러스터에서 실행되며 단일 주소를 통해 각 응용 프로그램에 액세스할 수 있습니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -46,9 +46,9 @@ helm install stable/nginx-ingress --namespace kube-system
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 수신 규칙이 만들어지지 않았기 때문에 공용 IP 주소를 검색하면 NGINX 수신 컨트롤러 기본 404 페이지로 라우팅됩니다.
@@ -63,7 +63,7 @@ HTTPS 인증서를 사용하므로 수신 컨트롤러 IP 주소에 대한 FQDN 
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"

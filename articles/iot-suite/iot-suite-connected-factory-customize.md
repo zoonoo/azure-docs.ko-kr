@@ -1,13 +1,13 @@
 ---
-title: "연결된 팩터리 솔루션 사용자 지정 - Azure | Microsoft Docs"
-description: "연결된 팩터리 미리 구성된 솔루션의 동작을 사용자 지정하는 방법에 대한 설명입니다."
-services: 
+title: 연결된 팩터리 솔루션 사용자 지정 - Azure | Microsoft Docs
+description: 연결된 팩터리 솔루션 가속기의 동작을 사용자 지정하는 방법에 대한 설명입니다.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: c#
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5d074a5cf0dd5191b5d94531068341ad1b953391
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/14/2017
 - 시뮬레이션된 기존 공장, 생산 라인 및 스테이션을 편집합니다.
 - 연결하는 실제 OPC UA 서버의 데이터를 솔루션에 매핑합니다.
 
-특정 요구 사항에 맞게 데이터를 매핑하고 집계하는 방법에 대한 자세한 내용은 [연결된 팩터리 미리 구성된 솔루션을 구성하는 방법](iot-suite-connected-factory-configure.md)을 참조하세요.
+특정 요구 사항에 맞게 데이터를 매핑하고 집계하는 방법에 대한 자세한 내용은 [연결된 팩터리 솔루션 가속기를 구성하는 방법](iot-suite-connected-factory-configure.md)을 참조하세요.
 
 ## <a name="deploy-the-changes"></a>변경 내용 배포
 
@@ -82,9 +82,9 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서를 참조하여 연결된 팩터리 미리 구성된 솔루션에 대해 자세히 알아봅니다.
+다음 문서를 참조하여 연결된 팩터리 솔루션 가속기에 대해 자세히 알아봅니다.
 
-* [연결된 공장 미리 구성된 솔루션 연습][lnk-rm-walkthrough]
+* [연결된 팩터리 솔루션 가속기 연습][lnk-rm-walkthrough]
 * [연결된 팩터리에 대한 게이트웨이 배포][lnk-connect-cf]
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
 * [연결된 팩터리 FAQ](iot-suite-faq-cf.md)

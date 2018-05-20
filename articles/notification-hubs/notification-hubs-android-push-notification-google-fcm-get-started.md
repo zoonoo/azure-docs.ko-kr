@@ -1,46 +1,48 @@
 ---
-title: Android 앱 및 Firebase Cloud Messaging에 대한 Azure Notification Hubs 시작 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다.
+title: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 앱에 알림 푸시 | Microsoft Docs
+description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
 keywords: 푸시 알림, 푸시알림, Android 푸시 알림, FCM, Firebase Cloud Messaging
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: ''
+editor: spelluru
 ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: hero-article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 6768b3e55af5e497c9424bc09130c9dd0948968b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-azure-notification-hubs-for-android-apps-and-firebase-cloud-messaging"></a>Android 앱 및 Firebase Cloud Messaging에 대한 Azure Notification Hubs 시작
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 장치에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>개요
 > [!IMPORTANT]
-> 이 문서에서는 Google FCM(Firebase Cloud Messaging)을 사용한 푸시 알림을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하는 경우 [Azure Notification Hubs 및 GCM을 사용하여 Android에 푸시 알림 보내기](notification-hubs-android-push-notification-google-gcm-get-started.md)를 참조하세요.
-> 
-> 
+> 이 문서에서는 Google FCM(Firebase Cloud Messaging)을 사용한 푸시 알림을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하는 경우 [Azure Notification Hubs 및 GCM을 사용하여 Android 장치에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)를 참조하세요.
 
-이 자습서에서는 Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
-
-[!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+이 자습서에서는 Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 응용 프로그램에 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
 이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase)서 다운로드할 수 있습니다.
 
+이 자습서에서 수행하는 단계는 다음과 같습니다.
+
+> [!div class="checklist"]
+> * Android Studio 프로젝트를 만듭니다.
+> * Firebase Cloud Messaging을 지원하는 Firebase 프로젝트를 만듭니다.
+> * 알림 허브를 만듭니다.
+> * 알림 허브에 앱을 연결합니다.
+> * 앱을 테스트합니다. 
+
 ## <a name="prerequisites"></a>필수 조건
-> [!IMPORTANT]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started)을 참조하세요.
-> 
-> 
+이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요.
 
 * 이 자습서에서는 위에서 언급한 활성 Azure 계정 외에도 [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797)최신 버전이 필요합니다.
 * Firebase Cloud Messaging에 Android 2.3 이상이 필요합니다.
@@ -48,7 +50,7 @@ ms.lasthandoff: 04/28/2018
 * Firebase Cloud Messaging에 Google Play Services 9.0.2 이상이 필요합니다.
 * 이 자습서를 완료해야 다른 모든 Android 앱용 Notification Hubs 자습서를 진행할 수 있습니다.
 
-## <a name="create-a-new-android-studio-project"></a>새 Android Studio 프로젝트 만들기
+## <a name="create-an-android-studio-project"></a>Android Studio 프로젝트 만들기
 1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
    
     ![Android Studio - 새 프로젝트](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
@@ -57,15 +59,18 @@ ms.lasthandoff: 04/28/2018
     ![Android Studio - 프로젝트 만들기 워크플로](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
 3. **빈 활동**을 기본 활동으로 선택하고 **다음**, **마침**을 차례로 클릭합니다.
 
-## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Firebase Cloud Messaging을 지원하는 프로젝트 만들기
+## <a name="create-a-firebase-project-that-supports-fcm"></a>FCM을 지원하는 Firebase 프로젝트 만들기
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a name="configure-a-new-notification-hub"></a>새 알림 허브 구성
+## <a name="configure-a-notification-hub"></a>알림 허브 구성
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. **Notification Services** 아래에서 **Google(GCM)** 을 선택합니다. [Firebase 콘솔](https://firebase.google.com/console/) 에서 이전에 복사한 FCM 서버 키를 입력하고 **저장**을 클릭합니다.
+### <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>허브에 대한 Firebase Cloud Messaging 설정 구성
+1. **알림 설정** 범주에서 **Google(GCM)** 을 선택합니다. 
+2. [Firebase 콘솔](https://firebase.google.com/console/)에서 이전에 복사한 API 키(FCM 서버 키)를 입력합니다.
+3. 도구 모음에서 **저장**을 선택합니다.
 
-&emsp;&emsp;![Azure Notification Hubs - Google(GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
+    ![Azure Notification Hubs - Google(GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
 이제 알림 허브가 FCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내기 위해 앱을 등록하는 연결 문자열이 있습니다.
 
@@ -91,6 +96,20 @@ ms.lasthandoff: 04/28/2018
         }
     ```
 
+### <a name="add-google-firebase-support"></a>Google Firebase 지원 추가
+
+1. **앱**의 `Build.Gradle` 파일에서 **종속성** 섹션에 다음 줄을 추가합니다.
+   
+    ```java
+        compile 'com.google.firebase:firebase-core:12.0.0'
+    ```
+
+2. 파일 끝에 다음 플러그 인을 추가합니다. 
+   
+    ```java
+    apply plugin: 'com.google.gms.google-services'
+    ```
+
 ### <a name="updating-the-androidmanifestxml"></a>AndroidManifest.xml을 업데이트합니다.
 1. FCM을 지원하려면 코드에서 [Google의 FirebaseInstanceId API](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId)를 사용하여 [등록 토큰을 가져오는](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) 데 사용되는 인스턴스 ID 수신기 서비스를 구현해야 합니다. 이 자습서에서 클래스 이름은 `MyInstanceIDService`입니다. 
    
@@ -104,7 +123,7 @@ ms.lasthandoff: 04/28/2018
         </service>
     ```
 
-2. FirebaseInstanceId API에서 FCM 등록 토큰을 받으면 해당 토큰을 사용하여 [Azure Notification Hubs에 등록합니다](notification-hubs-push-notification-registration-management.md). 이 등록은 백그라운드에서 `RegistrationIntentService`라는 `IntentService`를 사용하여 지원됩니다. 또한 이 서비스는 FCM 등록 토큰을 새로 고쳐야 합니다.
+2. FirebaseInstanceId API에서 FCM 등록 토큰을 받으면 해당 토큰을 사용하여 [Azure Notification Hubs에 등록합니다](notification-hubs-push-notification-registration-management.md). `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 이 등록을 지원합니다. 또한 이 서비스는 FCM 등록 토큰을 새로 고쳐야 합니다.
    
     AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. 
    
@@ -127,7 +146,7 @@ ms.lasthandoff: 04/28/2018
         </receiver>
     ```
 
-4. `</application>` 태그 아래에 다음과 같은 FCM 관련 필수 권한을 추가합니다. 반드시 `<your package>`을(를) `AndroidManifest.xml` 파일 맨 위에 있는 패키지 이름으로 바꿉니다.
+4. `</application>` 태그 아래에 다음과 같은 FCM 관련 필수 권한을 추가합니다. 
    
     이러한 사용 권한에 대한 자세한 내용은 [Android용 GCM 클라이언트 앱 설치](https://developers.google.com/cloud-messaging/android/client#manifest) 및 [Firebase Cloud Messaging에 Android용 GCM 클라이언트 앱 마이그레이션](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm)을 참조하세요.
    
@@ -146,7 +165,7 @@ ms.lasthandoff: 04/28/2018
    
    * **SenderId**: [Firebase 콘솔](https://firebase.google.com/console/)에 있는 프로젝트 설정의 **클라우드 메시지** 탭에서 이전에 가져온 보낸 사람 ID입니다.
    * **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]의 허브에서 **액세스 정책**을 클릭하여 해당 연결 문자열을 복사할 수 있습니다.
-   * **HubName**: [Azure Portal]의 허브 블레이드에 표시되는 알림 허브 이름을 사용합니다.
+   * **HubName**: [Azure Portal]의 허브 페이지에 표시되는 알림 허브 이름을 사용합니다.
      
      `NotificationSettings` 코드:
      
@@ -159,7 +178,7 @@ ms.lasthandoff: 04/28/2018
        }
     ```
 
-2. 앞의 단계를 사용하여 `MyInstanceIDService`라는 또 다른 새 클래스를 추가합니다. 이는 인스턴스 ID 수신기 서비스 구현입니다.
+2. 앞의 단계를 사용하여 `MyInstanceIDService`라는 또 다른 새 클래스를 추가합니다. 이 클래스는 인스턴스 ID 수신기 서비스 구현입니다.
    
     이 클래스에 대한 코드는 `IntentService`를 호출하여 백그라운드에서 [FCM 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
    
@@ -183,7 +202,7 @@ ms.lasthandoff: 04/28/2018
         };
     ```
 
-1. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이는 [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-push-notification-registration-management.md)을 처리하는 `IntentService`에 대한 구현입니다.
+1. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이 클래스는 `IntentService` 인터페이스를 구현하고, [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-push-notification-registration-management.md)을 처리합니다.
    
     이 클래스에 대해 다음 코드를 사용합니다.
    
@@ -286,7 +305,7 @@ ms.lasthandoff: 04/28/2018
         import android.widget.TextView;
         import android.widget.Toast;
     ```
-3. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다. 이러한 멤버를 사용하여 [Google에서 권장한 대로 Google Play 서비스의 가용성을 확인합니다](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+3. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다. 이러한 필드를 사용하여 [Google에서 권장한 대로 Google Play 서비스의 가용성을 확인합니다](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
     ```java
         public static MainActivity mainActivity;
@@ -465,21 +484,26 @@ ms.lasthandoff: 04/28/2018
     > 
     > 
 
-## <a name="sending-push-notifications"></a>푸시 알림 보내기
-[Azure Portal]을 통해 푸시 알림을 보내고 앱에서 푸시 알림을 받아 테스트할 수 있습니다. 아래와 같이 허브의 **문제 해결** 섹션을 살펴보세요.
+## <a name="test-the-app"></a>앱 테스트
+### <a name="test-send-notification-from-the-notification-hub"></a>알림 허브에서 알림 테스트 보내기
+다음 작업을 수행하여 [Azure Portal]에서 푸시 알림을 보낼 수 있습니다. 
 
-![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+1. **문제 해결** 섹션에서 **테스트 보내기**를 선택합니다.
+2. **플랫폼**에 대해 **Android**를 선택합니다. 
+3. **보내기**를 선택합니다.  Android 장치에서 알림이 아직 보이지 않으면 모바일 앱을 실행하지 않았기 때문입니다. 모바일 앱을 실행한 후 **보내기** 단추를 다시 선택하여 알림 메시지를 표시합니다. 
+4. 맨 아래에 있는 목록에 작업의 **결과**가 표시됩니다. 
+
+    ![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 
-## <a name="testing-your-app"></a>앱 테스트
-#### <a name="push-notifications-in-the-emulator"></a>에뮬레이터의 푸시 알림
+### <a name="run-the-mobile-app"></a>모바일 앱 실행
 에뮬레이터 내부에서 푸시 알림을 테스트하려는 경우 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면 **SERVICE\_NOT\_AVAILABLE** 예외가 발생합니다.
 
-또한 **설정** > **계정**를 참조하세요. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
+또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
 
-#### <a name="running-the-application"></a>응용 프로그램 실행
 1. 앱을 실행하고 등록에 성공한 경우 등록 ID가 보고되는지 확인합니다.
    
     ![Android에서 테스트 - 채널 등록](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
@@ -491,22 +515,20 @@ ms.lasthandoff: 04/28/2018
     ![Android에서 테스트 - 알림](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
 ## <a name="next-steps"></a>다음 단계
-다음 단계로 [Notification Hubs를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백 엔드에서 알림을 보내는 방법을 보여 줍니다.
+이 자습서에서는 Firebase Cloud Messaging을 사용하여 Android 장치로 알림을 푸시했습니다. Google Cloud Messaging을 사용하여 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
+> [!div class="nextstepaction"]
+>[Google Cloud Messaging을 사용하여 Android 장치에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)
 
-사용자를 관심 그룹별로 분할하려면 [Notification Hubs를 사용하여 뉴스 속보 보내기] 자습서를 참조하세요.
-
-Notification Hubs에 대한 일반적인 정보를 알아보려면 [Notification Hubs 지침]을 참조하세요.
 
 <!-- Images. -->
-
 
 
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs 지침]: notification-hubs-push-notification-overview.md
-[Notification Hubs를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Notification Hubs를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com

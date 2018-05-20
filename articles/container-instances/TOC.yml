@@ -21,6 +21,12 @@
       href: container-instances-tutorial-prepare-acr.md
     - name: 3 - 응용 프로그램 배포
       href: container-instances-tutorial-deploy-app.md
+- name: 샘플
+  items:
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+    - name: 리소스 관리자 템플릿
+      href: container-instances-samples-rm.md
 - name: 개념
   items:
     - name: 할당량 및 국가별 제한
@@ -31,22 +37,28 @@
       href: container-instances-container-groups.md
 - name: 방법 가이드
   items:
-    - name: 다중 컨테이너 그룹 배포
-      href: container-instances-multi-container-group.md
-    - name: Azure Container Registry에서 배포
-      href: container-instances-using-azure-container-registry.md
-    - name: 명령 실행(exec)
-      href: container-instances-exec.md
-    - name: 컨테이너화된 작업 실행
-      href: container-instances-restart-policy.md
-    - name: 환경 변수 설정(env)
-      href: container-instances-environment-variables.md
-    - name: 배포 문제 해결
-      href: container-instances-troubleshooting.md
-    - name: ACI에서 Jenkins 빌드 에이전트
-      href: container-instances-jenkins.md
-    - name: CPU 및 메모리 사용량 모니터링
-      href: container-instances-monitor.md
+    - name: 배포
+      items:
+        - name: 다중 컨테이너 그룹 배포
+          href: container-instances-multi-container-group.md
+        - name: Azure Container Registry에서 배포
+          href: container-instances-using-azure-container-registry.md
+        - name: 환경 변수 설정(env)
+          href: container-instances-environment-variables.md
+        - name: 배포 문제 해결
+          href: container-instances-troubleshooting.md
+    - name: 관리
+      items:
+        - name: 명령 실행(exec)
+          href: container-instances-exec.md
+        - name: CPU 및 메모리 사용량 모니터링
+          href: container-instances-monitor.md
+    - name: 워크로드 실행
+      items:
+        - name: 컨테이너화된 작업 실행
+          href: container-instances-restart-policy.md
+        - name: ACI에서 Jenkins 빌드 에이전트
+          href: container-instances-jenkins.md
     - name: 데이터 볼륨 구성
       items:
         - name: Azure 파일

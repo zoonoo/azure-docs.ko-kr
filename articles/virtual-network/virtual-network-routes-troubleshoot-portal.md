@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 67da2eae5ea04962cd5adeff8edd070c1a3cf95a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7c9d49a4135860bce317cd5808d3430af6b49fbd
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 문제 해결
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ VNet(*VNet1*, 접두사: 10.9.0.0/16)에 연결된 VM(*VM1*)이 새로 피어링
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>가상 머신에 대한 유효 경로 보기
 VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
-1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
+1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 2. **모든 서비스**를 클릭한 다음, 표시되는 목록에서 **가상 머신**을 클릭합니다.
 3. 표시되는 목록에서 문제를 해결할 VM을 선택합니다. 그러면 옵션을 포함하는 VM 블레이드가 나타납니다.
 4. **문제 진단 및 해결**을 클릭하고 일반적인 문제를 선택합니다. 이 예제에서는 **Windows VM에 연결할 수 없습니다.** 가 선택됩니다.

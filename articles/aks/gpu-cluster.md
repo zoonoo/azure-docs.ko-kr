@@ -1,6 +1,6 @@
 ---
-title: AKS(Azure Container Service)의 GPU
-description: AKS(Azure Container Service)의 GPU 사용
+title: AKS(Azure Kubernetes Service)에서 GPU 사용
+description: AKS(Azure Kubernetes Service)에서 GPU 사용
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-gpus-on-aks"></a>AKS에서 GPU 사용
 
@@ -22,7 +22,7 @@ AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단�
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
 GPU는 일반적으로 그래픽 집약적인 시각화 워크로드 같은 계산 집약적 워크로드에 필요합니다. 워크로드에 적합한 VM 크기를 확인하려면 다음 [문서](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu)를 참조하세요.
-AKS(Azure Container Service) 노드의 최소 권장 크기는 `Standard_NC6`입니다.
+AKS(Azure Kubernetes Service) 노드의 최소 권장 크기는 `Standard_NC6`입니다.
 
 > [!NOTE]
 > GPU 사용 VM에는 더 높은 가격 및 지역 가용성에 맞는 특별한 하드웨어가 포함되어 있습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/) 도구 및 [지역 가용성](https://azure.microsoft.com/global-infrastructure/services/) 사이트를 참조하세요.
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>GPU의 예약 가능 여부 확인
 
-Kubernetes 통해 GPU를 예약할 수 있는지 확인하려면 다음 명령을 실행합니다. 
+Kubernetes 통해 GPU를 예약할 수 있는지 확인하려면 다음 명령을 실행합니다.
 
 노드의 현재 목록을 가져옵니다.
 
@@ -165,12 +165,12 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
-이 작업을 실행하려면 [kubectl create][kubectl-create] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
+작업을 실행하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -273,12 +273,12 @@ job "samples-tf-mnist-demo" deleted
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubernetes에서 Machine Learning 워크로드를 실행하는 데 관심이 있나요? 자세한 내용은 Kubeflow 설명서를 참조하세요.
+Kubernetes에서 Machine Learning 워크로드를 실행하는 데 관심이 있나요? 자세한 내용은 Kubeflow 랩을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Kubeflow 사용자 가이드][kubeflow-docs]
+> [Kubeflow 랩][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
+[kubeflow-labs]: https://github.com/Azure/kubeflow-labs

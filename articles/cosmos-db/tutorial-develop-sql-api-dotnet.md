@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: a6ed74de159593003e8a18daefce2eb9a5945481
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 528832473d68fa90e6383873b1e0491f5abe09c7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB: .NET의 SQL API를 사용하여 개발
 
@@ -155,7 +155,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-이 메서드에서 Azure Cosmos DB에 REST API 호출을 요청하고, 서비스는 요청된 처리량에 따라 파티션 수를 프로비전합니다. SDK 또는 [Azure Portal](set-throughput.md)을 사용하여 성능 요구 사항이 진화함에 따라 컬렉션의 처리량을 변경할 수 있습니다.
+이 메서드에서 Azure Cosmos DB에 REST API 호출을 요청하고, 서비스는 요청된 처리량에 따라 파티션 수를 프로비전합니다. SDK 또는 [Azure Portal](set-throughput.md)을 사용하여 성능 요구 사항이 진화함에 따라 컬렉션 또는 컬렉션 집합의 처리량을 변경할 수 있습니다.
 
 ## <a id="CreateDoc"></a>JSON 문서 만들기
 Azure Cosmos DB에 일부 JSON 문서를 삽입해 보겠습니다. **DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](sql-api-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이 샘플 클래스에는 장치 읽기와 컬렉션에 새 장치 읽기를 삽입하기 위한 CreateDocumentAsync 호출이 포함되어 있습니다.

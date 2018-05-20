@@ -1,6 +1,6 @@
 ---
-title: Kafka에서 Apache Spark 구조적 스트림 - Azure HDInsight | Microsoft Docs
-description: Apache Spark 스트림(DStream)을 사용하여 Apache Kafka 간에 데이터를 이동하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
+title: '자습서: Kafka의 Apache Spark 구조적 스트림 - Azure HDInsight | Microsoft Docs'
+description: Apache Spark 스트림을 사용하여 Apache Kafka 간에 데이터를 이동하는 방법을 알아봅니다. 이 자습서에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -10,28 +10,107 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 49c13bbea537d7de60ecf509bc28675191c0b34d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>HDInsight의 Kafka에서 Spark 구조적 스트리밍 사용
+# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>자습서: HDInsight의 Kafka에서 Spark Structured Streaming 사용
 
-Azure HDInsight의 Apache Kafka에서 데이터를 읽는 Spark 구조적 스트림을 사용하는 방법을 알아봅니다.
+이 자습서에서는 Azure HDInsight의 Apache Kafka를 사용하여 Spark Structured Streaming을 통해 데이터를 읽고 쓰는 방법을 보여줍니다.
 
-Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다. 구조적 스트림에 대한 자세한 내용은 Apache.org에서 [구조적 스트림 프로그래밍 가이드[알파]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html)를 참조하세요.
+Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다. 
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * Kafka를 사용하는 구조적 스트림
+> * Kafka 및 Spark 클러스터 만들기
+> * Notebook을 Spark에 업로드
+> * Notebook 사용
+> * 리소스 정리
+
+이 문서의 단계를 완료하는 경우 과도한 요금이 청구되지 않도록 클러스터를 삭제해야 합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Spark로 데이터 로드 및 쿼리 실행](spark/apache-spark-load-data-run-query.md) 문서를 참조하세요.
+
+* [Scala](https://www.scala-lang.org/) 프로그래밍 언어 숙지. 이 자습서에 사용되는 코드는 Scala로 작성됩니다.
+
+* Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Kafka 빠른 시작](kafka/apache-kafka-get-started.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
-> 이 예제에서는 HDInsight 3.6에서 Spark 2.2를 사용합니다.
+> 이 문서의 단계를 수행하려면 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹이 필요합니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
+> 
+> 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다. 
 >
-> 이 문서의 단계는 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹을 만듭니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
->
-> 이 문서의 단계를 완료하는 경우 과도한 요금이 청구되지 않도록 클러스터를 삭제해야 합니다.
+> 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+
+## <a name="structured-streaming-with-kafka"></a>Kafka를 사용하는 구조적 스트림
+
+Spark Structured Streaming은 Spark SQL 엔진에서 작성된 스트림 처리 엔진입니다. 구조적 스트리밍을 사용하여 일괄 처리 쿼리를 작성하는 경우와 동일한 방식으로 스트리밍 쿼리를 쓸 수 있습니다.
+
+다음 코드 조각은 Kafka에서 읽고 파일에 저장하는 방법을 보여 줍니다. 첫 번째는 일괄 처리 작업이고, 두 번째는 스트리밍 작업입니다.
+
+```scala
+// Read a batch from Kafka
+val kafkaDF = spark.read.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data and write to file
+kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .write
+                .format("parquet")
+                .option("path","/example/batchtripdata")
+                .option("checkpointLocation", "/batchcheckpoint")
+                .save()
+```
+
+```scala
+// Stream from Kafka
+val kafkaStreamDF = spark.readStream.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data from the stream and write to file
+kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .writeStream
+                .format("parquet")
+                .option("path","/example/streamingtripdata")
+                .option("checkpointLocation", "/streamcheckpoint")
+                .start.awaitTermination(30000)
+```
+
+두 조각 모두에서 Kafka에서 데이터를 읽고 파일에 씁니다. 예제의 차이점은 다음과 같습니다.
+
+| Batch | 스트리밍 |
+| --- | --- |
+| `read` | `readStream` |
+| `write` | `writeStream` |
+| `save` | `start` |
+
+스트리밍 작업에서도 30,000밀리초 후에 스트림을 중지하는 `awaitTermination(30000)`을 사용합니다. 
+
+Kafka에서 구조적 스트리밍을 사용하려면 프로젝트가 `org.apache.spark : spark-sql-kafka-0-10_2.11` 패키지에 대해 종속성이 있어야 합니다. 이 패키지의 버전은 HDInsight의 Spark 버전과 일치해야 합니다. Spark 2.2.0(HDInsight 3.6에서 사용 가능)의 경우, [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar)에서 다른 프로젝트 형식에 대한 종속성 정보를 찾을 수 있습니다.
+
+이 자습서와 함께 제공된 Jupyter Notebook의 경우 다음 셀이 이 패키지 종속성을 로드합니다.
+
+```
+%%configure -f
+{
+    "conf": {
+        "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
+        "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+    }
+}
+```
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
@@ -44,7 +123,7 @@ HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broke
 > [!NOTE]
 > Kafka 서비스는 가상 네트워크 내에서 통신으로 제한됩니다. SSH 및 Ambari와 같은 클러스터의 다른 서비스는 인터넷을 통해 액세스할 수 있습니다. HDInsight에서 사용할 수 있는 공용 포트에 대한 자세한 내용은 [HDInsight에서 사용하는 포트 및 URI](hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
 
-편의를 위해 다음 단계에서는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크 내에 Kafka 및 Spark 클러스터를 만듭니다.
+Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 만들려면 다음 단계를 사용합니다.
 
 1. Azure에 로그인하고 Azure Portal에서 템플릿을 열려면 다음 단추를 사용합니다.
     
@@ -59,7 +138,7 @@ HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broke
     * HDInsight 클러스터를 포함하는 Azure Virtual Network
 
     > [!IMPORTANT]
-    > 이 예에서 사용된 구조적 스트림 Notebook은 HDInsight 3.6의 Spark가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
+    > 이 자습서에서 사용된 구조적 스트림 Notebook에는 HDInsight 3.6의 Spark 2.2.0가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
 
 2. 다음 정보를 사용하여 **사용자 지정된 템플릿** 섹션의 항목을 채웁니다.
 
@@ -77,18 +156,18 @@ HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broke
    
     ![사용자 지정된 템플릿의 스크린샷](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
+3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
+
 4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다. 
 
 > [!NOTE]
 > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
-## <a name="get-the-notebook"></a>Notebook 가져오기
-
-이 문서에 설명된 예제에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming)에서 지원됩니다.
-
-## <a name="upload-the-notebooks"></a>Notebooks 업로드
+## <a name="upload-the-notebook"></a>Notebook 업로드
 
 프로젝트에서 HDInsight 클러스터의 Spark로 Notebooks을 업로드하려면 다음 단계를 사용합니다.
+
+1. [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming)에서 프로젝트를 다운로드합니다.
 
 1. 웹 브라우저의 Spark 클러스터에 있는 Jupyter Notebook에 연결합니다. 다음 URL에서 `CLUSTERNAME`을 __Spark__ 클러스터의 이름으로 바꿉니다.
 
@@ -128,7 +207,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Spark 구조적 스트림을 사용하는 방법을 배웠으므로 Spark 및 Kafka에서 작업하는 방법에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.
+이 자습서에서는 Spark Structured Streaming을 사용하여 HDInsight의 Kafka에서 데이터를 읽고 쓰는 방법을 배웠습니다. Kafka에서 Storm을 사용하는 방법을 알아보려면 다음 링크를 사용하세요.
 
-* [Kafka에서 Spark 스트림(DStream)을 사용하는 방법](hdinsight-apache-spark-with-kafka.md)
-* [Jupyter Notebook 및 HDInsight의 Spark 시작](spark/apache-spark-jupyter-spark-sql.md)
+> [!div class="nextstepaction"]
+> [Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)

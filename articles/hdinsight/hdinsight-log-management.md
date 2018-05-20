@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -105,17 +105,6 @@ HDInsight [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)은 
 HDInsight는 로그 파일을 클러스터 파일 시스템과 Azure 저장소에 모두 저장합니다. 클러스터에 대한 SSH 연결을 열고 파일 시스템을 검색하거나 원격 헤드 노드 서버에서 YARN 상태 포털을 사용하여 클러스터의 로그 파일을 검사할 수 있습니다. Azure 저장소에서 데이터에 액세스 및 다운로드할 수 있는 도구 중 하나를 사용하여 Azure 저장소에 있는 로그 파일을 검사할 수 있습니다. AZCopy, CloudXplorer 및 Visual Studio 서버 탐색기를 예로 들 수 있습니다. PowerShell 및 Azure Storage 클라이언트 라이브러리를 사용하거나 Azure .NET SDK를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
 
 Hadoop은 클러스터의 다양한 노드에서 작업을 *작업 시도*로 실행합니다. HDInsight는 추측성 작업 시도를 시작한 후 완료되지 않는 다른 작업 시도를 먼저 종료할 수 있습니다. 이로 인해 컨트롤러, stderr 및 syslog 로그 파일에 즉시 기록되는 활동이 상당히 많이 생성됩니다. 뿐만 아니라 여러 작업 시도가 동시에 실행되지만 로그 파일은 결과를 선형적으로만 표시할 수 있습니다.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>Azure 테이블에 기록된 HDInsight 로그
-
-Azure 테이블에 기록된 로그는 HDInsight 클러스터에서 발생하는 일에 대한 통찰력을 제공합니다. Linux 기반 HDInsight 클러스터를 만들 때 기본 테이블 저장소에 다음과 같은 테이블 6개가 자동으로 생성됩니다.
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Azure Blob Storage에 기록된 HDInsight 로그
 

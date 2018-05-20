@@ -1,12 +1,12 @@
 ---
-title: "Linux의 Azure App Service에 대한 SSH 지원 | Microsoft Docs"
-description: "Linux의 Azure App Service에서 SSH 사용에 대해 자세히 알아봅니다."
-keywords: "azure app service, 웹앱, linux, oss"
+title: Linux의 Azure App Service에 대한 SSH 지원 | Microsoft Docs
+description: Linux의 Azure App Service에서 SSH 사용에 대해 자세히 알아봅니다.
+keywords: azure app service, 웹앱, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -30,6 +30,10 @@ Linux의 App Service는 새 웹앱의 런타임 스택에 사용되는 기본 �
 ![런타임 스택](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 또한 SSH 서버를 이미지의 일부로 포함하고 이 문서에 설명된 대로 구성하여 사용자 지정 Docker 이미지에서 SSH를 사용할 수도 있습니다.
+
+> [!NOTE] 
+> SSH, SFTP 또는 Visual Studio Code를 사용하여 로컬 개발 컴퓨터에서 직접 앱 컨테이너에 연결할 수도 있습니다(Node.js 앱 라이브 디버깅을 위해). 자세한 내용은 [Linux App Service의 원격 디버깅 및 SSH](https://aka.ms/linux-debug)를 참조하세요.
+>
 
 ## <a name="making-a-client-connection"></a>클라이언트 연결 만들기
 

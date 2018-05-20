@@ -1,22 +1,23 @@
 ---
-title: "응용 프로그램에 사용자를 구성 및 프로비전하는 문제”"
-description: "응용 프로그램에 사용자를 구성 및 프로비전하는 문제”"
+title: 응용 프로그램에 사용자를 구성 및 프로비전하는 문제”
+description: 응용 프로그램에 사용자를 구성 및 프로비전하는 문제”
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a3143703a946cadccf14d1675399c0848835d97c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d1539552145100e3fcc6fd3f323dfc3e9f322a36
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>응용 프로그램에 사용자를 구성 및 프로비전하는 문제
 

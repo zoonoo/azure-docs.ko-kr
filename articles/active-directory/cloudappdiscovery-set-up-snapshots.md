@@ -4,21 +4,21 @@ description: Cloud App Discovery를 사용한 응용 프로그램 찾기 및 관
 services: active-directory
 keywords: Cloud App Discovery, 응용 프로그램 관리
 documentationcenter: ''
-author: curtand
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: nigu
 ms.custom: it-pro
-ms.openlocfilehash: ad4591223c72893a4488f5515d8ceb83e0d7f8cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 33ac83e04e43088f74bb46670f0571762b57e555
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Cloud App Discovery 스냅숏 보고서 만들기
 

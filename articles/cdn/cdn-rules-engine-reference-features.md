@@ -4,7 +4,7 @@ description: Azure CDN 규칙 엔진 기능에 대한 참조 설명서입니다.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 규칙 엔진 기능
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
@@ -392,7 +392,7 @@ cache-key는 캐싱을 위해 자산을 식별하는 상대 경로입니다. 즉
 옵션|설명
 --|--
 원래 경로| cache-key를 다시 쓰는 요청의 형식에 대한 상대 경로를 정의합니다. 상대 경로는 기본 경로를 선택한 다음 정규식 패턴을 정의함으로써 정의할 수 있습니다.
-새 경로|새 cache-key에 대한 상대 경로를 정의합니다. 상대 경로는 기본 경로를 선택한 다음 정규식 패턴을 정의함으로써 정의할 수 있습니다. 이 상대 경로는 HTTP 변수를 사용하여 동적으로 생성할 수 있습니다.
+새 경로|새 cache-key에 대한 상대 경로를 정의합니다. 상대 경로는 기본 경로를 선택한 다음 정규식 패턴을 정의함으로써 정의할 수 있습니다. 이 상대 경로는 [HTTP 변수](cdn-http-variables.md)를 사용하여 동적으로 생성할 수 있습니다.
 **기본 동작:** 요청의 cache-key는 요청 URI에 의해 결정됩니다.
 
 [맨 위로 이동](#azure-cdn-rules-engine-features)
@@ -884,9 +884,9 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 옵션|설명|예
 -|-|-
-추가|지정된 값이 기존 요청 헤더 값의 끝에 추가됩니다.|**요청 헤더 값(클라이언트):** Value1 <br/> **요청 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 요청 헤더 값:** Value1Value2
-덮어쓰기|요청 헤더 값을 지정된 된 값으로 설정합니다.|**요청 헤더 값(클라이언트):** Value1 <br/>**요청 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 요청 헤더 값:** Value2 <br/>
-삭제|지정된 요청 헤더를 삭제합니다.|**요청 헤더 값(클라이언트):** Value1 <br/> **클라이언트 요청 헤더 수정 구성:** 문제의 요청 헤더를 삭제합니다. <br/>**결과:** 지정된 요청 헤더를 원본 서버로 전달하지 않습니다.
+추가|지정된 값이 기존 요청 헤더 값의 끝에 추가됩니다.|**요청 헤더 값(클라이언트):**<br/>값1<br/>**요청 헤더 값(규칙 엔진):**<br/>값2 <br/>**새 요청 헤더 값:** <br/>Value1Value2
+덮어쓰기|요청 헤더 값을 지정된 된 값으로 설정합니다.|**요청 헤더 값(클라이언트):**<br/>값1<br/>**요청 헤더 값(규칙 엔진):**<br/>값2<br/>**새 요청 헤더 값:**<br/> 값2 <br/>
+삭제|지정된 요청 헤더를 삭제합니다.|**요청 헤더 값(클라이언트):**<br/>값1<br/>**클라이언트 요청 헤더 구성 수정:**<br/>요청 헤더를 질문에서 삭제합니다.<br/>**결과:**<br/>지정된 요청 헤더를 원본 서버로 전달하지 않습니다.
 
 주요 정보:
 
@@ -922,9 +922,9 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 옵션|설명|예
 -|-|-
-추가|지정된 값이 기존 응답 헤더 값의 끝에 추가됩니다.|**응답 헤더 값(클라이언트):** Value1 <br/> **응답 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 응답 헤더 값:** Value1Value2
-덮어쓰기|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤더 값(클라이언트):** Value1 <br/>**응답 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 응답 헤더 값:** Value2 <br/>
-삭제|지정된 응답 헤더를 삭제합니다.|**응답 헤더 값(클라이언트):** Value1 <br/> **클라이언트 응답 헤더 수정 구성:** 문제의 응답 헤더를 삭제합니다. <br/>**결과:** 지정된 응답 헤더를 요청자에게 전달하지 않습니다.
+추가|지정된 값이 기존 응답 헤더 값의 끝에 추가됩니다.|**응답 헤더 값(클라이언트):**<br />값1<br/>**응답 헤더 값(규칙 엔진):**<br/>값2<br/>**새 응답 헤더 값:**<br/>Value1Value2
+덮어쓰기|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤더 값(클라이언트):**<br/>값1<br/>**응답 헤더 값(규칙 엔진):**<br/>값2 <br/>**새 응답 헤더 값:**<br/>값2 <br/>
+삭제|지정된 응답 헤더를 삭제합니다.|**응답 헤더 값(클라이언트):**<br/>값1<br/>**클라이언트 응답 헤더 구성 수정:**<br/>응답 헤더를 질문에서 삭제합니다.<br/>**결과:**<br/>지정된 응답 헤더를 요청자에게 전달하지 않습니다.
 
 주요 정보:
 
@@ -1234,31 +1234,31 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 옵션|설명
 -|-
 코드|요청자에게 반환할 응답 코드를 선택합니다.
-원본 및 패턴| 이러한 설정은 리디렉션될 수 있는 요청의 형식을 식별하는 요청 URI 패턴을 정의합니다. URL이 다음 기준을 모두 충족하는 요청만 리디렉션합니다. <br/> <br/> **원본(또는 콘텐츠 액세스 지점):** 원본 서버를 식별하는 상대 경로를 선택합니다. 이 경로는 _/XXXX/_ 섹션과 엔드포인트 이름입니다. <br/> **원본(패턴):** 상대 경로로 요청을 식별하는 패턴을 정의해야 합니다. 이 정규식 패턴은 이전에 선택한 콘텐츠 액세스 지점 바로 뒤에서 시작하는 경로를 정의해야 합니다(위 참조). <br/> - 이전에 정의한 요청 URI 기준(즉, 원본 및 패턴)이 이 기능에 대해 정의된 일치 조건과 충돌하지 않는지 확인합니다. <br/> - 패턴을 지정합니다. 패턴으로 빈 값을 사용하는 경우 모든 문자열이 일치됩니다.
-대상| 위의 요청을 리디렉션할 URL을 정의합니다. <br/> 다음을 사용하여 이 URL을 동적으로 구성합니다. <br/> - 정규식 패턴 <br/>- HTTP 변수 <br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다. <br/> 
+원본 및 패턴| 이러한 설정은 리디렉션될 수 있는 요청의 형식을 식별하는 요청 URI 패턴을 정의합니다. URL이 다음 기준을 모두 충족하는 요청만 리디렉션합니다. <br/> <br/> **원본(또는 콘텐츠 액세스 지점):** 원본 서버를 식별하는 상대 경로를 선택합니다. 이 경로는 _/XXXX/_ 섹션과 엔드포인트 이름입니다. <br/><br/> **원본(패턴):** 상대 경로로 요청을 식별하는 패턴을 정의해야 합니다. 이 정규식 패턴은 이전에 선택한 콘텐츠 액세스 지점 바로 뒤에서 시작하는 경로를 정의해야 합니다(위 참조). <br/> - 이전에 정의한 요청 URI 기준(즉, 원본 및 패턴)이 이 기능에 대해 정의된 일치 조건과 충돌하지 않는지 확인합니다. <br/> - 패턴을 지정합니다. 패턴으로 빈 값을 사용하는 경우 모든 문자열이 일치됩니다.
+대상| 위의 요청을 리디렉션할 URL을 정의합니다. <br/><br/> 다음을 사용하여 이 URL을 동적으로 구성합니다. <br/> - 정규식 패턴 <br/>- [HTTP 변수](cdn-http-variables.md) <br/><br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다. <br/> 
 절대 URL을 사용하는 것이 좋습니다. 상대 URL을 사용하면 CDN URL을 잘못된 경로로 리디렉션할 수 있습니다.
 
 **샘플 시나리오**
 
-이 예제에서는 기본 CDN URL(http://marketing.azureedge.net/brochures)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
+이 예제에서는 기본 CDN URL(http:\//marketing.azureedge.net/brochures)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
 
-요청이 유효하면 기본 에지 CNAME URL(http://cdn.mydomain.com/resources)로 리디렉션됩니다.
+요청이 유효하면 이 기본 에지 CNAME URL(http:\//cdn.mydomain.com/resources)로 리디렉션됩니다.
 
-이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![URL 리디렉션](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **주요 정보:**
 
 - URL 리디렉션 기능은 리디렉션할 요청 URL을 정의합니다. 따라서 추가적인 일치 조건이 필요하지 않습니다. 일치 조건을 "Always"로 정의했지만 "marketing" 고객 원본의 "brochures" 폴더를 가리키는 요청만 리디렉션합니다. 
 - 일치하는 모든 요청은 대상 옵션에 정의된 에지 CNAME URL로 리디렉션됩니다. 
     - 샘플 시나리오 #1: 
-        - 샘플 요청(CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - 요청 URL(리디렉션 후): http://cdn.mydomain.com/resources/widgets.pdf  
+        - 샘플 요청(CDN URL): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - 요청 URL(리디렉션 이후): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - 샘플 시나리오 2: 
-        - 샘플 요청(에지 CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - 요청 URL(리디렉션 후): http://cdn.mydomain.com/resources/widgets.pdf 샘플 시나리오
+        - 샘플 요청(에지 CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - 요청 URL(리디렉션 이후): http:\//cdn.mydomain.com/resources/widgets.pdf 샘플 시나리오
     - 샘플 시나리오 #3: 
-        - 샘플 요청(에지 CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - 요청 URL(리디렉션 후): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - 샘플 요청(에지 CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - 요청 URL(리디렉션 이후): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - 요청 체계(%{scheme}) 변수는 대상 옵션에서 활용되며, 리디렉션 후에 요청의 체계가 변경되지 않도록 합니다.
 - 요청에서 캡처한 URL 세그먼트는 "$1"을 통해 새 URL에 추가됩니다.
 
@@ -1276,23 +1276,23 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 옵션|설명
 -|-
- 원본 및 패턴 | 이러한 설정은 다시 쓸 수 있는 요청의 형식을 식별하는 요청 URI 패턴을 정의합니다. URL이 다음 기준을 모두 충족하는 요청만 다시 씁니다. <br/>     - **원본(또는 콘텐츠 액세스 지점):** 원본 서버를 식별하는 상대 경로를 선택합니다. 이 경로는 _/XXXX/_ 섹션과 엔드포인트 이름입니다. <br/> - **원본(패턴):** 상대 경로로 요청을 식별하는 패턴을 정의해야 합니다. 이 정규식 패턴은 이전에 선택한 콘텐츠 액세스 지점 바로 뒤에서 시작하는 경로를 정의해야 합니다(위 참조). <br/> 이전에 정의한 요청 URI 기준(즉, 원본 및 패턴)이 이 기능에 대해 정의된 일치 조건과 충돌하지 않는지 확인합니다. 패턴을 지정합니다. 패턴으로 빈 값을 사용하는 경우 모든 문자열이 일치됩니다. 
- 대상  |위의 요청을 다시 쓸 상대 URL을 다음과 같이 정의합니다. <br/>    1. 원본 서버를 식별하는 콘텐츠 액세스 지점 선택 <br/>    2. 다음을 사용하여 상대 경로 정의 <br/>        - 정규식 패턴 <br/>        - HTTP 변수 <br/> <br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다. 
+ 원본 및 패턴 | 이러한 설정은 다시 쓸 수 있는 요청의 형식을 식별하는 요청 URI 패턴을 정의합니다. URL이 다음 기준을 모두 충족하는 요청만 다시 씁니다. <br/><br/>  - **원본(또는 콘텐츠 액세스 지점):** 원본 서버를 식별하는 상대 경로를 선택합니다. 이 경로는 _/XXXX/_ 섹션과 엔드포인트 이름입니다. <br/><br/> - **원본(패턴):** 상대 경로로 요청을 식별하는 패턴을 정의해야 합니다. 이 정규식 패턴은 이전에 선택한 콘텐츠 액세스 지점 바로 뒤에서 시작하는 경로를 정의해야 합니다(위 참조). <br/> 이전에 정의한 요청 URI 기준(즉, 원본 및 패턴)이 이 기능에 대해 정의된 일치 조건과 충돌하지 않는지 확인합니다. 패턴을 지정합니다. 패턴으로 빈 값을 사용하는 경우 모든 문자열이 일치됩니다. 
+ 대상  |위의 요청을 다시 쓸 상대 URL을 다음과 같이 정의합니다. <br/>    1. 원본 서버를 식별하는 콘텐츠 액세스 지점 선택 <br/>    2. 다음을 사용하여 상대 경로 정의 <br/>        - 정규식 패턴 <br/>        - [HTTP 변수](cdn-http-variables.md) <br/> <br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다. 
  이 기능을 사용하면 POP에서 기존의 리디렉션을 수행하지 않고도 URL을 다시 쓸 수 있습니다. 즉 요청자가 다시 쓴 URL을 요청한 것처럼 동일한 응답 코드를 받습니다.
 
 **샘플 시나리오 1**
 
-이 예제에서는 기본 CDN URL(http://marketing.azureedge.net/brochures/)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
+이 예제에서는 기본 CDN URL(http:\//marketing.azureedge.net/brochures/)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
 
-요청이 유효하면 기본 에지 CNAME URL(http://MyOrigin.azureedge.net/resources/)로 리디렉션됩니다.
+요청이 유효하면 이 기본 에지 CNAME URL(\//MyOrigin.azureedge.net/resources/)로 리디렉션됩니다.
 
-이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![URL 리디렉션](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **샘플 시나리오 2**
 
 이 예제에서는 정규식을 사용하여 에지 CNAME URL을 대문자에서 소문자로 리디렉션하는 방법을 보여 줍니다.
 
-이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![URL 리디렉션](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **주요 정보:**

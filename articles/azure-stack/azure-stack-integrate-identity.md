@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure 스택 데이터 센터 통합-Identity
 Id 공급자와 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택을 배포할 수 있습니다. Azure 스택을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 Azure 스택 연결이 끊어진된 모드에서 배포는 라고도 합니다.
@@ -289,6 +289,9 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
 - 리소스 공급자에서 AD FS와 함께 배포 될 때 Azure 스택
 - 다양 한 응용 프로그램
 - 비 대화형 로그온 필요
+
+> [!Important]  
+> AD FS는 대화형 로그온 세션을 지원합니다. 자동화 된 시나리오에 대 한 비 대화형 로그온을 필요한 경우 SPN을 사용 해야 합니다.
 
 SPN 만들기에 대 한 자세한 내용은 참조 [AD FS에 대 한 서비스 보안 주체를 만들](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)합니다.
 

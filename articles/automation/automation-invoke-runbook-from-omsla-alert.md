@@ -3,16 +3,17 @@ title: Log Analytics 경고에서 Azure Automation Runbook 호출
 description: 이 문서는 Azure의 Log Analytics 경고에서 Automation Runbook을 호출하는 방법에 대한 개요를 제공합니다.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2a0e497535f783cbffc21004331ccd2a50ab8eef
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 05e93ef437fe301573137c3c3a21ad2d676e82f3
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Log Analytics 경고에서 Azure Automation Runbook 호출
 

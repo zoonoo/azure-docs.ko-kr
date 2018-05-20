@@ -9,13 +9,13 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ffcc3a1a40973a4cf3b096ed82d35e21c9b20a44
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service(AKS)를 사용하는 서비스 주체
+# <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
 Azure API와 상호 작용하기 위해 AKS 클러스터에는 [Azure Active Directory 서비스 주체][aad-service-principal]가 필요합니다. 서비스 주체는 [Azure Load Balancer][azure-load-balancer-overview]와 같은 리소스를 동적으로 만들고 관리하는 데 필요합니다.
 

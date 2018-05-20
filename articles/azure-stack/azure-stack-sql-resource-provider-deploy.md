@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 70b07cae9a1dc8b45e27f95e19fbc84f06a0b6d3
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 Azure 스택 SQL Server 리소스 공급자를 사용 하 여 SQL 데이터베이스를 Azure 스택의 서비스로 노출 합니다. SQL 리소스 공급자는 Windows Server 코어 가상 컴퓨터는 VM에서 SQL 리소스 공급자 서비스 실행 됩니다.
@@ -73,6 +73,8 @@ SQL 리소스 공급자 배포 시작 되 고 system.local.sqladapter 리소스 
 | **제거** | 리소스 공급자와 관련 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아니요 |
 | **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 |
 
+>[!NOTE]
+> Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU 만들어질 때까지 데이터베이스를 만들 수 없습니다.
 
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>사용자 지정 스크립트를 사용 하 여 SQL 리소스 공급자를 배포 합니다.

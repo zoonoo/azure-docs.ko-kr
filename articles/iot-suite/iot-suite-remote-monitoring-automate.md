@@ -1,22 +1,22 @@
 ---
-title: "원격 모니터링 솔루션에서 장치 문제 감지 - Azure | Microsoft Docs"
-description: "이 자습서에서는 규칙 및 작업을 사용하여 원격 모니터링 솔루션에서 임계값 기반 장치 문제를 자동으로 감지하는 방법을 보여 줍니다."
-services: 
+title: 원격 모니터링 솔루션에서 장치 문제 감지 - Azure | Microsoft Docs
+description: 이 자습서에서는 규칙 및 작업을 사용하여 원격 모니터링 솔루션에서 임계값 기반 장치 문제를 자동으로 감지하는 방법을 보여 줍니다.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5acf35ed19a5b6baa2885fd58cfb7fbbe1ac3cd8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>임계값 기반 규칙을 사용하여 문제 감지
 
@@ -24,11 +24,14 @@ ms.lasthandoff: 02/27/2018
 
 Contoso에는 **냉각기** 장치에서 보고된 압력이 250PSI를 초과하는 경우 중요한 경보를 생성하는 규칙이 있습니다. 운영자로서 초기 압력 스파이크를 찾아 문제가 있는 센서가 있을 수 있는 **냉각기** 장치를 식별하려고 합니다. 이러한 장치를 식별하려면 압력이 150PSI를 초과할 때 경고를 생성하는 규칙을 만듭니다.
 
+또한 지난 5분 동안의 **냉각기** 장치의 평균 습도가 80%보다 크고 지난 5분 동안의 **냉각기** 장치의 온도가 화씨 75보다 클 때 트리거되어야 하는 중요한 경고를 알림 받았습니다.
+
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 >[!div class="checklist"]
 > * 솔루션에서 규칙 보기
 > * 새 규칙 만들기
+> * 여러 조건을 사용하여 새 규칙 만들기
 > * 기존 규칙 편집
 > * 규칙 삭제
 
@@ -36,67 +39,104 @@ Contoso에는 **냉각기** 장치에서 보고된 압력이 250PSI를 초과하
 
 이 자습서를 수행하려면 Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스가 필요합니다.
 
-원격 모니터링 솔루션을 아직 배포하지 않은 경우 [미리 구성된 원격 모니터링 솔루션 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 ## <a name="view-the-rules-in-your-solution"></a>솔루션에서 규칙 보기
 
-솔루션에서 **규칙 및 작업** 페이지는 현재 모든 규칙의 목록을 표시합니다.
+솔루션에서 **규칙** 페이지는 현재 모든 규칙의 목록을 표시합니다.
 
-![규칙 및 작업 페이지](media/iot-suite-remote-monitoring-automate/rulesactions.png)
+![규칙 및 작업 페이지](media/iot-suite-remote-monitoring-automate/rulesactions_v2.png)
 
 **냉각기** 장치에 적용되는 규칙만 보려면 필터를 적용합니다.
 
-![규칙의 목록 필터링](media/iot-suite-remote-monitoring-automate/rulesactionsfilter.png)
+![규칙의 목록 필터링](media/iot-suite-remote-monitoring-automate/rulesactionsfilter_v2.png)
 
 규칙에 대한 자세한 내용을 보고 목록에서 선택하면 편집할 수 있습니다.
 
-![규칙 세부 정보 보기](media/iot-suite-remote-monitoring-automate/rulesactionsdetail.png)
+![규칙 세부 정보 보기](media/iot-suite-remote-monitoring-automate/rulesactionsdetail_v2.png)
 
 하나 이상의 규칙을 비활성화, 활성화 또는 삭제하려면 목록에서 여러 개의 규칙을 선택합니다.
 
-![여러 규칙 선택](media/iot-suite-remote-monitoring-automate/rulesactionsmultiselect.png)
+![여러 규칙 선택](media/iot-suite-remote-monitoring-automate/rulesactionsmultiselect_v2.png)
 
 ## <a name="create-a-new-rule"></a>새 규칙 만들기
 
 **냉각기** 장치의 압력이 150PSI를 초과할 때 경고를 생성하는 새 규칙을 추가하려면 **새 규칙**을 선택합니다.
 
-![규칙 만들기](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule.png)
+![규칙 만들기](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_v2.png)
 
 다음 값을 사용하여 규칙을 만듭니다.
 
 | 설정          | 값                                 |
 | ---------------- | ------------------------------------- |
-| Name             | 냉각기 경고                       |
-| 원본           | **냉각기** 장치 그룹             |
-| 트리거 필드    | pressure                              |
-| 트리거 연산자 | 다음보다 큼                          |
-| 트리거 값    | 150                                   |
-| 심각도 수준   | Warning                               |
+| 규칙 이름        | 냉각기 경고                       |
 | 설명      | 냉각기 압력이 150PSI를 초과함 |
+| 장치 그룹     | **냉각기** 장치 그룹             |
+| 계산      | 인스턴트                               |
+| 조건 1 필드| pressure                              |
+| 조건 1 연산자 | 다음보다 큼                      |
+| 조건 1 값    | 150                               |
+| 심각도 수준  | Warning                               |
 
 새 규칙을 저장하려면 **적용**을 선택합니다.
 
-규칙이 **규칙 및 작업** 페이지 또는 **대시보드** 페이지에서 트리거되는 경우 볼 수 있습니다.
+규칙이 **규칙** 페이지 또는 **대시보드** 페이지에서 트리거되는 경우 볼 수 있습니다.
+
+## <a name="create-a-new-rule-with-multiple-conditions"></a>여러 조건을 사용하여 새 규칙 만들기
+
+지난 5분 동안의 **냉각기** 장치의 평균 습도가 80%보다 크고 지난 5분 동안의 **냉각기** 장치의 온도가 화씨 75보다 클 때 중요한 경고를 생성하는 여러 조건을 사용하여 새 규칙을 만들려면 **새 규칙**을 선택합니다.
+
+![여러 규칙 만들기](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_mult_v2.png)
+
+다음 값을 사용하여 규칙을 만듭니다.
+
+| 설정          | 값                                 |
+| ---------------- | ------------------------------------- |
+| 규칙 이름        | 냉각기 습도 및 온도 위험    |
+| 설명      | 습도 및 온도가 중요함 |
+| 장치 그룹     | **냉각기** 장치 그룹             |
+| 계산      | 평균                               |
+| 기간      | 5                                     |
+| 조건 1 필드| humidity                              |
+| 조건 1 연산자 | 다음보다 큼                      |
+| 조건 1 값    | 80                               |
+| 심각도 수준  | 중요                              |
+
+두 번째 조건을 추가하려면 "+ 조건 추가"를 클릭합니다.
+
+![조건 2 만들기](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2.png)
+
+새 조건에 대해 다음 값을 사용합니다.
+
+| 설정          | 값                                 |
+| ---------------- | ------------------------------------- |
+| 조건 2 필드| 온도                           |
+| 조건 2 연산자 | 다음보다 큼                      |
+| 조건 2 값    | 75                                |
+
+새 규칙을 저장하려면 **적용**을 선택합니다.
+
+규칙이 **규칙** 페이지 또는 **대시보드** 페이지에서 트리거되는 경우 볼 수 있습니다.
 
 ## <a name="edit-an-existing-rule"></a>기존 규칙 편집
 
-기존 규칙을 변경하려면 규칙의 목록에서 선택합니다. 그런 다음 **규칙 세부 정보** 패널에서 **모드 편집**을 선택합니다.
+기존 규칙을 변경하려면 규칙의 목록에서 선택합니다.
 
-![규칙 편집](media/iot-suite-remote-monitoring-automate/rulesactionsedit.png)
+![규칙 편집](media/iot-suite-remote-monitoring-automate/rulesactionsedit_v2.png)
 
-## <a name="disable-a-rule"></a>규칙 사용 안 함
+<!--## Disable a rule
 
-규칙을 일시적으로 해제하기 위해 규칙 목록에서 비활성화할 수 있습니다. 비활성화할 규칙을 선택한 다음 **사용 안 함**을 선택합니다. 목록에서 규칙의 **상태**가 규칙이 이제 비활성화됨을 나타내기 위해 변경됩니다. 동일한 절차를 사용하여 이전에 비활성화한 규칙을 다시 활성화할 수 있습니다.
+To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
-![규칙 사용 안 함](media/iot-suite-remote-monitoring-automate/rulesactionsdisable.png)
+![Disable rule](media/iot-suite-remote-monitoring-automate/rulesactionsdisable.png)
 
-목록에서 여러 규칙을 선택하는 경우 동시에 여러 규칙을 활성화 및 비활성화할 수 있습니다.
+You can enable and disable multiple rules at the same time if you select multiple rules in the list.-->
 
-## <a name="delete-a-rule"></a>규칙 삭제
+<!--## Delete a rule
 
-규칙을 영구적으로 삭제하려면 규칙의 목록에서 규칙을 선택한 다음 **삭제**를 선택합니다.
+To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
 
-목록에서 여러 규칙을 선택하는 경우 동시에 여러 규칙을 삭제할 수 있습니다.
+You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
 ## <a name="next-steps"></a>다음 단계
 

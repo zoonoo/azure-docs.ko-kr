@@ -1,13 +1,13 @@
 ---
-title: "빠른 시작: Azure Virtual Machines에서 단일 인스턴스 SAP HANA 수동 설치 | Microsoft Docs"
-description: "Azure Virtual Machines에서 단일 인스턴스 SAP HANA를 수동으로 설치하기 위한 빠른 시작 가이드입니다."
+title: '빠른 시작: Azure Virtual Machines에서 단일 인스턴스 SAP HANA 수동 설치 | Microsoft Docs'
+description: Azure Virtual Machines에서 단일 인스턴스 SAP HANA를 수동으로 설치하기 위한 빠른 시작 가이드입니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,22 +16,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VMs에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
-이 가이드는 SAP NetWeaver 7.5 및 SAP HANA 1.0 SP12를 수동으로 설치할 때 Azure VM(가상 컴퓨터)에서 단일 인스턴스 SAP HANA를 설정하는 데 유용합니다. 따라서 SAP HANA를 Azure에 배포하는 데 중점을 두고 있으며, SAP 설명서를 대체하지는 않습니다. 
+이 가이드는 SAP NetWeaver 7.5 및 SAP HANA 1.0 SP12를 수동으로 설치할 때 Azure VM(가상 머신)에서 단일 인스턴스 SAP HANA를 설정하는 데 유용합니다. 따라서 SAP HANA를 Azure에 배포하는 데 중점을 두고 있으며, SAP 설명서를 대체하지는 않습니다. 
 
 >[!Note]
->이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA 큰 인스턴스에 SAP HANA를 배포하는 방법에 대한 자세한 내용은 [Azure VM(가상 컴퓨터)에서 SAP 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)을 참조하세요.
+>이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA 큰 인스턴스에 SAP HANA를 배포하는 방법에 대한 자세한 내용은 [Azure VM(가상 머신)에서 SAP 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)을 참조하세요.
  
 ## <a name="prerequisites"></a>필수 조건
 여기서는 다음과 같은 IaaS(Infrastructure as a Service) 기본 사항에 대해 잘 알고 있다고 가정합니다.
- * Azure Portal 또는 PowerShell을 통해 가상 컴퓨터 또는 가상 네트워크를 배포하는 방법
+ * Azure Portal 또는 PowerShell을 통해 가상 머신 또는 가상 네트워크를 배포하는 방법
  * JSON(JavaScript Object Notification) 템플릿을 사용할 수 있는 옵션을 포함한 Azure 플랫폼 간 CLI(명령줄 인터페이스)
 
 또한 다음에 대해서도 잘 알고 있다고 가정합니다.
@@ -251,7 +251,7 @@ SAP HANA의 표준 파일 시스템 레이아웃에 대한 설명은 [SAP HANA �
 
 표준 SLES/SLES for SAP Applications 12에 SAP NetWeaver를 설치하면 다음 스크린샷과 같이 스왑 공간이 없다는 메시지가 표시됩니다. 이 메시지를 해제하려면 **dd**, **mkswap** 및 **swapon**을 사용하여 스왑 파일을 수동으로 추가하면 됩니다. 자세한 내용은 SUSE 설명서의 [YaST Partitioner 사용](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip)(영문) 섹션에서 "수동으로 스왑 파일 추가"를 검색해 보세요.
 
-또 다른 옵션은 Linux VM 에이전트를 사용하여 교환 공간을 구성하는 것입니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+또 다른 옵션은 Linux VM 에이전트를 사용하여 교환 공간을 구성하는 것입니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../../extensions/agent-linux.md)를 참조하세요.
 
 ![교환 공간이 부족하다고 알리는 팝업 메시지](./media/hana-get-started/image010.jpg)
 

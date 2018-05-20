@@ -1,30 +1,30 @@
 ---
-title: "Azure AD 앱 프록시 - 커넥터 설치 시작 | Microsoft Docs"
-description: "Azure Portal에서 응용 프로그램 프록시를 설정하고 역방향 프록시에 커넥터를 설치합니다."
+title: Azure AD 앱 프록시 - 커넥터 설치 시작 | Microsoft Docs
+description: Azure Portal에서 응용 프로그램 프록시를 설정하고 역방향 프록시에 커넥터를 설치합니다.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d636542c788aff43acf9e35583b4c0615fe0c7db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>응용 프로그램 프록시 시작 및 커넥터 설치
 이 문서에서는 Azure AD에서 클라우드 디렉터리에 Microsoft Azure AD 응용 프로그램 프록시를 사용하도록 설정하는 단계를 안내합니다.
 
-응용 프로그램 프록시가 조직에 가져오는 보안 및 생산성의 이점을 잘 모르는 경우 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)에 대해 자세히 알아봅니다.
+응용 프로그램 프록시가 조직에 가져오는 보안 및 생산성의 이점을 잘 모르는 경우 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](manage-apps/application-proxy.md)에 대해 자세히 알아봅니다.
 
 ## <a name="application-proxy-prerequisites"></a>응용 프로그램 프록시 필수 구성 요소
 응용 프로그램 프록시 서비스를 사용하도록 설정하고 사용하려면 다음이 필요합니다.

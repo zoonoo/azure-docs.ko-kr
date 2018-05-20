@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Azure 엔터프라이즈 스캐폴드 구현 예제
-이 항목에서는 기업에서 [Azure 엔터프라이즈 스캐폴드](resource-manager-subscription-governance.md)에 대한 권장 사항을 구현하는 방법에 대한 예를 제공합니다. Contoso라는 가상의 회사를 사용하여 일반적인 시나리오의 모범 사례를 보여 줍니다.
+이 문서에서는 기업에서 [Azure 엔터프라이즈 스캐폴드](resource-manager-subscription-governance.md)에 대한 권장 사항을 구현하는 방법에 대한 예를 제공합니다. Contoso라는 가상의 회사를 사용하여 일반적인 시나리오의 모범 사례를 보여 줍니다.
 
 ## <a name="background"></a>백그라운드
-Contoso는 "SaaS(Software as a Service)" 모델부터 온-프레미스에 배포된 패키지 모델에 이르는 모든 공급망 솔루션을 고객에게 제공하는 다국적 회사입니다.  인도, 미국 및 캐나다에 중요한 개발 센터를 갖추고 전 세계적으로 소프트웨어를 개발합니다.
+Contoso는 고객을 위해 공급망 솔루션을 제공하는 세계적인 회사입니다. 그들은 Service 모델인 소프트웨어에서 온 - 프레미스에 배포된 패키지 모델에 이르기까지 모든 것을 제공합니다.  인도, 미국 및 캐나다에 중요한 개발 센터를 갖추고 전 세계적으로 소프트웨어를 개발합니다.
 
 회사의 ISV 부분은 중요한 비즈니스의 제품을 관리하는 여러 독립적인 사업부로 나뉩니다. 각 사업부에는 고유한 개발자, 제품 관리자 및 설계자가 있습니다.
 
 엔터프라이즈 기술 서비스(ETS) 사업부에서는 중앙 집중화된 IT 기능을 제공하고 사업부에서 응용 프로그램을 호스팅하는 여러 데이터 센터를 관리합니다. ETS 조직은 데이터 센터를 관리하는 것과 더불어, 중앙 집중화된 공동 작업(예: 전자 메일 및 웹 사이트) 및 네트워크/전화 통신 서비스를 제공하고 관리합니다. 또한 운영 담당자가 없는 소규모 사업부를 위한 고객 관련 워크로드도 관리합니다.
 
-이 항목에서는 다음 사용자가 사용됩니다.
+이 문서에서는 다음과 같은 가상 사용자가 사용됩니다.
 
 * Dave는 ETS Azure 관리자입니다.
 * Alice는 공급망 사업부의 개발 이사입니다.
 
-Contoso는 LOB(기간 업무) 앱과 고객에게 표시되는 앱을 작성해야 합니다. Azure에서 앱을 실행하기로 결정했습니다. Dave는 [규범적 구독 거버넌스](resource-manager-subscription-governance.md) 항목을 읽었고 권장 사항을 구현할 준비가 되었습니다.
+Contoso는 LOB(기간 업무) 앱과 고객에게 표시되는 앱을 작성해야 합니다. Azure에서 앱을 실행하기로 결정했습니다. Dave는 [규범적 구독 거버넌스](resource-manager-subscription-governance.md) 아티클을 읽었고 권장 사항을 구현할 준비가 되었습니다.
 
 ## <a name="scenario-1-line-of-business-application"></a>시나리오 1: 기간 업무 응용 프로그램
 Contoso는 전 세계 개발자가 사용할 소스 코드 관리 시스템(BitBucket)을 구축 중입니다.  응용 프로그램에서는 호스팅에 IaaS(Infrastructure as a Service)를 사용하는데, 이는 웹 서버와 데이터베이스 서버로 구성됩니다. 개발자는 자신의 개발 환경에서 서버에 액세스하지만 Azure에서 서버에 액세스할 필요는 없습니다. Contoso ETS는 응용 프로그램 소유자와 팀에서 응용 프로그램을 관리할 수 있도록 하려고 합니다. 응용 프로그램은 Contoso의 회사 네트워크에 있는 상태에서만 사용 가능합니다. Dave는 이 응용 프로그램에 대한 구독을 설정해야 합니다. 구독은 향후 다른 개발자 관련 소프트웨어도 호스트합니다.  
 
 ### <a name="naming-standards--resource-groups"></a>이름 지정 표준 및 리소스 그룹
-Dave는 모든 사업부 간에 일반적인 개발자 도구를 지원하는 구독을 만듭니다. 구독과 리소스 그룹(응용 프로그램 및 네트워크용)에 대해 의미 있는 이름을 만들어야 합니다. 다음 구독 및 리소스 그룹을 만듭니다.
+Dave는 모든 사업부 간에 일반적인 개발자 도구를 지원하는 구독을 만듭니다. Dave는 구독과 리소스 그룹(응용 프로그램 및 네트워크용)에 대해 의미 있는 이름을 만들어야 합니다. 다음 구독 및 리소스 그룹을 만듭니다.
 
 | 항목 | Name | 설명 |
 | --- | --- | --- |
@@ -57,8 +57,8 @@ Dave는 구독에 대해 다음 역할을 할당합니다.
 | 역할 | 할당 대상 | 설명 |
 | --- | --- | --- |
 | [소유자](../role-based-access-control/built-in-roles.md#owner) |Contoso AD에서 관리되는 ID |이 ID는 Contoso의 ID 관리 도구를 통해 JIT(Just-in-Time) 액세스로 제어되며, 구독 소유자 액세스를 완전히 감사할 수 있도록 합니다. |
-| [보안 관리자](../role-based-access-control/built-in-roles.md#security-manager) |보안 및 위험 관리 부서 |이 역할을 통해 사용자는 Azure Security Center와 리소스 상태를 살펴볼 수 있습니다. |
-| [네트워크 참여자](../role-based-access-control/built-in-roles.md#network-contributor) |네트워크 팀 |이 역할을 통해 Contoso 네트워크 팀에서 사이트 간 VPN 및 Virtual Network를 관리할 수 있습니다. |
+| [보안 판독기](../role-based-access-control/built-in-roles.md#security-reader) |보안 및 위험 관리 부서 |이 역할을 통해 사용자는 Azure Security Center와 리소스 상태를 살펴볼 수 있습니다. |
+| [네트워크 기여자](../role-based-access-control/built-in-roles.md#network-contributor) |네트워크 팀 |이 역할을 통해 Contoso 네트워크 팀에서 사이트 간 VPN 및 Virtual Network를 관리할 수 있습니다. |
 | *사용자 지정 역할* |응용 프로그램 소유자 |Dave는 리소스 그룹 내에서 리소스를 수정하는 기능이 부여된 역할을 만듭니다. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요. |
 
 ### <a name="policies"></a>정책
@@ -115,7 +115,7 @@ Dave는 이 응용 프로그램을 자동화할 일이 없습니다. Azure Autom
 ### <a name="azure-security-center"></a>Azure Security Center
 Contoso IT 서비스 관리를 위해서는 위협을 신속하게 파악하고 처리해야 합니다. 또한 어떤 문제가 존재할 수 있는지도 파악하려고 합니다.  
 
-이러한 요구 사항을 충족하기 위해 Dave는 [Azure Security Center](../security-center/security-center-intro.md)를 사용하도록 설정하고 보안 관리자 역할에 대한 액세스를 제공합니다.
+이러한 요구 사항을 충족하기 위해 Dave는 [Azure Security Center](../security-center/security-center-intro.md)를 사용하도록 설정하고 Security Reader 역할에 대한 액세스를 제공합니다.
 
 ## <a name="scenario-2-customer-facing-app"></a>시나리오 2: 고객에게 표시되는 앱
 공급망 사업부의 비즈니스 리더십은 로열티 카드를 사용하여 Contoso 고객 참여를 확대하는 다양한 기회를 파악했습니다. Alice 팀은 이 응용 프로그램을 만들고 Azure가 비즈니스 요구를 충족하는 기능을 향상시키는지 확인해야 합니다. ETS의 Dave와 협력하여 이 응용 프로그램의 개발 및 작동을 위한 두 가지 구독을 구성합니다.
@@ -148,7 +148,7 @@ Dave와 Alice는 응용 프로그램에 대해 논의하고 이 응용 프로그
 | tags |deny |부서 태그가 필요합니다. |
 | tags |추가 |프로덕션 환경을 나타내는 각 리소스 그룹에 태그를 추가합니다. |
 
-사용자가 프로덕션에서 만들 수 있는 sku 유형을 제한하지 않습니다.
+개발 중에 사용자가 만들 수 있는 sku 유형을 제한하지 않으며 리소스 그룹 또는 리소스에 태그가 필요하지 않습니다.
 
 ### <a name="resource-tags"></a>리소스 태그
 Dave는 청구 및 소유권에 대한 정확한 비즈니스 그룹을 식별할 수 있는 특정 정보가 있어야 한다는 것을 알게 됩니다. 리소스 그룹 및 리소스에 대한 리소스 태그를 정의합니다.

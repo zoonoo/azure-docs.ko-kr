@@ -3,23 +3,23 @@ title: Azure AD 응용 프로그램 프록시 커넥터 이해 | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
-ms.author: billmath
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/05/2018
 
 응용 프로그램 프록시를 성공적으로 배포하려면 커넥터가 하나 이상 필요하지만, 복원력을 높이기 위해 두 개 이상을 사용하는 것이 좋습니다. Windows Server 2012 R2 또는 2016 컴퓨터에 커넥터를 설치합니다. 커넥터는 응용 프로그램 프록시 서비스 및 게시하는 온-프레미스 응용 프로그램과 통신할 수 있어야 합니다. 
 
-커넥터 서버의 네트워크 요구 사항에 대한 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터 설치](active-directory-application-proxy-enable.md)를 참조하세요.
+커넥터 서버의 네트워크 요구 사항에 대한 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터 설치](manage-apps/application-proxy-enable.md)를 참조하세요.
 
 ## <a name="maintenance"></a>유지 관리
 커넥터와 서비스는 모든 고가용성 작업을 처리합니다. 동적으로 추가하거나 제거할 수 있습니다. 새 요청이 수신될 때마다 현재 사용할 수 있는 커넥터 중 하나로 라우팅됩니다. 일시적으로 커넥터를 사용할 수 없는 경우 커넥터가 이 트래픽에 응답하지 않습니다.
@@ -50,7 +50,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="automatic-updates"></a>자동 업데이트
 
-Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이트를 제공합니다. 응용 프로그램 프록시 커넥터 업데이터 서비스가 실행 중인 동안에는 커넥터가 자동으로 업데이트됩니다. 서버에 커넥터 업데이터 서비스가 표시되지 않는 경우 업데이트를 받으려면 [커넥터를 다시 설치](active-directory-application-proxy-enable.md)해야 합니다. 
+Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이트를 제공합니다. 응용 프로그램 프록시 커넥터 업데이터 서비스가 실행 중인 동안에는 커넥터가 자동으로 업데이트됩니다. 서버에 커넥터 업데이터 서비스가 표시되지 않는 경우 업데이트를 받으려면 [커넥터를 다시 설치](manage-apps/application-proxy-enable.md)해야 합니다. 
 
 커넥터에 대한 자동 업데이트를 기다리지 않으려면 수동 업그레이드를 수행할 수 있습니다. 커넥터가 있는 서버에서 [커넥터 다운로드 페이지](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)로 이동하여 **다운로드**를 선택합니다. 그러면 로컬 커넥터의 업그레이드가 시작됩니다. 
 
@@ -123,7 +123,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 일반적으로 커넥터 배포는 매우 간단하며 특별한 구성이 필요하지 않습니다. 그러나 고려해야 할 몇 가지 고유한 조건이 있습니다.
 
-* 아웃바운드 트래픽을 제한하는 조직은 [필요한 포트를 열어야](active-directory-application-proxy-enable.md#open-your-ports) 합니다.
+* 아웃바운드 트래픽을 제한하는 조직은 [필요한 포트를 열어야](manage-apps/application-proxy-enable.md#open-your-ports) 합니다.
 * 커넥터 프로세스에서 인증서를 생성 및 저장할 수 있도록 구성을 변경하려면 FIPS 규격 컴퓨터가 필요할 수 있습니다.
 * 네트워킹 요청을 발행하는 프로세스에 따라 환경을 잠그는 조직은 두 커넥터 서비스가 필요한 모든 포트 및 IP에 액세스할 수 있는지 확인해야 합니다.
 * 경우에 따라 아웃바운드 전달 프록시가 양방향 인증서 인증을 중단하여 통신에 실패할 수 있습니다.

@@ -15,7 +15,7 @@
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
 #### <a name="mobility-service-installer-command-line-arguments"></a>모바일 서비스 설치 관리자 명령줄 인수
@@ -25,7 +25,7 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| 매개 변수|유형|설명|가능한 값|
+| 매개 변수|type|설명|가능한 값|
 |-|-|-|-|
 |/Role|필수|MS(Mobility Service) 설치 여부 또는 MT(MasterTarget) 설치 여부를 지정합니다.|MS </br> MT|
 |/InstallLocation|옵션|Mobility Service가 설치되는 위치입니다.|컴퓨터의 모든 폴더|
@@ -42,7 +42,7 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | 매개 변수|유형|설명|가능한 값|
+  | 매개 변수|type|설명|가능한 값|
   |-|-|-|-|
   |/CSEndPoint |필수|구성 서버의 IP 주소| 모든 유효한 IP 주소|
   |/PassphraseFilePath|필수|암호의 위치 |모든 유효한 UNC 또는 로컬 파일 경로|

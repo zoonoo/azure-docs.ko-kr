@@ -102,14 +102,6 @@
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Write Accelerator를 사용하는 방법
-          href: how-to-enable-write-accelerator.md
-        - name: 연결된 VHD 문제 해결
-          items:
-            - name: 저장소 리소스 삭제 오류
-              href: storage-resource-deletion-errors.md
-            - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
-              href: unexpected-reboots-attached-vhds.md
     - name: 네트워킹
       href: network-overview.md
     - name: 자동 크기 조정 응용 프로그램
@@ -306,6 +298,8 @@
           href: mount-azure-file-storage.md
         - name: 템플릿을 사용하여 디스크 배포
           href: using-managed-disks-template-deployments.md
+        - name: Write Accelerator 사용
+          href: how-to-enable-write-accelerator.md
         - name: Managed Disks로 마이그레이션
           href: migrate-to-managed-disks.md
           items:
@@ -449,6 +443,12 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: 오프라인 모드에서 VM 에이전트 설치
           href: install-vm-agent-offline.md
+        - name: 연결된 VHD 문제 해결
+          items:
+            - name: 저장소 리소스 삭제 오류
+              href: storage-resource-deletion-errors.md
+            - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
+              href: unexpected-reboots-attached-vhds.md
 - name: 참고 자료
   items:
     - name: Azure CLI

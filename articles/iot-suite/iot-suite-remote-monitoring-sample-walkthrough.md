@@ -1,12 +1,12 @@
 ---
-title: "원격 모니터링 솔루션의 아키텍처 - Azure | Microsoft Docs"
-description: "원격 모니터링 사전 구성 솔루션의 아키텍처 둘러보기."
-services: 
+title: 원격 모니터링 솔루션의 아키텍처 - Azure | Microsoft Docs
+description: 원격 모니터링 솔루션 가속기의 아키텍처 둘러보기.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="remote-monitoring-preconfigured-solution-architecture"></a>원격 모니터링 사전 구성 솔루션 아키텍처
+# <a name="remote-monitoring-solution-accelerator-architecture"></a>원격 모니터링 솔루션 가속기 아키텍처
 
-IoT Suite 원격 모니터링 [사전 구성 솔루션](iot-suite-what-are-preconfigured-solutions.md)은 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](iot-suite-remote-monitoring-customize.md)할 수 있습니다.
+원격 모니터링 [솔루션 가속기](iot-suite-what-are-solution-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](iot-suite-remote-monitoring-customize.md)할 수 있습니다.
 
 이 문서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
@@ -33,13 +33,13 @@ IoT Suite 원격 모니터링 [사전 구성 솔루션](iot-suite-what-are-preco
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
-다음 다이어그램은 [IoT 아키텍처](iot-suite-what-is-azure-iot.md)에 오버레이된 원격 모니터링 사전 구성 솔루션의 논리적 구성 요소에 대해 설명합니다.
+다음 다이어그램은 [IoT 아키텍처](iot-suite-what-is-azure-iot.md)에 오버레이된 원격 모니터링 솔루션 가속기의 논리적 구성 요소에 대해 설명합니다.
 
 ![논리 아키텍처](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="why-microservices"></a>마이크로 서비스를 사용하는 이유는 무엇인가요?
 
-클라우드 아키텍처는 Microsoft가 사전 구성 솔루션을 처음 발표한 이후 발전해 왔습니다. [마이크로 서비스](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 입증된 방법으로 부상했습니다. 일부 Microsoft 서비스는 뛰어난 안정성과 확장성을 제공하는 아키텍처 패턴을 내부적으로 사용합니다. 업데이트된 사전 구성 솔루션을 통해 혜택을 볼 수 있도록 이러한 내용을 실제로 활용할 수 있습니다.
+클라우드 아키텍처는 Microsoft가 솔루션 가속기를 처음 발표한 이후 발전해 왔습니다. [마이크로 서비스](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 입증된 방법으로 부상했습니다. 일부 Microsoft 서비스는 뛰어난 안정성과 확장성을 제공하는 아키텍처 패턴을 내부적으로 사용합니다. 업데이트된 솔루션 가속기를 통해 혜택을 볼 수 있도록 이러한 내용을 실제로 활용할 수 있습니다.
 
 > [!TIP]
 > 마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 응용 프로그램 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
@@ -67,7 +67,7 @@ IoT Suite 원격 모니터링 [사전 구성 솔루션](iot-suite-what-are-preco
 
 ### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub 및 IoT 관리자 마이크로 서비스
 
-[IoT Hub](../iot-hub/index.md)는 장치에서 클라우드로 전송된 데이터를 수집하고 `telemetry-agent` 마이크로 서비스에서 사용할 수 있도록 합니다.
+[IoT Hub](../iot-hub/index.yml)는 장치에서 클라우드로 전송된 데이터를 수집하고 `telemetry-agent` 마이크로 서비스에서 사용할 수 있도록 합니다.
 
 또한 솔루션에서 IoT Hub는:
 
@@ -110,13 +110,13 @@ IoT Suite 원격 모니터링 [사전 구성 솔루션](iot-suite-what-are-preco
 
 마이크로 서비스에 제공되는 RESTful 끝점을 사용하여 원격 분석, 규칙 및 알람을 관리합니다.
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
-[storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) 마이크로 서비스는 사전 구성 솔루션에 사용되는 기본 저장소 서비스 앞에 있는 어댑터입니다. 간단한 컬렉션 및 키-값 저장소를 제공합니다.
+[storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) 마이크로 서비스는 솔루션 가속기에 사용되는 기본 저장소 서비스 앞에 있는 어댑터입니다. 간단한 컬렉션 및 키-값 저장소를 제공합니다.
 
-사전 구성 솔루션의 표준 배포는 Cosmos DB를 기본 저장소 서비스로 사용합니다.
+솔루션 가속기의 표준 배포는 Cosmos DB를 기본 저장소 서비스로 사용합니다.
 
-Cosmos DB 데이터베이스는 사전 구성 솔루션의 데이터를 저장합니다. **storage-adapter** 마이크로 서비스는 저장소 서비스에 액세스하는 솔루션의 다른 마이크로 서비스에 대한 어댑터 역할을 합니다.
+Cosmos DB 데이터베이스는 솔루션 가속기에 데이터를 저장합니다. **storage-adapter** 마이크로 서비스는 저장소 서비스에 액세스하는 솔루션의 다른 마이크로 서비스에 대한 어댑터 역할을 합니다.
 
 ## <a name="presentation"></a>프레젠테이션
 
@@ -128,7 +128,7 @@ Cosmos DB 데이터베이스는 사전 구성 솔루션의 데이터를 저장�
 * CSS 스타일이 적용됩니다.
 * AJAX 호출을 통해 공용 마이크로 서비스와 상호 작용합니다.
 
-사용자 인터페이스는 사전 구성된 모든 솔루션 기능을 제공하고 다음과 같은 다른 서비스와 상호 작용합니다.
+사용자 인터페이스는 모든 솔루션 가속기 기능을 제공하고 다음과 같은 다른 서비스와 상호 작용합니다.
 
 * 사용자 데이터를 보호하는 [인증](https://github.com/Azure/pcs-auth-dotnet) 마이크로 서비스.
 * IoT 장치를 나열 및 관리하는 [iothub-관리자](https://github.com/Azure/iothub-manager-dotnet) 마이크로 서비스.
@@ -139,8 +139,8 @@ Cosmos DB 데이터베이스는 사전 구성 솔루션의 데이터를 저장�
 
 소스 코드와 개발자 문서를 탐색하려면 다음 두 가지 주요 GitHub 리포지토리 중 하나를 시작하십시오.
 
-* [Azure IoT(.NET)로 원격 모니터링을 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
-* [Azure IoT(Java)로 원격 모니터링을 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [원격 모니터링 아키텍처를 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+* [Azure IoT(.NET)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)
+* [Azure IoT(Java)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [원격 모니터링 아키텍처를 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
 
-원격 모니터링 사전 구성 솔루션에 대한 자세한 개념 정보는 [미리 구성된 솔루션 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.
+원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [솔루션 가속기 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.

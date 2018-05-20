@@ -1,23 +1,23 @@
 ---
-title: "Azure 대시보드의 구조 | Microsoft Docs"
-description: "이 문서는 Azure 대시보드의 JSON 구조를 설명합니다."
+title: Azure 대시보드의 구조 | Microsoft Docs
+description: 이 문서는 Azure 대시보드의 JSON 구조를 설명합니다.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
-manager: timlt
+manager: dougeby
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: fa50b31a0c8e9077658106039c4fbd2eef8b4367
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.
@@ -338,12 +338,12 @@ __position__ 속성에는 __x__, __y__, __rowSpan__ 및 __colSpan__으로 표현
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – 모니터링 메트릭을 표시하는 데 사용됨
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – 목록, 링크 등에 대한 기본 서식과 함께 텍스트 또는 이미지를 표시하는 데 사용됨
 1. `Extension[azure]/HubsExtension/PartType/VideoPart` - html 비디오 태그에서 작동하는 YouTube, Channel9 및 기타 비디오 유형의 비디오를 표시하는 데 사용됨
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Azure 가상 컴퓨터의 이름 및 상태를 표시하는 데 사용됨
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Azure 가상 머신의 이름 및 상태를 표시하는 데 사용됨
 
 각 파트 유형에는 고유한 구성이 있습니다. 가능한 구성 속성을 __inputs__, __settings__ 및 __asset__이라고 합니다. 
 
 ### <a name="the-inputs-object"></a>inputs 개체
-일반적으로 inputs 개체는 타일을 리소스 인스턴스로 바인딩하는 정보를 포함합니다.  샘플 대시보드의 가상 컴퓨터 파트는 바인딩을 표현하는 데 Azure 리소스 ID를 사용하는 단일 입력을 포함합니다.  이 리소스 ID 형식은 모든 Azure 리소스 간에 일관됩니다.
+일반적으로 inputs 개체는 타일을 리소스 인스턴스로 바인딩하는 정보를 포함합니다.  샘플 대시보드의 가상 머신 파트는 바인딩을 표현하는 데 Azure 리소스 ID를 사용하는 단일 입력을 포함합니다.  이 리소스 ID 형식은 모든 Azure 리소스 간에 일관됩니다.
 
 ```json
 "inputs":
@@ -428,6 +428,6 @@ settings 개체는 파트의 구성 가능한 요소를 포함합니다.  샘플
 ```
 
 ### <a name="the-asset-object"></a>asset 개체
-최고 수준의 관리 가능한 포털 개체(자산이라고 함)에 바인딩되는 타일에는 자산 개체를 통해 표현되는 관계를 포함합니다.  예제 대시보드에서 가상 컴퓨터 타일은 이 자산 설명을 포함합니다.  __idInputName__ 속성은 ID 입력이 자산에 대한 고유한 식별자(이 경우 리소스 ID)를 포함함을 포털에 알립니다. 대부분의 Azure 리소스 종류에는 포털에 정의된 자산이 있습니다.
+최고 수준의 관리 가능한 포털 개체(자산이라고 함)에 바인딩되는 타일에는 자산 개체를 통해 표현되는 관계를 포함합니다.  예제 대시보드에서 가상 머신 타일은 이 자산 설명을 포함합니다.  __idInputName__ 속성은 ID 입력이 자산에 대한 고유한 식별자(이 경우 리소스 ID)를 포함함을 포털에 알립니다. 대부분의 Azure 리소스 종류에는 포털에 정의된 자산이 있습니다.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

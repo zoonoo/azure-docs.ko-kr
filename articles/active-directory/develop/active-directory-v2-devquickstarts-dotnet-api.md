@@ -1,38 +1,40 @@
 ---
-title: "Azure AD v 2.0 끝점을 사용하여 .NET MVC 웹 API에 로그인 추가 | Microsoft Docs"
-description: "개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 .NET MVC Web API를 빌드하는 방법입니다."
+title: Azure AD v 2.0 끝점을 사용하여 .NET MVC 웹 API에 로그인 추가 | Microsoft Docs
+description: 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 .NET MVC Web API를 빌드하는 방법입니다.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aa73e918cbd49fee850e402859708ba0c4185a19
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>MVC 웹 API 보안 유지
 Azure Active Directory v2.0 끝점을 사용하면 [OAuth 2.0](active-directory-v2-protocols.md) 액세스 토큰을 사용하여 Web API를 보호함으로써 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 가진 사용자가 Web API에 안전하게 액세스할 수 있도록 합니다.
 
 > [!NOTE]
-> 일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다.  v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> 일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 >
 >
 
-ASP.NET Web API에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.  여기서는 클라이언트가 사용자의 할 일 목록을 만들고 거기서 작업을 읽을 수 있는 "할 일 목록" MVC 웹 API를 만듭니다.  웹 API는 들어오는 요청이 유효한 액세스 토큰을 포함하고 있는지 확인하고 보호된 경로에서 유효성 검사에 합격하지 않은 요청을 거부합니다.  이 샘플은 Visual Studio 2015를 사용하여 구축되었습니다.
+ASP.NET Web API에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다. 여기서는 클라이언트가 사용자의 할 일 목록을 만들고 거기서 작업을 읽을 수 있는 "할 일 목록" MVC 웹 API를 만듭니다. 웹 API는 들어오는 요청이 유효한 액세스 토큰을 포함하고 있는지 확인하고 보호된 경로에서 유효성 검사에 합격하지 않은 요청을 거부합니다. 이 샘플은 Visual Studio 2015를 사용하여 구축되었습니다.
 
 ## <a name="download"></a>다운로드
-이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet)에서 유지 관리됩니다.  자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) 하거나 구조를 복제할 수 있습니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) 하거나 구조를 복제할 수 있습니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -45,11 +47,11 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
 ## <a name="register-an-app"></a>앱 등록
-[apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 새 앱을 만들거나 다음 [세부 단계](active-directory-v2-app-registration.md)를 따릅니다.  다음을 수행해야 합니다.
+[apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 새 앱을 만들거나 다음 [세부 단계](active-directory-v2-app-registration.md)를 따릅니다. 다음을 수행해야 합니다.
 
 * 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID** 를 적어둡니다.
 
-또한 이 visual studio 솔루션에는 간단한 WPF 앱인 "TodoListClient"가 포함되어 있습니다.  TodoListClient는 사용자가 로그인하는 방법 및 클라이언트가 웹 API에 요청을 발급할 수 있는 방법을 설명하기 위해 사용됩니다.  이 경우 TodoListClient와 TodoListService는 모두 동일한 앱으로 표시됩니다.  TodoListClient를 구성하려면 다음을 수행해야 합니다.
+또한 이 visual studio 솔루션에는 간단한 WPF 앱인 "TodoListClient"가 포함되어 있습니다. TodoListClient는 사용자가 로그인하는 방법 및 클라이언트가 웹 API에 요청을 발급할 수 있는 방법을 설명하기 위해 사용됩니다. 이 경우 TodoListClient와 TodoListService는 모두 동일한 앱으로 표시됩니다. TodoListClient를 구성하려면 다음을 수행해야 합니다.
 
 * 앱용 **Mobile** 플랫폼을 추가합니다.
 
@@ -66,8 +68,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## <a name="configure-oauth-authentication"></a>OAuth 인증 구성
-* OWIN Startup 클래스를 `Startup.cs`라는 TodoListService 프로젝트에 추가합니다.  프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** --> **새 항목** --> "OWIN" 검색을 클릭합니다.  OWIN 미들웨어는 앱이 시작되면 `Configuration(…)` 메서드를 호출합니다.
-* 클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다.  `Configuration(…)` 메서드에서 ConfgureAuth(...)를 호출하여 웹앱에 대한 인증을 설정합니다.
+* OWIN Startup 클래스를 `Startup.cs`라는 TodoListService 프로젝트에 추가합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** --> **새 항목** --> "OWIN" 검색을 클릭합니다. OWIN 미들웨어는 앱이 시작되면 `Configuration(…)` 메서드를 호출합니다.
+* 클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다. `Configuration(…)` 메서드에서 ConfgureAuth(...)를 호출하여 웹앱에 대한 인증을 설정합니다.
 
 ```csharp
 public partial class Startup
@@ -95,7 +97,7 @@ public void ConfigureAuth(IAppBuilder app)
 
                 // In a real applicaiton, you might use issuer validation to
                 // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // signed up for the app. Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
@@ -105,7 +107,7 @@ public void ConfigureAuth(IAppBuilder app)
         // that will be recieved, which are JWTs for the v2.0 endpoint.
 
         // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
+        // metadata endpoint which is not supported by the v2.0 endpoint. Instead, this
         // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
         // metadata document.
 
@@ -116,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* 이제 `[Authorize]` 특성을 사용하여 OAuth 2.0 전달자 인증으로 컨트롤러 및 작업을 보호할 수 있습니다.  authorize 태그를 사용하여 `Controllers\TodoListController.cs` 클래스를 데코레이팅합니다.  이렇게 하면 사용자는 해당 페이지에 액세스하기 전에 강제로 로그인됩니다.
+* 이제 `[Authorize]` 특성을 사용하여 OAuth 2.0 전달자 인증으로 컨트롤러 및 작업을 보호할 수 있습니다. authorize 태그를 사용하여 `Controllers\TodoListController.cs` 클래스를 데코레이팅합니다. 이렇게 하면 사용자는 해당 페이지에 액세스하기 전에 강제로 로그인됩니다.
 
 ```csharp
 [Authorize]
@@ -124,13 +126,13 @@ public class TodoListController : ApiController
 {
 ```
 
-* 권한 있는 호출자가 `TodoListController` API 중 하나를 호출하면 작업은 호출자에 대한 정보에 액세스해야 합니다.  OWIN은 `ClaimsPrincipal` 개체를 통해 전달자 토큰 내의 클레임에 액세스할 수 있도록 합니다.  
+* 권한 있는 호출자가 `TodoListController` API 중 하나를 호출하면 작업은 호출자에 대한 정보에 액세스해야 합니다. OWIN은 `ClaimsPrincipal` 개체를 통해 전달자 토큰 내의 클레임에 액세스할 수 있도록 합니다. 
 
 ```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
+    // user making the call. In this case, we use the 'sub' or
     // NameIdentifier claim to serve as a key for the tasks in the data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
@@ -150,14 +152,14 @@ Todo List Service가 작동하는 것을 보려면 먼저 v2.0 끝점에서 토�
 * TodoListClient 프로젝트에서 `App.config`를 열고 `<appSettings>` 섹션에 구성 값을 입력합니다.
   * 포털에서 복사한 `ida:ClientId` 응용 프로그램 Id입니다.
 
-마지막으로, 각 프로젝트를 정리하고 빌드한 후 실행합니다.  이제 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 .NET MVC Web API가 있습니다.  TodoListClient에 로그인하고 Web API를 호출하여 사용자의 할 일 모음에 작업을 추가합니다.
+마지막으로, 각 프로젝트를 정리하고 빌드한 후 실행합니다.  이제 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 .NET MVC Web API가 있습니다. TodoListClient에 로그인하고 Web API를 호출하여 사용자의 할 일 모음에 작업을 추가합니다.
 
 참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## <a name="next-steps"></a>다음 단계
-이제 추가 항목으로 이동할 수 있습니다.  다음 작업을 시도할 수 있습니다.
+이제 추가 항목으로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
 
 [웹앱에서 웹 API 호출 >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 

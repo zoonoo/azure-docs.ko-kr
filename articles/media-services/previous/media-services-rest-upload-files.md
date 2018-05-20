@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -87,11 +87,11 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
     ```
 4. **Postman** 창의 왼쪽에서 **1. AAD 인증 토큰 가져오기** -> **서비스 주체에 대한 Azure AD 토큰 가져오기**를 클릭합니다.
 
-    URL 부분은 **AzureADSTSEndpoint** 환경 변수(이 자습서의 앞부분에서 설정한 값)로 채워집니다.
-    
-5. **보내기**를 누릅니다.
+    URL 부분은 **AzureADSTSEndpoint** 환경 변수(자습서의 앞부분에서 [컬렉션](#configure-the-collection)을 지원하는 [환경 변수](#configure-the-environment) 값을 설정했습니다)로 채웁니다.
 
     ![파일 업로드](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. **보내기**를 누릅니다.
 
     “access_token”이 포함된 응답을 볼 수 있습니다. “test” 스크립트는 이 값을 사용하고 **AccessToken** 환경 변수를 설정합니다(위 설명 참조). 환경 변수를 검사하면 이 변수에 이제 나머지 작업에서 사용되는 액세스 토큰(전달자 토큰) 값이 포함되어 있음을 확인할 수 있습니다. 
 

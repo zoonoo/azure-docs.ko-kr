@@ -1,6 +1,6 @@
 ---
-title: AKS(Azure Container Service) 클러스터 노드에 대한 SSH 연결 만들기
-description: AKS(Azure Container Service) 클러스터 노드를 사용하는 SSH 연결을 만듭니다.
+title: AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH 연결 만들기
+description: AKS(Azure Kubernetes Service) 클러스터 노드를 사용하는 SSH 연결을 만듭니다.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>AKS(Azure Container Service) 클러스터 노드에 대한 SSH 연결 만들기
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH 연결 만들기
 
-경우에 따라 유지 관리, 로그 수집 또는 기타 문제 해결 작업을 위해 AKS(Azure Container Service) 노드에 액세스해야 할 수도 있습니다. AKS 노드는 인터넷에 노출되지 않습니다. 이 문서에서 설명하는 단계를 사용하여 AKS 노드를 사용하는 SSH 연결을 만듭니다.
+경우에 따라 유지 관리, 로그 수집 또는 기타 문제 해결 작업을 위해 AKS(Azure Kubernetes Service) 노드에 액세스해야 할 수도 있습니다. AKS(Azure Kubernetes Service) 노드는 인터넷에 노출되지 않습니다. 이 문서에서 설명하는 단계를 사용하여 AKS 노드를 사용하는 SSH 연결을 만듭니다.
 
 ## <a name="get-aks-node-address"></a>AKS 노드 주소 가져오기
 

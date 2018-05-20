@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure 스택에서 통용 API 버전 프로필을 사용 하 여
 
@@ -61,7 +61,8 @@ Azure로 이동 SDK에 대 한 자세한 정보를 얻을 수 있습니다.
 실행 하려면 샘플 Go 코드 Azure 스택:
   1. 이동 및 해당 종속성에 대 한 Azure SDK를 설치 합니다. 명령에 대 한 이전 섹션을 참조 [Go에 대 한 Azure SDK 설치](#install-azure-sdk-for-go)합니다.
   2. 리소스 관리자 끝점에서 메타 데이터 정보를 가져옵니다. 끝점 Go 코드를 실행 하는 데 필요한 정보로 JSON 파일을 반환 합니다.
-  > [!note]  
+
+  > [!Note]  
   > **ResourceManagerUrl** Azure 스택 개발 키트 (ASDK)에: `https://management.local.azurestack.external/`  
   > **ResourceManagerUrl** 통합된 시스템의은: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -176,7 +177,8 @@ func main() {
 ## <a name="example"></a>예
 
 이 섹션에서는 샘플 가상 네트워크를 만드는 Azure 스택에 Go 코드를 보여 줍니다. 이동 SDK의 전체 예제를 보려면 참조 [Azure 이동 SDk 샘플 리포지토리](https://github.com/Azure-Samples/azure-sdk-for-go-samples)합니다. Azure 스택 샘플은 하이브리드에서 사용할 수 있는 / 내 저장소의 서비스 폴더 경로입니다.
-> [!note]  
+
+> [!Note]  
 > 이 예제의 코드를 실행 하는 데 사용 하는 구독에 있는지 확인 하십시오 **네트워크** 로 나열 하는 리소스 공급자 **등록 된**합니다. 를 확인 하려면 Azure 스택 포털에서 구독에 대 한 확인을 클릭할 **리소스 공급자입니다.**
 
 1. 코드에서 필요한 패키지를 가져옵니다. 네트워크 모듈을 가져오려면 Azure 스택에 최신 사용할 수 있는 프로필을 사용 해야 합니다. 
@@ -194,7 +196,7 @@ func main() {
   )
   ````
 
-2. 환경 변수를 정의 합니다. Note 가상 네트워크를 만들어야 할 경우 리소스 그룹이 있어야 합니다. 
+2. 환경 변수를 정의 합니다. 가상 네트워크를 만들려면 리소스 그룹이 필요 합니다. 
 
   ````go
   var (

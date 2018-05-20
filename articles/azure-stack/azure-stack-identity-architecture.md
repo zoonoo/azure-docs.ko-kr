@@ -1,12 +1,12 @@
 ---
-title: "Azure 스택에 대 한 id 아키텍처 | Microsoft Docs"
-description: "Azure 스택 함께 사용할 수 있습니다 id 아키텍처에 알아봅니다."
+title: Azure 스택에 대 한 id 아키텍처 | Microsoft Docs
+description: Azure 스택 함께 사용할 수 있습니다 id 아키텍처에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: ''
+ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure 스택에 대 한 id 아키텍처
 Azure 스택을 사용 하는 id 공급자를 선택 하기 전에 Azure Active Directory (Azure AD)의 옵션 및 Active Directory Federation Services (AD FS) 중요 한 차이점을 이해 합니다. 
@@ -31,9 +31,9 @@ Azure 스택을 사용 하는 id 공급자를 선택 하기 전에 Azure Active 
 
 |기능 또는 시나리오        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|인터넷에 연결     |예       |선택|
+|인터넷에 연결     |예       |옵션|
 |다중 테 넌 트에 대 한 지원     |예       |아니요      |
-|마켓플레이스에서 배포       |예       |예. 사용 해야는 [오프 라인 마켓플레이스 배포](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) 도구입니다.|
+|마켓플레이스에서 배포       |예       |예. 사용 해야는 [오프 라인 마켓플레이스 배포](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) 도구입니다.|
 |Active Directory 인증 라이브러리 (ADAL)에 대 한 지원 |예 |예|
 |Azure CLI, Visual Studio 및 PowerShell 등의 도구에 대 한 지원  |예 |예|
 |Azure 포털을 통해 서비스 사용자 만들기     |예 |아니요|

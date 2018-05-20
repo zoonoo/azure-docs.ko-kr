@@ -4,16 +4,17 @@ description: RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 �
 keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f8b7062f85a7130c73c6493f6f0c277c90374f11
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 93a4befce1f54dcc06d9a8faf31b04e5c0280276
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
@@ -26,12 +27,12 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 
 | **역할** | **설명** |
 |:--- |:--- |
 | 소유자 |소유자 역할을 사용하면 Automation 계정을 관리하기 위해 다른 사용자, 그룹 및 응용 프로그램에 대한 액세스 권한 제공이 포함된 Automation 계정 내에서 모든 리소스 및 동작에 액세스할 수 있습니다. |
-| 참가자 |참가자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외한 모든 사항을 관리할 수 있습니다. |
+| 기여자 |참가자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외한 모든 사항을 관리할 수 있습니다. |
 | 판독기 |읽기 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
 | Automation 운영자 |Automation 연산자 역할을 사용하면 Runbook 이름 및 속성을 보고 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 이 역할은 자격 증명 자산 및 Runnbook 등의 Automation 계정 리소스를 보거나 수정하지 못하도록 보호하며 조직의 구성원이 이러한 Runbook을 여전히 실행하도록 하려는 경우 유용합니다. |
 |Automation 작업 연산자|Automation 작업 연산자 역할을 사용하면 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다.|
 |Automation Runbook 연산자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
-| Log Analytics 참가자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
+| Log Analytics 기여자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
 | Log Analytics 독자 | Log Analytics Reader 역할을 사용하면 모니터링 설정을 볼 뿐만 아니라 모든 모니터링 데이터를 보고 검색할 수 있습니다. 여기에는 모든 Azure 리소스에 대한 Azure 진단 구성 보기가 포함됩니다. |
 | Monitoring Contributor | Monitoring Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
 | Monitoring Reader | Montioring Reader 역할을 사용하면 모든 모니터링 데이터를 읽을 수 있습니다. |
@@ -49,7 +50,7 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 
 |---|---|
 |Microsoft.Automation/automationAccounts/|모든 유형의 리소스를 만들고 관리합니다.|
 
-### <a name="contributor"></a>참가자
+### <a name="contributor"></a>기여자
 
 Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 다음 표에서는 역할에 부여되거나 거부된 사용 권한을 보여줍니다.
 
@@ -121,7 +122,7 @@ Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Auto
 |Microsoft.Insights/alertRules/*      | 경고 규칙을 만들고 관리합니다.        |
 |Microsoft.Support/* |지원 티켓을 만들고 관리합니다.|
 
-### <a name="log-analytics-contributor"></a>Log Analytics 참가자
+### <a name="log-analytics-contributor"></a>Log Analytics 기여자
 
 Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
@@ -251,12 +252,12 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 |**리소스**  |**역할**  |**범위**  |
 |---------|---------|---------|
-|Automation 계정     | Log Analytics 참가자       | Automation 계정        |
-|Automation 계정    | Virtual Machine 참가자        | 계정의 리소스 그룹        |
-|Log Analytics 작업 영역     | Log Analytics 참가자| Log Analytics 작업 영역        |
+|Automation 계정     | Log Analytics 기여자       | Automation 계정        |
+|Automation 계정    | Virtual Machine 기여자        | 계정의 리소스 그룹        |
+|Log Analytics 작업 영역     | Log Analytics 기여자| Log Analytics 작업 영역        |
 |Log Analytics 작업 영역 |Log Analytics 독자| 구독|
-|해결 방법     |Log Analytics 참가자         | 해결 방법|
-|Virtual Machine     | Virtual Machine 참가자        | Virtual Machine        |
+|해결 방법     |Log Analytics 기여자         | 해결 방법|
+|Virtual Machine     | Virtual Machine 기여자        | Virtual Machine        |
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Azure Portal을 사용하여 Automation 계정에 대한 RBAC 구성
 

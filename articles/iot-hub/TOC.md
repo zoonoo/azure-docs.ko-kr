@@ -292,6 +292,7 @@
 # 리소스
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 ## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
+## [고객 데이터 요청](iot-hub-customer-data-requests.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer 도구](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics 도구](https://github.com/Azure/iothub-diagnostics)

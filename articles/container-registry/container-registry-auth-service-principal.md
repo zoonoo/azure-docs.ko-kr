@@ -1,18 +1,18 @@
 ---
-title: "서비스 주체로 Azure Container Registry 인증"
-description: "Azure Active Directory 서비스 주체를 사용하여 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다."
+title: 서비스 주체로 Azure Container Registry 인증
+description: Azure Active Directory 서비스 주체를 사용하여 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 97036ecabceb12b87b76c6ecb7e521157cbef827
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 16af83522dd55744c485f6dd3696481e16da1b22
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>서비스 주체로 Azure Container Registry 인증
 
@@ -38,16 +38,25 @@ Azure AD 서비스 주체를 사용하면 개인 컨테이너 레지스트리에
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
+## <a name="sample-scripts"></a>샘플 스크립트
+
+GitHub에서 Azure CLI에 대한 이전 샘플 스크립트 및 Azure PowerShell에 대한 버전을 찾을 수 있습니다.
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## <a name="next-steps"></a>다음 단계
 
 컨테이너 레지스트리에 대한 액세스 권한을 부여한 서비스 주체가 있는 경우, 레지스트리 상호 작용을 위해 응용 프로그램 및 서비스에서 해당 자격 증명을 사용할 수 있습니다.
 
 서비스 주체 자격 증명을 사용하도록 개별 응용 프로그램을 구성하는 내용은 이 문서의 범위 밖이지만, 다음 항목에서 특정 서비스 및 플랫폼에 대한 지침을 찾을 수 있습니다.
 
-* [Azure Container Service의 Azure Container Registry를 사용하여 인증(AKS)](container-registry-auth-aks.md)
+* [AKS(Azure Kubernetes Service)의 Azure Container Registry를 사용하여 인증](container-registry-auth-aks.md)
 * [Azure Container Instances의 Azure Container Registry를 사용하여 인증(ACI)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login

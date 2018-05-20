@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
 
@@ -142,6 +142,46 @@ ms.lasthandoff: 04/06/2018
 |isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
 |maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
 
+## <a name="durabletask"></a>durableTask
+
+[지속형 함수](durable-functions-overview.md)에 대한 구성 설정입니다.
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub**입니다. 자세한 내용은 [작업 허브](durable-functions-task-hubs.md)를 참조하세요.
+
+|자산  |기본값 | 설명 |
+|---------|---------|---------|
+|HubName|DurableFunctionsHub|여러 지속형 함수 응용 프로그램이 동일한 저장소 백 엔드를 사용하더라도 대체 [작업 허브](durable-functions-task-hubs.md) 이름을 사용하면 이러한 응용 프로그램을 서로 구분할 수 있습니다.|
+|ControlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
+|PartitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
+|ControlQueueVisibilityTimeout |5분|큐에서 제거된 제어 큐 메시지의 표시 여부 시간 제한입니다.|
+|WorkItemQueueVisibilityTimeout |5분|큐에서 제거된 작업 항목 큐 메시지의 표시 여부 시간 제한입니다.|
+|MaxConcurrentActivityFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
+|MaxConcurrentOrchestratorFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|기본 Azure Storage 리소스를 관리하는 데 사용되는 Azure Storage 연결 문자열이 있는 앱 설정의 이름입니다.|
+|TraceInputsAndOutputs |false|함수 호출의 입출력을 추적할지 여부를 나타내는 값입니다. 함수 실행 이벤트를 추적할 때의 기본 동작은 함수 호출에 대한 직렬화된 입출력에 바이트 수를 포함하는 것입니다. 이를 통해 로그를 블로트하거나 실수로 로그에 중요한 정보를 노출하지 않고도, 표시될 입출력에 대한 최소한의 정보를 제공할 수 있습니다. 이 속성을 true로 설정하면 기본 함수 로깅이 함수 입출력의 전체 내용을 기록하게 됩니다.|
+|EventGridTopicEndpoint ||Azure Event Grid 사용자 지정 항목 끝점의 URL입니다. 이 속성이 설정되면 오케스트레이션 수명 주기 알림 이벤트가 이 끝점에 게시됩니다.|
+|EventGridKeySettingName ||`EventGridTopicEndpoint`에서 Azure Event Grid 사용자 지정 항목으로 인증하는 데 사용되는 키를 포함하는 앱 설정의 이름입니다.
+
+이중 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](durable-functions-perf-and-scale.md)을 참조하세요.
+
 ## <a name="eventhub"></a>eventHub
 
 [Event Hub 트리거 및 바인딩](functions-bindings-event-hubs.md)에 대한 구성 설정입니다.
@@ -150,7 +190,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="functions"></a>functions
 
-작업 호스트가 실행할 함수 목록입니다.  빈 배열은 모든 함수를 실행한다는 의미입니다.  [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. 함수 앱에서 *host.json*의 이 속성 대신 *function.json* `disabled` 속성을 사용하십시오.
+작업 호스트가 실행할 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. 함수 앱에서 *host.json*의 이 속성 대신 *function.json* `disabled` 속성을 사용하십시오.
 
 ```json
 {
@@ -299,21 +339,6 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-[지속성 함수](durable-functions-overview.md)의 [작업 허브](durable-functions-task-hubs.md) 이름입니다.
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub**입니다. 자세한 내용은 [작업 허브](durable-functions-task-hubs.md)를 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

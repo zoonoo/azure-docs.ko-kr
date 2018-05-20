@@ -1,18 +1,18 @@
 ---
-title: "Site Recovery를 사용하여 Azure로의 Hyper-V VM(VMM 사용) 복제를 위한 네트워크 매핑 정보 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 VMM 클라우드에서 관리되는 Hyper-V VM의 복제를 위한 네트워크 매핑을 설정하는 방법을 설명합니다."
+title: Site Recovery를 사용하여 Azure로의 Hyper-V VM(VMM 사용) 복제를 위한 네트워크 매핑 정보 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 VMM 클라우드에서 관리되는 Hyper-V VM의 복제를 위한 네트워크 매핑을 설정하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa596bf4941ac791fa1bc697399a4591d97ba68f
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Azure로 Hyper-V VM을 복제하기 위한 네트워크 매핑 준비
 
@@ -58,7 +58,7 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 뉴욕 | VMM-뉴욕| VMNetwork1-뉴욕 | VMNetwork1-시카고로 매핑
  |  | VMNetwork2-뉴욕 | 매핑되지 않음
 시카코 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
- | | VMNetwork1-시카고 | 매핑되지 않음
+ | | VMNetwork2-시카고 | 매핑되지 않음
 
 이 예제에서:
 

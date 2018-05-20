@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a442b6c3c8e2b8a781ee54f41a2e0db5b44b7395
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: .NET의 Graph API를 사용하여 개발
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
@@ -62,12 +62,12 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 ## <a id="SetupVS"></a>Visual Studio 솔루션 설치
 1. 컴퓨터에서 **Visual Studio**를 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
-3. **새 프로젝트** 대화 상자에서 **템플릿** / **Visual C#** / **콘솔 앱(.NET Framework)**을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.
-4. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다.
+3. **새 프로젝트** 대화 상자에서 **템플릿** / **Visual C#** / **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.
+4. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 5. **NuGet** 탭에서 **찾아보기**를 클릭하고 검색 상자에서 **Microsoft.Azure.Graphs**를 입력하고 **시험판 버전 포함**을 선택합니다. .
 6. 결과 내에서 **Microsoft.Azure.Graphs**를 찾고 **설치**를 클릭합니다.
    
-   솔루션 변경 내용을 검토하는 메시지가 표시되면 **확인**을 클릭합니다. 라이선스 승인에 관한 메시지가 표시되면 **동의합니다.**를 클릭합니다.
+   솔루션 변경 내용을 검토하는 메시지가 표시되면 **확인**을 클릭합니다. 라이선스 승인에 관한 메시지가 표시되면 **동의합니다.** 를 클릭합니다.
    
     `Microsoft.Azure.Graphs` 라이브러리는 Gremlin 작업을 실행하기 위한 `CreateGremlinQuery<T>` 단일 확장 메서드를 제공합니다. Gremlin은 쓰기 작업(DML)과 쿼리 및 순회 작업을 지원하는 함수형 프로그래밍 언어입니다. 이 문서에서는 몇 가지 예제를 적용하여 Gremlin을 시작합니다. [Gremlin 쿼리](gremlin-support.md)에는 Azure Cosmos DB의 Gremlin 기능에 대한 자세한 연습이 있습니다.
 
@@ -110,7 +110,7 @@ Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { I
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>.NET 개체로 꼭짓점 및 가장자리 직렬화
@@ -121,7 +121,7 @@ Azure Cosmos DB는 꼭짓점, 가장자리 및 속성에 대한 JSON 스키마�
 `Microsoft.Azure.Graphs.Elements` 네임스페이스는 잘 정의된 .NET 개체에 대한 GraphSON 응답을 역직렬화하기 위해 `Vertex`, `Edge`, `Property` 및 `VertexProperty` 클래스를 제공합니다.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>CreateGremlinQuery를 사용하여 Gremlin 실행
-Gremlin은 SQL과 마찬가지로 읽기, 쓰기 및 쿼리 작업을 지원합니다. 예를 들어 다음 코드 조각에서는 `CreateGremlinQuery<T>`를 사용하여 꼭짓점과 가장자리를 만들고 몇 가지 샘플 쿼리를 수행하며, `ExecuteNextAsync`와 HasMoreResults를 사용하여 이러한 결과를 비동기적으로 반복하는 방법을 보여 줍니다.
+Gremlin은 SQL과 마찬가지로 읽기, 쓰기 및 쿼리 작업을 지원합니다. 예를 들어 다음 코드 조각에서는 `CreateGremlinQuery<T>`를 사용하여 꼭짓점과 가장자리를 만들고 몇 가지 샘플 쿼리를 수행하며, `ExecuteNextAsync`와 `HasMoreResults`를 사용하여 이러한 결과를 비동기적으로 반복하는 방법을 보여줍니다.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

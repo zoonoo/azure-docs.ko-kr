@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure 스택 Azure 등록
 등록 [Azure 스택](azure-stack-poc.md) Azure 사용 하면 Azure에서 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 합니다. Azure 스택 등록 한 후에 사용 현황 Azure commerce에 보고 되 고 해당 등록에 사용 되는 구독에서 볼 수 있습니다. 
 
 > [!IMPORTANT]
-> 등록은 지불으로-있습니다-사용 요금 청구 모델을 선택 하는 경우에 필수입니다. 그렇지 않으면 있습니다 Azure 스택 배포의 라이선싱 조건 위반 하는 됩니다 사용 현황 보고 되지 것입니다.
+> 등록은 마켓플레이스 배포를 포함 하 여 전체 Azure 스택 기능을 지 원하는 데 필요 합니다. 또한 Azure 스택는 사용량 기준 과금으로-있습니다-사용 가능한 요금 청구 모델을 사용 하는 경우 등록 되지 않은 경우 라이선스 조건을 위반 하 게 됩니다. Azure 스택 라이선스 모델에 대 한 자세한 내용은 참조 하십시오는 [페이지를 구입 하는 방법](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Azure 스택 Azure를 등록 하기 전에 다음이 필요 합니다.

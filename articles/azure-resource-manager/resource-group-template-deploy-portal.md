@@ -1,8 +1,8 @@
 ---
-title: "Azure Portal을 사용하여 Azure 리소스 배포 | Microsoft Docs"
-description: "Azure 포털과 Azure 리소스 관리를 사용하여 리소스를 배포합니다."
+title: Azure Portal을 사용하여 Azure 리소스 배포 | Microsoft Docs
+description: Azure 포털과 Azure 리소스 관리를 사용하여 리소스를 배포합니다.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0174f688cb3fd04fdd41714d54a7371319bae951
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 
 이 항목에서는 [Azure Resource Manager](resource-group-overview.md)에서 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여 줍니다. 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -87,7 +89,7 @@ ms.lasthandoff: 02/21/2018
 
    ![만들기 선택](./media/resource-group-template-deploy-portal/show-template-option.png)
 
-1. 템플릿을 만들기 위한 몇 가지 옵션이 표시됩니다. **편집기에서 사용자 고유의 템플릿을 빌드합니다.**를 선택합니다.
+1. 템플릿을 만들기 위한 몇 가지 옵션이 표시됩니다. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 
    ![옵션 보기](./media/resource-group-template-deploy-portal/see-options.png)
 

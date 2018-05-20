@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>예약 VM 인스턴스를 사용하여 Virtual Machines 선불 결제
 
@@ -13,6 +13,7 @@ ms.lasthandoff: 05/03/2018
 [Azure Portal](https://portal.azure.com)에서 예약 가상 머신 인스턴스를 구매할 수 있습니다. 예약 가상 머신 인스턴스를 구매하려면:
 -   사용자가 하나 이상의 Enterprise 또는 종량제 구독에 대해 소유자 역할이어야 합니다.
 -   Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 예약 구매가 활성화되어야 합니다.
+-   CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트만 예약 구매를 할 수 있습니다.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>예약 가상 머신 인스턴스 구매
 1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
@@ -50,3 +51,4 @@ ms.lasthandoff: 05/03/2018
 - [종량제 구독에서 예약 인스턴스 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Enterprise 등록의 예약 인스턴스 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 예약 인스턴스](https://docs.microsoft.com/partner-center/azure-reservations)

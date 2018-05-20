@@ -1,7 +1,7 @@
 ---
-title: "원격 모니터링 솔루션의 시뮬레이션된 장치 동작 - Azure | Microsoft Docs"
-description: "이 문서에서는 JavaScript를 사용하여 원격 모니터링 솔루션의 시뮬레이션된 장치 동작을 정의하는 방법을 설명합니다."
-services: 
+title: 원격 모니터링 솔루션의 시뮬레이션된 장치 동작 - Azure | Microsoft Docs
+description: 이 문서에서는 JavaScript를 사용하여 원격 모니터링 솔루션의 시뮬레이션된 장치 동작을 정의하는 방법을 설명합니다.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>장치 모델 동작 구현
 
@@ -53,10 +53,10 @@ ms.lasthandoff: 02/09/2018
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/09/2018
 다음은 일반적인 `main` 함수의 개요를 보여 줍니다.
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,7 +192,7 @@ Github에서 전체 [chiller-01-state.js](https://github.com/Azure/device-simula
 다음은 일반적인 `main` 함수의 개요를 보여 줍니다.
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
@@ -205,15 +205,18 @@ function main(context, previousState) {
 
 `state` 매개 변수에는 장치 시뮬레이션 서비스에서 유지 관리되는 장치 상태가 포함됩니다.
 
-메서드의 동작을 구현하는 데 사용할 수 있는 두 가지 전역 함수가 있습니다.
+`properties` 매개 변수는 IoT Hub 장치 쌍에 보고된 속성으로 기록된 장치의 속성을 포함합니다.
+
+메서드의 동작을 구현하는 데 사용할 수 있는 세 가지 전역 함수가 있습니다.
 
 - `updateState` - 시뮬레이션 서비스에 보유된 상태를 업데이트합니다.
+- `updateProperty` - 단일 장치 속성을 업데이트합니다.
 - `sleep` - 장기 실행 작업을 시뮬레이트하기 위해 실행을 일시 중지합니다.
 
 다음 예제에서는 시뮬레이션된 냉각기 장치가 사용하는 **IncreasePressure-method.js** 스크립트의 축약된 버전을 보여 줍니다.
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

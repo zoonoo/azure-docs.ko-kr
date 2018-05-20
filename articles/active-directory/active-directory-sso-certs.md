@@ -1,24 +1,24 @@
 ---
-title: "Azure AD에서 페더레이션 인증서 관리 | Microsoft Docs"
-description: "페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법 및 곧 만료되는 인증서를 갱신하는 방법에 대해 알아봅니다."
+title: Azure AD에서 페더레이션 인증서 관리 | Microsoft Docs
+description: 페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법 및 곧 만료되는 인증서를 갱신하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2247b668584c7bb501043917f98e77c7c5cecfdc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97a70781adaaaa5fd661474336373e70a3923ef5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 이 문서에서는 Azure AD(Azure Active Directory)에서 SaaS 응용 프로그램에 페더레이션된 SSO(Single Sign-On)를 설정하기 위해 만드는 인증서와 관련된 일반적인 질문과 정보를 다룹니다. Azure AD 앱 갤러리에서 또는 비갤러리 응용 프로그램 템플릿을 사용하여 응용 프로그램을 추가하고, 페더레이션된 SSO 옵션을 사용하여 응용 프로그램을 구성합니다.
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 
     ![새 인증서 생성](./media/active-directory-sso-certs/create_new_certficate.png)
 
-5. **새 인증서 만들기** 링크는 달력 컨트롤을 엽니다. 날짜와 시간은 현재 날짜로부터 최대 3년까지 설정할 수 있습니다. 선택한 날짜와 시간은 새 인증서의 새로운 만료 날짜와 시간입니다. **Save**를 클릭합니다.
+5. **새 인증서 만들기** 링크는 달력 컨트롤을 엽니다. 날짜와 시간은 현재 날짜로부터 최대 3년까지 설정할 수 있습니다. 선택한 날짜와 시간은 새 인증서의 새로운 만료 날짜와 시간입니다. **저장**을 클릭합니다.
 
     ![다운로드한 다음 인증서 업로드](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
 

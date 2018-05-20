@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c66b0d7ea5ade90c6bb8f88006f2a09bd407deaa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f74d378359ec66b76fd53b95ab898f1cec9b07f7
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
@@ -77,6 +77,9 @@ ms.lasthandoff: 05/10/2018
     - **SKU**: 16.04 LTS
     - **버전**: 16.04.201802220
 
+    > [!Note]  
+    > Ubuntu Server 16.04 LTS의 둘 이상의 버전을 나열할 수 있습니다. 일치 하는 버전을 추가 해야 합니다. Kubernetes 클러스터 항목의 정확한 버전이 필요합니다.
+
 6. 선택 **다운로드 합니다.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Linux 용 사용자 지정 스크립트를 추가 합니다.
@@ -95,6 +98,9 @@ ms.lasthandoff: 05/10/2018
     - **제공**: Linux 2.0에 대 한 사용자 지정 스크립트
     - **버전**: 2.0.3
     - **게시자**: Microsoft Corp
+
+    > [!Note]  
+    > Linux 용 사용자 지정 스크립트의 둘 이상의 버전을 나열할 수 있습니다. 일치 하는 버전을 추가 해야 합니다. Kubernetes 클러스터 항목의 정확한 버전이 필요합니다.
 
 6. 선택 **다운로드 합니다.**
 
@@ -138,6 +144,8 @@ Kubernetes 클러스터 항목을 업데이트할 때 시장에 있는 항목을
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 스택 Kubernetes 클러스터 배포](/user/azure-stack-solution-template-kubernetes-deploy.md)
+[Azure 스택 Kubernetes 클러스터 배포](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+
+
 
 [Azure 스택에서 서비스 제공의 개요](azure-stack-offer-services-overview.md)

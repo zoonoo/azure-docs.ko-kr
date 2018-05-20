@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Azure Function 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/03/2018
 
 활성 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/en-us/free/) 활성화
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="step-1-open-the-project-folder"></a>1단계. 프로젝트 폴더 열기
@@ -46,17 +46,14 @@ ms.lasthandoff: 04/03/2018
 - VS Code 시작
 - DevKit를 컴퓨터에 연결합니다.
 
-VS Code는 자동으로 DevKit를 찾아서 소개 페이지를 엽니다.
-
-![소개 페이지](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_start.png)
-
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Arduino 예제 폴더 열기
 
 왼쪽의 **ARDUINO 예제 > MXCHIP AZ3166에 대한 예제 > AzureIoT**를 확장하고 **DevKitTranslator**를 선택합니다. DEVKITTRANSLATOR 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
 
 ![IoT DevKit 샘플](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+> [!NOTE]
+> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="step-2-provision-azure-services"></a>2단계. Azure 서비스 프로비전
 
@@ -83,7 +80,7 @@ Azure Function가 성공적으로 배포된 후에 함수 앱 이름으로 azure
 
 1. `Ctrl+P`(macOS: `Cmd+P`)를 사용하여 `task config-device-connection`을 실행합니다.
 
-2. `task cloud-provision` 단계에서 검색된 연결 문자열을 사용할지 묻는 메시지가 터미널에 표시됩니다. **'새로 만들기...'**를 선택하여 고유한 장치 연결 문자열을 입력할 수도 있습니다.
+2. `task cloud-provision` 단계에서 검색된 연결 문자열을 사용할지 묻는 메시지가 터미널에 표시됩니다. **'새로 만들기...'** 를 선택하여 고유한 장치 연결 문자열을 입력할 수도 있습니다.
 
 3. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에 DevKit ID와 '구성'이 표시됩니다.
   ![Arduino 스케치 확인 및 업로드](media/iot-hub-arduino-iot-devkit-az3166-translator/config-device-connection.png)
@@ -143,4 +140,4 @@ Azure IoT Hub에 등록된 기본 장치 ID는 **AZ3166**입니다. 수정하려
 자세히 알아보려면 다른 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [원격 모니터링을 위해 IoT DevKit AZ3166을 Azure IoT Suite에 연결](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [IoT DevKit AZ3166을 Azure IoT 원격 모니터링 솔루션 가속기에 연결](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

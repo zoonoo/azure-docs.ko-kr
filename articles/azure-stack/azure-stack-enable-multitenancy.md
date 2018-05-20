@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Azure 스택에서 다중 테 넌 트를 사용 하도록 설정
 
@@ -75,7 +75,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 Azure 스택 디렉터리의 단계를 완료 한 후 Mary 게스트 디렉터리에 액세스 하는 Azure 스택에 동의 제공 하 고 Azure 스택 게스트 디렉터리에 등록 해야 합니다. 
 
 ### <a name="registering-azure-stack-with-the-guest-directory"></a>게스트 디렉터리와 Azure 스택을 등록 하는 중입니다.
-게스트 디렉터리 관리자가 Fabrikam의 디렉터리에 액세스할 수 있는 Azure 스택에 대 한 동의 제공한, 일단 Fabrikam의 디렉터리 테 넌 트와 Azure 스택을 등록 해야 합니다.
+게스트 디렉터리 관리자가 Fabrikam의 디렉터리에 액세스할 수 있는 Azure 스택에 대 한 동의 제공한, 일단 Mary는 Fabrikam의 디렉터리 테 넌 트와 Azure 스택을 등록 해야 합니다.
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"

@@ -1,24 +1,24 @@
 ---
-title: "Apache Kafka 규모 늘리기 - Azure HDInsight | Microsoft Docs"
-description: "확장성을 높이기 위해 Azure HDInsight에서 Apache Kafka 클러스터에 대해 관리 디스크를 구성하는 방법을 알아봅니다."
+title: Apache Kafka 규모 늘리기 - Azure HDInsight | Microsoft Docs
+description: 확장성을 높이기 위해 Azure HDInsight에서 Apache Kafka 클러스터에 대해 관리 디스크를 구성하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: hero-article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 583e1f8b9a2b6d6260efea8864839e8bbbd9a868
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 131ffd121d8d7a695e72fb4bea245428decd2833
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka에 대한 확장성 및 저장소 구성
 
@@ -53,7 +53,7 @@ Kafka 클러스터에서 작업자 노드에 사용된 디스크 수를 제어�
     ],
 ```
 
-[https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json)에서 관리 디스크를 구성하는 방법을 보여 주는 전체 템플릿을 확인할 수 있습니다.
+[https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json)에서 관리되는 디스크를 구성하는 방법을 보여주는 전체 템플릿을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

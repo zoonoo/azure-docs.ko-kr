@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 
@@ -52,51 +52,18 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 - 동일한 지역에 있는 별도의 2개 가상 네트워크에 2개 HBase 클러스터 구성
 - 별도의 2개 지역에 있는 별도의 2개 가상 네트워크에 2개 HBase 클러스터 구성(지역에서 복제)
 
+이 문서에서는 지역에서 복제 시나리오에 대해 설명합니다.
+
 환경 설정을 지원하기 위해 몇 가지 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md)을 만들었습니다. 다른 방법을 사용하여 환경을 설정하려면 다음을 참조하세요.
 
 - [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Azure Virtual Network에 HBase 클러스터 만들기](apache-hbase-provision-vnet.md)
 
-### <a name="set-up-one-virtual-network"></a>단일 가상 네트워크 설정
-
-동일한 가상 네트워크에서 두 개의 HBase 클러스터를 만들려면 다음 이미지를 클릭하세요. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/)에 저장됩니다.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### <a name="set-up-two-virtual-networks-in-the-same-region"></a>동일한 지역에 2개 가상 네트워크 설정
-
-동일한 지역에 가상 네트워크 피어링과 두 개의 HBase 클러스터가 있는 두 개의 가상 네트워크를 만들려면 다음 이미지를 클릭하세요. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/)에 저장됩니다.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-이 시나리오에는 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)이 필요합니다. 템플릿을 사용하면 가상 네트워크 피어링을 사용할 수 있습니다.   
-
-HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKeeper 노드에 대한 고정 IP 주소를 설정해야 합니다.
-
-**고정 IP 주소를 구성 하려면**
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
-3. HBase 대상 클러스터가 포함된 리소스 그룹을 선택합니다. 이 그룹은 Resource Manager 템플릿을 사용하여 환경을 만들 때 지정한 리소스 그룹입니다. 필터를 사용하여 목록의 범위를 좁힐 수 있습니다. 두 가상 네트워크가 포함된 리소스 목록을 볼 수 있습니다.
-4. HBase 대상 클러스터가 포함된 가상 네트워크를 선택합니다. 예를 들어 **xxxx-vnet2**를 선택합니다. **nic-zookeepermode-** 로 시작하는 이름을 가진 세 개의 장치가 나열됩니다. 이러한 장치는 세 개의 ZooKeeper VM입니다.
-5. ZooKeeper VM 중 하나를 선택합니다.
-6. **IP 구성**을 선택합니다.
-7. 목록에서 **ipConfig1**을 선택합니다.
-8. **고정**을 선택하고 실제 IP 주소를 복사하거나 적어 둡니다. 스크립트 동작을 실행하여 복제를 사용하도록 설정할 때 IP 주소가 필요합니다.
-
-  ![HDInsight HBase 복제 ZooKeeper 고정 IP 주소](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
-
-9. 6단계를 반복하여 다른 두 ZooKeeper 노드의 고정 IP 주소를 설정합니다.
-
-가상 네트워크 간 시나리오에서는 `hdi_enable_replication.sh` 스크립트 동작을 호출할 때 **-ip** 스위치를 사용해야 합니다.
-
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>별도의 2개 지역에 2개 가상 네트워크 설정
 
-두 개의 다른 지역에 두 개의 가상 네트워크를 만들고 VNet 간에 VPN 연결을 만들려면 다음 이미지를 클릭합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)에 저장됩니다.
+두 개의 다른 지역에 두 개의 가상 네트워크를 만들고 VNet 간에 VPN 연결을 만들려면 생성할 다음 이미지를 클릭합니다. 템플릿은 [공용 Blob 저장소]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)에 저장됩니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 템플릿의 하드 코드된 일부 값:
 
@@ -116,11 +83,6 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 | 게이트웨이 VPN 유형 | 경로 기반 |
 | 게이트웨이 SKU | Basic |
 | 게이트웨이 IP | vnet1gwip |
-| 클러스터 이름 | &lt;ClusterNamePrefix>1 |
-| 클러스터 버전 | 3.6 |
-| 클러스터 종류 | HBase: |
-| 클러스터 작업자 노드 수 | 2 |
-
 
 **VNet 2**
 
@@ -138,14 +100,176 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 | 게이트웨이 VPN 유형 | 경로 기반 |
 | 게이트웨이 SKU | Basic |
 | 게이트웨이 IP | vnet1gwip |
-| 클러스터 이름 | &lt;ClusterNamePrefix>2 |
-| 클러스터 버전 | 3.6 |
-| 클러스터 종류 | HBase: |
-| 클러스터 작업자 노드 수 | 2 |
 
-HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKeeper 노드에 대한 고정 IP 주소를 설정해야 합니다. 고정 IP를 설정하려면 이 문서의 [동일한 지역에 2개 가상 네트워크 설정](#set-up-two-virtual-networks-in-the-same-region) 섹션을 참조하세요.
+## <a name="setup-dns"></a>DNS 설정
 
-가상 네트워크 간 시나리오에서는 `hdi_enable_replication.sh` 스크립트 동작을 호출할 때 **-ip** 스위치를 사용해야 합니다.
+마지막 섹션에서 템플릿은 두 가상 네트워크 각각에서 Ubuntu 가상 머신을 만듭니다.  이 섹션에서는 두 DNS 가상 머신에서 바인딩을 설치한 다음, 두 가상 머신에서 DNS 전달을 구성합니다.
+
+바인딩을 설치하려면 두 DNS 가상 머신의 공용 IP 주소를 찾아야 합니다.
+
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
+2. **리소스 그룹 > [리소스 그룹 이름] > [vnet1DNS]** 를 선택하여 DNS 가상 머신을 엽니다.  리소스 그룹 이름은 마지막 절차에서 만든 이름입니다. 기본 DNS 가상 머신 이름은 *vnet1DNS* 및 *vnet2NDS*입니다.
+3. **속성**을 선택하여 가상 네트워크의 속성 페이지를 엽니다.
+4. **공용 IP 주소**를 적어 두고 **개인 IP 주소**를 확인합니다.  개인 IP 주소는 vnet1DNS에 대해 **10.1.0.4**이고 vnet2DNS에 대해 **10.2.0.4**여야 합니다.  
+
+바인딩을 설치하려면 다음 절차를 따릅니다.
+
+1. SSH를 사용하여 DNS 가상 머신의 __공용 IP 주소__에 연결합니다. 다음 예제에서는 40.68.254.142에서 가상 머신에 연결합니다.
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    `sshuser`을 DNS 가상 머신을 만들 때 지정한 SSH 사용자 계정으로 바꿉니다.
+
+    > [!NOTE]
+    > 다양한 방법으로 `ssh` 유틸리티를 가져올 수 있습니다. Linux, Unix 및 macOS에서 운영 체제의 일부분으로 제공됩니다. Windows를 사용하는 경우 다음 옵션 중 하나를 고려하세요.
+    >
+    > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
+    > * [Windows 10에서 Ubuntu의 Bash](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Git(https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH(https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+
+2. Bind를 설치하려면 SSH세션에서 다음 명령을 사용합니다.
+
+    ```bash
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
+    ```
+
+3. 온-프레미스 DNS 서버에 이름 확인 요청을 전달하도록 바인딩을 구성하려면 `/etc/bind/named.conf.options` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
+
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
+
+        forwarders {
+            168.63.129.16 #This is the Azure DNS server
+        };
+
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
+    > [!IMPORTANT]
+    > `goodclients` 섹션의 값을 두 가상 네트워크의 IP 주소 범위로 바꿉니다. 이 섹션에서는 이 DNS 서버가 요청을 수락하는 주소를 정의합니다.
+
+    이 파일을 편집하려면 다음 명령을 사용합니다.
+
+    ```bash
+    sudo nano /etc/bind/named.conf.options
+    ```
+
+    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
+
+4. SSH 세션에서 다음 명령을 사용합니다.
+
+    ```bash
+    hostname -f
+    ```
+
+    이 명령은 다음 텍스트와 유사한 값을 반환합니다.
+
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__입니다. 나중에 사용하므로 이 값을 저장합니다.
+
+    다른 DNS 서버에서 DNS 접미사도 확인해야 합니다. 다음 단계에서 필요합니다.
+
+5. 가상 네트워크 내에서 리소스의 DNS 이름을 확인하도록 바인딩을 구성하려면 `/etc/bind/named.conf.local` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
+
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
+
+    > [!IMPORTANT]
+    > `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net`을 다른 가상 네트워크의 DNS 접미사로 바꿔야 합니다. 전달자 IP는 다른 가상 네트워크에서 DNS 서버의 개인 IP 주소입니다.
+
+    이 파일을 편집하려면 다음 명령을 사용합니다.
+
+    ```bash
+    sudo nano /etc/bind/named.conf.local
+    ```
+
+    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
+
+6. Bind를 시작하려면 다음 명령을 사용합니다.
+
+    ```bash
+    sudo service bind9 restart
+    ```
+
+7. 바인딩이 다른 가상 네트워크에서 리소스 이름을 해결할 수 있는지 확인하려면 다음 명령을 사용합니다.
+
+    ```bash
+    sudo apt install dnsutils
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    ```
+
+    > [!IMPORTANT]
+    > `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net`를 다른 네트워크의 DNS 가상 머신의 FQDN(정규화된 도메인 이름)으로 바꿉니다.
+    >
+    > `10.2.0.4`를 다른 가상 네트워크에 있는 사용자 지정 DNS 서버의 __내부 IP 주소__로 바꿉니다.
+
+    응답은 다음 텍스트와 유사합니다.
+
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
+
+    지금까지 지정된 DNS 서버 IP 주소 없이는 다른 네트워크에서 IP 주소를 찾을 수 없습니다.
+
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>사용자 지정 DNS 서버를 사용하도록 가상 네트워크 구성
+
+Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 가상 네트워크를 구성하려면 다음 단계를 사용합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 가상 네트워크를 선택한 다음 __DNS 서버__를 선택합니다.
+
+2. __사용자 지정__을 선택하고 사용자 지정 DNS 서버의 __내부 IP 주소__를 입력합니다. 마지막으로 __저장__을 선택합니다.
+
+6. vnet1에서 DNS 서버 가상 머신을 열고 **다시 시작**을 클릭합니다.  DNS 구성을 적용하려면 가상 네트워크에서 모든 가상 머신을 다시 시작해야 합니다.
+7. vnet2에 대한 사용자 지정 DNS 서버를 구성하는 단계를 반복합니다.
+
+DNS 구성을 테스트하려면 SSH를 사용하여 두 DNS 가상 머신에 연결하고, 해당 호스트 이름을 사용하여 다른 가상 네트워크의 DNS 서버를 ping할 수 있습니다. 작동하지 않으면 다음 명령을 사용하여 DNS 상태를 확인합니다.
+
+```bash
+sudo service bind9 status
+```
+
+## <a name="create-hbase-clusters"></a>HBase 클러스터 만들기
+
+다음 구성을 사용하여 두 가상 네트워크 각각에서 HBase 클러스터를 만듭니다.
+
+- **리소스 그룹 이름**: 가상 네트워크를 만들 때 동일한 리소스 그룹 이름을 사용합니다.
+- **클러스터 유형**: HBase
+- **버전**: HBase 1.1.2(HDI 3.6)
+- **위치**: 가상 네트워크와 동일한 위치를 사용합니다.  기본적으로 vnet1은 *미국 서부*이고, vnet2는 *미국 동부*입니다.
+- **저장소**: 클러스터에 대한 새 저장소 계정을 만듭니다.
+- **가상 네트워크**(포털에 대한 고급 설정에서): 마지막 절차에서 만든 vnet1를 선택합니다.
+- **서브넷**: 템플릿에서 사용하는 기본 이름은 **subnet1**입니다.
+
+환경을 올바르게 구성했는지 확인하려면 두 클러스터 간 헤드 노드의 FQDN을 ping할 수 있어야 합니다.
 
 ## <a name="load-test-data"></a>테스트 데이터 로드
 
@@ -195,7 +319,6 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-t, --table-list | 복제할 테이블을 지정합니다. 예: --table-list="table1;table2;table3". 테이블을 지정하지 않으면 기존의 모든 HBase 테이블을 복제합니다.|
 |-m, --machine | 스크립트 동작이 실행되는 헤드 노드를 지정합니다. 값은 **hn1** 또는 **hn0**입니다. 일반적으로 **hn0** 헤드 노드의 사용량이 많기 때문에 **hn1**을 사용하는 것이 좋습니다. HDInsight 포털 또는 Azure PowerShell에서 $0 스크립트를 스크립트 동작으로 실행하는 경우 이 옵션을 사용합니다.|
-|-ip | 이 인수는 두 개의 가상 네트워크 간에 복제를 사용할 때 필요하며, FQDN 이름 대신 복제본 클러스터에서 ZooKeeper 노드의 고정 IP 주소를 사용하는 스위치 역할을 합니다. 복제를 사용하도록 설정하기 전에 고정 IP 주소를 미리 구성해야 합니다. |
 |-cp, -copydata | 복제가 사용되는 테이블에서 기존 데이터의 마이그레이션을 사용하도록 설정합니다. |
 |-rpm, -replicate-phoenix-meta | Phoenix 시스템 테이블에서 복제를 사용하도록 설정합니다. <br><br>*이 옵션은 주의해서 사용해야 합니다.* 이 스크립트를 사용하기 전에 복제본 클러스터에서 Phoenix 테이블을 다시 만드는 것이 좋습니다. |
 |-h, --help | 사용 정보를 표시합니다. |

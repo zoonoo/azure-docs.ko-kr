@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning의 새로운 기능
 
-이 아티클에서는 [Azure Machine Learning Services](../service/overview-what-is-azure-ml.md)의 새로운 릴리스에 대해 알아봅니다. 
+이 문서에서는 [Azure Machine Learning](../service/overview-what-is-azure-ml.md)의 새로운 릴리스에 대해 알아봅니다. 
+
+
+## <a name="2018-05-sprint-5"></a>2018-05(스프린트 5)
+
+이 릴리스의 Azure Machine Learning에서 수행할 수 있는 작업은 다음과 같습니다.
++ ResNet 50의 양자화된 버전으로 이미지를 기능화하고, 이러한 기능에 따라 분류자를 학습하고, 초단기 대기 시간 추론을 위해 [Azure에서 FPGA에 해당 모델을 배포](../service/how-to-deploy-fpga-web-service.md)합니다.
+
++ 다음 도메인에 대해 [사용자 지정 Azure Machine Learning 패키지](../service/reference-python-package-overview.md)를 사용하여 고정밀 기계 학습 및 딥 러닝 모델을 빠르게 빌드하고 배포합니다.
+  + [Computer vision](../service/how-to-build-deploy-image-classification-models.md)
+  + [텍스트 분석](../service/how-to-build-deploy-text-classification-models.md)
+  + [Forecasting](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03(스프린트 4)
 **버전 번호**: 0.1.1801.24353&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-다섯 번째 Azure Machine Learning Workbench 업데이트를 시작합니다. 다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 앞으로도 이러한 결과를 얻을 수 있도록 여러분의 피드백을 계속 보내주십시오!
+다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 앞으로도 이러한 결과를 얻을 수 있도록 여러분의 피드백을 계속 보내주십시오!
 
 **주목할 만한 새로운 기능 및 변경 사항**
 

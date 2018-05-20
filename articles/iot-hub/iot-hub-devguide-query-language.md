@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 쿼리 언어 | Microsoft Docs
-description: 개발자 가이드 - IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명.
+description: 개발자 가이드 - IoT Hub에서 장치/모듈 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
 IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 라우팅][lnk-devguide-messaging-routes]과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
 
@@ -29,9 +29,9 @@ IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>장치 쌍 쿼리
-[장치 쌍][lnk-twins]은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 장치 쌍 정보를 포함하는 단일 JSON 문서로 장치 쌍을 쿼리할 수 있습니다.
-예를 들어 IoT Hub 장치 쌍에 다음과 같은 구조가 있다고 가정하겠습니다.
+## <a name="device-and-module-twin-queries"></a>장치 및 모듈 쌍 쿼리
+[장치 쌍][lnk-twins] 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 장치 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
+예를 들어 IoT 허브 장치 쌍에 다음 구조가 있다고 가정합니다(모듈 쌍은 추가 moduleId와 유사함).
 
 ```json
 {
@@ -82,6 +82,8 @@ IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 �
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>장치 쌍 쿼리
 
 IoT Hub는 **devices**라는 문서 컬렉션으로 장치 쌍을 노출합니다.
 따라서 다음 쿼리는 전체적인 장치 쌍을 검색합니다.
@@ -158,6 +160,26 @@ GROUP BY properties.reported.telemetryConfig.status
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>모듈 쌍 쿼리
+
+모듈 쌍의 쿼리는 장치 쌍의 쿼리와 유사하지만 서로 다른 컬렉션/네임스페이스, 즉, 쿼리할 수 있는 "장치에서" 대신 사용합니다.
+
+```sql
+SELECT * FROM devices.modules
+```
+
+장치 및 devices.modules 컬렉션 간의 조인을 허용하지 않습니다. 장치 간에 모듈 쌍을 쿼리하려는 경우 태그에 따라 수행합니다. 이 쿼리는 검색 상태와 함께 모든 장치에서 모든 모듈 쌍을 반환합니다.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만 지정된 하위 집합의 장치에서만 반환합니다.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C# 예제
@@ -292,7 +314,7 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 [장치-클라우드 경로][lnk-devguide-messaging-routes]를 사용하면 장치-클라우드 메시지를 다른 끝점으로 전달하도록 IoT Hub를 구성할 수 있습니다. 이러한 전달은 개별 메시지에 대해 평가된 식을 기준으로 합니다.
 
-경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 둘 다포함될 수도 있습니다. IoT Hub는 메시지를 라우팅하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정합니다. 다음 섹션에서는 IoT Hub가 제대로 라우팅하는 데 필요한 사항을 설명합니다.
+경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 둘 다 포함될 수도 있습니다. IoT Hub는 메시지를 라우팅하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정합니다. 다음 섹션에서는 IoT Hub가 제대로 라우팅하는 데 필요한 사항을 설명합니다.
 
 ### <a name="routing-on-message-headers"></a>메시지 헤더에서 라우팅
 
@@ -427,7 +449,7 @@ FROM <from_specification>
 허용되는 조건은 [식 및 조건][lnk-query-expressions] 섹션에 설명되어 있습니다.
 
 ## <a name="select-clause"></a>SELECT 절
-**SELECT <select_list>**는 필수이며 쿼리에서 검색되는 값을 지정합니다. 새 JSON 개체를 생성하는 데 사용될 JSON 값을 지정합니다.
+**SELECT <select_list>** 는 필수이며 쿼리에서 검색되는 값을 지정합니다. 새 JSON 개체를 생성하는 데 사용될 JSON 값을 지정합니다.
 FROM 컬렉션의 필터링된(그리고 선택적으로 그룹화된) 하위 집합의 각 요소에 대해 프로젝션 단계는 새 JSON 개체를 생성합니다. 이 개체는 SELECT 절에 지정된 값으로 구성됩니다.
 
 다음은 SELECT 절의 문법입니다.
