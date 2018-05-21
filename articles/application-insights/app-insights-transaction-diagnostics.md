@@ -1,22 +1,22 @@
 ---
-title: "Azure Application Insights 트랜잭션 진단 | Microsoft Docs"
-description: "Application Insights 종단 간 트랜잭션 진단"
+title: Azure Application Insights 트랜잭션 진단 | Microsoft Docs
+description: Application Insights 종단 간 트랜잭션 진단
 services: application-insights
 documentationcenter: .net
-author: SoubhagyaDash
-manager: victormu
+author: mrbullwinkle
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: sdash
-ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: mbullwin;sdash
+ms.openlocfilehash: 7a4e4f74c02358fc117e0a66977ee3f0aef5b1dd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 

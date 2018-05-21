@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 38550d42e9b567f9f9b02657b5a67b9d012ebd62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8dc12d41d3369bd95c2953607b8efce94f39d46
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-태그 | 설명 | 유형 | 필수
+태그 | 설명 | type | 필수
 --- | ----------- | ---- | --------
 이름 | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(_)로 시작해야 합니다.</li><li>•  다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | 문자열 | 예
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | 문자열 | 아니오
@@ -354,7 +354,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 ## <a name="multiple-activities-in-a-pipeline"></a>파이프라인의 여러 활동
 이전에 나온 두 개의 샘플 파이프라인에는 활동이 하나만 있습니다. 그렇지만 하나의 파이프라인에 여러 개의 활동이 있을 수 있습니다. 파이프라인에 여러 작업이 있고 이후 작업이 이전 작업에 종속되지 않는 경우 작업을 병렬로 실행할 수 있습니다. 
 
-[작업 종속성](#activity-dependency)을 사용하여 두 작업을 연결할 수 있으며, 작업 종속성은 이후 작업이 이전 작업에 따라 달라지는 방법을 정의하여 다음 작업의 실행을 계속할지 여부에 대한 조건을 결정합니다. 서로 다른 종속성 조건에 따라 한 작업이 하나 이상의 이전 작업에 따라 달라질 수 있습니다. 
+[작업 종속성](#activity-dependency)을 사용하여 두 작업을 연결할 수 있으며, 작업 종속성은 이후 작업이 이전 작업에 따라 달라지는 방법을 정의하여 다음 작업의 실행을 계속할지 여부에 대한 조건을 결정합니다. 여러 종속성 조건이 있는 하나 이상의 이전 작업에 따라 작업이 달라질 수 있습니다. 
 
 ## <a name="scheduling-pipelines"></a>파이프라인 일정 계획
 파이프라인은 트리거에 의해 일정 계획됩니다. 다양한 유형의 트리거가 있습니다(벽시계 일정에 따라 파이프라인을 트리거할 수 있는 스케줄러 트리거 및 요청 시 파이프라인을 트리거하는 수동 트리거). 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md) 문서를 참조하세요. 

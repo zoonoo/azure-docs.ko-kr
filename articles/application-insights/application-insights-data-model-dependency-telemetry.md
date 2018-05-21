@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights 원격 분석 데이터 모델 - 종속성 원격 분석 | Microsoft Docs"
-description: "종속성 원격 분석을 위한 Azure Application Insights 데이터 모델"
+title: Azure Application Insights 원격 분석 데이터 모델 - 종속성 원격 분석 | Microsoft Docs
+description: 종속성 원격 분석을 위한 Azure Application Insights 데이터 모델
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: aa305c30dc358997420be6802d43fa69e45f4a5f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 019b24839c20e7f8f46eeccf4a7b9622d18b0ad6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
 
 [Application Insights](app-insights-overview.md)에서 종속성 원격 분석은 모니터링되는 구성 요소와 원격 구성 요소(예: SQL 또는 HTTP 끝점)의 상호 작용을 나타냅니다.
 
-## <a name="name"></a>이름
+## <a name="name"></a>Name
 
 이 종속성 호출을 사용하여 시작된 명령의 이름입니다. 낮은 카디널리티 값입니다. 예로는 저장 프로시저 이름 및 URL 경로 템플릿이 있습니다.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/01/2017
 
 이 종속성 호출로 시작되는 명령입니다. 예로 모든 쿼리 매개 변수를 포함하는 SQL 문 및 HTTP URL을 들 수 있습니다.
 
-## <a name="type"></a>형식
+## <a name="type"></a>type
 
 종속성 형식 이름입니다. 다른 필드(예: commandName 및 resultCode)의 종속성 논리적 그룹에 대한 낮은 카디널리티 값 및 해석입니다. 예로 SQL, Azure 테이블 및 HTTP를 들 수 있습니다.
 

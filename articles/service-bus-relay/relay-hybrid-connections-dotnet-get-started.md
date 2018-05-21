@@ -1,11 +1,11 @@
 ---
-title: ".NET에서 Azure 릴레이 하이브리드 연결 시작 | Microsoft Docs"
-description: "Azure Relay Hybrid Connections에 대한 C# 콘솔 응용 프로그램 작성"
+title: .NET에서 Azure Relay 하이브리드 연결 Websocket 시작 | Microsoft Docs
+description: Azure Relay 하이브리드 연결 Websocket에 대한 C# 콘솔 응용 프로그램을 작성합니다.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3667d7f4a74ac7c43f8f443aed2beacafd909dbd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>릴레이 하이브리드 연결 시작
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>.NET에서 Relay 하이브리드 연결 Websocket 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 이 자습서에서는 [Azure Relay 하이브리드 연결](relay-what-is-it.md#hybrid-connections)에 대한 소개를 제공합니다. Microsoft .NET을 사용하여 해당 수신기 응용 프로그램에 메시지를 보내는 클라이언트 응용 프로그램을 만드는 방법에 대해 알아봅니다. 

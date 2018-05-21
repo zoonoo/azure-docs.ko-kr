@@ -2,25 +2,19 @@
 title: 비밀번호 쓰기 저장을 사용하는 Azure AD SSPR | Microsoft Docs
 description: Azure AD와 Azure AD Connect를 사용하여 온-프레미스 디렉터리에 대한 비밀번호 쓰기 저장
 services: active-directory
-keywords: Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: dd297f844fc1a8275930c58593402d0ee9e1814f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="password-writeback-overview"></a>암호 쓰기 저장 개요
 

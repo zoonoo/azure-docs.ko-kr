@@ -7,13 +7,13 @@ ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 470f513260cef516fd53ad213138480bd056456a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e7135e620ab799131f772c16f6799ed80be312e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation 통합 모듈
 PowerShell은 Azure Automation의 기본 기술입니다. Azure Automation은 PowerShell을 기반으로 하기 때문에 PowerShell 모듈은 Azure Automation의 확장성에 대한 키입니다. 이 문서에서는 "통합 모듈"이라고 하는 PowerShell 모듈에서 Azure Automation을 만드는 세부 정보 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례를 안내합니다. 

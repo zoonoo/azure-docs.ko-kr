@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
-이 자습서는 Azure Cosmos DB의 BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. 이 자습서에서는 Azure Cosmos DB 컬렉션으로 임의로 생성된 문서를 대량으로 가져오는 샘플 .NET 응용 프로그램을 통해 안내합니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
+이 자습서는 Azure Cosmos DB의 BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. BulkExecutor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [BulkExecutor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 Azure Cosmos DB 컬렉션으로 임의로 생성된 문서를 대량으로 가져오는 샘플 .NET 응용 프로그램을 통해 안내합니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

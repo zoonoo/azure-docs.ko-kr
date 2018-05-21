@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb64d0c5d94bb198b6ece2ea50a7fc248b93c7dd
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 740e3c16d3d9ce9e1aadb3e04ac2667e908bf51e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 *Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub, Azure Log Analytics 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  

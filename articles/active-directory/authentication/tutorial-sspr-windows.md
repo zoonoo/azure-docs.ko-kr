@@ -2,35 +2,29 @@
 title: Windows 10 로그인 화면의 Azure AD SSPR | Microsoft Docs
 description: Windows 10 로그인 화면 Azure AD 암호 재설정 구성 및 PIN 잊음
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>로그인 화면에서 Azure AD 암호 재설정
 
 Azure AD SSPR(셀프 서비스 암호 재설정)을 이미 배포했지만 사용자는 암호를 잊어버린 경우 여전히 기술 지원팀을 호출할 수 있습니다. 사용자는 웹 브라우저를 사용하여 SSPR에 액세스할 수 없기 때문에 기술 지원팀을 호출합니다.
 
-새로운 Windows 10 Fall Creators Update에서는 Azure AD 가입 장치를 사용하는 사용자의 로그인 화면에 "암호 재설정" 링크가 표시됩니다. 이 링크를 클릭하면 익숙한 SSPR(셀프 서비스 암호 재설정) 환경으로 이동됩니다.
+새로운 Windows 10 2018년 4월 업데이트에서는 **Azure AD 조인 장치** 또는 **하이브리드 Azure AD 조인** 장치를 사용하는 사용자의 로그인 화면에 사용 가능한 "암호 재설정" 링크가 표시됩니다. 이 링크를 클릭하면 익숙한 SSPR(셀프 서비스 암호 재설정) 환경으로 이동됩니다.
 
 사용자가 Windows 10 로그인 화면에서 Azure AD 암호를 재설정할 수 있게 하려면 다음 요구 사항을 충족해야 합니다.
 
-* [Azure AD에 가입된](../device-management-azure-portal.md) Windows 10 버전 1709 이상 클라이언트.
+* Windows 10 2018년 4월 업데이트 또는 [Azure AD에 조인된](../device-management-azure-portal.md) 또는 [하이브리드 Azure AD에 조인된](../device-management-hybrid-azuread-joined-devices-setup.md) 최신 클라이언트.
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정.
 * 다음 방법 중 하나를 통해 암호 재설정 링크를 사용하도록 설정을 구성하고 배포.
    * [Intune 장치 구성 프로필](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ Azure AD SSPR(셀프 서비스 암호 재설정)을 이미 배포했지만 사�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 **Azure Active Directory** 클릭
 2. **사용자 및 그룹** > **모든 그룹** > **새 그룹**으로 이동
-3. 그룹 이름을 입력하고 **구성원 자격 유형** 아래에서 **할당됨** 선택 
+3. 그룹 이름을 입력하고 **구성원 자격 유형** 아래에서 **할당됨** 선택
    * **구성원** 아래에서 정책을 적용할 Azure AD 가입 Windows 10 장치 선택
    * **선택** 클릭
 4. **만들기**
@@ -117,6 +111,7 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 * 현재 원격 데스크톱에서는 암호 재설정이 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
 
 * [SSPR을 배포하려면 어떻게 하나요?](howto-sspr-deployment.md)
