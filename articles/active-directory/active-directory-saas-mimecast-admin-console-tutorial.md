@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Active Directory와 Mimecast 관리 콘솔의 통합 | Microsoft Docs"
-description: "Azure Active Directory와 Mimecast 관리 콘솔 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Azure Active Directory와 Mimecast 관리 콘솔의 통합 | Microsoft Docs'
+description: Azure Active Directory와 Mimecast 관리 콘솔 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 64bb18caa046f8a08be8f229e4c82a34306a8f72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bef0312a3ee44a441f44eb2ae7e4292b966cec3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>자습서: Azure Active Directory와 Mimecast 관리 콘솔의 통합
 
@@ -30,7 +30,7 @@ Mimecast 관리 콘솔을 Azure AD와 통합하면 다음과 같은 이점이 �
 - 사용자가 자신의 Azure AD 계정으로 Mimecast 관리 콘솔에 자동으로 로그온(Single Sign-On) 되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Mimecast 관리 콘솔이 Azure AD에 통합되도록 구성하려면 갤러리�
 
 **갤러리에서 Mimecast 관리 콘솔을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -117,7 +117,7 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하고 테스트�
     > [!NOTE] 
     > 로그인 URL은 특정 영역입니다.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_certificate.png) 
 
@@ -125,7 +125,7 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_general_400.png)
 
-6. **Mimecast 관리 콘솔 구성** 섹션에서 **Mimecast 관리 콘솔 구성**을 클릭하고 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+6. **Mimecast 관리 콘솔 구성** 섹션에서 **Mimecast 관리 콘솔 구성**을 클릭하고 **로그온 구성** 창을 엽니다. **빠른 참조** 섹션에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Mimecast 관리 콘솔 구성](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_configure.png) 
 
@@ -149,9 +149,9 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하고 테스트�
     
     a. **설명** 텍스트 상자에 구성 이름을 입력합니다.
     
-    b. **Mimecast 관리 콘솔에 SAML 인증 적용**을 선택합니다.
+    나. **Mimecast 관리 콘솔에 SAML 인증 적용**을 선택합니다.
     
-    c. **공급자**로 **Azure Active Directory**를 선택합니다.
+    다. **공급자**로 **Azure Active Directory**를 선택합니다.
     
     d. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **발급자 URL** 텍스트 상자에 붙여넣습니다.
     
@@ -166,7 +166,7 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하고 테스트�
     
     h. **Single Sign-On 허용**을 선택합니다.
     
-    i. **Save**를 클릭합니다.
+    i. **저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다. 
@@ -197,9 +197,9 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -227,7 +227,7 @@ Azure AD 사용자가 Mimecast 관리 콘솔에 로그인하려면 Mimecast 관�
    
    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **이메일 주소**, **전역 이름**, **암호** 및 **암호 확인** 특성을 입력합니다.
 
-   b. **Save**를 클릭합니다.
+   나. **저장**을 클릭합니다.
 
 >[!NOTE]
 >Mimecast 관리 콘솔 사용자 계정 만들기 도구 또는 Mimecast 관리 콘솔에서 제공된 API를 사용하여 Azure AD 사용자 계정을 프로비전합니다. 
@@ -272,7 +272,7 @@ Azure AD 사용자가 Mimecast 관리 콘솔에 로그인하려면 Mimecast 관�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

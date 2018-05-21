@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: e2e6e50946a009ad9fbd27b821fa6a0999c156f1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 56d69297e9b52144f1ff4880983da0128115f4a6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 보안 서비스 및 기술
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 05/11/2018
 
 ## <a name="azure-networking"></a>Azure 네트워킹
 
-* [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
+* [네트워크 보안 그룹](../virtual-network/security-overview.md)
 * [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)
 * [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Azure 네트워킹
 
@@ -120,7 +120,7 @@ Azure Load Balancer는 모든 UDP 및 TCP 프로토콜에 대해 대기 시간�
 
 다음 옵션을 사용하여 Azure 리소스 간에 트래픽을 필터링할 수 있습니다.
 
-- **네트워크:** Azure NSG(네트워크 보안 그룹)를 구현하여 Azure 리소스에 대한 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 각 NSG는 하나 이상의 인바운드 및 아웃바운드 규칙을 포함합니다. 각 규칙은 트래픽을 필터링하는 원본 IP 주소, 대상 IP 주소, 포트 및 프로토콜을 지정합니다. 개별 서브넷 및 개별 VM에 NSG를 적용할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
+- **네트워크:** Azure NSG(네트워크 보안 그룹)를 구현하여 Azure 리소스에 대한 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 각 NSG는 하나 이상의 인바운드 및 아웃바운드 규칙을 포함합니다. 각 규칙은 트래픽을 필터링하는 원본 IP 주소, 대상 IP 주소, 포트 및 프로토콜을 지정합니다. 개별 서브넷 및 개별 VM에 NSG를 적용할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **응용 프로그램:** 웹 응용 프로그램 방화벽이 설치된 Application Gateway를 사용하여 취약점 및 악용으로부터 웹 응용 프로그램을 보호할 수 있습니다. 일반적인 예로 SQL 주입 공격, 크로스 사이트 스크립팅 및 잘못된 형식의 헤더가 있습니다. Application Gateway는 이 트래픽을 필터링하고 웹 서버에 도달하지 않도록 중지합니다. 사용하려는 규칙을 구성할 수 있습니다. 특정 정책을 사용하지 않을 수 있도록 SSL 협상 정책을 구성하는 기능이 제공됩니다. 웹 응용 프로그램 방화벽에 대한 자세한 내용은 [웹 응용 프로그램 방화벽](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
 Azure에서 제공하지 않는 네트워크 기능이 필요하거나 온-프레미스를 사용하는 네트워크 응용 프로그램을 사용하려면 VM에서 제품을 구현하고 VNet에 연결할 수 있습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)에는 현재 사용할 수 있는 네트워크 응용 프로그램을 사용하여 미리 구성된 여러 가지 다른 VM이 포함됩니다. 이러한 미리 구성된 VM은 일반적으로 NVA(네트워크 가상 어플라이언스)라고 합니다. NVA는 방화벽, WAN 최적화와 같은 응용 프로그램과 함께 사용할 수 있습니다.

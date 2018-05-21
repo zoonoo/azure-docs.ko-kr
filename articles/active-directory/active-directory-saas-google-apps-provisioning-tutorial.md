@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Google Apps 구성 | Microsoft Docs"
-description: "사용자 계정을 Azure AD에서 Google Apps로 자동으로 프로비전 및 프로비전 해제하도록 구성하는 방법을 알아봅니다."
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Google Apps 구성 | Microsoft Docs'
+description: 사용자 계정을 Azure AD에서 Google Apps로 자동으로 프로비전 및 프로비전 해제하도록 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5c68e709b72e4032eca76dd35103df50030ccca
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Google Apps 구성
 
@@ -101,7 +101,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
      
      ![도메인 선택][20]
 
-    나. **Add a domain or a domain alias(도메인 또는 도메인 별칭 추가)**를 선택합니다.
+    나. **Add a domain or a domain alias(도메인 또는 도메인 별칭 추가)** 를 선택합니다.
      
      ![새 도메인 추가][21]
 
@@ -109,7 +109,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
      
      ![사용자의 도메인 이름을 입력합니다.][22]
 
-    d. **Continue and verify domain ownership(계속해서 도메인 소유권 확인)**을 선택합니다. 그런 다음 도메인 이름을 소유하고 있는지 확인하는 단계를 따릅니다. Google Apps에서 도메인을 확인하는 방법에 대한 포괄적인 지침에 대해서는 [Google Apps에서 사이트 소유권 확인](https://support.google.com/webmasters/answer/35179)(영문)을 참조하세요.
+    d. **Continue and verify domain ownership(계속해서 도메인 소유권 확인)** 을 선택합니다. 그런 다음 도메인 이름을 소유하고 있는지 확인하는 단계를 따릅니다. Google Apps에서 도메인을 확인하는 방법에 대한 포괄적인 지침에 대해서는 [Google Apps에서 사이트 소유권 확인](https://support.google.com/webmasters/answer/35179)(영문)을 참조하세요.
 
     e. Google Apps에 추가하려는 모든 추가 도메인에 대해 앞의 단계를 반복합니다.
      
@@ -149,7 +149,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 16. **저장**을 선택합니다.
 
-17. **매핑** 섹션에서 **Synchronize Azure Active Directory Users to Google Apps(Azure Active Directory 사용자를 Google Apps에 동기화)**를 선택합니다.
+17. **매핑** 섹션에서 **Synchronize Azure Active Directory Users to Google Apps(Azure Active Directory 사용자를 Google Apps에 동기화)** 를 선택합니다.
 
 18. **특성 매핑** 섹션에서 Azure AD에서 Google Apps로 동기화할 사용자 특성을 검토합니다. **일치** 속성인 특성은 업데이트 작업 시 Google Apps의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
 
@@ -164,7 +164,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 * [Single Sign-on 구성](active-directory-saas-google-apps-tutorial.md)
 
 

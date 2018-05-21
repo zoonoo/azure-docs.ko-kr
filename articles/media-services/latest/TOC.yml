@@ -57,6 +57,10 @@
       href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet'
+    - name: 자바
+      href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
+    - name: 파이썬
+      href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
     - name: 이벤트 스키마
       href: media-services-event-schemas.md
 - name: 리소스
