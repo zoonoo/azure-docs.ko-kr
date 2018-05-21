@@ -1,20 +1,20 @@
 ---
-title: "Azure Application Insights로 빠른 시작 | Microsoft Docs"
-description: "Application Insights 및 App Center를 사용하여 모니터링하도록 모바일 앱을 빠르게 설정하는 지침을 제공합니다."
+title: Azure Application Insights로 빠른 시작 | Microsoft Docs
+description: Application Insights 및 App Center를 사용하여 모니터링하도록 모바일 앱을 빠르게 설정하는 지침을 제공합니다.
 services: application-insights
-keywords: 
-author: numberbycolors
-ms.author: daviste
+keywords: ''
+author: mrbullwinkle
+ms.author: daviste; mbullwin
 ms.date: 10/05/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 252d16a5c4ef2d1f8230746dff681f7fbf5f44b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 

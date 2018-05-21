@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 아키텍처 | Microsoft Docs"
-description: "서비스 패브릭은 클라우드를 위한 확장 가능하고 안정적이며 쉽게 관리할 수 있는 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다. 이 문서에서는 서비스 패브릭의 아키텍처를 보여줍니다."
+title: Azure Service Fabric 아키텍처 | Microsoft Docs
+description: 서비스 패브릭은 클라우드를 위한 확장 가능하고 안정적이며 쉽게 관리할 수 있는 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다. 이 문서에서는 서비스 패브릭의 아키텍처를 보여줍니다.
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
@@ -9,16 +9,16 @@ editor: rishirsinha
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 3d1f9d6136622e0e9fc1e725d8230dbedd6af24a
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 5e69d4b09261c90fd3c33e60645fe484b816e369
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-architecture"></a>서비스 패브릭 아키텍처
 서비스 패브릭은 계층화된 하위 시스템으로 빌드됩니다. 이러한 하위 시스템을 사용하여 다음 특징을 가진 응용 프로그램을 작성할 수 있습니다.

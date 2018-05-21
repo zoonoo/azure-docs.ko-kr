@@ -5,14 +5,14 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 03/30/2018
+ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 99766ca4cc9d77927030f81cff6bb9c009874f89
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f104ab046fad8dfd9086525b8f942f3d2941821
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/03/2018
 | 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-create-storage-account.md) <sup>2</sup> |200 |250 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)  |20 |200 |
 | [로컬 네트워크](http://msdn.microsoft.com/library/jj157100.aspx)  |10 |500 |
-| 구독당 SQL Database 서버 |6 |150 |
+| 구독당 SQL Database 서버 |6 |200 |
 | 구독당 DNS 서버 |9 |100 |
 | 구독당 예약된 IP |20 |100 |
 | 구독당 호스티드 서비스 인증서 |199 |199 |

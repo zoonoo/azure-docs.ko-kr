@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric 클러스터 리소스 관리자: 이동 비용 | Microsoft Docs"
-description: "Service Fabric 서비스의 이동 비용 개요"
+title: 'Service Fabric 클러스터 리소스 관리자: 이동 비용 | Microsoft Docs'
+description: Service Fabric 서비스의 이동 비용 개요
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3063647671fea94da3ce635b887f6f0f7de89f70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-movement-cost"></a>서비스 이동 비용
 Service Fabric 클러스터 리소스 관리자에서 클러스터에 적용할 변경 내용을 결정할 때 고려할 요소는 이러한 변경에 소요되는 비용입니다. "비용"이라는 개념은 클러스터를 향상시킬 수 있는 정도와 절충됩니다. 분산, 조각 모음 및 기타 요구 사항을 위해 서비스를 이동할 때 비용이 고려됩니다. 목표는 최소 중단 또는 비용으로 요구 사항을 충족하는 것입니다. 

@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: overview
 ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>메시지를 배달하는 Azure 서비스 중에서 선택
 
@@ -42,7 +42,7 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 ## <a name="comparison-of-services"></a>서비스의 비교
 
-| 서비스 | 목적 | 형식 | 사용하는 경우 |
+| 서비스 | 목적 | type | 사용하는 경우 |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | 사후 프로그래밍 | 이벤트 배포(불연속) | 상태 변경에 대응 |
 | Event Hubs | 빅 데이터 파이프라인 | 이벤트 스트리밍(시리즈) | 원격 분석 및 분산 데이터 스트리밍 |

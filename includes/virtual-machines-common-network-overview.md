@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 Azure VM(가상 머신)을 만들 때 [VNet(가상 네트워크)](../articles/virtual-network/virtual-networks-overview.md)을 만들거나 기존 VNet을 사용해야 합니다. 또한 VNet에서 VM을 액세스하는 방법도 결정해야 합니다. [리소스를 만들기 전에 계획을 수립](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)하고 [네트워킹 리소스의 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 이해해야 합니다.
 
@@ -95,7 +95,7 @@ VNet을 설정할 때 사용 가능한 주소 공간과 서브넷을 포함하�
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 
-[NSG(네트워크 보안 그룹)](../articles/virtual-network/virtual-networks-nsg.md)에는 서브넷, NIC 또는 둘 모두에 대한 네트워크 트래픽을 허용하거나 거부하는 ACL(Access Control 목록) 규칙 목록이 포함되어 있습니다. NSG는 서브넷 또는 서브넷에 연결된 개별 NIC와 연결될 수 있습니다. NSG를 서브넷과 연결하는 경우 ACL 규칙이 해당 서브넷의 모든 VM에 적용됩니다. 또한 NSG를 NIC에 직접 연결하여 개별 NIC에 대한 트래픽을 제한할 수 있습니다.
+[NSG(네트워크 보안 그룹)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)에는 서브넷, NIC 또는 둘 모두에 대한 네트워크 트래픽을 허용하거나 거부하는 ACL(Access Control 목록) 규칙 목록이 포함되어 있습니다. NSG는 서브넷 또는 서브넷에 연결된 개별 NIC와 연결될 수 있습니다. NSG를 서브넷과 연결하는 경우 ACL 규칙이 해당 서브넷의 모든 VM에 적용됩니다. 또한 NSG를 NIC에 직접 연결하여 개별 NIC에 대한 트래픽을 제한할 수 있습니다.
 
 NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함되어 있습니다. 규칙에 대한 우선 순위는 각 집합 내에서 고유해야 합니다. 각 규칙에는 프로토콜, 원본 및 대상 포트 범위, 주소 접두사, 트래픽 방향, 우선 순위 및 액세스 유형에 관한 속성이 있습니다. 
 
@@ -103,7 +103,7 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 
 NSG를 NIC에 연결하는 경우 NSG의 네트워크 액세스 규칙은 NIC에만 적용됩니다. NSG를 다중 NIC VM의 단일 NIC에 적용하는 경우 다른 NIC에 대한 트래픽에는 영향을 미치지 않습니다. NIC(또는 배포 모델에 따라 VM) 및 NIC 또는 VM에서 바인딩하는 서브넷에 다른 NSG를 연결할 수 있습니다. 우선 순위는 트래픽 방향에 따라 부여됩니다.
 
-VM 및 VNet을 계획할 때는 NSG를 [계획](../articles/virtual-network/virtual-networks-nsg.md#planning)해야 합니다.
+VM 및 VNet을 계획할 때는 NSG를 [계획](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)해야 합니다.
 
 다음 표에서는 NSG를 만드는 데 사용할 수 있는 방법을 나열하고 있습니다.
 
