@@ -5,24 +5,23 @@ services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2018
+ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 1d90be043affcab422f8e59e6bac1c76ec923d48
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eb1f939f76c3528f05a9002b6365359fb6599aa2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="register-azure-stack-with-azure"></a>Azure 스택 Azure 등록
-Azure에서 Azure 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 하 여 Azure 스택 개발 키트 (ASDK) 설치를 등록할 수 있습니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure 스택 기능을 테스트 하면 있기 때문에 등록을 사용 하는 것이 좋습니다. Azure 스택 등록 한 후 사용 Azure 상거래에 보고 됩니다. 등록에 사용 되는 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 사용에 대 한 요금이 청구 되지 않습니다.
+# <a name="azure-stack-registration"></a>Azure 스택 등록
+Azure에서 Azure 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 하 여 Azure 스택 개발 키트 (ASDK) 설치를 등록할 수 있습니다. 등록은 마켓플레이스 배포를 포함 하 여 전체 Azure 스택 기능을 지 원하는 데 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure 스택 기능을 테스트 하면 있기 때문에 등록을 사용 하는 것이 좋습니다. Azure 스택 등록 한 후 사용 Azure 상거래에 보고 됩니다. 등록에 사용 되는 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 사용에 대 한 요금이 청구 되지 않습니다.
 
 표시 될 수 있습니다 프로그램 ASDK 등록 하지 않은 경우는 **활성화 필요** Azure 스택 개발 키트를 등록 해야 한다는 경고 성 알림입니다. 이 동작은 사용할 수 있습니다.
 

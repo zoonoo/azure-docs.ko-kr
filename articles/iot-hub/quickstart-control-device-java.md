@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 569234e15c0f12de7cbf4ac6bd1c5617035ce0ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6dcbf954fdfd6f5b6f65b54edf33e9da234c7d0f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>빠른 시작: IoT 허브에 연결된 장치 제어(Java)
 
@@ -72,8 +72,10 @@ mvn --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
+
+    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
 1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 

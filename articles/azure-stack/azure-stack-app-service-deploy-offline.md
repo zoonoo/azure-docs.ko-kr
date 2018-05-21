@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS로 보호 되는 연결이 끊어진된 Azure 스택 환경에 앱 서비스 리소스 공급자 추가
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 > [!IMPORTANT]
-> Azure 스택 통합 시스템 1802 업데이트를 적용 하거나 Azure 앱 서비스를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
+> Azure 스택 통합 시스템 1804 업데이트를 적용 하거나 Azure 앱 서비스 1.2를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
 >
 >
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 04/20/2018
 7. 다음 페이지:
     1. 클릭는 **연결** 단추 옆에 **Azure 스택 구독** 상자입니다.
         - 관리자 계정을 제공 하십시오. 예: cloudadmin@azurestack.local 암호를 입력 하 고 클릭 **로그인**합니다.
-    2. 에 **Azure 스택 구독** 상자에서 구독을 선택 합니다.
+    2. 에 **Azure 스택 구독** 상자는 **공급자 구독 기본**합니다.
     3. 에 **Azure 스택 위치** 상자에 배포 하는 영역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure 스택 개발 키트를 배포 합니다.
     4. **다음**을 클릭합니다.
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 04/20/2018
 
     ![앱 서비스 설치 관리자][11]
 
-12. 앱 서비스 리소스 공급자 데이터베이스를 호스트 한 다음 클릭 사용 되는 서버 인스턴스에 대 한 SQL Server 세부 정보를 입력 **다음**합니다. 설치 관리자는 SQL 연결 속성의 유효성을 검사 합니다.
+12. 앱 서비스 리소스 공급자 데이터베이스를 호스트 한 다음 클릭 사용 되는 서버 인스턴스에 대 한 SQL Server 세부 정보를 입력 **다음**합니다. 설치 관리자는 SQL 연결 속성의 유효성을 검사 합니다. 하면 **해야** 내부 ip 주소 또는 SQL Server 이름에 대 한 정규화 된 도메인 이름을 입력 합니다.
 
 > [!NOTE]
 > 설치 프로그램을 계속 진행 하기 전에 SQl Server에 대 한 연결을 테스트 하려고 합니다.  그러나 기존 가상 네트워크에 배포 하려는 경우 설치 관리자는 SQL Server에 연결할 수 수 있으며 계속 묻는 경고가 표시 됩니다.  SQL Server 정보를 확인 하 고 올바른지를 계속 합니다.

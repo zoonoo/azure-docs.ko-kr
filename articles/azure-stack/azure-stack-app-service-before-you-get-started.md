@@ -1,31 +1,31 @@
 ---
-title: "Azure 스택 앱 서비스를 배포 하기 전에 | Microsoft Docs"
-description: "Azure 스택 앱 서비스를 배포 하기 전에 완료 하기 위한 단계"
+title: Azure 스택 앱 서비스를 배포 하기 전에 | Microsoft Docs
+description: Azure 스택 앱 서비스를 배포 하기 전에 완료 하기 위한 단계
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 시작 하기 전에
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 > [!IMPORTANT]
-> Azure 스택 통합 시스템 1802 업데이트를 적용 하거나 Azure 앱 서비스를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
+> Azure 스택 통합 시스템 1804 업데이트를 적용 하거나 Azure 앱 서비스 1.2를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
 >
 >
 
@@ -47,17 +47,21 @@ Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구
 
 ## <a name="high-availability"></a>고가용성
 
-오류 도메인에 대 한 지원을 추가 하는 Azure 스택에서 1802 릴리스의 인해 Azure 스택 앱 서비스를 Azure의 새 배포 오류 도메인에 배포 되 고 내결함성을 제공 합니다.  1802이 출시 되기 전에 배포 된 Azure 스택 앱 서비스를 Azure의 기존 배포에 대 한 업데이트, 참조 하십시오는 [설명서](azure-stack-app-service-fault-domain-update.md) 배포 균형을 다시 조정 하는 방법에 대 한 합니다.
+오류 도메인에 대 한 지원을 추가 하는 Azure 스택에서 1802 릴리스의 인해 Azure 스택 앱 서비스를 Azure의 새 배포 오류 도메인에 배포 되 고 내결함성을 제공 합니다.  Azure 스택, Azure 앱 서비스의 1802 업데이트 출시 되기 전에 배포 된 기존 배포에 대 한 참조는 [설명서](azure-stack-app-service-fault-domain-update.md) 배포 균형을 다시 조정 하는 방법에 대 한 합니다.
 
-또한 고가용성을 위해 Azure 스택에 Azure 앱 서비스에는 필요한 파일 서버 및 고가용성 구성에서 SQL Server 인스턴스에 배포 합니다. 
+또한 고가용성을 위해 Azure 스택에 Azure 앱 서비스에는 필요한 파일 서버 및 고가용성 구성에서 SQL Server 인스턴스에 배포 합니다.
 
 ## <a name="get-certificates"></a>인증서 가져오기
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure 리소스 관리자 루트 인증서에 대 한 Azure 스택
 
-Azure 스택 통합 시스템 또는 Azure 스택 개발 키트 호스트에 권한 있는 끝점에 도달할 수 있는 컴퓨터에서 azurestack\CloudAdmin으로 실행 되는 PowerShell 세션에서 압축을 푼 폴더에서 Get AzureStackRootCert.ps1 스크립트를 실행 도우미 스크립트입니다. 스크립트 응용 프로그램 서비스 인증서를 만드는 스크립트와 같은 폴더에 루트 인증서를 만듭니다.
+Azure 스택 통합 시스템 또는 Azure 스택 개발 키트 호스트에 권한 있는 끝점에 연결할 수 있는 한 컴퓨터에 azurestack\CloudAdmin으로 실행 되는 PowerShell 세션에서 압축을 푼 폴더에서 Get AzureStackRootCert.ps1 스크립트를 실행 도우미 스크립트입니다. 스크립트 응용 프로그램 서비스 인증서를 만드는 스크립트와 같은 폴더에 루트 인증서를 만듭니다.
 
-| Get-AzureStackRootCert.ps1 parameter | 필수 또는 선택 | 기본값 | 설명 |
+```PowerShell
+    Get-AzureStackRootCert.ps1
+```
+
+| 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | 필수 | AzS-ERCS01 | 권한 있는 끝점 |
 | CloudAdminCredential | 필수 | AzureStack\CloudAdmin | Azure 스택 클라우드 관리자에 대 한 도메인 계정 자격 증명 |
@@ -68,7 +72,7 @@ Azure 스택 통합 시스템 또는 Azure 스택 개발 키트 호스트에 권
 
 | 파일 이름 | 사용 |
 | --- | --- |
-| _.appservice.local.azurestack.external.pfx | 앱 서비스 기본 SSL 인증서 |
+| _.appservice.local.azurestack.external.pfx | App Service 기본 SSL 인증서 |
 | api.appservice.local.azurestack.external.pfx | 앱 서비스 API SSL 인증서 |
 | ftp.appservice.local.azurestack.external.pfx | 응용 프로그램 서비스 게시자 SSL 인증서 |
 | sso.appservice.local.azurestack.external.pfx | 앱 서비스 id 응용 프로그램 인증서 |
@@ -79,6 +83,10 @@ Azure 스택 개발 키트 호스트에서 스크립트를 실행 하 고 azures
 2. .Pfx 파일을 보호 하려면 암호를 입력 하 고는 기록 합니다. Azure 스택 설치 관리자에 앱 서비스에서 입력 해야 합니다.
 
 #### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 parameters
+
+```PowerShell
+    Create-AppServiceCerts.ps1
+```
 
 | 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
@@ -93,7 +101,7 @@ Azure 스택 개발 키트 호스트에서 스크립트를 실행 하 고 azures
 
 기본 도메인 인증서는 프런트 엔드 역할에 배치 됩니다. Azure 앱 서비스에 대 한 와일드 카드 또는 기본 도메인 요청이 사용자 응용 프로그램은이 인증서를 사용 합니다. 인증서 (Kudu) 소스 제어 작업에도 사용 됩니다.
 
-인증서는.pfx 형식에서 이어야 하며 3 주체 와일드 카드 인증서 여야 합니다. 이렇게 하면 소스 제어 작업에 대 한 SCM 끝점과 기본 도메인을 모두 포함 하는 하나의 인증서.
+인증서는.pfx 형식에서 이어야 하며 3 주체 와일드 카드 인증서 여야 합니다. 이 요구 소스 제어 작업에 대 한 SCM 끝점과 기본 도메인을 모두 포함 하는 하나의 인증서를 허용 합니다.
 
 | 형식 | 예 |
 | --- | --- |
@@ -134,15 +142,15 @@ Id에 대 한 인증서는 다음 형식과 일치 하는 주체를 포함 해�
 
 Azure 스택 앱 서비스를 azure에 배포할 수 있습니다 리소스 공급자 중 하나에 기존 가상 네트워크 또는 앱 서비스 배포의 일환으로 하나 만듭니다.  기존 가상 네트워크를 사용 하 여 내부 ip 파일 서버와 Azure 스택에 Azure 앱 서비스에서 요구 하는 SQL server에 연결 하는 데 사용할 수 있습니다.  가상 네트워크 스택 Azure에 Azure 앱 서비스를 설치 하기 전에 다음 주소 범위 및 서브넷으로 구성 해야 합니다.
 
-Virtual Network - /16
+가상 네트워크-/ 16
 
 서브넷
 
-* ControllersSubnet/24
-* ManagementServersSubnet /24
-* FrontEndsSubnet/24
-* PublishersSubnet /24
-* WorkersSubnet /21
+- ControllersSubnet/24
+- ManagementServersSubnet/24
+- FrontEndsSubnet/24
+- PublishersSubnet/24
+- WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>파일 서버 준비
 
@@ -272,6 +280,9 @@ Azure 스택 개발 키트 배포에 대 한 SQL Server 2014 SP2 Express를 사�
 
 Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든 앱 서비스 역할에서 액세스할 수 있어야 합니다. Azure 스택에 기본 공급자 구독 내에서 SQL Server를 배포할 수 있습니다. 만들 수 있습니다 (으로 Azure 스택에 연결이) 조직 내에서 기존 인프라를 사용 합니다. Azure 마켓플레이스 이미지를 사용 하는 경우 그에 따라 방화벽을 구성 해야 합니다.
 
+>[!NOTE]
+> SQL IaaS 가상 컴퓨터 이미지의 많은 마켓플레이스 관리 기능을 통해 사용할 수 있습니다. 사용 하면 항상 마켓플레이스 항목을 사용 하는 VM을 배포 하기 전에 SQL IaaS 확장의 최신 버전을 다운로드 합니다. SQL 이미지는 Azure에서 사용할 수 있는 SQL Vm와 동일 합니다. 이러한 이미지를 IaaS 확장에서 만들어지고 포털의 향상 된 기능에 해당 vm의 SQL 자동 패치 및 백업 기능 등의 기능을 제공 합니다.
+>
 모든 SQL Server 역할에 대해 기본 인스턴스나 명명된 된 인스턴스를 사용할 수 있습니다. 명명된 된 인스턴스를 사용 하는 경우 수동으로 SQL Server Browser 서비스를 시작 하 고 포트 1434를 열어야를 해야 합니다.
 
 >[!IMPORTANT]
@@ -280,7 +291,7 @@ Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든
 
 ## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
 
-다음을 지원 하려면 Azure AD 서비스 사용자를 구성 합니다.
+Azure AD 서비스 사용자를 사용 하 여 다음 작업을 지 원하는를 구성 합니다.
 
 - 가상 컴퓨터 크기 작업자 계층에서 통합을 설정합니다.
 - Azure 함수 포털 및 고급 개발자 도구에 대 한 SSO를 제공 합니다.
@@ -292,7 +303,7 @@ Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든
 - 응용 프로그램 서비스 (Kudu) 내에서 고급 개발자 도구를 사용 하도록 설정 합니다.
 - Azure 함수 포털 환경에서 사용 하도록 설정 합니다.
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
 2. 스크립트를 다운로드 하 고에서 추출의 위치로 이동 된 [필수 구성 요소 단계](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.
@@ -309,7 +320,11 @@ Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든
 13. **설정**을 클릭합니다.
 14. 선택 **필요한 권한** > **권한을 부여** > **예**합니다.
 
-| Create-AADIdentityApp.ps1  parameter | 필수 또는 선택 | 기본값 | 설명 |
+```PowerShell
+    Create-AADIdentityApp.ps1
+```
+
+| 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | DirectoryTenantName | 필수 | Null | Microsoft Azure Active Directory 테넌트 ID. GUID 또는 문자열을 제공 합니다. 예 myazureaaddirectory.onmicrosoft.com입니다. |
 | AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
@@ -320,7 +335,7 @@ Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federation Services 응용 프로그램 만들기
 
-AD FS로 보호 되는 Azure 스택 환경에서는 다음을 지원 하려면 AD FS 서비스 사용자는 구성 해야 합니다.
+AD FS로 보호 되는 Azure 스택 환경에서는 다음 작업을 지원 하도록 AD FS 서비스 사용자는 구성 해야 합니다.
 
 - 가상 컴퓨터 크기 작업자 계층에서 통합을 설정합니다.
 - Azure 함수 포털 및 고급 개발자 도구에 대 한 SSO를 제공 합니다.
@@ -331,7 +346,7 @@ AD FS로 보호 되는 Azure 스택 환경에서는 다음을 지원 하려면 A
 - 응용 프로그램 서비스 (Kudu) 내에서 고급 개발자 도구를 사용 하도록 설정 합니다.
 - Azure 함수 포털 환경에서 사용 하도록 설정 합니다.
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
 2. 스크립트를 다운로드 하 고에서 추출의 위치로 이동 된 [필수 구성 요소 단계](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.
@@ -340,7 +355,11 @@ AD FS로 보호 되는 Azure 스택 환경에서는 다음을 지원 하려면 A
 5. 에 **자격 증명** 창에서 AD FS 클라우드 관리자 계정 및 암호를 입력 합니다. **확인**을 선택합니다.
 6. 인증서 파일 경로 및에 대 한 인증서 암호를 제공는 [앞에서 만든 인증서](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)합니다. 기본적으로이 단계에 대해 만들어진 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
 
-| Create-ADFSIdentityApp.ps1  parameter | 필수 또는 선택 | 기본값 | 설명 |
+```PowerShell
+    Create-ADFSIdentityApp.ps1
+```
+
+| 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
 | PrivilegedEndpoint | 필수 | Null | 권한 있는 끝점입니다. 예는 AzS ERCS01입니다. |

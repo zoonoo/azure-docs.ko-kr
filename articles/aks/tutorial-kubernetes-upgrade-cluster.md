@@ -3,17 +3,17 @@ title: Azure의 Kubernetes 자습서 - 클러스터 업데이트
 description: Azure의 Kubernetes 자습서 - 클러스터 업데이트
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 22513ed9c6f726f2d3dd5d8b3327fedfa6d3ca04
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0886d13b62b6b8ad1c0dcd430ce48bcc51d6d465
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 

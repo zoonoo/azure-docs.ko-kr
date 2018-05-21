@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 01016416f1968888e8bc9ef5d1b7ccde80ba972a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0be67b936780d68198a00cb99529643d453621e3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(Node.js)으로 허브에서 원격 분석을 읽습니다.
 
@@ -57,8 +57,10 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
+
+    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
 1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 

@@ -1,57 +1,59 @@
 ---
 title: Azure 스택 API를 사용 하 여 | Microsoft Docs
-description: Azure 스택 API 요청을 Azure에서 인증 한를 검색 하는 방법을 알아봅니다.
+description: Azure 스택 API 요청을 Azure에서 인증을 검색 하는 방법을 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.reviewer: sijuman
-ms.openlocfilehash: 2bbfe4f829ad5c42a5742fdf08f2d185af627f42
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.reviewer: thoroet
+ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
-<!--  cblackuk and charliejllewellyn -->
+<!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>Azure 스택 API를 사용 하 여
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-마켓플레이스 항목을 게시 하기 등의 작업을 자동화 하는 Azure 스택 API를 사용할 수 있습니다.
+마켓플레이스 항목을 게시 하기 등의 작업을 자동화 하는 Azure 스택 API 응용 프로그래밍 인터페이스 ()를 사용할 수 있습니다.
 
-API를 사용 하 여 Microsoft Azure 로그인 끝점에 대해 인증 하 여 클라이언트가 필요 합니다. 끝점에 사용할 Azure 스택 API에 전송 하는 모든 요청 헤더에 토큰을 반환 합니다. (Microsoft Azure에는 Oauth 2.0 사용합니다.)
+API에는 Microsoft Azure 로그인 끝점에 대해 인증 하 여 클라이언트가 필요 합니다. 끝점에 사용할 Azure 스택 API에 전송 하는 모든 요청 헤더에 토큰을 반환 합니다. Microsoft Azure에서는 Oauth 2.0을 사용 합니다.
 
-이 문서에서는 Azure 스택 요청을 만드는 curl 유틸리티를 사용 하는 예제를 제공 합니다. 이 예제에서는 Azure 스택 API에 액세스할 수 있는 토큰을 검색 하는 과정을 안내 합니다. 대부분의 프로그래밍 언어는 이러한 토큰 새로 고침 토큰으로 실행 되는 강력한 핸들 및 관리 태스크를 포함 하는 Oauth 2.0 라이브러리를 제공 합니다.
+이 문서에서는 사용 하는 예제는 **cURL** Azure 스택 요청을 만드는 유틸리티입니다. CURL을 응용 프로그램은 데이터를 전송 하기 위한 라이브러리와 명령줄 도구입니다. 이 예제에서는 Azure 스택 API에 액세스할 수 있는 토큰을 검색 하는 과정을 안내 합니다. 대부분의 프로그래밍 언어는 이러한 토큰 새로 고침 토큰으로 실행 되는 강력한 핸들 및 관리 태스크를 포함 하는 Oauth 2.0 라이브러리를 제공 합니다.
 
-Curl 내부 이해 하는 데 도와 같은 제네릭 REST 클라이언트와 Azure 스택 REST API를 사용 하는 전체 과정을 살펴보면를 요청 하 고 응답 페이로드를 받는 기대할 수 있는 보여 줍니다.
+와 같은 제네릭 REST 클라이언트와 Azure 스택 REST API를 사용 하는 전체 과정 **cURL**, 요청, 및에 응답 페이로드를 받을 예상할 수를 보여 줍니다. 기본 쉽게 이해할 수 있도록 합니다.
 
-이 문서는 대화형 로그인 같은 토큰을 검색 하거나 전용된 응용 프로그램 Id를 만드는에 사용할 수 있는 모든 옵션을 탐색 하지 않습니다. 자세한 내용은 참조 [Azure REST API 참조](https://docs.microsoft.com/rest/api/)합니다.
+이 문서는 대화형 로그인 같은 토큰을 검색 하거나 전용된 응용 프로그램 Id를 만드는에 사용할 수 있는 모든 옵션을 탐색 하지 않습니다. 이러한 항목에 대 한 정보를 얻으려면 참조 [Azure REST API 참조](https://docs.microsoft.com/rest/api/)합니다.
 
 ## <a name="get-a-token-from-azure"></a>Azure에서 토큰을 가져옵니다.
 
-요청 만들기 *본문* 사용 하 여 지정 된 콘텐츠 형식 x-www-형식-urlencoded 액세스 토큰을 가져옵니다. Azure REST 인증 및 로그인 끝점에 요청을 게시 합니다.
+사용 하 여 지정 된 콘텐츠 형식 x-www-형식-urlencoded 액세스 토큰을 가져오는 요청 본문을 만듭니다. Azure REST 인증 및 로그인 끝점에 요청을 게시 합니다.
 
-```
+### <a name="uri"></a>URI
+
+```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
 **테 넌 트 ID** 입니다.
 
-* 테 넌 트 도메인을 fabrikam.onmicrosoft.com 등
-* 8eaed023-2b34-4da1-9baa-8bc8c9d6a491 같은 테 넌 트 ID
-* 테 넌 트 독립적 키에 대 한 기본값: 공통
+ - 테 넌 트 도메인을와 같은 `fabrikam.onmicrosoft.com`
+ - 테 넌 트 ID와 같은 `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - 테 넌 트 독립적 키에 대 한 기본값: `common`
 
 ### <a name="post-body"></a>게시 본문
 
-```
+```bash  
 grant_type=password
 &client_id=1950a258-227b-4e31-a9cf-717495945fc2
 &resource=https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -62,32 +64,25 @@ grant_type=password
 
 각 값:
 
-  **grant_type**
+ - **grant_type**  
+    사용 하는 인증 체계의 형식입니다. 이 예제에서는 값이 `password`
 
-  사용 하는 인증 체계의 형식입니다. 이 예제에서는 값이입니다.
+ - **resource**  
+    리소스 토큰에 액세스합니다. Azure 스택 관리 메타 데이터 끝점을 쿼리하여 리소스를 찾을 수 있습니다. 확인 된 **대상** 섹션
 
-  ```
-  password
-  ```
+ - **Azure 스택 관리 끝점**  
+    ```
+    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+    ```
 
-  **resource**
-
-  리소스 토큰에 액세스합니다. Azure 스택 관리 메타 데이터 끝점을 쿼리하여 리소스를 찾을 수 있습니다. 확인 된 **대상** 섹션
-
-  Azure 스택 관리 끝점:
-
-  ```
-  https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-  ```
-
- > [!NOTE]
- > 테 넌 트 API에 액세스 하려고 하는 관리자는 다음 예를 들어 테 넌 트 끝점을 사용 하 고 있는지 확인 해야 하는 경우: 'https://adminmanagement.{region}.{Azure 스택 도메인} / 메타 데이터/끝점? api 버전 2015-01-011 =
+  > [!NOTE]  
+  > 테 넌 트 API에 액세스 하려고 하는 관리자는 다음 수행 해야 예를 들어 테 넌 트 끝점을 사용 하십시오. `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   예를 들어 끝점으로 Azure 스택 Development Kit와:
 
-  ```
-  curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-  ```
+    ```bash
+    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+    ```
 
   응답:
 
@@ -171,17 +166,17 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API 쿼리
 
-액세스 토큰을 가져오고 나면 각 API 요청으로 헤더를 추가 해야 합니다. 이 위해 헤더를 만들어야 할 **권한 부여** 값을 가진: `Bearer <access token>`합니다. 예: 
+액세스 토큰을 발생 하면 각 API 요청으로 헤더를 추가 해야 합니다. 이 위해 헤더를 만들어야 할 **권한 부여** 값을 가진: `Bearer <access token>`합니다. 예: 
 
 요청:
 
-```
+```bash  
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
 응답:
 
-```
+```bash  
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B
 id : /subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8
 subscriptionId : 800c4168-3eb1-406b-a4ca-919fe7ee42e8

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Azure 스택에서 가상 컴퓨터 디스크 저장소를 프로 비전
 
@@ -65,22 +65,22 @@ VM을 만든 후 포털을 사용할 수 있습니다.
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>만들고 새 데이터 디스크를 연결 합니다. 포털을 사용 합니다.
 
-1.  포털에서 클릭 **가상 컴퓨터**합니다.    
+1.  포털에서 선택 **가상 컴퓨터**합니다.    
     ![예: VM 대시보드](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  이전에 프로 비전 된 가상 컴퓨터를 선택 합니다.   
     ![예: 대시보드에 VM 선택](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  가상 컴퓨터에 대 한 클릭 **디스크** > **새 연결**합니다.       
+3.  가상 컴퓨터에 대 한 선택 **디스크** > **새 연결**합니다.       
     ![예: 새 디스크를 vm에 연결](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  에 **새 디스크 연결** 창에서 클릭 **위치**합니다. 기본적으로 위치는 운영 체제 디스크를 보유 하는 동일한 컨테이너에 설정 됩니다.      
+4.  에 **새 디스크 연결** 창 선택 **위치**합니다. 기본적으로 위치는 운영 체제 디스크를 보유 하는 동일한 컨테이너에 설정 됩니다.      
     ![예: 디스크 위치를 설정 합니다.](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  선택 된 **저장소 계정** 사용 하도록 합니다. 다음으로, 선택는 **컨테이너** 데이터 디스크를 배치 하려는 합니다. **컨테이너** 페이지에서 원하는 경우 새 컨테이너를 만들 수 있습니다. 그런 다음 자체 컨테이너에 새 디스크에 대 한 위치를 변경할 수 있습니다. 별도 컨테이너를 사용 하 여 각 디스크에 대 한 성능을 향상 시킬 수 있는 데이터 디스크의 위치를 배포할 수 있습니다. 클릭 **선택** 는 선택 내용을 저장 합니다.     
+5.  선택 된 **저장소 계정** 사용 하도록 합니다. 다음으로, 선택는 **컨테이너** 데이터 디스크를 배치 하려는 합니다. **컨테이너** 페이지에서 원하는 경우 새 컨테이너를 만들 수 있습니다. 그런 다음 자체 컨테이너에 새 디스크에 대 한 위치를 변경할 수 있습니다. 별도 컨테이너를 사용 하 여 각 디스크에 대 한 성능을 향상 시킬 수 있는 데이터 디스크의 위치를 배포할 수 있습니다. 선택 **선택** 는 선택 내용을 저장 합니다.     
     ![예: 컨테이너를 선택 합니다.](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  에 **새 디스크 연결** 페이지를 업데이트는 **이름**, **형식**, **크기**, 및 **호스트 캐싱** 설정 디스크입니다. 클릭 **확인** VM에 대 한 새 디스크 구성을 저장할 수 있습니다.  
+6.  에 **새 디스크 연결** 페이지를 업데이트는 **이름**, **형식**, **크기**, 및 **호스트 캐싱** 설정 디스크입니다. 다음 선택 **확인** VM에 대 한 새 디스크 구성을 저장할 수 있습니다.  
     ![예: 전체 디스크 연결](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Azure 스택 디스크를 만들고이 가상 컴퓨터에 연결을 새 디스크에서 가상 컴퓨터의 디스크 설정에 나열 됩니다 **데이터 디스크**합니다.   
@@ -94,22 +94,22 @@ VM을 만든 후 포털을 사용할 수 있습니다.
   다른 컨테이너를 사용 하 여 컨테이너 OS 디스크를 포함 하는 보다.vhd 파일을 저장 하도록 계획 합니다.   
   ![예: VHD 파일 업로드](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  .Vhd 파일을 업로드 한 후 VM에 VHD를 연결 준비가 되었습니다. 왼쪽 메뉴에서 클릭 **가상 컴퓨터**합니다.  
+2.  .Vhd 파일을 업로드 한 후 VM에 VHD를 연결 준비가 되었습니다. 왼쪽 메뉴에서 선택 **가상 컴퓨터**합니다.  
  ![예: 대시보드에 VM 선택](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  목록에서 가상 머신을 선택합니다.    
+3.  목록에서 가상 컴퓨터를 선택 합니다.    
   ![예: 대시보드에 VM 선택](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  가상 컴퓨터에 대 한 페이지에서 클릭 **디스크** > **연결 기존**합니다.   
+4.  가상 컴퓨터에 대 한 페이지에서 선택 **디스크** > **연결 기존**합니다.   
   ![예: 기존 디스크를 연결 합니다.](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  에 **기존 디스크 연결** 페이지 **VHD 파일**합니다. **저장소 계정은** 페이지가 열립니다.    
+5.  에 **기존 디스크 연결** 페이지에서 **VHD 파일**합니다. **저장소 계정은** 페이지가 열립니다.    
   ![예: VHD 파일을 선택](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  아래 **저장소 계정은**를 사용 하려면 계정을 선택한 다음 이전에 업로드 한.vhd 파일을 보관 하는 컨테이너를 선택 합니다. .Vhd 파일을 선택한 다음 클릭 **선택** 는 선택 내용을 저장 합니다.    
+6.  아래 **저장소 계정은**를 사용 하려면 계정을 선택 하 고 이전에 업로드 한.vhd 파일을 보관 하는 컨테이너를 선택 합니다. .Vhd 파일을 선택한 다음 선택 **선택** 는 선택 내용을 저장 합니다.    
   ![예: 컨테이너를 선택 합니다.](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  아래 **기존 디스크 연결**, 선택한 파일 아래에 있는지 **VHD 파일**합니다. 업데이트는 **호스트 캐싱** 는 디스크의 설정 하 고 클릭 한 다음 **확인** VM에 대 한 새 디스크 구성을 저장할 수 있습니다.    
+7.  아래 **기존 디스크 연결**, 선택한 파일 아래에 있는지 **VHD 파일**합니다. 업데이트는 **호스트 캐싱** 는 디스크의 설정을 선택한 후 **확인** VM에 대 한 새 디스크 구성을 저장할 수 있습니다.    
   ![예: VHD 파일을 첨부](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Azure 스택 디스크를 만들고이 가상 컴퓨터에 연결을 새 디스크에서 가상 컴퓨터의 디스크 설정에 나열 됩니다 **데이터 디스크**합니다.   

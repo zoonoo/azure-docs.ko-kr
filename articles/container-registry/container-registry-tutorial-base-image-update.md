@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 976f61d99b88d241b39bfec9d95e16de272d9c14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 531aeaacf0bd70521d70afb45d141fc3296ebb04
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-build"></a>자습서: Azure Container Registry Build를 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화
 
@@ -28,8 +28,7 @@ ACR Build는 기본 이미지 중 하나에서 OS 또는 응용 프로그램 프
 > * 트리거된 빌드 표시
 > * 업데이트된 응용 프로그램 이미지 확인
 
-> [!IMPORTANT]
-> ACR Build는 현재 미리 보기 상태이며, **미국 동부**(eastus) 및 **유럽 서부**(westeurope) 지역의 Azure 컨테이너 레지스트리에서만 지원됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -129,7 +128,7 @@ ACR Build에서 기본 이미지가 포함된 컨테이너 이미지의 종속�
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-빌드가 완료된 후 다음의 선택적 단계를 완료하려면 **빌드 ID**(예: "eastus6")를 적어 둡니다.
+빌드가 완료된 후 다음의 선택적 단계를 완료하려면 **빌드 ID**(예: "aa6")를 적어 둡니다.
 
 ### <a name="optional-run-application-container-locally"></a>선택 사항: 로컬로 응용 프로그램 컨테이너 실행
 
@@ -141,7 +140,7 @@ az acr build-task run --registry $ACR_NAME --name buildhelloworld
 az acr login --name $ACR_NAME
 ```
 
-이제 `docker run`을 사용하여 컨테이너를 로컬로 실행합니다. **\<build-id\>** 를 이전 단계의 결과에 있는 빌드 ID(예: "eastus5")로 바꿉니다.
+이제 `docker run`을 사용하여 컨테이너를 로컬로 실행합니다. **\<build-id\>** 를 이전 단계의 결과에 있는 빌드 ID(예: "aa6")로 바꿉니다.
 
 ```azurecli
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
@@ -163,14 +162,14 @@ az acr build-task list-builds --registry $ACR_NAME --output table
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
-eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:50:10Z  00:00:35
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:46:15Z  00:00:55
-eastus1                                  Succeeded  Manual        2018-04-21T23:24:05Z  00:00:35
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+----------  ---------------  ----------  ---------  ----------  --------------------  ----------
+aa6         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual      2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
 ```
 
 ## <a name="update-base-image"></a>기본 이미지 업데이트
@@ -202,18 +201,18 @@ az acr build-task list-builds --registry $ACR_NAME --output table
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------    --------------------  ----------
-eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
-eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
-eastus6     buildhelloworld  Linux       Succeeded  Image Update  2018-04-20T00:15:30Z  00:00:43
-eastus5     buildhelloworld  Linux       Succeeded  Manual        2018-04-20T00:10:05Z  00:00:45
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-19T23:40:38Z  00:00:40
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:36:37Z  00:00:40
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:35:27Z  00:00:40
-eastus1                                  Succeeded  Manual        2018-04-19T22:51:13Z  00:00:30
+----------  ---------------  ----------  ---------  ------------  --------------------  ----------
+aa8         buildhelloworld  Linux       Succeeded  Image Update  2018-05-10T20:09:52Z  00:00:45
+aa7                          Linux       Succeeded  Manual        2018-05-10T20:09:17Z  00:00:40
+aa6         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual        2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit    2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual        2018-05-10T19:10:14Z  00:00:55
 ```
 
-새로 빌드한 컨테이너를 실행하여 업데이트된 버전 번호를 확인하는 다음의 선택적 단계를 수행하려면 이미지 업데이트가 트리거된 빌드에 대한 **BUILD ID** 값을 적어 둡니다(앞의 출력에서는 "eastus6"임).
+새로 빌드한 컨테이너를 실행하여 업데이트된 버전 번호를 확인하는 다음의 선택적 단계를 수행하려면 이미지 업데이트가 트리거된 빌드에 대한 **BUILD ID** 값을 적어 둡니다(앞의 출력에서는 "aa8"임).
 
 ### <a name="optional-run-newly-built-image"></a>선택 사항: 새로 빌드된 이미지 실행
 
@@ -253,7 +252,6 @@ az ad sp delete --id http://$ACR_NAME-pull
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

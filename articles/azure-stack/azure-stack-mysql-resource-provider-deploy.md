@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4fb522e1a5a3c1adeaf5f46b8ccc3b9a852f4a88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc88140bf1adea49ff4bc76667d30a379f829bbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -117,7 +117,7 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 다음은 예제 PowerShell 프롬프트에서 실행할 수 있습니다. 계정 정보 및 필요에 따라 암호를 변경 해야 합니다.
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -214,6 +214,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - 데이터베이스 용량
     - 자동 백업
     - 개별 부서에 대 한 고성능 서버 예약
+
+
+  > [!IMPORTANT]
+  > Always On의 인스턴스와 SKU가 같은 독립 실행형 서버를 혼합할 수 없습니다. 오류가 첫 번째 호스팅 서버 결과 추가한 후 유형을 혼합 하려고 합니다.
  
 
 테 넌 트 데이터베이스를 적절 하 게 배치할 수 있도록 SKU 이름 속성을 반영 해야 합니다. SKU의 모든 호스팅 서버와 동일한 기능 있어야 합니다.

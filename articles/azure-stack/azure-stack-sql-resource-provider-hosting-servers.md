@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
-ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 내부 Vm에서 SQL 인스턴스를 사용할 수 있습니다 프로그램 [Azure 스택](azure-stack-poc.md), 또는 리소스 공급자를 제공 하 여 Azure 스택 환경 외부에서 인스턴스 데이터베이스에 연결할 수 있습니다. 일반 요구 사항은 같습니다.
@@ -96,25 +96,21 @@ SQL Always On 인스턴스를 구성 하는 단계가 더 필요와 적어도 3 
 > [!NOTE]
 > SQL 어댑터 RP _만_ 자동 시드 같은 새로운 SQL 기능을 해야 하므로 Always On에 대 한 SQL 2016 SP1 Enterprise 또는 이상 인스턴스를 지원 합니다. 목록 외에도 위의 일반적인 요구 사항:
 
-* 파일 서버 컴퓨터에 항상 SQL도 제공 해야 합니다. 한 [Azure 스택 퀵 스타트 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) 드립니다이 환경을 만들 수 있는 합니다. 인스턴스를 직접 작성 하는 기준으로 사용할 수 있습니다 것입니다.
+특히,를 사용 해야 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) 각 가용성 그룹에 대 한 SQL Server의 각 인스턴스:
 
-* SQL 서버를 설정 해야 합니다. 특히,를 사용 해야 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server의 각 인스턴스에 대해 각 가용성 그룹에 있습니다.
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+보조 인스턴스에서 다음 SQL 명령을 사용 합니다.
 
-보조 인스턴스에서
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 에 항상 SQL 호스팅 서버를 추가 하려면 다음이 단계를 수행 합니다.
 
@@ -124,14 +120,16 @@ GO
 
     **SQL 호스팅 서버** 블레이드는 위치에 리소스 공급자의 백 엔드도 처리 하는 실제 SQL Server 인스턴스에서 SQL Server 리소스 공급자를 연결할 수 있습니다.
 
-
-3. 항상 수신기 (및 선택적 포트 번호)의 FQDN 또는 IPv4 주소를 사용 하 여 SQL Server 인스턴스의 연결 세부 정보도 폼을 채웁니다. 시스템 관리자 권한으로 구성 된 계정에 대 한 계정 정보를 제공 합니다.
+3. 항상 수신기 (및 선택적 포트 번호)의 FQDN 주소를 사용 하 여 SQL Server 인스턴스의 연결 세부 정보도 폼을 채웁니다. 시스템 관리자 권한으로 구성 된 계정에 대 한 계정 정보를 제공 합니다.
 
 4. SQL Always On 가용성 그룹의 인스턴스에 대 한 지원을 사용 하도록 설정 하려면이 확인란을 선택 합니다.
 
     ![호스팅 서버](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. SKU에에 항상 SQL 인스턴스를 추가 합니다. Always On의 인스턴스와 SKU가 같은 독립 실행형 서버를 혼합할 수 없습니다. 첫 번째 호스팅 서버를 추가할 때 결정 됩니다. 나중에 유형을 혼합 하는 동안 오류가 발생 합니다.
+5. SKU에에 항상 SQL 인스턴스를 추가 합니다. 
+
+> [!IMPORTANT]
+> Always On의 인스턴스와 SKU가 같은 독립 실행형 서버를 혼합할 수 없습니다. 오류가 첫 번째 호스팅 서버 결과 추가한 후 유형을 혼합 하려고 합니다.
 
 
 ## <a name="making-sql-databases-available-to-users"></a>사용자에 게 SQL 데이터베이스 사용 가능

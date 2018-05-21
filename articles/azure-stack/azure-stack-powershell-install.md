@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 5/18/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 8fea502457275c89d99084a5b025b620872d796b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: b3c09582f5135655640768bcbcbef91750827bfa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure 스택에 대 한 PowerShell을 설치 합니다.
 
@@ -72,10 +72,10 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
-# Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
+# Install Module Version 1.2.11 if Azure Stack is running a lower version than 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
   ```
 
@@ -91,8 +91,8 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 연결이 끊긴 시나리오에서는 먼저 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 다운로드 하 고 설치를 위한 Azure 스택 개발 키트를 전송 해야 합니다.
 
-> [!IMPORTANT]
-> 릴리스 1.2.12 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하 버전에서는 참조는 [마이그레이션 가이드](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md)합니다.
+> [!IMPORTANT]  
+> Azure 스택 1.3.0 PowerShell 모듈의 릴리스는 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.11에서 업그레이드 하 버전에서는 참조는 [마이그레이션 가이드](https://aka.ms/azspowershellmigration)합니다.
 
 1. 인터넷에 연결 하 고 AzureRM, 다운로드 및 AzureStack 패키지를 위한 다음 스크립트를 사용 하 여 로컬 컴퓨터에 있는 컴퓨터에 로그인 합니다.
 
@@ -105,7 +105,7 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
@@ -113,11 +113,11 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12 
+     -RequiredVersion 1.3.0 
    ```
 
-> [!Important]  
-> 1804 이상 Azure 스택 업데이트와 함께 실행 되지 않는 경우 변경 된 **requiredversion** 매개 변수 값을 `1.2.11`합니다. 
+  > [!Important]  
+  > 1804 이상 Azure 스택 업데이트와 함께 실행 되지 않는 경우 변경 된 **requiredversion** 매개 변수 값을 `1.2.11`합니다. 
 
 2. USB 장치를 통해 다운로드 한 패키지를 복사 합니다.
 

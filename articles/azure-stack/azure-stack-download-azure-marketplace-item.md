@@ -1,6 +1,6 @@
 ---
 title: Azure에서 마켓플레이스 항목을 다운로드 | Microsoft Docs
-description: 내 Azure 스택 배포에서 Azure 마켓플레이스 항목을 다운로드할 수 있습니다.
+description: 클라우드 운영자 내 Azure 스택 배포 환경에 Azure에서 마켓플레이스 항목을 다운로드할 수 있습니다.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,61 +12,92 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2e92dc96a69400f689e49b70d1b855c955084362
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure 스택에 마켓플레이스 항목을 다운로드
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
+클라우드 연산자로 Azure 마켓플레이스에서 항목을 다운로드 하 고 Azure 스택에서 사용할 수 있도록 합니다. 사전 테스트 및 Azure 스택을 사용 하 여 지원 되는 Azure 마켓플레이스 항목의 큐 레이트 목록에서 항목이 선택할 수 있습니다. 하므로 계속 새 내용에 대 한 다시 확인, 추가 항목은 자주이 목록에 추가 됩니다. 
 
-Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure 마켓플레이스에서 사용할 수 있는 콘텐츠를 고려해 야 합니다. Azure 스택에서 실행 되도록 검증을 거친 되었던 Azure 마켓플레이스 항목의 큐 레이트 목록에서 다운로드할 수 있습니다. 이 목록에 새 항목 자리 자주, 새 콘텐츠를 확인 해야 합니다.
+Azure 마켓플레이스에 연결 하기 위한 두 가지 시나리오가 있습니다. 
 
-## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>(인터넷 연결)에 연결 된 시나리오에서 마켓플레이스 항목을 다운로드 합니다.
+- **연결 된 시나리오** -인터넷에 연결 하도록 Azure 스택 환경을 필요로 하 합니다. Azure 스택 포털을 사용 하 여를 찾아서 항목을 다운로드 합니다. 
+- **연결 되어 있지 않거나 부분적으로 연결 된 시나리오** -필요한 마켓플레이스 배포 도구를 사용 하 여 마켓플레이스 항목을 다운로드 하는 인터넷에 액세스할 수 있습니다. 그런 다음 연결이 끊긴된 Azure 스택 설치에 다운로드를 전송합니다. 이 시나리오에서는 PowerShell을 사용 합니다.
 
-1. 마켓플레이스 항목을 다운로드 하려면 먼저 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md)합니다.
-2. Azure 스택 관리자 포털에 로그인 (ASDK에 대 한 사용 https://portal.local.azurestack.external)합니다.
-3. 일부 마켓플레이스 항목 클 수 있습니다. 확인을 클릭 하 여 시스템에 있는 충분 한 공간이 있는지 확인 하십시오 **리소스 공급자** > **저장소**합니다.
+참조 [Azure 스택에 대 한 Azure 마켓플레이스 항목](azure-stack-marketplace-azure-items.md) 목록은 마켓플레이스 항목을 다운로드할 수 있습니다.
 
-    ![](media/azure-stack-download-azure-marketplace-item/image01.png)
 
-4. 클릭 **더 많은 서비스** > **마켓플레이스 관리**합니다.
-
-    ![](media/azure-stack-download-azure-marketplace-item/image02.png)
-
-4. 클릭 **Azure에서 추가** 다운로드할 수 있는 항목의 목록을 볼 수 있습니다. 다운로드 크기 및 설명을 보려면 목록에서 각 항목을 클릭할 수 있습니다.
-
-    ![](media/azure-stack-download-azure-marketplace-item/image03.png)
-
-5. 클릭 한 다음 목록에서 원하는 항목을 선택 **다운로드**합니다. 다운로드를 시작할 선택한 항목에 대 한 VM 이미지입니다. 다운로드 시간 달라 집니다.
-
-    ![](media/azure-stack-download-azure-marketplace-item/image04.png)
-
-6. 다운로드가 완료 되는 Azure 스택 연산자 또는 사용자로 프로그램 새 마켓플레이스 항목을 배포할 수 있습니다. 클릭 **+ 새로 만들기**새 마켓플레이스 항목에 대 한 범주를 검색 하 고 다음 항목을 선택 합니다.
-7. 클릭 **만들기** 새로 다운로드 한 항목에 대 한 생성 환경을 엽니다. 에 항목을 배포 하려면 단계별 지침을 따릅니다.
-
-## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>마켓플레이스 항목에는 연결이 끊어진 또는 부분적으로 연결 된 시나리오 (제한 된 인터넷에 연결 된) 다운로드
-
-모든 인터넷 연결) (없이 연결이 끊어진된 모드에서 Azure 스택을 배포할 때는 Azure 스택 포털을 사용 하 여 마켓플레이스 항목을 다운로드할 수 없습니다. 그러나 마켓플레이스 배포 도구를 사용 하 여 인터넷에 연결 하는 컴퓨터로 마켓플레이스 항목을 다운로드 하 수 있으며 Azure 스택 환경에 전송할 수 있습니다.
+## <a name="connected-scenario"></a>연결 된 시나리오
+Azure 스택 인터넷에 연결 된 경우에 마켓플레이스 항목을 다운로드 하는 관리 포털을 사용할 수 있습니다.
 
 ### <a name="prerequisites"></a>필수 조건
-마켓플레이스 배포 도구를 사용 하려면 먼저 확인 했는지 [Azure 구독과 Azure 스택 등록](azure-stack-register.md)합니다.  
+Azure 스택 배포 해야 인터넷에 연결 하 고 해야 [Azure에 등록](azure-stack-register.md)합니다.
 
-인터넷에 연결 된 컴퓨터에서 필요한 마켓플레이스 항목을 다운로드 하려면 다음 단계를 따르십시오.
+### <a name="use-the-portal-to-download-marketplace-items"></a>마켓플레이스 항목을 다운로드 하 여 포털을 사용 하 여  
+1. Azure 스택 관리자 포털에 로그인 합니다.
 
-1. 관리자 권한으로 PowerShell 콘솔을 열고 및 [Azure 스택 특정 PowerShell 모듈 설치](azure-stack-powershell-install.md)합니다. 설치 하 고 있는지 확인 **Azure 스택 PowerShell 모듈 버전 1.2.11 이상**합니다.  
+2.  마켓플레이스 항목을 다운로드 하기 전에 사용 가능한 저장 공간을 검토 합니다. 이상에서는 다운로드에 대 한 항목을 선택 하면 사용 가능한 저장소 용량을 다운로드 크기를 비교할 수 있습니다. 용량 제한 되는 경우에 대 한 옵션을 고려 [사용 가능한 공간을 관리](azure-stack-manage-storage-shares.md#manage-available-space)합니다. 
 
-2. Azure 스택 등록를 사용 하 여 Azure 계정을 추가 합니다. 실행 계정을 추가 하는 **추가 AzureRmAccount** 매개 변수 없이 cmdlet. Azure 계정 자격 증명을 입력 하는 메시지가 및 사용자 계정 구성에 따라 2 단계 인증을 사용 하 여 할 수 있습니다.  
+    사용 가능한 공간을 검토 하려면 **지역 관리** 탐색 하 고 다음으로 이동 하려는 지역을 선택 **리소스 공급자** > **저장소**합니다.
+
+    ![저장소 공간을 검토](media/azure-stack-download-azure-marketplace-item/storage.png)  
+
+    
+3. Azure 스택 마켓플레이스를 열고 Azure에 연결 합니다. 이 위해 선택 **마켓플레이스 관리**를 선택한 후 **Azure에서 추가**합니다.
+
+    ![Azure에서 추가](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+
+    포털에는 Azure Marketplace에서 다운로드할 수 있는 항목의 목록을 표시합니다. 해당 설명 및 해당 다운로드 크기를 포함 한,에 대 한 추가 정보를 볼 각 항목을 클릭할 수 있습니다. 
+
+    ![마켓플레이스 목록](media/azure-stack-download-azure-marketplace-item/image03.png)
+
+4. 한 다음 선택 항목을 선택 **다운로드**합니다. 다운로드 시간 달라 집니다.
+
+    ![메시지를 다운로드 합니다.](media/azure-stack-download-azure-marketplace-item/image04.png)
+
+    다운로드가 완료 되는 Azure 스택 연산자 또는 사용자로 새 마켓플레이스 항목을 배포할 수 있습니다.
+
+5. 다운로드 한 항목을 배포 하려면 선택 **+ 새로 만들기**, 한 다음 새 마켓플레이스 항목에 대 한 범주 중을 검색 합니다. 다음 배포 프로세스를 시작 하려면 항목을 선택 합니다. 다른 마켓플레이스 항목에 대 한 프로세스는 다릅니다. 
+
+## <a name="disconnected-or-a-partially-connected-scenario"></a>연결이 끊어진 또는 부분적으로 연결 된 시나리오
+
+PowerShell을 사용 하 여 Azure 스택 연결이 끊어진된 모드에서 한 인터넷 연결 없이 이면 및 *마켓플레이스 배포 도구* 마켓플레이스 항목을 인터넷에 연결 된 컴퓨터에 다운로드 하 합니다. 그런 다음 Azure 스택 환경에 있는 항목을 전송합니다. 연결이 끊어진된 환경에서 Azure 스택 포털을 사용 하 여 마켓플레이스 항목을 다운로드할 수 없습니다. 
+
+연결 된 시나리오에서 마켓플레이스 배포 도구를 사용할 수도 있습니다. 
+
+이 시나리오는 두 부분으로 분류됩니다.
+- **1 부:** Azure Marketplace에서 다운로드 합니다. PowerShell을 구성 인터넷에 연결 된 컴퓨터에서 배포 도구를 다운로드 한 다음 항목 형식을 Azure 마켓플레이스를 다운로드 합니다.  
+- **2 부:** 업로드 하 고 Azure 스택 마켓플레이스에 게시 합니다. Azure 스택 가져와야 한 후 Azure 스택 마켓플레이스에 게시할 Azure 스택 환경에 다운로드 한 파일을 이동 합니다.  
+
+
+### <a name="prerequisites"></a>필수 조건
+- Azure 스택 배포 해야 [Azure에 등록](azure-stack-register.md)합니다.  
+
+- 인터넷에 연결 된 컴퓨터에 있어야 **Azure 스택 PowerShell 모듈 버전 1.2.11** 이상. 아직 없는 경우, [Azure 스택 특정 PowerShell 모듈 설치](azure-stack-powershell-install.md)합니다.  
+
+- 다운로드 한 마켓플레이스 항목의 가져오기를 설정 하려면는 [Azure 스택 연산자에 대 한 PowerShell 환경](azure-stack-powershell-configure-admin.md) 구성 해야 합니다.  
+
+- 저장소 계정 (즉, 저장소 blob) 공개적으로 액세스할 수 있는 컨테이너에 있는 Azure 스택의에 있어야 합니다. 마켓플레이스 항목 갤러리 파일에 대 한 임시 저장소로 컨테이너를 사용 합니다. 저장소 계정 및 컨테이너에 익숙하지 않은 경우 참조 [blob-Azure 포털을](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) Azure 설명서에서.
+
+- 마켓플레이스 배포 도구는 첫 번째 절차 중에 다운로드 됩니다. 
+
+### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>마켓플레이스 배포 도구를 사용 하 여 마켓플레이스 항목을 다운로드 하려면
+
+1. 인터넷에 연결 된 컴퓨터에서 관리자 권한으로 PowerShell 콘솔을 엽니다.
+
+2. Azure 스택 등록를 사용 하 여 Azure 계정을 추가 합니다. 실행 하는 PowerShell에서 해당 계정을 추가 하려면 `Add-AzureRmAccount` 매개 변수 없이 합니다. Azure 계정 자격 증명을 입력 하는 메시지가 및 사용자 계정 구성에 따라 2 단계 인증을 사용 해야 할 수 있습니다.
 
 3. 여러 구독이 있는 경우 등록에 사용 되는 항목을 선택 하려면 다음 명령을 실행 합니다.  
 
-   ```powershell
+   ```PowerShell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
@@ -85,82 +116,100 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-master
+   cd .\AzureStack-Tools-master
 
    ```
 
-5. 배포 모듈을 가져올 하 고 다음 명령을 실행 하 여 도구를 시작 합니다.  
+5. 배포 모듈을 가져올 하 고 다음 스크립트를 실행 하 여 도구를 시작 합니다. 대체는 *대상 폴더 경로* Azure 마켓플레이스에서 다운로드 파일을 저장할 위치를 사용 합니다.   
 
-   ```powershell
+   ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination "<Destination folder path>" `
+     -destination "Destination folder path" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
 
-6. 이 도구를 실행 하는 경우 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure 스택 등록을 사용 하는 Azure 계정에 로그인 합니다. 로그인에 성공 하면 다음 화면이 마켓플레이스를 사용할 수 있는 항목의 목록으로 나타납니다.  
+6. 이 도구를 실행 하는 경우 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure 스택 등록을 사용 하는 Azure 계정에 로그인 합니다. 로그인에 성공 하면 마켓플레이스를 사용할 수 있는 항목의 목록으로 다음 이미지와 같은 화면이 나타납니다.  
 
-   ![Azure 마켓플레이스 항목 팝업](./media/azure-stack-download-azure-marketplace-item/image05.png)
+   ![Azure 마켓플레이스 항목 팝업](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. 다운로드 하 여 이미지 버전을 기록 하려는 이미지를 선택 합니다. Ctrl 키를 누르고 있으면 여러 이미지를 선택할 수 있습니다. 다음 섹션에서 이미지를 가져올 이미지 버전을 사용 합니다.  그런 다음 클릭 **확인**, 다음을 클릭 하 여 약관에 동의 하 고 **예**합니다. 사용 하 여 이미지 목록을 필터링 할 수도 있습니다는 **조건을 추가** 옵션입니다. 
+7. 선택 항목을 다운로드 하 고 기록 된 *버전*합니다. (누르고 있으면 여러 이미지를 선택할 수 있습니다는 *Ctrl* 키입니다.) 참조 하 게 됩니다는 *버전* 다음 절차에서 항목을 가져올 때. 
+   
+   사용 하 여 이미지 목록을 필터링 할 수도 있습니다는 **조건을 추가** 옵션입니다.
 
-   다운로드는 이미지의 크기에 따라 시간이 걸립니다. 한 번 이미지 다운로드, 이전 버전에서 제공 하는 대상 경로가 제공 됩니다. (가상 컴퓨터)에 대 한 VHD 파일을 포함 하는 다운로드 또는 합니다. ZIP 파일 (가상 컴퓨터 확장) 및 Azpkg 형식에서 갤러리 항목입니다.
+8. 선택 **확인**, 한 다음 확인 하 고 약관에 동의 합니다. 
 
-### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>이미지를 가져오고 Azure 스택 마켓플레이스에 게시
-시장에 있는 항목의 세 가지 종류가 있습니다: 템플릿과 가상 컴퓨터, 가상 컴퓨터 확장 솔루션입니다. 솔루션 템플릿은 아래 설명 되어 있습니다.
-> [!NOTE]
-> 지금은 Azure 스택에 가상 컴퓨터 확장을 추가할 수 없습니다.
+9. 다운로드가 시간 항목의 크기에 따라 달라 집니다. 다운로드가 완료 되는 항목의 스크립트에 지정 된 폴더에 다운로드 됩니다. (가상 컴퓨터)에 대 한 VHD 파일을 포함 하는 다운로드 또는 합니다. (가상 컴퓨터 확장)에 대 한 ZIP 파일입니다. 갤러리 패키지에 포함 된 *.azpkg* 형식입니다. (A *.azpkg* 패키지는 한 *.zip* 파일입니다.)
+ 
 
-1. 이미지 및 갤러리 패키지를 다운로드 한 후 및 내용을 AzureStack 도구 마스터 폴더는 이동식 디스크 드라이브에 저장 하 고 Azure 스택 환경에 복사 (복사할 수 있습니다 로컬로 모든 위치에 같은: "C:\MarketplaceImages").     
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>다운로드를 가져오고 Azure 스택 마켓플레이스에 게시
+1. 가상 컴퓨터 이미지 또는 솔루션 템플릿을 적용 해야 하는 것에 대 한 파일 [이전에 다운로드 한](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Azure 스택 환경에 로컬로 사용할 수 있어야 합니다.  
 
-2. 이미지를 가져오기 전에 연결 해야 Azure 스택 운영자의 환경에 설명 된 단계를 사용 하 여 [Azure 스택 운영자의 PowerShell 환경을 구성](azure-stack-powershell-configure-admin.md)합니다.  
+2. 가져옵니다. Azure 스택으로 VHD 파일입니다. 가상 컴퓨터 (VM) 이미지를 성공적으로 가져온 VM에 대 한 다음 정보가 있어야 합니다.
+   - *버전*, 이전 절차의 7 단계에서 설명 합니다.
+   - Vm에 대 한 값 *게시자*, *제공*, 및 *sku*합니다. 이러한 값을 가져오려면의 복사본 이름 바꾸기는 **.azpkg** 해당 파일 확장명을 변경 하기 위해 파일 **.zip**합니다. 텍스트 편집기를 열려면 사용할 수 있습니다 **DeploymentTemplates\CreateUiDefinition.json**합니다. .Json 파일에서 찾습니다는 *imageReference* 마켓플레이스 항목에 대 한 이러한 값을 포함 하는 섹션입니다. 다음 예제에서는이 정보 표시 되는 방법을 보여 줍니다.
 
-3. 다운로드가 fixed3.vhd 라는 작은 3MB VHD 파일을 포함 하는 경우는 솔루션 템플릿입니다. 이 파일은 필요 하지 않습니다. 5 단계로 건너뜁니다. 다운로드에 대 한 설명에 표시 된 대로 모든 종속 항목을 다운로드 하 고 있는지 확인 합니다.
+     ```json  
+     "imageReference": {  
+        "publisher": "MicrosoftWindowsServer",  
+        "offer": "WindowsServer",  
+        "sku": "2016-Datacenter-Server-Core"  
+      }
+     ```  
 
-4. 추가 AzsVMImage cmdlet을 사용 하 여 Azure 스택에 이미지를 가져옵니다. 이 cmdlet을 사용할 때는 확인 바꿔야는 *게시자*, *제공*, 및 다른 매개 변수 값을 가져올 이미지의 값입니다. 가져올 수는 *게시자*, *제공*, 및 *sku* 이전에 다운로드 한 Azpkg 파일의 imageReference 개체에서 이미지의 값 및  *버전* 이전 단원의 6 단계에서 값입니다.
+   Azure 스택을 사용 하 여 이미지를 가져옵니다는 **추가 AzsPlatformimage** cmdlet. 이 cmdlet을 사용할 때는 확인 바꿔야는 *게시자*, *제공*, 및 다른 매개 변수 값을 가져올 이미지의 값입니다. 가져올 수는 *게시자*, *제공*, 및 *sku* AZPKG 파일과 함께 다운로드 되 고 대상 위치에 저장 된 텍스트 파일에서 이미지의 값 . 
 
-imageReference를 찾기 위해 사용 하 여 AZPKG 파일 이름을 바꿀 해야 합니다는 합니다. 확장 ZIP을 임시 위치에 추출 하 고, 텍스트 편집기로 DeploymentTemplates\CreateUiDefinition.json 파일을 엽니다. 이 섹션을 찾습니다.
+   다음 예제에서는 스크립트에서 Windows Server 2016 Datacenter-서버 코어 가상 컴퓨터에 대 한 값이 사용 됩니다. 
 
-   ```json
-   "imageReference": {
-      "publisher": "MicrosoftWindowsServer",
-      "offer": "WindowsServer",
-      "sku": "2016-Datacenter-Server-Core"
-    }
-   ```
-
-   매개 변수 값을 대체 하 고 다음 명령을 실행 합니다.
-
-   ```powershell
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-
-   Add-AzsVMImage `
+   ```PowerShell  
+   Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-    -CreateGalleryItem $False `
-    -Location Local
    ```
+   **솔루션 템플릿 정보:** 일부 템플릿에서 작은 3MB를 포함할 수 있습니다. VHD 파일 이름의 **fixed3.vhd**합니다. Azure 스택 해당 파일을 가져올 필요가 없습니다. Fixed3.vhd 합니다.  이 파일은 Azure Marketplace에 대 한 게시 요구 사항을 충족 하기 위해 일부 솔루션 서식 파일에 포함 되어 있습니다.
 
-5. 마켓플레이스 항목을 업로드를 위해 사용 하 여 포털 (합니다. Azpkg) 스택 Azure Blob 저장소에 있습니다. 로컬 스택 Azure 저장소에 업로드 하거나 Azure 저장소에 업로드할 수 있습니다. (이 패키지에 대 한 임시 위치입니다.) Blob 공개적으로 액세스할 수 있는지 확인 하 고 URI를 확인 합니다.  
+   템플릿 설명을 검토 하 고 다운로드 다음 솔루션 템플릿을 사용 하는 데 필요한 Vhd와 같은 추가 요구를 가져옵니다.
 
-6. 마켓플레이스 항목을 사용 하 여 Azure 스택에 게시는 **추가 AzsGalleryItem**합니다. 예: 
+3. 관리자 포털을 사용 하 여 Azure 스택 Blob 저장소는 마켓플레이스 항목 패키지 (.azpkg 파일) 업로드 합니다. 패키지의 업로드 사용할 수 있도록 Azure 스택 항목을 게시할 수 있도록 Azure 스택 마켓플레이스 합니다.
 
-   ```powershell
-   Add-AzsGalleryItem `
-     -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.2.azpkg" `
+   업로드 공개적으로 액세스할 수 있는 컨테이너와 저장소 계정이 해야 (이 시나리오에 대 한 필수 조건 참조)   
+   1. Azure 스택 관리자 포털에서로 이동 **더 많은 서비스** > **저장소 계정은**합니다.  
+   
+   2. 선택한 저장소 계정, 구독에서 다음에서 **BLOB 서비스**선택, **컨테이너**합니다.  
+      ![Blob 서비스](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
+   
+   3. 사용 하 고 다음 선택 컨테이너 선택 **업로드** 열려는 **업로드 blob** 창.  
+      ![컨테이너](media/azure-stack-download-azure-marketplace-item/container.png)  
+   
+   4. 업로드 blob 창에서 파일 저장소에 로드 되 고 다음을 선택 하려면을 찾아 **업로드**합니다.  
+      ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
+
+   5. 업로드 한 파일 컨테이너 창에 나타납니다. 파일을 선택한 다음에서 URL을 복사는 **속성 Blob** 창. Azure 스택 마켓플레이스 항목을 가져올 때 다음 단계에서이 URL을 사용 합니다.  다음 이미지는 컨테이너는 *blob 테스트 저장소* 파일이 *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*합니다.  URL이 파일 *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*합니다.  
+      ![Blob 속성](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+4.  PowerShell을 사용 하 여 사용 하 여 Azure 스택에 마켓플레이스 항목을 게시 하는 **추가 AzsGalleryItem** cmdlet. 예:   
+    ```PowerShell  
+    Add-AzsGalleryItem `
+     -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
-   ```
+    ```
+5. 볼 수 있는 갤러리 항목이 게시 한 후 **더 많은 서비스** > **마켓플레이스**합니다.  솔루션 템플릿을 다운로드가 사용 하는 경우 해당 솔루션 템플릿에 대 한 모든 종속 VHD 이미지를 추가 해야 합니다.  
+  ![보기 마켓플레이스](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
-7. 갤러리 항목을 게시 한 후에서 볼 수 있습니다는 **새로** > **마켓플레이스** 창. 다운로드가 솔루션 템플릿이 되었으면도 종속 VHD 이미지를 다운로드 해야 합니다.
+> [!NOTE]
+> Azure 스택 PowerShell 1.3.0 릴리스와 함께 이제 가상 컴퓨터 확장을 추가할 수 있습니다.
 
-   ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
+예: 
+
+````PowerShell
+Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
+````
 
 ## <a name="next-steps"></a>다음 단계
-
 [만들기 및 마켓플레이스 항목을 게시](azure-stack-create-and-publish-marketplace-item.md)

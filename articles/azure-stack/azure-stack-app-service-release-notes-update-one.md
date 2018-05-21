@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Azure 스택 업데이트 1 릴리스 정보에 대 한 앱 서비스
 
@@ -39,7 +39,7 @@ Azure 스택 업데이트 1 빌드 번호에 앱 서비스는 **69.0.13698.9**
 ### <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
-> Azure 스택 앱 서비스를 Azure의 새 배포 이제 요구는 [3 주체 와일드 카드 인증서](azure-stack-app-service-before-you-get-started.md#get-certificates) 처리 하는 방식에는 SSO에 대 한 Kudu 이제 Azure 앱 서비스에서의 향상으로 인해 합니다. 새 주제는 * * *. sso.appservice.<region>합니다. <domainname>.<extension>**
+> Azure 스택 앱 서비스를 Azure의 새 배포 이제 요구는 [3 주체 와일드 카드 인증서](azure-stack-app-service-before-you-get-started.md#get-certificates) 처리 하는 방식에는 SSO에 대 한 Kudu 이제 Azure 앱 서비스에서의 향상으로 인해 합니다. 새 제목은  **\*. sso.appservice.\< 지역\>.\< domainname\>.\< 확장\>**
 >
 >
 
@@ -198,7 +198,7 @@ Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치
     ```
 - 작업자는 응용 프로그램 서비스는 기존 가상 네트워크에 배포 하 고 파일 서버 에서만 사용 가능 개인 네트워크에 파일 서버에 연결할 수 없습니다.
  
-기존 가상 네트워크와 프로그램 파일 서버에 연결할 내부 IP 주소에 배포 하려는 경우 추가 해야는 아웃 바운드 보안 규칙 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 합니다. 이 작업을 수행 하려면 관리 포털에서 WorkersNsg으로 이동한 다음 속성으로 아웃 바운드 보안 규칙 추가:
+기존 가상 네트워크와 파일 서버에 연결 하는 데 내부 IP 주소에 배포 하려는 경우 추가 해야는 아웃 바운드 보안 규칙 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 합니다. 이 작업을 수행 하려면 관리 포털에서 WorkersNsg으로 이동한 다음 속성으로 아웃 바운드 보안 규칙 추가:
  * 원본: 모든
  * 원본 포트 범위: *
  * 대상: IP 주소

@@ -1,24 +1,24 @@
 ---
-title: "Azure 앱 서비스를 오프 라인 업데이트 | Microsoft Docs"
-description: "Azure 스택 Azure 앱 서비스를 오프 라인으로 업데이트 하기 위한 세부 지침"
+title: Azure 앱 서비스를 오프 라인 업데이트 | Microsoft Docs
+description: Azure 스택 Azure 앱 서비스를 오프 라인으로 업데이트 하기 위한 세부 지침
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 61a3169229cc121c078a934f6b979bdaffafd565
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8671cba484a779e8d7cd0172df141497bb396a97
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 Azure의 오프 라인 업데이트
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/12/2018
 
 Azure 스택 환경에서 응용 프로그램 서비스 리소스 공급자를 업그레이드 하려면 이러한 작업을 수행 해야 합니다.
 
-1. 다운로드는 [앱 서비스 설치 관리자](https://aka.ms/appsvcupdate1installer)
+1. 다운로드는 [앱 서비스 설치 관리자](https://aka.ms/appsvcupdate2installer)
 2. 오프 라인 업그레이드 패키지를 만듭니다.
 3. 앱 서비스 설치 관리자 (appservice.exe)를 실행 하 고 업그레이드를 완료 합니다.
 
@@ -52,7 +52,7 @@ Azure 스택 환경에서 응용 프로그램 서비스 리소스 공급자를 �
 * 앱 서비스의 이전 배포를 검색 합니다.
 * 저장소에 업로드
 * 모든 앱 서비스 역할을 업그레이드 (컨트롤러, 관리, 프런트엔드, 게시자 및 작업자 역할)
-* 앱 서비스 눈금 집합 정의 업데이트
+* App Service 확장 집합 정의 업데이트
 * 앱 서비스 리소스 공급자 매니페스트를 업데이트 합니다.
 
 ## <a name="create-an-offline-upgrade-package"></a>오프 라인 업그레이드 패키지 만들기
@@ -78,7 +78,7 @@ Azure 스택 환경에서 응용 프로그램 서비스 리소스 공급자를 �
 >
 >
 
-1. Appservice.exe 관리자 권한으로 실행 합니다.  
+1. Appservice.exe 관리자 권한으로 실행 합니다.
 
     ![앱 서비스 설치 관리자][1]
 
@@ -101,7 +101,7 @@ Azure 스택 환경에서 응용 프로그램 서비스 리소스 공급자를 �
    1. 클릭는 **연결** 단추 옆에 **Azure 스택 구독** 상자입니다.
         * Azure Active Directory (Azure AD)를 사용 하 여 Azure AD 관리자 계정 및 Azure 스택을 배포할 때 사용자가 제공한 암호를 입력 합니다. 클릭 **로그인**합니다.
         * Active Directory Federation Services (AD FS)를 사용 하 여 관리자 계정을 제공 합니다. 예를 들어 *cloudadmin@azurestack.local*입니다. 암호를 입력 하 고 클릭 **로그인**합니다.
-   2. 에 **Azure 스택 구독** 상자에서 구독을 선택 합니다.
+   2. 에 **Azure 스택 구독** 상자는 **공급자 구독 기본**합니다.
    3. 에 **Azure 스택 위치** 상자에 배포 하는 영역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure 스택 개발 키트를 배포 합니다.
    4. 기존 앱 서비스 배포를 검색 하는 경우 다음 리소스 그룹 및 저장소 계정은 채울 되며 회색으로 표시 합니다.
    5. 클릭 **다음** 업그레이드 요약을 검토 합니다.

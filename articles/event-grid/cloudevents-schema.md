@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/09/2018
 ms.author: babanisa
-ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 31af59fd7057bef6e427f08cef695688dc2111d1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid에서 CloudEvents 스키마 사용
 
@@ -23,6 +23,8 @@ CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 �
 CloudEvents는 [Cloud Native Compute Foundation](https://www.cncf.io/)을 통해 Microsoft를 비롯한 일부 [공동 작업자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재, 버전 0.1로 제공됩니다.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>CloudEvent 스키마
 
@@ -74,12 +76,6 @@ CloudEvents v0.1에서는 다음과 같은 속성을 사용할 수 있습니다.
 
 현재, Azure Event Grid에서는 **미국 중서부**, **미국 중부** 및 **유럽 북부**에서 CloudEvents JSON 형식의 입출력이 미리 보기로 지원됩니다.
 
-CloudEvent를 사용하려면 Azure CLI에 대한 확장을 사용하도록 설정해야 합니다.
-
-```azurecli
-az extension add –-name eventgrid
-```
-
 CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사용할 수 있습니다. Blob Storage 이벤트 및 IoT Hub 이벤트와 같은 시스템 이벤트와 사용자 지정 이벤트에 CloudEvents를 사용할 수 있습니다. 또한 온라인 상태에서 이러한 이벤트를 변환할 수도 있습니다.
 
 
@@ -99,6 +95,10 @@ CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사�
 Event Grid 토픽을 만들려면 다음을 사용합니다.
 
 ```azurecli
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
@@ -116,7 +116,7 @@ az eventgrid topic create \
 
 ```azurecli
 az eventgrid event-subscription create \
-  --name <event_subscription_name> \  
+  --name <event_subscription_name> \
   --topic-name <topic_name> \
   -g gridResourceGroup \
   --endpoint <endpoint_URL> \

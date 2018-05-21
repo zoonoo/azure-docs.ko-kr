@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -74,13 +74,20 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 4. 인증서 관리 유형에서 **CDN 관리**를 선택합니다.
 
-4. **켜기**를 선택하여 HTTPS를 사용하도록 설정합니다.
+5. **켜기**를 선택하여 HTTPS를 사용하도록 설정합니다.
 
     ![사용자 지정 도메인 HTTPS 상태](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. [도메인의 유효성 검사](#validate-the-domain)를 진행합니다.
+
 
 ## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 기능을 사용하도록 설정 
+
+> [!IMPORTANT]
+> 이 기능은 **Microsoft의 Azure CDN 표준** 프로필에서만 사용할 수 있습니다. 
+>
  
+
 Azure CDN에서 사용자 고유의 인증서를 사용하여 HTTPS를 통해 콘텐츠를 배달할 수 있습니다. 이 프로세스는 Azure Key Vault와 통합을 통해 수행됩니다. Azure Key Vault를 통해 고객은 해당 인증서를 안전하게 저장할 수 있습니다. Azure CDN 서비스는 이 보안 메커니즘을 활용하여 인증서를 가져옵니다. 사용자 고유의 인증서를 사용하려면 몇 가지 추가 단계가 필요합니다.
 
 ### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>1단계: Azure 키 자격 증명 모음 계정 및 인증서 준비
@@ -89,9 +96,23 @@ Azure CDN에서 사용자 고유의 인증서를 사용하여 HTTPS를 통해 �
  
 2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA(Certificate Authorities) 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>2단계: 키 자격 증명 모음에 Azure CDN 액세스 권한 부여
+### <a name="step-2-register-azure-cdn"></a>2단계: Azure CDN 등록
+
+PowerShell을 통해 Azure Active Directory에서 앱으로 Azure CDN을 등록합니다.
+
+1. 필요한 경우 로컬 컴퓨터의 PowerShell에 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0)을 설치합니다.
+
+2. PowerShell에서 다음 명령을 실행합니다.
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![PowerShell에서 Azure CDN 등록](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>3단계: 키 자격 증명 모음에 Azure CDN 액세스 권한 부여
  
-Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN 사용 권한을 부여해야 합니다.
+Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN 사용 권한을 부여합니다.
+
 1. 키 자격 증명 모음 계정의 설정에서 **액세스 정책**을 선택한 다음, **새로 추가**를 선택하여 새 정책을 만듭니다.
 
     ![새 액세스 정책 만들기](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -106,7 +127,7 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
 
     Azure CDN은 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다.
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>3단계: 배포할 Azure CDN에 대한 인증서 선택
+### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>4단계: 배포할 Azure CDN에 대한 인증서 선택
  
 1. Azure CDN 포털로 돌아와서 사용자 지정 HTTPS를 활성화하려는 프로필 및 CDN 엔드포인트를 선택합니다. 
 
@@ -126,16 +147,20 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
     - 사용 가능한 인증서 버전 
  
 5. **켜기**를 선택하여 HTTPS를 사용하도록 설정합니다.
+  
+6. 사용자 고유의 인증서를 사용할 경우 도메인 유효성 검사가 필요하지 않습니다. [전파 대기](#wait-for-propagation)를 진행합니다.
 
 
 ## <a name="validate-the-domain"></a>도메인의 유효성 검사
 
-CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는 사용자 지정 도메인을 이미 사용 중인 경우  
+CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는 사용자 지정 도메인을 이미 사용 중이거나 사용자 고유의 인증서를 사용 중인 경우 다음을 진행합니다.  
 [사용자 지정 도메인이 CDN 엔드포인트에 매핑됨](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record)을 진행합니다. 그렇지 않고 엔드포인트의 CNAME 레코드 항목이 더 이상 존재하지 않거나 cdnverify 하위 도메인을 포함하는 경우 [사용자 지정 도메인이 CDN 엔드포인트에 매핑되지 않음](#custom-domain-is-not-mapped-to-your-cdn-endpoint)을 진행합니다.
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>CNAME 레코드를 통해 사용자 지정 도메인이 CDN 엔드포인트에 매핑됨
 
-엔드포인트에 사용자 지정 도메인을 추가한 경우 도메인 등록 기관의 DNS 테이블에 CDN 엔드포인트 호스트 이름에 매핑할 CNAME 레코드를 만들었습니다. 해당 CNAME 레코드가 여전히 있고 cdnverify 하위 도메인을 포함하지 않는 경우 DigiCert CA(인증 기관)는 이 레코드를 사용하여 사용자 지정 도메인의 소유권을 확인합니다. 
+엔드포인트에 사용자 지정 도메인을 추가한 경우 도메인 등록 기관의 DNS 테이블에 CDN 엔드포인트 호스트 이름에 매핑할 CNAME 레코드를 만들었습니다. 해당 CNAME 레코드가 여전히 있고 cdnverify 하위 도메인을 포함하지 않는 경우 DigiCert CA(인증 기관)는 이 레코드를 사용하여 사용자 지정 도메인의 소유권을 자동으로 확인합니다. 
+
+사용자 고유의 인증서를 사용 중인 경우 도메인 유효성 검사가 필요하지 않습니다.
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 CDN 끝점 호스트 이름입니다.
 

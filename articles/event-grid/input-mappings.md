@@ -6,17 +6,19 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08d1e1ad93eb69d6749860348d13a64078ed1993
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e809f83b43c32031b66c8f470575da6e9fcdc56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
 
 이벤트 데이터가 예상되는 [Event Grid 스키마](event-schema.md)와 일치하지 않는 경우 계속 Event Grid를 사용하여 구독자에 이벤트를 라우팅할 수 있습니다. 이 문서에서는 Event Grid 스키마로 사용자의 스키마를 매핑하는 방법을 설명합니다.
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="original-event-schema"></a>원래 이벤트 스키마
 
@@ -47,6 +49,10 @@ ms.lasthandoff: 05/07/2018
 다음 예제에서는 일부 매핑된 기본 필드를 사용하여 사용자 지정 토픽을 만듭니다.
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \

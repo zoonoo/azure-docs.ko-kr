@@ -5,26 +5,25 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.reviewer: efemmano
+ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Azure 스택 포털을 사용 하 여
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure 스택 서비스의 사용자를 Azure 스택 포털을 사용 하 여 공용 제공 서비스를 구독할 수 있으며 이러한 제안을 제공 하는 서비스를 사용 하 여 키를 누릅니다. 하기 전에 Azure 포털을 사용한 경우 익숙한 이미 사용자 인터페이스입니다.
+Azure 스택 포털을 사용 하 여 공용 제공 서비스를 구독할 수 있으며 이러한 제안을 제공 하는 서비스를 사용 하 여 있습니다. 전체 Azure 포털을 사용한 경우 익숙한 이미 사이트 작동 방식입니다.
 
 ## <a name="access-the-portal"></a>포털에 액세스
 
@@ -60,13 +59,13 @@ Azure 스택 연산자 (서비스 공급자 또는 조직에서 관리자 권한
     특히, 시작 하려면 다음 문서를 검토 하는 것이 좋습니다.
 
     - [주요 고려 사항: Azure 스택에 대 한 앱을 빌드 또는 서비스를 사용 하 여](azure-stack-considerations.md)
-    - 설명서의 "서비스를 사용 하 여" 섹션에는 각 서비스에 대 한 "고려 사항" 문서입니다. "고려 사항" 페이지는 Azure에서 제공 하는 서비스와 Azure 스택에서 제공 하는 동일한 서비스의 차이점을 설명 합니다. 예를 들어 참조 [VM 고려 사항](azure-stack-vm-considerations.md)합니다. Azure 스택에 고유한 "서비스를 사용 하 여" 섹션에 다른 정보가 있을 수 있습니다.
+    - 에 **서비스를 사용 하 여** 섹션의 설명서는 각 서비스에 대 한 고려 사항 문서입니다. 고려 사항 페이지에서는 Azure에서 제공 하는 서비스와 Azure 스택에서 제공 하는 동일한 서비스의 차이점을 설명 합니다. 예를 들어 참조 [VM 고려 사항](azure-stack-vm-considerations.md)합니다. 에 다른 정보가 있을 수 있습니다는 **서비스를 사용 하 여** Azure 스택에 고유한 섹션.
      
       서비스에 대 한 일반 참조로 Azure 설명서를 사용할 수 있지만 이러한 차이에 주의 해야 합니다. 설명서의 링크를 클릭 이해는 **빠른 시작 자습서** 지점 Azure 설명서를 바둑판식으로 배열입니다.
 
 ## <a name="get-support"></a>지원 받기
 
-추가 지원이 필요한 경우 조직 또는 서비스 공급자를에 문의 하십시오.
+를 지원 해야 하는 경우 도움말에 대 한 조직 또는 서비스 공급자에 게 문의 합니다.
 
 Azure 스택 개발 키트를 사용 하는 경우는 [Azure 스택 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) 유일한 소스는 지원 됩니다.
 

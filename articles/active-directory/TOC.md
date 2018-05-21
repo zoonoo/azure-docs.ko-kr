@@ -283,6 +283,7 @@
 ### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [검토로 사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [액세스 검토 결과 검색](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
@@ -336,7 +337,6 @@
 ### [서명 해시 알고리즘 변경](active-directory-federation-sha256-guidance.md)
 
 ## [문제 해결](active-directory-troubleshooting-support-howto.md)
-### [문제 해결: Active Directory 항목이 없거나 사용할 수 없음](active-directory-troubleshooting.md)
 
 ## Azure AD 개념 증명(PoC) 배포
 ### [PoC 플레이 북: 소개](active-directory-playbook-intro.md)

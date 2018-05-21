@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="door-monitor"></a>문 모니터링          
 
@@ -213,4 +213,4 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 장치를 연결하고 SendGrid 서비스를 사용하여 이메일을 보내는 방법에 대해 알아보았습니다. 권장되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
