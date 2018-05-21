@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Azure Analysis Services 개요
+# <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델링을 제공합니다. Azure 데이터 플랫폼 서비스와 통합된 서비스로서 완벽하게 관리되는 플랫폼(PaaS)입니다. 
 
-Analysis Services를 사용하면 여러 원본의 데이터를 매시업하고 결합하며 메트릭을 정의하며 단일한, 신뢰할 수 있는 유의적 데이터 모델에서 데이터를 보호할 수 있습니다. 데이터 모델은 사용자가 Power BI, Excel, Reporting Services, 써드파티 및 사용자 지정 앱과 같은 클라이언트 응용 프로그램을 통해 방대한 양의 데이터를 검색할 수 있는 보다 쉽고 빠른 방법을 제공합니다.
+Analysis Services를 사용하면 여러 데이터 원본의 데이터를 매시업하고 결합하며 메트릭을 정의하며 단일한, 신뢰할 수 있는 유의적 데이터 모델에서 데이터를 보호할 수 있습니다. 데이터 모델은 사용자가 Power BI, Excel, Reporting Services, 써드파티 및 사용자 지정 앱과 같은 클라이언트 응용 프로그램을 통해 방대한 양의 데이터를 검색할 수 있는 보다 쉽고 빠른 방법을 제공합니다.
 
 ![데이터 원본](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -134,4 +134,5 @@ Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure
 문서에 대해 제안할 사항이 있습니까? 각 문서의 아래쪽에 있는 Livefyre를 사용하여 주석을 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Analysis Services에 대해 자세히 이해했으므로 이제는 이 서비스를 시작할 단계입니다. Azure에서 [서버를 만드는 방법](analysis-services-create-server.md)을 알아봅니다. 서버가 준비되었으면 [Adventure Works 자습서](tutorials/aas-adventure-works-tutorial.md)를 단계별로 수행하여 완전한 기능을 갖춘 테이블 형식 모델을 만들고 서버에 배포하는 방법을 알아봅니다.
+Azure에서 [서버를 만드는 방법](analysis-services-create-server.md)을 알아봅니다.   
+서버를 만든 후 [샘플 모델을 추가합니다](analysis-services-create-sample-model.md).   
