@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: 방법 가이드
   items:
-    - name: 계획 및 디자인
+    - name: 계획
       items:
         - name: 가상 네트워크
           href: virtual-network-vnet-plan-design-arm.md
-        - name: 네트워크 보안 그룹
-          href: virtual-networks-nsg.md
     - name: 배포
       items:
         - name: 네트워크 보안 그룹

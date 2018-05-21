@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 SQL&#92;IIS&#92;.NET 스택을 실행하는 VM 만들기| Microsoft Docs"
-description: "자습서 - Windows 가상 머신에 Azure SQL, IIS, .NET 스택 설치."
+title: 자습서 - Azure에서 SQL&#47;IIS&#47;.NET 스택을 실행하는 VM 만들기| Microsoft Docs
+description: 이 자습서에서는 Azure에서 Windows 가상 머신에 Azure SQL, IIS, .NET 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9fea933dd664955a0bc6f47db775fbc469fd684
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Azure에서 SQL&#92;IIS&#92;.NET 스택 설치
+# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL&#47;IIS&#47;.NET 스택 설치
 
-이 자습서에서는 Azure PowerShell을 사용하여 SQL&#92;IIS&#92;.NET 스택을 설치합니다. 스택은 Windows Server 2016을 실행하는 두 개의 VM으로 구성되며, 하나는 IIS와 .NET과 실행하고 다른 하나는 SQL Server와 실행합니다.
+이 자습서에서는 Azure PowerShell을 사용하여 SQL&#47;IIS&#47;.NET 스택을 설치합니다. 스택은 Windows Server 2016을 실행하는 두 개의 VM으로 구성되며, 하나는 IIS와 .NET과 실행하고 다른 하나는 SQL Server와 실행합니다.
 
 > [!div class="checklist"]
 > * VM 만들기 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/08/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AzureRM.Compute 모듈 버전 4.3.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM.Compute`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AzureRM.Compute 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM.Compute`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="create-a-iis-vm"></a>IIS VM 만들기 
 

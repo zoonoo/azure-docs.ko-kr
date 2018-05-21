@@ -4,7 +4,7 @@ description: 사이트 간 VPN을 구성합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: anzaman
-ms.openlocfilehash: da506165dd7c2ca29f977af1452d11189d2fdd2f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62381c08892017512dcf2bd5d9c7f8690bedfb6c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>PowerShell을 사용하여 VPN Gateway를 만들고 사이트 간 연결 추가
 
-이 스크립트는 경로 기반 VPN Gateway를 만들고 RADIUS 사용자 이름/암호 인증을 사용하여 지점 및 사이트 간 구성을 추가합니다.
+이 스크립트는 경로 기반 VPN Gateway를 만들고 사이트 간 구성을 추가합니다. 연결을 만들기 위해 VPN 장치를 구성해야 합니다. 자세한 내용은 [사이트 간 VPN Gateway 연결에 대한 VPN 장치 및 IPsec/IKE 매개 변수 정보](../vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
 
 ```azurepowershell-interactive

@@ -1,24 +1,24 @@
 ---
-title: "Azure 마이크로 서비스에서 KVSActorStateProvider 설정 변경 | Microsoft Docs"
+title: Azure 마이크로 서비스에서 KVSActorStateProvider 설정 변경 | Microsoft Docs
 description: "'KVSActorStateProvider' 형식의 Azure 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors 구성--KVSActorStateProvider
 KVSActorStateProvider의 기본 구성은 지정된 행위자에 대해 Microsoft Visual Studio 패키지 루트의 Config 폴더에 생성된 settings.xml 파일을 변경하여 수정할 수 있습니다.
@@ -45,7 +45,7 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>구성 이름
-| 이름 | 단위 | 기본값 | 설명 |
+| Name | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |초 |0.015 |작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다. |
 | ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 끝점을 참조해야 합니다. 서비스 매니페스트에서 끝점 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
@@ -62,7 +62,7 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>구성 이름
-| 이름 | 단위 | 기본값 | 설명 |
+| Name | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |밀리초 |200 |지속형 로컬 저장소 커밋에 대한 최대 배치 간격을 설정합니다. |
 | MaxVerPages |페이지 수 |16384 |로컬 저장소 데이터베이스의 최대 버전 페이지 수. 처리되지 않은 트랜잭션의 최대 수를 결정합니다. |
