@@ -9,16 +9,16 @@ editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 60989825ecdefa853d0e2df99619e3cb350cb6bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>행위자 서비스에서 서비스 수준 기능 구현
 [서비스 계층](service-fabric-reliable-actors-platform.md#service-layering)에 설명된 대로 행위자 서비스 자체는 신뢰할 수 있는 서비스입니다.  `ActorService`에서 파생된 고유한 서비스를 작성할 수 있고 다음과 같이 StatefulService를 상속하는 경우와 동일한 방식으로 서비스 수준 기능을 구현할 수 있습니다.

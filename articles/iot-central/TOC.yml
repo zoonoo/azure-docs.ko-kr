@@ -105,5 +105,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
+    - name: 고객 데이터 요청
+      href: iot-central-customer-data-requests.md
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-central'

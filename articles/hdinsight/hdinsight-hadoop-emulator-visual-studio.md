@@ -4,20 +4,20 @@ description: Hortonworks Sandbox(로컬 VM에서 실행됨)와 Azure Data Lake t
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 05/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 51438f70fa5ab4a3ee088033ec2da51697f8e273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c1f5a8100d5d4017e56ef129aa4f4826746868
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
@@ -124,7 +124,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 1. Visual Studio에서 **파일**, **새로 만들기** 및 **프로젝트**를 차례로 선택합니다.
 
-2. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **HIVE(HDInsight)**를 선택합니다. 템플릿 목록에서 **Hive 샘플**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
+2. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **HIVE(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Hive 샘플**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
 
     ![Azure Data Lake, HIVE, Hive 예제 및 확인이 강조 표시된 새 프로젝트 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
@@ -134,7 +134,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼리 언어(HiveQL)를 제공하지만 Pig는 데이터에 대한 변환을 수행하는 방식으로 작동합니다. Pig는 변환의 파이프라인을 개발할 수 있는 언어(Pig Latin)를 제공합니다. 로컬 클러스터에서 Pig를 사용하려면 다음 단계를 따르세요.
 
-1. Visual Studio를 열고 **파일**, **새로 만들기**, **프로젝트**를 차례로 선택합니다. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **Pig(HDInsight)**를 선택합니다. 템플릿 목록에서 **Pig 응용 프로그램**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
+1. Visual Studio를 열고 **파일**, **새로 만들기**, **프로젝트**를 차례로 선택합니다. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **Pig(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Pig 응용 프로그램**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
 
     ![Azure Data Lake, Pig, Pig 예제 및 확인이 강조 표시된 새 프로젝트 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
