@@ -1,24 +1,24 @@
 ---
-title: "Azure 서비스 패브릭을 사용하여 상태를 보고하고 확인 | Microsoft Docs"
-description: "Azure 서비스 패브릭에서 제공하는 상태 모니터링 도구를 사용하여 서비스 코드에서 상태 보고서를 보내고 서비스의 상태를 확인하는 방법에 대해 알아보세요."
+title: Azure 서비스 패브릭을 사용하여 상태를 보고하고 확인 | Microsoft Docs
+description: Azure 서비스 패브릭에서 제공하는 상태 모니터링 도구를 사용하여 서비스 코드에서 상태 보고서를 보내고 서비스의 상태를 확인하는 방법에 대해 알아보세요.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/2/2017
 ms.author: dekapur
-ms.openlocfilehash: a8c1ac57d38ae504e677c44c6fec08164b9b74ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 82ee3cbca40713d527f64ae4698cb9ce64a10215
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
 서비스에 문제가 발생할 때 인시던트 및 중단에 응답하고 수정하는 능력은 문제를 빠르게 검색할 수 있는 능력과 밀접한 관련이 있습니다. 서비스 코드에서 Azure 서비스 패브릭 상태 관리자로 문제 및 오류를 보고하면 서비스 패브릭이 제공하는 표준 상태 모니터링 도구를 사용하여 상태를 확인할 수 있습니다.
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/06/2017
 다음이 설치되어 있어야 합니다.
 
 * Visual Studio 2015 또는 Visual Studio 2017
-* 서비스 패브릭 SDK
+* Service Fabric SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>로컬 보안 개발자 클러스터를 만들려면
 * 관리자 권한으로 PowerShell을 열고 다음 명령을 실행합니다.
@@ -73,7 +73,7 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     using System.Fabric.Health;
     ```
    
-    b. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
+    나. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
    
     ```csharp
     if (!result.HasValue)
@@ -101,7 +101,7 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
     ```
    
-    b. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
+    나. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
    
     ```csharp
     if (!result.HasValue)

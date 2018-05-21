@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services: Azure 가상 네트워크에 대한 DNS 설정 업데이트 | Microsoft Docs"
-description: "Azure Active Directory Domain Services 시작"
+title: 'Azure Active Directory Domain Services: Azure 가상 네트워크에 대한 DNS 설정 업데이트 | Microsoft Docs'
+description: Azure Active Directory Domain Services 시작
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.openlocfilehash: c99d42eaf52a13afef6df76b6bb1a714e719fa64
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 972b995d3768e765b95c136b3cfbee91ab0a88ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 활성화
 
@@ -42,9 +42,9 @@ Azure Active Directory Domain Services를 사용하도록 설정한 가상 네�
 5. 가상 네트워크에 대한 DNS 서버를 업데이트를 완료하면 **저장**을 클릭합니다.
 
 > [!NOTE]
-> 다시 시작하고 나면 네트워크 상의 가상 컴퓨터만 새 DNS 설정을 얻습니다. 업데이트된 DNS 설정을 즉시 얻어야 하는 경우 포털, PowerShell 또는 CLI로 다시 시작을 트리거합니다.
+> 다시 시작하고 나면 네트워크 상의 가상 머신만 새 DNS 설정을 얻습니다. 업데이트된 DNS 설정을 즉시 얻어야 하는 경우 포털, PowerShell 또는 CLI로 다시 시작을 트리거합니다.
 >
 >
 
 ## <a name="next-step"></a>다음 단계
-[작업 5: Azure Active Directory Domain Services에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync.md)
+[작업 5: Azure Active Directory Domain Services에 암호 해시 동기화 사용](active-directory-ds-getting-started-password-sync.md)

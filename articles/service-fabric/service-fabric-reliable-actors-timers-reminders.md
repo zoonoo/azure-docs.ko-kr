@@ -1,6 +1,6 @@
 ---
-title: "Reliable Actors 타이머 및 미리 알림 | Microsoft Docs"
-description: "서비스 패브릭 Reliable Actors의 타이머 및 미리 알림에 대해 소개합니다."
+title: Reliable Actors 타이머 및 미리 알림 | Microsoft Docs
+description: 서비스 패브릭 Reliable Actors의 타이머 및 미리 알림에 대해 소개합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,16 +9,16 @@ editor: amanbha
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 09a979d05757adab363d9ab0c48cad9ff3b529dd
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e43aec6630a4a688ffd6c52a5e5bd711243fa662
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: d50333888592d2d3e13c40c07a7e58f8676df075
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -53,11 +53,15 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 
 공용 IP 주소는 다음 SKU 중 하나로 만들어집니다.
 
+>[!IMPORTANT]
+> SKU 일치는 Load Balancer 및 공용 IP 리소스에 대해 사용되어야 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
+
 #### <a name="basic"></a>Basic
 
 SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주소입니다. SKU의 도입으로 공용 IP 주소로 선택하려는 SKU를 지정하는 옵션이 만들어집니다. 기본 SKU 주소는 다음과 같습니다.
 
 - 고정 또는 동적 할당 방법으로 할당됩니다.
+- 기본적으로 열려 있습니다.  네트워크 보안 그룹을 사용하는 것이 좋지만 인바운드 또는 아웃바운드 트래픽을 제한하는 것은 선택 사항입니다.
 - 네트워크 인터페이스, VPN Gateway, Application Gateway 및 인터넷 연결 부하 분산 장치 등 공용 IP 주소를 할당할 수 있는 모든 Azure 리소스에 할당됩니다.
 - 특정 영역에 할당될 수 있습니다.
 - 영역이 중복되지 않습니다. 사용 가능한 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
@@ -67,17 +71,18 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 표준 SKU 공용 IP 주소는 다음과 같습니다.
 
 - 고정 할당 방법으로만 할당됩니다.
-- 네트워크 인터페이스 또는 표준 인터넷 연결 부하 분산 장치에 할당됩니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
-- 기본적으로 중복된 영역입니다. 영역을 만들고 특정 가용성 영역에서 보장할 수 있습니다. 사용 가능한 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- 기본적으로 보호되고 인바운드 트래픽에 닫혀 있습니다. [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 허용된 인바운드 트래픽을 명시적으로 허용해야 합니다.
+- 네트워크 인터페이스 또는 공용 표준 연결 부하 분산 장치에 할당합니다. Azure 표준 부하 분산 장치에 대한 자세한 내용은 [Azure 표준 부하 분산 장치](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- 기본적으로 중복된 영역입니다. 영역을 만들고 특정 가용성 영역에서 보장할 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
  
 > [!NOTE]
-> 가상 머신의 네트워크 인터페이스에 표준 SKU 공용 IP 주소를 할당할 때 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 원하는 트래픽을 명시적으로 허용해야 합니다. 네트워크 보안 그룹을 만들어 연결하고 원하는 트래픽을 명시적으로 허용해야 리소스와 통신할 수 있습니다.
+> 네트워크 보안 그룹을 만들어 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 통신할 수 있습니다.
 
 ### <a name="allocation-method"></a>할당 방법
 
-IP 주소는 *동적* 또는 *고정*이라는 두 가지 방법으로 공용 IP 리소스에 IP 주소를 할당합니다. 기본 할당 방법은 IP 주소를 만들 때 할당하지 *않는***동적** 방법입니다. 대신, 연결된 리소스(예: VM 또는 부하 분산 장치)를 시작하거나 만들 때 공용 IP 주소가 할당됩니다. 리소스를 중지(또는 삭제)하면 IP 주소가 해제됩니다. 예를 들어 IP 주소는 리소스 A에서 해제된 후에 다른 리소스에 할당될 수 있습니다. 리소스 A가 중지된 동안 IP 주소가 다른 리소스에 할당되면 리소스 A를 다시 시작할 때 다른 IP 주소가 할당됩니다.
+기본 및 표준 SKU 공용 IP 주소는 모두 *고정* 할당 방법을 지원합니다.  리소스는 생성 시에 IP 주소를 할당하고 삭제될 때 IP 주소를 해제합니다.
 
-연결된 리소스의 IP 주소를 동일하게 유지하려면 할당 방법을 명시적으로 *static*으로 설정하면 됩니다. 고정 IP 주소가 즉시 할당됩니다. 리소스를 삭제하거나 할당 방법을 *동적*으로 변경하는 경우에만 주소가 해제됩니다.
+기본 SKU 공용 IP 주소도 할당 방법을 지정하지 않으면 기본값으로 설정되는 *동적* 할당 방법을 지원합니다.  기본 공용 IP 주소 리소스에 *동적* 할당 방법을 선택하면 IP 주소가 리소스 생성 시에 할당되지 **않음**을 의미합니다.  가상 머신과 공용 IP 주소를 연결하거나 첫 번째 가상 머신 인스턴스를 기본 부하 분산 장치의 백 엔드 풀에 배치할 때 공용 IP 주소가 할당됩니다.   리소스를 중지(또는 삭제)하면 IP 주소가 해제됩니다.  예를 들어 IP 주소는 리소스 A에서 해제된 후에 다른 리소스에 할당될 수 있습니다. 리소스 A가 중지된 동안 IP 주소가 다른 리소스에 할당되면 리소스 A를 다시 시작할 때 다른 IP 주소가 할당됩니다. 기본 공용 IP 주소 리소스의 할당 방법을 *고정*에서 *동적*으로 변경하는 경우 주소가 해제됩니다. 연결된 리소스의 IP 주소를 동일하게 유지하려면 할당 방법을 명시적으로 *static*으로 설정하면 됩니다. 고정 IP 주소가 즉시 할당됩니다.
 
 > [!NOTE]
 > 할당 방법을 *고정*으로 설정한 경우에도 공용 IP 주소 리소스에 할당된 실제 IP 주소를 지정할 수 없습니다. Azure는 리소스가 생성된 Azure 위치에서 사용 가능한 IP 주소 풀의 IP 주소를 할당됩니다.
@@ -111,11 +116,11 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 
 ### <a name="vpn-gateways"></a>VPN 게이트웨이
 
-[Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)는 Azure 가상 네트워크를 다른 Azure 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다. 공용 IP 주소를 VPN Gateway에 할당하여 원격 네트워크와의 통신을 구현할 수 있습니다. VPN Gateway에 *동적* 공용 IP 주소만을 할당할 수 있습니다.
+[Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)는 Azure 가상 네트워크를 다른 Azure 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다. 공용 IP 주소를 VPN Gateway에 할당하여 원격 네트워크와의 통신을 구현할 수 있습니다. VPN Gateway에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
 
 ### <a name="application-gateways"></a>응용 프로그램 게이트웨이
 
-공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 응용 프로그램 게이트웨이 프런트 엔드 구성에 *동적* 공용 IP 주소만을 할당할 수 있습니다.
+공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 응용 프로그램 게이트웨이 프런트 엔드 구성에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
 
 ### <a name="at-a-glance"></a>요약
 다음 표는 공용 IP 주소를 최상위 리소스와 연결할 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 고정)를 보여줍니다.

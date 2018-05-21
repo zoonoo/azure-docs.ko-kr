@@ -1,6 +1,6 @@
 ---
-title: Azure의 Linux VM에서 MEAN 스택 만들기 | Microsoft Docs
-description: Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 만드는 방법을 알아봅니다.
+title: 자습서 - Azure의 Linux 가상 머신에 MEAN 스택 만들기 | Microsoft Docs
+description: 이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
-이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 구현하는 방법을 보여 줍니다. 만드는 MEAN 스택을 사용하여 데이터베이스에서 책을 추가, 삭제 및 나열할 수 있습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure의 Linux VM(가상 머신)에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 구현하는 방법을 보여 줍니다. 만드는 MEAN 스택을 사용하여 데이터베이스에서 책을 추가, 삭제 및 나열할 수 있습니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Linux VM 만들기
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/23/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 
 ## <a name="create-a-linux-vm"></a>Linux VM 만들기
@@ -323,7 +323,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. VM에 대해 기록된 주소로 웹 브라우저를 엽니다. 예: *http://13.72.77.9:3300*. 다음 페이지와 유사한 출력이 표시됩니다.
+2. VM에 대해 기록된 주소로 웹 브라우저를 엽니다. 예를 들어 *http://13.72.77.9:3300*입니다. 다음 페이지와 유사한 출력이 표시됩니다.
 
     ![책 레코드](media/tutorial-mean/meanstack-init.png)
 

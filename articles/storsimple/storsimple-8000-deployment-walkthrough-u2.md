@@ -1,24 +1,24 @@
 ---
-title: "Azure Portal에서 StorSimple 8000 시리즈 장치 배포 | Microsoft Docs"
-description: "업데이트 3 이상을 실행하는 StorSimple 8000 시리즈 장치 및 StorSimple 장치 관리자 서비스를 배포하기 위한 단계와 모범 사례를 설명합니다."
+title: Azure Portal에서 StorSimple 8000 시리즈 장치 배포 | Microsoft Docs
+description: 업데이트 3 이상을 실행하는 StorSimple 8000 시리즈 장치 및 StorSimple 장치 관리자 서비스를 배포하기 위한 단계와 모범 사례를 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>온-프레미스 StorSimple 장치(업데이트 3 이상) 배포
 
@@ -195,6 +195,19 @@ Windows Server® 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 �
 StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>StorSimple용 직렬 케이블에 대한 핀아웃 다이어그램 보기
+StorSimple 직렬 콘솔 케이블에 다음 핀아웃 다이어그램을 사용할 수 있습니다.
+
+여기에서 DB9 여성 커넥터는 P1이며 3.5mm 커넥터는 P2입니다.
+
+![StorSimple 직렬 콘솔 케이블에 대한 핀아웃 다이어그램 1](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+다음 다이어그램에 나와 있는 것처럼 스테레오 잭의 팁은 PIN 3 RX로 간주되고, 중간은 PIN 2 TX이며 기본은 PIN 1 GND입니다.
+
+![StorSimple 직렬 콘솔 케이블에 대한 핀아웃 다이어그램 2](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple Cloud Appliance를 구성합니다](storsimple-8000-cloud-appliance-u2.md).

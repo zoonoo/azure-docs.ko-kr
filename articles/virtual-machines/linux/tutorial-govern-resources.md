@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure 가상 머신 제어 | Microsoft Docs
-description: 자습서 - Azure CLI를 통해 RBAC, 정책, 잠금 및 태그를 적용하여 Azure 가상 머신을 관리
+title: 자습서 - Azure CLI 2.0을 사용하여 Azure 가상 머신 제어 | Microsoft Docs
+description: 이 자습서에서는 Azure CLI 2.0을 사용하여 RBAC, 정책, 잠금 및 태그를 적용하여 Azure 가상 머신을 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,22 +10,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>Azure CLI를 사용하여 가상 머신 제어
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용한 Linux 가상 머신 제어에 대해 알아보기
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬에서 설치하고 사용하려면 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -49,9 +50,9 @@ az group create --name myResourceGroup --location "East US"
 
 가상 머신 솔루션을 관리하기 위해서는 일반적으로 필요한 액세스 권한을 제공하는 세 가지 리소스 특정 역할이 있습니다.
 
-* [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
-* [네트워크 참여자](../../role-based-access-control/built-in-roles.md#network-contributor)
-* [Storage 계정 참여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [네트워크 기여자](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../../active-directory/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
 

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유
 소프트웨어 개발자로서 응용 프로그램을 구성 요소 부분으로 팩터링하는 것에 대한 생각에는 새로울 것이 없습니다. 객체 지향, 소프트웨어 추상화 및 구성 요소화가 중심적인 패러다임입니다. 현재 이러한 팩토링화는 공유 라이브러리와 기술 계층 간의 인터페이스와 클래스의 형태를 취하는 경향이 있습니다. 일반적으로 백엔드 스토어, 중간 계층 비즈니스 논리, 프런트엔드 사용자 인터페이스(UI)를 통한 계층화된 접근 방식을 이용합니다. 지난 몇 년 동안 우리 개발자들이 *겪은* 변화는 비즈니스에서 운영하는 클라우드용 배포 응용 프로그램을 구축하는 것이었습니다.

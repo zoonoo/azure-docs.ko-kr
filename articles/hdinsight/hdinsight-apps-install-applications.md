@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: bd74be9c78744619f60606b509ea16d000bd3998
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ad112544a703a9b6ec37fa07cbd6df6976d5e26
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Hadoop 응용 프로그램 설치
 
@@ -36,7 +36,7 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 * **Paxata 셀프 서비스 데이터 준비**
 * **KNIME Spark Executor용 Spark 작업 서버** KNIME Spark Executor용 Spark 작업 서버는 KNIME Analytics Platform을 HDInsight 클러스터에 연결하는 데 사용됩니다.
 * **HDnsight용 Streamsets Data Collector**는 모든 기능을 갖춘 IDE(통합 개발 환경)로서 이를 통해 사용자 지정 코드를 작성할 필요 없이 스트림을 맞추고 데이터를 일괄 처리하는 수집 파이프라인 간에 디자인, 테스트, 배포 및 관리하고 다양한 스트림 내 변환을 수행할 수 있습니다. 
-* **[Trifacta](http://www.trifacta.com/)**는 획기적인 사용자 경험과 워크플로, 아키텍처를 제공하기 위해 머신 러닝을 활용해 데이터 엔지니어 및 분석가가 현대의 다양한 데이터를 효율적으로 탐색하고 준비할 수 있게 합니다.
+* **[Trifacta](http://www.trifacta.com/)** 는 획기적인 사용자 경험과 워크플로, 아키텍처를 제공하기 위해 머신 러닝을 활용해 데이터 엔지니어 및 분석가가 현대의 다양한 데이터를 효율적으로 탐색하고 준비할 수 있게 합니다.
 * **WANdisco Fusion HDI 앱**은 위치에 상관없이 변경되는 데이터에 일관되게 계속 연결할 수 있도록 합니다. 이렇게 하면 중지 및 중단 없이 언제 어디서나 데이터에 액세스할 수 있습니다.
 
 이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight의 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.

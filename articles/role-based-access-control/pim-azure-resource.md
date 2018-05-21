@@ -3,22 +3,23 @@ title: PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 �
 description: PIM에서 역할 기반 액세스 관리를 사용하여 Azure 리소스에 액세스하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: skwan
+author: rolyon
 manager: mtillman
-editor: bryanla
+editor: skwan
 ms.assetid: ba06b8dd-4a74-4bda-87c7-8a8583e6fd14
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: 497efb7889029ef5a9478c59ee75ccabd5b7d87b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.reviewer: skwan
+ms.openlocfilehash: fb0a1ff3821efd7114b509b72e143d5240b61b4c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 액세스 관리
 

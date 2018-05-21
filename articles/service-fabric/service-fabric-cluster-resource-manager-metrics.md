@@ -1,24 +1,24 @@
 ---
-title: "메트릭을 사용하여 Azure 마이크로 서비스 부하 관리 | Microsoft Docs"
-description: "서비스 리소스 소비를 관리하기 위해 Service Fabric에서 메트릭을 구성하고 사용하는 방법에 대해 알아봅니다."
+title: 메트릭을 사용하여 Azure 마이크로 서비스 부하 관리 | Microsoft Docs
+description: 서비스 리소스 소비를 관리하기 위해 Service Fabric에서 메트릭을 구성하고 사용하는 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
 *메트릭*은 서비스에서 관심을 갖고 클러스터의 노드에서 제공하는 리소스입니다. 메트릭은 서비스 성능을 향상시키거나 모니터링하기 위해 관리하려는 모든 항목입니다. 예를 들어 메모리 사용량을 조사하여 서비스가 오버로드 상태인지 여부를 확인할 수 있습니다. 또 다른 용도는 더 나은 성능을 얻기 위해 메모리 제약이 심하지 않은 위치로 서비스를 이동할 수 있는지 여부를 파악하는 것입니다.
@@ -141,7 +141,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 이제 각각의 설정을 자세히 살펴보고 영향을 받는 동작에 대해 설명하겠습니다.
 
 ## <a name="load"></a>로드
-메트릭 정의의 핵심은 일부 부하에 관한 것입니다. *로드*는 지정된 노드의 일부 서비스 인스턴스 또는 복제본에서 지정된 메트릭을 사용하는 양입니다. 로드는 거의 모든 지점에서 구성될 수 있습니다. 예:
+메트릭 정의의 핵심은 일부 부하에 관한 것입니다. *로드*는 지정된 노드의 일부 서비스 인스턴스 또는 복제본에서 지정된 메트릭을 사용하는 양입니다. 로드는 거의 모든 지점에서 구성될 수 있습니다. 예: 
 
   - 서비스를 만들 때 로드를 정의할 수 있습니다. 이를 _기본 로드_라고 합니다.
   - 기본 로드를 포함하여 서비스에 대한 메트릭 정보는 서비스를 만든 후에 업데이트될 수 있습니다. 이를 _서비스 업데이트_라고 합니다. 

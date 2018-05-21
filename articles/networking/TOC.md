@@ -1,6 +1,6 @@
 # 개요
 ## [Azure 네트워킹 정보](networking-overview.md)
-## 건축
+## 아키텍처
 ### [가상 데이터 센터](networking-virtual-datacenter.md)
 ### [여러 네트워크 경로를 포함한 비대칭 라우팅](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 설계 보안](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -10,7 +10,6 @@
 ### [부하 분산 방법 결합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 계획 및 디자인
 ### [가상 네트워크](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [트래픽 필터링](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - 개별 전용](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -70,7 +69,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/resources/templates/)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [가격 책정](https://azure.microsoft.com/pricing)
+## [가격](https://azure.microsoft.com/pricing)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)

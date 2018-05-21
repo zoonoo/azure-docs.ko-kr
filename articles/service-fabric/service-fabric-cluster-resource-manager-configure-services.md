@@ -1,24 +1,24 @@
 ---
-title: "Azure 마이크로 서비스에서 메트릭 및 배치 설정 지정 | Microsoft Docs"
-description: "메트릭, 배치 제약 조건 및 기타 배치 정책을 지정하여 Service Fabric 서비스를 설명합니다."
+title: Azure 마이크로 서비스에서 메트릭 및 배치 설정 지정 | Microsoft Docs
+description: 메트릭, 배치 제약 조건 및 기타 배치 정책을 지정하여 Service Fabric 서비스를 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0ae4e874d0fd0922295a4ec7ad719a0a1fb108c8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16e19a02bf12e30e81eb1743fc637bce435df914
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric 서비스에 대한 클러스터 리소스 관리자 설정 구성
 Service Fabric 클러스터 리소스 관리자를 사용하면 개별적으로 명명된 모든 서비스를 관리하는 규칙을 세밀하게 제어할 수 있습니다. 명명된 각 서비스 인스턴스는 클러스터에서 할당되는 방식에 대한 규칙을 지정할 수 있습니다. 명명된 각 서비스는 해당 서비스에 대해 갖는 중요도를 포함하여 보고하려는 메트릭 집합도 정의할 수 있습니다. 서비스 구성은 세 가지 작업으로 구분됩니다.

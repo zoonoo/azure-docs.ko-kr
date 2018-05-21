@@ -1,6 +1,6 @@
 ---
-title: "포털에서 SQL Server Windows VM 만들기 | Microsoft Docs"
-description: "이 자습서는 Azure Portal에서 Windows SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다."
+title: 포털에서 SQL Server Windows VM 만들기 | Microsoft Docs
+description: 이 자습서는 Azure Portal에서 Windows SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
-ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 SQL Server 2017 Windows 가상 머신 만들기
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a id="subscription"></a> Azure 구독 가져오기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a id="select"></a>SQL Server VM 이미지 선택
 
@@ -72,11 +72,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="choose-virtual-machine-size"></a>가상 머신 크기 선택
 
-**크기** 단계의 **크기 선택** 창에서 가상 머신 크기를 선택합니다. 창은 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다. 
+1. **크기** 단계의 **크기 선택** 창에서 가상 머신 크기를 선택합니다.
 
-1. **모두 보기**를 클릭하여 모든 사용 가능한 컴퓨터 크기를 확인합니다.
-
-1. 이 빠른 시작의 경우 **D2S_V3**를 선택합니다. 포털에서는 연속 사용에 예상된 월별 컴퓨터 비용을 보여줍니다(SQL Server 라이선스 비용을 포함하지 않음). Developer Edition에는 SQL Server에 대한 추가 라이선스 비용이 없습니다. 특정 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하세요.
+   이 빠른 시작의 경우 **D2S_V3**를 선택합니다. 포털에서는 연속 사용에 예상된 월별 컴퓨터 비용을 보여줍니다(SQL Server 라이선스 비용을 포함하지 않음). Developer Edition에는 SQL Server에 대한 추가 라이선스 비용이 없습니다. 특정 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하세요.
 
    > [!TIP]
    > **D2S_V3**는 컴퓨터 크기는 테스트 중에 요금을 절약합니다. 하지만 프로덕션 워크로드의 경우 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)에서 권장하는 컴퓨터 크기 및 구성을 참조하세요.
@@ -85,13 +83,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="configure-optional-features"></a>선택적 기능 구성
 
-**설정** 창에서 **확인**을 클릭하여 기본값을 선택합니다.
+1. VM에 원격 데스크톱 연결을 사용하려면 **설정** 창의 **공용 인바운드 포트 선택** 목록에서 **RDP(3389)** 포트를 선택합니다.
+
+   ![인바운드 포트](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > **MS SQL(1433)** 포트를 선택하여 SQL Server에 원격으로 액세스할 수 있습니다. 그러나 **SQL Server 설정** 단계에서도 이 옵션을 제공하므로 꼭 이렇게 할 필요는 없습니다. 이 단계에서 1433 포트를 선택하면 **SQL Server 설정** 단계에서 무엇을 선택하든 이 포트가 열립니다.
+
+1. **확인**을 클릭하여 변경 내용을 저장하고 계속 진행합니다.
 
 ## <a name="sql-server-settings"></a>SQL 서버 설정
 
 **SQL Server 설정** 창에서 다음 옵션을 구성합니다.
 
-1. **SQL 연결** 드롭다운 목록에서 **공용(인터넷)**을 선택합니다. 그러면 인터넷을 통해 SQL Server 연결을 허용합니다.
+1. **SQL 연결** 드롭다운 목록에서 **공용(인터넷)** 을 선택합니다. 그러면 인터넷을 통해 SQL Server 연결을 허용합니다.
 
 1. **포트**를 **1401**로 변경하여 공용 시나리오에서 잘 알려진 포트 이름을 사용하지 않습니다.
 
