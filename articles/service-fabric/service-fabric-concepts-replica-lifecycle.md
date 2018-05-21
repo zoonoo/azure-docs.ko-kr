@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric의 복제본 및 인스턴스 | Microsoft Docs"
-description: "복제본 및 인스턴스의 이해 - 해당 기능 및 수명 주기"
+title: Azure Service Fabric의 복제본 및 인스턴스 | Microsoft Docs
+description: 복제본 및 인스턴스의 이해 - 해당 기능 및 수명 주기
 services: service-fabric
 documentationcenter: .net
 author: appi101
 manager: anuragg
-editor: 
+editor: ''
 ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: 4037fc869d3e26d52f33baa62c626f4621cd11f5
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 
 이 문서에서는 상태 저장 서비스의 복제본과 상태 비저장 서비스의 인스턴스 수명 주기에 대한 개요를 제공합니다.

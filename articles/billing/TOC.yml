@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: 관리 그룹으로 리소스 구성
       href: billing-enterprise-mgmt-group-overview.md
-    - name: 예약 VM 인스턴스로 비용 절감
+    - name: Azure Reserved Instances로 저장
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: 예약 인스턴스를 사용하여 Virtual Machines 선불 결제
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: 예약 인스턴스 관리
+          href: billing-manage-reserved-vm-instance.md
+        - name: 예약 인스턴스 할인 응용 프로그램 이해
+          href: billing-understand-vm-reservation-charges.md
+        - name: 종량제의 예약 인스턴스 사용량 이해
+          href: billing-understand-reserved-instance-usage.md
+        - name: 엔터프라이즈의 예약 인스턴스 사용량 이해
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: 예약 인스턴스 Windows 비용
+          href: billing-reserved-instance-windows-software-costs.md
     - name: 한도 및 할당량
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: 방법
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: 체험 서비스 미터 매핑 이해
           href: billing-understand-free-service-meter-mapping.md
-        - name: VM 인스턴스 Windows 비용 예약
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: 예약 VM 인스턴스 할인 응용 프로그램 이해
-          href: billing-understand-vm-reservation-charges.md
         - name: 지출 한도 이해
           href: billing-spending-limit.md
         - name: 청구 경고 설정
           href: billing-set-up-alerts.md
         - name: 미지불액 해결
           href: billing-azure-subscription-past-due-balance.md
-        - name: 종량제의 예약 인스턴스 사용량 이해
-          href: billing-understand-reserved-instance-usage.md
-        - name: 엔터프라이즈의 예약 인스턴스 사용량 이해
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: 구독 관리
       items:
         - name: 구독 또는 관리 그룹 찾기
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: 청구 계정 보기
           href: billing-view-all-accounts.md
-    - name: 예약 VM 인스턴스 관리
-      href: billing-manage-reserved-vm-instance.md
     - name: 문제 해결
       items:
         - name: 등록 문제

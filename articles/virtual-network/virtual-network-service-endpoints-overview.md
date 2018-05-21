@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: fc95077ada75ef5447e80a5252bebe3ed95dc167
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -27,14 +27,12 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 이 기능은 다음과 같은 Azure 서비스 및 지역에서 제공됩니다.
 
-- **Azure Storage**: 일반 공급됩니다. Azure 공용 클라우드 및 Azure Government에서 모든 지역입니다.
-- **Azure SQL Database**: 모든 Azure 지역에서 일반 공급됩니다. 
-- **Azure SQL Data Warehouse**: 미리 보기 Azure 공용 클라우드에서 모든 지역입니다.
+- **Azure Storage**: 모든 Azure 지역에서 일반 공급됩니다.
+- **Azure SQL Database**: 모든 Azure 지역에서 일반 공급됩니다.
+- **Azure Cosmos DB**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다. 
+- **Azure SQL Data Warehouse**: 모든 Azure 공용 클라우드 지역에서 미리 보기로 제공됩니다.
 
-미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
-
->[!NOTE]
-> 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -50,7 +48,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 - 이 기능은 Azure Resource Manager 배포 모델을 통해 배포된 가상 네트워크에만 사용할 수 있습니다.
 - 끝점은 Azure 가상 네트워크에서 구성된 서브넷에서 활성화됩니다. 프레미스에서 Azure 서비스로의 트래픽에 끝점을 사용할 수 없습니다. 자세한 내용은 [온-프레미스에서 Azure 서비스 액세스 보호](#securing-azure-services-to-virtual-networks)를 참조하세요.
-- 서비스 끝점은 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. 또한 Azure Storage에 RA-GRS 및 GRS 트래픽을 지원하려면 가상 네트워크가 배포된 쌍을 이루는 지역을 포함하도록 끝점을 확장합니다. [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)에 대해 자세히 알아봅니다.
+- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage의 경우 RA-GRS 및 GRS 트래픽을 지원하기 위해 가상 네트워크가 배포된 쌍을 이루는 지역을 포함하도록 엔드포인트가 확장됩니다. [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)에 대해 자세히 알아보세요.
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Virtual Network에 대한 Azure 서비스 보호
 
@@ -68,7 +66,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 - 서비스 끝점은 가상 네트워크의 서브넷에 구성됩니다. 끝점은 해당 서브넷 내에서 실행되는 모든 계산 인스턴스를 사용합니다.
 - 서브넷에 지원되는 모든 Azure 서비스(예: Azure Storage, Azure SQL Database)에 여러 개의 서비스 끝점을 구성할 수 있습니다.
-- 가상 네트워크는 Azure 서비스 리소스와 동일한 지역에 있어야 합니다. GRS 및 RA-GRS Azure Storage 계정을 사용하는 경우 기본 계정은 가상 네트워크와 동일한 지역에 있어야 합니다.
+- Azure SQL의 경우 가상 네트워크는 Azure 서비스 리소스와 동일한 지역에 있어야 합니다. GRS 및 RA-GRS Azure Storage 계정을 사용하는 경우 기본 계정은 가상 네트워크와 동일한 지역에 있어야 합니다. 그 외의 서비스는 Azure 서비스 리소스를 모든 지역의 가상 네트워크에 안전하게 보호할 수 있습니다. 
 - 끝점이 구성된 가상 네트워크는 Azure 서비스 리소스와 동일하거나 다른 구독에 구성될 수 있습니다. 끝점을 설정하고 Azure 서비스를 보호하는 데 필요한 사용 권한에 대한 자세한 내용은 [프로비전](#Provisioning)을 참조하세요.
 - 지원되는 서비스의 경우 서비스 끝점을 사용하여 가상 네트워크에 대한 기존 또는 새로운 리소스를 보호할 수 있습니다.
 
@@ -112,7 +110,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 ## <a name="pricing-and-limits"></a>가격 책정 및 제한
 
-서비스 끝점을 사용하는 추가 비용이 없습니다. Azure 서비스(Azure Storage, Azure SQL Database)의 현재 가격 책정 모델은 현재 상태로 적용됩니다.
+서비스 끝점을 사용하는 추가 비용이 없습니다. Azure 서비스(Azure Storage, Azure SQL Database 등)의 현재 가격 책정 모델은 현재 상태로 적용됩니다.
 
 가상 네트워크에서 서비스 끝점의 총합에 제한이 없습니다.
 

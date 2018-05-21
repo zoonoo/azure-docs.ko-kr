@@ -8,16 +8,16 @@ manager: timlt
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: maburlik;aljo
-ms.openlocfilehash: 948b1bb2ce5a19007906262a4efb0ecca8e40482
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: maburlik
+ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지의 내용
 [다운로드된](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric 독립 실행형 패키지에서 다음 파일을 찾을 수 있습니다.
