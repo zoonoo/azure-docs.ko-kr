@@ -1,23 +1,23 @@
 ---
-title: "Azure Service Fabric에서 서비스에 대한 통신 보호 도움말 | Microsoft Docs"
-description: "Azure 서비스 패브릭 클러스터에서 실행되는 Reliable Services에 대한 통신을 보호하는 방법을 간략하게 설명합니다."
+title: Azure Service Fabric에서 서비스에 대한 통신 보호 도움말 | Microsoft Docs
+description: Azure 서비스 패브릭 클러스터에서 실행되는 Reliable Services에 대한 통신을 보호하는 방법을 간략하게 설명합니다.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 5e2f36b3de1dd04c1a3f36ae308af164d10654ea
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 624d9d358145fb8b41013d686821cb157693d3c6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 서비스에 대한 통신 보호 도움말
 > [!div class="op_single_selector"]

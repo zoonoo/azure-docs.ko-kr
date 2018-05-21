@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법
 
@@ -53,6 +51,8 @@ ms.lasthandoff: 04/16/2018
 
     ![전환기를 보여주는 스크린샷](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+갖고 있는 모든 Azure 키 자격 증명 모음도 구독 이동의 영향을 받으므로 작업을 다시 시작하기 전에 [키 자격 증명 모음 테넌트 ID를 변경](../key-vault/key-vault-subscription-move-fix.md)해야 합니다.
 
 구독 디렉터리 변경은 서비스 수준 작업입니다. 구독 청구 소유권에는 영향을 미치지 않으며 계정 관리자는 [계정 센터](https://account.azure.com/subscriptions)를 사용하여 서비스 관리자를 계속 변경할 수 있습니다. 원래 디렉터리를 삭제하려면 구독 청구 소유권을 새 계정 관리자로 이전해야 합니다. 청구 소유권 이전에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)을 참조하세요. 
 
