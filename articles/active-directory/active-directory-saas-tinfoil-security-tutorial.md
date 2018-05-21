@@ -1,6 +1,6 @@
 ---
-title: "자습서: TINFOIL SECURITY와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 TINFOIL SECURITY 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: TINFOIL SECURITY와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 TINFOIL SECURITY 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 7794564396c2ade8ba45b9f2b1238f304f6b3921
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 96d7b75078fd1075d17d70ee677f28ba1bbb1576
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>자습서: TINFOIL SECURITY와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ TINFOIL SECURITY를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자의 Azure AD 계정으로 TINFOIL SECURITY에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ TINFOIL SECURITY가 Azure AD로 통합되도록 구성하려면 갤러리에서 
 
 **갤러리에서 TINFOIL SECURITY를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -97,7 +97,7 @@ TINFOIL SECURITY에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. Azure Portal의 **TINFOIL SECURITY** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
@@ -105,7 +105,7 @@ TINFOIL SECURITY에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 3. 앱이 Azure와 이미 사전 통합되었으므로 **TINFOIL SECURITY 도메인 및 URL** 섹션에서 사용자는 아무 단계도 수행할 필요가 없습니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
 
 4. **SAML 서명 인증서** 섹션에서 인증서의 **지문** 값을 복사합니다.
@@ -126,9 +126,9 @@ TINFOIL SECURITY에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     
     ![특성 추가](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addatt.png "특성")
     
-    b. **특성 이름** 텍스트 상자에 **accountid**를 입력합니다.
+    나. **특성 이름** 텍스트 상자에 **accountid**를 입력합니다.
     
-    c. **특성 값** 텍스트 상자에 나중에 이 자습서에서 얻을 계정 ID 값을 붙여넣습니다.
+    다. **특성 값** 텍스트 상자에 나중에 이 자습서에서 얻을 계정 ID 값을 붙여넣습니다.
     
     d. **Ok**를 클릭합니다.    
 
@@ -156,15 +156,15 @@ TINFOIL SECURITY에서 Azure AD Single Sign-On을 구성하고 테스트하려�
    
     a. **SAML 사용**을 선택합니다.
    
-    b. **수동 구성**을 클릭합니다.
+    나. **수동 구성**을 클릭합니다.
    
-    c. **SAML Post URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
+    다. **SAML Post URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
    
     d. **SAML Certificate Fingerprint**(SAML 인증서 지문) 텍스트 상자에 **SAML 서명 인증서** 섹션에서 복사한 **지문** 값을 붙여넣습니다.
   
     e. **Your Account ID**(사용자의 계정 ID) 값을 복사하여 Azure Portal에서 **특성 추가** 섹션의 **특성 값** 텍스트 상자에 붙여넣습니다.
    
-    f. **Save**를 클릭합니다.
+    f. **저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -195,9 +195,9 @@ TINFOIL SECURITY에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -255,7 +255,7 @@ Azure AD 사용자가 TINFOIL SECURITY에 로그인할 수 있게 하려면 TINF
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

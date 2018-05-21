@@ -4,18 +4,18 @@ description: 여러 Azure SQL Database 데이터베이스에서 추출된 데이
 keywords: SQL 자습서
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: anjangsh
 ms.reviewer: billgib, genemi
-ms.openlocfilehash: 6ce67afc2959580699798dd70417ca235e743552
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c0ffbdfb9110860a6a9083423b91a571671c3308
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>추출된 데이터를 사용한 교차 테넌트 분석
 
@@ -168,7 +168,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 다음 단계에 따라 Power BI에 접속하고 앞에서 만든 보기를 가져옵니다.
 
 1. Power BI Desktop을 실행합니다.
-2. 홈 리본에서 **데이터 가져오기**를 선택하고 메뉴에서 **자세히…**를 선택합니다. (채널 만들기...)을 선택합니다.
+2. 홈 리본에서 **데이터 가져오기**를 선택하고 메뉴에서 **자세히…** 를 선택합니다. (채널 만들기...)을 선택합니다.
 3. **데이터 가져오기** 창에서 Azure SQL Database를 선택합니다.
 4. 데이터베이스 로그인 창에 서버 이름(catalog-mt-\<User\>.database.windows.net)을 입력합니다. **데이터 연결 모드**에서 **가져오기**를 선택하고 확인을 클릭합니다. 
 

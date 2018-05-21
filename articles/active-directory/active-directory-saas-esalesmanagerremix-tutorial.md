@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f681eb91c1e79eb42b572956dfab93e620489e74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory와 E Sales Manager Remix 통합
 
@@ -30,7 +30,7 @@ Azure AD를 E Sales Manager Remix와 통합하면 다음과 같은 혜택이 있
 - 사용자가 해당 Azure AD 계정으로 E Sales Manager Remix에 자동으로 로그인(Single Sign-On 또는 SSO)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -107,7 +107,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트합니다. 값을 얻으려면 [E Sales Manager Remix 고객 지원 팀](mailto:esupport@softbrain.co.jp)에 문의하세요.
 
-4. **SAML 서명 인증서** 아래에서 **인증서(Base64)**를 선택한 후 사용자의 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 아래에서 **인증서(Base64)** 를 선택한 후 사용자의 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서(Base64) 다운로드 링크](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
@@ -270,7 +270,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

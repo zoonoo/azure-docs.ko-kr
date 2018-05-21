@@ -3,18 +3,18 @@ title: SQL의 Virtual Network 서비스 끝점 및 규칙에 PowerShell 사용 |
 description: Azure SQL Database에 대한 가상 서비스 끝점을 만들고 관리할 수 있는 PowerShell 스크립트를 제공합니다.
 services: sql-database
 author: MightyPen
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: VNet Service endpoints
 ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 5fcf33d3d54b118c1c25f1467a496da3644a2345
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2c53eaa0ff6a866f6a061ec1613630ad9626ac9b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에 대한 가상 서비스 끝점 및 규칙 만들기
 

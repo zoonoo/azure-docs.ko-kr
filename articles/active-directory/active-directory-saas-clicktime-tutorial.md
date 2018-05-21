@@ -1,6 +1,6 @@
 ---
-title: "자습서: ClickTime과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 ClickTime 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: ClickTime과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 ClickTime 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f19e1968c736cb21a2a80b9807fa86461e05ee42
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24dab1856880a3d8c69701257167cae8d97e241
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>자습서: ClickTime과 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ ClickTime을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 - 사용자가 해당 Azure AD 계정으로 ClickTime(Single Sign-on)에 자동으로 로그온되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ ClickTime의 Azure AD 통합을 구성하려면 갤러리의 ClickTime을 관리
 
 **갤러리에서 ClickTime을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -110,14 +110,14 @@ ClickTime에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **식별자** 텍스트 상자에 URL `https://app.clicktime.com/sp/`를 입력합니다.
     
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
+    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
 
     | |
     |--|
     | `https://app.clicktime.com/Login/` |
     | `https://app.clicktime.com/App/Login/Consume.aspx` |
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-clicktime-tutorial/tutorial_clicktime_certificate.png) 
 
@@ -139,11 +139,11 @@ ClickTime에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a.  **Azure AD**와 SSO(Single Sign-On)를 사용하여 로그인 **허용**을 선택합니다.
    
-    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **ID 공급자 끝점** 텍스트 상자에 붙여넣습니다.
+    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **ID 공급자 끝점** 텍스트 상자에 붙여넣습니다.
    
-    c.  Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 **메모장**에서 열고, 콘텐츠를 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
+    다.  Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 **메모장**에서 열고, 콘텐츠를 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
    
-    d.  **Save**를 클릭합니다.
+    d.  **저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -173,9 +173,9 @@ ClickTime에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -201,12 +201,12 @@ ClickTime의 경우 프로비전은 수동 작업입니다.
    
     a.  **전체 이름** 텍스트 상자에서 **Britta Simon**과 같은 사용자의 전체 이름을 입력합니다. 
   
-    b.  **이메일 주소** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일을 입력합니다.
+    나.  **이메일 주소** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일을 입력합니다.
        
     > [!NOTE]
     > 원한다면 새 사람 개체의 추가 속성을 설정할 수 있습니다.
    
-    c.  **Save**를 클릭합니다.
+    다.  **저장**을 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -248,7 +248,7 @@ ClickTime의 경우 프로비전은 수동 작업입니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

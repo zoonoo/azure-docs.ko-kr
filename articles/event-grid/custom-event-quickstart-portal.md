@@ -6,13 +6,13 @@ keywords: ''
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 04/05/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 3ee94025a12a004fda806183c47d5a336b958478
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
@@ -78,7 +78,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
    ![리소스로 이동](./media/custom-event-quickstart-portal/go-to-resource.png)
 
-1. **함수** 옆에 있는 **+**를 선택합니다.
+1. **함수** 옆에 있는 **+** 를 선택합니다.
 
    ![함수 추가](./media/custom-event-quickstart-portal/add-function.png)
 
@@ -86,7 +86,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
    ![사용자 지정 함수](./media/custom-event-quickstart-portal/select-custom-function.png)
 
-1. **Event Grid 트리거**가 나올 때까지 아래로 스크롤합니다. **C#**을 선택합니다.
+1. **Event Grid 트리거**가 나올 때까지 아래로 스크롤합니다. **C#** 을 선택합니다.
 
    ![Event Grid 트리거 선택](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
 

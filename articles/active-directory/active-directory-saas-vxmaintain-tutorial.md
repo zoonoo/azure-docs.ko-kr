@@ -1,6 +1,6 @@
 ---
-title: "자습서: vxMaintain과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 vxMaintain 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: vxMaintain과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 vxMaintain 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c30d59a2bd903a5578caf376957a22bb270455f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>자습서: Azure Active Directory와 vxMaintain 통합
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/29/2018
 - 사용자가 해당 Azure AD 계정을 사용하여 SSO(Single Sign-On)로 vxMaintain에 자동으로 로그인하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -198,7 +198,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

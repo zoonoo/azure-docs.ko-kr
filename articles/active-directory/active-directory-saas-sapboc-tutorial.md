@@ -1,6 +1,6 @@
 ---
-title: "자습서: SAP Business Object Cloud와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 SAP Business Object Cloud 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: SAP Business Object Cloud와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 SAP Business Object Cloud 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a56a892ac3b28c4e90ec2ea6360da3d2eff2581
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>자습서: SAP Business Object Cloud와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ SAP Business Object Cloud를 Azure AD와 통합하는 경우 다음과 같은 �
 - 사용자가 Single Sign-On 및 사용자의 Azure AD 계정을 사용하여 SAP Business Object Cloud에 자동으로 로그인할 수 있습니다.
 - 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란?](active-directory-appssoaccess-whatis.md)을 참조하세요.
+Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란?](manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -147,7 +147,7 @@ SAP Business Object Cloud에서 Azure AD Single Sign-On을 설정하려면:
     
     ![보안 탭에서 편집 아이콘 선택](./media/active-directory-saas-sapboc-tutorial/config2.png)  
 
-9. **인증 방법**으로 **SAML SSO(Single Sign-On)**를 선택합니다.
+9. **인증 방법**으로 **SAML SSO(Single Sign-On)** 를 선택합니다.
 
     ![인증 방법으로 SAML Single Sign-On 선택](./media/active-directory-saas-sapboc-tutorial/config3.png)  
 
@@ -217,7 +217,7 @@ Azure AD 사용자는 SAP Business Object Cloud에 로그인하기 전에 SAP Bu
 
     ![직원 추가](./media/active-directory-saas-sapboc-tutorial/user1.png)
 
-3. **사용자** 페이지에서 새 사용자 세부 정보를 추가하려면 **+**를 선택합니다. 
+3. **사용자** 페이지에서 새 사용자 세부 정보를 추가하려면 **+** 를 선택합니다. 
 
     ![사용자 추가 페이지](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
@@ -252,7 +252,7 @@ Britta Simon을 SAP Business Object Cloud에 할당하려면:
 
 2. 응용 프로그램 목록에서 **SAP Business Object Cloud**을 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -281,7 +281,7 @@ Britta Simon을 SAP Business Object Cloud에 할당하려면:
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

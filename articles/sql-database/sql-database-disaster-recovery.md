@@ -3,18 +3,18 @@ title: SQL Database 재해 복구 | Microsoft Docs
 description: Azure SQL Database 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다.
 services: sql-database
 author: anosov1960
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6ac4b26e1b014da792791ca657c9f51230a135b5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치
 Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.

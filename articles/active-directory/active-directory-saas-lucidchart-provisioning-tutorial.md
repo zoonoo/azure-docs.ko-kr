@@ -1,8 +1,8 @@
 ---
-title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 LucidChart 구성 | Microsoft Docs"
-description: "사용자 계정을 LucidChart로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다."
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 LucidChart 구성 | Microsoft Docs'
+description: 사용자 계정을 LucidChart로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7d0855a7040af595744dbd3977f6a969abb78017
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ccc876b2421641271e73ad72ec0c00a10792f8b3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LucidChart 구성
 
@@ -95,7 +95,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

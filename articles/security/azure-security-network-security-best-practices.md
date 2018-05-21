@@ -4,7 +4,7 @@ description: 이 문서에서는 기본 제공 Azure 기능을 사용한 네트�
 services: security
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d6d723f40cdc0382fa41a51eb32e7b59f0798627
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 네트워크 보안 모범 사례
 Microsoft Azure는 가상 머신 및 어플라이언스를 Azure Virtual Network에 배치하여 네트워크에 연결된 기타 장치에 연결할 수 있습니다. Azure Virtual Network는 가상 네트워크 인터페이스 카드를 가상 네트워크에 연결하여 네트워크 지원 장치 간에 TCP/IP 통신을 허용하는 구조입니다. Azure Virtual Network에 연결된 Azure Virtual Machines는 동일한 Azure Virtual Network, 다른 Azure Virtual Network, 인터넷 또는 고객의 자체 온-프레미스 네트워크에 있는 장치에 연결할 수 있습니다.
@@ -56,7 +56,7 @@ Microsoft Azure는 가상 머신 및 어플라이언스를 Azure Virtual Network
 
 서브넷 간의 라우팅은 자동으로 발생하므로 라우팅 테이블을 수동으로 구성할 필요가 없습니다. 그러나 Azure Virtual Network에 만드는 서브넷 간에 네트워크 액세스 제어가 없는 것이 기본 설정입니다. 서브넷 간에 네트워크 액세스 제어를 만들려면 서브넷 사이에 무언가를 배치해야 합니다.
 
-이 작업을 수행하는 데 사용할 수는 것 중 하나는 [NSG(네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md)입니다. NSG는 간단한 상태 저장 패킷 검사 장치로 5개 튜플(원본 IP, 원본 포트, 대상 IP, 대상 포트 및 계층 4 프로토콜) 접근 방식을 사용하여 네트워크 트래픽에 대한 허용/거부 규칙을 만듭니다. 단일 IP 주소의 트래픽, 여러 IP 주소의 트래픽 또는 전체 서브넷의 트래픽을 허용하거나 거부할 수 있습니다.
+이 작업을 수행하는 데 사용할 수는 것 중 하나는 [NSG(네트워크 보안 그룹)](../virtual-network/security-overview.md)입니다. NSG는 간단한 상태 저장 패킷 검사 장치로 5개 튜플(원본 IP, 원본 포트, 대상 IP, 대상 포트 및 계층 4 프로토콜) 접근 방식을 사용하여 네트워크 트래픽에 대한 허용/거부 규칙을 만듭니다. 단일 IP 주소의 트래픽, 여러 IP 주소의 트래픽 또는 전체 서브넷의 트래픽을 허용하거나 거부할 수 있습니다.
 
 서브넷 간의 네트워크 액세스 제어에 NSG를 사용하면 고유한 서브넷의 동일한 보안 영역 또는 역할에 속한 리소스를 배치할 수 있습니다. 웹 계층, 응용 프로그램 논리 계층, 데이터베이스 계층으로 구성된 간단한 3계층 응용 프로그램을 예로 들 수 있습니다. 각 계층에 속한 가상 머신을 각각의 고유한 서브넷에 배치합니다. 그런 다음 NSG를 사용하여 서브넷 간의 트래픽을 제어합니다.
 
@@ -64,7 +64,7 @@ Microsoft Azure는 가상 머신 및 어플라이언스를 Azure Virtual Network
 * 응용 프로그램 논리 가상 머신은 데이터베이스 계층에 대한 연결만 시작할 수 있으며 웹 계층에서 오는 연결만 수용할 수 있습니다.
 * 데이터베이스 계층 가상 머신은 자체 서브넷 외부의 무엇과도 연결을 시작할 수 없으며 응용 프로그램 논리 계층에서 오는 연결만 수용할 수 있습니다.
 
-네트워크 보안 그룹 및 네트워크 보안 그룹을 사용하여 Azure Virtual Network를 논리적으로 분할하는 방법에 대한 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md) 문서를 참조하세요.
+네트워크 보안 그룹 및 네트워크 보안 그룹을 사용하여 Azure Virtual Network를 논리적으로 분할하는 방법에 대한 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/security-overview.md) 문서를 참조하세요.
 
 ## <a name="control-routing-behavior"></a>라우팅 동작 제어
 Azure Virtual Network에 가상 머신을 배치하면 다른 가상 머신이 다른 서브넷에 있더라도 해당 가상 머신이 동일한 Azure Virtual Network에 있는 다른 모든 가상 머신에 연결할 수 있다는 사실을 알 수 있습니다. 이러한 통신 유형을 허용하며 기본적으로 활성화되는 시스템 경로 컬렉션이 있기 때문에 가능합니다. 이러한 기본 경로는 동일한 Azure Virtual Network에 있는 가상 머신이 서로 그리고 인터넷(인터넷으로 나가는 아웃바운드 통신만)과의 연결을 시작하도록 허용합니다.

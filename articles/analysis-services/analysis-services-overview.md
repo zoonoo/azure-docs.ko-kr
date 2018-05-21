@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -57,7 +57,7 @@ Azure Analysis Services 서버를 만들 수 있는 [Azure 지역](https://azure
 
 | 아메리카 | 유럽 | 아시아 태평양 |
 |----------|--------|--------------|
-|  브라질 남부<br> 캐나다 중부<br> 미국 동부 2<br> 미국 중북부<br> 미국 중남부<br> 미국 중서부<br> 미국 서부 | 북유럽<br> 영국 남부<br> 서유럽 |   오스트레일리아 남동부<br> 일본 동부<br> 동남아시아<br> 인도 서부  |
+|  브라질 남부<br> 캐나다 중부<br> 미국 동부<br> 미국 동부 2<br> 미국 중북부<br> 미국 중부<br> 미국 중남부<br> 미국 중서부<br> 미국 서부<br> 미국 서부2 | 북유럽<br> 영국 남부<br> 서유럽 |   오스트레일리아 남동부<br> 일본 동부<br> 동남아시아<br> 인도 서부  |
 
 새로운 영역이 항상 추가되고 있으므로 이 목록이 완전하지 않을 수도 있습니다. Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 서버를 만들 때 위치를 선택합니다. 최상의 성능을 얻으려면 가장 큰 사용자 근거지와 가장 가까운 위치를 선택합니다. 여러 지역의 중복 서버에 모델을 배포하여 [고가용성](analysis-services-bcdr.md)을 보장합니다.
 
