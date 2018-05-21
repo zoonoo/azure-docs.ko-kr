@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 523508bc2caeb4315caa6597662174aa0fdeb47b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: ac3438f0c706988323318146965a87461dcce1e8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>응용 프로그램과 Azure Active Directory 통합 시작 가이드
 ## <a name="overview"></a>개요
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/11/2018
 위에서 설명한 대로 지금까지 조직에서 관리하지 않은 응용 프로그램이 있을 수 있습니다.  인벤토리 프로세스의 일부로 허용되지 않은 클라우드 응용 프로그램을 찾을 수 있습니다. [클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기](cloud-app-discovery.md)를 참조하세요.
 
 ### <a name="authentication-types"></a>인증 형식
-응용 프로그램에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 응용 프로그램을 사용하는 응용 프로그램과 사용될 수 있습니다. Azure AD와 함께 사용할 응용 프로그램 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](../active-directory-sso-certs.md) 및 [암호 기반 Single Sign On](../active-directory-appssoaccess-whatis.md)을 참조하세요.
+응용 프로그램에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 응용 프로그램을 사용하는 응용 프로그램과 사용될 수 있습니다. Azure AD와 함께 사용할 응용 프로그램 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](../active-directory-sso-certs.md) 및 [암호 기반 Single Sign On](what-is-single-sign-on.md)을 참조하세요.
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Azure AD 앱 프록시를 사용하는 SSO 사용
 Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 어떤 장치에서든 안전하게 개인 네트워크 내부에 위치한 응용 프로그램에 액세스를 제공할 수 있습니다. 환경 내에서 응용 프로그램 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다
@@ -73,7 +73,7 @@ Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 �
 다음 문서에서는 응용 프로그램을 Azure AD와 통합하는 여러 가지 방법을 설명하고 일부 지침을 제공합니다.
 
 * [사용할 Active Directory 결정](../active-directory-administer.md)
-* [Azure 응용 프로그램 갤러리에서 응용 프로그램 사용](../active-directory-appssoaccess-whatis.md)
+* [Azure 응용 프로그램 갤러리에서 응용 프로그램 사용](what-is-single-sign-on.md)
 * [SaaS 응용 프로그램 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>응용 프로그램에 대한 액세스 관리

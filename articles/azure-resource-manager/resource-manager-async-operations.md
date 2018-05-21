@@ -1,24 +1,24 @@
 ---
-title: "Azure 비동기 작업 | Microsoft Docs"
-description: "Azure에서 비동기 작업을 추적하는 방법에 대해 설명합니다."
+title: Azure 비동기 작업 | Microsoft Docs
+description: Azure에서 비동기 작업을 추적하는 방법에 대해 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure 비동기 작업 추적
 작업을 신속하게 완료할 수 없기 때문에 일부 Azure REST 작업을 비동기적으로 실행합니다. 이 항목에서는 응답에서 반환되는 값을 통해 비동기 작업의 상태를 추적하는 방법을 설명합니다.  
