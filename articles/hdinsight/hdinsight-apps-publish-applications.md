@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: aef54782c200ad0be261959705b9b10cd0ebb064
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9c538be4948a8e67ee9b94fcd6ff6bcea04438ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 응용 프로그램 게시
 Azure HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 설치할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법에 대해 알아봅니다. Azure Marketplace에 게시하는 방법에 대한 일반적인 내용은 [Azure Marketplace에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md)를 참조하세요.
@@ -97,8 +97,8 @@ HDInsight 응용 프로그램을 게시하려면
 3. 제목을 입력한 다음 **새 솔루션 템플릿 만들기**를 선택합니다.
 4. 조직을 아직 등록하지 않은 경우 **개발자 센터 계정 만들기 및 Azure 프로그램 조인**을 선택합니다.  자세한 내용은 [Microsoft 개발자 계정 만들기](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)를 참조하세요.
 5. **시작할 몇 가지 토폴로지 정의**를 선택합니다. 솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품 또는 솔루션 템플릿에 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다. 
-6. 토폴로지 이름을 입력한 다음 **+**를 선택합니다.
-7. 새 버전을 입력한 다음 **+**를 선택합니다.
+6. 토폴로지 이름을 입력한 다음 **+** 를 선택합니다.
+7. 새 버전을 입력한 다음 **+** 를 선택합니다.
 8. [응용 프로그램을 패키지](#package-application)했으면 만든 .zip 파일을 업로드합니다.  
 9. **인증 요청**을 선택합니다. Microsoft 인증 팀에서 해당 파일을 검토하고 토폴로지를 인증합니다.
 

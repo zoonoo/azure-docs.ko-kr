@@ -1,18 +1,18 @@
 ---
-title: "사이트 복구에서 장애 조치(failover) | Microsoft Docs"
-description: "Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure로 또는 보조 데이터 센터로 장애 조치에 대해 알아봅니다."
+title: 사이트 복구에서 장애 조치(failover) | Microsoft Docs
+description: Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure로 또는 보조 데이터 센터로 장애 조치에 대해 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: ponatara
-ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 40f35cde2b55da0763f6ee65b065f5dd8a55b9c6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="failover-in-site-recovery"></a>사이트 복구에서 장애 조치
 이 문서에서는 Site Recovery에서 보호하는 가상 머신 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/12/2018
 
 ![장애 조치(failover)](./media/site-recovery-failover/Failover.png)
 
-1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)**를 클릭합니다.
+1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** 를 클릭합니다.
 2. **장애 조치(Failover)** 화면에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
     1.  **최신**(기본값): 이 옵션은 Site Recovery 서비스에 전송된 모든 데이터를 먼저 처리하여 작업을 시작합니다. 데이터를 처리하면 각 가상 머신에 복구 지점을 만듭니다. 이 복구 지점은 장애 조치 중에 가상 머신에서 사용됩니다. 이 옵션은 장애 조치를 트리거했을 때 Site Recovery 서비스로 복제된 모든 데이터가 장애 조치 후에 만들어진 가상 머신에 있게 되므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
     1.  **가장 최근에 처리된 시점**: 복구 계획의 모든 가상 머신을 Site Recovery 서비스에서 이미 처리한 최근 복구 지점으로 장애 조치합니다. 가상 머신의 테스트 장애 조치(Failover)를 수행할 때 가장 최근에 처리된 복구 지점의 타임스탬프도 표시됩니다. 복구 계획의 장애 조치를 수행하는 경우 개별 가상 머신으로 이동하여 **최근 복구 지점** 타일을 살펴보면 이 정보를 얻을 수 있습니다. 처리되지 않은 데이터를 처리하느라 소요되는 시간이 없기 때문에 이 옵션은 낮은 RTO(복구 시간 목표) 장애 조치(Failover) 옵션을 제공합니다.

@@ -1,25 +1,20 @@
 ---
 title: Azure MFA 서버 모바일 앱 웹 서비스 | Microsoft Docs
-description: Microsoft Authenticator 앱은 추가적인 대역외 인증 옵션을 제공합니다.  이 옵션을 사용하면 MFA 서버는 사용자에게 푸시 알림을 사용할 수 있습니다.
+description: Microsoft Authenticator 앱을 사용하여 사용자에게 푸시 알림을 보내도록 MFA 서버를 구성합니다.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 4a6d4f903ff47970cb1fc6b3964ea78c735d5113
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f6b50554e00e247d564f2be5bf579977f3bea9cf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 모바일 앱 인증 활성화
 
@@ -82,13 +77,13 @@ IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면
 5. **MultiFactorAuthenticationMobileAppWebServiceSetup64** 설치 파일을 관리자로 실행하고, 필요한 경우 사이트를 변경하고, 원하는 경우 가상 디렉터리를 짧은 이름으로 변경합니다.
 6. 설치가 완료되면 **C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService**(또는 가상 디렉터리 이름에 따른 적절한 디렉터리)로 이동한 후 Web.Config 파일을 편집합니다.
 
-   * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 키를 찾고 **value=""**를 **value="DOMAIN\User"**로 변경합니다. 여기서 DOMAIN\User는 "PhoneFactor Admins" 그룹의 일부인 서비스 계정입니다.
-   * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 키를 찾고 **value=""**를 **value="Password"**로 변경합니다. 여기서 암호는 이전 줄에 입력한 서비스 계정의 암호입니다.
+   * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 키를 찾고 **value=""** 를 **value="DOMAIN\User"** 로 변경합니다. 여기서 DOMAIN\User는 "PhoneFactor Admins" 그룹의 일부인 서비스 계정입니다.
+   * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 키를 찾고 **value=""** 를 **value="Password"** 로 변경합니다. 여기서 암호는 이전 줄에 입력한 서비스 계정의 암호입니다.
    * **pfMobile App Web Service_pfwssdk_PfWsSdk** 설정을 찾아서 **http://localhost:4898/PfWsSdk.asmx**의 값을 웹 서비스 SDK URL(예: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx))로 변경합니다.
    * Web.Config 파일을 저장하고 메모장을 닫습니다.
 
    > [!NOTE]
-   > 이 연결에 SSL이 사용되므로 **IP 주소가 아니라** **FQDN(정규화된 도메인 이름)**으로 웹 서비스 SDK를 참조해야 합니다. SSL 인증서는 FQDN에 대해 발급되었으며 사용된 URL은 인증서의 이름과 일치해야 합니다.
+   > 이 연결에 SSL이 사용되므로 **IP 주소가 아니라** **FQDN(정규화된 도메인 이름)** 으로 웹 서비스 SDK를 참조해야 합니다. SSL 인증서는 FQDN에 대해 발급되었으며 사용된 URL은 인증서의 이름과 일치해야 합니다.
 
 7. 모바일 앱 웹 서비스가 설치된 웹 사이트가 공개적으로 서명된 인증서에 아직 바인딩되지 않았으면 서버에 인증서를 설치하고 IIS 관리자를 연 다음 웹 사이트에 인증서를 바인딩합니다.
 8. 컴퓨터에서 웹 브라우저를 열고 모바일 앱 웹 서비스가 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService))로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.

@@ -1,6 +1,6 @@
 ---
-title: "Reliable Services 알림 | Microsoft Docs"
-description: "서비스 패브릭 Reliable Services 알림에 대한 개념 설명서"
+title: Reliable Services 알림 | Microsoft Docs
+description: 서비스 패브릭 Reliable Services 알림에 대한 개념 설명서
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -9,16 +9,16 @@ editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c080ee1f67b558988e35613f7357137c89c872fc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4455b259ef2159f9e1ec4991fc533f1843899682
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 알림
 알림을 사용하면 클라이언트에서 관심 있는 개체에 대한 변경 내용을 추적할 수 있습니다. *신뢰할 수 있는 상태 관리자* 및 *신뢰할 수 있는 사전*의 두 가지 개체 유형에서 알림을 지원합니다.

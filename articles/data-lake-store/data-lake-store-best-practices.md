@@ -9,15 +9,13 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store를 사용하는 모범 사례
 이 문서에서는 Azure Data Lake Store 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Store의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Store 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Store를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Store에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 

@@ -1,23 +1,21 @@
 ---
-title: "최종 사용자 인증: Azure Active Directory를 사용하여 Java로 Data Lake Store 인증 | Microsoft Docs"
-description: "Azure Active Directory와 Java를 사용하여 Data Lake Store로 최종 사용자 인증을 수행하는 방법을 알아봅니다."
+title: '최종 사용자 인증: Azure Active Directory를 사용하여 Java로 Data Lake Store 인증 | Microsoft Docs'
+description: Azure Active Directory와 Java를 사용하여 Data Lake Store로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1fbf3c1e0e5715ff7effcdac45ff03f2b55f9ee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b638860dbdab7e3b5a747a4ddd82e7247f24845f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-java"></a>Java를 사용하여 Data Lake Store로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -30,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 이 문서에서는 Java SDK를 사용하여 Azure Data Lake Store로 최종 사용자 인증을 수행하는 방법을 배웁니다. Java SDK를 사용하는 Data Lake Store 서비스 간 인증의 경우 [Java를 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Active Directory "네이티브" 응용 프로그램을 만듭니다**. [Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.

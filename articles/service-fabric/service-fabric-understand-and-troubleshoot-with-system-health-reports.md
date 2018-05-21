@@ -1,24 +1,24 @@
 ---
-title: "시스템 상태 보고서 문제 해결 | Microsoft Docs"
-description: "Azure Service Fabric 구성 요소에서 보낸 상태 보고서와 클러스터 또는 응용 프로그램 문제 해결에 대한 사용을 설명합니다."
+title: 시스템 상태 보고서 문제 해결 | Microsoft Docs
+description: Azure Service Fabric 구성 요소에서 보낸 상태 보고서와 클러스터 또는 응용 프로그램 문제 해결에 대한 사용을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: def4f1cdcd173e26964f9be11266d0e1a20fcafa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8304790b5eba4679b0633641c82d57316e7f8ec4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.

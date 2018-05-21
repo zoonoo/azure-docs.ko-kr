@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 848e27078d77a53a03d538b846eed0117d44dbe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 170836fb4ef617e7bcbf2e15ebb644855a427b9b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.

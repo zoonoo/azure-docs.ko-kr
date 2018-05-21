@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal에서 API 앱을 API로 가져오기 | Microsoft Docs"
-description: "이 자습서에서는 APIM(API Management)을 사용하여 API 앱을 API로 가져오는 방법을 보여 줍니다."
+title: Azure Portal에서 API 앱을 API로 가져오기 | Microsoft Docs
+description: 이 자습서에서는 APIM(API Management)을 사용하여 API 앱을 API로 가져오는 방법을 보여 줍니다.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: d0e1aa6763d96b5a84bbc5fba7dcae690c051eb3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-an-api-app-as-an-api"></a>API로 API 앱 가져오기
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/04/2017
 5. API URL 접미사를 추가합니다. 접미사는 이 APIM 인스턴스에서 이 특정 API를 식별하는 이름입니다. 이 APIM 인스턴스 내에서 고유해야 합니다.
 6. API를 제품에 연결하여 API를 게시합니다. 이 경우 "*Unlimited*" 제품이 사용됩니다.  API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.
 
-    제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독하면 해당 제품의 모든 API에 적합한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.
+    제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.
 
     기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품과 함께 제공됩니다.
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
 
-Azure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.  
+dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.  
 
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **테스트** 탭을 누릅니다.
