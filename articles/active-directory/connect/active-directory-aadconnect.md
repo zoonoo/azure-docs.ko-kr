@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 73baef03f7b240e7bb33f3d5f827b1fc72c985f2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Azure Active Directory와 온-프레미스 디렉터리 통합
 Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 이 항목은 계획, 배포 및 운영 단계를 안내합니다. 이 영역과 관련된 항목으로 연결되는 링크 컬렉션입니다.
@@ -64,7 +64,7 @@ Azure Active Directory Connect는 동기화 서비스, 선택적인 Active Direc
 | --- | --- |
 | 시작하기 전에 - [하드웨어 및 필수 구성 요소](active-directory-aadconnect-prerequisites.md) |<li>Azure AD Connect 설치를 시작하기 전에 완료할 단계입니다.</li> |
 | [Express 설정](active-directory-aadconnect-get-started-express.md) |<li>단일 포리스트 AD가 있는 경우 사용하도록 권장되는 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li> |
-| [사용자 지정된 설정](active-directory-aadconnect-get-started-custom.md) |<li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>페더레이션의 ADFS와 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장과 같은 동기화 기능을 사용자 지정합니다.</li> |
+| [사용자 지정된 설정](active-directory-aadconnect-get-started-custom.md) |<li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>통과 인증, 페더레이션의 ADFS 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장과 같은 동기화 기능을 사용자 지정합니다.</li> |
 | [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>기존 DirSync 서버를 이미 실행 중인 경우 사용됩니다.</li> |
 | [Azure AD Sync 또는 Azure AD Connect에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md) |<li>기본 설정에 따라 여러 가지 방법이 있습니다.</li> |
 
