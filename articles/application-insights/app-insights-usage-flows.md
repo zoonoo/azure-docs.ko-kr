@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights에서 사용자 흐름을 사용하여 사용자 탐색 패턴 분석 | Microsoft docs"
-description: "페이지와 웹앱의 기능 간에 사용자가 탐색하는 방법을 분석합니다."
+title: Azure Application Insights에서 사용자 흐름을 사용하여 사용자 탐색 패턴 분석 | Microsoft docs
+description: 페이지와 웹앱의 기능 간에 사용자가 탐색하는 방법을 분석합니다.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mbullwin; daviste
-ms.openlocfilehash: 63139bfb190959284cb5d25df1a8dd91bd7d913f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 5913039d3ab288c2fc8366073b340538989512ee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Application Insights에서 사용자 흐름을 사용하여 사용자 탐색 패턴 분석
 

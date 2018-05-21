@@ -1,9 +1,9 @@
 ---
-title: "웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs"
-description: "Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다."
+title: 웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs
+description: Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
 services: application-insights
-documentationcenter: 
-author: SoubhagyaDash
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2018
 ms.author: sdash ; mbullwin
-ms.openlocfilehash: d8d6c6a242f63ad891a8134657273ff73dfcde18
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -273,7 +273,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
     이 오류("프로토콜 위반, CR 뒤에 LF가 와야 함")는 서버(또는 종속성)와 관련된 문제를 나타내며 잘못된 헤더가 응답에 설정된 경우에 발생합니다. 부하 분산 장치 또는 CDN으로 인해 발생할 수 있습니다. 특히 일부 헤더는 줄 끝을 표시하는 데 CRLF를 사용하지 않았을 수 있으며 이는 HTTP 사양을 위반하기 때문에 .NET WebRequest 수준에서 유효성 검사가 실패합니다. 위반한 헤더를 찾기 위해 응답을 검사합니다.
     
-    참고: HTTP 헤더의 유효성 검사가 완화된 브라우저에서는 URL이 실패하지 않을 수 있습니다. 이 문제에 대한 자세한 설명은 http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/의 블로그 게시물을 참조하세요.  
+    참고: HTTP 헤더의 유효성 검사가 완화된 브라우저에서는 URL이 실패하지 않을 수 있습니다. 이 문제에 대한 자세한 설명은 http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/ 블로그 게시물을 참조하세요.  
 * *사이트는 괜찮아 보이지만 테스트 실패가 표시됩니다.*
 
     * 모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다. 테스트가 이러한 리소스 오류에 둔감해지도록 하려면 테스트 구성에서 "종속 요청 구문 분석"을 선택 취소합니다. 

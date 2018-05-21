@@ -17,15 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 072a4a483cb39a6f2827b6d5973ec544fd58d09c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
-Azure Virtual Network를 사용하면 Azure VM(Virtual Machines)과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. Azure Virtual Network는 다음과 같은 주요 기능을 제공합니다. 
+Azure Virtual Network를 사용하면 Azure VM(Virtual Machines)과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. Azure Virtual Network는 다음과 같은 주요 기능을 제공합니다.
 
 ## <a name="isolation-and-segmentation"></a>격리 및 구분
 
@@ -42,7 +42,7 @@ Azure Virtual Network를 사용하면 Azure VM(Virtual Machines)과 같은 다�
 
 Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 통신합니다.
 
-- **Through a virtual network**: Azure App Service Environments, Azure Virtual Machine Scale Sets 등의 여러 가지 VM 및 Azure 리소스를 가상 네트워크에 배포할 수 있습니다. 가상 네트워크에 배포할 수 있는 Azure 리소스의 전체 목록을 보려면 [가상 네트워크 서비스 통합](virtual-network-for-azure-services.md)을 참조하세요. 
+- **가상 네트워크를 통해**: Azure App Service Environments, AKS(Azure Kubernetes Service), Azure Virtual Machine Scale Sets 등의 여러 가지 VM 및 Azure 리소스를 가상 네트워크에 배포할 수 있습니다. 가상 네트워크에 배포할 수 있는 Azure 리소스의 전체 목록을 보려면 [가상 네트워크 서비스 통합](virtual-network-for-azure-services.md)을 참조하세요. 
 - **가상 네트워크 서비스 끝점을 통해**: 직접 연결을 통해 Azure Storage 계정 및 Azure SQL Database와 같은 Azure 서비스 리소스로 가상 네트워크 개인 주소 공간 및 가상 네트워크의 ID를 확장합니다. 서비스 끝점을 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 끝점 개요](virtual-network-service-endpoints-overview.md)를 참조하세요.
  
 ## <a name="communicate-with-on-premises-resources"></a>온-프레미스 리소스와 통신

@@ -2,35 +2,31 @@
 title: 셀프 서비스 암호 재설정 배포 가이드 - Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정을 성공적으로 롤아웃하기 위한 팁
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 
 Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능을 자연스럽게 롤아웃하기 위해 대부분의 고객이 다음 단계를 완료해야 합니다.
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [디렉터리에서 암호 재설정을 사용하도록 설정합니다](quickstart-sspr.md).
 2. [비밀번호 쓰기 저장에 대한 온-프레미스 Active Directory 권한을 구성합니다](howto-sspr-writeback.md#active-directory-permissions).
 3. [비밀번호 쓰기 저장을 구성](howto-sspr-writeback.md#configure-password-writeback)하여 Azure AD에서 온-프레미스 디렉터리로 비밀번호 다시 쓰기
 4. [필수 라이선스를 할당하고 확인합니다](concept-sspr-licensing.md).
-5. 단계적 롤아웃을 수행할지를 결정합니다. SSPR을 점진적으로 롤아웃하려면 사용자 그룹에 대한 액세스를 제한하여 특정 그룹에서 프로그램의 파일럿을 수행할 수 있습니다. 특정 그룹을 롤아웃하려면 **셀프 서비스 암호 재설정 사용** 스위치를 **선택됨**으로 설정하고 암호 재설정을 사용하는 보안 그룹을 선택합니다. 
+5. 단계적 롤아웃을 수행할지를 결정합니다. SSPR을 점진적으로 롤아웃하려면 사용자 그룹에 대한 액세스를 제한하여 특정 그룹에서 프로그램의 파일럿을 수행할 수 있습니다. 특정 그룹을 롤아웃하려면 **셀프 서비스 암호 재설정 사용** 스위치를 **선택됨**으로 설정하고 암호 재설정을 사용하는 보안 그룹을 선택합니다.  여기서는 보안 그룹 중첩이 지원됩니다.
 6. 사무실 전화, 휴대폰 및 보조 이메일 주소와 같이 사용자가 등록하는 데 필요한 [인증 데이터](howto-sspr-authenticationdata.md)를 입력합니다.
 7. [회사 브랜딩이 포함되도록 Azure AD 로그인 환경을 사용자 지정합니다](concept-sspr-customization.md).
 8. 사용자에게 SSPR을 사용하는 방법을 설명합니다. 사용자에게 암호를 등록하는 방법 및 다시 설정하는 방법을 보여주는 지침을 보냅니다.
@@ -66,6 +62,10 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 * 다른 조직 관련 정보
 
 보낸 전자 메일 통신 또는 전단지에서 사용자가 서비스를 사용해야 할 때 이동할 수 있는 유명하고 기억하기 쉬운 URL을 포함할 수 있습니다. 사용자에게 도움이 되도록 조직의 필요에 맞게 사용하고 사용자 지정할 수 있는 [샘플 암호 재설정 페이지](https://github.com/ajamess/password-reset-page)를 만들었습니다.
+
+## <a name="step-by-step-deployment-plan"></a>단계별 배포 계획
+
+Azure Active Directory 제품 그룹에서는 조직에서 이 사이트의 설명서와 함께 비즈니스 사례를 만들고 셀프 서비스 암호 재설정 배포를 계획하는 데 사용할 수 있는 [단계별 배포 계획](https://aka.ms/SSPRDeploymentPlan)을 만들었습니다.
 
 ## <a name="use-enforced-registration"></a>강제 등록 사용
 

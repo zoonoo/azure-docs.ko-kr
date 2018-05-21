@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,7 +100,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 서비스 주체를 �
     - 응용 프로그램 키
     - 테넌트 ID
 
-2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**합니다. AAD 관리자는 AAD 사용자 또는 AAD 그룹이어야 하지만 서비스 주체일 수는 없습니다. 이 단계가 수행되면, 이후 단계에서 사용자는 AAD ID를 사용하여 서비스 주체에 대해 포함된 데이터베이스 사용자를 만들 수 있습니다.
+2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. AAD 관리자는 AAD 사용자 또는 AAD 그룹이어야 하지만 서비스 주체일 수는 없습니다. 이 단계가 수행되면, 이후 단계에서 사용자는 AAD ID를 사용하여 서비스 주체에 대해 포함된 데이터베이스 사용자를 만들 수 있습니다.
 
 3. 최소한의 모든 사용자 변경 권한이 있는 AAD ID로 SSMS와 같은 도구를 사용하여 데이터를 복사할 데이터베이스에 연결하고 다음 T-SQL을 실행하여 **서비스 주체에 대해 포함된 데이터베이스 사용자를 만듭니다**. [여기](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)에서 포함된 데이터베이스 사용자에 대해 자세히 알아보세요.
     
@@ -111,7 +111,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 서비스 주체를 �
 4. 일반적으로 SQL 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 예를 들어 다음을 실행합니다.
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. ADF에서 Azure SQL Database 연결된 서비스를 구성합니다.
@@ -160,7 +160,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 MSI를 사용하려면
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**합니다. AAD 사용자는 AAD 사용자 또는 AAD 그룹일 수 있습니다. MSI로 그룹에 관리자 역할을 부여한 경우 관리자가 DB에 대한 모든 액세스 권한을 가지므로 아래 3 및 4단계는 건너뜁니다.
+2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. AAD 사용자는 AAD 사용자 또는 AAD 그룹일 수 있습니다. MSI로 그룹에 관리자 역할을 부여한 경우 관리자가 DB에 대한 모든 액세스 권한을 가지므로 아래 3 및 4단계는 건너뜁니다.
 
 3. 최소한의 모든 사용자 변경 권한이 있는 AAD ID로 SSMS와 같은 도구를 사용하여 데이터를 복사할 데이터베이스에 연결하고 다음 T-SQL을 실행하여 **AAD 그룹에 대해 포함된 데이터베이스 사용자를 만듭니다**. [여기](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)에서 포함된 데이터베이스 사용자에 대해 자세히 알아보세요.
     
@@ -171,7 +171,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 MSI를 사용하려면
 4. 일반적으로 SQL 사용자에 대해 수행하듯이 **AAD 그룹에 필요한 권한을 부여**합니다. 예를 들어 다음을 실행합니다.
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. ADF에서 Azure SQL Database 연결된 서비스를 구성합니다.
@@ -238,7 +238,7 @@ Azure SQL Database에서 데이터를 복사하려면 복사 작업의 원본 �
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 type 속성을 **SqlSource**로 설정해야 합니다. | 예 |
-| SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. |아니요 |
+| SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. |아니오 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니오 |
 
@@ -343,9 +343,9 @@ Azure SQL Database에 데이터를 복사하려면 복사 작업의 싱크 형�
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 싱크의 형식 속성은 **SqlSink**로 설정해야 합니다. | 예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니오 |
 | preCopyScript |Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니오 |
-| sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법(예: 사용자 고유의 비즈니스 논리를 사용하여 upsert 또는 transform 수행)을 정의하는 저장 프로시저의 이름입니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아니요 |
+| sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법(예: 사용자 고유의 비즈니스 논리를 사용하여 upsert 또는 transform 수행)을 정의하는 저장 프로시저의 이름입니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아니오 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니오 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. |아니오 |
 
