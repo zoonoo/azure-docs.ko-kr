@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/16/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 3b138546ffb1cb6d5bec0aaf2bb11510ab399933
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4d6d3b776995233f3729a76788504678dc8979d7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -42,7 +42,7 @@ Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory
 * 가장 중요한 비즈니스 앱의 요구를 충족하는 30초의 낮은 RPO를 통한 근거리 동기 복제.
 * 단일 또는 다중 계층 응용 프로그램에 대한 앱 일관성 스냅숏.
 * AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 응용 프로그램 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
-* 유연한 복구는 한 번의 클릭으로 전체 응용 프로그램 스택을 복구하도록 설정하고 계획에 외부 스크립트 또는 수동 작업을 포함합니다.
+* 클릭 한 번으로 전체 응용 프로그램 스택을 복구하고 외부 스크립트 또는 수동 작업을 계획에 포함할 수 있는 유연한 복구.
 * Site Recovery 및 Azure의 고급 네트워크 관리는 낮은 RTO 네트워크 전환을 위해 IP 주소 예약, 부하 분산 장치 구성 및 Azure Traffic Manager와 통합을 포함하는 앱 네트워크 요구 사항을 단순화합니다.
 * 다운로드하고 복구 계획과 통합할 수 있는 프로덕션 준비된 응용 프로그램 특정 스크립트를 제공하는 다양한 자동화 라이브러리입니다.
 
@@ -110,8 +110,8 @@ Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션�
 
 | **RDS** |**Azure VM을 Azure에 복제** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** | **물리적 서버를 보조 사이트에 복제** | **물리적 서버를 Azure에 복제** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **풀링된 가상 데스크톱(관리되지 않음)** |아니요|예 |아니오 |예 |아니요 |예 |아니오 |
-| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니요|예 |아니요 |예 |아니오 |예 |아니요 |
+| **풀링된 가상 데스크톱(관리되지 않음)** |아니오|예 |아니오 |예 |아니오 |예 |아니오 |
+| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니오|예 |아니오 |예 |아니오 |예 |아니오 |
 | **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |예|예 |예 |예 |예 |예 |예 |
 
 [Azure Site Recovery를 사용하여 RDS에 대한 재해 복구를 설정합니다](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).

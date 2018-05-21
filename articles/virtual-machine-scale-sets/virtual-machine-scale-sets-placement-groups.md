@@ -1,11 +1,11 @@
 ---
-title: "대규모 Azure Virtual Machine Scale Sets와 작동 | Microsoft Docs"
-description: "대규모 Azure 가상 머신 확장 집합을 사용할 때 알아야 할 내용"
+title: 대규모 Azure Virtual Machine Scale Sets와 작동 | Microsoft Docs
+description: 대규모 Azure 가상 머신 확장 집합을 사용할 때 알아야 할 내용
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: negat
-ms.openlocfilehash: 192f2c01be0992e22ce67e3df6d641ba707e22fd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
 이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 
@@ -80,7 +80,7 @@ Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만�
 대규모 확장 집합 템플릿의 전체 예제는 [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)을 참조하세요.
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>여러 배치 그룹을 확장하기 위해 기존 확장 집합을 변환
-기존의 가상 머신 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singplePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 크기 집합을 볼 수 있습니다.
+기존의 가상 머신 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singlePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 크기 집합을 볼 수 있습니다.
 
 >[!NOTE] 
 단일 배치 그룹만 지원하는 것(기본 동작)에서 여러 배치 그룹을 지원하도록 확장 집합을 변경할 수 있지만 그 반대로는 변환할 수 없습니다. 따라서 변환하기 전에 대규모 확장 집합의 속성을 이해해야 합니다.

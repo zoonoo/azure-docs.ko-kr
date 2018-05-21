@@ -1,27 +1,23 @@
 ---
 title: Multi-Factor Authentication 및 Active Directory 간의 디렉터리 통합
-description: 디렉터리를 동기화할 수 있도록 Active Directory와 Azure Multi-Factor Authentication 서버를 통합하는 방법에 대해 설명하는 Azure Multi-Factor 인증 페이지입니다.
+description: 디렉터리를 동기화할 수 있도록 Active Directory와 Azure Multi-Factor Authentication 서버를 통합하는 방법을 설명합니다.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/16/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 595359c9d50bceada3674336d4ef3fc8d5d6f416
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3f6f1f351a4870e68f2a5d6562c5c4a8f0031bdd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
+
 Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 또는 다른 LDAP 디렉터리와 통합합니다. 디렉터리 스키마와 일치하는 특성을 구성하고 자동 사용자 동기화를 설정할 수 있습니다.
 
 ## <a name="settings"></a>설정
@@ -95,7 +91,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | 내선 번호 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
 | 기본값 복원 단추 |모든 특성을 기본값으로 다시 되돌리려면 **기본값 복원**을 클릭합니다.  기본값은 일반 Active Directory 또는 ADAM 스키마에서 제대로 작동합니다. |
 
-특성을 편집하려면 특성 탭의 **편집**을 클릭합니다.  특성을 편집할 수 있는 창이 나타납니다. 모든 특성 옆의 **...**을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
+특성을 편집하려면 특성 탭의 **편집**을 클릭합니다.  특성을 편집할 수 있는 창이 나타납니다. 모든 특성 옆의 **...** 을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
 
 ![특성 편집](./media/howto-mfaserver-dir-ad/dirint4.png)
 
