@@ -1,23 +1,21 @@
 ---
-title: "서비스 간 인증: Azure Active Directory를 사용하여 Java로 Data Lake Store 인증 | Microsoft Docs"
-description: "Azure Active Directory를 사용하여 Java로 Data Lake Store 서비스 간 인증을 수행하는 방법을 알아봅니다."
+title: '서비스 간 인증: Azure Active Directory를 사용하여 Java로 Data Lake Store 인증 | Microsoft Docs'
+description: Azure Active Directory를 사용하여 Java로 Data Lake Store 서비스 간 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e537d8a6ea53bf4366168727de8ef95b96281d5b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5dccdf7cc7598381bae0de2eb24f3761cbef7612
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-java"></a>Java를 사용하여 Data Lake Store로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -30,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 이 문서에서는 Java SDK를 사용하여 Azure Data Lake Store로 서비스 간 인증을 수행하는 방법을 배웁니다. Java SDK를 사용하여 Data Lake Store로 최종 사용자를 인증하는 기능은 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.

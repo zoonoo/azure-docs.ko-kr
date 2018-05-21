@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 앱 및 서비스 설명 | Microsoft Docs"
-description: "Service Fabric 응용 프로그램 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다."
+title: Azure Service Fabric 앱 및 서비스 설명 | Microsoft Docs
+description: Service Fabric 응용 프로그램 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,16 +9,16 @@ editor: mani-ramaswamy
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b79206b9d456226d14984e8a1c1002c07c4f626a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트
 이 문서에서는 Service Fabric 응용 프로그램 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.

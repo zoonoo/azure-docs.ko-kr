@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: 807753435f0f8b7618e38f92d58e75a30c9ecb43
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e520b4b85ff7c840c46175cae5b853ec6979c04a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
@@ -393,7 +393,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-1. *{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제는 서로 다른 수준에 대한 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}* 을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제는 서로 다른 수준에 대한 범위를 지정하는 방법을 보여 줍니다.
 
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
@@ -438,10 +438,10 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | --- | --- | --- | --- |
 | 이름 |예 |문자열 |사용자 지정 역할의 GUID 식별자입니다. |
 | properties.roleName |예 |문자열 |사용자 지정 역할의 표시 이름입니다. 최대 128자입니다. |
-| properties.description |아니요 |문자열 |사용자 지정 역할에 대한 설명입니다. 최대 1024자입니다. |
+| properties.description |아니오 |문자열 |사용자 지정 역할에 대한 설명입니다. 최대 1024자입니다. |
 | properties.type |예 |문자열 |"CustomRole"로 설정합니다. |
 | properties.permissions.actions |예 |문자열[] |사용자 지정 역할이 권한을 부여하는 작업을 지정하는 동작 문자열의 배열입니다. |
-| properties.permissions.notActions |아니요 |문자열[] |사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
+| properties.permissions.notActions |아니오 |문자열[] |사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
 | properties.assignableScopes |예 |문자열[] |사용자 지정 역할을 사용할 수 있는 범위의 배열입니다. |
 
 ### <a name="response"></a>response
@@ -496,7 +496,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-1. *{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}* 을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  

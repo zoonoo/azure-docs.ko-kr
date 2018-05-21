@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -45,13 +45,14 @@ DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지�
 ### <a name="user-sign-in"></a>사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 Single Sign-On 방법을 선택하라는 메시지가 표시됩니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다. 로그인 메서드에 대한 전체 설명은 [사용자 로그인](active-directory-aadconnect-user-signin.md)을 참조하세요.
 
-![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | SSO(Single Sign-On) 옵션 | 설명 |
 | --- | --- |
 | 암호 해시 동기화 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다. 사용자 암호는 암호 해시로 Azure AD에 동기화되며 클라우드에서 인증이 이루어집니다. 자세한 내용은 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-hash-synchronization.md)를 참조하세요. |
 |통과 인증|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자 암호는 유효성을 검사하기 위해 온-프레미스 Active Directory 도메인 컨트롤러로 전달됩니다.
 | AD FS로 페더레이션 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 AD FS 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
+| PingFederate을 사용한 페더레이션|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 PingFederate 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
 | 구성하지 않음 |사용자 로그인 기능이 설치 및 구성되지 않습니다. 이미 타사 페더레이션 서버 또는 다른 기존 솔루션이 있는 경우 이 옵션을 선택합니다. |
 |Single Sign-On을 사용하도록 설정|이 옵션은 암호 동기화 및 통과 인증 모두로 사용 가능하며 기업 네트워크에서 데스크톱 사용자를 위한 single sign on 환경을 제공합니다. 자세한 내용은 [Single sign-on](active-directory-aadconnect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.</br>
 
@@ -301,6 +302,39 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>PingFederate로 페더레이션 구성
+Azure AD Connect를 사용하여 PingFederate를 구성하는 방법은 클릭 몇 번으로 간단하게 처리할 수 있습니다. 구성하기 전에 다음 사항이 필요합니다.  하지만 다음과 같은 필수 구성 요소가 필요합니다.
+- PingFederate 8.4 이상.  자세한 내용은 [Azure Active Directory 및 Office 365와 PingFederate 통합](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)을 참조하세요.
+- 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
+
+### <a name="verify-the-domain"></a>도메인 확인
+PingFederate을 사용한 페더레이션을 선택한 후에는 페더레이션할 도메인을 확인하라는 메시지가 표시됩니다.  드롭다운 상자에서 도메인을 선택합니다.
+
+![도메인 확인](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>PingFederate 설정 내보내기
+
+
+PingFederate는 각 페더레이션된 Azure 도메인의 페더레이션 서버로 구성해야 합니다.  [설정 내보내기] 단추를 클릭하고 이 정보를 PingFederate 관리자와 공유합니다.  페더레이션 서버 관리자가 구성을 업데이트한 다음, PingFederate 서버 URL 및 포트 번호를 제공할 것입니다. 그러면 Azure AD Connect가 메타데이터 설정을 확인할 수 있습니다.  
+
+![도메인 확인](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+유효성 검사 문제를 해결하려면 PingFederate 관리자에게 문의하세요.  다음은 Azure와 유효한 트러스트 관계가 없는 PingFederate 서버의 예입니다.
+
+![신뢰](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>페더레이션 연결 확인
+Azure AD Connect는 이전 단계에서 PingFederate 메타데이터에서 검색된 인증 엔드포인트의 유효성을 검사하려고 시도합니다.  Azure AD Connect는 먼저 로컬 DNS 서버를 사용하여 엔드포인트를 확인하려고 시도합니다.  그 다음에는 외부 DNS 공급자를 사용하여 엔드포인트를 확인하려고 시도합니다.  유효성 검사 문제를 해결하려면 PingFederate 관리자에게 문의하세요.  
+
+![연결 확인](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>페더레이션 로그인 확인
+마지막으로, 페더레이션된 도메인에 로그인하여 새로 구성된 페더레이션된 로그인 흐름을 확인할 수 있습니다. 이 작업에 성공하면 PingFederate을 사용한 페더레이션이 성공적으로 구성됩니다.
+![로그인 확인](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>페이지 구성 및 확인
 이 페이지에서 구성이 이루어집니다.
 
@@ -308,6 +342,7 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 > 설치를 계속하기 전에 페더레이션을 구성한 경우 [페더레이션 서버에 대 한 이름 확인](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers)을 구성했는지 확인합니다.
 >
 >
+
 
 ![구성할 준비 완료](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -336,8 +371,9 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 
 ![Verify](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-또한 다음 확인 단계를 수행합니다.
+통합형 인증의 유효성 검사가 성공하려면 다음 테스트 중 하나 이상을 수동으로 수행해야 합니다.
 
+* 동기화가 완료되면 Azure AD Connect에서 페더레이션 로그인 확인 추가 작업을 사용하여 원하는 온-프레미스 사용자 계정에 대한 인증을 확인합니다.
 * 인트라넷의 도메인 가입된 컴퓨터에서, 브라우저에서 로그인할 수 있는지 유효성 검사: https://myapps.microsoft.com에 연결하고 로그인된 계정으로 로그인을 확인합니다. 기본 제공 AD DS 관리자 계정은 동기화되지 않으며 확인을 위해 사용할 수 없습니다.
 * 엑스트라넷에서, 장치에서 로그인 할 수 있는지 유효성을 검사합니다. 홈 컴퓨터 또는 모바일 장치에서 https://myapps.microsoft.com에 연결하고 자격 증명을 제공합니다.
 * 리치 클라이언트 로그인 유효성을 검사합니다. https://testconnectivity.microsoft.com에 연결하고 **Office 365** 탭 및 **Office 365 Single Sign-on 테스트**를 선택합니다.

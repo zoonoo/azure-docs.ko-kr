@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4d692e4dc639cbd290b465980da2319ac590627c
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f7050a034bea3a92376afbebb3b1489e61382a83
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
 [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure Automation의 Runbook은 Windows PowerShell을 기반으로 합니다.  Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.

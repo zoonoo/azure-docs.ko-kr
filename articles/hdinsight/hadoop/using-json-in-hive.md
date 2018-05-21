@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 62ee373b450f512baf6615938718617254122d05
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19d8e74e6f3ca8e7a0b0a64bdd782ea21b233c17
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -60,7 +60,7 @@ Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notatio
 }
 ```
 
-이 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. HDInsight에서 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop을 사용하여 HDFS 호환 Azure Blob 저장소 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
+이 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/** 에 있습니다. HDInsight에서 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop을 사용하여 HDFS 호환 Azure Blob 저장소 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
 이 자습서에서는 Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법에 대한 지침은 [원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용](apache-hadoop-use-hive-remote-desktop.md)을 참조하세요.
 
@@ -86,7 +86,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-원시 JSON 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. **StudentsRaw** Hive 테이블은 평면화되지 않은 원시 JSON 문서를 가리킵니다.
+원시 JSON 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/** 에 있습니다. **StudentsRaw** Hive 테이블은 평면화되지 않은 원시 JSON 문서를 가리킵니다.
 
 **StudentsOneLine** Hive 테이블은 HDInsight 기본 파일 시스템에서 데이터를 **/json/students/** 경로에 저장합니다.
 
@@ -125,7 +125,7 @@ FROM StudentsOneLine;
 get-json_object UDF에는 다음과 같은 제한 사항이 있습니다.
 
 * 쿼리의 각 필드는 쿼리를 다시 구문 분석하는 데 필요하므로 성능에 영향을 줍니다.
-* **GET\_JSON_OBJECT()**는 배열의 문자열 표현을 반환합니다. 이 배열을 Hive 배열로 변환하려면 정규식을 사용하여 대괄호("[" 및 "]")를 바꾼 다음 분할된 호출을 통해 배열을 가져와야 합니다.
+* **GET\_JSON_OBJECT()** 는 배열의 문자열 표현을 반환합니다. 이 배열을 Hive 배열로 변환하려면 정규식을 사용하여 대괄호("[" 및 "]")를 바꾼 다음 분할된 호출을 통해 배열을 가져와야 합니다.
 
 따라서 Hive Wiki에서는 json_tuple을 사용하도록 권장합니다.  
 

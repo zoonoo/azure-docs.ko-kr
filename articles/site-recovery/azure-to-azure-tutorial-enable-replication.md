@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -134,7 +134,7 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 - **대상 위치**: 재해 복구에 사용되는 대상 지역입니다. 대상 위치가 Site Recovery 자격 증명 모음의 위치와 일치하는 것이 좋습니다.
 
-- **대상 리소스 그룹**: 장애 조치(failover) 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다. 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다.
+- **대상 리소스 그룹**: 장애 조치(failover) 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다. 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 지역이 대상 리소스 그룹의 리소스 그룹 위치가 될 수 있습니다. 
 
 - **대상 가상 네트워크**: 장애 조치(failover) 후 VM이 배치되는 대상 지역의 네트워크입니다.
   기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 가상 네트워크(및 서브넷)를 만듭니다.

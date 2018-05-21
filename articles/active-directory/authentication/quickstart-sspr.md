@@ -2,25 +2,19 @@
 title: 셀프 서비스 암호 재설정 빠른 시작 - Azure Active Directory
 description: 신속하게 Azure AD 셀프 서비스 암호 재설정 배포
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>신속한 Azure AD 셀프 서비스 암호 재설정 배포
 
@@ -33,11 +27,13 @@ IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용�
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Azure AD 테넌트에 대한 SSPR 사용 설정
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. 기존 Azure AD 테넌트의 **Azure Portal**에 있는 **Azure Active Directory** 아래에서 **암호 재설정**을 선택합니다.
 
 2. **속성** 페이지의 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 옵션 아래에서 다음 중 하나를 선택합니다.
    * **없음**: 아무도 SSPR 기능을 사용할 수 없습니다.
-   * **선택한 사용자**: 선택한 특정 Azure AD 그룹 구성원만 SSPR 기능을 사용할 수 있습니다. 개념 증명을 위해 이 기능을 배포할 때 사용자 그룹을 정의하고 이 설정을 사용하는 것이 좋습니다.
+   * **선택한 사용자**: 선택한 특정 Azure AD 그룹 구성원만 SSPR 기능을 사용할 수 있습니다. 개념 증명을 위해 이 기능을 배포할 때 사용자 그룹을 정의하고 이 설정을 사용하는 것이 좋습니다. 여기서는 보안 그룹 중첩이 지원됩니다.
    * **모두**: Azure AD 테넌트에 계정이 있는 모든 사용자가 SSPR 기능을 사용할 수 있습니다. 개념 증명을 완료하고 이 기능을 테넌트 전체에 배포할 준비가 완료된 경우 이 설정을 사용하는 것이 좋습니다.
 
    > [!IMPORTANT]

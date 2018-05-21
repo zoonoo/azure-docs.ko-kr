@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
@@ -116,7 +116,7 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 >
 >
 
-## <a name="risky-ip-report"></a>위험 IP 보고서 
+## <a name="risky-ip-report-public-preview"></a>위험 IP 보고서(공개 미리 보기)
 AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최종 사용자가 Office 365와 같은 SaaS 응용 프로그램에 액세스할 수 있게 하는 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 응용 프로그램 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
 또한 단일 IP 주소에서 여러 사용자에 대해 여러 로그인을 시도할 수도 있습니다. 이러한 경우 사용자당 시도 횟수가 AD FS의 계정 잠금 보호 임계값보다 낮을 수 있습니다. Azure AD Connect Health는 이제 이 조건을 감지하고 해당 문제가 발생하면 관리자에게 알리는 "위험한 IP 보고서"를 제공합니다. 이 보고서의 주요 이점은 다음과 같습니다. 
 - 실패한 암호 기반 로그인의 임계값을 초과하는 IP 주소 검색
@@ -152,10 +152,12 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 > - 이 경고 보고서에는 Exchange IP 주소 또는 개인 IP 주소가 표시되지 않습니다. 이러한 주소는 여전히 내보내기 목록에 포함되어 있습니다. 
 >
 
-
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>위험한 IP 보고서 다운로드
+### <a name="load-balancer-ip-addresses-in-the-list"></a>목록의 부하 분산 장치 IP 주소
+부하 분산 장치는 실패한 로그인 작업을 집계하여 경고 임계값에 도달합니다. 부하 분산 장치 IP 주소가 표시되는 경우 웹 응용 프로그램 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다. 포워드 클라이언트 IP 주소를 전달하도록 올바르게 부하 분산 장치를 구성하세요. 
+
+### <a name="download-risky-ip-report"></a>위험한 IP 보고서 다운로드 
 **다운로드** 기능을 사용하면 지난 30일 동안의 위험한 IP 주소 목록 전체를 Connect Health 포털에서 내보낼 수 있습니다. 내보내기 결과에는 각 탐지 시간 범위에서 실패한 AD FS 로그인 활동이 모두 포함되므로 내보낸 후에 필터링을 사용자 지정할 수 있습니다. 포털에서 강조 표시된 집계 외에도 내보내기 결과에는 실패한 로그인 활동에 대해 IP 주소별로 자세한 정보가 표시됩니다.
 
 |  보고서 항목  |  설명  | 
@@ -196,12 +198,14 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 
 3. IP 주소를 차단하려면 어떻게 해야 할까요?  <br />
 식별된 악성 IP 주소는 방화벽에 추가되거나 Exchange에서 차단해야 합니다.   <br />
-AD FS 2016 + 1803.C + QFE의 경우 AD FS에서 IP 주소를 직접 차단할 수 있습니다. 
 
 4. 이 보고서에 항목이 표시되지 않는 이유는 무엇인가요? <br />
    - 실패한 로그인 활동이 임계값 설정을 초과하지 않습니다. 
    - AD FS 서버 목록에서 "상태 서비스가 최신이 아닙니다" 경고가 활성화되어 있지 않은지 확인합니다.  [이 경고 문제를 해결하는 방법](active-directory-aadconnect-health-data-freshness.md)에 대해 자세히 알아보세요.
    - AD FS 팜에서는 감사를 사용할 수 없습니다.
+ 
+5. 보고서에 액세스할 수 없는 이유는 무엇인가요?  <br />
+전역 관리자 또는 [보안 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) 권한이 필요합니다. 전역 관리자에게 문의하여 액세스 권한을 얻으세요.
 
 
 ## <a name="related-links"></a>관련 링크

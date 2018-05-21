@@ -1,24 +1,24 @@
 ---
-title: "Java SDK에서 Maven로 마이그레이션 - 이전 Azure Service Fabric Java 응용 프로그램을 업데이트하여 Maven 사용 | Microsoft Docs"
-description: "Service Fabric Java SDK를 사용하기 위해 사용되는 이전 Java 응용 프로그램을 업데이트하여 Maven에서 Service Fabric Java 종속성을 페치합니다. 이 설정을 완료한 후에 이전 Java 응용 프로그램을 빌드할 수 있습니다."
+title: Java SDK에서 Maven로 마이그레이션 - 이전 Azure Service Fabric Java 응용 프로그램을 업데이트하여 Maven 사용 | Microsoft Docs
+description: Service Fabric Java SDK를 사용하기 위해 사용되는 이전 Java 응용 프로그램을 업데이트하여 Maven에서 Service Fabric Java 종속성을 페치합니다. 이 설정을 완료한 후에 이전 Java 응용 프로그램을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 7eac05c859440e868e1a207f0ba0d1bdf41e6e6b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 178d49a9481cec20da3e9418d9c104684f303267
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 응용 프로그램을 업데이트하여 Maven에서 Java 라이브러리 페치
 최근에 Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스트로 이동했습니다. 이제 **mavencentral**을 사용하여 최신 Service Fabric Java 종속성을 페치할 수 있습니다. 이 빠른 시작을 통해 Yeoman 템플릿이나 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환하도록 Service Fabric Java SDK에서 사용하기 위해 이전에 만들어진 기존 Java 응용 프로그램을 업데이트할 수 있습니다.

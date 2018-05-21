@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric에서 메트릭의 조각 모음 | Microsoft Docs"
-description: "서비스 패브릭에서 메트릭에 대한 전략으로써 조각 모음 또는 압축 사용의 개요"
+title: Azure Service Fabric에서 메트릭의 조각 모음 | Microsoft Docs
+description: 서비스 패브릭에서 메트릭에 대한 전략으로써 조각 모음 또는 압축 사용의 개요
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a35ae5933729615d634359e64e31d43536d81431
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>서비스 패브릭에서 부하 및 메트릭의 조각 모음
 클러스터의 부하 메트릭을 관리하기 위한 Service Fabric Cluster Resource Manager의 기본 전략은 부하를 분산하는 것입니다. 노드가 균등하게 사용되도록 하면 핫스폿 및 콜드스폿이 방지되어 경합 및 리소스 낭비를 야기하지 않습니다. 클러스터에서 워크로드를 분산하는 것은 오류가 지정된 워크로드의 많은 부분을 사용하지 않도록 하기 때문에 오류를 극복하는 측면에서 가장 안전한 방법입니다. 
