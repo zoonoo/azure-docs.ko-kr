@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric 및 API Management 개요 | Microsoft Docs"
-description: "이 문서에서는 Service Fabric 응용 프로그램에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다."
+title: Azure Service Fabric 및 API Management 개요 | Microsoft Docs
+description: 이 문서에서는 Service Fabric 응용 프로그램에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
@@ -78,7 +78,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
  
  - `fabric:/app/users/<username>`
 
- 각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예:
+ 각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예: 
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
@@ -97,7 +97,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
  
  - `fabric:/app/users/<username>`
 
- 각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예:
+ 각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예: 
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.

@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric 클러스터 리소스 관리자 - 배치 정책 | Microsoft Docs"
-description: "서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요"
+title: Service Fabric 클러스터 리소스 관리자 - 배치 정책 | Microsoft Docs
+description: 서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c240643d2a7ce98ddd7f7871eeef654cced953f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf10f1d9199500d4f5bda3c5a05a3d67ff65541
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
 배치 정책은 보다 덜 일반적인 일부 구체적인 시나리오에서 서비스 배치를 제어하는 데 사용할 수 있는 추가적인 규칙입니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.

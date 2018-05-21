@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 역방향 프록시 | Microsoft Docs"
-description: "Service Fabric의 역방향 프록시를 사용하여 클러스터 내부 및 외부에서 마이크로 서비스와 통신"
+title: Azure Service Fabric 역방향 프록시 | Microsoft Docs
+description: Service Fabric의 역방향 프록시를 사용하여 클러스터 내부 및 외부에서 마이크로 서비스와 통신
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
 Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabric 클러스터 탐색에서 마이크로 서비스의 실행을 지원하고 http 끝점이 있는 타 서비스와 통신합니다.

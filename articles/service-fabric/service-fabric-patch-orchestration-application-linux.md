@@ -1,24 +1,24 @@
 ---
-title: "Linux용 Azure Service Fabric 패치 오케스트레이션 응용 프로그램 | Microsoft Docs"
-description: "Linux Service Fabric 클러스터에 운영 체제 패치를 자동화하는 응용 프로그램입니다."
+title: Linux용 Azure Service Fabric 패치 오케스트레이션 응용 프로그램 | Microsoft Docs
+description: Linux Service Fabric 클러스터에 운영 체제 패치를 자동화하는 응용 프로그램입니다.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/22/2018
 ms.author: nachandr
-ms.openlocfilehash: dac8068705e284b04d84d128eb1ce62c459d44ff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 

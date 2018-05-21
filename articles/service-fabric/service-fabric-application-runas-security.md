@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 471e5a79600d6a963a4fa5b6cec8d2cc16137489
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 33ca23834f35e631c6943ec22a88f4fe3dc853e1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>로컬 사용자 계정 또는 시스템 계정으로 서비스 실행
 Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 기본적으로 서비스 패브릭 응용 프로그램은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 또한 Service Fabric은 로컬 사용자 또는 시스템 계정에서 응용 프로그램을 실행하는 기능을 제공합니다. 지원되는 로컬 시스템 계정 유형은 **LocalUser**, **NetworkService**, **LocalService** 및 **LocalSystem**입니다.  Windows 독립 실행형 클러스터에서 Service Fabric을 실행할 경우 [Active Directory 도메인 계정](service-fabric-run-service-as-ad-user-or-group.md) 또는 [그룹 관리 서비스 계정](service-fabric-run-service-as-gmsa.md)에서 서비스를 실행할 수 있습니다.
