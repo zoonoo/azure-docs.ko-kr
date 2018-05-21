@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: c72fb17a53b9d373bbd141f76f01e6b029d1e8f7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59251287f7597955fe22700cc96527b9476753c1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
@@ -54,7 +54,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 1. 컴퓨터에서 IntelliJ IDEA를 엽니다. **새 프로젝트** 대화 상자에서 다음 단계를 완료합니다.
 
-   1. **HDInsight** > **HDInsight의 Spark(Scala)**를 선택합니다.
+   1. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
    2. **빌드 도구** 목록에서 시나리오에 따라 다음 중 하나를 선택합니다.
 
     * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우

@@ -1,27 +1,23 @@
 ---
 title: Azure Multi-Factor Authentication FAQ| Microsoft Docs
-description: Azure Multi-Factor Authentication과 관련된 질문과 대답입니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다.
+description: Azure Multi-Factor Authentication과 관련된 질문과 대답입니다.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c6941f381c6c469001bab7a4ff9e742daa2d804
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
+
 이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
 
 ## <a name="general"></a>일반
