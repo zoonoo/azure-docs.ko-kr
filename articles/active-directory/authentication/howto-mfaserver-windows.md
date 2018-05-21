@@ -1,27 +1,23 @@
 ---
 title: Windows 인증 및 Azure MFA 서버 | Microsoft Docs
-description: Windows 인증 및 Azure Multi-Factor Authentication을 배포하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다.
+description: Windows 인증 및 Azure Multi-Factor Authentication 서버 배포
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: d7d0536c5504d559e8623083bfcd8c49832a8e48
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a72a045efe916c2aa89822984898bac5e43ea1cf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
+
 Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하여 응용 프로그램에 대한 Windows 인증을 사용하도록 설정하고 구성할 수 있습니다. Windows 인증을 설정하기 전에 다음 목록을 유념하세요.
 
 * 설정한 후에는 터미널 서비스에 대한 Azure Multi-Factor Authentication을 다시 부팅하여 적용되도록 합니다.

@@ -1,27 +1,23 @@
 ---
 title: 관리자가 사용자 및 장치 관리 - Azure MFA | Microsoft Docs
 description: 사용자가 증명 프로세스를 다시 수행하도록 하는 등의 사용자 설정을 변경하는 방법에 대해 설명합니다.
-documentationcenter: ''
 services: multi-factor-authentication
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 9a570740b84ee2016ae7a4882c87c9544ea66a88
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
+
 관리자는 다음 사용자 및 장치 설정을 관리할 수 있습니다.
 
 * 사용자가 연락 방법을 다시 제공하도록 요청
