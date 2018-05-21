@@ -1,12 +1,12 @@
 ---
-title: "Azure의 Active Directory Federation Services | Microsoft Docs"
-description: "이 문서에서는 고가용성을 위해 Azure에서 AD FS를 배포하는 방법을 알아봅니다."
-keywords: "Azure에 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS, ADFS 배포, AD FS 배포, Azure에서 ADFS, Azure에서 ADFS 배포, Azure에서 AD FS배포, ADFS Azure, AD FS 소개, Azure, Azure에서 AD FS, IaaS, ADFS, Azure에 ADFS 이동"
+title: Azure의 Active Directory Federation Services | Microsoft Docs
+description: 이 문서에서는 고가용성을 위해 Azure에서 AD FS를 배포하는 방법을 알아봅니다.
+keywords: Azure에 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS, ADFS 배포, AD FS 배포, Azure에서 ADFS, Azure에서 ADFS 배포, Azure에서 AD FS배포, ADFS Azure, AD FS 소개, Azure, Azure에서 AD FS, IaaS, ADFS, Azure에 ADFS 이동
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
@@ -214,7 +214,7 @@ DNS 서버로 이동하고 ILB에 대한 CNAME을 만듭니다. CNAME은 ILB의 
 
 **7.2. 웹 응용 프로그램 프록시 역할 설치**
 
-웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있는지를 확인한 후에 웹 응용 프로그램 프록시 서버를 설치할 수 있습니다. 웹 응용 프로그램 프록시 서버는 도메인에 조인되지 않습니다. 원격 액세스 역할을 선택하여 두 개의 웹 응용 프로그램 프록시 서버에 웹 응용 프로그램 프록시 역할을 설치합니다. 서버 관리자에서는 WAP 설치를 완료하도록 안내합니다.
+웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있는지를 확인한 후에 웹 응용 프로그램 프록시 서버를 설치할 수 있습니다. 웹 응용 프로그램 프록시 서버는 도메인에 조인할 필요가 없습니다. 원격 액세스 역할을 선택하여 두 개의 웹 응용 프로그램 프록시 서버에 웹 응용 프로그램 프록시 역할을 설치합니다. 서버 관리자에서는 WAP 설치를 완료하도록 안내합니다.
 WAP를 배포하는 방법에 대한 자세한 내용은 [웹 응용 프로그램 프록시 서버 설치 및 구성](https://technet.microsoft.com/library/dn383662.aspx)을 참고합니다.
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  인터넷 연결 (공용) 부하 분산 장치 배포
@@ -303,7 +303,7 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 
 1. 아래 AD FS 서버의 cmdlet을 실행하고 PowerShell을 사용하여 사용하도록 설정합니다.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. 외부 컴퓨터에서 https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx에 액세스합니다.  
+2. 아무 외부 컴퓨터에서 https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx에 액세스  
 3. 아래와 같은 AD FS 페이지를 참조해야 합니다.
 
 ![테스트 로그인 페이지](./media/active-directory-aadconnect-azure-adfs/test1.png)

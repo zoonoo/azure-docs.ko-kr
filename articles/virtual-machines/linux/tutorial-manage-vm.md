@@ -1,6 +1,6 @@
 ---
-title: Azure CLI로 Linux VM 만들기 및 관리 | Microsoft Docs
-description: 자습서 - Azure CLI로 Linux VM 만들기 및 관리
+title: 자습서 - Azure CLI로 Linux VM 만들기 및 관리 | Microsoft Docs
+description: 이 자습서에서는 Azure CLI 2.0을 사용하여 Azure에서 Linux VM을 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI로 Linux VM 만들기 및 관리
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>자습서 - Azure CLI 2.0으로 Linux VM 만들기 및 관리
 
 Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
@@ -33,10 +33,9 @@ Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 > * VM 크기 조정
 > * VM 상태 보기 및 이해
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -85,7 +84,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Az
 이제 Azure Cloud Shell에서 또는 로컬 컴퓨터에서 SSH를 사용하여 VM에 연결할 수 있습니다. 예제 IP 주소를 이전 단계에서 메모한 `publicIpAddress`로 바꿉니다.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 VM에 로그인한 후 응용 프로그램을 설치하고 구성할 수 있습니다. 작업을 완료하면 정상적으로 SSH 세션을 닫습니다.

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -28,7 +28,7 @@ Azure Storage는 최신 데이터 저장소 시나리오를 위한 Microsoft의 
 
 Azure Storage는 이러한 데이터 서비스를 포함합니다. 
 
-- [Azure Blob](../blobs/storage-blobs-introduction.md): 텍스트 및 이진 날에 대한 확장성이 뛰어난 개체 저장소입니다.
+- [Azure Blob](../blobs/storage-blobs-introduction.md): 텍스트 및 이진 데이터에 대한 확장성이 뛰어난 개체 저장소입니다.
 - [Azure Files](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리되는 파일 공유입니다.
 - [Azure 큐](../queues/storage-queues-introduction.md): 응용 프로그램 구성 요소 간에 안정적인 메시징을 위한 메시징 저장소입니다. 
 - [Azure 테이블](../../cosmos-db/table-storage-overview.md): 구조화된 데이터의 스키마 없는 저장소를 위한 NoSQL 저장소입니다.
@@ -179,7 +179,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 * [Storage 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/)
 * [.NET용 Storage 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Java/Android용 Storage 클라이언트 라이브러리](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Node.js용 Storage 클라이언트 라이브러리](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Node.js용 Storage 클라이언트 라이브러리](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Python용 Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)
 * [PHP용 Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-php)
 * [Ruby용 Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-ruby)

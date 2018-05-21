@@ -1,6 +1,6 @@
 ---
-title: DMS를 사용하여 SQL Server DB를 Azure SQL Database로 마이그레이션 | Microsoft Docs
-description: DMS를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다.
+title: DMA를 사용하여 SQL Server DB를 Azure SQL Database로 마이그레이션 | Microsoft Docs
+description: DMA를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,13 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>DMS를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>DMA를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
 
 SQL Server 데이터베이스를 Azure SQL Database 단일 데이터베이스로 이동하는 것은 Azure에서 빈 SQL 데이터베이스를 만든 다음, DMA([Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595))를 사용하여 데이터베이스를 Azure로 가져오는 것만큼 간단합니다. 추가 마이그레이션 옵션은 [데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 
-Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-database-service-tiers.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL Database 논리 서버](sql-database-features.md)에서 만들어집니다. 
+Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-database-service-tiers-dtu.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL Database 논리 서버](sql-database-features.md)에서 만들어집니다. 
 
 빈 SQL Database를 만들려면 다음 단계를 수행합니다. 
 
@@ -87,9 +87,9 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 8. **추가 기능 저장소** 옵션을 사용하려면 미리 보기 약관에 동의합니다. 
 
    > [!IMPORTANT]
-   > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
+   > - 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
    >
-   >\* 프리미엄 계층의 경우 현재 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+   > - Premium 계층의 경우 현재 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, US Gov 버지니아 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
    > 
 
 9. 서버 계층, DTU 수 및 저장소 크기를 선택한 후에 **적용**을 클릭합니다.  

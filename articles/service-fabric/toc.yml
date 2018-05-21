@@ -543,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: 클러스터 노드 VM에 원격 연결
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: VMSS SKU 업그레이드/마이그레이션
+              href: service-fabric-update-vmss-sku.md
         - name: 독립 실행형 클러스터
           items:
             - name: 생성

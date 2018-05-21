@@ -1,11 +1,11 @@
 ---
-title: "Team Services를 사용하여 Jenkins에서 Azure VM으로의 CI/CD 설정 | Microsoft Docs"
-description: "Jenkins를 사용하여 Node.js 앱을 Visual Studio Team Services 또는 Microsoft Team Foundation Server의 Release Management에서 Azure VM으로 CI(연속 통합) 및 CD(연속 배포)를 설정하는 방법을 알아봅니다."
+title: 자습서 - Team Services를 사용하여 Jenkins에서 Azure VM으로 CI/CD | Microsoft Docs
+description: 이 자습서에서는 Jenkins를 사용하여 Node.js 앱을 Visual Studio Team Services 또는 Microsoft Team Foundation Server의 Release Management에서 Azure VM으로 CI(연속 통합) 및 CD(연속 배포)를 설정하는 방법을 알아봅니다.
 author: ahomer
 manager: douge
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -14,19 +14,17 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Jenkins 및 Team Services를 사용하여 Linux VM에 앱 배포
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>자습서: Jenkins 및 Visual Studio Team Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 
 CI(연속 통합) 및 CD(연속 배포)는 코드를 빌드, 릴리스 및 배포할 수 있는 파이프라인을 구성합니다. Visual Studio Team Services는 Azure에 배포할 수 있는 완전하고 모든 기능을 갖춘 일단의 CI/CD 자동화 도구를 제공합니다. Jenkins는 CI/CD 자동화 기능을 제공하는 데 널리 사용되는 타사 CI/CD 서버 기반 도구입니다. Team Services와 Jenkins를 함께 사용하여 클라우드 앱 또는 서비스를 제공하는 방법을 사용자 지정할 수 있습니다.
 
-이 자습서에서는 Jenkins를 사용하여 Node.js 웹앱을 빌드합니다. 그런 다음 Team Services 또는 Team Foundation Server를 사용하여 Linux VM(가상 컴퓨터)이 포함된 [배포 그룹](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)에 배포합니다.
-
-다음을 수행합니다.
+이 자습서에서는 Jenkins를 사용하여 Node.js 웹앱을 빌드합니다. 그런 다음 Team Services 또는 Team Foundation Server를 사용하여 Linux VM(가상 머신)이 포함된 [배포 그룹](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)에 배포합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 샘플 앱 가져오기
@@ -34,13 +32,13 @@ CI(연속 통합) 및 CD(연속 배포)는 코드를 빌드, 릴리스 및 배�
 > * Node.js용 Jenkins 프리스타일 프로젝트 구성.
 > * Team Services와 통합되도록 Jenkins 구성
 > * Jenkins 서비스 끝점 만들기
-> * Azure 가상 컴퓨터에 대한 배포 그룹 만들기
+> * Azure 가상 머신에 대한 배포 그룹 만들기
 > * Team Services 릴리스 정의 만들기
 > * 수동 및 CI 트리거 배포 실행
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Jenkins 서버에 대한 액세스가 필요합니다. Jenkins 서버를 아직 만들지 않은 경우 [Azure 가상 컴퓨터에 Jenkins 마스터 만들기](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template)를 참조하세요. 
+* Jenkins 서버에 대한 액세스가 필요합니다. Jenkins 서버를 아직 만들지 않은 경우 [Azure 가상 머신에 Jenkins 마스터 만들기](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template)를 참조하세요. 
 
 * Team Services 계정(**https://{youraccount}.visualstudio.com**)에 로그인합니다. 
   [Team Services 계정은 무료](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)로 제공됩니다.
@@ -48,7 +46,7 @@ CI(연속 통합) 및 CD(연속 배포)는 코드를 빌드, 릴리스 및 배�
   > [!NOTE]
   > 자세한 내용은 [Team Services에 연결](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)을 참조하세요.
 
-*  배포 대상으로 Linux 가상 컴퓨터가 필요합니다.  자세한 내용은 [Azure CLI로 Linux VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)를 참조하세요.
+*  배포 대상으로 Linux 가상 머신이 필요합니다.  자세한 내용은 [Azure CLI로 Linux VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)를 참조하세요.
 
 *  가상 컴퓨터의 인바운드 포트 80을 엽니다. 자세한 내용은 [Azure Portal을 사용하여 네트워크 보안 그룹 만들기](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)를 참조하세요.
 
@@ -61,7 +59,7 @@ Git 리포지토리에 저장된 앱을 배포해야 합니다.
 
 > [!NOTE]
 > 앱은 [Yeoman](http://yeoman.io/learning/index.html)을 통해 빌드되었습니다. Express, bower 및 grunt를 사용합니다. 그리고 일부 npm 패키지가 종속성으로 포함되어 있습니다.
-> 샘플에는 Nginx를 설정하고 앱을 배포하는 스크립트도 포함되어 있습니다. 이 스크립트는 가상 컴퓨터에서 실행됩니다. 특히 이 스크립트는 다음을 수행합니다.
+> 샘플에는 Nginx를 설정하고 앱을 배포하는 스크립트도 포함되어 있습니다. 이 스크립트는 가상 머신에서 실행됩니다. 특히 이 스크립트는 다음을 수행합니다.
 > 1. Node, Nginx 및 PM2를 설치합니다.
 > 2. Nginx 및 PM2를 구성합니다.
 > 3. 노드 앱을 시작합니다.
@@ -124,20 +122,20 @@ Git 리포지토리에 저장된 앱을 배포해야 합니다.
 5. **연결 확인**을 선택하여 정보가 정확한지 확인합니다.
 6. **확인**을 선택하여 서비스 끝점을 만듭니다.
 
-## <a name="create-a-deployment-group-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대한 배포 그룹 만들기
+## <a name="create-a-deployment-group-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 배포 그룹 만들기
 
-릴리스 정의를 가상 컴퓨터에 배포할 수 있도록 Team Services 에이전트를 등록하려면 [배포 그룹](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)이 필요합니다. 배포 그룹을 사용하면 배포할 대상 컴퓨터의 논리 그룹을 쉽게 정의하고 각 컴퓨터에 필요한 에이전트를 설치할 수 있습니다.
+릴리스 정의를 가상 머신에 배포할 수 있도록 Team Services 에이전트를 등록하려면 [배포 그룹](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)이 필요합니다. 배포 그룹을 사용하면 배포할 대상 컴퓨터의 논리 그룹을 쉽게 정의하고 각 컴퓨터에 필요한 에이전트를 설치할 수 있습니다.
 
    > [!NOTE]
    > 다음 절차에서는 필수 구성 요소를 설치하고 *sudo 권한으로 스크립트를 실행하지 마세요.*
 
 1. **빌드&amp; 릴리스** 허브의 **릴리스** 탭을 열고, **배포 그룹**을 열고, **+ 새로 만들기**를 선택합니다.
 2. 배포 그룹의 이름을 입력하고 원하는 경우 설명을 입력합니다. 그런 다음 **만들기**를 선택합니다.
-3. 배포 대상 가상 컴퓨터의 운영 체제를 선택합니다. 예를 들어 **Ubuntu 16.04+**를 선택합니다.
+3. 배포 대상 가상 컴퓨터의 운영 체제를 선택합니다. 예를 들어 **Ubuntu 16.04+** 를 선택합니다.
 4. **인증에 스크립트의 개인용 액세스 토큰 사용**을 선택합니다.
 5. **시스템 필수 구성 요소** 링크를 선택합니다. 운영 체제의 필수 구성 요소를 설치합니다.
 6. **클립보드에 스크립트 복사**를 선택하여 스크립트를 복사합니다.
-7. 배포 대상 가상 컴퓨터에 로그인하고 스크립트를 실행합니다. sudo 권한으로 스크립트를 실행하지 마세요.
+7. 배포 대상 가상 머신에 로그인하고 스크립트를 실행합니다. sudo 권한으로 스크립트를 실행하지 마세요.
 8. 설치가 끝나면 배포 그룹 태그를 묻는 메시지가 나타납니다. 기본값을 그대로 적용합니다.
 9. Team Services에서 **배포 그룹** 아래의 **대상**에서 새로 등록한 가상 컴퓨터를 확인합니다.
 
@@ -152,7 +150,7 @@ Team Services에서 릴리스 정의를 만들려면 다음을 수행합니다.
 3. **아티팩트** 섹션에서 **+ 아티팩트 추가**를 선택하고 **소스 형식**으로 **Jenkins**를 선택합니다. Jenkins 서비스 끝점 연결을 선택합니다. 그런 다음 Jenkins 소스 작업을 선택하고 **추가**를 선택합니다.
 4. **환경 1** 옆에 있는 줄임표를 선택합니다. **배포 그룹 단계 추가**를 선택합니다.
 5. 배포 그룹을 선택합니다.
-5. **+**를 선택하여 **배포 그룹 단계**에 작업을 추가합니다.
+5. **+** 를 선택하여 **배포 그룹 단계**에 작업을 추가합니다.
 6. **셸 스크립트** 작업을 선택하고 **추가**를 선택합니다. **셸 스크립트** 작업은 Node.js를 설치하고 앱을 시작하기 위해 각 서버에서 실행할 스크립트에 대한 구성을 제공합니다.
 8. **스크립트 경로**에 대해 **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**를 입력합니다.
 9. **고급**을 선택한 다음 **작업 디렉터리 지정**을 사용하도록 설정합니다.
@@ -166,10 +164,10 @@ Team Services에서 릴리스 정의를 만들려면 다음을 수행합니다.
 2. 강조 표시된 드롭다운 목록에서 완성한 빌드를 선택하고 **큐**를 선택합니다.
 3. 팝업 메시지에서 릴리스 링크를 선택합니다. 예를 들어 "**Release-1** 릴리스를 만들었습니다."를 선택합니다.
 4. **로그** 탭을 열어 릴리스 콘솔 출력을 확인합니다.
-5. 브라우저에서 배포 그룹에 추가한 서버 중 하나의 URL을 엽니다. 예를 들어 **http://{your-server-ip-address}**를 입력합니다.
+5. 브라우저에서 배포 그룹에 추가한 서버 중 하나의 URL을 엽니다. 예를 들어 **http://{your-server-ip-address}** 를 입력합니다.
 6. 소스 Git 리포지토리로 이동하여 app/views/index.jade 파일의 **h1** 제목 내용을 변경된 텍스트로 수정합니다.
 7. 변경 내용을 커밋합니다.
-8. 몇 분 후에 Team Services 또는 Team Foundation Server의 **릴리스** 페이지에서 만든 새 릴리스가 표시됩니다. 릴리스를 열어 배포가 진행되는지 확인합니다. 축하합니다.
+8. 몇 분 후에 Team Services 또는 Team Foundation Server의 **릴리스** 페이지에서 만든 새 릴리스가 표시됩니다. 릴리스를 열어 배포가 진행되는지 확인합니다. 축하합니다!
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -178,7 +176,7 @@ Team Services에서 릴리스 정의를 만들려면 다음을 수행합니다.
 > [!div class="checklist"]
 > * Jenkins에서 앱 빌드
 > * Team Services와 통합되도록 Jenkins 구성
-> * Azure 가상 컴퓨터에 대한 배포 그룹 만들기
+> * Azure 가상 머신에 대한 배포 그룹 만들기
 > * VM을 구성하고 앱을 배포하는 릴리스 정의 만들기
 
 LAMP(Linux, Apache, MySQL 및 PHP) 스택을 배포하는 방법을 알아보려면 다음 자습서로 진행하세요.

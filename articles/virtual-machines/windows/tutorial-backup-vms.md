@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM Backup | Microsoft Docs
-description: Azure Backup을 통해 Windows VM을 백업하여 보호합니다.
+title: 자습서 - Azure Portal에서 Windows 가상 머신 백업 | Microsoft Docs
+description: 이 자습서에서는 Azure Portal을 사용하여 Azure Backup으로 Windows 가상 머신을 보호하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,29 +10,26 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 12859bf967cf8de1b57ab9dfd5c0bd080806f2eb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6ae014597a89c75e4426715227bbb19f1e98a438
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 머신 백업
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>자습서: Azure의 Windows 가상 머신을 위한 파일 백업 및 복원
 
-정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 특정 파일만 복원할 수 있습니다. 이 문서에서는 Windows Server 및 IIS를 실행하는 VM으로 단일 파일을 복원하는 방법에 대해 설명합니다. 사용할 VM이 아직 없는 경우 [Windows 빠른 시작](quick-create-portal.md)을 사용하여 만들 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 특정 파일을 복원할 수 있습니다. 이 문서에서는 Windows Server 및 IIS를 실행하는 VM으로 단일 파일을 복원하는 방법에 대해 설명합니다. 사용할 VM이 아직 없는 경우 [Windows 빠른 시작](quick-create-portal.md)을 사용하여 만들 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 백업 만들기
 > * 매일 백업 예약
 > * 백업에서 파일 복원
-
-
-
 
 ## <a name="backup-overview"></a>Backup 개요
 
@@ -55,7 +52,7 @@ Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 머신의 �
 7. **Backup 사용** 블레이드에서 **Backup 사용**을 클릭합니다. 이렇게 하면 기본 일정에 따라 매일 백업이 만들어집니다.
 10. 초기 복구 지점을 만들려면 **Backup** 블레이드에서 **지금 Backup**을 클릭합니다.
 11. **지금 Backup** 블레이드에서 달력 모양 아이콘을 클릭하고 달력 컨트롤을 사용하여 이 복구 지점을 유지할 마지막 날을 선택하고 **Backup**을 클릭합니다.
-12. VM에 대한 **Backup** 블레이드에서 완료된 복구 지점의 수를 표시합니다.
+12. VM에 대한 **Backup** 블레이드에서 완료된 복구 지점의 수가 표시됩니다.
 
     ![복구 지점](./media/tutorial-backup-vms/backup-complete.png)
     
@@ -85,7 +82,7 @@ Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 머신의 �
 11. **2단계: 스크립트를 다운로드하여 파일 찾아보기 및 복구**에서 **실행 파일 다운로드** 단추를 클릭합니다. 파일을 **다운로드** 폴더에 저장합니다.
 12. 로컬 컴퓨터에서 **파일 탐색기**를 열고 **다운로드** 폴더로 이동하여 다운로드한 .exe 파일을 복사합니다. 파일 이름은 VM 이름을 앞에 붙이게 됩니다. 
 13. VM에서(RDP 연결을 통해) VM의 데스크톱에 .exe 파일을 붙여넣습니다. 
-14. VM의 바탕 화면으로 이동한 다음 .exe를 두 번 클릭합니다. 그러면 명령 프롬프트가 시작되고, 사용자가 액세스할 수 있는 파일 공유로 복구 지점을 탑재합니다. 공유 만들기가 끝나면 **q**를 입력하여 명령 프롬프트를 닫습니다.
+14. VM의 바탕 화면으로 이동한 다음 .exe를 두 번 클릭합니다. 그러면 명령 프롬프트를 시작한 다음, 사용자가 액세스할 수 있는 파일 공유로 복구 지점을 탑재합니다. 공유 만들기가 끝나면 **q**를 입력하여 명령 프롬프트를 닫습니다.
 15. VM에서 **파일 탐색기**를 열어 파일 공유에 사용된 드라이브 문자로 이동합니다.
 16. \inetpub\wwwroot로 이동하여 파일 공유의 **iisstart.png**를 복사하여 \inetpub\wwwroot에 붙여넣습니다. 예를 들어 F:\inetpub\wwwroot\iisstart.png를 복사하여 c:\inetpub\wwwroot에 붙여넣어 파일을 복구합니다.
 17. 로컬 컴퓨터에서 IIS 기본 페이지를 보여 주는 VM의 IP 주소에 연결된 브라우저 탭을 엽니다. CTRL+F5를 눌러 브라우저 페이지를 새로 고칩니다. 이제 이미지가 복원되었음을 확인할 수 있습니다.

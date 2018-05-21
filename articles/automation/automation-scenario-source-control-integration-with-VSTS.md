@@ -2,19 +2,18 @@
 title: Visual Studio Team Services 소스 제어와 Azure Automation 통합
 description: Azure Automation 계정 및 Visual Stuido Team Services 소스 제어와의 통합 설정을 안내하는 시나리오입니다.
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 ms.author: eamono
 keywords: azure powershell, VSTS, 소스 제어, Automation
 ms.service: automation
 ms.component: process-automation
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2017
-ms.openlocfilehash: edd9174a9141c4db36a1b25d5f1147f9c7b2e2c2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f34267490a0db71e05ece97c23b86467dbf7dbeb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure Automation 시나리오 - Visual Studio Team Services와 Automation 소스 제어 통합
 

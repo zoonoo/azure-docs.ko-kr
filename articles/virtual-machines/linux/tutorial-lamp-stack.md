@@ -1,6 +1,6 @@
 ---
-title: Azure의 Linux 가상 머신에 LAMP 배포 | Microsoft Docs
-description: 자습서 - Azure에서 Linux VM에 LAMP 스택 설치
+title: 자습서 - Azure에서 Linux 가상 머신에 LAMP 배포 | Microsoft Docs
+description: 이 자습서에서는 Azure에서 Linux 가상 머신에 LAMP 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,13 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 21790a44ff60bd11202814efd5c0f32e8b614ec4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd102645e7546d9ad9d3ce6b064ae9fa0ce415bd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Azure VM에 LAMP 웹 서버 설치
+# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신에 LAMP 웹 서버 설치
+
 이 문서에서는 Azure의 Ubuntu VM에 Apache 웹 서버, MySQL 및 PHP(LAMP 스택)를 배포하는 방법을 설명합니다. NGINX 웹 서버를 선호하는 경우 [LEMP 스택](tutorial-lemp-stack.md) 자습서를 참조하세요. 작업에서 LAMP 서버를 보려면 필요에 따라 WordPress 사이트를 설치하고 구성할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
@@ -31,12 +32,11 @@ ms.lasthandoff: 04/06/2018
 > * 설치 및 구성 확인
 > * LAMP 서버에 WordPress 설치
 
-
 이 설치는 빠른 테스트 또는 개념 증명을 위한 것입니다. 프로덕션 환경에 대한 권장 사항을 비롯한 LAMP 스택에 대한 자세한 내용은 [Ubuntu 설명서](https://help.ubuntu.com/community/ApacheMySQLPHP)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24d739e45ddaa7669fe1836eea53f0b091383d1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/19/2018
 
 ![가상 네트워크 피어링 전송](./media/virtual-networks-peering-overview/figure04.png)
 
-게이트웨이 전송은 다른 배포 모델 또는 다른 지역을 통해 만든 가상 네트워크 간의 피어링 관계에서 지원되지 않습니다. 피어링 관계인 두 가상 네트워크는 Resource Manager를 통해 만들고 게이트웨이 전송을 작동시키기 위해 동일한 지역에 있어야 합니다.
+게이트웨이 전송은 다른 지역에서 만든 가상 네트워크 간의 피어링 관계에서 지원되지 않습니다. 게이트웨이 전송이 작동하려면 피어링 관계의 두 가상 네트워크가 동일한 지역에 있어야 합니다. 다양한 배포 모델(Resource Manager 및 클래식)을 통해 만든 가상 네트워크 간에 게이트웨이 전송은 게이트웨이가 가상 네트워크(Resource Manager)에 있는 경우에만 지원됩니다. 전송을 위한 게이트웨이 사용에 관해 자세히 알아보려면 [가상 네트워크 피어링에서 전송을 위한 VPN 게이트웨이 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 단일 Azure ExpressRoute 연결을 공유하는 가상 네트워크가 피어링된 경우 둘 사이의 트래픽은 피어링 관계(즉, Azure 백본 네트워크)를 거치게 됩니다. 로컬 게이트웨이 각각에서 가상 네트워크를 사용하여 온-프레미스 회로에 연결할 수 있습니다. 또는 공유 게이트웨이를 사용하고 온-프레미스 연결에 대한 전송을 구성할 수 있습니다.
 
