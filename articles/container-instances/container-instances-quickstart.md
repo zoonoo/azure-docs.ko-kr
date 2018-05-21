@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 57961cf1cb64f90cec7d2be90f3fbfe33344467d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>빠른 시작: Azure Container Instances에서 첫 번째 컨테이너 만들기
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-컨테이너가 **성공** 상태로 전환되면 해당 FQDN으로 이동하여 브라우저에서 컨테이너에 연결할 수 있습니다.
+컨테이너가 **성공** 상태로 전환되면 브라우저에서 해당 FQDN으로 이동합니다.
 
 ![Azure 컨테이너 인스턴스에서 실행되는 응용 프로그램을 보여주는 브라우저 스크린샷][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>컨테이너 로그 끌어오기
 
-[az container logs][az-container-logs] 명령을 사용하여 만든 컨테이너의 로그를 끌어올 수 있습니다.
+컨테이너 또는 컨테이너가 실행되는 응용 프로그램 문제를 해결할 때 컨테이너 인스턴스의 로그를 살펴보면 도움이 됩니다.
+
+[az container logs][az-container-logs] 명령을 사용하여 컨테이너의 로그를 끌어옵니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-다음과 비슷한 출력이 표시됩니다.
+출력은 컨테이너의 로그를 표시하며, 브라우저에서 응용 프로그램을 볼 때 생성된 HTTP GET 요청을 표시해야 합니다.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,9 +115,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>컨테이너 삭제
+## <a name="clean-up-resources"></a>리소스 정리
 
-컨테이너 작업을 완료했으면 [az container delete][az-container-delete] 명령을 사용하여 제거할 수 있습니다.
+컨테이너 작업을 완료했으면 [az container delete][az-container-delete] 명령을 사용하여 제거합니다.
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -131,19 +133,19 @@ az container list --resource-group myResourceGroup --output table
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에 사용된 컨테이너의 모든 코드는 Dockerfile과 함께 [GitHub][app-github-repo]에서 사용할 수 있습니다. 직접 빌드하고 Azure Container Registry를 사용하여 Azure Container Instances에 배포하려면 Azure Container Instances 자습서를 계속합니다.
+이 빠른 시작에서는 공용 Docker Hub 리포지토리의 이미지로 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 직접 빌드하고 개인 Azure 컨테이너 레지스트리의 Azure Container Instances에 배포하려면 Azure Container Instances 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)
 
-Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사용하려면 [Service Fabric][service-fabric] 또는 [AKS(Azure Container Service)][container-service] 빠른 시작을 참조하세요.
+Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사용하려면 [Service Fabric][service-fabric] 또는 [AKS(Azure Kubernetes Service)][container-service] 빠른 시작을 참조하세요.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->

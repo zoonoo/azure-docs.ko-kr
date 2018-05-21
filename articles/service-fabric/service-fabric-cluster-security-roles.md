@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric 클러스터 보안: 클라이언트 역할 | Microsoft Docs"
-description: "이 문서에서는 두 개의 클라이언트 역할 및 역할에 제공된 사용 권한을 설명합니다."
+title: 'Service Fabric 클러스터 보안: 클라이언트 역할 | Microsoft Docs'
+description: 이 문서에서는 두 개의 클라이언트 역할 및 역할에 제공된 사용 권한을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: coreysa
-editor: 
+editor: ''
 ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>서비스 패브릭 클라이언트용 역할 기반 액세스 제어
 Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클라이언트 즉, 관리자 및 사용자에 대한 액세스 제어 형식을 지원합니다. 액세스 제어를 사용하면 클러스터 관리자가 사용자 그룹마다 특정 클러스터 작업에 대한 액세스를 제한하여 클러스터의 보안을 강화할 수 있습니다.  

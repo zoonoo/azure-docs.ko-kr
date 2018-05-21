@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b83f02c55d0aa7b2e122d7fc8c9ef5734cdd924
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에 저장된 데이터 보호
 Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계로 이루어진 방법입니다.  사용자 및 보안 그룹의 데이터에 대한 액세스를 완전히 가능하게 하려면 RBAC(역할 기반 액세스 제어) 및 ACL(액세스 제어 목록) 모두를 설정해야 합니다.
@@ -56,7 +54,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 
 1. Azure 데이터 레이크 저장소 계정을 엽니다. 왼쪽 창에서 **모든 리소스**를 클릭한 다음, 모든 리소스 블레이드에서 사용자 또는 보안 그룹을 할당하려는 계정 이름을 클릭합니다.
 
-2. Data Lake Store 계정 블레이드에서 **액세스 제어(IAM)**를 클릭합니다. 기본적으로 블레이드에 구독 소유자가 소유자로 나열됩니다.
+2. Data Lake Store 계정 블레이드에서 **액세스 제어(IAM)** 를 클릭합니다. 기본적으로 블레이드에 구독 소유자가 소유자로 나열됩니다.
    
     ![Azure Data Lake Store 계정에 보안 그룹 할당](./media/data-lake-store-secure-data/adl.select.user.icon.png "Azure Data Lake Store 계정에 보안 그룹 할당")
 
@@ -128,7 +126,7 @@ Azure 데이터 레이크 저장소 계정에서 보안 그룹을 제거하는 �
 
 데이터에 대한 액세스는 변경되지 않고 액세스 ACL에서 계속 관리됩니다.  여기에 대한 예외는 소유자 역할의 사용자/그룹입니다.  소유자 역할에서 제거된 사용자/그룹은 더 이상 슈퍼 사용자가 아니며 해당 액세스는 액세스 ACL 설정으로 돌아갑니다. 
 
-1. Data Lake Store 계정 블레이드에서 **액세스 제어(IAM)**를 클릭합니다. 
+1. Data Lake Store 계정 블레이드에서 **액세스 제어(IAM)** 를 클릭합니다. 
    
     ![Azure Data Lake 계정에 보안 그룹 할당](./media/data-lake-store-secure-data/adl.select.user.icon.png "Azure Data Lake 계정에 보안 그룹 할당")
 2. **액세스 제어(IAM)** 블레이드에서 제거하려는 보안 그룹을 클릭합니다. **제거**를 클릭합니다.

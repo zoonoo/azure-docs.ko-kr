@@ -12,14 +12,14 @@ ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 9b4bd615a8a64070a9b246cb8fe8635cc89108cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d195ab3b84a522eae4010f3b08a829f7056a35f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro 라이브러리로 Hadoop의 데이터 직렬화
 
@@ -60,7 +60,7 @@ Newtonsoft.Json.dll 종속성은 Microsoft Avro 라이브러리의 설치와 함
 
 Microsoft Avro 라이브러리는 다음 절차를 사용하여 Visual Studio에서 설치할 수 있는 NuGet 패키지로 배포됩니다.
 
-1. **프로젝트** 탭-> **NuGet 패키지 관리...**를 선택합니다.
+1. **프로젝트** 탭-> **NuGet 패키지 관리...** 를 선택합니다.
 2. **온라인 검색** 상자에서 "Microsoft.Hadoop.Avro"를 검색합니다.
 3. **Microsoft Azure HDInsight Avro Library** 옆의 **설치** 단추를 클릭합니다.
 

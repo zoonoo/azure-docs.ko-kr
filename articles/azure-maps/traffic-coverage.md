@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: 08a4f3fc135aae2772bd60c67cbd282603cd4f8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 49e91287d23c35d8cfea858d41c47ba15efd820c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
@@ -99,4 +99,4 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |미국     |✓         |✓        |
 |+푸에르토리코     |✓         |✓         |
 
-Azure Maps 교통 데이터에 대한 자세한 내용은 [교통](https://docs.microsoft.com/rest/api/azure-maps/traffic) 참조 페이지를 참조하세요.
+Azure Maps 교통 데이터에 대한 자세한 내용은 [교통](https://docs.microsoft.com/rest/api/maps/traffic) 참조 페이지를 참조하세요.
