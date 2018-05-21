@@ -159,6 +159,8 @@
       items:
         - name: Runbook 갤러리
           href: automation-runbook-gallery.md
+        - name: 활동 로그로 Runbook 모니터링
+          href: automation-alert-activity-log.md
         - name: Azure 경고에서 Runbook 시작
           href: automation-create-alert-triggered-runbook.md
         - name: Amazon 웹 서비스 VM 만들기

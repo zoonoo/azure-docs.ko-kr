@@ -1,6 +1,6 @@
 ---
-title: "자습서: Salesforce와 Azure Active Directory 통합 | Microsoft 문서"
-description: "Azure Active Directory와 Salesforce 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Salesforce와 Azure Active Directory 통합 | Microsoft 문서'
+description: Azure Active Directory와 Salesforce 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: ed127afbca5135ade21f6ac53d18d46e88939fd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf788f1c38c701699e0c275cabe3d12eb75270
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Salesforce를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Salesforce에 자동으로 로그인(Single Sign-On)하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관�
 
 **갤러리에서 Salesforce를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -114,7 +114,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
     
-    b. **식별자** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
+    나. **식별자** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
     
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 
@@ -139,35 +139,35 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 8. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘** 아래에서 **설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/configure1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/configure1.png)
 
 9. 탐색 창에서 **설정**으로 스크롤하고 **ID**를 클릭하여 관련 섹션을 확장합니다. 그런 다음 **Single Sign-On 설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
 
 10. **Single Sign-on 설정** 페이지에서 **편집** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
     
     > [!NOTE]
     > Salesforce 계정에 Single Sign-On을 사용하도록 설정할 수 없는 경우 [Salesforce 클라이언트 지원 팀](https://help.salesforce.com/support)에 문의해야 합니다. 
 
 11. **SAML 사용**을 선택한 다음 **저장**을 클릭합니다.
 
-      ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
+      ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
 12. SAML Single Sign-On 설정을 구성하려면 **새로 만들기**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png)
 
 13. **SAML Single Sign-on 설정 편집** 페이지에서 다음 구성을 확인합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
 
     a. **이름** 필드에 이 구성에 대한 이름을 입력합니다. **이름**에 값을 제공하면 **API 이름** 입력란이 자동으로 채워집니다.
 
-    b. **발급자** 필드에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
+    나. **발급자** 필드에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
 
-    c. **엔터티 ID**입력란에 다음 패턴을 사용하여 Salesforce 도메인 이름을 입력합니다.
+    다. **엔터티 ID**입력란에 다음 패턴을 사용하여 Salesforce 도메인 이름을 입력합니다.
       
       * 엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
       * 개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
@@ -192,15 +192,15 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 14. Salesforce의 왼쪽 탐색 패널에서 **회사 설정**을 클릭하여 관련 섹션을 확장하고 **내 도메인**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
 
 15. **인증 구성** 섹션으로 스크롤하여 **편집** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
 
 16. **인증 구성** 섹션에서 SAML SSO 구성의 **인증 서비스**로 **로그인 페이지**를 선택한 다음 **저장**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > 둘 이상의 인증 서비스를 선택하는 경우 사용자가 Salesforce 환경으로 Single Sign-On을 시작하면 로그인하려는 인증 서비스를 선택하라는 메시지가 표시됩니다. 이 메시지가 표시되지 않도록 하려면 **다른 모든 인증 서비스를 선택하지 않은 상태로 유지**해야 합니다.
@@ -235,9 +235,9 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -286,7 +286,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

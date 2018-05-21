@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export에 대한 내보내기 작업 만들기 | Microsoft Docs"
-description: "Microsoft Azure Import/Export 서비스에 대해 가져오기 작업을 만드는 방법을 알아봅니다."
+title: Azure Import/Export에 대한 내보내기 작업 만들기 | Microsoft Docs
+description: Microsoft Azure Import/Export 서비스에 대해 가져오기 작업을 만드는 방법을 알아봅니다.
 author: muralikk
 manager: syadav
 editor: syadav
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 가져오기 작업 만들기
 
@@ -66,7 +66,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 
  배송 위치를 가져오려면 다음 단계를 수행합니다.
 
--   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 저장소 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [저장소 계정 속성 가져오기](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)를 사용하여 쿼리할 수 있습니다.
+-   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)를 사용하여 쿼리할 수 있습니다.
 
 -   `Get Location` 연산을 호출하여 이 저장소 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
 
@@ -103,6 +103,8 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>배송 정보로 가져오기 작업 업데이트
 추적 번호가 있으면 [작업 속성 업데이트](/api/storageimportexport/jobs#Jobs_Update) 연산을 호출하여 배송업체 이름, 작업의 추적 번호 및 반송을 위한 배송업체 계정 번호를 업데이트합니다. 경우에 따라 드라이브 개수 및 배송 날짜를 지정할 수도 있습니다.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

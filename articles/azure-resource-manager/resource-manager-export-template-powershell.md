@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell을 사용하여 Resource Manager 템플릿 내보내기 | Microsoft Docs"
-description: "Azure Resource Manager 및 Azure PowerShell을 사용하여 리소스 그룹에서 템플릿을 내보냅니다."
+title: Azure PowerShell을 사용하여 Resource Manager 템플릿 내보내기 | Microsoft Docs
+description: Azure Resource Manager 및 Azure PowerShell을 사용하여 리소스 그룹에서 템플릿을 내보냅니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6e36e12717eea61477f55d2d98c00bff31ec643
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c69bab9d2956568473dd6def86ecbd9bbb6577cf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Azure PowerShell을 사용하여 Azure Resource Manager 템플릿 내보내기
 

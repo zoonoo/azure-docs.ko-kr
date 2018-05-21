@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure 보안 시작
 
@@ -136,7 +136,7 @@ IP 필터는 게스트 가상 머신에 다음과 같은 사항을 방지합니�
 
 다음과 같은 Azure Virtual Network 기술을 사용하여 가상 네트워크에서 안전한 통신을 도울 수 있습니다.
 
-* [**NSG(네트워크 보안 그룹)**](../virtual-network/virtual-networks-nsg.md). NSG를 사용하여 가상 네트워크에 있는 하나 이상의 가상 머신 인스턴스에 대한 트래픽을 제어할 수 있습니다. NSG에는 트래픽 방향, 프로토콜, 원본 주소 및 포트, 대상 주소 및 포트에 따라 트래픽을 허용하거나 거부하는 액세스 제어 규칙이 포함되어 있습니다.
+* [**NSG(네트워크 보안 그룹)**](../virtual-network/security-overview.md). NSG를 사용하여 가상 네트워크에 있는 하나 이상의 가상 머신 인스턴스에 대한 트래픽을 제어할 수 있습니다. NSG에는 트래픽 방향, 프로토콜, 원본 주소 및 포트, 대상 주소 및 포트에 따라 트래픽을 허용하거나 거부하는 액세스 제어 규칙이 포함되어 있습니다.
 * [**사용자 정의 라우팅**](../virtual-network/virtual-networks-udr-overview.md). 특정 서브넷으로 흐르는 패킷이 가상 네트워크 보안 어플라이언스로 가도록 홉을 지정하는 사용자 정의 경로를 생성하여 가상 어플라이언스를 통해 패킷의 라우팅을 제어할 수 있습니다.
 * [**IP 전달**](../virtual-network/virtual-networks-udr-overview.md). 가상 네트워크 보안 어플라이언스는 주소가 자신으로 지정되지 않은 들어오는 트래픽을 받을 수 있어야 합니다. 가상 머신이 다른 대상으로 주소가 지정된 트래픽을 받을 수 있도록 하려면 해당 가상 머신에서 IP 전달을 사용하도록 설정합니다.
 * [**강제 터널링**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 가상 네트워크의 가상 머신에서 생성된 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "강제"할 수 있습니다.
