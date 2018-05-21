@@ -1,22 +1,22 @@
 ---
-title: "Azure에서 Linux SQL Server 2017 VM 만들기 | Microsoft Docs"
-description: "이 자습서는 Azure Portal에서 Linux SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다."
+title: Azure에서 Linux SQL Server 2017 VM 만들기 | Microsoft Docs
+description: 이 자습서는 Azure Portal에서 Linux SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-linux
 author: rothja
 ms.author: jroth
 manager: jhubbard
-ms.date: 10/25/2017
+ms.date: 05/11/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b86dd47c112c38bc65c045158787d19b470899a0
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. **확인**을 클릭합니다.
 
-1. **크기** 창에서 컴퓨터 크기를 선택합니다. 다른 크기를 보려면 **모두 보기**를 선택합니다. VM 컴퓨터 크기에 대한 자세한 내용은 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)를 참조하세요.
+1. **크기** 창에서 컴퓨터 크기를 선택합니다. VM 컴퓨터 크기에 대한 자세한 내용은 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)를 참조하세요.
 
     ![VM 크기 선택](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -80,9 +80,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. **선택**을 클릭합니다.
 
-1. **설정** 창에서 설정을 변경하거나 기본 설정을 그대로 유지할 수 있습니다.
+1. **설정** 창의 **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 포트를 선택합니다. 이 빠른 시작에서 SQL Server에 연결하고 구성을 완료하려면 이 작업이 필요합니다. SQL Server에 원격으로 연결하려면 **MS SQL(1433)** 을 선택하여 인터넷 연결을 위한 1433 포트도 열어야 합니다.
 
-1. **확인**을 클릭합니다.
+   ![인바운드 포트](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+
+1. 다른 설정으로 변경해도 되고 기본 설정을 그대로 유지해도 됩니다. 그런 후 **OK**를 클릭합니다.
 
 1. **요약** 페이지에서 **구매**를 클릭하여 VM을 만듭니다.
 
@@ -145,7 +147,10 @@ SQL Server 명령줄 도구 패키지를 포함하여 여러 SQL Server [패키�
 
 ## <a id="remote"></a> 원격 연결의 구성
 
-Azure VM의 SQL Server에 원격으로 연결해야 할 경우 네트워크 보안 그룹에서 인바운드 규칙을 구성해야 합니다. 규칙은 SQL Server를 수신하는 포트의 트래픽을 허용합니다(기본값 1433). 다음 단계에서는 이 단계에서 Azure Portal을 사용하는 방법을 보여줍니다. 
+Azure VM의 SQL Server에 원격으로 연결해야 할 경우 네트워크 보안 그룹에서 인바운드 규칙을 구성해야 합니다. 규칙은 SQL Server를 수신하는 포트의 트래픽을 허용합니다(기본값 1433). 다음 단계에서는 이 단계에서 Azure Portal을 사용하는 방법을 보여줍니다.
+
+> [!TIP]
+> 프로비전하는 동안 설정에서 인바운드 포트 **MS SQL(1433)** 을 선택한 경우 사용자를 대신하여 이러한 설정이 지정됩니다. 방화벽 구성 방법에 대한 그 다음 섹션으로 넘어가도 됩니다.
 
 1. 포털에서 **가상 머신**를 선택한 다음 SQL Server VM을 선택합니다.
 

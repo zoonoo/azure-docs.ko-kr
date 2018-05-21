@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 20786522a9a25d84a32a53e5e111b4b542501287
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 32d3fa09c863c47753267e97e7c4730dff869887
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
@@ -94,9 +94,9 @@ internal class HelloWorld : Actor, IHelloWorld
 
 행위자 서비스를 호출하는 간단한 콘솔 응용 프로그램을 만듭니다.
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트...**를 클릭합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트...** 를 클릭합니다.
 
-2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)**을 선택합니다.  프로젝트 이름을 *ActorClient*로 지정합니다.
+2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)** 을 선택합니다.  프로젝트 이름을 *ActorClient*로 지정합니다.
     
     ![새 프로젝트 추가 대화 상자][6]    
     
@@ -115,7 +115,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
     NuGet 패키지 및 모든 해당 종속성이 ActorClient 프로젝트에 설치됩니다.
 
-5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 마우스 오른쪽 단추로 **종속성**을 클릭한 다음 **참조 추가...**를 클릭합니다.  **프로젝트 > 솔루션**(아직 선택하지 않은 경우)을 선택하고 **HelloWorld.Interfaces** 옆의 확인란을 선택합니다.  **확인**을 클릭합니다.
+5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 마우스 오른쪽 단추로 **종속성**을 클릭한 다음 **참조 추가...** 를 클릭합니다.  **프로젝트 > 솔루션**(아직 선택하지 않은 경우)을 선택하고 **HelloWorld.Interfaces** 옆의 확인란을 선택합니다.  **확인**을 클릭합니다.
     
     ![참조 추가 대화 상자][7]
 

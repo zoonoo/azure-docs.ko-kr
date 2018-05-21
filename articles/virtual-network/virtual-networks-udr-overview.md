@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -116,14 +116,14 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 
-온-프레미스 네트워크 게이트웨이는 BGP(Border Gateway Protocol)를 사용하여 Azure 가상 네트워크 게이트웨이와 경로를 교환할 수 있습니다. Azure 가상 네트워크 게이트웨이에서 BGP를 사용하는 것은 게이트웨이를 만들 때 선택한 유형에 따라 다릅니다. 선택한 유형이 다음과 같을 경우:
+온-프레미스 네트워크 게이트웨이는 BGP(Border Gateway Protocol)를 사용하여 Azure 가상 네트워크 게이트웨이와 경로를 교환할 수 있습니다. Azure 가상 네트워크 게이트웨이에서 BGP를 사용하는 것은 게이트웨이를 만들 때 선택한 유형에 따라 다릅니다. 다음 유형을 선택한 경우:
 
-- **ExpressRoute**: Microsoft Edge 라우터에 온-프레미스 경로를 보급하려면 BGP를 사용해야 합니다. ExpressRoute 유형으로 배포된 가상 네트워크 게이트웨이를 배포하는 경우 ExpressRoute 가상 네트워크 게이트웨이로 트래픽을 강제하기 위해 사용자 정의 경로를 만들 수 없습니다. Express Route에서 트래픽을 예를 들어 Network Virtual Appliance로 강제 적용하려면 사용자 정의 경로를 사용할 수 있습니다. 
+- **ExpressRoute**: Microsoft Edge 라우터에 온-프레미스 경로를 보급하려면 BGP를 사용해야 합니다. ExpressRoute 유형으로 배포된 가상 네트워크 게이트웨이를 배포하는 경우 ExpressRoute 가상 네트워크 게이트웨이로 트래픽을 강제하기 위해 사용자 정의 경로를 만들 수 없습니다. 예를 들어 사용자 정의 경로를 사용하여 Express Route에서 네트워크 가상 어플라이언스로 트래픽을 강제로 라우팅할 수 있습니다.
 - **VPN**: 필요에 따라 BGP를 사용할 수 있습니다. 자세한 내용은 [사이트 간 VPN 연결에서 BGP 사용](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 대한 별도의 경로가 가상 네트워크에 있는 모든 서브넷의 경로 테이블에 추가됩니다. 원본 및 다음 홉 유형으로 나열되는 *가상 네트워크 게이트웨이*가 포함된 경로가 추가됩니다. 
 
-경로 테이블의 속성을 사용하는 서브넷에서 BGP 경로 전파를 비활성화할 수 있습니다. BGP를 사용하여 Azure와 경로를 교환할 때 BGP 전파가 비활성화된 모든 서브넷의 경로 테이블에 경로가 추가되지 않습니다. VPN 연결을 통한 연결 기능은 다음 홉 형식의 VPN과 사용자 지정 경로(#custom-routes)를 사용하여 구현됩니다. 자세한 정보는 [BGP 경로 전파를 비활성화하는 방법](/manage-route-table#create-a-route-table.md)을 참조하세요.
+경로 테이블의 속성을 사용하는 서브넷에서 BGP 경로 전파를 비활성화할 수 있습니다. BGP를 사용하여 Azure와 경로를 교환할 때 BGP 전파가 비활성화된 모든 서브넷의 경로 테이블에 경로가 추가되지 않습니다. VPN 연결을 통한 연결 기능은 다음 홉 형식의 VPN과 사용자 지정 경로(#custom-routes)를 사용하여 구현됩니다. 자세한 정보는 [BGP 경로 전파를 비활성화하는 방법](manage-route-table.md#create-a-route-table)을 참조하세요.
 
 ## <a name="how-azure-selects-a-route"></a>Azure에서 경로를 선택하는 방법
 
@@ -258,5 +258,5 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 - [경로 및 네트워크 가상 어플라이언스로 사용자 정의 경로 테이블 만들기](tutorial-create-route-table-portal.md)
 - [Azure VPN Gateway에서 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute에서 BGP 사용](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [서브넷에 대한 모든 경로 보기](virtual-network-routes-troubleshoot-portal.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여 줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.
-- 가상 머신과 대상 IP 주소 간의 [다음 홉 유형을 확인합니다](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Network Watcher 다음 홉 기능을 사용하면 트래픽이 서브넷에서 나가야 하는지 또는 생각하는 위치로 라우팅되는지 여부를 확인할 수 있습니다.
+- [서브넷에 대한 모든 경로 보기](virtual-network-routes-troubleshoot-portal.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.
+- 가상 머신과 대상 IP 주소 간의 [다음 홉 유형을 확인합니다](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Network Watcher 다음 홉 기능을 사용하면 트래픽이 서브넷에서 나가야 하는지 또는 생각하는 위치로 라우팅되는지 여부를 확인할 수 있습니다.

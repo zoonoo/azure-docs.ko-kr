@@ -1,6 +1,6 @@
 ---
-title: "자습서: EBSCO와 Azure Active Directory 통합 | Microsoft 문서"
-description: "Azure Active Directory와 EBSCO 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: EBSCO와 Azure Active Directory 통합 | Microsoft 문서'
+description: Azure Active Directory와 EBSCO 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9da10e134db019162abdff35a8eb742ccdc30626
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>자습서: EBSCO와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ EBSCO를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 EBSCO에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ EBSCO의 Azure AD 통합을 구성하려면 갤러리의 EBSCO를 관리되는 S
 
 **갤러리에서 EBSCO를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -247,7 +247,7 @@ Azure AD는 필요한 데이터를 EBSCO 응용 프로그램으로 전달합니�
 
     ![응용 프로그램 목록의 EBSCO 로그인](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
  
-3. **지금 기관 계정에 기존 MyEBSCOhost 계정 연결** 또는 **새 MyEBSCOhost 계정을 만든 후 기관 계정에 연결**을 사용하여 기관/SAML 로그인을 연결하라는 일회성 메시지가 나타납니다. 계정은 EBSCOhost 응용 프로그램의 개인 설정에 사용됩니다. **새 계정 만들기** 옵션을 선택하면 개인 설정에 대한 양식이 아래 스크린샷에 표시된 것처럼 SAML 응답의 값으로 미리 채워진 것을 볼 수 있습니다. **'계속'**을 클릭하여 이 선택 내용을 저장합니다.
+3. **지금 기관 계정에 기존 MyEBSCOhost 계정 연결** 또는 **새 MyEBSCOhost 계정을 만든 후 기관 계정에 연결**을 사용하여 기관/SAML 로그인을 연결하라는 일회성 메시지가 나타납니다. 계정은 EBSCOhost 응용 프로그램의 개인 설정에 사용됩니다. **새 계정 만들기** 옵션을 선택하면 개인 설정에 대한 양식이 아래 스크린샷에 표시된 것처럼 SAML 응답의 값으로 미리 채워진 것을 볼 수 있습니다. **'계속'** 을 클릭하여 이 선택 내용을 저장합니다.
     
      ![응용 프로그램 목록의 EBSCO 사용자](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
 
@@ -256,7 +256,7 @@ Azure AD는 필요한 데이터를 EBSCO 응용 프로그램으로 전달합니�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

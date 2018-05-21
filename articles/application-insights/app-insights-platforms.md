@@ -3,7 +3,7 @@ title: 'Application Insights: 언어, 플랫폼 및 통합 | Microsoft Docs'
 description: Application Insights에 사용할 수 있는 언어, 플랫폼 및 통합
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: mbullwin
-ms.openlocfilehash: fdc75c69008d2f448d8a077a42bfccd24db6579a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: mbullwin; olegan
+ms.openlocfilehash: 8aec8567fd15865887a5fe5ded8b45cad0290bf9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
@@ -29,6 +29,7 @@ ms.lasthandoff: 04/23/2018
 * [Node.JS](app-insights-nodejs.md)
 
 ## <a name="languages---community-supported"></a>언어 - 커뮤니티 지원
+* [F#](https://safe-stack.github.io/docs/template-azure-ai/)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -38,25 +39,25 @@ ms.lasthandoff: 04/23/2018
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - 이미 운영 중인 앱용](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android)(App Center, HockeyApp)
+* [Android](app-insights-mobile-center-quickstart.md)(App Center)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android)(App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * 웹 및 작업자 역할을 모두 포함하는 [Azure Cloud Services](app-insights-cloudservices.md)
 * [Azure 기능](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
+* [iOS](app-insights-mobile-center-quickstart.md)(App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)(App Center, HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)(App Center)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - 이미 운영 중인 앱용](app-insights-java-live.md)
-* [macOS 앱](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x)(HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
+* [안전 스택](https://safe-stack.github.io/docs/template-azure-ai/)
 * [스프링](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [유니버설 Windows 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp)(App Center, HockeyApp)
+* [유니버설 Windows 앱](app-insights-mobile-center-quickstart.md)(App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [Windows Phone 8 및 8.1 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
-* [Windows Presentation Foundation 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
 * [Windows 데스크톱 응용 프로그램, 서비스 및 작업자 역할](app-insights-windows-desktop.md)
 * [다른 항목](#projects)
 

@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: ''
-ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Azure IoT Edge란? - 미리 보기
 
 Azure IoT Edge는 조직에서 데이터 관리 대신 비즈니스 통찰력에 집중할 수 있도록 클라우드 분석 및 사용자 지정 비즈니스 논리를 장치로 이동합니다. IoT 소프트웨어를 구성하고, 표준 컨테이너를 통해 장치에 배포하고, 클라우드에서 모니터링하여 솔루션을 진정으로 확장합니다.
 
 >[!NOTE]
->Azure IoT Edge는 IoT Hub 표준 계층에서만 사용할 수 있습니다. 기본 및 표준 계층에 대한 자세한 내용은 [적합한 IoT Hub 계층 선택 방법](../iot-hub/iot-hub-scaling.md)을 참조하세요.
+>Azure IoT Edge는 IoT Hub의 무료 및 표준 계층에서 사용할 수 있습니다. 무료 계층은 테스트 및 평가에만 사용할 수 있습니다. 기본 및 표준 계층에 대한 자세한 내용은 [적합한 IoT Hub 계층 선택 방법](../iot-hub/iot-hub-scaling.md)을 참조하세요.
 
 분석은 IoT 솔루션의 비즈니스 가치를 높이지만 모든 분석이 클라우드에 있을 필요는 없습니다. 장치가 응급 상황에 최대한 신속하게 대응하도록 하려면 장치 자체에서 이상 검색을 수행하면 됩니다. 마찬가지로, 대역폭 비용을 줄이고 수 테라바이트의 원시 데이터를 전송하지 않으려면 데이터 정리 및 집계를 로컬로 수행하면 됩니다. 그런 다음 고급 정보를 클라우드로 보냅니다. 
 
