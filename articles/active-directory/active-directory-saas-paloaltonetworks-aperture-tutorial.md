@@ -1,6 +1,6 @@
 ---
-title: "자습서: Palo Alto Networks - Aperture와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Palo Alto Networks - Aperture 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Palo Alto Networks - Aperture와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Palo Alto Networks - Aperture 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 75633cbf13756b4b2be3e4be055b12021cc396d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 29b37b34271680cdd4d1f660ea6eb6172df8b06d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>자습서: Palo Alto Networks - Aperture와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Azure AD에 Palo Alto Networks - Aperture를 통합하면 다음과 같은 이�
 - 사용자가 해당 Azure AD 계정으로 Palo Alto Networks - Aperture에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Palo Alto Networks - Aperture의 Azure AD 통합을 구성하려면 갤러리의
 
 **갤러리에서 Palo Alto Networks - Aperture를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -119,7 +119,7 @@ Palo Alto Networks - Aperture에서 Azure AD Single Sign-On을 구성하고 테�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Palo Alto Networks - Aperture 클라이언트 지원 팀](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support)에 문의합니다. 
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_certificate.png) 
 
@@ -146,7 +146,7 @@ Palo Alto Networks - Aperture에서 Azure AD Single Sign-On을 구성하고 테�
     
     ![인증 탭](./media/active-directory-saas-paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-    a. **Single Sign-On** 필드에서 **Single Sign-On 사용(지원되는 SSP 공급자는 Okta, Onelogin)**을 선택합니다.
+    a. **Single Sign-On** 필드에서 **Single Sign-On 사용(지원되는 SSP 공급자는 Okta, Onelogin)** 을 선택합니다.
 
     나. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 ID** 텍스트 상자에 붙여넣습니다.
 
@@ -237,7 +237,7 @@ Palo Alto Networks - Aperture에서 Azure AD Single Sign-On을 구성하고 테�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "자습서: Veracode와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Veracode 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Veracode와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Veracode 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 270b373943ea72f1ddbee4f9c6fa4967ff85b861
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 774cd70f7cc97be8b050cf6ac31063c150b2f657
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>자습서: Veracode와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Veracode를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Veracode에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Veracode의 Azure AD 통합을 구성하려면 갤러리의 Veracode를 관리�
 
 **갤러리에서 Veracode를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -106,9 +106,9 @@ Veracode에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 3. **Veracode 도메인 및 URL** 섹션에서 앱이 Azure와 이미 사전 통합되었으므로 사용자는 아무 단계도 수행할 필요가 없습니다. 
 
-    ![Single Sign-on 구성](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_url.png)
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_certificate.png) 
 
@@ -132,9 +132,9 @@ Veracode에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     
     ![특성](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addattr1.png "특성")
     
-    b. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    나. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
-    c. **특성 값** 텍스트 상자에서 해당 행에 표시된 특성 값을 선택합니다.
+    다. **특성 값** 텍스트 상자에서 해당 행에 표시된 특성 값을 선택합니다.
     
     d. **Ok**를 클릭합니다.
 
@@ -160,9 +160,9 @@ Veracode에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     a.  **발급자** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
     
-    b. Azure Portal에서 다운로드한 인증서를 업로드하려면 **파일 선택**을 클릭합니다.
+    나. Azure Portal에서 다운로드한 인증서를 업로드하려면 **파일 선택**을 클릭합니다.
    
-    c. **자체 등록 사용**을 선택합니다.
+    다. **자체 등록 사용**을 선택합니다.
 
 13. **자체 등록 설정** 섹션에서 다음 단계를 수행하고 **저장**을 클릭합니다.
    
@@ -170,9 +170,9 @@ Veracode에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     a. **새 사용자 활성화**에 대해 **활성화 필요 없음**을 선택합니다.
    
-    b. **사용자 데이터 업데이트**에 대해 **기본 설정 Veracode 사용자 데이터**를 선택합니다.
+    나. **사용자 데이터 업데이트**에 대해 **기본 설정 Veracode 사용자 데이터**를 선택합니다.
    
-    c. **SAML 특성 세부 정보**에 대해 다음을 선택합니다.
+    다. **SAML 특성 세부 정보**에 대해 다음을 선택합니다.
       * **사용자 역할**
       * **정책 관리자**
       * **검토자**
@@ -214,9 +214,9 @@ Veracode에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -267,7 +267,7 @@ Azure AD 사용자가 Veracode에 로그인할 수 있도록 하려면 Veracode�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

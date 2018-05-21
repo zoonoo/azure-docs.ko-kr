@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -106,7 +106,7 @@ DevTest Lab 사용과 관련된 추가 비용은 없습니다. 실습, 정책, �
 
 Azure에서 실습 또는 프로덕션 시스템을 호스트할 경우 인터넷에서 시스템에 액세스할 필요가 없습니다. 기본적으로 새 Windows 가상 머신에는 인터넷에서 액세스할 수 있는 RDP 포트가 있으며 Linux 가상 머신에는 SSH 포트가 열려 있습니다. 무단 액세스 위험을 최소화하려면 '노출된 끝점을 제한'하는 단계를 수행해야 합니다.
 
-Azure에는 관리 끝점에 대한 액세스를 제한하는 데 도움이 되는 기술이 있습니다. Azure에서는 [NSG](../virtual-network/virtual-networks-nsg.md)(네트워크 보안 그룹)을 사용할 수 있습니다. 배포에 Azure Resource Manager를 사용할 경우 NSG가 모든 네트워크에서 관리 끝점(RDP 또는 SSH)으로의 액세스를 제한합니다. NSG와 관련해서는 라우터 ACL을 떠올려보세요. 라우터 ACL을 사용하여 Azure 네트워크의 다양한 세그먼트 간에 진행되는 네트워크 통신을 엄격히 제어할 수 있습니다. 이러한 방식은 경계 네트워크 또는 기타 격리된 네트워크에서 네트워크를 만드는 것과 비슷합니다. 트래픽을 검사하지는 않지만 네트워크 구분에 도움이 됩니다.
+Azure에는 관리 끝점에 대한 액세스를 제한하는 데 도움이 되는 기술이 있습니다. Azure에서는 [NSG](../virtual-network/security-overview.md)(네트워크 보안 그룹)을 사용할 수 있습니다. 배포에 Azure Resource Manager를 사용할 경우 NSG가 모든 네트워크에서 관리 끝점(RDP 또는 SSH)으로의 액세스를 제한합니다. NSG와 관련해서는 라우터 ACL을 떠올려보세요. 라우터 ACL을 사용하여 Azure 네트워크의 다양한 세그먼트 간에 진행되는 네트워크 통신을 엄격히 제어할 수 있습니다. 이러한 방식은 경계 네트워크 또는 기타 격리된 네트워크에서 네트워크를 만드는 것과 비슷합니다. 트래픽을 검사하지는 않지만 네트워크 구분에 도움이 됩니다.
 
 
 Azure에서는 온-프레미스 네트워크에서 [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 구성할 수 있습니다. 사이트 간 VPN은 클라우드로 온-프레미스 네트워크를 확장합니다. 이를 통해 로컬 네트워크 이외 다른 위치에서의 액세스를 허용하지 않도록 NSG를 수정할 수도 있으므로 NSG를 사용할 또 다른 기회를 얻게 됩니다. 그런 후 먼저 VPN 통해 Azure 네트워크에 연결하여 관리가 수행되도록 요구할 수 있습니다.

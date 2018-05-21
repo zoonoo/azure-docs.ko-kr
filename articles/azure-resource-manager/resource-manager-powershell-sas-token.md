@@ -1,24 +1,24 @@
 ---
-title: "SAS 토큰 및 PowerShell로 Azure 템플릿 배포 | Microsoft Docs"
-description: "Azure Resource Manager와 Azure PowerShell을 사용하여 SAS 토큰으로 보호되는 템플릿에서 Azure로 리소스를 배포합니다."
+title: SAS 토큰 및 PowerShell로 Azure 템플릿 배포 | Microsoft Docs
+description: Azure Resource Manager와 Azure PowerShell을 사용하여 SAS 토큰으로 보호되는 템플릿에서 Azure로 리소스를 배포합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1e3cea027b599e2b1af1ced0fdf14e2cc8a0db82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2dbf7f9ac5a735ec0c70f4daefa721509212a84b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>SAS 토큰과 Azure PowerShell을 사용하여 개인 Resource Manager 템플릿을 배포합니다.
 

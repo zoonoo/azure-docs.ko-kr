@@ -1,6 +1,6 @@
 ---
-title: "자습서: Work.com와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Work.com 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Work.com와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Work.com 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7aa04faab5da9ee7dae977be3a8c040c3aed0b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bfc76d05a52d0283e3367f9c98dc8ed427cbe592
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>자습서: Work.com과 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Work.com을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Work.com에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Work.com의 Azure AD 통합을 구성하려면 갤러리의 Work.com을 관리�
 
 **갤러리에서 Work.com을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -100,7 +100,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. Azure Portal의 **Work.com** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
@@ -115,7 +115,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Work.com 클라이언트 지원 팀](https://help.salesforce.com/articleView?id=000159855&type=3)에 문의하세요. 
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![SAML 서명 인증서 섹션](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_certificate.png) 
 
@@ -156,7 +156,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     
     a. **SAML 사용**을 선택합니다.
     
-    b. **새로 만들기**를 클릭합니다.
+    나. **새로 만들기**를 클릭합니다.
 
 15. **SAML Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
     
@@ -167,9 +167,9 @@ Work.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE]
     > **이름**에 값을 제공하면 **API 이름** 텍스트 상자가 자동으로 채워집니다.
     
-    b. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
+    나. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
     
-    c. Azure Portal에서 다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
+    다. Azure Portal에서 다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     
     d. **엔터티 ID** 텍스트 상자에 `https://salesforce-work.com`을 입력합니다.
     
@@ -226,16 +226,16 @@ Work.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
 ### <a name="create-a-workcom-test-user"></a>Work.com 테스트 사용자 만들기
 Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전되어야 합니다. Work.com의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비저닝을 구성하려면
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비전을 구성하려면
 1. Work.com 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. **설정**으로 이동합니다.
@@ -255,9 +255,9 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
    
     a. **이름** 텍스트 상자에 사용자의 **이름**을 **Britta**로 입력합니다.
     
-    b. **성** 텍스트 상자에 사용자의 **성**을 **Simon**으로 입력합니다.
+    나. **성** 텍스트 상자에 사용자의 **성**을 **Simon**으로 입력합니다.
     
-    c. **별칭** 텍스트 상자에 사용자의 **이름**을 **BrittaS**로 입력합니다.
+    다. **별칭** 텍스트 상자에 사용자의 **이름**을 **BrittaS**로 입력합니다.
     
     d. **전자 메일** 텍스트 상자에 사용자의 **이메일 주소** **Brittasimon@contoso.com**을 입력합니다.
     
@@ -267,7 +267,7 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
     
     g. **역할**, **사용자 라이선스** 및 **프로필**을 차례로 선택합니다.
     
-    h. **Save**를 클릭합니다.  
+    h. **저장**을 클릭합니다.  
       
     > [!NOTE]
     > Azure AD 계정 보유자에게 계정 확인 링크가 포함한 전자 메일이 발송되며, 확인을 마치면 계정이 활성화됩니다.
@@ -314,7 +314,7 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

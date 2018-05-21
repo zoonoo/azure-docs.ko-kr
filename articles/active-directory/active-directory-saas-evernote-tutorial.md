@@ -1,6 +1,6 @@
 ---
-title: "자습서: Evernote와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Evernote 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Evernote와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Evernote 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c0dda5288d7985669afef5464bf2f9a34f9e8e8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6926472cad5e124ec3e8636df057044b792827c6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>자습서: Evernote와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Evernote를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Evernote에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Azure AD에 Evernote 통합을 구성하려면 갤러리의 Evernote를 관리�
 
 **갤러리에서 Evernote를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -116,7 +116,7 @@ Evernote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     **로그온 URL** 텍스트 상자에 URL `https://www.evernote.com/Login.action`을 입력합니다.   
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certificate.png) 
 
@@ -130,11 +130,11 @@ Evernote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 8. 다른 웹 브라우저 창에서 Evernote 회사 사이트에 관리자로 로그인합니다.
 
-9. **'관리 콘솔'**로 이동합니다.
+9. **'관리 콘솔'** 로 이동합니다.
 
     ![관리 콘솔](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-10. **'관리 콘솔'**에서 **'보안'**으로 이동하고 **'Single Sign-On'**을 선택합니다.
+10. **'관리 콘솔'** 에서 **'보안'** 으로 이동하고 **'Single Sign-On'** 을 선택합니다.
 
     ![SSO 설정](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_sso.png)
 
@@ -144,9 +144,9 @@ Evernote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     
     a.  **SSO 사용** - SSO는 기본적으로 사용됩니다. SSO 요구 사항을 제거하려면 **Single Sign-On 사용 안 함**을 클릭합니다.
 
-    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SAML HTTP 요청 URL** 텍스트 상자에 붙여 넣습니다.
+    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SAML HTTP 요청 URL** 텍스트 상자에 붙여 넣습니다.
 
-    c. Azure AD에서 다운로드한 인증서를 메모장에서 열고 "BEGIN CERTIFICATE"(인증서 시작) 및 "END CERTIFICATE"(인증서 끝)를 포함한 내용을 **X.509 인증서** 텍스트 상자에 붙여넣습니다. 
+    다. Azure AD에서 다운로드한 인증서를 메모장에서 열고 "BEGIN CERTIFICATE"(인증서 시작) 및 "END CERTIFICATE"(인증서 끝)를 포함한 내용을 **X.509 인증서** 텍스트 상자에 붙여넣습니다. 
 
     d. **변경 내용 저장**을 클릭합니다.
 
@@ -180,9 +180,9 @@ Evernote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -195,11 +195,11 @@ Evernote의 경우 프로비전은 수동 작업입니다.
 
 1. Evernote 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. **'관리 콘솔'**을 클릭합니다.
+2. **'관리 콘솔'** 을 클릭합니다.
 
     ![관리 콘솔](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. **'관리 콘솔'**에서 **'사용자 추가'**로 이동합니다.
+3. **'관리 콘솔'** 에서 **'사용자 추가'** 로 이동합니다.
 
     ![테스트 사용자 추가](./media/active-directory-saas-evernote-tutorial/create_aaduser_0001.png)
 
@@ -248,7 +248,7 @@ Evernote의 경우 프로비전은 수동 작업입니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -215,7 +215,7 @@ SCM 사이트 이름은 Azure Portal 내에서 **고급 포털**이라고 하는
 
 다중 테넌트 App Service 및 외부 ASE에는 Azure Portal과 Kudu 콘솔 간의 Single Sign-On이 포함됩니다. 그러나 ILB ASE의 경우 게시 자격 증명을 사용하여 Kudu 콘솔에 로그인해야 합니다.
 
-ILB ASE에서는 GitHub, Visual Studio Team Services 등의 인터넷 기반 CI 시스템이 작동하지 않습니다. 게시 끝점이 인터넷에 액세스할 수 없기 때문입니다. 대신 끌어오기 모델을 사용하는 CI 시스템(예: Dropbox)을 사용해야 합니다.
+GitHub 및 Visual Studio Team Services와 같은 인터넷 기반 CI 시스템은 빌드 에이전트가 인터넷에 액세스할 수 있고 ILB ASE와 동일한 네트워크에 있는 경우 ILB ASE와 함께 작동합니다. 따라서 Visual Studio Team Services의 경우 빌드 에이전트가 ILB ASE와 동일한 VNET에서 만들어지면(다른 서브넷은 문제 없음) VSTS git에서 코드를 끌어오고 ILB ASE에 배포할 수 있습니다. 사용자 고유의 빌드 에이전트를 만들지 않으려면 Dropbox 등의 끌어오기 모델을 사용하는 CI 시스템을 사용해야 합니다.
 
 ILB ASE의 앱에 대한 게시 끝점에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. 하위 도메인이 *contoso.net*인 ILB ASE 및 *mytest*라는 앱이 있는 경우 FTP에 *mytest.contoso.net*을 사용하고 웹 배포에 *mytest.scm.contoso.net*을 사용합니다.
 
@@ -244,7 +244,7 @@ WAF 장치를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 �
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md
