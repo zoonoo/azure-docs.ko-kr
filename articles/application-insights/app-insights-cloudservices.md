@@ -1,9 +1,9 @@
 ---
-title: "Azure Cloud Services용 Application Insights | Microsoft Docs"
-description: "Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링"
+title: Azure Cloud Services용 Application Insights | Microsoft Docs
+description: Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링
 services: application-insights
-documentationcenter: 
-keywords: "WAD2AI, Azure 진단"
+documentationcenter: ''
+keywords: WAD2AI, Azure 진단
 author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start]에서 Application Insights SDK의 데이터와 Cloud Services의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터를 결합하여 [Microsoft Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)에 대한 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
@@ -223,7 +223,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 
 시스템에서 Stream Analytics와 같은 다른 Azure 서비스를 사용하는 경우 해당 모니터링 차트도 포함합니다. 
 
-클라이언트 모바일 앱이 있는 경우 주요 사용자 작업에 대한 사용자 지정 이벤트를 보내는 일부 코드를 삽입하고 [HockeyApp 브리지](app-insights-hockeyapp-bridge-app.md)를 만듭니다. [분석](app-insights-analytics.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
+클라이언트 모바일 앱이 있는 경우 [App Center](app-insights-mobile-center-quickstart.md)를 사용합니다. [분석](app-insights-analytics.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
 
 ## <a name="example"></a>예
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) 는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.

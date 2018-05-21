@@ -1,6 +1,6 @@
 ---
-title: "Windows 데스크톱 앱의 사용량 및 성능 모니터링"
-description: "HockeyApp 및 Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다."
+title: Windows 데스크톱 앱의 사용량 및 성능 모니터링
+description: Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -11,25 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 04/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
-
-[Azure Application Insights](app-insights-overview.md) 및 [HockeyApp](https://hockeyapp.net)를 사용하면 배포된 응용 프로그램의 사용량 및 성능을 모니터링할 수 있습니다.
-
-> [!IMPORTANT]
-> 데스크톱 및 장치 앱을 배포하고 모니터링하는 데 [HockeyApp](https://hockeyapp.net) 을 권장합니다. HockeyApp를 사용하면 사용량 및 충돌 보고서를 모니터링할 수 있을 뿐만 아니라 배포, 라이브 테스트 및 사용자 의견을 관리할 수 있습니다. 또한 [분석으로 원격 분석을 내보내고 쿼리](app-insights-hockeyapp-bridge-app.md)할 수 있습니다.
-> 
-> 데스크톱 응용 프로그램에서 Application Insights에 원격 분석을 보낼 수 있지만 주로 디버깅 및 실험 목적에 유용합니다.
-> 
-> 
+데스크톱 응용 프로그램에서 Application Insights에 원격 분석을 보낼 수 있지만 주로 디버깅 및 실험 목적에 유용합니다.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Windows 응용 프로그램에서 Application Insights에 원격 분석을 전송하려면
 1. [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). 응용 프로그램 유형으로 ASP.NET 앱을 선택합니다.

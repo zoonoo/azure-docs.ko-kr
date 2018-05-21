@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>빠른 시작: PowerShell에서 Azure SQL Data Warehouse의 계산 능력 조정
 
@@ -55,19 +55,19 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 다음 단계에 따라 데이터 웨어하우스에 대한 위치 정보를 찾습니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 페이지에서 **SQL Database**를 클릭합니다.
-3. **SQL Database** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 데이터 웨어하우스가 열립니다.
+2. Azure Portal의 왼쪽 페이지에서 **SQL 데이터 웨어하우스**를 클릭합니다.
+3. **SQL 데이터 웨어하우스** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 데이터 웨어하우스가 열립니다.
 
     ![서버 이름 및 리소스 그룹](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. 데이터베이스 이름으로 사용되는 데이터 웨어하우스 이름을 적어 둡니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다. 또한 서버 이름 및 리소스 그룹도 적어 둡니다. 일시 중지 및 다시 시작 명령에서 이러한 항목을 사용합니다.
-5. 서버가 foo.database.windows.net인 경우 PowerShell cmdlet에 서버 이름의 첫 번째 부분만 사용합니다. 위 그림에서 전체 서버 이름은 newserver-20171113.database.windows.net입니다. PowerShell cmdlet에서는 **newserver-20171113**을 서버 이름으로 사용합니다.
+5. 서버가 foo.database.windows.net인 경우 PowerShell cmdlet에 서버 이름의 첫 번째 부분만 사용합니다. 위 그림에서 전체 서버 이름은 newserver-20171113.database.windows.net입니다. PowerShell cmdlet에서는 **newserver-20180430**을 서버 이름으로 사용합니다.
 
 ## <a name="scale-compute"></a>계산 조정
 
 SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
 
-데이터 웨어하우스 단위를 변경하려면 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 **mynewserver 20171113** 서버의 리소스 그룹 **myResourceGroup**에서 호스트되는 데이터베이스 **mySampleDataWarehouse**에 대해 데이터 웨어하우스 단위를 DW300으로 설정합니다.
+데이터 웨어하우스 단위를 변경하려면 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 **mynewserver-20180430** 서버의 리소스 그룹 **myResourceGroup**에서 호스트되는 데이터베이스 **mySampleDataWarehouse**에 대해 데이터 웨어하우스 단위를 DW300으로 설정합니다.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -75,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>데이터 웨어하우스 상태 확인
 
-데이터 웨어하우스의 현재 상태를 보려면 [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 이렇게 하면 리소스 그룹 **myResourceGroup** 및 서버 **mynewserver 20171113.database.windows.net**에 있는 **mySampleDataWarehouse** 데이터베이스의 상태가 표시됩니다.
+데이터 웨어하우스의 현재 상태를 보려면 [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 이렇게 하면 리소스 그룹 **myResourceGroup** 및 서버 **mynewserver-20180430.database.windows.net**에 있는 **mySampleDataWarehouse** 데이터베이스의 상태가 표시됩니다.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse

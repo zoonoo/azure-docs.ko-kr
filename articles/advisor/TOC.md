@@ -1,7 +1,7 @@
 # [Azure Advisor 설명서](index.md)
 
 # 개요
-## [Azure 백업이란?](advisor-overview.md)
+## [Azure Advisor란?](advisor-overview.md)
 
 # 권장 사항
 ## [비용 권장 사항](advisor-cost-recommendations.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure VIrtual Network 및 Linux Virtual Machines | Microsoft Docs
-description: 자습서 - Azure CLI를 사용하여 Azure Virtual Network 및 Linux Virtual Machines 관리
+title: 자습서 - Linux VM을 위한 Azure 가상 네트워크 만들기 및 관리 | Microsoft Docs
+description: 이 자습서에서는 Azure CLI 2.0을 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크를 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4fc6779472a0c680c53d7f25e6fe412ab386fc32
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 306d33dd5b5910e990caf80dae4c37fee020f7a1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Virtual Network 및 Linux Virtual Machines 관리
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
 Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트워킹을 사용합니다. 이 자습서에서는 두 개의 가상 머신을 배포하고 이러한 VM에 Azure 네트워킹을 구성하기 위해 단계별로 안내합니다. 이 자습서의 예제에서는 VM에서 데이터베이스 백 엔드가 있는 웹 응용 프로그램을 호스팅한다고 가정하고 있지만 응용 프로그램은 이 자습서에서 배포되지 않습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -33,7 +33,15 @@ Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트�
 > * 네트워크 트래픽 보안
 > * 백엔드 VM 만들기
 
-이 자습서를 완료하면 다음과 같은 리소스가 만들어진 것을 볼 수 있습니다.
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+
+## <a name="vm-networking-overview"></a>VM 네트워킹 개요
+
+Azure 가상 네트워크를 사용하면 네트워크에서 가상 머신, 인터넷 및 다른 Azure 서비스(예: Azure SQL 데이터베이스) 간에 안전하게 연결할 수 있습니다. 가상 네트워크는 서브넷이라는 논리적 세그먼트로 구분됩니다. 서브넷은 보안 경계로서 네트워크 흐름을 제어하는 데 사용됩니다. VM을 배포할 때는 일반적으로 서브넷에 연결된 가상 네트워크 인터페이스가 포함됩니다.
+
+이 자습서를 완료하면 다음 가상 네트워크 리소스가 만들어집니다.
 
 ![두 서브넷을 사용하는 가상 네트워크](./media/tutorial-virtual-network/networktutorial.png)
 
@@ -46,15 +54,6 @@ Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트�
 - *myBackendSubnet* - *myBackendNSG*에 연동되어 백엔드 리소스에 의해 사용되는 서브넷.
 - *myBackendNic* - *myBackendVM*이 *myFrontendVM*과 통신할 때 사용하는 네트워크 인터페이스.
 - *myBackendVM* - 포트 22와 3306을 사용하여 *myFrontendVM*과 통신하는 VM.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
-
-## <a name="vm-networking-overview"></a>VM 네트워킹 개요
-
-Azure 가상 네트워크를 사용하면 네트워크에서 가상 머신, 인터넷 및 다른 Azure 서비스(예: Azure SQL 데이터베이스) 간에 안전하게 연결할 수 있습니다. 가상 네트워크는 서브넷이라는 논리적 세그먼트로 구분됩니다. 서브넷은 보안 경계로서 네트워크 흐름을 제어하는 데 사용됩니다. VM을 배포할 때는 일반적으로 서브넷에 연결된 가상 네트워크 인터페이스가 포함됩니다.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
 

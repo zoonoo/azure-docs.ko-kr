@@ -1,12 +1,12 @@
 ---
-title: "Azure VM에 대한 자세한 SSH 문제 해결 | Microsoft Docs"
-description: "Azure 가상 머신에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계"
-keywords: "ssh 연결 거부,ssh 오류,azure ssh,SSH 연결 실패"
+title: Azure VM에 대한 자세한 SSH 문제 해결 | Microsoft Docs
+description: Azure 가상 머신에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
+keywords: ssh 연결 거부,ssh 오류,azure ssh,SSH 연결 실패
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
 SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.
@@ -39,7 +39,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 2. **설정** 을 선택하여 끝점, IP 주소, 네트워크 보안 그룹 및 기타 설정을 검토합니다.
 
-   VM에는 **끝점** 또는  **[네트워크 보안 그룹](../../virtual-network/virtual-networks-nsg.md)**에서 볼 수 있는 SSH 트래픽에 대해 정의된 끝점이 있어야 합니다. Resource Manager를 사용하여 만든 VM의 끝점은 네트워크 보안 그룹에 저장됩니다. 규칙이 네트워크 보안 그룹에 적용되어 있고 서브넷에서 참조되고 있는지 확인합니다.
+   VM에는 **끝점** 또는  **[네트워크 보안 그룹](../../virtual-network/security-overview.md)** 에서 볼 수 있는 SSH 트래픽에 대해 정의된 끝점이 있어야 합니다. Resource Manager를 사용하여 만든 VM의 끝점은 네트워크 보안 그룹에 저장됩니다. 규칙이 네트워크 보안 그룹에 적용되어 있고 서브넷에서 참조되고 있는지 확인합니다.
 
 네트워크 연결 상태를 확인하려면 구성된 끝점을 점검하고 HTTP와 같은 다른 프로토콜 또는 다른 서비스를 통해 VM에 연결할 수 있는지 확인합니다.
 
@@ -111,7 +111,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 ## <a name="source-4-network-security-groups"></a>발생지 4: 네트워크 보안 그룹
 네트워크 보안 그룹을 사용하면 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어할 수 있습니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 확인하고 인터넷으로 나가고 들어오는 SSH 트래픽이 허용되어 있는지 확인합니다.
-자세한 내용은 [네트워크 보안 그룹 정보](../../virtual-network/virtual-networks-nsg.md)를 참조하세요.
+자세한 내용은 [네트워크 보안 그룹 정보](../../virtual-network/security-overview.md)를 참조하세요.
 
 IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니다. 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 

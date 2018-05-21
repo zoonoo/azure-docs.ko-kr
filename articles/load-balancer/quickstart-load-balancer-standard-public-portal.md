@@ -1,27 +1,29 @@
 ---
-title: 표준 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs
-description: Azure Portal을 사용하여 표준 부하 분산 장치를 만드는 방법을 알아봅니다.
+title: '빠른 시작: 표준 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs'
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 표준 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
-ms.openlocfilehash: f67da7dc84878ca7418eb644daec1a9681e2f6f2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
 
 부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. Azure Portal을 사용하여 VM(가상 머신)의 부하를 분산하는 부하 분산 장치를 만들 수 있습니다. 이 빠른 시작에서는 표준 부하 분산 장치를 사용하여 VM의 부하를 분산하는 방법을 보여줍니다.
 
@@ -115,7 +117,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 6. **역할 및 기능 추가** 마법사에서 다음 값을 사용합니다.
     - **설치 유형 선택** 섹션에서 **역할 기반 또는 기능 기반 설치**를 클릭합니다.
     - **대상 서버 선택** 페이지에서 **myVM1**을 클릭합니다.
-    - **서버 역할 선택** 페이지 **웹 서버(IIS)**를 클릭합니다.
+    - **서버 역할 선택** 페이지 **웹 서버(IIS)** 를 클릭합니다.
     - 지침에 따라 마법사의 나머지 과정을 완료합니다. 
 7. 가상 머신 *myVM2*에 대해 1-6 단계를 반복합니다.
 

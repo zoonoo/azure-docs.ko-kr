@@ -1,315 +1,334 @@
 ---
-title: 공용 부하 분산 장치 만들기 - PowerShell | Microsoft Docs
-description: PowerShell을 사용하여 Resource Manager에서 공용 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
+title: '빠른 시작: 기본 Load Balancer 만들기 - Azure PowerShell | Microsoft Docs'
+description: 이 빠른 시작은 PowerShell을 사용하여 기본 Load Balancer를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
-ms.assetid: 8257f548-7019-417f-b15f-d004a1eec826
+Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 4ce11b0b06e1feaf55d17e25500c43a7eb1bf3d5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms:custom: mvc
+ms.openlocfilehash: 2e80a090d003770f47d28dfaacf7ba5140f7b41f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="get-started"></a>PowerShell을 사용하여 Resource Manager에서 공용 부하 분산 장치 만들기
-
-> [!div class="op_single_selector"]
-> * [포털](../load-balancer/load-balancer-get-started-internet-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-> * [템플릿](../load-balancer/load-balancer-get-started-internet-arm-template.md)
-
-
-
-[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
-
-## <a name="deploying-the-solution-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 솔루션 배포
-
-다음 절차에서는 PowerShell과 함께 Azure Resource Manager를 사용하여 공용 부하 분산 장치를 만드는 방법을 설명합니다. Azure Resource Manager를 사용하면 각 리소스가 개별적으로 생성되고 구성된 다음, 함께 사용되어 부하 분산 장치를 만듭니다.
-
-부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
-
-* 프런트 엔드 IP 구성: 들어오는 네트워크 트래픽에 대한 공용 IP(PIP) 주소를 포함합니다.
-* 백 엔드 주소 풀: 부하 분산 장치의 네트워크 트래픽을 받는 가상 머신에 대한 NIC(네트워크 인터페이스)를 포함합니다.
-* 부하 분산 규칙: 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
-* 인바운드 NAT 규칙: 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
-* 프로브: 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
-
-자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
-
-## <a name="set-up-powershell-to-use-resource-manager"></a>Resource Manager를 사용하도록 PowerShell 설치
-
-PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전이 있는지 확인합니다.
-
-1. Azure에 로그인합니다.
-
-    ```powershell
-    Login-AzureRmAccount
-    ```
-
-    메시지가 표시되면 자격 증명을 입력합니다.
-
-2. 계정에 대한 구독을 확인합니다.
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-
-3. 사용할 Azure 구독을 선택합니다.
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
-    ```
-
-4. 리소스 그룹을 만듭니다. (기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뜁니다.)
-
-    ```powershell
-    New-AzureRmResourceGroup -Name NRP-RG -location "West US"
-    ```
-
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>프런트 엔드 IP 풀에 대한 공용 IP 주소 및 가상 네트워크 만들기
-
-1. 서브넷 및 가상 네트워크를 만듭니다.
-
-    ```powershell
-    $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
-    New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
-    ```
-
-2. DNS 이름이 **loadbalancernrp.westus.cloudapp.azure.com**인 프런트 엔드 IP 풀에서 사용할 **PublicIP**라는 Azure 공용 IP 주소 리소스를 만듭니다. 다음 명령은 정적 할당 형식을 사용합니다.
-
-    ```powershell
-    $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -DomainNameLabel loadbalancernrp
-    ```
-
-   > [!IMPORTANT]
-   > 부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델과 다릅니다.
-   > 이 예제에서는 FQDN이 **loadbalancernrp.westus.cloudapp.azure.com**입니다.
-
-## <a name="create-a-front-end-ip-pool-and-a-back-end-address-pool"></a>프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
-
-1. **PublicIp** 리소스를 사용하는 **LB-Frontend**라는 프런트 엔드 IP 풀을 만듭니다.
-
-    ```powershell
-    $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP
-    ```
-
-2. **LB-backend**라는 백 엔드 주소 풀을 만듭니다.
-
-    ```powershell
-    $beaddresspool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name LB-backend
-    ```
-
-## <a name="create-nat-rules-a-load-balancer-rule-a-probe-and-a-load-balancer"></a>NAT 규칙, 부하 분산 장치 규칙, 프로브 및 부하 분산 장치 만들기
-
-이 예제에서는 다음 항목을 만듭니다.
-
-* 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
-* 포트 3442~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
-* **HealthProbe.aspx**
-* 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
-* 이러한 개체를 모두 사용하는 부하 분산 장치
-
-다음 단계를 사용:
-
-1. NAT 규칙을 만듭니다.
-
-    ```powershell
-    $inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP1 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
-
-    $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
-    ```
-
-2. 상태 프로브를 만듭니다. 프로브를 구성하는 방법은 두 가지가 있습니다.
-
-    HTTP 프로브
-
-    ```powershell
-    $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-    ```
-
-    TCP 프로브
-
-    ```powershell
-    $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-    ```
-
-3. 부하 분산 장치를 만듭니다.
-
-    ```powershell
-    $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-    ```
-
-4. 이전에 만든 개체를 사용하여 부하 분산 장치를 만듭니다.
-
-    ```powershell
-    $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name NRP-LB -Location 'West US' -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
-    ```
-
-## <a name="create-nics"></a>NIC 만들기
-
-네트워크 인터페이스를 만든(또는 기존 인터페이스 수정) 다음 NAT 규칙, 부하 분산 장치 규칙 및 프로브에 연결:
-
-1. NIC를 만들어야 하는 가상 네트워크 및 가상 네트워크 서브넷을 가져옵니다.
-
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
-    $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
-    ```
-
-2. **lb-nic1-be**라는 NIC를 만들고 첫 번째 NAT 규칙 및 첫 번째(유일한) 백 엔드 주소 풀과 연결합니다.
-
-    ```powershell
-    $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
-    ```
-
-3. **lb-nic2-be**라는 NIC를 만들고 두 번째 NAT 규칙 및 첫 번째(유일한) 백 엔드 주소 풀과 연결합니다.
-
-    ```powershell
-    $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
-    ```
-
-4. NIC를 확인합니다.
-
-        $backendnic1
-
-    예상 출력:
-
-        Name                 : lb-nic1-be
-        ResourceGroupName    : NRP-RG
-        Location             : westus
-        Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-        Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
-        ResourceGuid         : 896cac4f-152a-40b9-b079-3e2201a5906e
-        ProvisioningState    : Succeeded
-        Tags                 :
-        VirtualMachine       : null
-        IpConfigurations     : [
-                            {
-                            "Name": "ipconfig1",
-                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1",
-                            "PrivateIpAddress": "10.0.2.6",
-                            "PrivateIpAllocationMethod": "Static",
-                            "Subnet": {
-                                "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
-                            },
-                            "ProvisioningState": "Succeeded",
-                            "PrivateIpAddressVersion": "IPv4",
-                            "PublicIpAddress": {
-                                "Id": null
-                            },
-                            "LoadBalancerBackendAddressPools": [
-                                {
-                                "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
-                                }
-                            ],
-                            "LoadBalancerInboundNatRules": [
-                                {
-                                "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
-                                }
-                            ],
-                            "Primary": true,
-                            "ApplicationGatewayBackendAddressPools": []
-                            }
-                        ]
-        DnsSettings          : {
-                            "DnsServers": [],
-                            "AppliedDnsServers": [],
-                            "InternalDomainNameSuffix": "prcwibzcuvie5hnxav0yjks2cd.dx.internal.cloudapp.net"
-                        }
-        EnableIPForwarding   : False
-        NetworkSecurityGroup : null
-        Primary              :
-
-5. `Add-AzureRmVMNetworkInterface` cmdlet을 사용하여 NIC를 다른 VM에 할당합니다.
-
-## <a name="create-a-virtual-machine"></a>가상 머신 만들기
-
-가상 컴퓨터 만들기 및 NIC 할당에 대한 지침은 [PowerShell을 사용하여Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
-
-## <a name="add-the-network-interface-to-the-load-balancer"></a>부하 분산 장치에 네트워크 인터페이스 추가
-
-1. Azure에서 부하 분산 장치를 검색합니다.
-
-    (아직 수행하지 않은 경우) 부하 분산 장치 리소스를 변수로 로드합니다. 변수는 **$lb**입니다. 이전에 만든 부하 분산 장치 리소스에서 동일한 이름을 사용합니다.
-
-    ```powershell
-    $lb= get-azurermloadbalancer -name NRP-LB -resourcegroupname NRP-RG
-    ```
-
-2. 백 엔드 구성을 변수로 로드합니다.
-
-    ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
-    ```
-
-3. 이미 만든 네트워크 인터페이스를 변수로 로드합니다. 변수 이름은 **$nic**입니다. 네트워크 인터페이스 이름은 이전 예제와 같습니다.
-
-    ```powershell
-    $nic =get-azurermnetworkinterface -name lb-nic1-be -resourcegroupname NRP-RG
-    ```
-
-4. 네트워크 인터페이스에서 백 엔드 구성을 변경합니다.
-
-    ```powershell
-    $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
-    ```
-
-5. 네트워크 인터페이스 개체를 저장합니다.
-
-    ```powershell
-    Set-AzureRmNetworkInterface -NetworkInterface $nic
-    ```
-
-    네트워크 인터페이스가 부하 분산 장치 백 엔드 풀에 추가된 후 해당 부하 분산 장치 리소스에 대한 부하 분산 규칙에 따라 네트워크 트래픽을 받기 시작합니다.
-
-## <a name="update-an-existing-load-balancer"></a>기존 부하 분산 장치 업데이트
-
-1. 이전 예제에서 부하 분산 장치를 사용하여, `Get-AzureLoadBalancer`를 통해 부하 분산 장치 개체를 변수 **$slb**로 할당합니다.
-
-    ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
-    ```
-
-2. 다음 예제에서는 프런트 엔드에 있는 포트 81과 백 엔드 풀의 포트 8181을 사용하여 인바운드 NAT 규칙을 기존 부하 분산 장치에 추가합니다.
-
-    ```powershell
-    $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol TCP
-    ```
-
-3. `Set-AzureLoadBalancer`을 사용하여 새 구성을 저장합니다.
-
-    ```powershell
-    $slb | Set-AzureRmLoadBalancer
-    ```
-
-## <a name="remove-a-load-balancer"></a>부하 분산 장치 제거하기
-
-`Remove-AzureLoadBalancer` 명령을 사용하여 **NRP-RG**라는 리소스 그룹에서 이전에 생성한 **NRP-LB**라는 부하 분산 장치를 삭제합니다.
-
-```powershell
-Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+# <a name="get-started"></a>빠른 시작: Azure PowerShell을 사용하여 공용 부하 분산 장치 만들기
+이 빠른 시작은 Azure PowerShell을 사용하여 기본 Load Balancer를 만드는 방법을 보여줍니다. 부하 분산 장치를 테스트하려면 Windows 서버를 실행하는 두 VM(가상 머신)을 배포하고 두 VM 사이에 있는 웹앱의 부하를 분산합니다.
+
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
+부하 분산 장치를 만들려면 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *EastUS* 위치에 *myResourceGroupLB*라는 리소스 그룹을 만듭니다.
+
+```azurepowershell-interactive
+New-AzureRmResourceGroup `
+  -ResourceGroupName "myResourceGroupLB" `
+  -Location "EastUS"
+```
+## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
+인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *myResourceGroupLB* 리소스 그룹에 *myPublicIP*라는 공용 IP 주소를 만듭니다.
+
+```azurepowershell-interactive
+$publicIP = New-AzureRmPublicIpAddress `
+  -ResourceGroupName "myResourceGroupLB" `
+  -Location "EastUS" `
+  -AllocationMethod "Dynamic" `
+  -Name "myPublicIP"
+```
+## <a name="create-basic-load-balancer"></a>기본 부하 분산 장치 만들기
+ 이 섹션에서는 부하 분산 장치에 대해 프런트 엔드 IP 및 백 엔드 주소 풀을 구성한 다음, 기본 Load Balancer를 만듭니다.
+ 
+### <a name="create-frontend-ip"></a>프런트 엔드 IP 만들기
+[New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *myFrontEnd*라는 프런트 엔드 IP 구성을 만들고 *myPublicIP* 주소를 연결합니다. 
+
+```azurepowershell-interactive
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
+  -Name "myFrontEnd" `
+  -PublicIpAddress $publicIP
 ```
 
-> [!NOTE]
-> 선택적 스위치 **-Force** 를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
+### <a name="configure-backend-address-pool"></a>백 엔드 주소 풀 구성
+
+[New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결합니다. 다음 예제는 *myBackEndPool*이라는 백 엔드 주소 풀을 만듭니다.
+
+```azurepowershell-interactive
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
+```
+### <a name="create-a-health-probe"></a>상태 프로브 만들기
+부하 분산 장치가 앱의 상태를 모니터링하도록 하려면 상태 프로브를 사용합니다. 상태 프로브는 상태 검사에 따라 부하 분산 장치 순환에서 VM을 동적으로 추가하거나 제거합니다. 기본적으로 VM은 15초 간격으로 두 번의 연속 실패 후에 부하 분산 장치 분산에서 제거됩니다. 앱의 프로토콜 또는 특정 상태 확인 페이지에 따라 상태 프로브를 만듭니다. 
+
+다음 예제에서는 TCP 프로브를 만듭니다. 좀 더 미세 조정된 상태 검사를 위해 사용자 지정 HTTP 프로브를 만들 수도 있습니다. 사용자 지정 HTTP 프로브를 사용할 경우 *healthcheck.aspx*와 같은 상태 확인 페이지를 만들어야 합니다. 부하 분산 상태가 호스트를 순환 상태를 유지하려면 프로브는 **HTTP 200 정상** 응답을 반환해야 합니다.
+
+TCP 상태 프로브를 만들려면 [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig)를 사용합니다. 다음 예제에서는 *HTTP* 포트 *80*에서 각 VM을 모니터링하는 *myHealthProbe*라는 상태 프로브를 만듭니다.
+
+```azurepowershell-interactive
+$probe = New-AzureRmLoadBalancerProbeConfig `
+  -Name "myHealthProbe" `
+  -RequestPath healthcheck2.aspx `
+  -Protocol http `
+  -Port 80 `
+  -IntervalInSeconds 16 `
+  -ProbeCount 2
+  ```
+
+### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
+부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 VM만 트래픽을 수신하도록 하려면 사용할 상태 프로브도 정의합니다.
+
+[Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRule*이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80*에서 트래픽 부하를 분산합니다.
+
+```azurepowershell-interactive
+$lbrule = New-AzureRmLoadBalancerRuleConfig `
+  -Name "myLoadBalancerRule" `
+  -FrontendIpConfiguration $frontendIP `
+  -BackendAddressPool $backendPool `
+  -Protocol Tcp `
+  -FrontendPort 80 `
+  -BackendPort 80 `
+  -Probe $probe
+```
+
+### <a name="create-the-nat-rules"></a>NAT 규칙 만들기
+
+[Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig)를 사용하여 NAT 규칙을 만듭니다. 다음 예제에서는 포트 4221 및 4222로 백 엔드 서버에 RDP 연결을 허용하도록 *myLoadBalancerRDP1* 및 *myLoadBalancerRDP2*라는 NAT 규칙을 만듭니다.
+
+```azurepowershell-interactive
+$natrule1 = New-AzureRmLoadBalancerInboundNatRuleConfig `
+-Name 'myLoadBalancerRDP1' `
+-FrontendIpConfiguration $frontendIP `
+-Protocol tcp `
+-FrontendPort 4221 `
+-BackendPort 3389
+
+$natrule2 = New-AzureRmLoadBalancerInboundNatRuleConfig `
+-Name 'myLoadBalancerRDP2' `
+-FrontendIpConfiguration $frontendIP `
+-Protocol tcp `
+-FrontendPort 4222 `
+-BackendPort 3389
+```
+
+### <a name="create-load-balancer"></a>부하 분산 장치 만들기
+
+[New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer)를 사용하여 기본 Load Balancer를 만듭니다. 다음 예제는 이전 단계에서 만든 프런트 엔드 IP 구성, 백 엔드 풀, 상태 프로브, 부하 분산 규칙 및 NAT 규칙을 사용하여 myLoadBalancer라는 공용 기본 Load Balancer를 만듭니다.
+
+```azurepowershell-interactive
+$lb = New-AzureRmLoadBalancer `
+-ResourceGroupName 'myResourceGroupLB' `
+-Name 'MyLoadBalancer' `
+-Location 'eastus' `
+-FrontendIpConfiguration $frontendIP `
+-BackendAddressPool $backendPool `
+-Probe $probe `
+-LoadBalancingRule $lbrule `
+-InboundNatRule $natrule1,$natrule2
+```
+
+## <a name="create-network-resources"></a>네트워크 리소스 만들기
+일부 VM을 배포하고 부하 분산 장치를 테스트하려면 지원하는 네트워크 리소스 - 가상 네트워크 및 가상 NIC를 만들어야 합니다. 
+
+### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*을 만듭니다.
+
+```azurepowershell-interactive
+# Create subnet config
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 10.0.2.0/24
+
+# Create the virtual network
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName "myResourceGroupLB" `
+  -Location "EastUS" `
+  -Name "myVnet" `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $subnetConfig
+```
+### <a name="create-network-security-group"></a>네트워크 보안 그룹 만들기
+가상 네트워크에 대한 인바운드 연결을 정의하는 네트워크 보안 그룹을 만듭니다. 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
+
+#### <a name="create-a-network-security-group-rule-for-port-3389"></a>포트 3389에 대한 네트워크 보안 그룹 규칙 만들기
+포트 3389를 통해 RDP 연결을 허용하도록 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+
+```azurepowershell-interactive
+
+$rule1 = New-AzureRmNetworkSecurityRuleConfig `
+-Name 'myNetworkSecurityGroupRuleRDP' `
+-Description 'Allow RDP' `
+-Access Allow `
+-Protocol Tcp `
+-Direction Inbound `
+-Priority 1000 `
+-SourceAddressPrefix Internet `
+-SourcePortRange * `
+-DestinationAddressPrefix * `
+-DestinationPortRange 3389
+```
+
+#### <a name="create-a-network-security-group-rule-for-port-80"></a>포트 80에 대한 네트워크 보안 그룹 규칙 만들기
+포트 80을 통해 인바운드 연결을 허용하도록 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+
+```azurepowershell-interactive
+$rule2 = New-AzureRmNetworkSecurityRuleConfig `
+-Name 'myNetworkSecurityGroupRuleHTTP' `
+-Description 'Allow HTTP' `
+-Access Allow `
+-Protocol Tcp `
+-Direction Inbound `
+-Priority 2000 `
+-SourceAddressPrefix Internet `
+-SourcePortRange * `
+-DestinationAddressPrefix * `
+-DestinationPortRange 80
+```
+#### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
+
+[New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다.
+
+```azurepowershell-interactive
+$nsg = New-AzureRmNetworkSecurityGroup`
+-ResourceGroupName 'myResourceGroupLB' `
+-Location 'EastUS' `
+-Name 'myNetworkSecurityGroup'`
+-SecurityRules $rule1,$rule2
+```
+
+###<a name="create-nics"></a>NIC 만들기
+[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 만든 가상 NIC를 만듭니다. 다음 예제에서는 2개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩) 언제든지 추가 가상 NIC 및 VM을 만든 후 부하 분산 장치에 추가할 수 있습니다.
+
+```azurepowershell-interactive
+# Create NIC for VM1
+$nicVM1 = New-AzureRmNetworkInterface `
+-ResourceGroupName 'myResourceGroupLB' `
+-Location 'EastUS' `
+-Name 'MyNic1' `
+-LoadBalancerBackendAddressPool $backendPool `
+-NetworkSecurityGroup $nsg `
+-LoadBalancerInboundNatRule $natrule1 `
+-Subnet $vnet.Subnets[0]
+
+# Create NIC for VM2
+$nicVM2 = New-AzureRmNetworkInterface `
+-ResourceGroupName 'myResourceGroupLB' `
+-Location 'EastUS' `
+-Name 'MyNic2' `
+-LoadBalancerBackendAddressPool $backendPool `
+-NetworkSecurityGroup $nsg `
+-LoadBalancerInboundNatRule $natrule2 `
+-Subnet $vnet.Subnets[0]
+
+```
+
+### <a name="create-virtual-machines"></a>가상 머신 만들기
+앱의 고가용성을 향상시키려면 VM을 가용성 집합에 배치합니다.
+
+[New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset)을 사용하여 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
+
+```azurepowershell-interactive
+$availabilitySet = New-AzureRmAvailabilitySet `
+  -ResourceGroupName "myResourceGroupLB" `
+  -Name "myAvailabilitySet" `
+  -Location "EastUS" `
+  -Sku aligned `
+  -PlatformFaultDomainCount 2 `
+  -PlatformUpdateDomainCount 2
+```
+
+[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+이제 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 2개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
+
+```azurepowershell-interactive
+for ($i=1; $i -le 2; $i++)
+{
+    New-AzureRmVm `
+        -ResourceGroupName "myResourceGroupLB" `
+        -Name "myVM$i" `
+        -Location "East US" `
+        -VirtualNetworkName "myVnet" `
+        -SubnetName "mySubnet" `
+        -SecurityGroupName "myNetworkSecurityGroup" `
+        -OpenPorts 80 `
+        -AvailabilitySetName "myAvailabilitySet" `
+        -Credential $cred `
+        -AsJob
+}
+```
+
+`-AsJob` 매개 변수는 VM을 백그라운드 작업으로 만들므로 PowerShell 프롬프트가 반환됩니다. `Job` cmdlet을 사용하여 백그라운드 작업의 세부 정보를 볼 수 있습니다. 두 VM을 만들고 구성하는 데 몇 분 정도 소요됩니다.
+
+### <a name="install-iis-with-custom-web-page"></a>사용자 지정 웹 페이지로 IIS 설치
+ 
+다음과 같이 두 백 엔드 VM에 사용자 지정 웹 페이지로 IIS를 설치합니다.
+
+1. Load Balancer의 공용 IP 주소를 가져옵니다. `Get-AzureRmPublicIPAdress`를 사용하여 Load Balancer의 공용 IP 주소를 가져옵니다.
+
+  ```azurepowershell-interactive
+    Get-AzureRmPublicIPAddress `
+    -ResourceGroupName "myResourceGroupLB" `
+    -Name "myPublicIP" | select IpAddress
+  ```
+2. 이전 단계에서 가져온 공용 IP 주소를 사용하여 VM1에 대한 원격 데스크톱 연결을 만듭니다. 
+
+  ```azurepowershell-interactive
+
+      mstsc /v:PublicIpAddress:4221  
+  
+  ```
+3. *VM1*에 대한 자격 증명을 입력하여 RDP 세션을 시작합니다.
+4. VM1에서 Windows PowerShell을 실행하고, 다음 명령을 사용하여 IIS 서버를 설치하고 기본 htm 파일을 업데이트합니다.
+    ```azurepowershell-interactive
+    # Install IIS
+      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # Remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    #Add custom htm file
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+    ```
+5. *myVM1*과의 RDP 연결을 종료합니다.
+6. `mstsc /v:PublicIpAddress:4222` 명령을 실행하여 *myVM2*로 RDP 연결을 만들고, *VM2*에 대해 4단계를 반복합니다.
+
+## <a name="test-load-balancer"></a>부하 분산 장치 테스트
+[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIP*의 IP 주소를 가져옵니다.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress `
+  -ResourceGroupName "myResourceGroupLB" `
+  -Name "myPublicIP" | select IpAddress
+```
+
+그런 다음 웹 브라우저에 공용 IP 주소를 입력할 수 있습니다. 다음 예제와 같이 부하 분산 장치가 트래픽을 분산한 VM의 호스트 이름을 포함하여 웹 사이트가 표시됩니다.
+
+![부하 분산 장치 테스트](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
+
+앱이 실행되는 2개의 모든 VM에서 부하 분산 장치가 트래픽을 분산하는 것을 확인하기 위해 웹 브라우저를 강제로 새로 고칠 수 있습니다.
+
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroupLB
+```
 
 ## <a name="next-steps"></a>다음 단계
-
-[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
-
-[부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
-
-[부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
+- [Azure Load Balancer에 대해 자세히 알아보기](load-balancer-overview.md)

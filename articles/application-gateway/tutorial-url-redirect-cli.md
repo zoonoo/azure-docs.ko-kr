@@ -1,26 +1,26 @@
 ---
-title: "URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs"
-description: "Azure CLI를 사용하여 URL 경로 기반 리디렉션된 트래픽으로 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
+title: URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기 - Azure CLI
+description: Azure CLI를 사용하여 URL 경로 기반 리디렉션된 트래픽으로 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.topic: article
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 73fc20cf738f584008e7d8a019b8f7012dcacab1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 4/27/2018
+ms.author: victorh
+ms.custom: mvc
+ms.openlocfilehash: 23e3fdc168b2337b142f3cba554073bad1f5eb4a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기
+# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기
 
 Azure CLI를 사용하여 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 때 [URL 경로 기반 라우팅 규칙](application-gateway-url-route-overview.md)을 구성할 수 있습니다. 이 자습서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
@@ -32,7 +32,9 @@ Azure CLI를 사용하여 [응용 프로그램 게이트웨이](application-gate
 
 ![URL 라우팅 예제](./media/tutorial-url-redirect-cli/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+원하는 경우 [Azure PowerShell](tutorial-url-redirect-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -60,11 +62,13 @@ az network vnet create \
   --address-prefix 10.0.0.0/16 \
   --subnet-name myAGSubnet \
   --subnet-prefix 10.0.1.0/24
+
 az network vnet subnet create \
   --name myBackendSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet \
   --address-prefix 10.0.2.0/24
+
 az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress
@@ -72,7 +76,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-[az network application-gateway create](/cli/azure/application-gateway#create)를 사용하여 myAppGateway라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPSddress*에 할당됩니다.  
+[az network application-gateway create](/cli/azure/application-gateway#create)를 사용하여 myAppGateway라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPSddress*에 할당됩니다.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,15 +112,18 @@ az network application-gateway address-pool create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name imagesBackendPool
+
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name videoBackendPool
+
 az network application-gateway frontend-port create \
   --port 8080 \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name bport
+
 az network application-gateway frontend-port create \
   --port 8081 \
   --gateway-name myAppGateway \
@@ -138,6 +145,7 @@ az network application-gateway http-listener create \
   --frontend-port bport \
   --resource-group myResourceGroupAG \
   --gateway-name myAppGateway
+
 az network application-gateway http-listener create \
   --name redirectedListener \
   --frontend-ip appGatewayFrontendIP \
@@ -161,6 +169,7 @@ az network application-gateway url-path-map create \
   --default-http-settings appGatewayBackendHttpSettings \
   --http-settings appGatewayBackendHttpSettings \
   --rule-name imagePathRule
+
 az network application-gateway url-path-map rule create \
   --gateway-name myAppGateway \
   --name videoPathRule \
@@ -210,6 +219,7 @@ az network application-gateway rule create \
   --rule-type PathBasedRouting \
   --url-path-map urlpathmap \
   --address-pool appGatewayBackendPool
+
 az network application-gateway rule create \
   --gateway-name myAppGateway \
   --name redirectedRule \
@@ -238,6 +248,7 @@ for i in `seq 1 3`; do
   then
     poolName="videoBackendPool"
   fi
+
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
@@ -264,7 +275,8 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+
 done
 ```
 
@@ -282,7 +294,7 @@ az network public-ip show \
 
 ![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-URL을 http://&lt;ip-address&gt;:8080/video/test.html로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
+URL을 http://&lt;ip-address&gt;:8080/images/test.html로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
 
 ![응용 프로그램 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
@@ -292,6 +304,13 @@ URL을 http://&lt;ip-address&gt;:8080/video/test.html로 변경하고 &lt;ip-add
 
 이제 URL을 http://&lt;ip-address&gt;:8081/images/test.htm으로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 트래픽이 http://&lt;ip-address&gt;:8080/images에 있는 이미지 백 엔드 풀로 다시 리디렉션되었다고 표시됩니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요 없는 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거합니다.
+
+```azurecli-interactive
+az group delete --name myResourceGroupAG --location eastus
+```
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure 가상 머신 확장 집합에 대한 네트워킹 | Microsoft Docs"
-description: "Azure 가상 머신 확장 집합에 대한 네트워킹 구성 속성을 설명합니다."
+title: Azure 가상 머신 확장 집합에 대한 네트워킹 | Microsoft Docs
+description: Azure 가상 머신 확장 집합에 대한 네트워킹 구성 속성을 설명합니다.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -55,9 +55,28 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ```
 
+## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Application Gateway를 참조하는 확장 집합 만들기
+응용 프로그램 게이트웨이를 사용하는 확장 집합을 만들려면 이 ARM 템플릿 구성과 같이 설정된 확장의 ipConfigurations 섹션에서 응용 프로그램 게이트웨이의 백 엔드 주소 풀을 참조합니다.
+```json
+"ipConfigurations": [{
+  "name": "{config-name}",
+  "properties": {
+  "subnet": {
+    "id": "{subnet-id}"
+  },
+  "ApplicationGatewayBackendAddressPools": [{
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/applicationGateways/{gateway-name}/backendAddressPools/{pool-name}"
+  }]
+}]
+```
+
+>[!NOTE]
+> 응용 프로그램 게이트웨이는 확장 집합과 동일한 가상 네트워크에 있어야 하지만 확장 집합과 다른 서브넷에 있어야 합니다.
+
+
 ## <a name="configurable-dns-settings"></a>구성 가능한 DNS 설정
 기본적으로 확장 집합은 생성한 VNET 및 서브넷의 특정 DNS 설정을 사용하지만, 확장 집합에 대한 DNS 설정을 직접 구성할 수 있습니다.
-~
+
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>구성 가능한 DNS 서버가 포함된 확장 집합 만들기
 CLI 2.0을 사용하여 사용자 지정 DNS 구성이 포함된 확장 집합을 만들려면 **vmss create** 명령에 **--dns-servers** 인수를 추가한 다음 공백으로 구분된 서버 IP 주소를 추가합니다. 예: 
 ```bash

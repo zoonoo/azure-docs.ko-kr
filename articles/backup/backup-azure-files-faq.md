@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: fb455fe6f1b481ad2dc855d147860cb2c7898779
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Azure Files에 대한 백업 작업 구성
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>유효한 Azure 파일 공유가 포함되어 있고 보호하려는 일부 저장소 계정이 표시되지 않는 이유는 무엇인가요? <br/>
-미리 보기로 있는 동안에는 Azure 파일 공유에 대한 Backup에서 일부 유형의 저장소 계정이 지원되지 않습니다. 지원되는 저장소 계정 목록을 보려면 [여기](troubleshoot-azure-files.md#preview-boundaries) 목록을 참조하세요.
+미리 보기로 있는 동안에는 Azure 파일 공유에 대한 Backup에서 일부 유형의 저장소 계정이 지원되지 않습니다. 지원되는 저장소 계정 목록을 보려면 [여기](troubleshoot-azure-files.md#preview-boundaries) 목록을 참조하세요. 원하는 Storage 계정이 이미 보호되거나 다른 자격 증명 모음으로 등록되었을 수도 있습니다. 자격 증명 모음에서 [등록을 취소](troubleshoot-azure-files.md#configuring-backup)하여 보호를 위해 다른 자격 증명 모음에서 Storage 계정을 검색합니다.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>백업을 구성하려고 할 때 저장소 계정에서 일부 Azure 파일 공유가 표시되지 않는 이유는 무엇인가요? <br/>
 Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 이미 보호되었거나 최근에 삭제되었는지 확인합니다.
@@ -52,6 +52,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 - 일본 서부(JPW)
 -   인도 중부(INC) 
 - 인도 남부(INS)
+- 한국 중부(KRC)
 - 대한민국(KRS)
 -   미국 중북부(NCUS) 
 -   북유럽(NE) 

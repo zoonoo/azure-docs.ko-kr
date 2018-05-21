@@ -1,36 +1,36 @@
 ---
-title: Azure의 Azure Security Center 및 Windows 가상 머신 | Microsoft Docs
-description: Azure Security Center를 사용하여 Azure Windows 가상 머신의 보안을 유지하는 방법에 대해 알아봅니다.
+title: 자습서 - Azure에서 Windows VM을 위한 Azure Security Center 사용 | Microsoft Docs
+description: 이 자습서에서는 Azure에서 Windows 가상 머신을 보호하고 안전하게 하는 데 유용한 Azure Security Center 기능에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Azure Security Center를 사용하여 가상 머신 보안 모니터링
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
 Azure Security Center를 사용하면 Azure 리소스 보안 사례에 대한 가시성을 얻을 수 있습니다. Security Center는 통합 보안 모니터링 기능을 제공합니다. 다른 방법으로는 눈에 띄지 않을 수 있는 위협을 검색할 수 있습니다. 이 자습서에서는 Azure Security Center에 대해 알아보고 다음을 수행하는 방법에 대해 설명합니다.
- 
+
 > [!div class="checklist"]
 > * 데이터 수집 설정
 > * 보안 정책 설정
 > * 구성 상태 문제 보기 및 수정
-> * 검색된 위협 검토  
+> * 검색된 위협 검토
 
 ## <a name="security-center-overview"></a>Security Center 개요
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 가상 머신 확장 집합 및 연결된 데이터 디스크
 사용 가능한 저장소를 확장하기 위해 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)에서는 연결된 데이터 디스크를 사용한 VM 인스턴스를 지원합니다. 확장 집합을 만들 때 데이터를 연결하거나 기존 확장 집합에 데이터를 연결할 수 있습니다.
@@ -91,21 +91,12 @@ Linux 클러스터에서 자동으로 데이터 디스크를 준비하려면 다
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>기존 확장 집합에 미리 지정된 데이터 디스크 추가 
-> 기존 확장 집합 모델에 디스크를 추가하는 경우 설계 상 디스크는 항상 빈 상태로 만들어집니다. 이 시나리오는 확장 집합에서 만든 새 인스턴스도 포함합니다. 확장 집합 정의에 빈 데이터 디스크가 있기 때문에 이 동작이 발생합니다. 기존 확장 집합 모델에 미리 지정된 데이터 드라이브를 만들기 위해 다음 두 가지 옵션 중 하나를 선택할 수 있습니다.
-
-* 사용자 지정 스크립트를 실행하여 인스턴스 0 VM에서 다른 VM의 데이터 디스크에 데이터를 복사합니다.
-* OS 디스크 및 데이터 디스크(필요한 데이터 포함)에서 관리되는 이미지를 만들고 이미지를 포함한 새 확장 집합을 만듭니다. 이렇게 만든 모든 새 VM에는 확장 집합의 정의에 제공되는 데이터 디스크가 있습니다. 이 정의가 사용자 지정된 데이터를 포함한 데이터 디스크를 사용하여 이미지를 참조하기 때문에 확장 집합의 모든 가상 머신은 이러한 변경 내용이 적용됩니다.
-
-> 사용자 지정 이미지를 만들 수 있는 방법은 [Azure에서 일반화된 VM의 관리되는 이미지 만들기](/azure/virtual-machines/windows/capture-image-resource/)에서 확인할 수 있습니다 
-
-> 사용자는 필수 데이터를 포함한 인스턴스 0 VM을 캡처해야 하고 이미지 정의에 VHD를 사용해야 합니다.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>기존 확장 집합에 미리 지정된 데이터 디스크 추가
+확장 집합 모델에 지정된 데이터 디스크는 항상 비어 있습니다. 그러나 확장 집합의 특정 VM에 기존 데이터 디스크를 연결할 수 있습니다. 이 기능은 [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)에서 예제를 사용하여 미리 보기로 제공됩니다. 확장 집합의 모든 VM에서 데이터를 전파하려는 경우 데이터 디스크를 복제하고 확장 집합의 각 VM에 연결할 수 있으며, 데이터를 포함하는 사용자 지정 이미지를 만들고 이 사용자 지정 이미지에서 확장 집합을 프로비전하거나 Azure Files 또는 유사한 데이터 저장소 제공을 사용할 수 있습니다.
 
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
 Azure Managed Disks 및 확장 집합 연결 데이터 디스크에 대한 지원은 Microsoft.Compute API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) 이상의 API 버전에서 사용할 수 있습니다.
-
-크기 집합에 대한 연결된 디스크 지원의 초기 구현 중에 크기 집합에 있는 개별 VM 간에 데이터 디스크를 연결하거나 분리할 수 없습니다.
 
 크기 집합에 있는 연결된 데이터 디스크에 대한 Azure Portal 지원은 처음부터 제한됩니다. 요구 사항에 따라 Azure 템플릿, CLI, PowerShell, SDK 및 REST API를 사용하여 연결된 디스크를 관리할 수 있습니다.
 

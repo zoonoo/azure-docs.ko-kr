@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler 또는 Postman을 사용하여 Azure Search REST API 탐
 
@@ -48,14 +48,14 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 각 도구는 세션에 대한 요청 헤더 정보를 유지하므로 URL 끝점, api-version, api-key 및 content-type을 한 번만 입력하면 됩니다.
 
-전체 URL은 다음 예제와 유사하게 표시되어야 하며 **`my-app`** 자리 표시자 이름을 유효하게 대체해야 합니다. `https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
+전체 URL은 다음 예제와 유사하게 표시되어야 하며 **`my-app`** 자리 표시자 이름을 유효하게 대체해야 합니다. `https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
 
 서비스 URL 구성에는 다음 요소가 포함됩니다.
 
 + HTTPS 접두사.
 + 서비스 URL, 포털에서 확보.
 + 리소스, 서비스에 개체를 만드는 작업. 이 단계에서는 hotels라는 인덱스입니다.
-+ api-version, 현재 버전에 대해 "?api-version=2016-09-01"로 지정된 필수 소문자 문자열. [API 버전](search-api-versions.md)은 정기적으로 업데이트됩니다. 각 요청에 api-version을 포함시키면 어느 것이 사용되는지를 완전히 제어할 수 있습니다.  
++ api-version, 현재 버전에 대해 “?api-version=2017-11-11”로 지정된 필수 소문자 문자열. [API 버전](search-api-versions.md)은 정기적으로 업데이트됩니다. 각 요청에 api-version을 포함시키면 어느 것이 사용되는지를 완전히 제어할 수 있습니다.  
 
 요청 헤더 구성에는 이전 섹션에서 설명한 content-type과 api-key라는 두 가지 요소가 포함됩니다.
 
@@ -124,7 +124,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 인덱스 생성과 인덱스 채우기는 별도의 단계입니다. Azure Search 검색에서 인덱스에는 JSON 문서로 제공할 수 있는 검색 가능한 모든 데이터가 포함됩니다. 이 작업에 대한 API를 검토하려면 [문서 추가, 업데이트 또는 삭제(REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 참조하세요.
 
 + 이 단계에서 동사를 **POST**로 변경합니다.
-+ `/docs/index`를 포함하도록 끝점을 변경합니다. 전체 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01`
++ `/docs/index`를 포함하도록 끝점을 변경합니다. 전체 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 + 요청 헤더를 그대로 유지합니다. 
 
 요청 본문에 호텔 인덱스에 추가될 문서 4개가 포함됩니다.
@@ -213,7 +213,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다. 이 API에 대한 자세한 내용은 [문서 검색(REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents)을 참조하세요.  
 
 + 이 단계에서 동사를 **GET**로 변경합니다.
-+ 검색 문자열을 포함하여 쿼리 매개 변수를 포함하도록 끝점을 변경합니다. 쿼리 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2016-09-01`
++ 검색 문자열을 포함하여 쿼리 매개 변수를 포함하도록 끝점을 변경합니다. 쿼리 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + 요청 헤더를 그대로 유지합니다.
 
 이 쿼리는 "motel"이라는 용어를 검색하고 검색 결과에 문서의 수를 반환합니다. 요청 및 응답은 **보내기**를 클릭한 후 Postman의 다음 스크린샷과 유사합니다. 상태 코드는 200이어야 합니다.
@@ -222,18 +222,18 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Fiddler에서 샘플 쿼리를 실행하는 팁
 
-다음 예제 쿼리는 [검색 인덱스 작업(Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) 문서에서 가져온 것입니다. 이 문의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
+다음 예제 쿼리는 [검색 인덱스 작업(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 문서에서 가져온 것입니다. 이 문의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
 
 **공백이 교체되기 전(lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
 **공백이 +로 교체된 후(lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ## <a name="query-index-properties"></a>쿼리 인덱스 속성
-시스템을 쿼리하여 문서 수와 저장소 사용량을 가져올 수도 있습니다. `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01`
+시스템을 쿼리하여 문서 수와 저장소 사용량을 가져올 수도 있습니다. `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 Postman에서 요청은 다음과 유사하며 응답에는 문서 수와 사용된 공간(바이트 단위)이 포함됩니다.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7b604f9a26fc4c9a2c76a28ca01d066fe1640718
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded 시작
 
@@ -48,7 +48,7 @@ AAD에 응용 프로그램을 등록한 후에 응용 프로그램 내에서 Pow
 Microsoft Azure 내에서 Power BI Embedded 용량을 만들어 프로덕션으로 응용 프로그램을 이동합니다. 용량을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Power BI Embedded 용량 만들기](create-capacity.md)를 참조하세요.
 
 > [!IMPORTANT]
-> embed 토큰은 개발 테스트용으로만 사용되므로 Power BI 마스터 계정에서 생성할 수 있는 embed 토큰의 수는 제한됩니다. 프로덕션 포함 시나리오의 경우 [용량을 구매해야 합니다](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). 용량 구매 시 embed 토큰 생성은 제한되지 않습니다.
+> embed 토큰은 개발 테스트용으로만 사용되므로 Power BI 마스터 계정에서 생성할 수 있는 embed 토큰의 수는 제한됩니다. 프로덕션 포함 시나리오의 경우 [용량을 구매해야 합니다](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). 용량 구매 시 embed 토큰 생성은 제한되지 않습니다. [사용 가능한 기능 가져오기](https://msdn.microsoft.com/en-us/library/mt846473.aspx)로 이동하여 현재 포함된 사용량을 백분율로 확인합니다.
 
 Power BI 관리 포털 내에서 용량을 관리합니다. 앱 작업 영역을 지원하도록 작업 영역 할당자를 할당합니다. 자세한 내용은 [Power BI Premium 및 Power BI Embedded 내 용량 관리](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/)를 참조하세요.
 

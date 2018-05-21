@@ -1,25 +1,25 @@
 ---
-title: "Azure Policy json 샘플 - 허용되는 VM 이미지 | Microsoft Docs"
-description: "이 json 샘플 정책에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다."
+title: Azure Policy json 샘플 - 허용되는 VM 이미지 | Microsoft Docs
+description: 이 json 샘플 정책에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: dcf43b5b820b41ec8722d843f1484c1607cfbde8
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f20fc596783e348805977e2a8dceb29cd5cf6fb8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="approved-vm-images"></a>승인된 VM 이미지
 
@@ -76,4 +76,5 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-- 추가적인 Azure Policy 템플릿 샘플은 [Azure Policy에 대한 템플릿](../json-samples.md)에 있습니다.
+- 추가 Azure Policy 템플릿 샘플은 [Azure Policy에 대한 템플릿](../json-samples.md)에 있습니다.
+- [Windows VM에 정책 적용](/azure/virtual-machines/windows/policy)에서 Virtual Machines에 대한 추가 Azure Policy 예제

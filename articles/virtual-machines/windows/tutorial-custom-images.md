@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell을 사용하여 사용자 지정 VM 이미지 만들기 | Microsoft Docs
-description: 자습서 - Azure PowerShell을 사용하여 사용자 지정 VM 이미지 만들기
+title: 자습서 - Azure PowerShell을 사용하여 사용자 지정 VM 이미지 만들기 | Microsoft Docs
+description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure에서 사용자 지정 가상 머신 이미지를 만드는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,19 +10,19 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 443f47b98ea063c6fe1f0b3517c00b6cf3692161
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a449c1f9781ffc86de4786eaab3cb83999b86a72
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 응용 프로그램 사전 로드, 응용 프로그램 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure Virtual Machines의 사용자 지정 이미지를 만듭니다. 다음 방법에 대해 알아봅니다.
 
@@ -33,7 +33,6 @@ ms.lasthandoff: 03/28/2018
 > * 구독에 모든 이미지 나열
 > * 이미지 삭제
 
-
 ## <a name="before-you-begin"></a>시작하기 전에
 
 아래 단계에서는 기존 VM을 가져와서 새 VM 인스턴스를 만드는 데 사용할 수 있는 재사용 가능 사용자 지정 이미지로 변환하는 방법을 설명합니다.
@@ -42,7 +41,7 @@ ms.lasthandoff: 03/28/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AzureRM 모듈 버전 5.6.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AzureRM 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="prepare-vm"></a>VM 준비
 
@@ -101,7 +100,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>이미지에서 VM 만들기
 
-이미지가 생겼으니, 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 사용자 지정 이미지에서 VM을 만드는 방법은 Marketplace 이미지를 사용하여 VM을 만드는 방법과 매우 비슷합니다. Marketplace 이미지를 사용하는 경우 이미지, 이미지 공급자, 제품, SKU 및 버전에 대한 정보를 제공해야 합니다. 동일한 리소스 그룹에 있는 경우 [New-AzureRMVM]() cmdlet에 설정된 간소화된 매개 변수를 사용하여 사용자 지정 이미지의 이름을 입력해야 합니다. 
+이미지가 생겼으니, 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 사용자 지정 이미지에서 VM을 만드는 방법은 Marketplace 이미지를 사용하여 VM을 만드는 방법과 비슷합니다. Marketplace 이미지를 사용하는 경우 이미지, 이미지 공급자, 제품, SKU 및 버전에 대한 정보를 제공해야 합니다. 동일한 리소스 그룹에 있는 경우 [New-AzureRMVM]() cmdlet에 설정된 간소화된 매개 변수를 사용하여 사용자 지정 이미지의 이름을 입력해야 합니다. 
 
 이 예제에서는 *myResourceGroup*의 *myImage*에서 *myVMfromImage*라는 VM을 만듭니다.
 

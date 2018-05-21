@@ -1,29 +1,41 @@
 ---
-title: 영역 내부의 Load Balancer VM - Azure Portal | Microsoft Docs
-description: Azure Portal을 사용하여 가용성 영역 내부의 VM 부하 분산을 위한 영역 프런트 엔드가 있는 Standard Load Balancer 만들기
+title: '자습서: 영역 내부의 Load Balancer VM - Azure Portal | Microsoft Docs'
+description: 이 자습서는 Azure Portal을 사용하여 가용성 영역 내부의 VM 부하 분산을 위한 영역 프런트 엔드가 있는 Standard Load Balancer를 만드는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 41a33436cb0d2c4c2bbfef4888bb704c62e2b91e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: mvc
+ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Azure Portal에서 Standard Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
+# <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
 
-이 문서에서는 Azure Portal을 통해 공용 IP 표준 주소를 사용하여 영역별 프런트 엔드가 있는 공용 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. 이 시나리오에서는 프런트 엔드 및 백 엔드 인스턴스에 대한 특정 영역을 지정하여 특정 영역으로 데이터 경로 및 리소스를 맞출 수도 있습니다.
+이 자습서에서는 Azure Portal을 통해 공용 IP 표준 주소를 사용하여 영역별 프런트 엔드가 있는 공용 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. 이 시나리오에서는 프런트 엔드 및 백 엔드 인스턴스에 대한 특정 영역을 지정하여 특정 영역으로 데이터 경로 및 리소스를 맞출 수도 있습니다. 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 영역 프런트 엔드를 사용하여 Azure 표준 Load Balancer 만들기
+> * 들어오는 트래픽 규칙을 정의하는 네트워크 보안 그룹 만들기
+> * 영역 VM 만들기 및 부하 분산 장치에 연결
+> * 부하 분산 장치 상태 프로브 만들기
+> * 부하 분산 장치 트래픽 규칙 만들기
+> * 기본 IIS 사이트 만들기
+> * 부하 분산 장치의 실제 동작 보기
+
 Standard Load Balancer에서 가용성 영역 사용에 대한 자세한 내용은 [Standard Load Balancer 및 가용석 영역](load-balancer-standard-availability-zones.md)을 참조하세요.
 
 원하는 경우 [Azure CLI](load-balancer-standard-public-zonal-cli.md)를 사용하여 이 자습서를 완료할 수 있습니다.

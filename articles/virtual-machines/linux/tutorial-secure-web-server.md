@@ -1,28 +1,28 @@
 ---
-title: "Azure에서 SSL 인증서로 웹 서버 보호 | Microsoft Docs"
-description: "Azure에서 Linux VM의 SSL 인증서로 NGINX 웹 서버를 보호하는 방법을 알아봅니다"
+title: 자습서 - Azure에서 SSL 인증서로 Linux 웹 서버 보호 | Microsoft Docs
+description: 이 자습서에서는 Azure CLI 2.0을 사용하여 Azure Key Vault에 저장된 SSL 인증서로 NGINX 웹 서버를 실행하는 Linux 가상 머신을 보호하는 방법을 설명합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/14/2017
+ms.date: 04/30/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 02118533c4ab552f81157f644bb794e68fbc4ce3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f86cc891b67cddf3a4046260d2977371af3d0596
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신의 SSL 인증서로 웹 서버 보호
+# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Linux 가상 머신의 웹 서버 보호
 웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.22 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.  
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 
 ## <a name="overview"></a>개요
@@ -49,7 +49,7 @@ Key Vault 및 인증서를 만들려면 먼저 [az group create](/cli/azure/grou
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-다음으로 [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 *<mykeyvault>*를 사용자 고유의 Key Vault 이름으로 바꿉니다.
+다음으로 [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 *<mykeyvault>* 를 사용자 고유의 Key Vault 이름으로 바꿉니다.
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -70,14 +70,14 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>VM에 사용할 인증서 준비
-VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions)를 사용하여 인증서 ID를 가져옵니다. [az vm format-secret](/cli/azure/vm#az_vm_format_secret)를 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
+VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions)를 사용하여 인증서 ID를 가져옵니다. [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format)을 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm format-secret --secret "$secret")
+vm_secret=$(az vm secret format --secrets "$secret")
 ```
 
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>NGINX를 보호할 cloud-init 구성 만들기
@@ -136,7 +136,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>보안 웹앱 테스트
-이제 웹 브라우저를 열고 주소 표시줄에 *https://<publicIpAddress>*를 입력할 수 있습니다. VM 만들기 프로세스에서 사용자 고유의 공용 IP 주소를 제공합니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 허용합니다.
+이제 웹 브라우저를 열고 주소 표시줄에 *https://<publicIpAddress>* 를 입력할 수 있습니다. VM 만들기 프로세스에서 사용자 고유의 공용 IP 주소를 제공합니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 허용합니다.
 
 ![웹 브라우저 보안 경고 허용](./media/tutorial-secure-web-server/browser-warning.png)
 
@@ -159,4 +159,3 @@ az vm open-port \
 
 > [!div class="nextstepaction"]
 > [Linux 가상 머신 스크립트 샘플](./cli-samples.md)
-
