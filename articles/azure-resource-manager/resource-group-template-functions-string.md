@@ -1,24 +1,24 @@
-﻿---
-title: "Azure Resource Manager 템플릿 함수 - 문자열 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다."
+---
+title: Azure Resource Manager 템플릿 함수 - 문자열 | Microsoft Docs
+description: Azure Resource Manager 템플릿에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -115,7 +115,7 @@ Base64 표현을 포함하는 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 문자열 | one, two, three |
@@ -193,7 +193,7 @@ JSON 개체입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 문자열 | one, two, three |
@@ -271,7 +271,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 문자열 | one, two, three |
@@ -332,7 +332,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
 
@@ -385,7 +385,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -474,7 +474,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -546,7 +546,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 문자열 | Hello, World! |
@@ -614,7 +614,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 문자열 | Hello, World! |
@@ -691,7 +691,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -767,7 +767,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -836,7 +836,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 문자열 | one |
 | stringOutput | 문자열 | O |
@@ -990,7 +990,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1058,7 +1058,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 문자열 | three |
 | stringOutput | 문자열 | e |
@@ -1129,7 +1129,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1204,7 +1204,7 @@ int입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -1268,7 +1268,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | stringOutput | 문자열 | 0000000123 |
 
@@ -1333,7 +1333,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | 문자열 | 1231231234 |
 | secodeOutput | 문자열 | 123-123-xxxx |
@@ -1414,7 +1414,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["three"] |
 | stringOutput | 문자열 | two three |
@@ -1486,7 +1486,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | 배열 | [“one”, “two”, “three”] |
 | secondOutput | 배열 | [“one”, “two”, “three”] |
@@ -1561,7 +1561,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1648,7 +1648,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | 문자열 | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | 문자열 | [“a”,“b”,“c”] |
@@ -1724,7 +1724,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | substringOutput | 문자열 | two |
 
@@ -1804,7 +1804,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["one", "two"] |
 | stringOutput | 문자열 | on |
@@ -1868,7 +1868,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | 문자열 | one two three |
 | toUpperOutput | 문자열 | ONE TWO THREE |
@@ -1932,7 +1932,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | 문자열 | one two three |
 | toUpperOutput | 문자열 | ONE TWO THREE |
@@ -1992,7 +1992,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | return | 문자열 | one two three |
 
@@ -2156,7 +2156,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2224,7 +2224,7 @@ URI로 인코딩된 값의 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2292,7 +2292,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |

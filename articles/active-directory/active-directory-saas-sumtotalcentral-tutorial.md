@@ -1,6 +1,6 @@
 ---
-title: "자습서: SumTotalCentral과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 SumTotalCentral 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: SumTotalCentral과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 SumTotalCentral 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ad623de53e7dd6e433eee52470b89896bdb5bd6c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c01ab614baaac528e15d5a856ced6bcb8d92dfb6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>자습서: SumTotalCentral과 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ SumTotalCentral을 Azure AD와 통합하면 다음과 같은 이점이 제공됩
 - 사용자가 자신의 Azure AD 계정으로 SumTotalCentral에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ SumTotalCentral의 Azure AD 통합을 구성하려면 갤러리의 SumTotalCentr
 
 **갤러리에서 SumTotalCentral을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -110,7 +110,7 @@ SumTotalCentral로 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.sumtotalsystems.com/sites/default`
 
-    b. **식별자** 텍스트 상자에 값 `SumTotalFederationGateway`를 입력합니다.
+    나. **식별자** 텍스트 상자에 값 `SumTotalFederationGateway`를 입력합니다.
 
     > [!NOTE] 
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [SumTotalCentral 클라이언트 지원 팀](http://www.sumtotalsystems.com/support/)에 문의하세요. 
@@ -155,9 +155,9 @@ SumTotalCentral로 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -205,7 +205,7 @@ SumTotalCentral로 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

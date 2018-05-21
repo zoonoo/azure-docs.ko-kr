@@ -1,6 +1,6 @@
 ---
-title: "자습서: Veritas Enterprise Vault.cloud SSO와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Veritas Enterprise Vault.cloud SSO 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Veritas Enterprise Vault.cloud SSO와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Veritas Enterprise Vault.cloud SSO 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a60df7f743c893305f0b3b4aba05505e761f505d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>자습서: Veritas Enterprise Vault.cloud SSO와 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ Veritas Enterprise Vault.cloud SSO를 Azure AD와 통합하면 다음과 같은 
 - 사용자가 해당 Azure AD 계정으로 Veritas Enterprise Vault.cloud SSO에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,7 +57,7 @@ Veritas Enterprise Vault.cloud SSO의 Azure AD 통합을 구성하려면 갤러�
 
 **갤러리에서 Veritas Enterprise Vault.cloud SSO를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -131,7 +131,7 @@ Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-On을 구성하고
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Veritas Enterprise Vault.cloud SSO 클라이언트 지원 팀](https://www.veritas.com/support/.html)에 문의하세요. 
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_certificate.png) 
 
@@ -223,7 +223,7 @@ Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-On을 구성하고
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

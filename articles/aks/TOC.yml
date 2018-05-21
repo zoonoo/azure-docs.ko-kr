@@ -45,13 +45,13 @@
           href: delete-cluster.md
     - name: 데이터 볼륨 구성
       items:
-        - name: AzureDisk 동적 프로비저닝
+        - name: Azure Disk - Dynamic
           href: azure-disks-dynamic-pv.md
-        - name: AzureDisk 정적 프로비저닝
+        - name: Azure Disk - Static
           href: azure-disk-volume.md
-        - name: AzureFile 동적 프로비저닝
+        - name: Azure Files - Dynamic
           href: azure-files-dynamic-pv.md
-        - name: AzureFile 정적 프로비저닝
+        - name: Azure Files - Static
           href: azure-files-volume.md
     - name: 네트워킹 구성
       items:
