@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a3dcbfe09d47388b80cee15ff0e46f8b75b474a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 13e5836aea0e307cdce5bcdcd5cf3c50969dfbf8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Azure PowerShell을 사용하여 리소스 관리
 
@@ -51,9 +51,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 이 문서에서는 가상 머신 및 관련 가상 네트워크를 배포합니다. 가상 머신 솔루션을 관리하기 위해서는 일반적으로 필요한 액세스 권한을 제공하는 세 가지 리소스 특정 역할이 있습니다.
 
-* [Virtual Machine 참여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
-* [네트워크 참여자](../role-based-access-control/built-in-roles.md#network-contributor)
-* [Storage 계정 참여자](../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Virtual Machine 기여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [네트워크 기여자](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage 계정 기여자](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../active-directory/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Domain Services에서 보안 LDAP(LDAPS) 구성 | Microsoft Docs"
-description: "Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성"
+title: Azure AD Domain Services에서 보안 LDAP(LDAPS) 구성 | Microsoft Docs
+description: Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/24/2018
 ## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>작업 3 - Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정
 보안 LDAP를 사용하도록 설정하려면 다음 구성 단계를 수행합니다.
 
-1. **[Azure Portal](https://portal.azure.com)**로 이동합니다.
+1. **[Azure Portal](https://portal.azure.com)** 로 이동합니다.
 
 2. **리소스 검색** 검색 상자에서 'domain services'를 검색합니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다. **Azure AD Domain Services** 페이지에 관리되는 도메인이 나열됩니다.
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 02/24/2018
 
 ![인터넷을 통해 LDAPS 액세스를 보안하는 예제 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**자세한 정보** - [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md).
+**자세한 정보** - [네트워크 보안 그룹](../virtual-network/security-overview.md).
 
 <br>
 
@@ -128,5 +128,5 @@ ms.lasthandoff: 02/24/2018
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 * [Azure AD Domain Services 관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
-* [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
+* [네트워크 보안 그룹](../virtual-network/security-overview.md)
 * [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

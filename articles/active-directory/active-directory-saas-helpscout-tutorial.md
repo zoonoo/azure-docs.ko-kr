@@ -1,6 +1,6 @@
 ---
-title: "자습서: Help Scout와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Help Scout 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Help Scout와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Help Scout 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 5608df300ad3b5d3fd42bd904a52d43d115ebf53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 596a1ba27516755e586d88ab56a20a1daed63fc2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>자습서: Help Scout와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Azure AD에 Help Scout를 통합하면 다음과 같은 이점을 얻을 수 있
 - 사용자가 해당 Azure AD 계정으로 Help Scout에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +55,7 @@ Help Scout의 Azure AD 통합을 구성하려면 갤러리의 Help Scout를 관�
 
 **갤러리에서 Help Scout를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -105,9 +105,9 @@ Help Scout에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Help Scout 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
-    a. **식별자**는 Help Scout에서 `urn:`으로 시작하는 **"대상 URI(서비스 공급자 엔터티 ID)"**입니다.
+    a. **식별자**는 Help Scout에서 `urn:`으로 시작하는 **"대상 URI(서비스 공급자 엔터티 ID)"** 입니다.
 
-    b. **회신 URL**은 Help Scout에서 `https://`로 시작하는 **"다시 게시 URL(Assertion Consumer Service URL)"**입니다. 
+    나. **회신 URL**은 Help Scout에서 `https://`로 시작하는 **"다시 게시 URL(Assertion Consumer Service URL)"** 입니다. 
 
     > [!NOTE] 
     > 이러한 URL의 값은 데모용으로만 사용합니다. 실제 회신 URL 및 식별자에서 이러한 값을 업데이트해야 합니다. 자습서의 뒷부분에 설명되어 있는 인증 섹션 아래의 **Single Sign-On** 탭에서 이러한 값을 가져옵니다.
@@ -118,7 +118,7 @@ Help Scout에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://secure.helpscout.net/members/login/`
      
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_certificate.png) 
 
@@ -129,39 +129,39 @@ Help Scout에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 7. **Help Scout 구성** 섹션에서 **Help Scout 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-helpscout-tutorial/config.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/config.png) 
 
 8. 다른 웹 브라우저 창에서 Help Scout 회사 사이트에 관리자로 로그인합니다.
 
-9. 로그인되면 상단 메뉴에서 **"관리"**를 클릭한 다음 드롭다운 메뉴에서 **"회사"**를 선택합니다.
+9. 로그인되면 상단 메뉴에서 **"관리"** 를 클릭한 다음 드롭다운 메뉴에서 **"회사"** 를 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
  
-10. 왼쪽 메뉴에서 **"인증"**을 선택합니다. 
+10. 왼쪽 메뉴에서 **"인증"** 을 선택합니다. 
 
-    ![Single Sign-on 구성](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
 
 11. SAML 설정 섹션으로 이동하고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
  
     a. **다시 게시 URL(Assertion Consumer Service URL)** 값을 복사하여 Help Scout **도메인 및 URL** 섹션 아래, Azure Portal의 **회신 URL** 상자에 값을 붙여넣습니다.
     
-    b. **대상 URI(서비스 공급자 엔터티 ID)** 값을 복사하여 Help Scout **도메인 및 URL** 섹션 아래, Azure Portal의 **식별자** 상자에 값을 붙여넣습니다.
+    나. **대상 URI(서비스 공급자 엔터티 ID)** 값을 복사하여 Help Scout **도메인 및 URL** 섹션 아래, Azure Portal의 **식별자** 상자에 값을 붙여넣습니다.
 
 12. **SAML 사용**을 설정하고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
  
     a. Azure Portal에서 복사한 **Single Sign-On 서비스 URL**을 **Single Sign-On URL** 텍스트 상자에 붙여넣습니다.
     
-    b. **인증서 업로드**를 클릭하여 Azure Portal에서 다운로드한 **인증서(Base64)**를 업로드합니다.
+    나. **인증서 업로드**를 클릭하여 Azure Portal에서 다운로드한 **인증서(Base64)** 를 업로드합니다.
 
-    c. 조직의 전자 메일 도메인(예: `contoso.com`)을 **전자 메일 도메인** 텍스트 상자에 입력합니다. 쉼표로 여러 도메인을 구분할 수 있습니다. [Help Scout 로그인 페이지](https://secure.helpscout.net/members/login/)의 해당 특정 도메인에 들어가는 Help Scout 사용자 또는 관리자는 언제든지 해당 자격 증명을 인증하기 위해 ID 공급자로 라우팅됩니다.
+    다. 조직의 전자 메일 도메인(예: `contoso.com`)을 **전자 메일 도메인** 텍스트 상자에 입력합니다. 쉼표로 여러 도메인을 구분할 수 있습니다. [Help Scout 로그인 페이지](https://secure.helpscout.net/members/login/)의 해당 특정 도메인에 들어가는 Help Scout 사용자 또는 관리자는 언제든지 해당 자격 증명을 인증하기 위해 ID 공급자로 라우팅됩니다.
 
     d. 마지막으로 사용자만 이 메서드를 통해 Help Scout에 로그인하기를 원하는 경우 **강제 SAML 로그온**을 설정/해제할 수 있습니다. Help Scout 자격 증명을 사용하여 로그인하는 옵션을 계속해서 제공하려는 경우 설정을 해제할 수 있습니다. 활성화된 경우에도 계정 소유자는 해당 계정 암호를 사용하여 Help Scout에 항상 로그인할 수 있습니다.
 
-    e. **Save**를 클릭합니다.
+    e. **저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -192,9 +192,9 @@ Help Scout에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -244,7 +244,7 @@ Help Scout에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

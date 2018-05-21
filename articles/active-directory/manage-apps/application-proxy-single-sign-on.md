@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Azure AD 응용 프로그램 프록시에서 Single Sign-On을 제공하는 방법
 
@@ -60,7 +60,7 @@ Azure Active Directory를 온-프레미스 응용 프로그램의 암호 자격 
 
 온-프레미스 ID에 대한 Single Sign-On 솔루션이 이미 설치된 경우 **연결된 로그온**을 선택합니다. 이 옵션을 사용하면 Azure Active Directory가 기존 SSO 솔루션을 활용하지만, 사용자에게 응용 프로그램에 대한 원격 액세스를 계속 제공합니다. 
 
-연결된 로그온(공식적으로 기존 Single Sign-On으로 알려짐)에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)를 참조하세요.
+연결된 로그온(공식적으로 기존 Single Sign-On으로 알려짐)에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)를 참조하세요.
 
 ## <a name="integrated-windows-authentication"></a>Windows 통합 인증
 

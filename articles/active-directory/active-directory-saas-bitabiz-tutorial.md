@@ -1,6 +1,6 @@
 ---
-title: "자습서: BitaBIZ와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 BitaBIZ 간에 Single Sign-On을 구성하는 방법을 알아봅니다."
+title: '자습서: BitaBIZ와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 BitaBIZ 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6265f11216aaa75a2dd0dbbf572ecbd913135458
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 031d7b11aea57b8bdd8b17e474db0c81b1bdbe76
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>자습서: BitaBIZ와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ BitaBIZ를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 BitaBIZ에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ BitaBIZ와 Azure AD의 통합을 구성하려면 갤러리의 BitaBIZ를 관리�
 
 **갤러리에서 BitaBIZ를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -117,9 +117,9 @@ BitaBIZ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![BitaBIZ 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-bitabiz-tutorial/tutorial_bitabiz_url1.png)
 
-    **로그온 URL** 텍스트 상자에서 URL `https://www.bitabiz.com/dashboard`를 입력합니다.
+    **로그온 URL** 텍스트 상자에서 URL `https://www.bitabiz.com/dashboard`을 입력합니다.
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-bitabiz-tutorial/tutorial_bitabiz_certificate.png) 
 
@@ -127,13 +127,13 @@ BitaBIZ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-bitabiz-tutorial/tutorial_general_400.png)
     
-7. **BitaBIZ 구성** 섹션에서 **BitaBIZ 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+7. **BitaBIZ 구성** 섹션에서 **BitaBIZ 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조** 섹션에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![BitaBIZ 구성](./media/active-directory-saas-bitabiz-tutorial/tutorial_bitabiz_configure.png) 
 
 8. 다른 웹 브라우저 창에서 BitaBIZ 테넌트에 관리자 권한으로 로그인합니다.
 
-9. **SETUP ADMIN(설치 관리자)**을 클릭합니다.
+9. **SETUP ADMIN(설치 관리자)** 을 클릭합니다.
 
     ![BitaBIZ 구성](./media/active-directory-saas-bitabiz-tutorial/settings1.png)
 
@@ -147,9 +147,9 @@ BitaBIZ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **엔터티 ID(Azure AD의 "식별자")** 텍스트 상자에서 값을 복사하고, Azure Portal의 **BitaBIZ 도메인 및 URL** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다. 
     
-    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **Azure AD Single Sign-On 서비스 URL** 텍스트 상자에 붙여넣습니다.
+    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **Azure AD Single Sign-On 서비스 URL** 텍스트 상자에 붙여넣습니다.
     
-    c. Azure Portal에서 복사한 **Azure AD SAML 엔터티 ID**를 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    다. Azure Portal에서 복사한 **Azure AD SAML 엔터티 ID**를 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
     d. 다운로드한 **인증서(Base64)** 파일을 메모장에서 열고, 내용을 클립보드에 복사한 다음, **Azure AD 서명 인증서(Base64 인코딩)** 텍스트 상자에 붙여넣습니다.
 
@@ -188,9 +188,9 @@ BitaBIZ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -203,7 +203,7 @@ BitaBIZ의 경우 프로비전은 수동 작업입니다.
 
 1. BitaBIZ 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. **SETUP ADMIN(설치 관리자)**을 클릭합니다.
+2. **SETUP ADMIN(설치 관리자)** 을 클릭합니다.
 
     ![BitaBIZ 사용자 추가](./media/active-directory-saas-bitabiz-tutorial/settings1.png)
 
@@ -221,9 +221,9 @@ BitaBIZ의 경우 프로비전은 수동 작업입니다.
 
     a. **이름** 텍스트 상자에서 사용자의 이름(예: Britta)을 입력합니다.
 
-    b. **성** 텍스트 상자에서 사용자의 성(예: Simon)을 입력합니다.
+    나. **성** 텍스트 상자에서 사용자의 성(예: Simon)을 입력합니다.
 
-    c. **전자 메일** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
+    다. **전자 메일** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 
     d. **고용 날짜**에서 날짜를 선택합니다.
 
@@ -274,7 +274,7 @@ BitaBIZ의 경우 프로비전은 수동 작업입니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

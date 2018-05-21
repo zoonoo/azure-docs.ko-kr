@@ -1,6 +1,6 @@
 ---
-title: "자습서: OpenAthens와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 OpenAthens 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: OpenAthens와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 OpenAthens 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>자습서: OpenAthens와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ OpenAthens를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 - 사용자가 해당 Azure AD 계정으로 OpenAthens에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -133,9 +133,9 @@ OpenAthens에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **표시 이름 매핑**에서 **특성 사용**을 선택합니다.
 
-    b. **표시 이름 특성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 값을 입력합니다.
+    나. **표시 이름 특성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 값을 입력합니다.
     
-    c. **고유의 사용자 매핑**에서 **특성 사용**을 선택합니다.
+    다. **고유의 사용자 매핑**에서 **특성 사용**을 선택합니다.
 
     d. **고유의 사용자 특성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 값을 입력합니다.
 
@@ -174,9 +174,9 @@ OpenAthens에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 텍스트 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 텍스트 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 선택합니다.
   
@@ -224,7 +224,7 @@ OpenAthens는 Just-In-Time 프로비전을 지원하며 인증에 성공하면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록은 [Azure AD에서 사용할 SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)를 참조하세요.
-* Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+* Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 <!--Image references-->
 

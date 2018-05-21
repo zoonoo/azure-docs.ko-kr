@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>엔터프라이즈 앱에 대한 Single Sign-On 관리
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 엔터프라이즈 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다. 이 문서는 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 앱에 특별히 적용됩니다. 
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 엔터프라이즈 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다. 이 문서는 [Azure Active Directory 응용 프로그램 갤러리](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 앱에 특별히 적용됩니다. 
 
 ## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
 Single Sign-On에 대해 설정되어 있는 모든 엔터프라이즈 앱은 Azure Portal에서 보고 관리할 수 있습니다. 응용 프로그램은 포털의 **모든 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 
@@ -43,7 +43,7 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 * **암호 기반 로그온** - 이 옵션은 Azure AD가 이 응용 프로그램에 대해 입력하는 암호 양식을 지원하는 경우 사용할 수 있습니다.
 * **연결된 로그온** - 이전에 “기존 Single Sign-On”이었던 이 옵션을 사용하면 관리자가 해당 사용자의 Azure AD 액세스 패널 또는 Office 365 응용 프로그램 시작 관리자에서 이 응용 프로그램에 대한 링크를 배치할 수 있습니다.
 
-이러한 모드에 대한 자세한 내용은 [Azure Active Directory에서 Single Sign-On이 작동하는 방식](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)을 참조하세요.
+이러한 모드에 대한 자세한 내용은 [Azure Active Directory에서 Single Sign-On이 작동하는 방식](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)을 참조하세요.
 
 ## <a name="saml-based-sign-on"></a>SAML 기반 로그온
 **SAML 기반 로그온** 옵션은 4개의 섹션으로 나뉩니다.
@@ -79,12 +79,12 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 ![포함된 문서](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>암호 기반 로그온
-응용 프로그램을 지원하는 경우 암호 기반 SSO 모드를 선택하고 **저장** 을 선택하면 즉시 구성되어 암호 기반 SSO를 수행합니다. 암호 기반 SSO를 배포하는 방법은 [Azure Active Directory에서 Single Sign-On이 작동하는 방식](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)을 참조하세요.
+응용 프로그램을 지원하는 경우 암호 기반 SSO 모드를 선택하고 **저장** 을 선택하면 즉시 구성되어 암호 기반 SSO를 수행합니다. 암호 기반 SSO를 배포하는 방법은 [Azure Active Directory에서 Single Sign-On이 작동하는 방식](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)을 참조하세요.
 
 ![암호 기반 로그온](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>연결된 로그온
-응용 프로그램을 지원하는 경우 연결된 SSO 모드를 선택하면 사용자가 이 앱을 클릭할 때 Azure AD 액세스 패널 또는 Office 365가 리디렉션하는 URL을 입력할 수 있습니다. 연결된 SSO(이전의 "기존 SSO")에 대한 자세한 내용은 [Azure Active Directory에서 Single Sign-On이 작동하는 방식](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)을 참조하세요.
+응용 프로그램을 지원하는 경우 연결된 SSO 모드를 선택하면 사용자가 이 앱을 클릭할 때 Azure AD 액세스 패널 또는 Office 365가 리디렉션하는 URL을 입력할 수 있습니다. 연결된 SSO(이전의 "기존 SSO")에 대한 자세한 내용은 [Azure Active Directory에서 Single Sign-On이 작동하는 방식](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)을 참조하세요.
 
 ![연결된 로그온](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

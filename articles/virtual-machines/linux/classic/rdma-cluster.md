@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA 클러스터를 설정하는 방법을 알아봅니다. 이 문서는 클러스터에서 Intel MPI를 실행하도록 Linux HPC 이미지를 준비하기 위한 단계를 제공합니다. 준비가 끝나면 이 이미지와 RDMA 지원 Azure VM 크기(현재 H16r, H16mr, A8 또는 A9) 중 하나를 사용하여 VM 클러스터를 배포합니다. RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 짧은 대기 시간, 높은 처리량의 네트워크에서 효율적으로 통신하는 MPI 응용 프로그램을 실행하려면 클러스터를 사용합니다.
@@ -210,7 +210,7 @@ CentOS 기반 HPC 클러스터에서 계산 노드 간에 트러스트를 설정
 
 커뮤니티에서 제공하는 샘플 스크립트는 [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) 에서 사용할 수 있으며 CentOS 기반 HPC 클러스터에서 쉬운 사용자 인증이 가능합니다. 다음 단계를 사용하여 이 스크립트를 다운로드하고 사용합니다. 이 스크립트를 수정하거나 다른 메서드를 사용하여 클러스터 계산 노드 간에 암호 없는 SSH 인증을 설정할 수 있습니다.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 스크립트를 실행하려면 서브넷 IP 주소에 대한 접두사를 확인해야 합니다. 클러스터 노드 중 하나에서 다음 명령을 실행하여 접두사를 가져옵니다. 출력은 10.1.3.5와 비슷해야 하며 접두사는 10.1.3 부분입니다.
 

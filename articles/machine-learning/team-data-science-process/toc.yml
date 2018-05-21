@@ -56,6 +56,9 @@
         - name: 생명 공학 엔터티 인식
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
+        - name: 피부암 이미지 분류
+          href: isic-image-classification.md
+          maintainContext: true
     - name: PySpark 및 Scala를 사용하는 Spark
       href: walkthroughs-spark.md
       items:
