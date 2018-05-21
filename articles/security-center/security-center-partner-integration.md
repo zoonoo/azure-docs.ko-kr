@@ -1,24 +1,24 @@
 ---
-title: "Azure Security Center에서 보안 솔루션 통합 | Microsoft Docs"
-description: "Azure Security Center를 파트너와 통합하여 Azure 리소스의 전반적인 보안을 강화하는 방법에 대해 알아봅니다."
+title: Azure Security Center에서 보안 솔루션 통합 | Microsoft Docs
+description: Azure Security Center를 파트너와 통합하여 Azure 리소스의 전반적인 보안을 강화하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
-ms.author: yurid
-ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 05/04/2018
+ms.author: terrylan
+ms.openlocfilehash: ac1e49400f32194ada319f23b5233cc81de02a02
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -32,7 +32,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 
 현재 통합 보안 솔루션에는 다음이 포함됩니다.
 
-- 끝점 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender 및 SCEP(System Center Endpoint Protection))
+- 엔드포인트 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, McAfee, Windows Defender 및 SCEP(System Center Endpoint Protection))
 - 웹 응용 프로그램 방화벽([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) 및 [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) 및 [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - 취약성 평가([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
@@ -44,10 +44,10 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | 예                       |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | 예                       |
 | Trend Micro - 모든 버전         | Windows Server 제품군                 | 확장을 통해                | 예                       |
-| Symantec v12.1.1100+                     | Windows Server 제품군                 | 아니오                           | 예                        |
-| MacAfee                           | Windows Server 제품군                 | 아니요                           | 아니오                        |
-| Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니오                        |
-| Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |
+| Symantec v12.1.1100+              | Windows Server 제품군                 | 아니오                           | 예                       |
+| McAfee v10+                       | Windows Server 제품군                 | 아니오                           | 예                       |
+| Kaspersky                         | Windows Server 제품군                 | 아니오                           | 아니오                        |
+| Sophos                            | Windows Server 제품군                 | 아니오                           | 아니오                        |
 
 
 
@@ -86,7 +86,7 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 Security Center는 Azure에서 실행되는 보안 솔루션을 자동으로 검색하지만 Security Center에 연결되지 않고 **검색된 솔루션** 섹션에 솔루션을 표시합니다. 여기에는 [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)와 같은 Azure 솔루션뿐만 아니라 파트너 솔루션도 포함됩니다.
 
 > [!NOTE]
-> 검색된 솔루션 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
+> Security Center의 표준 계층은 검색된 솔루션 기능의 구독 수준에서 필요합니다. Security Center의 가격 책정 계층에 대한 자세한 내용은 [가격 책정](security-center-pricing.md)을 참조하세요.
 >
 >
 

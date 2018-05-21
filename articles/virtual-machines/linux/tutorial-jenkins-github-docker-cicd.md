@@ -1,6 +1,6 @@
 ---
-title: Azure에서 Jenkins를 사용하여 개발 파이프라인 만들기 | Microsoft Docs
-description: 각 코드 커밋의 GitHub에서 가져오고 앱을 실행하기 위해 새 Docker 컨테이너를 빌드하는 Azure에서 Jenkins 가상 머신을 만드는 방법을 알아봅니다.
+title: 자습서 - Azure에서 Jenkins를 사용하여 개발 파이프라인 만들기 | Microsoft Docs
+description: 자습서 - 이 자습서에서는 각 코드 커밋의 GitHub에서 가져오고 앱을 실행하기 위해 새 Docker 컨테이너를 빌드하는 Azure에서 Jenkins 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0bb5db0d0569cbd8a2f5aa1651522dfd117868eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라를 만드는 방법
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서 - Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
+
 응용 프로그램 개발의 빌드 및 테스트 단계를 자동화하려면 CI/CD(연속 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
 
 > [!div class="checklist"]
@@ -33,10 +34,9 @@ ms.lasthandoff: 03/28/2018
 > * 앱에 대한 Docker 이미지 만들기
 > * 새 Docker 이미지를 빌드한 GitHub 커밋 및 앱을 실행하는 업데이트 확인
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.22 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-jenkins-instance"></a>Jenkins 인스턴스 만들기
 [처음 부팅 시 Linux 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 cloud-init를 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 이 자습서는 cloud-init 파일을 사용하여 VM에 Jenkins 및 Docker를 설치합니다. 널리 사용되는 오픈 소스 자동화 서버인 Jenkins는 Azure와 원활하게 통합되어 CI(지속적인 통합) 및 CD(지속적인 업데이트)를 지원합니다. Jenkins 사용 방법에 대한 자세한 자습서는 [Jenkins Azure Hub](https://docs.microsoft.com/azure/jenkins/)를 참조하세요.
@@ -133,7 +133,7 @@ GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [N
 
 - **설정**을 선택한 다음 왼쪽에 있는 **통합 및 서비스**를 선택합니다.
 - **서비스 추가**를 선택한 다음, 필터 상자에 *Jenkins*를 입력합니다.
-- *Jenkins(GitHub 플러그 인)*를 선택합니다.
+- *Jenkins(GitHub 플러그 인)* 를 선택합니다.
 - **Jenkins 후크 URL**의 경우 `http://<publicIps>:8080/github-webhook/`를 입력합니다. 후행 슬래시(/)를 포함해야 합니다.
 - **서비스 추가**를 선택합니다.
 

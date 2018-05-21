@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 치트 시트
 이 치트 시트는 Azure SQL Data Warehouse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다. 시작하기 전에 [Azure SQL Data Warehouse 작업 패턴 및 안티 패턴](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)을 참조하여 각 단계에 대해 자세히 알아보세요. 이러한 패턴은 SQL Data Warehouse 정의 및 장단점에 대해 설명합니다.
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 
-먼저 [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) 또는 Azure Blob 저장소에 데이터를 로드합니다. 그런 다음 PolyBase를 사용하여 준비 테이블의 SQL Data Warehouse에 데이터를 로드합니다. 다음 구성을 사용합니다.
+먼저 [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) 또는 Azure Blob 저장소에 데이터를 로드합니다. 그런 다음 PolyBase를 사용하여 준비 테이블의 SQL Data Warehouse에 데이터를 로드합니다. 다음 구성을 사용합니다.
 
 | 디자인 | 권장 사항 |
 |:--- |:--- |
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/18/2018
 | 분할 | 없음 |
 | 리소스 클래스 | largerc 또는 xlargerc |
 
-[데이터 마이그레이션], [데이터 로드], [ELT(추출, 로드 및 변환) 프로세스](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading)에 대해 자세히 알아보세요. 
+[데이터 마이그레이션], [데이터 로드], [ELT(추출, 로드 및 변환) 프로세스](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading)에 대해 자세히 알아보세요. 
 
 ## <a name="distributed-or-replicated-tables"></a>분산 또는 복제된 테이블
 
@@ -60,8 +60,8 @@ ms.lasthandoff: 04/18/2018
 * 공통 해시 키의 데이터 형식이 동일한지 확인합니다.
 * varchar 형식에 배포하지 않습니다.
 * 조인 작업이 빈번한 팩트 테이블에 대한 공통 해시 키가 있는 차원 테이블은 해시 분산될 수 있습니다.
-* *[sys.dm_pdw_nodes_db_partition_stats]*를 사용하여 데이터의 모든 왜곡도를 분석합니다.
-* *[sys.dm_pdw_request_steps]*를 사용하여 쿼리의 백그라운드 데이터 이동 분석, 시간 브로드캐스트 모니터링 및 작업 순서 섞기를 수행합니다. 이는 분산 전략을 검토하는 데 유용합니다.
+* *[sys.dm_pdw_nodes_db_partition_stats]* 를 사용하여 데이터의 모든 왜곡도를 분석합니다.
+* *[sys.dm_pdw_request_steps]* 를 사용하여 쿼리의 백그라운드 데이터 이동 분석, 시간 브로드캐스트 모니터링 및 작업 순서 섞기를 수행합니다. 이는 분산 전략을 검토하는 데 유용합니다.
 
 [복제된 테이블] 및 [분산 테이블]에 대해 자세히 알아보세요.
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 04/18/2018
 **팁:**
 * 클러스터형 인덱스에 기반하여 필터링에 많이 사용되는 열에 비클러스터형 인덱스를 추가할 수 있습니다. 
 * CCI로 테이블에서 메모리를 관리하는 방법에 주의해야 합니다. 데이터를 로드할 때 사용자(또는 쿼리)가 큰 리소스 클래스의 이점을 사용하고자 합니다. 많고 작은 압축 행 그룹을 자르고 만들지 않도록 합니다.
-* CCI를 사용하여 견고한 계산 계층에 대해 최적화합니다.
+* Gen2에서 CCI 테이블은 성능을 최대화하기 위해 계산 노드에서 로컬로 캐시됩니다.
 * CCI의 경우 행 그룹의 압축 불량으로 인해 성능이 저하될 수 있습니다. 이 경우 CCI를 다시 작성하거나 다시 구성합니다. 압축 행 그룹당 10만 개 이상의 행이 필요합니다. 이상적으로는 하나의 행 그룹에 100만 개 행이 있어야 합니다.
 * 증분 로드 빈도 및 크기에 따라 인덱스를 다시 구성하거나 다시 빌드할 때 자동화하고자 합니다. 봄맞이 대청소는 항상 유용합니다.
 * 행 그룹은 전략적으로 줄입니다. 열려 있는 행 그룹의 크기는? 앞으로 로드할 데이터의 양은?
@@ -111,7 +111,7 @@ SQL Data Warehouse는 메모리를 쿼리에 할당하는 방법으로 리소스
 
 쿼리 시간이 오래 걸리는 경우 사용자가 큰 리소스 클래스에서 실행하지 않는지 검사합니다. 큰 리소스 클래스는 많은 동시성 슬롯을 사용합니다. 이는 다른 쿼리를 큐에 대기시킬 수 있습니다.
 
-마지막으로, 각 리소스 클래스는 계산에 최적화된 계층을 사용하여 탄력적 액세스에 최적화된 계층보다 2.5배 더 많은 메모리를 얻습니다.
+마지막으로, SQL Data Warehouse의 Gen2를 사용하여 각 리소스 클래스는 Gen1보다 2.5배 더 많은 메모리를 가져옵니다.
 
 [리소스 클래스 및 동시성]으로 작업하는 방법에 대해 자세히 알아보세요.
 

@@ -1,27 +1,29 @@
 ---
-title: 공용 부하 분산 장치 만들기 - Azure CLI | Microsoft Docs
-description: Azure CLI를 사용하여 공용 부하 분산 장치를 만드는 방법을 알아봅니다.
+title: '빠른 시작: 공용 부하 분산 장치 만들기 - Azure CLI | Microsoft Docs'
+description: 이 빠른 시작은 Azure CLI를 사용하여 공용 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
+Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2017
+ms.date: 03/19/2018
 ms.author: kumud
-ms.openlocfilehash: f2ba819c2341b2e481c2cfa5d5231f4cd5b6295b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>빠른 시작: Azure CLI 2.0을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
 이 빠른 시작에서는 Azure Load Balancer를 만드는 방법을 보여줍니다. 부하 분산 장치를 테스트하려면 Ubuntu 서버를 실행하는 두 VM(가상 머신)을 배포하고 그 사이에 있는 웹앱의 부하를 분산합니다.
 

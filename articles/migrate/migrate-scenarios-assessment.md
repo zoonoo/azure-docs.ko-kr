@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>시나리오 1: Azure로 마이그레이션하기 위한 온-프레미스 워크로드 평가
 
 Azure로 마이그레이션을 고려 중인 Contoso는 기술 및 재무 평가를 통해 온-프레미스 워크로드가 클라우드로 마이그레이션하기에 적합한지 알아보려 합니다. 특히, 컴퓨터 및 데이터베이스의 마이그레이션 호환성을 평가하고, Azure에서 리소스를 실행하기 위해 필요한 용량과 비용을 예측해 보려 합니다.
 
-마이그레이션을 시작하고 관련 기술을 정확하게 이해하기 위해, Contoso는 소규모 온-프레미스 여행 앱을 평가하고 마이그레이션하기로 합니다. 이 앱은 웹앱이 한 VM에서 실행되고 SQL Server 데이터베이스가 두 번째 VM에서 실행되는 2계층 앱입니다. 응용 프로그램은 VMware에 배포되고, 환경은 vCenter Server를 통해 관리됩니다. Contoso는 DMA(Data Migration Assistant) 및 Azure Migrate 서비스를 사용하여 평가를 수행할 것입니다.
+마이그레이션을 시작하고 관련 기술을 정확하게 이해하기 위해, Contoso는 소규모 온-프레미스 여행 앱을 평가하고 마이그레이션하기로 합니다. 이 앱은 웹앱이 한 VM에서 실행되고 SQL Server 데이터베이스가 두 번째 VM에서 실행되는 2계층 앱입니다. 응용 프로그램은 VMware에 배포되고, 환경은 vCenter Server를 통해 관리됩니다. Contoso는 DMA(Data Migration Assistant) 및 Azure Migrate 서비스를 사용하여 평가를 수행할 것입니다. 이 설명 여행 앱을 사용하여 이 시나리오를 시도해보려는 경우 [github](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
 
 **Technology** | **설명** | **비용**
 --- | --- | ---
@@ -33,11 +33,11 @@ Azure로 마이그레이션을 고려 중인 Contoso는 기술 및 재무 평가
 
 ## <a name="architecture"></a>아키텍처
 
-이 시나리오에서는 
 
- ![마이그레이션 평가 아키텍처를 설치합니다.](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![마이그레이션 평가 아키텍처를 설치합니다.](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 이 시나리오에서는
+- Contoso는 일반적인 엔터프라이즈 조직을 나타내는 가상 이름입니다. Contoso는 2계층 온-프레미스 여행 앱을 평가하고 마이그레이션하려고 합니다.
 - Contoso는 온-프레미스 데이터 센터(**contoso-datacenter**)와 온-프레미스 도메인 컨트롤러(**contosodc1**)를 갖고 있습니다.
 - 내부 여행 앱은 두 VM **WEBVM** 및 **SQLVM**에 계층화되어 있으며, VMware ESXi 호스트 **contosohost1.contoso.com**에 있습니다.
 - VMware 환경은 VM에서 실행되는 VCenter Server(**vcenter.contoso.com**)를 통해 관리됩니다.
@@ -489,7 +489,7 @@ Azure Migrate 평가에는 온-프레미스 VM과 Azure의 호환성, Azure VM�
 
 ## <a name="next-steps"></a>다음 단계
 
-그 다음 시나리오를 계속 진행하여 온-프레미스 VM을 Azure로 리프트 앤 시프트 마이그레이션합니다.
+다음 시나리오를 계속 진행하여 온-프레미스 VM 및 데이터베이스를 Azure로 [리프트 앤 시프트 마이그레이션](migrate-scenarios-lift-and-shift.md)합니다.
 
 
 
