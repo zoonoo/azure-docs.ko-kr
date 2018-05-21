@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 65f47d238d4e591ddde8937d0eb3c55931c01c3f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f9de8d213d11a8ccb3ffff484a67560d9e2abe77
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>HTTP 및 HTTPS 끝점에 보안 액세스 정책 할당
 실행(run-as) 정책을 적용하고 서비스 매니페스트가 HTTP 엔드포인트 리소스를 선언하면 **SecurityAccessPolicy**를 지정해야 합니다.  **SecurityAccessPolicy**는 이러한 엔드포인트에 할당된 포트가 서비스를 실행하는 사용자 계정으로 제대로 제한되도록 합니다. 그러지 않으면 **http.sys** 가 해당 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생합니다. 다음은 **EndpointName**이라는 끝점에 Customer1 계정을 적용하여 전체 액세스 권한을 부여하는 예제입니다.

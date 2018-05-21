@@ -1,22 +1,22 @@
 ---
-title: "Azure Batch Rendering 서비스 - 클라우드 규모 렌더링 | Microsoft Docs"
-description: "Maya에서 직접 사용량 기준 과금으로 Azure 가상 머신의 작업을 렌더링합니다."
+title: Azure Batch Rendering 서비스 - 클라우드 규모 렌더링 | Microsoft Docs
+description: Maya에서 직접 사용량 기준 과금으로 Azure 가상 머신의 작업을 렌더링합니다.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
-ms.date: 09/14/2017
+ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering 서비스 시작
 
-Azure Batch Rendering 서비스는 클라우드 규모 렌더링 기능을 사용량 기준 과금으로 제공합니다. Batch Rendering 서비스는 렌더링 작업의 작업 일정 및 큐, 실패 및 재시도 관리, 자동 크기 조정을 처리합니다. Batch Rendering 서비스는 [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3DS Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) 및 [V-Ray](https://www.chaosgroup.com/vray/maya)를 지원합니다. Maya 2017의 Batch 플러그 인을 사용하면 바탕 화면에서 바로 Azure의 렌더링 작업을 시작할 수 있습니다.
+Azure Batch Rendering 서비스는 클라우드 규모 렌더링 기능을 사용량 기준 과금으로 제공합니다. Batch Rendering 서비스는 렌더링 작업의 작업 일정 및 큐, 실패 및 재시도 관리, 자동 크기 조정을 처리합니다. Batch Rendering Service는 [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), [V-Ray](https://www.chaosgroup.com/vray/maya) 등의 렌더링 앱을 지원합니다. Maya 2017의 Batch 플러그 인을 사용하면 바탕 화면에서 바로 Azure의 렌더링 작업을 시작할 수 있습니다.
 
 Maya 및 3ds Max를 통해 [BatchLabs](https://github.com/Azure/BatchLabs) 데스크톱 응용 프로그램 또는 [Batch 템플릿 CLI](batch-cli-templates.md)를 사용하여 작업을 실행할 수 있습니다. Azure Batch CLI를 사용하면 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다. 대신, 템플릿 파일을 사용하여 Batch 풀, 작업, 및 태스크를 만들 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
@@ -25,16 +25,35 @@ Maya 및 3ds Max를 통해 [BatchLabs](https://github.com/Azure/BatchLabs) 데�
 
 Batch Renderin 서비스는 현재 다음과 같은 응용 프로그램을 지원합니다.
 
-•   Autodesk Maya I/O 2017 Update 4(버전 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1(버전 20.1.0.238) •   Autodesk Arnold for Maya(버전 5.0.1.1) •   Autodesk Arnold for 3ds Max(버전 1.0.836) •   Chaos Group V-Ray for Maya(버전 3.52.03) •   Chaos Group V-Ray for 3ds Max(버전 3.60.02)
+CentOS 7의 렌더링 노드:
+- Autodesk Maya I/O 2017 업데이트 5(201708032230 잘라내기)
+- Autodesk Maya I/O 2018 업데이트 2 201711281015 잘라내기
+- Autodesk Arnold for Maya 2017(Arnold 버전 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya 2018(Arnold 버전 5.0.1.4) MtoA-2.1.0.3-2018
+- Maya 2017용 Chaos Group V-Ray(버전 3.60.04) 
+- Maya 2018용 Chaos Group V-Ray(버전 3.60.04) 
+- Blender(2.68)
+
+Windows Server 2016의 렌더링 노드:
+- Autodesk Maya I/O 2017 업데이트 5(버전 17.4.5459) 
+- Autodesk Maya I/O 2018 업데이트 2(버전 18.2.0.6476) 
+- Autodesk 3ds Max I/O 2018 업데이트 4(버전 20.4.0.4254) 
+- Maya용 Autodesk Arnold(Arnold 버전 5.0.1.1) MtoA-2.0.1.1-2017
+- Maya용 Autodesk Arnold(Arnold 버전 5.0.1.4) MtoA-2.0.2.3-2018
+- 3ds Max용 Autodesk Arnold(Arnold 버전 5.0.2.4) (버전 1.2.926) 
+- Maya용 Chaos Group V-Ray(버전 3.52.03) 
+- 3ds Max용 Chaos Group V-Ray(버전 3.60.02)
+- Blender(2.79)
 
 
 ## <a name="prerequisites"></a>필수 조건
 
 Batch Rendering 서비스를 사용하려면 다음이 필요합니다.
 
-- [Azure 계정](https://azure.microsoft.com/free/)
-- **Azure Batch 계정.** Azure Portal에서 Batch 계정을 만드는 방법에 대한 지침은 [Azure Portal에서 Batch 계정 만들기](batch-account-create-portal.md)를 참조하세요.
-- **Azure Storage 계정.** 렌더링 작업에 사용되는 자산은 Azure Storage에 저장됩니다. Batch 계정을 설정할 때 자동으로 저장소 계정을 만들 수 있습니다. 기존 저장소 계정을 사용할 수도 있습니다. Storage 계정에 대한 자세한 내용은 [Azure Portal에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](https://docs.microsoft.com/azure/storage/storage-create-storage-account)을 참조하세요.
+- [Azure 계정](https://azure.microsoft.com/free/)입니다.
+- **Azure Batch 계정입니다.** Azure Portal에서 Batch 계정을 만드는 방법에 대한 지침은 [Azure Portal에서 Batch 계정 만들기](batch-account-create-portal.md)를 참조하세요.
+- **Azure Storage 계정**입니다. 렌더링 작업에 사용되는 자산은 일반적으로 Azure Storage에 저장됩니다. Batch 계정을 설정할 때 자동으로 저장소 계정을 만들 수 있습니다. 기존 저장소 계정을 사용할 수도 있습니다. Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요.
+- **환경 변수**입니다. 사용자의 솔루션이 환경 변수를 수정하는 경우, 사용이 허가된 위의 응용 프로그램 중 하나 이상이 호출될 때 `AZ_BATCH_ACCOUNT_URL` 및 `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN`의 값이 그대로 유지되고 존재하는지 확인하십시오. 그렇지 않으면 소프트웨어 활성화 문제가 발생할 가능성이 있습니다.
 - **BatchLabs**(선택 사항). [BatchLabs](https://azure.github.io/BatchLabs)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Rendering 서비스를 사용할 필요 없이 Batch 솔루션을 개발하고 디버그하는 유용한 옵션입니다.
 
 Maya에 Batch 플러그 인을 사용하려면 다음이 필요합니다.
@@ -54,7 +73,7 @@ Batch 풀 및 계산 노드에 대한 자세한 내용은 [Batch를 사용하여
 
 ### <a name="jobs"></a>교육
 
-Batch **작업**은 풀의 계산 노드에서 실행되는 작업 컬렉션입니다. 렌더링 작업을 제출하면 Batch에서 작업을 여러 작업으로 분할하고 실행할 풀의 계산 노드에 분산합니다.
+Batch **작업**은 풀의 계산 노드에서 실행되는 작업 컬렉션입니다. 렌더링 작업을 제출하면 Batch에서 작업을 여러 작업으로 분할하고 실행할 작업을 풀의 계산 노드에 분산합니다.
 
 응용 프로그램 로그를 다운로드하고 RDP 또는 SSH를 사용하여 개별 VM에 원격으로 연결하면 [Azure Portal](https://ms.portal.azure.com/)을 사용하여 작업을 모니터링하고 실패한 작업을 진단할 수 있습니다. 또한 [BatchLabs 도구](https://azure.github.io/BatchLabs)를 사용하여 관리, 모니터링 및 디버그할 수 있습니다.
 
@@ -68,22 +87,15 @@ Batch 작업에 대한 자세한 내용은 [Batch를 사용하여 대규모 병�
 
 Azure는 사전 설치되어 사용이 가능한 Maya, 3DS Max, Arnold 및 V-Ray의 각 버전과 함께 Windows 및 Linux 이미지를 제공합니다. 풀을 만들 때 [Azure Portal](https://portal.azure.com), Maya 플러그 인 또는 [BatchLabs](https://azure.github.io/BatchLabs)에서 이러한 이미지를 선택할 수 있습니다.
 
-Azure Portal 및 BatchLabs에서 사전 설치된 응용 프로그램으로 VM 이미지 중 하나를 설치할 수 있습니다. 배치 계정의 풀 섹션에서 **새로 만들기**를 선택한 다음, **풀 추가**의 **이미지 형식** 드롭다운 목록에서 **그래픽 및 렌더링(Linux/Windows)**을 선택하면 됩니다.
+Azure Portal 및 BatchLabs에서 사전 설치된 응용 프로그램으로 VM 이미지 중 하나를 설치할 수 있습니다. 배치 계정의 풀 섹션에서 **새로 만들기**를 선택한 다음, **풀 추가**의 **이미지 형식** 드롭다운 목록에서 **그래픽 및 렌더링(Linux/Windows)** 을 선택하면 됩니다.
 
 ![배치 계정에 대한 이미지 형식 선택](./media/batch-rendering-service/add-pool.png)
 
-아래로 스크롤하여 **그래픽 및 렌더링 라이선스**를 클릭하여 **라이선스 선택** 블레이드를 선택하고 소프트웨어 라이선스 중 하나 이상을 선택합니다.
+아래로 스크롤하고 **그래픽 및 렌더링 라이선스** 아래에서 **소프트웨어 및 가격 책정 선택**을 클릭합니다. 소프트웨어 라이선스를 하나 이상 선택:
 
 ![풀에 대한 그래픽 및 렌더링 라이선스 선택](./media/batch-rendering-service/graphics-licensing.png)
 
-제공된 특정 라이선스 버전은 다음과 같습니다.
-
-- Maya 2017
-- 3DS Max 2018
-- Maya용 Arnold 5.0.1.1
-- 3DS Max용 Arnold 1.0.836
-- Maya용 V-Ray 3.52.03
-- 3DS Max용 V-Ray 3.60.01
+제공된 특정 라이선스 버전이 위의 "지원되는 응용 프로그램" 섹션에 나오는 버전과 일치합니다.
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 
@@ -175,12 +187,12 @@ Azure VM 비용 발생에 대한 자세한 내용은 [Linux 가격 책정 FAQ](h
 
 |운영 체제  |이미지  |
 |---------|---------|
-|Linux     |Batch CentOS Preview |
-|Windows     |Batch Windows Preview |
+|Linux     |Batch CentOS |
+|Windows     |Batch Windows |
 
 #### <a name="choose-a-vm-size"></a>VM 크기 선택
 
-**Env** 탭에서 VM 크기를 지정할 수 있습니다. 사용 가능한 VM 크기에 대한 자세한 내용은 [Azure에서 Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) 및 [Azure에서 Windows VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)를 참조하세요. 
+**Env** 탭에서 VM 크기를 지정할 수 있습니다. 사용 가능한 VM 크기에 대한 자세한 내용은 [Azure에서 Linux VM 크기](../virtual-machines/linux/sizes.md) 및 [Azure에서 Windows VM 크기](../virtual-machines/windows/sizes.md)를 참조하세요. 
 
 ![Env 탭에서 VM OS 이미지 및 크기 지정](./media/batch-rendering-service/environment.png)
 

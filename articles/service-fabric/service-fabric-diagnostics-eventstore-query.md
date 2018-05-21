@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 698117f9f8f8ba955f5c182296af3fd32a4990ae
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5c184841602f269555ce2196ef660faba14dbf8a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
 
 이 문서에서는 Service Fabric 버전 6.2 이상에서 사용할 수 있는 EventStore API를 사용하여 쿼리하는 방법에 대해 설명합니다. EventStore 서비스에 대해 자세히 알아보려면 [EventStore 서비스 개요](service-fabric-diagnostics-eventstore.md)를 참조하세요. 현재 EventStore 서비스는 지난 7일 동안의 데이터에만 액세스할 수 있습니다(클러스터의 진단 데이터 보존 정책 기준).
 
 >[!NOTE]
->Service Fabric 버전 6.2부터 EventStore API는 현재 Azure에서만 실행되는 Windows 클러스터에 대한 미리 보기로 있습니다. 이 기능을 Linux 및 독립 실행형 클러스터에도 이식하려고 노력하고 있습니다.
+>Service Fabric 버전 6.2부터 EventStore API는 현재 Azure에서만 실행되는 Windows 클러스터에 대한 미리 보기로 제공됩니다. 이 기능을 Linux 및 독립 실행형 클러스터에도 이식하려고 노력하고 있습니다.
 
 EventStore API는 REST 엔드포인트를 통해 직접 액세스하거나 프로그래밍 방식으로 액세스할 수 있습니다. 쿼리에 따라 올바른 데이터를 수집하는 데 필요한 몇 가지 매개 변수가 있습니다. 여기에 일반적으로 포함되는 매개 변수는 다음과 같습니다.
 * `api-version`: 사용 중인 EventStore API 버전

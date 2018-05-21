@@ -1,39 +1,50 @@
 ---
-title: 가용성 영역 간 VM Load Balancer - Azure Portal | Microsoft Docs
-description: Azure Portal을 사용하여 가용성 영역 간 VM 부하 분산을 위한 영역 중복 프런트 엔드가 있는 표준 Load Balancer 만들기
+title: '자습서: 가용성 영역 간 VM Load Balancer - Azure Portal | Microsoft Docs'
+description: 이 자습서는 Azure Portal을 사용하여 가용성 영역 간 VM 부하 분산을 위한 영역 중복 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/18
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: ad476922342844a908961960407eb344711932f5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 표준 Load Balancer를 통한 가용성 영역 간 VM 부하 분산
 
-이 문서에서는 여러 DNS 레코드에 대한 종속성 없이 영역 중복성을 달성하기 위해 영역 중복 프런트 엔드가 있는 공용 Load Balancer Standard를 만드는 단계를 안내합니다. Standard Load Balancer의 단일 프런트 엔드 IP 주소는 자동으로 영역 중복입니다. 한 IP 주소에서 부하 분산 장치에 대해 영역 중복 프런트 엔드를 사용하여 모든 가용성 영역을 망라하는 한 지역 내 가상 네트워크의 어느 VM에나 연결할 수 있습니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다. 영역 중복에서 하나 이상의 가용성 영역이 실패할 수 있고 지역에서 한 영역이 정상으로 유지되는 한 데이터 경로는 유효합니다. 
+부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서는 가용성 영역 간 VM의 부하를 분산하는 공용 Load Balancer 표준을 만드는 단계를 설명합니다. 이를 통해 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다. 영역 중복에서 하나 이상의 가용성 영역이 실패할 수 있고 지역에서 한 영역이 정상으로 유지되는 한 데이터 경로는 유효합니다. 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 표준 Load Balancer 만들기
+> * 들어오는 트래픽 규칙을 정의하는 네트워크 보안 그룹 만들기
+> * 여러 영역 간 영역 중복 VM 만들기 및 부하 분산 장치에 연결
+> * 부하 분산 장치 상태 프로브 만들기
+> * 부하 분산 장치 트래픽 규칙 만들기
+> * 기본 IIS 사이트 만들기
+> * 부하 분산 장치의 실제 동작 보기
 
 Standard Load Balancer에서 가용성 영역 사용에 대한 자세한 내용은 [Standard Load Balancer 및 가용석 영역](load-balancer-standard-availability-zones.md)을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합니다.
+[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-public-standard-load-balancer"></a>공용 Standard Load Balancer 만들기
+## <a name="create-a-standard-load-balancer"></a>표준 Load Balancer 만들기
 
 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. 부하 분산 장치를 만드는 동안 새 공용 IP를 만들면 자동으로 Standard SKU 버전으로 구성되며 영역 중복이 됩니다.
 
@@ -51,9 +62,11 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 섹션에서는 가상 네트워크를 만들고 지역에 대해 각기 다른 영역(영역 1, 영역 2, 영역 3)에 가상 머신을 만들어 부하 분산 장치의 백엔드 풀에 추가한 다음, 영역 중복 부하 분산 장치를 테스트하기 위해 가상 컴퓨터에 IIS를 설치합니다. 따라서 한 영역이 실패하면 같은 영역의 VM에 대한 상태 검색이 실패하고 트래픽은 다른 영역의 VM에서 계속하여 처리됩니다.
+이 섹션에서는 지역에 대해 다른 영역에 가상 네트워크, 가상 머신을 만든 다음, 영역 중복 부하 분산 장치를 테스트하기 위한 IIS를 가상 머신에 설치합니다. 따라서 한 영역이 실패하면 같은 영역의 VM에 대한 상태 검색이 실패하고 트래픽은 다른 영역의 VM에서 계속하여 처리됩니다.
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+백 엔드 서버를 배포하기 위한 가상 네트워크를 만듭니다.
+
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 클릭하고 가상 네트워크에 대해 다음 값을 입력합니다.
     - *myVNet* - 가상 네트워크의 이름입니다.
     - *myResourceGroupLBAZ* - 기존 리소스 그룹의 이름입니다.
@@ -64,6 +77,8 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
+가상 네트워크에 대한 인바운드 연결을 정의하는 네트워크 보안 그룹을 만듭니다. 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
+
 1. 화면 왼쪽에서 **리소스 만들기**를 클릭하고 검색 상자에 *네트워크 보안 그룹*을 입력한 다음, 네트워크 보안 그룹 페이지에서 **만들기**를 클릭합니다.
 2. 네트워크 보안 그룹 만들기 페이지에서 다음 값을 입력합니다.
     - *myNetworkSecurityGroup*  - 네트워크 보안 그룹의 이름입니다.
@@ -71,9 +86,9 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
    
 ![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
-### <a name="create-nsg-rules"></a>NSG 규칙 만들기
+### <a name="create-network-security-group-rules"></a>네트워크 보안 그룹 규칙 만들기
 
-이 섹션에서는 Azure Portal을 사용하여 HTTP 및 RDP를 사용한 인바운드 연결을 허용하는 NSG 규칙을 만듭니다.
+이 섹션에서는 Azure Portal을 사용하여 HTTP 및 RDP를 사용한 인바운드 연결을 허용하는 네트워크 보안 그룹 규칙을 만듭니다.
 
 1. Azure Portal에서 **모든 리소스**를 클릭한 다음, **myResourceGroupLBAZ** 리소스 그룹에 있는 **myNetworkSecurityGroup**을 클릭합니다.
 2. **설정**에서 **인바운드 보안 규칙**을 클릭한 다음, **추가**를 클릭합니다.
@@ -84,8 +99,8 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     - *TCP* - **프로토콜**로 입력합니다.
     - *허용* - **작업**에 대해 선택합니다.
     - *100* - **우선 순위**로 입력합니다.
-    - *myHTTPRule* - 이름으로 입력합니다.
-    - *HTTP 허용* - 설명으로 입력합니다.
+    - *myHTTPRule* - 부하 분산 규칙의 이름
+    - *HTTP 허용* - 부하 분산 장치 규칙의 설명
 4. **확인**을 클릭합니다.
  
  ![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
@@ -99,8 +114,9 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     - *myRDPRule* - 이름으로 입력합니다.
     - *RDP 허용* - 설명으로 입력합니다.
 
-
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
+
+부하 분산 장치에 대해 백 엔드 서버용으로 사용할 수 있는 영역에 대해 서로 다른 영역(영역 1, 영역 2 및 영역 3)에 가상 머신을 만듭니다.
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭하고 가상 머신에 대해 다음 값을 입력합니다.
     - *myVM1* - 가상 머신의 이름        
@@ -133,7 +149,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 1. **역할 및 기능 추가** 마법사에서 다음 값을 사용합니다.
     - **설치 유형 선택** 섹션에서 **역할 기반 또는 기능 기반 설치**를 클릭합니다.
     - **대상 서버 선택** 페이지에서 **myVM1**을 클릭합니다.
-    - **서버 역할 선택** 페이지 **웹 서버(IIS)**를 클릭합니다.
+    - **서버 역할 선택** 페이지 **웹 서버(IIS)** 를 클릭합니다.
     - 지침에 따라 마법사의 나머지 과정을 완료합니다.
 2. *myVM1* 가상 머신으로 RDP 세션을 닫습니다.
 3. 1-7단계를 반복하여 *myVM2* 및 *myVM3*에 IIS를 설치합니다.
@@ -145,12 +161,12 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ### <a name="create-a-backend-address-pool"></a>백 엔드 주소 풀 만들기
 
-VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산 장치에 연결된 가상(NIC)의 주소가 포함됩니다. *VM1* 및 *VM2*를 포함하도록 백 엔드 주소 풀 *myBackendPool*을 만듭니다.
+VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산 장치에 연결된 가상(NIC)의 주소가 포함됩니다. *VM1*, *VM2* 및 *VM3*을 포함하도록 백 엔드 주소 풀 *myBackendPool*을 만듭니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
 2. **설정**에서 **백 엔드 풀**을 클릭한 다음, **추가**를 클릭합니다.
 3. **백 엔드 풀 추가** 페이지에서 다음을 수행합니다.
-    - 이름에서, 백 엔드 풀의 이름으로 *myBackEndPool을 입력합니다.
+    - 이름에서, 백 엔드 풀의 이름으로 *myBackEndPool*을 입력합니다.
     - **가상 네트워크**에 대해 드롭다운 메뉴에서 **myVNet**을 클릭합니다.
     - **가상 컴퓨터**에 대해 드롭다운 메뉴에서 **myVM1**을 클릭합니다.
     - **IP 주소**에 대해 드롭다운 메뉴에서 myVM1 IP 주소를 클릭합니다.
@@ -200,6 +216,8 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. IIS 웹 서버의 기본 페이지가 브라우저에 표시됩니다.
 
       ![IIS 웹 서버](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+영역에 분산되는 VM에서 분산 장치가 트래픽을 분산하는 것을 확인하기 위해 웹 브라우저를 강제로 새로 고칠 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

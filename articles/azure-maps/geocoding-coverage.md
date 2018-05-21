@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b668ff70d627a63fb34012b07d9b41fc6f6ecb6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7dc7a1dbf024b6d334ec374f78d5e912db3835c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
@@ -297,7 +297,7 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps 지오코딩에 대한 자세한 내용은 [검색](https://docs.microsoft.com/rest/api/azure-maps/search) 참조 페이지를 참조하세요.
+Azure Maps 지오코딩에 대한 자세한 내용은 [검색](https://docs.microsoft.com/rest/api/maps/search) 참조 페이지를 참조하세요.
 
 [Maps 트래픽 서비스에 대한 검사 영역](traffic-coverage.md)에 대해 알아봅니다. 
 

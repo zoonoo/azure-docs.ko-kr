@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights로 사용 분석 | Microsoft Docs"
-description: "어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다."
+title: Azure Application Insights로 사용 분석 | Microsoft Docs
+description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 services: application-insights
-documentationcenter: 
-author: botatoes
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 79f4f77f08653c40591137268b87dc2feeb0acf6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/24/2018
 
     * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](app-insights-create-new-resource.md) 하면 됩니다.*
 
-2. **웹 페이지 코드:** [Azure Portal](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스를 연 다음 **시작하기 > Monitor and Diagnose Client-Side(클라이언트 쪽 모니터링 및 진단)**을 엽니다. 
+2. **웹 페이지 코드:** [Azure Portal](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스를 연 다음 **시작하기 > Monitor and Diagnose Client-Side(클라이언트 쪽 모니터링 및 진단)** 을 엽니다. 
 
     ![마스터 웹 페이지의 머리글에 스크립트를 복사합니다.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 

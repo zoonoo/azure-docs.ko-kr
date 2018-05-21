@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8670de00e3ab66ec4a5fa5c0c340e38182fd1ffd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>빠른 시작: Azure Container Instances에서 첫 번째 컨테이너 만들기
 
@@ -21,7 +21,7 @@ Azure Container Instances를 사용하면 가상 머신을 프로비전하거나
 
 ![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][qs-powershell-01]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -81,9 +81,9 @@ Events                   : {}
 
 ![Azure Container Instances를 사용하여 배포된 IIS가 브라우저에 표시됨][qs-powershell-01]
 
-## <a name="delete-the-container"></a>컨테이너 삭제
+## <a name="clean-up-resources"></a>리소스 정리
 
-컨테이너 작업을 완료했으면 [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet을 사용하여 제거할 수 있습니다.
+컨테이너 작업을 완료했으면 [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet을 사용하여 컨테이너를 제거합니다.
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -91,7 +91,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Container Instances에서 미리 구축된 Windows 컨테이너를 시작했습니다. 컨테이너를 직접 빌드하고 Azure Container Registry를 사용하여 Azure Container Instances에 배포하려면 Azure Container Instances 자습서를 계속합니다.
+이 빠른 시작에서는 공용 Docker Hub 리포지토리의 이미지로 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 직접 빌드하고 개인 Azure 컨테이너 레지스트리의 Azure Container Instances에 배포하려면 Azure Container Instances 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)

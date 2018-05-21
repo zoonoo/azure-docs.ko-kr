@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4014d304d1e0a7d841e797c3e3bdfe31918c151
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store의 보호
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Store는 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Store의 보안 기능에 대해 알아봅니다.
@@ -57,7 +55,7 @@ ms.lasthandoff: 04/23/2018
 | 할당된 역할 없음 |없음 |ACL에 의해 제어 |사용자는 Azure 포털 또는 Azure PowerShell Cmdlet을 사용하여 Data Lake Store를 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
 | 소유자 |모두 |모두 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
 | 판독기 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
-| 참가자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
+| 기여자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
 | 사용자 액세스 관리자 |역할 추가 및 제거 |ACL에 의해 제어 |사용자 액세스 관리자 역할은 계정에 대한 사용자 액세스를 관리할 수 있습니다. |
 
 자세한 내용은 [사용자 또는 보안 그룹을 Data Lake Store 계정에 할당](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts)을 참조하세요.

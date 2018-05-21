@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights 원격 분석 데이터 모델 - 요청 원격 분석 | Microsoft Docs"
-description: "요청 원격 분석을 위한 Azure Application Insights 데이터 모델"
+title: Azure Application Insights 원격 분석 데이터 모델 - 요청 원격 분석 | Microsoft Docs
+description: 요청 원격 분석을 위한 Azure Application Insights 데이터 모델
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0073f38097ffbebd669754eac5f2d48a620941bf
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: e0bdaf132474d8e5eaac6a9c65093d27d673d343
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 요청 원격 분석은 사용자 지정 `properties` 및 `measurements`를 사용하여 표준 확장성 모델을 지원합니다.
 
-## <a name="name"></a>이름
+## <a name="name"></a>Name
 
 요청의 이름은 요청을 처리하기 위해 진행된 코드 경로를 나타냅니다. 더 나은 요청 그룹화를 허용하는 낮은 카디널리티 값입니다. HTTP 요청의 경우 HTTP 메서드 및 실제 `id` 값이 없는 `GET /values/{id}`와 같은 URL 경로 템플릿을 나타냅니다.
 
