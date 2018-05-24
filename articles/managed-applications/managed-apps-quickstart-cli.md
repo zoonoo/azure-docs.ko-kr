@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305296"
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Azure CLI를 사용하여 Azure 관리되는 응용 프로그램 만들기 및 배포
 
