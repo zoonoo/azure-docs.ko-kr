@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 2333a56cd9369cb66c4944304472462d2f2f7511
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7109820acceadd7c6c5b66dc6ceebbc2ed141ab0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>자습서:Azure Active Directory와 Hightail 통합
 
@@ -29,7 +29,7 @@ Hightail을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Hightail에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,7 +57,7 @@ Hightail과 Azure AD 통합을 구성하려면 갤러리의 Hightail을 관리�
 
 **갤러리에서 Hightail을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -123,7 +123,7 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     나. **로그온 URL** 텍스트 상자에서 URL `https://www.hightail.com/loginSSO`를 입력합니다.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_certificate.png) 
 
@@ -184,7 +184,7 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_004.png)
 
-    e. **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"IdP(ID 공급자) 시작 로그인"**을 선택하고, **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"SP(서비스 공급자) 시작 로그인"**을 선택합니다.
+    e. **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"IdP(ID 공급자) 시작 로그인"** 을 선택하고, **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"SP(서비스 공급자) 시작 로그인"** 을 선택합니다.
 
     ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_006.png)
 
@@ -276,7 +276,7 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

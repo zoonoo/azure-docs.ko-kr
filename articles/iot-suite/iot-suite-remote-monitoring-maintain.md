@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 99cf9e341edf0acee434e2d01f6346291cbcea5a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>장치 문제 해결 및 수정
 
@@ -34,7 +34,7 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 이 자습서를 수행하려면 Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스가 필요합니다.
 
-원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 ## <a name="use-the-maintenance-dashboard"></a>유지 관리 대시보드 사용
 

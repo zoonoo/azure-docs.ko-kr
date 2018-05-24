@@ -29,7 +29,11 @@
 ## [Azure AD Connect 관리](active-directory-aadconnect-whats-next.md)
 ### [O365 및 Azure AD에 대한 인증서 갱신](active-directory-aadconnect-o365-certs.md)
 ### [AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서 업데이트](active-directory-aadconnectfed-ssl-update.md)
-### [장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md)
+
+### [장치 옵션](active-directory-azure-ad-connect-device-options.md)
+#### [장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md)
+#### [하이브리드 Azure AD 조인 사후 작업](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)
 #### [Seamless Single Sign-On](active-directory-aadconnect-sso.md)
 ##### [빠른 시작](active-directory-aadconnect-sso-quick-start.md)

@@ -1,23 +1,23 @@
 ---
-title: "Azure 저장소 계정 이름 오류 | Microsoft Docs"
-description: "저장소 계정 이름을 지정할 때 발생할 수 있는 오류를 설명합니다."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+title: Azure 저장소 계정 이름 오류 | Microsoft Docs
+description: 저장소 계정 이름을 지정할 때 발생할 수 있는 오류를 설명합니다.
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: da7147439bba668c6c614c19d91a22ee78275c69
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>저장소 계정 이름 오류 해결
 

@@ -1,12 +1,14 @@
+## <a name="register-your-application"></a>응용 프로그램 등록
+다음 두 섹션에 설명된 대로 두 가지 방법 중 하나로 응용 프로그램을 등록할 수 있습니다.
 
-## <a name="create-an-application-express"></a>응용 프로그램(Express) 만들기
+### <a name="option-1-express-mode"></a>옵션 1: 기본 모드
 이제 *Microsoft 응용 프로그램 등록 포털*에서 등용 프로그램을 등록해야 합니다.
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)을 통해 응용 프로그램을 등록합니다.
 2.  응용 프로그램 이름과 메일을 입력합니다.
 3.  안내식 설정 옵션이 선택되어 있는지 확인합니다.
 4.  지침에 따라 응용 프로그램 ID를 가져와 코드에 붙여넣습니다.
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>솔루션에 응용 프로그램 등록 정보 추가(고급)
+### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 
 1.  [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동합니다.
 2.  응용 프로그램 이름과 메일을 입력합니다.
