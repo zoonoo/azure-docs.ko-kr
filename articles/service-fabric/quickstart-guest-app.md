@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 65185a2d594a4a251cf87ece6f758ab3db223d7d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3cb7fdf309c935c21f4e80c1d1ba529838935acc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 응용 프로그램 호스트
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 응용 프로그램의 이름을 **MyGuestApp**으로 지정하고 **확인**을 누릅니다.
 
 >[!IMPORTANT]
->Node.js는 Windows에 있는 경로에 대한 260자 제한을 쉽게 초과할 수 있습니다. **c:\code\svc1**과 같은 프로젝트 자체에 짧은 경로를 사용합니다. 경우에 따라 **[이러한 지침](https://stackoverflow.com/a/41687101/1664231)**을 따라 Windows 10에서 긴 파일 경로를 활성화할 수 있습니다.
+>Node.js는 Windows에 있는 경로에 대한 260자 제한을 쉽게 초과할 수 있습니다. **c:\code\svc1**과 같은 프로젝트 자체에 짧은 경로를 사용합니다. 경우에 따라 **[이러한 지침](https://stackoverflow.com/a/41687101/1664231)** 을 따라 Windows 10에서 긴 파일 경로를 활성화할 수 있습니다.
    
 ![Visual Studio의 새 프로젝트 대화 상자][new-project]
 
@@ -99,7 +99,7 @@ Visual Studio는 응용 프로그램 프로젝트 및 작업자 서비스 프로
 
 **F5** 키를 누르고 프로젝트를 실행하면 로컬 클러스터에 배포됩니다. 하지만 대신 Azure에 배포해보겠습니다.
 
-프로젝트를 마우스 오른쪽 단추로 클릭하고 대화 상자를 여는 **게시...**를 선택하여 Azure에 게시할 수 있습니다.
+프로젝트를 마우스 오른쪽 단추로 클릭하고 대화 상자를 여는 **게시...** 를 선택하여 Azure에 게시할 수 있습니다.
 
 ![Service Fabric 서비스의 Azure 대화 상자에 게시][publish]
 
@@ -107,13 +107,13 @@ Visual Studio는 응용 프로그램 프로젝트 및 작업자 서비스 프로
 
 이전에 수행하지 않은 경우 배포할 Azure 계정을 선택합니다. 아직 없는 경우 [하나에 등록][create-account]합니다.
 
-**연결 끝점**에서 배포할 Service Fabric 클러스터를 선택합니다. 없는 경우 Azure Portal에 웹 브라우저 창을 여는 **&lt;새 클러스터 만들기...&gt;**를 선택합니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
+**연결 끝점**에서 배포할 Service Fabric 클러스터를 선택합니다. 없는 경우 Azure Portal에 웹 브라우저 창을 여는 **&lt;새 클러스터 만들기...&gt;** 를 선택합니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
 
 Service Fabric 클러스터를 만들 때 **사용자 지정 끝점** 설정을 **80**으로 설정해야 합니다.
 
 ![사용자 지정 끝점이 있는 Service Fabric 노드 형식 구성][custom-endpoint]
 
-새 Service Fabric 클러스터 만들기를 완료하려면 다소 시간이 걸립니다. Service Fabric 클러스터를 만들면 게시 대화 상자로 다시 이동하고 **&lt;새로 고침&gt;**을 선택합니다. 새 클러스터가 드롭다운 상자에 나열되면 선택합니다.
+새 Service Fabric 클러스터 만들기를 완료하려면 다소 시간이 걸립니다. Service Fabric 클러스터를 만들면 게시 대화 상자로 다시 이동하고 **&lt;새로 고침&gt;** 을 선택합니다. 새 클러스터가 드롭다운 상자에 나열되면 선택합니다.
 
 **게시**를 눌러서 배포가 끝나기를 기다립니다.
 

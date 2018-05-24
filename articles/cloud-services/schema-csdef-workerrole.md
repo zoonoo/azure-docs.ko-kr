@@ -1,8 +1,8 @@
 ---
 title: Azure Cloud Services 정의 WorkerRole 스키마 | Microsoft Docs
+services: cloud-services
 ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -13,11 +13,11 @@ caps.latest.revision: 55
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 0171c7254db5855f0eccd19ae9938249d8966edd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 96131a0bb928da7e22f3e26449c8b2279457d03f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services 정의 WorkerRole 스키마
 Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대한 백그라운드 처리를 수행할 수 있는 역할입니다.
@@ -148,7 +148,7 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 
 다음 표에서는 `WorkerRole` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 작업자 역할의 이름입니다. 역할의 이름은 고유해야 합니다.|
 |enableNativeCodeExecution|부울|선택 사항입니다. 기본값은 `true`이며, 네이티브 코드 실행 및 완전 신뢰는 기본적으로 활성화됩니다. 이 특성을 `false`에 설정하여 작업자 역할에 네이티브 코드 실행을 사용하지 않도록 설정하고, 대신 Azure 부분 신뢰를 사용합니다.|
@@ -162,7 +162,7 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 
 다음 표에서는 `Setting` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 구성 설정에 대한 고유한 이름입니다.|
 
@@ -179,7 +179,7 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 
 다음 표에서는 `LocalStorage` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 로컬 저장소의 고유한 이름입니다.|
 |cleanOnRoleRecycle|부울|선택 사항입니다. 역할이 다시 시작될 때 로컬 저장소를 정리해야 하는지 여부를 나타냅니다. 기본값은 `true`입니다.|
@@ -202,7 +202,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `InputEndpoint` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 외부 끝점에 대한 고유한 이름입니다.|
 |protocol|string|필수 사항입니다. 외부 끝점에 대한 전송 프로토콜입니다. 작업자 역할의 경우 가능한 값은 `HTTP`, `HTTPS`, `UDP` 또는 `TCP`입니다.|
@@ -217,7 +217,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `InternalEndpoint` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 내부 끝점에 대한 고유한 이름입니다.|
 |protocol|string|필수 사항입니다. 내부 끝점에 대한 전송 프로토콜입니다. 가능한 값은 `HTTP`, `TCP`, `UDP` 및 `ANY`입니다.<br /><br /> `ANY`의 값은 모든 프로토콜, 모든 포트가 허용되도록 지정합니다.|
@@ -230,7 +230,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `InstanceInputEndpoint` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 끝점의 고유한 이름입니다.|
 |localPort|int|필수 사항입니다. 부하 분산 장치에서 전달되어 들어오는 트래픽을 수신하기 위해 모든 역할 인스턴스가 수신 대기하는 내부 포트를 지정합니다. 가능한 값은 1에서 65535(포함) 사이입니다.|
@@ -248,7 +248,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `FixedPort` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |포트|int|필수 사항입니다. 내부 끝점에 대한 포트입니다. 이는 동일한 포트에 `FixedPortRange` 최소값 및 최대값을 설정한 것과 같은 결과를 얻을 수 있습니다.<br /><br /> 사용 가능한 값은 1에서 65535(포함) 사이입니다(Azure SDK 버전 1.7 이상).|
 
@@ -256,13 +256,13 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 `FixedPortRange` 요소는 내부 끝점 또는 인스턴스 입력 끝점에 할당되는 포트 범위를 지정하며, 끝점에서 부하 분산된 연결에 사용되는 포트를 설정합니다.
 
 > [!NOTE]
->  `FixedPortRange` 요소는 존재하는 요소에 따라 다르게 작동합니다. ph x="1" /> 요소가 `InternalEndpoint` 요소에 있는 경우 역할이 실행되는 모든 가상 머신에 대한 최소 및 최대 특성 범위 내에서 부하 분산 장치의 모든 포트를 엽니다. ph x="1" /> 요소가 `InstanceInputEndpoint` 요소에 있는 경우 역할을 실행하는 각 가상 머신에 대한 최소 및 최대 특성 범위 내에서 하나의 포트만 엽니다.
+>  `FixedPortRange` 요소는 존재하는 요소에 따라 다르게 작동합니다. `FixedPortRange` 요소가 `InternalEndpoint` 요소에 있는 경우 역할이 실행되는 모든 가상 머신에 대한 최소 및 최대 특성 범위 내에서 부하 분산 장치의 모든 포트를 엽니다. `FixedPortRange` 요소가 `InstanceInputEndpoint` 요소에 있는 경우 역할을 실행하는 각 가상 머신에 대한 최소 및 최대 특성 범위 내에서 하나의 포트만 엽니다.
 
 `FixedPortRange` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
 
 다음 표에서는 `FixedPortRange` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |min|int|필수 사항입니다. 범위 내의 최소 포트입니다. 사용 가능한 값은 1에서 65535(포함) 사이입니다(Azure SDK 버전 1.7 이상).|
 |max|string|필수 사항입니다. 범위 내의 최대 포트입니다. 사용 가능한 값은 1에서 65535(포함) 사이입니다(Azure SDK 버전 1.7 이상).|
@@ -275,7 +275,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `Certificate` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 이 인증서의 이름으로, HTTPS `InputEndpoint` 요소와 연결된 경우 참조하는 데 사용됩니다.|
 |storeLocation|string|필수 사항입니다. 이 인증서를 로컬 컴퓨터에서 찾을 수 있는 인증서 저장소의 위치입니다. 가능한 값은 `CurrentUser` 및 `LocalMachine`입니다.|
@@ -294,7 +294,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `Import` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |moduleName|string|필수 사항입니다. 가져올 모듈의 이름입니다. 유효한 가져오기 모듈은 다음과 같습니다.<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> RemoteAccess 및 RemoteForwarder 모듈을 사용하면 원격 데스크톱 연결에 대한 역할 인스턴스를 구성할 수 있습니다. 자세한 내용은 [원격 데스크톱 연결 활성화](cloud-services-role-enable-remote-desktop-new-portal.md)를 참조하세요.<br /><br /> 진단 모듈을 사용하면 역할 인스턴스에 대한 진단 데이터를 수집할 수 있습니다.|
 
@@ -305,7 +305,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `Runtime` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |executionContext|string|선택 사항입니다. 역할 프로세스가 시작되는 컨텍스트를 지정합니다. 기본 컨텍스트는 `limited`입니다.<br /><br /> -   `limited` - 프로세스가 관리자 권한 없이 시작됩니다.<br />-   `elevated` - 프로세스가 관리자 권한으로 시작됩니다.|
 
@@ -319,7 +319,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `Variable` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |이름|string|필수 사항입니다. 설정할 환경 변수의 이름입니다.|
 |값|string|선택 사항입니다. 환경 변수에 대해 설정하는 값입니다. 값 특성 또는 `RoleInstanceValue` 요소를 포함해야 합니다.|
@@ -329,7 +329,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `RoleInstanceValue` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |xpath|string|선택 사항입니다. 인스턴스에 대한 배포 설정의 위치 경로입니다. 자세한 내용은 [XPath를 사용한 구성 변수](cloud-services-role-config-xpath.md)를 참조하세요.<br /><br /> 값 특성 또는 `RoleInstanceValue` 요소를 포함해야 합니다.|
 
@@ -346,9 +346,9 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `NetFxEntryPoint` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
-|assemblyName|string|필수 사항입니다. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 **\\%ROLEROOT%\Approot** 폴더에 상대적입니다(`commandLine`에 **\\%ROLEROOT%\Approot**를 지정하지 않음, 가정됨). **%ROLEROOT%**는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **\\%ROLEROOT%\Approot** 폴더는 사용자의 역할에 대한 응용 프로그램 폴더를 나타냅니다.|
+|assemblyName|string|필수 사항입니다. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 **\\%ROLEROOT%\Approot** 폴더에 상대적입니다(`commandLine`에 **\\%ROLEROOT%\Approot**를 지정하지 않음, 가정됨). **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **\\%ROLEROOT%\Approot** 폴더는 사용자의 역할에 대한 응용 프로그램 폴더를 나타냅니다.|
 |targetFrameworkVersion|string|필수 사항입니다. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예: `targetFrameworkVersion="v4.0"`|
 
 ##  <a name="ProgramEntryPoint"></a> ProgramEntryPoint
@@ -359,9 +359,9 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `ProgramEntryPoint` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
-|commandLine|string|필수 사항입니다. 실행할 프로그램의 경로, 파일 이름 및 명령줄 인수입니다. 경로는 **%ROLEROOT%\Approot** 폴더에 상대적입니다(명령줄에 **%ROLEROOT%\Approot**를 지정하지 않음, 가정됨). **%ROLEROOT%**는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **%ROLEROOT%\Approot** 폴더는 사용자의 역할에 대한 응용 프로그램 폴더를 나타냅니다.<br /><br /> 프로그램이 종료되면, 역할이 재활용되므로 일반적으로 단지 시작해서 한정된 작업을 실행하는 프로그램이 되는 대신 계속 실행되도록 프로그램을 설정합니다.|
+|commandLine|string|필수 사항입니다. 실행할 프로그램의 경로, 파일 이름 및 명령줄 인수입니다. 경로는 **%ROLEROOT%\Approot** 폴더에 상대적입니다(명령줄에 **%ROLEROOT%\Approot**를 지정하지 않음, 가정됨). **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **%ROLEROOT%\Approot** 폴더는 사용자의 역할에 대한 응용 프로그램 폴더를 나타냅니다.<br /><br /> 프로그램이 종료되면, 역할이 재활용되므로 일반적으로 단지 시작해서 한정된 작업을 실행하는 프로그램이 되는 대신 계속 실행되도록 프로그램을 설정합니다.|
 |setReadyOnProcessStart|부울|필수 사항입니다. 명령줄 프로그램이 시작되었음을 알리는 신호를 보내길 역할 인스턴스에서 대기하는지 여부를 지정합니다. 이 때 이 값은 `true`로 설정해야 합니다. 값을 `false`로 설정하면 나중에 사용하도록 예약됩니다.|
 
 ##  <a name="Startup"></a> Startup
@@ -369,7 +369,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `Startup` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |우선 순위|int|내부 전용입니다.|
 
@@ -380,7 +380,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 다음 표에서는 `Task` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |commandLine|string|필수 사항입니다. 실행하는 명령이 포함된 CMD 파일과 같은 스크립트입니다. 시작 명령 및 일괄 처리 파일은 ANSI 형식으로 저장해야 합니다. 파일의 시작 부분에 바이트 순서 표시자를 설정한 파일 형식은 올바르게 처리되지 않습니다.|
 |executionContext|string|스크립트가 실행되는 컨텍스트를 지정합니다.<br /><br /> -   `limited` [기본값] – 프로세스를 호스팅하는 역할과 동일한 권한으로 실행합니다.<br />-   `elevated` – 관리자 권한으로 실행합니다.|
@@ -392,13 +392,13 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 `Contents` 요소는 Azure SDK 버전 1.5 이상이어야 사용할 수 있습니다.
 
 ##  <a name="Content"></a> Content
-ph x="1" /> 요소는 Azure 가상 컴퓨터로 복사되는 콘텐츠의 원본 위치와 복사되는 대상 경로를 정의합니다.
+`Content` 요소는 Azure 가상 컴퓨터로 복사되는 콘텐츠의 원본 위치와 복사되는 대상 경로를 정의합니다.
 
 `Content` 요소는 Azure SDK 버전 1.5 이상이어야 사용할 수 있습니다.
 
 다음 표에서는 `Content` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |destination|string|필수 사항입니다. Azure 가상 컴퓨터에서 콘텐츠가 배치되는 위치입니다. 이 위치는 **%ROLEROOT%\Approot** 폴더에 상대적입니다.|
 
@@ -411,7 +411,7 @@ ph x="1" /> 요소는 Azure 가상 컴퓨터로 복사되는 콘텐츠의 원본
 
 다음 표에서는 `SourceDirectory` 요소의 특성을 설명합니다.
 
-| 특성 | 유형 | 설명 |
+| 특성 | type | 설명 |
 | --------- | ---- | ----------- |
 |경로|string|필수 사항입니다. 콘텐츠가 Azure 가상 컴퓨터에 복사되는 로컬 디렉터리의 상대 또는 절대 경로입니다. 디렉터리 경로의 환경 변수 확장이 지원됩니다.|
 

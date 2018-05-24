@@ -7,13 +7,13 @@ ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 548748843443fe28d801912ae37de9b584096ffa
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -91,7 +91,7 @@ Automation 계정을 만들 때 기본적으로 **AzurServicePrincipal** 연결 
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
 ### <a name="graphical-runbook-samples"></a>그래픽 Runbook 샘플

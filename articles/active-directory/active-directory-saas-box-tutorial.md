@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 638ae63057df00375b05a58e3ceab510e2a608de
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daad9104798dc02b479b4e022287c3630e4a67a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Box와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Box와 Azure AD를 통합하면 다음과 같은 혜택이 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Box에 자동으로 로그인(Single Sign-On 또는 SSO)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -196,7 +196,7 @@ Box에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 5개
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비전 구성](active-directory-saas-box-userprovisioning-tutorial.md)
 
 

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 6a13ced8b1c49239d1ad5fb96775f43de9c3943e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d0de7e7596fb7fabbc4061709816111a7a4ad827
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>서비스 패브릭 신뢰할 수 있는 행위자 소개
 Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 응용 프로그램 프레임워크입니다. Reliable Actors API는 서비스 패브릭에서 제공한 확장성 및 안정성 보증에 기반한 단일 스레드 프로그래밍 모델을 제공합니다.

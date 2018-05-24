@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -163,7 +163,7 @@ ASE가 작동하기 위한 가장 우선적인 인바운드 요구 사항 두 �
 
 ![인바운드 보안 규칙][4]
 
-기본 규칙을 사용하면 VNet의 IP가 ASE 서브넷과 통신할 수 있습니다. 공용 VIP라고도 하는 부하 분산 장치가 ASE와 통신할 수 있도록 하는 또 다른 기본 규칙도 있습니다. 기본 규칙을 확인하려면 **추가** 아이콘 옆에 있는 **기본 규칙**을 선택합니다. 표시된 NSG 규칙 다음에 기타 모든 항목을 거부하는 규칙을 배치하면 VIP와 ASE 간의 트래픽이 차단됩니다. VNet 내에서 들어오는 트래픽을 차단하려면 인바운드를 허용하는 규칙을 직접 추가합니다. 이때 대상이 **Any**이고 포트 범위가 **\***인 AzureLoadBalancer와 같은 원본을 사용합니다. NSG 규칙은 ASE 서브넷에 적용되므로 대상을 구체적으로 지정할 필요는 없습니다.
+기본 규칙을 사용하면 VNet의 IP가 ASE 서브넷과 통신할 수 있습니다. 공용 VIP라고도 하는 부하 분산 장치가 ASE와 통신할 수 있도록 하는 또 다른 기본 규칙도 있습니다. 기본 규칙을 확인하려면 **추가** 아이콘 옆에 있는 **기본 규칙**을 선택합니다. 표시된 NSG 규칙 다음에 기타 모든 항목을 거부하는 규칙을 배치하면 VIP와 ASE 간의 트래픽이 차단됩니다. VNet 내에서 들어오는 트래픽을 차단하려면 인바운드를 허용하는 규칙을 직접 추가합니다. 이때 대상이 **Any**이고 포트 범위가 **\*** 인 AzureLoadBalancer와 같은 원본을 사용합니다. NSG 규칙은 ASE 서브넷에 적용되므로 대상을 구체적으로 지정할 필요는 없습니다.
 
 앱에 IP 주소를 할당한 경우 포트를 열어 두어야 합니다. 포트를 확인하려면 **App Service Environment** > **IP 주소**를 선택합니다.  
 
@@ -224,7 +224,7 @@ Azure SQL 인스턴스를 통해 서브넷에서 서비스 끝점이 사용되�
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md

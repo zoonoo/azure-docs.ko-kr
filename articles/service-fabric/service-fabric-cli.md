@@ -1,18 +1,18 @@
 ---
-title: "Azure Service Fabric CLI 시작"
-description: "Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법과 응용 프로그램을 관리하는 방법을 알아봅니다."
+title: Azure Service Fabric CLI 시작
+description: Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법과 응용 프로그램을 관리하는 방법을 알아봅니다.
 services: service-fabric
 author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: bikang
-ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 

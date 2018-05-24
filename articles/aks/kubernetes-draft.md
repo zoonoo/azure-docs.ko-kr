@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Draft 사용
 
@@ -38,7 +38,7 @@ Draft CLI는 개발 시스템에서 실행되는 클라이언트로, Kubernetes 
 > [!NOTE]
 > 버전 0.12 전에 Draft를 설치했다면 먼저 `helm delete --purge draft`을 사용하여 클러스터에서 Draft를 삭제한 다음, `rm -rf ~/.draft`를 실행하여 로컬 구성을 제거해야 합니다. MacOS에서 작업하는 경우 `brew upgrade draft`를 실행합니다.
 
-Mac에서 Draft CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션에 대해서는 [Draft 설치 가이드][install-draft]를 참조하세요.
+Mac에서 Draft CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션에 대해서는 [Draft 설치 가이드][draft-documentation]를 참조하세요.
 
 ```console
 brew tap azure/draft
@@ -288,7 +288,6 @@ Draft 사용에 대한 자세한 내용은 Github의 Draft 문서를 참조하�
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 

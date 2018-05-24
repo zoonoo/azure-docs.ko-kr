@@ -1,11 +1,11 @@
 ---
-title: "IE에 대한 액세스 패널 확장 문제 해결| Microsoft Azure"
-description: "그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
+title: IE에 대한 액세스 패널 확장 문제 해결| Microsoft Azure
+description: 그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6d0b299c45d89ee8d3a79fa98ce4a542174a5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4f1538cf598da8b5b9aa19def2d5f86ceaca0a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Internet Explorer용 액세스 패널 확장 문제 해결
 이 문서는 다음과 같은 문제를 해결하는 데 도움이 됩니다.
@@ -92,6 +92,6 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](manage-apps/what-is-single-sign-on.md)
 * [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)
 

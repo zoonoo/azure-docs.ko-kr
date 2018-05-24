@@ -1,24 +1,24 @@
 ---
-title: "인증서를 사용하여 Windows에서 Azure Service Fabric 클러스터 보호 | Microsoft Docs"
-description: "클라이언트와 클러스터 간 통신 보호 및 Azure Service Fabric 독립 실행형 클러스터 또는 온-프레미스 클러스터 내 통신 보호에 대해 설명합니다."
+title: 인증서를 사용하여 Windows에서 Azure Service Fabric 클러스터 보호 | Microsoft Docs
+description: 클라이언트와 클러스터 간 통신 보호 및 Azure Service Fabric 독립 실행형 클러스터 또는 온-프레미스 클러스터 내 통신 보호에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 62d821894521c5dea8e7577b75d9590adc829263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  

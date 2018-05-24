@@ -9,16 +9,16 @@ editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3da081f9b327031d6d1e0afd2f2fb52383bf933
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 문서에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.

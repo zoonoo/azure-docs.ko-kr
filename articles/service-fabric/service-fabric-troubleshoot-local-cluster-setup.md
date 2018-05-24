@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 6879a24df434d5bf69c9ba14aa00cdc9cd67df57
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a7f58914fd6e498e717e19bfea11c9e3fcfc0399
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>로컬 개발 클러스터 설정 문제 해결
 로컬 Azure 서비스 패브릭 개발 클러스터와 상호 작용하는 동안 문제가 발생할 경우 다음 제안 사항에서 잠재적인 해결 방법이 있는지 검토하세요.

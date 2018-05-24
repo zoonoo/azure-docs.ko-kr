@@ -1,6 +1,6 @@
 ---
-title: "자습서: ThirdPartyTrust와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 ThirdPartyTrust 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: ThirdPartyTrust와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 ThirdPartyTrust 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b5a9116ea117b740a4541dc75a0be12d9a099b6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dbb5773b1d8b91ea669d2d1292662f806eb85d1d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>자습서: ThirdPartyTrust와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Azure AD에 ThirdPartyTrust를 통합하면 다음과 같은 이점을 얻을 �
 - 사용자가 해당 Azure AD 계정으로 ThirdPartyTrust에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ ThirdPartyTrust와 Azure AD 통합을 구성하려면 갤러리의 ThirdPartyTru
 
 **갤러리에서 ThirdPartyTrust를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -204,7 +204,7 @@ ThirdPartyTrust에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "자습서: Pingboard와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 Pingboard 간에 Single Sign-On을 구성하는 방법을 알아봅니다."
+title: '자습서: Pingboard와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 Pingboard 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 733eff519f75368fd78824deea56f63940c0b49f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>자습서: Pingboard와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Pingboard를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Pingboard에 자동으로 SSO(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Pingboard와 Azure AD의 통합을 구성하려면 갤러리의 Pingboard를 관
 
 **갤러리에서 Pingboard를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -110,7 +110,7 @@ Pingboard에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **식별자** 텍스트 상자에 해당 값으로 `http://app.pingboard.com/sp`을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<entity-id>.pingboard.com/auth/saml/consume`
+    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<entity-id>.pingboard.com/auth/saml/consume`
 
 4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
@@ -133,13 +133,13 @@ Pingboard에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 8. 상단 메뉴에서 **앱 > 통합**을 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
 9.  **통합** 페이지에서 **"Azure Active Directory"** 타일을 찾아 클릭합니다.
 
     ![Pingboard Single Sign-on 통합](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
-10. 다음에 나오는 모달에서 **"구성"**을 클릭합니다.
+10. 다음에 나오는 모달에서 **"구성"** 을 클릭합니다.
 
     ![Pingboard 구성 단추](./media/active-directory-saas-pingboard-tutorial/Pingboard_configure.png)
 
@@ -175,9 +175,9 @@ Pingboard에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -199,9 +199,9 @@ Azure AD 사용자가 Pingboard에 로그인할 수 있도록 하려면 Pingboar
 
     a. **전체 이름** 텍스트 상자에서 **Britta Simon**과 같은 사용자의 전체 이름을 입력합니다.
 
-    b. **이메일** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
+    나. **이메일** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
 
-    c. **직함** 텍스트 상자에 Britta Simon의 직함을 입력합니다.
+    다. **직함** 텍스트 상자에 Britta Simon의 직함을 입력합니다.
 
     d. **위치** 드롭다운에서 Britta Simon의 위치를 선택합니다.
     
@@ -254,7 +254,7 @@ Azure AD 사용자가 Pingboard에 로그인할 수 있도록 하려면 Pingboar
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

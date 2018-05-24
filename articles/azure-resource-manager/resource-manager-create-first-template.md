@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/30/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 38ed7040c4f1497192c8c37887dc6281aa7935ea
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 32ff8621eb446f9bcc45398173f47b761b929ac5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>첫 번째 Azure Resource Manager 템플릿을 만들고 배포
 이 항목에서는 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 안내합니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요. 기존 리소스가 있고 해당 리소스에 대한 템플릿을 가져오려는 경우 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
@@ -265,7 +265,7 @@ az group deployment create --resource-group examplegroup --template-file azurede
 
 ![누락된 속성](./media/resource-manager-create-first-template/missing-property.png)
 
-암호화 요소는 keySource 속성을 필요로 합니다. 서비스 개체 뒤에 쉼표를 추가하고 keySource 속성을 추가합니다. VS Code는 **"Microsoft.Storage"**를 유효한 값으로 제공합니다. 완료되면 속성 요소는 다음과 같습니다.
+암호화 요소는 keySource 속성을 필요로 합니다. 서비스 개체 뒤에 쉼표를 추가하고 keySource 속성을 추가합니다. VS Code는 **"Microsoft.Storage"** 를 유효한 값으로 제공합니다. 완료되면 속성 요소는 다음과 같습니다.
 
 ```json
 "properties": {

@@ -1,24 +1,22 @@
 ---
-title: "Distcp를 사용하여 WASB에(서) Data Lake Store 데이터 복사| Microsoft 문서"
-description: "Distcp 도구를 사용하여 Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사"
+title: Distcp를 사용하여 WASB에(서) Data Lake Store 데이터 복사| Microsoft 문서
+description: Distcp 도구를 사용하여 Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 8a5052f69eee7f53bb304524fc3ea4d375c76227
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c682ff56f4850638d3cad6e327c1237a0492c4d3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Distcp를 사용하여 Azure Storage Blob과 데이터 레이크 저장소 간에 데이터 복사
 > [!div class="op_single_selector"]
@@ -29,7 +27,7 @@ ms.lasthandoff: 01/10/2018
 
 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 갖고 있다면 Distcp 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 저장소(WASB)와 **주고 받는** 데이터를 Data Lake Store 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)

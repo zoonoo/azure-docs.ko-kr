@@ -1,40 +1,40 @@
 ---
-title: "Azure Managed Application UI 정의 만들기 함수 | Microsoft Docs"
-description: "Azure Managed Applications에 대한 UI 정의를 생성할 때 사용하는 함수에 대해 설명합니다."
-services: azure-resource-manager
+title: Azure Managed Application UI 정의 만들기 함수 | Microsoft Docs
+description: Azure Managed Applications에 대한 UI 정의를 생성할 때 사용하는 함수에 대해 설명합니다.
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 이 섹션에는 CreateUiDefinition의 지원되는 모든 함수에 대한 서명이 포함되어 있습니다.
 
-함수를 사용하려면 선언을 대괄호로 묶습니다. 예:
+함수를 사용하려면 선언을 대괄호로 묶습니다. 예: 
 
 ```json
 "[function()]"
 ```
 
-문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예:
+문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예: 
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예:
+해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예: 
 
 ```json
 "[func().prop1]"
