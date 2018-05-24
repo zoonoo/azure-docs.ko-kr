@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366650"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 장치 등 여러 장치에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 응용 프로그램 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 끝점은 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -111,7 +112,7 @@ Virtual Machine–배포 응용 프로그램은 필요에 따라 MMC(Microsoft M
 * [클라이언트 연결 권한 부여 정책](http://technet.microsoft.com/library/cc753324.aspx)을 구성하여 RD 게이트웨이가 클라이언트 컴퓨터 이름이 유효하고(도메인에 조인됨) Azure Portal에 액세스할 수 있도록 허용되었는지 확인하도록 합니다.
 * [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)에 대한 IPsec을 사용하여 도청 및 토큰 도난으로부터 관리 트래픽을 보호하거나 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)를 통해 격리된 인터넷 링크를 고려합니다.
 * Multi-Factor Authentication([Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 통해) 또는 RD 게이트웨이를 통해 로그인하는 관리자를 위한 스마트 카드 인증을 사용합니다.
-* Azure에서 원본 [IP 주소 제한](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 구성하여 허용된 관리 끝점의 수를 최소화합니다.
+* Azure에서 원본 [IP 주소 제한](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 구성하여 허용된 관리 끝점의 수를 최소화합니다.
 
 ## <a name="security-guidelines"></a>보안 지침
 일반적으로 클라우드와 함께 사용하기 위해 관리자 워크스테이션의 보안을 강화하는 작업은 모든 워크스테이션 온-프레미스에 적용되는 작업(예: 최소화된 빌드 및 제한적인 권한)과 유사합니다. 클라우드 관리의 몇 가지 고유한 측면은 원격 또는 대역 외 엔터프라이즈 관리와 비슷합니다. 여기에는 자격 증명의 사용 및 감사, 보안 향상된 원격 액세스, 위협 요소 탐지 및 대응이 있습니다.

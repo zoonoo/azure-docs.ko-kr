@@ -3,8 +3,8 @@ title: PowerShell 예제 - 지역에서 복제 장애 조치(failover) 그룹 - 
 description: 단일 Azure SQL Database에 대한 활성 지역 복제 장애 조치(Failover) 그룹을 설정하고 장애 조치(Failover)를 수행하기 위한 Azure PowerShell 예제 스크립트입니다.
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: 5217063dc99868be6777b09042e5aeb1fe9640a2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: 1bb5cf1eeb744bacb0a0324923f3389affea9ee7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364219"
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>PowerShell을 사용하여 활성 지역에서 단일 Azure SQL Database에 대한 복제 장애 조치(failover) 그룹을 구성합니다.
 

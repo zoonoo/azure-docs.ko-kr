@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: df70322a2d6562fce8da17fde652dd0dfbfcaec4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362246"
 ---
 # <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 사용자 지정 랩 설정
 이 자습서에서는 Azure 포털을 사용하여 사용자 지정 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 

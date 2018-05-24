@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 347b7d183839868f3b52adbdfd00b38cee3f3fbc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 22a9e90404475e8ff1f1ea72c233b1abfed938f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361386"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services-formerly-azure-devtest-labs"></a>자습서: Azure Lab Services(이전 Azure DevTest Labs)로 랩 계정 설정
 이 자습서에서는 랩 관리자 역할을 하여 Azure Lab Services로 랩 계정을 만듭니다. 그런 다음 교사에게 이 랩 계정에서 클래스를 위한 랩을 만들 수 있는 권한을 제공합니다. 교육자는 [Azure Lab Services 웹 사이트](https://labs.azure.com)를 사용하여 클래스를 위해 랩을 설정할 수 있습니다.   

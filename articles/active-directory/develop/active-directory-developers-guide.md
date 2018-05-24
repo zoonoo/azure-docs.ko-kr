@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257552"
 ---
 # <a name="azure-active-directory-for-developers"></a>개발자용 Azure Active Directory
 
@@ -55,7 +56,6 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 |[응용 프로그램 등록](active-directory-integrating-applications.md)           | Azure AD에서 응용 프로그램을 등록하는 방법입니다. |
 |[다중 테넌트 응용 프로그램](active-directory-devhowto-multi-tenant-overview.md)    | Microsoft 회사 계정에 로그인하는 방법입니다. |
 |[OAuth 및 OpenID Connect 프로토콜](active-directory-protocols-openid-connect-code.md)| Microsoft 인증 프로토콜을 사용하여 사용자를 로그인하고 웹 API를 호출하는 방법입니다. |
-|[추가 가이드](active-directory-developers-guide-index.md#guides)        |  Azure AD에서 사용할 수 있는 가이드 목록입니다. |
 |  |  |
 
 ## <a name="reference-topics"></a>참조 항목
@@ -66,7 +66,6 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 | [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)   | Azure AD에서 제공하는 라이브러리 및 SDK에 대한 개요입니다. |
 | [코드 샘플](active-directory-code-samples.md)                                  | 모든 Azure AD 코드 샘플의 목록입니다. |
 | [용어](active-directory-dev-glossary.md)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
-| [추가 참조 항목](active-directory-developers-guide-index.md#reference)| Azure AD에서 사용할 수 있는 참조 항목 목록입니다. |
 |  |  |
 
 

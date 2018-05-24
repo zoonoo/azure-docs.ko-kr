@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358662"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Visual Studio Code 확장을 사용하여 Azure Resource Manager 템플릿 만들기
 이 문서에서는 Visual Studio Code에서 Azure Resource Manager 도구 확장을 설치하고 사용하는 이점을 설명합니다. 확장하지 않고 VS Code에서 Resource Manager 템플릿을 만들 수 있지만 확장은 템플릿을 개발을 간소화하는 자동 완성 옵션을 제공합니다. 템플릿에서 사용할 수 있는 템플릿 함수, 매개 변수 및 변수를 제공합니다.

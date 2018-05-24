@@ -6,7 +6,7 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 35cb4be5c1ee24bba8026cbe66d2316753f9ed32
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ac7fda78f456a233c8dba90a6a50e19774991df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203655"
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>역할 기반 Access Control을 사용하여 Azure 구독 리소스에 대한 액세스 관리
 > [!div class="op_single_selector"]
@@ -35,7 +36,7 @@ Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액
 1. 왼쪽 탐색 모음에서 **리소스 그룹** 을 선택합니다.  
     ![리소스 그룹 - 아이콘](./media/role-assignments-portal/resourcegroups_icon.png)
 2. **리소스 그룹** 블레이드에서 리소스 그룹의 이름을 선택합니다.
-3. 왼쪽 메뉴에서 **액세스 제어(IAM)**를 선택합니다.  
+3. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.  
 4. 액세스 제어 블레이드에 리소스 그룹에 대한 액세스가 부여된 모든 사용자, 그룹 및 응용 프로그램이 나열됩니다.  
    
     ![사용자 블레이드 - 상속된 및 할당된 액세스 스크린샷](./media/role-assignments-portal/view-access.png)

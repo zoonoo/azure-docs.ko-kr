@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161332"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI 예: 작업 만들기 및 제출
 

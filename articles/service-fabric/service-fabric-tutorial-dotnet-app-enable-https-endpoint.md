@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a07e3ed3363ad968156aab2233073406d05b7dba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364610"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>자습서: ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 이 자습서는 시리즈의 3부입니다.  Service Fabric에서 실행되는 ASP.NET Core 서비스에서 HTTPS를 사용하는 방법을 알아봅니다. 완료되면 포트 443에서 수신 대기하는 HTTPS 사용 ASP.NET Core 웹 프런트 엔드를 사용하는 투표 응용 프로그램이 생성됩니다. [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램의 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)할 수 있습니다.
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/03/2018
 - [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>인증서를 받거나 자체 서명된 개발 인증서 만들기
-디지털 인증서가 필요합니다.  프로덕션 응용 프로그램의 경우 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다. 개발 및 테스트 목적으로 자체 서명된 인증서를 만들어 사용할 수 있습니다. Service Fabric SDK는 *CertSetup.ps1* 스크립트를 제공하며, 자체 서명된 인증서를 만들어 `Cert:\LocalMachine\My` 인증서 저장소로 가져옵니다. 관리자 권한으로 명령 프롬프트를 열고 "CN=localhost"라는 주체를 사용하여 인증서를 만들려면 다음 명령을 실행합니다.
+프로덕션 응용 프로그램의 경우 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다. 개발 및 테스트 목적으로 자체 서명된 인증서를 만들어 사용할 수 있습니다. Service Fabric SDK는 *CertSetup.ps1* 스크립트를 제공하며, 자체 서명된 인증서를 만들어 `Cert:\LocalMachine\My` 인증서 저장소로 가져옵니다. 관리자 권한으로 명령 프롬프트를 열고 "CN=localhost"라는 주체를 사용하여 인증서를 만들려면 다음 명령을 실행합니다.
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost

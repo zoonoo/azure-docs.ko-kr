@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305000"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 응용 프로그램 개요
 

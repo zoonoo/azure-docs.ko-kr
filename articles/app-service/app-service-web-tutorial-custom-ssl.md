@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bb981bcfb391362bad80aabf5808fd085e937232
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193457"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -303,6 +304,6 @@ New-AzureRmWebAppSSLBinding `
 다음 자습서로 이동하여 Azure Content Delivery Network를 사용하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure App Service에 CDN(Content Delivery Network) 추가](../cdn/app-service-web-tutorial-content-delivery-network.md)
+> [Azure App Service에 CDN(Content Delivery Network) 추가](../cdn/cdn-add-to-web-app.md)
 
 자세한 내용은 [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)을 참조하세요.

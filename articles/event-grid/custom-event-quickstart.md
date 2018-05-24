@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301804"
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 

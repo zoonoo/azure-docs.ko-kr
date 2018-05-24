@@ -3,8 +3,8 @@ title: CLI 예제 SQL 탄력적 풀 크기 조정 - Azure SQL Database | Microso
 description: Azure SQL Database에서 SQL 탄력적 풀의 크기를 조정하는 Azure CLI 예제 스크립트
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: 783ab5c983f82de820440b926103ce15f8c1fec8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: 704cfae5be9e23d359f93452e6f45a87deb0f69f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365919"
 ---
 # <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>CLI를 사용하여 Azure SQL Database에서 SQL 탄력적 풀의 크기 조정
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 30ed7eb736b2012a0e9ed4c10d4bfd1aff35faac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9530b07b68ca1fafe605fa69a4d692cb382acac2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365562"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -42,8 +43,8 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
    Ubuntu
    ```bash
-   sudo apt-get install npm
-   sudo apt install nodejs-legacy
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+   sudo apt-get install -y nodejs 
    ```
 
    Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)

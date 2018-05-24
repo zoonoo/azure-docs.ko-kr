@@ -1,9 +1,9 @@
 ---
-title: "Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 | Microsoft Docs"
-description: "Data Lake Tools for Visual Studio를 설치하고 사용하여 Azure HDInsight에서 Hadoop 클러스터에 연결하고 Hive 쿼리를 실행하는 방법을 알아봅니다."
-keywords: "Hadoop 도구, Hive 쿼리, Visual Studio, Visual Studio Hadoop Hive"
+title: Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 | Microsoft Docs
+description: Data Lake Tools for Visual Studio를 설치하고 사용하여 Azure HDInsight에서 Hadoop 클러스터에 연결하고 Hive 쿼리를 실행하는 방법을 알아봅니다.
+keywords: Hadoop 도구, Hive 쿼리, Visual Studio, Visual Studio Hadoop Hive
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: afd40d75bb9c5fd3170a4da215925244994d7749
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1707a681315fbb53f21df95664188463968bb855
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202478"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Hive 쿼리 실행
 
@@ -174,7 +175,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 4. (선택 사항) 스크립트 구문 오류를 확인하려면 **스크립트 유효성 검사**를 선택합니다.
    
     ![Data Lake Tools for Visual Studio - 로컬 유효성 검사의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png "스크립트 유효성 검사")
-5. **제출** 또는 **제출(고급)**을 선택합니다. 고급 제출 옵션을 선택하는 경우 스크립트에 대한 **작업 이름**, **인수**, **추가 구성** 및 **상태 디렉터리**를 구성합니다.
+5. **제출** 또는 **제출(고급)** 을 선택합니다. 고급 제출 옵션을 선택하는 경우 스크립트에 대한 **작업 이름**, **인수**, **추가 구성** 및 **상태 디렉터리**를 구성합니다.
    
     ![HDInsight Hadoop Hive 쿼리의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "쿼리 제출")
    

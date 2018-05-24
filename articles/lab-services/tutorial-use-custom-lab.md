@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ce4522673bac56f73944413d102b7cb36cf93f30
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361841"
 ---
 # <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>자습서: Azure DevTest Labs에서 사용자 지정 랩에 액세스
 이 자습서에서는 [ 자습서: 사용자 지정 랩 만들기](tutorial-create-custom-lab.md)에서 만들어진 사용자 지정 랩을 사용합니다.

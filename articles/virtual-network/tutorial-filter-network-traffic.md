@@ -17,11 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 63dfa89af64e500e8ed0292ab282150636e57ab3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 165bd6770109348bd19ebb4fa1735bedf83004b1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261320"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>자습서: PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -146,14 +147,19 @@ $virtualNetwork = Get-AzureRmVirtualNetwork `
 ```
 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 각 VM에 대한 공용 IP 주소를 만듭니다.
 
+```powershell-interactive
 $publicIpWeb = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
-  -Location eastus ` -Name myVmWeb
+  -AllocationMethod Dynamic `
+  -ResourceGroupName myResourceGroup `
+  -Location eastus `
+  -Name myVmWeb
 
 $publicIpMgmt = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
-  -Location eastus ` -Name myVmMgmt
-
+  -AllocationMethod Dynamic `
+  -ResourceGroupName myResourceGroup `
+  -Location eastus `
+  -Name myVmMgmt
+```
 
 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 통해 두 네트워크 인터페이스를 만들고 공용 IP 주소를 네트워크 인터페이스에 할당합니다. 다음 예제에서는 네트워크 인터페이스를 만들어 *myVmWeb* 공용 IP 주소를 연결하고, *myAsgWebServers* 응용 프로그램 보안 그룹의 멤버로 지정합니다.
 

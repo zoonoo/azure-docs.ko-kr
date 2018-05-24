@@ -3,8 +3,8 @@ title: PowerShell 예제 - 활성 지역 복제 - 단일 Azure SQL Database | Mi
 description: 단일 Azure SQL 데이터베이스에 대한 활성 지역 복제를 설정하고 장애 조치(failover)하는 Azure PowerShell 예제 스크립트.
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: 24d95d8d0c22ca295abfd5a21ac88c6953e67719
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: dbf7d4903917b6e04d6152fdbeb81fb10a46e09e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362832"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>PowerShell을 사용하여 단일 Azure SQL Database에 대한 활성 지역 복제 구성
 
