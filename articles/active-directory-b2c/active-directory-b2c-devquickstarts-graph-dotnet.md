@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140034"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -29,16 +30,16 @@ B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 �
 * 대화형인 한 번 실행 작업의 경우 태스크를 수행할 때 B2C 테넌트에서 관리자 계정으로 작동해야 합니다. 이 모드에서는 관리자가 Graph API에 대한 호출을 수행할 수 있기 전에 해당 관리자가 자격 증명으로 로그인해야 합니다.
 * 자동화된 연속 작업의 경우 필요한 권한을 제공하는 일종의 서비스 계정을 사용하여 관리 작업을 수행해야 합니다. Azure AD에서 응용 프로그램을 등록하고 Azure AD에 인증하여 이 작업을 수행할 수 있습니다. **OAuth 2.0 클라이언트 자격 증명 부여** 를 사용하는 [응용 프로그램 ID](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)를 사용하여 수행합니다. 이 경우에 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
 
-이 기사에서는 자동화된 사용 사례를 수행하는 방법을 설명합니다. 이를 보여주려면 사용자 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행하는 .NET 4.5 `B2CGraphClient`을 작성합니다. 클라이언트에는 다양한 메서드를 호출할 수 있도록 하는 Windows CLI(명령줄 인터페이스)가 있습니다. 그러나 코드를 비대화형이고 자동화된 방식으로 동작하도록 기록합니다.
+이 문서에서는 자동화된 사용 사례를 수행하는 방법을 알아봅니다. 사용자 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행하는 .NET 4.5 `B2CGraphClient`을 작성합니다. 클라이언트에는 다양한 메서드를 호출할 수 있도록 하는 Windows CLI(명령줄 인터페이스)가 있습니다. 그러나 코드를 비대화형이고 자동화된 방식으로 동작하도록 기록합니다.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트 가져오기
-응용 프로그램 또는 사용자를 만들거나 Azure AD와 상호 작용하려면 Azure AD B2C 테넌트 및 해당 테넌트의 전역 관리자 계정이 있어야 합니다. 테넌트가 없는 경우 [Azure AD B2C를 시작](active-directory-b2c-get-started.md)합니다.
+응용 프로그램 또는 사용자를 만들기 전에 Azure AD B2C 테넌트가 필요합니다. 테넌트가 없는 경우 [Azure AD B2C를 시작](active-directory-b2c-get-started.md)합니다.
 
 ## <a name="register-your-application-in-your-tenant"></a>테넌트에서 응용 프로그램 등록
-B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 통해 응용 프로그램을 등록해야 합니다.
+B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 사용하여 응용 프로그램을 등록해야 합니다.
 
 > [!IMPORTANT]
-> B2C 테넌트에서 Graph API를 사용하려면 Azure AD B2C *응용 프로그램* 메뉴가 **아닌** Azure Portal의 제네릭 *앱 등록* 메뉴를 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure AD B2C의 *응용 프로그램* 메뉴에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
+> B2C 테넌트에서 Graph API를 사용하려면 Azure AD B2C의 *응용 프로그램* 메뉴가 **아닌** Azure Portal의 *앱 등록* 서비스를 사용하여 응용 프로그램을 등록해야 합니다. 다음 지침은 적절한 메뉴를 안내합니다. Azure AD B2C의 *응용 프로그램* 메뉴에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 오른쪽 위 모서리에서 계정을 선택하여 Azure AD B2C 테넌트를 선택합니다.
@@ -47,7 +48,8 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
     1. 응용 프로그램 형식에 **Web App/API**를 입력합니다.    
     2. 이 예제와 관련이 없는 **로그온 URL**(예: https://B2CGraphAPI))을 입력합니다.  
 5. 이제 응용 프로그램은 응용 프로그램의 목록을 표시합니다. 이를 클릭하여 **응용 프로그램 ID**(클라이언트 ID라고도 함)를 가져옵니다. 이후 섹션에서 필요하므로 복사합니다.
-6. 설정 메뉴에서 **키**를 클릭하고 새 키(클라이언트 암호라고도 함)를 추가합니다. 또한 뒤에 나오는 섹션에서 사용하기 위해 복사합니다.
+6. 설정 메뉴에서 **키**를 클릭합니다.
+7. **암호** 섹션에서 키 설명을 입력하고 기간을 선택한 다음, **저장**을 클릭합니다. 이후 섹션에서 사용하기 위해 키 값(클라이언트 비밀이라고도 함)을 복사합니다.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>응용 프로그램에 대한 만들기, 읽기 및 업데이트 사용 권한 구성
 이제 사용자를 만들기, 읽기, 업데이트 및 삭제하는 데 필요한 모든 권한을 가져오도록 응용 프로그램을 구성해야 합니다.

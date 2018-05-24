@@ -2,24 +2,20 @@
 title: Azure AD 셀프 서비스 암호 재설정 개요 | Microsoft Docs
 description: Azure AD 셀프 서비스 암호 재설정으로 조직에서 어떤 작업을 수행할 수 있나요?
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866671"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정
 
@@ -32,6 +28,8 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 사�
    * 검증된 보조 메일 계정으로 메일 보내기.
    * 본인 확인 질문에 답변하기.
 * **셀프 서비스 계정 잠금 해제**: 사용자가 암호를 사용하여 로그인할 수 없고 계정이 차단되었을 때 관리자 개입 없이 인증 방법을 사용하여 계정의 잠금을 해제하려는 경우 사용합니다.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>Azure AD SSPR을 선택해야 하는 이유
 
@@ -50,7 +48,7 @@ Azure AD SSPR은 사용 중인 구독에 따라 다음과 같이 세 가지 등�
 
 * **Azure AD Free**: 클라우드 전용 관리자가 암호를 스스로 재설정할 수 있습니다.
 * **Azure AD Basic** 또는 **유료 Office 365 구독**: 클라우드 전용 사용자가 암호를 스스로 재설정할 수 있습니다.
-* **Azure AD Premium**: 클라우드 전용, 페더레이션, 암호 동기화 사용자를 비롯한 모든 사용자와 관리자가 암호를 스스로 재설정할 수 있습니다. 온-프레미스 암호는 비밀번호 쓰기 저장을 사용하도록 설정해야 합니다.
+* **Azure AD Premium**: 클라우드 전용, 페더레이션, 통과 인증 또는 암호 해시 동기화 사용자를 비롯한 모든 사용자와 관리자가 암호를 스스로 재설정할 수 있습니다. 온-프레미스 암호는 비밀번호 쓰기 저장을 사용하도록 설정해야 합니다.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Azure AD 가격 책정, SLA, 업데이트 및 로드맵
 

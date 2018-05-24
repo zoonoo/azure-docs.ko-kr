@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 설치 마법사 다시 실행 | Microsoft Docs"
-description: "두 번째로 실행하는 설치 마법사 작동 방법을 설명합니다."
-keywords: "Azure AD Connect 설치 마법사를 사용하면 두 번째로 실행하는 유지 관리 설정을 구성합니다."
+title: Azure AD Connect 설치 마법사 다시 실행 | Microsoft Docs
+description: 두 번째로 실행하는 설치 마법사 작동 방법을 설명합니다.
+keywords: Azure AD Connect 설치 마법사를 사용하면 두 번째로 실행하는 유지 관리 설정을 구성합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 56cc38275a23eb4529558b876db619768a885a25
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150518"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 동기화: 두 번째로 설치 마법사 실행
 처음으로 Azure AD Connect 설치 마법사를 실행하는 경우 설치를 구성하는 방법을 안내합니다. 설치 마법사를 다시 실행하는 경우 유지 관리에 대한 옵션을 제공합니다.
@@ -79,7 +80,7 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 ![준비 모드의 현재 상태도 표시하는 옵션](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>사용자 로그인 변경
-이 옵션을 사용하면 암호 동기화에서 페더레이션에 또는 그 반대로 변경할 수 있습니다. **구성하지 않음**으로 변경할 수 없습니다.
+이 옵션을 사용하면 암호 해시 동기화, 통과 인증 또는 페더레이션 간 사용자 로그인 방법을 변경할 수 있습니다. **구성하지 않음**으로 변경할 수 없습니다.
 
 이 옵션에 대한 자세한 내용은 [사용자 로그인](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method)을 참조하세요.
 

@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 424186a0acfe17cd7cb96f3ba7f8201e8b2b38ec
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200351"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: 기본 제공 정책
 
@@ -81,6 +82,10 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 ## <a name="create-a-password-reset-policy"></a>암호 재설정 정책 만들기
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
+
+## <a name="preview-policies"></a>미리 보기 정책
+
+새 기능을 릴리스할 때 일부 기능은 기존 정책에 사용할 수 없습니다.  이러한 정책이 GA에 돌입하면 기존 버전을 같은 종류의 최신 버전으로 교체할 계획입니다.  기존 정책은 변경되지 않으며, 새 기능을 사용하려면 새 정책을 만들어야 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

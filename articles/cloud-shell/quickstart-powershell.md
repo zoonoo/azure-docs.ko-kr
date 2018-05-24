@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3e59395b7066169b8a7863f45a446051b830a71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159275"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작(미리 보기)
 
@@ -94,7 +95,7 @@ Azure 리소스를 보려면 `AllResources` 디렉터리 아래에 `dir`을 입�
 
 ### <a name="explore-resource-groups"></a>리소스 그룹 탐색
 
- `ResourceGroups` 디렉터리로 가서 특정 리소스 그룹 안에서 가상 컴퓨터를 찾을 수 있습니다.
+ ph x="1" /> 디렉터리로 가서 특정 리소스 그룹 안에서 가상 컴퓨터를 찾을 수 있습니다.
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
@@ -162,7 +163,7 @@ Mode  Name
 
 ### <a name="interact-with-virtual-machines"></a>가상 머신과 상호 작용
 
-`VirtualMachines` 디렉터리를 통해 현재 구독에서 모든 가상 머신을 찾을 수 있습니다.
+ph x="1" /> 디렉터리를 통해 현재 구독에서 모든 가상 머신을 찾을 수 있습니다.
     
 ``` PowerShell
 PS Azure:\MySubscriptionName\VirtualMachines> dir
@@ -274,13 +275,13 @@ SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>사용자 지정 프로필을 사용하여 GIT 및 SSH 설정 유지
 
-로그아웃 시 세션이 유지되지 않으므로 `$env:USERPROFILE\.ssh` 디렉터리를 `CloudDrive`에 저장하거나 Cloud Shell을 시작할 때 symlink를 만듭니다.
-profile.ps1에 다음 코드 조각을 추가하여 CloudDrive에 대한 symlink를 만듭니다.
+로그아웃 시 세션이 유지되지 않으므로 `$env:USERPROFILE\.ssh` 디렉터리를 `clouddrive`에 저장하거나 Cloud Shell을 시작할 때 symlink를 만듭니다.
+다음 코드 조각을 profile.ps1에 추가하여 `clouddrive`에 symlink를 만듭니다.
 
 ``` PowerShell
 # Check if the .ssh directory exists
-if( -not (Test-Path $home\CloudDrive\.ssh)){
-    mkdir $home\CloudDrive\.ssh
+if( -not (Test-Path $home\clouddrive\.ssh)){
+    mkdir $home\clouddrive\.ssh
 }
 
 # .ssh path relative to this script
@@ -347,21 +348,21 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-files-to-store-your-data"></a>Azure Files를 사용하여 데이터 저장
 
-예를 들어 `helloworld.ps1`이란 스크립트를 만들어 `CloudDrive`에 저장하고 셸 세션 전반에 걸쳐 사용할 수 있습니다.
+예를 들어 `helloworld.ps1`이란 스크립트를 만들어 `clouddrive`에 저장하고 셸 세션 전반에 걸쳐 사용할 수 있습니다.
 
 ``` PowerShell
-cd C:\users\ContainerAdministrator\CloudDrive
-PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
+cd C:\users\ContainerAdministrator\clouddrive
+PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
+PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
 Hello World!
 ```
 
-다음에 Azure Cloud Shell의 PowerShell을 사용할 때 `helloworld.ps1` 파일은 Azure Files 공유를 탑재한 `CloudDrive` 디렉터리에 존재할 것입니다.
+다음에 Azure Cloud Shell의 PowerShell을 사용할 때 `helloworld.ps1` 파일은 Azure Files 공유를 탑재한 `clouddrive` 디렉터리에 존재할 것입니다.
 
 ## <a name="use-custom-profile"></a>사용자 지정 프로필 사용
 
-PowerShell 프로필 `profile.ps1` 또는 `Microsoft.PowerShell_profile.ps1`를 만들어 PowerShell 환경을 사용자 지정할 수 있습니다. 그것을 `CloudDrive`에 저장하여 Cloud Shell을 시작할 때 모든 PowerShell 세션에 로드될 수 있게 합니다.
+PowerShell 프로필 `profile.ps1` 또는 `Microsoft.PowerShell_profile.ps1`를 만들어 PowerShell 환경을 사용자 지정할 수 있습니다. 그것을 `clouddrive`에 저장하여 Cloud Shell을 시작할 때 모든 PowerShell 세션에 로드될 수 있게 합니다.
 
 프로필을 만드는 방법에 대해서는 [프로필 소개][profile]를 참조합니다.
 
@@ -373,7 +374,7 @@ Cloud Shell에서 Git 리포지토리를 복제하려면 [개인용 액세스 �
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-로그아웃하거나 세션 시간이 초과될 때 Cloud Shell에서 세션이 유지되지 않기 때문에, Git config 파일은 다음 로그온 시 존재하지 않습니다. Git config를 유지하려면 gitconfig를 `CloudDrive`에 저장하고 Cloud Shell이 시작될 때 symlink를 복사하거나 만들어야 합니다. 다음 코드 조각을 profile.ps1에 사용하여 `CloudDrive`에 symlink를 만듭니다.
+로그아웃하거나 세션 시간이 초과될 때 Cloud Shell에서 세션이 유지되지 않기 때문에, Git config 파일은 다음 로그온 시 존재하지 않습니다. Git config를 유지하려면 gitconfig를 `clouddrive`에 저장하고 Cloud Shell이 시작될 때 symlink를 복사하거나 만들어야 합니다. 다음 코드 조각을 profile.ps1에 사용하여 `clouddrive`에 symlink를 만듭니다.
 
  ``` PowerShell
  

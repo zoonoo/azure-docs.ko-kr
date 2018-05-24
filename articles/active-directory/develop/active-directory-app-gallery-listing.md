@@ -1,25 +1,27 @@
 ---
 title: Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열 | Microsoft Docs
-description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 응용 프로그램을 나열하는 방법
+description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 응용 프로그램을 나열하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
-ms.author: bryanla
+ms.date: 05/09/2018
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354455"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 
@@ -49,9 +51,27 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열하려면 먼저 Azure AD
 
 *   **OpenID Connect**: Azure AD에서 다중 테넌트 응용 프로그램을 만들고 응용 프로그램에 [Azure AD 승인 프레임워크](active-directory-integrating-applications.md#overview-of-the-consent-framework)를 구현합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 공통 끝점에 로그인 요청을 보냅니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다. 응용 프로그램과 Azure AD를 통합하려면 [개발자 지침](active-directory-authentication-scenarios.md)을 수행합니다.
 
+    ![갤러리에 OpenID Connect 응용 프로그램을 나열하는 타임라인](./media/active-directory-app-gallery-listing/openid.png)
+
+    * OpenID Connect를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **OpenID Connect 및 OAuth 2.0**을 선택합니다.
+
+    * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
+
 *   **SAML 2.0** 또는 **WS-Fed**: SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 응용 프로그램에 있어야 합니다. 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 응용 프로그램을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
 
-*   **암호 SSO**: HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 SSO(Single Sign-On)](../active-directory-appssoaccess-whatis.md)를 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 응용 프로그램에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
+    ![갤러리에 SAML 2.0 또는 WS-Fed 응용 프로그램을 나열하는 타임라인](./media/active-directory-app-gallery-listing/saml.png)
+
+    * **SAML 2.0** 또는 **WS-Fed**를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **SAMl 2.0/WS-Fed**를 선택합니다.
+
+    * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
+
+*   **암호 SSO**: HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 SSO(Single Sign-On)](../manage-apps/what-is-single-sign-on.md)를 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 응용 프로그램에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
+
+    ![갤러리에 암호 SSO 응용 프로그램을 나열하는 타임라인](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * 암호 SSO를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **암호 SSO**를 선택합니다.
+
+    * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
 
 ##  <a name="updateremove-existing-listing"></a>기존 목록 업데이트/제거
 
@@ -60,7 +80,7 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 또는 �
 * 아래 이미지에서 적절한 옵션 선택
 
     ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * 기존 응용 프로그램을 업데이트하려는 경우 **기존 응용 프로그램 목록 업데이트**를 선택합니다.
 
     * Azure AD 갤러리에서 기존 응용 프로그램을 제거하려는 경우 **기존 응용 프로그램 목록 제거**를 선택합니다.
@@ -86,6 +106,10 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 또는 �
 갤러리에서 OpenID Connect 응용 프로그램을 나열하는 프로세스의 타임라인은 영업일을 기준으로 2~5일입니다.
 
    ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/active-directory-app-gallery-listing/timeline2.png)
+
+사용자 프로비저닝 지원을 통해 갤러리에 응용 프로그램을 나열하는 프로세스에 대한 타임라인은 40-45 영업일입니다.
+
+   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>에스컬레이션
 

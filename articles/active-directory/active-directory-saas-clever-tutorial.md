@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>자습서: Clever와 Azure Active Directory 통합
 
@@ -110,10 +111,10 @@ Clever에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://clever.com/in/<companyname>`
 
-    나. **식별자** 텍스트 상자에서 `https://clever.com/<companyname>` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에 URL `https://clever.com/oauth/saml/metadata.xml`을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Clever 클라이언트 지원팀](https://clever.com/about/contact/)에 문의하세요.
+    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 문의하세요.
 
 4. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
     
@@ -129,7 +130,8 @@ Clever에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     
     | 특성 이름  | 특성 값 |
     | --------------- | -------------------- |
-    | clever.student.credentials.district\_username  | user.userprincipalname |
+    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.student.credentials.district_username| user.userprincipalname |
     | firstname  | user.givenname |
     | Lastname  | user.surname |
 
@@ -157,19 +159,22 @@ Clever에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![인스턴트 로그인](./media/active-directory-saas-clever-tutorial/ic798984.png "인스턴트 로그인")
 
+    > [!NOTE]
+    > Single Sign-On을 테스트하려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 연락하여 백 엔드에서 Office 365 SSO를 활성화해야 합니다.
+
 10. **인스턴트 로그인** 페이지에서 다음 단계를 수행합니다.
-      
+    
       ![인스턴트 로그인](./media/active-directory-saas-clever-tutorial/ic798985.png "인스턴트 로그인")
-      
+    
       a. **로그인 URL**을 입력합니다.
-      
+    
       >[!NOTE]
       >**로그인 URL** 은 사용자 지정 값입니다. 이 값을 얻으려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 문의하세요.
-      
+    
       나. **ID 시스템**으로 **ADFS**를 선택합니다.
 
       다. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
-      
+    
       d. **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기

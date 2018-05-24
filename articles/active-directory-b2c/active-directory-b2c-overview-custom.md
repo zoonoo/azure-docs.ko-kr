@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32138920"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책
 
@@ -64,7 +65,7 @@ Azure AD B2C는 시퀀스에서 ID 공급자, 사용자, 다른 시스템 및 �
 
 ### <a name="identity-experience-framework"></a>ID 경험 프레임워크
 
-OpenIDConnect, OAuth, SAML, WSFed 및 일부 비표준 형식(예: REST API 기반 시스템 간 클레임 교환)과 같은 표준 프로토콜 형식인 엔터티(광범위하게 클레임 공급자) 간의 신뢰를 조정하는 완전히 구성 가능한 정책 기반이며 클라우드 기반인 Azure 플랫폼입니다. I2E는 HTML, CSS 및 JavaScript를 지원하는 사용자에게 친숙한 white labelled 환경을 만듭니다.  현재 ID 경험 프레임워크는 Azure AD B2C 서비스의 컨텍스트에서만 사용할 수 있으며 CIAM과 관련된 작업에 우선적으로 적용됩니다.
+OpenIDConnect, OAuth, SAML, WSFed 및 일부 비표준 형식(예: REST API 기반 시스템 간 클레임 교환)과 같은 표준 프로토콜 형식인 엔터티(광범위하게 클레임 공급자) 간의 신뢰를 조정하는 완전히 구성 가능한 정책 기반이며 클라우드 기반인 Azure 플랫폼입니다. I2E는 HTML, CSS 및 JavaScript를 지원하는 사용자에게 친숙한 white labeled 환경을 만듭니다.  현재 ID 경험 프레임워크는 Azure AD B2C 서비스의 컨텍스트에서만 사용할 수 있으며 CIAM과 관련된 작업에 우선적으로 적용됩니다.
 
 ### <a name="built-in-policies"></a>기본 제공 정책
 

@@ -2,29 +2,24 @@
 title: 라이선스 셀프 서비스 암호 재설정 - Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정 라이선스 요구 사항
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: cebfc1dcaca562d26eb9e85d9b8bf0fa14e5edc9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33864667"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
-Azure Active Directory(Azure AD) 암호 재설정이 올바르게 작동하기 위해서는 *조직에서 최소 하나의 라이선스가 할당되어 있어야 합니다*. 암호 재설정 환경에는 사용자당 라이선스가 적용되지 않습니다. Microsoft 라이선스 규약을 준수하려면 프리미엄 기능을 사용하는 모든 사용자에게 라이선스를 할당해야 합니다.
+Azure Active Directory(Azure AD) 암호 재설정이 올바르게 작동하기 위해서는 *조직에서 최소 하나의 라이선스가 할당되어 있어야 합니다*. 암호 재설정 환경에는 사용자당 라이선스가 적용되지 않습니다. 사용자가 해당 라이선스가 적용되는 모든 기능을 직간접적으로 활용하려면 적절한 라이선스가 필요합니다.
 
 * **클라우드 전용 사용자**: Office 365 유료 SKU 또는 Azure AD Basic
 * **클라우드** 또는 **온-프레미스 사용자**: Azure AD Premium P1 또는 P2, Enterprise Mobility + Security(EMS) 또는 Microsoft 365
@@ -37,8 +32,9 @@ Azure Active Directory(Azure AD) 암호 재설정이 올바르게 작동하기 �
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365(요금제 E3)
-* Microsoft 365(요금제 E5)
+* Microsoft 365 E3
+* Microsoft 365 E5
+* Microsoft 365 F1
 
 > [!WARNING]
 > 독립 실행형 Office 365 라이선스 요금제는 *비밀번호 쓰기 저장을 지원하지 않습니다*. 비밀번호 쓰기 저장을 사용하려면 위의 요금제 중 하나가 필요합니다.

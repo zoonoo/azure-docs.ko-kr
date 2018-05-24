@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178348"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -161,7 +162,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
 - **type** 속성이 **SqlServerStoredProcedure**로 설정되어 있어야 합니다. 
 - type 속성의 **storedProcedureName**은 **sp_sample**(저장 프로시저의 이름)로 설정되어 있어야 합니다.
-- **storedProcedureParameters** 섹션에는 **DataTime** 매개 변수 하나가 있어야 합니다. JSON에서 이 매개 변수의 이름 및 대/소문자는 저장 프로시저 정의에 있는 매개 변수의 이름 및 대/소문자와 일치해야 합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: `"param1": null`(모두 소문자)을 사용합니다.
+- **storedProcedureParameters** 섹션에는 **DateTime** 매개 변수 하나가 있어야 합니다. JSON에서 이 매개 변수의 이름 및 대/소문자는 저장 프로시저 정의에 있는 매개 변수의 이름 및 대/소문자와 일치해야 합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: `"param1": null`(모두 소문자)을 사용합니다.
  
 1. 도구 모음에서 **... 추가**를 클릭하고 **새 파이프라인**을 클릭합니다.
 2. 다음 JSON 코드 조각을 복사하여 붙여넣습니다.   
@@ -316,7 +317,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 | inputs | 선택 사항입니다. 입력 데이터 집합을 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니오 |
 | outputs | 저장 프로시저 작업에 대한 출력 데이터 집합을 지정해야 합니다. 출력 데이터 집합은 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 집합은 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. <br/><br/>출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 집합은 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 집합**일 수 있습니다. |예 |
 | storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL Database, Azure SQL Data Warehouse 또는 SQL Server Database의 저장 프로시저 이름을 지정합니다. |예 |
-| storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
+| storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니오 |
 
 ## <a name="passing-a-static-value"></a>정적 값 전달
 'Document sample'라는 정적 값이 포함된 테이블에 'Scenario'라는 다른 열을 추가해보겠습니다.

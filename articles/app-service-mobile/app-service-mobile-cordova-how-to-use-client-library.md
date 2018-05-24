@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법"
-description: "Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법"
+title: Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법
+description: Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: f166d2e533dc49ca7779b45f3dec57a53c22fc40
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152589"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -105,7 +106,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
              "https://localhost:3000"
          ],
 
-    URL을 서비스의 URL로 바꿉니다.  예를 들면 " http://localhost:3000 "(Node.js 샘플 서비스) 또는 " http://localhost:4400 "(Ripple 서비스)이 있습니다.  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
+    URL을 서비스의 URL로 바꿉니다.  예를 들면 " http://localhost:3000"(Node.js 샘플 서비스) 또는 "http://localhost:4400"(Ripple 서비스)이 있습니다.  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
 8. 화면 오른쪽 위에 있는 **읽기/쓰기** 단추를 클릭합니다.
 9. 녹색 **배치** 단추를 클릭합니다.
 
@@ -180,4 +181,4 @@ Notification Hubs SDK를 사용하여 서버에서 푸시 알림을 보냅니다
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

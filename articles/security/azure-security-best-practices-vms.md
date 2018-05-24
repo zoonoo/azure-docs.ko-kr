@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160549"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
@@ -55,7 +56,7 @@ VM 액세스를 제어하는 데 리소스 관리자 정책 및 RBAC를 사용�
 
 - [Virtual Machine 참여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM을 관리할 수 있으나 해당 컴퓨터가 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없습니다.
 - [클래식 Virtual Machine 참여자](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): 클래식 배포 모델을 사용하여 만든 VM을 관리할 수 있으나 VM이 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없습니다.
-- [보안 관리자](../role-based-access-control/built-in-roles.md#security-manager): 보안 구성 요소, 보안 정책 및 VM을 관리할 수 있습니다.
+- [보안 관리자](../role-based-access-control/built-in-roles.md#security-admin): 보안 구성 요소 및 보안 정책을 관리할 수 있습니다.
 - [DevTest 실습 사용자](../role-based-access-control/built-in-roles.md#devtest-labs-user): 모든 항목을 볼 수 있으며 VM을 연결, 시작, 다시 시작 및 종료할 수 있습니다.
 
 관리자 간 계정 및 암호를 공유하거나, 여러 사용자 계정 또는 서비스, 특히 소셜 미디어 또는 기타 비 관리 작업에 암호를 다시 사용하지 마세요. 이상적으로는, VM을 안전하게 설정하기 위해 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 템플릿을 사용해야 합니다. 이 접근 방식을 사용하면 배포 선택을 강화하고 배포 전체에서 보안 설정을 적용할 수 있습니다.

@@ -1,24 +1,25 @@
 ---
-title: "가격 책정 및 대금 청구 - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps의 가격 책정 및 대금 청구 방식 알아보기"
-author: kevinlam1
-manager: anneta
-editor: 
+title: 가격 책정 및 대금 청구 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps의 가격 책정 및 대금 청구 방식 알아보기
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166287"
 ---
 # <a name="logic-apps-pricing-model"></a>Logic Apps 가격 책정 모델
 
@@ -57,7 +58,7 @@ Azure Logic Apps를 사용하여 클라우드에 자동화된 확장 가능한 �
 
 ## <a name="integration-account-usage"></a>통합 계정 사용량
 
-소비 기반 사용량에는 추가 비용 없이 Logic Apps의 [B2B/EDI](logic-apps-enterprise-integration-b2b.md) 및 [XML 처리](logic-apps-enterprise-integration-xml.md) 기능을 탐색, 개발 및 테스트할 수 있는 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)이 포함됩니다. 지역당 이러한 통합 계정 중 하나를 가질 수 있고 최대 10개의 계약과 25개의 맵을 저장할 수 있습니다. 파트너, 스키마 및 인증서를 무제한 가질 수 있고 업로드할 수 있습니다.
+소비 기반 사용량에는 추가 비용 없이 Logic Apps의 [B2B/EDI](logic-apps-enterprise-integration-b2b.md) 및 [XML 처리](logic-apps-enterprise-integration-xml.md) 기능을 탐색, 개발 및 테스트할 수 있는 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)이 포함됩니다. 지역마다 하나의 통합 계정이 있으며, EDI 거래 업체 및 규약, 맵, 스키마, 어셈블리, 인증서 및 일괄 처리 구성과 같은 [아티팩트의 특정 수](../logic-apps/logic-apps-limits-and-config.md)까지 저장할 수 있습니다.
 
 또한 Logic Apps에는 지원되는 Logic Apps SLA와 함께 기본 및 표준 통합 계정이 제공됩니다. 메시지 처리만 사용하려는 경우 또는 대규모 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 수행하려는 경우에는 기본 통합 계정을 사용할 수 있습니다. 표준 통합 계정은 더 복잡한 B2B 관계를 지원하며 관리할 수 있는 엔터티의 수를 늘립니다. 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
 

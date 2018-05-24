@@ -1,6 +1,6 @@
 ---
-title: "자습서: Adobe Sign과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Adobe Sign 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Adobe Sign과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Adobe Sign 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140379"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>자습서: Adobe Sign과 Azure Active Directory 통합
 
@@ -57,7 +58,7 @@ Adobe Sign의 Azure AD 통합을 구성하려면 갤러리의 Adobe Sign을 관�
 
 **갤러리에서 Adobe Sign을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -86,11 +87,11 @@ Adobe Sign에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 
 
 Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 3. **[Adobe Sign 테스트 사용자 만들기](#creating-an-adobe-sign-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Adobe Sign에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -100,69 +101,60 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. Azure Portal의 **Adobe Sign** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. **Adobe Sign 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.echosign.com/`
 
-    b. **식별자** 텍스트 상자에서 `https://<companyname>.echosign.com` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에서 `https://<companyname>.echosign.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Adobe Sign 클라이언트 지원팀](https://helpx.adobe.com/in/contact/support.html)에 문의하세요. 
  
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
 
 5. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_400.png)
 
 6. **Adobe Sign 구성** 섹션에서 **Adobe Sign 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
-
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
 7. 다른 웹 브라우저 창에서 Adobe Sign 회사 사이트에 관리자로 로그인합니다.
 
-8. 위쪽의 메뉴에서 **계정**을 클릭한 다음 왼쪽의 탐색 창에서 **계정 설정**의 **SAML 설정**을 클릭합니다.
+8. SAML 메뉴에서 **계정 설정**을 클릭한 다음, **SAML 설정**을 클릭합니다.
    
-   ![계정](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "계정")
+    ![계정](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "계정")
 
-9. SAML 설정 섹션에서 다음 단계를 수행합니다.
+9. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
+  
+    ![SAML 설정](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML 설정")
    
-   ![SAML 설정](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML 설정")
+    a. **SAML 모드**로 **SAML 필수**를 선택합니다.
    
-   a. **SAML 모드**로 **SAML 필수**를 선택합니다.
+    나. **Adobe 서명 계정 관리자가 Adobe 서명 자격 증명을 사용하여 로그인할 수 있게 허용**을 선택합니다.
    
-   b. **EchoSign 계정 관리자가 EchoSign 자격 증명을 사용하여 로그인할 수 있게 허용**을 선택합니다.
-   
-   c. **사용자 만들기**로 **SAML을 통해 인증된 사용자를 자동으로 추가**를 선택합니다.
+    다. **사용자 만들기**로 **SAML을 통해 인증된 사용자를 자동으로 추가**를 선택합니다.
 
-10. 다음 단계를 수행하기 위해 이동합니다.
-
-       ![SAML 설정](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML 설정")
-
-    a. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **IdP 엔터티 ID** 텍스트 상자에 붙여 넣습니다.
+    d. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **엔터티 ID/발급자 URL** 텍스트 상자에 붙여넣습니다.
     
-    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **IdP 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+    e. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **로그인 URL/SSO 엔드포인트** 텍스트 상자에 붙여넣습니다.
    
-    c. Azure Portal에서 복사한 **로그아웃 URL**을 **IdP 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+    f. Azure Portal에서 복사한 **로그아웃 URL**을 **로그아웃 URL/SLO 엔드포인트** 텍스트 상자에 붙여넣습니다.
 
-    d. 다운로드된 **인증서(Base64)** 파일을 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **IdP 인증서** 텍스트 상자에 붙여 넣습니다.
+    g. 다운로드된 **인증서(Base64)** 파일을 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **IdP 인증서** 텍스트 상자에 붙여 넣습니다.
 
-    e. **변경 내용 저장**을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+    h. **변경 내용 저장**을 클릭합니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -189,9 +181,9 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -208,15 +200,15 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 
 2. 위쪽의 메뉴에서 **계정**을 클릭한 다음 왼쪽의 탐색 창에서 **사용자 및 그룹**과 **새 사용자 만들기**를 차례로 클릭합니다.
    
-   ![계정](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "계정")
+    ![계정](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "계정")
    
 3. **새 사용자 만들기** 섹션에서 다음 단계를 수행합니다.
    
-   ![사용자 만들기](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "사용자 만들기")
+    ![사용자 만들기](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "사용자 만들기")
    
-   a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **전자 메일 주소**, **이름** 및 **성**을 입력합니다.
+    a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **전자 메일 주소**, **이름** 및 **성**을 입력합니다.
    
-   b. **사용자 만들기**를 클릭합니다.
+    나. **사용자 만들기**를 클릭합니다.
 
 >[!NOTE]
 >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다. 
@@ -235,7 +227,7 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 
 2. 응용 프로그램 목록에서 **Adobe Sign**을 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_app.png) 
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -259,7 +251,7 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

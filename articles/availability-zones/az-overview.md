@@ -1,6 +1,6 @@
 ---
-title: Azure 가용성 영역 개요 | Microsoft Docs
-description: 이 문서에서는 Azure에서 가용성 영역을 사용하여 가용성과 복원력이 높은 응용 프로그램을 만드는 방법 개요 제공
+title: Azure 가용성 영역이란? | Microsoft Docs
+description: Azure에서 가용성과 복원력이 높은 응용 프로그램을 만들려면 가용성 영역에서 리소스를 실행하는 데 사용할 수 있는 별도의 실제 위치를 제공합니다.
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: na
 ms.date: 03/21/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a4133779538e412a19a11de678b1527fb8023a87
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164724"
 ---
-# <a name="overview-of-availability-zones-in-azure"></a>Azure의 가용성 영역 개요
+# <a name="what-are-availability-zones-in-azure"></a>Azure에서 가용성 영역이란?
 가용성 영역은 데이터 센터 오류에서 응용 프로그램 및 데이터를 보호하는 고가용성 기능입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 응용 프로그램 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 단일 지점 오류에서 보호하기 위해 가용성 영역에서 응용 프로그램 및 데이터를 복제합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 영역 내에서 계산, 저장소, 네트워킹 및 데이터 리소스를 공동 배치하고 다른 영역에 복제하여 응용 프로그램 아키텍처에 고가용성을 빌드하십시오. 가용성 영역을 지원하는 Azure 서비스는 다음의 두 범주로 나뉩니다.

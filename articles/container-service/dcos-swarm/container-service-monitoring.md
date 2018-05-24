@@ -1,26 +1,27 @@
 ---
-title: "Azure DC/OS 클러스터 모니터링 - Datadog"
-description: "Datadog를 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다. DC/OS 웹 UI를 사용하여 Datadog 에이전트를 클러스터에 배포합니다."
+title: Azure DC/OS 클러스터 모니터링 - Datadog
+description: Datadog를 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다. DC/OS 웹 UI를 사용하여 Datadog 에이전트를 클러스터에 배포합니다.
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b895ef906a8c8f3f8cc21267d80f8b59b64837f4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 029f36e4362704fcec240f6e88da5c96e903c317
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162758"
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Datadog을 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다.
 
 이 문서에서는 Azure 컨테이너 서비스 클러스터의 모든 노드에 Datadog 에이전트를 배포하는 방법을 설명합니다. 이러한 구성을 위해서는 Datadog 계정이 필요합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-Azure Container Service를 통해 구성된 클러스터를 [배포](container-service-deployment.md) 및 [연결](../container-service-connect.md)합니다. [Marathon UI](container-service-mesos-marathon-ui.md)를 탐색합니다. [http://datadoghq.com](http://datadoghq.com) 로 이동하여 Datadog 계정을 설정합니다. 
+Azure Container Service를 통해 구성된 클러스터를 [배포](container-service-deployment.md) 및 [연결](../container-service-connect.md)합니다. [Marathon UI](container-service-mesos-marathon-ui.md)를 탐색합니다. [http://datadoghq.com](http://datadoghq.com)으로 이동하여 Datadog 계정을 설정합니다. 
 
 ## <a name="datadog"></a>Datadog
 Datadog은 Azure 컨테이너 서비스 클러스터 내의 컨테이너에서 모니터링 데이터를 수집하는 모니터링 서비스입니다. Datadog에는 컨테이너 내에서 특정 메트릭을 볼 수 있는 Docker 통합 대시보드가 있습니다. 컨테이너에서 수집된 메트릭은 CPU, 메모리, 네트워크 및 I/O로 구성됩니다. Datadog은 메트릭을 컨테이너와 이미지로 분할합니다. CPU 사용량에 대한 UI 모양의 예는 아래에 나와 있습니다.

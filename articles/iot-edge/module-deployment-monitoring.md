@@ -1,19 +1,20 @@
 ---
-title: "Azure IoT Edge 모듈 배포 | Microsoft Docs"
-description: "모듈을 Edge 장치에 배포하는 방법을 알아봅니다."
+title: Azure IoT Edge 모듈 배포 | Microsoft Docs
+description: 모듈을 Edge 장치에 배포하는 방법을 알아봅니다.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166338"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>단일 장치 또는 대규모 IoT Edge 배포에 대한 이해 - 미리 보기
 
@@ -59,7 +60,7 @@ Azure IoT Edge는 IoT Edge 장치에서 실행되도록 모듈을 구성하는 �
 
 대상 조건은 요구 사항을 충족하는 새 장치를 포함하거나 더 이상 배포 수명 주기에서 요구 사항을 충족하지 않는 장치를 제거하기 위해 지속적으로 평가됩니다. 서비스에서 대상 조건 변경이 검색되면 배포가 다시 활성화됩니다. 예를 들어 배포 A의 대상 조건이 tags.environment = 'prod'인 경우 다시 활성화됩니다. 배포를 시작하면 10개의 프로덕션 장치가 있습니다. 이 10개 장치에 모듈이 성공적으로 설치됩니다. IoT Edge 에이전트 상태는 총 10개 장치, 성공한 응답 10개, 실패한 응답 0개, 보류 중인 응답 0개로 표시됩니다. 이제 tags.environment = 'prod'인 장치 5개를 추가합니다. 새 장치 5개에 배포하려고 시도하면 서비스에서 변경을 감지하고 IoT Edge 에이전트 상태는 총 15개 장치, 성공한 응답 10개, 실패한 응답 0개. 보류 중인 응답 5개가 됩니다.
 
-장치 쌍 태그 또는 deviceId에 부울 조건을 사용하여 대상 장치를 선택합니다. 조건을 태그와 함께 사용하려면 속성과 동일한 수준에서 장치 쌍에 "tags":{} 섹션을 추가해야 합니다. [장치 쌍의 태그에 대해 자세히 알아보기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+장치 쌍 태그 또는 deviceId에 부울 조건을 사용하여 대상 장치를 선택합니다. 태그가 있는 조건을 사용하려면 속성과 동일한 수준의 장치 쌍에 "tags":{} 섹션을 추가해야 합니다. [장치 쌍의 태그에 대해 자세히 알아보기](../iot-hub/iot-hub-devguide-device-twins.md)
 
 대상 조건 예:
 * deviceId ='linuxprod1'

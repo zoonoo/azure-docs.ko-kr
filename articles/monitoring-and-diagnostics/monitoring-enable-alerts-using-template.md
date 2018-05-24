@@ -1,9 +1,9 @@
 ---
-title: "Resource Manager 템플릿을 사용하여 메트릭 경고 만들기 | Microsoft Docs"
-description: "Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 메트릭 경고를 만드는 방법을 알아봅니다."
+title: Resource Manager 템플릿을 사용하여 Azure에서 클래식 메트릭 경고 만들기 | Microsoft Docs
+description: Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 클래식 메트릭 경고를 만드는 방법을 알아봅니다.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
@@ -12,16 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/21/2017
+ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177302"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
+# <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
+
+> [!NOTE]
+> 
+> 이 문서에서는 Resource Manager 템플릿을 사용하여 **클래식 메트릭 경고** 만들기를 설명합니다. 템플릿을 사용하여 [최신 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 만들려는 경우 [이 문서](monitoring-create-metric-alerts-with-templates.md)는 세부 정보를 제공합니다.
+>
+
 
 기본적인 단계는 다음과 같습니다.
 
@@ -30,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 아래에서는 먼저 경고만을 위한 Resource Manager 템플릿을 만들고 이후 다른 리소스를 만드는 동안 경고에 대한 템플릿을 만드는 방법을 설명합니다.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>메트릭 경고를 위한 Resource Manager 템플릿 
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>클래식 메트릭 경고에 대한 Resource Manager 템플릿
 Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Insights/alertRules` 형식의 리소스를 만들어 관련 속성을 기입합니다. 다음은 경고 규칙을 만드는 템플릿입니다.
 
 ```json
@@ -180,8 +187,8 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 
 경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>경고가 있는 리소스에 대한 Resource Manager 템플릿
-Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경고를 만들 때 가장 유용합니다. 예를 들어 가상 컴퓨터를 배포할 때마다 "CPU > 80%" 규칙을 설정할 수 있습니다. 이를 위해 VM 템플릿의 리소스 배열에 리소스로 경고 규칙을 추가하고 `dependsOn` 속성을 사용하여 VM 리소스 ID에 종속성을 추가합니다. Windows VM을 만들고 CPU 사용률이 80%를 넘었을 때 구독 관리자에게 알리는 경고를 추가하는 전체 예제는 다음과 같습니다.
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>클래식 메트릭 경고가 있는 리소스에 대한 Resource Manager 템플릿
+Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경고를 만들 때 가장 유용합니다. 예를 들어 Virtual Machine을 배포할 때마다 "CPU &gt; 80%" 규칙을 설정할 수 있습니다. 이를 위해 VM 템플릿의 리소스 배열에 리소스로 경고 규칙을 추가하고 `dependsOn` 속성을 사용하여 VM 리소스 ID에 종속성을 추가합니다. Windows VM을 만들고 CPU 사용률이 80%를 넘었을 때 구독 관리자에게 알리는 경고를 추가하는 전체 예제는 다음과 같습니다.
 
 ```json
 {

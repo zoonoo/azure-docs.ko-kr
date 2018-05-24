@@ -1,20 +1,21 @@
 ---
-title: Azure Analysis Services에 연결 | Microsoft Docs
+title: Azure Analysis Services 서버에 연결 | Microsoft Docs
 description: Azure의 Analysis Services 서버에서 데이터에 연결하고 가져오는 방법에 대해 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8493ff1e2b9be48fc8eec1e727684fe09f6af72c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 53a8a1eea5ffa50fcdaf4a60c9bbd03d30d8e311
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151317"
 ---
-# <a name="connect-to-an-azure-analysis-services-server"></a>Azure Analysis Services 서버에 연결
+# <a name="connecting-to-servers"></a>서버에 연결
 
 이 문서에서는 SSMS(SQL Server Management Studio) 또는 SSDT(SQL Server 데이터 도구)와 같은 데이터 모델링 및 관리 응용 프로그램을 사용하여 서버에 연결하는 방법에 대해 설명합니다. 또는 Microsoft Excel, Power BI Desktop 또는 사용자 지정 응용 프로그램과 같은 클라이언트 보고 응용 프로그램을 사용합니다. Azure Analysis Services에 연결에서 HTTPS를 사용합니다.
 

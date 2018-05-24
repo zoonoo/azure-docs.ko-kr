@@ -1,19 +1,20 @@
 ---
-title: "Azure DC/OS 클러스터에서 IMAGE WORKS를 사용하여 카나리아 릴리스"
-description: "Vamp를 사용하여 Azure Container Service DC/OS 클러스터에서 서비스를 카나리아 릴리스하고 스마트 트래픽 필터링을 적용하는 방법"
+title: Azure DC/OS 클러스터에서 IMAGE WORKS를 사용하여 카나리아 릴리스
+description: Vamp를 사용하여 Azure Container Service DC/OS 클러스터에서 서비스를 카나리아 릴리스하고 스마트 트래픽 필터링을 적용하는 방법
 services: container-service
 author: gggina
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e23b316311ff88d1587da8d5ef777b91bfe0a2e9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177804"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로 서비스 카나리아 릴리스
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="set-up-vamp"></a>Vamp 설치
 
-DC/OS 클러스터가 실행 중이니, DC/OS UI( http://localhost:80 )에서 Vamp를 설치할 수 있습니다. 
+DC/OS 클러스터가 실행 중이니, DC/OS UI(http://localhost:80))에서 Vamp를 설치할 수 있습니다. 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -90,7 +91,7 @@ Vamp는 메트릭 수집 및 집계에 사용할 Elasticsearch가 필요합니�
   ```
   
 
-3. **배포**를 클릭합니다.
+3. **배포**을 참조하십시오.
 
   DC/OS가 Elasticsearch 컨테이너를 배포합니다. **서비스** 페이지에서 진행률을 추적할 수 있습니다.  
 
@@ -151,7 +152,7 @@ Vamp가 실행 중이니, 청사진의 서비스를 배포합니다.
               webport: 8080/http # cluster endpoint, used for canary releasing
   ```
 
-4. **Save**를 클릭합니다. Vamp가 배포를 시작합니다.
+4. **저장**을 클릭합니다. Vamp가 배포를 시작합니다.
 
 배포가 **배포** 페이지에 나열됩니다. 배포를 클릭하여 상태를 모니터링합니다.
 
@@ -212,7 +213,7 @@ Azure Portal을 사용하여 이러한 작업을 완료하는 자세한 단계�
               webport: 8080/http # cluster endpoint to update
   ```
   
-3. **Save**를 클릭합니다. 청사진이 저장되고 **청사진** 페이지에 나열됩니다.
+3. **저장**을 클릭합니다. 청사진이 저장되고 **청사진** 페이지에 나열됩니다.
 
 4. sava:1.1 청사진에서 동작 메뉴를 열고 **병합**을 클릭합니다.
 

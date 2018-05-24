@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34347502"
 ---
 # <a name="what-is-the-access-panel"></a>액세스 패널이란?
 
@@ -50,9 +51,7 @@ ms.lasthandoff: 03/08/2018
 
 로그인 페이지에서 사용자 지정 브랜딩을 구성한 경우 조직의 도메인을 URL에 추가하여(예: `http://myapps.microsoft.com/<your domain>.com`) 브랜딩을 로드할 수 있습니다.
 
-다음과 같은 Azure Portal에 구성되어 있는 활성 또는 확인된 도메인 이름을 사용할 수 있습니다.
-
-![Wingtip Toys 도메인 이름][2]  
+다음과 같이 Azure Portal에 구성되어 있는 활성 또는 확인된 도메인 이름을 사용할 수 있습니다. ![Wingtip Toys 도메인 이름][2]  
 
 Azure AD와 통합된 응용 프로그램에 로그인하는 모든 사용자에게 URL을 배포합니다.
 
@@ -62,7 +61,7 @@ Azure AD와 통합된 응용 프로그램에 로그인하는 모든 사용자에
 
 Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 365 응용 프로그램을 사용하고 있으면, 다시 로그인하지 않고 응용 프로그램의 목록을 볼 수 있습니다. 인증되지 않은 경우 Azure AD의 계정에 대한 사용자 이름과 암호를 사용하여 로그인하라는 메시지가 표시됩니다. 조직에서 페더레이션을 구성한 경우 사용자 이름만 입력하면 됩니다.
 
-인증되면 관리자에 의해 디렉터리와 통합된 응용 프로그램과 상호 작용할 수 있습니다. 응용 프로그램을 Azure AD와 통합하는 방법을 보려면 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
+인증되면 관리자에 의해 디렉터리와 통합된 응용 프로그램과 상호 작용할 수 있습니다. 응용 프로그램을 Azure AD와 통합하는 방법을 보려면 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="web-browser-requirements"></a>웹 브라우저 요구 사항
 
@@ -75,7 +74,7 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 - **Edge**: Windows 10 Anniversary Edition 이상 
 - **Chrome**: Windows 7 이상 및 MacOS X 이상
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
-- **Internet Explorer 8, 9, 10, 11**: Windows 7 이상(제한적 지원)
+- **Internet Explorer 11**: Windows 7 이상(제한적 지원)
 
 ## <a name="my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장
 암호 기반 Single Sign-On에 로그인하려면 확장을 반드시 사용해야 합니다. 확장이 설치된 후에는 확장에 로그인하고 **시작하려면 로그인하세요**를 선택하여 추가 기능을 사용하도록 설정할 수 있습니다. 
@@ -83,10 +82,15 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 - 앱의 **로그온 URL**을 사용하면 앱에 바로 로그인할 수 있습니다. 앱의 URL을 사용하면 확장에서 작업을 검색하여 확장을 통해 로그인할 수 있는 옵션을 제공합니다.
 - 확장의 *빠른 검색* 기능을 사용하면 액세스 패널에서 어떤 앱이든 시작할 수 있습니다. 
 - 확장의 **최근에 사용됨** 섹션에는 최근에 시작한 세 가지 응용 프로그램이 표시됩니다.
+- 회사 내부 URL은 [응용 프로그램 프록시](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)를 통해 원격으로 사용할 수 있습니다.
 
 > [!NOTE]
 > 추가 기능은 Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
 >
+다음 사이트에서 확장을 직접 다운로드할 수 있습니다.
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 `https://myapps.microsoft.com` 이외의 My Apps URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
 1. 확장에 로그인되지 *않은* 상태에서 확장 아이콘을 마우스 오른쪽 단추로 클릭합니다.
@@ -94,6 +98,12 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 3. 기본 URL을 선택합니다.
 4. 확장 아이콘을 선택합니다.
 5. **시작하려면 로그인하세요**를 선택합니다.
+
+원격으로 확장을 사용하여 회사 내부 URL을 사용하려면 다음을 수행합니다.
+1. 테넌트에 [응용 프로그램 프록시를 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable)합니다.
+2. 응용 프로그램 프록시를 통해 [응용 프로그램 및 URL을 게시](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal)합니다.
+3. 확장을 설치하고, 시작하려면 로그인을 선택하여 확장에 로그인합니다.
+4. 이제는 내부 회사 URL을 원격으로도 검색할 수 있습니다.
 
 ## <a name="mobile-app-support"></a>모바일 앱 지원
 
@@ -206,7 +216,7 @@ Office 365 응용 프로그램에 대한 응용 프로그램 타일을 선택하
  
 - SaaS 앱을 Azure AD와 통합하는 방법을 알아보려면 [SaaS 앱을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)을 참조하세요.
  
-- Azure AD를 사용하여 앱 관리에 대한 자세한 내용은 [Azure Active Directory로 SSO(Single Sign-On) 및 앱 액세스 관리 소개](active-directory-appssoaccess-whatis.md)를 참조하세요.
+- Azure AD를 사용하여 앱 관리에 대한 자세한 내용은 [Azure Active Directory로 SSO(Single Sign-On) 및 앱 액세스 관리 소개](manage-apps/what-is-single-sign-on.md)를 참조하세요.
  
 - 사용자 프로비저닝에 대한 자세한 내용은 [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)를 참조하세요.
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157145"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -37,7 +38,7 @@ Azure Application Insights는 코드 수준까지 웹 응용 프로그램의 심
 
    ![Visual Studio 파일, 새 프로젝트 메뉴 스크린샷](./media/app-insights-asp-net-core/0001-file-new-project.png)
 
-3. **Visual C#**을 확장하고 **.NET Core** > **ASP.NET Core 웹 응용 프로그램**을 선택합니다. **이름** > **솔루션 이름**을 입력하고 **새 Git 리포지토리 만들기**를 선택합니다.
+3. **Visual C#** 을 확장하고 **.NET Core** > **ASP.NET Core 웹 응용 프로그램**을 선택합니다. **이름** > **솔루션 이름**을 입력하고 **새 Git 리포지토리 만들기**를 선택합니다.
 
    ![Visual Studio 파일, 새 프로젝트 마법사 스크린샷](./media/app-insights-asp-net-core/0002-new-project-web-application.png)
 
@@ -47,7 +48,7 @@ Azure Application Insights는 코드 수준까지 웹 응용 프로그램의 심
 
 ## <a name="add-application-insights-telemetry"></a>Application Insights 원격 분석 추가
 
-1. **프로젝트** > **Application Insights 원격 분석 추가...**를 선택합니다. (또는 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 연결된 서비스 추가를 클릭합니다.)
+1. **프로젝트** > **Application Insights 원격 분석 추가...** 를 선택합니다. (또는 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 연결된 서비스 추가를 클릭합니다.)
 
     ![Visual Studio 파일, 새 프로젝트 선택 메뉴 스크린샷](./media/app-insights-asp-net-core/0004-add-application-insights-telemetry.png)
 
@@ -193,7 +194,7 @@ Visual Studio에서 **프로젝트** > **NuGet 패키지 관리** > **Microsoft.
 
 Application Insights 제품 그룹은 [전체 .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)와 .Net Core SDK 간의 기능 격차를 최대한 줄이기 위해 최선을 다하고 있습니다. Application Insights용 [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) 2.2.0 릴리스는 이러한 기능 간격을 많이 좁혔습니다.
 
-[.NET과 .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server) 간의 차이점과 균형 요인에 대해 알아보세요.
+[.NET과 .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) 간의 차이점과 균형 요인에 대해 알아보세요.
 
    | SDK 비교 | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +204,7 @@ Application Insights 제품 그룹은 [전체 .NET Framework SDK](https://github
    | **SQL 종속성 호출**     | **+** |**-** | **+**|
    | **성능 카운터*** | **+** | **-**| **-**|
 
-이 컨텍스트의 _성능 카운터_는 프로세서, 메모리 및 디스크 사용률과 같은 [서버 쪽 성능 카운터](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters)를 나타냅니다.
+이 컨텍스트의 _성능 카운터_는 프로세서, 메모리 및 디스크 사용률과 같은 [서버 쪽 성능 카운터](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters)를 나타냅니다.
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 [코드를 읽고 참여하기](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

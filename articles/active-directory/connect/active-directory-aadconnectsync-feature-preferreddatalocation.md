@@ -1,32 +1,28 @@
 ---
-title: "Azure Active Directory Connect 동기화: Office 365에서 다중 지역 기능에 대한 기본 데이터 위치 구성 | Microsoft Docs"
-description: "Azure Active Directory Connect 동기화를 사용하여 Office 365 사용자 리소스를 사용자에게 가깝게 배치하는 방법을 설명합니다."
+title: 'Azure Active Directory Connect 동기화: Office 365에서 다중 지역 기능에 대한 기본 데이터 위치 구성 | Microsoft Docs'
+description: Azure Active Directory Connect 동기화를 사용하여 Office 365 사용자 리소스를 사용자에게 가깝게 배치하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157410"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
-이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)*과 *Geo(지역)*라는 용어는 서로 바꿔 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> 다중 지역은 현재 미리 보기로 제공되고 있습니다. 미리 보기 프로그램에 가입하려면 Microsoft 담당자에게 문의하세요.
->
->
+이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>기본 데이터 위치의 동기화 사용
 기본적으로 사용자를 위한 Office 365 리소스는 Azure AD 테넌트와 같은 지역에 있습니다. 예를 들어 테넌트가 북아메리카에 있는 경우 사용자의 Exchange 사서함도 북아메리카에 있습니다. 다국적 조직의 경우 이 상황은 최적이 아닐 수 있습니다.
@@ -34,7 +30,7 @@ ms.lasthandoff: 03/02/2018
 **preferredDataLocation** 특성을 설정하여 사용자의 지역을 정의할 수 있습니다. 사서함 및 OneDrive와 같은 사용자의 Office 365 리소스를 사용자와 동일한 지역에 두고, 전체 조직에 대해 하나의 테넌트만 유지할 수 있습니다.
 
 > [!IMPORTANT]
-> 다중 지역을 사용할 자격을 얻으려면 Office 365 구독에 5,000명 이상의 사용자를 보유해야 합니다.
+> 다중 지역은 현재 최소 5,000 Office 365 서비스 구독으로 고객에게 제공됩니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
 >
 >
 
@@ -50,12 +46,12 @@ Office 365의 모든 지역 목록은 [데이터 위치](https://aka.ms/datamaps
 | 유럽 연합 | EUR |
 | 인도 | IND |
 | 일본 | JPN |
-| 대한민국 | KOR |
+| 한국 | KOR |
 | 영국 | GBR |
 | 미국 | NAM |
 
 * 지역이 이 표에 없는 경우(예: 남아메리카) 다중 지역에 사용할 수 없습니다.
-* 인도 및 대한민국 지역은 청구 주소와 해당 지역에서 구입한 라이선스가 있는 고객만 사용할 수 있습니다.
+* 인도 지역은 청구 주소와 이 지역에서 구입한 라이선스가 있는 고객만 사용할 수 있습니다.
 * 일부 Office 365 워크로드는 사용자의 지역 설정 사용을 지원하지 않습니다.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원

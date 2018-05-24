@@ -1,25 +1,27 @@
 ---
-title: "Azure AD Cordova 시작 | Microsoft 문서"
-description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Cordova 응용 프로그램을 빌드하는 방법."
+title: Azure AD Cordova 시작 | Microsoft Docs
+description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Cordova 응용 프로그램을 빌드하는 방법.
 services: active-directory
-documentationcenter: 
-author: vibronet
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156734"
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +35,7 @@ Cordova 플러그 인은 iOS, Android, Windows 스토어 및 Windows Phone에서
 이 자습서에서는 ADAL(Active Directory 인증 라이브러리)에 대한 Apache Cordova 플러그 인을 사용하고 다음 기능을 추가하여 간단한 앱을 개선해봅니다.
 
 * 단 몇 줄의 코드로, 사용자를 인증하고 토큰을 가져옵니다.
-* 해당 토큰을 사용하여 해당 디렉터리를 쿼리하고 결과를 표시하는 Graph API를 호출합니다.  
+* 해당 토큰을 사용하여 해당 디렉터리를 쿼리하고 결과를 표시하는 Graph API를 호출합니다. 
 * 사용자에 대한 인증 프롬프트를 최소화하기 위해 ADAL 토큰 캐시를 사용합니다.
 
 이러한 기능 개선을 위해서는 다음을 수행해야 합니다.
@@ -47,7 +49,7 @@ Cordova 플러그 인은 iOS, Android, Windows 스토어 및 Windows Phone에서
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 앱 개발 권한이 있는 계정이 있는 Azure AD 테넌트
-* Apache Cordova를 사용하도록 구성된 개발 환경.  
+* Apache Cordova를 사용하도록 구성된 개발 환경. 
 
 위의 두 항목을 모두 설정한 경우 1단계를 바로 진행합니다.
 
@@ -98,8 +100,8 @@ Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. �
 
 `DirSearchClient Sample`을 실행하려면 새로 만든 앱에 Azure AD Graph API를 쿼리하는 권한을 부여합니다.
 
-1. **설정** 페이지에서 **필요한 사용 권한**, **추가**를 차례로 선택합니다.  
-2. Azure Active Directory 응용 프로그램의 경우 API로 **Microsoft Graph**를 선택하고 **위임된 권한**에서 **로그인한 사용자로 디렉터리 액세스** 권한을 추가합니다.  이렇게 하면 응용 프로그램은 Graph API에서 사용자를 쿼리할 수 있습니다.
+1. **설정** 페이지에서 **필요한 사용 권한**, **추가**를 차례로 선택합니다. 
+2. Azure Active Directory 응용 프로그램의 경우 API로 **Microsoft Graph**를 선택하고 **위임된 권한**에서 **로그인한 사용자로 디렉터리 액세스** 권한을 추가합니다. 이렇게 하면 응용 프로그램은 Graph API에서 사용자를 쿼리할 수 있습니다.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>2단계: 샘플 앱 리포지토리 복제
 셸 또는 명령줄에서 다음 명령을 입력합니다.

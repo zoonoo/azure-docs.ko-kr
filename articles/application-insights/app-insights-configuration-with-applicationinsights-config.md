@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158564"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 응용 프로그램에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
@@ -30,7 +31,7 @@ Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [
 이 문서는 구성 파일에서 참조하는 섹션, SDK의 구성 요소를 제어하는 방법 및 해당 구성 요소를 로드하는 NuGet 패키지를 설명합니다.
 
 > [!NOTE]
-> ApplicationInsights.config 및 .xml 지침은 .NET Core SDK에 적용되지 않습니다. .NET Core 응용 프로그램에 대한 변경의 경우 일반적으로 appsettings.json 파일을 사용합니다. 이 예제는 [스냅숏 디버거 설명서](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)에서 찾을 수 있습니다.
+> ApplicationInsights.config 및 .xml 지침은 .NET Core SDK에 적용되지 않습니다. .NET Core 응용 프로그램에 대한 변경의 경우 일반적으로 appsettings.json 파일을 사용합니다. 이 예제는 [스냅숏 디버거 설명서](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)에서 찾을 수 있습니다.
 
 ## <a name="telemetry-modules-aspnet"></a>원격 분석 모듈(ASP.NET)
 각 원격 분석 모듈은 특정 형식의 데이터를 수집하고 코어 API를 사용하여 데이터를 전송합니다. 모듈은 다른 NuGet 패키지에 의해 설치되며 이는 .config 파일에 필요한 줄을 추가합니다.
@@ -294,7 +295,7 @@ public interface IApplicationIdProvider
 
 이 클래스에는 선택적 속성 `ProfileQueryEndpoint`가 있습니다.
 기본적으로 `https://dc.services.visualstudio.com/api/profiles/{0}/appId`로 설정되어 있습니다.
-이 구성에 대한 프록시를 구성해야 하는 경우 기준 주소를 프록시하고 “/api/profiles/{0}/appId”를 포함하는 것이 좋습니다. 해당 ‘{0}’는 요청에 따라 런타임에 계측 키로 대체 됩니다.
+이 구성에 대한 프록시를 구성해야 하는 경우 기준 주소를 프록시하고 "/api/profiles/{0}/appId"를 포함하는 것이 좋습니다. 해당 '{0}'는 요청에 따라 런타임에 계측 키로 대체됩니다.
 
 #### <a name="example-configuration-via-applicationinsightsconfig"></a>ApplicationInsights.config를 통해 구성 예제:
 ```xml

@@ -1,6 +1,6 @@
 ---
-title: MFA에 대한 보안 모범 사례 | Microsoft Docs
-description: 이 문서에서는 Azure 계정으로 Azure MFA를 사용하는 모범 사례를 제공합니다.
+title: MFA에 대한 보안 지침 | Microsoft Docs
+description: 이 문서에서는 Azure 계정으로 Azure MFA를 사용하는 지침을 제공합니다.
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -15,19 +15,20 @@ ms.date: 06/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 0fd90c4e59fa64c24ecfa6d7d8f23e025210e078
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 50e6cd3c067e09ebf9ace442894d5d066141e0b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152301"
 ---
-# <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 모범 사례
+# <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 지침
 
 인증 프로세스를 향상시키려는 대부분의 조직은 2단계 인증을 기본으로 선택합니다. Azure MFA(Multi-Factor Authentication)를 사용하면 회사에서 자체의 보안 및 준수 요구사항을 충족하면서도 사용자에게 단순한 로그인 경험을 제공할 수 있습니다. 이 문서에서는 Azure MFA를 채택하기 위한 계획을 할 때 고려해야 할 몇 가지 팁을 설명합니다.
 
 ## <a name="deploy-azure-mfa-in-the-cloud"></a>클라우드에서 Azure MFA 배포
 
-모든 사용자에 대해 Azure MFA를 사용하도록 설정하는 방법에는 두 가지가 있습니다.
+[모든 사용자에 대해 Azure MFA를 사용하도록 설정](howto-mfa-getstarted.md)하는 방법에는 두 가지가 있습니다.
 
 * 각 사용자에 대해 라이선스 구입(Azure MFA, Azure AD Premium 또는 Enterprise Mobility + Security)
 * Multi-Factor Auth 공급자 및 사용자 기준 또는 인증 기준 요금제 만들기
@@ -46,12 +47,12 @@ Multi-factor Authentication을 설정할 때 고려해야 할 사항은 다음�
 ### <a name="multi-factor-auth-provider"></a>Multi-Factor Auth 공급자
 ![Multi-Factor Auth 공급자](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
-Azure MFA를 포함하는 라이선스가 없는 경우 MFA Auth 공급자를 만들 수 있습니다. 
+Azure MFA를 포함하는 라이선스가 없는 경우 [MFA Auth 공급자를 만들](concept-mfa-authprovider.md) 수 있습니다.
 
 Auth 공급자를 만드는 경우 디렉터리를 선택하고 다음 세부 사항을 고려해야 합니다.
 
-* Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않지만 더 많은 기능을 사용할 수 있습니다. Azure AD 디렉터리와 Auth 공급자를 연결하면 다음과 같은 기능을 사용할 수 있게 됩니다.  
-  * 2단계 인증을 모든 사용자에게 확장합니다.  
+* Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않지만 더 많은 기능을 사용할 수 있습니다. Azure AD 디렉터리와 Auth 공급자를 연결하면 다음과 같은 기능을 사용할 수 있게 됩니다.
+  * 2단계 인증을 모든 사용자에게 확장합니다.
   * 관리 포털, 사용자 지정 인사말, 보고서 등의 글로벌 관리자 추가 기능을 제공합니다.
 * 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우 DirSync 또는 AAD Sync가 필요합니다. Active Directory의 온-프레미스 인스턴스와 동기화되지 않은 Azure AD 디렉터리를 사용하는 경우에는 DirSync 또는 AAD 동기화가 필요하지 않습니다.
 * 귀사에 가장 적합한 소비 모델을 선택 니다. 사용 모델을 선택한 후에는 변경할 수 없습니다. 두 모델은 다음과 같습니다.
@@ -65,7 +66,7 @@ Auth 공급자를 만드는 경우 디렉터리를 선택하고 다음 세부 �
 * Azure MFA의 [신뢰할 수 있는 IP 기능](howto-mfa-mfasettings.md#trusted-ips)은 2단계 인증을 최소화하는 방법으로 사용할 수 있습니다. 이 기능을 사용하여 관리되는 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 2단계 인증을 바이패스할 수 있습니다. 기능은 Azure AD Premium, Enterprise Mobility Suite 또는 Azure Multi-Factor Authentication 라이선스가 있는 Azure AD 테넌트에서 사용할 수 있습니다.
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>온-프레미스 배포에 대한 모범 사례
-회사가 자체 인프라를 이용하여 MFA를 사용하도록 결정한 경우 Azure Multi-Factor Authentication 서버 온-프레미스를 배포해야 합니다. MFA 서버 구성 요소는 다음 다이어그램에 나와 있습니다.
+회사가 자체 인프라를 이용하여 MFA를 사용하도록 결정한 경우 [Azure Multi-Factor Authentication 서버 온-프레미스를 배포](howto-mfaserver-deploy.md)해야 합니다. MFA 서버 구성 요소는 다음 다이어그램에 나와 있습니다.
 
 ![기본 MFA 서버 구성 요소: 콘솔, 동기화 엔진, 관리 포털, 클라우드 서비스](./media/multi-factor-authentication-security-best-practices/server.png) \*기본적으로 설치되지 않음\** 설치되지만 기본적으로 사용되지 않도록 설정됨
 
@@ -112,4 +113,3 @@ Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사�
 * [Azure Multi-Factor Authentication에서 보고서](howto-mfa-reporting.md)
 * [2단계 확인 등록 환경](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
-
