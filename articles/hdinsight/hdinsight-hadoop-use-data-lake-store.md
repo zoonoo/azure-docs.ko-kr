@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight에서 Hadoop과 함께 Data Lake Store 사용 | Microsoft Docs"
-description: "Azure Data Lake Store에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다."
-keywords: "Blob Storage, hdfs, 구조화된 데이터, 구조화되지 않은 데이터, Data Lake Store"
+title: Azure HDInsight에서 Hadoop과 함께 Data Lake Store 사용 | Microsoft Docs
+description: Azure Data Lake Store에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다.
+keywords: Blob Storage, hdfs, 구조화된 데이터, 구조화되지 않은 데이터, Data Lake Store
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -14,13 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0d0fb9bad8c6120100ae3ee766aea7620dd6105f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201760"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Store 사용
 
@@ -48,9 +49,9 @@ HDInsight 클러스터는 Data Lake Store를 두 가지 방식으로 사용할 �
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight 버전 3.6 | 예 | 예 | |
 | HDInsight 버전 3.5 | 예 | 예 | HBase 제외|
-| HDInsight 버전 3.4 | 아니요 | 예 | |
-| HDInsight 버전 3.3 | 아니요 | 아니오 | |
-| HDInsight 버전 3.2 | 아니요 | 예 | |
+| HDInsight 버전 3.4 | 아니오 | 예 | |
+| HDInsight 버전 3.3 | 아니오 | 아니오 | |
+| HDInsight 버전 3.2 | 아니오 | 예 | |
 | Storm | | |Data Lake Store를 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. Storm 토폴로지에서 읽을 수 있는 참조 데이터에 Data Lake Store를 사용할 수도 있습니다.|
 
 Data Lake Store를 추가 저장소 계정으로 사용하면 클러스터에서 Azure Storage로 읽거나 쓰는 성능 또는 기능에 영향을 주지 않습니다.
@@ -67,7 +68,7 @@ HDInsight가 Data Lake Store를 기본 저장소로 하여 배포되는 경우 �
 * 클러스터1에 `adl://mydatalakestore/cluster1storage` 경로를 사용할 수 있습니다.
 * 클러스터2에 `adl://mydatalakestore/cluster2storage` 경로를 사용할 수 있습니다.
 
-두 클러스터 모두 동일한 Data Lake Store 계정인 **mydatalakestore**를 사용하는 것에 유의하세요. 각 클러스터는 Data Lake Store의 자체 루트 파일 시스템에 액세스 권한을 갖습니다. 특히 Azure Portal 배포 환경에서는 **/clusters/\<clustername>**과 같은 폴더 이름을 루트 경로로 사용할지 묻는 메시지가 표시됩니다.
+두 클러스터 모두 동일한 Data Lake Store 계정인 **mydatalakestore**를 사용하는 것에 유의하세요. 각 클러스터는 Data Lake Store의 자체 루트 파일 시스템에 액세스 권한을 갖습니다. 특히 Azure Portal 배포 환경에서는 **/clusters/\<clustername>** 과 같은 폴더 이름을 루트 경로로 사용할지 묻는 메시지가 표시됩니다.
 
 Data Lake Store를 기본 저장소로 사용할 수 있으려면 다음 경로에 대한 서비스 주체 액세스 권한을 부여해야 합니다.
 

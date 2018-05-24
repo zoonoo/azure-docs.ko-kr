@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2018
 ms.author: ryanwi
-ms.openlocfilehash: 858e322fd7e516f756aa209be92745efa6cf75f7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212673"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 응용 프로그램 만들기
 
@@ -94,7 +95,7 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
     상태 저장 서비스 템플릿에서 **MyStatefulService.cs**의 `RunAsync` 메서드에서 증분하는 카운터 값을 표시합니다.
 
-3. 코드가 실행되는 노드를 포함하여 자세한 정보를 보려면 이벤트 중 하나를 확장합니다. 이 경우 컴퓨터에서 다를 수 있지만 **\_Node\_0,**입니다.
+3. 코드가 실행되는 노드를 포함하여 자세한 정보를 보려면 이벤트 중 하나를 확장합니다. 이 경우 컴퓨터에서 다를 수 있지만 **\_Node\_0,** 입니다.
    
     ![진단 이벤트 뷰어 세부 정보][6]
 
@@ -112,7 +113,7 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
     [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터에 대한 시각적 표현을 제공합니다. 여기에는 배포된 응용 프로그램 집합 및 이를 구성하는 실제 노드 집합이 포함되어 있습니다.
 
-8. 왼쪽 창에서 **클러스터** > **노드**를 차례로 펼치고, 코드가 실행될 노드를 찾습니다. 그런 다음, 시스템 다시 시작을 시뮬레이션하기 위해 **작업** > **비활성화(다시 시작)**를 차례로 선택합니다.
+8. 왼쪽 창에서 **클러스터** > **노드**를 차례로 펼치고, 코드가 실행될 노드를 찾습니다. 그런 다음, 시스템 다시 시작을 시뮬레이션하기 위해 **작업** > **비활성화(다시 시작)** 를 차례로 선택합니다.
 
     ![서비스 패브릭 탐색기에서 노드 중지][sfx-stop-node]
 

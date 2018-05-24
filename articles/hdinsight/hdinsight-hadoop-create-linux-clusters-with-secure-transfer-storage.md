@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight에서 보안 전송 저장소 계정으로 Hadoop 클러스터 만들기 | Microsoft Docs"
-description: "보안 전송이 활성화된 Azure 저장소 계정을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다."
-keywords: "hadoop 시작,hadoop linux,hadoop 빠른 시작,보안 전송,azure 저장소 계정"
+title: Azure HDInsight에서 보안 전송 저장소 계정으로 Hadoop 클러스터 만들기 | Microsoft Docs
+description: 보안 전송이 활성화된 Azure 저장소 계정을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+keywords: hadoop 시작,hadoop linux,hadoop 빠른 시작,보안 전송,azure 저장소 계정
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 7a2022fd5cd67120b8dc435a950533e07017218c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200523"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 저장소 계정으로 Hadoop 클러스터 만들기
 

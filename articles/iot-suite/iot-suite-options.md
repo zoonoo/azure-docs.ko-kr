@@ -11,15 +11,16 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0d6fc2a49034b2e01a0397fe256a2b44030777b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0d38a41a33632e2c6427b75e365db468940d025d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300971"
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT 옵션 비교
 
-[Azure 및 사물 인터넷](iot-suite-what-is-azure-iot.md) 문서에서는 다음과 같은 계층이 있는 일반적인 IoT 솔루션 아키텍처에 대해 설명하고 있습니다.
+[Azure 및 사물 인터넷](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) 문서에서는 다음과 같은 계층이 있는 일반적인 IoT 솔루션 아키텍처에 대해 설명하고 있습니다.
 
 * 장치 연결 및 관리
 * 데이터 처리 및 분석
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/10/2018
 
 이 아키텍처를 구현하기 위해 Azure IoT는 서로 다른 고객 요구 사항 집합에 적합한 몇 가지 옵션을 제공합니다.
 
-* [Azure IoT 솔루션 가속기](index.md)는 사용자 지정 IoT 솔루션의 개발을 가속화하는 데 사용할 수 있는 Azure PaaS(Platform-as-a-Service)에 구축된 [솔루션 가속기](iot-suite-what-are-solution-accelerators.md)의 엔터프라이즈급 모음입니다.
+* [Azure IoT 솔루션 가속기](index.md)는 사용자 지정 IoT 솔루션의 개발을 가속화하는 데 사용할 수 있는 Azure PaaS(Platform-as-a-Service)에 구축된 [솔루션 가속기](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)의 엔터프라이즈급 모음입니다.
 
 * [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)은 모델 기반 접근 방식을 사용하여 클라우드 솔루션 개발에 대한 전문 지식이 없어도 엔터프라이즈급 IoT 솔루션을 구축할 수 있는 SaaS(Software-as-a-Service) 솔루션입니다.
 
@@ -63,6 +64,6 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 
 선택한 제품 및 접근 방식에 따라 제안되는 단계는 다음과 같습니다.
 
-* **Azure IoT 솔루션 가속기**: [Azure IoT 솔루션 가속기란?](iot-suite-what-are-solution-accelerators.md)
+* **Azure IoT 솔루션 가속기**: [Azure IoT 솔루션 가속기란?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 * **Azure IoT Central**: [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Azure IoT Hub 서비스 개요](../iot-hub/iot-hub-what-is-iot-hub.md)

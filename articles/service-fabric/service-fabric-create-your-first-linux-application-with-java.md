@@ -1,11 +1,11 @@
 ---
-title: "Linux에서 Azure Service Fabric Reliable Actors Java 응용 프로그램 만들기 | Microsoft Docs"
-description: "5분 안에 Java Service Fabric Reliable Actors 응용 프로그램을 만들고 배포하는 방법을 알아봅니다."
+title: Linux에서 Azure Service Fabric Reliable Actors Java 응용 프로그램 만들기 | Microsoft Docs
+description: 5분 안에 Java Service Fabric Reliable Actors 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 01f085a7ec69780fe3558c6892e254ed3a7e2fb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205691"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -232,7 +233,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
 
-3. **노드**에서는 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)**를 선택합니다. 이 작업은 주 서비스 복제본을 실행하는 노드를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다.  해당 보조 복제본이 주 복제본으로 승격되면 다른 노드에서 다른 보조 복제본이 생성되며 주 복제본이 읽기/쓰기 작업을 수행하기 시작합니다. 노드가 다시 시작되면 테스트 클라이언트의 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
+3. **노드**에서는 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 이 작업은 주 서비스 복제본을 실행하는 노드를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다.  해당 보조 복제본이 주 복제본으로 승격되면 다른 노드에서 다른 보조 복제본이 생성되며 주 복제본이 읽기/쓰기 작업을 수행하기 시작합니다. 노드가 다시 시작되면 테스트 클라이언트의 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
 
 ## <a name="remove-the-application"></a>응용 프로그램을 제거합니다.
 템플릿에 제공된 설치 제거 스크립트를 사용하여 응용 프로그램 인스턴스를 제거하고 클러스터의 이미지 저장소에서 응용 프로그램 패키지를 제거합니다.
