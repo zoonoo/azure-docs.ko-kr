@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: 0cd4ebf4718366a9bb36d6a02b8368e34f96119d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b8d87b44c1cc281153c8b65d24871b95e1bbe4db
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
@@ -65,7 +65,7 @@ Azure AD(Azure Active Directory)는 다중 테넌트 클라우드 기반 디렉�
                     <div class="cardText">
                         <h3>외부 사용자</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">B2B(Business to Business)</a><br/>
+                        <a href="/azure/active-directory/b2b/what-is-b2b">B2B(Business to Business)</a><br/>
                         <a href="/azure/active-directory-b2c/">B2C(Business to Consumer)</a>
                         </p>
                     </div>
@@ -99,7 +99,7 @@ Azure AD(Azure Active Directory)는 다중 테넌트 클라우드 기반 디렉�
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">ID 보호</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">조건부 액세스</a><br/>
-                        <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Privileged Identity Management</a>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged Identity Management</a>
                         </p>
                     </div>
                 </div>

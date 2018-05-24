@@ -1,24 +1,24 @@
 ---
-title: "Azure 마이크로 서비스에서 FabricTransport 설정 변경 | Microsoft Docs"
-description: "Azure Service Fabric 행위자 통신 설정에 대해 알아봅니다."
+title: Azure 마이크로 서비스에서 FabricTransport 설정 변경 | Microsoft Docs
+description: Azure Service Fabric 행위자 통신 설정에 대해 알아봅니다.
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 7a21dfde5544045e4961549fe5728e14647eb886
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5ba13aeb63a72b738aac435b63ebbcfd4eeb7fa9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 

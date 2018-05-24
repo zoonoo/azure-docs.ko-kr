@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 89d0f11ccfb9a359ca3e43bc1a370e0fb7514574
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
@@ -48,6 +48,8 @@ Azure Function에서 "파일 보기" 링크를 클릭하고(Azure 함수 포털�
 ## <a name="endpoint-validation"></a>엔드포인트 유효성 검사
 
 먼저 수행할 작업은 `Microsoft.EventGrid.SubscriptionValidationEvent` 이벤트를 처리하는 것입니다. 누군가가 이벤트를 구독할 때마다 Event Grid는 유효성 검사 이벤트를 데이터 페이로드에 `validationCode`가 있는 엔드포인트에 보냅니다. 엔드포인트는 응답 본문에서 [엔드포인트가 유효하며 자신의 소유임을 증명하기 위해](security-authentication.md#webhook-event-delivery) 이를 다시 에코하는 데 필요합니다. 웹후크 트리거 함수가 아닌 [Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md)를 사용할 경우 엔드포인트 유효성 검사가 자동으로 처리됩니다. 타사 API 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 프로그래밍 방식으로 유효성 검사 코드를 에코하지 못할 수 있습니다. 이러한 서비스의 경우 구독 유효성 검사 이벤트에 전송된 유효성 검사 URL을 사용하여 수동으로 구독의 유효성을 검사할 수 있습니다. `validationUrl` 속성에 해당 URL을 복사하고 REST 클라이언트 또는 웹 브라우저를 통해 GET 요청을 보냅니다.
+
+수동 유효성 검사는 미리 보기 상태입니다. 이 기능을 사용하려면 [AZ CLI 2.0](/cli/azure/install-azure-cli)에 대한 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 설치해야 합니다. `az extension add --name eventgrid`를 사용하여 설치할 수 있습니다. REST API를 사용하는 경우 `api-version=2018-05-01-preview`를 사용하고 있는지 확인합니다.
 
 프로그래밍 방식으로 유효성 검사 코드를 에코하려면 다음 코드를 사용합니다.
 

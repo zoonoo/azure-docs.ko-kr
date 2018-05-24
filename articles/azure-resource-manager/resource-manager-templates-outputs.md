@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿 출력 | Microsoft Docs"
-description: "선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿에서 출력을 정의하는 방법을 설명합니다."
+title: Azure Resource Manager 템플릿 출력 | Microsoft Docs
+description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿에서 출력을 정의하는 방법을 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 출력 섹션
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다.

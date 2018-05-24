@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Box 구성 | Microsoft Docs"
-description: "Azure Active Directory와 Box 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Box 구성 | Microsoft Docs'
+description: Azure Active Directory와 Box 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Box 구성
 
@@ -43,7 +43,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 Azure Portal의 **Box > 사용자 및 그룹** 탭에서 Box에 대한 액세스 권한을 부여해야 하는 사용자 및 그룹을 지정할 수 있습니다. 사용자 또는 그룹을 할당하면 다음과 같은 상황이 발생합니다.
 
 * Azure AD에서 할당된 사용자에게 Box에 인증하도록 허용합니다(직접 할당 또는 그룹 멤버 자격을 통해). 사용자가 할당되지 않은 경우에는 Azure AD에서 Box에 로그인하도록 허용하지 않으며 Azure AD 로그인 페이지에서 오류를 반환합니다.
-* Box의 앱 타일이 사용자의 [응용 프로그램 시작 관리자](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에 추가됩니다.
+* Box의 앱 타일이 사용자의 [응용 프로그램 시작 관리자](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)에 추가됩니다.
 * 자동 프로비전이 설정된 경우 할당된 사용자 및/또는 그룹이 자동으로 프로비전되도록 프로비전 큐에 추가됩니다.
   
   * 사용자 개체만 프로비전되도록 구성된 경우 직접 할당된 모든 사용자가 프로비전 큐에 배치되며, 할당된 그룹의 멤버인 모든 사용자가 프로비전 큐에 배치됩니다. 
@@ -120,5 +120,5 @@ Box 테넌트에서 동기화된 사용자가 **관리 콘솔**의 **관리된 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 * [Single Sign-On 구성](active-directory-saas-box-tutorial.md)

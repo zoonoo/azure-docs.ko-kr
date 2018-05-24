@@ -1,24 +1,24 @@
 ---
-title: "원격 모니터링 솔루션 시작 - Azure | Microsoft Docs"
-description: "이 자습서에서는 미리 구성된 원격 모니터링 솔루션을 소개하기 위해 시뮬레이트된 시나리오를 사용합니다. 이러한 시나리오는 미리 구성된 원격 모니터링 솔루션을 처음으로 배포할 때 생성됩니다."
-services: 
+title: 원격 모니터링 솔루션 시작 - Azure | Microsoft Docs
+description: 이 자습서에서는 원격 모니터링 솔루션 가속기를 소개하기 위해 시뮬레이트된 시나리오를 사용합니다. 이러한 시나리오는 원격 모니터링 솔루션 가속기를 처음으로 배포할 때 생성됩니다.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 6a38098dc2bbcfc6ff59b9f8c96d1e947c637ab1
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/18/2018
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션의 기능 탐색
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기의 기능 탐색
 
 이 자습서에서는 원격 모니터링 솔루션의 주요 기능을 보여 줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso라는 회사에 대한 시뮬레이트된 IoT 응용 프로그램을 사용하여 일반적인 고객 시나리오를 보여 줍니다.
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/23/2018
 
 >[!div class="checklist"]
 > * 대시보드의 장치 시각화 및 필터링
-> * 경보에 응답
+> * 경고에 응답
 > * 장치에서 펌웨어 업데이트
 > * 자산 구성
 > * 시뮬레이션된 장치 중지 및 시작
@@ -41,21 +41,21 @@ ms.lasthandoff: 02/23/2018
 
 이 자습서를 완료하려면 Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스가 필요합니다.
 
-원격 모니터링 솔루션을 아직 배포하지 않은 경우 [미리 구성된 원격 모니터링 솔루션 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Contoso 샘플 IoT 배포
 
 Contoso 샘플 IoT 배포를 사용하여 원격 모니터링 솔루션에서 기본으로 제공하는 기본 시나리오를 이해할 수 있습니다. 이러한 시나리오는 실제 IoT 배포를 기반으로 합니다. 대부분의 경우 특정 요구 사항을 충족하기 위해 원격 모니터링 솔루션을 사용자 지정하도록 선택하지만 Contoso 샘플을 통해 기본 사항을 알아볼 수 있습니다.
 
 > [!NOTE]
-> CLI를 사용하여 미리 구성된 솔루션을 배포하는 경우 `deployment-{your deployment name}-output.json` 파일은 배포된 샘플에 액세스하기 위한 URL과 같은 배포에 대한 정보를 포함합니다.
+> CLI를 사용하여 솔루션 가속기를 배포하는 경우 `deployment-{your deployment name}-output.json` 파일은 배포된 샘플에 액세스하기 위한 URL과 같은 배포에 대한 정보를 포함합니다.
 
 Contoso 샘플은 시뮬레이트된 장치 집합 및 작동하는 규칙을 프로비전합니다. 기본 시나리오를 이해하면 [원격 모니터링 솔루션을 사용하여 고급 장치 모니터링 수행](iot-suite-remote-monitoring-monitor.md)에서 더 많은 솔루션 기능을 계속해서 탐색할 수 있습니다.
 
 Contoso는 서로 다른 환경에서 다양한 자산을 관리하는 회사입니다. Contoso는 클라우드 기반 IoT 응용 프로그램을 사용하여 중앙 집중화된 응용 프로그램의 여러 자산을 원격으로 모니터링하고 관리하려고 합니다. 다음 섹션에서는 Contoso 샘플의 초기 구성의 요약을 제공합니다.
 
 > [!NOTE]
-> Contoso 데모는 시뮬레이트된 장치를 프로비전하고 규칙을 만드는 유일한 방법입니다. 다른 프로비전 옵션은 고유한 사용자 지정 장치의 생성을 포함합니다. 사용자 고유의 장치 및 규칙을 만드는 방법에 대해 자세히 알아보려면 [장치 관리 및 구성](iot-suite-remote-monitoring-manage.md) 및 [임계값 기반 규칙을 사용하여 문제 감지](iot-suite-remote-monitoring-automate.md)를 참조하세요.
+> Contoso 데모는 시뮬레이트된 장치를 프로비전하고 규칙을 만드는 유일한 방법입니다. 다른 프로비전 옵션은 고유한 사용자 지정 장치의 생성을 포함합니다. 사용자 고유의 장치 및 규칙을 만드는 방법에 대해 자세히 알아보려면 [장치 관리 및 구성](iot-suite-remote-monitoring-manage.md) 및 [임계값 기반 규칙을 사용하여 문제 감지](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md)를 참조하세요.
 
 ### <a name="contoso-devices"></a>Contoso 장치
 
@@ -67,7 +67,7 @@ Contoso는 다양한 유형의 스마트 장치를 사용합니다. 이러한 �
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | 냉각기            | 온도, 습도, 압력            | 유형, 펌웨어 버전, 모델               | Location, Floor, Campus | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure                          |
 | 프로토타입 장치 | 온도, 압력, 지리적 위치        | 유형, 펌웨어 버전, 모델               | Location, Mode          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase |
-| 엔진             | 탱크 연료 수준, 냉각수 센서, 진동 | 유형, 펌웨어 버전, 모델               | Location, Floor, Campus | Restart, Firmware Update, Empty tank, Fill tank                                              |
+| 엔진             | 탱크 연료 수준, 냉각수 센서, 진동 | 유형, 펌웨어 버전, 모델               | Location, Floor, Campus | Firmware Update, Empty tank, Fill tank                                              |
 | 트럭              | 지리적 위치, 속도, 화물 온도     | 유형, 펌웨어 버전, 모델               | Location, Load          | Lower cargo temperature, Increase cargo temperature, Firmware update                         |
 | 엘리베이터           | 층, 진동, 온도              | 유형, 펌웨어 버전, 모델, 지리적 위치 | Location, Campus        | Stop elevator, Start elevator, Firmware update                                               |
 
@@ -88,43 +88,35 @@ Contoso에서 운영자는 장치가 올바르게 작동 하는지 여부를 결
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Contoso 샘플 배포 동작
 
-이제 Contoso 샘플의 초기 설치를 살펴 보았습니다. 다음 섹션에서는 운영자가 미리 구성된 솔루션을 사용할 수 있는 방법을 설명하는 Contoso 샘플의 세 가지 시나리오를 설명합니다.
+이제 Contoso 샘플의 초기 설치를 살펴 보았습니다. 다음 섹션에서는 운영자가 솔루션 가속기를 사용할 수 있는 방법을 설명하는 Contoso 샘플의 세 가지 시나리오를 설명합니다.
 
-## <a name="respond-to-a-pressure-alarm"></a>압력 경보에 응답
+## <a name="respond-to-a-pressure-alert"></a>압력 경고에 응답
 
-이 시나리오는 냉각기 장치에 의해 트리거되는 경보를 식별하고 이에 응답하는 방법을 보여 줍니다. 냉각기는 빌딩 43, 2층, Redmond에 있습니다.
+이 시나리오는 냉각기 장치에 의해 트리거되는 경고를 식별하고 이에 응답하는 방법을 보여줍니다. 냉각기는 빌딩 43, 2층, Redmond에 있습니다.
 
-운영자로서 냉각기의 압력과 관련이 있는 경보가 있다는 것을 대시보드에서 볼 수 있습니다. 지도에서 이동 및 확대/축소하여 자세히 볼 수 있습니다.
+운영자로서 냉각기의 압력과 관련이 있는 경고가 있다는 것을 대시보드에서 볼 수 있습니다. 지도에서 이동 및 확대/축소하여 자세히 볼 수 있습니다.
 
-1. **대시보드** 페이지의 **시스템 경보** 표에서 **냉각기 압력 너무 높음** 경보를 볼 수 있습니다. 냉각기는 지도에서 강조 표시됩니다.
+1. **대시보드** 페이지의 **경고** 표에서 **냉각기 압력 너무 높음** 경고를 볼 수 있습니다. 냉각기는 지도에서 강조 표시됩니다.
 
-    ![대시보드는 지도에서 압력 경보 및 장치를 보여 줍니다.](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
+    ![대시보드는 지도에서 압력 경고 및 장치를 보여줍니다.](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-1. 장치 세부 정보 및 원격 분석을 보려면 지도에서 강조 표시된 냉각기를 클릭합니다. 원격 분석은 압력 스파이크를 보여 줍니다.
+1. **유지 관리** 페이지로 이동하려면 탐색 메뉴에서 **유지 관리**를 선택합니다. **유지 관리** 페이지에서 냉각기 압력 경고를 트리거한 규칙의 세부 정보를 볼 수 있습니다.
 
-    ![지도에서 장치를 선택하여 세부 정보 보기](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
+1. 경고 목록에는 경고가 트리거된 횟수, 수신 확인 및 열린 경고와 닫힌 경고가 표시됩니다.
 
-1. **장치 세부 정보**를 닫습니다.
+    ![유지 관리 페이지는 트리거된 경고의 목록을 보여줍니다.](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. **유지 관리** 페이지로 이동하려면 탐색 메뉴에서 **유지 관리**를 선택합니다.
+1. 목록에서 마지막 경고는 가장 최근의 것입니다. **냉각기 압력 너무 높음** 경고를 클릭하여 관련된 장치 및 원격 분석을 봅니다. 원격 분석은 냉각기에 대한 압력 스파이크를 보여 줍니다.
 
-**유지 관리** 페이지에서 냉각기 압력 경보를 트리거한 규칙의 세부 정보를 볼 수 있습니다.
+    ![유지 관리 페이지는 선택한 경고에 대한 원격 분석을 보여줍니다.](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
-1. 알림 목록에는 경보가 트리거된 횟수, 수신 확인 및 열린 경보와 닫힌 경보가 표시됩니다.
+이제 경고를 트리거한 문제 및 관련된 장치를 식별했습니다. 운영자로서 다음 단계는 경고를 승인하고 문제를 완화하는 것입니다.
 
-    ![유지 관리 페이지는 트리거된 경보의 목록을 보여 줍니다.](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
+1. 현재 경고에 대해 작업 중임을 나타내려면 **경고 상태**를 **승인됨**으로 변경합니다.
 
-1. 목록에서 첫 번째 경보는 가장 최근의 것입니다. **냉각기 압력 너무 높음** 경보를 클릭하여 관련된 장치 및 원격 분석을 봅니다. 원격 분석은 냉각기에 대한 압력 스파이크를 보여 줍니다.
+    ![경고 선택 및 승인](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-    ![유지 관리 페이지는 선택한 경보에 대한 원격 분석을 보여 줍니다.](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
-
-이제 경보를 트리거한 문제 및 관련된 장치를 식별했습니다. 운영자로서 다음 단계는 경보를 승인하고 문제를 완화하는 것입니다.
-
-1. 현재 경보에 대해 작업 중임을 나타내려면 **경보 상태**를 **승인됨**으로 변경합니다.
-
-    ![경보 선택 및 승인](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
-
-1. 냉각기를 작동하려면 선택한 다음 **일정**을 선택합니다. **EmergencyValveRelease**를 선택하고, 작업 이름 **ChillerPressureRelease**를 추가하고, **적용**을 선택합니다. 이러한 설정은 즉시 실행하는 작업을 만듭니다.
+1. 냉각기를 작동하려면 선택한 다음, **작업**을 선택합니다. **Run method**, **EmergencyValveRelease**를 차례로 선택하고, 작업 이름 **ChillerPressureRelease**를 추가하고, **적용**을 선택합니다. 이러한 설정은 즉시 실행하는 작업을 만듭니다.
 
     ![장치 선택 및 작업 예약](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
@@ -134,13 +126,13 @@ Contoso에서 운영자는 장치가 올바르게 작동 하는지 여부를 결
 
 마지막으로 냉각기의 원격 분석 값이 정상으로 돌아갔는지 확인합니다.
 
-1. 경보 표를 보려면 **대시보드** 페이지로 이동합니다.
+1. 경고 표를 보려면 **대시보드** 페이지로 이동합니다.
 
-1. 장치 원격 분석을 보려면 지도에서 원래 경보에 대한 장치를 선택하고, 정상으로 돌아갔는지 확인합니다.
+1. 장치 원격 분석을 보려면 지도에서 원래 경고에 대한 장치를 선택하고, 정상으로 돌아갔는지 확인합니다.
 
-1. 인시던트를 종결하려면 **유지 관리** 페이지로 이동하고, 경보를 선택하고, 상태를 **닫힘**으로 설정합니다.
+1. 인시던트를 종결하려면 **유지 관리** 페이지로 이동하고, 경고를 선택하고, 상태를 **닫힘**으로 설정합니다.
 
-    ![경보 선택 및 닫기](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
+    ![경고 선택 및 닫기](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## <a name="update-device-firmware"></a>장치 펌웨어 업데이트
 
@@ -159,7 +151,7 @@ Contoso는 필드에서 새로운 유형의 장치를 테스트하고 있습니�
 
     ![장치 페이지에서 장치를 선택합니다.](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. **일정** 단추를 클릭한 다음 **펌웨어 업데이트**를 선택합니다. **작업 이름**, **펌웨어 버전** 및 **펌웨어 URI**에 대한 값을 입력합니다. **적용**을 선택하여 지금 실행하도록 작업을 예약합니다.
+1. **작업** 단추를 클릭하고, **메서드 실행**을 선택한 다음, **펌웨어 업데이트**를 선택합니다. **작업 이름**, **펌웨어 버전** 및 **펌웨어 URI**에 대한 값을 입력합니다. **적용**을 선택하여 지금 실행하도록 작업을 예약합니다.
 
     ![장치에서 펌웨어 업데이트 예약](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
@@ -176,17 +168,18 @@ Contoso는 필드에서 새로운 유형의 장치를 테스트하고 있습니�
 
 1. 만든 작업에 관련된 이벤트를 찾습니다. 펌웨어 업데이트 프로세스가 올바르게 시작되었는지 확인합니다.
 
-펌웨어 버전 업데이트를 제대로 확인하는 필터를 만들 수 있습니다.
+<!-- 05/01 broken 
+You can create a filter to verify the firmware version updated correctly.
 
-1. 필터를 만들려면 **장치** 페이지로 이동하고 **필터 관리**를 선택합니다.
+1. To create a filter, navigate to the **Devices** page and select **Manage device groups**:
 
-    ![장치 필터 관리](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. 새 펌웨어 버전이 있는 장치만 포함하는 필터를 만듭니다.
+1. Create a filter that includes only devices with the new firmware version:
 
-    ![장치 필터 만들기](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
+    ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. **장치** 페이지로 돌아와서 장치에 새 펌웨어 버전이 있는지 확인합니다.
+1. Return to the **Devices** page and verify that the device has the new firmware version. -->
 
 ## <a name="organize-your-assets"></a>자산 구성
 
@@ -203,7 +196,7 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
     ![모든 장치 표시](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
-1. **트럭** 및 **프로토타입** 장치를 선택합니다. 그런 다음 **태그**를 선택합니다.
+1. **트럭** 및 **프로토타입** 장치를 선택합니다. 그런 다음, **작업**을 선택합니다.
 
     ![프로토타입 및 트럭 장치 선택](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
@@ -211,19 +204,19 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
     ![프로토타입 및 트럭 장치에 태그 추가](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
-1. **냉각기**, **엘리베이터** 및 **엔진** 장치를 선택합니다. 그런 다음 **태그**를 선택합니다.
+1. **냉각기**, **엘리베이터** 및 **엔진** 장치를 선택합니다. 그런 다음, **작업**을 선택합니다.
 
     ![냉각기, 엔진 및 엘리베이터 장치 선택](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. **태그**를 선택한 후 **SmartBuilding** 값으로 **FieldService**라는 새 텍스트 태그를 만듭니다. 작업에 대한 이름을 선택합니다. 그런 다음 **저장**을 클릭합니다.
+1. **태그**를 선택한 후 **SmartBuilding** 값으로 **FieldService**라는 새 텍스트 태그를 만듭니다. 작업에 대한 이름을 선택합니다. 그런 다음 **적용**을 클릭합니다.
 
     ![냉각기, 엔진 및 엘리베이터 장치에 태그 추가](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 태그 값을 사용하여 필터를 만들 수 있습니다.
 
-1. **장치** 페이지에서 **필터 관리**를 선택합니다.
+1. **장치** 페이지에서 **장치 그룹 관리**를 선택합니다.
 
-    ![장치 필터 관리](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![장치 그룹 관리](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. 태그 이름 **FieldService** 및 값 **SmartBuilding**을 사용하는 새 필터를 만듭니다. **Smart Building**으로 필터를 저장합니다.
 
@@ -237,9 +230,17 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
 1. **설정** 아이콘을 선택합니다.
 
-1. **실행 중**을 켜거나 끕니다.
+1. 그런 다음, **흐름**을 켜거나 끕니다.
 
     ![설정 메뉴](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## <a name="customize-the-ui"></a>UI 사용자 지정
+
+설정 메뉴에서 원격 모니터링 솔루션 가속기에 기본 사용자 지정을 적용할 수 있습니다. 다음을 수행할 수 있습니다.
+
+- 밝은 테마와 어두운 테마 간에 전환합니다.
+- 솔루션의 이름을 변경합니다.
+- 사용자 지정 로고를 업로드합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -247,7 +248,7 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
 >[!div class="checklist"]
 > * 대시보드의 장치 시각화 및 필터링
-> * 경보에 응답
+> * 경고에 응답
 > * 장치에서 펌웨어 업데이트
 > * 자산 구성
 > * 시뮬레이션된 장치 중지 및 시작
@@ -256,5 +257,5 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
 * [장치 모니터링](./iot-suite-remote-monitoring-monitor.md)
 * [장치 관리](./iot-suite-remote-monitoring-manage.md)
-* [규칙을 사용하여 솔루션 자동화](./iot-suite-remote-monitoring-automate.md)
+* [규칙을 사용하여 솔루션 자동화](./../iot-accelerators/iot-accelerators-remote-monitoring-automate.md)
 * [솔루션 유지 관리](./iot-suite-remote-monitoring-maintain.md)

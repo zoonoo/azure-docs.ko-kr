@@ -91,7 +91,7 @@
 ### [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure PowerShell을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure CLI를 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/security-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### 가상 네트워킹 자습서
 #### [VM 부하 분산](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [가상 네트워크에 컴퓨터 연결](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

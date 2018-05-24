@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -34,6 +34,8 @@ ms.lasthandoff: 04/05/2018
 타이머 트리거는 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>예
 
@@ -204,7 +206,7 @@ Azure Functions 타이머 트리거의 CRON 식에는 다음과 같은 6개의 �
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|유형  |예  |트리거될 때  |
+|type  |예  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>"0 5 * * * *"</nobr>|hh:05:00에서 hh는 매시간임(시간당 한 번)|
 |모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm:00에서 mm은 해당 시간의 매분임(하루 60번)|

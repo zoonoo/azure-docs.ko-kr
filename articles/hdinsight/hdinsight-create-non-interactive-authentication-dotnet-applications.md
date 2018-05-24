@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 497c67132b6d5ebc1301f56fde72031ca3e7b976
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 응용 프로그램 만들기
 Microsoft .NET Azure HDInsight 응용 프로그램은 응용 프로그램 자체의 ID(비대화형) 또는 응용 프로그램에 로그인한 사용자의 ID(대화형)로 실행할 수 있습니다. 이 문서에서는 비대화형 인증 .NET 응용 프로그램을 만들어 Azure에 연결하고 HDInsight를 관리하는 방법을 보여 줍니다. 대화형 응용 프로그램의 샘플은 [Azure HDInsight에 연결](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)을 참조하세요. 
@@ -40,7 +40,7 @@ Azure AD 응용 프로그램에 [역할](../role-based-access-control/built-in-r
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 3. 이 자습서의 뒷부분에서 Hive 쿼리를 실행할 HDInsight 클러스터가 있는 리소스 그룹을 선택합니다. 많은 수의 리소스 그룹이 있는 경우 필터를 사용하여 원하는 리소스 그룹을 찾을 수 있습니다.
-4. 리소스 그룹 메뉴에서 **액세스 제어(IAM)**를 선택합니다.
+4. 리소스 그룹 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 5. **사용자** 아래에서 **추가**를 선택합니다.
 6. 지침에 따라 Azure AD 응용 프로그램에 소유자 역할을 추가합니다. 역할이 성공적으로 추가되면 **사용자** 아래에 소유자 역할이 있는 응용 프로그램이 나열됩니다. 
 

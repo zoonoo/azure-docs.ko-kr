@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export에 대한 내보내기 작업 만들기 | Microsoft Docs"
-description: "Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 방법을 알아봅니다."
+title: Azure Import/Export에 대한 내보내기 작업 만들기 | Microsoft Docs
+description: Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 방법을 알아봅니다.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 내보내기 작업 만들기
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 단계는 다음과 같습니다.
@@ -91,6 +91,8 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 
 ## <a name="receiving-the-package"></a>패키지 받기
  내보내기 작업이 처리된 후 암호화된 데이터와 함께 드라이브가 반환됩니다. [작업 가져오기](/rest/api/storageimportexport/jobs#Jobs_Get) 연산을 호출하여 각 드라이브의 BitLocker 키를 검색할 수 있습니다. 그런 다음 이 키를 사용하여 드라이브 잠금을 해제할 수 있습니다. 각 드라이브에 있는 드라이브 매니페스트 파일에는 드라이브의 파일 목록과 각 파일의 원래 blob 주소도 포함됩니다.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

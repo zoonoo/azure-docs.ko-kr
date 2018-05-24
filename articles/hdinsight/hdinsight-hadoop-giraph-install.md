@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: df7c5e175ecfd2eca2b1db7eb4ab056bb1588dda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4cd643d4bdd95493f63bb5b1c1f855bc95bf226
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Giraph 설치 및 사용
 
@@ -169,7 +169,6 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 * [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
-* [HDInsight 클러스터에서 R 설치][hdinsight-install-r]: R 설치에 대한 스크립트 작업 샘플입니다.
 * [HDInsight 클러스터에서 Solr 설치](hdinsight-hadoop-solr-install.md): Solr 설치에 대한 스크립트 작업 샘플입니다.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
@@ -177,6 +176,5 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

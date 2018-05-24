@@ -9,11 +9,11 @@ description: Azure Stream Analytics 작업을 사용하여 원격 모니터링 �
 +ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
-ms.openlocfilehash: 701dd51d13ec1880f23c48cc5e8b368b15d0deca
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 75ad9e9ac79dca4db902d7e72511a384dd769463
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 05/07/2018
 
 이 방법을 완료하려면 다음이 필요합니다.
 
-* [미리 구성된 원격 모니터링 솔루션 배포](/iot-suite/iot-suite-remote-monitoring-deploy)
+* [미리 구성된 원격 모니터링 솔루션 배포](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
   * 원격 모니터링 솔루션은 이 문서에서 Azure 구독에 사용된 IoT 허브 및 Azure Stream Analytics 작업을 배포합니다.
-* [Azure Data Lake Store 배포](/data-lake-store/data-lake-store-get-started-portal)
+* [Azure Data Lake Store 배포](/data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store는 원격 모니터링 솔루션과 동일한 지역에 배포되어야 합니다.
-  * 계정에 "스트리밍"이라는 [폴더를 만듭니다](/data-lake-store/data-lake-store-get-started-portal#createfolder).
+  * 계정에 "스트리밍"이라는 [폴더를 만듭니다](/data-lake-store/data-lake-store-get-started-portal.md#createfolder).
 
 ## <a name="create-a-consumer-group"></a>소비자 그룹 만들기
 

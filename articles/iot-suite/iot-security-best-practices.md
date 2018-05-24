@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: f060f79ee7676909943bb0dbc4369d1cbff60b46
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3a1c83a6b68eb9b43087c6d536ac7be9e0764a3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
@@ -37,7 +37,7 @@ IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습�
 IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어][lnk-devguide-security]에서 IoT Hub 보안에 대해 자세히 알아볼 수 있습니다.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md

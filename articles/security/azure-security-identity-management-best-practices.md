@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: af01676276232f4dba5a11c219a3b83259945dfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -64,7 +64,7 @@ Azure AD 동기화 옵션에 대한 자세한 내용은 [Azure Active Directory�
 
 관리할 디렉터리가 여러 개인 경우, 이는 IT뿐만 아니라 여러 암호를 기억해야 하는 최종 사용자에게도 관리 문제가 됩니다. [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)를 사용하면 사용자에게 온-프레미스 또는 클라우드에서 리소스가 있는 위치와 상관없이 같은 자격 증명 집합을 사용하여 로그인하고 필요한 리소스에 액세스하는 기능을 제공할 수 있습니다.
 
-SSO를 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 해당 [SaaS 응용 프로그램](../active-directory/active-directory-appssoaccess-whatis.md)에 액세스할 수 있습니다. 이 방법은 Microsoft SaaS 앱뿐만 아니라 [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) 및 [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md) 등 다른 앱에도 적용할 수 있습니다. Azure AD를 [SAML 기반 ID](../active-directory/fundamentals-identity.md) 공급자로 사용하도록 응용 프로그램을 구성할 수 있습니다. 보안 컨트롤인 Azure AD는 Azure AD를 사용하여 액세스를 허용한 경우가 아니면 응용 프로그램에 로그인하도록 허용하는 토큰을 발급하지 않습니다. 직접적으로 또는 멤버인 그룹을 통해 액세스를 부여할 수 있습니다.
+SSO를 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 해당 [SaaS 응용 프로그램](../active-directory/manage-apps/what-is-single-sign-on.md)에 액세스할 수 있습니다. 이 방법은 Microsoft SaaS 앱뿐만 아니라 [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) 및 [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md) 등 다른 앱에도 적용할 수 있습니다. Azure AD를 [SAML 기반 ID](../active-directory/fundamentals-identity.md) 공급자로 사용하도록 응용 프로그램을 구성할 수 있습니다. 보안 컨트롤인 Azure AD는 Azure AD를 사용하여 액세스를 허용한 경우가 아니면 응용 프로그램에 로그인하도록 허용하는 토큰을 발급하지 않습니다. 직접적으로 또는 멤버인 그룹을 통해 액세스를 부여할 수 있습니다.
 
 > [!NOTE]
 > SSO를 사용한다는 결정은 온-프레미스 디렉터리를 클라우드 디렉터리와 통합하는 방법에 영향을 줍니다. 디렉터리 동기화는 [동일한 로그온 환경](../active-directory/active-directory-aadconnect.md)만 제공하므로 SSO를 원하는 경우 페더레이션을 사용해야 합니다.

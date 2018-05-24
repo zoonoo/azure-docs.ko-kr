@@ -1,20 +1,20 @@
 ---
-title: "Azure 관리되는 응용 프로그램에서 리소스 업데이트 | Microsoft Docs"
-description: "Azure 관리되는 응용 프로그램의 관리되는 리소스 그룹에서 리소스 작업 방법을 설명합니다."
+title: Azure 관리되는 응용 프로그램에서 리소스 업데이트 | Microsoft Docs
+description: Azure 관리되는 응용 프로그램의 관리되는 리소스 그룹에서 리소스 작업 방법을 설명합니다.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7c2b38055771dae458e4a3a56c2c98231335ae03
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Azure 관리되는 응용 프로그램의 관리되는 리소스 그룹에서 리소스 작업
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/07/2017
 
 * 관리되는 응용 프로그램 식별
 * 관리되는 리소스 그룹 식별
-* 관리되는 리소스 그룹의 가상 컴퓨터 리소스 식별
+* 관리되는 리소스 그룹의 가상 머신 리소스 식별
 * VM 크기 변경(사용하지 않은 경우 더 적은 크기로, 더 큰 로드를 지원하려면 더 큰 크기로)
 * 허용되는 위치를 지정하는 관리되는 리소스 그룹에 정책 할당
 
@@ -50,7 +50,7 @@ az managedapp list --query "[?contains(resourceGroup,'DemoApp')].{ managedResour
 
 ## <a name="resize-vms-in-managed-resource-group"></a>관리되는 리소스 그룹의 VM 크기 조정
 
-관리되는 리소스 그룹의 가상 컴퓨터를 보려면 관리되는 리소스 그룹의 이름을 제공합니다.
+관리되는 리소스 그룹의 가상 머신을 보려면 관리되는 리소스 그룹의 이름을 제공합니다.
 
 ```azurecli-interactive
 az vm list -g DemoApp6zkevchqk7sfq --query "[].{VMName:name,OSType:storageProfile.osDisk.osType,VMSize:hardwareProfile.vmSize}"

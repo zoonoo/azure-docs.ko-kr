@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/30/2018
 
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
-[NSG(네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md)는 ACL(액세스 제어 목록)의 Virtual Network에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다.
+[NSG(네트워크 보안 그룹)](../virtual-network/security-overview.md)는 ACL(Access Control 목록)의 Virtual Network에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Azure AD Domain Services를 사용하는 가상 네트워크에 대한 샘플 NSG
 다음 표는 Azure AD Domain Services 관리되는 도메인을 사용하여 가상 네트워크에 대해 구성할 수 있는 샘플 NSG를 보여 줍니다. 이 규칙을 통해 필수 포트의 인바운드 트래픽에서 관리되는 도메인을 패치되고 업데이트된 상태로 유지하고 Microsoft에서 모니터링할 수 있도록 합니다. 기본 'DenyAll' 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용됩니다.
@@ -141,5 +141,5 @@ Azure AD Domain Services 관리되는 도메인은 Azure의 단일 가상 네트
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure 가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)
 * [클래식 배포 모델에 대한 VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Azure 네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
+* [Azure 네트워크 보안 그룹](../virtual-network/security-overview.md)
 * [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

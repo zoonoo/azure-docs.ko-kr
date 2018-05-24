@@ -9,16 +9,16 @@ editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2876d90c02995394104009d1b2d62d5b3ed6a8d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
 신뢰할 수 있는 컬렉션을 사용하면 단일 컴퓨터 응용 프로그램을 작성하는 것처럼 가용성이 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있습니다. **Microsoft.ServiceFabric.Data.Collections** 네임스페이스의 클래스는 상태를 자동으로 항상 사용할 수 있도록 하는 컬렉션 집합을 제공합니다. 개발자는 신뢰할 수 있는 컬렉션 API로 프로그래밍하고 신뢰할 수 있는 컬렉션이 복제된 로컬 상태를 관리하도록 하기만 하면 됩니다.

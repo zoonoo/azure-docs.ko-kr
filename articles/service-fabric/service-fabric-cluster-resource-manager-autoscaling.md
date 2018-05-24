@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: radicmilos
 manager: ''
-editor: ''
+editor: nipuzovi
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
-ms.author: miradic,nipuzovi
-ms.openlocfilehash: 741d77998e9f3405ca6d3863e80cb9125705eefe
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: miradic
+ms.openlocfilehash: cd19c0e51ca1ac7863058d7c3944400719508f9b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-auto-scaling"></a>자동 크기 조정 소개
 자동 크기 조정은 서비스가 보고하는 로드 또는 리소스의 사용량에 따라 서비스를 동적으로 조정하는 Service Fabric의 추가 기능입니다. 자동 크기 조정 기능은 뛰어난 탄력성을 제공하며 필요에 따라 서비스의 인스턴스 또는 파티션을 추가로 프로비전할 수 있습니다. 전체 자동 크기 조정 프로세스는 자동화되고 투명합니다. 서비스에 정책을 설정하면 서비스 수준에서 수동으로 크기 조정 작업을 수행할 필요가 없습니다. 자동 크기 조정은 서비스 생성 시 또는 서비스를 업데이트하여 언제든지 설정할 수 있습니다.

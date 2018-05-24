@@ -14,3 +14,4 @@
 ### [휴대폰으로 로그인](microsoft-authenticator-app-phone-signin-faq.md)
 ### [계정 자격 증명 백업 및 복구](microsoft-authenticator-app-backup-and-recovery.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
+### [로그인 환경 업데이트](sign-in-experience-updates.md)

@@ -1,6 +1,6 @@
 ---
-title: "자습서: LINE WORKS와 Azure Active Directory 통합 | Microsoft 문서"
-description: "Azure Active Directory와 LINE WORKS 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: LINE WORKS와 Azure Active Directory 통합 | Microsoft 문서'
+description: Azure Active Directory와 LINE WORKS 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: b15f5d02a7baff0bc56f2928f73822214c595ab0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 54d8221ad1707d6b981de985641291cb7ed917fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>자습서: LINE WORKS와 Azure Active Directory 통합
 
@@ -30,9 +30,9 @@ LINE WORKS와 Azure AD를 통합하면 다음과 같은 이점이 제공됩니�
 - 사용자가 해당 Azure AD 계정으로 LINE WORKS에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 LINE WORKS와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
@@ -58,7 +58,7 @@ Azure AD에 LINE WORKS를 통합하도록 구성하려면 갤러리의 LINE WORK
 
 **갤러리에서 LINE WORKS를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -115,7 +115,7 @@ LINE WORKS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [LINE WORKS 클라이언트 지원 팀](mailto:dl_ssoinfo@worksmobile.com)에 문의하세요.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(원시)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_certificate.png) 
 
@@ -209,7 +209,7 @@ LINE WORKS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

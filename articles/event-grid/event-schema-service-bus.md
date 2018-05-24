@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid Service Bus 이벤트 스키마"
-description: "Azure Event Grid를 사용하여 Service Bus 이벤트에 제공되는 속성을 설명합니다."
+title: Azure Event Grid Service Bus 이벤트 스키마
+description: Azure Event Grid를 사용하여 Service Bus 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
-ms.openlocfilehash: 72780bff3807534efb456a9a7998f7d4de3c6f12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Service Bus에 대한 Azure Event Grid 이벤트 스키마
 
@@ -77,7 +77,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 자산 | 형식 | 설명 |
+| 자산 | type | 설명 |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
@@ -90,7 +90,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | 형식 | 설명 |
+| 자산 | type | 설명 |
 | -------- | ---- | ----------- |
 | nameSpaceName | string | 리소스가 있는 Service Bus 네임스페이스입니다. |
 | requestUri | string | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |

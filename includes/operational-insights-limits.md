@@ -5,14 +5,14 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 구독당 Log Analytics 리소스에는 다음과 같은 제한이 적용됩니다.
 
@@ -39,5 +39,5 @@ ms.lasthandoff: 04/03/2018
 | Category | 제한 | 설명
 | --- | --- | --- |
 | 데이터 수집기 API | 단일 post에 대한 최대 크기는 30MB<br>필드 값에 대한 최대 크기는 32KB | 여러 개의 게시물에 더 큰 볼륨을 분할합니다.<br>32KB보다 긴 필드는 잘립니다. |
-| 검색 API | 집계되지 않은 데이터에 대한 반환된 5,000개 레코드<br>집계된 데이터에 대한 500,000개 레코드 | 집계된 데이터는 `measure` 명령을 포함하는 검색입니다.
+| 검색 API | 집계되지 않은 데이터에 대한 반환된 5,000개 레코드<br>집계된 데이터에 대한 500,000개 레코드 | 집계된 데이터는 `summarize` 명령을 포함하는 검색입니다.
  
