@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: aljo
-ms.openlocfilehash: d2454b09e69c26317499d17ea89b6829f52dedd2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29afb683b579d6b59d9a8002351a57dc6e42fad0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Dropbox 구성 | Microsoft Docs"
-description: "Azure Active Directory와 Dropbox for Business 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Dropbox 구성 | Microsoft Docs'
+description: Azure Active Directory와 Dropbox for Business 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bdac910b5011237e26a39f3e45f3e7ad6176bc83
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Dropbox for Business 구성
 
@@ -96,5 +96,5 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 * [Single Sign-On 구성](active-directory-saas-dropboxforbusiness-tutorial.md)

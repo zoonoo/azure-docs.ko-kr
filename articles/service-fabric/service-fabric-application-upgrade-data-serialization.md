@@ -1,24 +1,24 @@
 ---
-title: "응용 프로그램 업그레이드: 데이터 직렬화 | Microsoft Docs"
-description: "데이터 직렬화 모범 사례 및 응용 프로그램 업그레이드 배포에 미치는 영향"
+title: '응용 프로그램 업그레이드: 데이터 직렬화 | Microsoft Docs'
+description: 데이터 직렬화 모범 사례 및 응용 프로그램 업그레이드 배포에 미치는 영향
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a5f36366-a2ab-4ae3-bb08-bc2f9533bc5a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c5a4ff9d70ea2b9c7e3a0337e913ea224b31648c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2f6fad0ecca09ff9210b5961301fea3446a88f11
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>데이터 serialization이 응용 프로그램 업그레이드에 미치는 영향
 [롤링 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드 도메인은 응용 프로그램의 최신 버전에, 일부 업그레이드 도메인은 응용 프로그램의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 응용 프로그램에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 응용 프로그램에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다. 이 문서에서는 데이터 서식을 구성하는 요소에 대해 설명하며 데이터가 상위 버전 및 하위 버전과 호환되도록 하는 모범 사례를 제공합니다.

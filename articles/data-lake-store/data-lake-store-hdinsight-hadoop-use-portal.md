@@ -1,24 +1,22 @@
 ---
-title: "Azure Portal을 사용하여 Data Lake Store로 Azure HDInsight 클러스터 만들기 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure Data Lake Store로 HDInsight Hadoop 클러스터 만들기 및 사용"
+title: Azure Portal을 사용하여 Data Lake Store로 Azure HDInsight 클러스터 만들기 | Microsoft Docs
+description: Azure Portal을 사용하여 Azure Data Lake Store로 HDInsight Hadoop 클러스터 만들기 및 사용
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a8c45a83-a8e3-4227-8b02-1bc1e1de6767
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 20f87e9c545eae283ff1514feeda0b1f9057e668
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ff62ef24a2076605d759e22fcee86947fc0b9274
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기 | Azure
 > [!div class="op_single_selector"]
@@ -57,7 +55,7 @@ Azure Portal을 사용하여 기본 저장소 또는 추가 저장소로 Azure D
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight 클러스터에 서비스 주체 추가")
 
     - **Data Lake Store 계정 선택**: 기존 Data Lake Store 계정을 선택합니다. 기존 Data Lake Store 계정은 필수입니다.  [필수 조건](#prerequisites)을 참조하세요.
-    - **루트 경로**: 클러스터 관련 파일이 저장되는 경로를 입력합니다. 스크린샷에서 __/clusters__ 폴더가 존재해야 하는 __/clusters/myhdiadlcluster/__이며 포털은 *myhdicluster* 폴더를 만듭니다.  *myhdicluster*는 클러스터 이름입니다.
+    - **루트 경로**: 클러스터 관련 파일이 저장되는 경로를 입력합니다. 스크린샷에서 __/clusters__ 폴더가 존재해야 하는 __/clusters/myhdiadlcluster/__ 이며 포털은 *myhdicluster* 폴더를 만듭니다.  *myhdicluster*는 클러스터 이름입니다.
     - **Data Lake Store 액세스**: Data Lake Store 계정과 HDInsight 클러스터 간의 액세스를 구성합니다. 지침은 [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
     - **추가 저장소 계정**: 클러스터에 대한 추가 저장소 계정으로 Azure Storage 계정을 추가합니다. 추가 Data Lake Store 추가는 Data Lake Store 계정을 기본 저장소 형식으로 구성하는 동안 Data Lake Store 계정에 더 많은 데이터의 클러스터 권한을 제공하여 수행됩니다. [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
 

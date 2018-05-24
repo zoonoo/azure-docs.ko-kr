@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>처음부터 사물 인터넷 보안
 
@@ -44,7 +44,7 @@ Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거�
 
 솔루션 가속기는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다.
 
-[IoT 솔루션 가속기](../articles/iot-suite/iot-suite-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
+[IoT 솔루션 가속기](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
 
 이 문서에서는 Azure IoT 솔루션 가속기에 기본 제공되는 보안 및 개인 정보 기능을 가장 잘 전달하기 위해 솔루션 가속기를 세 가지 주요 보안 영역으로 세분화했습니다.
 

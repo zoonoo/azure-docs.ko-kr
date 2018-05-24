@@ -1,6 +1,6 @@
 ---
-title: "자습서: Adobe Experience Manager와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Adobe Experience Manager 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Adobe Experience Manager와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Adobe Experience Manager 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c366e314b77cd3344a90826b22b96a45e35b0b4e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: d63ee16df9b49517c93cdc405cd2525f578d2a7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>자습서: Adobe Experience Manager와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Adobe Experience Manager를 Azure AD와 통합하면 다음과 같은 혜택이 
 - 사용자가 자신의 Azure AD 계정으로 Adobe Experience Manager에 자동으로 로그인되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -121,7 +121,7 @@ Adobe Experience Manager에서 Azure AD Single Sign-On을 구성하고 테스트
 
     **로그온 URL** 상자에 Adobe Experience Manager 서버 URL을 입력합니다. 
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 선택합니다. 그런 다음, 컴퓨터에 인증서 파일을 저장합니다.
+5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 선택합니다. 그런 다음, 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
 
@@ -179,7 +179,7 @@ Adobe Experience Manager에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. **경로** 상자에 **/**를 입력합니다.
+    a. **경로** 상자에 **/** 를 입력합니다.
 
     나. **IDP URL** 상자에 Azure Portal에서 복사한 **SAML 로그온 서비스 URL** 값을 입력합니다.
 
@@ -281,7 +281,7 @@ Adobe Experience Manager에서 Azure AD Single Sign-On을 구성하고 테스트
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

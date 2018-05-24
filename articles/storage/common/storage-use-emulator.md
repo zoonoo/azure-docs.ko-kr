@@ -2,23 +2,17 @@
 title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs
 description: Azure Storage 에뮬레이터는 Azure Storage 응용 프로그램에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -44,17 +38,10 @@ Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>저장소 에뮬레이터 시작 및 초기화
 
-### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Docker에서 Azure 저장소 에뮬레이터 실행](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### <a name="using-sdk"></a>SDK 사용
-
 Azure Storage 에뮬레이터를 시작하려면:
 1. **시작** 단추를 선택하거나 **Windows** 키를 누릅니다.
-1. `Azure Storage Emulator`를 입력하여 시작합니다.
-1. 표시된 응용 프로그램 목록에서 에뮬레이터를 선택합니다.
+2. `Azure Storage Emulator`를 입력하여 시작합니다.
+3. 표시된 응용 프로그램 목록에서 에뮬레이터를 선택합니다.
 
 저장소 에뮬레이터가 시작되면 명령 프롬프트 창이 표시됩니다. 이 콘솔 창을 사용하여 저장소 에뮬레이터를 시작/중지하고, 데이터를 지우고, 상태를 가져오고, 에뮬레이터를 초기화할 수 있습니다. 자세한 내용은 이 문서 뒷부분에 나오는 [저장소 에뮬레이터 명령줄 도구 참조](#storage-emulator-command-line-tool-reference) 섹션을 참조하세요.
 
@@ -71,6 +58,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.
+
 저장소 에뮬레이터 명령줄 도구를 사용하여 기본 LocalDB 인스턴스가 아닌 SQL 데이터베이스 인스턴스를 가리키도록 저장소 에뮬레이터를 초기화할 수 있습니다.
 
 1. [저장소 에뮬레이터 시작 및 초기화](#start-and-initialize-the-storage-emulator) 섹션에서 설명한대로 저장소 에뮬레이터 콘솔 창을 엽니다.

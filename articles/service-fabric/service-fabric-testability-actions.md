@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: motanv
 manager: timlt
-editor: toddabel
+editor: heeldin
 ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
-ms.author: motanv;heeldin
-ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: motanv
+ms.openlocfilehash: 087a0f12f765b55c2e2976abd93d791409ff6d44
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="testability-actions"></a>테스트 용이성 작업
 불안정한 인프라를 시뮬레이트할 수 있도록 Azure 서비스 패브릭에서는 개발자에게 다양한 실제 오류 및 상태 전환을 시뮬레이트할 수 있는 방법을 제공합니다. 이러한 작업을 테스트 용이성 작업이라고 합니다. 이러한 작업은 특정 오류 주입, 상태 전환 또는 유효성 검사를 발생시키는 저수준 API입니다. 이러한 작업을 결합하여 서비스에 대한 포괄적인 테스트 시나리오를 작성할 수 있습니다.

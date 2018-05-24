@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: d263f6255eedb9b45b7f0b232e1595197556b7c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caabe0fea6286c9439e8929b054d771868dcb6f1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Solr 설치 및 사용
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 04/16/2018
         Time spent: 0:00:01.624
 
     post.jar 유틸리티는 두 개의 샘플 문서, 즉 **solr.xml** 및 **monitor.xml**로 Solr을 인덱싱합니다. post.jar 유틸리티와 샘플 문서는 Solr 설치에서 사용할 수 있습니다.
-3. **Solr 대시보드를 사용하여 인덱싱된 문서 내에서 검색합니다**. HDInsight 클러스터에 대한 RDP 세션에서 Internet Explorer를 열고 **http://headnodehost:8983/solr/#/**에서 Solr 대시보드를 실행합니다. 왼쪽 창의 **코어 선택기** 드롭다운에서 **collection1**을 선택하고, 그 안에서 **쿼리**를 클릭합니다. 한 예로, Solr의 모든 문서를 선택하고 반환하려면 다음 값을 제공하세요.
+3. **Solr 대시보드를 사용하여 인덱싱된 문서 내에서 검색합니다**. HDInsight 클러스터에 대한 RDP 세션에서 Internet Explorer를 열고 **http://headnodehost:8983/solr/#/** 에서 Solr 대시보드를 실행합니다. 왼쪽 창의 **코어 선택기** 드롭다운에서 **collection1**을 선택하고, 그 안에서 **쿼리**를 클릭합니다. 한 예로, Solr의 모든 문서를 선택하고 반환하려면 다음 값을 제공하세요.
 
    * **q** 텍스트 상자에서 **\*:**\*을 입력합니다. 이렇게 하면 Solr에서 인덱싱되는 문서는 모두 반환됩니다. 문서 내에서 특정 문자열을 검색하려는 경우 여기에 해당 문자열을 입력할 수 있습니다.
    * **wt** 텍스트 상자에서 출력 형식을 선택합니다. 기본값은 **json**입니다. **Execute Query**를 클릭합니다.
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/16/2018
              </lst>
              <str name="status">OK</str>
            </response>
-   2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 만든 클러스터의 경우 이 경로는 **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**입니다. 이 위치에서 **snapshot.*timestamp***와 비슷한 이름으로 만든 스냅숏 폴더가 표시됩니다.
+   2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 만든 클러스터의 경우 이 경로는 **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**입니다. 이 위치에서 **snapshot.* timestamp***와 비슷한 이름으로 만든 스냅숏 폴더가 표시됩니다.
    3. 스냅숏 폴더를 압축하고 Azure Blob 저장소에 업로드합니다. Hadoop 명령줄에서 다음 명령을 사용하여 스냅숏 폴더의 위치로 이동합니다.
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -176,11 +176,9 @@ ms.lasthandoff: 04/16/2018
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 * [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
-* [HDInsight 클러스터에서 R 설치][hdinsight-install-r]: R 설치에 대한 스크립트 작업 샘플입니다.
 * [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Giraph 설치에 대한 스크립트 작업 샘플입니다.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

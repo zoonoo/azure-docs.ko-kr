@@ -9,11 +9,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: billmath
-ms.openlocfilehash: d21f124858a7f98227eb301a97b9837e3adbba68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4e6cf3bb4a691380a5fe22f5afdf749b40f15ef3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="synchronizing-guest-user-accounts-that-use-email-for-sign-in-preview"></a>로그인 시 이메일을 사용하는 게스트 사용자 계정 동기화(미리 보기)
 
@@ -180,6 +180,6 @@ Azure AD PowerShell을 사용하여 Azure로 페더레이션 설정을 확인할
 ![Success](media/active-directory-aadconnect-guest-sync/guest12.png)
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Active Directory B2B 공동 작업 사용자 속성](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
+- [Azure Active Directory B2B 공동 작업 사용자 속성](../../active-directory/b2b/user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
 - [대체 로그인 ID 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Azure AD Connect: 버전 릴리스 내역](active-directory-aadconnect-version-history.md)
