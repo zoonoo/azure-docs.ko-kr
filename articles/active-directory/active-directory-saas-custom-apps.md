@@ -1,6 +1,6 @@
 ---
-title: "응용 프로그램에 대한 Azure AD SSO 구성 | Microsoft Docs"
-description: "셀프 서비스가 SAML 및 암호 기반 SSO로 Azure Active Directory에 앱을 연결하는 방법을 알아봅니다."
+title: 응용 프로그램에 대한 Azure AD SSO 구성 | Microsoft Docs
+description: 셀프 서비스가 SAML 및 암호 기반 SSO로 Azure Active Directory에 앱을 연결하는 방법을 알아봅니다.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -15,18 +15,19 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 8b76809e615174e7c4e118c6043c8f3fbef3ee94
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158033"
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성
-이 문서에서는 관리자가 Azure Active Directory 앱 갤러리에 없는 응용 프로그램에 Single Sign-On을 *코드 작성 없이*구성할 수 있도록 설정하는 기능에 대해 설명합니다. 이 기능은 2015년 11월 18일 기술 미리 보기에서 발표되었으며 [Azure Active Directory Premium](active-directory-editions.md)에 포함되어 있습니다. 이 문서 대신 코드를 통해 사용자 지정 앱을 Azure AD와 통합하는 방법에 대한 개발자 참고 자료를 찾는다면 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
+이 문서에서는 관리자가 Azure Active Directory 앱 갤러리에 없는 응용 프로그램에 Single Sign-On을 *코드 작성 없이*구성할 수 있도록 설정하는 기능에 대해 설명합니다. 이 기능은 2015년 11월 18일 기술 미리 보기에서 발표되었으며 [Azure Active Directory Premium](active-directory-whatis.md)에 포함되어 있습니다. 이 문서 대신 코드를 통해 사용자 지정 앱을 Azure AD와 통합하는 방법에 대한 개발자 참고 자료를 찾는다면 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 
 Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-directory-appssoaccess-whatis.md)에 설명한 대로 Azure Active Directory와의 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록을 제공합니다. (조직의 IT 전문가 또는 시스템 통합자인 경우)연결할 응용 프로그램을 찾으면 Azure Portal에 나와 있는 단계별 지침에 따라 Single Sign-On을 사용하도록 설정할 수 있습니다.
 
-[Azure Active Directory Premium](active-directory-editions.md) 라이선스가 있는 고객에게는 다음과 같은 추가 기능이 제공됩니다.
+[Azure Active Directory Premium](active-directory-whatis.md) 라이선스가 있는 고객에게는 다음과 같은 추가 기능이 제공됩니다.
 
 * SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합(SP에서 시작 또는 IdP에서 시작)
 * [암호 기반 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
@@ -110,7 +111,7 @@ SAML 토큰에서 발급된 클레임을 편집해야 할 수도 있는 두 가�
 ### <a name="testing-the-saml-application"></a>SAML 응용 프로그램 테스트
 SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 사용자 또는 그룹은 Azure에서 응용 프로그램에 할당되고 클레임은 필요한 경우 검토 및 편집되며 사용자는 응용 프로그램에 로그인하도록 준비됩니다. 
 
-응용 프로그램에 할당된 사용자 계정을 사용하여 https://myapps.microsoft.com에서 Azure AD 액세스 패널에 로그인하는지를 테스트하려면 응용 프로그램에 대한 타일을 클릭하여 Single Sign-On 프로세스를 시작합니다. 또는 여기에서 응용 프로그램 및 로그인에 대한 로그인 URL을 직접 찾아볼 수 있습니다. 
+테스트하려면 응용 프로그램에 할당된 사용자 계정을 사용하여 https://myapps.microsoft.com에서 Azure AD 액세스 패널에 로그인한 다음, 응용 프로그램에 대한 타일을 클릭하여 Single Sign-On 프로세스를 시작합니다. 또는 여기에서 응용 프로그램 및 로그인에 대한 로그인 URL을 직접 찾아볼 수 있습니다. 
 
 디버깅 팁은 [SAML 기반 Single Sign-On 응용 프로그램을 디버깅하는 방법에 대 한 문서](active-directory-saml-debugging.md) 
 

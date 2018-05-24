@@ -10,11 +10,12 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166117"
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Windows에서 시뮬레이트된 장치에 Azure IoT Edge 배포 - 미리 보기
 
@@ -42,7 +43,7 @@ Azure IoT Edge에서는 클라우드로 모든 데이터를 푸시하는 대신,
    * 윈도우 10 
    * Windows Server
 2. [Windows용 Docker][lnk-docker]를 설치하고, 지금 실행 중인지 확인합니다.
-3. [Windows에 Python 2.7][lnk-python]을 설치하고 pip 명령을 사용할 수 있는지 확인합니다.
+3. [Windows에 Python][lnk-python]을 설치하고 pip 명령을 사용할 수 있는지 확인합니다. 이 자습서는 Python 버전 2.7.9 이상 및 3.5.4 이상에서 테스트되었습니다.  
 4. 다음 명령을 실행하여 IoT Edge 제어 스크립트를 다운로드합니다.
 
    ```cmd

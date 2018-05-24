@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceeec6991aaac64211301313c1bb8dc5f5faa1c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077626"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
 
@@ -61,14 +62,14 @@ HANA 대규모 인스턴스 지침의 다른 문서는 다음 영역을 다룹�
 - **SAP 자산:** IT 환경의 SAP 자산 전체를 나타냅니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 - **SAP 시스템**: DBMS 계층과 응용 프로그램 계층(예: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템)의 조합입니다. Azure 배포는 온-프레미스와 Azure 간에 이러한 두 계층의 분할을 지원하지 않습니다. SAP 시스템은 온-프레미스 또는 Azure에 배포됩니다. SAP 자산의 서로 다른 시스템은 Azure 또는 온-프레미스에 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포하고, 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다. SAP HANA on Azure(대규모 인스턴스)의 경우 VM에서 SAP 시스템의 SAP 응용 프로그램 계층을 호스팅하고, SAP HANA on Azure(대규모 인스턴스) 스탬프의 장치에서 관련된 SAP HANA 인스턴스를 호스팅하기 위한 것입니다.
 - **대규모 인스턴스 스탬프:** SAP HANA TDI 인증을 받고 Azure 내에서 SAP HANA 인스턴스를 전용으로 실행하는 하드웨어 인프라 스택입니다.
-- **SAP HANA on Azure(대규모 인스턴스):** 여러 Azure 지역의 대규모 인스턴스 스탬프에 배포된 SAP HANA TDI 인증 하드웨어에서 HANA 인스턴스를 실행하는 Azure 제품에 대한 공식 이름입니다. *HANA 대규모 인스턴스* 관련 용어는 *SAP HANA on Azure(대규모 인스턴스)*의 약어이며 기술적 배포 가이드에서 널리 사용됩니다.
+- **SAP HANA on Azure(대규모 인스턴스):** 여러 Azure 지역의 대규모 인스턴스 스탬프에 배포된 SAP HANA TDI 인증 하드웨어에서 HANA 인스턴스를 실행하는 Azure 제품에 대한 공식 이름입니다. *HANA 대규모 인스턴스* 관련 용어는 *SAP HANA on Azure(대규모 인스턴스)* 의 약어이며 기술적 배포 가이드에서 널리 사용됩니다.
 - **프레미스 간**: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트 간, 다중 사이트 또는 ExpressRoute 방식으로 연결된 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 크로스-프레미스 시나리오라고도 합니다. 이러한 연결은 온-프레미스 도메인, 온-프레미스 Azure Active Directory/OpenLDAP 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 Azure 구독의 Azure 자산으로 확장됩니다. 이 확장을 사용하면 VM이 온-프레미스 도메인에 속할 수 있습니다. 
 
    온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고, 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 시나리오는 대부분의 SAP 자산이 배포되는 전형적인 방식입니다. 자세한 내용은 [Azure VPN Gateway 계획 및 설계](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [Azure Portal을 사용하여 사이트 간 연결이 있는 가상 네트워크 만들기](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 - **테넌트:** HANA 대규모 인스턴스 스탬프에 배포된 고객은 *테넌트*로 격리됩니다. 테넌트는 네트워킹, 저장소 및 계산 계층에서 다른 테넌트로부터 격리됩니다. 다른 테넌트에 할당된 저장소 및 계산 장치는 HANA 대규모 인스턴스 스탬프 수준에서 서로 표시하거나 통신할 수 없습니다. 고객은 다양한 테넌트에 배포하도록 선택할 수 있습니다. 그러한 경우에도 HANA 대규모 인스턴스 스탬프 수준에서 테넌트 간 통신은 없습니다.
 - **SKU 범주:** HANA 대규모 인스턴스의 경우 SKU는 다음 두 가지 범주로 제공됩니다.
     - **유형 I 클래스:** S72, S72m, S144, S144m, S192 및 S192m
-    - **유형 II 클래스:** S384, S384m, S384xm, S576, S768 및 S960
+    - **유형 II 클래스**: S384, S384m, S384xm, S576m, S768m 및 S960m
 
 
 클라우드에서 SAP 워크로드를 배포하는 방법에 대해 다양한 추가 리소스를 사용할 수 있습니다. Azure에서 SAP HANA 배포를 실행하려는 경우, Azure IaaS의 원칙 및 Azure IaaS에 대한 SAP 워크로드 배포를 경험하고 숙지해야 합니다. 계속하기 전에 먼저 [Azure 가상 머신에서 SAP 솔루션 사용](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 
@@ -93,7 +94,7 @@ VM에서 SAP HANA를 실행하는 것과 비교할 때 이 솔루션에 이점�
 - 여기에 설명된 솔루션 외에도 Azure(큰 인스턴스)에서 SAP HANA에 연결되는 Azure 구독에 다른 구성 요소를 설치할 수 있습니다. 예를 들어 SAP HANA 데이터베이스와 통신하거나 직접 사용할 수 있게 하는 구성 요소(예: 점프 서버, RDP 서버, SAP HANA Studio, SAP BI용 SAP Data Services 시나리오, 네트워크 모니터링 솔루션)가 있습니다.
 - Azure와 마찬가지로 HANA 대규모 인스턴스는 고가용성 및 재해 복구 기능을 지원합니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
 SAP HANA on Azure(대규모 인스턴스) 솔루션에는 높은 수준에서 VM에 상주하는 SAP 응용 프로그램 계층이 있습니다. 데이터베이스 계층은 Azure IaaS에 연결된 동일한 Azure 지역의 대규모 인스턴스 스탬프에 있는 SAP TDI 구성 하드웨어에 상주합니다.
 
@@ -144,9 +145,9 @@ Azure Virtual Machines를 사용하여 다양한 VM 유형 중에서 선택할 �
 |---| Azure S192m에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 96 CPU 코어 및 192 CPU 스레드  |  4.0 TB |  16 TB | 사용 가능 |
 |---| Azure S384m에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  6.0 TB |  18 TB | 사용 가능 |
 |---| Azure S384xm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  8.0 TB |  22 TB |  사용 가능 |
-|---| Azure S576에서 SAP HANA<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  12.0 TB |  28 TB | 사용 가능 |
-|---| Azure S768에서 SAP HANA<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  16.0 TB |  36 TB | 사용 가능 |
-|---| Azure S960에서 SAP HANA<br /> – 20 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 480 CPU 코어 및 960 CPU 스레드 |  20.0 TB |  46 TB | 사용 가능 |
+|---| Azure의 SAP HANA S576m<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  12.0 TB |  28 TB | 사용 가능 |
+|---| Azure의 SAP HANA S768m<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  16.0 TB |  36 TB | 사용 가능 |
+|---| Azure의 SAP HANA S960m<br /> – 20 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 480 CPU 코어 및 960 CPU 스레드 |  20.0 TB |  46 TB | 사용 가능 |
 
 - CPU 코어 = 서버 단위 프로세서 합계의 비하이퍼 스레드 CPU 코어 합계
 - CPU 스레드 = 서버 단위 프로세서 합계의 하이퍼 스레드된 CPU 코어에서 제공하는 계산 스레드 합계 모든 장치는 기본적으로 하이퍼스레드 기술을 사용하도록 구성됩니다.
@@ -157,7 +158,7 @@ Azure Virtual Machines를 사용하여 다양한 VM 유형 중에서 선택할 �
 모든 제안에 대한 하드웨어는 SAP HANA TDI 인증을 기반으로 합니다. SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
 
 - '유형 I 클래스' SKU: S72, S72m, S144, S144m, S192 및 S192m
-- '유형 II 클래스' SKU: S384, S384m, S384xm, S576, S768 및 S960
+- SKU의 "유형 II 클래스": S384, S384m, S384xm, S576m, S768m 및 S960m
 
 HANA 대규모 인스턴스 스탬프 전체는 단일 고객용으로만 할당되지 않습니다. 이 사실은 Azure에 배포된 네트워크 패브릭을 통해 연결된 계산 및 저장소 리소스 랙에도 적용됩니다. HANA 대규모 인스턴스 인프라는 Azure와 마찬가지로 다음 세 가지 수준에서 서로 격리된 서로 다른 고객 &quot;테넌트&quot;를 배포합니다.
 
@@ -304,6 +305,8 @@ HANA 대규모 인스턴스에 대한 크기 조정은 일반적으로 HANA에 �
 
 Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581)을 참조하세요.
 
+운영 체제 및 HLI 펌웨어/드라이버 버전의 호환성 매트릭스는 [HLI에 대한 OS 업그레이드](os-upgrade-hana-large-instance.md)를 참조하세요.
+
 
 **데이터베이스**
 
@@ -344,9 +347,9 @@ SAP HANA on Azure(대규모 인스턴스)의 저장소 레이아웃은 SAP 권�
 | S384 | 11,520 GB | 1,536GB | 1,792GB | 1,536GB |
 | S384m | 12,000 GB | 2,050GB | 2,050GB | 2,040GB |
 | S384xm | 16,000 GB | 2,050GB | 2,050GB | 2,040GB |
-| S576 | 20,000 GB | 3,100GB | 2,050GB | 3,100GB |
-| S768 | 28,000 GB | 3,100GB | 2,050GB | 3,100GB |
-| S960 | 36,000 GB | 4,100GB | 2,050GB | 4,100GB |
+| S576m | 20,000 GB | 3,100GB | 2,050GB | 3,100GB |
+| S768m | 28,000 GB | 3,100GB | 2,050GB | 3,100GB |
+| S960m | 36,000 GB | 4,100GB | 2,050GB | 4,100GB |
 
 
 실제로 배포되는 볼륨은 볼륨 크기를 표시하는 데 사용된 배포와 도구에 따라 달라질 수 있습니다.

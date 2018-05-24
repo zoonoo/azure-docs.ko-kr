@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f2b048d4fad1fae240904fef48842679accaa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 17e5ba3637b0ae36412e46166f7f178d4c82d179
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204771"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Database for MySQL에서 데이터 복사
 
@@ -47,6 +48,13 @@ Azure Database for MySQL 연결된 서비스에 다음 속성이 지원됩니다
 | 형식 | 형식 속성은 **AzureMySql**로 설정되어야 합니다. | 예 |
 | connectionString | Azure Database for MySQL 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+
+일반적인 연결 문자열은 `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`입니다. 사례에 따라 다음과 같은 더 많은 속성을 설정할 수 있습니다.
+
+| 자산 | 설명 | 옵션 | 필수 |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예: `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아니오 |
+| UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예: `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0)**(기본값)** | 아니오 |
 
 **예제:**
 

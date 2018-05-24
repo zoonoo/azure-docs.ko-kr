@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209504"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 간 복제 아키텍처
 
@@ -46,7 +47,7 @@ Azure VM 복제를 사용하도록 설정하면 다음 리소스가 원본 지�
 
 **리소스** | **세부 정보**
 --- | ---
-**대상 리소스 그룹** | 장애 조치(failover) 후 복제된 VM이 속하게 되는 리소스 그룹입니다.
+**대상 리소스 그룹** | 장애 조치(failover) 후 복제된 VM이 속하게 되는 리소스 그룹입니다. 원본 가상 머신이 호스트되는 Azure 지역을 제외한 모든 Azure 지역이 이 리소스 그룹의 위치가 될 수 있습니다.
 **대상 가상 네트워크** | 장애 조치(failover) 후 복제된 VM이 있는 가상 네트워크입니다. 네트워크 매핑은 원본 및 대상 가상 네트워크 간에 만들어집니다.
 **캐시 저장소 계정** | 원본 VM 변경 내용이 대상 저장소 계정에 복제되기 전에 추적되어 원본 위치의 캐시 저장소 계정으로 전송됩니다. 이 단계를 통해 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.
 **대상 저장소 계정(원본 VM이 관리 디스크를 사용하지 않는 경우)**  | 데이터가 복제되는 대상 위치의 Storage 계정입니다.

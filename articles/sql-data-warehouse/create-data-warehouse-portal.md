@@ -10,11 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191522"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse 생성 및 쿼리
 
@@ -72,15 +73,15 @@ Azure SQL 데이터 웨어하우스는 정의된 [계산 리소스](memory-and-c
 
 5. **선택**을 클릭합니다.
 
-6. **성능 계층**을 클릭하여 데이터 웨어하우스에 대한 성능 구성을 지정합니다.
+6. **성능 수준**을 클릭하여 데이터 웨어하우스에 대한 성능 구성을 지정합니다.
 
-7. 이 자습서의 경우 **탄력성에 최적화됨** 성능 계층을 선택합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 **Gen2**를 선택합니다. 기본적으로 슬라이더는 **DW1000c**로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **Apply**를 클릭합니다.
 
-9. 이제 SQL Database 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
+9. 이제 SQL Data Warehouse 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
     ![만들기 클릭](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -96,7 +97,7 @@ SQL Data Warehouse 서비스는 외부 응용 프로그램 및 도구가 서버 
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
 >
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 **SQL Database** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20171113.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
+1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Data Warehouses**를 클릭한 다음, **SQL Data Warehouses** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
 
 2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 서버 설정을 열려면 서버 이름을 클릭합니다.
 
@@ -127,8 +128,8 @@ SQL Data Warehouse 서비스는 외부 응용 프로그램 및 도구가 서버 
 Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20171113.database.windows.net입니다. 
+2. 왼쪽 메뉴에서 **SQL Data Warehouses**를 선택하고, **SQL Data Warehouses** 페이지에서 사용자의 데이터 웨어하우스를 클릭합니다. 
+3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다. 
 
     ![연결 정보](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -143,7 +144,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
    | 설정       | 제안 값 | 설명 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
-   | 서버 이름 | 정규화된 서버 이름 | **mynewserver-20171113.database.windows.net**을 예로 들 수 있습니다. |
+   | 서버 이름 | 정규화된 서버 이름 | 다음은 예제 **mynewserver-20180430.database.windows.net**입니다. |
    | 인증 | SQL Server 인증 | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
    | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
    | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
@@ -197,7 +198,7 @@ SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 �
 
 2. 계산 또는 저장소에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 
-3. 만든 SQL 서버를 제거하려면 이전 이미지에 있는 **mynewserver-20171113.database.windows.net**을 클릭하고 **삭제**를 클릭합니다.  서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
+3. 만든 SQL 서버를 제거하려면 이전 이미지에 있는 **mynewserver-20180430.database.windows.net**을 클릭한 다음, **삭제**를 클릭합니다.  서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
 
 4. 리소스 그룹을 제거하려면 **myResourceGroup**을 클릭하고 **리소스 그룹 삭제**를 클릭합니다.
 

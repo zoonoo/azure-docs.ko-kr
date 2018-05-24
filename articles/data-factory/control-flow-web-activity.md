@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770760"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 끝점을 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 집합 및 연결된 서비스를 전달할 수 있습니다. 
@@ -71,13 +72,23 @@ ms.lasthandoff: 03/23/2018
 메서드 | 대상 끝점에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
 URL | 대상 끝점 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 끝점에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | 예
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
-본문 | 끝점에 전송된 페이로드를 나타냅니다. POST/PUT 메서드에 필요합니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | 아니요
-인증 | 끝점을 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아니요
+본문 | 끝점에 전송된 페이로드를 나타냅니다. POST/PUT 메서드에 필요합니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | 아니오
+인증 | 끝점을 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아니오
 데이터 집합 | 끝점에 전달되는 데이터 집합의 목록입니다. | 데이터 집합 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 linkedServices | 끝점에 전달되는 연결된 서비스 목록입니다. | 연결된 서비스 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 
 > [!NOTE]
 > 웹 작업이 호출하는 REST 끝점은 JSON 형식의 응답을 반환해야 합니다. 활동이 끝점에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다.
+
+다음 표에서는 JSON 콘텐츠에 대한 요구 사항을 보여 줍니다.
+
+| 값 형식 | 요청 본문 | 응답 본문 |
+|---|---|---|
+|JSON 개체 | 지원됨 | 지원됨 |
+|JSON 배열 | 지원됨 <br/>(현재 JSON 배열은 버그로 인해 작동하지 않습니다. 수정이 진행 중입니다.) | 지원되지 않음 |
+| JSON 값 | 지원됨 | 지원되지 않음 |
+| 비-JSON 형식 | 지원되지 않음 | 지원되지 않음 |
+||||
 
 ## <a name="authentication"></a>인증
 

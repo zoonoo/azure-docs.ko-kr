@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939963"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조하세요. 여기에서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하거나 서비스에 대한 가격 정보 페이지를 방문하여 비용을 예측할 수 있습니다(예: [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing/billing-getting-started.md)를 참조하세요.
 
 > [!NOTE]
-> **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](azure-supportability/resource-manager-core-quotas-request.md)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다.
+> **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](azure-resource-manager/resource-manager-quota-errors.md)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다.
 >
 > [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)은 제한하거나 할당량을 증가할 수 없습니다. [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 평가판을 종량제로 업그레이드](billing/billing-upgrade-azure-subscription.md) 및 [평가판 구독 FAQ](https://azure.microsoft.com/free/free-account-faq)를 참조하세요.
 >
@@ -53,6 +54,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -61,7 +63,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [컨테이너 레지스트리](#container-registry-limits)
-* [컨테이너 서비스(AKS)](#container-service-aks-limits)
+* [Kubernetes 서비스](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -129,7 +131,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### <a name="container-service-aks-limits"></a>컨테이너 서비스(AKS) 제한
+### <a name="kubernetes-service-limits"></a>Kubernetes 서비스 제한
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>네트워킹 제한
@@ -280,6 +282,9 @@ Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 �
 
 ### <a name="azure-event-grid-limits"></a>Azure Event Grid 제한
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
+
+### <a name="azure-maps-limits"></a>Azure Maps 제한
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

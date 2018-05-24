@@ -10,11 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187602"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 백업 및 복원
 Azure SQL Data Warehouse에서 백업 및 복원이 어떻게 작동하는지 알아봅니다. 데이터 웨어하우스 백업을 사용하여 데이터 웨어하우스를 주 지역의 복원 지점으로 복원합니다. 지역 중복 백업을 사용하여 다른 지역에 복원합니다. 
@@ -55,9 +56,9 @@ SQL Data Warehouse는 데이터 웨어하우스가 일시 중지된 동안에는
 > 
 
 ## <a name="geo-backups"></a>지역 백업
-SQL Data Warehouse는 하루에 한 번 [쌍으로 연결된 데이터 센터](../best-practices-availability-paired-regions.md)로 지역 백업을 수행합니다. 지역 복원의 RPO는 24시간입니다. 지역 백업을 지역 쌍으로 연결된 지역의 서버로 복원할 수 있습니다. 지역 백업을 사용하면 주 지역의 스냅숏에 액세스할 수 없는 경우에 데이터 웨어하우스를 복원할 수 있습니다.
+SQL Data Warehouse는 하루에 한 번 [쌍으로 연결된 데이터 센터](../best-practices-availability-paired-regions.md)로 지역 백업을 수행합니다. 지역 복원의 RPO는 24시간입니다. SQL Data Warehouse가 지원되는 다른 지역에 있는 서버로 지역 백업을 복원할 수 있습니다. 지역 백업을 사용하면 주 지역의 스냅숏에 액세스할 수 없는 경우에 데이터 웨어하우스를 복원할 수 있습니다.
 
-지역 백업은 기본적으로 켜져 있습니다. 데이터 웨어하우스가 탄력성에 최적화된 경우 원하는 대로 [옵트아웃](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)할 수 있습니다. 계산 성능 계층에 최적화된 경우에는 지역 백업을 옵트아웃할 수 없습니다.
+지역 백업은 기본적으로 켜져 있습니다. 데이터 웨어하우스가 Gen1인 경우 원하는 대로 [옵트아웃](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)할 수 있습니다. 데이터 보호는 기본 제공 보증이므로 Gen2에 대한 지역 백업을 옵트아웃할 수 없습니다.
 
 ## <a name="backup-costs"></a>백업 비용
 Azure 청구서에는 Azure Premium Storage에 대한 항목과 지역 중복 저장소에 대한 항목이 있습니다. Premium Storage 요금은 주 지역에 데이터를 저장하는 데 드는 총 비용이며, 스냅숏을 포함합니다.  지역 중복 요금은 지역 백업을 저장하는 데 드는 비용을 포함합니다.  

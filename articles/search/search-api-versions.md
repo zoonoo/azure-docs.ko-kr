@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: dfa3e1996ecbd3d78fef9f85facb7da1c209fafa
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7754242aa79a2ba7931a6d80a7a12a0858c6f260
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776399"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search의 API 버전
 Azure Search는 정기적으로 기능 업데이트를 공개합니다. 항상 그렇지는 않지만 경우에 따라 이전 버전과 호환성을 유지하기 위해 API의 새 버전을 게시하기 위해 이러한 업데이트가 필요하기도 합니다. 새 버전을 게시하면 코드에서 검색 서비스 업데이트를 통합 하는 시기와 방법을 제어할 수 있습니다.
@@ -30,16 +31,17 @@ SDK 업데이트와 동일한 규칙을 따릅니다. Azure Search SDK는 버전
 
 | 인터페이스 | 가장 최근의 주 버전 | 상태 |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |3.0 |일반 공급, 2016년 11월 릴리스됨 |
+| [.NET SDK](https://aka.ms/search-sdk) |5.0 |일반 공급, 2018년 4월 릴리스됨 |
 | [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |4.0.1-preview |미리 보기, 2017년 5월 릴리스 |
 | [서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |일반 공급 |
-| [서비스 REST API 미리 보기](search-api-2016-09-01-preview.md) |2016-09-01-Preview |미리 보기 |
+| [서비스 REST API 2016-09-01-Preview](search-api-2016-09-01-preview.md) |2016-09-01-Preview |미리 보기 |
+| [서비스 REST API 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |미리 보기 |
 | [.NET 관리 SDK](https://aka.ms/search-mgmt-sdk) |2.0 |일반 공급 |
 | [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |일반 공급 |
 
 REST API의 경우 각 호출의 `api-version` 을 포함해야 합니다. 이렇게 하면 API 미리 보기 등 특정 버전을 대상으로 하기 쉽습니다. 다음 예제에서는 `api-version` 매개 변수를 지정하는 방법을 보여 줍니다.
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2016-09-01
+    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
 > [!NOTE]
 > 각 요청에는 `api-version`이 있지만, 모든 API 요청에 대해 동일한 버전을 사용하는 것이 좋습니다. 새 API 버전이 이전 버전에서 인식 하지 못하는 특성 또는 작업을 도입하는 경우 특히 유용합니다. 혼합 API 버전에는 의도하지 않은 결과가 있을 수 있기 때문에 사용하지 말아야 합니다.

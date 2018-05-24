@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150348"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
 Azure AD Connect의 동기화 기능에는 두 가지 구성 요소가 있습니다.
@@ -56,7 +57,7 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 | DeviceWriteback |[Azure AD Connect: 장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect 동기화: 디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |내보내는 동안 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다. |
-| PasswordSync |[Azure AD Connect 동기화로 암호 동기화 구현](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| PasswordSync |[Azure AD Connect 동기화로 암호 해시 동기화 구현](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[미리 보기: 그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |현재 지원되지 않습니다. |
 
@@ -88,7 +89,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 자세한 내용은 [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않음](https://support.microsoft.com/kb/2523192)을 참조하세요.
 
-이 기능을 사용하도록 설정하면 userPrincipalName이 변경된 온-프레미스이고 암호 동기화를 사용하는 경우 동기화 엔진이 이를 업데이트할 수 있습니다. 페더레이션을 사용하는 경우 이 기능은 지원되지 않습니다.
+이 기능을 사용하도록 설정하면 userPrincipalName이 변경된 온-프레미스이고 암호 해시 동기화를 사용하는 경우 동기화 엔진이 이를 업데이트할 수 있습니다. 페더레이션을 사용하는 경우 이 기능은 지원되지 않습니다.
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.  
 

@@ -13,14 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 959a483d293caa45180c946e92ac824fc56db084
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195042"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Azure의 SAP HANA 운영 가이드
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영을 위한 지침을 제공합니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -177,7 +178,7 @@ Azure Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage V
 - M128xx VM당 16개 VHD
 - M64xx VM당 8개 VHD
 
-Azure Write Accelerator를 활성화하는 방법에 대한 자세한 지침은 [SAP 배포용 Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator) 문서에서 확인할 수 있습니다.
+Azure Write Accelerator를 활성화하는 방법에 대한 자세한 지침은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) 문서에서 확인할 수 있습니다.
 
 Azure Write Accelerator에 대한 세부 정보 및 제한 사항은 동일한 설명서에서 찾을 수 있습니다.
 

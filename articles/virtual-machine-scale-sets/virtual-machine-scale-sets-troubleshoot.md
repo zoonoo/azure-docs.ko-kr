@@ -1,11 +1,11 @@
 ---
-title: "Virtual Machine Scale Sets를 이용하여 자동 크기 조정 문제 해결 | Microsoft Docs"
-description: "Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다."
+title: Virtual Machine Scale Sets를 이용하여 자동 크기 조정 문제 해결 | Microsoft Docs
+description: Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: negat
-ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: ea634ea8bcb4fed1ed63dc8d1e17d215a00758c6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161025"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
-**문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale과 같은 템플릿을 배포했습니다. 크기 조정 규칙을 정의했으며 VM에 적용되는 부하의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고 원활하게 작동합니다.
+**문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale과 같은 템플릿을 배포했습니다. 정의된 크기 조정 규칙이 있으며, VM에 적용되는 로드의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고는 원활하게 작동합니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 다음은 몇 가지 고려해야 할 사항입니다.
@@ -45,7 +46,7 @@ ms.lasthandoff: 12/20/2017
     실수하기 쉬우므로 작업에 증명된 위와 같은 템플릿으로 시작하고 조금씩 증분합니다. 
 * 수동으로 규모를 축소 또는 확장할 수 있나요?
   
-    VM 수를 수동으로 변경하려면 다른 "용량" 설정을 사용하여 가상 머신 확장 집합 리소스를 다시 배포합니다. https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing 예제 템플릿을 참조합니다. 확장 집합에서 사용하는 크기와 동일한 컴퓨터 크기를 사용하도록 템플릿을 편집해야 할 수 있습니다. 성공적으로 VM 수를 수동으로 변경할 수 있으면 자동 크기 조정에 문제의 원인이 있는 것입니다.
+    VM 수를 수동으로 변경하려면 다른 "용량" 설정을 사용하여 가상 머신 확장 집합 리소스를 다시 배포합니다. 템플릿 예제는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing에 있습니다. 템플릿을 편집하여 확장 집합에서 사용하는 것과 동일한 머신 크기를 유지해야 합니다. 성공적으로 VM 수를 수동으로 변경할 수 있으면 자동 크기 조정에 문제의 원인이 있는 것입니다.
 * Microsoft.Compute/virtualMachineScaleSet 및 [Azure 리소스 탐색기](https://resources.azure.com/)
   
     Azure Resource Explorer는 Azure Resource Manager 리소스의 상태를 보여 주는 필수적인 문제 해결 도구입니다. 구독을 클릭하고 문제를 해결하려는 리소스 그룹을 살펴봅니다. Compute 리소스 공급자 아래에서, 만든 가상 머신 확장 집합을 살펴보고 배포 상태를 보여 주는 인스턴스 보기를 확인합니다. 또한 가상 머신 확장 집합에서 VM 인스턴스 보기를 확인합니다. 그런 다음 Microsoft.Insights 리소스 공급자로 이동하여 자동 크기 조정 규칙이 적절한지 확인합니다.
@@ -78,7 +79,7 @@ ms.lasthandoff: 12/20/2017
     데이터가 없는 경우 VM에서 실행 중인 진단 확장에 문제가 있음을 의미합니다. 데이터가 있는 경우에는 크기 조정 규칙 또는 Insights 서비스에 문제가 있음을 의미합니다. [Azure 상태](https://azure.microsoft.com/status/)를 확인합니다.
     
     이러한 단계를 수행한 후에도 자동 크기 조정 문제가 여전히 있는 경우, 다음 리소스를 확인할 수 있습니다. 
-    * [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure)에 대한 포럼 읽기 
+    * [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure)에 대한 포럼 읽기 
     * 지원 호출을 기록합니다. 템플릿 및 성능 데이터 보기를 공유하도록 준비합니다.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

@@ -7,17 +7,19 @@ author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 692bc5eb401ccda36ef42006de509144170f7757
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bcbafcb5b72fd156f0d8b4a4ddd52aab1d699996
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076258"
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Linux VM MSI를 사용하여 Azure Cosmos DB 액세스 
 
@@ -72,29 +74,30 @@ MSI 기반 VM을 만들려면:
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
 
-## Create a Cosmos DB account 
+## <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기 
 
-If you don't already have one, create a Cosmos DB account. You can skip this step and use an existing Cosmos DB account. 
+Cosmos DB 계정이 아직 없는 경우 지금 만듭니다. 이 단계를 건너뛰고 기존 Cosmos DB 계정을 사용해도 됩니다. 
 
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
-3. Enter an **ID** for the Cosmos DB account, which you use later.  
-4. **API** should be set to "SQL." The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
-5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.  Select a **Location** where Cosmos DB is available.
-6. Click **Create**.
+1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
+2. **데이터베이스**를 클릭한 다음, **Azure Cosmos DB**를 클릭하면 새로운 "새 계정" 패널이 표시됩니다.
+3. 나중에 사용하는 Cosmos DB 계정에 대한 **ID**를 입력합니다.  
+4. **API**는 "SQL"로 설정되어야 합니다. 이 자습서에서 설명하는 방식은 사용 가능한 다른 API 형식으로 사용될 수 있지만 이 자습서의 단계는 SQL API에 대한 것입니다.
+5. **구독** 및 **리소스 그룹**은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.  Cosmos DB를 사용할 수 있는 **위치**를 선택합니다.
+6. **만들기**를 클릭합니다.
 
-## Create a collection in the Cosmos DB account
+## <a name="create-a-collection-in-the-cosmos-db-account"></a>Cosmos DB 계정에서 컬렉션을 만듭니다.
 
-Next, add a data collection in the Cosmos DB account that you can query in later steps.
+다음으로, 이후 단계에서 쿼리할 수 있는 Cosmos DB 계정에서 데이터 컬렉션을 추가합니다.
 
-1. Navigate to your newly created Cosmos DB account.
-2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
-3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
+1. 새로 만든 Cosmos DB 계정으로 이동합니다.
+2. **개요** 탭에서 **+/컬렉션 추가** 단추를 클릭하면 "컬렉션 추가" 패널이 슬라이드됩니다.
+3. 컬렉션에 데이터베이스 ID, 컬렉션 ID를 제공하고, 저장소 용량을 선택하고, 파티션 키를 입력하고, 처리량 값을 입력한 다음, **확인**을 클릭합니다.  이 자습서의 경우 데이터베이스 ID 및 컬렉션 ID로 "Test"를 사용하고, 고정된 저장소 용량 및 가장 낮은 처리량(400RU/s)을 선택하는 데 충분합니다.  
 
-## Retrieve the `principalID` of the Linux VM's MSI
+## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>Linux VM MSI의 `principalID` 검색
 
-To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's MSI.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
+다음 섹션에서 Resource Manager의 Cosmos DB 계정 액세스 키에 액세스하려면 Linux VM의 MSI `principalID`를 검색합니다.  `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`(VM이 위치한 리소스 그룹) 및 `<VM NAME>` 매개 변수 값을 고유한 값으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01

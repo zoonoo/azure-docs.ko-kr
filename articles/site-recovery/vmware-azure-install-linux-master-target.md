@@ -7,13 +7,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072439"
 ---
 # <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -82,9 +83,9 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
-1. 키보드의 원산지로 **영어(미국)**를 선택하고 **Enter** 키를 선택합니다.
+1. 키보드의 원산지로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
-1. 키보드 레이아웃으로 **영어(미국)**를 선택하고 **Enter** 키를 선택합니다.
+1. 키보드 레이아웃으로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
 1. **호스트 이름** 상자에 서버의 호스트 이름을 입력하고 **계속**을 선택합니다.
 
@@ -240,18 +241,13 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 1. Linux 마스터 대상 가상 머신에 새로운 1TB 디스크를 연결하고 컴퓨터를 시작합니다.
 
-2. **multipath -ll** 명령을 사용하여 보존 디스크의 다중 경로 ID를 확인합니다.
-    
-     `multipath -ll`
+2. **multipath -ll** 명령을 사용하여 보존 디스크의 다중 경로 ID를 확인합니다. **multipath -ll**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. 드라이브를 포맷하고 새 드라이브에 파일 시스템을 만듭니다.
-
+3. 드라이브를 포맷한 다음, 새 드라이브에서 파일 시스템을 만듭니다. **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![드라이브에 파일 시스템 만들기](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. 파일 시스템을 만든 후 보존 디스크를 탑재합니다.
 
@@ -277,7 +273,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 
 > [!NOTE]
-> 마스터 대상 서버를 설치하기 전에 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소에 매핑하는 항목이 가상 머신의**/etc/hosts** 파일에 포함되어 있는지 확인합니다.
+> 마스터 대상 서버를 설치하기 전에 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소에 매핑하는 항목이 가상 머신의 **/etc/hosts** 파일에 포함되어 있는지 확인합니다.
 
 1. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase**에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt**로 저장합니다.
 
@@ -335,9 +331,9 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
      스크립트가 완료될 때까지 기다립니다. 마스터 대상이 성공적으로 등록되면 해당 마스터 대상이 포털의 **Site Recovery 인프라** 페이지에 나열됩니다.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>마스터 대상 서버에 VMware 도구 설치
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>마스터 대상 서버에 VMware 도구/open-vm-tools 설치
 
-VMware 도구가 데이터 저장소를 찾을 수 있도록 마스터 대상에 설치해야 합니다. 도구가 설치되지 않으면 다시 보호 화면이 데이터 저장소에서 나열되지 않습니다. VMware 도구를 설치한 후에 다시 부팅해야 합니다.
+VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도록 마스터 대상에 설치해야 합니다. 도구가 설치되지 않으면 다시 보호 화면이 데이터 저장소에서 나열되지 않습니다. VMware 도구를 설치한 후에 다시 부팅해야 합니다.
 
 ### <a name="upgrade-the-master-target-server"></a>마스터 대상 서버 업그레이드
 

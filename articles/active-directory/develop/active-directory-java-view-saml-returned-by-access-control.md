@@ -7,6 +7,7 @@ author: rmcmurray
 manager: mbaldwin
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 28c43b27d58d78036dd832fb4f95f2bc9958441c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f6cdb2877541bd584f881b9dfeff38500d19ab82
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155561"
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure Access Control Service에서 반환한 SAML을 보는 방법
 이 가이드에서는 Azure ACS(Access Control Service)에서 응용 프로그램에 반환하는 기본 SAML(Security Assertion Markup Language)을 보는 방법을 안내합니다. 이 가이드는 [Eclipse를 사용하여 Azure Access Control Service를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 항목의 내용을 바탕으로 하여 SAML 정보를 표시하는 코드를 제공합니다. 완료된 응용 프로그램은 다음과 유사합니다.

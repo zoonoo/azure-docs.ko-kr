@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Ansible을 사용하여 기본 Linux VM 만들기 | Microsoft Docs"
-description: "Azure에서 Ansible을 사용하여 기본 Linux 가상 머신을 만들고 관리하는 방법을 알아봅니다"
+title: Azure에서 Ansible을 사용하여 기본 Linux VM 만들기 | Microsoft Docs
+description: Azure에서 Ansible을 사용하여 기본 Linux 가상 머신을 만들고 관리하는 방법을 알아봅니다
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 80406994402b488f4172069b13dca593c470efe4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a2bf047d5a08bfd3df6a6c76116d2b9b9ab81fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896166"
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure에서 Ansible을 사용하여 기본 가상 머신 만들기
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Azure에서 Ansible을 사용하여 다른 리소스와 동일한 방식으로 VM(가상 머신)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 기본 VM을 만드는 방법을 보여 줍니다. 또한 [Ansible을 사용하여 전체 VM 환경을 만드는](ansible-create-complete-vm.md) 방법도 배울 수 있습니다.
@@ -29,7 +30,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 Ansible을 사용하여 Azure 리소스를 관리하려면 다음이 필요합니다.
 
 - 호스트 시스템에 설치된 Ansible 및 Azure Python SDK 모듈
-    - [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) 및 [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)에 Ansible 설치
+    - [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts) 및 [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)에 Ansible 설치
 - Azure 자격 증명 및 이를 사용하도록 구성된 Ansible
     - [Azure 자격 증명 만들기 및 Ansible 구성](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI 버전 2.0.4 이상 `az --version`을 실행하여 버전을 찾습니다. 

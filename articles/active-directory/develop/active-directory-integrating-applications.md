@@ -3,23 +3,25 @@ title: Azure Active Directory와 응용 프로그램 통합
 description: Azure Active Directory(Azure AD)에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법
 services: active-directory
 documentationcenter: ''
-author: PatAltimore
+author: CelesteDG
 manager: mtillman
-editor: mbaldwin
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 76c6ef7d4cf53872dda308628790994b35d8431c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157999"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Azure Active Directory와 응용 프로그램 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +58,7 @@ Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure 
 5. 작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD가 응용 프로그램에 고유한 응용 프로그램 ID를 할당하면 응용 프로그램의 기본 등록 페이지로 이동합니다. 응용 프로그램이 웹 또는 네이티브 응용 프로그램인지에 따라 응용 프로그램에 기능을 추가하기 위해 다른 옵션이 제공됩니다. 동의 개요 및 응용 프로그램 등록에서 추가 구성 기능(자격 증명, 사용 권한, 다른 테넌트의 사용자 로그인 사용)을 사용하도록 설정하는 방법에 대한 세부 정보는 다음 섹션을 참조하세요.
 
   > [!NOTE]
-  > 기본적으로 새로 등록된 응용 프로그램은 동일한 테넌트의 사용자**만**이 응용 프로그램에 로그인할 수 있도록 구성됩니다.
+  > 기본적으로 새로 등록된 웹 응용 프로그램은 동일한 테넌트의 사용자**만** 응용 프로그램에 로그인할 수 있도록 구성됩니다.
   > 
   > 
 
@@ -65,13 +67,13 @@ Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure 
 
 ### <a name="overview-of-the-consent-framework"></a>동의 프레임워크의 개요
 
-Azure AD 동의 프레임워크를 사용하면 다중 계층 응용 프로그램을 포함하여 다중 테넌트 웹 및 네이티브 클라이언트 응용 프로그램을 쉽게 개발할 수 있습니다. 이러한 응용 프로그램을 사용하면 응용 프로그램이 등록되어 있는 계정과 다르게 Azure AD 테넌트의 사용자 계정으로 로그인할 수 있습니다. 사용자 고유의 웹 API 외에도 Microsoft Graph API(Azure Active Directory, Intune 및 Office 365의 서비스에 액세스하기 위해) 및 기타 Microsoft 서비스 API와 같은 웹 API에 액세스해야 합니다. 이 프레임워크는 응용프로그램을 자신의 디렉토리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 이 때 디렉토리 데이터 액세스가 필요할 수도 있습니다.
+Azure AD 동의 프레임워크를 사용하면 다중 테넌트 웹 및 네이티브 클라이언트 응용 프로그램을 쉽게 개발할 수 있습니다. 이러한 응용 프로그램을 사용하면 응용 프로그램이 등록되어 있는 계정과 다르게 Azure AD 테넌트의 사용자 계정으로 로그인할 수 있습니다. 사용자 고유의 웹 API 외에도 Microsoft Graph API(Azure Active Directory, Intune 및 Office 365의 서비스에 액세스하기 위해) 및 기타 Microsoft 서비스 API와 같은 웹 API에 액세스해야 합니다. 이 프레임워크는 응용프로그램을 자신의 디렉토리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 이 때 디렉토리 데이터 액세스가 필요할 수도 있습니다.
 
 예를 들어 웹 클라이언트 응용 프로그램이 Office 365에서 사용자에 대한 일정 정보를 읽어야 하는 경우 해당 사용자는 먼저 클라이언트 응용 프로그램에 동의해야 합니다. 사용자가 동의해 주면 해당 클라이언트 응용 프로그램에서 사용자를 대신하여 Microsoft Graph API를 호출하고 필요한 대로 일정 정보를 사용할 수 있습니다. [Microsoft Graph API](https://graph.microsoft.io)는 Azure AD의 사용자와 그룹 및 더 많은 Microsoft 클라우드 서비스의 기타 데이터 개체뿐만 아니라 Office 365(예: Exchange의 일정 및 메시지, SharePoint의 사이트 및 목록, OneDrive의 문서, OneNote의 전자 필기장, Planner의 작업, Excel의 통합 문서 등)의 데이터에 대한 액세스를 제공합니다. 
 
 동의 프레임워크는 공용 또는 기밀 클라이언트를 사용하여 인증 코드 부여 및 클라이언트 자격 증명 부여와 같은 다양한 흐름 및 OAuth 2.0을 기반으로 작성됩니다. OAuth 2.0을 사용하여 Azure AD는 전화기, 태블릿, 서버 또는 웹 응용 프로그램과 같은 다양한 유형의 클라이언트 응용 프로그램을 작성하고 필요한 리소스에 액세스할 수 잇습니다.
 
-Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 대한 자세한 내용은 [OAuth 2.0 및 Azure AD를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여](active-directory-protocols-oauth-code.md) 및 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요. Microsoft Graph를 통해 Office 365에 대한 액세스 권한을 부여받는 방법은 [Microsoft Graph를 사용하여 앱 인증](https://graph.microsoft.io/docs/authorization/auth_overview)을 참조하세요.
+OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 대한 자세한 내용은 [OAuth 2.0 및 Azure AD를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여](active-directory-protocols-oauth-code.md) 및 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요. Microsoft Graph를 통해 Office 365에 대한 액세스 권한을 부여받는 방법은 [Microsoft Graph를 사용하여 앱 인증](https://graph.microsoft.io/docs/authorization/auth_overview)을 참조하세요.
 
 #### <a name="example-of-the-consent-experience"></a>승인 환경 예
 
@@ -93,17 +95,17 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 5. 사용자가 동의를 부여하면 권한 부여 코드가 응용 프로그램에 반환되며, 이것을 교환하여 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다. 이 흐름에 대한 자세한 내용은 [Azure AD의 인증 시나리오에서 웹 응용 프로그램부터 Web API 섹션](active-directory-authentication-scenarios.md#web-application-to-web-api)을 참조하세요.
 
-6. 관리자로 테넌트의 모든 사용자를 대신하여 응용 프로그램의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에게 동의 대화 상자를 표시하지 않도록 방지하고 [Azure Portal](https://portal.azure.com)의 응용 프로그램 페이지를 완료합니다. 응용 프로그램의 **설정** 페이지에서 **필요한 사용 권한**을 클릭하고 **권한 부여** 단추를 클릭합니다. 
+6. 관리자로 테넌트의 모든 사용자를 대신하여 응용 프로그램의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에게 동의 대화 상자가 표시되지 않도록 하고, 관리자 역할이 있는 사용자가 [Azure Portal](https://portal.azure.com)에서 이를 수행할 수 있습니다. 응용 프로그램의 **설정** 페이지에서 **필요한 사용 권한**을 클릭하고 **권한 부여** 단추를 클릭합니다. 
 
   ![명시적 관리자 동의를 위한 권한 부여](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > **사용 권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 응용 프로그램이 실패합니다.   
+  > **사용 권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 응용 프로그램이 실패합니다. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>웹 API에 액세스하는 클라이언트 응용 프로그램 구성
 웹/기밀 클라이언트 응용 프로그램이 인증을 요구하고 액세스 토큰을 얻는 권한 부여 흐름에 참여하려면 보안 자격 증명을 설정해야 합니다. Azure Portal에서 지원하는 기본 인증 방법은 클라이언트 ID + 비밀 키입니다. 이 섹션에서는 비밀 키로 클라이언트의 자격 증명을 제공하는 데 필요한 구성 단계에 대해 설명합니다.
 
-또한 클라이언트가 리소스 응용 프로그램(예: Microsoft Graph API)에서 공개한 웹 API에 액세스하기 전에 동의 프레임워크는 클라이언트에서 요청된 권한에 기반하여 필요한 권한 부여를 얻도록 합니다. 기본적으로 모든 응용 프로그램은 "Windows Azure Active Directory"(Graph API) 및 "Windows Azure Service Management API"의 사용 권한을 선택할 수 있습니다. [Graph API "로그인 및 읽기 사용자 프로필" 사용 권한](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails)도 기본적으로 선택됩니다. Office 365를 구독하는 계정이 있는 테넌트에서 클라이언트를 등록하는 경우 SharePoint 및 Exchange Online의 Web API 및 사용 권한도 선택할 수 있습니다. 원하는 웹 API 각각에서 [두 가지 형식의 사용 권한](active-directory-dev-glossary.md#permissions) 중에 선택할 수 있습니다.
+또한 클라이언트에서 리소스 응용 프로그램(예: Microsoft Graph API)에서 공개한 웹 API에 액세스하기 전에 동의 프레임워크는 클라이언트에서 요청된 권한에 따라 필요한 권한 부여를 얻도록 합니다. 기본적으로 모든 응용 프로그램은 "Windows Azure Active Directory"(Graph API) 및 "Windows Azure Service Management API"의 사용 권한을 선택할 수 있습니다. [Graph API "로그인 및 읽기 사용자 프로필" 사용 권한](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails)도 기본적으로 선택됩니다. Office 365를 구독한 계정이 있는 테넌트에 클라이언트를 등록하는 경우 SharePoint 및 Exchange Online에 대한 웹 API 및 권한도 선택할 수 있습니다. 원하는 웹 API 각각에서 [두 가지 형식의 사용 권한](active-directory-dev-glossary.md#permissions) 중에 선택할 수 있습니다.
 
 - 응용 프로그램 권한: 클라이언트 응용 프로그램이 직접 웹 API에 액세스해야 합니다(사용자 컨텍스트 없음). 이 유형의 권한은 관리자의 동의가 필요하며 네이티브 클라이언트 응용 프로그램에 대해 사용할 수 없습니다.
 
@@ -120,7 +122,7 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
    ![응용 프로그램의 등록 업데이트](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다. 웹 응용 프로그램의 자격 증명에 비밀 키를 추가하려면:
-  - **설정** 페이지에서 **키** 섹션을 클릭합니다.  
+  - **설정** 페이지에서 **키** 섹션을 클릭합니다. 
   - 키에 대한 설명을 추가합니다.
   - 1년 또는 2년 중에 선택합니다.
   - **저장**을 클릭합니다. 구성 변경 사항을 저장하면 맨 오른쪽 열에 키 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 응용 프로그램 코드에서 사용할 **키를 복사해야 합니다**.
@@ -141,7 +143,7 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 6. 작업을 마치면 **액세스 사용** 페이지에서 **선택** 단추를 클릭하고 **API 액세스 추가** 페이지에서 **완료** 단추를 클릭합니다. **필수 사용 권한** 페이지로 돌아가게 됩니다. 여기서 새 리소스를 API 목록에 추가합니다.
 
   > [!NOTE]
-  > **완료** 단추를 클릭해도 구성한 다른 응용 프로그램에 대한 권한을 기반으로 디렉토리 내 응용 프로그램에 대한 사용 권한이 자동으로 설정됩니다.  응용 프로그램 **설정** 페이지에서 이러한 응용 프로그램 사용 권한을 확인할 수 있습니다.
+  > **완료** 단추를 클릭해도 구성한 다른 응용 프로그램에 대한 권한을 기반으로 디렉토리 내 응용 프로그램에 대한 사용 권한이 자동으로 설정됩니다. 응용 프로그램 **설정** 페이지에서 이러한 응용 프로그램 사용 권한을 확인할 수 있습니다.
   > 
   > 
 
@@ -182,7 +184,7 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
   > 추가 범위를 나중에 필요한 대로 노출할 수 있습니다. 웹 API에서 다양한 기능과 관련된 여러 범위를 공개할 수도 있음을 고려하세요. 리소스에서는 OAuth 2.0 액세스 토큰에서 수신된 범위(`scp`) 클레임을 평가하여 런타임 시 웹 API에 대한 액세스를 제어할 수 있습니다.
   > 
 
-6. 완료되면 **저장**을 클릭합니다. 이제 Web API가 디렉토리에 있는 다른 응용 프로그램에 의해 사용되도록 구성되었습니다.  
+6. 완료되면 **저장**을 클릭합니다. 이제 Web API가 디렉토리에 있는 다른 응용 프로그램에 의해 사용되도록 구성되었습니다. 
 
   ![응용 프로그램의 등록 업데이트](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -210,7 +212,7 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 앞서 설명한 대로 고유한 응용 프로그램의 API를 노출/액세스하는 것 외에도 클라이언트 응용 프로그램을 등록하여 Microsoft 리소스에 의해 노출된 API에 액세스할 수 있습니다. 포털의 리소스/API 목록에서 "Microsoft Graph"라고도 하는 Microsoft Graph API는 Azure AD에 등록된 모든 응용 프로그램에 사용할 수 있습니다. Office 365 구독에 등록된 계정을 포함하는 테넌트에서 클라이언트 응용 프로그램을 등록하는 경우 다양한 Office 365 리소스에 의해 노출되는 범위에 액세스할 수도 있습니다.
 
-Microsoft Graph API에 의해 노출된 범위에 대한 자세한 내용은 [사용 권한 범위 | Microsoft Graph API 개념](https://graph.microsoft.io/docs/authorization/permission_scopes) 문서를 참조하세요.
+Microsoft Graph API에서 노출되는 범위에 대한 자세한 내용은 [Microsoft Graph 권한 참조](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) 문서를 참조하세요.
 
 > [!NOTE]
 > 현재 제한으로 인해 네이티브 클라이언트 응용 프로그램이 “조직의 디렉터리 액세스" 권한을 사용하는 경우 Azure AD 그래프 API만 호출할 수 있습니다. 이 제한은 웹 응용 프로그램에는 적용되지 않습니다.
@@ -247,7 +249,7 @@ Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용�
 
 #### <a name="changing-the-application-to-support-multi-tenant"></a>다중 테넌트를 지원하도록 응용 프로그램 변경
 
-다중 테넌트 응용 프로그램에 대한 지원은 Azure AD 동의 프레임워크에 크게 의존합니다. 동의는 다른 테넌트의 사용자가 사용자의 테넌트에 의해 보호된 리소스에 대한 응용 프로그램 액세스 권한을 부여할 수 있는 메커니즘입니다. 이 환경은 "사용자 동의"라고 합니다.
+다중 테넌트 응용 프로그램에 대한 지원은 Azure AD 동의 프레임워크에 크게 의존합니다. 동의는 다른 테넌트의 사용자가 사용자의 테넌트에서 보호되는 리소스에 대한 응용 프로그램 액세스 권한을 부여할 수 있게 하는 메커니즘입니다. 이 환경은 "사용자 동의"라고 합니다.
 
 웹 응용 프로그램은 다음 기능을 제공할 수도 있습니다.
 
@@ -307,15 +309,15 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 6. 확인 메시지에서 **예** 를 클릭합니다.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>다른 조직이 권한을 부여한 다중 테넌트 응용프로그램 제거
-테넌트의 기본 "앱 등록" 페이지의 "모든 앱" 필터 아래에서 표시되는 응용 프로그램의 하위 집합("내 앱" 등록 제외)은 다중 테넌트 응용 프로그램입니다. 기술적인 측면에서 이러한 다중 테넌트 응용 프로그램은 다른 테넌트에서 비롯되어 동의 프로세스 중에 테넌트에 등록되었습니다. 구체적으로 말하면 해당하는 응용 프로그램 개체 없이 테넌트의 서비스 주체 개체에 의해서만 제공됩니다. 응용 프로그램 및 서비스 주체 개체의 차이에 대한 자세한 내용은 [Azure AD의 응용 프로그램 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
+테넌트의 기본 "앱 등록" 페이지에 있는 "모든 앱" 필터("내 앱" 등록 제외) 아래에 표시되는 응용 프로그램의 하위 집합은 다중 테넌트 응용 프로그램입니다. 기술적인 측면에서 이러한 다중 테넌트 응용 프로그램은 다른 테넌트에서 비롯되어 동의 프로세스 중에 테넌트에 등록되었습니다. 구체적으로 말하면 해당하는 응용 프로그램 개체 없이 테넌트의 서비스 주체 개체에 의해서만 제공됩니다. 응용 프로그램 및 서비스 주체 개체의 차이에 대한 자세한 내용은 [Azure AD의 응용 프로그램 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
 
-(동의를 표시한 후에) 자사의 디렉토리에 대한 다중 테넌트 응용 프로그램 액세스 권한을 제거하려면 회사 관리자는 해당 서비스 주체를 제거해야 합니다. 관리자에게는 전역 관리자 액세스 권한이 있어야 하고 Azure Portal을 통해 액세스 권한을 제거하거나 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 액세스를 제거할 수 있습니다.
+(동의를 표시한 후에) 자사의 디렉토리에 대한 다중 테넌트 응용 프로그램 액세스 권한을 제거하려면 회사 관리자는 해당 서비스 주체를 제거해야 합니다. 관리자에게 전역 관리자 액세스 권한이 있어야 하고, Azure Portal 또는 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 해당 권한을 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 - 앱의 시각적 지침에 대한 팁은 [통합 앱에 대한 브랜딩 지침](active-directory-branding-guidelines.md)을 참조하세요.
 - 응용 프로그램의 응용 프로그램 개체와 서비스 주체 개체 간의 관계에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
 - 앱 매니페스트에서 수행하는 역할에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)를 참조하세요.
-- 핵심 Azure AD(Active Directory) 개발자 개념 중 일부에 대한 정의는 [Azure Active Directory 개발자 용어집](active-directory-dev-glossary.md)을 참조하세요.
+- 핵심 Azure AD 개발자 개념 중 일부에 대한 정의는 [Azure AD 개발자 용어집](active-directory-dev-glossary.md)을 참조하세요.
 - 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 

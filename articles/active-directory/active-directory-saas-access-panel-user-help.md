@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931267"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>My Apps 포털 액세스 및 사용과 관련된 문제 해결
 
@@ -55,7 +56,7 @@ My Apps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된
 - **Edge**: Windows 10 Anniversary Edition 이상
 - **Chrome**: Windows 7 이상 및 Mac OS X 이상
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
-- **Internet Explorer 8, 9, 10, 11**: Windows 7 이상(제한적 지원)
+- **Internet Explorer 11**: Windows 7 이상(제한적 지원)
 
 또한 Chrome 및 Edge 확장은 다음 사이트에서 직접 다운로드할 수도 있습니다.
 

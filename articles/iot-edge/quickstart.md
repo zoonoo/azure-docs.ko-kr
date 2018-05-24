@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 05/03/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166219"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/28/2018
    * 윈도우 10 
    * Windows Server
 2. [Windows용 Docker][lnk-docker]를 설치하고, 지금 실행 중인지 확인합니다.
-3. [Windows에 Python 2.7][lnk-python]을 설치하고 pip 명령을 사용할 수 있는지 확인합니다.
+3. [Windows에 Python][lnk-python]을 설치하고 pip 명령을 사용할 수 있는지 확인합니다. 이 빠른 시작은 Python 버전 2.7.9 이상 및 3.5.4 이상에서 테스트되었습니다.  
 4. 다음 명령을 실행하여 IoT Edge 제어 스크립트를 다운로드합니다.
 
    ```cmd

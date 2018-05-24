@@ -9,11 +9,12 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195171"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -43,7 +44,7 @@ Azure SQL Database에는 다음과 같은 메모리 내 기술이 있습니다.
 
 columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 및 2014 이상에 포함되었습니다. Azure SQL Database 및 SQL Server는 메모리 내 기술의 동일한 구현을 공유합니다. 앞으로 이러한 기술에 대한 새로운 기능을 SQL Server에 배포하기 전에 Azure SQL Database에서 먼저 릴리스합니다.
 
-이 항목에서는 Azure SQL Database와 관련된 메모리 내 OLTP 및 columnstore 인덱스의 측면을 설명하며 다음과 같은 샘플도 제공합니다.
+이 문서에서는 Azure SQL Database와 관련된 메모리 내 OLTP 및 columnstore 인덱스의 측면을 설명하며 다음과 같은 샘플도 제공합니다.
 - 여기서는 데이터 크기 제한과 저장소에 대한 이와 같은 기술의 영향에 대해 알아봅니다.
 - 그리고 이러한 기술을 사용하는 데이터베이스를 여러 가격 책정 계층 간에 이동하는 작업을 관리하는 방법도 살펴봅니다.
 - 또한 Azure SQL Database의 columnstore 인덱스뿐만 아니라 메모리 내 OLTP의 사용을 보여 주는 두 개의 샘플입니다.
@@ -92,7 +93,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>columnstore 인덱스의 데이터 크기 및 저장소
 
-columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라서 인덱스의 크기에 대한 유일한 제한은 전체 최대 데이터베이스 크기이며 [SQL Database 서비스 계층](sql-database-service-tiers.md) 문서에서 설명합니다.
+columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라서 인덱스의 크기에 대한 유일한 제한은 전체 최대 데이터베이스 크기이며 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 문서에서 설명합니다.
 
 클러스터형 columnstore 인덱스를 사용하는 경우 기본 Table Storage에 칼럼 형식 압축을 사용합니다. 이러한 압축을 사용하면 사용자 데이터의 저장소 공간을 크게 줄일 수 있습니다. 즉, 데이터베이스에 더 많은 데이터를 담을 수 있습니다. 또한 [칼럼 형식 보관 압축](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression)을 사용하여 압축량을 더욱 늘릴 수 있습니다. 수행할 수 있는 압축량은 데이터의 특성에 따라 달라지지만 10배 압축은 일반적이지 않습니다.
 
@@ -223,8 +224,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 다음 두 *저장 프로시저* 간의 유일한 차이점은 첫 번째 절차는 메모리 최적화 테이블 버전을 사용하는 반면 두 번째 절차에서는 일반 디스크상의 테이블을 사용한다는 점입니다.
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 이 섹션에는 편리한 **ostress.exe** 유틸리티를 사용하여 스트레스 수준에서 두 저장된 프로시저를 실행하는 방법을 살펴봅니다. 두 스트레스가 실행을 마치는 데 걸리는 시간을 비교할 수 있습니다.

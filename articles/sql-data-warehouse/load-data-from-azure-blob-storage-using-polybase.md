@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193236"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -77,9 +78,9 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 5. **선택**을 클릭합니다.
 
-6. **성능 계층**을 클릭하여 데이터 웨어하우스가 탄력성 또는 계산 중에서 어떤 측면에 맞춰 최적화될지와 데이터 웨어하우스 단위 수를 지정합니다. 
+6. **성능 수준**을 클릭하여 데이터 웨어하우스가 Gen1 또는 Gen2 중 어느 것인지와 데이터 웨어하우스 단위의 수를 지정합니다. 
 
-7. 이 자습서의 경우 **탄력성에 최적화됨** 서비스 계층을 선택합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서의 경우 SQL Data Warehouse의 **Gen1**을 선택합니다. 기본적으로 슬라이더는 **DW1000c**로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -102,7 +103,7 @@ SQL Data Warehouse 서비스는 외부 응용 프로그램 및 도구가 서버 
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
 >
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 **SQL Database** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20171113.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
+1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 **SQL Database** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
 
 2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 후 서버 이름을 클릭하여 서버 설정을 엽니다.
 
@@ -132,8 +133,8 @@ SQL Data Warehouse 서비스는 외부 응용 프로그램 및 도구가 서버 
 Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20171113.database.windows.net입니다. 
+2. 왼쪽 메뉴에서 **SQL Data Warehouses**를 선택하고, **SQL Data Warehouses** 페이지에서 사용자의 데이터베이스를 클릭합니다. 
+3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다. 
 
     ![연결 정보](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -148,7 +149,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     | 설정      | 제안 값 | 설명 | 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
-    | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver-20171113.database.windows.net**과 비슷해야 합니다. |
+    | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
     | 인증 | 공개 | SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
     | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
     | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
@@ -163,7 +164,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 
-서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 [성능 계층](memory-and-concurrency-limits.md#performance-tiers), [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
+서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 프로비전하는 SQL Data Warehouse 생성, [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
@@ -588,7 +589,7 @@ SQL Data Warehouse는 통계 자동 만들기 또는 자동 업데이트를 수�
 
 3. 계산 또는 저장소에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 
-4. 만든 SQL 서버를 제거하려면 이전 이미지에 있는 **mynewserver-20171113.database.windows.net**을 클릭하고 **삭제**를 클릭합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
+4. 만든 SQL 서버를 제거하려면 이전 이미지에 있는 **mynewserver-20180430.database.windows.net**을 클릭한 다음, **삭제**를 클릭합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
 
 5. 리소스 그룹을 제거하려면 **myResourceGroup**을 클릭하고 **리소스 그룹 삭제**를 클릭합니다.
 

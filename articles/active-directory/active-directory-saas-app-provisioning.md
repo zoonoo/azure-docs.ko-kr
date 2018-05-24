@@ -1,11 +1,11 @@
 ---
-title: "Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Microsoft Docs"
-description: "Azure AD를 사용하여 여러 타사 SaaS 응용 프로그램에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다."
+title: Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Microsoft Docs
+description: Azure AD를 사용하여 여러 타사 SaaS 응용 프로그램에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069896"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 앱을 위한 자동 사용자 프로비저닝이란?
@@ -78,9 +79,9 @@ Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대�
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>응용 프로그램에 자동 프로비전을 설정하려면 어떻게 합니까?
 
-선택한 응용 프로그램에 대한 Azure AD 프로비전 서비스의 구성은 **[Azure Portal](https://portal.azure.com)**에서 시작됩니다. **Azure Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 **추가**, **모두**를 차례로 선택한 다음, 시나리오에 따라 다음 중 하나를 추가합니다.
+선택한 응용 프로그램에 대한 Azure AD 프로비전 서비스의 구성은 **[Azure Portal](https://portal.azure.com)** 에서 시작됩니다. **Azure Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 **추가**, **모두**를 차례로 선택한 다음, 시나리오에 따라 다음 중 하나를 추가합니다.
 
-* **주요 응용 프로그램** 섹션에 있는 응용 프로그램은 모두 자동 프로비저닝을 지원합니다. 추가 응용 프로그램을 보려면 [사용자 프로비저닝에 대한 응용 프로그램 자습서 목록]active-directory-saas-tutorial-list.md)을 참조하세요.
+* **주요 응용 프로그램** 섹션에 있는 응용 프로그램은 모두 자동 프로비저닝을 지원합니다. 추가 응용 프로그램을 보려면 [사용자 프로비전에 대한 응용 프로그램 자습서 목록](active-directory-saas-tutorial-list.md)을 참조하세요.
 
 * 사용자 지정 개발된 SCIM 통합에 "비갤러리 응용 프로그램" 옵션을 사용합니다.
 
@@ -176,7 +177,7 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 
 프로비저닝 작업이 초기 동기화를 수행하는지 또는 증분 동기화를 수행하는지에 따라 성능이 달라집니다.
 
-초기 동기화의 경우 완료하는 데 걸리는 시간은 소스 시스템에 있는 사용자, 그룹 및 그룹 멤버 수에 따라 직접적인 영향을 받습니다. 수백 개의 개체를 포함하는 매우 작은 소스 시스템은 수분 내에 초기 동기화를 완료할 수 있습니다. 그러나 수십만 또는 수백만 개의 결합된 개체를 포함하는 소스 시스템은 매우 오래 걸릴 수 있습니다.
+초기 동기화의 경우 완료하는 데 걸리는 시간은 소스 시스템에 있는 사용자, 그룹 및 그룹 멤버 수에 따라 직접적인 영향을 받습니다. 수백 개의 개체를 포함하는 매우 작은 소스 시스템은 수분 내에 초기 동기화를 완료할 수 있습니다. 그러나 수십만 또는 수백만 개의 결합된 개체를 포함하는 소스 시스템은 더 오래 걸립니다.
 
 증분 동기화의 경우 소요 시간은 해당 동기화 주기에서 검색된 변경 수에 따라 달라집니다. 검색된 사용자 또는 그룹 멤버 자격 변경이 5,000개 미만이면 대체로 40분 주기 내에 동기화할 수 있습니다. 
 
@@ -220,4 +221,5 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 * [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
 * [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [응용 프로그램의 아웃바운드 사용자 프로비전에 대한 단계별 배포 계획](https://aka.ms/userprovisioningdeploymentplan)
 

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157795"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -83,8 +84,20 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 
 - https://device.login.microsoftonline.com
 
-조직이 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있게 WPAD(웹 프록시 자동 검색)을 구현해야 합니다.
+- 조직의 STS(페더레이션된 도메인)
 
+아직 액세스할 수 없는 경우 조직의 STS(페더레이션된 도메인 용)가 사용자의 로컬 인트라넷 설정에 포함되어야 합니다.
+
+조직에서 Seamless SSO를 사용하려는 경우 다음 URL은 조직 내의 컴퓨터에서 연결할 수 있어야 하며 사용자의 로컬 인트라넷 영역에도 추가해야 합니다.
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- 또한 사용자 인트라넷 영역에서 "스크립트를 통한 상태 표시줄 업데이트 허용" 설정을 사용하도록 설정해야 합니다.
+
+
+조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다.
 
 ## <a name="configuration-steps"></a>구성 단계
 
@@ -484,7 +497,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 - 사용자가 장치를 등록할 수 있도록 Azure AD에 정책을 설정합니다.
  
-- 장치 등록에 **IWA(통합 Windows 인증)**를 지원하는 클레임을 발급하도록 온-프레미스 페더레이션 서비스를 구성합니다.
+- 장치 등록에 **IWA(통합 Windows 인증)** 를 지원하는 클레임을 발급하도록 온-프레미스 페더레이션 서비스를 구성합니다.
  
 - 장치를 인증할 때 인증서 프롬프트가 나타나지 않도록 로컬 인트라넷 영역에 Azure AD 장치 인증 끝점을 추가합니다.
 
@@ -501,7 +514,7 @@ Windows 하위 수준 장치를 등록하려면 사용자가 Azure AD에서 장�
 
 ### <a name="configure-on-premises-federation-service"></a>온-프레미스 페더레이션 서비스 구성 
 
-온-프레미스 페더레이션 서비스는 아래와 같이 인코딩된 값으로 resouce_params 매개 변수를 보유한 Azure AD 신뢰 당사자에 대한 인증 요청을 받으면 **authenticationmehod** 및 **wiaormultiauthn** 클레임 발급을 지원해야 합니다.
+온-프레미스 페더레이션 서비스는 아래와 같이 인코딩된 값으로 resouce_params 매개 변수를 보유한 Azure AD 신뢰 당사자에 대한 인증 요청을 받으면 **authenticationmehod** 및 **wiaormultiauthn** 클레임을 발급하도록 지원해야 합니다.
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
@@ -526,7 +539,7 @@ AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해�
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. 페더레이션 서버에서 **\<RPObjectName\>**을 Azure AD 신뢰 당사자 트러스트 개체의 신뢰 당사자 개체 이름으로 바꾼 후 아래의 PowerShell 명령을 입력합니다. 일반적으로 이 개체의 이름은 **Microsoft Office 365 ID 플랫폼**입니다.
+8. 페더레이션 서버에서 **\<RPObjectName\>** 을 Azure AD 신뢰 당사자 트러스트 개체의 신뢰 당사자 개체 이름으로 바꾼 후 아래의 PowerShell 명령을 입력합니다. 일반적으로 이 개체의 이름은 **Microsoft Office 365 ID 플랫폼**입니다.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -549,8 +562,6 @@ AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해�
 ### <a name="remarks"></a>설명
 
 - 그룹 정책 개체를 사용하면 Windows 10 및 Windows Server 2016 도메인 가입 컴퓨터의 자동 등록 롤아웃을 제어할 수 있습니다. **이러한 장치를 Azure AD에 자동으로 등록하지 않거나, 등록을 제어하려는 경우**, 구성 단계를 시작하기 전에 이러한 모든 장치에 대한 자동 등록을 해제하는 그룹 정책을 롤아웃해야 합니다. 구성이 끝나고 테스트할 준비가 되면, 테스트 장치, 그리고 선택한 다른 모든 장치에 대해서만 자동 등록을 허용하는 그룹 정책을 롤아웃해야 합니다.
-
-- Windows 10 2015년 11월 업데이트는 롤아웃 그룹 정책 개체가 설정된 **경우에만** Azure AD에 자동으로 가입됩니다.
 
 - Windows 하위 수준 컴퓨터를 롤아웃하려면 선택한 컴퓨터에 [Windows Installer 패키지](#windows-installer-packages-for-non-windows-10-computers)를 배포하면 됩니다.
 

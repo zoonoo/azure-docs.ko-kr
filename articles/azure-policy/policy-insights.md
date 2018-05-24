@@ -1,45 +1,42 @@
 ---
-title: Azure Policy를 사용하여 프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기 | Microsoft Docs
+title: Azure Policy를 사용하여 프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
-ms.topic: article
+ms.date: 05/07/2018
+ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195882"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
-이 문서는 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다. 또한 리소스 규정 준수 상태 및 정책을 보는 방법을 보여줍니다. 정책 정의는 리소스에 대해 다양한 규칙 및 동작을 적용합니다. 적용은 리소스가 회사 표준 및 서비스 수준 계약을 준수하는지 확인합니다.
+이 문서는 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다. 또한 리소스 규정 준수 상태 및 정책을 보는 방법을 보여줍니다. 정책 정의는 리소스에 대해 다양한 규칙과 효과를 적용합니다. 적용은 리소스가 회사 표준 및 서비스 수준 계약을 준수하는지 확인합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 필수 조건을 충족시키는지 확인합니다.
 
 1. [ARMClient](https://github.com/projectkudu/ARMClient)를 아직 설치하지 않은 경우 설치합니다. Azure Resource Manager 기반 API에 HTTP 요청을 전송하는 도구입니다.
-2. AzureRM PowerShell 모듈을 최신 버전으로 업데이트합니다. 최신 버전에 대한 자세한 내용은 Azure PowerShell https://github.com/Azure/azure-powershell/releases을 참조합니다.
+2. AzureRM PowerShell 모듈을 최신 버전으로 업데이트합니다. 최신 버전에 대한 자세한 내용은 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)을 참조하세요.
 3. 구독이 리소스 공급자와 함께 작동하도록 Azure PowerShell을 사용하여 Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 작업 등록을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
-4. 아직 Azure CLI를 설치하지 않았다면 설치합니다. [Windows에 Azure CLI 2.0 설치](/azure/install-azure-cli-windows?view=azure-cli-latest)에서 최신 버전을 얻을 수 있습니다.
+4. 아직 Azure CLI를 설치하지 않았다면 설치합니다. [Windows에 Azure CLI 2.0 설치](/cli/azure/install-azure-cli-windows)에서 최신 버전을 얻을 수 있습니다.
 
 ## <a name="create-and-assign-a-policy-definition"></a>정책 정의 만들기 및 할당
 
 리소스의 가시성을 향상시키는 첫 번째 단계는 리소스에 대한 정책을 만들어 할당하는 것입니다. 다음은 프로그래밍 방식으로 정책을 만들고 할당 하는 방법을 알아보는 단계입니다. 예제 정책은 PowerShell, Azure CLI 및 HTTP 요청을 사용하여 모든 공용 네트워크에 개방된 저장소 계정을 감사합니다.
-
-다음 명령은 표준 계층에 대한 정책 정의를 만듭니다. 표준 계층을 사용하면 대규모 관리, 준수 평가 및 재구성을 달성할 수 있습니다. 가격 책정 계층에 대한 자세한 내용은 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy)을 참조하세요.
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>PowerShell을 사용하여 정책 정의 만들기 및 할당
 
@@ -68,7 +65,7 @@ ms.lasthandoff: 04/28/2018
 2. AuditStorageAccounts.json 파일을 사용하여 정책 정의를 만들려면 다음 명령을 실행합니다.
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다. 사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)을 참조하세요.
@@ -76,10 +73,8 @@ ms.lasthandoff: 04/28/2018
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
@@ -124,7 +119,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리
   armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  preceding_ &lt;subscriptionId&gt;을 원하는 구독 ID로 바꿉니다.
+  앞의 &lt;subscriptionId&gt;을 원하는 구독 ID로 바꿉니다.
 
 쿼리 구조에 대한 자세한 내용은 [정책 정의 - 만들기 또는 업데이트](/rest/api/resources/policydefinitions/createorupdate)를 참조하세요.
 
@@ -140,10 +135,6 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +183,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. 정책 할당을 만들려면 다음 명령을 사용합니다. &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 다음 명령으로 PowerShell을 사용하여 정책 정의 ID를 가져올 수 있습니다.
@@ -211,38 +202,37 @@ Azure CLI를 사용하여 리소스 정책을 관리하는 방법에 대한 자�
 
 ## <a name="identify-non-compliant-resources"></a>규정 비준수 리소스 식별
 
-할당에서 리소스가 정책 또는 이니셔티브 규칙을 따르지 않으면 비준수 리소스입니다. 다음 표에서는 서로 다른 정책 작업이 함께 조건 평가를 수행하여 준수 상태를 파악하는지 나타냅니다.
+할당에서 리소스가 정책 또는 이니셔티브 규칙을 따르지 않으면 비준수 리소스입니다. 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
-| **리소스 상태** | **작업** | **정책 평가** | **규정 준수 상태** |
+| 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
 | 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
 | 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
 
-\* Append, DeployIfNotExist 및 AuditIfNotExist 동작은 IF 문이 TRUE가 될 것을 요구합니다. 또한 이러한 작업은 비준수가 되려면 존재 조건이 FALSE가 될 것을 요구합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
+\* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다. 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
 
 리소스가 비준수로 플래그 지정되는 방법을 더 잘 이해하려면 위에서 만든 정책 할당 예제를 사용합시다.
 
 예를 들어, 공용 네트워크에 노출되는 일부 저장소 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
 
-![공용 네트워크에 노출된 저장소 계정](./media/policy-insights/resource-group01.png)
+![공용 네트워크에 노출된 저장소 계정](media/policy-insights/resource-group01.png)
 
 이 예에서는 보안 위험에 주의해야 합니다. 정책 할당을 만들었으므로 ContosoRG 리소스 그룹에서 모든 저장소 계정에 대해 평가합니다. 비준수 저장소 계정 3개를 감사한 뒤 결국 해당 상태를 **비준수**로 변경합니다.
 
-![감사된 비준수 저장소 계정](./media/policy-insights/resource-group03.png)
+![감사된 비준수 저장소 계정](media/policy-insights/resource-group03.png)
 
 리소스 그룹에서 정책 할당을 준수하지 않는 리소스를 식별하기 위해 다음 절차를 사용합니다. 예제에서 리소스는 ContosoRG 리소스 그룹의 저장소 계정입니다.
 
 1. 다음 명령을 실행하여 정책 할당 ID를 가져옵니다.
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  정책 할당 ID를 가져오는 방법에 대한 자세한 내용은 [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment)를 참조합니다.
+  정책 할당 ID를 가져오는 방법에 대한 자세한 내용은 [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment)를 참조하세요.
 
 2. JSON 파일로 복사된 비준수 리소스의 리소스 ID를 얻으려면 다음 명령을 실행합니다.
 
@@ -302,16 +292,6 @@ armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorizatio
 ```
 
 정책 상태와 마찬가지로 HTTP 요청을 사용하면 정책 이벤트만 볼 수 있습니다. 정책 이벤트를 쿼리하는 방법에 대한 자세한 내용은 [정책 이벤트](/rest/api/policy-insights/policyevents) 참조 문서를 참조합니다.
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>정책 할당 가격 책정 계층 변경
-
-*Set-AzureRmPolicyAssignment* PowerShell cmdlet을 사용하여 기존 정책 할당에 대해 가격 책정 계층을 표준 또는 무료로 업데이트할 수 있습니다. 예: 
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-cmdlet에 대한 자세한 내용은 [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Analytics에서 U-SQL 인식 기능 사용 | Microsoft Docs"
-description: "U-SQL에서 인텔리전스 인식 기능을 사용하는 방법에 알아봅니다."
+title: Azure Data Lake Analytics에서 U-SQL 인식 기능 사용 | Microsoft Docs
+description: U-SQL에서 인텔리전스 인식 기능을 사용하는 방법에 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311117"
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>자습서: U-SQL의 인식 기능 시작
 
@@ -37,8 +38,8 @@ U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 �
 
 전체 프로세스는 간단합니다.
 
-* 참조 어셈블리 문을 사용하여 U-SQL 스크립트에 대한 인식 기능을 사용합니다.
-* Cognitive UDO를 사용하여 입력 행 집합에서 프로세스를 사용하고, 출력 행 집합을 생성합니다.
+* `REFERENCE ASSEMBLY` 문을 사용하여 U-SQL 스크립트에 대한 인식 기능을 사용합니다.
+* Cognitive UDO를 사용하여 입력 행 집합에서 `PROCESS`를 사용하고, 출력 행 집합을 생성합니다.
 
 ### <a name="detecting-objects-in-images"></a>이미지에서 개체를 감지합니다.
 

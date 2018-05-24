@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: f58fb5090aba3c5052d1bbdec76225d0ae50e8f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777080"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -61,6 +62,7 @@ Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 �
 
 로그인할 수 없는 경우 다음 문제 해결 방법을 시도해 봅니다.
 
+* macOS에서 "인증 대기 중..." 대화 상자 위에 로그인 창이 나타나지 않으면 [이러한 조치](#Resetting-the-Mac-Keychain)를 시도해 보세요.
 * Storage 탐색기 다시 시작
 * 인증 창이 비어 있는 경우 1분 이상 기다렸다가 인증 대화 상자를 닫습니다.
 * 컴퓨터와 Storage 탐색기에 대해 프록시와 인증서 설정이 올바르게 구성되었는지 확인합니다.
@@ -96,7 +98,8 @@ Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 �
 
 먼저 입력한 다음 정보가 모두 올바른지 확인합니다.
 
-* 프록시 URL 및 포트 번호 *프록시가 요구하는 경우 사용자 이름과 암호
+* 프록시 URL 및 포트 번호
+* 프록시가 요구하는 경우 사용자 이름과 암호
 
 ### <a name="common-solutions"></a>일반적인 솔루션
 
@@ -129,7 +132,7 @@ Windows용 Fiddler와 같은 네트워킹 도구가 있으면 다음과 같은 �
 
 프록시를 통해 Azure에 연결된 경우 프록시 설정이 올바른지 확인합니다. 구독 또는 계정 소유자로부터 리소스에 대한 액세스가 부여된 경우 해당 리소스에 대한 읽기 또는 목록 권한이 있는지 확인합니다.
 
-### <a name="issues-with-sas-url"></a>SAS URL 문제
+## <a name="issues-with-sas-url"></a>SAS URL 문제
 SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경우:
 
 * URL이 리소스를 읽거나 나열하는 데 필요한 권한을 제공하는지 확인합니다.
@@ -152,6 +155,19 @@ Ubuntu 16.04 이외의 다른 Linux 배포판의 경우 몇 가지 종속성을 
 * 최신 GCC
 
 배포판에 따라 다른 패키지를 설치해야 할 수 있습니다. Storage 탐색기 [릴리스 정보](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)는 일부 배포판에 대한 특정 단계를 포함합니다.
+
+## <a name="resetting-the-mac-keychain"></a>Mac 키 집합 다시 설정
+macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 유발하는 상태가 될 수 있습니다. 키 집합의 이러한 상태를 해제하려면 다음 조치를 시도해 보세요.
+1. Storage 탐색기를 닫습니다.
+2. 키 집합을 엽니다(**cmd+space**, keychain 입력, enter 키 누름).
+3. "로그인" 키 집합을 선택합니다.
+4. 자물쇠 아이콘을 클릭하여 키 집합을 잠급니다(완료되면 자물쇠가 잠긴 모양으로 바뀌며 열려 있는 앱에 따라 몇 초 정도 걸릴 수 있음).
+
+    ![이미지](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Storage 탐색기를 시작합니다.
+6. "서비스 허브가 키 집합에 액세스하려고 합니다"와 같은 팝업 창이 표시됩니다. 그러면 Mac 관리자 계정 암호를 입력하고 **항상 허용**을 클릭합니다(**항상 허용**을 사용할 수 없는 경우 **허용** 클릭).
+7. 로그인을 시도합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

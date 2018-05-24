@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194991"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 
 다음 코드 조각은 템플릿의 **리소스** 섹션에 대한 코드입니다.
 DSC 확장은 기본 확장 속성을 상속합니다.
-자세한 내용은 [VirtualMachineExtension 클래스](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)를 참조하세요.
+자세한 내용은 [VirtualMachineExtension 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)를 참조하세요.
 
 ```json
 {
@@ -83,7 +84,7 @@ DSC 확장은 기본 확장 속성을 상속합니다.
 **확장** 아래에 DSC 확장의 세부 정보를 추가합니다.
 
 DSC 확장은 기본 확장 속성을 상속합니다.
-자세한 내용은 [VirtualMachineScaleSetExtension 클래스](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)를 참조하세요.
+자세한 내용은 [VirtualMachineScaleSetExtension 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)를 참조하세요.
 
 ```json
 "extensionProfile": {
@@ -181,7 +182,7 @@ Resource Manager 템플릿에 있는 Azure DSC 확장의 **설정** 섹션에서
 
 ## <a name="details"></a>세부 정보
 
-| 속성 이름 | 유형 | 설명 |
+| 속성 이름 | type | 설명 |
 | --- | --- | --- |
 | settings.wmfVersion |string |VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 **latest**'로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 **4.0**, **5.0**, **5.0PP** 및 **latest**뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest**입니다. |
 | settings.configuration.url |string |DSC 구성 .zip 파일을 다운로드할 URL 위치를 지정합니다. 제공된 URL에서 액세스를 위해 SAS 토큰을 요구하는 경우 **protectedSettings.configurationUrlSasToken** 속성을 SAS 토큰 값으로 설정합니다. **settings.configuration.script** 또는 **settings.configuration.function**이 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값을 지정하지 않으면 확장은 기본 구성 스크립트를 호출하여 LCM(위치 구성 관리자) 메타데이터를 설정하며, 인수를 지정해야 합니다. |
@@ -189,7 +190,7 @@ Resource Manager 템플릿에 있는 Azure DSC 확장의 **설정** 섹션에서
 | settings.configuration.function |string |DSC 구성의 이름을 지정합니다. 명명된 구성은 **configuration.script**에서 정의하는 스크립트에 포함되어야 합니다. **settings.configuration.url** 또는 **settings.configuration.function**이 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값이 없는 경우 확장은 기본 구성 스크립트를 호출하여 제공해야 할 LCM 메타데이터 및 인수를 설정합니다. |
 | settings.configurationArguments |컬렉션 |DSC 구성에 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화되지 않습니다. |
 | settings.configurationData.url |string |DSC 구성에 대한 입력으로 사용할 구성 데이터(.psd1) 파일을 다운로드할 URL을 지정합니다. 제공된 URL에서 액세스를 위해 SAS 토큰을 요구하는 경우 **protectedSettings.configurationDataUrlSasToken** 속성을 SAS 토큰 값으로 설정합니다. |
-| settings.privacy.dataEnabled |string |원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에 사용할 수 있는 값은 **Enable**, **Disable**, **''** 또는 **$null**뿐입니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다. 기본값은 **''**입니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)을 참조하세요. |
+| settings.privacy.dataEnabled |string |원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에 사용할 수 있는 값은 **Enable**, **Disable**, **''** 또는 **$null**뿐입니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다. 기본값은 **''** 입니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)을 참조하세요. |
 | settings.advancedOptions.downloadMappings |컬렉션 |WMF를 다운로드할 대체 위치를 정의합니다. 자세한 내용은 [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx)(Azure DSC 확장 2.8 및 확장 종속성의 다운로드를 사용자 고유의 위치에 매핑하는 방법)을 참조하세요. |
 | protectedSettings.configurationArguments |컬렉션 |DSC 구성에 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationUrlSasToken |string |**configuration.url**에서 정의한 URL에 액세스하기 위해 사용할 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
@@ -197,10 +198,10 @@ Resource Manager 템플릿에 있는 Azure DSC 확장의 **설정** 섹션에서
 
 ## <a name="default-configuration-script"></a>기본 구성 스크립트
 
-다음 값에 대한 자세한 내용은 [로컬 구성 관리자 기본 설정](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings)을 참조하세요.
+다음 값에 대한 자세한 내용은 [로컬 구성 관리자 기본 설정](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings)을 참조하세요.
 DSC 확장 기본 구성 스크립트를 사용하여 다음 표에 나열되어 있는 LCM 속성만 구성할 수 있습니다.
 
-| 속성 이름 | 유형 | 설명 |
+| 속성 이름 | type | 설명 |
 | --- | --- | --- |
 | settings.configurationArguments.RegistrationKey |securestring |필수 속성입니다. 노드에서 Azure Automation 서비스에 등록하는 데 PowerShell 자격 증명 개체의 암호로 사용되는 키를 지정합니다. 이 값은 Automation 계정에 대해 **listkeys** 메서드를 사용하여 자동으로 검색할 수 있습니다. 값을 보호 설정으로 보호해야 합니다. |
 | settings.configurationArguments.RegistrationUrl |string |필수 속성입니다. 노드가 등록하려는 Automation 끝점의 URL을 지정합니다. 이 값은 Automation 계정에 대해 **reference** 메서드를 사용하여 자동으로 검색될 수 있습니다. |
@@ -340,9 +341,9 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="invalid-values"></a>잘못된 값
 
-"Privacy.dataCollection이 '{0}'입니다.
+“Privacy.dataCollection이 ‘{0}’입니다.
 유일하게 가능한 값은 '', 'Enable' 및 'Disable'"입니다.
-"WmfVersion이 '{0}'입니다.
+“WmfVersion이 ‘{0}’입니다.
 유일하게 가능한 값은 … 및 'latest'"입니다.
 
 **문제점**: 제공된 값이 허용되지 않습니다.
@@ -352,7 +353,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="invalid-url"></a>잘못된 URL
 
-"ConfigurationData.url은 '{0}'입니다. 유효한 URL이 아닙니다." "DataBlobUri는 '{0}'입니다. 유효한 URL이 아닙니다." "Configuration.url이 '{0}'입니다. 유효한 URL이 아닙니다."
+“ConfigurationData.url이 ‘{0}’입니다. 유효한 URL이 아닙니다.” “DataBlobUri가 ‘{0}’입니다. 유효한 URL이 아닙니다.” “Configuration.url이 ‘{0}’입니다. 유효한 URL이 아닙니다."
 
 **문제점**: 제공된 URL이 유효하지 않습니다.
 
@@ -361,7 +362,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="invalid-configurationargument-type"></a>잘못된 ConfigurationArgument 형식
 
-"잘못된 configurationArguments 형식 {0}입니다."
+“잘못된 configurationArguments 형식 {0}입니다.”
 
 **문제점**: *ConfigurationArguments* 속성을 **Hashtable** 개체로 확인할 수 없습니다.
 
@@ -370,7 +371,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="duplicate-configurationarguments"></a>중복 ConfigurationArguments
 
-"공용 및 보호된 configurationArguments에 중복 인수 '{0}'이(가) 있습니다."
+“공용 및 보호된 configurationArguments에 중복 인수 ‘{0}’이 있습니다.”
 
 **문제점**: 공용 설정의 *ConfigurationArguments* 및 보호된 설정의 *ConfigurationArguments*에 동일한 이름의 속성이 포함되어 있습니다.
 

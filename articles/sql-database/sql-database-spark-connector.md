@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: ''
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 46849d551b6996caaf020caec1ab8104d5388c8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 393af463c4145e1d865c14f2ace7d5123ab12cfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187388"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL Database 및 SQL Server용 Spark 커넥터를 통해 실시간 빅 데이터 분석 가속화
 
@@ -38,6 +39,10 @@ Azure SQL Database 및 SQL Server용 Spark 커넥터는 SQL Server 용 Microsoft
 1. Spark 마스터 노드는 SQL Server 또는 Azure SQL Database에 연결되고 특정 테이블 또는 특정 SQL 쿼리를 사용하여 데이터를 로드합니다.
 2. Spark 마스터 노드는 변환을 위해 데이터를 작업자 노드에 배포합니다. 
 3. 작업자 노드는 SQL Server 또는 Azure SQL Database에 연결되고 데이터를 데이터베이스에 기록합니다. 사용자는 행 단위 삽입 또는 대량 삽입을 사용할지 선택할 수 있습니다.
+
+아래 다이어그램은 데이터 흐름을 보여 줍니다.
+
+   ![아키텍처](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>Spark - SQL DB 커넥터 빌드
 현재 커넥터 프로젝트는 maven을 사용합니다. 종속성 없이 커넥터를 빌드하려면 다음을 실행할 수 있습니다.
@@ -153,7 +158,7 @@ collection.show()
 #### <a name="setup-requirement"></a>설치 요구 사항
 액세스 토큰 기반 인증 모드를 사용하는 경우 [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) 및 해당 종속성을 다운로드하여 Java 빌드 경로에 포함시켜야 합니다.
 
-Azure SQL Database에 대한 액세스 토큰을 가져오는 방법에 대해 알아보려면 [SQL Database에서 인증을 위해 Azure Active Directory 인증 사용](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)을 참조하세요.
+Azure SQL Database에 대한 액세스 토큰을 가져오는 방법에 대해 알아보려면 [SQL Database에서 인증을 위해 Azure Active Directory 인증 사용](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)을 참조하세요.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -211,5 +216,5 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 -   [Azure Databricks Notebooks 샘플](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [샘플 스크립트(Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-또한 [Apache Spark SQL, DataFrames 및 Datasets 가이드](http://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure Databricks 설명서](https://docs.microsoft.com/en-us/azure/azure-databricks/)를 검토할 수도 있습니다.
+또한 [Apache Spark SQL, DataFrames 및 Datasets 가이드](http://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure Databricks 설명서](https://docs.microsoft.com/azure/azure-databricks/)를 검토할 수도 있습니다.
 

@@ -10,11 +10,12 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195467"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -32,7 +33,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-탄력적 풀을 사용하면 개발자가 예측할 수 없는 개별 데이터베이스의 사용 기간을 수용하기 위해 여러 데이터베이스에서 공유되는 풀에 대한 리소스를 구매할 수 있습니다. [DTU 기반 구매 모델(미리 보기)](sql-database-service-tiers.md#dtu-based-purchasing-model) 또는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)에 따라 풀에 대한 리소스를 구성할 수 있습니다. 풀에 대한 리소스 요구 사항은 해당 데이터베이스의 집계 사용률에 의해 결정됩니다. 풀에 사용 가능한 리소스 양은 개발자 예산에 의해 제어됩니다. 개발자는 단순히 풀에 데이터베이스를 추가하고, 데이터베이스에 대한 최소 및 최대 리소스를 설정한 다음(선택한 리소스 모델에 따라 최소 및 최대 DTU 또는 최소 또는 최대 vCore), 해당 예산에 따라 풀의 리소스를 설정합니다. 개발자는 풀을 사용하여 처음 시작부터 계속 성장하는 성숙한 비즈니스까지 해당 서비스를 원활하게 증가시킬 수 있습니다.
+탄력적 풀을 사용하면 개발자가 예측할 수 없는 개별 데이터베이스의 사용 기간을 수용하기 위해 여러 데이터베이스에서 공유되는 풀에 대한 리소스를 구매할 수 있습니다. [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)에 따라 풀에 대한 리소스를 구성할 수 있습니다. 풀에 대한 리소스 요구 사항은 해당 데이터베이스의 집계 사용률에 의해 결정됩니다. 풀에 사용 가능한 리소스 양은 개발자 예산에 의해 제어됩니다. 개발자는 단순히 풀에 데이터베이스를 추가하고, 데이터베이스에 대한 최소 및 최대 리소스를 설정한 다음(선택한 리소스 모델에 따라 최소 및 최대 DTU 또는 최소 또는 최대 vCore), 해당 예산에 따라 풀의 리소스를 설정합니다. 개발자는 풀을 사용하여 처음 시작부터 계속 성장하는 성숙한 비즈니스까지 해당 서비스를 원활하게 증가시킬 수 있습니다.
 
 풀 내에서 개별 데이터베이스는 집합 매개 변수 내에서 자동 크기 조정에 유연성이 제공됩니다. 부하가 높은 상태에서 데이터베이스는 더 많은 리소스를 사용하여 수요를 충족할 수 있습니다. 낮은 부하량에서 데이터베이스는 적게 사용하고 부하가 없는 데이터베이스는 리소스를 사용하지 않습니다. 단일 데이터베이스가 아닌 전체 풀에 대한 리소스 프로비저닝은 관리 작업을 간소화합니다. 또한 풀에 대한 예측 가능한 예산이 있습니다. 새 eDTU 예약에 대한 추가 계산 리소스를 제공하기 위해 데이터베이스를 이동해야 한다는 점을 제외하면 데이터베이스 가동 중지 시간을 발생시키지 않고 추가 리소스를 기존 풀에 추가할 수 있습니다. 마찬가지로, 추가 리소스가 더 이상 필요하지 않은 경우에는 언제든지 기존 풀에서 제거할 수 있습니다. 풀에 데이터베이스를 추가하거나 뺄 수 있습니다. 데이터베이스가 예측 가능한 방식으로 리소스를 사용하는 경우 리소스를 이동합니다.
 
@@ -101,7 +102,7 @@ S3 데이터베이스의 최고 사용률이 100 DTU이며 평균 사용률이 6
 * 풀의 모든 데이터베이스에서 사용되는 최대 리소스(선택한 리소스 모델에 따라 최대 DTU 또는 최대 vCore)입니다.
 * 풀에 있는 모든 데이터베이스의 최대 저장된 바이트 수입니다.
 
-각 리소스 모델에 대해 사용할 수 있는 서비스 계층은 [DTU 기반 구매 모델](sql-database-service-tiers.md#dtu-based-purchasing-model) 또는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)을 참조하세요.
+각 리소스 모델에 대해 사용할 수 있는 서비스 계층은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요.
 
 SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 리소스 사용률을 자동으로 평가하고 Azure Portal의 적절한 풀 구성을 권장합니다. 권장 사항 외에도 기본 제공 환경은 서버에서 데이터베이스의 사용자 지정 그룹에 대한 eDTU 사용률을 예측합니다. 그러면 풀에 데이터베이스를 대화형으로 추가하고 제거하여 변경 사항을 커밋하기 전에 리소스 사용률 분석 및 크기 조정 조언을 가져오기 위해 "가정" 분석을 수행할 수 있습니다. 방법은 [탄력적 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)을 참조하세요.
 
@@ -112,11 +113,11 @@ SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 �
    DTU 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 DTU 사용률*>,<br>
    <*동시 최고 DB의 수* X *DB당 최고 DTU 사용률*)
 
-   vCore 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률*>,<br>
+   vCore 기반 구매 모델(미리 보기)의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률*>,<br>
    <*동시 최고 DB의 수* X *DB당 최고 vCore 사용률*)
 
 2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 저장소 공간을 예측합니다. 그런 다음 이 저장소의 양을 제공하는 eDTU 풀 크기를 결정합니다.
-3. DTU 기반 구매 모델의 경우 1단계 및 2단계에서 eDTU 예상 중 큰 수를 사용합니다. VCore 기반 구매 모델의 경우 1단계의 vCore 예상을 사용합니다.
+3. DTU 기반 구매 모델의 경우 1단계 및 2단계에서 eDTU 예상 중 큰 수를 사용합니다. VCore 기반 구매 모델(미리 보기)의 경우 1단계의 vCore 예상을 사용합니다.
 4. [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 확인하고 3단계의 예상보다 큰 경우 가장 작은 풀 크기를 찾습니다.
 5. 단일 데이터베이스에 대한 적절한 성능 수준을 사용하는 가격에 5단계의 풀 가격을 비교합니다.
 

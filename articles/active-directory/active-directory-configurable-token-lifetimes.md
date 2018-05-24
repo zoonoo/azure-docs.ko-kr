@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140085"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(공개 미리 보기)
 Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 응용 프로그램 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
 
 > [!IMPORTANT]
-> 토큰 수명을 제어하는 이 방법은 이제 사용되지 않습니다.  대체 기능이 준비될 때까지 사용 가능하도록 유지하는 동안, 이 방법을 더 이상 사용하지 않게 되면 이 방법을 사용하여 만든 토큰 수명 정책은 기능을 잃게 됩니다. 
+> 미리 보기 동안 고객으로부터 들은 후 이 기능을 Azure Active Directory 조건부 액세스의 새 기능으로 대체하려고 계획 중입니다.  새로운 기능이 완료되면 이 기능은 알림 기간 후 결국 중단될 예정입니다.  구성 가능한 토큰 수명 정책을 사용하는 경우 사용할 수 있게 되면 새 조건부 액세스 기능으로 전환할 준비를 합니다. 
 >
 >
 
@@ -108,6 +109,8 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 응용 프로그램 개체와 서비스 주체 간의 관계에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
 
 토큰의 유효성은 토큰이 사용되는 시점에 평가됩니다. 액세스하는 응용 프로그램에 대한 우선 순위가 가장 높은 정책이 적용됩니다.
+
+여기에 사용되는 시간 범위는 C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) 개체 - D.HH:MM:SS에 따라 서식이 지정됩니다.  따라서 80일 및 30분은 `80.00:30:00`입니다.  앞에 오는 D는 0인 경우 삭제할 수 있으므로 90분은 `00:90:00`입니다.  
 
 > [!NOTE]
 > 다음은 예제 시나리오입니다.

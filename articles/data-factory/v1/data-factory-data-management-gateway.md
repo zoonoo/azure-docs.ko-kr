@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771051"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -276,30 +277,30 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 [단일 노드 게이트웨이의 경우]
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 폴더로 전환합니다.
+2. C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).   
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
     ```
 4. 다시 켜려면:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
 [다중 노드 고가용성 및 확장 가능 게이트웨이(미리 보기)의 경우](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 폴더로 전환합니다.
+2. C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).   
 
     고가용성 기능(미리 보기)이 있는 게이트웨이의 경우 추가 AuthKey 매개 변수가 필요합니다.
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
 4. 다시 켜려면:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
     ```
 
 ## <a name="configuration-manager"></a>구성 관리자

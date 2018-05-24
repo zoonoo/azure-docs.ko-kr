@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/07/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165488"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -34,6 +35,63 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](./active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118190"></a>1.1.819.0
+
+2018년 5월 4일: 자동 업그레이드를 위해 릴리스되며 곧 다운로드할 수 있습니다.
+
+
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+새로운 기능 및 향상 기능
+
+
+- 이 릴리스에는 Azure AD Connect에서 PingFederate 통합에 대한 공개 미리 보기가 포함되었습니다. 이 릴리스에서는 고객이 PingFederate를 페더레이션 공급자로 활용할 수 있도록 Azure Active Directory 환경을 안정적으로 쉽게 구성합니다. 이 새로운 기능을 사용하는 방법에 대한 자세한 내용은 [온라인 설명서](active-directory-aadconnect-user-signin.md#federation-with-pingfederate)를 참조하세요. 
+- Azure AD Connect 마법사 문제 해결 유틸리티가 업데이트되었습니다. 여기서는 연결된 사서함 및 AD 동적 그룹과 같은 더 많은 오류 시나리오가 분석됩니다. 문제 해결 유틸리티에 대한 자세한 내용은 [여기](active-directory-aadconnect-troubleshoot-objectsync.md)를 참조하세요.
+- 장치 쓰기 저장 구성은 이제 Azure AD Connect 마법사에서만 관리됩니다.
+- SQL 연결 문제 및 다양한 다른 문제 해결 유틸리티 문제를 해결하는 데 사용할 수 있는 ADSyncTools.psm1이라는 새 PowerShell 모듈이 추가되었습니다. ADSyncTools 모듈에 대한 자세한 내용은 [여기](active-directory-aadconnect-tshoot-sql-connectivity.md)를 참조하세요. 
+- 새 "장치 옵션 구성" 추가 작업이 추가되었습니다. 이 작업을 사용하여 구성할 수 있는 두 가지 작업은 다음과 같습니다. 
+    -   **하이브리드 Azure AD 조인**: 사용자의 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 이점도 활용하려는 경우 하이브리드 Azure AD 조인 장치를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 장치입니다.
+    -   **장치 쓰기 저장**: 장치 쓰기 저장은 AD FS(2012 R2 이상) 보호 장치에 대한 장치에 따라 조건부 액세스를 사용하도록 설정하는 데 사용됩니다.
+
+   >[!NOTE] 
+   > - 동기화 사용자 지정 옵션에서 장치 쓰기 저장을 사용하도록 설정하는 옵션이 회색으로 표시됩니다. 
+   > -  이 릴리스에서는 ADPrep용 PowerShell 모듈이 사용되지 않습니다.
+
+
+
+### <a name="fixed-issues"></a>해결된 문제 
+
+
+- 동기화 규칙 처리: 부모 동기화가 더 이상 적용되지 않는 경우 조인 조건이 없는 아웃바운드 조인 동기화 규칙이 적용 취소됩니다.
+- Azure AD Connect 마법사: Azure AD Connect가 작업 그룹에 있을 때 AD 커넥터 계정을 만드는 중 오류가 발생합니다.
+- Azure AD Connect 마법사: Azure AD 로그인 페이지에서 AD 도메인과 확인된 Azure AD 도메인이 일치하지 않을 때마다 확인 확인란이 표시됩니다
+- 자동 업그레이드가 시도되면 자동 업그레이드 PowerShell에서 특정 상황의 자동 업그레이드 상태를 올바르게 설정하도록 수정되었습니다.
+- Azure AD Connect 마법사: 이전에 누락된 정보를 캡처할 수 있도록 원격 분석이 업데이트되었습니다.
+- Azure AD Connect 마법사: 도메인을 관리되는 도메인으로 변환하기 전에 PTA 에이전트를 설치합니다.
+- Azure AD Connect 마법사: 사용자를 PTA에서 관리되는 사용자로 변환하지 않습니다(도메인만 변환).
+- Azure AD Connect 마법사: 특수 문자를 지원하기 위해 사용자 UPN에 ' 특수 문자 정규식 업데이트가 있으면 AD FS 다중 도메인 정규식이 올바르지 않습니다.
+- Azure AD Connect 마법사: 변경 내용이 없으면 가상 "원본 앵커 속성 구성" 메시지가 제거됩니다. 
+- Azure AD Connect 마법사: 이중 페더레이션 시나리오에 대한 AD FS 지원이 있습니다.
+- Azure AD Connect 마법사: 관리되는 도메인을 페더레이션된 도메인으로 변환할 때 추가된 도메인에 대한 AD FS 클레임이 업데이트되지 않습니다.
+- Azure AD Connect 마법사: 설치된 패키지를 검색하는 동안 오래된 Dirsync/Azure AD Sync/Azure AD Connect 관련 부실 제품을 찾습니다. 이제는 부실 제품을 제거하려고 시도합니다.
+- Azure AD Connect 마법사: 통과 인증 에이전트 설치에 실패하면 오류 메시지 매핑이 수정됩니다.
+- Azure AD Connect 마법사: 도메인 OU 필터링 페이지에서 "Configuration" 컨테이너가 제거되었습니다.
+- 동기화 엔진 설치: 동기화 엔진 설치 msi에서 가끔씩 실패한 불필요한 레거시 논리가 제거되었습니다.
+- Azure AD Connect 마법사: 암호 해시 동기화에 대한 선택적 기능 페이지의 팝업 도움말 텍스트가 수정되었습니다.
+- 동기화 엔진 런타임: CS 개체에 가져온 삭제가 있고 동기화 규칙에서 해당 개체를 다시 프로비전하려고 하는 시나리오가 수정되었습니다.
+- 동기화 엔진 런타임: 온라인 연결 문제 해결 가이드에 대한 도움말 링크가 가져오기 오류 이벤트 로그에 추가되었습니다.
+- 동기화 엔진 런타임: 커넥터를 열거할 때 동기화 스케줄러의 메모리 사용량이 감소되었습니다.
+- Azure AD Connect 마법사: AD 읽기 권한이 없는 사용자 지정 동기화 서비스 계정을 확인하는 문제가 해결되었습니다.
+- Azure AD Connect 마법사: 도메인 및 OU 필터링 선택 항목에 대한 로깅이 향상되었습니다.
+- Azure AD Connect 마법사: AD FS에서 MFA 시나리오에 대해 만든 페더레이션 신뢰에 기본 클레임을 추가합니다.
+- Azure AD Connect 마법사: AD FS 배포 WAP: 서버가 추가되면 새 인증서를 사용할 수 없습니다.
+- Azure AD Connect 마법사: onPremCredentials가 도메인에 대해 초기화되지 않으면 DSSO 예외가 발생합니다. 
+- 활성 사용자 개체의 AD distinguishedName 특성을 우선적으로 전달합니다.
+- 첫 번째 OOB 동기화 규칙의 우선 순위가 100 대신 99로 설정되는 형식적 버그가 수정되었습니다.
+
+
 
 ## <a name="117510"></a>1.1.751.0
 상태 4/12/2018: 다운로드 전용으로 릴리스되었습니다.
@@ -317,7 +375,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
-* [원활한 Single Sign-On](active-directory-aadconnect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”*입니다. 이 문제는 이 [아티클](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](active-directory-aadconnect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
+* [원활한 Single Sign-On](active-directory-aadconnect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](active-directory-aadconnect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
 
 
 ## <a name="115610"></a>1.1.561.0

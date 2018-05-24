@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/11/2018
+ms.date: 5/9/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939201"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -67,12 +68,19 @@ Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변�
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>여러 자격 증명 모음에 DPM 서버를 등록할 수 있나요? <br/>
 번호 DPM 또는 MABS 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
 
-### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>지원되는 System Center Data Protection Manager의 버전은 무엇인가요? <br/>
-System Center DPM(Data Protection Manager)용 최신 업데이트 롤업(UR)에 [최신](http://aka.ms/azurebackup_agent) Azure Backup 에이전트를 설치하는 것이 좋습니다. 2016년 8월을 기준으로 업데이트 롤업 11이 최신 업데이트입니다.
+### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>지원되는 System Center Data Protection Manager의 버전은 무엇인가요?
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>내 파일 및 폴더를 보호하기 위해 Azure Backup 에이전트를 설치했습니다. 이제 System Center DPM을 설치하여 Azure에 온-프레미스 응용 프로그램/VM 워크로드를 보호하기 위해 Azure Backup 에이전트를 사용할 수 있나요? <br/>
-System Center DPM(Data Protection Manager)과 함께 Azure Backup을 사용하려면 먼저 DPM을 설치하고 Azure Backup 에이전트를 설치합니다. Azure Backup 구성 요소를 이 순서대로 설치하면 Azure Backup 에이전트는 DPM과 함께 작동합니다. DPM을 설치하기 전에 Azure Backup 에이전트를 설치하는 것이 권장되거나 지원되지 않습니다.
+System Center DPM(Data Protection Manager)용 최신 업데이트 롤업(UR)에 [최신](http://aka.ms/azurebackup_agent) Azure Backup 에이전트를 설치하는 것이 좋습니다. 
+- System Center DPM 2012 R2의 경우 [Update Rollup 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager)가 최신 업데이트입니다.
+- System Center DPM 2016의 경우 [Update Rollup 2](https://support.microsoft.com/en-us/help/3209593)가 최신 업데이트입니다.
 
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>내 파일 및 폴더를 보호하기 위해 Azure Backup 에이전트를 설치했습니다. System Center DPM을 설치하여 Azure에 온-프레미스 응용 프로그램/VM 워크로드를 보호할 수 있나요?
+
+예. 단, System Center DPM(Data Protection Manager)과 함께 Azure Backup을 사용하려면 먼저 DPM을 설치한 다음, Azure Backup 에이전트를 설치합니다. Azure Backup 구성 요소를 이 순서대로 설치하면 Azure Backup 에이전트는 DPM과 함께 작동합니다. DPM을 설치하기 전에 Azure Backup 에이전트를 설치하는 것이 권장되거나 지원되지 않습니다.
+
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Azure Stack에서 DPM을 사용하여 앱을 백업할 수 있나요?
+
+번호 Azure Backup을 사용하여 Azure Stack을 보호할 수 있지만 Azure Backup은 DPM을 사용하여 Azure Stack에 있는 앱을 백업하는 기능은 지원하지 않습니다.
 
 ## <a name="how-azure-backup-works"></a>Azure Backup 작동 방식
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>백업이 시작된 후 백업 작업을 취소하면 전송된 백업 데이터가 삭제되나요? <br/>

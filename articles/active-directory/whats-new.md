@@ -14,14 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a947de3ad821d4cd65e579357e3c779e8623435
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159871"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -39,6 +40,217 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 -   변경 계획
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
+
+
+## <a name="april-2018"></a>2018년 4월
+ 
+
+
+### <a name="azure-ad-b2c-access-token-are-ga"></a>Azure AD B2C 액세스 토큰이 GA 상태입니다.
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+ 
+
+이제 액세스 토큰을 사용하여 Azure AD B2C로 보호된 Web API에 액세스할 수 있습니다. 기능은 공개 미리 보기에서 GA로 전환되고 있습니다. Azure AD B2C 응용 프로그램 및 웹 API를 구성하는 UI 환경이 향상되었고 기타 사소한 개선 사항이 만들어졌습니다.
+ 
+자세한 내용은 [Azure AD B2C: 액세스 토큰 요청](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-access-tokens)을 참조하세요.
+
+
+---
+ 
+
+### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>SAML 기반 응용 프로그램에 대한 Single Sign-On 구성 테스트
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** SSO
+ 
+
+SAML 기반 SSO 응용 프로그램을 구성하는 경우 구성 페이지에서 통합을 테스트할 수 있습니다. 로그인하는 동안 오류가 발생하면 테스트 환경에서 오류를 제공할 수 있으며 Azure AD는 특정 문제를 해결하는 해결 단계를 제공합니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+- [Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+
+
+---
+ 
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>이제 Azure AD 사용 약관에는 사용자별 보고가 적용됩니다.
+
+**유형:** 새로운 기능  
+**서비스 범주:** 사용 약관  
+**제품 기능:** 규정 준수
+ 
+
+이제 관리자는 지정된 ToU를 선택하고 해당 ToU에 동의한 사용자 및 발생한 날짜/시간을 확인할 수 있습니다.
+
+
+자세한 내용은 [Azure AD 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/active-directory-tou)을 참조하세요.
+ 
+
+---
+ 
+### <a name="azure-ad-connect-health-risky-ip-for-ad-fs-extranet-lockout-protection"></a>Azure AD Connect Health: AD FS 엑스트라넷 잠금 보호를 위한 위험한 IP 
+
+**유형:** 새로운 기능  
+**서비스 범주:** 기타  
+**제품 기능:** 모니터링 및 보고
+ 
+
+Connect Health는 이제 매시간 또는 매일 별로 실패한 U/P 로그인의 임계값을 초과하는 IP 주소를 검색하는 기능을 지원합니다. 이 기능에서 제공하는 기능은 다음과 같습니다.
+
+- IP 주소 및 사용자 지정 가능한 임계값으로 매시간/매일 별로 생성된 로그인 실패 횟수를 보여주는 포괄적인 보고서
+- 매시간/매일 별로 특정 IP 주소가 실패한 U/P 로그인의 임계값을 초과한 경우를 보여주는 이메일 기반 경고
+- 데이터의 상세한 분석을 수행하는 다운로드 옵션
+
+
+자세한 내용은 [위험한 IP 보고서](https://aka.ms/aadchriskyip)를 참조하세요.
+
+ 
+
+---
+ 
+
+### <a name="easy-app-config-with-metadata-file-or-url"></a>메타데이터 파일 또는 URL을 사용한 간편한 앱 구성
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** SSO
+ 
+
+Enterprise 응용 프로그램 페이지에서 관리자는 SAML 메타데이터 파일을 업로드하여 AAD 갤러리 및 비 갤러리 응용 프로그램에 대해 SAML 기반 로그온을 구성할 수 있습니다.
+
+또한 Azure AD 응용 프로그램 페더레이션 메타데이터 URL을 사용하여 대상 응용 프로그램으로 SSO를 구성할 수 있습니다.
+
+자세한 내용은 [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)을 참조하세요.
+ 
+
+---
+ 
+
+### <a name="azure-ad-terms-of-use-now-generally-available"></a>이제 Azure AD 사용 약관을 일반적으로 사용할 수 있습니다.
+
+**유형:** 새로운 기능  
+**서비스 범주:** 사용 약관  
+**제품 기능:** 규정 준수
+ 
+
+Azure AD 사용 약관은 공개 미리 보기에서 일반 공급으로 이동했습니다.
+
+자세한 내용은 [Azure AD 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/active-directory-tou)을 참조하세요.
+
+ 
+
+---
+ 
+
+### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2B  
+**제품 기능:** B2B/B2C
+ 
+
+이제 Azure AD B2B 공동 작업에서 공유하고 공동 작업하려는 파트너 조직을 지정할 수 있습니다. 이를 위해 특정 허용 또는 거부 도메인의 목록을 만들도록 선택할 수 있습니다. 이러한 기능을 사용하여 도메인이 차단되면 직원은 해당 도메인의 사용자에게 더 이상 초대를 보낼 수 없습니다.
+
+이렇게 하면 승인된 사용자를 위해 부드러운 환경을 활성화하는 동안 리소스에 대한 액세스를 제어할 수 있습니다.
+
+이 B2B 공동 작업 기능은 모든 Azure Active Directory 고객에 대해 사용할 수 있으며 외부 비즈니스 사용자가 로그인하고 액세스를 획득하는 시기 및 방법의 더욱 세부적인 제어를 위해 조건부 액세스 및 ID 보호와 같은 Azure AD Premium 기능과 함께 사용할 수 있습니다.
+
+자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list)을 참조하세요.
+
+ 
+
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 사용할 수 있는 신규 페더레이션 앱
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능**: 타사 통합
+ 
+
+2018년 4월에 앱 갤러리에 페더레이션 지원이 제공되는 다음과 같은 13개의 새 앱을 추가했습니다.
+
+
+
+조건 HCM, [FiscalNote](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fiscalnote-tutorial), [보안 서버(온-프레미스)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-secretserver-on-premises-tutorial), [동적 신호](https://docs.microsoft.com/azure/active-directory/active-directory-saas-dynamicsignal-tutorial), [mindWireless](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mindwireless-tutorial), [OrgChart Now](https://docs.microsoft.com/azure/active-directory/active-directory-saas-orgchartnow-tutorial), [Ziflow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ziflow-tutorial), [AppNeta 성능 모니터](https://docs.microsoft.com/azure/active-directory/active-directory-saas-appneta-tutorial), [Elium](https://docs.microsoft.com/azure/active-directory/active-directory-saas-elium-tutorial) , [Fluxx Labs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fluxxlabs-tutorial), [Cisco Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ciscocloud-tutorial), Shelf, [SafetyNet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-safetynet-tutorial)
+
+
+
+ 여기에서 사용 가능한 자습서의 목록을 찾을 수 있습니다. [https://aka.ms/appstutorial](https://aka.ms/appstutorial)
+
+자세한 내용은 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램을 나열](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)을 참조하세요.
+
+
+ 
+
+---
+ 
+### <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications-public-preview"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여(공개 미리 보기)
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2B  
+**제품 기능:** B2B/B2C
+ 
+
+Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트너 조직의 게스트 사용자를 Azure AD로 초대하는 조직의 경우 이제 이러한 B2B 사용자에게 온-프레미스 앱에 대한 액세스를 제공할 수 있습니다. 이러한 온-프레미스 앱은 SAML 기반 인증 또는 KCD(Kerberos 제한 위임)과 함께 IWA(Windows 통합 인증)를 사용할 수 있습니다.
+
+자세한 내용은 [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises)를 참조하세요.
+ 
+
+---
+ 
+### <a name="get-sso-integration-tutorials-from-the-azure-marketplace"></a>Azure Marketplace에서 SSO 통합 자습서 가져오기
+
+**유형:** 변경된 기능  
+**서비스 범주:** 기타  
+**제품 기능**: 타사 통합
+ 
+
+[Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1)에 나열된 응용 프로그램이 SAML 기반 Single Sign-On을 지원하는 경우 **지금 사용해 보세요**를 클릭하면 해당 응용 프로그램과 관련된 통합 자습서를 제공합니다. 
+
+
+---
+
+### <a name="faster-performance-of-azure-ad-automatic-user-provisioning-to-saas-applications"></a>더 빨라진 SaaS 응용 프로그램에 대한 Azure AD 자동 사용자 프로비저닝 성능
+
+**유형:** 변경된 기능  
+**서비스 범주:** 앱 프로비전  
+**제품 기능**: 타사 통합
+ 
+
+이전에 SaaS 응용 프로그램용 Azure Active Directory 사용자 프로비저닝 커넥터(예: Salesforce, ServiceNow 및 Box)를 사용하는 고객은 해당 Azure AD 테넌트가 100,000 개 이상의 결합된 사용자 및 그룹을 포함한 경우 매우 느린 성능을 경험할 수 있었으며, 프로비전할 사용자를 결정하기 위해 사용자 및 그룹 할당을 사용했습니다.
+
+4월 2일에 Azure Active Directory와 대상 SaaS 응용 프로그램 간의 초기 동기화를 수행하는 데 필요한 시간을 크게 줄이는 매우 중요한 성능 향상이 Azure AD 프로비저닝 서비스에 배포되었습니다.
+
+
+따라서 앱에 대한 초기 동기화를 수행하는 데 수 일이 걸리거나 완료되지 않았던 많은 고객은 이제 몇 분 또는 몇 시간 내에 이를 완료합니다.
+
+자세한 내용은 [프로비전하는 동안 어떻게 됩니까?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning#what-happens-during-provisioning)를 참조하세요.
+
+---
+ 
+
+### <a name="self-service-password-reset-from-windows-10-lock-screen-for-hybrid-azure-ad-joined-machines"></a>하이브리드 Azure AD 가입 컴퓨터에 대해 Windows 10 잠금 화면에서 셀프 서비스 암호 재설정
+
+**유형:** 변경된 기능  
+**서비스 범주:** 셀프 서비스 암호 재설정  
+**제품 기능:** 사용자 인증
+ 
+
+하이브리드 Azure AD에 가입된 컴퓨터에 대한 지원을 포함하도록 Windows 10 SSPR 기능을 업데이트했습니다. 이 기능은 사용자가 Windows 10 컴퓨터의 잠금 화면에서 암호를 재설정하도록 허용하는 Windows 10 RS4에서 사용할 수 있습니다. 셀프 서비스 암호 재설정에 대해 활성화되거나 등록된 사용자는 이 기능을 활용할 수 있습니다.
+
+자세한 내용은 [로그인 화면에서 Azure AD 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows)을 참조하세요.
+ 
+
+---
+
+
 
 ## <a name="march-2018"></a>2018년 3월
  
@@ -148,7 +360,7 @@ Office 365 네이티브 클라이언트(버전 16.0.8730.xxxx 이상)를 사용�
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
-사용자에게 Seamless SSO를 롤아웃하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 하나의 Azure AD URL만 추가해야합 니다. `https://autologon.microsoftazuread-sso.com` 이전에는 고객이 두 개의 URL을 추가해야 했습니다.
+사용자에게 Seamless SSO를 롤아웃하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 하나의 Azure AD URL만 추가해야합니다. `https://autologon.microsoftazuread-sso.com` 이전에는 고객이 두 개의 URL을 추가해야 했습니다.
 
 자세한 내용은 [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)을 참조하세요. 
  
@@ -362,7 +574,7 @@ Azure AD 활동 로그 보고서는 이제 21Vianet(Azure China 21Vianet) 인스
 
 응용 프로그램을 더 쉽게 배포하고 관리 오버헤드를 줄이기 위해 이제 와일드카드를 사용하여 응용 프로그램을 게시하는 기능을 지원합니다. 와일드카드 응용 프로그램을 게시하려면 표준 응용 프로그램 게시 흐름을 따르지만 내부 및 외부 URL에 와일드카드를 사용할 수 있습니다.
 
-자세한 내용은 [Azure Active Directory 응용 프로그램 프록시의 와일드카드 응용 프로그램](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)을 참조하세요.
+자세한 내용은 [Azure Active Directory 응용 프로그램 프록시의 와일드카드 응용 프로그램](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-wildcard)을 참조하세요.
 
  
 
@@ -521,10 +733,10 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 **유형:** 변경된 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스
+**제품 기능:** 규정 준수
  
 
-사용 약관이 표시되면 **보는 데 문제가 있나요? 여기를 클릭하세요.**를 클릭할 수 있습니다. 이 링크를 클릭하면 장치에서 기본적으로 사용 약관이 열립니다. 문서의 글꼴 크기 또는 장치의 화면 크기에 관계없이 필요에 따라 문서를 확대/축소하고 읽을 수 있습니다. 
+사용 약관이 표시되면 **보는 데 문제가 있나요? 여기를 클릭하세요.** 를 클릭할 수 있습니다. 이 링크를 클릭하면 장치에서 기본적으로 사용 약관이 열립니다. 문서의 글꼴 크기 또는 장치의 화면 크기에 관계없이 필요에 따라 문서를 확대/축소하고 읽을 수 있습니다. 
  
 
 ---
@@ -656,7 +868,7 @@ MFA 구성의 위치는 **Azure Active Directory \> MFA 서버**입니다.
 
 **유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스/준수
+**제품 기능:** 규정 준수
  
 이제 액세스 패널로 이동하면 이전에 수락한 사용 약관을 볼 수 있습니다.
 
@@ -707,7 +919,7 @@ Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용�
 
 **유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스/준수
+**제품 기능:** 규정 준수
  
 사용 약관을 수락하기 전에 사용 약관을 펼치도록 사용자에게 요구하는 옵션이 관리자에게 필요합니다.
 
@@ -864,7 +1076,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 **유형:** 새로운 기능    
 **서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스/준수
+**제품 기능:** 규정 준수
 
 
 
@@ -1154,7 +1366,7 @@ MFA(Multi-Factor Authentication)는 조직을 보호하기 위한 필수적인 �
 
 **유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스/준수  
+**제품 기능:** 규정 준수  
 
 
 
@@ -1197,7 +1409,7 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 **유형:** 새로운 기능  
 **서비스 범주:** 액세스 검토  
-**제품 기능:** 거버넌스/준수  
+**제품 기능:** 규정 준수  
 
 
 
@@ -1223,7 +1435,7 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 
 
-이제 새 **앱 숨기기** 속성을 통해 사용자 포털에 표시되는 앱을 더 잘 관리할 수 있습니다. 백 엔드 서비스를 위해 앱 타일이 표시되거나 타일이 중복되고 사용자의 앱 시작 관리자가 복잡하게 표시되는 경우 앱을 숨기면 도움이 됩니다. 토글은 타사 앱 섹션의 **속성** 섹션에 있으며 **사용자가 볼 수 있습니까?**라는 레이블이 지정되어 있습니다. PowerShell을 통해 프로그래밍 방식으로 앱을 숨길 수도 있습니다. 
+이제 새 **앱 숨기기** 속성을 통해 사용자 포털에 표시되는 앱을 더 잘 관리할 수 있습니다. 백 엔드 서비스를 위해 앱 타일이 표시되거나 타일이 중복되고 사용자의 앱 시작 관리자가 복잡하게 표시되는 경우 앱을 숨기면 도움이 됩니다. 토글은 타사 앱 섹션의 **속성** 섹션에 있으며 **사용자가 볼 수 있습니까?** 라는 레이블이 지정되어 있습니다. PowerShell을 통해 프로그래밍 방식으로 앱을 숨길 수도 있습니다. 
 
 자세한 내용은 [Hide a third-party application from user's experience in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)(Azure AD의 사용자 환경에서 타사 응용 프로그램 숨기기)를 참조하세요. 
 

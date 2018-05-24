@@ -2,22 +2,20 @@
 title: Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여 | Microsoft Docs
 description: Azure AD B2B 공동 작업을 사용하여 클라우드 B2B 사용자에게 온-프레미스 앱에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 04/20/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0eb567c8587b0eec367160facc86f163ef6b3c15
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068799"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여
 
@@ -30,7 +28,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트
 다음을 모두 수행해야 합니다.
 
 - [Azure Active Directory 응용 프로그램 갤러리에 없는 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)에 설명된 대로 비갤러리 응용 프로그램 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
--  Azure AD 응용 프로그램 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory**와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요. 
+-  Azure AD 응용 프로그램 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory**와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요. 
 
    **내부 URL** 설정을 구성하는 경우 비갤러리 응용 프로그램 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 응용 프로그램 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
  
@@ -40,13 +38,13 @@ Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트
 
 B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용하여 보호되는 온-프레미스 응용 프로그램에 대한 액세스 권한을 부여하려면 다음과 같은 구성 요소가 필요합니다.
 
-- **Azure AD 응용 프로그램 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 응용 프로그램에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 응용 프로그램 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터를 설치](active-directory-application-proxy-enable.md) 및 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
-- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 응용 프로그램은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 응용 프로그램 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
+- **Azure AD 응용 프로그램 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 응용 프로그램에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 응용 프로그램 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터를 설치](manage-apps/application-proxy-enable.md) 및 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시](manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
+- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 응용 프로그램은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 응용 프로그램 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
 
    B2B 사용자 시나리오의 경우 온-프레미스 디렉터리에서 권한 부여에 필요한 게스트 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 
-   - [Microsoft Graph용 MIM(Microsoft Identity Manager) 및 MIM 관리 에이전트](#create-b2b-guest-user-objects-through-mim-preview). 이 솔루션을 사용하려면 Azure AD Premium P1 구독이 있어야 합니다. 
-   - [PowerShell 스크립트](#create-b2b-guest-user-objects-through-a-script-preview). 스크립트 사용은 MIM 또는 Azure AD Premium이 필요하지 않는 더 간단한 솔루션입니다. 
+   - MIM(Microsoft Identity Manager) 및 [Microsoft Graph용 MIM 관리 에이전트](#create-b2b-guest-user-objects-through-mim-preview). 
+   - [PowerShell 스크립트](#create-b2b-guest-user-objects-through-a-script-preview). 스크립트 사용은 MIM이 필요하지 않는 더 간단한 솔루션입니다. 
 
 다음 다이어그램은 B2B 사용자에게 온-프레미스 IWA 및 KCD 앱에 대한 액세스 권한을 부여하기 위해 Azure AD 응용 프로그램 프록시와 온-프레미스 디렉터리의 B2B 사용자 개체의 생성이 어떻게 함께 작동하는지에 대한 전체적인 개요를 제공합니다. 다이어그램 아래에 번호가 매겨진 단계가 자세히 설명되어 있습니다.
 
@@ -86,6 +84,6 @@ MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사�
 ## <a name="next-steps"></a>다음 단계
 
 - [하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업](active-directory-b2b-hybrid-organizations.md)
-- [Azure AD B2B 공동 작업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 - Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](connect/active-directory-aadconnect.md)을 참조하세요.
 

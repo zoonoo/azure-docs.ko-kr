@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072052"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법
 
@@ -78,13 +79,18 @@ Azure PowerShell 버전 1.0.x 이상을 설치해야 합니다. PowerShell을 �
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>VM의 할당을 취소하고 상태를 일반화됨으로 설정합니다.
+
+> [!IMPORTANT] 
+> 일반화됨으로 표시되면 VM에서 태그를 추가하거나, 편집하거나, 제거할 수 없습니다. VM에 태그를 추가하려는 경우 일반화됨으로 표시하기 전에 태그를 추가해야 합니다.
+> 
+
 1. VM 리소스 할당을 취소합니다.
    
     ```powershell
     Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    Azure Portal의 VM에 대한 *상태*가 **중지됨**에서 **중지됨(할당 취소됨)**으로 변경됩니다.
+    Azure Portal의 VM에 대한 *상태*가 **중지됨**에서 **중지됨(할당 취소됨)** 으로 변경됩니다.
 2. 가상 머신의 상태를 **일반화됨**으로 설정합니다. 
    
     ```powershell

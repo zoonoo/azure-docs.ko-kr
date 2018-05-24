@@ -1,23 +1,22 @@
 ---
-title: "최종 사용자 인증: Azure Active Directory를 사용하여 Data Lake Store로 | Microsoft Docs"
-description: "Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증을 수행하는 방법을 알아봅니다."
+title: '최종 사용자 인증: Azure Active Directory를 사용하여 Data Lake Store로 | Microsoft Docs'
+description: Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 11aed2ee2af239b02375a2d90e2544b4b45b2d41
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197140"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -35,7 +34,7 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 
 이 문서에서는 최종 사용자 인증을 위한 **Microsoft Azure Active Directory 네이티브 응용 프로그램**을 만드는 방법에 대해 설명합니다. 서비스 간 인증을 위해 Azure AD 응용 프로그램 구성을 수행하는 방법은 [Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * 구독 ID. Azure Portal에서 검색할 수 있습니다. 예를 들어 Data Lake Store 계정 블레이드에서 사용할 수 있습니다.
@@ -83,7 +82,7 @@ Azure Active Directory를 사용하여 Azure Data Lake Store로 최종 사용자
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>2단계: 응용 프로그램 ID 및 리디렉션 URI 가져오기
 
-Azure AD 네이티브 응용 프로그램의 응용 프로그램 ID(Azure 클래식 포털에서는 클라이언트 ID라고도 함)를 검색하려면 [응용 프로그램 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
+응용 프로그램 ID를 검색하려면 [응용 프로그램 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
 
 리디렉션 URI를 검색하려면 다음 단계를 수행합니다.
 

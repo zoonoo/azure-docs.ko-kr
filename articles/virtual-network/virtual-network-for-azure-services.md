@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781166"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 서비스에 대한 가상 네트워크 통합
 
@@ -56,7 +57,8 @@ Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크
 - [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Application Gateway(내부)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Container Service 엔진](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): Azure Container Service는 기본 가상 네트워크를 만듭니다. [Azure Container Service 엔진](https://github.com/Azure/acs-engine/tree/master/examples/vnet)에 사용할 사용자 지정 가상 네트워크를 만들 수 있습니다.
+- [AKS(Azure Kubernetes Service)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Azure Virtual Network CNI [플러그 인](https://github.com/Azure/acs-engine/tree/master/examples/vnet)을 사용한 [Azure Container Service 엔진](https://github.com/Azure/acs-engine)
 - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): 가상 네트워크(클래식)만
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Cloud Services](https://msdn.microsoft.com/library/azure/jj156091): 가상 네트워크(클래식)만

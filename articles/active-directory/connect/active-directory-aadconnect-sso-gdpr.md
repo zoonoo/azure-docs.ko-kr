@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On - GDPR 준수 | Microsoft Docs'
+title: 사용자 개인 정보 및 Azure AD 원활한 Single Sign-On | Microsoft Docs
 description: 이 문서에서는 Azure AD(Azure Active Directory) Seamless SSO 및 GDPR 준수에 대해 다룹니다.
 services: active-directory
 keywords: Azure AD Connect의 정의, GDPR, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149530"
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Azure AD Seamless Single Sign-on: GDPR 준수
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>사용자 개인 정보 및 Azure AD 원활한 Single Sign-On
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>개요
 
-2018년 5월에 유럽 개인 정보 보호법, [GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)이 발효됩니다. GDPR은 회사, 정부 기관, 비영리 단체 및 기타 EU(유럽 연합)의 사용자에게 상품 및 서비스를 제공하거나 EU 거주자와 연결된 데이터를 수집하고 분석하는 조직에 새 규칙을 적용합니다. GDPR은 사용자가 어느 곳에 있든 상관없이 적용됩니다. 
-
-Microsoft 제품 및 서비스는 현재 GDPR 요구 사항을 충족하는 데 도움을주기 위해 사용할 수 있습니다. [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침에 대해 자세히 알아보세요.
 
 Azure AD Seamless SSO는 EUII를 포함할 수 있는 다음 로그 형식을 만듭니다.
 
 - Azure AD Connect 추적 로그 파일.
 
-Seamless SSO에 대한 GDPR 준수는 두 가지 방법으로 연결할 수 있습니다.
+Seamless SSO에 대한 사용자 개인 정보 준수는 두 가지 방법으로 연결할 수 있습니다.
 
 1.  요청 시 사람에 대한 데이터를 추출하고 그 사람의 데이터를 설치에서 제거합니다.
 2.  데이터는 48시간 이상 데이터가 보존하지 않도록 합니다.
@@ -65,6 +65,6 @@ Foreach ($file in $Files) {
 감사 로깅이 설정된 경우 해당 제품은 도메인 컨트롤러에 대한 보안 로그를 생성할 수 있습니다. 감사 정책 구성에 대한 자세한 내용은 이 [문서](https://technet.microsoft.com/library/dd277403.aspx)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-
+* [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)
 - [**문제 해결**](active-directory-aadconnect-troubleshoot-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

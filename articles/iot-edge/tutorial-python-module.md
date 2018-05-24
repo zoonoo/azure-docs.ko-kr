@@ -9,11 +9,12 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3c46df85f95377f5740526542ac1baf5a8fd77c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177838"
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Python IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포 - 미리 보기
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/20/2018
 이 자습서에서 만드는 IoT Edge 모듈은 장치에서 생성된 온도 데이터를 필터링합니다. 온도가 지정된 임계값을 초과하는 경우에만 메시지 업스트림을 전송합니다. 에지에서 이 유형의 분석은 클라우드로 전송되고 저장되는 데이터 양을 줄이는 데 유용합니다. 
 
 > [!IMPORTANT]
-> 현재 Python 모듈은 amd64 Linux 컨테이너에서만 실행할 수 있습니다. Windows 컨테이너 또는 ARM 기반 컨테이너에서는 실행할 수 없습니다. 
+> 현재 amd64 Linux 컨테이너에서만 Python 모듈을 실행할 수 있습니다. Windows 컨테이너 또는 ARM 기반 컨테이너에서 실행할 수 없습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/20/2018
 * [Visual Studio Code용 Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * Visual Studio Code가 있는 동일한 컴퓨터의 [Docker](https://docs.docker.com/engine/installation/). 이 자습서에서는 CE(Community Edition)로 충분합니다. 
 * [Python](https://www.python.org/downloads/).
-* Python 패키지 설치용 [Pip](https://pip.pypa.io/en/stable/installing/#installation)입니다.
+* Python 패키지 설치를 위한 [Pip](https://pip.pypa.io/en/stable/installing/#installation)(일반적으로 Python 설치와 함께 포함됨)
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 이 자습서에서는 VS Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
@@ -57,10 +58,10 @@ ms.lasthandoff: 04/20/2018
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge 모듈 프로젝트 만들기
 다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 IoT Edge Python 모듈을 만드는 방법을 보여 줍니다.
 1. Visual Studio Code에서 **보기** > **통합 터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
-2. 통합 터미널에서 다음 명령을 입력하여 **Cookiecutter**를 설치(또는 업데이트)합니다.
+2. 통합된 터미널에서 다음 명령을 입력하여 **cookiecutter**를 설치(또는 업데이트)합니다. 가상 환경으로 또는 아래와 같이 사용자 설치로 수행하는 것이 좋습니다.
 
     ```cmd/sh
-    pip install -U cookiecutter
+    pip install --upgrade --user cookiecutter
     ```
 
 3. 새 모듈에 대한 프로젝트를 만듭니다. 다음 명령은 컨테이너 리포지토리와 함께 프로젝트 폴더인 **FilterModule**을 만듭니다. Azure 컨테이너 레지스트리를 사용하는 경우 `image_repository` 매개 변수는 `<your container registry name>.azurecr.io/filtermodule` 형식이어야 합니다. 현재 작업 폴더에 다음 명령을 입력합니다.
@@ -78,11 +79,11 @@ ms.lasthandoff: 04/20/2018
     import json
     ```
 
-8. 전역 카운터 아래에 `TEMPERATURE_THRESHOLD` 및 `TWIN_CALLBACKS`를 추가합니다. 온도 임계값은 IoT Hub로 데이터를 전송하기 위해 측정된 온도가 초과해야 하는 값을 설정합니다.
+8. 전역 카운터 아래에 `TEMPERATURE_THRESHOLD`, `RECEIVE_CALLBACKS` 및 `TWIN_CALLBACKS`를 추가합니다. 온도 임계값은 IoT Hub로 데이터를 전송하기 위해 측정된 온도가 초과해야 하는 값을 설정합니다.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
-    TWIN_CALLBACKS = 0
+    TWIN_CALLBACKS = RECEIVE_CALLBACKS = 0
     ```
 
 9. `receive_message_callback` 함수를 아래 내용으로 업데이트합니다.
@@ -97,16 +98,16 @@ ms.lasthandoff: 04/20/2018
         message_buffer = message.get_bytearray()
         size = len(message_buffer)
         message_text = message_buffer[:size].decode('utf-8')
-        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+        print("    Data: <<<{}>>> & Size={:d}".format(message_text, size))
         map_properties = message.properties()
         key_value_pair = map_properties.get_internals()
-        print ( "    Properties: %s" % key_value_pair )
+        print("    Properties: {}".format(key_value_pair))
         RECEIVE_CALLBACKS += 1
-        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
+        print("    Total calls received: {:d}".format(RECEIVE_CALLBACKS))
         data = json.loads(message_text)
         if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
-            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+            print("Machine temperature {} exceeds threshold {}".format(data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
@@ -118,14 +119,14 @@ ms.lasthandoff: 04/20/2018
     def device_twin_callback(update_state, payload, user_context):
         global TWIN_CALLBACKS
         global TEMPERATURE_THRESHOLD
-        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
+        print("\nTwin callback called with:\nupdateStatus = {}\npayload = {}\ncontext = {}".format(update_state, payload, user_context))
         data = json.loads(payload)
         if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
         if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
-        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+        print("Total calls confirmed: {:d}\n".format(TWIN_CALLBACKS))
     ```
 
 11. `HubManager` 클래스에서 방금 추가한 `device_twin_callback` 함수를 초기화하도록 `__init__` 메서드에 새 줄을 추가합니다.
@@ -170,7 +171,7 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
 ## <a name="run-the-solution"></a>솔루션 실행
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub로 이동합니다.
-2. **IoT Edge(미리 보기)**로 이동하여 IoT Edge 장치를 선택합니다.
+2. **IoT Edge(미리 보기)** 로 이동하여 IoT Edge 장치를 선택합니다.
 3. **모듈 설정**을 선택합니다. 
 2. **tempSensor** 모듈이 자동으로 채워지는지 확인합니다. 그렇지 않은 경우 다음 단계를 사용하여 추가합니다.
     1. **IoT Edge 모듈 추가**를 선택합니다.
@@ -214,7 +215,7 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
 IoT Edge 장치에서 IoT Hub로 보낸 장치-클라우드 메시지를 모니터하려면 다음을 수행하세요.
 1. IoT Hub용 연결 문자열로 Azure IoT Toolkit 확장을 구성합니다. 
     1. **보기** > **탐색기**를 선택하여 VS Code 탐색기를 엽니다. 
-    3. 탐색기에서 **IOT HUB 장치**를 클릭하고 **...**을 클릭합니다. **IoT Hub 연결 문자열 설정**을 클릭하고, 팝업 창에서 IoT Edge 장치를 연결할 IoT Hub용 연결 문자열을 입력합니다. 
+    3. 탐색기에서 **IOT HUB 장치**를 클릭하고 **...** 을 클릭합니다. **IoT Hub 연결 문자열 설정**을 클릭하고, 팝업 창에서 IoT Edge 장치를 연결할 IoT Hub용 연결 문자열을 입력합니다. 
 
         연결 문자열을 찾으려면 Azure Portal에서 IoT Hub의 타일을 클릭한 다음 **공유 액세스 정책**을 클릭합니다. **공유 액세스 정책**에서 **iothubowner** 정책을 클릭한 다음 **iothubowner** 창에 있는 IoT Hub 연결 문자열을 복사합니다.   
 

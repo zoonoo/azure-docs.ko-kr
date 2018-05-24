@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5659e8f29d87c48c447a5cb81c836b0be9dabd45
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ad8a599065a44469a3151813972b3d2561782c6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774661"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>SQL Data Warehouse의 저장 프로시저 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 저장 프로시저 구현을 위한 팁
@@ -76,7 +77,6 @@ SQL Data Warehouse에서 구현되지 않은 TRANSACT-SQL 저장된 프로시저
 * 숫자가 매겨진 저장 프로시저
 * 확장된 저장 프로시저
 * CLR 저장 프로시저
-* 
 * 암호화 옵션
 * 복제 옵션
 * 테이블 반환 매개 변수

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010927"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -34,6 +35,14 @@ Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의
 한 구독에서 다른 구독으로 리소스를 이동하는 경우, 파일 동기화(저장소 동기화 서비스) 리소스가 이동되지 않도록 차단됩니다. 
 
 ## <a name="agent-installation-and-server-registration"></a>에이전트 설치 및 서버 등록
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>서버 등록을 하는 동안 "'find-AzureRMResource'라는 용어가 이름으로 인식되지 않습니다."라는 오류가 발생합니다.
+문제는 find-AzureRMResource cmdlet이 AzureRM v6에서 변경되었다는 것입니다.  동기화 에이전트의 다음 버전은 AzureRM v6를 지원하도록 수정됩니다.  그때까지는 다음을 수행하여 이 문제를 해결할 수 있습니다.
+1. taskmgr을 통해 현재 ServerRegistration.exe 중지
+2. 관리자 권한으로 PowerShell 명령 프롬프트 실행
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe를 시작합니다.
+
 <a id="agent-installation-failures"></a>**에이전트 설치 오류 해결**  
 Azure File Sync 에이전트 설치가 실패할 경우 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 에이전트 설치 동안 로깅을 켭니다.
 
@@ -106,7 +115,7 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 * 소유자
 * 사용자 액세스 관리자 사용자의 계정 역할에 필요한 사용 권한이 있는지 확인하려면:  
 1. Azure Portal에서 **리소스 그룹**을 선택합니다.
-2. 저장소 계정이 있는 리소스 그룹을 선택하고 **IAM(Access Control)**를 선택합니다.
+2. 저장소 계정이 있는 리소스 그룹을 선택하고 **IAM(Access Control)** 를 선택합니다.
 3. 사용자 계정에 대한 **역할**(예: 소유자 또는 참가자)을 선택합니다.
 4. **리소스 공급자** 목록에서 **Microsoft 인증**을 선택합니다. 
     * **역할 할당**에 **읽기** 권한과 **쓰기** 권한이 있어야 합니다.

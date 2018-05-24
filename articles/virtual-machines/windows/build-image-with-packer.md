@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: f174837b8d370ffabdf4148b18d3425d9f3d9f10
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e06db46d5e1d7862f7b47b75e38d0b10df628f48
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778565"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Windows 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 응용 프로그램 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 응용 프로그램 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
@@ -221,6 +222,8 @@ New-AzureRmVm `
     -OpenPorts 80 `
     -Image "myPackerImage"
 ```
+
+Packer 이미지와 다른 리소스 그룹 또는 지역에서 VM을 만들려는 경우 이미지 이름 대신 이미지 ID를 지정합니다. [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage)를 사용하여 이미지 ID를 가져올 수 있습니다.
 
 Packer 이미지에서 VM을 만드는 데 몇 분이 걸립니다.
 

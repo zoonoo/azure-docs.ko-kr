@@ -7,19 +7,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 9b4fbb34686a12f992b344ac61420c9ba99ee405
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0168849c01add3f714b139c7984e3def74f40a5b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071766"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>CSP를 사용하여 Azure로 VMware를 복제하기 위한 다중 테넌트 지원 개요
 
-[Azure Site Recovery](site-recovery-overview.md)는 테넌트 구독을 위해 다중 테넌트 환경을 지원합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다. 
+[Azure Site Recovery](site-recovery-overview.md)는 테넌트 구독을 위해 다중 테넌트 환경을 지원합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다.
 
-이 아티클에서는 Azure 복제에 대해 다중 테넌트 VMware를 구현하고 관리하는 개요를 제공합니다. 
+이 아티클에서는 Azure 복제에 대해 다중 테넌트 VMware를 구현하고 관리하는 개요를 제공합니다.
 
 ## <a name="multi-tenant-environments"></a>다중 테넌트 환경
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="shared-hosting-services-provider-hsp"></a>공유 HSP(호스팅 서비스 공급자)
 
- 다른 두 가지 시나리오는 공유 호스팅 시나리오의 하위 집합이며 동일한 원칙을 사용합니다. 차이점은 공유 호스팅 지침의 끝에 설명되어 있습니다.
+다른 두 가지 시나리오는 공유 호스팅 시나리오의 하위 집합이며 동일한 원칙을 사용합니다. 차이점은 공유 호스팅 지침의 끝에 설명되어 있습니다.
 
 다중 테넌트 시나리오의 기본 요구 사항은 테넌트를 격리하는 것입니다. 한 테넌트에서 다른 테넌트가 호스팅한 것을 확인할 수 없어야 합니다. 이 요구 사항은 셀프 서비스 환경에서는 중요할 수 있으나 파트너 관리형 환경에서는 그만큼 중요하지 않습니다. 이 아티클에서는 테넌트 격리가 필요한 것으로 가정합니다.
 
@@ -63,7 +64,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="vcenter-account-requirements"></a>vCenter 계정 요구 사항
 
-특별한 역할이 할당된 계정을 사용하여 구성 서버를 구성해야 합니다. 
+특별한 역할이 할당된 계정을 사용하여 구성 서버를 구성합니다.
 
 - 각 vCenter 개체에 대한 vCenter 액세스 계정에 역할 할당이 적용되고 자식 개체에게는 전파되지 않도록 해야 합니다. 액세스 전파가 다른 개체에도 우발적으로 액세스할 수 있기 때문에 이 구성을 사용하면 테넌트 격리가 보장됩니다.
 
@@ -108,22 +109,36 @@ ms.lasthandoff: 03/08/2018
 - *Azure_Site_Recovery* 역할을 vCenter 액세스 계정에 할당하는 대신 *읽기 전용* 역할만을 해당 계정에 할당합니다. 이 권한 집합은 VM 복제 및 장애 조치(Failover)를 허용하지만 장애 복구(failback)는 허용하지 않습니다.
 - 위 프로세스의 나머지 모든 것들은 그대로 유지됩니다. 테넌트를 격리하고 VM 검색을 제한하기 위해 모든 권한은 계속 개체 수준에서만 할당되며 자식 개체에는 전파되지 않습니다.
 
+### <a name="deploy-resources-to-the-tenant-subscription"></a>리소스를 테넌트 구독에 배포
+
+1. Azure Portal에서 리소스 그룹을 만들고 일반 프로세스에 대한 Recovery Services 자격 증명 모음을 배포합니다.
+2. 자격 증명 모음 등록 키를 다운로드합니다.
+3. 자격 증명 모음 등록 키를 사용하여 테넌트용 CS를 등록합니다.
+4. vCenter server에 액세스할 계정 및 VM에 액세스할 계정 등 두 개의 액세스 계정에 대한 자격 증명을 입력합니다.
+
+    ![관리자 구성 서버 계정](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+
+### <a name="register-servers-in-the-vault"></a>자격 증명 모음에서 서버 등록
+
+1. Azure Portal에 있는 앞에서 만든 자격 증명 모음에서 만든 vCenter 계정을 사용하여 구성 서버에 vCenter Server를 등록합니다.
+2. 일반 프로세스에 대한 Site Recovery를 위해 “준비 인프라” 프로세스를 완료합니다.
+3. 이제 VM을 복제할 준비가 되었습니다. 테넌트의 VM이 **복제** > **가상 머신 선택**에 표시되는지만 확인합니다.
 
 ## <a name="dedicated-hosting-solution"></a>전용 호스팅 솔루션
 
-다음 다이어그램에 표시된 것처럼 전용 호스팅 솔루션의 아키텍처 차이점은 각 테넌트의 인프라가 해당 테넌트에 대해서만 설정된다는 것입니다. 테넌트가 별도의 vCenter를 통해 격리되기 때문에 호스팅 공급자는 공유 호스팅에 대해 제공된 CSP 단계를 계속 수행해야 하지만 테넌트 격리에 대해 우려하지 않아도 됩니다. CSP 설치는 변경되지 않고 유지됩니다.
+다음 다이어그램에 표시된 것처럼 전용 호스팅 솔루션의 아키텍처 차이점은 각 테넌트의 인프라가 해당 테넌트에 대해서만 설정된다는 것입니다.
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **여러 vCenter를 사용한 전용 호스팅 시나리오**
 
 ## <a name="managed-service-solution"></a>관리형 서비스 솔루션
 
-다음 다이어그램에 나와 있는 것처럼 관리 서비스 솔루션의 아키텍처 차이점은 각 테넌트의 인프라가 다른 테넌트의 인프라와 물리적으로도 분리된다는 점입니다. 이 시나리오는 일반적으로 테넌트가 인프라를 소유하고 재해 복구를 관리할 솔루션 공급자가 필요한 경우 존재합니다. 다시 말해, 테넌트가 다른 인프라를 통해 물리적으로 격리되기 때문에 파트너는 공유 호스팅에 대해 제공된 CSP 단계를 계속 수행해야 하지만 테넌트 격리에 대해 우려하지 않아도 됩니다. CSP 프로비저닝은 그대로 유지됩니다.
+다음 다이어그램에 나와 있는 것처럼 관리 서비스 솔루션의 아키텍처 차이점은 각 테넌트의 인프라가 다른 테넌트의 인프라와 물리적으로도 분리된다는 점입니다. 이 시나리오는 일반적으로 테넌트가 인프라를 소유하고 재해 복구를 관리할 솔루션 공급자가 필요한 경우 존재합니다.
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **여러 vCenter를 사용하는 관리 서비스 시나리오**
 
 ## <a name="next-steps"></a>다음 단계
-Site Recovery에서 역할 기반 액세스 제어에 대해 [자세히 알아봅니다](site-recovery-role-based-linked-access-control.md).
-[VMware VM의 재해 복구를 Azure로 설정](vmware-azure-tutorial.md)
-[CSP를 사용하여 다중 테넌트에서 VMWare VM에 대한 재해 복구 설정](vmware-azure-multi-tenant-csp-disaster-recovery.md) 방법에 대해 자세히 알아봅니다.
+- Site Recovery에서 역할 기반 액세스 제어에 대해 [자세히 알아봅니다](site-recovery-role-based-linked-access-control.md).
+- [Azure에 VMware VM의 재해 복구를 설정](vmware-azure-tutorial.md)하는 방법에 대해 알아봅니다.
+- [CSP를 통한 다중 테넌트 VMWare VM 복제](vmware-azure-multi-tenant-csp-disaster-recovery.md)에 대해 자세히 알아봅니다.

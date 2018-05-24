@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 배포 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다."
+title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 배포 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 99b368ca364bd7c5bebfc00c2df0f04333293388
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188483"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -108,6 +109,11 @@ Site Recovery는 구성 서버를 고가용성 VMware VM으로 설정하기 위�
 8. **가상 머신 자격 증명 구성**에서 복제가 사용되면 컴퓨터에 Azure Site Recovery 모바일 서비스를 자동으로 설치하는 데 사용할 사용자 이름 및 암호를 입력합니다. Windows 컴퓨터의 경우 복제하려는 컴퓨터에 대한 로컬 관리자 권한이 필요합니다. Linux의 경우 루트 계정에 대한 세부 정보를 제공합니다.
 9. **구성 완료**를 선택하여 등록을 완료합니다. 
 10. 등록이 완료되면 Azure Portal에서 구성 서버 및 VMware 서버가 자격 증명 모음의 **원본** 페이지에 표시되는지 확인합니다. 그런 다음, **확인**을 선택하여 대상 설정을 구성합니다.
+
+
+## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
+
+구성 서버를 최신 버전으로 업그레이드하려면 [여기에서](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) 지정된 단계를 읽어 보세요.
 
 
 ## <a name="troubleshoot-deployment-issues"></a>배포 문제 해결

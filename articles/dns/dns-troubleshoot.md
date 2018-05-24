@@ -1,11 +1,11 @@
 ---
-title: "Azure DNS 문제 해결 가이드 | Microsoft Docs"
-description: "Azure DNS와 관련된 일반적인 문제를 해결하는 방법"
+title: Azure DNS 문제 해결 가이드 | Microsoft Docs
+description: Azure DNS와 관련된 일반적인 문제를 해결하는 방법
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
 ms.service: dns
 ms.devlang: na
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
-ms.author: jonatul
-ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069102"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 문제 해결 가이드
 
@@ -96,7 +97,7 @@ SRV 레코드 이름(서비스 이름 'sip', 프로토콜 'tcp') 예제:
 <br>
 [Azure Portal을 사용하여 DNS 레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-portal.md)
 <br>
-[SRV 레코드 유형(Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
+[SRV 레코드 형식(Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>다음 단계

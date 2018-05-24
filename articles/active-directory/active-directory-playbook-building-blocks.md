@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157702"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -162,7 +163,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 ### <a name="considerations"></a>고려 사항
 
-1. 위의 [자습서](active-directory-saas-servicenow-tutorial.md)는 이전 Azure AD 관리 환경을 참조합니다. 하지만 PoC는 [빠른 시작](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away) 환경에 기반을 둡니다.
+1. 위의 [자습서](active-directory-saas-servicenow-tutorial.md)는 이전 Azure AD 관리 환경을 참조합니다. 그러나 PoC는 [빠른 시작](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) 환경을 기반으로 합니다.
 2. 대상 응용 프로그램이 갤러리에 없으면 “사용자 고유 앱 가져오기”를 사용할 수 있습니다. 참고 항목: [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 한 곳에서 사용자 지정 응용 프로그램 추가](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS 암호 SSO 구성
@@ -241,27 +242,27 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 사용자가 전역 관리자인 Microsoft Azure AD 기본 또는 프리미엄 구독 및 Azure AD 디렉터리 | [Azure Active Directory 버전](active-directory-editions.md) |
+| 사용자가 전역 관리자인 Microsoft Azure AD 기본 또는 프리미엄 구독 및 Azure AD 디렉터리 | [Azure Active Directory 버전](active-directory-whatis.md) |
 | 원격 액세스를 사용하도록 구성할 온-프레미스에서 호스트된 웹 응용 프로그램 |  |
-| 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 Windows 8.1 이상을 실행하는 서버 | [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md) |
-| 방화벽이 경로에 있는 경우 커넥터가 응용 프로그램 프록시에 HTTPS(TCP) 요청을 할 수 있도록 방화벽이 열려 있는지 확인합니다. | [Azure Portal에서 응용 프로그램 프록시 사용: 응용 프로그램 프록시 필수 구성 요소](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
-| 조직에서 프록시 서버를 사용하여 인터넷에 연결하려면 구성하는 방법에 대한 세부 내용은 기존 온-프레미스 프록시 서버로 작업 블로그 게시물을 살펴보세요. | [기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md) |
+| 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 Windows 8.1 이상을 실행하는 서버 | [Azure AD 응용 프로그램 프록시 커넥터 이해](manage-apps/application-proxy-connectors.md) |
+| 방화벽이 경로에 있는 경우 커넥터가 응용 프로그램 프록시에 HTTPS(TCP) 요청을 할 수 있도록 방화벽이 열려 있는지 확인합니다. | [Azure Portal에서 응용 프로그램 프록시 사용: 응용 프로그램 프록시 필수 구성 요소](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
+| 조직에서 프록시 서버를 사용하여 인터넷에 연결하려면 구성하는 방법에 대한 세부 내용은 기존 온-프레미스 프록시 서버로 작업 블로그 게시물을 살펴보세요. | [기존 온-프레미스 프록시 서버 작업](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
-| 서버에 커넥터를 설치합니다. | [Azure Portal에서 응용 프로그램 프록시 사용: 커넥터 설치 및 등록](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| 온-프레미스 응용 프로그램을 Azure AD에 응용 프로그램 프록시 응용 프로그램으로 게시합니다. | [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md) |
-| 테스트 사용자를 할당합니다. | [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시: 테스트 사용자 추가](application-proxy-publish-azure-portal.md#add-a-test-user) |
-| 필요한 경우 사용자에 대한 Single Sign-On 환경을 구성합니다. | [Azure AD 응용 프로그램 프록시를 사용하여 Single Sign-On 제공](application-proxy-sso-azure-portal.md) |
+| 서버에 커넥터를 설치합니다. | [Azure Portal에서 응용 프로그램 프록시 사용: 커넥터 설치 및 등록](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| 온-프레미스 응용 프로그램을 Azure AD에 응용 프로그램 프록시 응용 프로그램으로 게시합니다. | [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](manage-apps/application-proxy-publish-azure-portal.md) |
+| 테스트 사용자를 할당합니다. | [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시: 테스트 사용자 추가](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
+| 필요한 경우 사용자에 대한 Single Sign-On 환경을 구성합니다. | [Azure AD 응용 프로그램 프록시를 사용하여 Single Sign-On 제공](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | MyApps 포털에 할당된 사용자로 로그인하여 앱을 테스트합니다. | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>고려 사항
 
-1. 커넥터를 회사 네트워크에 포함하는 것이 좋지만 클라우드에 포함하면 성능이 향상되는 경우도 있습니다. 참고 항목: [Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항](application-proxy-network-topology-considerations.md)
-2. 보안에 대한 자세한 내용과 아웃바운드 연결만 유지 관리하는 방식으로 특별히 안전한 원격 액세스 솔루션을 제공하는 방법은 [Azure AD 응용 프로그램 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](application-proxy-security-considerations.md)을 참조하세요.
+1. 커넥터를 회사 네트워크에 포함하는 것이 좋지만 클라우드에 포함하면 성능이 향상되는 경우도 있습니다. 참고 항목: [Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항](manage-apps/application-proxy-network-topology.md)
+2. 보안에 대한 자세한 내용과 아웃바운드 연결만 유지 관리하는 방식으로 특별히 안전한 원격 액세스 솔루션을 제공하는 방법은 [Azure AD 응용 프로그램 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](manage-apps/application-proxy-security.md)을 참조하세요.
 
 ## <a name="generic-ldap-connector-configuration"></a>일반 LDAP 커넥터 구성
 

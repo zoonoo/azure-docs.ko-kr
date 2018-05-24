@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher를 사용하여 패킷 캡처 관리 - PowerShell | Microsoft Docs"
-description: "이 페이지에서는 PowerShell을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법에 대해 설명합니다."
+title: Azure Network Watcher를 사용하여 패킷 캡처 관리 - PowerShell | Microsoft Docs
+description: 이 페이지에서는 PowerShell을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법에 대해 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: b27e0684b0914764f22b59e050e75c7be3a82cc6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6ffb1aec91899b54a153e264e346910caee84cc0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186786"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>PowerShell에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](network-watcher-packet-capture-manage-portal.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
@@ -151,7 +152,7 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 > [!NOTE]
 > 패킷 캡처를 위해 여러 필터를 정의할 수 있습니다.
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 `New-AzureRmNetworkWatcherPacketCapture` cmdlet을 실행하여 패킷 캡처 프로세스를 시작하고 이전 단계에서 검색한 필수 값을 전달합니다.
 ```powershell
@@ -278,7 +279,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
+[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
 
 <!-- Image references -->
 

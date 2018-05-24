@@ -1,28 +1,23 @@
 ---
 title: Azure MFA NPS 확장을 사용하여 원격 데스크톱 게이트웨이 통합 | Microsoft Docs
-description: 이 문서에서는 Microsoft Azure용 NPS(네트워크 정책 서버) 확장을 사용하여 원격 데스크톱 게이트웨이 인프라를 Azure MFA와 통합하는 방법을 설명합니다.
-services: active-directory
-keywords: Azure MFA, 원격 데스크톱 게이트웨이 통합, Azure Active Directory, 네트워크 정책 서버 확장
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: Microsoft Azure용 네트워크 정책 서버 확장을 사용하여 원격 데스크톱 게이트웨이 인프라를 Azure MFA와 통합
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 0c050ee237650be7d43be2454a2bc3c07f096b8c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932101"
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
 이 문서에서는 Microsoft Azure용 NPS(네트워크 정책 서버) 확장을 사용하여 원격 데스크톱 게이트웨이 인프라를 Azure MFA(Multi-Factor Authentication)와 통합하는 방법에 대해 자세히 설명합니다. 
 
@@ -150,8 +145,8 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 그런 다음 아래 작업을 수행합니다.
 
 1. 관리 Windows PowerShell 프롬프트를 엽니다.
-2. PowerShell 프롬프트에서 **cd 'c:\Program Files\Microsoft\AzureMfa\Config'** 를 입력하고 **Enter** 키를 누릅니다.
-3. _.\AzureMfsNpsExtnConfigSetup.ps1_을 입력하고 **Enter** 키를 누릅니다. 스크립트에서 Azure Active Directory PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
+2. PowerShell 프롬프트에서 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`를 입력하고 **Enter** 키를 누릅니다.
+3. `.\AzureMfsNpsExtnConfigSetup.ps1`을 입력하고 **ENTER** 키를 누릅니다. 스크립트에서 Azure Active Directory PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

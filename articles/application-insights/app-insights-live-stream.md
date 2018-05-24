@@ -3,7 +3,7 @@ title: Azure Application Insights의 사용자 지정 메트릭 및 진단을 �
 description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니터링하고 오류, 추적 및 이벤트의 라이브 피드를 통해 문제를 진단할 수 있습니다.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: mbullwin; Soubhagya.Dash
+ms.openlocfilehash: 0c3662984c63195d8fc903c66b27aa253ce419cb
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165369"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단 
 
@@ -116,7 +117,7 @@ Application Insights 원격 분석 외에, 스트림 옵션 중에서 선택하�
 
 ### <a name="add-api-key-to-configuration"></a>구성에 API 키 추가
 
-# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+### <a name="classic-aspnet"></a>클래식 ASP.NET
 
 applicationinsights.config 파일에서 QuickPulseTelemetryModule에 AuthenticationApiKey를 추가합니다.
 ``` XML
@@ -133,7 +134,8 @@ applicationinsights.config 파일에서 QuickPulseTelemetryModule에 Authenticat
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
-# <a name="net-core-tabnet-core"></a>[.NET Core](#tab/.net-core)
+
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core(Application Insights ASP.NET Core SDK 2.3.0 베타 이상 필요)
 
 다음과 같이 startup.cs 파일을 수정합니다.
 
@@ -141,26 +143,14 @@ applicationinsights.config 파일에서 QuickPulseTelemetryModule에 Authenticat
 
 ``` C#
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
 ```
 
-그런 후 구성 방법에서 다음을 추가합니다.
+그런 다음, ConfigureServices 메서드 내에 다음을 추가합니다.
 
 ``` C#
-  QuickPulseTelemetryModule dep;
-            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
-            foreach (var module in modules)
-            {
-                if (module is QuickPulseTelemetryModule)
-                {
-                    dep = module as QuickPulseTelemetryModule;
-                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                    dep.Initialize(TelemetryConfiguration.Active);
-                }
-            }
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
----
 
 그러나 연결된 모든 서버를 인식하고 신뢰하는 경우 인증된 채널을 사용하지 않고 사용자 지정 필터를 시도할 수 있습니다. 이 옵션은 6개월 동안 사용할 수 있습니다. 이 재정의는 새 세션마다 한 번씩 또는 새 서버가 온라인 상태가 될 때마다 필요합니다.
 

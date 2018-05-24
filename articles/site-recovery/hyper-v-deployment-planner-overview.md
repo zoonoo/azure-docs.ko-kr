@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner | Microsoft Docs"
-description: "이 문서는 Hyper-V에서 Azure로 시나리오에 대한 Azure Site Recovery Deployment Planner 사용자 가이드입니다."
+title: Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner | Microsoft Docs
+description: 이 문서는 Hyper-V에서 Azure로 시나리오에 대한 Azure Site Recovery Deployment Planner 사용자 가이드입니다.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -9,11 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: dc504ee9def6b500eee640521b57dc48dac9cca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187311"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Site Recovery Deployment Planner
 
@@ -73,7 +74,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |예|예|아니요|예*|아니요
+지원되는 시나리오 |예|예|아니오|예*|아니오
 지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음
@@ -116,9 +117,9 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 3.  .zip 폴더의 압축을 풉니다.
 폴더에 여러 개의 파일과 하위 폴더가 있습니다. 실행 파일은 부모 폴더에 있는 ASRDeploymentPlanner.exe입니다.
 
-예: .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다. E:\ASR Deployment Planner_v2.1.zip
+예: .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다. E:\ASR Deployment Planner_v2.2.zip
 
-E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>최신 버전의 Deployment Planner로 업데이트
 이전 버전의 Deployment Planner가 있는 경우 다음 중 하나를 수행합니다.
@@ -133,7 +134,7 @@ E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
   >각 새 Deployment Planner는 .zip 파일의 누적 업데이트입니다. 최신 파일을 이전 폴더로 복사할 필요가 없습니다. 새 폴더를 만들어 사용할 수 있습니다.
 
 ## <a name="version-history"></a>버전 기록
-최신 ASR Deployment Planner 도구 버전은 2.1입니다.
+최신 ASR Deployment Planner 도구 버전은 2.2입니다.
 각 업데이트에 추가된 수정 사항은 [ASR Deployment Planner 버전 기록](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) 페이지를 참조하세요.
 
 

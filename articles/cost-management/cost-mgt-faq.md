@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302742"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
 
@@ -89,7 +90,7 @@ Cloudyn의 메일 주소를 Azure의 기본 주소에서 변경하면 계정이 
 
 계정 중 하나가 잠기는 경우를 대비하여 적어도 두 개의 Cloudyn 관리자 계정을 만드는 것이 좋습니다.
 
-Cloudyn 포털에 로그인할 수 없는 경우 올바른 Azure Cost Management URL을 사용하여 Cloudyn 포털에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)을 사용합니다.
+Cloudyn 포털에 로그인할 수 없는 경우 올바른 Azure Cost Management URL을 사용하여 Cloudyn 포털에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)를 사용합니다.
 
 Cloudyn 직접 URL https://app.cloudyn.com은 사용하지 마세요.
 
@@ -116,9 +117,9 @@ CSP의 경우:
 
 서로 다른 통화를 사용하는 여러 Azure 계좌가 있을 수 있습니다. 그러나 Cloudyn의 비용 보고서는 보고서당 하나 이상의 통화 형식을 표시하지 않습니다.
 
-다른 통화를 사용하는 구독이 여러 개인 경우 부모 엔터티 및 자식 엔터티 통화가 USD **$**로 표시됩니다. 동일한 엔터티 계층 구조에서 다른 통화를 사용하지 않는 것이 좋습니다. 즉 엔터티 구조로 구성된 모든 구독은 동일한 통화를 사용해야 합니다.
+다른 통화를 사용하는 구독이 여러 개인 경우 부모 엔터티 및 자식 엔터티 통화가 USD **$** 로 표시됩니다. 동일한 엔터티 계층 구조에서 다른 통화를 사용하지 않는 것이 좋습니다. 즉 엔터티 구조로 구성된 모든 구독은 동일한 통화를 사용해야 합니다.
 
-Cloudyn에서는 기업 계약 구독 통화를 자동으로 검색하여 보고서에 올바르게 표시합니다.  그러나 CSP 및 Web-Direct Azure 계정의 경우 Cloudyn에 USD **$**만 표시됩니다.
+Cloudyn에서는 기업 계약 구독 통화를 자동으로 검색하여 보고서에 올바르게 표시합니다.  그러나 CSP 및 Web-Direct Azure 계정의 경우 Cloudyn에 USD **$** 만 표시됩니다.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Cloudyn 데이터 새로 고침 타임라인은 무엇인가요?
 
@@ -148,4 +149,4 @@ Azure Resource Manager 액세스를 추가하고 데이터를 수집한 후에�
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn 보고서는 보고서당 두 개 이상의 AD 테넌트를 표시합니까?
 
-예. 보유한 각 AD 테넌트에 대해 [해당 클라우드 계정 엔터티를 만들 수 있습니다](tutorial-user-access.md#create-entities). 그런 다음 Amazon Web Services 및 Google Cloud Platform을 포함하여 모든 Azure AD 테넌트 데이터와 기타 클라우드 플랫폼 공급자를 볼 수 있습니다.
+예. 보유한 각 AD 테넌트에 대해 [해당 클라우드 계정 엔터티를 만들 수 있습니다](tutorial-user-access.md#create-and-manage-entities). 그런 다음 Amazon Web Services 및 Google Cloud Platform을 포함하여 모든 Azure AD 테넌트 데이터와 기타 클라우드 플랫폼 공급자를 볼 수 있습니다.

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e317294c673f9c22c4fa219d4db98248e9aa270e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 48087646a6de3d55d35032381691be7a927a36ba
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010791"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사
 
@@ -86,11 +87,16 @@ Azure File Storage 간 데이터를 복사하려면 데이터 집합의 형식 �
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 형식 속성을 **FileShare**로 설정해야 합니다. |예 |
-| folderPath | 파일의 경로입니다. |예 |
-| fileName | 특정 파일 간에 복사하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 데이터 집합이 폴더에 있는 모든 파일을 원본으로 가리키고 자동으로 파일 이름을 생성합니다.<br/><br/>**싱크에 대한 fileName 자동 생성:** fileName이 출력 데이터 집합에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않은 경우 복사 작업은 다음과 같은 패턴으로 파일 이름을 생성합니다. <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]` 예: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- 또는 쿼리가 지정되지 않은 경우 관계형 원본에 대해 `[Table name].[format].[compression if configured]` 예: MySourceTable.orc |아니오 |
-| fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. fileName이 지정되어 있지 않은 경우에만 적용됩니다. <br/><br/>허용되는 와일드카드는 `*`(여러 문자) 및 `?`(단일 문자)입니다.<br/>- 예 1: `"fileFilter": "*.log"`<br/>- 예 2: `"fileFilter": 2017-09-??.txt"` |아니오 |
+| folderPath | 파일의 경로입니다. 와일드카드 필터는 지원되지 않습니다. |예 |
+| fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 집합은 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터의 경우 허용되는 와일드카드는 `*`(여러 문자) 및 `?`(단일 문자)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않고 **preserveHierarchy**가 활동 싱크에 지정되지 않으면, 복사 활동에서 자동으로 다음 형식의 파일 이름을 생성합니다. "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*" 예: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz" |아니오 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 생성하거나 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니오 |
+
+>[!TIP]
+>폴더 아래에서 모든 파일을 복사하려면 **folderPath**만을 지정합니다.<br>지정된 이름의 단일 파일을 복사하려면 폴더 부분으로 **folderPath** 및 파일 이름으로 **fileName**을 지정합니다.<br>폴더 아래에서 파일의 하위 집합을 복사하려면 폴더 부분으로 **folderPath** 및 와일드카드 필터로 **fileName**을 지정합니다.
+
+>[!NOTE]
+>파일 필터에 "fileFilter" 속성을 사용한 경우 그대로 계속 지원되지만, 이후 "fileName"에 추가된 새 필터 기능을 사용하도록 제안합니다.
 
 **예제:**
 
@@ -172,7 +178,7 @@ Azure File Storage로 데이터를 복사하려면 복사 작업의 싱크 형�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 싱크의 type 속성은 **FileSystemSink**로 설정해야 합니다. |예 |
-| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
+| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니오 |
 
 **예제:**
 

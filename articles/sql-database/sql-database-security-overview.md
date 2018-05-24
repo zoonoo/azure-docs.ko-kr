@@ -8,13 +8,14 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: b45e1434d648096a67c2f12046960926d2c7640d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ea76bc4cc182902fb5618d23358579ec229a5ef4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189720"
 ---
 # <a name="securing-your-sql-database"></a>SQL Database 보안 설정
 
@@ -28,7 +29,7 @@ SQL의 모든 버전에서 사용할 수 있는 보안 기능의 전체 개요�
 SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244), 미사용 데이터의 경우 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 사용 중인 데이터의 경우 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)를 제공하여 데이터를 보호합니다. 
 
 > [!IMPORTANT]
->Azure SQL Database에 대한 모든 연결은 데이터베이스로/로부터 데이터 “전송 중"에 항상 암호화(SSL/TLS)가 필요합니다. 응용 프로그램의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 *않도록* 매개 변수를 지정해야 합니다(Azure 포털에서 연결 문자열을 복사하는 경우 이 작업이 자동으로 수행됨). 그렇지 않으면 연결에서 서버의 ID를 확인할 수 없으며 "메시지 가로채기(man-in-the-middle)" 공격에 취약할 수 있습니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 **Encrypt=True** 및 **TrustServerCertificate=False**입니다. 
+>Azure SQL Database에 대한 모든 연결은 데이터베이스로/로부터 데이터 “전송 중"에 항상 암호화(SSL/TLS)가 필요합니다. 응용 프로그램의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 *않도록* 매개 변수를 지정해야 합니다(Azure 포털에서 연결 문자열을 복사하는 경우 이 작업이 자동으로 수행됨). 그렇지 않으면 연결에서 서버의 ID를 확인할 수 없으며 "메시지 가로채기(man-in-the-middle)" 공격에 취약할 수 있습니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 **Encrypt=True** 및 **TrustServerCertificate=False**입니다. TLS 및 연결에 대한 정보는 [TLS 고려 사항](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)을 참조하세요.
 
 데이터를 암호화하는 다른 방법으로 다음을 고려해 보세요.
 

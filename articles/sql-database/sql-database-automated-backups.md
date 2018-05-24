@@ -11,11 +11,12 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189071"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -44,8 +45,11 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 백업 저장소 지역에서 복제는 Azure Storage 복제 일정에 따라 발생합니다.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>백업 보존 기간
-각 SQL Database 백업의 보존 기간은 데이터베이스의 [서비스 계층](sql-database-service-tiers.md)에 따라 다릅니다. 데이터베이스의 보존 기간은 다음과 같습니다.
+각 SQL Database 백업에는 데이터베이스의 서비스 계층을 기반으로 하며 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 간 차이점이 있는 보존 기간이 있습니다. 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>DTU 기반 구매 모델에 대한 데이터베이스 보존
+DTU 기반 구매 모델의 데이터베이스에 대한 보존 기간은 서비스 계층에 따라 달라집니다. 데이터베이스의 보존 기간은 다음과 같습니다.
 
 * 기본 서비스 계층은 7일입니다.
 * 표준 서비스 계층은 35일입니다.
@@ -63,13 +67,19 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 
 > [!IMPORTANT]
 > SQL Database를 호스트하는 Azure SQL 서버를 삭제하면 해당 서버에 속하는 모든 데이터베이스도 삭제되어 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>VCore 기반 구매 모델(미리 보기)에 대한 데이터베이스 보존
+
+데이터베이스 백업 저장소는 SQL Database의 PITR(특정 시점 복원) 및 LTR(장기 보존) 기능을 지원하기 위해 할당됩니다. 이 저장소는 각 데이터베이스에 대해 개별적으로 할당되며 데이터베이스당 별도의 두 가지 요금으로 청구됩니다. 
+
+- **PITR**: 개별 데이터베이스 백업은 RA-GRS 저장소에 자동으로 복사됩니다. 새 백업이 만들어지면 저장소 크기가 동적으로 증가합니다.  저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 저장소 사용량은 데이터베이스 변경률과 보존 기간에 따라 다릅니다. 각 데이터베이스에 대한 개별적인 보존 기간은 7-35일 사이에서 구성할 수 있습니다. 데이터 크기의 1배에 해당하는 최소 저장소 크기는 추가 비용 없이 제공됩니다. 대부분의 데이터베이스에서 이 크기는 7일간의 백업을 저장하기에 충분합니다. 자세한 내용은 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
+- **LTR**: SQL Database는 전체 백업의 장기 보존을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하도록 설정하면 이러한 백업이 RA-GRS 저장소에 자동으로 저장되지만 백업이 복사되는 빈도를 제어할 수 있습니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 이 구성은 LTR 백업에 사용되는 저장소의 크기를 정의합니다. LTR 가격 계산기를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>백업 보존 기간을 확장하는 방법
 
 응용 프로그램에 최대 PITR 백업 보존 기간보다 더 긴 기간 동안 백업을 사용할 수 있어야 하는 경우 개별 데이터베이스(LTR 정책)에 대해 장기 백업 보존 정책을 구성할 수 있습니다. 기본 제공 보존 기간은 최대 35일에서 최대 10년까지 연장할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
-Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추가하면 매주 전체 데이터베이스 백업이 장기 보존(LTR 저장소)에 대한 별도의 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. TDE를 사용하여 암호화된 데이터베이스는 미사용 시 자동으로 암호화됩니다. SQL Database는 해당 타임스탬프 및 LTR 정책에 따라 만료된 백업을 자동으로 삭제합니다. 정책을 설정한 후 백업 일정을 관리할 필요가 없으며 이전 파일의 정리를 걱정할 필요가 없습니다. Azure Portal 또는 PowerShell을 사용하여 이러한 백업을 보고, 복원하거나 삭제할 수 있습니다.
+Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추가하면 매주 전체 데이터베이스 백업이 장기 보존(LTR 저장소)에 대한 별도의 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. TDE를 사용하여 암호화된 데이터베이스는 미사용 시 자동으로 암호화됩니다. SQL Database는 해당 타임스탬프 및 LTR 정책에 따라 만료된 백업을 자동으로 삭제합니다. 정책을 설정한 후 백업 일정을 관리할 필요가 없으며 이전 파일의 정리를 걱정할 필요가 없습니다. Azure Portal 또는 PowerShell을 사용하여 이러한 백업을 보거나 복원하거나 삭제할 수 있습니다.
 
 ## <a name="are-backups-encrypted"></a>백업이 암호화되나요?
 

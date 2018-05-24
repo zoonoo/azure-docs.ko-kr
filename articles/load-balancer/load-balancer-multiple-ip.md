@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940190"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -120,7 +121,7 @@ ms.lasthandoff: 03/29/2018
 
 4. 프런트 엔드 IP 풀을 추가할 부하 분산 장치(**mylb**)를 선택합니다.
 
-5. **설정**에서 **프런트 엔드 풀**을 선택합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다.
+5. **설정**에서 **프런트 엔드 IP 구성**을 선택합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다.
 
 6. 프런트 엔드 IP 주소의 이름(예: **contosofe** 또는 **fabrikamfe**)을 입력합니다.
 
@@ -128,7 +129,7 @@ ms.lasthandoff: 03/29/2018
 
 8. 이 섹션의 <a href="#step3-3">3단계</a>에서 <a href="#step3-7">7단계</a>까지 반복하여 두 번째 프런트 엔드 IP 주소를 만듭니다.
 
-프런트 엔드 풀이 구성된 후 부하 분산 장치 **프런트 엔드 IP 풀** 설정 아래에 IP 주소가 표시됩니다. 
+프런트 엔드 풀이 구성된 후 부하 분산 장치 **프런트 엔드 IP 구성** 설정 아래에 IP 주소가 표시됩니다. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>4단계: 백 엔드 풀 구성
 
@@ -180,7 +181,7 @@ ms.lasthandoff: 03/29/2018
 
 4. **포트** 및 **백 엔드 포트**에서 기본값인 **80**을 그대로 유지합니다.
 
-5. **부동 IP(Direct Server Return)**에서**사용**을 선택합니다.
+5. **부동 IP(Direct Server Return)** 에서**사용**을 선택합니다.
 
 6. <a name="step6-6"></a>**확인**을 선택합니다.
 

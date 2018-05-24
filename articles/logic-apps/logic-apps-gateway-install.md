@@ -1,25 +1,26 @@
 ---
-title: "온-프레미스 데이터 게이트웨이 설치 - Azure Logic Apps | Microsoft Docs"
-description: "온-프레미스 데이터 원본에 액세스하기 전에 빠른 데이터 전송 및 암호화를 위해 온-프레미스 데이터 원본과 논리 앱 간에 온-프레미스 데이터 게이트웨이를 설치합니다."
-keywords: "데이터에 액세스, 온-프레미스, 데이터 전송, 암호화, 데이터 원본"
+title: 온-프레미스 데이터 게이트웨이 설치 - Azure Logic Apps | Microsoft Docs
+description: 온-프레미스 데이터 원본에 액세스하기 전에 빠른 데이터 전송 및 암호화를 위해 온-프레미스 데이터 원본과 논리 앱 간에 온-프레미스 데이터 게이트웨이를 설치합니다.
+keywords: 데이터에 액세스, 온-프레미스, 데이터 전송, 암호화, 데이터 원본
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179013"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -242,6 +243,11 @@ TcpTestSucceeded       : True
 6. 결과가 데이터 원본에서 게이트웨이로 다시 전송된 후 게이트웨이 클라우드 서비스로 전송됩니다. 게이트웨이 클라우드 서비스에서 해당 결과를 사용합니다.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>테넌트 수준 관리 
+
+현재 테넌트 관리자가 다른 사용자가 설치 및 구성한 모든 게이트웨이를 관리할 수 있는 단일 위치가 없습니다.  테넌트 관리자인 경우 설치한 모든 게이트웨이에 대한 관리자로 추가하도록 조직의 사용자에게 요청하는 것이 좋습니다. 이렇게 하면 게이트웨이 설정 페이지 또는 [PowerShell 명령](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters)을 통해 조직에서 모든 게이트웨이를 관리할 수 있습니다. 
+
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

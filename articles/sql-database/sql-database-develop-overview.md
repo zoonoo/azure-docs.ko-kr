@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187677"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
 이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="resource-limitations"></a>리소스 제한
 Azure SQL Database는 리소스 관리와 제한 적용이라는 서로 다른 두 메커니즘을 사용하는 데이터베이스에서 사용 가능한 리소스를 관리합니다.
 
-* 추가 정보: [Azure SQL Database 리소스 한도](sql-database-service-tiers.md).
+* 자세한 내용은 [Azure SQL Database DTU 기반 리소스 모델 제한](sql-database-dtu-resource-limits.md) 및 [Azure SQL Database vCore 기반 리소스 모델 제한(미리 보기)](sql-database-vcore-resource-limits.md)을 참조하세요.
 
 ## <a name="security"></a>보안
 Azure SQL Database는 액세스를 제한하고, 데이터를 보호하고, SQL Database의 활동을 모니터링하는 리소스를 제공합니다.

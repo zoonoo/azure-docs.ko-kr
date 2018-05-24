@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940227"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -40,11 +41,11 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 [Azure Resource Manager](#arm)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| 시나리오 | 방법 | 설명 |
-| --- | --- | --- |
-| [1. 인스턴스 수준 공용 IP 주소를 가진 VM(Load Balancer 있음 또는 없음)](#ilpip) | SNAT, 포트 가장 사용 안 함 |Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. |
-| [2. VM과 연결된 공용 Load Balancer(인스턴스에 인스턴스 수준 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
-| [3. 독립 실행형 VM(Load Balancer 없음, 인스턴스 수준 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
+| 시나리오 | 방법 | IP 프로토콜 | 설명 |
+| --- | --- | --- | --- |
+| [1. 인스턴스 수준 공용 IP 주소를 가진 VM(Load Balancer 있음 또는 없음)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. |
+| [2. VM과 연결된 공용 Load Balancer(인스턴스에 인스턴스 수준 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
+| [3. 독립 실행형 VM(Load Balancer 없음, 인스턴스 수준 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
 
 VM이 공용 IP 주소 공간에 있는 Azure 외부에서 끝점과 통신하지 않게 하려면 NSG(네트워크 보안 그룹)를 사용하여 필요에 따라 액세스를 차단할 수 있습니다. NSG 사용에 대한 자세한 내용은 [아웃바운드 연결 방지](#preventoutbound)에서 다룹니다. 아웃바운드 액세스 없이 가상 네트워크를 설계, 구현 및 관리하는 방법은 이 문서의 범위를 벗어납니다.
 
@@ -119,7 +120,7 @@ Load Balancer 표준은 [여러 (공개) IP 프런트 엔드](load-balancer-mult
 
 ### <a name="pat"></a>포트 가장 SNAT(PAT)
 
-공용 Load Balancer 리소스가 VM 인스턴스와 연결된 경우 각 아웃바운드 연결 원본이 다시 작성됩니다. 원본은 가상 네트워크 개인 IP 주소 공간에서 부하 분산 장치의 프런트 엔드 공용 IP 주소로 다시 작성됩니다. 공용 IP 주소 공간에서 흐름의 5튜플(원본 IP 주소, 원본 포트, IP 전송 프로토콜, 대상 IP 주소, 대상 포트)은 고유해야 합니다.  
+공용 Load Balancer 리소스가 VM 인스턴스와 연결된 경우 각 아웃바운드 연결 원본이 다시 작성됩니다. 원본은 가상 네트워크 개인 IP 주소 공간에서 부하 분산 장치의 프런트 엔드 공용 IP 주소로 다시 작성됩니다. 공용 IP 주소 공간에서 흐름의 5튜플(원본 IP 주소, 원본 포트, IP 전송 프로토콜, 대상 IP 주소, 대상 포트)은 고유해야 합니다.  포트 가장 SNAT는 TCP 또는 UDP IP 프로토콜과 함께 사용할 수 있습니다.
 
 여러 흐름이 단일 공용 IP 주소에서 시작되므로 삭제 포트(SNAT 포트)는 개인 원본 IP 주소를 다시 작성한 후 이 목적에 사용됩니다. 
 
@@ -243,6 +244,7 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 
 ## <a name="limitations"></a>제한 사항
 - 포털에서 부하 분산 규칙을 구성할 때 옵션으로 DisableOutboundSnat을 사용할 수 없습니다.  REST, 템플릿 또는 클라이언트 도구를 대신 사용합니다.
+- VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스 작동 방식의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 각 서비스 자체 또는 기본 플랫폼은 사전 통보 없이 변경될 수 있기 때문에 이러한 부작용에 의존하지 말아야 합니다. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 아웃 바운드 연결을 만들어야 한다고 항상 가정해야 합니다. 이 문서에 설명된 [기본 SNAT](#defaultsnat) 시나리오 3은 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

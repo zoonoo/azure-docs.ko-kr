@@ -1,28 +1,31 @@
 ---
-title: "Azure AD v 2.0을 사용하여 사용자 상호 작용 없이 보안 리소스에 액세스 | Microsoft Docs"
-description: "OAuth 2.0 인증 프로토콜의 Azure AD 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
+title: Azure AD v 2.0을 사용하여 사용자 상호 작용 없이 보안 리소스에 액세스 | Microsoft Docs
+description: OAuth 2.0 인증 프로토콜의 Azure AD 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157339"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름
-*양각 OAuth*라고도 하는 [OAuth 2.0 클라이언트 자격 증명 권한 부여](http://tools.ietf.org/html/rfc6749#section-4.4)를 사용하여 응용 프로그램의 ID로 웹 호스팅 리소스에 액세스할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
+응용 프로그램의 ID를 사용하여 웹 호스팅 리소스에 액세스하기 위해 RFC 6749에 명시된 [OAuth 2.0 클라이언트 자격 증명 권한 부여](http://tools.ietf.org/html/rfc6749#section-4.4)(때로는 *2단계 OAuth*라고도 함)를 사용할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
 
 > [!NOTE]
 > v2.0 끝점에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
@@ -60,7 +63,7 @@ ACL을 사용하는 대신 API를 사용하여 응용 프로그램 사용 권한
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>앱 등록 포털에서 사용 권한 요청
 1. [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 응용 프로그램으로 이동하거나 응용 프로그램이 없는 경우 [응용 프로그램을 만듭니다](active-directory-v2-app-registration.md). 응용 프로그램을 만들 때 하나 이상의 응용 프로그램 암호를 사용해야 합니다.
-2. **응용 프로그램 직접 사용 권한** 섹션으로 이동하여 앱에 필요한 사용 권한을 추가합니다.
+2. **Microsoft Graph 권한** 섹션을 찾은 다음, 앱에 필요한 **응용 프로그램 권한**을 추가합니다.
 3. 앱 등록을 **저장**합니다.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>사용자가 앱에 로그인하는 것이 좋습니다.
@@ -130,11 +133,14 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&grant_type=client_credentials
 ```
 
 ```
@@ -143,6 +149,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
+| tenant |필수 | 응용 프로그램에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | client_id |필수 |[응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
 | scope |필수 |이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(응용 프로그램 ID URI)여야 하고 `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. 이 값은 앱에 구성한 모든 응용 프로그램 직접 사용 권한의 v2.0 끝점을 알려주며 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. |
 | client_secret |필수 |앱 등록 포털에서 앱에 대해 생성한 응용 프로그램 암호입니다. |
@@ -151,15 +158,20 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 ### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용한 액세스 토큰 요청
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
 ```
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
+| tenant |필수 | 응용 프로그램에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | client_id |필수 |[응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
 | scope |필수 |이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(응용 프로그램 ID URI)여야 하고 `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. 이 값은 앱에 구성한 모든 응용 프로그램 직접 사용 권한의 v2.0 끝점을 알려주며 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |

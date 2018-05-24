@@ -4,7 +4,7 @@ description: Azure Portal에서 Data Factory 파이프라인을 반복적으로 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,15 +12,20 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e403afa5c870b2d007a8c5e1d46162cd899ead29
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164825"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 
 Azure Data Factory를 사용하면 Data Factory 파이프라인을 반복적인 개발하고 디버깅할 수 있습니다.
+
+이 기능에 대한 소개 및 데모는 다음 비디오(8분)를 시청하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## <a name="iterative-debugging-features"></a>반복 디버깅 기능
 파이프라인 캔버스에서 **디버그** 기능을 사용하여 코드를 한 줄도 작성하지 않고 파이프라인을 만들고 테스트를 실행합니다.

@@ -1,11 +1,11 @@
 ---
-title: "액세스 패널 웹 사이트에 로그인할 때 발생하는 문제 | Microsoft Docs"
-description: "액세스 패널을 사용하여 로그인하려고 하는 동안 발생할 수 있는 문제를 해결하기 위한 지침"
+title: 액세스 패널 웹 사이트에 로그인할 때 발생하는 문제 | Microsoft Docs
+description: 액세스 패널을 사용하여 로그인하려고 하는 동안 발생할 수 있는 문제를 해결하기 위한 지침
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1820ab1e2295e6e0c7795c9d014d001d294bb337
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069615"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>액세스 패널 웹 사이트에 로그인할 때 발생하는 문제
 
@@ -289,4 +290,4 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
+[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

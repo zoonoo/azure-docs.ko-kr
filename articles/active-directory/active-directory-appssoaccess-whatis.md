@@ -3,24 +3,23 @@ title: Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-O
 description: Azure Active Directory를 사용하여 비즈니스에 필요한 모든 SaaS 및 웹 응용 프로그램에 Single Sign-On을 사용하도록 설정합니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
+ms.component: users-groups-roles
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e1bd45027ea9c3dbffc642afedc4e478c96bffe7
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055493"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
@@ -75,7 +74,7 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 암호 기반 SSO는 브라우저 확장에 의존하여 Azure AD에서 응용 프로그램 및 사용자 관련 정보를 안전하게 검색하고 서비스에 적용합니다. Azure AD에서 지원하는 대부분의 타사 SaaS 응용 프로그램은 이 기능을 지원합니다.
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
-* Internet Explorer 8, 9, 10, 11 - Windows 7 이상
+* Windows 7 이상의 Internet Explorer 11
 * Windows 10 Anniversary Edition 이상 Edge 
 * Chrome - Windows 7 이상 및 Mac OS X 이상
 * Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
@@ -193,7 +192,7 @@ Azure AD는 암호 기반 Single Sign-On, 기존 Single Sign-On 및 모든 형�
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기](active-directory-cloudappdiscovery-whatis.md)
+* [클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기](manage-apps/cloud-app-discovery.md)
 * [앱에 대한 액세스 관리 소개](active-directory-managing-access-to-apps.md)
 * [Azure AD에서 외부 ID 관리 기능 비교](active-directory-b2b-compare-external-identities.md)
 

@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory 테넌트에서 로그인 페이지 사용자 지정 | Microsoft Docs"
-description: "회사 브랜딩을 Azure 로그인 페이지 에 추가하는 방법에 대해 알아봅니다."
+title: Azure Active Directory 테넌트에서 로그인 페이지 사용자 지정 | Microsoft Docs
+description: 회사 브랜딩을 Azure 로그인 페이지 에 추가하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764447"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>빠른 시작: Azure AD에서 로그인 페이지에 회사 브랜딩 추가
 혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure AD(Active Directory)는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 로그인 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다. 로그인 페이지는 Azure AD를 ID 공급자로 사용하는 Office 365와 같은 웹 기반 응용 프로그램에 로그인할 경우에 표시됩니다. 자격 증명을 입력하려면 이 페이지와 상호 작용합니다.

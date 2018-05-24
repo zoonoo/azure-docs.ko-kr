@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942359"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -29,6 +30,10 @@ ms.lasthandoff: 04/16/2018
 [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 전송합니다. 그러면 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
 
 따라서 Traffic Manager는 클라이언트가 연결할 끝점 또는 IP 주소를 제공하지 않습니다. 서비스에 고정 IP 주소가 필요한 경우 Traffic Manager가 아니라 서비스에서 구성해야 합니다.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Traffic Manager를 사용하여 라우팅할 수 있는 트래픽 유형은 무엇입니까?
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)의 설명처럼 Traffic Manager 엔드포인트는 Azure 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스가 될 수 있습니다. 따라서 Traffic Manager는 공용 인터넷에서 발생한 트래픽을 인터넷에 연결된 엔드포인트 집합으로 라우팅할 수 있습니다. 개인 네트워크 내부에 엔드포인트(예: [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) 내부 버전)가 있거나 사용자가 그러한 내부 네트워크에서 DNS 요청을 수행하는 경우, 이러한 트래픽에는 Traffic Manager를 사용할 수 없습니다.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager는 '고정' 세션을 지원하나요?
 

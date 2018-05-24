@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176289"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
 
@@ -39,12 +40,11 @@ Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지
 
 ## <a name="new-pricing-model"></a>새 가격 책정 모델
 
-2018년 4월, 새 모니터링 가격 책정 모델이 릴리스되었습니다. 클라우드 기반이며 사용량을 기준으로 한 가격 책정이라는 특징이 있습니다. 노드 기반 약정 없이 사용한 양만큼만 결제합니다. [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)에 대해 새 가격 책정 모델의 세부 정보를 제공합니다.
+2018년 4월, [새 모니터링 가격 책정 모델이 릴리스되었습니다](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  이 모델은 클라우드 기반이며 사용을 기준으로 한 가격 책정이라는 특징이 있습니다. 노드 기반 약정 없이 사용한 양만큼만 결제합니다. [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)에 대해 새 가격 책정 모델의 세부 정보를 제공합니다. 
 
-2018년 4월 2일 이후 Log Analytics 또는 Application Insights를 사용하기 시작한 고객의 경우 새 가격 책정 모델만 선택할 수 있습니다. 이 서비스를 이미 사용하던 고객의 경우 새 가격 책정 모델로의 전환이 선택 사항입니다.
+2018년 4월 2일 이후 Log Analytics 또는 Application Insights에 가입한 고객의 경우 새 가격 책정 모델만 선택할 수 있습니다. 이 서비스를 이미 사용하던 고객의 경우 새 가격 책정 모델로의 전환이 선택 사항입니다.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>새 가격 책정 모델의 영향 평가
-
 새 가격 책정 모델이 미치는 영향은 모니터링 사용량 패턴에 따라 고객마다 달라질 것입니다. 2018년 4월 2일 이전에 Log Analytics 또는 Application Insights를 사용한 고객의 경우 Azure Monitor에서 **사용량 및 예상 비용** 페이지에 새 가격 책정 모델로 전환할 경우 비용 변동 예상치가 나타납니다. 구독을 새 모델로 전환하는 방법을 제공합니다. 대부분의 고객에게 새 가격 책정 모델이 유리합니다. 데이터 사용 패턴이 매우 높은 수준이거나 요금이 비싼 지역의 고객이라면 여기에 해당하지 않을 수 있습니다.
 
 **사용량 및 예상 비용** 페이지에서 선택한 구독의 예상 비용을 보려면 페이지 맨 위에 있는 파란 배너를 선택합니다. 새 가격 책정 모델은 한 번에 한 구독만 선택할 수 있으므로 한 번에 한 구독에 대해서만 확인해 보는 것이 좋습니다.
@@ -71,11 +71,30 @@ Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>새 가격 책정 모델 및 Operations Management Suite 구독 자격
 
-Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) 및 [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans)에 대한 노드별 데이터 수집 자격이 있습니다. 지정된 구독에서 Log Analytics 작업 영역 또는 Application Insights 대해 이러한 자격을 얻으려면 해당 구독의 가격 책정 모델이 2018년 4월 이전의 가격 책정 모델을 유지해야 합니다. 이 모델은 Log Analytics “노드별(OMS)” 가격 책정 계층 및 Application Insights “Enterprise” 가격 책정 계획이 적용됩니다. 조직에서 구매한 제품군의 노드 수에 따라, 일부 구독을 새 가격 책정 모델로 전환하는 것이 여전히 이로울 수 있습니다. 하지만 신중히 결정해야 합니다.
+Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) 및 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans)에 대한 노드별 데이터 주입 자격이 있습니다. 지정된 구독에서 Log Analytics 작업 영역 또는 Application Insights 리소스에 대해 이러한 자격을 얻으려면: 
+
+- 구독의 가격 책정 모델이 2018년 4월 이전 모델의 가격 책정 모델을 유지해야 합니다.
+- Log Analytics 작업 영역에서 "노드당(OMS)" 가격 책정 계층을 사용해야 합니다.
+- Application Insights 리소스에서 "Enterprise" 가격 책정 계획을 사용해야 합니다.
+
+조직에서 구매한 제품군의 노드 수에 따라, 일부 구독을 새 가격 책정 모델로 전환하는 것이 이로울 수 있지만 신중히 결정해야 합니다. 일반적으로 위에서 설명한 대로 단순히 2018년 4월 이전 모델에서 유지하는 것이 좋습니다.
+
+> [!WARNING]
+> 조직이 Microsoft Operations Management Suite E1 및 E2를 구매한 경우 일반적으로 2018년 4월 이전의 가격 책정 모델의 구독을 유지하는 것이 가장 좋습니다. 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환할 경우의 변경 내용
 
-새 가격 책정 모델로 구독을 전환하면 각 Log Analytics의 가격 책정 계층이 새 GB 기준 계층으로 바뀌며 모든 항목이 전환됩니다(Azure Resource Manager에서 “pergb2018이라 함). 이렇게 하면 Enterprise 요금제에서 Application Insights 리소스도 Basic 요금제로 변경됩니다. 비용 예측에서 이러한 변경의 효과를 보여 줍니다.
+새 가격 책정 모델은 단일 계층(또는 계획)에 대한 Log Analytics 및 Application Insights 가격 책정 옵션을 간소화합니다. 새 가격 책정 모델로 구독을 이동하면:
+
+- 각 Log Analytics의 가격 책정 계층을 새 GB당 계층으로 변경(Azure Resource Manager에서 "pergb2018"이라고 함)
+- Enterprise 계획에서 Application Insights 리소스도 Basic 계획으로 변경됩니다.
+
+비용 예측에서 이러한 변경의 효과를 보여 줍니다.
+
+> [!WARNING]
+> 구독에서 Azure Resource Manager 또는 PowerShell을 사용하여 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) 또는 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell)를 배포하는 경우 새 가격 책정 모델로 이동했습니다. Log Analytics 또는 Application Insights의 "Basic"에 대해 "pergb2018" 이외의 가격 책정 계층/계획을 지정하는 경우 잘못된 가격 책정 계층/계획을 지정한 이유로 배포에 실패하지 않고 성공하지만 **유효한 가격 책정 계층/계획만을 사용합니다**. 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환
 

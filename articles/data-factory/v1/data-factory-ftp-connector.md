@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7799eeb65a109a6ff517d50bb9603fe83f80ed14
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769882"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,8 +74,11 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 | encryptedCredential |FTP 서버 액세스를 위한 암호화된 자격 증명을 지정합니다. |아니오 |&nbsp; |
 | gatewayName |온-프레미스 FTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 게이트웨이 이름을 지정합니다. |아니오 |&nbsp; |
 | 포트 |FTP 서버가 수신 대기하는 포트를 지정합니다. |아니오 |21 |
-| enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부를 지정합니다. |아니요 |true |
+| enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부를 지정합니다. |아니오 |true |
 | enableServerCertificateValidation |SSL/TLS 채널을 통해 FTP를 사용할 때 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다. |아니오 |true |
+
+>[!NOTE]
+>FTP 커넥터는 암호화 또는 명시적인 SSL/TLS 암호화를 사용하지 않고 FTP 서버에 액세스하도록 지원하며, 암시적인 SSL/TLS 암호화를 지원하지 않습니다.
 
 ### <a name="use-anonymous-authentication"></a>익명 인증 사용
 

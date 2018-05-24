@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769831"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -276,7 +277,11 @@ Dynamics에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Dyn
 | ignoreNullValues | 쓰기 작업 중에 (키 필드를 제외한) 입력 데이터에서 null 값을 무시할지를 나타냅니다.<br/>허용되는 값은 **true** 및 **false**입니다.<br>- **True**: Upsert/업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.<br/>- **False**: Upsert/업데이트 작업을 수행할 때 대상 개체의 데이터를 NULL로 업데이트합니다. 삽입 작업을 수행할 때 NULL 값을 삽입합니다. | 아니요(기본값: false) |
 
 >[!NOTE]
->Dynamics 싱크에 대해 싱크 writeBatchSize 및 복사 작업 [parallelCopies](copy-activity-performance.md#parallel-copy)의 기본값은 모두 10입니다. 따라서 100개 레코드가 Dynamics에 동시에 제출됩니다.
+>Dynamics 싱크에 대해 싱크 "**writeBatchSize**" 및 복사 작업 "**[parallelCopies](copy-activity-performance.md#parallel-copy)**"의 기본값은 모두 10입니다. 따라서 100개 레코드가 Dynamics에 동시에 제출됩니다.
+
+Dynamics 365 Online의 경우 [조직당 동시 일괄 처리 호출 2개](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations)라는 제한이 있습니다. 이 제한을 초과하면 첫 번째 요청이 실행되기도 전에 "서버 작업 중" 오류가 throw됩니다. "writeBatchSize"를 10 이하로 유지하면 이러한 동시 호출 수 제한을 피할 수 있습니다.
+
+"**writeBatchSize**" 및 "**parallelCopies**"의 최적 조합은 이러한 호출에 연결된 열 수, 행 크기, 플러그인/워크플로/워크플로 작업 수와 같은 엔터티 스키마에 따라 달라집니다. 기본 설정 10 writeBatchSize * 10 parallelCopies는 Dynamics 서비스에 따른 권장 사항으로, 대부분의 Dynamics 엔터티에서 최고의 성능을 내지 않더라도 어느 정도 효과가 있습니다. 복사 작업 설정의 조합을 조정하여 성능을 튜닝할 수 있습니다.
 
 **예제:**
 
@@ -322,12 +327,13 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | BOOLEAN | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | 10진수 | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | 문자열 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
 | AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | 문자열 | ✓ | ✓ |
 | AttributeType.Money | 10진수 | ✓ | ✓ |

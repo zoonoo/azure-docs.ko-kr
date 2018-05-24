@@ -3,20 +3,24 @@ title: Azure Automation에서 Runbook 실행
 description: Azure Automation의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: article
+ms.date: 05/08/2018
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 74ee26b961a765276aaa1f0bf17603f22bc8dd20
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195423"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
 Azure Automation에서 Runbook을 시작하면 작업이 생성됩니다. 작업은 Runbook의 단일 실행 인스턴스입니다. 각 작업을 실행하기 위해 Azure Automation 작업자가 할당됩니다. 작업자는 여러 Azure 계정에서 공유하지만 여러 Automation 계정의 작업은 서로 격리됩니다. 사용자는 작업에 대한 요청을 처리할 작업자를 제어할 수 없습니다. 단일 Runbook에서 동시에 여러 작업을 실행할 수 있습니다. 동일한 Automation 계정의 작업 실행 환경은 다시 사용할 수 있습니다. Azure Portal에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작된 모든 작업의 상태가 나열됩니다. 각 Runbook에 대한 작업 목록을 확인하여 각 작업의 상태를 추적할 수 있습니다. 다양한 작업 상태에 대한 설명은 [작업 상태](#job-statuses)를 참조하세요.
+
+[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
 다음 다이어그램은 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 및 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)에 대한 Runbook 작업의 수명 주기를 보여 줍니다.
 
@@ -88,13 +92,31 @@ Azure Portal에서 또는 Runbook 작업 상태 및 작업 스트림을 전달�
 
 다음 명령 예제는 샘플 Runbook에 대한 마지막 작업을 검색하고 작업의 상태, Runbook 매개 변수에 제공된 값, 작업의 출력을 표시합니다.
 
-```powershell-interactive
+```azurepowershell-interactive
 $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
 –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
 $job.Status
 $job.JobParameters
 Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
+```
+
+다음 예제는 특정 작업에 대한 출력을 검색하고, 각 레코드를 반환합니다. 레코드 중 하나에 대한 예외가 발생한 경우 값 대신 예외가 쓰여집니다. 출력하는 동안 예외가 일반적으로 기록되지 않을 수 있는 추가 정보를 제공하므로 유용합니다.
+
+```azurepowershell-interactive
+$output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
+foreach($item in $output)
+{
+    $fullRecord = Get-AzureRmAutomationJobOutputRecord -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -JobId <jobID> -Id $item.StreamRecordId
+    if ($fullRecord.Type -eq "Error")
+    {
+        $fullRecord.Value.Exception
+    }
+    else
+    {
+    $fullRecord.Value
+    }
+}
 ```
 
 ## <a name="get-details-from-activity-log"></a>활동 로그에서 세부 정보 가져오기

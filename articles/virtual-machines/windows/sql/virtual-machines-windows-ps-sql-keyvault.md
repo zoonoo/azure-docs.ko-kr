@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/23/2017
+ms.date: 04/30/2018
 ms.author: jroth
-ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2b398f59aed1610825f495a6089990d393531305
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774729"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
+
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-ps-sql-keyvault.md)
 > * [클래식](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -39,7 +41,7 @@ ms.lasthandoff: 03/29/2018
 기존 VM에 대해 프로비전닝 또는 구성하는 동안 AKV 통합을 설정할 수 있습니다.
 
 ### <a name="new-vms"></a>새 VM
-Resource Manager와 함께 새 SQL Server 가상 머신을 프로비전하는 경우 Azure Portal은 Azure Key Vault 통합을 사용하도록 단계를 제공합니다. Azure Key Vault 기능은 SQL Server Enterprise, Developer 및 평가판 버전에만 사용할 수 있습니다.
+Resource Manager와 함께 새 SQL Server 가상 머신을 프로비저닝하는 경우 Azure Portal은 Azure Key Vault 통합을 구현하는 방법을 제공합니다. Azure Key Vault 기능은 SQL Server Enterprise, Developer 및 평가판 버전에만 사용할 수 있습니다.
 
 ![SQL Azure Key Vault 통합](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 

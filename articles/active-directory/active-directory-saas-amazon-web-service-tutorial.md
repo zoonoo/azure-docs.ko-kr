@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1cf57d76e87fcc0b6628ac194f4d5c389bf684d4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352585"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합
 
@@ -30,7 +31,7 @@ AWS(Amazon Web Services)를 Azure AD와 통합하면 다음과 같은 이점이 
 - 사용자가 Azure AD 계정으로 AWS(Amazon Web Services)에 자동으로 로그인(Single Sign-On)할 수 있도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +59,7 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 
 **갤러리에서 AWS(Amazon Web Services)를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -70,7 +71,7 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에서 **AWS(Amazon Web Services)**를 입력하고, 결과 패널에서 **AWS(Amazon Web Services)**를 선택하고, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **AWS(Amazon Web Services)** 를 입력하고, 결과 패널에서 **AWS(Amazon Web Services)** 를 선택하고, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 AWS(Amazon Web Services)](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
@@ -190,7 +191,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
   
     d. **다음: 권한**을 클릭합니다.
 
-16. **권한 연결 정책** 대화 상자에서 **다음: 검토**를 클릭합니다.  
+16. **사용 권한 정책 연결** 대화 상자에서 정책에 연결할 필요가 없습니다. **다음: 검토**를 클릭합니다.  
     
     ![Single Sign-On 정책 구성][33]
 
@@ -266,7 +267,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **정책 이름**을 **AzureAD_SSOUserRole_Policy**로 제공합니다.
 
-    나. 정책에 **이 정책을 사용하면 AWS 계정에서 역할을 페치할 수 있습니다.**라는 **설명**을 제공할 수 있습니다.
+    나. 정책에 **이 정책을 사용하면 AWS 계정에서 역할을 페치할 수 있습니다.** 라는 **설명**을 제공할 수 있습니다.
     
     다. **"정책 만들기"** 단추를 클릭합니다.
 
@@ -386,7 +387,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **AWS(Amazon Web Services)**를 선택합니다.
+2. 응용 프로그램 목록에서 **AWS(Amazon Web Services)** 를 선택합니다.
 
     ![응용 프로그램 목록의 AWS(Amazon Web Services) 링크](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_app.png)  
 
@@ -414,7 +415,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 45856f759b7d11a7712a032a00d2d1a4fb2043d2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7c512e0f54cbf8a99c9a1650d0c612333f199ce0
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012852"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독 
 
@@ -33,9 +34,9 @@ ms.lasthandoff: 04/19/2018
 |[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
 |[하나는 Resource Manager, 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
-클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
+클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다.
 
-이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다. 
+이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다. 가상 네트워크를 피어링하기 전에 [피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다.
 
 [Azure Portal](#portal), Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#powershell) 또는 [Azure Resource Manager 템플릿](#template)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 선택하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
 
@@ -54,8 +55,8 @@ ms.lasthandoff: 04/19/2018
     - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupA*를 입력합니다.
     - **위치**: *미국 동부*
 4. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA*를 입력합니다. **myVnetA**가 검색 결과에 표시되면 선택합니다. 
-5. 왼쪽에 있는 옵션의 세로 목록에서 **액세스 제어(IAM)**를 선택합니다.
-6. **myVnetA - 액세스 제어(IAM)**에서 **+ 추가**를 선택합니다.
+5. 왼쪽에 있는 옵션의 세로 목록에서 **액세스 제어(IAM)** 를 선택합니다.
+6. **myVnetA - 액세스 제어(IAM)** 에서 **+ 추가**를 선택합니다.
 7. **역할** 상자에서 **네트워크 참가자**를 선택합니다.
 8. **선택** 상자에서 *UserB*를 선택하거나 UserB의 이메일 주소를 입력하여 검색합니다. 피어링을 설정 중인 가상 네트워크와 같은 Azure Active Directory 테넌트의 사용자 목록이 표시됩니다. UserB가 표시되지 않으면 UserB가 UserA와 다른 Active Directory 테넌트에 있기 때문일 것입니다. 다른 Active Directory 테넌트에서 가상 네트워크를 연결하려는 경우 가상 네트워크 피어링 대신 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)를 사용하여 연결할 수 있습니다.
 9. **저장**을 선택합니다.
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/19/2018
 
 13. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetB*를 입력합니다. **myVnetB**가 검색 결과에 표시되면 선택합니다.
 14. **myVnetB** 아래의 왼쪽에 있는 세로 옵션 목록에서 **속성**을 선택합니다. 이후 단계에서 사용하는 **RESOURCE ID**를 복사합니다. 리소스 ID는 /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB와 유사합니다.
-15. **myVnetB**에서 **액세스 제어(IAM)**를 선택한 다음, 8단계에서 **UserA**를 입력하여 myVnetB에 대해 5-10단계를 완료합니다.
+15. **myVnetB**에서 **액세스 제어(IAM)** 를 선택한 다음, 8단계에서 **UserA**를 입력하여 myVnetB에 대해 5-10단계를 완료합니다.
 16. 사용자 B를 포털에서 로그아웃한 다음 사용자 A로 로그인합니다.
 17. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA*를 입력합니다. **myVnetA**가 검색 결과에 표시되면 선택합니다.
 18. **myVnetA**를 선택합니다.

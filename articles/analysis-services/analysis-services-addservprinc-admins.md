@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services 서버 관리자 역할에 서비스 사용자 추가 | Microsoft Docs
-description: 서버 관리자 역할에 자동화 서비스 사용자를 추가하는 방법을 알아봅니다
+description: 서버 관리자 역할에 자동화 서비스 사용자를 추가하는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149266"
 ---
-# <a name="add-a-service-principle-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
  무인 PowerShell 태스크를 자동화하려면 서비스 사용자가 관리할 Analysis Services 서버에 대해 **서버 관리자** 권한이 있어야 합니다. 이 문서에서는 Azure AS 서버에서 서버 관리자 역할에 서비스 사용자를 추가하는 방법을 설명합니다.
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="required-permissions"></a>필요한 사용 권한
 이 태스크를 완료하려면 Azure AS 서버에서 [서버 관리자](analysis-services-server-admins.md) 권한이 있어야 합니다. 
 
-## <a name="add-service-principle-to-server-administrators-role"></a>서버 관리자 역할에 서비스 사용자 추가
+## <a name="add-service-principal-to-server-administrators-role"></a>서버 관리자 역할에 서비스 사용자 추가
 
 1. SSMS에서 Azure AS 서버에 연결합니다.
 2. **서버 속성** > **보안**에서 **추가**를 클릭합니다.

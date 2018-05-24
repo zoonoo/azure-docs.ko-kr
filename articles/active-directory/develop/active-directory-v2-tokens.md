@@ -3,23 +3,26 @@ title: Azure Active Directory v2.0 토큰 참조 | Microsoft Docs
 description: Azure AD v2.0 끝점에서 내보내는 토큰 및 클레임 형식
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: hirsin
+ms.date: 04/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164461"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 토큰 참조
 Azure AD(Azure Active Directory) v2.0 끝점은 각 [인증 흐름](active-directory-v2-flows.md)에서 여러 유형의 보안 토큰을 내보냅니다. 이 참조에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
@@ -49,7 +52,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> 연습을 위해 샘플 ID 토큰에 있는 클레임을 [calebb.net](http://calebb.net/)에 붙여넣어 검사하세요.
+> 연습을 위해 샘플 ID 토큰에 있는 클레임을 검사하려면 해당 토큰을 [jwt.ms](http://jwt.ms/)에 붙여넣으세요.
 >
 >
 
@@ -69,8 +72,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 이름 |`name` |`Babe Ruth` |이름 클레임은 토큰의 주체를 식별하는, 사람이 읽을 수 있는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |만약 있다면 사용자 계정과 연결된 기본 전자 메일 주소입니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. `email` 범위는 이 클레임을 받기 위해 필요합니다. |
 | 기본 설정된 사용자 이름 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |v2.0 끝점에서 사용자를 나타내는 기본 사용자 이름입니다. 메일 주소, 전화 번호 또는 지정된 형식이 없는 일반 사용자 이름일 수 있습니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. 해당 값은 변경 가능하므로 권한 부여 결정을 내리는 데 사용되지 않아야 합니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
-| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어, 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행하고 데이터베이스 테이블에서 키로 사용할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. 그러나 주체는 쌍으로 된 식별자이며 특정 응용 프로그램 ID에 고유합니다.  따라서 단일 사용자가 두 개의 다른 클라이언트 ID를 사용하여 두 개의 다른 앱에 로그인하는 경우 해당 앱은 주체 클레임에 두 개의 다른 값을 받게 됩니다.  아키텍처 및 개인 정보 보호 요구 사항에 따라 적합할 수도 있고 적합하지 않을 수도 있습니다. |
-| 개체 ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 이 경우에 Microsoft ID 시스템에 있는 개체의 변경할 수 없는 식별자는 사용자 계정입니다.  데이터베이스 테이블의 키로써 안전하게 권한 부여 검사를 수행하는 데 사용할 수도 있습니다. 이 ID는 응용 프로그램에서 사용자를 고유하게 식별합니다. 동일한 사용자가 로그인한 두 개의 다른 응용 프로그램은 `oid` 클레임에서 동일한 값을 받습니다.  즉, Microsoft Graph와 같은 Microsoft Online Services에 대한 쿼리를 수행할 때 사용할 수 있습니다.  Microsoft Graph는 이 ID를 지정된 사용자 계정에 대한 `id` 속성으로 반환합니다.  `oid`를 사용하면 여러 앱에서 사용자의 상관 관계를 지정하기 때문에 이 클레임을 수신하기 위해 `profile` 범위가 필요합니다. 단일 사용자가 여러 테넌트에 존재하는 경우 사용자는 각 테넌트에서 다른 개체 ID를 포함합니다. 사용자가 동일한 자격 증명으로 각 계정에 로그인하더라도 서로 다른 계정으로 간주됩니다. |
+| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어, 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행하고 데이터베이스 테이블에서 키로 사용할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. 그러나 주체는 쌍으로 된 식별자이며 특정 응용 프로그램 ID에 고유합니다. 따라서 단일 사용자가 두 개의 다른 클라이언트 ID를 사용하여 두 개의 다른 앱에 로그인하는 경우 해당 앱은 주체 클레임에 두 개의 다른 값을 받게 됩니다. 아키텍처 및 개인 정보 보호 요구 사항에 따라 적합할 수도 있고 적합하지 않을 수도 있습니다. |
+| 개체 ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 이 경우에 Microsoft ID 시스템에 있는 개체의 변경할 수 없는 식별자는 사용자 계정입니다. 데이터베이스 테이블의 키로써 안전하게 권한 부여 검사를 수행하는 데 사용할 수도 있습니다. 이 ID는 응용 프로그램에서 사용자를 고유하게 식별합니다. 동일한 사용자가 로그인한 두 개의 다른 응용 프로그램은 `oid` 클레임에서 동일한 값을 받습니다. 즉, Microsoft Graph와 같은 Microsoft Online Services에 대한 쿼리를 수행할 때 사용할 수 있습니다. Microsoft Graph는 이 ID를 지정된 사용자 계정에 대한 `id` 속성으로 반환합니다. `oid`를 사용하면 여러 앱에서 사용자의 상관 관계를 지정하기 때문에 이 클레임을 수신하기 위해 `profile` 범위가 필요합니다. 단일 사용자가 여러 테넌트에 존재하는 경우 사용자는 각 테넌트에서 다른 개체 ID를 포함합니다. 사용자가 동일한 자격 증명으로 각 계정에 로그인하더라도 서로 다른 계정으로 간주됩니다. |
 
 ### <a name="access-tokens"></a>액세스 토큰
 
@@ -83,7 +86,7 @@ v2.0 끝점의 액세스 토큰을 요청하는 경우 앱이 사용할 수 있�
 
 새로 고침 토큰은 다중 리소스입니다. 한 리소스에 대한 토큰 요청 중에 받은 새로 고침 토큰을 완전히 다른 리소스에 대한 액세스 토큰으로 교환할 수 있습니다.
 
-토큰 응답에서 새로 고침을 받으려면 앱이 `offline_acesss` 범위를 요청하고 부여 받아야 합니다. `offline_access` 범위에 대한 자세한 내용은 [동의 및 범위](active-directory-v2-scopes.md) 문서를 참조하세요.
+토큰 응답에서 새로 고침을 받으려면 앱이 `offline_access` 범위를 요청하고 부여 받아야 합니다. `offline_access` 범위에 대한 자세한 내용은 [동의 및 범위](active-directory-v2-scopes.md) 문서를 참조하세요.
 
 새로 고침 토큰은 앱에 완전히 불투명하며 항상 그럴 것입니다. 새로 고침 토큰은 Azure AD v2.0 끝점에서 발급되며 Azure AD v2.0 끝점에서만 검사되고 해석됩니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다. 다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다. 자세한 내용은 [토큰 해지](active-directory-token-and-claims.md#token-revocation)를 참조하세요. 앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 v2.0 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
 
@@ -123,7 +126,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-이 메타데이터 문서는 OpenID Connect 인증에 필요한 다양한 끝점의 위치 등 여러 유용한 정보가 있는 JSON 개체입니다.  이 문서에는 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 *jwks_uri*도 포함합니다. jwks_uri에 있는 JSON 문서에는 현재 사용 중인 모든 공개 키 정보가 있습니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행합니다.
+이 메타데이터 문서는 OpenID Connect 인증에 필요한 다양한 끝점의 위치 등 여러 유용한 정보가 있는 JSON 개체입니다. 이 문서에는 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 *jwks_uri*도 포함합니다. jwks_uri에 있는 JSON 문서에는 현재 사용 중인 모든 공개 키 정보가 있습니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행합니다.
 
 서명 유효성 검사 수행은 이 문서의 범위를 벗어납니다. 많은 오픈 소스 라이브러리가 도움이 될 수 있습니다.
 

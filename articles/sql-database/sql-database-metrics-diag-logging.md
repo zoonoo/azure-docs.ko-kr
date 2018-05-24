@@ -10,11 +10,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365766"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -51,6 +52,7 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 - [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스에서 발생한 차단 이벤트에 대한 정보를 포함합니다.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights를 포함합니다. [Intelligent Insights에 대해 자세히 알아보세요.](sql-database-intelligent-insights.md)
+- **Audit** / **SQLSecurityAuditEvents**: 현재 사용할 수 없습니다.
 
 Event Hubs 또는 저장소 계정을 선택하면 보존 정책을 지정할 수 있습니다. 이 정책은 선택한 기간보다 오래된 데이터를 삭제합니다. Log Analytics를 지정한 경우 선택한 가격 책정 계층에 따라 보존 정책이 달라집니다. 자세한 내용은 [Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요. 
 
@@ -154,7 +156,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 
 ### <a name="rest-api"></a>REST API
 
-[Azure Monitor REST API를 사용하여 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)을 참조하세요. 
+[Azure Monitor REST API를 사용하여 진단 설정 변경](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)을 참조하세요. 
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 

@@ -1,11 +1,11 @@
 ---
-title: ".NET 및 AMQP 1.0을 사용한 Service Bus | Microsoft Docs"
-description: "AMQP를 사용하여 .NET에서 Azure Service Bus 사용"
+title: .NET 및 AMQP 1.0을 사용한 Azure Service Bus | Microsoft Docs
+description: AMQP를 사용하여 .NET에서 Azure Service Bus 사용
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188500"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 Service Bus 사용
 
@@ -44,7 +45,7 @@ AMQP 1.0 지원은 Service Bus 패키지 버전 2.1 이상에서 이용할 수 �
 </configuration>
 ```
 
-`Microsoft.ServiceBus.ConnectionString` 설정의 값은 Service Bus에 대한 연결을 구성하는 데 사용되는 Service Bus 연결 문자열입니다. 형식은 다음과 같습니다.
+ph x="1" /> 설정의 값은 Service Bus에 대한 연결을 구성하는 데 사용되는 Service Bus 연결 문자열입니다. 형식은 다음과 같습니다.
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
@@ -78,7 +79,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | Datetime |timestamp |AMQP 값 |
 | Guid |uuid |AMQP 값 |
 | byte[] |binary |AMQP 값 |
-| 문자열 |문자열 |AMQP 값 |
+| string |string |AMQP 값 |
 | System.Collections.IList |list |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다. |
 | System.Array |array |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다. |
 | System.Collections.IDictionary |map |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다.참고: 문자열만 지원됩니다. |
@@ -94,14 +95,9 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | timespan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>지원되지 않는 기능, 제한 및 동작 차이
+## <a name="behavioral-differences"></a>동작의 차이
 
-Service Bus .NET API의 다음 기능은 현재 AMQP 사용 시 지원되지 않습니다.
-
-* 트랜잭션
-* 전송 대상을 통해 보내기
-
-AMQP를 사용 하는 경우 기본 프로토콜에 비해 Service Bus .NET API의 동작에 몇 가지 작은 차이점이 있습니다.
+AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API의 동작에 몇 가지 작은 차이점이 있습니다.
 
 * [OperationTimeout][OperationTimeout] 속성은 무시됩니다.
 * `MessageReceiver.Receive(TimeSpan.Zero)`은(는) `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`(으)로 구현됩니다.

@@ -10,11 +10,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 18afebefaee9117244767e0a00e293a297bbf9af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 375142b0e55c741e6ab914e969751833f989d2fb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161076"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
@@ -22,6 +23,9 @@ ms.lasthandoff: 03/16/2018
 * GDPR과 같은 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
 * 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 * 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
+
+> [!NOTE]
+> 이 문서는 Azure SQL Database에만 관련됩니다. SQL Server(온-프레미스)의 경우 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조하세요.
 
 ## <a id="subheading-1"></a>개요
 데이터 검색 및 분류는 고급 서비스 및 새로운 SQL 기능 집합을 도입하여 데이터베이스 뿐 아니라 데이터를 보호 대상으로 하는 새로운 SQL Information Protection 패러다임을 형성합니다.

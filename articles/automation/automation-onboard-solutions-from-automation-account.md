@@ -6,14 +6,15 @@ ms.service: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193355"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -45,7 +46,13 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고, **사용**을
 
 각 솔루션은 작업 영역 내의 범위 구성을 사용하여 솔루션을 가져오는 컴퓨터를 대상으로 합니다. 범위 구성은 솔루션 범위를 특정 컴퓨터로 제한하는 데 사용되는 하나 이상의 저장된 검색 그룹입니다. 범위 구성에 액세스하려면 Automation 계정의 **관련 리소스** 아래에서 **작업 영역**을 선택합니다. 그런 다음, 작업 영역의 **작업 영역 데이터 원본** 아래에서 **범위 구성**을 선택합니다.
 
-기본적으로 만들어지는 두 가지 범위 구성은 **MicrosoftDefaultScopeConfig-ChangeTracking** 및 **MicrosoftDefaultScopeConfig-Updates**입니다.
+선택한 작업 영역에 업데이트 관리 또는 변경 내용 추적 솔루션이 아직 없는 경우 다음과 같은 범위 구성이 생성됩니다.
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+선택된 작업 영역에 이미 솔루션이 있는 경우입니다. 솔루션은 다시 배포되지 않고 범위 구성이 추가되지 않습니다.
 
 ## <a name="saved-searches"></a>저장된 검색
 

@@ -1,13 +1,14 @@
 ---
 layout: HubPage
-hide_bc: ''
+hide_bc: true
 title: Microsoft Azure 설명서
 description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070064"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -136,6 +137,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
@@ -738,8 +740,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Analytics
-</p>
+                                                <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -829,8 +830,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
-                                                <p>Event Hubs
-</p>
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1183,8 +1183,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션
-</p>
+                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1735,8 +1734,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션
-</p>
+                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2187,8 +2185,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Analytics
-</h3>
+                                                    <h3>Data Lake Analytics</h3>
                                                     <p>빅 데이터 사용을 용이하게 하는 분산 분석 서비스</p>
                                                 </div>
                                             </div>
@@ -2364,8 +2361,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs
-</h3>
+                                                    <h3>Event Hubs</h3>
                                                     <p>수백만 개의 장치에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
@@ -3260,6 +3256,7 @@ ms.lasthandoff: 03/09/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">

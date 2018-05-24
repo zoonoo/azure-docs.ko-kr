@@ -2,25 +2,26 @@
 title: Azure SQL Database DTU 벤치마크 개요
 description: 이 항목은 Azure SQL Database의 성능 측정에 사용된 Azure SQL Database 벤치마크에 대해 설명합니다.
 services: sql-database
-author: jan-eng
-manager: jhubbard
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: a045a545b8a0d4dda33dd404d0d206723eb822ad
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363981"
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL Database DTU 벤치마크 개요
 ## <a name="overview"></a>개요
-DTU 기반 구매 모델에서 Microsoft Azure SQL Database는 여러 성능 수준의 3가지 [서비스 계층](sql-database-service-tiers.md) 을 제공합니다. 각 성능 수준은 증가된 리소스 집합 또는 더욱 높은 처리량을 제공하도록 설계된 '성능'을 제공합니다.
+DTU 기반 구매 모델에서 Microsoft Azure SQL Database는 여러 성능 수준의 3가지 [서비스 계층](sql-database-service-tiers-dtu.md) 을 제공합니다. 각 성능 수준은 증가된 리소스 집합 또는 더욱 높은 처리량을 제공하도록 설계된 '성능'을 제공합니다.
 
 > [!IMPORTANT]
-> Azure SQL Database는 vCore 기반 구매 모델 (미리 보기)도 지원합니다. 자세한 내용은 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)를 참조하세요.
+> Azure SQL Database는 vCore 기반 구매 모델 (미리 보기)도 지원합니다. 자세한 내용은 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 
 각 성능 수준별 증가된 성능으로 데이터베이스 성능이 얼마나 증가되는지 수량화하는 것이 중요합니다. 이를 위해 Microsoft는 ASDB(Azure SQL Database Benchmark)를 개발했습니다. 벤치마크는 모든 OLTP 워크로드에서 찾을 수 있는 혼합된 기본 작업을 실행합니다. Microsoft는 각 성능 수준에서 실행되는 데이터베이스에 대해 달성된 처리량을 측정합니다.
 
@@ -126,6 +127,8 @@ Azure SQL Database 벤치마크는 사용 가능한 다양한 서비스 계층�
 ## <a name="resources"></a>리소스
 [SQL Database 소개](sql-database-technical-overview.md)
 
-[서비스 계층 및 성능 수준](sql-database-service-tiers.md)
+[DTU 기반 서비스 계층 및 성능 수준](sql-database-service-tiers-dtu.md)
+
+[vCore 기반 서비스 계층 및 성능 수준](sql-database-service-tiers-vcore.md)
 
 [단일 데이터베이스의 성능 지침](sql-database-performance-guidance.md)

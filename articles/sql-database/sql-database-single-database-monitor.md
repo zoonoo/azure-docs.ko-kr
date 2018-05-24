@@ -10,14 +10,15 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: c9fa74304e8672bc18f403aae138a3c1dbea3d4e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e56a40e1afef9c622d14804cb7f845b7b6edae6a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192624"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 성능 모니터링
-Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. 모니터링을 통해 데이터베이스에 과도한 용량이 있는지, 리소스가 최대값에 도달하는 문제가 있는지 확인한 후 데이터베이스의 성능 수준 및 [서비스 계층](sql-database-service-tiers.md)을 조정할 시기인지 여부를 결정할 수 있습니다. [Azure 포털](https://portal.azure.com)에서 그래픽 도구를 사용하거나 SQL [동적 관리 뷰](https://msdn.microsoft.com/library/ms188754.aspx)를 사용하여 데이터베이스를 모니터링할 수 있습니다.
+Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. 모니터링을 통해 데이터베이스에 과도한 용량이 있는지, 리소스가 최대값에 도달하는 문제가 있는지 확인한 다음, 데이터베이스의 성능 수준 및 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)의 서비스 계층을 조정할 시기인지 여부를 결정할 수 있습니다. [Azure 포털](https://portal.azure.com)에서 그래픽 도구를 사용하거나 SQL [동적 관리 뷰](https://msdn.microsoft.com/library/ms188754.aspx)를 사용하여 데이터베이스를 모니터링할 수 있습니다.
 
 > [!TIP]
 > 데이터베이스 성능 자동 모니터링에 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)를 사용합니다. 성능 문제가 검색되면 문제의 세부 정보와 RCA(근본 원인 분석)가 포함된 진단 로그가 생성됩니다. 성능 개선 권장 향상이 제공됩니다(가능한 경우).
@@ -31,7 +32,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 * 데이터 IO 비율
 * 데이터베이스 크기 비율
 
-이러한 메트릭을 추가한 후 **메트릭** 창의 세부 정보가 포함된 **모니터링** 차트에서 메트릭을 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU** 를 기준으로 평균 사용률 비율을 표시합니다. DTU에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md) 을 참조하세요.
+이러한 메트릭을 추가한 후 **메트릭** 창의 세부 정보가 포함된 **모니터링** 차트에서 메트릭을 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU** 를 기준으로 평균 사용률 비율을 표시합니다. 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 문서를 참조하세요.  
 
 ![데이터베이스 성능의 서비스 계층 모니터링.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

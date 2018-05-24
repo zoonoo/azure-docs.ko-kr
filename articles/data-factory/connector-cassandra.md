@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 72d2eb9e6cf235a90c5b1cf1c125fb6719c65317
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770964"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Cassandra에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +92,7 @@ Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 Cassandra 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
 
-Cassandra에서 데이터를 복사하려면 데이터 집합의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Cassandra에서 데이터를 복사하려면 데이터 집합의 type 속성을 **CassandraTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |

@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072592"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크로드 및 인덱스, 문서, 기타 개체의 수량에 대한 최대 제한은 Azure Search를 **무료**, **기본** 또는 **표준** 가격 책정 계층 중 [어디에 프로비전하는지](search-create-service-portal.md)에 따라 달라집니다.
@@ -87,12 +88,13 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="indexer-limits"></a>인덱서 제한
 
-2017 후반 이후에 생성된 기본 서비스는 인덱스, 데이터 원본 및 인덱서 한도가 15개로 증가되었습니다.
+2017년 후반 이후에 생성된 기본 서비스는 인덱스, 데이터 원본, 기술 집합 및 인덱서의 한도가 15개로 증가되었습니다.
 
 | 리소스 | 무료&nbsp;<sup>1</sup> | 기본&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | 최대 인덱서 |3 |5 또는 15|50 |200 |200 |해당 없음 |
 | 최대 데이터 원본 |3 |5 또는 15 |50 |200 |200 |해당 없음 |
+| 최대 기술 집합 |3 |5 또는 15 |50 |200 |200 |해당 없음 |
 | 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |해당 없음 |
 | 최대 실행 시간 | 1-3분 |24시간 |24시간 |24시간 |24시간 |해당 없음  |
 | Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 없음  |

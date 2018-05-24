@@ -1,21 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: Azure Search REST API에서 노출된 동의어(미리 보기) 기능에 대한 예비 설명서입니다.
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: 동의어를 사용하여 검색 쿼리의 범위를 확장합니다.
 authors: mhko
-services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 07/07/2016
+ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 612bf30281703bd9cdec3a904f27df8e7dba3641
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186911"
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Azure Search의 동의어(미리 보기)
+# <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
 
 검색 엔진의 동의어는 사용자가 실제로 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. 예를 들어 용어 "dog"와 "canine" 및 "puppy"의 동의어 연결을 지정하면 "dog", "canine" 또는 "puppy"를 포함하는 모든 문서는 쿼리의 범위에 속하게 됩니다.
 
@@ -23,7 +23,7 @@ Azure Search에서 동의어 확장은 쿼리 시에 수행됩니다. 기존 작
 
 ## <a name="feature-availability"></a>기능 가용성
 
-동의어 기능은 현재 미리 보기에 있으며 최신 미리 보기 api-version(api-version=2016-09-01-Preview)에서만 지원됩니다. 지금은 Azure Portal 지원이 없습니다. 요청 시 API 버전이 지정되므로 동일한 앱에서 일반적으로 사용할 수 있는 (GA) 및 미리 보기 API를 결합할 수 있습니다. 그러나 미리 보기 API는 SLA가 적용되지 않으며 기능이 변경될 수 있으므로 프로덕션 응용 프로그램에서 사용하지 않는 것이 좋습니다.
+동의어 기능은 최신 api-버전에서 지원됩니다(api-버전=2017-11-11). 지금은 Azure Portal 지원이 없습니다.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Azure Search에서 동의어를 사용하는 방법
 
@@ -43,11 +43,11 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 동의어 맵은 POST 또는 PUT을 통해 서비스에 업로드됩니다. 각 규칙은 줄 바꿈 문자('\n')로 구분되어야 합니다. 무료 서비스에서는 동의어 맵당 최대 5,000개의 규칙을 정의하고 다른 모든 SKU에서는 10,000개의 규칙을 정의할 수 있습니다. 각 규칙에는 최대 20개의 확장이 있을 수 있습니다.
 
-이 미리 보기에서 동의어 맵은 아래에 설명된 Apache Solr 형식이어야 합니다. 다른 형식의 기존 동의어 사전이 있어 이를 직접 사용하려는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 알려 주세요.
+동의어 맵은 아래에 설명된 Apache Solr 형식이어야 합니다. 다른 형식의 기존 동의어 사전이 있어 이를 직접 사용하려는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 알려 주세요.
 
 다음 예제에서처럼 HTTP POST를 사용하여 새 동의어 맵을 만들 수 있습니다.
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -60,7 +60,7 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 또는 PUT을 사용하여 URI에서 동의어 맵 이름을 지정할 수 있습니다. 동의어 맵이 없으면 생성됩니다.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -86,24 +86,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>서비스 아래 동의어 맵을 나열합니다.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>서비스 아래 동의어 맵을 가져옵니다.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>서비스 아래 동의어 맵을 삭제합니다.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다.
 
 새 필드 속성 **synonymMaps**는 검색 가능한 필드에 사용할 동의어 맵을 지정하는 데 사용될 수 있습니다. 동의어 맵은 서비스 수준 리소스이며 서비스 아래 인덱스의 모든 필드에서 참조할 수 있습니다.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -138,7 +138,7 @@ Washington, Wash., WA => WA
 **synonymMaps**은 'Edm.String' 또는 'Collection(Edm.String)' 형식의 검색 가능한 필드에 지정될 수 있습니다.
 
 > [!NOTE]
-> 이 미리 보기에서는 필드당 하나의 동의어 맵만 있을 수 있습니다. 여러 동의어 맵을 사용하려면 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 알려 주세요.
+> 필드당 하나의 동의어 맵만 있을 수 있습니다. 여러 동의어 맵을 사용하려면 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 알려 주세요.
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>동의어가 다른 검색 기능에 미치는 영향
 

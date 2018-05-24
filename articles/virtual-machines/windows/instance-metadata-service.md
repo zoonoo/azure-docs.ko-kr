@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b3ecddbfdc37bc58294dff41b62e0505b90ca940
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057981"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -36,7 +37,7 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 
 영역                                        | 가용성                                 | 지원되는 버전
 -----------------------------------------------|-----------------------------------------------|-----------------
-[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01, 2017-12-01
+[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02,2017-08-01
 [Azure 중국](https://www.azure.cn/)                                                           | 일반 공급 | 2017-04-02,2017-08-01
 [Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02,2017-08-01
@@ -307,6 +308,7 @@ subnet/prefix | 서브넷 접두사, 예:24 | 2017-04-02
 ipv6/ipaddress | VM의 로컬 IPv6 주소 | 2017-04-02 
 macAddress | VM MAC 주소 | 2017-04-02 
 scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
+ID | (미리 보기) 관리 서비스 ID [액세스 토큰 획득](../../active-directory/managed-service-identity/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
 
@@ -392,6 +394,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 자바       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>FAQ

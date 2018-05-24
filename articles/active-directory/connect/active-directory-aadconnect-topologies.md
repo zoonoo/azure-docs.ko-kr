@@ -14,11 +14,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154293"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/18/2018
 ## <a name="single-forest-single-azure-ad-tenant"></a>단일 포리스트, 단일 Azure AD 테넌트
 ![단일 포리스트 및 단일 테넌트에 대한 토폴로지](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-가장 일반적인 토폴로지는 도메인 하나 또는 여러 개와 Azure AD 테넌트 하나를 사용하는 단일 온-프레미스 포리스트입니다. Azure AD 인증을 위해 암호 동기화가 사용됩니다. Azure AD Connect의 빠른 설치는 이 토폴로지만 지원합니다.
+가장 일반적인 토폴로지는 도메인 하나 또는 여러 개와 Azure AD 테넌트 하나를 사용하는 단일 온-프레미스 포리스트입니다. Azure AD 인증의 경우 암호 해시 동기화가 사용됩니다. Azure AD Connect의 빠른 설치는 이 토폴로지만 지원합니다.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>단일 포리스트, 여러 동기화 서버를 하나의 Azure AD 테넌트로
 ![단일 포리스트에 지원되지 않는 필터링된 토폴로지](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -64,7 +65,7 @@ Azure AD Connect 설치 마법사는 여러 포리스트에 표시되는 사용�
 
 Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니다.
 
-* 각 사용자는 하나의 계정만 사용할 수 있으며 이 계정이 위치한 포리스트는 사용자를 인증하는 데 사용됩니다. 이 가정은 암호 동기화 및 페더레이션에 모두 적용됩니다. UserPrincipalName 및 sourceAnchor/immutableID는 이 포리스트에서 제공됩니다.
+* 각 사용자는 하나의 계정만 사용할 수 있으며 이 계정이 위치한 포리스트는 사용자를 인증하는 데 사용됩니다. 이 가정은 암호 해시 동기화, 통과 인증 및 페더레이션에 대한 것입니다. UserPrincipalName 및 sourceAnchor/immutableID는 이 포리스트에서 제공됩니다.
 * 사용자마다 사서함이 하나씩만 제공됩니다.
 * 사용자의 사서함을 호스트하는 포리스트는 Exchange GAL(전체 주소 목록)에 표시되는 특성에 대해 최상의 데이터 품질을 가집니다. 사용자의 사서함이 없는 경우 아무 포리스트를 사용하여 이러한 특성 값을 부여할 수 있습니다.
 * 연결된 사서함이 있으면 로그인에 사용되는 다른 포리스트에도 계정이 있습니다.
@@ -157,7 +158,7 @@ DNS 도메인은 단일 Azure AD 테넌트에만 등록할 수 있습니다. 온
 
 * 하나의 Azure AD 테넌트만 온-프레미스 Active Directory 인스턴스를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
 * Windows 10 장치는 하나의 Azure AD 테넌트에만 연결할 수 있습니다.
-* 암호 동기화 및 통과 인증에 대한 SSO(Single Sign-On) 옵션은 하나의 Azure AD 테넌트에만 사용할 수 있습니다.
+* 암호 해시 동기화 및 통과 인증에 대한 SSO(Single Sign-On) 옵션은 하나의 Azure AD 테넌트에만 사용할 수 있습니다.
 
 상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 이러한 기능으로는 다음이 포함됩니다.
 

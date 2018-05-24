@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353877"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
@@ -82,7 +83,13 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
    2. 확장 아이콘을 선택하여 해당 메뉴를 엽니다.
    3. My Apps 포털에서 사용할 수 있는 앱을 검색합니다.
    4. 검색 결과 목록에서 앱을 선택합니다.  
-       마지막으로 사용한 앱 3개가 **최근에 사용됨** 바로 가기 목록에 표시됩니다.
+       마지막으로 사용한 세 개의 앱이 **최근에 사용한 항목** 바로 가기 목록에 표시됩니다.
+       
+* 원격으로 회사 내부 URL을 사용하려면 다음을 수행합니다.
+    1. 테넌트에 [응용 프로그램 프록시 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable)
+    2. 응용 프로그램 프록시를 통해 [응용 프로그램 및 URL 게시](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal)
+    3. 확장을 설치하고, 시작하려면 로그인을 선택하여 확장에 로그인
+    4. 이제 원격으로도 내부 회사 URL로 이동할 수 있습니다.
 
 > [!NOTE]
 > 위의 옵션은 Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
@@ -118,4 +125,4 @@ Internet Explorer용 확장 구성에 대한 정보 및 진단 도구에 대한 
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+[Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)

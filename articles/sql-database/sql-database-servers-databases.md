@@ -9,18 +9,19 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195535"
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
 
 SQL Database는 다음 세 가지 유형의 데이터베이스를 제공합니다.
 
-- Azure SQL Database는 [다양한 워크로드에 대해 정의된 계산 및 저장소 리소스](sql-database-service-tiers.md) 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 단일 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
-- 풀의 모든 데이터베이스 간에 공유되는 [다양한 워크로드에 대해 정의된 계산 및 저장소 리소스](sql-database-service-tiers.md) 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 [데이터베이스 풀](sql-database-elastic-pool.md)의 일부로 만들어진 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
+- [결합된 계산 및 저장소 리소스 집합](sql-database-service-tiers-dtu.md) 또는 [계산 및 저장소 리소스의 독립된 크기 조정](sql-database-service-tiers-vcore.md)을 통해 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 단일 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
+- 풀의 모든 데이터베이스 간에 공유되는 [결합된 계산 및 저장소 리소스 집합(DTU 기반)](sql-database-service-tiers-dtu.md) 또는 [계산 및 저장소 리소스의 독립된 크기 조정(vCore 기반)](sql-database-service-tiers-vcore.md)을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 [데이터베이스 풀](sql-database-elastic-pool.md)의 일부로 만들어진 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
 - 해당 서버 인스턴스의 모든 데이터베이스에 대해 정의된 계산 및 저장소 리소스 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 [SQL Server 인스턴스](sql-database-managed-instance.md)(관리되는 인스턴스). 관리되는 인스턴스는 시스템 및 사용자 데이터베이스를 둘 다 포함합니다. 관리되는 인스턴스는 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 지원을 제공합니다.  
 
 Microsoft Azure SQL Database는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원하며 암호화된 TCP/IP 연결만 허용합니다.
@@ -52,7 +53,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 데이터베이스 액세스에 대한 연결 끝점을 제공합니다(<serverName>.database.windows.net).
 - 마스터 데이터베이스에 연결하여 DMV를 통해 포함된 리소스 관련 메타데이터에 대한 액세스를 제공합니다. 
 - 로그인, 방화벽, 감사, 위협 요소 탐지 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다. 
-- 상위 구독 내의 할당량으로 제한됩니다(기본적으로 구독당 서버 20대 - [여기서 구독 제한 참조](../azure-subscription-service-limits.md)).
+- 상위 구독 내의 할당량으로 제한됩니다(기본적으로 구독 당 6대의 서버임. [여기에서 구독 제한 참조](../azure-subscription-service-limits.md)).
 - 포함한 리소스에 대한 데이터베이스 할당량 및 DTU 또는 vCore 할당량의 범위를 제공합니다(예: 45000DTU).
 - 포함된 리소스에서 사용하도록 설정된 기능에 대한 버전 관리 범위입니다. 
 - 서버 수준 주체 로그인은 서버에 있는 모든 데이터베이스를 관리할 수 있습니다.
@@ -65,11 +66,11 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 만드는 동안 만들 수 있습니다. 
+Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 만드는 동안 만들 수 있습니다. 새 SQL Server를 만들거나 새 데이터베이스 만들기의 일부분으로 새 SQL Server 양식을 가져오는 여러 방법이 있습니다. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>비어 있는 SQL Server(논리 서버) 만들기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 (데이터베이스 없이) Azure SQL Database 서버를 만들려면 비어 있는 SQL(논리) 서버 양식으로 이동합니다.  
+[Azure Portal](https://portal.azure.com)을 사용하여 (데이터베이스 없이) Azure SQL Database 서버를 만들려면 비어 있는 SQL Server(논리 서버) 양식으로 이동합니다.  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>비어 있거나 샘플인 SQL Database 만들기
 
@@ -78,7 +79,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> 데이터베이스의 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+> 데이터베이스의 가격 책정 계층 선택에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요.
 
 관리되는 인스턴스를 만들려면 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 
@@ -91,7 +92,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
    ![서버 방화벽 규칙](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> 데이터베이스에 대한 성능 속성을 구성하려면 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+> 데이터베이스의 성능 속성을 구성하려면 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요.
 >
 
 > [!TIP]
@@ -181,7 +182,7 @@ Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽�
 
 
 > [!TIP]
-> Microsoft Windows에서 SQL Server Management Studio를 사용하는 빠른 시작은 [Azure SQL Database: SQL Server Management Studio를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-ssms.md)를 참조하세요. Windows, Linux 또는 macOS에서 Visual Studio Code를 사용하는 빠른 시작은 [Azure SQL Database: Visual Studio Code를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
+> Microsoft Windows에서 SQL Server Management Studio를 사용하는 빠른 시작은 [Azure SQL Database: SQL Server Management Studio를 사용하여 데이터에 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요. Windows, Linux 또는 macOS에서 Visual Studio Code를 사용하는 빠른 시작은 [Azure SQL Database: Visual Studio Code를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>REST API를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 

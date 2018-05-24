@@ -9,11 +9,12 @@ ms.custom: reference
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: f98337044bdad788d2a4c9eac0c67a2031810430
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5d77c2dc121d7f291fa755f66d7d9a5d7213bf9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195433"
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -23,9 +24,9 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL Database에 대한 SLA란 무엇인가요?
 99.99% 이상의 시간을 보장하며, 서비스 계층에 관계없이 Microsoft Azure SQL Database와 인터넷 게이트웨이를 연결할 수 있습니다. 자세한 내용은 [SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델이란?
+## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델(미리 보기)이란?
 
-새 구매 모델이 기존 DTU 기반 모델에 추가되었습니다. vCore 기반 모델은 고객에게 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 변환하는 간단한 방법을 제공하도록 설계되었습니다. 또한 고객이 워크로드 요구 사항에 따라 계산 및 저장소의 크기를 조정할 수 있습니다. vCore 모델을 사용하는 단일 데이터베이스 및 탄력적 풀 옵션도 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다. DTU 기반 구매 모델 및 vCore 기반 구매 모델에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+새 구매 모델이 기존 DTU 기반 모델에 추가되었습니다. vCore 기반 모델은 고객에게 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 변환하는 간단한 방법을 제공하도록 설계되었습니다. 또한 고객이 워크로드 요구 사항에 따라 계산 및 저장소의 크기를 조정할 수 있습니다. vCore 모델을 사용하는 단일 데이터베이스 및 탄력적 풀 옵션도 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요. 
 
 ## <a name="what-is-a-vcore"></a>vCore란? 
 가상 코어는 하드웨어 세대 중에서 선택할 수 있는 옵션과 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다.
@@ -37,11 +38,11 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 DTU 및 vCore 기반 모델은 계속해서 함께 존재할 것입니다. vCore 기반 모델은 데이터베이스 리소스에 대한 투명성 강화와 계산 및 저장소의 크기를 개별적으로 조정하는 기능에 대한 고객의 요청에 부응하여 출시되었습니다. 또한 vCore 기반 모델을 사용하면 활성 Software Assurance를 보유한 고객이 SQL Server에 대한 Azure 하이브리드 혜택을 통해 비용을 추가로 절약할 수도 있습니다.
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>DTU 기반 구매 모델과 vCore 기반 구매 모델 중 어느 것을 선택해야 할까요? 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>DTU 기반 구매 모델과 vCore 기반 구매 모델(미리 보기) 중 어느 것을 선택해야 할까요? 
 DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 기반으로 합니다. DTU 기반 성능 수준은 다양한 응용 프로그램 성능 수준을 구동하는 미리 구성된 리소스 번들을 나타냅니다. 기본 리소스에 대해 걱정할 필요 없이 매월 고정 금액을 지불하면서 미리 구성된 번들을 단순히 사용하려는 고객은 DTU 기반 모델이 자신의 요구에 더 적합하다는 것을 알 수 있습니다. 그러나 최적의 성능을 달성하기 위해 기본 리소스에 대한 추가 정보가 필요하거나 크기를 독립적으로 조정해야 하는 고객에게는 vCore 기반 모델이 가장 적합합니다.  또한 고객이 SQL Server에 대한 활성 SA(Software Assurance)를 보유하고 있는 경우, 기존 투자를 활용하고 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.  각 구매 모델의 옵션은 자동 백업, 소프트웨어 업데이트 및 패치와 같이 완전히 관리되는 서비스의 이점을 제공합니다. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택이란? 
-[SQL Server에 대한 Azure 하이브리드 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하면 현재 라이선스의 투자 가치를 최대화하고 클라우드로의 마이그레이션을 가속화할 수 있습니다. SQL Server에 대한 Azure 하이브리드 혜택은 Software Assurance가 포함된 SQL Server 라이선스를 사용하여 SQL Database에 대해 할인된 요금("기본 요금")을 지불할 수 있게 하는 Azure 기반 혜택입니다. SQL Server에 대한 Azure 하이브리드 혜택은 SQL Database 단일 데이터베이스 및 탄력적 풀에 대한 vCore 기반 구매 모델의 공개 미리 보기에서 사용할 수 있습니다. SKU가 활성 중인 경우에도 이 혜택을 적용할 수 있지만, 기본 요금은 Azure Portal에서 해당 요금을 선택한 시점부터 적용됩니다. 크레딧은 소급해서 발급되지 않습니다.
+[SQL Server에 대한 Azure 하이브리드 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하면 현재 라이선스의 투자 가치를 최대화하고 클라우드로의 마이그레이션을 가속화할 수 있습니다. SQL Server에 대한 Azure 하이브리드 혜택은 Software Assurance가 포함된 SQL Server 라이선스를 사용하여 SQL Database에 대해 할인된 요금("기본 요금")을 지불할 수 있게 하는 Azure 기반 혜택입니다. SQL Server에 대한 Azure 하이브리드 혜택은 SQL Database 단일 데이터베이스 및 탄력적 풀에 대한 vCore 기반 구매 모델(미리 보기)의 공개 미리 보기에서 사용할 수 있습니다. SKU가 활성 중인 경우에도 이 혜택을 적용할 수 있지만, 기본 요금은 Azure Portal에서 해당 요금을 선택한 시점부터 적용됩니다. 크레딧은 소급해서 발급되지 않습니다.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택에 이중 사용 권한이 있나요?
 마이그레이션이 원활하게 실행되도록 하려면 180일간의 이중 사용 권한 라이선스가 있어야 합니다. 180일 기간이 지난 후에는 SQL Server 라이선스는 클라우드의 SQL Database에만 사용할 수 있으며, 온-프레미스 및 클라우드에 대한 이중 사용 권한을 갖지 않습니다.
@@ -109,13 +110,13 @@ vCore 모델은 프로비전된 계산 및 저장소의 용량을 독립적으�
 원하는 횟수만큼 조정할 수 있습니다. [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>단일 데이터베이스의 서비스 계층 또는 성능 수준을 변경하거나 탄력적 풀 내부 및 외부로 데이터베이스를 이동하는 데는 얼마나 시간이 소요되나요?
-데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-service-tiers.md)을 참조하세요. 
+데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-service-tiers-dtu.md)을 참조하세요. 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 하나요?
 일반적으로 탄력적 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 [SaaS(Software-as-a-Service) 응용 프로그램 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 위해 설계되었습니다. 개별 데이터베이스를 만들고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비저닝하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다. Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [탄력적 풀 지침](sql-database-elastic-pool.md)을 참조하세요.
 
 ## <a name="how-does-the-usage-of-sql-database-using-the-dtu-based-purchasing-model-show-up-on-my-bill"></a>DTU 기반 구매 모델을 사용하는 SQL Database 사용량은 청구서에서 어떻게 표시되나요?
-SQL Database는 [구매 모델](sql-database-service-tiers.md)에 따라 예측 가능한 시간당 요금으로 청구됩니다. 실제 사용량은 시간별로 계산 및 비례 배분되므로 청구서에 시간의 일부가 표시될 수 있습니다. 예를 들어 데이터베이스가 한 달에 12시간 동안 있었다면 청구서에는 0.5일의 사용량이 표시됩니다. 
+SQL Database는 [구매 모델](sql-database-service-tiers-dtu.md)에 따라 예측 가능한 시간당 요금으로 청구됩니다. 실제 사용량은 시간별로 계산 및 비례 배분되므로 청구서에 시간의 일부가 표시될 수 있습니다. 예를 들어 데이터베이스가 한 달에 12시간 동안 있었다면 청구서에는 0.5일의 사용량이 표시됩니다. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>단일 데이터베이스가 1시간 미만 동안 활성화되거나 더 높은 서비스 계층을 1시간 미만 사용하는 경우 어떻게 되나요?
 사용량이나 데이터베이스가 한 시간 미만 동안 활성화되었는지 여부에 관계없이, 그 시간에 적용된 최고 서비스 계층 + 성능 수준을 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다. 
@@ -143,7 +144,7 @@ DTU 기반 구매 모델 예:
 * 탄력적 풀의 크기를 조정하면 크기 조정 작업이 완료될 때까지 새 리소스 양에 따른 풀에 대한 요금은 청구되지 않습니다. 이는 단일 데이터베이스의 성능 수준을 변경하는 것과 동일한 패턴을 따릅니다.
 * 탄력적 풀의 가격은 풀의 리소스를 기반으로 합니다. 탄력적 풀의 가격은 그 안의 탄력적 데이터베이스 사용률 및 수와 무관합니다.
 
-자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/), [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요.
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>내 청구서에서 vCore 기반 사용량은 어떻게 표시되나요? 
 vCore 기반 모델에서 서비스 요금은 서비스 계층, 프로비전된 계산(vCore 수), 프로비전된 저장소(GB/월 단위) 및 사용된 백업 저장소에 따라 예측 가능한 시간당 요금으로 청구됩니다. 백업용 저장소가 전체 데이터베이스 크기(즉, 데이터베이스 크기의 100%)를 초과하는 경우 추가 요금이 청구됩니다. vCore 시간, 구성된 데이터베이스 저장소, 사용된 IO 및 백업 저장소는 청구서에서 항목별로 명확하게 구분되어 사용한 리소스의 세부 정보를 더 쉽게 볼 수 있습니다. 최대 데이터베이스 크기의 100%까지 백업 저장소가 포함되고, 매월 사용된 초과 용량에 대한 요금이 GB/월 단위로 청구됩니다.

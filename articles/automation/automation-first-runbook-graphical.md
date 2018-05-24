@@ -4,16 +4,18 @@ description: 자습서는 간단한 그래픽 runbook의 생성, 테스트, 게�
 keywords: runbook, runbook 템플릿, runbook 자동화, azure runbook
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7804c67871de546d217d85a4215c817f9c08f6b8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055747"
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
@@ -117,6 +119,10 @@ ms.lasthandoff: 04/23/2018
 1. **출력에 Hello World 작성**이 더 이상 필요하지 않으므로 줄임표(...)를 클릭하고 **삭제**를 선택합니다.
 1. 라이브러리 컨트롤에서 **자산**, **연결**을 확장하고 **캔버스에 추가**를 선택하여 **AzureRunAsConnection**을 캔버스에 추가합니다.
 1. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Connect-AzureRmAccount**를 입력합니다.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Add-AzureRmAccount**를 사용하거나 Automation 계정에서 모듈을 업데이트할 수 있습니다.
+
 1. 캔버스에 **Connect-AzureRmAccount**를 추가합니다.
 1. 도형 아래에 원이 나타날 때까지 **실행 연결 가져오기** 를 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Connect-AzureRmAccount**로 끌어 놓습니다. 만든 화살표는 *링크*입니다. Runbook에서 **실행 연결 가져오기**를 시작한 다음, **Connect-AzureRmAccount**를 실행합니다.<br> ![활동 간 링크 만들기](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. 캔버스에서 **Connect-AzureRmAccount**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **Azure에 로그인**을 입력합니다.
@@ -135,9 +141,6 @@ ms.lasthandoff: 04/23/2018
 1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **SubscriptionID**
 1. 매개 변수 값 페이지에서 **데이터 원본**에 대해 **변수 자산**을 선택하고 목록에서 **AzureSubscriptionId**를 선택한 다음 **확인**을 두 번 클릭합니다.
 1. 아래에 원 모양이 나타날 때까지 **Azure에 로그인** 을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **구독 ID 지정**으로 끌어 놓습니다.
-
-> [!IMPORTANT]
-> **Connect-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Connect-AzureRmAccount**를 사용하거나 Automation 계정에서 모듈을 업데이트할 수 있습니다.
 
 이 시점에서 runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

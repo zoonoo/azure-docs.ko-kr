@@ -9,11 +9,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072170"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
@@ -73,11 +74,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![탐색 창][3]
 5. **감사 로그 저장소** 블레이드를 열려면 **저장소 세부 정보**를 선택합니다. 로그를 저장할 Azure 저장소 계정 및 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 후 **OK**를 클릭합니다.
-   >[!TIP]
-   >감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 동일한 저장소 계정을 사용합니다.
+    >[!TIP]
+    >감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 동일한 저장소 계정을 사용합니다.
 
     <a id="storage-screenshot"></a> ![탐색 창][4]
-6. 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다.
+6. 감사 이벤트를 사용자 지정하려면 [PowerShell cmdlet](#subheading-7) 또는 [REST API](#subheading-9)를 통해 다음 작업을 수행합니다.
 7. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 8. **저장**을 클릭합니다.
 
@@ -149,8 +150,8 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
    * Blob 감사는 서버가 아니라 *주 데이터베이스 자체*에서 활성화해야 합니다.
    * 주 데이터베이스에서 Blob 감사가 활성화되면 보조 데이터베이스에서도 활성화됩니다.
 
-     >[!IMPORTANT]
-     >데이터베이스 수준 감사에서 보조 데이터베이스의 저장소 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
+    >[!IMPORTANT]
+    >데이터베이스 수준 감사에서 보조 데이터베이스의 저장소 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
 <br>
 
 ### <a id="subheading-6">저장소 키 다시 생성</a>
@@ -169,33 +170,41 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
 * 로그 형식, 저장소 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
-   > [!IMPORTANT]
-   > Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
+    > [!IMPORTANT]
+    > Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
 
 * 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
-   * **Premium Storage**는 현재 Blob 추가에서 **지원되지 않습니다**.
-   * **VNet의 저장소**는 현재 **지원되지 않습니다**.
+    * **Premium Storage**는 현재 Blob 추가에서 **지원되지 않습니다**.
+    * **VNet의 저장소**는 현재 **지원되지 않습니다**.
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Database 감사 관리
+* 기본 감사 정책에는 모든 작업 및 다음과 같은 일련의 작업 그룹이 포함됩니다. 여기서는 성공 및 실패한 로그인뿐만 아니라 데이터베이스에 대해 실행된 모든 쿼리 및 저장 프로시저를 감사합니다.
 
-* **PowerShell cmdlet**:
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    [Azure PowerShell을 사용하여 SQL 데이터베이스 감사 관리](#subheading-7) 섹션에 설명된 대로 PowerShell을 사용하여 다양한 형식의 작업 및 작업 그룹에 대한 감사를 구성할 수 있습니다.
 
-   스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
+## <a id="subheading-7"></a>Azure PowerShell을 사용하여 SQL Database 감사 관리
 
-## <a name="manage-sql-database-auditing-using-rest-api"></a>REST API를 사용하여 SQL Database 감사 관리
+**PowerShell cmdlet**:
 
-* **REST API - Blob 감사**
+* [데이터베이스 Blob 감사 정책 만들기 또는 업데이트(Set-AzureRMSqlDatabaseAuditing)][105]
+* [서버 Blob 감사 정책 만들기 또는 업데이트(Set-AzureRMSqlServerAuditing)][106]
+* [데이터베이스 감사 정책 가져오기(Get-AzureRMSqlDatabaseAuditing)][101]
+* [서버 Blob 감사 정책 가져오기(Get-AzureRMSqlServerAuditing)][102]
 
-   * [데이터베이스 Blob 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [서버 Blob 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [데이터베이스 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [서버 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [서버 Blob 감사 작업 결과 가져오기](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
+
+## <a id="subheading-9"></a>REST API를 사용하여 SQL Database 감사 관리
+
+**REST API - Blob 감사**
+
+* [데이터베이스 Blob 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [서버 Blob 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [데이터베이스 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [서버 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [서버 Blob 감사 작업 결과 가져오기](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -204,8 +213,9 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

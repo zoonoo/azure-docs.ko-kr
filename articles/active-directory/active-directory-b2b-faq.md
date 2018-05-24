@@ -2,25 +2,20 @@
 title: Azure Active Directory B2B 공동 작업 FAQ | Microsoft Docs
 description: Azure Active Directory B2B 공동 작업에 대해 자주 묻는 질문의 대답을 얻습니다.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/06/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076576"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 공동 작업 FAQ
 
@@ -37,9 +32,6 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>초대 전자 메일을 어떻게 사용자 지정할 수 있습니까?
 [B2B 초대 API](active-directory-b2b-api.md)를 사용하여 거의 모든 초대자 프로세스를 사용자 지정할 수 있습니다.
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>초대된 외부 사용자가 자신을 초대한 조직을 떠날 수 있나요?
-초대하는 조직 관리자는 해당 디렉터리에서 B2B 공동 작업 게스트 사용자를 삭제할 수 있지만 게스트 사용자는 초대하는 조직 디렉터리를 자발적으로 떠날 수 없습니다. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>게스트 사용자가 Multi-Factor Authentication 방법을 재설정할 수 있나요?
 예. 게스트 사용자는 일반 사용자와 동일한 방식으로 Multi-Factor Authentication 방법을 재설정할 수 있습니다.
@@ -105,9 +97,7 @@ B2B 공동 작업을 개선하기 위해 사용자의 의견을 지속적으로 
 [B2B 공동 작업 아이디어](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas)에서 아이디어를 제출하고 향후 기능에 대해 투표해 주세요.
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>사용자가 곧 "준비"될 수 있도록 자동으로 상환되는 초대장을 보낼 수 있나요? 아니면 사용자가 항상 상환 URL을 클릭해야 하나요?
-파트너 조직의 구성원이기도 한 경우 B2B 사용자는 초대하는 조직의 사용자가 보낸 초대를 상환할 필요가 없습니다.
-
-파트너 조직의 사용자 1명을 초대하는 조직에 가입하도록 초대하는 것이 좋습니다. [리소스 조직에서 게스트 초대자 역할에 이 사용자를 추가합니다](active-directory-b2b-add-guest-to-role.md). 이 사용자는 로그인 UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다른 사용자를 초대할 수 있습니다. 따라서 해당 조직의 B2B 공동 작업 사용자는 반드시 자신의 초대를 사용하지 않아도 공동 작업에 참여할 수 있습니다.
+초대자는 UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다른 사용자를 초대할 수 있습니다. 그런 다음, 초대자는 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 대부분의 경우에는 이메일 초대를 열고 상환 URL을 클릭할 필요가 없습니다. 자세한 내용은 [Azure Active Directory B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)을 참조하세요.
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>초대된 파트너가 페더레이션을 사용하여 자체 온-프레미스 인증을 추가하면 B2B 공동 작업이 어떻게 진행되나요?
 파트너에게 온-프레미스 인증 인프라로 페더레이션된 Azure AD 테넌트가 있는 경우 온-프레미스 SSO(Single Sign-On)가 자동으로 이루어집니다. 파트너에게 Azure AD 테넌트가 없는 경우 새로운 사용자에게 Azure AD 계정이 생성됩니다. 
@@ -129,16 +119,5 @@ B2B 공동 작업을 개선하기 위해 사용자의 의견을 지속적으로 
 
 ### <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
+- [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure AD 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)
-* [정보 근로자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-iw-add-users.md)
-* [B2B 공동 작업 초대 전자 메일의 요소](active-directory-b2b-invitation-email.md)
-* [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B 공동 작업 라이선스](active-directory-b2b-licensing.md)
-* [Azure AD B2B 공동 작업 문제 해결](active-directory-b2b-troubleshooting.md)
-* [Azure AD B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
-* [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
-* [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
-* [Azure AD에서 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)

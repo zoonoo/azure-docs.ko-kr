@@ -3,16 +3,18 @@ title: Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드
 description: Azure Automation DSC를 통한 관리를 위한 컴퓨터 설정 방법
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195559"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드
 
@@ -62,6 +64,7 @@ $AutomationAccountName = ""
 $AutomationAccountResourceGroup = ""
 
 # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+# NOTE: DSC Node Configuration names are case sensitive in the portal.
 $NodeConfigName = ""
 
 # get Azure Automation DSC registration info
@@ -111,6 +114,9 @@ $VM = Set-AzureVMExtension `
 
 $VM | Update-AzureVM
 ```
+
+> [!NOTE]
+> DSC 노드 구성 이름은 포털에서 대/소문자를 구분합니다. 대/소문자가 일치하지 않는 경우 노드는 DSC 노드에서 표시되지 않습니다.
 
 ## <a name="azure-virtual-machines"></a>Azure 가상 머신
 
@@ -205,6 +211,9 @@ AWS DSC 도구 키트를 사용하여 Azure Automation DSC에 의한 구성 관�
 1. 로컬 환경의 컴퓨터에서 관리자 권한으로 PowerShell ISE를 엽니다. 이 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.
 2. 다음 스크립트를 로컬로 복사합니다. 이 스크립트는 메타 구성을 만들기 위한 PowerShell DSC 구성 및 메타 구성 생성을 시작하는 명령을 포함합니다.
 
+> [!NOTE]
+> DSC 노드 구성 이름은 포털에서 대/소문자를 구분합니다. 대/소문자가 일치하지 않는 경우 노드는 DSC 노드에서 표시되지 않습니다.
+
     ```powershell
     # The DSC configuration that will generate metaconfigurations
     [DscLocalConfigurationManager()]
@@ -296,6 +305,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation DSC에 의한 구성 관�
     }
 
     # Create the metaconfigurations
+    # NOTE: DSC Node Configuration names are case sensitive in the portal.
     # TODO: edit the below as needed for your use case
     $Params = @{
         RegistrationUrl = '<fill me in>';

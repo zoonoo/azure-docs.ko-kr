@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072626"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 컴퓨터 다시 보호
 
@@ -39,6 +40,8 @@ Azure로의 온-프레미스 VMware VM 및 물리적 서버의 [장애 조치](s
 - 다음과 같은 장애 조치(failover) 및 장애 복구(failback)용 포트를 열었는지 확인합니다.
 
     ![장애 조치 및 장애 복구용 포트](./media/vmware-azure-reprotect/failover-failback.png)
+
+- [여기](vmware-azure-deploy-configuration-server.md#prerequisites)에서 포트 및 URL 허용 목록에 대한 모든 필수 구성 요소를 읽을 수 있습니다.
 
 ## <a name="deploy-a-process-server-in-azure"></a>Azure에서 프로세스 서버 배포
 
@@ -77,7 +80,7 @@ Azure로의 온-프레미스 VMware VM 및 물리적 서버의 [장애 조치](s
     - Windows의 기본 보존 볼륨은 R 볼륨입니다.
     - Linux의 기본 보존 볼륨은 /mnt/retention입니다.
 - 기존 프로세스 서버/구성 서버 컴퓨터 또는 스케일이나 프로세스 서버/마스터 대상 서버 컴퓨터를 사용하는 경우 새 드라이브를 추가해야 합니다. 새 드라이브에서 위의 요구 사항을 만족시켜야 합니다. 보존 드라이브가 없으면 포털의 드롭다운 목록에 선택 사항이 나열되지 않습니다. 온-프레미스 마스터 대상에 드라이브를 추가하고 나면 드라이브가 포털의 선택 사항에 나타나는 데 최대 15분이 걸립니다. 15분 후에도 드라이브가 표시되지 않으면 구성 서버를 새로 고칠 수도 있습니다.
-- 마스터 대상 서버에 VMware 도구를 설치합니다. VMware 도구가 없으면 마스터 대상의 ESXi 호스트에 있는 데이터 저장소를 검색할 수 없습니다.
+- 마스터 대상 서버에 VMware 도구 또는 open-vm-tools를 설치합니다. 도구가 없으면 마스터 대상의 ESXi 호스트에 있는 데이터 저장소를 검색할 수 없습니다.
 - VMware의 마스터 대상 가상 머신의 구성 매개 변수에서 `disk.EnableUUID=true` 설정을 지정합니다. 이 행이 존재하지 않는 경우 추가합니다. 이 설정은 VMDK(가상 머신 디스크)에 일관성 있는 UUID를 제공하여 올바르게 탑재하기 위해 필요합니다.
 - 마스터 대상이 생성되는 ESX 호스트에는 하나 이상의 VMFS 데이터 저장소가 연결되어 있어야 합니다. 연결된 데이터 저장소가 없는 경우 다시 보호 페이지의 **데이터 저장소** 입력이 비어 있어 계속 진행할 수 없습니다.
 - 마스터 대상 서버의 디스크에는 스냅숏이 있을 수 없습니다. 스냅숏이 있으면 다시 보호 및 장애 복구가 실패합니다.

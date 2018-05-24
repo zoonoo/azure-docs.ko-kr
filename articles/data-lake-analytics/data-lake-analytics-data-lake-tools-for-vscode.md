@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011274"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
@@ -449,6 +450,10 @@ Data Lake Tools for VSCode에서 지원하는 기능은 다음과 같습니다.
 
     ![Data Lake Tools for Visual Studio Code 구문 강조 표시](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >2018년 5월 25일에 발효될 새 GDPR(일반 데이터 보호 규정)에 대비하여 Azure Data Lake Tools for Visual Studio Code 사용자는 버전 0.2.13 이상으로 업그레이드하는 것이 좋습니다. 이 버전에는 최신 데이터 보호 요구 사항에 따른 변경 내용이 포함되어 있습니다. 이전 버전은 다운로드할 수 없으며 더 이상 사용되지 않습니다. 
+ 
+   
 ## <a name="next-steps"></a>다음 단계
 - [VSCode에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [Visual Studio Code로 U-SQL 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)

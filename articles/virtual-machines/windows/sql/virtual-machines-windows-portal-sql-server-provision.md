@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 05/04/2018
 ms.author: jroth
-ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072320"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!TIP]
 > SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a id="select"></a>SQL Server 가상 머신 갤러리 이미지
 
@@ -114,7 +115,7 @@ SQL Server 가상 머신을 구성하기 위한 5개의 창이 있습니다.
 
 ![SQL VM 크기 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-프로덕션 워크로드의 경우 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)에서 권장하는 컴퓨터 크기 및 구성을 참조하세요. 나열되지 않은 컴퓨터 크기가 필요할 경우 **모든 보기** 단추를 클릭하세요.
+프로덕션 워크로드의 경우 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)에서 권장하는 컴퓨터 크기 및 구성을 참조하세요.
 
 > [!NOTE]
 > 가상 머신 크기에 대한 자세한 내용은 [가상 머신 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
@@ -130,7 +131,14 @@ SQL Server 가상 머신을 구성하기 위한 5개의 창이 있습니다.
    > [!NOTE]
    > SQL Server에 Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 배후에서 저장소를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 저장소 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks Overview][../managed-disks-overview.md)를 참조하세요. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md)을 참조하세요.
 
-* **네트워크**아래에서 자동으로 채워진 값을 사용할 수 있습니다. 각 기능을 클릭하여 **가상 네트워크**, **서브넷**, **공용 IP 주소** 및 **네트워크 보안 그룹**을 수동으로 구성할 수도 있습니다. 이 연습에서는 기본 값을 유지합니다.
+* **네트워크** 아래에서 **공용 인바운드 포트 선택** 목록의 인바운드 포트를 선택합니다. 예를 들어 VM에 원격 데스크톱을 지정하려는 경우 **RDP (3389)** 포트를 선택합니다.
+
+   ![인바운드 포트](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > **MS SQL(1433)** 포트를 선택하여 SQL Server에 원격으로 액세스할 수 있습니다. 그러나 **SQL Server 설정** 단계에서도 이 옵션을 제공하므로 여기서 꼭 이렇게 할 필요는 없습니다. 이 단계에서 1433 포트를 선택하면 **SQL Server 설정** 단계에서 무엇을 선택하든 이 포트가 열립니다.
+
+   네트웨크 설정을 변경해도 되고 기본 값을 그대로 유지해도 됩니다.
 
 * Azure에서는 VM에 지정된 것과 동일한 저장소 계정을 통해 **모니터링**이 기본적으로 사용됩니다. 여기에서 이러한 설정을 변경할 수 있습니다.
 
@@ -153,7 +161,7 @@ SQL Server 가상 머신을 구성하기 위한 5개의 창이 있습니다.
 
 ### <a name="connectivity"></a>연결
 
-**SQL 연결**에서 VM의 SQL Server 인스턴스에 대해 원하는 액세스 유형을 지정합니다. 이 연습에서는 **공개(인터넷)**를 지정하여 인터넷 상의 컴퓨터 또는 서비스에서 SQL Server로의 연결을 허용합니다. 이 옵션을 선택하면 Azure에서는 포트 1433에서 트래픽을 허용하도록 방화벽 및 네트워크 보안 그룹을 자동으로 구성합니다.
+**SQL 연결**에서 VM의 SQL Server 인스턴스에 대해 원하는 액세스 유형을 지정합니다. 이 연습에서는 **공개(인터넷)** 를 지정하여 인터넷 상의 컴퓨터 또는 서비스에서 SQL Server로의 연결을 허용합니다. 이 옵션을 선택하면 Azure에서는 포트 1433에서 트래픽을 허용하도록 방화벽 및 네트워크 보안 그룹을 자동으로 구성합니다.
 
 ![SQL 연결 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
@@ -164,8 +172,8 @@ SQL Server 가상 머신을 구성하기 위한 5개의 창이 있습니다.
 
 인터넷을 통해 데이터베이스 엔진에 대한 연결을 사용하도록 설정하지 않으려면 다음 옵션 중 하나를 선택합니다.
 
-* **로컬(VM 내부만)**을 선택합니다.
-* **사설(Virtual Network 내)**을 선택합니다.
+* **로컬(VM 내부만)** 을 선택합니다.
+* **사설(Virtual Network 내)** 을 선택합니다.
 
 일반적으로, 시나리오에 허용되는 가장 제한적인 연결을 선택하여 보안을 개선합니다. 하지만 모든 옵션은 네트워크 보안 그룹 및 SQL/Windows 인증을 통해 보안을 설정할 수 있습니다. VM이 만들어진 후에 네트워크 보안 그룹을 편집할 수 있습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-sql-security.md)을 참조하세요.
 

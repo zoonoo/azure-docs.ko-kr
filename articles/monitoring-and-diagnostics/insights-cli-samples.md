@@ -2,7 +2,7 @@
 title: Azure Monitor CLI 2.0 빠른 시작 샘플. | Microsoft Docs
 description: Azure Monitor 기능에 대한 샘플 CLI 2.0 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다.
 author: kamathashwin
-manager: orenr
+manager: ''
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/09/2018
 ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34009761"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure Monitor CLI 2.0 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
@@ -89,18 +90,17 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>경고 작업
+## <a name="work-with-alerts"></a>경고 작업 
+[!NOTE] 이번에 CLI에서 경고(클래식)만이 지원됩니다. 
 
-이 섹션의 정보를 사용하여 경고 작업을 수행할 수 있습니다.
-
-### <a name="get-alert-rules-in-a-resource-group"></a>리소스 그룹의 경고 규칙 가져오기
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>리소스 그룹의 경고(클래식) 규칙 가져오기
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-rule"></a>메트릭 경고 규칙 만들기
+### <a name="create-a-metric-alert-classic-rule"></a>메트릭 경고(클래식) 규칙 만들기
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -110,7 +110,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-rule"></a>경고 규칙 삭제
+### <a name="delete-an-alert-classic-rule"></a>경고(클래식) 규칙 삭제
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -206,7 +206,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>자동 크기 조정 설정 지정
+### <a name="set-autoscale-settings"></a>자동 크기 조정 설정 지정
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

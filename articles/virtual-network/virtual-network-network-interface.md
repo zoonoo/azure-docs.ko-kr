@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e86353703d4eb8ee9acc251d62cf77d139d18ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365749"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>네트워크 인네트워크 인터페이스 만들기, 변경 또는 삭제
 
 네트워크 인터페이스를 만들고 삭제하는 방법 및 해당 설정을 변경하는 방법에 대해 알아봅니다. 네트워크 인터페이스를 사용하면 Azure Virtual Machine이 인터넷, Azure 및 온-프레미스 리소스와 통신할 수 있습니다. Azure Portal을 사용하여 가상 머신을 만들 때 Portal에서는 기본 설정이 포함된 네트워크 인터페이스 하나를 자동으로 만듭니다. 대신 사용자 지정 설정을 사용하여 네트워크 인터페이스를 만들도록 선택할 수 있으며, 가상 컴퓨터를 만들 때 하나 이상의 네트워크 인터페이스를 해당 가상 컴퓨터에 추가할 수 있습니다. 기존 네트워크 인터페이스의 기본 네트워크 인터페이스 설정을 변경할 수도 있습니다. 이 문서에서는 사용자 지정 설정을 사용하여 네트워크 인터페이스를 만들고, 네트워크 필터(네트워크 보안 그룹) 할당/서브넷 할당/DNS 서버 설정/IP 전달 등의 기존 설정을 변경하고, 네트워크 인터페이스를 삭제하는 방법에 대해 설명합니다.
 
 네트워크 인터페이스용 IP 주소를 추가, 변경 또는 제거해야 하는 경우 [IP 주소 관리](virtual-network-network-interface-addresses.md)를 참조하세요. 네트워크 인터페이스를 가상 머신에 추가하거나 가상 머신에서 제거해야 하는 경우에는 [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md)를 참조하세요.
-
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/28/2018
 - 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
-Azure에 로그인하는 계정에 적어도 구독에 대한 네트워크 참가자 역할의 권한을 할당해야 합니다. 계정에 역할 및 권한을 할당하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)을 참조하세요.
+Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
 
 ## <a name="create-a-network-interface"></a>네트워크 인터페이스 만들기
 
@@ -53,7 +53,7 @@ Azure Portal을 사용하여 가상 머신을 만들 때 Portal에서는 기본 
     |가상 네트워크|예|네트워크 인터페이스용 가상 네트워크를 선택합니다. 네트워크 인터페이스와 같은 구독 및 위치에 있는 가상 네트워크에만 네트워크 인터페이스를 할당할 수 있습니다. 네트워크 인터페이스를 만든 후에는 해당 인터페이스가 할당된 가상 네트워크를 변경할 수 없습니다. 네트워크 인터페이스에 추가하는 가상 머신은 네트워크 인터페이스와 같은 위치 및 구독에도 있어야 합니다.|
     |서브넷|예|선택한 가상 네트워크 내의 서브넷을 선택합니다. 네트워크 인터페이스를 만든 후에 해당 인터페이스가 할당된 서브넷을 변경할 수 있습니다.|
     |개인 IP 주소 할당|예| 이 설정에서는 IPv4 주소의 할당 방법을 선택합니다. 다음 할당 방법 중에서 선택합니다. **동적:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 다음 주소가 자동으로 할당됩니다. **고정:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 IP 주소를 수동으로 할당해야 합니다. 고정 및 동적 주소는 변경하거나 네트워크 인터페이스를 삭제할 때까지 변경되지 않습니다. 네트워크 인터페이스를 만든 후에 할당 방법을 변경할 수 있습니다. Azure DHCP 서버는 이 주소를 가상 머신 운영 체제 내의 네트워크 인터페이스에 할당합니다.|
-    |네트워크 보안 그룹|아니오| **없음**으로 설정된 상태로 두거나 기존 [네트워크 보안 그룹](virtual-networks-nsg.md)을 선택하거나 [네트워크 보안 그룹을 만듭니다](virtual-networks-create-nsg-arm-pportal.md). 네트워크 보안 그룹을 사용하면 네트워크 인터페이스 내/외부 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 인터페이스에 네트워크 보안 그룹을 적용하지 않거나 하나를 적용할 수 있습니다. 네트워크 인터페이스가 할당된 서브넷에도 네트워크 보안 그룹을 적용하지 않거나 하나를 적용할 수 있습니다. 네트워크 인터페이스와 네트워크 인터페이스가 할당된 서브넷에 네트워크 보안 그룹을 적용하면 예기치 않은 결과가 발생하는 경우도 있습니다. 네트워크 인터페이스 및 서브넷에 적용된 네트워크 보안 그룹의 문제를 해결하려면 [네트워크 보안 그룹 문제 해결](virtual-network-nsg-troubleshoot-portal.md#nsg)을 참조하세요.|
+    |네트워크 보안 그룹|아니오| **없음**으로 설정된 상태로 두거나 기존 [네트워크 보안 그룹](security-overview.md)을 선택하거나 [네트워크 보안 그룹을 만듭니다](tutorial-filter-network-traffic.md). 네트워크 보안 그룹을 사용하면 네트워크 인터페이스 내/외부 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 인터페이스에 네트워크 보안 그룹을 적용하지 않거나 하나를 적용할 수 있습니다. 네트워크 인터페이스가 할당된 서브넷에도 네트워크 보안 그룹을 적용하지 않거나 하나를 적용할 수 있습니다. 네트워크 인터페이스와 네트워크 인터페이스가 할당된 서브넷에 네트워크 보안 그룹을 적용하면 예기치 않은 결과가 발생하는 경우도 있습니다. 네트워크 인터페이스 및 서브넷에 적용된 네트워크 보안 그룹의 문제를 해결하려면 [네트워크 보안 그룹 문제 해결](virtual-network-nsg-troubleshoot-portal.md#nsg)을 참조하세요.|
     |구독|예|Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 중 하나를 선택합니다. 네트워크 인터페이스를 연결하는 가상 머신과 네트워크 인터페이스에 연결되는 가상 네트워크가 같은 구독에 있어야 합니다.|
     |개인 IP 주소(IPv6)|아니오| 이 확인란을 선택하면 네트워크 인터페이스에 할당된 IPv4 주소 외에 IPv6 주소가 네트워크 인터페이스에 할당됩니다. 네트워크 인터페이스에서 IPv6을 사용하는 경우와 관련된 중요한 정보는 이 문서의 [IPv6](#IPv6) 섹션을 참조하세요. IPv6 주소에 대해서는 할당 방법을 선택할 수 없습니다. IPv6 주소를 할당하도록 선택하면 주소는 동적 방법으로 할당됩니다.
     |IPv6 이름(**개인 IP 주소(IPv6)** 확인란을 선택해야 표시됨) |예 - **개인 IP 주소(IPv6)** 확인란을 선택하는 경우| 이 이름은 네트워크 인터페이스의 보조 IP 구성에 할당됩니다. IP 구성에 대한 자세한 내용은 [네트워크 인터페이스 설정 보기](#view-network-interface-settings)를 참조하세요.|
@@ -88,7 +88,7 @@ Portal에서는 네트워크 인터페이스를 만들 때 공용 IP 주소를 �
     - **속성:** 네트워크 인터페이스의 MAC 주소(네트워크 인터페이스가 가상 머신에 연결되어 있지 않으면 비어 있음)와 해당 네트워크 인터페이스가 있는 구독을 비롯하여 네트워크 인터페이스에 대한 주요 설정이 표시됩니다.
     - **효과적인 보안 규칙:** 네트워크 인터페이스가 실행 중인 가상 머신에 연결되어 있고 네트워크 인터페이스, 네트워크 인터페이스가 할당된 서브넷 또는 둘 다에 NSG가 연결되어 있으면 보안 규칙이 나열됩니다. 표시되는 항목에 대한 자세한 내용은 [효과적인 보안 규칙 보기](#view-effective-security-rules)를 참조합니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
     - **유효 경로:** 네트워크 인터페이스가 실행 중인 가상 컴퓨터에 연결되어 있으면 경로가 나열됩니다. 경로는 Azure 기본 경로, 사용자 정의 경로 및 네트워크 인터페이스가 할당된 서브넷에 있을 수 있는 BGP 경로의 조합입니다. 표시되는 항목에 대한 자세한 내용은 [효과적인 경로 보기](#view-effective-routes)를 참조합니다. Azure 기본 경로 및 사용자 정의 경로에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md)를 참조하세요.
-    - **일반적인 Azure Resource Manager 설정:** 일반적인 Azure Resource Manager 설정에 대한 자세한 내용은 [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Access Control(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [태그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)를 참조하세요.
+    - **일반적인 Azure Resource Manager 설정:** 일반적인 Azure Resource Manager 설정에 대한 자세한 내용은 [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Access Control(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)를 참조하세요.
 
 <a name="view-settings-commands"></a>**명령**
 
@@ -204,7 +204,7 @@ IP 전달을 통해 네트워크 인터페이스가 연결된 가상 머신에�
 
 ## <a name="resolve-connectivity-issues"></a>연결 문제 해결
 
-가상 머신과 통신을 할 수 없는 경우 네트워크 인터페이스에 대해 유효한 경로 또는 네트워크 보안 그룹 보안 규칙이 문제를 일으킬 수 있습니다. 이 문제를 해결하려면 다음과 같은 옵션이 있습니다.
+가상 머신과 통신을 할 수 없는 경우 네트워크 인터페이스에 대해 유효한 경로 또는 네트워크 보안 그룹 보안 규칙 또는 경로가 문제의 원인이 될 수 있습니다. 이 문제를 해결하려면 다음과 같은 옵션이 있습니다.
 
 ### <a name="view-effective-security-rules"></a>효과적인 보안 규칙 보기
 
@@ -240,11 +240,30 @@ Azure Network Watcher의 다음 홉 기능은 경로가 가상 머신과 엔드�
 - Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>다음 단계
-여러 네트워크 인터페이스 또는 IP 주소가 있는 가상 머신을 만들려면 다음 문서를 참조하세요.
+## <a name="permissions"></a>권한
 
-|Task|도구|
-|---|---|
-|여러 NIC를 사용하여 VM 만들기|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|여러 IPv4 주소가 있는 단일 NIC VM 만들기|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Azure Load Balancer 뒤에 개인 IPv6 주소가 있는 단일 NIC VM 만들기|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager 템플릿](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+네트워크 인터페이스에서 작업을 수행하려면 다음 표에 나열된 적절한 사용 권한이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
+
+| 조치                                                                     | Name                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | 네트워크 인터페이스 가져오기                                     |
+| Microsoft.Network/networkInterfaces/write                                  | 네트워크 인터페이스 만들기 또는 업데이트                        |
+| Microsoft.Network/networkInterfaces/join/action                            | 가상 머신에 네트워크 인터페이스 연결           |
+| Microsoft.Network/networkInterfaces/delete                                 | 네트워크 인터페이스 삭제                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | 서비스를 통해 네트워크 인터페이스에 리소스 조인...     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | 네트워크 인터페이스 유효 경로 테이블 가져오기               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | 네트워크 인터페이스 유효 보안 그룹 가져오기           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | 네트워크 인터페이스 부하 분산 장치 가져오기                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | 서비스 연결 가져오기                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | 서비스 연결 만들기 또는 업데이트                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | 서비스 연결 삭제                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | 서비스 연결 유효성 검사                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | 네트워크 인터페이스 IP 구성 가져오기                    |
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 여러 NIC가 있는 VM 만들기
+- [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) 또는 [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)을 사용하여 여러 IPv4 주소가 있는 단일 NIC VM 만들기
+- [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Azure Resource Manager 템플릿](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|을 사용하여 개인 IPv6 주소가 있는 단일 NIC VM 만들기(Azure Load Balancer 뒤)
+- [PowerShell](powershell-samples.md) 또는 [Azure CLI](cli-samples.md) 샘플 스크립트를 사용하거나 Azure [Resource Manager 템플릿](template-samples.md)을 사용하여 네트워크 인터페이스 만들기
+- 가상 네트워크에 대한 [Azure 정책](policy-samples.md) 만들기 및 적용

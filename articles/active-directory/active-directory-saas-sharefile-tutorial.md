@@ -1,6 +1,6 @@
 ---
-title: "자습서: Citrix ShareFile과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 Citrix ShareFile 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Citrix ShareFile과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Citrix ShareFile 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2017
+ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 8473c262f98e77708f01d17419e935979a533307
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e860c1f1db77026e775191c76350333aa66dc7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>자습서: Citrix ShareFile과 Azure Active Directory 통합
 
@@ -30,7 +31,7 @@ Citrix ShareFile을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자가 해당 Azure AD 계정으로 Citrix ShareFile에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +59,7 @@ Citrix ShareFile의 Azure AD 통합을 구성하려면 갤러리의 Citrix Share
 
 **갤러리에서 Citrix ShareFile을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -108,14 +109,33 @@ Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Citrix ShareFile 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<tenant-name>.sharefile.com/saml/login`
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<tenant-name>.sharefile.com/saml/login`
 
-    > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Citrix ShareFile 클라이언트 지원 팀](https://www.citrix.co.in/products/sharefile/support.html)에 문의하세요. 
+    나. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com`|
+    | `https://<tenant-name>.sharefile.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.eu/saml/info`|
+    | `https://<tenant-name>.sharefile.eu/saml/info`|
+    | |
+    
+    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com/saml/acs`|
+    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
+    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    | |
 
-    ![인증서 다운로드 링크](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Citrix ShareFile 클라이언트 지원 팀](https://www.citrix.co.in/products/sharefile/support.html)에 문의하세요.
+
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+
+    ![인증서 다운로드 링크](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png)
 
 5. **저장** 단추를 클릭합니다.
 
@@ -123,7 +143,7 @@ Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 6. **Citrix ShareFile 구성** 섹션에서 **Citrix ShareFile 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Citrix ShareFile 구성](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
+    ![Citrix ShareFile 구성](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png)
 
 7. 다른 웹 브라우저 창에서 **Citrix ShareFile** 회사 사이트에 관리자로 로그인합니다.
 
@@ -139,19 +159,15 @@ Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트하려�
    
     a. **SAML 사용**을 클릭합니다.
     
-    b. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **IDP 발급자/엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    나. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **IDP 발급자/엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-    c. **X.509 인증서** 필드 옆의 **변경**을 클릭한 다음 Azure Portal에서 다운로드한 인증서를 업로드합니다.
+    다. **X.509 인증서** 필드 옆의 **변경**을 클릭한 다음 Azure Portal에서 다운로드한 인증서를 업로드합니다.
     
     d. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
     
     e. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
 11. Citrix ShareFile 관리 포털에서 **저장** 을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -179,9 +195,9 @@ Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -203,9 +219,9 @@ Azure AD 사용자가 Citrix ShareFile에 로그인할 수 있도록 하려면 C
    
    a. **이메일 주소** 텍스트 상자에 Britta Simon의 전자 메일 주소를 **brittasimon@contoso.com**으로 입력합니다.
    
-   b. **이름** 텍스트 상자에 사용자의 **이름**을 **Britta**로 입력합니다.
+   나. **이름** 텍스트 상자에 사용자의 **이름**을 **Britta**로 입력합니다.
    
-   c. **성** 텍스트 상자에 사용자의 **성**을 **Simon**으로 입력합니다.
+   다. **성** 텍스트 상자에 사용자의 **성**을 **Simon**으로 입력합니다.
 
 4. **사용자 추가**를 클릭합니다.
   
@@ -252,9 +268,7 @@ Azure AD 사용자가 Citrix ShareFile에 로그인할 수 있도록 하려면 C
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-
-
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -269,4 +283,3 @@ Azure AD 사용자가 Citrix ShareFile에 로그인할 수 있도록 하려면 C
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-

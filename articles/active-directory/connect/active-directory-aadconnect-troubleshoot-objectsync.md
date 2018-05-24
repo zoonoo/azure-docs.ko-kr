@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/1/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068230"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 개체 동기화 문제 해결
 이 문서에서는 문제 해결 작업을 사용하여 개체 동기화 관련 문제를 해결하는 방법에 대한 단계를 제공합니다.
@@ -34,6 +35,7 @@ ms.lasthandoff: 03/23/2018
 4.  [추가 작업] 페이지로 이동하고 [문제 해결]을 선택하고 [다음]을 클릭합니다.
 5.  [문제 해결] 페이지에서 [시작]을 클릭하여 PowerShell의 문제 해결 메뉴를 시작합니다.
 6.  주 메뉴에서 [개체 동기화 문제 해결]을 선택합니다.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>입력 매개 변수 문제 해결
 다음 입력 매개 변수가 문제 해결 작업에 필요합니다.
@@ -47,6 +49,8 @@ ms.lasthandoff: 03/23/2018
 1.  개체가 Azure Active Directory로 동기화된 경우 UPN 불일치 검색
 2.  도메인 필터링으로 인해 객체가 필터링되었는지 확인
 3.  개체가 OU 필터링으로 인해 필터링되는지 확인
+4.  연결된 사서함으로 인해 개체 동기화가 차단되었는지 확인
+5. 개체가 동기화되지 않는 동적 배포 목록인지 확인
 
 이 섹션의 나머지 부분에서는 이 작업에서 반환되는 특정 결과에 대해 설명합니다. 각각의 경우 문제 해결 작업에서는 분석을 제공한 후 문제를 해결하기 위해 권장되는 조치를 제공합니다.
 
@@ -76,9 +80,17 @@ Azure AD 테넌트 디렉터리 동기화 기능 ‘SynchronizeUpnForManagedUser
 도메인에 실행 프로필/실행 단계가 없기 때문에 개체가 범위를 벗어났습니다. 개체가 속하는 도메인에 전체 가져오기 실행 프로필에 대한 실행 단계가 없기 때문에 아래 예제에서 개체는 동기화 범위를 벗어납니다.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>개체가 OU 필터링으로 인해 필터링됨
-OU 필터링 구성으로 인해 개체가 동기화 범위를 벗어납니다. 아래 예제에서 개체는 OU=NoSync,DC=bvtadwbackdc,DC=com에 속합니다.  이 OU는 동기화 범위에 포함되지 않습니다.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>개체가 OU 필터링으로 인해 필터링됨
+OU 필터링 구성으로 인해 개체가 동기화 범위를 벗어납니다. 아래 예제에서 개체는 OU=NoSync,DC=bvtadwbackdc,DC=com에 속합니다.  이 OU는 동기화 범위에 포함되지 않습니다.</br>
+
+![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>연결된 사서함 문제
+연결된 사서함은 다른 신뢰할 수 있는 계정 포리스트에 위치한 외부 마스터 계정과 연결되어야 합니다. 이러한 외부 마스터 계정이 없는 경우 Azure AD Connect에서는 Exchange 포리스트의 연결된 사서함에 해당하는 사용자 계정을 Azure AD 테넌트에 동기화하지 않습니다.</br>
+![연결된 사서함](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>동적 배포 목록 문제
+온-프레미스 Active Directory와 Azure Active Directory 간의 다양한 차이 때문에 Azure AD Connect는 Azure AD 테넌트에 동적 배포 목록을 동기화하지 않습니다.
 
 ## <a name="html-report"></a>HTML 보고서
 문제 해결 작업은 개체를 분석하는 것 외에 개체에 대해 알려진 모든 정보가 포함된 HTML 보고서도 생성합니다. 필요한 경우 추가 문제 해결을 위해 이 HTML 보고서를 지원 팀과 공유할 수 있습니다.

@@ -1,8 +1,8 @@
 ---
-title: "Application Insights Profiler를 사용하여 Azure에서 라이브 웹앱 프로파일링 | Microsoft Docs"
-description: "적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다."
+title: Application Insights Profiler를 사용하여 Azure에서 라이브 웹앱 프로파일링 | Microsoft Docs
+description: 적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936728"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
-*Azure Application Insights의 이 기능은 일반적으로 Azure App Service의 Web Apps 기능에 사용할 수 있으며 Azure 계산 리소스에서 미리 보기 상태입니다.*
+Azure Application Insights의 이 기능은 일반적으로 Azure App Service의 Web Apps 기능에 사용할 수 있으며 Azure 계산 리소스에서 미리 보기 상태입니다. [프로파일러의 온-프레미스 사용](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)에 대한 정보.
 
 이 문서에서는 [Application Insights](app-insights-overview.md)를 사용하는 경우 라이브 웹 응용 프로그램의 각 메서드에 소요된 시간을 설명합니다. Application Insights Profiler 도구는 앱에서 제공한 라이브 요청의 자세한 프로필을 표시합니다. Profiler는 가장 많은 시간을 사용한 *실행 부하 과다 경로*를 강조 표시합니다. 응답 시간이 다양한 요청은 샘플링 기준으로 프로파일링됩니다. 다양한 기술을 사용하여 응용 프로그램에 관련된 오버헤드를 최소화할 수 있습니다.
 
@@ -63,7 +64,7 @@ Web Apps 계획을 통해 호스트되는 웹앱과 달리 Azure 계산 리소�
 
 ## <a name="view-profiler-data"></a>프로파일러 데이터 보기
 
-응용 프로그램이 트래픽을 수신하는지 확인합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Web Apps를 새로 사용하도록 설정한 경우 약 15분 동안 짧은 부하 테스트를 실행하면 Profiler 추적이 생성됩니다. Web Apps를 사용하도록 이미 설정되어 있는 경우 Web Apps는 매시간 2번 임의로 실행되며 실행될 때마다 2분 동안 실행되는 점에 유의합니다. 샘플 프로파일러 추적을 얻을 수 있는지 확인하려면 먼저 1시간 동안 부하 테스트를 실행하는 것이 좋습니다.
+응용 프로그램이 트래픽을 수신하는지 확인합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Web Apps를 새로 사용하도록 설정한 경우 약 15분 동안 짧은 부하 테스트를 실행하면 Profiler 추적이 생성됩니다. Web Apps를 사용하도록 이미 설정되어 있는 경우 Web Apps는 매시간 2번 임의로 실행되며 실행될 때마다 2분 동안 실행되는 점에 유의합니다. 샘플 프로파일러 추적을 얻을 수 있는지 확인하려면 먼저 1시간 동안 부하 테스트를 실행하는 것이 좋습니다.
 
 응용 프로그램에서 트래픽을 수신하면 **성능** 창으로 이동하고, **작업 수행**을 선택하여 Profiler 추적을 본 다음, **Profiler 추적** 단추를 선택합니다.
 
@@ -98,7 +99,7 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 **clr!JITutil\_MonContention** 또는 **clr!JITutil\_MonEnterWorker**는 현재 스레드가 잠금 해제를 기다리고 있음을 나타냅니다. 이는 일반적으로 C# **LOCK** 문을 실행하거나 **Monitor.Enter** 메서드를 호출하거나 **MethodImplOptions.Synchronized** 특성으로 메서드를 호출할 때 표시됩니다. 잠금 경합은 일반적으로 스레드 _A_가 잠금을 획득하고 스레드 _B_가 스레드 _A_가 잠금을 해제하기 전에 동일한 잠금을 획득하려고 하는 경우에 발생합니다.
 
 ### <a id="ngencold"></a>코드 로드([COLD])
-메서드 이름에 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**와 같이 **[COLD]**가 포함되어 있으면 .NET Framework 런타임에서 처음으로 <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">프로필 기반 최적화</a>에 의해 최적화되지 않은 코드를 실행하고 있는 것입니다. 각 메서드의 경우 프로세스의 수명 동안 한 번만 표시되어야 합니다.
+메서드 이름에 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**와 같이 **[COLD]** 가 포함되어 있으면 .NET Framework 런타임에서 처음으로 <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">프로필 기반 최적화</a>에 의해 최적화되지 않은 코드를 실행하고 있는 것입니다. 각 메서드의 경우 프로세스의 수명 동안 한 번만 표시되어야 합니다.
 
 코드 로드에 요청에 대해 상당한 양의 시간이 사용되는 경우 요청이 메서드의 최적화되지 않은 부분을 실행하는 첫 번째 항목임을 나타냅니다. 사용자가 액세스하기 전에 코드의 해당 부분을 실행하는 준비 프로세스를 고려할 수 있습니다.
 
@@ -311,7 +312,7 @@ Azure 웹 사이트에 새 웹 작업을 추가할 때 기본적으로 내부에
 
 * Web Apps의 웹 작업 기능은 고유합니다. App Services에 대한 웹 작업 기능은 웹 작업을 실행할 때 프로세스가 웹 사이트와 동일한 환경 변수와 앱 설정을 지정하도록 합니다. 즉, 명령줄을 통해 Profiler에 계측 키를 전달할 필요가 없습니다. Profiler는 환경에서 계측 키를 선택해야 됩니다. 그러나 개발 상자 또는 Web Apps 외부의 컴퓨터에서 Profiler를 실행하려는 경우 계측 키를 제공해야 합니다. `--ikey <instrumentation-key>` 인수에서 전달하여 수행할 수 있습니다. 이 값은 응용 프로그램이 사용 중인 계측 키와 일치해야 합니다. Profiler의 로그 출력은 Profiler가 시작한 ikey 및 프로파일링하는 동안 해당 계측 키에서 작업 감지 여부를 사용자에게 알려줍니다.
 
-* 수동으로 트리거된 웹 작업은 웹 후크를 통해 트리거될 수 있습니다. 대시보드에서 웹 작업을 마우스 오른쪽 단추로 클릭하고 속성을 확인하여 이 URL을 가져올 수 있습니다. 또는 테이블에서 웹 작업을 선택한 후에 도구 모음에서 **속성**을 선택할 수 있습니다. 이 접근 방법을 통해 CI/CD 파이프라인(예: VSTS) 또는 Microsoft Flow(https://flow.microsoft.com/ko-kr/)와 같은 항목에서 Profiler를 트리거할 수 있습니다. 궁극적으로 이 선택은 *run.cmd*(*run.ps1*도 될 수 있음)를 얼마나 복잡하게 만드느냐에 따라 달라지지만 유연성도 있습니다.
+* 수동으로 트리거된 웹 작업은 웹 후크를 통해 트리거될 수 있습니다. 대시보드에서 웹 작업을 마우스 오른쪽 단추로 클릭하고 속성을 확인하여 이 URL을 가져올 수 있습니다. 또는 테이블에서 웹 작업을 선택한 후에 도구 모음에서 **속성**을 선택할 수 있습니다. 이 접근 방법을 통해 CI/CD 파이프라인(예: VSTS) 또는 Microsoft Flow(https://flow.microsoft.com/en-us/))와 같은 항목에서 Profiler를 트리거할 수 있습니다. 궁극적으로 이 선택은 *run.cmd*(*run.ps1*도 될 수 있음)를 얼마나 복잡하게 만드느냐에 따라 달라지지만 유연성도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

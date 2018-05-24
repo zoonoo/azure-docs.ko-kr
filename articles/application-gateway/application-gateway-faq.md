@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309473"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -53,7 +54,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 **Q. 어떤 지역에서 서비스를 사용할 수 있습니까?**
 
-Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure China](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)에서도 사용할 수 있습니다.
+Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure China](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
 
 **Q. 내 구독에 대한 전용 배포인가요? 아니면 고객 간에 공유되나요?**
 
@@ -178,6 +179,11 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 **Q. 수동 강화/규모 축소 시 가동 중지 시간이 발생하나요?**
 
 가동 중지 시간 없이 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
+
+**Q. Application Gateway는 연결 드레이닝을 지원하나요?**
+
+예. 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 응용 프로그램 세션 상태를 인식하지 못합니다.
+
 
 **Q. 중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?**
 
@@ -329,4 +335,4 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 
 ## <a name="next-steps"></a>다음 단계
 
-Application Gateway에 대한 자세한 내용은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+Application Gateway에 대해 자세히 알아보려면 [Azure Application Gateway란?](overview.md)을 방문해 보세요.

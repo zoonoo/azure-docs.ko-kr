@@ -1,24 +1,25 @@
 ---
-title: "Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Microsoft Docs"
-description: "Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드"
+title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Microsoft Docs
+description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
-ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 04/30/2018
+ms.author: clemensv
+ms.openlocfilehash: e124ea3f932a81634191785e7ee69c2492cb32fa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312545"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -205,9 +206,11 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 다음 섹션에서는 Service Bus에서 사용되는 표준 AMQP 메시지 섹션의 속성과 이러한 속성이 어떤 Service Bus API 집합에 매핑되는지 설명합니다.
 
+응용 프로그램이 정의해야 하는 모든 속성은 AMQP의 `application-properties` 맵에 매핑되어야 합니다.
+
 #### <a name="header"></a>머리글
 
-| 필드 이름 | 사용 | API 이름 |
+| 필드 이름 | 사용 현황 | API 이름 |
 | --- | --- | --- |
 | 지속성 |- |- |
 | 우선 순위 |- |- |
@@ -217,7 +220,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="properties"></a>properties
 
-| 필드 이름 | 사용 | API 이름 |
+| 필드 이름 | 사용 현황 | API 이름 |
 | --- | --- | --- |
 | message-id |이 메시지에 대한 응용 프로그램 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | user-id |Service Bus에서 해석되지 않는 응용 프로그램 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
@@ -232,6 +235,80 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | group-id |관련된 메시지 집합에 대한 응용 프로그램 정의 식별자입니다. Service Bus 세션에 사용됩니다. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |세션 내 메시지의 상대 시퀀스 번호를 식별하는 카운터입니다. Service Bus에서 무시됩니다. |Service Bus API를 통해 액세스할 수 없습니다. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### <a name="message-annotations"></a>메시지 주석
+
+AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`로 전달되는 다른 서비스 버스 메시지 속성이 몇 개 있습니다.
+
+| 주석 맵 키 | 사용 현황 | API 이름 |
+| --- | --- | --- |
+| x-opt-scheduled-enqueue-time | 메시지가 엔터티에 표시되어야 하는 시간을 선언합니다. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 응용 프로그램 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | 전송 큐를 통해 메시지를 전송하는 데 트랜잭션이 사용되어야 하는 경우의 응용 프로그램 정의 파티션 키 값입니다. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | 메시지를 큐에 넣는 데 걸리는 실제 시간을 나타내는 서비스 정의 UTC 시간입니다. 입력 시 무시됩니다. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | 메시지에 할당되는 서비스 정의 고유 번호입니다. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-offset | 메시지의 큐에 넣은 서비스 정의 시퀀스 번호입니다. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-locked-until | 서비스 정의입니다. 큐/구독에서 메시지가 언제까지 잠기는지를 나타내는 날짜 및 시간입니다. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x-opt-deadletter-source | 서비스 정의입니다. 메시지가 배달 못한 편지 큐에서 수신된 경우 원래 메시지의 원본입니다. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### <a name="transaction-capability"></a>트랜잭션 기능
+
+트랜잭션 그룹은 두 개 이상의 작업을 실행 범위로 그룹화합니다. 기본적으로 이러한 트랜잭션은 지정된 작업 그룹에 속한 모든 작업이 성공 또는 실패해야 합니다.
+작업은 식별자 `txn-id`로 그룹화됩니다.
+
+트랜잭션 상호 작용의 경우 클라이언트가 그룹화되어야 하는 작업을 제어하는 `transaction controller` 역할을 합니다. Service Bus 서비스는 `transactional resource` 역할을 하며 `transaction controller`의 요청대로 작업을 수행합니다.
+
+클라이언트와 서비스는 클라이언트가 설정한 `control link`를 통해 통신합니다. `declare` 및 `discharge` 메시지는 컨트롤러가 트랜잭션을 각각 할당하고 완료하기 위해 제어 링크를 통해 전송합니다(트랜잭션 작업의 경계를 나타내지 않음). 실제 전송/수신은 이 링크에서 수행되지 않습니다. 요청된 각 트랜잭션 작업은 원하는 `txn-id`를 사용하여 명시적으로 식별되므로 연결의 모든 링크에서 발생할 수 있습니다. 해제되지 않은 트랜잭션이 있을 때 제어 링크가 닫히면 이러한 모든 트랜잭션이 즉시 롤백되고, 이에 대한 추가적인 트랜잭션 작업을 수행하려는 시도는 실패하게 됩니다. 제어 링크의 메시지는 미리 고정되지 않아야 합니다.
+
+모든 연결은 자체 제어 링크를 시작하여 트랜잭션을 시작하고 종료할 수 있어야 합니다. 서비스는 `coordinator`로 기능하는 특별한 대상을 정의합니다. 클라이언트/컨트롤러는 이 대상에 대한 제어 링크를 설정합니다. 제어 링크는 엔터티 경계 외부에 있습니다. 즉, 동일한 제어 링크를 사용하여 여러 엔터티의 트랜잭션을 시작하고 해제할 수 있습니다.
+
+#### <a name="starting-a-transaction"></a>트랜잭션 시작
+
+트랜잭션 작업을 시작하려면 컨트롤러가 코디네이터에서 `txn-id`를 가져와야 합니다. 이를 위해 `declare` 형식 메시지를 전송합니다. 선언에 성공하면 코디네이터가 할당된 `txn-id`를 전달하는 `declared`의 배치 결과로 응답합니다.
+
+| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
+|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction id}<br/>))|
+
+#### <a name="discharging-a-transaction"></a>트랜잭션 해제
+
+컨트롤러는 코디네이터에 `discharge` 메시지를 전송하여 트랜잭션 작업을 끝냅니다. 컨트롤러는 해제 본문에 `fail` 플래그를 설정하여 트랜잭션 작업을 커밋하거나 롤백하려고 함을 알립니다. 코디네이터가 해제를 완료할 수 없는 경우 `transaction-error`를 전달하는 이 결과와 함께 메시지가 거부됩니다.
+
+> 참고: fail=true는 트랜잭션 롤백을, fail=false는 커밋을 나타냅니다.
+
+| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. <br/>다른 링크의<br/>트랜잭션 작업<br/> 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. |
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+
+#### <a name="sending-a-message-in-a-transaction"></a>트랜잭션에서 메시지 전송
+
+모든 트랜잭션 작업은 txn-id를 전달하는 트랜잭션 배달 상태 `transactional-state`와 함께 완료됩니다. 메시지를 전송하는 경우에는 메시지의 전송 프레임에서 트랜잭션 상태를 제공합니다. 
+
+| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+
+#### <a name="disposing-a-message-in-a-transaction"></a>트랜잭션에서 메시지 배치
+
+메시지 배치에는 `Complete` / `Abandon` / `DeadLetter` / `Defer` 같은 작업이 포함됩니다. 트랜잭션 내에서 이러한 작업을 수행하려면 disposition과 함께 `transactional-state`를 전달하세요.
+
+| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## <a name="advanced-service-bus-capabilities"></a>고급 Service Bus 기능
 
@@ -284,14 +361,14 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 | 키 | 옵션 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| operation |아니요 |string |**put-token** |
-| type |아니요 |string |배치되는 토큰의 형식입니다. |
-| name |아니요 |string |토큰이 적용되는 "대상"입니다. |
+| operation |아니오 |string |**put-token** |
+| 형식 |아니오 |string |배치되는 토큰의 형식입니다. |
+| 이름 |아니오 |string |토큰이 적용되는 "대상"입니다. |
 | expiration |예 |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
-| 토큰 형식 | 토큰 설명 | 본문 형식 | 참고 사항 |
+| 토큰 형식 | 토큰 설명 | 본문 형식 | 메모 |
 | --- | --- | --- | --- |
 | amqp:jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) |아직 사용할 수 없습니다. |
 | amqp:swt |SWT(단순 웹 토큰) |AMQP 값(문자열) |AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다. |
@@ -303,7 +380,7 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 | 키 | 옵션 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
+| status-code |아니오 |int |HTTP 응답 코드 **[RFC2616]** |
 | status-description |예 |string |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token*을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.
@@ -315,6 +392,19 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 연결 및 세션이 설정되고 나면 링크가 *$cbs* 노드에 연결되고 *put-token* 요청이 전송될 수만 있습니다. 연결이 설정되고 20초 이내에 일부 엔터티 노드에 대해 *put-token* 요청을 사용하여 유효한 토큰을 설정해야 합니다. 그러지 않으면 Service Bus에서 일방적으로 연결을 삭제합니다.
 
 클라이언트는 이후에 토큰 만료를 계속 추적해야 합니다. 토큰이 만료되면 Service Bus는 각 엔터티에 대한 연결에서 모든 링크를 즉시 삭제합니다. 이를 방지하기 위해 클라이언트는 다른 링크에서 흐르는 페이로드 트래픽을 방해하지 않으면서 가상 *$cbs* 관리 노드에서 *put-token* 제스처를 사용하여 언제든지 노드에 대한 토큰을 새 토큰으로 바꿀 수 있습니다.
+
+### <a name="send-via-functionality"></a>경유 전송 기능
+
+[경유 전송/전송자 전송](service-bus-transactions.md#transfers-and-send-via)은 서비스 버스가 다른 엔터티를 통해 특정 메시지를 대상 엔터티로 전달할 수 있게 해주는 기능입니다. 이는 주로 단일 트랜잭션 내에서 엔터티 간 작업을 수행하는 데 사용됩니다.
+
+이 기능을 통해 전송자를 만들고 `via-entity`에 대한 링크를 설정할 수 있습니다. 링크를 설정하는 동안 이 링크의 메시지/전송 대상을 설정하기 위한 추가 정보가 전달됩니다. 연결에 성공하면 이 링크에 전송된 모든 메시지가 *via-entity*를 통해 *destination-entity*로 자동 전달됩니다. 
+
+> 참고: 이 링크를 설정하기 전에 *via-entity* 및 *destination-entity* 모두에 대해 인증이 수행되어야 합니다.
+
+| 클라이언트 | | Service Bus |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link id},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link id},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>다음 단계
 

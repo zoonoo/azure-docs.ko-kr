@@ -3,7 +3,7 @@ title: Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 �
 description: Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895489"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
 
@@ -299,7 +300,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-이 솔루션의 배포를 위한 구성 요소는 [PCI Blueprint 코드 리포지토리][code-repo]에서 제공합니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 이 이름은 2단계에서 `-customHostName` 스위치로 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
+이 솔루션의 배포를 위한 구성 요소는 [PCI Blueprint 코드 리포지토리][code-repo]에 제공됩니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 이 이름은 2단계에서 `-customHostName` 스위치로 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
 
 이 스크립트는 사용자가 지정한 Azure AD 테넌트에 도메인 사용자를 추가합니다. 테스트로 새 Azure AD 테넌트를 만들어 사용하는 것이 좋습니다.
 
@@ -384,11 +385,3 @@ Contoso Webstore [Blueprint 위협 모델](https://aka.ms/pciblueprintthreatmode
 - 이 페이지에 등장하는 모든 고객 이름, 트랜잭션 레코드 및 관련 데이터는 허구이며 이 기본 아키텍처용으로 만들어져 설명 목적으로만 제공됩니다. 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.  
 - 이 솔루션에서 Microsoft와 Avyan Consulting이 공동으로 개발하였으며 [MIT 라이선스](https://opensource.org/licenses/MIT)에 따라 제공됩니다.
 - 이 솔루션은 Microsoft의 PCI DSS 감사자인 Coalfire가 검토했습니다. [PCI 준수 검토](https://aka.ms/pciblueprintcrm32)는 솔루션과, 해결이 필요한 구성 요소에 대한 독립적인 제3자 검토를 제공합니다. 
-
-### <a name="document-authors"></a>문서 작성자
-
-- *Frank Simorjay(Microsoft)*  
-- *Gururaj Pandurangi(Avyan Consulting)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "코드 리포지토리"

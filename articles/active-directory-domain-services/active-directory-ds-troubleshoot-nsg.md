@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: ce03ee0e0936cea4b96e48fbc949f40ee0fe83a0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2336277a960925a92af3578850453ba6ae78abda
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201269"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 네트워킹 구성 문제 해결
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 네트워크 관련 구성 오류를 해결하고 문제를 해결합니다.
@@ -28,6 +29,13 @@ ms.lasthandoff: 04/19/2018
 
 잘못된 NSG 구성은 Azure AD Domain Services에 대한 네트워크 오류의 가장 일반적인 원인입니다. 가상 네트워크에 구성된 NSG(네트워크 보안 그룹)는 [특정 포트](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)에 대한 액세스를 허용해야 합니다. 이러한 포트가 차단되면 Microsoft는 관리되는 도메인을 모니터링하거나 업데이트할 수 없습니다. 또한 Azure AD 디렉터리와 관리되는 도메인 간의 동기화에 영향을 줍니다. NSG를 만드는 동안 이러한 포트를 열어 두어, 서비스가 중단되지 않도록 합니다.
 
+### <a name="checking-your-nsg-for-compliance"></a>NSG의 규정 준수 확인
+
+1. Azure Portal에서 [네트워크 보안 그룹](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 페이지로 이동합니다.
+2. 테이블에서 관리되는 도메인이 사용하도록 설정된 서브넷에 연결된 NSG를 선택합니다.
+3. 왼쪽 패널의 **설정**에서 **인바운드 보안 규칙**을 클릭합니다.
+4. 작동 중인 규칙을 검토하여 [이러한 포트](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)에 대한 액세스를 막고 있는 규칙을 식별합니다.
+5. 규정을 준수하도록 규칙을 삭제하거나 규칙을 추가하거나 NSG를 처음부터 새로 만드는 등 NSG를 편집합니다. 아래는 [규칙 추가](#add-a-rule-to-a-network-security-group-using-the-azure-portal) 또는 [규격 NSG 만들기](#create-a-nsg-for-azure-ad-domain-services-using-powershell)를 수행하는 단계입니다.
 
 ## <a name="sample-nsg"></a>샘플 NSG
 다음 표에서는 Microsoft에서 정보를 모니터링, 관리 및 업데이트하도록 하면서, 관리되는 도메인을 안전하게 유지하는 샘플 NSG를 보여 줍니다.
@@ -47,7 +55,7 @@ PowerShell을 사용하지 않으려는 경우 Azure Portal을 사용하여 NSG�
 5. 규칙 테이블에 규칙이 있으면 제대로 만들어진 것입니다.
 
 
-## <a name="create-an-nsg-for-azure-ad-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure AD Domain Services에 대한 NSG 만들기
+## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure AD Domain Services에 대한 NSG 만들기
 이 NSG는 Azure AD Domain Services에서 필요한 포트에 인바운드 트래픽을 허용하고 다른 원치 않는 인바운드 액세스는 거부하도록 구성됩니다.
 
 **필수 조건: Azure PowerShell 설치 및 구성** 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결합니다](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).

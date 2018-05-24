@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ffa36967eb987f5e1b66f007ae60a63e640a609a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: da1fa2b182888e623f8df734c9119e208433e2bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012712"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
 
@@ -131,7 +132,7 @@ VM 할당을 취소하여 복사할 VHD를 해제합니다.
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Azure Portal의 VM에 대한 **상태**가 **중지됨**에서 **중지됨(할당 취소됨)**으로 변경됩니다.
+Azure Portal의 VM에 대한 **상태**가 **중지됨**에서 **중지됨(할당 취소됨)** 으로 변경됩니다.
 
 ### <a name="get-the-storage-account-urls"></a>저장소 계정 URL 가져오기
 원본 및 대상 저장소 계정의 URL이 필요합니다. URL은 `https://<storageaccount>.blob.core.windows.net/<containerName>/` 형태입니다. 저장소 계정 및 컨테이너 이름을 이미 알고 있는 경우 괄호 사이의 정보를 바꿔서 URL을 만듭니다. 
@@ -320,5 +321,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>다음 단계
-새 가상 머신에 로그인하려면 [포털](https://portal.azure.com)에서 VM으로 이동한 다음 **연결**을 클릭하고 원격 데스크톱 RDP 파일을 엽니다. 원본 가상 머신의 계정 자격 증명을 사용하여 새 가상 머신에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](connect-logon.md)을 참조하세요.
+새 가상 머신에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](connect-logon.md)을 참조하세요.
 

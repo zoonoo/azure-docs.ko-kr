@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770726"
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어 
 
@@ -75,13 +76,13 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="compliant-device"></a>규정 준수 장치
 
-장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 신뢰할 수 있는 장치에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 신뢰할 수 있는 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 조인되어 있고 MDM 솔루션 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.
+장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](active-directory-conditional-access-policy-connected-applications.md#managed-devices)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](device-management-introduction.md)되어 있고 MDM 솔루션 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.
 
 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
 
-### <a name="domain-joined-device"></a>도메인 가입 장치
+### <a name="hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 장치
 
-장치 기반 조건부 액세스 정책을 구성해야 하는 또 다른 옵션은 도메인 조인 장치가 필요합니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 온-프레미스 Active Directory 및 Azure Active Directory에 조인되어 있는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.  
+장치 기반 조건부 액세스 정책을 구성할 때 또 다른 옵션은 하이브리드 Azure AD 조인 장치를 요구하는 것입니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 온-프레미스 Active Directory 및 Azure Active Directory에 조인되어 있는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.  
 
 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
 

@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070501"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -34,6 +35,7 @@ ms.lasthandoff: 04/16/2018
 - ["RDP"하지 않고 인스턴스에서 CSR(인증서 서명 요청)을 생성하려면 어떻게 할까요?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [내 클라우드 서비스 관리 인증서가 곧 만료됩니다. 갱신하려면 어떻게 해야 하나요?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [기본 SSL 인증서(.pfx) 및 중간 인증서(.p7b) 설치를 자동화하려면 어떻게 해야 하나요?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- ["MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **모니터링 및 로깅**
 
@@ -103,6 +105,10 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>기본 SSL 인증서(.pfx) 및 중간 인증서(.p7b) 설치를 자동화하려면 어떻게 해야 하나요?
 
 시작 스크립트(일괄 처리/cmd/PowerShell)를 사용하여 이 작업을 자동화하고 서비스 정의 파일에 해당 시작 스크립트를 등록할 수 있습니다. 시작 스크립트의 동일한 디렉터리에 있는 프로젝트 폴더에 시작 스크립트와 인증서(.p7b 파일)를 모두 추가합니다.
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>"MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?
+
+이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 이 권고[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731]를 확인하세요.
 
 자세한 내용은 다음 문서를 참조하세요.
 - [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

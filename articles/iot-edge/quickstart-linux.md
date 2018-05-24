@@ -9,11 +9,12 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9cb627c4d8eff2226717dd675d24349730e90d5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068725"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>빠른 시작: Linux 또는 Mac 장치에 첫 번째 IoT Edge 모듈 배포 - 미리 보기
 
@@ -27,6 +28,15 @@ Azure IoT Edge는 클라우드의 강력한 기능을 사물 인터넷 장치로
 
 * Python pip - IoT Edge 런타임을 설치합니다.
    * Linux: `sudo apt-get install python-pip`
+      
+      > [!Note]
+      > 특정 배포(예: Raspbian)에서 특정 pip 패키지를 업그레이드하고 추가 종속성을 설치해야 할 수도 있습니다.
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * MacOS: `sudo easy_install pip`
 * Docker - IoT Edge 모듈을 실행합니다.
    * [Linux용 Docker를 설치][lnk-docker-ubuntu]하고 실행 중인지 확인합니다. 
@@ -58,7 +68,7 @@ Azure 구독에서 IoT Hub를 만듭니다. 이 빠른 시작에는 무료 수�
 IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 만듭니다. IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, 처음부터 IoT Edge 장치로 선언합니다. 
 
 1. Azure Portal에서 IoT Hub로 이동합니다.
-1. **IoT Edge(미리 보기)**를 선택합니다.
+1. **IoT Edge(미리 보기)** 를 선택합니다.
 1. **IoT Edge 장치 추가**를 선택합니다.
 1. 시뮬레이트된 장치에 고유한 장치 ID를 제공합니다.
 1. **저장**을 선택하여 장치를 추가합니다.

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32155384"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -100,6 +101,11 @@ ms.lasthandoff: 04/16/2018
 31. API Management 응용 프로그램으로 다시 전환합니다. 
 
     **ID 공급자 추가** 창의 **클라이언트 암호** 텍스트 상자에 키를 붙여넣습니다.
+
+    > [!IMPORTANT]
+    > 키가 만료되기 전에 **클라이언트 암호**를 업데이트해야 합니다. 
+    >  
+    >
 32. **ID 공급자 추가** 창에는 **허용된 테넌트** 텍스트 상자도 포함됩니다. 여기에서 API Management 서비스 인스턴스의 API에 대한 액세스 권한을 부여하려는 Azure AD 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
 
     **허용된 테넌트** 섹션에서 여러 도메인을 지정할 수 있습니다. 사용자가 응용 프로그램이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 응용 프로그램에 권한을 부여해야 합니다. 사용 권한을 부여하려면 전역 관리자는 다음을 수행해야 합니다.

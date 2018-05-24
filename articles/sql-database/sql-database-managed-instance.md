@@ -10,11 +10,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193287"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
@@ -67,9 +68,9 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 
 ![Single Sign-On](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
+## <a name="vcore-based-purchasing-model-preview"></a>vCore 기반 구매 모델(미리 보기)
 
-vCore 기반 구매 모델은 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소의 크기를 조정할 수 있습니다. 또한 vCore 모델은 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.
+vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소의 크기를 조정할 수 있습니다. 또한 vCore 모델은 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.
 
 가상 코어는 하드웨어 세대 중에서 선택할 수 있는 옵션과 함께 제공되는 논리 CPU를 나타냅니다.
 - 4세대 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며,
@@ -117,7 +118,7 @@ vCore 기반 구매 모델은 유연성, 제어, 투명성 및 온-프레미스 
 | 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
 | 자동 소프트웨어 패치 | 예 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니요 |
+| VNet - 클래식 배포 모델 | 아니오 |
 | 포털 지원 | 예|
 |||
 
@@ -186,7 +187,7 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 마이그레이션 방식에서는 Azure blob 저장소에 SQL을 백업합니다. Azure 저장소 blob에 저장된 백업을 관리되는 인스턴스에 바로 복원할 수 있습니다. 기존 SQL 데이터베이스를 관리되는 인스턴스로 복원하려면 다음을 수행하면 됩니다.
 
 - [DMS(데이터 마이그레이션 서비스)](/sql/dma/dma-overview)를 사용합니다. 데이터베이스 백업 파일에서 복원하는 방법을 보여 주는 자습서는 [DMS(Azure Database Migration Service)를 사용하여 관리되는 인스턴스로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
-- [T-SQL RESTORE 명령](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql)을 사용합니다. 
+- [T-SQL RESTORE 명령](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)을 사용합니다. 
   - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여 주는 자습서는 [관리되는 인스턴스에 백업 파일 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요. 이 자습서에서는 백업 파일을 Azure Blob 저장소에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여 줍니다.
   - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](sql-database-managed-instance-migrate.md#native-restore-from-url)을 참조하세요.
 - [BACPAC 파일에서 가져오기](sql-database-import.md)

@@ -4,14 +4,15 @@ description: Collector 어플라이언스에 대한 개요 및 구성 방법을 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/15/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203685"
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -89,7 +90,7 @@ Collector가 제공된 설정을 통해 인터넷에 연결할 수 있으면 필
 
 Azure Migrate Collector 서비스를 시스템에서 실행 중이어야 합니다. 서비스는 시스템이 부팅될 때 자동으로 시작됩니다. 서비스를 실행하고 있지 않으면 제어판을 통해 *Azure Migrate Collector* 서비스를 시작할 수 있습니다. Collector 서비스는 vCenter 서버에 연결하고 컴퓨터 메타데이터 및 성능 데이터를 수집하여 서비스로 전송하는 작업을 담당합니다.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 Collector가 vCenter Server와 통신하고 시스템 세부 정보 및 성능 데이터를 쿼리할 수 있도록 VMware PowerCLI PowerShell 모듈을 설치해야 합니다. PowerShell 모듈은 필수 조건 검사의 일환으로 자동으로 다운로드되고 설치됩니다. 자동 다운로드를 수행하려면 몇 가지 URL을 허용 목록에 추가해야 하며, 그렇게 하지 않으면 해당 URL을 허용 목록에 추가하여 액세스를 제공하거나 모듈을 수동으로 설치해야 합니다.
 
@@ -103,7 +104,7 @@ Collector가 vCenter Server와 통신하고 시스템 세부 정보 및 성능 �
 
 Collector는 vCenter Server에 연결되어야 하고 가상 머신, 가상 머신의 메타데이터 및 성능 카운터를 쿼리할 수 있어야 합니다. 이 데이터는 프로젝트에서 평가를 계산하는 데 사용됩니다.
 
-1. vCenter Server에 연결하려면, 다음 표에 제시된 권한이 있는 읽기 전용 계정을 사용하여 검색을 실행합니다. 
+1. vCenter Server에 연결하려면, 다음 표에 제시된 권한이 있는 읽기 전용 계정을 사용하여 검색을 실행합니다.
 
     |Task  |필요한 역할/계정  |권한  |
     |---------|---------|---------|
@@ -118,13 +119,13 @@ Collector는 vCenter Server에 연결되어야 하고 가상 머신, 가상 머�
 > vCenter Server 버전 5.5, 6.0 및 6.5만 공식적으로 지원됩니다.
 
 > [!IMPORTANT]
-> 모든 카운터는 올바르게 수집되도록 통계 수준에 대한 가장 높은 일반적인 수준(3)을 설정하는 것이 좋습니다. vCenter가 낮은 수준으로 설정된 경우 몇 가지 카운터만 완벽히 수집되고 나머지는 0으로 설정됩니다. 그러면 평가는 불완전한 데이터를 표시합니다. 
+> 모든 카운터는 올바르게 수집되도록 통계 수준에 대한 가장 높은 일반적인 수준(3)을 설정하는 것이 좋습니다. vCenter가 낮은 수준으로 설정된 경우 몇 가지 카운터만 완벽히 수집되고 나머지는 0으로 설정됩니다. 그러면 평가는 불완전한 데이터를 표시합니다.
 
 ### <a name="selecting-the-scope-for-discovery"></a>검색 범위 선택
 
 vCenter에 연결되면 검색할 범위를 선택할 수 있습니다. 범위를 선택하면 지정된 vCenter 인벤토리 경로의 모든 가상 머신이 검색됩니다.
 
-1. 범위는 데이터센터, 폴더 또는 ESXi 호스트일 수 있습니다. 
+1. 범위는 데이터센터, 폴더 또는 ESXi 호스트일 수 있습니다.
 2. 범위는 한 번에 하나만 선택할 수 있습니다. 가상 머신을 더 많이 선택하려면 검색 하나를 완료하고 새 범위로 검색 프로세스를 다시 시작합니다.
 3. *가상 머신이 1500대 미만*인 범위만 선택할 수 있습니다.
 
@@ -141,14 +142,15 @@ vCenter에 연결되면 검색할 범위를 선택할 수 있습니다. 범위�
 
 ### <a name="what-data-is-collected"></a>수집되는 데이터
 
-컬렉션 작업은 선택된 가상 머신에 대해 다음과 같은 정적 메타데이터를 검색합니다. 
+컬렉션 작업은 선택된 가상 머신에 대해 다음과 같은 정적 메타데이터를 검색합니다.
 
 1. VM 표시 이름(vCenter)
 2. VM의 인벤토리 경로(vCenter의 호스트/폴더)
 3. IP 주소
 4. MAC 주소
+5. 운영 체제
 5. 코어, 디스크, NIC 수
-6. RAM, 디스크 크기
+6. 메모리 크기, 디스크 크기
 7. VM, 디스크 및 네트워크의 성능 카운터는 아래 표를 참조하세요.
 
 다음 표에는 수집된 성능 카운터가 나열되어 있고 특정 카운터가 수집되지 않으면 영향을 받는 평가 결과도 나열되어 있습니다.
@@ -190,7 +192,7 @@ Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 �
 2. 다운로드한 핫픽스가 안전한지 확인하려면 관리자 권한 명령 창을 열고 다음 명령을 실행하여 Zip 파일에 대한 해시를 생성합니다. 생성된 해시는 특정 버전에 대해 언급된 해시와 일치해야 합니다.
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (예제 사용량 C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Zip 파일을 Azure Migrate 수집기 가상 머신(수집기 어플라이언스)에 복사합니다.
 4. Zip 파일을 마우스 오른쪽 단추로 클릭하고 모두 압축 풀기를 선택합니다.

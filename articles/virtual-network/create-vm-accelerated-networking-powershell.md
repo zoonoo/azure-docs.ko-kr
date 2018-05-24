@@ -3,8 +3,8 @@ title: 가속화된 네트워킹을 사용하는 Azure 가상 머신 만들기 |
 description: 가속 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: ''
-author: jdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,22 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
-ms.author: jimdial
-ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: gsilva
+ms.openlocfilehash: de69cdf69f30639d048dccd7d433c86f6cb9db7b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894187"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 Windows 가상 머신 만들기
 
-> [!IMPORTANT]
-> 가속 네트워킹을 사용하여 가상 머신을 만들어야 합니다. 기존 가상 머신에서는 이 기능을 사용할 수 없습니다. 가속 네트워킹을 사용하려면 다음 단계를 완료합니다.
->   1. 가상 머신 삭제
->   2. 가속 네트워킹을 사용하는 가상 머신을 다시 만듭니다.
->
-
-이 자습서에서는 가속화된 네트워킹을 사용하여 Windows VM(가상 머신)을 만드는 방법에 대해 알아봅니다. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속 네트워킹을 사용할 때와 사용하지 않을 때 두 개의 VM 간의 통신을 보여줍니다.
+이 자습서에서는 가속화된 네트워킹을 사용하여 Windows VM(가상 머신)을 만드는 방법에 대해 알아봅니다. 가속화된 네트워킹을 사용하여 Linux VM을 만들려면 [가속화된 네트워킹을 사용하여 Linux VM 만들기](create-vm-accelerated-networking-cli.md)를 참조합니다. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속 네트워킹을 사용할 때와 사용하지 않을 때 두 개의 VM 간의 통신을 보여줍니다.
 
 ![비교](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -43,23 +38,30 @@ ms.lasthandoff: 04/19/2018
 * **감소된 지터:** 가상 스위치 처리는 적용해야 하는 정책의 양과 처리를 수행하는 CPU의 워크로드에 따라 달라집니다. 정책 적용을 하드웨어로 오프로드하면 패킷이 VM으로 직접 전달되고, 호스트-VM 통신과 모든 소프트웨어 인터럽트 및 컨텍스트 전환이 제거되어 이러한 가변성이 해소됩니다.
 * **CPU 사용률 감소:** 호스트의 가상 스위치를 무시하면 네트워크 트래픽 처리에 사용되는 CPU가 감소됩니다.
 
-## <a name="supported-operating-systems"></a>지원되는 운영 체제
-Microsoft Windows Server 2012 R2 Datacenter 및 Windows Server 2016
+## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 
-## <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속 네트워킹은 가장 일반적인 용도로 4개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다. 하이퍼스레딩을 지원하는 D/DSv3 또는 E/ESv3과 같은 인스턴스에서 가속 네트워킹은 8개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 및 Ms/Mms입니다.
+### <a name="supported-operating-systems"></a>지원되는 운영 체제
+다음 분포는 즉시 Azure Gallery에서 기본으로 지원됩니다. 
+* **Windows Server 2016 Datacenter** 
+* **Windows Server 2012 R2 Datacenter** 
+
+### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
+가속화된 네트워킹은 가장 일반적인 용도 및 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기로 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+
+하이퍼스레딩을 지원하는 인스턴스에서 가속화된 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-## <a name="regions"></a>영역
+### <a name="regions"></a>영역
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
-## <a name="limitations"></a>제한 사항
-이 기능을 사용하는 경우 다음과 같은 제한이 적용됩니다.
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>실행 중인 VM에서 가속화된 네트워킹 사용하도록 설정
+가속화된 네트워킹을 사용하지 않는 지원되는 VM 크기는 기능이 중지되고 할당이 취소될 경우 사용하도록 설정할 수 있습니다.
 
-* **네트워크 인터페이스 만들기:** 가속화된 네트워킹은 새 NIC에서만 사용할 수 있으며, 기존 NIC에서는 사용할 수 없습니다.
-* **VM 만들기:** VM을 만들 때 가속화된 네트워킹을 사용하도록 설정된 NIC만 VM에 연결할 수 있습니다. 기존 VM에는 이 NIC를 연결할 수 없습니다. VM을 기존 가용성 집합에 추가하는 경우 가용성 집합의 모든 VM에서도 가속화된 네트워킹을 사용할 수 있어야 합니다.
-* **Azure Resource Manager를 통해서만 배포:** 가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
+### <a name="deployment-through-azure-resource-manager"></a>Azure Resource Manager를 통한 배포
+가속화된 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
+
+## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Azure 가속화된 네트워킹을 사용하여 Windows VM 만들기
 
 이 문서에서는 Azure PowerShell을 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 가상 머신을 만드는 경우 **설정**의 **가속 네트워킹** 아래에서 **사용**을 선택합니다. [지원되는 운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택하지 않으면 가속 네트워킹을 사용하는 옵션이 포털에 나타나지 않습니다. 가상 머신이 만들어진 후에는 [드라이버가 운영 체제에 설치되었는지 확인](#confirm-the-driver-is-installed-in-the-operating-system)의 지침을 완료해야 합니다.
 
@@ -210,3 +212,91 @@ Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설
     ![장치 관리자](./media/create-vm-accelerated-networking/device-manager.png)
 
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속화된 네트워킹을 사용하도록 설정
+가속화된 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM은 위에 설명된 다음의 필수 구성 요소를 충족하여 가속화된 네트워킹을 지원해야 합니다.
+
+* VM은 가속화된 네트워킹에 대해 지원되는 크기이어야 함
+* VM은 지원되는 Azure Gallery 이미지(및 Linux용 커널 버전)이어야 함
+* 가용성 집합의 모든 VM 또는 VMSS는 모든 NIC에서 가속화된 네트워킹을 사용하기 전에 중지/할당 취소되어야 함
+
+### <a name="individual-vms--vms-in-an-availability-set"></a>가용성 집합의 개별 VM 및 VM
+먼저 VM을 중지/할당 취소하거나 가용성 집합인 경우 집합에서 모든 VM을 중지/할당 취소합니다.
+
+```azurepowershell
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+중요하니 주의하십시오. VM이 가용성 집합 없이 개별적으로 만들어진 경우 가속화된 네트워킹을 사용하도록 설정하려면 개별 VM을 중지/할당 취소해야 합니다.  가용성 집합으로 VM을 만든 경우 가용성 집합에 포함된 모든 VM을 모든 NIC에서 가속화된 네트워킹을 사용하기 전에 중지/할당 취소해야 합니다. 
+
+중지되면 해당 VM의 NIC에서 가속화된 네트워킹을 사용하도록 설정합니다.
+
+```azurepowershell
+$nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    -Name "myNic"
+
+$nic.EnableAcceleratedNetworking = $true
+
+$nic | Set-AzureRmNetworkInterface
+```
+
+VM을 다시 시작하거나, 가용성 집합인 경우 집합의 모든 VM을 다시 시작하고 가속화된 네트워킹이 사용하도록 설정되어 있는지 확인합니다. 
+
+```azurepowershell
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+### <a name="vmss"></a>VMSS
+VMSS는 약간 차이는 있지만 동일한 워크플로를 따릅니다.  먼저, VM을 중지합니다.
+
+```azurepowershell
+Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+VM이 중지되면 네트워크 인터페이스 아래의 가속화된 네트워킹 속성을 업데이트합니다.
+
+```azurepowershell
+$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet"
+
+$vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+VMSS에는 자동, 롤링, 수동의 세 가지 다른 설정으로 업데이트를 적용하는 VM 업그레이드가 있습니다.  이 지침에서는 다시 시작한 후 VMSS에서 변경 내용을 즉시 픽업하도록 정책이 자동으로 설정되었습니다.  변경 내용이 즉시 픽업되도록 정책을 자동으로 설정하려면: 
+
+```azurepowershell
+$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+마지막으로, VMSS를 다시 시작합니다.
+
+```azurepowershell
+Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+다시 시작하고 업그레이드가 완료될 때까지 기다린 후 완료되면 VF가 VM 내부에 나타납니다.  (지원되는 OS 및 VM 크기를 사용 중인지 확인)
+
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>가속화된 네트워킹을 사용하여 기존 VM 크기 조정
+
+가속화된 네트워킹을 사용하는 VM은 가속화된 네트워킹을 지원하는 VM으로만 크기 조정할 수 있습니다.  
+
+크기 조정 작업을 통해 가속화된 네트워킹을 사용하는 VM을 가속화된 네트워킹이 지원되지 않는 VM 인스턴스로 크기 조정할 수 없습니다.  이러한 VM 중 하나의 크기를 조정하려면 다음을 수행합니다. 
+
+* VM을 중지/할당 취소하거나, 가용성 집합/VMSS인 경우 집합/VMSS에 포함된 모든 VM을 중지/할당 취소합니다.
+* VM 또는 가용성 집합/VMSS인 경우 집합/VMSS에 포함된 모든 VM의 NIC에서 가속화된 네트워킹을 사용하지 않도록 설정해야 합니다.
+* 가속화된 네트워킹이 사용되지 않으면 VM/가용성 집합/VMSS를 가속화된 네트워킹이 지원되지 않는 새 크기로 이동하고 다시 시작할 수 있습니다.  
+
+
+

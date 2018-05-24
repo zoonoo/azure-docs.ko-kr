@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b7141d028c496b75b061c17aa19ad6c73c0588c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32164417"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform 계정 연결
 
@@ -61,7 +62,7 @@ Google Cloud Storage를 사용하여 사용 보고서를 저장하는 경우 최
 
 1. Azure Portal에서 Cloudyn 포털을 열거나 [https://azure.cloudyn.com](https://azure.cloudyn.com/)으로 이동하여 로그인합니다.
 2. **설정**(톱니바퀴 기호)을 클릭하고 **클라우드 계정**을 선택합니다.
-3. **계정 관리**에서 **Google 계정** 탭을 선택하고 **새로 추가 +**를 클릭합니다.
+3. **계정 관리**에서 **Google 계정** 탭을 선택하고 **새로 추가 +** 를 클릭합니다.
 4. **Google 계정 이름**에 청구 계정의 메일 주소를 입력하고 **다음**을 클릭합니다.
 5. Google 인증 대화 상자에서 Google 계정을 선택하거나 입력하고 cloudyn.com에 계정에 대한 액세스를 **허용**합니다.
 6. 이전에 적어둔 요청 프로젝트 정보를 추가합니다. 여기에는 **프로젝트 ID**, **프로젝트** 이름, **청구** 버킷 이름 및 **청구 파일** 보고서 접두사가 포함됩니다. 그런 다음 **저장**을 클릭합니다.  

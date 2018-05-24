@@ -3,8 +3,8 @@ title: Azure 가상 머신 선불로 비용 절감 - Azure | Microsoft Docs
 description: 가상 머신 비용을 절약하려면 Azure Reserved Virtual Machine Instance에 대해 알아보세요.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: yashar
+ms.openlocfilehash: 9c73102f09e252b449f78603debaf707b3c89c3b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34056689"
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>예약 가상 머신 인스턴스를 사용하여 가상 머신에서 비용을 절감합니다. 
 예약 가상 머신 인스턴스를 사용하면 1년 또는 3년 계산 용량을 선불로 결제하여 사용하는 가상 머신에서 할인을 받을 수 있습니다. 1년 또는 3년 사전 약정을 통해 종량제 가격으로 최대 72%까지 가상 머신 비용을 크게 절감할 수 있습니다. 예약 가상 머신 인스턴스는 청구 할인으로, 가상 머신의 런타임 상태에 영향을 주지 않습니다.
@@ -35,6 +36,7 @@ ms.lasthandoff: 05/03/2018
 -   Enterprise 계약 구독 제품 유형(MS-AZR-0017P).
 -   [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독 제품 유형(MS-AZR-003P).
 예약 인스턴스를 구매하려면 해당 구독에 대한 "소유자" 역할이 있어야 합니다. 엔터프라이즈 등록으로 예약을 구매하는 경우 엔터프라이즈 관리자는 기본적으로 설정을 활성화하여 EA 포털에서 예약을 지원해야 합니다.
+-   CSP(클라우드 솔루션 공급자) 파트너는 Azure 관리 포털 또는 [파트너 센터](https://docs.microsoft.com/partner-center/azure-reservations)를 사용하여 예약을 구입할 수 있습니다.
 
 ## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>예약 가상 머신 인스턴스 청구 방법
 예약 구매는 구독에 연결된 지불 방법으로 청구됩니다. Enterprise 구독이 있는 경우 예약 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액으로 예약 비용이 해결되지 않는 경우 초과분이 청구됩니다.
@@ -69,5 +71,7 @@ ms.lasthandoff: 05/03/2018
 - [종량제 구독에서 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [Enterprise 등록의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
+- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 예약 인스턴스](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

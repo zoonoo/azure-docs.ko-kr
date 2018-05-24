@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939030"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -25,31 +26,30 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-그림 1 - Azure 지역 쌍 다이어그램
+그림 1 - Azure 지역 쌍
 
 | Geography | 쌍을 이루는 지역 |  |
 |:--- |:--- |:--- |
 | 아시아 |동아시아 |동남아시아 |
 | 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
+| 브라질 |브라질 남부(2) |미국 중남부 |
 | 캐나다 |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
+| 유럽 |북유럽 |서유럽 |
+| 독일 |독일 중부 |독일 북동부 |
 | 인도 |인도 중부 |인도 남부 |
 | 인도 |인도 서부(1) |인도 남부 |
 | 일본 |일본 동부 |일본 서부 |
 | 한국 |한국 중부 |한국 남부 |
-| 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 동부 |미국 서부 |
 | 북아메리카 |미국 동부 2 |미국 중부 |
-| 북아메리카 |미국 서부 2 |미국 중서부 |
-| 유럽 |북유럽 |서유럽 |
-| 일본 |일본 동부 |일본 서부 |
-| 브라질 |브라질 남부(2) |미국 중남부 |
+| 북아메리카 |미국 중북부 |미국 중남부 |
+| 북아메리카 |미국 서부 2 |미국 중서부 
+| 영국 |영국 서부 |영국 남부 |
+| 미국 국방부 |미국 국방부 동부 |미국 국방부 중부 |
+| 미국 정부 |미국 정부 애리조나 |미국 정부 텍사스 |
 | 미국 정부 |미국 아이오와 주 정부(3) |미국 정부 버지니아 |
 | 미국 정부 |미국 버지니아 주 정부(4) |미국 정부 텍사스 |
-| 미국 정부 |미국 정부 애리조나 |미국 정부 텍사스 |
-| 미국 국방부 |미국 국방부 동부 |미국 국방부 중부 |
-| 영국 |영국 서부 |영국 남부 |
-| 독일 |독일 중부 |독일 북동부 |
 
 표 1 - Azure 지역 쌍 매핑
 

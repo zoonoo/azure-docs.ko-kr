@@ -1,19 +1,20 @@
 ---
-title: "Azure DC/OS 클러스터 모니터링 - ELK 스택"
-description: "ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure Container Service 클러스터에서 DC/OS 클러스터를 모니터링합니다."
+title: Azure DC/OS 클러스터 모니터링 - ELK 스택
+description: ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure Container Service 클러스터에서 DC/OS 클러스터를 모니터링합니다.
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32163183"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>ELK를 사용하여 Azure Container Service 클러스터 모니터링
 

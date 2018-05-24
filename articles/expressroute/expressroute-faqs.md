@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4c61cdc504306d4e28d1d8c03fce4e479a0bfd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160872"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -36,7 +37,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>ExpressRoute 통신 업체 중 하나와 파트너의 관계가 아닌 경우, ExpressRoute를 사용하여 Microsoft에 연결할 수 있는 방법이 있나요?
 
-지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
+지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [ 파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
 
 ### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 비용
 
@@ -156,7 +157,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>같은 메트로에 여러 ExpressRoute 회로를 포함할 수 있나요? 동일한 가상 네트워크에 연결할 수 있나요?
 
-예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 ExpressRoute 피어링 위치가 있고 다양한 피어링 위치에 회로가 생성될 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어링 위치에 생성되면 동일한 가상 네트워크에 연결할 수 없습니다.
+예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어링 위치에 생성되면 동일한 가상 네트워크에 연결할 수 없습니다. Azure Portal 또는 PowerShell/CLI API의 각 위치 이름은 하나의 피어링 위치를 나타냅니다. 예를 들어 "Singapore" 및 "Singapore2" 피어링 위치를 선택하고 각 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 ExpressRoute 회로에 연결하려면 어떻게 해야 하나요?
 

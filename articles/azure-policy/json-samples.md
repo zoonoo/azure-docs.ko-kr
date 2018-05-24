@@ -1,26 +1,20 @@
 ---
-title: Azure 템플릿 샘플 | Microsoft Docs
+title: Policy 템플릿 샘플
 description: Azure Policy에 대한 JSON 샘플
 services: azure-policy
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: na
-ms.topic: samples
-ms.tgt_pltfrm: ''
-ms.workload: ''
+ms.topic: sample
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4b9096c1fb0d9ee74849e259a6e0af2486c5d29b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195127"
 ---
 # <a name="templates-for-azure-policy"></a>Azure Policy에 대한 템플릿
 
@@ -79,6 +73,9 @@ ms.lasthandoff: 04/28/2018
 | [허용되는 리소스 유형](scripts/allowed-res-types.md) | 승인된 리소스 종류만 배포되도록 보장합니다. 허용되는 리소스 종류 배열을 지정합니다.  |
 | [허용되는 저장소 계정 SKU](scripts/allowed-stor-acct-skus.md) | 저장소 계정은 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |
 | [태그 및 기본값 적용](scripts/apply-tag-def-val.md) | 해당 태그를 제공하지 않으면 지정된 태그 이름 및 값을 추가합니다. 적용할 태그 이름 및 값을 지정합니다.  |
+| [SQL Database 암호화 감사](scripts/sql-database-encryption-audit.md) | SQL 데이터베이스가 투명 데이터 암호화가 사용되지 않는지 감사합니다. |
+| [SQL Server 감사 설정 감사](scripts/sql-server-audit.md) | 감사 설정 사용 여부에 따라 SQL Server를 감사합니다. |
+| [Data Lake Store 암호화 적용](scripts/enforce-datalakestore-encryption.md) | 암호화가 사용되지 않는 Data Lake Store 계정을 거부합니다. |
 | [태그 및 해당 값 강제 적용](scripts/enforce-tag-val.md) | 지정된 태그 이름 및 값이 필요합니다. 강제 적용할 태그 이름 및 값을 지정합니다.  |
 | [허용되지 않는 리소스 유형](scripts/not-allowed-res-type.md) | 지정된 리소스 유형의 배포가 금지됩니다. 차단할 리소스 유형 배열을 지정합니다.  |
 | [SQL Server 버전 12.0 필요](scripts/req-sql-12.md) | Microsoft SQL Server 버전 12.0을 사용해야 합니다.  |

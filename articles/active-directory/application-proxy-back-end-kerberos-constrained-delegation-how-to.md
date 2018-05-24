@@ -1,11 +1,11 @@
 ---
-title: "응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결 | Microsoft Docs"
-description: "응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결"
+title: 응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결 | Microsoft Docs
+description: 응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068271"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -30,7 +31,7 @@ KCD를 사용하기 위한 실제 절차는 비교적 간단하며 일반적으�
 
 이 문서에서는 다음과 같이 가정합니다.
 
--   Azure 응용 프로그램 프록시가 [설명서](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)에 따라 배포되었으며 비 KCD 응용 프로그램에 대한 일반 액세스가 예상대로 작동합니다.
+-   Azure 응용 프로그램 프록시가 [설명서](manage-apps/application-proxy-enable.md)에 따라 배포되었으며 비 KCD 응용 프로그램에 대한 일반 액세스가 예상대로 작동합니다.
 
 -   게시된 대상 응용 프로그램은 IIS 및 Microsoft의 Kerberos 구현을 기반으로 합니다.
 
@@ -42,7 +43,7 @@ KCD를 사용하기 위한 실제 절차는 비교적 간단하며 일반적으�
 
 Azure 응용 프로그램 프록시는 다양한 종류의 인프라 또는 환경에 배포할 수 있으며 아키텍처는 조직마다 다를 수 있습니다. KCD 관련 문제의 가장 일반적인 원인 중 하나는 환경 자체가 아니라 단순한 잘못된 구성 또는 일반적인 감독입니다.
 
-따라서 언제나 문제 해결을 시작하기 전에 [KCD SSO를 응용 프로그램 프록시와 함께 사용 문서](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)에 설명된 모든 필수 조건을 충족하는지 확인하는 것이 좋습니다.
+따라서 언제나 문제 해결을 시작하기 전에 [KCD SSO를 응용 프로그램 프록시와 함께 사용 문서](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)에 설명된 모든 필수 조건을 충족하는지 확인하는 것이 좋습니다.
 
 특히 이전 버전의 Windows에서 KCD를 구성할 때는 근본적으로 다른 접근 방식을 사용하기 때문에 2012R2에서 KCD를 구성하는 섹션뿐 아니라 다음과 같은 여러 가지 고려 사항을 염두에 두어야 합니다.
 
@@ -70,11 +71,11 @@ KCD 문제가 되는 요소는 무엇인가요? KCD SSO 문제를 나타내는 �
 
 문제를 해결하는 방법은 문제와 관찰된 증상에 따라 달라집니다. 계속 진행하기 전에 유용한 정보가 설명되어 있는 다음 링크를 살펴보세요.
 
--   [응용 프로그램 프록시 문제 및 오류 메시지 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [응용 프로그램 프록시 문제 및 오류 메시지 문제 해결](active-directory-application-proxy-troubleshoot.md)
 
--   [Kerberos 오류 및 증상](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Kerberos 오류 및 증상](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [온-프레미스 및 클라우드 ID가 동일하지 않은 경우 SSO를 사용하여 작업](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [온-프레미스 및 클라우드 ID가 동일하지 않은 경우 SSO를 사용하여 작업](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 여기까지 읽어 보면 주요 문제를 찾을 수 있을 것입니다. 먼저 문제 해결이 가능하도록 흐름을 세 단계로 구분합니다.
 
@@ -98,7 +99,7 @@ KCD SSO가 작동하려면 Azure에 사전 인증할 수 있어야 합니다. �
 
 -   응용 프로그램의 주소에 대해 내부 DNS의 A 레코드를 사용하고 CName은 사용하지 마세요.
 
--   커넥터 호스트에 지정된 대상 계정의 SPN에 위임할 수 있는 권한이 부여되었으며 **모든 인증 프로토콜 사용**이 선택되었는지 다시 확인합니다. 이 항목에 대한 자세한 내용은 [SSO 구성 문서](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)를 참조하세요.
+-   커넥터 호스트에 지정된 대상 계정의 SPN에 위임할 수 있는 권한이 부여되었으며 **모든 인증 프로토콜 사용**이 선택되었는지 다시 확인합니다. 이 항목에 대한 자세한 내용은 [SSO 구성 문서](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 
 -   도메인 구성원 호스트의 명령 프롬프트에서 `setspn -x`를 실행하여 AD에 SPN 인스턴스가 하나만 존재하는지 확인합니다.
 
@@ -179,4 +180,4 @@ Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'N
 -   이중 홉 인증 - 일반적으로 SQL Reporting Services와 같이 인증이 필요한 백 엔드 및 프런트 엔드를 사용하여 응용 프로그램이 계층화된 시나리오에 사용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[관리되는 도메인에서 KCD(Kerberos 제한 위임) 구성](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[관리되는 도메인에서 KCD(Kerberos 제한 위임) 구성](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

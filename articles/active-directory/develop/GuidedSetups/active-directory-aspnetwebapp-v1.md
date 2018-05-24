@@ -1,24 +1,25 @@
 ---
-title: "Azure AD v1 ASP.NET 웹 서버 시작 | Microsoft Docs"
-description: "OpenID Connect 표준을 사용하여 기존 웹 브라우저 기반 응용 프로그램을 사용하는 ASP.NET 솔루션에서 Microsoft 로그인 구현"
+title: Azure AD v1 ASP.NET 웹 서버 시작 | Microsoft Docs
+description: OpenID Connect 표준을 사용하여 기존 웹 브라우저 기반 응용 프로그램을 사용하는 ASP.NET 솔루션에서 Microsoft 로그인 구현
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156464"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>ASP.NET 웹앱에 Microsoft에 로그인 추가
@@ -250,7 +251,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>코드 테스트
 
-`F5` 키를 눌러 Visual Studio에서 프로젝트를 실행합니다. 브라우저가 열리고 *http://localhost:{port}*로 이동합니다. 이 페이지에는 *Microsoft에 로그인* 단추가 표시됩니다. 계속해서 이 단추를 클릭하여 로그인합니다.
+`F5` 키를 눌러 Visual Studio에서 프로젝트를 실행합니다. 브라우저가 열리고 *http://localhost:{port}* 로 이동합니다. 이 페이지에는 *Microsoft에 로그인* 단추가 표시됩니다. 계속해서 이 단추를 클릭하여 로그인합니다.
 
 테스트할 준비가 되면 회사 계정(Azure Active Directory)을 사용하여 로그인합니다. 
 

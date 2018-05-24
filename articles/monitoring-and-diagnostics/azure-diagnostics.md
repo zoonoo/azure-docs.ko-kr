@@ -1,11 +1,11 @@
 ---
-title: "Azure 진단 개요 | Microsoft Docs"
-description: "클라우드 서비스, 가상 머신 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용"
+title: Azure 진단 개요 | Microsoft Docs
+description: 클라우드 서비스, 가상 머신 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
 ms.service: multiple
 ms.workload: na
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0231a6c1d78818b948bb24d0c406fb2f2da17a0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32169138"
 ---
 # <a name="what-is-azure-diagnostics"></a>Azure 진단이란?
-Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure Cloud Service 웹 및 작업자 역할, Microsoft Windows 및 서비스 패브릭을 실행하는 Azure Virtual Machines에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 별도의 자체 진단이 있습니다.
+Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, 가상 머신 확장 집합 및 Service Fabric에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](monitoring-overview.md)를 참조하세요. 
 
 ## <a name="data-you-can-collect"></a>수집할 수 있는 데이터
 Azure 진단에서는 다음과 같은 유형의 데이터를 수집할 수 있습니다.
@@ -38,16 +39,13 @@ Azure 진단에서는 다음과 같은 유형의 데이터를 수집할 수 있�
 | 사용자 지정 오류 로그 |응용 프로그램 또는 서비스에서 생성한 로그 |
 | Azure 진단 인프라 로그 |진단 자체에 대한 정보입니다. |
 
-Azure 진단 확장은 이 데이터를 Azure Storage 계정에 전송하거나 [Application Insights](../application-insights/app-insights-cloudservices.md)와 같은 서비스에 보낼 수 있습니다. 디버깅 및 문제 해결, 성능 측정, 리소스 사용 모니터링, 트래픽 분석 및 용량 계획, 감사 등에 데이터를 사용할 수 있습니다.
+Azure 진단 확장은 이 데이터를 Azure Storage 계정에 전송하거나 [Application Insights](../application-insights/app-insights-cloudservices.md)에 보낼 수 있습니다. [이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)로 스트리밍할 수도 있습니다. 그러면 비 Azure 모니터링 서비스에 보낼 수 있습니다. 디버깅 및 문제 해결, 성능 측정, 리소스 사용 모니터링, 트래픽 분석 및 용량 계획, 감사 등에 데이터를 사용할 수 있습니다.
 
 ## <a name="versioning"></a>버전 관리
 [Azure Diagnostics Versioning History(Azure 진단 버전 관리 기록)](azure-diagnostics-versioning-history.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 진단을 수집할 서비스를 선택하고 다음 문서를 사용하여 시작합니다. 특정 작업에 대한 참조로 일반 Azure 진단 링크를 사용합니다.
-
-## <a name="web-apps"></a>Web Apps
-Web Apps에서는 Azure 진단을 사용하지 마세요. [Web Apps](../app-service/web-sites-enable-diagnostic-log.md)에서 관련 정보 찾기
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Azure 진단을 사용하는 Cloud Services
 * Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Cloud Services 응용 프로그램 추적](../vs-azure-tools-debug-cloud-services-virtual-machines.md) 을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.

@@ -2,29 +2,29 @@
 title: Azure Portal에서 B2B 공동 작업 사용자 - Azure Active Directory | Microsoft Docs
 description: 관리자가 Azure AD(Azure Active Directory) B2B 공동 작업을 사용하여 파트너 조직에서 해당 디렉터리에 게스트 사용자를 추가할 수 있는 방법을 보여줍니다.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/02/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 34bd5b51089045c4cd20f29d179bb230e5e3fac2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076768"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가
 
 전역 관리자 또는 제한된 관리자 디렉터리 역할 중 하나에 할당된 사용자로서 Azure Portal을 사용하여 B2B 공동 작업 사용자를 초대할 수 있습니다. 게스트 사용자를 디렉터리, 그룹 또는 응용 프로그램에 초대할 수 있습니다. 다음 방법 중 하나를 통해 사용자를 초대한 후 초대된 사용자의 계정은 *게스트*의 사용자 유형으로 Azure AD(Azure Active Directory)에 추가됩니다. 게스트 사용자는 리소스에 액세스하려면 해당 초대를 사용해야 합니다.
+
+게스트 사용자를 디렉터리에 추가한 후에 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 또는 게스트 사용자는 초대 이메일에서 상환 URL을 클릭할 수 있습니다. 상환 프로세스에 대한 자세한 내용은 [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)을 참조하세요.
+
+> [!IMPORTANT]
+> [방법: Azure Active Directory에서 조직의 개인 정보를 추가](https://aka.ms/adprivacystatement)의 단계를 수행하여 조직 개인정보취급방침의 URL을 추가해야 합니다. 첫 번째 초대 상환 프로세스의 일환으로 초대된 사용자는 계속하여 개인정보취급방침 사용 약관에 동의해야 합니다. 
 
 ## <a name="add-guest-users-to-the-directory"></a>디렉터리에 게스트 사용자 추가
 
@@ -92,7 +92,7 @@ B2B 공동 작업 사용자를 Azure AD 관리자로 응용 프로그램에 추�
  
 ## <a name="resend-invitations-to-guest-users"></a>게스트 사용자에게 초대 다시 보내기
 
-게스트 사용자가 초대를 아직 사용하지 않은 경우 초대를 다시 보낼 수 있습니다.
+게스트 사용자가 초대를 아직 사용하지 않은 경우 초대 이메일을 다시 보낼 수 있습니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
@@ -111,6 +111,4 @@ B2B 공동 작업 사용자를 Azure AD 관리자로 응용 프로그램에 추�
 
 - 비 Azure AD 관리자가 B2B 게스트 사용자를 추가할 수 있는 방법을 알려면 [정보 작업자가 B2B 공동 작업 사용자를 추가하는 방법은?](active-directory-b2b-iw-add-users.md)을 참조합니다.
 - 초대 이메일에 대한 내용은 [B2B 공동 작업 이메일 요소](active-directory-b2b-invitation-email.md)를 참조합니다.
-- 초대 상환 프로세스에 대한 내용은 [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)을 참조합니다.
-
 

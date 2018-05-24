@@ -10,19 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310981"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory에서 연속 통합 및 배포
 
 연속 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 연속 배포는 연속 통합 중에 발생하는 테스트를 수행하고, 준비 또는 프로덕션 시스템에 변경 내용을 푸시합니다.
 
 Azure Data Factory에서 연속 통합 및 배포란 다른 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 것입니다. 연속 통합 및 배포를 수행하기 위해 Azure Resource Manager 템플릿을 사용하여 Data Factory UI 통합을 사용할 수 있습니다. **ARM 템플릿** 옵션을 선택하는 경우 Data Factory UI가 Resource Manager 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기**를 선택하는 경우 포털에서는 Data Factory의 Resource Manager 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함하는 구성 파일을 생성합니다. 그런 다음, 각 환경(개발, 테스트, 프로덕션)에 하나의 구성 파일을 만들어야 합니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
+
+9분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>각 환경에 Resource Manager 템플릿 만들기
 **ARM 템플릿 내보내기**를 선택하여 개발 환경에서 Data Factory에 Resource Manager 템플릿을 내보냅니다.
@@ -129,11 +134,11 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
     다.  **리소스 그룹 만들기 또는 업데이트** 작업을 선택합니다.
 
-    d.  **템플릿 매개 변수 재정의** 필드 **…**를 선택합니다. 포털에서 게시 작업으로 만들어진 Resource Manager 템플릿(*ARMTemplateForFactory.json*)을 찾아봅니다. `adf\_publish` 분기의 루트 폴더에서 이 파일을 찾습니다.
+    d.  **템플릿 매개 변수 재정의** 필드 **…** 를 선택합니다. 포털에서 게시 작업으로 만들어진 Resource Manager 템플릿(*ARMTemplateForFactory.json*)을 찾아봅니다. `adf\_publish` 분기의 루트 폴더에서 이 파일을 찾습니다.
 
     e.  매개 변수 파일에 동일한 작업을 수행합니다. 복사본을 만들었는지 또는 기본 파일 *ARMTemplateParametersForFactory.json*을 사용하는지에 따라 올바른 파일을 선택합니다.
 
-    f.  **템플릿 매개 변수 재정의** 필드 옆에 있는 **…**을 선택하고 대상 Data Factory에 대한 정보를 입력합니다. 키 자격 증명 모음에서 제공하는 자격 증명의 경우 암호에 다음과 같은 형식의 동일한 이름을 사용합니다. 암호 이름이 `cred1`이라고 가정하면 `"$(cred1)"`(따옴표 포함)를 입력합니다.
+    f.  **템플릿 매개 변수 재정의** 필드 옆에 있는 **…** 을 선택하고 대상 Data Factory에 대한 정보를 입력합니다. 키 자격 증명 모음에서 제공하는 자격 증명의 경우 암호에 다음과 같은 형식의 동일한 이름을 사용합니다. 암호 이름이 `cred1`이라고 가정하면 `"$(cred1)"`(따옴표 포함)를 입력합니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 

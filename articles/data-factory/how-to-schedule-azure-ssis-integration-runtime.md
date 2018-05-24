@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 3e69c147201ab7f3c5e2cf61e72bdb8073354e67
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360328"
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법 
 Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다. 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. 이 문서에서 설명하는 개략적인 단계는 다음과 같습니다.
@@ -53,7 +54,7 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
 
     1. Automation 계정의 **이름**을 지정합니다. 
     2. Azure SSIS IR이 있는 데이터 팩터리를 포함하는 **구독**을 선택합니다. 
-    3. **리소스 그룹**에 대해 **새로 만들기**를 선택하여 새 리소스 그룹을 만들거나 **기존 항목 사용**을 선택하여 기존 리소스 그룹을 선택합니다. 
+    3. **리소스 그룹**에 대해 **새로 만들기**를 선택하여 새 리소스 그룹을 만들거나 **기존 항목 사용**을선 택하여 기존 리소스 그룹을 선택합니다. 
     4. Automation 계정에 대한 **위치**를 선택합니다. 
     5. **실행 계정 만들기**가 **예**로 설정되어 있는지 확인합니다. 서비스 사용자가 Azure Active Directory에서 생성됩니다. 이 사용자는 Azure 구독의 **참가자** 역할에 추가됩니다.
     6. 포털의 대시보드에서 볼 수 있도록 **대시보드에 고정**을 선택합니다. 
@@ -69,21 +70,17 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
 
 ### <a name="import-data-factory-modules"></a>Data Factory 모듈 가져오기
 
-1. 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈**을 선택하고 모듈 목록에 **AzureRM.Profile** 및 **AzureRM.DataFactoryV2**가 표시되는지 확인합니다. 이러한 모듈이 표시되지 않으면 도구 모음에서 **갤러리 찾아보기**를 선택합니다.
+1. 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈**을 선택하고 모듈 목록에 **AzureRM.Profile** 및 **AzureRM.DataFactoryV2**가 표시되는지 확인합니다.
 
-    ![Automation 홈페이지](./media/how-to-schedule-azure-ssis-integration-runtime/automation-modules.png)
-2. **갤러리 찾아보기** 창의 검색 창에 **AzureRM.Profile**을 입력하고 **Enter** 키를 누릅니다. 목록에서 **AzureRM.Profile**을 선택합니다. 그런 후 도구 모음에서 **가져오기**를 클릭합니다. 
+    ![필요한 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-    ![Select AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/select-azurerm-profile.png)
-1. **가져오기** 창에서 **모든 Azure 모듈의 업데이트에 동의함** 옵션을 선택하고 **확인**을 클릭합니다.  
+2.  [AzureRM.DataFactoryV2 0.5.2 모듈](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2)에 대해 PowerShell 갤러리로 이동하여 **Azure Automation에 배포** 및 Automation 계정을 차례로 선택한 다음, **확인**을 선택합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈**을 보려면 돌아가서 **AzureRM.DataFactoryV2 0.5.2** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
 
-    ![Import AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/import-azurerm-profile.png)
-4. 창을 닫아 **모듈** 창으로 돌아갑니다. 목록에 가져오기 상태가 표시됩니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. **상태**가 **사용 가능**으로 표시될 때까지 기다립니다.
+    ![데이터 팩터리 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-    ![가져오기 상태](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-profile.png)
-1. 이러한 단계를 반복해서 **AzureRM.DataFactoryV2** 모듈을 가져옵니다. 계속하기 전에 이 모듈의 상태가 **사용 가능**으로 설정되어 있는지 확인합니다. 
+3.  [AzureRM.Profile 4.5.0 모듈](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0)에 대해 PowerShell 갤러리로 이동하여 **Azure Automation에 배포**를 클릭하고 Automation 계정을 선택한 다음, **확인**을 선택합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈**을 보려면 돌아가서 **AzureRM.Profile 4.5.0** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
 
-    ![최종 가져오기 상태](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-datafactoryv2.png)
+    ![프로필 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
 ### <a name="create-a-powershell-runbook"></a>PowerShell Runbook 만들기
 다음 절차에서는 PowerShell Runbook을 만드는 단계를 제공합니다. Runbook과 연결된 스크립트는 사용자가 **OPERATION** 매개 변수에 지정한 명령에 따라 Azure SSIS IR 프로그램을 시작/중지합니다. 이 섹션에서는 Runbook 만들기에 대한 세부 정보는 제공하지 않습니다. 자세한 내용은 [Runbook 만들기](../automation/automation-quickstart-create-runbook.md) 문서를 참조하세요.

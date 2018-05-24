@@ -1,23 +1,22 @@
 ---
-title: "서비스 간 인증: Azure Active Directory를 사용하여 Data Lake Store로 | Microsoft Docs"
-description: "Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증을 수행하는 방법을 알아봅니다."
+title: '서비스 간 인증: Azure Active Directory를 사용하여 Data Lake Store로 | Microsoft Docs'
+description: Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7a4c94b5279962d9bf5524270c12e0c1ec512e3c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197439"
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -35,7 +34,7 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 
 이 문서에서는 **서비스 간 인증을 위한 Microsoft Azure Active Directory 웹 응용 프로그램을 만드는** 방법에 대해 설명합니다. 최종 사용자 인증을 위해 Azure AD 응용 프로그램 구성을 수행하는 방법은 [Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>1단계: Active Directory 웹 응용 프로그램 만들기
@@ -77,6 +76,9 @@ Azure Active Directory를 사용하여 Azure Data Lake Store로 서비스 간 �
 7. **사용자 지정 액세스 추가** 블레이드에서 **확인**을 클릭합니다. 이제 연결된 권한을 사용하여 새로 추가된 그룹이 **액세스** 블레이드에 나열됩니다.
    
     ![그룹에 권한 할당](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "그룹에 권한 할당")
+
+> [!NOTE]
+> Azure Active Directory 응용 프로그램을 특정 폴더로 제한하려면 동일한 Azure Active Directory 응용 프로그램에 루트에 대한 **실행** 권한도 부여하여 .NET SDK를 통한 파일 생성 액세스를 활성화해야 합니다.
 
 > [!NOTE]
 > SDK를 사용하여 Data Lake Store 계정을 만들려면 Data Lake Store 계정을 만들 리소스 그룹에 Microsoft Azure Active Directory 웹 응용 프로그램을 역할로 할당해야 합니다.

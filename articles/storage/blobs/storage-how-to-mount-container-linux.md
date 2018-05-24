@@ -8,15 +8,16 @@ manager: jahogg
 ms.service: storage
 ms.devlang: bash
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072095"
 ---
-# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>blobfuse(미리 보기)를 사용하여 Blob 저장소를 파일 시스템으로 탑재하는 방법
+# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
 ## <a name="overview"></a>개요
 [blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage용 가상 파일 시스템 드라이버로, Linux 파일 시스템을 통해 Storage 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 저장소 서비스이므로 계층 구조 네임스페이스가 없습니다. blobfuse는 슬래시(/)를 구분 기호로 사용하는 가상 디렉터리 체계를 사용하여 이 네임스페이스를 제공합니다.  

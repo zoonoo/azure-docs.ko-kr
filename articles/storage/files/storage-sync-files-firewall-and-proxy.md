@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 81425c6ac4e463bd4242328206bd43ce78a1105a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072269"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure File Sync 프록시 및 방화벽 설정
 Azure File Sync는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
 
 이 문서에서는 서버를 Azure File Sync에 성공적이면서 안전하게 연결하기 위해 사용할 수 있는 특정 요구 사항 및 옵션에 대해 설명합니다.
+
+> [!Important]
+> Azure File Sync에서는 저장소 계정에 대한 방화벽 및 가상 네트워크를 아직 지원하지 않습니다. 
 
 ## <a name="overview"></a>개요
 Azure File Sync는 Windows Server, Azure 파일 공유 및 일부 기타 Azure 서비스 간에 오케스트레이션 서비스로 작동하여, 동기화 그룹에 설명된 대로 데이터를 동기화합니다. Azure File Sync가 제대로 작동하려면 다음 Azure 서비스와 통신하도록 서버를 구성해야 합니다.

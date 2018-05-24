@@ -2,23 +2,26 @@
 title: Azure AD 응용 프로그램에 선택적 클레임을 제공하는 방법 알아보기 | Microsoft Docs
 description: Azure Active Directory에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)에 사용자 지정 또는 추가 클레임을 추가하기 위한 한 가이드입니다.
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157234"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD의 선택적 클레임(미리 보기)
 
@@ -65,7 +68,9 @@ ms.lasthandoff: 04/03/2018
 | `fwd`                      | IP 주소입니다.  요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우).                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | 사용자의 국가입니다.                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | 리소스의 테넌트 국가입니다.                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | 테넌트의 사용자 계정 상태입니다.  사용자가 테넌트의 구성원인 경우 값은 `0`입니다.  게스트인 경우 값은 `1`입니다.  | JWT, SAML | | |
 | `upn`                      | UserPrincipalName 클레임입니다.  이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. | JWT, SAML  |           | 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>V2.0 선택적 클레임
 이러한 클레임은 항상 v1.0 토큰에 포함되지만, 요청되지 않을 경우 v2.0 토큰에서 제거됩니다.  이러한 클레임은 JWT(ID 토큰 및 액세스 토큰)에 대해서만 적용 가능합니다.  
 
@@ -157,7 +162,7 @@ ms.lasthandoff: 04/03/2018
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name        | 유형                       | 설명                                           |
+| Name        | type                       | 설명                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -171,7 +176,7 @@ ms.lasthandoff: 04/03/2018
 
 **표 6: OptionalClaims 형식 속성**
 
-| Name                 | 유형                    | 설명                                                                                                                                                                                                                                                                                                   |
+| Name                 | type                    | 설명                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |

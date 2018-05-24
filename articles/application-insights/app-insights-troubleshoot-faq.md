@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310017"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -254,15 +255,37 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 ### <a name="proxy"></a>Proxy
 
-ApplicationInsights.config에서 다음과 같이 설정하여 서버에서 게이트웨이로 트래픽을 라우팅합니다.
+ApplicationInsights.config 예에서 이러한 설정을 덮어써서 서버에서 인트라넷의 게이트웨이로 트래픽을 라우팅합니다. config에 이러한 "엔드포인트" 속성이 없을 경우 이러한 클래스가 아래 예에 표시된 기본값을 사용합니다.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### <a name="example-applicationinsightsconfig"></a>ApplicationInsights.config 예:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-게이트웨이는 트래픽을 https://dc.services.visualstudio.com:443/v2/track으로 라우팅해야 합니다.
+_ApplicationIdProvider는 v2.6.0부터 사용 가능합니다._
+
+게이트웨이는 트래픽을 https://dc.services.visualstudio.com:443으로 라우팅해야 합니다.
+
+위의 값을 `http://<your.gateway.address>/<relative path>`로 바꾸세요.
+ 
+예: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>인트라넷 서버에서 가용성 웹 테스트를 실행할 수 있나요?
 
