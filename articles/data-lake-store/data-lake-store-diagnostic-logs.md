@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 진단 로그에 액세스
 Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
@@ -114,7 +112,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| Name | 유형 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
@@ -127,7 +125,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| Name | 유형 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | path |문자열 |작업이 수행된 경로 |
@@ -161,7 +159,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| Name | 유형 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
@@ -174,7 +172,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| Name | 유형 | 설명 |
+| Name | type | 설명 |
 | --- | --- | --- |
 | StreamName |문자열 |작업이 수행된 경로 |
 

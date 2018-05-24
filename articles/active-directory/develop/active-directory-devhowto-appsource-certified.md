@@ -17,11 +17,11 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 [Microsoft AppSource](https://appsource.microsoft.com/)는 기간 업무 SaaS 응용 프로그램을 검색, 시도 및 관리하는 비즈니스 사용자에 대한 대상입니다(기존 Microsoft SaaS 제품에 대한 독립 실행형 SaaS 및 추가 기능).
@@ -43,7 +43,7 @@ Open ID를 사용하여 응용 프로그램을 Azure Active Directory와 통합�
 다중 테넌트에 대한 정보는 [다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure AD(Active Directory) 사용자를 로그인하는 방법](./active-directory-devhowto-multi-tenant-overview.md)을 참조하세요.
 
 ### <a name="single-tenant-applications"></a>단일 테넌트 응용 프로그램
-정의된 Azure Active Directory 인스턴스의 사용자의 로그인만 허용하는 응용 프로그램은 *단일 테넌트 응용 프로그램*이라고 합니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 *게스트 계정*으로 응용 프로그램이 등록된 Azure Active Directory 인스턴스에 추가한 후 단일 테넌트 응용 프로그램에 로그인 할 수 있습니다. 사용자를 게스트 계정으로 [*Azure AD B2B 공동 작업*](../active-directory-b2b-what-is-azure-ad-b2b.md)을 통해 Azure Active Directory에 추가할 수 있으며 이는 [프로그래밍 방식으로](../active-directory-b2b-code-samples.md) 수행될 수 있습니다. 사용자를 게스트 계정으로 Azure Active Directory에 추가할 때 초대 전자 메일의 링크를 클릭하여 초대를 수락해야 하는 사용자에게 초대 전자 메일이 전송됩니다. 파트너 조직의 멤버이기도 한 초대 조직의 추가 사용자에게 전송되는 초대는 로그인하기 위해 초대를 수락할 필요가 없습니다.
+정의된 Azure Active Directory 인스턴스의 사용자의 로그인만 허용하는 응용 프로그램은 *단일 테넌트 응용 프로그램*이라고 합니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 *게스트 계정*으로 응용 프로그램이 등록된 Azure Active Directory 인스턴스에 추가한 후 단일 테넌트 응용 프로그램에 로그인 할 수 있습니다. 사용자를 게스트 계정으로 [*Azure AD B2B 공동 작업*](../b2b/what-is-b2b.md)을 통해 Azure Active Directory에 추가할 수 있으며 이는 [프로그래밍 방식으로](../b2b/code-samples.md) 수행될 수 있습니다. 사용자를 게스트 계정으로 Azure Active Directory에 추가할 때 초대 전자 메일의 링크를 클릭하여 초대를 수락해야 하는 사용자에게 초대 전자 메일이 전송됩니다. 파트너 조직의 멤버이기도 한 초대 조직의 추가 사용자에게 전송되는 초대는 로그인하기 위해 초대를 수락할 필요가 없습니다.
 
 단일 테넌트 응용 프로그램은 *연락처* 환경을 활성화할 수 있지만 AppSource가 권장하는 단일 클릭/평가판 체험을 활성화하려는 경우 응용 프로그램에서 다중 테넌트를 대신 활성화합니다.
 

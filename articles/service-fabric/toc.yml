@@ -658,6 +658,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: 서비스 모델 XML 스키마
       href: service-fabric-service-model-schema.md
+      items:
+        - name: 요소
+          href: service-fabric-service-model-schema-elements.md
+        - name: 복합 형식
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: 특성 그룹
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: 단순 형식
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: 요소 그룹
+          href: service-fabric-service-model-schema-element-groups.md
     - name: 환경 변수
       href: service-fabric-environment-variables-reference.md
 - name: 리소스

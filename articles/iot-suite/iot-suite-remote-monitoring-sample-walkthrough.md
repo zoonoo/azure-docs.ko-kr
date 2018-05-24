@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>원격 모니터링 솔루션 가속기 아키텍처
 
-원격 모니터링 [솔루션 가속기](iot-suite-what-are-solution-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](iot-suite-remote-monitoring-customize.md)할 수 있습니다.
+원격 모니터링 [솔루션 가속기](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)할 수 있습니다.
 
 이 문서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
-다음 다이어그램은 [IoT 아키텍처](iot-suite-what-is-azure-iot.md)에 오버레이된 원격 모니터링 솔루션 가속기의 논리적 구성 요소에 대해 설명합니다.
+다음 다이어그램은 [IoT 아키텍처](../iot-accelerators/iot-accelerators-what-is-azure-iot.md)에 오버레이된 원격 모니터링 솔루션 가속기의 논리적 구성 요소에 대해 설명합니다.
 
 ![논리 아키텍처](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Cosmos DB 데이터베이스는 솔루션 가속기에 데이터를 저장합니
 * [Azure IoT(Java)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [원격 모니터링 아키텍처를 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
 
-원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [솔루션 가속기 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.
+원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [솔루션 가속기 사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)을 참조하세요.

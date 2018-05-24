@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 599f8327e9939f400ca18c87fa6193ac3c1e4a61
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>장치 관리 및 구성
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/07/2018
 
 Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 확인하는 시뮬레이션을 실행하려고 합니다. 운영자로서 원격 모니터링 솔루션에서 장치를 관리하고 구성하려고 합니다.
 
-장치를 관리 및 구성하는 확장 가능한 방법을 제공하기 위해 원격 모니터링 솔루션은 [작업](../iot-hub/iot-hub-devguide-jobs.md) 및 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)와 같은 IoT Hub 기능을 사용합니다. 장치 개발자가 물리적 장치에서 메서드를 구현하는 방법을 알아보려면 [원격 모니터링 솔루션 가속기 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.
+장치를 관리 및 구성하는 확장 가능한 방법을 제공하기 위해 원격 모니터링 솔루션은 [작업](../iot-hub/iot-hub-devguide-jobs.md) 및 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)와 같은 IoT Hub 기능을 사용합니다. 장치 개발자가 물리적 장치에서 메서드를 구현하는 방법을 알아보려면 [원격 모니터링 솔루션 가속기 사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)을 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -38,7 +38,7 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 이 자습서를 수행하려면 Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스가 필요합니다.
 
-원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 ## <a name="add-a-simulated-device"></a>시뮬레이트된 장치 추가
 

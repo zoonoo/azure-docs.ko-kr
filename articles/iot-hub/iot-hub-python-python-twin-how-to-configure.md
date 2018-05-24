@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2018
 ms.author: kgremban
-ms.openlocfilehash: 0ba614ab26caad31a045849d85a1abcbb5a9f818
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f6e002eb570ade7fc4008cc69e6042bd3dd97f7e
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>desired 속성을 사용하여 장치 구성(Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -159,7 +159,7 @@ ms.lasthandoff: 04/16/2018
 1. 장치 앱 실행.
    
     ```cmd/sh
-    node SimulateDeviceConfiguration.py
+    python SimulateDeviceConfiguration.py
     ```
    
     메시지 `Device twins updated.`이 표시되어야 합니다. 앱이 계속 실행되게 합니다.

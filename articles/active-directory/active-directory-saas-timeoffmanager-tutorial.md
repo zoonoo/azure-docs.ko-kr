@@ -1,6 +1,6 @@
 ---
-title: "자습서: TimeOffManager와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 TimeOffManager 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: TimeOffManager와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 TimeOffManager 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 5638a1b2271fe50344c29de1e3883ca67c20c9ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 462a77e56f2dc28a3a3258ab44a1486a4dd257e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>자습서: TimeOffManager와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ TimeOffManager를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 - 사용자가 해당 Azure AD 계정으로 TimeOffManager에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ TimeOffManager의 Azure AD 통합을 구성하려면 갤러리의 TimeOffManager
 
 **갤러리에서 TimeOffManager를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -97,7 +97,7 @@ TimeOffManager에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 1. Azure Portal의 **TimeOffManager** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
@@ -112,7 +112,7 @@ TimeOffManager에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. 자습서의 뒷부분에 설명되어 있는 **Single Sign-On 설정 페이지**에서 이 값을 얻거나 [TimeOffManager 지원 팀](http://www.timeoffmanager.com/contact-us.aspx)에 문의할 수 있습니다.
  
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![SAML 서명 인증서 섹션](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_certificate.png) 
 
@@ -134,15 +134,15 @@ TimeOffManager에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     
     ![SAML 토큰 특성](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb1.png "SAML 토큰 특성")
     
-    b.  **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    나.  **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
-    c.  **특성 값** 텍스트 상자에서 해당 행에 표시된 특성 값을 선택합니다.
+    다.  **특성 값** 텍스트 상자에서 해당 행에 표시된 특성 값을 선택합니다.
     
     d.  **Ok**를 클릭합니다.
     
 6. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_400.png)
 
 7. **TimeOffManager 구성** 섹션에서 **TimeOffManager 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
@@ -159,9 +159,9 @@ TimeOffManager에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
    
    a. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
    
-   b. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **IdP 발급자** 텍스트 상자에 붙여 넣습니다.
+   나. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **IdP 발급자** 텍스트 상자에 붙여 넣습니다.
    
-   c. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IdP 끝점 URL** 텍스트 상자에 붙여 넣습니다.
+   다. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IdP 끝점 URL** 텍스트 상자에 붙여 넣습니다.
    
    d. **SAML 적용**에서는 **아니요**를 선택합니다.
    
@@ -204,9 +204,9 @@ TimeOffManager에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -261,7 +261,7 @@ TimeOffManager는 사용자 프로비전 시간에만 지원합니다. 작업 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

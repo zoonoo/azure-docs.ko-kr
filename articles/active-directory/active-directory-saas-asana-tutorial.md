@@ -1,6 +1,6 @@
 ---
-title: "자습서: Ariba와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 Asana 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Ariba와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 Asana 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 8058dcd397e5f81f4a8c8cd1845353fd789f604b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2042c1525849696efaf5fda5f35c1abc72839737
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>자습서: Asana와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Asana를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Asana에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +58,7 @@ Asana의 Azure AD 통합을 구성하려면 갤러리의 Asana를 관리되는 S
 
 **갤러리에서 Asana를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -98,7 +98,7 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 1. Azure Portal의 **Asana** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
@@ -110,9 +110,9 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **로그온 URL** 텍스트 상자에 `https://app.asana.com/` URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에 `https://app.asana.com/` 값을 입력합니다.
+    나. **식별자** 텍스트 상자에 `https://app.asana.com/` 값을 입력합니다.
  
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-asana-tutorial/tutorial_asana_certificate.png)
     
@@ -134,9 +134,9 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
      a. **SAML Single Sign-On 서비스 URL**을 **로그인 페이지 URL** 텍스트 상자에 붙여 넣습니다.
 
-     b. Azure Portal에서 다운로드한 인증서를 마우스 오른쪽 단추로 클릭한 후 메모장 또는 원하는 텍스트 편집기를 사용하여 인증서 파일을 엽니다. 시작 및 끝 인증서 제목 사이의 콘텐츠를 복사하고 **X.509 인증서**에 붙여 넣습니다.
+     나. Azure Portal에서 다운로드한 인증서를 마우스 오른쪽 단추로 클릭한 후 메모장 또는 원하는 텍스트 편집기를 사용하여 인증서 파일을 엽니다. 시작 및 끝 인증서 제목 사이의 콘텐츠를 복사하고 **X.509 인증서**에 붙여 넣습니다.
 
-9. **Save**를 클릭합니다. 추가 지원이 필요한 경우 [SSO 설정을 위한 Asana 가이드](https://asana.com/guide/help/premium/authentication#gl-saml) 로 이동합니다.
+9. **저장**을 클릭합니다. 추가 지원이 필요한 경우 [SSO 설정을 위한 Asana 가이드](https://asana.com/guide/help/premium/authentication#gl-saml) 로 이동합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -167,9 +167,9 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -224,7 +224,7 @@ Asana 로그인 페이지로 이동합니다. 전자 메일 주소 텍스트 상
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

@@ -1,24 +1,22 @@
 ---
-title: "Stream Analytics에서 Data Lake Store로 데이터 스트리밍 | Microsoft 문서"
-description: "Azure Stream Analytics를 사용하여 Azure Data Lake 저장소에 데이터 스트리밍"
+title: Stream Analytics에서 Data Lake Store로 데이터 스트리밍 | Microsoft 문서
+description: Azure Stream Analytics를 사용하여 Azure Data Lake 저장소에 데이터 스트리밍
 services: data-lake-store,stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ff59957cf7700af79425aa005444a135b7ee098
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Data Lake 저장소에 데이터 스트리밍
 이 문서는 Azure Stream Analytics 작업에 대한 출력으로 Azure Data Lake 저장소를 사용하는 방법을 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake 저장소(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
