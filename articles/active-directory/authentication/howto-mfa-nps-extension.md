@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 05/01/2018
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1b598dc19882a91143515e954f7dc9cdce7c384
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770256"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -117,9 +118,9 @@ NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 
 
 Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정](howto-mfa-mfasettings.md#selectable-verification-methods)할 수 있습니다.
 
-### <a name="enable-users-for-mfa"></a>MFA에 대한 사용자 설정
+### <a name="register-users-for-mfa"></a>MFA에 사용자 등록
 
-전체 NPS 확장을 배포하기 전에 2단계 확인을 수행하려는 사용자에 대한 MFA를 사용하도록 설정해야 합니다. 즉시 배포한 확장을 테스트하려면 Multi-Factor Authentication에 완전히 등록된 하나 이상의 테스트 계정이 필요합니다.
+NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 수행해야 하는 사용자를 MFA에 등록해야 합니다. 즉시 배포한 확장을 테스트하려면 Multi-Factor Authentication에 완전히 등록된 하나 이상의 테스트 계정이 필요합니다.
 
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
 1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다. 

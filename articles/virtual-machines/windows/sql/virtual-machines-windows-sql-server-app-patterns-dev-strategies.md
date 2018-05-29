@@ -1,11 +1,11 @@
 ---
-title: "VM에서 SQL Server 응용 프로그램 패턴 | Microsoft Docs"
-description: "이 문서에서는 Azure VM에서 SQL Server에 대한 응용 프로그램 패턴을 설명 합니다. 설계자와 개발자들에게 좋은 응용 프로그램 아키텍처 및 설계를 위한 기초를 제공합니다."
+title: VM에서 SQL Server 응용 프로그램 패턴 | Microsoft Docs
+description: 이 문서에서는 Azure VM에서 SQL Server에 대한 응용 프로그램 패턴을 설명 합니다. 설계자와 개발자들에게 좋은 응용 프로그램 아키텍처 및 설계를 위한 기초를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9a306dc5676bb98baf0c9aa000c4c518279bd932
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eaeff1e57042b2e6a98559c19dc1dabebbf92ed4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195110"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +58,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 * SQL Server 온-프레미스와의 완벽한 호환성이 필요하고 기존 응용 프로그램을 그대로 Azure로 옮겨가고자 할 경우.
 * Azure 환경의 기능을 활용하고자 하나 Azure SQL Database에서 응용 프로그램에 필요한 일부 기능을 지원하지 않는 경우. 여기에는 다음과 같은 부분이 해당할 수 있습니다.
   
-  * **데이터베이스 크기**: 이 글 업데이트 시점 현재, SQL Database에서 최대 1TB의 데이터를 지원합니다. 응용 프로그램에 1TB 이상의 데이터가 필요하고 사용자 지정 분할 솔루션을 구현하지 않으려는 경우, Azure Virtual Machine에서 SQL Server를 사용하는 것이 좋습니다. 최신 정보는 [Azure SQL Database 확장](https://msdn.microsoft.com/library/azure/dn495641.aspx) 및 [Azure SQL Database 서비스 계층 및 성능 수준](../../../sql-database/sql-database-service-tiers.md)을 참조하세요.
+  * **데이터베이스 크기**: 이 글 업데이트 시점 현재, SQL Database에서 최대 1TB의 데이터를 지원합니다. 응용 프로그램에 1TB 이상의 데이터가 필요하고 사용자 지정 분할 솔루션을 구현하지 않으려는 경우, Azure Virtual Machine에서 SQL Server를 사용하는 것이 좋습니다. 최신 정보는 [Azure SQL Database 스케일 아웃](https://msdn.microsoft.com/library/azure/dn495641.aspx), [DTU 기반 구매 모델](../../../sql-database/sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](../../../sql-database/sql-database-service-tiers-vcore.md)을 참조하세요.
   * **HIPAA 규정 준수**: Azure 가상 컴퓨터의 SQL Server는 HIPAA BAA(Business Associate Agreement)가 적용되므로, 의료 부문 고객 및 독립 소프트웨어 공급업체(ISV)는 [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) 대신 [Azure Virtual Machines의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 선택할 수 있습니다. 규정 준수에 대한 자세한 내용은 [Microsoft Azure 보안 센터: 규정 준수](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
   * **인스턴스 수준 기능**: 현재 SQL Database에서는 데이터베이스 외부에 상주하는 기능을 지원하지 않습니다(예: 연결 서버, 에이전트 작업, 파일 스트림, 서비스 broker 등). 자세한 내용은 [Azure SQL Database 지침 및 제한 사항](https://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요.
 

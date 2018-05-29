@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771401"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights에서 가격 및 데이터 볼륨 관리
 
@@ -40,11 +41,8 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 Basic 계획은 새 Application Insights 리소스를 만들 때 기본 가격 책정 계획입니다. Basic 계획은 Operations Management Suite 구독이 있는 사용자를 제외하고 모든 고객에 대해 최적화되었습니다.
 
-* Basic 계획에서 데이터 볼륨별로 요금이 청구됩니다. 데이터 볼륨은 Application Insights에서 받은 원격 분석의 바이트 수입니다. 
-    
-    데이터 볼륨은 응용 프로그램의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다.
-
-    [Analytics로 가져온 표 형식 데이터](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)의 경우 데이터 볼륨은 Application Insights로 전송된 파일의 압축되지 않은 크기로 측정됩니다.
+* Basic 계획에서 데이터 볼륨별로 요금이 청구됩니다. 데이터 볼륨은 Application Insights에서 받은 원격 분석의 바이트 수입니다. 데이터 볼륨은 응용 프로그램의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. [Analytics로 가져온 표 형식 데이터](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)의 경우 데이터 볼륨은 Application Insights로 전송된 파일의 압축되지 않은 크기로 측정됩니다.
+* 이제 2018년 4월부터 응용 프로그램의 데이터 볼륨 요금이 **데이터 수집**이라는 새로운 청구 미터에 보고됩니다. 이 새 미터는 Applications Insights 및 Log Analytics와 같은 모니터링 기술 간에 공유되며, 현재 서비스 이름 **App Services**(곧 **Log Analytics**로 변경됨) 아래에 있습니다. 
 * [라이브 메트릭 스트림](app-insights-live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다.
 * 2018년 4월 현재 Basic 계획에서 [연속 내보내기](app-insights-export-telemetry.md) 및 [Azure Log Analytics 커넥터](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409)는 추가 요금 없이 사용할 수 있습니다.
 

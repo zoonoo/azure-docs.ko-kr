@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 69530ab2ad795eaf611cb749d8c439ab07cafeac
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 96360eabefcbbdf36ef3bd83b0c6de45c1a6f3cc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205247"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -69,7 +70,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## <a name="managing-accounts"></a>계정 관리
+## <a name="manage-accounts"></a>계정 관리
 
 ### <a name="create-a-data-lake-analytics-account"></a>Data Lake 분석 계정 만들기
 
@@ -91,7 +92,7 @@ New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="get-information-about-an-account"></a>계정에 대한 정보 가져오기
+### <a name="get-acount-information"></a>계정 정보 가져오기
 
 계정에 대한 세부 정보를 가져옵니다.
 
@@ -111,7 +112,7 @@ Test-AdlAnalyticsAccount -Name $adla
 Test-AdlStoreAccount -Name $adls
 ```
 
-### <a name="listing-accounts"></a>계정 나열
+### <a name="list-accounts"></a>계정 나열
 
 현재 구독 내의 Data Lake Analytics 계정을 나열합니다.
 
@@ -125,48 +126,7 @@ Get-AdlAnalyticsAccount
 Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
-## <a name="managing-firewall-rules"></a>방화벽 규칙 관리
-
-방화벽 규칙을 나열합니다.
-
-```powershell
-Get-AdlAnalyticsFirewallRule -Account $adla
-```
-
-방화벽 규칙을 추가합니다.
-
-```powershell
-$ruleName = "Allow access from on-prem server"
-$startIpAddress = "<start IP address>"
-$endIpAddress = "<end IP address>"
-
-Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-방화벽 규칙을 변경합니다.
-
-```powershell
-Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-방화벽 규칙을 제거합니다.
-
-```powershell
-Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
-```
-
-Azure IP 주소를 허용합니다.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
-```
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
-```
-
-## <a name="managing-data-sources"></a>데이터 원본 관리
+## <a name="manage-data-sources"></a>데이터 원본 관리
 Azure Data Lake Analytics는 현재 다음 데이터 원본을 지원합니다.
 
 * [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
@@ -517,6 +477,48 @@ Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
 
+## <a name="manage-firewall-rules"></a>방화벽 규칙 관리
+
+### <a name="list-firewall-rules"></a>방화벽 규칙 나열
+
+```powershell
+Get-AdlAnalyticsFirewallRule -Account $adla
+```
+
+### <a name="add-a-firewall-rule"></a>방화벽 규칙 추가
+
+```powershell
+$ruleName = "Allow access from on-prem server"
+$startIpAddress = "<start IP address>"
+$endIpAddress = "<end IP address>"
+
+Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="change-a-firewall-rule"></a>방화벽 규칙 변경
+
+```powershell
+Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="remove-a-firewall-rule"></a>방화벽 규칙 제거
+
+```powershell
+Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
+```
+
+### <a name="allow-azure-ip-addresses"></a>Azure IP 주소를 허용합니다.
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
+```
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
+```
+
+
 ## <a name="working-with-azure"></a>Azure 작업
 
 ### <a name="get-details-of-azurerm-errors"></a>AzureRm 오류에 대한 세부 정보 가져오기
@@ -590,90 +592,8 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>템플릿을 사용하여 Data Lake Analytics 계정 만들기
 
-또한 다음 PowerShell 스크립트를 통해 Azure 리소스 그룹 템플릿을 사용할 수도 있습니다.
+[템플릿을 사용하여 Data Lake Analytics 계정 만들기](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template) 샘플을 사용하는 Azure 리소스 그룹 템플릿을 사용할 수도 있습니다.
 
-```powershell
-$subId = "<Your Azure Subscription ID>"
-
-$rg = "<New Azure Resource Group Name>"
-$location = "<Location (such as East US 2)>"
-$adls = "<New Data Lake Store Account Name>"
-$adla = "<New Data Lake Analytics Account Name>"
-
-$deploymentName = "MyDataLakeAnalyticsDeployment"
-$armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
-
-# Log in to Azure
-Connect-AzureRmAccount -SubscriptionId $subId
-
-# Create the resource group
-New-AzureRmResourceGroup -Name $rg -Location $location
-
-# Create the Data Lake Analytics account with the default Data Lake Store account.
-$parameters = @{"adlAnalyticsName"=$adla; "adlStoreName"=$adls}
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $rg -TemplateFile $armTemplateFile -TemplateParameterObject $parameters 
-```
-
-자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md) 및 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
-
-**예제 템플릿**
-
-다음 텍스트를 `.json` 파일로 저장한 후 이전의 PowerShell 스크립트를 통해 템플릿을 사용합니다. 
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "adlAnalyticsName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the Data Lake Analytics account to create."
-      }
-    },
-    "adlStoreName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the Data Lake Store account to create."
-      }
-    }
-  },
-  "resources": [
-    {
-      "name": "[parameters('adlStoreName')]",
-      "type": "Microsoft.DataLakeStore/accounts",
-      "location": "East US 2",
-      "apiVersion": "2015-10-01-preview",
-      "dependsOn": [ ],
-      "tags": { }
-    },
-    {
-      "name": "[parameters('adlAnalyticsName')]",
-      "type": "Microsoft.DataLakeAnalytics/accounts",
-      "location": "East US 2",
-      "apiVersion": "2015-10-01-preview",
-      "dependsOn": [ "[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]" ],
-      "tags": { },
-      "properties": {
-        "defaultDataLakeStoreAccount": "[parameters('adlStoreName')]",
-        "dataLakeStoreAccounts": [
-          { "name": "[parameters('adlStoreName')]" }
-        ]
-      }
-    }
-  ],
-  "outputs": {
-    "adlAnalyticsAccount": {
-      "type": "object",
-      "value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
-    },
-    "adlStoreAccount": {
-      "type": "object",
-      "value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
-    }
-  }
-}
-```
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)

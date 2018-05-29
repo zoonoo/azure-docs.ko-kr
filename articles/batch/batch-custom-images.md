@@ -1,18 +1,19 @@
 ---
-title: "사용자 지정 이미지에서 Azure Batch 풀 프로비전| Microsoft Docs"
-description: "사용자 지정 이미지에서 Batch 풀을 만들어 애플리케이션에 대해 사용자가 필요한 소프트웨어 및 데이터가 들어 있는 계산 노드를 프로비전할 수 있습니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 계산 노드를 구성하는 효율적인 방법입니다."
+title: 사용자 지정 이미지에서 Azure Batch 풀 프로비전| Microsoft Docs
+description: 사용자 지정 이미지에서 Batch 풀을 만들어 애플리케이션에 대해 사용자가 필요한 소프트웨어 및 데이터가 들어 있는 계산 노드를 프로비전할 수 있습니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 계산 노드를 구성하는 효율적인 방법입니다.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158615"
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기 
 
@@ -40,7 +41,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 
     
 ## <a name="prepare-a-custom-image"></a>사용자 지정 이미지 준비
-VHD, 관리되는 디스크를 사용하는 Azure VM, VM 스냅숏에서 관리되는 이미지를 만들 수 있습니다. 
+VHD, 관리되는 디스크를 사용하는 Azure VM, VM 스냅숏에서 관리되는 이미지를 만들 수 있습니다. Batch의 경우 관리 디스크 또는 VM 스냅숏으로 VM에서 관리되는 이미지를 만드는 것이 좋습니다. 관리되는 이미지 및 기본 리소스는 강화하도록 풀에 대해 있어야 하고 풀이 삭제되면 제거할 수 있습니다. 
 
 이미지를 준비할 때는 다음 사항에 유의해야 합니다.
 
@@ -81,7 +82,7 @@ Azure VM을 일반화하고 관리되는 이미지를 만드는 방법에 대한
 1. Azure Portal에서 Batch 계정으로 이동합니다. 이 계정은 사용자 지정 이미지가 포함된 리소스 그룹과 동일한 구독 및 지역에 있어야 합니다. 
 2. 왼쪽의 **설정** 창에서 **풀** 메뉴 항목을 선택합니다.
 3. **풀** 창에서 **추가** 명령을 선택합니다.
-4. **풀 추가** 창의 **이미지 형식** 드롭다운에서 **사용자 지정 이미지(Linux/Windows)**를 선택합니다. **사용자 지정 VM 이미지** 드롭다운에서 이미지 이름(리소스 ID의 약식)을 선택합니다.
+4. **풀 추가** 창의 **이미지 형식** 드롭다운에서 **사용자 지정 이미지(Linux/Windows)** 를 선택합니다. **사용자 지정 VM 이미지** 드롭다운에서 이미지 이름(리소스 ID의 약식)을 선택합니다.
 5. 사용자 지정 이미지에 대해 올바른 **게시자/제품/Sku**를 선택합니다.
 6. **노드 크기**, **대상 전용 노드** 및 **낮은 우선 순위 노드** 등 나머지 필수 설정과 선택 사항인 설정을 원하는 대로 지정합니다.
 

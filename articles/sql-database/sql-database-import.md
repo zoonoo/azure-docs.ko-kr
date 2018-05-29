@@ -9,11 +9,12 @@ ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd9554a18775cf98f4415ebd5d4b0d52edc53718
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894194"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>새 Azure SQL Database로 BACPAC 파일 가져오기
 
@@ -113,6 +114,8 @@ $importStatus
 * 가져온 SQL Database에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL Database에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
 * BACPAC 파일을 사용하는 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
 * 성능 권장 사항을 비롯한 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
+* 저장소 키 및 공유 액세스 서명을 안전하게 관리하고 공유하는 방법을 알아보려면 [Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide)를 참조합니다. 
 
 
+  
 

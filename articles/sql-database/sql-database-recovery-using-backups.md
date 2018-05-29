@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192767"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-backups.md) 및 [장기 보존에서 백업](sql-database-long-term-retention.md)을 사용한 데이터베이스 복구를 위해 다음 옵션을 제공합니다. 데이터베이스 백업에서 다음으로 복원할 수 있습니다.
@@ -50,7 +51,7 @@ SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-
   
   매우 큰 및/또는 활성 데이터베이스의 경우 복원에는 몇 시간이 걸릴 수 있습니다. 지역에서 장시간 가동 중단된 경우 다른 지역에서 많은 수의 지리적 복원 요청이 처리 중일 수 있습니다. 많은 요청이 있는 경우 해당 지역에 데이터베이스의 복구 시간이 늘어날 수 있습니다. 대부분의 데이터베이스는 12시간 내에 완전히 복원됩니다.
 
-단일 구독의 경우 제출되고 계속 진행되는 동시 복원 요청 수에 대해 몇 가지 제한 사항(예: 지정 시간 복원, 지리적 복원, 장기 보존 백업에서 복원)이 있습니다.
+단일 구독의 경우 제출되고 계속 진행되는 동시 복원 요청 수에 대해 몇 가지 제한 사항(예: 지정 시간 복원, 지역 복원, 장기 보존 백업에서 복원)이 있습니다.
 |  | **처리되는 최대 동시 요청 수** | **제출되는 최대 동시 요청 수** |
 | :--- | --: | --: |
 |단일 데이터베이스(구독당)|10|60|
@@ -97,7 +98,7 @@ Azure Portal을 사용하여 특정 시점으로 복구하려면 데이터베이
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal을 사용하여 [보존 기간](sql-database-service-tiers.md) 중에 삭제된 데이터베이스를 복구하려면 서버에 대한 페이지를 열고 작업 영역에서 **삭제된 데이터베이스**를 클릭합니다.
+Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 모델 보존 기간](sql-database-service-tiers-vcore.md) 중에 삭제된 데이터베이스를 복구하려면 서버에 대한 페이지를 열고 작업 영역에서 **삭제된 데이터베이스**를 클릭합니다.
 
 ![삭제된 데이터베이스 복원-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -123,7 +124,7 @@ Azure Portal을 사용하여 [보존 기간](sql-database-service-tiers.md) 중�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal을 사용하여 해당 [보존 기간](sql-database-service-tiers.md) 동안 데이터베이스를 지역 복원하려면 SQL Databases 페이지를 연 다음 **추가**를 클릭합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다. 
+Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 모델 보존 기간](sql-database-service-tiers-vcore.md) 중에 데이터베이스를 지역 복원하려면 SQL Databases 페이지를 연 다음, **추가**를 클릭합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>자동화된 백업을 사용하여 프로그래밍 방식으로 복구 수행
 앞서 설명한 것처럼 Azure Portal 외에, Azure PowerShell 또는 REST API를 사용하여 데이터베이스 복구를 프로그래밍 방식으로 수행할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다.

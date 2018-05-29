@@ -5,14 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abd2d2c8e220a946d08774f8e55ea968008c1757
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156276"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure 온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
 온-프레미스 데이터 게이트웨이는 클라우드에서 온-프레미스 데이터 원본과 Azure Analysis Services 서버 간의 보안 데이터 전송을 제공하여 둘을 연결합니다. 동일한 지역에서 여러 Azure Analysis Services 서버를 사용하는 것 외에도 최신 버전의 게이트웨이는 Azure Logic Apps, Power BI, Power Apps, Microsoft Flow와도 작동합니다. 단일 게이트웨이 통해 동일한 지역에서 여러 서비스를 연결할 수 있습니다. 
@@ -82,6 +83,11 @@ ms.lasthandoff: 04/16/2018
     <value>Https</value>
 </setting>
 ```
+
+## <a name="tenant-level-administration"></a>테넌트 수준 관리 
+
+현재 테넌트 관리자가 다른 사용자가 설치 및 구성한 모든 게이트웨이를 관리할 수 있는 단일 위치가 없습니다.  테넌트 관리자인 경우 설치한 모든 게이트웨이에 대한 관리자로 추가하도록 조직의 사용자에게 요청하는 것이 좋습니다. 이렇게 하면 게이트웨이 설정 페이지 또는 [PowerShell 명령](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters)을 통해 조직에서 모든 게이트웨이를 관리할 수 있습니다. 
+
 
 ## <a name="faq"></a>질문과 대답
 

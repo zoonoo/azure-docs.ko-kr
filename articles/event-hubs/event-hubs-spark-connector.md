@@ -12,16 +12,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
-ms.author: shvija;sethm;sagrewal
-ms.openlocfilehash: b430b731bdb38f6fe8af347e082fdfb1ef36a945
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: shvija
+ms.openlocfilehash: 09790852d28f2f68e854b37256ca1c8edba992e6
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311297"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Azure Event Hubs와 Apache Spark 통합
 
-Azure Event Hubs는 [Apache Spark](https://spark.apache.org/)와 원활하게 통합되어 분산 스트리밍 응용 프로그램을 쉽게 구축할 수 있습니다. 이 통합은 [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark 스트리밍](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [구조적 스트리밍](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 지원합니다. Apache Spark용 Event Hubs 커넥터는 [GitHub](https://github.com/Azure/azure-event-hubs-spark)에서 제공됩니다. 이 라이브러리는 [Maven 중앙 리포지토리](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)의 Maven 프로젝트에서도 제공됩니다.
+Azure Event Hubs는 [Apache Spark](https://spark.apache.org/)와 원활하게 통합되어 분산 스트리밍 응용 프로그램을 구축할 수 있습니다. 이 통합은 [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark 스트리밍](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [구조적 스트리밍](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 지원합니다. Apache Spark용 Event Hubs 커넥터는 [GitHub](https://github.com/Azure/azure-event-hubs-spark)에서 제공됩니다. 이 라이브러리는 [Maven 중앙 리포지토리](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)의 Maven 프로젝트에서도 제공됩니다.
 
 이 문서에서는 [Azure Databricks](https://azure.microsoft.com/services/databricks/)에서 지속적인 응용 프로그램을 만드는 방법에 대해 설명합니다. [Azure Databricks](https://azure.microsoft.com/services/databricks/)는 이 문서에서 사용하지만, Spark 클러스터는 [HDInsight](../hdinsight/spark/apache-spark-overview.md)에서도 사용할 수 있습니다.
 

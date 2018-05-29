@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights에서 HockeyApp 데이터 탐색 | Microsoft Docs"
-description: "Application Insights를 사용하여 Azure 앱의 사용 현황 및 성능을 분석합니다."
+title: Azure Application Insights에서 HockeyApp 데이터 탐색 | Microsoft Docs
+description: Application Insights를 사용하여 Azure 앱의 사용 현황 및 성능을 분석합니다.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: bec2b2dc8a29e5c94e3d3c7f2f0333e07bfe3a4f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: cd185d799be5051340c2bfea44a1d1e69a1eb002
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309847"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application Insights에서 HockeyApp 데이터 탐색
 
 > [!NOTE]
-> Visual Studio App Center는 이제 새로운 모바일 앱을 모니터링하기 위해 Microsoft에서 권장하는 서비스입니다. [App Center 및 Application Insights를 사용하여 앱을 설정하는 방법에 대해 알아보세요](app-insights-mobile-center-quickstart.md).
-> 
-> 
+> HockeyApp을 더 이상 새 응용 프로그램에 사용할 수 없습니다. 기존 HockeyApp 배포는 계속 작동합니다. Visual Studio App Center는 이제 새로운 모바일 앱을 모니터링하기 위해 Microsoft에서 권장하는 서비스입니다. [App Center 및 Application Insights를 사용하여 앱을 설정하는 방법에 대해 알아보세요](app-insights-mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/)은 데스크톱 및 Mobile Apps를 실시간으로 모니터링하는 서비스입니다. HockeyApp에서 사용자 지정 및 추적 원격 분석을 전송하여(충돌 데이터를 가져오는 것 외에도) 사용량을 모니터링하고 진단에 도움을 줄 수 있습니다. 원격 분석의 이 스트림은 [Azure Application Insights](app-insights-analytics.md)의 강력한 [분석](app-insights-overview.md) 기능을 사용하여 쿼리될 수 있습니다. 또한 [사용자 지정 및 추적 원격 분석을 내보낼](app-insights-export-telemetry.md)수 있습니다. 이러한 기능을 활성화하기 위해 Application Insights에 HockeyApp 사용자 지정 데이터를 릴레이하는 브리지를 설정합니다.
 

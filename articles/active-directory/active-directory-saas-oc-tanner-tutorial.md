@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 57cdd0d8a58fd88ab1dda63d32397e726c7a2eb2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9d643a9ad6dd2b19fc3b8932b80d416fbc62d7a3
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34350256"
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34056230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C. Tanner - AppreciateHub와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ O.C. 통합 Tanner - Azure AD가 포함된 AppreciateHub는 다음과 같은 이
 - 사용자가 자동으로 O.C.에 로그온하도록 설정할 수 있습니다. Tanner - Azure AD 계정이 포함된 AppreciateHub(Single Sign-On)
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -217,7 +217,7 @@ O.C.를 클릭할 때 Tanner - 액세스 패널에서 AppreciateHub 타일, O.C.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

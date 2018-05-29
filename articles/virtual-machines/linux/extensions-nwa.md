@@ -3,7 +3,7 @@ title: Linux용 Azure Network Watcher 에이전트 가상 머신 확장 | Micros
 description: 가상 머신 확장을 사용하여 Linux 가상 머신에 Network Watcher를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: bd5dc6a50b521f883dfb453127a4e41b5e46ff15
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a33f183470ec3879344f0cfe335bab38f9ff30f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778668"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
@@ -39,11 +40,12 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 실행�
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS 및 12.04 LTS |
 | Debian | 7 및 8 |
-| RedHat | 6.x 및 7.x |
-| Oracle Linux | 7x |
-| Suse | 11 및 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| RedHat | 6 및 7 |
+| Oracle Linux | 6.8+ 및 7 |
+| SUSE Linux Enterprise Server | 11 및 12 |
+| OpenSUSE Leap | 42.3+ |
+| CentOS | 6.5+ 및 7 |
+| CoreOS | 899.17.0+ |
 
 CoreOS는 현재 지원되지 않습니다.
 

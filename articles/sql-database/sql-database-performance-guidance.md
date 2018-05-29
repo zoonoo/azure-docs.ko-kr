@@ -9,26 +9,27 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195450"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL Database에서 성능 튜닝
 
 Azure SQL Database는 데이터베이스의 성능을 개선하는 데 사용할 수 있는 [권장 사항](sql-database-advisor.md)을 제공하며 사용자는 Azure SQL Database를 통해 워크로드 성능을 개선하도록 [응용 프로그램에 대해 자동으로 조정](sql-database-automatic-tuning.md)하고 변경 사항을 적용할 수 있습니다.
 
 권장 사항을 적용할 수 없고 성능 문제가 있는 경우 다음 방법으로 성능을 개선할 수 있습니다.
-1. [서비스 계층](sql-database-service-tiers.md)을 늘리고 데이터베이스에 더 많은 리소스를 제공합니다.
-2. 응용 프로그램을 튜닝하고 성능을 향상시킬 수 있는 몇 가지 모범 사례를 적용합니다. 
-3. 데이터에 대해 보다 효율적으로 작동하도록 인덱스 및 쿼리를 변경하여 데이터베이스를 튜닝합니다.
+- [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)에서 서비스 계층을 높이면 사용자의 데이터베이스에 더 많은 리소스가 제공됩니다.
+- 응용 프로그램을 튜닝하고 성능을 향상시킬 수 있는 몇 가지 모범 사례를 적용합니다. 
+- 데이터에 대해 보다 효율적으로 작동하도록 인덱스 및 쿼리를 변경하여 데이터베이스를 튜닝합니다.
 
-이것은 선택할 [서비스 계층](sql-database-service-tiers.md)을 결정하거나 응용 프로그램 또는 데이터베이스 코드를 다시 작성하고 변경 사항을 배포해야 하므로 수동 방법입니다.
+[DTU 기반 모델 리소스 제한](sql-database-dtu-resource-limits.md) 및 [vCore 기반 모델 리소스 제한(미리 보기)](sql-database-vcore-resource-limits.md)이 사용자의 요구를 충족하는지를 사용자가 결정해야 하므로 수동적인 방법을 사용합니다. 그렇지 않으면 응용 프로그램 또는 데이터베이스 코드를 다시 작성하고 변경 내용을 배포해야 합니다.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>데이터베이스의 성능 계층 늘리기
 
-Azure SQL Database는 두 가지 구매 모델, 즉 DTU 기반 구매 모델과 vCore 기반 구매 모델을 제공합니다. 각 모델에는 선택할 수 있는 여러 가지 [서비스 계층](sql-database-service-tiers.md)이 있습니다. 각 서비스 계층에서는 사용자의 SQL Database가 사용할 수 있는 리소스를 엄격하게 분리하며 해당 서비스 수준의 예측 가능한 성능을 보장합니다. 이 문서에서는 응용 프로그램에 대한 서비스 계층을 선택하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝할 수 있는 방법도 설명합니다.
+Azure SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 중에서 사용자가 선택할 수 있는 두 가지 구매 모델을 제공합니다. 각 서비스 계층에서는 사용자의 SQL Database가 사용할 수 있는 리소스를 엄격하게 분리하며 해당 서비스 수준의 예측 가능한 성능을 보장합니다. 이 문서에서는 응용 프로그램에 대한 서비스 계층을 선택하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝할 수 있는 방법도 설명합니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database의 단일 데이터베이스에 대한 성능 지침을 중심으로 살펴봅니다. 탄력적 풀과 관련된 성능 지침을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 단, 이 문서의 많은 튜닝 권장 사항을 탄력적 풀의 데이터베이스에 적용하고 유사한 성능 이점을 얻을 수는 있습니다.
@@ -48,7 +49,7 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 
 ### <a name="service-tier-capabilities-and-limits"></a>서비스 계층 기능 및 한도
 
-각 서비스 계층에서 필요한 용량에 대해서만 요금을 지불하는 유연성을 갖도록 성능 수준을 설정합니다. 워크로드가 변함에 따라 [용량을 높거나 낮게 조정](sql-database-service-tiers.md)할 수 있습니다. 예를 들어, 개학 전 쇼핑 시즌에 데이터베이스 워크로드가 많아질 경우 7월부터 9월까지 설정된 기간 동안 데이터베이스에 대한 성능 수준을 증가시킬 수 있습니다. 최대 시즌이 끝나면 성능 수준을 줄일 수 있습니다. 비즈니스의 계절성에 따라 클라우드 환경을 최적화하여 지불하는 비용을 최소화할 수 있습니다. 이 모델은 소프트웨어 개발 출시 주기에도 적합합니다. 테스트 팀은 테스트 실행 중 용량을 할당하고 테스트가 완료되면 용량을 해제할 수 있습니다. 용량 요청 방식에서는 필요할 때마다 용량에 대해 지불하며 거의 사용하지 않는 전용 리소스에 대한 비용 지출을 방지합니다.
+각 서비스 계층에서 필요한 용량에 대해서만 요금을 지불하는 유연성을 갖도록 성능 수준을 설정합니다. 워크로드가 변함에 따라 [용량을 높거나 낮게 조정](sql-database-service-tiers-dtu.md)할 수 있습니다. 예를 들어, 개학 전 쇼핑 시즌에 데이터베이스 워크로드가 많아질 경우 7월부터 9월까지 설정된 기간 동안 데이터베이스에 대한 성능 수준을 증가시킬 수 있습니다. 최대 시즌이 끝나면 성능 수준을 줄일 수 있습니다. 비즈니스의 계절성에 따라 클라우드 환경을 최적화하여 지불하는 비용을 최소화할 수 있습니다. 이 모델은 소프트웨어 개발 출시 주기에도 적합합니다. 테스트 팀은 테스트 실행 중 용량을 할당하고 테스트가 완료되면 용량을 해제할 수 있습니다. 용량 요청 방식에서는 필요할 때마다 용량에 대해 지불하며 거의 사용하지 않는 전용 리소스에 대한 비용 지출을 방지합니다.
 
 ### <a name="why-service-tiers"></a>왜 서비스 계층인가?
 각 데이터베이스 워크로드는 다를 수 있지만 서비스 계층의 목적은 다양한 성능 수준에서 성능 예측 가능성을 제공하는 것입니다. 데이터베이스 리소스 요구사항이 큰 고객은 더 많은 전용 컴퓨팅 환경에서 작업할 수 있습니다.
@@ -270,7 +271,8 @@ Azure SQL Database 내에서 확장형 아키텍처를 사용하는 경우 응�
 일부 데이터베이스 응용 프로그램에는 읽기 작업이 많은 워크로드가 포함되어 잇습니다. 캐싱 계층을 통해 데이터베이스의 부하를 줄이고 Azure SQL Database를 사용하여 데이터베이스를 지원하는 데 필요한 성능 수준을 줄일 수 있습니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용하면 읽기 작업이 많은 워크로드에서 데이터를 한 번만(또는 구성 방식에 따라 응용 프로그램 계층 시스템당 한 번만) 읽고 해당 데이터를 Azure SQL Database 밖에 저장할 수 있습니다. 그러면 데이터베이스 부하(CPU 및 읽기 IO)가 감소하지만, 캐시에서 읽는 데이터가 데이터베이스에 있는 데이터와 동기화되지 않을 수 있어 트랜잭션 일관성에 영향을 미칠 수 있습니다. 많은 응용 프로그램에서 비일관성이 어느 정도 허용되지만 모든 워크로드에 대해 허용되는 것은 아닙니다. 응용 프로그램 계층 캐싱 전략을 구현할 경우 응용 프로그램 요구 사항을 완전히 이해해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 서비스 계층에 대한 자세한 내용은 [Azure SQL Database 옵션 및 성능](sql-database-service-tiers.md)
+* DTU 기반 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [DTU 기반 모델 리소스 제한](sql-database-dtu-resource-limits.md)을 참조하세요.
+* vCore 기반 서비스 계층에 대한 자세한 내용은 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 및 [vCore 기반 모델 리소스 제한(미리 보기)](sql-database-vcore-resource-limits.md)을 참조하세요.
 * 탄력적 풀에 대한 자세한 내용은 [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 * 성능 및 탄력적 풀에 대한 자세한 내용은 [탄력적 풀을 고려 하는 경우](sql-database-elastic-pool-guidance.md)
 

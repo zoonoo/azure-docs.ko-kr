@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312171"
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
 이 문서에서는 Microsoft Azure의 Azure Monitor 서비스에 대해 간략히 설명합니다. Azure Monitor 기능에 대해 설명하고 Azure Monitor를 사용하는 방법에 대한 추가 정보를 제공합니다.  소개하는 비디오를 사용하려면 이 문서의 아래쪽에 있는 다음 단계 링크를 참조하세요. 
@@ -108,7 +109,7 @@ Azure 인프라에 표시되는 대로 리소스에 대한 자세한 내용은 �
 
 ### <a name="store-and-archive"></a>저장 및 보관
 일부 모니터링 데이터는 이미 설정된 시간 동안 Azure Monitor에 저장되어 사용할 수 있습니다. 
-- 메트릭은 30일 동안 저장됩니다. 
+- 메트릭은 90일 동안 저장됩니다. 
 - 활동 로그 항목은 90일 동안 저장됩니다. 
 - 진단 로그는 전혀 저장되지 않습니다. 
 

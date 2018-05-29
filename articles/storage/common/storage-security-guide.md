@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768016"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -294,7 +295,7 @@ Azure 파일 공유는 UNIX에서 사용할 수 있지만 Linux SMB 클라이언
 
 SSE는 모든 저장소 계정에 대해 사용되도록 설정되며 사용되지 않도록 설정할 수 없습니다. SSE는 Azure Storage에 쓸 때 자동으로 데이터를 암호화합니다. Azure Storage에서 데이터를 읽을 때 데이터가 반환되기 전에 Azure Storage에서 암호가 해독됩니다. SSE를 사용하여 코드를 수정하거나 응용 프로그램에 코드를 추가하지 않고도 데이터를 보호할 수 있습니다.
 
-SSE에 사용되는 키는 Microsoft에서 관리합니다. Microsoft에서는 처음에 키를 생성한 후에, 내부 Microsoft 정책에 정의된 대로 키의 정기적인 순환뿐 아니라 보안 저장도 관리합니다. Microsoft 관리 키에서 고객 관리 키로의 마이그레이션 경로에 따라, 고객 관리 키를 사용할 수 있게 됩니다.
+Microsoft 관리 키 또는 자체 사용자 지정 키를 사용할 수 있습니다. Microsoft에서는 관리 키를 생성하고 내부 Microsoft 정책에 정의된 대로 키의 정기적인 순환뿐 아니라 보안 저장도 처리합니다. 사용자 지정 키 사용에 대한 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](storage-service-encryption-customer-managed-keys.md)를 참조하세요.
 
 SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. 
 

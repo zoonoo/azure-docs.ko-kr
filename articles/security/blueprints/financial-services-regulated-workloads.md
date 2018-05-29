@@ -3,7 +3,7 @@ title: Azure Security 및 Compliance Blueprint - FFIEC 금융 서비스 규제 �
 description: Azure Security 및 Compliance Blueprint - FFIEC 금융 서비스 규제 작업
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895557"
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure Security 및 Compliance Blueprint - FFIEC 금융 서비스 규제 작업
 
@@ -42,7 +43,7 @@ Azure Security and Compliance Blueprint - FFIEC 금융 서비스 규제 작업�
 - **배포 템플릿**. 이 배포에서는 설정 중 구성 매개 변수를 지정하여 아키텍처 구성 요소를 Microsoft Azure에 자동으로 설치하는 데 [Azure Resource Manager 템플릿](/azure/azure-resource-manager/resource-group-overview#template-deployment)을 사용합니다.
 - **자동화된 배포 스크립트**. 이 스크립트는 종단 간 솔루션 배포를 지원합니다. 스크립트는 다음으로 구성됩니다.
     - 모듈 설치 및 [전역 관리자](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) 설치 스크립트는 필요한 PowerShell 모듈을 설치하고 전역 관리자 역할이 올바르게 구성되어 있는지 확인하는 데 사용됩니다. 
-    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 [SQL Database 샘플](https://github.com/Microsoft/azure-sql-security-sample) 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. 이 솔루션의 소스 코드는 [지불 처리 청사진 코드 리포지토리][code-repo] 검토에 사용할 수 있습니다. 
+    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 [SQL Database 샘플](https://github.com/Microsoft/azure-sql-security-sample) 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. 이 솔루션의 소스 코드는 [지불 처리 Blueprint 코드 리포지토리][code-repo] 검토에 사용할 수 있습니다. 
 
 ## <a name="architectural-diagram"></a>아키텍처 다이어그램
 
@@ -305,7 +306,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-이 솔루션의 배포를 위한 구성 요소는 [Blueprint 코드 리포지토리][code-repo]에서 제공합니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 이 이름은 2단계에서 `-customHostName` 스위치로 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
+이 솔루션의 배포를 위한 구성 요소는 [Blueprint 코드 리포지토리][code-repo]에 제공됩니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 이 이름은 2단계에서 `-customHostName` 스위치로 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
 
 이 스크립트는 사용자가 지정한 Azure AD 테넌트에 도메인 사용자를 추가합니다. 테스트로 새 Azure AD 테넌트를 만들어 사용하는 것이 좋습니다.
 
@@ -388,8 +389,3 @@ Contoso Webstore [Blueprint 위협 모델](https://aka.ms/pciblueprintthreatmode
 - 이 페이지에 등장하는 모든 고객 이름, 트랜잭션 레코드 및 관련 데이터는 허구이며 이 기본 아키텍처용으로 만들어져 설명 목적으로만 제공됩니다. 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.  
 - 이 솔루션에서 Microsoft와 Avyan Consulting이 공동으로 개발하였으며 [MIT 라이선스](https://opensource.org/licenses/MIT)에 따라 제공됩니다.
 
-### <a name="document-authors"></a>문서 작성자
-
-* *Frank Simorjay(Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "코드 리포지토리"

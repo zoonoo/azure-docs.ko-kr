@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 및 일반 데이터 보호 규정 | Microsoft Docs
+title: Azure AD Connect 및 사용자 개인 정보 | Microsoft Docs
 description: 이 문서에서는 Azure AD Connect를 사용하여 GDPR 준수를 가져오는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -11,36 +11,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149392"
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR 규정 준수 및 Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>사용자 개인 정보 및 Azure AD Connect 
 
-2018년 5월에 유럽 개인 정보 보호법, [GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)이 발효됩니다. GDPR은 회사, 정부 기관, 비영리 단체 및 기타 EU(유럽 연합)의 사용자에게 상품 및 서비스를 제공하거나 EU 거주자와 연결된 데이터를 수집하고 분석하는 조직에 새 규칙을 적용합니다. GDPR은 사용자가 어느 곳에 있든 상관없이 적용됩니다. 
-
-Microsoft 제품 및 서비스는 현재 GDPR 요구 사항을 충족하는 데 도움을주기 위해 사용할 수 있습니다. Microsoft 개인 정보 취급 방침에 대한 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 확인하세요.
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->이 문서에서는 Azure AD Connect 및 GDPR 준수를 다룹니다.  Azure AD Connect Health 및 GDPR 준수에 대한 자세한 내용은 [여기](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md) 문서를 참조하세요.
+>이 문서에서는 Azure AD Connect 및 사용자 개인 정보를 다룹니다.  Azure AD Connect Health 및 사용자 개인 정보에 대한 자세한 내용은 [여기](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md) 문서를 참조하세요.
 
-Azure AD Connect 설치를 위한 일반 데이터 보호 규정 준수는 두 가지 방법으로 도달할 수 있습니다.
+Azure AD Connect 설치를 위한 사용자 개인 정보 규정 준수는 두 가지 방법으로 도달할 수 있습니다.
 
 1.  요청 시 사람에 대한 데이터를 추출하고 그 사람의 데이터를 설치에서 제거합니다.
 2.  데이터는 48시간 이상 데이터가 보존하지 않도록 합니다.
 
 Azure AD Connect 팀은 두 번째 옵션이 구현 및 유지 관리가 더 용이하므로 권장합니다.
 
-Azure AD Connect 동기화 서버는 GDPR 준수 범위에 있는 다음 데이터를 저장합니다.
+Azure AD Connect 동기화 서버는 다음 사용자 개인 정보 데이터를 저장합니다.
 1.  **Azure AD Connect 데이터베이스**에 있는 사람에 관한 데이터
 2.  사람에 관한 정보를 포함할 수 있는 **Windows 이벤트 로그** 파일의 데이터
 3.  사람에 관해 포함할 수있는 **Azure AD Connect 설치 로그 파일**의 데이터
 
-GDPR을 준수하려면 Azure AD Connect 고객은 다음 지침을 사용해야 합니다.
+사용자 데이터를 제거할 때 Azure AD Connect 고객은 다음 지침을 사용해야 합니다.
 1.  적어도 48시간마다 Azure AD Connect 설치 로그 파일이 들어있는 폴더의 내용을 정기적으로 삭제하세요.
 2.  이 제품은 이벤트 로그를 생성할 수도 있습니다.  이벤트 로그에 대한 자세한 내용은 [문서 여기](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)를 참조하세요.
 
@@ -71,7 +70,7 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 2.  관리 도구 제목 아래에서 **Schedule Tasks**를 클릭합니다.
     ![Task](media\active-directory-aadconnect-gdpr\gdpr3.png)
-3.  작업 스케줄러에서 **Task Schedule Library**를 마우스 오른쪽 단추로 클릭하고 **Create Basic 작업...**을 클릭합니다.
+3.  작업 스케줄러에서 **Task Schedule Library**를 마우스 오른쪽 단추로 클릭하고 **Create Basic 작업...** 을 클릭합니다.
 4.  새 작업의 이름을 입력하고 **다음**을 클릭합니다.
 5.  작업 트리거로 **매일**을 선택하고 **다음**을 클릭합니다.
 6.  되풀이를 **2일**로 설정하고 **다음**을 클릭합니다.
@@ -82,5 +81,5 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-- [Azure AD Connect Health and GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
+* [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect Health 및 사용자 개인 정보](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

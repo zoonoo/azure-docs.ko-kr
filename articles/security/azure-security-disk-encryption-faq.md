@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
-ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/27/2018
+ms.author: barclayn
+ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187694"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption FAQ
 
@@ -34,7 +35,7 @@ Azure Disk Encryption GA에서는 Azure Resource Manager 템플릿, Azure PowerS
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Azure Disk Encryption 비용은 얼마인가요?
 
-Azure Disk Encryption을 사용하여 VM 디스크를 암호화하는 데 요금이 부과되지 않습니다.
+Azure Disk Encryption을 사용한 VM 디스크 암호화에는 요금이 청구되지 않으나, Azure Key Vault 사용과 관련된 요금은 청구됩니다. Azure Key Vault 요금에 대한 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 페이지를 참조하세요.
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Azure Disk Encryption에서 지원하는 가상 머신 계층은 무엇인가요?
 
@@ -68,7 +69,7 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | SLES | 우선 순위: 11-SP4 | 데이터 디스크  |
 | SLES | 11 SP4 | 데이터 디스크  |
 
-*__ADE는 데이터 디스크의 RHEL에 대해 지원됩니다. 현재 ADE 구현은 OS 디스크와 호환되지만 현재는 공동 지원되지 않습니다. Microsoft와 Red Hat은 공동 지원되는 솔루션을 개발 중입니다. 그 때까지는 [여기](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)서 Linux OS 디스크 암호화에 대한 ADE 백서를 참조하시기 바랍니다.__
+*__ADE는 데이터 디스크의 RHEL에 대해 지원됩니다. 현재 ADE 구현은 OS 디스크와 호환되지만 현재는 공동 지원되지 않습니다. Microsoft와 Red Hat은 공동 지원되는 솔루션을 개발 중입니다. 그 때까지는 [여기](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)서 Linux OS 디스크 암호화에 대한 ADE 백서를 참조하시기 바랍니다.__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Encryption을 사용하기 시작하려면 어떻게 해야 하나요?
 

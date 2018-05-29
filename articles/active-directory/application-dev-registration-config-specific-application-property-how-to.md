@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055620"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대한 특정 필드를 작성하는 방법
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)에서 응용 프로그램 등록에 사용 가능한 모든 필드에 대해 간략하게 설명합니다.
+이 아티클에서는 [Azure Portal](https://portal.azure.com)에서 응용 프로그램 등록 양식에 사용 가능한 모든 필드에 대해 간략하게 설명합니다.
 
 ## <a name="register-a-new-application"></a>새 응용 프로그램 등록
 
@@ -54,8 +55,8 @@ ms.lasthandoff: 04/05/2018
 | 로그아웃 URL      | Single Sign-Out 로그아웃 URL입니다. 사용자가 다른 등록된 응용 프로그램을 사용하여 Azure AD의세션을 지우면 Azure AD에서 이 URL로 로그아웃 요청을 전송합니다.                                                                                                                                       |
 | 다중 테넌트  | 이 스위치는 여러 테넌트에서 응용 프로그램을 사용할 수 있는지 여부를 지정합니다. 일반적으로 외부 조직에서 테넌트를 등록하고 조직의 데이터에 대한 액세스 권한을 부여하여 응용 프로그램을 사용할 수 있습니다.                                                                   |
 | 회신 URL      | 회신 URL은 Azure AD에서 응용 프로그램이 요청한 토큰을 반환하는 끝점입니다.                                                                                                                                                                                                          |
-| 리디렉션 URI   | 네이티브 응용 프로그램의 경우 다음의 성공적인 권한 부여로 사용자에게 전송되는 URI입니다. Azure AD는 OAuth 2.0 요청에서 응용 프로그램이 제공하는 리디렉션 URI가 포털의 등록된 값 중 하나와 일치하는지 확인합니다.                                                            |
+| 리디렉션 URI   | 네이티브 응용 프로그램의 경우 성공적인 권한 부여 후에 사용자에게 전송되는 URI입니다. Azure AD는 OAuth 2.0 요청에서 응용 프로그램이 제공하는 리디렉션 URI가 포털의 등록된 값 중 하나와 일치하는지 확인합니다.                                                            |
 | 구성            | 키를 만들어 사용자 조작 없이 Azure AD에서 보호하는 웹 API에 프로그래밍 방식으로 액세스할 수 있습니다. \*\*키\*\* 페이지에서 키 설명 및 만료 날짜를 입력하고 저장하여 키를 생성합니다. 나중에 액세스하지 못하므로 키를 안전한 곳에 보관하세요.             |
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
+[Azure Active Directory로 응용 프로그램 관리](manage-apps/what-is-application-management.md)

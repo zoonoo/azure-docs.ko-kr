@@ -11,17 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200555"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
-
->[!NOTE]
->이 기능은 공개 미리 보기 상태입니다.
->
 
 Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하면 고객 요구에 적합하도록 정책을 다른 언어로 맞출 수 있습니다.  Microsoft는 [36개 언어](#supported-languages)에 대한 번역을 제공하지만 사용자가 언어에 대한 고유한 번역을 제공할 수 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다.  
 
@@ -49,7 +46,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 5. 대화 상자의 정보를 읽고 **예**를 선택합니다.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>사용할 사용자 경험의 언어를 선택합니다. 
-`ui_locales` 매개 변수가 제공되지 않을 때 사용자 경험을 번역할 언어 집합을 설정합니다.
+`ui_locales` 매개 변수 없이 브라우저에서 신청할 때 사용자 경험을 번역할 언어 집합을 설정합니다.
 1. 이전 지침에서 정책에 언어 사용자 지정이 설정되었는지 확인합니다.
 2. **정책 편집** 페이지에서 **언어 사용자 지정**을 선택합니다.
 3. 지원하려는 언어를 선택합니다.
@@ -102,7 +99,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 `<ExtensionAttributeValue>`를 표시할 새 문자열로 바꿉니다.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>LocalizedCollections를 사용하여 값 목록을 제공합니다.
-응답에 대한 값 목록 집합을 제공하려면 `LocalizedCollections` 특성을 만들어야 합니다.  `LocalizedCollections`는 `Name` 및 `Value` 쌍의 배열입니다. `LocalizedCollections`를 추가하려면 다음 형식을 사용하세요.
+응답에 대한 값 목록 집합을 제공하려면 `LocalizedCollections` 특성을 만들어야 합니다.  `LocalizedCollections`는 `Name` 및 `Value` 쌍의 배열입니다. 항목의 순서대로 항목이 표시됩니다.  `LocalizedCollections`를 추가하려면 다음 형식을 사용하세요.
 
 ```JSON
 {
@@ -153,9 +150,9 @@ https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.h
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>사용자 지정 로캘 추가
+## <a name="add-custom-languages"></a>사용자 지정 언어 추가
 
-또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 정책에서 모든 문자열에 대한 번역을 제공해야 합니다.
+또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 정책에서 모든 문자열에 대한 번역을 제공해야 합니다.  언어 및 로캘 코드는 ISO 639-1 표준으로 제한됩니다. 
 
 1. **정책 편집** 페이지에서 **언어 사용자 지정**을 선택합니다.
 2. 페이지의 위쪽에서 **사용자 지정 언어 추가**를 선택합니다.
@@ -165,6 +162,10 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 6. **사용**을 선택하면 이제 정책에서 사용자에게 이 언어를 표시할 수 있습니다.
 7. 언어를 저장합니다.
 
+>[!IMPORTANT]
+>사용자 지정 언어를 사용하도록 설정하거나 재정의를 업로드해야 언어를 저장할 수 있습니다.
+>
+
 ## <a name="additional-information"></a>추가 정보
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>재정의로 페이지 UI 사용자 지정 레이블
@@ -172,7 +173,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ### <a name="up-to-date-translations"></a>최신 번역
 Microsoft는 사용자가 사용할 수 있는 가장 최신의 번역을 제공하기 위해 최선을 다하고 있습니다. Microsoft는 지속적으로 번역을 개선하고 사용자에 맞게 유지할 예정입니다. Microsoft는 버그 및 글로벌 용어의 변화를 파악하고 사용자 경험에서 원활하게 작동하도록 업데이트할 예정입니다.
 ### <a name="support-for-right-to-left-languages"></a>오른쪽에서 왼쪽 언어 지원
-현재 Microsoft는 오른쪽에서 왼쪽 언어에 대한 지원을 제공하지 않습니다. 이 기능이 필요한 경우 [Azure 피드백](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag)에서 이 기능에 투표해 주세요.
+현재 Microsoft는 오른쪽에서 왼쪽 언어에 대한 지원을 제공하지 않습니다. 사용자 지정 로캘을 사용하고 CSS를 사용하여 문자열이 표시되는 방식을 변경하여 지원할 수 있습니다.  이 기능이 필요한 경우 [Azure 피드백](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag)에서 이 기능에 투표해 주세요.
 ### <a name="social-identity-provider-translations"></a>소셜 ID 공급자 변환
 Microsoft는 소셜 로그인에 대한 `ui_locales` OIDC 매개 변수를 제공합니다. 하지만 Facebook과 Google을 포함한 일부 소셜 ID 공급자는 이러한 매개 변수를 인식하지 않습니다. 
 ### <a name="browser-behavior"></a>브라우저 동작

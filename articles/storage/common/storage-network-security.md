@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage 방화벽 및 Virtual Network 구성 | Microsoft Docs"
-description: "저장소 계정에 대한 계층화된 네트워크 보안을 구성합니다."
+title: Azure Storage 방화벽 및 Virtual Network 구성 | Microsoft Docs
+description: 저장소 계정에 대한 계층화된 네트워크 보안을 구성합니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: cbrooksmsft
 manager: cbrooks
 editor: cbrooks
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192879"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 Virtual Network 구성
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
@@ -37,11 +38,9 @@ Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트�
 
 Virtual Machine 디스크 트래픽(탑재 및 분리 작업 및 디스크 IO 포함)은 네트워크 규칙의 영향을 받지 **않습니다**.  페이지 Blob에 대한 REST 액세스는 네트워크 규칙에 의해 보호됩니다.
 
-> [!NOTE]
-> 적용된 네트워크 규칙과 함께 저장소 계정에서 관리되지 않는 디스크를 사용하여 가상 머신의 백업 및 복원은 현재 지원되지 않습니다.  자세한 내용은 [VM 백업 및 복원 시의 제한 사항](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)을 참조하세요.
->
-
 클래식 저장소 계정은 Firewall 및 Virtual Network를 지원하지 **않습니다**.
+
+네트워크 규칙이 적용된 저장소 계정에서 관리되지 않는 디스크를 사용한 Virtual Machines의 백업 및 복원은 이 문서의 [예외](/storage/common/storage-network-security#exceptions) 섹션에 설명된 대로 예외 만들기를 통해 지원됩니다.  Azure에 의해 이미 관리되므로 방화벽 예외는 Managed Disks를 사용하여 적용되지 않습니다.
 
 ## <a name="change-the-default-network-access-rule"></a>기본 네트워크 액세스 규칙 변경
 기본적으로 저장소 계정은 네트워크에 있는 모든 클라이언트로부터의 연결을 허용합니다.  선택한 네트워크에 대한 액세스를 제한하려면 먼저 기본 동작을 변경해야 합니다.
@@ -194,7 +193,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 > "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다.  이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다.
 >
 
-IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용됩니다.  개인 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다.  개인 네트워크는 *10.\**, *172.16.\** 및 *192.168\**로 시작하는 주소를 포함합니다.
+IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용됩니다.  개인 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다.  개인 네트워크는 *10.\**, *172.16.\** 및 *192.168\** 로 시작하는 주소를 포함합니다.
 
 현재 IPv4 주소만 지원됩니다.
 
@@ -291,6 +290,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 
 |서비스|리소스 공급자 이름|목적|
 |:------|:---------------------|:------|
+|Azure Backup|Microsoft.Backup|IAAS 가상 머신에서 관리되지 않는 디스크의 백업 및 복원을 수행합니다. (관리되는 디스크에 필요 없음). [자세히 알아보기](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|사용자 지정 이미지 만들기 및 아티팩트 설치.  [자세히 알아보기](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Blob Storage 이벤트 게시를 사용하도록 설정합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs 캡처로 데이터를 보관합니다.  [자세한 정보](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

@@ -4,7 +4,7 @@ description: 응용 프로그램 또는 엔터프라이즈의 요구 사항을 �
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010883"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -125,6 +126,20 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 ## <a name="compute-isolation"></a>Compute 격리
 Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 계산 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
 
+### <a name="isolated-virtual-machine-sizes"></a>격리 가상 머신 크기
+Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
+
+격리 크기를 사용하면 가상 머신이 특정 서버 인스턴스에서 하나만 실행되도록 보장합니다.  현재 격리 가상 머신 제품에는 다음이 포함됩니다.
+* Standard_E64is_v3
+* Standard_E64i_v3
+* Standard_M128ms
+* Standard_GS5
+* Standard_G5
+* Standard_DS15_v2
+* Standard_D15_v2
+
+[여기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 격리 크기 각각에 대해 자세히 알아볼 수 있습니다.
+
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
 Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 끝점)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
 
@@ -200,7 +215,7 @@ FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 
 
 ![저장소 액세스 제어를 사용한 격리](./media/azure-isolation/azure-isolation-fig9.png)
 
-**Azure Storage 데이터(테이블 포함)**는 범위가 지정된 액세스 권한을 부여하는 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 토큰을 통해 제어할 수 있습니다. SAS는 [SAK(Storage 계정 키)](https://msdn.microsoft.com/library/azure/ee460785.aspx)로 서명된 쿼리 템플릿(URL)을 통해 만들어집니다. [서명된 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)은 다른 프로세스(즉, 위임된 프로세스)에 제공할 수 있으며, 이 경우 쿼리의 세부 정보를 채우고 저장소 서비스를 요청할 수 있습니다. SAS를 사용하면 저장소 계정의 비밀 키를 공개하지 않고 클라이언트에 시간 기반 액세스 권한을 부여할 수 있습니다.
+**Azure Storage 데이터(테이블 포함)** 는 범위가 지정된 액세스 권한을 부여하는 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 토큰을 통해 제어할 수 있습니다. SAS는 [SAK(Storage 계정 키)](https://msdn.microsoft.com/library/azure/ee460785.aspx)로 서명된 쿼리 템플릿(URL)을 통해 만들어집니다. [서명된 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)은 다른 프로세스(즉, 위임된 프로세스)에 제공할 수 있으며, 이 경우 쿼리의 세부 정보를 채우고 저장소 서비스를 요청할 수 있습니다. SAS를 사용하면 저장소 계정의 비밀 키를 공개하지 않고 클라이언트에 시간 기반 액세스 권한을 부여할 수 있습니다.
 
 SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 저장소 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 이러한 제한된 권한을 부여할 수 있습니다.
 

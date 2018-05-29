@@ -3,7 +3,7 @@ title: Microsoft Azure 미사용 데이터 암호화 | Microsoft Docs
 description: 이 문서에서는 Microsoft Azure 미사용 데이터 암호화 개요, 전체 기능 및 일반적인 고려 사항을 제공합니다.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312579"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 Microsoft Azure에는 회사의 보안 및 규정 준수 요구 사항에 따라 데이터를 보호하는 여러 도구가 있습니다. 이 문서는 다음 내용을 집중적으로 다룹니다.
@@ -236,17 +237,17 @@ Azure IaaS(Infrastructure as a Service) 기능을 사용하는 모든 고객은 
 
 #### <a name="azure-storage"></a>Azure 저장소
 
-Azure Blob 및 File 저장소는 서버 쪽 암호화 시나리오 및 고객 암호화 데이터(클라이언트 쪽 암호화)에 대한 미사용 데이터 암호화를 지원합니다.
+모든 Azure Storage 서비스(Blob Storage, Queue Storage, Table Storage 및 Azure Files)는 고객 관리 키와 클라이언트 측 암호화를 지원하는 일부 서비스와 함께 서버 쪽 정적 암호화를 지원합니다.  
 
-- 서버 쪽: Azure Blob 저장소를 사용하는 고객은 각 Azure 저장소 리소스 계정에서 미사용 데이터 암호화를 사용할 수 있습니다. 일단 사용하도록 설정되면 서버 쪽 암호화가 응용 프로그램에 투명하게 수행됩니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 참조하세요.
-- 클라이언트 쪽: Azure Blobs의 클라이언트 쪽 암호화가 지원됩니다. 클라이언트 쪽 암호화를 사용하는 경우 고객은 데이터를 암호화하고 암호화된 Blob으로 데이터를 업로드합니다. 키 관리는 고객이 수행합니다. 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](https://docs.microsoft.com/azure/storage/storage-client-side-encryption)를 참조하세요.
+- 서버 쪽: 모든 Azure Storage 서비스는 기본적으로 응용 프로그램에 투명한 서비스 관리 키를 사용하여 서버 쪽 암호화를 활성화합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 참조하세요. Azure Blob Storage 및 Azure Files도 Azure Key Vault의 고객 관리 키를 지원합니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys)를 참조하세요.
+- 클라이언트 쪽: Azure Blob, 테이블 및 큐에서 클라이언트 쪽 암호화를 지원합니다. 클라이언트 쪽 암호화를 사용하는 경우 고객은 데이터를 암호화하고 암호화된 Blob으로 데이터를 업로드합니다. 키 관리는 고객이 수행합니다. 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](https://docs.microsoft.com/azure/storage/storage-client-side-encryption)를 참조하세요.
 
 
 #### <a name="sql-azure"></a>SQL Azure
 
 SQL Azure는 현재 Microsoft 관리 서비스 쪽 및 클라이언트 쪽 암호화 시나리오에 대한 미사용 데이터 암호화를 지원합니다.
 
-서버 암호화 지원은 현재 TDE(투명한 데이터 암호화)라는 SQL 기능을 통해 제공됩니다. SQL Azure 고객이 TDE 키를 사용하도록 설정하면 해당 키가 자동으로 만들어지고 관리됩니다. 데이터베이스 및 서버 수준에서 미사용 데이터 암호화를 사용하도록 설정할 수 있습니다. 2017년 6월 현재 [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx)는 새로 만든 데이터베이스에서 기본적으로 사용하도록 설정됩니다.
+서버 암호화 지원은 현재 투명한 데이터 암호화라는 SQL 기능을 통해 제공됩니다. SQL Azure 고객이 TDE 키를 사용하도록 설정하면 해당 키가 자동으로 만들어지고 관리됩니다. 데이터베이스 및 서버 수준에서 미사용 데이터 암호화를 사용하도록 설정할 수 있습니다. 2017년 6월 현재 [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx)는 새로 만든 데이터베이스에서 기본적으로 사용하도록 설정됩니다.
 
 SQL Azure 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 기능을 통해 지원됩니다. Always Encrypted는 클라이언트에서 만들고 저장한 키를 사용합니다. 고객은 Windows 인증서 저장소, Azure Key Vault 또는 로컬 HSM(하드웨어 보안 모듈)에 마스터 키를 저장할 수 있습니다. SQL Server Management Studio를 사용하는 경우 SQL 사용자는 어떤 열을 암호화하는 데 사용하려는 키를 선택합니다.
 
@@ -257,10 +258,10 @@ SQL Azure 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](https
 | **저장소 및 데이터베이스**            |                |                     |                              |                              |        |
 | 디스크(IaaS)                      |                | -                   | 예                          | 예*                         | -      |
 | SQL Server(IaaS)                |                | 예                 | 예                          | 예                          | 예    |
-| SQL Azure(PaaS)                 |                | 예                 | 미리 보기                      | -                            | 예    |
-| Azure Storage(블록/페이지 Blob) |                | 예                 | 미리 보기                      | -                            | 예    |
-| Azure Storage(파일)            |                | 예                 | -                            | -                            | -      |
-| Azure Storage(테이블, 큐)   |                | -                   | -                            | -                            | 예    |
+| SQL Azure(PaaS)                 |                | 예                 | 예                          | -                            | 예    |
+| Azure Storage(블록/페이지 Blob) |                | 예                 | 예                          | -                            | 예    |
+| Azure Storage(파일)            |                | 예                 | 예                          | -                            | -      |
+| Azure Storage(테이블, 큐)   |                | 예                 | -                            | -                            | 예    |
 | Cosmos DB(Document DB)          |                | 예                 | -                            | -                            | -      |
 | StorSimple                       |                | 예                 | -                            | -                            | 예    |
 | Backup                           |                | -                   | -                            | -                            | 예    |
@@ -274,8 +275,8 @@ SQL Azure 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](https
 | Azure Data Catalog               |                | 예                 | -                            | -                            | -      |
 | Power BI                         |                | 예                 | -                            | -                            | -      |
 | **IoT 서비스**                     |                |                     |                              |                              |        |
-| IoT 허브                          |                | -                   | -                            | -                            | 예    |
-| Service Bus                      |                | 예(프리미엄 계층)              | -                            | -                            | 예    |
+| IoT Hub                          |                | -                   | -                            | -                            | 예    |
+| Service Bus                      |                | 예              | -                            | -                            | 예    |
 | Event Hubs                       |                | 예             | -                            | -                            | -      |
 
 

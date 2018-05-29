@@ -7,21 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189567"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 복제 테이블 사용에 대한 디자인 지침
 이 문서는 SQL Data Warehouse 스키마로 복제 테이블을 디자인하기 위한 권장 사항을 제공합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
-
-> [!NOTE]
-> 복제 테이블 기능은 현재 공개 미리 보기 상태입니다. 일부 동작은 변경될 수 있습니다.
-> 
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요. 
@@ -44,20 +41,13 @@ ms.lasthandoff: 04/18/2018
 복제 테이블 사용을 고려하는 것이 좋은 경우:
 
 - 행의 수에 관계없이 디스크의 테이블 크기가 2GB미만입니다. 테이블 크기를 알아보려면 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 명령을 사용하세요. `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- 복제 테이블이 아니면 데이터 이동이 필요한 조인에 사용됩니다. 예를 들어 해시 분산 테이블의 조인은 조인하는 열이 배포 열과 같지 않은 경우 데이터 이동이 필요합니다. 해시 분산 테이블 중 하나가 작으면 복제 테이블을 고려하세요. 라운드 로빈 테이블에 조인하려면 데이터 이동이 필요합니다. 대부분의 경우 라운드 로빈 테이블 대신 복제 테이블을 사용하는 것이 좋습니다. 
-
-
-기존 분산 테이블을 복제 테이블로 변환하는 것이 좋은 경우:
-
-- 쿼리 계획이 데이터를 모든 Compute 노드에 브로드캐스트하는 데이터 이동 작업을 사용합니다. BroadcastMoveOperation은 비용이 많이 들고 쿼리 성능이 느려집니다. 쿼리 계획에서 데이터 이동 작업을 보려면 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)를 사용합니다.
+- 복제 테이블이 아니면 데이터 이동이 필요한 조인에 사용됩니다. 라운드 로빈 테이블로의 해시 분산 테이블과 같이 동일한 열에 배포되지 않은 테이블을 조인하는 경우 쿼리를 완료하려면 데이터 이동이 필요합니다.  테이블 중 하나가 작은 경우 복제된 테이블을 고려합니다. 대부분의 경우 라운드 로빈 테이블 대신 복제 테이블을 사용하는 것이 좋습니다. 쿼리 계획에서 데이터 이동 작업을 보려면 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)를 사용합니다.  BroadcastMoveOperation은 복제된 테이블을 사용하여 제거할 수 있는 일반적인 데이터 이동 작업입니다.  
  
 복제 테이블이 최상의 쿼리 성능을 얻을 수 없는 경우:
 
 - 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다. 이러한 DML(데이터 조작 언어) 작업에는 복제 테이블 다시 빌드가 필요합니다. 다시 빌드가 빈번하면 성능을 저하시킬 수 있습니다.
 - 데이터 웨어하우스의 크기가 자주 조정됩니다. 데이터 웨어하우스의 크기를 조정하면 Compute 노드의 수가 변경되고 이로 인해 다시 빌드가 필요해집니다.
-- 테이블에는 다수의 열이 있지만 데이터 작업은 대개 작은 수의 열에만 액세스합니다. 이 시나리오에서는 전체 테이블을 복제하는 대신 테이블을 해시 분산한 다음 자주 액세스하는 열의 인덱스를 만드는 것이 보다 효과적일 수 있습니다. 쿼리에 데이터 이동이 필요하면 SQL Data Warehouse는 요청된 열의 데이터만 이동합니다. 
-
-
+- 테이블에는 다수의 열이 있지만 데이터 작업은 대개 작은 수의 열에만 액세스합니다. 이 시나리오에서는 전체 테이블을 복제하는 대신 테이블을 분산한 다음, 자주 액세스하는 열의 인덱스를 만드는 것이 보다 효과적일 수 있습니다. 쿼리에 데이터 이동이 필요하면 SQL Data Warehouse는 요청된 열의 데이터만 이동합니다. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>단순 쿼리 조건자로 복제 테이블 사용
 테이블 분산 또는 복제를 선택하기 전에 테이블에 실행할 쿼리 유형에 대해 생각해보세요. 가능하면,
@@ -67,7 +57,7 @@ ms.lasthandoff: 04/18/2018
 
 CPU를 많이 사용하는 쿼리는 모든 Compute 노드에 작업이 분산되면 성능이 가장 좋아집니다. 예를 들어 테이블의 각 행에서 계산을 실행하는 쿼리는 복제 테이블에 비해 분산 테이블에서 성능이 더 높습니다. 복제 테이블은 각 Compute 노드에 전체가 저장되므로 복제 테이블에 대해 CPU를 많이 사용하는 쿼리는 각 Compute 노드의 전체 테이블에 대해 실행됩니다. 추가 계산은 쿼리 성능을 저하시킬 수 있습니다.
 
-예를 들어 이 쿼리에는 복잡한 조건자가 있습니다.  이 쿼리는 공급자가 복제 테이블이 아니라 분산 테이블일 때 실행 속도가 빨라집니다. 이 예제에서 공급자는 해시 분산 또는 라운드 로빈 분산 테이블일 수 있습니다.
+예를 들어 이 쿼리에는 복잡한 조건자가 있습니다.  이 쿼리는 공급자가 복제 테이블이 아니라 분산 테이블일 때 실행 속도가 빨라집니다. 이 예제에서 공급자는 라운드 로빈 분산 테이블일 수 있습니다.
 
 ```sql
 
@@ -132,7 +122,7 @@ WHERE d.FiscalYear = 2004
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>복제 테이블 수정에 대한 성능 고려 사항
-SQL Data Warehouse는 테이블의 마스터 버전을 유지하여 복제 테이블을 구현합니다. 마스터 버전을 각 Compute 노드에 있는 하나의 배포 데이터베이스에 복사합니다. 변경 내용이 있으면 SQL Data Warehouse는 먼저 마스터 테이블을 업데이트합니다. 그런 다음 각각의 Compute 노드에 테이블 다시 빌드를 요구합니다. 복제 테이블 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음 인덱스를 다시 빌드하는 것이 포함됩니다.
+SQL Data Warehouse는 테이블의 마스터 버전을 유지하여 복제 테이블을 구현합니다. 마스터 버전을 각 Compute 노드에 있는 하나의 배포 데이터베이스에 복사합니다. 변경 내용이 있으면 SQL Data Warehouse는 먼저 마스터 테이블을 업데이트합니다. 그런 다음, 각각의 Compute 노드에 테이블을 다시 빌드합니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW400의 복제된 테이블에는 5개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL Data Warehouse는 더 빠른 데이터 수정 문 및 유연한 크기 조정 작업을 지원하기 위해 이 모델을 사용합니다. 
 
 다시 빌드가 필요한 경우:
 - 데이터가 로드되었거나 수정된 후
@@ -143,7 +133,7 @@ SQL Data Warehouse는 테이블의 마스터 버전을 유지하여 복제 테�
 - 작업 일시 중지 후
 - 작업 일시 다시 시작 후
 
-다시 빌드는 데이터가 수정된 직후 발생하지 않습니다. 대신 쿼리가 테이블에서 처음 선택하면 다시 빌드가 트리거됩니다.  테이블의 초기 select 문에 복제 테이블을 다시 빌드하는 단계가 있습니다.  다시 빌드는 쿼리 내에서 수행되므로 초기 select 문에 미치는 영향은 테이블 크기에 따라 크게 달라질 수 있습니다.  다시 빌드가 필요한 다수의 복제 테이블이 관련된 경우 각 복사본은 명령문 내의 단계로 순차적으로 다시 빌드됩니다.  복제 테이블을 다시 빌드하는 동안 데이터 일관성을 유지하기 위해 테이블에 배타적 잠금이 적용됩니다.  잠금은 다시 빌드하는 동안 테이블에 대한 모든 액세스를 차단합니다. 
+다시 빌드는 데이터가 수정된 직후 발생하지 않습니다. 대신 쿼리가 테이블에서 처음 선택하면 다시 빌드가 트리거됩니다.  데이터가 각 Compute 노드에 비동기적으로 복사되는 동안 다시 작성을 트리거한 쿼리가 테이블의 마스터 버전에서 즉시 읽습니다. 데이터 복사가 완료될 때까지 후속 쿼리는 테이블의 마스터 버전을 계속 사용합니다.  또 다른 다시 작성을 수행하는 복제된 테이블에 대해 어떠한 동작이 발생하는 경우 데이터 복사는 무효화되고 다음 select 문은 데이터의 다시 복사를 트리거합니다. 
 
 ### <a name="use-indexes-conservatively"></a>신중하게 인덱스 사용
 표준 인덱싱 작업은 복제 테이블에 적용됩니다. SQL Data Warehouse는 다시 빌드의 일환으로 각 복제 테이블 인덱스를 다시 빌드합니다. 인덱스는 해당 성능이 인덱스를 다시 빌드하는 비용보다 높은 경우에만 사용합니다.  
@@ -172,7 +162,7 @@ SQL Data Warehouse는 테이블의 마스터 버전을 유지하여 복제 테�
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>일괄 처리 로드 후 복제 테이블 다시 빌드
-일관적인 쿼리 실행 시간을 보장하기 위해 일괄 처리 로드 후 복제 테이블을 강제로 새로 고치는 것이 좋습니다. 그렇지 않으면 첫 번째 쿼리는 테이블을 새로 고칠 때까지 기다렸다가 인덱스를 다시 빌드해야 합니다. 영향을 받는 복제 테이블의 크기와 수에 따라 성능에 미치는 영향을 클 수 있습니다.  
+일관적인 쿼리 실행 시간을 보장하려면 일괄 처리 로드 후 복제된 테이블을 강제로 빌드하는 것이 좋습니다. 그렇지 않으면 첫 번째 쿼리에서 쿼리를 완료하기 위해 계속 데이터를 이동합니다. 
 
 다음 쿼리는 [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV를 사용하여 수정되었지만 다시 빌드되지 않은 복제 테이블을 나열합니다.
 
@@ -187,7 +177,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-다시 빌드를 강제 적용하려면 위의 출력의 각 테이블에 다음 문을 실행합니다. 
+다시 빌드를 트리거하려면 이전 출력의 각 테이블에서 다음 명령문을 실행합니다. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

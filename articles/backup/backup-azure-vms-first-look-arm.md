@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310607"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure 가상 머신 백업
 
@@ -39,7 +40,9 @@ Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백�
 백업을 할 수 있는, 할 수 없는 항목에 대해 자세히 알아보려면 [Azure VM을 백업하도록 환경 준비](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)를 참조하세요.
 
 > [!NOTE]
-> 이 자습서에서는 Azure 구독에 이미 VM이 있으며 VM에 액세스하는 백업 서비스를 허용하도록 조치를 취했다고 가정합니다.
+> 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다.
+백업 서비스가 만드는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`입니다.
+<br>예: AzureBackupRG_northeurope_1
 >
 >
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012920"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/19/2018
 |[둘 다 리소스 관리자](create-peering-different-subscriptions.md) |다름|
 |[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
 
-클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 이 자습서는 동일한 지역에 있는 가상 네트워크를 사용합니다. 이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다.  
+클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 이 자습서는 동일한 지역에 있는 가상 네트워크를 사용합니다. 이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다. 가상 네트워크를 피어링하기 전에 [피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다.
 
 서로 다른 구독에 존재하는 가상 네트워크 간의 가상 네트워크 피어링을 만들 때는 구독이 모두 동일한 Azure Active Directory 테넌트에 연결되어 있어야 합니다. 아직 Azure Active Directory 테넌트가 없는 경우 신속히 하나 [만들](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) 수 있습니다. Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 서로 다른 구독과 Azure Active Directory 테넌트의 가상 네트워크를 연결할 수 있습니다.
 
@@ -54,7 +55,7 @@ ms.lasthandoff: 04/19/2018
     - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupA*를 입력합니다.
     - **위치**: *미국 동부*
 4. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA*를 입력합니다. **myVnetA**가 검색 결과에 표시되면 클릭합니다. **myVnetA** 가상 네트워크에 대한 블레이드가 표시됩니다.
-5. 나타나는 **myVnetA** 블레이드의 왼쪽에 있는 세로 옵션 목록에서 **액세스 제어(IAM)**를 클릭합니다.
+5. 나타나는 **myVnetA** 블레이드의 왼쪽에 있는 세로 옵션 목록에서 **액세스 제어(IAM)** 를 클릭합니다.
 6. 나타나는 **myVnetA - ID 및 액세스 제어(IAM)** 블레이드에서 **+ 추가**를 클릭합니다.
 7. 나타나는 **권한 추가** 블레이드의 **역할** 상자에서 **네트워크 참가자**를 선택합니다.
 8. **선택** 상자에서 사용자 B를 선택하거나 사용자 B의 이메일 주소를 입력하여 검색합니다. 피어링을 설정 중인 가상 네트워크와 같은 Azure Active Directory 테넌트의 사용자 목록이 표시됩니다. 목록에 표시되면 사용자 B를 클릭합니다.

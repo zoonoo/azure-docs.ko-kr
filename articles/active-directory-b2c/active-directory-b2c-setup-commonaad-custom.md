@@ -14,17 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200521"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 사용자가 다중 테넌트 Azure AD ID 공급자에 로그인할 수 있게 함
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 특정 Azure AD(Azure Active Directory)에 대해 공통 엔드포인트를 사용하여 사용자 로그인을 활성화하는 방법에 대해 설명합니다.
+이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 특정 Azure AD(Azure Active Directory)에 대해 다중 테넌트 엔드포인트를 사용하여 사용자 로그인을 활성화하는 방법에 대해 설명합니다. 이렇게 하면 각 테넌트에 대한 기술 공급자를 구성하지 않아도 여러 Azure AD 테넌트의 사용자가 Azure AD B2C에 로그인할 수 있습니다. 그러나 이러한 테넌트의 게스트 멤버는 로그인할 수 **없습니다**. 게스트 멤버가 로그인하려면 [각 테넌트를 개별적으로 구성](active-directory-b2c-setup-aad-custom.md)해야 합니다.
 
 >[!NOTE]
 > 조직의 Azure AD 테넌트로 "contoso.com"을 사용하고, 다음 지침에서는 "fabrikamb2c.onmicrosoft.com"을 Azure AD B2C 테넌트로 사용합니다.
@@ -36,25 +37,22 @@ ms.lasthandoff: 04/18/2018
 이러한 단계는 다음과 같습니다.
      
 1. Azure AD B2C(Azure Active Directory B2C) 테넌트 만들기
-2. Azure AD B2C 응용 프로그램 만들기    
-3. 두 개의 정책 엔진 응용 프로그램 등록  
-4. 키 설정 
-5. 시작 팩 설정
+1. Azure AD B2C 응용 프로그램 만들기    
+1. 두 개의 정책 엔진 응용 프로그램 등록  
+1. 키 설정 
+1. 시작 팩 설정
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>1단계. 다중 테넌트 Azure AD 앱 만들기
 
-다중 테넌트 Azure AD 엔드포인트를 사용하여 사용자에 대한 로그인을 활성화하려면 다중 테넌트 응용 프로그램을 Azure AD 테넌트에 등록해야 합니다. 이 문서에서는 Azure AD B2C 테넌트에 다중 테넌트 Azure AD 응용 프로그램을 만드는 방법을 알아봅니다. 그런 다음, 다중 테넌트 Azure AD 응용 프로그램을 사용하여 사용자에 대해 로그인을 활성화합니다.
-
->[!NOTE]
-> Azure AD 사용자 **및 Microsoft 계정이 있는 사용자가** 로그인하게 하려면 이 섹션을 건너 뛰고 [Microsoft 개발자 포털](https://apps.dev.microsoft.com)에 응용 프로그램을 등록합니다.
+다중 테넌트 Azure AD 엔드포인트를 사용하여 사용자에 대한 로그인을 활성화하려면 다중 테넌트 응용 프로그램을 Azure AD 테넌트 중 하나에 등록해야 합니다. 이 문서에서는 Azure AD B2C 테넌트에 다중 테넌트 Azure AD 응용 프로그램을 만드는 방법을 알아봅니다. 그런 다음, 다중 테넌트 Azure AD 응용 프로그램을 사용하여 사용자에 대해 로그인을 활성화합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 위쪽 막대에서 계정을 선택합니다. **디렉터리** 목록에서 Azure AD B2C 테넌트를 선택하여 Azure AD 응용 프로그램(fabrikamb2c.onmicrosoft.com)을 등록합니다.
-2. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 "앱 등록"을 검색합니다.
-3. **새 응용 프로그램 등록**을 선택합니다.
-4. 응용 프로그램의 이름(예: `Azure AD B2C App`)을 입력합니다.
-5. 응용 프로그램 종류에 대해 **웹앱/API**를 선택합니다.
-6. **로그온 URL**에 대해 다음 URL을 입력합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트의 이름(`fabrikamb2c.onmicrosoft.com`)으로 바뀝니다.
+1. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 "앱 등록"을 검색합니다.
+1. **새 응용 프로그램 등록**을 선택합니다.
+1. 응용 프로그램의 이름(예: `Azure AD B2C App`)을 입력합니다.
+1. 응용 프로그램 종류에 대해 **웹앱/API**를 선택합니다.
+1. **로그온 URL**에 대해 다음 URL을 입력합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트의 이름(`fabrikamb2c.onmicrosoft.com`)으로 바뀝니다.
 
     >[!NOTE]
     >"yourtenant"의 값은 **로그온 URL**에서 모두 소문자여야 합니다.
@@ -82,8 +80,8 @@ Azure AD B2C 설정에서 응용 프로그램 키를 등록해야 합니다. 다
    * **이름**에 대해 Azure AD 테넌트 이름과 일치하는 이름(예: `AADAppSecret`)을 선택합니다.  `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
    * **비밀** 상자에서 응용 프로그램 키를 붙여넣습니다.
    * **서명**을 선택합니다.
-5. **만들기**를 선택합니다.
-6. `B2C_1A_AADAppSecret` 키를 만들었는지 확인합니다.
+1. **만들기**를 선택합니다.
+1. `B2C_1A_AADAppSecret` 키를 만들었는지 확인합니다.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>3단계. 기본 정책에서 클레임 공급자 추가
 
@@ -114,11 +112,12 @@ Azure AD B2C 설정에서 응용 프로그램 키를 등록해야 합니다. 다
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -150,14 +149,15 @@ Azure AD B2C 설정에서 응용 프로그램 키를 등록해야 합니다. 다
 1. `<Description>` 값을 업데이트합니다.
 1. Azure AD 다중 테넌트 앱 등록에서 `<Item Key="client_id">`를 응용 프로그램 ID로 설정합니다.
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>3.1단계 [선택 사항] Azure AD 테넌트의 특정 목록에 대한 액세스 제한
-유효한 토큰 발급자 목록을 업데이트하고 사용자가 로그인할 수 있는 특정 Azure AD 테넌트 목록에 대한 액세스를 제한할 수 있습니다. 값을 구하려면 사용자가 로그인하게 하려는 특정 Azure AD 테넌트 각각에 대한 메타데이터를 살펴야 합니다. 데이터의 형식은 `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`과 유사하며 여기서 `yourAzureADtenant`는 Azure AD 테넌트 이름(contoso.com 또는 다른 Azure AD 테넌트)입니다.
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>3.1단계 Azure AD 테넌트의 특정 목록에 대한 액세스 제한
+
+> [!NOTE]
+> **ValidTokenIssuerPrefixes**의 값으로 `https://sts.windows.net`을 사용하면 모든 Azure AD 사용자가 앱에 로그인할 수 있습니다.
+
+유효한 토큰 발급자 목록을 업데이트하고 사용자가 로그인할 수 있는 특정 Azure AD 테넌트 목록에 대한 액세스를 제한해야 합니다. 값을 구하려면 사용자가 로그인하게 하려는 특정 Azure AD 테넌트 각각에 대한 메타데이터를 살펴야 합니다. 데이터의 형식은 `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`과 유사하며 여기서 `yourAzureADtenant`는 Azure AD 테넌트 이름(contoso.com 또는 다른 Azure AD 테넌트)입니다.
 1. 브라우저를 열고 메타데이터 URL로 이동합니다.
 1. 브라우저에서 '발급자' 개체를 찾아 해당 값을 복사합니다. `https://sts.windows.net/{tenantId}/`과 같아야 합니다.
 1. `ValidTokenIssuerPrefixes` 키 값을 붙여 넣습니다. 여러 값은 쉼표를 사용하여 구분해 추가할 수 있습니다. 위의 샘플 XML의 주석 처리를 예로 들 수 있습니다.
-
-> [!NOTE]
-> `https://sts.windows.net`을 접두사 값으로 사용하면 모든 Azure AD 사용자가 앱에 로그인할 수 있게 허용합니다.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>4단계. Azure AD 계정 클레임 공급자 등록
 
@@ -212,11 +212,11 @@ Azure AD B2C 설정에서 응용 프로그램 키를 등록해야 합니다. 다
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>6단계: 테넌트에 정책 업로드
 
 1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 선택합니다.
-2. **ID 경험 프레임워크**를 선택합니다.
-3. **모든 정책**을 선택합니다.
-4. **정책 업로드**를 선택합니다.
-5. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
-6. `TrustFrameworkExtensions.xml` 파일과 RP 파일(예: `SignUpOrSignInWithAAD.xml`)을 업로드하고 유효성 검사에 통과하는지 확인합니다.
+1. **ID 경험 프레임워크**를 선택합니다.
+1. **모든 정책**을 선택합니다.
+1. **정책 업로드**를 선택합니다.
+1. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+1. `TrustFrameworkExtensions.xml` 파일과 RP 파일(예: `SignUpOrSignInWithAAD.xml`)을 업로드하고 유효성 검사에 통과하는지 확인합니다.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>7단계: 지금 실행을 사용하여 사용자 지정 정책 테스트
 

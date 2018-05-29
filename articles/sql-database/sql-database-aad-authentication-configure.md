@@ -9,11 +9,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5451046eb2bfc611db863d18cee93a248e651f88
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194252"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>SQL Database, 관리되는 인스턴스 또는 SQL Data Warehouse에서의 Azure Active Directory 인증 구성 및 관리
 
@@ -50,7 +51,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
 관리되는 인스턴스는 보안 그룹 구성원 자격을 통한 사용자 인증 또는 새로운 사용자의 생성 같은 태스크를 성공적으로 수행하기 위해 Azure AD를 읽을 수 있는 권한이 필요합니다. 이를 위해서는 관리되는 인스턴스에 대한 권한을 부여하여 Azure AD를 읽어야 합니다. 이 작업은 포털 및 PowerShell의 두 가지 방법으로 수행할 수 있습니다. 다음 단계에서는 두 방법을 모두 안내합니다.
 
-1. Azure Portal의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 
+1. Azure Portal의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 
 2. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 
 
    이 단계는 Active Directory와 연결된 구독을 관리되는 인스턴스와 연결하여 동일한 구독이 Azure AD 및 관리되는 인스턴스 둘 다에 사용되도록 합니다.
@@ -58,7 +59,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4.  Active Directory 관리자 페이지 맨 위의 배너를 클릭합니다. Azure AD의 글로벌/회사 관리자 권한으로 로그인된 경우 Azure Portal에서 또는 PowerShell을 사용하여 이 작업을 수행할 수 있습니다.
+4.  Active Directory 관리자 페이지 맨 위의 배너를 선택합니다. Azure AD의 글로벌/회사 관리자 권한으로 로그인된 경우 Azure Portal에서 또는 PowerShell을 사용하여 이 작업을 수행할 수 있습니다.
 
     ![권한 부여-포털](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -70,17 +71,17 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
     ![성공](./media/sql-database-aad-authentication/success.png)
 
-6.  이제 관리되는 인스턴스에 대한 Azure AD 관리자를 선택할 수 있습니다. 이에 대해 Active Directory 관리자 페이지에서 **관리자 설정** 명령을 클릭합니다.
+6.  이제 관리되는 인스턴스에 대한 Azure AD 관리자를 선택할 수 있습니다. 이에 대해 Active Directory 관리자 페이지에서 **관리자 설정** 명령을 선택합니다.
 
     ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
 
-7. 관리자 추가 페이지에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택**을 클릭합니다. 
+7. 관리자 추가 페이지에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음, **선택**을 선택합니다. 
 
    Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. [Azure AD 기능 및 제한 사항](sql-database-aad-authentication.md#azure-ad-features-and-limitations) 에서 지원되는 관리자 목록을 참조하세요. RBAC(역할 기반 액세스 제어)는 Azure Portal에만 적용되며 SQL Server에 전파되지 않습니다.
 
     ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
 
-8. Active directory 관리자 페이지 위쪽에서 **저장**을 클릭합니다.
+8. Active directory 관리자 페이지 위쪽에서 **저장**을 선택합니다.
 
     ![저장](./media/sql-database-aad-authentication/save.png)
 
@@ -90,7 +91,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 > Azure AD 관리자를 설정하는 경우, 새 관리자 이름(사용자 또는 그룹)이 SQL Server 인증 사용자로 가상 master 데이터베이스에 있으면 안 됩니다. 새 관리자 이름이 있으면 Azure AD 관리자 설정은 실패하며, 생성 작업을 롤백하고 해당 관리자(이름)이 이미 존재한다는 것을 나타냅니다. SQL Server 인증 사용자는 Azure AD에 속하지 않기 때문에 Azure AD 인증을 사용하여 서버에 연결하려는 작업은 모두 실패합니다.
 
 > [!TIP]
-> 나중에 관리자를 제거하려면, Active Directory 관리자 페이지 위쪽에서 **관리자 제거**를 클릭하고 **저장**을 클릭합니다.
+> 나중에 관리자를 제거하려면, Active Directory 관리자 페이지 위쪽에서 **관리자 제거**를 선택한 다음, **저장**을 선택합니다.
  
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Azure SQL Database 서버에 대한 Azure Active Directory 관리자를 프로비전합니다
 
@@ -100,17 +101,24 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 다음 두 절차는 Azure Portal에서나 PowerShell을 사용하여 Azure SQL Server에 대한 Azure Active Directory 관리자를 프로비전하는 방법을 보여 줍니다.
 
 ### <a name="azure-portal"></a>Azure portal
-1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결 Active Directory를 Azure SQL Server와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (Azure SQL Server는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 호스트할 수 있습니다.)   
+1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결 Active Directory를 Azure SQL Server와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (Azure SQL Server는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 호스트할 수 있습니다.)   
     ![choose-ad][8]   
     
-2. 왼쪽 배너에서 **SQL Server**와 해당 **SQL Server**를 선택한 다음 **SQL Server** 페이지에서 **Active Directory 관리자**를 클릭합니다.   
-3. **Active Directory 관리자** 페이지에서 **관리자 설정**을 클릭합니다.   
+2. 왼쪽 배너에서 **모든 서비스**를 선택하고, 필터 종류에 **SQL Server**를 입력합니다. **Sql Server**를 선택합니다. 
+
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)    
+
+    >[!NOTE]
+    > 이 페이지에서 **SQL Server**를 선택하기 전에 이름 옆에 있는 **별모양**을 선택하면 범주를 *즐겨 찾기에 추가*하고 왼쪽 탐색 모음에 **SQL Server**를 추가할 수 있습니다. 
+
+1. **SQL Server** 페이지에서 **Active Directory 관리자**를 선택합니다.   
+2. **Active Directory 관리자** 페이지에서 **관리자 설정**을 선택합니다.   
     ![active directory 선택](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. **관리자 추가** 페이지에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택**을 클릭합니다. Active Directory 관리자 페이지에는 Active Directory의 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)의 **Azure AD 기능 및 제한 사항** 섹션에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.   
+4. **관리자 추가** 페이지에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음, **선택**을 선택합니다. Active Directory 관리자 페이지에는 Active Directory의 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)의 **Azure AD 기능 및 제한 사항** 섹션에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.   
     ![관리자 선택](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. **Active directory 관리자** 페이지 위쪽에서 **저장**을 클릭합니다.   
+5. **Active directory 관리자** 페이지 위쪽에서 **저장**을 선택합니다.   
     ![관리자 저장](./media/sql-database-aad-authentication/save-admin.png)   
 
 관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 **Active Directory 관리자** 상자에 표시됩니다.
@@ -120,7 +128,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
    > 
 
 
-나중에 관리자를 제거하려면, **Active Directory 관리자** 페이지 위쪽에서 **관리자 제거**를 클릭하고 **저장**을 클릭합니다.
+나중에 관리자를 제거하려면 **Active Directory 관리자** 페이지 위쪽에서 **관리자 제거**를 선택한 다음, **저장**을 선택합니다.
 
 ### <a name="powershell"></a>PowerShell
 PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
@@ -273,7 +281,7 @@ Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 
 1. Management Studio 또는 Data Tools를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 통합**을 선택합니다. 연결에 대한 기존 자격 증명이 있으므로 암호 입력이 필요하지 않습니다.   
 
     ![AD 통합 인증 선택][11]
-2. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 **MFA 연결 옵션이 있는 유니버설**에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.  
+2. **옵션** 단추를 선택하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 **MFA 연결 옵션이 있는 유니버설**에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.  
 
     ![데이터베이스 이름 선택][13]
 
@@ -289,7 +297,7 @@ Azure AD 관리 도메인을 사용하여 Azure AD 사용자 이름과 연결할
 3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다.
 
     ![AD 암호 인증 선택][12]
-4. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. (이전 옵션의 그래픽을 참조하세요.)
+4. **옵션** 단추를 선택하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. (이전 옵션의 그래픽을 참조하세요.)
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>클라이언트 응용 프로그램에서 연결하는 데 Azure AD ID 사용
 

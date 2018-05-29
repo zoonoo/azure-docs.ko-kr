@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770624"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건 
 
@@ -38,24 +39,32 @@ ms.lasthandoff: 04/23/2018
 
 ![제어](./media/active-directory-conditional-access-conditions/61.png)
 
-이 문서에서는 조건의 개요 및 조건부 액세스 정책에서 조건을 사용하는 방법을 설명합니다. 
 
+조건부 액세스 정책에 구성하지 않은 조건은 적용되지 않습니다. 일부 조건은 환경에 조건부 액세스 정책을 적용하는 데 [필수적](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work)입니다. 
+
+이 문서에서는 조건의 개요 및 조건부 액세스 정책에서 조건을 사용하는 방법을 설명합니다. 
 
 ## <a name="users-and-groups"></a>개요
 
 사용자 및 그룹 조건은 조건부 액세스 정책에서 필수입니다. 정책에서 **모든 사용자**를 선택할 수도 있고 특정 사용자 및 그룹을 선택할 수도 있습니다.
 
-![제어](./media/active-directory-conditional-access-conditions/02.png)
+![제어](./media/active-directory-conditional-access-conditions/111.png)
 
 선택 옵션:
 
-- **모든 사용자**를 선택하면 디렉터리에 있는 모든 사용자에게 정책이 적용됩니다. 여기에는 게스트 사용자도 포함됩니다.
+- **모든 사용자** - 디렉터리에 있는 모든 사용자에게 정책이 적용됩니다. 여기에는 게스트 사용자도 포함됩니다.
 
-- **사용자 및 그룹 선택**을 선택하면 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어 클라우드 앱으로 선택된 HR 앱을 갖고 있는 경우 HR 부서의 모든 구성원을 포함하는 그룹을 선택할 수 있습니다. 
+- **사용자 및 그룹 선택** - 다음 옵션을 설정할 수 있습니다.
 
-- 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다.
+    - **모든 게스트 사용자** - 정책의 대상을 B2B 게스트 사용자로 지정할 수 있습니다. 이 조건은 *userType* 특성이 *guest*로 설정된 모든 사용자 계정과 일치합니다. Azure AD의 초대 흐름에 계정이 생성되는 즉시 정책을 적용해야 하는 경우 이 설정을 사용할 수 있습니다.
 
-정책에서 특정 사용자 또는 그룹을 제외할 수도 있습니다. 정책에서 다단계 인증을 적용하는 경우의 일반적인 사용 사례 중 하나는 서비스 계정입니다. 
+    - **디렉터리 역할** - 사용자의 역할 할당을 기반으로 정책의 대상을 지정할 수 있습니다. 이 조건은 *전역 관리자* 또는 *암호 관리자*와 같은 디렉터리 역할을 지원합니다.
+
+    - **사용자 및 그룹 선택** - 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어 클라우드 앱으로 선택된 HR 앱을 갖고 있는 경우 HR 부서의 모든 구성원을 포함하는 그룹을 선택할 수 있습니다.
+
+그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다.
+
+정책에서 특정 사용자 또는 그룹을 제외할 수도 있습니다. 정책에서 다단계 인증(MFA)을 적용하는 경우의 일반적인 사용 사례 중 하나는 서비스 계정입니다. 
 
 새 정책을 배포할 때에는 특정 사용자 집합을 대상으로 지정하는 것이 유리합니다. 새 정책에서 정책 동작의 유효성을 검사하기 위해 초기 사용자 집합만 대상으로 지정해야 합니다. 
 
@@ -104,7 +113,18 @@ ms.lasthandoff: 04/23/2018
 지원되는 장치 플랫폼의 전체 목록은 [장치 플랫폼 조건](active-directory-conditional-access-technical-reference.md#device-platform-condition)을 참조하세요.
 
 
-이 조건의 일반적인 사용 사례는 클라우드 앱에 대한 액세스를 [신뢰할 수 있는 장치](active-directory-conditional-access-policy-connected-applications.md#trusted-devices)로 제한하는 정책입니다. 장치 플랫폼 조건을 포함하여 더 많은 시나리오를 보려면 [Azure Active Directory 앱 기반 조건부 액세스](active-directory-conditional-access-mam.md)를 참조하세요.
+이 조건의 일반적인 사용 사례는 클라우드 앱에 대한 액세스를 [관리 장치](active-directory-conditional-access-policy-connected-applications.md#managed-devices)로 제한하는 정책입니다. 장치 플랫폼 조건을 포함하여 더 많은 시나리오를 보려면 [Azure Active Directory 앱 기반 조건부 액세스](active-directory-conditional-access-mam.md)를 참조하세요.
+
+
+
+## <a name="device-state"></a>장치 상태
+
+장치 상태 조건은 하이브리드 Azure AD가 조인되고, 호환되는 것으로 표시된 장치를 조건부 액세스 정책에서 제외할 수 있습니다. 이는 추가적인 세션 보안을 제공하기 위해 관리되지 않는 장치에만 정책을 적용해야 하는 경우에 유용합니다. 예를 들어 장치가 관리되지 않는 경우 Microsoft Cloud App Security 세션 제어만 적용합니다. 
+
+
+![조건](./media/active-directory-conditional-access-conditions/112.png)
+
+관리되지 않는 장치에 대한 액세스를 차단하려면 [장치 기반 조건부 액세스](active-directory-conditional-access-policy-connected-applications.md)를 구현해야 합니다.
 
 
 ## <a name="locations"></a>위치

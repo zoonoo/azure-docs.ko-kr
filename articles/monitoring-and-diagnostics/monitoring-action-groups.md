@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: dukek
-ms.openlocfilehash: a1f163acea4e1965ab90b32e23e502b13f8908be
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32170379"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -93,7 +94,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 <dt>웹후크</dt>
 <dd>하나의 작업 그룹에 최대 10개의 웹후크 작업이 포함될 수 있습니다.
-<dd>다시 시도 논리 - webhook 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 100초 후에 두 번째 및 마지막 다시 시도가 발생합니다.</dd>
+<dd>다시 시도 논리 - 응답에 대한 제한 시간은 10초입니다. webhook 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 100초 후에 두 번째 및 마지막 다시 시도가 발생합니다.</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>작업 그룹 관리 ##

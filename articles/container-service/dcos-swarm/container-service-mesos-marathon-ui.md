@@ -1,19 +1,20 @@
 ---
-title: "Marathon UI를 사용하여 Azure DC/OS 클러스터 관리"
-description: "Marathon 웹 UI를 사용하여 컨테이너를 Azure 컨테이너 서비스 클러스터 서비스에 배포합니다."
+title: Marathon UI를 사용하여 Azure DC/OS 클러스터 관리
+description: Marathon 웹 UI를 사용하여 컨테이너를 Azure 컨테이너 서비스 클러스터 서비스에 배포합니다.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32166986"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Marathon 웹 UI를 통해 Azure Container Service DC/OS 클러스터 관리
 
@@ -82,7 +83,7 @@ DC/OS 클러스터는 사설 및 공용 에이전트와 함께 배포됩니다. 
 
 ![Marathon 기본 페이지 UI--컨테이너 배포 상태](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-DC/OS 웹 UI(http://localhost/)로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 DC/OS 클러스터에서 실행 중임이 표시됩니다.
+DC/OS 웹 UI(http://localhost/))로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 DC/OS 클러스터에서 실행 중임이 표시됩니다.
 
 ![DC/OS 웹 UI--클러스터에서 실행 중인 작업](./media/container-service-mesos-marathon-ui/dcos8.png)
 

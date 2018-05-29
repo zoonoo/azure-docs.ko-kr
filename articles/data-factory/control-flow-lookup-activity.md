@@ -11,44 +11,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011529"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
-조회 작업을 사용하여 외부 소스의 레코드, 테이블 이름 또는 값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다. 
 
-조회 작업은 구성 파일 또는 데이터 원본에서 파일,레코드 또는 테이블 목록을 동적으로 검색하려는 경우에 유용합니다. 작업의 출력은 해당 항목에 대해서만 특정 처리 작업을 수행하기 위해 다른 작업에서 추가로 사용할 수 있습니다.
+ADF 지원 데이터 원본 중 하나에서 데이터 집합을 검색하는 데 조회 작업을 사용할 수 있습니다.  다음과 같은 시나리오에서 사용할 수 있습니다.
+- 개체 이름을 하드 코딩하는 대신 후속 작업에서 작동할 개체(파일, 테이블 등)를 동적으로 결정합니다.
+
+조회 작업은 구성 파일, 구성 테이블 또는 쿼리 또는 저장 프로시저를 실행한 결과의 내용을 읽거나 반환할 수 있습니다.  조회 작업에서 출력은 싱글톤 값인 경우 후속 복사 또는 변환 작업에서 사용될 수 있고 특성의 배열인 경우 ForEach 작업에서 사용될 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-다음은 현재 조회를 지원하는 데이터 원본입니다.
+조회에 지원되는 데이터 소스는 다음과 같습니다. 조회 작업에서 반환되는 최대 행 수는 **5000**이고, 최대 크기는 **2MB**일 수 있습니다. 또한 현재 제한 시간 이전의 현재 조회 작업에 대한 최대 기간은 1시간입니다.
 
-- Amazon Redshift
-- Azure Blob 저장소
-- Azure Cosmos DB
-- Azure Data Lake Store
-- Azure 파일 저장소
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- Azure 테이블 저장소
-- Dynamics 365
-- Dynamics CRM
-- 파일 시스템
-- PostgreSQL
-- Salesforce
-- Salesforce 서비스 클라우드
-- SFTP
-- SQL Server
-
-조회 작업에서 반환되는 최대 행 수는 **5000**이고, 최대 크기는 **10MB**입니다.
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 ## <a name="syntax"></a>구문
 
@@ -71,16 +57,17 @@ ms.lasthandoff: 03/29/2018
 ```
 
 ## <a name="type-properties"></a>형식 속성
-Name | 설명 | 유형 | Required?
+Name | 설명 | type | Required?
 ---- | ----------- | ---- | --------
 dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 "데이터 집합 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예
 원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 "복사 작업 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예
 firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN | 번호 기본값은 `true`입니다.
 
-다음 사항에 유의하세요.
+**주의 사항:**
 
 1. ByteArray 형식의 원본 열은 지원되지 않습니다.
 2. 구조체는 데이터 집합 정의에서 지원되지 않습니다. 특히 텍스트 서식 파일의 경우 헤더 행을 사용해 열 이름을 제공할 수 있습니다.
+3. 조회 원본이 JSON 파일인 경우 JSON 개체를 다시 셰이핑하는 `jsonPathDefinition` 설정은 지원되지 않습니다. 전체 개체는 검색됩니다.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>조회 작업 결과를 후속 작업에 사용
 

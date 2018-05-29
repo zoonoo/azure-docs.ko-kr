@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777022"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 Azure SQL Database PaaS 제품을 출시한 이후, Microsoft는 HA(고가용성)를 서비스에 기본적으로 제공하고, 고객이 HA를 운영하거나 HA에 특별한 논리를 추가하거나 HA 관련 의사 결정을 내릴 필요가 없도록 하겠다고 고객에게 약속한 바 있습니다. Microsoft는 고객에게 SLA를 제공하여 HA 시스템 구성 및 운영에 대한 완전한 제어를 유지 관리합니다. HA SLA는 지역에 있는 SQL 데이터베이스에 적용되며, Microsoft의 합리적인 제어 이외의 요인으로 인해 전체 지역에 장애가 발생하는 경우 보호를 제공하지 않습니다. 이러한 요인으로, 자연 재해, 전쟁, 테러 행위, 폭동, 정부 조치 또는 Microsoft의 데이터 센터 외부(고객 사이트 또는 고객 사이트와 Microsoft 데이터 센터 간 포함)의 네트워크 또는 장치 오류가 있습니다.
@@ -30,7 +31,7 @@ HA의 문제 영역을 단순화하기 위해 Microsoft는 다음 가정을 사�
 
 데이터의 경우 SQL Database는 직접 연결된 디스크/VHD 기반의 LS(로컬 저장소)와 Azure Premium Storage 페이지 Blob 기반의 RS(원격 저장소)를 모두 사용합니다. 
 - 로컬 저장소는 IOPS 요구 사항이 높은 중요 업무용 OLTP 응용 프로그램용으로 설계된 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스 및 탄력적 풀에서 사용됩니다. 
-- 원격 저장소는 기본 및 표준 서비스 계층에 사용되며, 저장소와 컴퓨팅 성능이 독립적으로 확장되어야 하는 예산 지향 비즈니스 작업을 위해 설계되었습니다. 원격 저장소는 데이터베이스 및 로그 파일용 단일 페이지 BLOB을 사용하며, 기본 제공된 저장소 복제 및 장애 조치(failover) 메커니즘을 사용합니다.
+- 원격 저장소는 기본, 표준 및 범용 서비스 계층에 사용되며, 저장소와 컴퓨팅 성능이 독립적으로 확장되어야 하는 예산 지향 비즈니스 작업을 위해 설계되었습니다. 원격 저장소는 데이터베이스 및 로그 파일용 단일 페이지 BLOB을 사용하며, 기본 제공된 저장소 복제 및 장애 조치(failover) 메커니즘을 사용합니다.
 
 두 경우 모두 SQL Database의 복제, 장애 감지 및 장애 조치(failover) 메커니즘이 완전히 자동화되어 사용자의 개입 없이 작동합니다. 이 아키텍처는 커밋된 데이터가 손실되지 않으며 데이터 내구성이 최우선시되도록 설계되었습니다.
 
@@ -56,7 +57,7 @@ SQL Database의 고가용성 솔루션은 SQL Server의 [Always ON 가용성 그
 
 ## <a name="remote-storage-configuration"></a>원격 저장소 구성
 
-원격 저장소 구성(기본 및 표준 계층)의 경우, 내구성, 중복성 및 bit-rot 감지에 대해 저장소 시스템 기능을 사용하여 원격 Blob 저장소에서 정확히 하나의 복사본이 유지 관리됩니다. 
+원격 저장소 구성(기본, 표준 및 범용 계층)의 경우, 내구성, 중복성 및 bit-rot 감지에 대해 저장소 시스템 기능을 사용하여 원격 Blob 저장소에서 정확히 하나의 복사본이 유지 관리됩니다. 
 
 고가용성 아키텍처는 다음 다이어그램에 설명되어 있습니다.
  
@@ -90,6 +91,11 @@ SQL Database의 고가용성 솔루션은 SQL Server의 [Always ON 가용성 그
 특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다.
 
 데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 응용 프로그램의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 응용 프로그램이 해당 데이터베이스의 읽기-쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요. 
+
+읽기 확장을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.  
+
+> [!NOTE]
+> 표준 또는 범용 데이터베이스에서 읽기 확장을 활성화할 수는 있지만 이러한 데이터는 읽기 전용 세션을 별도의 복제본으로 라우팅하지 않습니다. 표준/범용 및 프리미엄/중요 비즈니스용 계층에서 수직 확장/축소되는 기존 응용 프로그램을 지원하기 위해서입니다.  
 
 읽기 확장 기능은 세션 수준 일관성을 지원합니다. 복제본 비가용성으로 인해 연결 오류가 발생한 후 읽기 전용 세션이 다시 연결되면, 다른 복제본으로 리디렉션될 수 있습니다. 가능성이 낮지만 부실한 데이터 집합이 처리될 수 있습니다. 마찬가지로 응용 프로그램에서 읽기-쓰기 세션을 사용하여 데이터를 쓰고 읽기 전용 세션을 사용하여 즉시 읽는 경우 새 데이터가 즉시 표시되지 않을 수도 있습니다.
 

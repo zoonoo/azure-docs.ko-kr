@@ -1,8 +1,8 @@
 ---
-title: "Azure File Sync(미리 보기) 서버 엔드포인트 추가/제거 | Microsoft Docs"
-description: "Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다."
+title: Azure File Sync(미리 보기) 서버 엔드포인트 추가/제거 | Microsoft Docs
+description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187745"
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Azure File Sync(미리 보기) 서버 엔드포인트 추가/제거
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -27,7 +28,7 @@ Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의
 
 종단 간 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 서버 엔드포인트를 만들려면 먼저 다음 조건이 충족되는지 확인해야 합니다. 
 - 서버에 Azure 파일 동기화 에이전트가 설치되고 등록되어 있습니다. Azure 파일 동기화 에이전트를 설치하기 위한 지침은 [Azure 파일 동기화(미리 보기)에서 서버 등록/등록 취소](storage-sync-files-server-registration.md) 문서를 참조하세요. 
 - 저장소 동기화 서비스가 배포되었는지 확인합니다. 저장소 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요. 
@@ -49,7 +50,7 @@ Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의
 **만들기**를 선택하여 서버 엔드포인트를 추가합니다. 동기화 그룹의 네임스페이스 내에 있는 파일은 이제 동기화 상태를 유지합니다. 
 
 ## <a name="remove-a-server-endpoint"></a>서버 엔드포인트 제거
-서버 엔드포인트에 대해 클라우드 계층화를 사용하도록 설정하면 파일을 Azure 파일 공유로 *계층화*됩니다. 이렇게 하면 온-프레미스 파일 공유가 데이터 집합의 전체 복사본이 아닌 캐시로 사용될 수 있으므로 파일 서버의 공간이 효율적으로 사용됩니다. 그러나 계층화된 파일이 아직 서버에서 로컬로 존재하는 서버 엔드포인트를 제거하면 해당 파일에 액세스할 수 없게 됩니다. 따라서 파일에 계속 액세스해야 하는 경우 등록 취소를 계속하기 전에 Azure Files에서 모든 계층화된 파일을 기억해야 합니다. 
+서버 엔드포인트에 대해 클라우드 계층화를 사용하도록 설정하면 파일을 Azure 파일 공유로 *계층화*됩니다. 이렇게 하면 온-프레미스 파일 공유가 데이터 집합의 전체 복사본이 아닌 캐시로 사용될 수 있으므로 파일 서버의 공간이 효율적으로 사용됩니다. 그러나 **계층화된 파일이 아직 서버에서 로컬로 존재하는 서버 엔드포인트를 제거하면 해당 파일에 액세스할 수 없게 됩니다**. 따라서 온-프레미스 파일 공유에서 파일에 계속 액세스해야 하는 경우 서버 엔드포인트 삭제를 계속하기 전에 Azure Files에서 모든 계층화된 파일을 회수해야 합니다. 
 
 이 작업에는 다음과 같이 PowerShell cmdlet을 사용할 수 있습니다.
 

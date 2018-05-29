@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33775233"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -218,11 +219,12 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 
 ## <a name="limitations"></a>제한 사항
 
-- 현재 Load Balancer 백 엔드 인스턴스는 피어링된 가상 네트워크에서 찾을 수 없습니다. 모든 백 엔드 인스턴스는 동일한 지역에 있어야 합니다.
 - SKU는 변경할 수 없습니다. 기존 리소스의 SKU는 변경할 수 없습니다.
 - 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 또는 가상 머신 확장 집합 리소스는 하나의 SKU만 참조할 수 있습니다.
-- 현재 [Azure Monitor 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 지원되지 않습니다.
+- Load Balancer 규칙은 두 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트엔드 및 해당 관련 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
+- Load Balancer 프런트 엔드는 전역 가상 네트워크 피어링에 액세스할 수 없습니다.
 - [구독 작업 이동](../azure-resource-manager/resource-group-move-resources.md)은 표준 SKU LB 및 PIP 리소스에 대해 지원되지 않습니다.
+- VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스의 기능 방법의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 해당 서비스 자체 또는 기본 플랫폼이 예고 업이 변경될 수 있기 때문에 여기에 의존하지 말아야 합니다. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 만들어야 한다고 항상 가정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

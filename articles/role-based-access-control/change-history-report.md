@@ -1,6 +1,6 @@
 ---
-title: 액세스 보고 - Azure RBAC | Microsoft Docs
-description: 지난 90일 동안 역할 기반 액세스 제어와 함께 Azure 구독 액세스에 대한 모든 변경 내용을 나열하는 보고서를 생성합니다.
+title: Azure에서 RBAC 변경 사항에 대한 활동 로그 보기 | Microsoft Docs
+description: 지난 90일 동안의 역할 기반 액세스 제어 변경 사항에 대한 활동 로그를 봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,55 +11,134 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2017
+ms.date: 04/23/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deef89e62dcec3141be46549cc0fb34b33a6335a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5e09ccdc4942a39e54b760cb5ad78c035dbc05f8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312426"
 ---
-# <a name="create-an-access-report-for-role-based-access-control"></a>역할 기반 Access Control에 대한 액세스 보고서 만들기
-언제든지 누군가가 구독 내부의 액세스를 부여하거나 취소하면 변경 내용이 Azure 이벤트에 기록됩니다. 지난 90일 동안 모든 변경 내용을 보려면 액세스 변경 기록 보고서를 만들 수 있습니다.
+# <a name="view-activity-logs-for-role-based-access-control-changes"></a>역할 기반 액세스 제어 변경 사항에 대한 활동 로그 보기
 
-## <a name="create-a-report-with-azure-powershell"></a>Azure PowerShell에서 보고서 만들기
-PowerShell에서 액세스 변경 기록 보고서를 만들려면 [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) 명령을 사용합니다.
+구독 내에서 누군가가 역할 정의 또는 역할 할당을 변경할 때마다 변경 내용이 [Azure 활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)의 관리 범주에 기록됩니다. 활동 로그를 보고 지난 90일 동안의 RBAC(역할 기반 액세스 제어) 변경 사항을 모두 확인할 수 있습니다.
 
-이 명령을 호출하는 경우 다음을 비롯하여 나열하려는 할당의 속성을 지정할 수 있습니다.
+## <a name="operations-that-are-logged"></a>기록되는 작업
 
-| 자산 | 설명 |
-| --- | --- |
-| **작업** |액세스를 부여 또는 취소했는지 여부 |
-| **Caller** |액세스 변경을 담당하는 소유자 |
-| **PrincipalId** | 역할이 할당된 사용자, 그룹 또는 응용 프로그램의 고유 식별자 |
-| **PrincipalName** |사용자, 그룹 또는 응용 프로그램의 이름 |
-| **PrincipalType** |사용자, 그룹 또는 응용 프로그램에 대한 할당인지 여부 |
-| **RoleDefinitionId** |부여되었거나 해지된 역할의 GUID |
-| **RoleName** |부여되었거나 해지된 역할 |
-| **범위** | 할당이 적용되는 구독, 리소스 그룹 또는 리소스의 고유 식별자 | 
-| **ScopeName** |구독, 리소스 그룹 또는 리소스의 이름 |
-| **ScopeType** |할당이 구독, 리소스 그룹 또는 리소스 범위에서 이루어졌는지 여부 |
-| **Timestamp** |액세스가 변경된 날짜 및 시간 |
+다음은 활동 로그에 기록되는 RBAC 관련 작업입니다.
 
-이 예제 명령은 지난 7일 동안 구독에서 발생한 모든 액세스 변경 내용을 나열합니다.
+- 사용자 지정 역할 정의 만들기 또는 업데이트
+- 사용자 지정 역할 정의 삭제
+- 역할 할당 만들기
+- 역할 할당 삭제
+
+## <a name="azure-portal"></a>Azure portal
+
+가장 손쉽게 시작할 수 있는 방법은 Azure Portal을 사용하여 활동 로그를 보는 것입니다. 다음 스크린샷은 역할 정의 및 역할 할당 작업과 함께 **관리** 범주를 표시하도록 필터링된 활동 로그의 예를 보여 줍니다. 또한 로그를 CSV 파일로 다운로드하는 링크도 포함되어 있습니다.
+
+![포털을 사용한 활동 로그 - 스크린샷](./media/change-history-report/activity-log-portal.png)
+
+자세한 내용은 [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)를 참조하세요.
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Azure PowerShell을 사용하여 활동 로그를 보려면 [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) 명령을 사용합니다.
+
+이 명령은 지난 7일 동안 구독에서 발생한 모든 역할 할당 변경 내용을 나열합니다.
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+```
+
+이 명령은 지난 7일 동안 리소스 그룹에서 발생한 모든 역할 정의 변경 내용을 나열합니다.
+
+```azurepowershell
+Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+```
+
+이 명령은 지난 7일 동안 구독에서 발생한 모든 역할 할당 및 역할 정의 변경 내용을 나열하고 결과를 목록에 표시합니다.
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+```
+
+```Example
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:07 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          statusCode     : Created
+                          serviceRequestId: 11111111-1111-1111-1111-111111111111
+
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:05 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
+                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast"}}
 
 ```
-Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
+
+## <a name="azure-cli"></a>Azure CLI
+
+Azure CLI를 사용하여 활동 로그를 보려면 [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) 명령을 사용합니다.
+
+이 명령은 시작 시간 이후 리소스 그룹의 활동 로그를 나열합니다.
+
+```azurecli
+az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - 스크린샷](./media/change-history-report/access-change-history.png)
+이 명령은 시작 시간 이후 인증 리소스 공급자의 활동 로그를 나열합니다.
 
-## <a name="create-a-report-with-azure-cli"></a>Azure CLI에서 보고서 만들기
-Azure 명령줄 인터페이스(CLI)에서 액세스 변경 기록 보고서를 만들려면 `azure role assignment changelog list` 명령을 사용합니다.
+```azurecli
+az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
+```
 
-## <a name="export-to-a-spreadsheet"></a>스프레드시트로 내보내기
-보고서를 저장하거나 데이터를 조작하거나 액세스 변경을 .csv 파일로 내보냅니다. 그런 다음 검토를 위해 스프레드시트에서 보고서를 볼 수 있습니다.
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-![Changelog가 스크린샷으로 표시됨 - 스크린샷](./media/change-history-report/change-history-spreadsheet.png)
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md)는 모든 Azure 리소스에 대해 역할 기반 액세스 제어 변경 내용을 수집하고 분석하는 데 사용할 수 있는 도구입니다. 로그 분석에는 다음과 같은 이점이 있습니다.
+
+- 복잡한 쿼리 및 로직 작성
+- 경고, Power BI 및 기타 도구와 통합
+- 장기 보존 기간 동안 데이터 저장
+- 보안, 가상 머신, 사용자 지정과 같은 다른 로그와 상호 참조
+
+기본적인 시작 단계는 다음과 같습니다.
+
+1. [Log Analytics 작업 영역을 만듭니다](../log-analytics/log-analytics-quick-create-workspace.md).
+
+1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../log-analytics/log-analytics-activity.md#configuration)합니다.
+
+1. [작업 로그를 봅니다](../log-analytics/log-analytics-activity.md#using-the-solution). 활동 로그 분석 개요 페이지로 빠르게 이동하는 방법은 **Log Analytics** 옵션을 클릭하는 것입니다.
+
+   ![포털의 Log Analytics 옵션](./media/change-history-report/azure-log-analytics-option.png)
+
+1. 선택적으로 [로그 검색](../log-analytics/log-analytics-log-search.md) 페이지 또는 [고급 분석 포털](https://docs.loganalytics.io/docs/Learn)을 사용하여 로그를 쿼리하고 봅니다. 이러한 두 옵션에 대한 자세한 내용은 [로그 검색 페이지 또는 고급 분석 포털](../log-analytics/log-analytics-log-search-portals.md)을 참조하세요.
+
+다음은 대상 리소스 공급자가 구성한 새 역할 할당을 반환하는 쿼리입니다.
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
+| summarize count(), makeset(Caller) by TargetResourceAuthProvider
+```
+
+다음은 차트에 표시되는 역할 할당 변경 내용을 반환하는 쿼리입니다.
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationName
+| render timechart
+```
+
+![고급 분석 포털을 사용한 활동 로그 - 스크린샷](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure RBAC에서 사용자 지정 역할](custom-roles.md)
-* [PowerShell을 사용하여 Azure RBAC](role-assignments-powershell.md)를 관리하는 방법을 알아봅니다.
-
+* [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Azure 활동 로그로 구독 활동 모니터링](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

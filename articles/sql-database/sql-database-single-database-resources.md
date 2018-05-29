@@ -9,11 +9,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 87cd4c565a7429ffb7096034823a1f5ff49df195
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1fe162beca258fe8ec3d03ce2844c1abe3176dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188976"
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스에 대한 리소스를 관리합니다.
 
@@ -21,7 +22,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="manage-single-database-resources-using-the-azure-portal"></a>Azure Portal을 사용하여 단일 데이터베이스 리소스 관리
 
-Azure Portal을 사용하여 새 또는 기존 Azure SQL 데이터베이스의 서비스 계층, 성능 수준 또는 저장소 용량을 설정하거나 변경하려면 다음 스크린샷과 같이 **가격 책정 계층(DTU 조정)**을 클릭하여 데이터베이스에 대한 **성능 구성** 창을 엽니다. 
+Azure Portal을 사용하여 새 또는 기존 Azure SQL 데이터베이스의 서비스 계층, 성능 수준 또는 저장소 용량을 설정하거나 변경하려면 다음 스크린샷과 같이 **가격 책정 계층(DTU 조정)** 을 클릭하여 데이터베이스에 대한 **성능 구성** 창을 엽니다. 
 
 - 워크로드에 대한 서비스 계층을 선택하여 서비스 계층을 설정하거나 변경합니다. 
 - **DTU** 슬라이더를 사용하여 서비스 계층 내의 성능 수준(**DTU**)을 설정하거나 변경합니다.
@@ -109,6 +110,6 @@ Azure SQL Database 서비스 계층, 성능 수준 및 저장소 용량을 설�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 서비스 계층, 성능 수준 및 저장소 용량에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+- 서비스 계층, 성능 수준 및 저장소 용량에 대해 알아보고, [[DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대해 자세히 알아보세요.

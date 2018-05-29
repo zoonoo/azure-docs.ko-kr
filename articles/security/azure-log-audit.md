@@ -4,7 +4,7 @@ description: 로깅 데이터를 사용하여 응용 프로그램에 대해 깊�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b8b5095fceaa369ae8b7a426ca04685c2d86109
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057936"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 ## <a name="introduction"></a>소개
@@ -70,7 +71,7 @@ Azure에서는 모든 Azure 서비스에 대해 광범위한 로깅을 생성합
 |[활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager 리소스에 대한 제어 평면 이벤트|   구독의 리소스에서 수행된 작업에 대한 정보를 제공합니다.| Rest API 및 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈도 데이터| 리소스 자체에서 수행한 작업에 대한 정보를 제공합니다.| Azure Monitor, [스트림](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD 보고](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|로그 및 보고서|사용자 로그인 활동 및 사용자와 그룹 관리에 대한 시스템 활동 정보|[그래프 API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[가상 머신 및 Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows 이벤트 로그 및 Linux Syslog|    가상 머신에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 해당 데이터를 전송합니다.|   Azure 모니터에서 [MAD](https://docs.microsoft.com/azure/azure-diagnostics)(Microsoft Azure 진단 저장소)와 Linux를 사용하는 Windows|
+|[가상 머신 및 Cloud Services](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows 이벤트 로그 및 Linux Syslog| 가상 머신에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 해당 데이터를 전송합니다.|   Azure 모니터에서 [MAD](https://docs.microsoft.com/azure/azure-diagnostics)(Microsoft Azure 진단 저장소)와 Linux를 사용하는 Windows|
 |[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|저장소 로깅을 수행하고, Storage 계정에 대한 메트릭 데이터를 제공합니다.|추적 요청에 대한 정보를 제공하고, 사용 추세를 분석하며, 저장소 계정으로 문제를 진단합니다.|    REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG(네트워크 보안 그룹) 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 형식이며, 규칙에 따라 아웃바운드 및 인바운드 흐름을 보여 줍니다.|네트워크 보안 그룹을 통한 수신 및 송신 IP 트래픽에 대한 정보를 보여 줍니다.|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|로그, 예외 및 사용자 지정 진단|    여러 플랫폼의 웹 개발자를 위한 APM(Application Performance Management) 서비스| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

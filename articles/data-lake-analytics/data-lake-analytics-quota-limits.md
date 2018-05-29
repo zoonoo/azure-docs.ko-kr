@@ -12,11 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311134"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Azure Data Lake Analytics 할당량 한도
 
@@ -24,9 +25,13 @@ ADLA(Azure Data Lake Analytics) 계정에서 할당량 한도를 조정하고 �
 
 ## <a name="azure-subscriptions-limits"></a>Azure 구독 한도
 
-**구독당 최대 ADLA 계정 수:** 5.
+**지역당 구독당 최대 ADLA 계정 수:** 5
 
-이는 구독당 지역별로 만들 수 있는 ADLA 계정의 최대 개수입니다. 6번째 ADLA 계정을 만들려고 하면 "구독 이름에 따라 지역에서 허용되는 Data Lake Analytics 계정의 최대 수(5)에 도달했습니다." 오류가 발생합니다. 이런 경우에는 가능한 경우 다른 지역을 선택하거나, 같은 지역에서 사용되지 않는 ADLA 계정이 있으면 삭제하거나, [지원 티켓을 열어서](#increase-maximum-quota-limits) Azure Support에 할당량 증가를 요청할 수 있습니다.
+6번째 ADLA 계정을 만들려고 하면 "구독 이름에 따라 지역에서 허용되는 Data Lake Analytics 계정의 최대 수(5)에 도달했습니다." 오류가 발생합니다. 
+
+이 한도를 초과하려면 이러한 옵션을 사용해 볼 수 있습니다.
+* 적합한 경우 다른 영역 선택
+* 할당량 증대를 요청하는 [지원 티켓을 열어](#increase-maximum-quota-limits) Azure 고객 지원팀에 문의
 
 ## <a name="adla-account-limits"></a>ADLA 계정 한도
 

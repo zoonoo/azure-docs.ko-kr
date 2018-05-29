@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771367"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -28,11 +29,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [버전 2에서 Data Factory 파이프라인 모니터링 및 관리](../monitor-visually.md)를 참조하세요.
 
+이 문서는 Azure Portal 및 PowerShell을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다.
+
 > [!IMPORTANT]
 > 모니터링 및 관리 응용 프로그램은 데이터 파이프라인 모니터링 및 관리와 문제 해결에 대한 더 나은 지원을 제공합니다. 응용 프로그램 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
 
-
-이 문서는 Azure Portal 및 PowerShell을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다.
+> [!IMPORTANT]
+> Azure Data Factory 버전 1은 이제 새로운 [Azure Monitor 경고 인프라](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)를 사용합니다. 이전의 경고 인프라는 사용되지 않습니다. 따라서 버전 1 데이터 팩터리용으로 구성된 기존의 경고는 더 이상 작동하지 않습니다. v1 데이터 팩터리에 대한 기존의 경고는 자동으로 마이그레이션되지 않습니다. 새 경고 인프라에서 이러한 경고를 다시 만들어야 합니다. Azure Portal에 로그인하고 **모니터**를 선택하여 버전 1 데이터 팩터리의 메트릭(예: 실패한 실행 또는 성공한 실행)에 대한 새 경고를 만듭니다.
 
 ## <a name="understand-pipelines-and-activity-states"></a>파이프라인 및 작업 상태 이해
 Azure Portal을 사용하여 다음을 수행할 수 있습니다.
@@ -45,7 +48,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 ### <a name="navigate-to-your-data-factory"></a>데이터 팩터리로 이동
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽의 메뉴에서 **데이터 팩터리**를 클릭합니다. 데이터 팩터리가 보이지 않으면 **더 많은 서비스 >**를 클릭하고 **인텔리전스 + 분석** 범주 아래에 있는 **데이터 팩터리**를 클릭합니다.
+2. 왼쪽의 메뉴에서 **데이터 팩터리**를 클릭합니다. 데이터 팩터리가 보이지 않으면 **더 많은 서비스 >** 를 클릭하고 **인텔리전스 + 분석** 범주 아래에 있는 **데이터 팩터리**를 클릭합니다.
 
    ![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. **데이터 팩터리** 블레이드에서 관심있는 데이터 팩터리를 선택합니다.
@@ -103,7 +106,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>Retry</td><td>작업 실행을 다시 시도하는 중입니다.</td>
+<td>다시 시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -196,7 +199,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>파이프라인 디버깅
 Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
 
-> [!참고} 모니터링 및 관리 앱을 사용하여 오류를 해결하기가 훨씬 쉽습니다. 응용 프로그램 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
+> [!NOTE] 
+> 모니터링 및 관리 앱을 사용하여 오류를 해결하기가 훨씬 쉽습니다. 응용 프로그램 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
 
 ### <a name="find-errors-in-a-pipeline"></a>파이프라인에서 오류 찾기
 파이프라인에서 작업 실행이 실패하면 파이프라인에 의해 생성된 데이터 집합은 실패로 인해 오류 상태가 됩니다. 다음과 같은 방법을 사용하여 Azure Data Factory에서 오류의 문제를 해결하고 디버그할 수 있습니다.
@@ -296,6 +300,35 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Azure Portal에서 경고 만들기
+
+1.  Azure Portal에 로그인하고 **모니터 -> 경고**를 선택하여 경고 페이지를 엽니다.
+
+    ![경고 페이지를 엽니다.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  **+ 새로운 경고 규칙**을 선택하여 새 경고를 만듭니다.
+
+    ![새 경고 만들기](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  **경고 조건**을 정의합니다. (**리소스 종류별로 필터링**에서 **데이터 팩터리**를 선택해야 합니다.) 또한 **차원**에 대한 값을 지정할 수도 있습니다.
+
+    ![경고 조건 정의 - 대상 선택](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![경고 조건 정의 - 경고 기준 추가](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![경고 조건 정의 - 경고 논리 추가](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  **경고 세부 정보**를 정의합니다.
+
+    ![경고 세부 정보 정의](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  **작업 그룹**을 정의합니다.
+
+    ![작업 그룹 정의 - 새 작업 그룹 만들기](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![작업 그룹 정의 - 속성 설정](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![작업 그룹 정의 - 새 작업 그룹이 생성됨](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>다른 리소스 그룹 또는 구독으로 데이터 팩터리 이동
 Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하여 다른 리소스 그룹이나 다른 구독으로 데이터 팩터리를 이동할 수 있습니다.

@@ -1,12 +1,12 @@
 ---
-title: "Azure Site Recovery를 사용하여 Linux VM을 Azure Premium Storage로 마이그레이션 | Microsoft Docs"
-description: "Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다."
+title: Azure Site Recovery를 사용하여 Linux VM을 Azure Premium Storage로 마이그레이션 | Microsoft Docs
+description: Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5d6eb958169b7bf04e206c861250ffd98670652b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777988"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -80,7 +81,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 ### <a name="step-1-create-a-recovery-services-vault"></a>1단계: Recovery Services 자격 증명 모음 만들기
 
 1. [Azure 포털](https://portal.azure.com)을 엽니다.
-2. **리소스 만들기** > **관리** > **Backup** 및 **Site Recovery(OMS)**를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다. 
+2. **리소스 만들기** > **관리** > **Backup** 및 **Site Recovery(OMS)** 를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다. 
 3. VM이 복제될 지역을 지정합니다. 동일한 지역에 마이그레이션하려는 경우 원본 VM 및 원본 저장소 계정이 있는 영역을 선택합니다. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>2단계: 보호 목표 선택 
@@ -145,7 +146,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 ### <a name="step-6-plan-capacity"></a>6단계: 용량 계획
 
 1. [Capacity Planner](../../site-recovery/site-recovery-capacity-planner.md)를 사용하여 복제 요구 사항에 맞도록 네트워크 대역폭, 저장소 및 기타 요구 사항을 정확하게 예측합니다. 
-2. 작업을 마쳤으면 **용량 계획을 완료하셨나요?**에서 **예, 그렇습니다**를 선택합니다.
+2. 작업을 마쳤으면 **용량 계획을 완료하셨나요?** 에서 **예, 그렇습니다**를 선택합니다.
 
    ![용량 계획을 완료했는지 확인하는 상자][11]
 
@@ -202,7 +203,7 @@ Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 �
    * 클래식 배포 모델을 통해 만든 VM의 경우: Azure Portal에서 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 머신을 가용성 집합에 추가](../linux/classic/configure-availability-classic.md)로 이동하세요.
    * Resource Manager 배포 모델을 통해 만든 VM의 경우: VM의 구성을 저장한 다음 가용성 집합에서 VM을 삭제하고 다시 만듭니다. 이렇게 하려면 [Azure Resource Manager VM 가용성 집합 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)에서 스크립트를 사용합니다. 이 스크립트를 실행하기 전에 제한 사항을 확인하고 작동 중단 시간을 계획합니다.
 
-2. **이전 VM 및 디스크를 삭제합니다**. 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행해야 합니다. VM을 삭제하고 Azure Portal의 원본 저장소 계정에서 디스크를 삭제합니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 발생하는 경우 [RM 배포에서 VHD를 삭제할 때 오류 문제 해결](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)을 참조하세요.
+2. **이전 VM 및 디스크를 삭제합니다**. 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행해야 합니다. VM을 삭제하고 Azure Portal의 원본 저장소 계정에서 디스크를 삭제합니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 발생하는 경우 [저장소 리소스 삭제 오류 해결](storage-resource-deletion-errors.md)을 참조하세요.
 
 3. **Azure Site Recovery 인프라를 정리합니다**. Site Recovery가 더 이상 필요하지 않은 경우 인프라를 정리할 수 있습니다. 복제된 항목, 구성 서버 및 복구 정책을 삭제한 후 Azure Site Recovery 자격 증명 모음을 삭제합니다.
 

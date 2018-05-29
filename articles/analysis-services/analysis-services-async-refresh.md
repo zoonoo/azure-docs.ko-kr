@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153129"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
@@ -46,7 +47,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 ![비동기 새로 고침](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
 - **s**로 끝나는 모든 항목은 컬렉션입니다.
-- **()**로 끝나는 모든 항목은 함수입니다.
+- **()** 로 끝나는 모든 항목은 함수입니다.
 - 다른 모든 항목은 리소스/개체입니다.
 
 예를 들어 새로 고침 컬렉션에서 POST 동사를 사용하여 새로 고침 작업을 수행할 수 있습니다.
@@ -198,7 +199,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 1.  리포지토리를 복제하거나 다운로드합니다. RestApiSample 솔루션을 엽니다.
 2.  **client.BaseAddress = …** 줄을 찾은 후 [기준 URL](#base-url)을 제공합니다.
 
-코드 샘플은 대화형 로그인, 사용자 이름/암호 또는 [서비스 사용자](#service-principle)를 사용할 수 있습니다.
+코드 샘플은 대화형 로그인, 사용자 이름/암호 또는 [서비스 사용자](#service-principal)를 사용할 수 있습니다.
 
 #### <a name="interactive-login-or-usernamepassword"></a>대화형 로그인 또는 사용자 이름/암호
 
@@ -230,14 +231,14 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
     ![모든 모델 읽기 및 쓰기 선택](./media/analysis-services-async-refresh/aas-async-select-read.png)
 
 7.  코드 샘플에서 **UpdateToken()** 메서드를 찾습니다. 이 메서드의 내용을 확인합니다.
-8.  **string clientID = …**를 찾은 후 3단계에서 복사한 **응용 프로그램 ID**를 입력합니다.
+8.  **string clientID = …** 를 찾은 후 3단계에서 복사한 **응용 프로그램 ID**를 입력합니다.
 9.  샘플을 실행합니다.
 
 #### <a name="service-principal"></a>서비스 주체
 
 서비스 주체를 설정하고 Azure AS에서 필요한 사용 권한을 할당하는 방법에 대한 자세한 정보는 [서비스 주체 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조하세요. 이 단계를 완료한 다음, 다음과 같은 추가 단계를 완료합니다.
 
-1.  코드 예제에서 **string authority = …**를 찾은 후 **common**을 조직의 테넌트 ID로 바꿉니다.
+1.  코드 예제에서 **string authority = …** 를 찾은 후 **common**을 조직의 테넌트 ID로 바꿉니다.
 2.  ClientCredential 클래스가 자격 증명 개체를 인스턴스화하는 데 사용되도록 주석 처리하거나 주석 처리를 해제합니다. \<App ID> 및 \<App Key> 값이 안전한 방식으로 액세스되는지 확인하고, 그렇지 않은 경우 서비스 사용자에 대해 인증서 기반 인증을 사용합니다.
 3.  샘플을 실행합니다.
 

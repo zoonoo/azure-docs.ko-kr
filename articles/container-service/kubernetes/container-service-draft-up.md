@@ -1,19 +1,20 @@
 ---
-title: "Azure Container Service 및 Azure Container Registry에서 Draft 사용"
-description: "ACS Kubernetes 클러스터와 Azure Container Registry를 만들어 Azure에서 Draft로 첫 번째 응용 프로그램을 만듭니다."
+title: Azure Container Service 및 Azure Container Registry에서 Draft 사용
+description: ACS Kubernetes 클러스터와 Azure Container Registry를 만들어 Azure에서 Draft로 첫 번째 응용 프로그램을 만듭니다.
 services: container-service
 author: squillace
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168540"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 응용 프로그램 빌드 및 Kubernetes에 배포
 
@@ -100,7 +101,7 @@ waiting for AAD role to propagate.done
 
 
 1. https://github.com/Azure/draft/releases에서 환경에 맞는 Draft를 다운로드하고 명령을 사용할 수 있도록 PATH에 설치합니다.
-2. https://github.com/kubernetes/helm/releases에서 환경에 맞는 helm을 다운로드하고 [명령을 사용할 수 있도록 PATH에 설치](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client)합니다.
+2. https://github.com/kubernetes/helm/releases에서 환경에 맞는 Helm을 다운로드하고 [명령을 사용할 수 있도록 PATH에 설치합니다](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Draft를 구성하여 레지스트리를 사용하고 만든 각 Helm 차트에 대한 하위 도메인을 만듭니다. Draft을 구성하려면 다음이 필요합니다.
   - Azure Container Registry 이름(이 예제에서는 `draftacsdemo`)
   - 레지스트리 키 또는 암호(`az acr credential show -n <registry name> --output tsv --query "passwords[0].value"` 명령 사용)

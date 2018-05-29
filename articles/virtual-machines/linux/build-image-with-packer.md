@@ -1,25 +1,26 @@
 ---
-title: "Packer를 사용하여 Linux Azure VM 이미지를 만드는 방법 | Microsoft Docs"
-description: "Azure에서 Packer를 사용하여 Linux 가상 머신의 이미지를 만드는 방법에 대해 알아보기"
+title: Packer를 사용하여 Linux Azure VM 이미지를 만드는 방법 | Microsoft Docs
+description: Azure에서 Packer를 사용하여 Linux 가상 머신의 이미지를 만드는 방법에 대해 알아보기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778187"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 응용 프로그램 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 응용 프로그램 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
@@ -210,6 +211,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+Packer 이미지와 다른 리소스 그룹 또는 지역에서 VM을 만들려는 경우 이미지 이름 대신 이미지 ID를 지정합니다. [az image show](/cli/azure/image#az-image-show)를 사용하여 이미지 ID를 가져올 수 있습니다.
 
 VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지면 Azure CLI에 표시된 `publicIpAddress`를 기록해 둡니다. 이 주소는 웹 브라우저를 통해 NGINX 사이트에 액세스할 때 사용됩니다.
 
