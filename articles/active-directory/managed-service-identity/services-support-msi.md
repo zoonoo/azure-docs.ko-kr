@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d31c169600c594fc4764262cb8d080e9aee96b21
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ff56928748f536ffe1cfc30891585565e962d9fe
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34353614"
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930300"
 ---
 # <a name="services-that-support-managed-service-identity"></a>관리 서비스 ID를 지원하는 서비스 
 
@@ -30,7 +30,6 @@ ms.locfileid: "34353614"
 | Azure App Service | 미리 보기 | 2017년 9월 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure 기능 | 미리 보기 | 2017년 9월 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | 미리 보기 | 2017년 11월 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Azure API Management | 미리 보기 | 2017년 10월 | [Azure Resource Manager 템플릿](/azure/api-management/api-management-howto-use-managed-service-identity) |
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure AD 인증을 지원하는 Azure 서비스
 
@@ -38,9 +37,9 @@ Azure AD 인증을 지원하며, 관리 서비스 ID를 사용하는 클라이�
 
 | 서비스 | 리소스 ID | 상태 | Date | 액세스 권한 할당 |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure 리소스 관리자 | https://management.azure.com/ | 사용 가능 | 2017년 9월 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
+| Azure 리소스 관리자 | https://management.azure.com | 사용 가능 | 2017년 9월 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | 사용 가능 | 2017년 9월 | |
-| Azure Data Lake | https://datalake.azure.net/ | 사용 가능 | 2017년 9월 | |
-| Azure SQL | https://database.windows.net/ | 사용 가능 | 2017년 10월 | |
+| Azure Data Lake | https://datalake.azure.net | 사용 가능 | 2017년 9월 | |
+| Azure SQL | https://database.windows.net | 사용 가능 | 2017년 10월 | |
 | Azure Event Hubs | https://eventhubs.azure.net | 사용 가능 | 2017년 12월 | |
 | Azure Service Bus | https://servicebus.azure.net | 사용 가능 | 2017년 12월 | |

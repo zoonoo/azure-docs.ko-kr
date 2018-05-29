@@ -15,20 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ce858553a67bce714ceae43a5bb2f86839d9c507
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 56839c38de135a805c51bb96ad5d7abc41ebcad7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895378"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
-가상 네트워크를 만들고 삭제하는 방법 및 기존 가상 네트워크의 DNS 서버 및 IP 주소 공간과 같은 설정을 변경하는 방법에 대해 알아봅니다.
-
-가상 네트워크는 클라우드의 사용자 네트워크를 나타내는 표현입니다. 가상 네트워크는 Azure 구독 전용 Azure 클라우드를 논리적으로 격리한 것입니다. 만드는 각 가상 네트워크에 대해 다음을 수행할 수 있습니다.
-- 할당할 주소 공간을 선택합니다. 주소 공간은 CIDR(Classless Inter-Domain Routing) 표기법(예: 10.0.0.0/16)을 사용하여 정의된 하나 이상의 주소 범위로 구성됩니다.
-- Azure 제공 DNS 서버 또는 사용자 고유의 DNS 서버를 사용하도록 선택합니다. 가상 네트워크에 연결된 모든 리소스에는 이 DNS 서버가 할당되어 가상 네트워크 내에서 이름을 확인합니다.
-- 가상 네트워크를 해당 가상 네트워크의 주소 공간 내에서 고유한 자체의 주소 범위가 있는 서브넷으로 분할합니다. 서브넷을 만들고, 변경하고, 삭제하는 방법에 대해 알아보려면 [서브넷 추가, 변경 또는 삭제](virtual-network-manage-subnet.md)를 참조하세요.
+가상 네트워크를 만들고 삭제하는 방법 및 기존 가상 네트워크의 DNS 서버 및 IP 주소 공간과 같은 설정을 변경하는 방법에 대해 알아봅니다. 가상 네트워크를 처음 접하는 경우 [가상 네트워크 개요](virtual-networks-overview.md) 또는 [자습서](quick-create-portal.md)를 완료하여 이에 대해 자세히 알아볼 수 있습니다. 가상 네트워크에 서브넷이 포함됩니다. 서브넷을 만들고, 변경하고, 삭제하는 방법에 대해 알아보려면 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -36,8 +32,9 @@ ms.lasthandoff: 04/28/2018
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.2.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
-- 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.26 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
+- Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -94,7 +91,7 @@ ms.lasthandoff: 04/28/2018
     - **일반적인 Azure 설정**: 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
         *   [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
         *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-        *   [태그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+        *   [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -167,17 +164,15 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="permissions"></a>권한
 
-가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 사용 권한이 할당된 [네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
+가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-|작업                                    |   작업 이름                    |
-|-------------------------------------------  |   --------------------------------  |
-|Microsoft.Network/virtualNetworks/read       |   Virtual Network 가져오기               |
-|Microsoft.Network/virtualNetworks/write      |   Virtual Network 만들기 또는 업데이트  |
-|Microsoft.Network/virtualNetworks/delete     |   Virtual Network 삭제            |
+| 조치                                  |   Name                                |
+|---------------------------------------- |   --------------------------------    |
+|Microsoft.Network/virtualNetworks/read   |   가상 네트워크 읽기              |
+|Microsoft.Network/virtualNetworks/write  |   가상 네트워크 만들기 또는 업데이트  |
+|Microsoft.Network/virtualNetworks/delete |   가상 네트워크 삭제            |
 
 ## <a name="next-steps"></a>다음 단계
 
-- VM을 만들어 가상 네트워크에 연결하려면 [가상 네트워크 만들기 및 VM 연결](quick-create-portal.md#create-virtual-machines)을 참조하세요.
-- 가상 네트워크 내의 서브넷 간 네트워크 트래픽을 필터링하려면 [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md)를 참조하세요.
-- 가상 네트워크를 다른 가상 네트워크에 피어링하려면 [가상 네트워크 피어링 만들기](tutorial-connect-virtual-networks-portal.md)를 참조하세요.
-- 가상 네트워크를 온-프레미스 네트워크에 연결하는 옵션에 대해 알아보려면 [VPN Gateway 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams)를 참조하세요.
+- [PowerShell](powershell-samples.md) 또는 [Azure CLI](cli-samples.md) 샘플 스크립트를 사용하거나 Azure [Resource Manager 템플릿](template-samples.md)을 사용하여 가상 네트워크를 만듭니다.
+- 가상 네트워크에 대한 [Azure 정책](policy-samples.md) 만들기 및 적용

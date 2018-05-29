@@ -1,19 +1,20 @@
 ---
-title: "Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다."
+title: Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072609"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery로 Active Directory 및 DNS 보호
 
@@ -57,16 +58,16 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 보조 사이트에 도메인 컨트롤러를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다. **Active Directory 사이트 및 서비스** 스냅인을 사용하여 사이트가 추가된 사이트 링크 개체에서 설정을 구성할 수 있습니다. 사이트 링크에서 설정을 구성하면 둘 이상의 사이트에서 복제가 실행되는 시기와 빈도를 관리할 수 있습니다. 자세한 내용은 [사이트 간 복제 일정 예약](https://technet.microsoft.com/library/cc731862.aspx)을 참조하세요.
 
 ### <a name="site-to-azure-protection"></a>사이트-Azure 보호
-먼저 [Azure 가상 네트워크의 도메인 컨트롤러를 만듭니다](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다.
+먼저 Azure 가상 네트워크에서 도메인 컨트롤러를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다.
 
-그런 다음 Azure에서 DNS 서버를 사용하도록 [가상 네트워크에 대한 DNS 서버를 재구성](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)합니다.
+그런 다음, Azure에서 DNS 서버를 사용하도록 가상 네트워크에 대한 DNS 서버를 재구성합니다.
 
 ![Azure 네트워크](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Azure 간 보호
-먼저 [Azure 가상 네트워크의 도메인 컨트롤러를 만듭니다](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다.
+먼저 Azure 가상 네트워크에서 도메인 컨트롤러를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다.
 
-그런 다음 Azure에서 DNS 서버를 사용하도록 [가상 네트워크에 대한 DNS 서버를 재구성](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)합니다.
+그런 다음, Azure에서 DNS 서버를 사용하도록 가상 네트워크에 대한 DNS 서버를 재구성합니다.
 
 ## <a name="test-failover-considerations"></a>테스트 장애 조치 시 고려 사항
 프로덕션 워크로드에 영향을 미치지 않도록 방지하기 위해 테스트 장애 조치(failover)가 프로덕션 네트워크에서 격리된 네트워크에서 발생합니다.
