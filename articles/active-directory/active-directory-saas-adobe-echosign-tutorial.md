@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c3b7e7178ef68475f331edf058ca0f23661af3ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140379"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34338876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>자습서: Adobe Sign과 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Adobe Sign과 Azure AD를 통합하면 다음과 같은 이점이 제공됩니�
 - 사용자가 해당 Azure AD 계정으로 Adobe Sign에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -104,7 +104,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. **Adobe Sign 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -116,8 +116,8 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     나. **식별자** 텍스트 상자에서 `https://<companyname>.echosign.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Adobe Sign 클라이언트 지원팀](https://helpx.adobe.com/in/contact/support.html)에 문의하세요. 
- 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Adobe Sign 클라이언트 지원팀](https://helpx.adobe.com/in/contact/support.html)에 문의하세요.
+
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -128,15 +128,34 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 6. **Adobe Sign 구성** 섹션에서 **Adobe Sign 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. 다른 웹 브라우저 창에서 Adobe Sign 회사 사이트에 관리자로 로그인합니다.
+7. 구성을 시작하기 전에 [Adobe Sign Client 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 문의하여 Adobe Sign에서 사용자의 도메인을 허용 목록에 포함해야 합니다. 도메인을 추가하려면 아래 단계를 따르세요.
 
-8. SAML 메뉴에서 **계정 설정**을 클릭한 다음, **SAML 설정**을 클릭합니다.
+    a. [Adobe Sign Client 지원 팀](https://helpx.adobe.com/in/contact/support.html)이 임의로 생성된 토큰을 보냅니다. 사용자의 도메인에 대한 토큰은 다음과 같습니다. **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+
+    나. DNS 텍스트 레코드에 확인 토큰을 게시하고 [Adobe Sign Client 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 알려야 합니다.
+    
+    > [!NOTE]
+    > 며칠 이상 걸릴 수도 있습니다. DNS 전파 지연은 DNS에 게시된 값이 한 시간 이상 동안 보이지 않을 수도 있음을 의미합니다. IT 관리자는 이 토큰을 DNS 텍스트 레코드에 게시하는 방법을 알아야 합니다.
+    
+    다. 토큰이 게시된 후 지원 티켓을 통해 [Adobe Sign Client 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 알리면 해당 팀이 도메인의 유효성을 검사한 후 사용자 계정에 추가합니다.
+    
+    d. DNS 레코드에 토큰을 게시하기 위해 수행할 수 있는 일반 단계는 다음과 같습니다.
+
+    * 도메인 계정에 로그인합니다.
+    * DNS 레코드를 업데이트할 페이지를 찾습니다. 이 페이지는 DNS 관리, 서버 관리자 이름 또는 고급 설정 페이지일 수 있습니다.
+    * 도메인에 대한 TXT 레코드를 찾습니다.
+    * Adobe에서 제공한 전체 토큰 값으로 TXT 레코드를 추가합니다.
+    * 변경 내용을 저장합니다.
+
+8. 다른 웹 브라우저 창에서 Adobe Sign 회사 사이트에 관리자로 로그인합니다.
+
+9. SAML 메뉴에서 **계정 설정**을 클릭한 다음, **SAML 설정**을 클릭합니다.
    
     ![계정](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "계정")
 
-9. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
+10. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
   
     ![SAML 설정](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML 설정")
    
@@ -251,7 +270,7 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -266,4 +285,3 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356412"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -31,14 +32,18 @@ ms.lasthandoff: 05/11/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!NOTE]
+> BLOB 전용 저장소 계정 및 높은 확장성을 위해 또는 콜드 부팅 지연을 방지하기 위해 Blob 저장소 트리거 대신 Event Grid 트리거를 사용합니다. 자세한 내용은 [트리거](#trigger) 섹션을 참조하세요. 
+
 ## <a name="packages"></a>패키지
 
 Blob Storage 바인딩은 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-> [!NOTE]
-> BLOB 전용 저장소 계정 및 높은 확장성을 위해 또는 콜드 부팅 지연을 방지하기 위해 Blob 저장소 트리거 대신 Event Grid 트리거를 사용합니다. 자세한 내용은 다음 **트리거** 섹션을 참조하세요. 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>트리거
 
@@ -769,7 +774,7 @@ C# 및 C# 스크립트에서 다음과 같은 형식으로 바인딩하여 Blob�
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> *function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.Read`의 “in” 바인딩이 필요합니다.
+<sup>1</sup> *function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.Read`의 “in” 바인딩이 필요합니다. 그러나 런타임에서 제공하는 컨테이너를 사용하여 컨테이너에 BLOB 업로드 등의 쓰기 작업을 수행할 수 있습니다.
 
 <sup>2</sup> *function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.ReadWrite`의 “inout” 바인딩이 필요합니다.
 

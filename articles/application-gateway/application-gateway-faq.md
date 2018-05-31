@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309473"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355851"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -156,7 +156,7 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 * [백 엔드 상태 통신](application-gateway-diagnostics.md)을 위해 모든 원본에서 포트 65503-65534로 들어오는 요청을 허용합니다.
 
-* [NSG](../virtual-network/virtual-networks-nsg.md)에 대한 들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그) 및 인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
+* [NSG](../virtual-network/security-overview.md)에 대한 들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그) 및 인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
 
 * 모두 거부 규칙을 사용하여 다른 모든 들어오는 트래픽을 차단합니다.
 

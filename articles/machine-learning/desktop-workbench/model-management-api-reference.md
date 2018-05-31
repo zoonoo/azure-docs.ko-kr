@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e518799fb4144093e5c3caf0524254a098e4b9cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3efc351861a7d5b3c02c08b96494e83a3ccb99f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362144"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 모델 관리 계정 API 참조
 
@@ -113,7 +114,7 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 | 이름 | 쿼리 | 개체 이름입니다. | 아니오 | string |
 | tag | 쿼리 | 모델 태그입니다. | 아니오 | string |
 | count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
-| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니요 | string |
+| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -191,10 +192,10 @@ ID별로 모델을 가져옵니다.
 | accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
 | api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
 | 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| modelId | 쿼리 | 모델 ID입니다. | 아니요 | string |
-| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니요 | string |
+| modelId | 쿼리 | 모델 ID입니다. | 아니오 | string |
+| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니오 | string |
 | count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
-| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니요 | string |
+| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -274,7 +275,7 @@ Azure Container Registry에 Docker 이미지로 이미지를 만듭니다.
 | 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
 | manifestId | 쿼리 | 매니페스트 ID입니다. | 아니오 | string |
 | manifestName | 쿼리 | 매니페스트 이름입니다. | 아니오 | string |
-| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니요 | string |
+| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
 | $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
 
 ### <a name="responses"></a>응답
@@ -355,14 +356,14 @@ ID별로 이미지를 가져옵니다.
 | accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
 | api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
 | 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| serviceName | 쿼리 | 서비스 이름입니다. | 아니요 | string |
+| serviceName | 쿼리 | 서비스 이름입니다. | 아니오 | string |
 | modelId | 쿼리 | 모델 이름입니다. | 아니오 | string |
 | modelName | 쿼리 | 모델 ID입니다. | 아니오 | string |
-| manifestId | 쿼리 | 매니페스트 ID입니다. | 아니요 | string |
+| manifestId | 쿼리 | 매니페스트 ID입니다. | 아니오 | string |
 | manifestName | 쿼리 | 매니페스트 이름입니다. | 아니오 | string |
 | imageId | 쿼리 | 이미지 ID입니다. | 아니오 | string |
 | computeResourceId | 쿼리 | Machine Learning 계산 리소스 ID입니다. | 아니오 | string |
-| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니요 | string |
+| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
 | $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
 
 ### <a name="responses"></a>응답
@@ -483,7 +484,7 @@ ID별로 서비스를 가져옵니다.
 ### <a name="request"></a>요청
 | 방법 | 요청 URI |
 |------------|------------|
-| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/regenerateKeys | 
 
 ### <a name="description"></a>설명
 서비스 키를 다시 생성하고 반환합니다.

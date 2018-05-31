@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 인증 및 Resource Manager | Microsoft Docs"
-description: "앱을 다른 Azure 구독과 통합하기 위한 Azure Resource Manager API 및 Azure Active Directory를 사용한 권한 부여 개발자 가이드."
+title: Azure Active Directory 인증 및 Resource Manager | Microsoft Docs
+description: 앱을 다른 Azure 구독과 통합하기 위한 Azure Resource Manager API 및 Azure Active Directory를 사용한 권한 부여 개발자 가이드.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: dugill
+ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359865"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -296,15 +297,15 @@ ASP.net MVC 샘플 앱의 [GetRoleId](https://github.com/dushyantgill/VipSwapper
 
 | 역할 | GUID |
 | --- | --- |
-| 읽기 권한자 |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+| 판독기 |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | 참가자 |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| 가상 컴퓨터 참여자 |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| Virtual Machine 기여자 |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Virtual Network 참여자 |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 | Storage 계정 참여자 |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
-| 웹 사이트 참여자 |de139f84-1756-47ae-9be6-808fbbe84772 |
-| 웹 계획 참여자 |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| 웹 사이트 기여자 |de139f84-1756-47ae-9be6-808fbbe84772 |
+| 웹 계획 기여자 |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | SQL Server 참여자 |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-| SQL DB 참여자 |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+| SQL DB 기여자 |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>응용 프로그램에 RBAC 역할 할당
 응용 프로그램의 [Resource Manager 역할 할당 만들기](https://docs.microsoft.com/rest/api/authorization/roleassignments) API를 사용하여 서비스 주체에 적절한 RBAC 역할을 할당하기 위해 필요한 모든 것을 가졌습니다.
