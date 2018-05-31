@@ -1,9 +1,9 @@
 ---
-title: "스마트 감지 - 성능 이상 | Microsoft Docs"
-description: "Application Insights는 앱 원격 분석의 스마트 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다. 이 기능에는 설정이 필요하지 않습니다."
+title: 스마트 감지 - 성능 이상 | Microsoft Docs
+description: Application Insights는 앱 원격 분석의 스마트 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다. 이 기능에는 설정이 필요하지 않습니다.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868937"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -168,7 +169,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 ![Azure에서 전자 메일 경고의 진단 보고서를 열려면 해당 링크를 클릭합니다.](./media/app-insights-proactive-performance-diagnostics/03.png)
 
 * **When(시간)** 에는 문제가 감지된 시간이 표시됩니다.
-* **What(내용)**에는 다음 설명이 표시됩니다.
+* **What(내용)** 에는 다음 설명이 표시됩니다.
 
   * 감지된 문제
   * 문제가 되는 동작을 표시하는 이벤트의 특징

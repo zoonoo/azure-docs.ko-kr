@@ -1,25 +1,26 @@
 ---
-title: "Azure IoT Edge 모듈 배포 및 모니터링 | Microsoft Docs"
-description: "Edge 장치에서 실행되는 모듈을 관리합니다."
+title: Azure IoT Edge 모듈 배포 및 모니터링 | Microsoft Docs
+description: Edge 장치에서 실행되는 모듈을 관리합니다.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770609"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>대규모 IoT Edge 모듈 배포 및 모니터링 - 미리 보기
 
 Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라우드 인터페이스를 제공하므로, 각 장치에 물리적으로 액세스하지 않고도 IoT Edge 장치를 관리하고 모니터링할 수 있습니다. IoT(사물 인터넷) 솔루션이 점점 더 커지고 복잡하게 됨에 따라 장치를 원격으로 관리하는 기능이 점점 더 중요해지고 있습니다. Azure IoT Edge는 추가하는 장치의 수와 관계없이 비즈니스 목표를 지원하도록 설계되었습니다.
 
-개별 장치를 관리하고 모듈을 한 번에 하나씩 배포할 수 있습니다. 그러나 장치를 대규모로 변경하려면 **IoT Edge 배포**를 만들 수 있습니다. 배포는 여러 모듈을 여러 장치에 한 번에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다. 
+개별 장치를 관리하고 모듈을 한 번에 하나씩 배포할 수 있습니다. 그러나 대대적으로 장치를 변경하려는 경우 IoT Hub에서 자동 장치 관리의 일부인 **IoT Edge 자동 배포**를 만들 수 있습니다. 배포는 여러 모듈을 여러 장치에 한 번에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다. 
 
 ## <a name="identify-devices-using-tags"></a>태그를 사용하여 장치 식별
 
@@ -41,7 +42,7 @@ Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라�
 ## <a name="create-a-deployment"></a>배포 만들기
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **IoT Edge(미리 보기)**를 선택합니다.
+1. **IoT Edge(미리 보기)** 를 선택합니다.
 1. **IoT Edge 배포 추가**를 선택합니다.
 
 배포를 만드는 데에는 5개 단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다. 
@@ -107,7 +108,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 배포의 세부 정보를 확인하고 이를 실행하는 장치를 모니터링하려면 다음 단계를 사용합니다.
 
 1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
-1. **IoT Edge(미리 보기)**를 선택합니다.
+1. **IoT Edge(미리 보기)** 를 선택합니다.
 1. **IoT Edge 배포**를 선택합니다. 
 
    ![IoT Edge 배포 보기][1]
@@ -139,7 +140,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 배포를 수정하려면 다음 단계를 수행합니다. 
 
 1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
-1. **IoT Edge(미리 보기)**를 선택합니다.
+1. **IoT Edge(미리 보기)** 를 선택합니다.
 1. **IoT Edge 배포**를 선택합니다. 
 
    ![IoT Edge 배포 보기][1]
@@ -157,7 +158,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 배포를 삭제하면 모든 장치에서 다음으로 우선 순위가 가장 높은 배포가 적용됩니다. 장치에서 다른 배포의 대상 조건을 충족하지 않으면 배포를 삭제해도 모듈이 제거되지 않습니다. 
 
 1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
-1. **IoT Edge(미리 보기)**를 선택합니다.
+1. **IoT Edge(미리 보기)** 를 선택합니다.
 1. **IoT Edge 배포**를 선택합니다. 
 
    ![IoT Edge 배포 보기][1]

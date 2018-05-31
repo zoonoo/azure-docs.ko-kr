@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885139"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -50,6 +51,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 안정성 향상
+  * 일부 파티션에서 관찰자를 중지할 수 있는 취소된 작업 문제의 처리를 수정합니다.
 * 수동 검사점 설정 지원
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
 
@@ -72,7 +74,14 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="pre-release-builds"></a>시험판 빌드
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2 시험판
+* 부 버전 API 변경 내용:
+  * 사용되지 않는 것으로 표시된 ChangeFeedProcessorOptions.IsAutoCheckpointEnabled를 제거했습니다.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-시험판
+* 안정성 향상:
+  * 임대 저장소 초기화를 더 효율적으로 처리합니다. 임대 저장소가 비어 있는 경우 프로세서의 한 인스턴스만 초기화할 수 있으며 다른 인스턴스는 대기합니다.
+  * 더 안정적인/효율적인 임대 갱신/릴리스를 제공합니다. 하나의 파티션 임대의 갱신 및 해제는 다른 파티션의 갱신과 독립적입니다. v1에서는 모든 파티션에 대해 순차적으로 수행됩니다.
 * 새 v2 API:
   * 프로세서의 유연한 구축을 위한 작성기 패턴: ChangeFeedProcessorBuilder 클래스입니다.
     * 모든 조합의 매개 변수를 사용할 수 있습니다.
@@ -85,6 +94,7 @@ ms.lasthandoff: 05/07/2018
     * IPartitionProcessor - 파티션에 대한 사용자 지정 처리 변경용
 * 로깅 - [LibLog](https://github.com/damianh/LibLog) 라이브러리를 사용합니다.
 * v1 API를 사용하여 100% 이전 버전과 호환 가능합니다.
+* 새 코드 기준입니다.
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21.1 이상과 호환 가능합니다.
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜

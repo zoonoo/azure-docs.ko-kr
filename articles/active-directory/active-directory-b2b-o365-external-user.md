@@ -1,26 +1,21 @@
 ---
-title: "Office 365 외부 공유 및 Azure Active Directory B2B 공동 작업 | Microsoft Docs"
-description: "Azure Active Directory B2B 공동 작업에 대한 클레임 매핑 참조"
+title: Office 365 외부 공유 및 Azure Active Directory B2B 공동 작업 | Microsoft Docs
+description: O365 및 Azure Active Directory B2B 공동 작업을 사용하여 외부 파트너와 리소스 공유에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/24/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8486c7518e2cabb1d17a8f38442b7b5a77fddb01
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4421e6ca2bdce721c360f2701b3693024a694eb6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931965"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 외부 공유 및 Azure Active Directory B2B 공동 작업
 
@@ -40,15 +35,7 @@ OneDrive/SharePoint Online에는 별도 초대 관리자가 있습니다. OneDri
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
-
 * [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 공동 작업 사용자 속성](active-directory-b2b-user-properties.md)
 * [역할에 B2B 공동 작업 사용자 추가](active-directory-b2b-add-guest-to-role.md)
 * [B2B 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
 * [동적 그룹 및 B2B 공동 작업](active-directory-b2b-dynamic-groups.md)
-* [B2B 공동 작업 코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
-* [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
-* [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
-* [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
-* [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)

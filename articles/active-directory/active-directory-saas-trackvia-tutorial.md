@@ -1,6 +1,6 @@
 ---
-title: "자습서: TrackVia와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 TrackVia 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: TrackVia와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 TrackVia 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 54e830f2ead2887c941d81a97ed619ae5cb1c750
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>자습서: TrackVia와 Azure Active Directory 통합
 
@@ -58,7 +59,7 @@ Azure AD와 TrackVia 통합을 구성하려면 갤러리의 TrackVia를 관리�
 
 **갤러리에서 TrackVia를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -126,11 +127,22 @@ TrackVia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 6. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. **TrackVia** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [TrackVia 지원 팀](mailto:support@trackvia.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+7. **TrackVia 구성** 섹션에서 **TrackVia 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID**를 복사합니다.
+
+    ![TrackVia 구성](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. 다른 웹 브라우저 창에서 TrackVia 회사 사이트에 관리자로 로그인합니다.
+
+9. Trackvia **내 계정** 설정을 클릭한 다음, **Single Sign-On** 탭에서 다음 단계를 수행합니다.
+
+    ![TrackVia 구성](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+
+    나. **파일 선택**을 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+
+    다. 페이지 맨 아래에 있는 **저장**
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -212,8 +224,6 @@ TrackVia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_01.png
@@ -227,4 +237,3 @@ TrackVia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

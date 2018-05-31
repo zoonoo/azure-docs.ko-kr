@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360192"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>.NET을 사용하여 Azure 테이블 저장소 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -69,7 +70,7 @@ Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **설치됨** > **Visual C#** > **Windows 기본 바탕 화면**을 차례로 선택합니다.
-3. **콘솔 앱(.NET Framework)**을 선택합니다.
+3. **콘솔 앱(.NET Framework)** 을 선택합니다.
 4. **이름:** 필드에서 응용 프로그램의 이름을 입력합니다.
 5. **확인**을 선택합니다.
 
@@ -102,7 +103,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 >
 
 ### <a name="determine-your-target-environment"></a>대상 환경 확인
-이 가이드의 예제를 실행하기 위해 다음과 같은 두 가지 환경 옵션이 있습니다.
+이 가이드의 예제를 실행하기 위해 다음과 같은 세 가지 환경 옵션이 있습니다.
 
 * 클라우드에서 Azure Storage 계정에 대한 코드를 실행할 수 있습니다. 
 * 클라우드에서 Azure Cosmos DB 계정에 대해 코드를 실행할 수 있습니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940227"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361950"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -236,9 +236,9 @@ nslookup 명령을 사용하여 OpenDNS 확인자에 myip.opendns.com이라는 �
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>아웃바운드 연결 방지
-VM이 아웃바운드 흐름을 만들도록 허용하는 것이 바람직하지 않은 경우가 있습니다. 또는 아웃바운드 흐름으로 연결할 수 있는 대상 또는 인바운드 흐름을 시작할 수 있는 대상을 관리하기 위한 요구 사항이 있을 수도 있습니다. 이 경우에 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 사용하여 VM에서 도달할 수 있는 대상을 관리합니다. 또한 NSG를 사용하여 인바운드 흐름을 시작할 수 있는 공용 대상을 관리할 수 있습니다. 
+VM이 아웃바운드 흐름을 만들도록 허용하는 것이 바람직하지 않은 경우가 있습니다. 또는 아웃바운드 흐름으로 연결할 수 있는 대상 또는 인바운드 흐름을 시작할 수 있는 대상을 관리하기 위한 요구 사항이 있을 수도 있습니다. 이 경우에 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 VM에서 도달할 수 있는 대상을 관리합니다. 또한 NSG를 사용하여 인바운드 흐름을 시작할 수 있는 공용 대상을 관리할 수 있습니다.
 
-부하 분산 VM에 NSG를 적용할 때 [태그 기본](../virtual-network/virtual-networks-nsg.md#default-tags) 및 [규칙 기본](../virtual-network/virtual-networks-nsg.md#default-rules)에 주의해야 합니다. VM에서 Azure Load Balancer의 상태 프로브 요청을 수신할 수 있는지 확인해야 합니다. 
+부하 분산 VM에 NSG를 적용할 때 [서비스 태그](../virtual-network/security-overview.md#service-tags) 및 [기본 보안 규칙](../virtual-network/security-overview.md#default-security-rules)에 주의해야 합니다. VM에서 Azure Load Balancer의 상태 프로브 요청을 수신할 수 있는지 확인해야 합니다. 
 
 NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 경우 VM 상태 프로브에 실패하고 VM가 표시됩니다. 부하 분산 장치는 해당 VM에 새 흐름을 보내는 작업을 중지합니다.
 
@@ -250,5 +250,5 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 
 - [Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보세요.
 - [Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
-- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대해 자세히 알아보세요.
+- [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.
