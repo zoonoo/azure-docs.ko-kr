@@ -1,5 +1,5 @@
 ---
-title: Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성 | Microsoft Docs
+title: Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성 자습서 | Microsoft Docs
 description: Key Vault에서 비밀을 읽도록 ASP.Net Core 응용 프로그램 구성 자습서
 services: key-vault
 documentationcenter: ''
@@ -8,15 +8,16 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305177"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>자습서: Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성
 
@@ -48,24 +49,22 @@ az login
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
 방금 만든 리소스 그룹은 이 자습서 전체에서 사용됩니다.
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
 
-다음으로 이전 단계에서 만든 리소스 그룹에 Key Vault를 만듭니다. 몇 가지 정보를 제공해야 합니다.
-
->[!NOTE]
-> 이 빠른 시작 전체에서 Key Vault의 이름으로 "ContosoKeyVault"를 사용하되, 고유한 이름을 사용해야 합니다.
+다음으로 이전 단계에서 만든 리소스 그룹에 Key Vault를 만듭니다. 이 자습서 전체에서 Key Vault의 이름으로 "ContosoKeyVault"를 사용하되, 고유한 이름을 사용해야 합니다. 다음 정보를 지정합니다.
 
 * 자격 증명 모음 이름은 **ContosoKeyVault**입니다.
 * 리소스 그룹 이름은 **ContosoResourceGroup**입니다.
 * 위치는 **미국 동부**입니다.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
 이 명령의 출력에는 새로 만든 Key Vault의 속성이 표시됩니다. 아래에 나열된 두 개의 속성을 기록합니다.
@@ -78,20 +77,20 @@ az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceG
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 모든 작업을 수행할 권한이 있는 유일한 계정입니다.
 
-## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
+## <a name="add-a-secret-to-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
 이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 보관해야 하면서도 응용 프로그램에 제공해야 하는 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다. 이 자습서에서 암호는 **AppSecret**이고 그 안에 **MySecret** 값이 저장됩니다.
 
 아래 명령을 입력하여 값 **MySecret**을 저장하는 **AppSecret**이라는 비밀을 Key Vault에 만듭니다.
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 비밀에 들어 있는 값을 일반 텍스트로 보려면:
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
 이 명령은 URI를 포함한 비밀 정보를 표시합니다. 이러한 단계를 완료하면 Azure Key Vault의 비밀에 대한 URI이 생깁니다. 이 정보를 기록해 둡니다. 나중에 필요합니다.
@@ -212,8 +211,8 @@ az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
 ## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 응용 프로그램 게시
 
 1. 편집기 위에서 **WebKeyVault**를 선택합니다.
-2. **게시**를 선택합니다.
-3. **게시**를 다시 선택합니다.
+2. **게시**, **시작**을 차례로 선택합니다.
+3. 새 **App Service**를 만들고, **게시**를 선택합니다.
 4. **만들기**를 선택합니다.
 
 >[!IMPORTANT]
@@ -227,11 +226,11 @@ Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전
 2. 이 응용 프로그램에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->포털로 이동하여 웹 응용 프로그램 속성에서 **관리되는 서비스 ID**를 **켜기**로 전환하는 것과 동일합니다.
+>이 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **관리되는 서비스 ID**를 **켜기**로 전환하는 것과 동일합니다.
 
 ## <a name="grant-rights-to-the-application-identity"></a>응용 프로그램 ID에 권한 부여
 
@@ -243,14 +242,14 @@ Azure Portal을 사용하여 Key Vault의 액세스 정책으로 이동한 후 �
 4. **보안 주체 선택**을 선택하고 응용 프로그램 ID를 추가합니다. 그러면 응용 프로그램과 동일한 이름을 갖게 됩니다.
 5. **확인**을 선택합니다.
 
-이제 Azure의 계정과 응용 프로그램 ID에는 Key Vault에서 정보를 읽을 수 있는 권한이 있습니다. 페이지를 새로 고치면 사이트의 방문 페이지가 보일 것입니다. **정보**를 선택하면 Key Vault에 저장한 값이 표시됩니다.
+이제 Azure의 계정과 응용 프로그램 ID에는 Key Vault에서 정보를 읽을 수 있는 권한이 있습니다. 페이지를 새로 고치면 사이트의 방문 페이지가 보일 것입니다. **정보**를 선택하는 경우 Key Vault에 저장한 값이 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 리소스 그룹 및 모든 해당 리소스를 삭제하려면 **az group delete** 명령을 사용합니다.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>다음 단계
