@@ -12,13 +12,16 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e24091b017a1c6c82cfe8d12873223b98c165c63
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bc144fb1d7db9251871e7e181b012417a32de7e6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868112"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Service란?
+
+Microsoft Azure SignalR Service는 현재 [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다.
 
 Azure SignalR Service는 [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기반으로 하는 Azure 서비스입니다. ASP.NET Core SignalR은 HTTP를 통해 응용 프로그램에 실시간 웹 기능을 추가하는 프로세스를 간소화하는 [오픈 소스 라이브러리](https://github.com/aspnet/signalr)입니다. 이 실시간 기능을 사용하면 웹 서버에서 연결된 클라이언트에 콘텐츠 업데이트를 푸시할 수 있습니다. 결과적으로 클라이언트가 서버를 폴링하거나 업데이트에 대한 새 HTTP 요청을 제출하지 않고도 업데이트됩니다.
 
@@ -37,7 +40,7 @@ Azure SignalR Service는 [ASP.NET Core SignalR](https://docs.microsoft.com/aspne
 
 ## <a name="developing-signalr-apps"></a>SignalR 앱 개발
 
-현재 웹 응용 프로그램에서 사용할 수 있는 SignalR에는 ASP.NET용 SignalR과 최신 버전인 ASP.NET Core SignalR의 두 가지 버전이 있습니다. *SignalR Service*라고도 하는 Azure SignalR Service는 ASP.NET Core SignalR을 기반으로 하는 Azure 관리 서비스입니다. 
+현재 웹 응용 프로그램에서 사용할 수 있는 SignalR에는 ASP.NET용 SignalR과 최신 버전인 ASP.NET Core SignalR의 두 가지 버전이 있습니다. Azure SignalR Service는 ASP.NET Core SignalR에 기반을 둔 Azure 관리 서비스입니다. 
 
 ASP.NET Core SignalR은 이전 버전을 다시 생성한 것입니다. 결과적으로 ASP.NET Core SignalR은 이전 버전의 SignalR과 호환되지 않습니다. API와 동작이 서로 다릅니다. ASP.NET Core SignalR SDK는 .NET Standard이므로 .NET Framework에서도 사용할 수 있습니다. 그러나 이전 API 대신 새 API를 사용해야 합니다. SignalR을 사용하지만 ASP.NET Core SignalR 또는 Azure SignalR Service로 이동하려면 API의 차이를 처리하기 위해 코드를 변경해야 합니다.
 
