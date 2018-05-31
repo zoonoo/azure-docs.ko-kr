@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32772554"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 및 배포
 
