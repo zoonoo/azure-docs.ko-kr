@@ -1,27 +1,24 @@
 ---
 title: Azure MFA의 2단계 검증에 대해 알아보기 | Microsoft Docs
-description: 'Azure Multi-factor Authentication이란 무엇인가에 대해 설명하고 MFA를 사용하는 이유, Multi-Factor Authentication 클라이언트 및 사용 가능한 다양한 방법과 버전에 대해 설명합니다. '
-keywords: MFA 소개, mfa 개요, mfa 정의
+description: Azure Multi-Factor Authentication 정의, MFA를 사용하는 이유 및 사용 가능한 다른 메서드 및 버전에 대해 설명합니다.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 74441b5053a9c7c25d94406293828fe92f210bee
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2bf2cbefb2b60ad5278bdee7bd97aff1ed6212a4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867161"
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 정의
+
 2단계 인증은 두 개 이상의 검증 방법이 필요하며 사용자 로그인 및 트랜잭션에 중요한 두 번째 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.
 
 * 사용자가 알고 있는 정보(일반적으로 암호)

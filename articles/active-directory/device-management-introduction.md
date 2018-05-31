@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory의 장치 관리 소개 | Microsoft Docs"
-description: "사용자 환경의 리소스에 액세스하는 장치를 제어하는 데 장치 관리가 어떻게 도움이 되는지에 대해 알아봅니다."
+title: Azure Active Directory의 장치 관리 소개 | Microsoft Docs
+description: 사용자 환경의 리소스에 액세스하는 장치를 제어하는 데 장치 관리가 어떻게 도움이 되는지에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202136"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory의 장치 관리 소개
 
@@ -73,7 +74,7 @@ Azure AD 가입 장치의 목표는 단순화하는 것입니다.
 
 
 이러한 목표는 Azure AD에서 제어하는 회사 소유 장치를 가져오기 위한 자체 서비스 환경 제공을 통해 수행됩니다.  
-**Azure AD 가입**은 클라우드 우선/클라우드 전용 조직을 위해 고안되었습니다. 일반적으로 온-프레미스 Windows Server Active Directory 인프라가 없는 소규모 및 중간 규모 비즈니스가 해당됩니다. 
+**Azure AD Join**은 클라우드 우선 또는 클라우드 전용을 원하는 조직을 위해 고안되었습니다. Azure AD Join을 배포할 수 있는 조직의 크기 또는 형식에 대한 제한은 없습니다. Azure AD Join은 하이브리드 환경에서도 잘 작동하며 온-프레미스 앱 및 리소스에 대한 액세스를 사용하도록 설정할 수 있습니다.
 
 Azure AD 가입 장치를 구현하면 다음과 같은 이점이 제공됩니다.
 
@@ -81,11 +82,14 @@ Azure AD 가입 장치를 구현하면 다음과 같은 이점이 제공됩니�
 
 - 가입 장치 간 사용자 설정의 **엔터프라이즈 규정 준수 로밍**. 사용자는 장치 간에 설정을 보기 위해 Microsoft 계정(예: Hotmail)을 연결할 필요가 없습니다.
 
-- AD 계정을 사용하는 **비즈니스용 Windows 스토어에 대한 액세스**. 사용자가 조직에서 미리 선택된 응용 프로그램의 인벤토리에서 선택할 수 있습니다.
+- Azure AD 계정을 사용하여 **비즈니스용 Windows 스토어에 액세스**합니다. 사용자가 조직에서 미리 선택된 응용 프로그램의 인벤토리에서 선택할 수 있습니다.
 
 - **Windows Hello**는 회사 리소스에 대한 안전하고 편리한 액세스를 지원합니다.
 
 - 앱에 대한 **액세스 제한**은 규정 준수 정책을 충족하는 장치에만 해당합니다.
+
+- 장치가 온-프레미스 도메인 컨트롤러에 대한 시야를 갖고 있는 경우 **온-프레미스 리소스에 원활하게 액세스**됩니다.
+
 
 Azure AD 가입은 기본적으로 온-프레미스 Windows Server Active Directory 인프라가 없는 조직을 위해 고안되었으나, 다음과 같은 시나리오에서 확실히 사용할 수 있습니다.
 
@@ -108,7 +112,7 @@ Windows 10 장치에 대한 Azure AD 가입 장치를 구성할 수 있습니다
 
 - 사용자가 Active Directory 회사 또는 학교 계정으로 자신의 장치에 로그인하도록 
 
-온-프레미스 공간이 있는 조직에서는 일반적으로 이미징 메서드에 의존하여 장치를 프로비전하며, 이를 관리하는 데 **SCCM(System Center Configuration Manager)** 또는 **GP(그룹 정책)**를 사용하기도 합니다.
+온-프레미스 공간이 있는 조직에서는 일반적으로 이미징 메서드에 의존하여 장치를 프로비전하며, 이를 관리하는 데 **SCCM(System Center Configuration Manager)** 또는 **GP(그룹 정책)** 를 사용하기도 합니다.
 
 사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 장치를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 장치입니다.
 

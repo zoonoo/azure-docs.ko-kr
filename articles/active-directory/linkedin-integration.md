@@ -6,24 +6,27 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762373"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft 앱 및 서비스에 대한 LinkedIn 계정 연결
 이 문서에서는 Azure AD(Azure Active Directory) 관리 센터에서 테넌트에 대해 LinkedIn 계정 연결을 관리하는 방법을 알아볼 수 있습니다. 
 
 > [!IMPORTANT]
 > LinkedIn 계정 연결 기능이 현재 Azure AD 테넌트에 공개되고 있습니다. 테넌트에게 공개되면 기본적으로 사용하도록 설정됩니다. Exchange Online 사서함이 오스트레일리아, 캐나다, 중국, 프랑스, 독일, 인도, 대한민국, 영국, 일본 및 남아프리카에서 호스트되는 미국 정부 고객 및 조직은 사용할 수 없습니다. 이러한 사서함 위치에 대한 지원은 곧 제공될 예정입니다.  롤아웃 정보의 최신 상태 보기는 [Office 365 로드맵](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) 페이지를 참조하세요.
+
+## <a name="benefit-to-users"></a>사용자의 혜택
+사용자가 자신의 LinkedIn 계정에 연결하면 LinkedIn 정보는 다양한 Microsoft 앱 또는 서비스에서 개인화된 정보 및 기능을 표시하는 데 사용됩니다. 사용자는 조직 외부 사람인 경우라도 Microsoft 프로필 카드로 작업하는 사람들에 대한 정보를 확인할 수 있습니다. 시간이 지남에 따라 LinkedIn 경험은 더 관련성이 깊어지고 해당 작업에 맞게 됩니다. 예를 들어 LinkedIn은 사용자의 작업을 기반으로 새 연결을 제안하거나 그 날의 일정에 있는 사용자에 대한 정보를 공개할 수 있습니다.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>LinkedIn 계정 연결이 사용자에게 표시되는 방식
 LinkedIn 계정 연결을 통해 사용자는 일부 Microsoft 앱에서 공개 LinkedIn 프로필 정보를 볼 수 있습니다. 테넌트에 속하는 사용자는 자신의 LinkedIn 및 Microsoft 회사 또는 학교 계정을 연결하여 추가적인 LinkedIn 프로필 정보를 표시하도록 선택할 수 있습니다. 자세한 내용은 [Microsoft 앱 및 서비스의 LinkedIn 정보 및 기능](https://go.microsoft.com/fwlink/?linkid=850740)을 참조하세요.

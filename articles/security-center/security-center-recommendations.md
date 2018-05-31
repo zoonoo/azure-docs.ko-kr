@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 보안 권장 사항 관리 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다."
+title: Azure Security Center에서 보안 권장 사항 관리 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364253"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
 이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -39,7 +40,7 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 * 데이터 수집 사용.
 * 보안 정책의 일부로 표시될 권장 사항 선택.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) , SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](security-center-policies.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/security-overview.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](security-center-policies.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
 ### <a name="monitor-recommendations"></a>권장 사항 모니터링
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **개요**의 **권장 사항** 타일은 Security Center에서 식별된 권장 사항의 총 수를 알려줍니다.

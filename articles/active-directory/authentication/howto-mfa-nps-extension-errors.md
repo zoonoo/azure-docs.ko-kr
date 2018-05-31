@@ -1,25 +1,21 @@
 ---
 title: Azure MFA NPS 확장에 대한 오류 코드 문제 해결 | Microsoft Docs
-description: 일반적인 오류 메시지에 대한 구체적인 해결 방법으로 Azure Multi-factor Authentication용 NPS 확장 문제 해결에 대한 도움 얻기
+description: Azure Multi-Factor Authentication용 NPS 확장 문제 해결에 대한 도움 얻기
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867668"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
@@ -85,8 +81,8 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 | 오류 코드 | 오류 메시지 |
 | ---------- | ------------- |
 | **InvalidParameter** | 요청은 null이 아니어야 합니다. |
-| **InvalidParameter** | ReplicationScope:{0}의 경우 ObjectId는 null 또는 공백이 아니어야 합니다 |
-| **InvalidParameter** | CompanyName 길이 \{0}\이(가)) 최대 허용 길이 {1}보다 깁니다. |
+| **InvalidParameter** | ReplicationScope:{0}의 경우 ObjectId는 null 또는 공백이 아니어야 합니다. |
+| **InvalidParameter** | CompanyName 길이 \{0}\이(가) 최대 허용 길이 {1}보다 깁니다. |
 | **InvalidParameter** | UserPrincipalName은 null 또는 공백이 아니어야 합니다. |
 | **InvalidParameter** | 제공된 TenantId가 올바른 형식이 아닙니다. |
 | **InvalidParameter** | SessionId는 null 또는 공백이 아니어야 합니다. |

@@ -7,14 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192784"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및 쿼리의 동시성을 관리하기 위한 지침입니다.  
@@ -22,29 +23,31 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 ## <a name="what-is-workload-management"></a>워크로드 관리란?
 워크로드 관리는 모든 쿼리의 전체 성능을 최적화하는 기능입니다. 잘 튜닝된 워크로드는 계산 집약적인지 또는 IO 사용량이 많은지에 관계없이 효율적으로 쿼리를 실행하고 작업을 로드합니다.  SQL Data Warehouse는 다중 사용자 환경에 대한 워크로드 관리 기능을 제공합니다. 데이터 웨어하우스는 다중 테넌트 워크로드용은 아닙니다.
 
-데이터 웨어하우스의 성능 용량은 [성능 계층](memory-and-concurrency-limits.md#performance-tiers) 및 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 의해 결정됩니다. 
+데이터 웨어하우스의 성능 용량은 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 의해 결정됩니다. 
 
 - 모든 성능 프로필에 대한 메모리 및 동시성 제한을 보려면 [메모리 및 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
 - 성능 용량을 조정하려면 용량을 [확장 또는 축소](quickstart-scale-compute-portal.md)합니다.
 
 쿼리의 성능 용량은 쿼리의 리소스 클래스에 의해 결정됩니다. 이 문서의 나머지 부분에서는 리소스 클래스가 무언인지, 어떻게 조정하는지에 대해 설명합니다.
 
-
 ## <a name="what-are-resource-classes"></a>리소스 클래스란?
-리소스 클래스는 쿼리 실행을 위한 계산 리소스와 동시성을 관리하는, Azure SQL Data Warehouse에 미리 결정된 리소스 제한입니다. 리소스 클래스를 사용하면 동시에 실행되는 쿼리 수와 각 쿼리에 할당되는 계산 리소스에 대한 제한을 설정하여 워크로드를 관리할 수 있습니다. 메모리와 동시성 사이에는 장단점이 있습니다.
+쿼리의 성능 용량은 사용자의 리소스 클래스에 의해 결정됩니다.  리소스 클래스는 쿼리 실행을 위한 계산 리소스와 동시성을 관리하는, Azure SQL Data Warehouse에 미리 결정된 리소스 제한입니다. 리소스 클래스를 사용하면 동시에 실행되는 쿼리 수와 각 쿼리에 할당되는 계산 리소스에 대한 제한을 설정하여 워크로드를 관리할 수 있습니다. 메모리와 동시성 사이에는 장단점이 있습니다.
 
 - 리소스 클래스가 작을수록 쿼리당 최대 메모리가 줄어들고 동시성은 높아집니다.
 - 리소스 클래스가 클수록 쿼리당 최대 메모리가 증가하고 동시성은 줄어듭니다. 
 
-쿼리의 성능 용량은 사용자의 리소스 클래스에 의해 결정됩니다.
+리소스 클래스에는 두 가지 유형이 있습니다.
 
-- 리소스 클래스의 리소스 사용률을 보려면 [ 메모리 및 동시성 제한](memory-and-concurrency-limits.md#concurrency-maximums)을 참조하세요.
-- 리소스 클래스를 조정하려면 다른 사용자로 쿼리를 실행하거나 [현재 사용자의 리소스 클래스](#change-a-user-s-resource-class) 멤버 자격을 변경합니다. 
+- 정적 리소스 클래스 - 고정된 데이터 집합 크기의 동시성이 높은 경우에 적합합니다.
+- 동적 리소스 클래스 - 서비스 수준이 확장됨에 따라 크기가 증가하고 성능이 높아지는 데이터 집합에 적합합니다.   
 
 리소스 클래스는 리소스 소비를 측정하기 위해 동시성 슬롯을 사용합니다.  [동시성 슬롯](#concurrency-slots)은 이 문서의 뒷부분에 설명되어 있습니다. 
 
+- 리소스 클래스의 리소스 사용률을 보려면 [ 메모리 및 동시성 제한](memory-and-concurrency-limits.md#concurrency-maximums)을 참조하세요.
+- 리소스 클래스를 조정하려면 다른 사용자로 쿼리를 실행하거나 [현재 사용자의 리소스 클래스](#change-a-users-resource-class) 멤버 자격을 변경합니다. 
+
 ### <a name="static-resource-classes"></a>정적 리소스 클래스
-정적 리소스 클래스는 현재 성능 수준에 관계없이 동일한 양의 메모리를 할당하며 이는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 측정됩니다. 쿼리는 성능 수준에 관계없이 동일한 메모리가 할당되므로 [데이터 웨어하우스를 확장하면](quickstart-scale-compute-portal.md) 리소스 클래스 내에서 더 많은 쿼리를 실행할 수 있습니다.
+정적 리소스 클래스는 현재 성능 수준에 관계없이 동일한 양의 메모리를 할당하며 이는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 측정됩니다. 쿼리는 성능 수준에 관계없이 동일한 메모리가 할당되므로 [데이터 웨어하우스를 확장하면](quickstart-scale-compute-portal.md) 리소스 클래스 내에서 더 많은 쿼리를 실행할 수 있습니다.  정적 리소스 클래스는 데이터 볼륨이 알려져 있으며 상수인 경우에 이상적입니다.
 
 정적 리소스 클래스는 다음과 같은 미리 정의된 데이터베이스 역할로 구현됩니다.
 
@@ -57,19 +60,31 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 - staticrc70
 - staticrc80
 
-이러한 리소스 클래스는 리소스 클래스를 늘려 추가 계산 리소스를 얻으려는 솔루션에 가장 적합합니다.
-
 ### <a name="dynamic-resource-classes"></a>동적 리소스 클래스
-동적 리소스 클래스는 현재 서비스 수준에 따라 가변 크기의 메모리를 할당합니다. 즉, 더 큰 서비스 수준으로 확장할 경우 쿼리도 자동으로 더 많은 메모리를 얻게 됩니다. 
+동적 리소스 클래스는 현재 서비스 수준에 따라 가변 크기의 메모리를 할당합니다. 정적 리소스 클래스는 동시성이 비교적 높은 경우 및 정적 데이터 볼륨에 대해 유용한 반면, 동적 리소스 클래스는 데이터 양이 증가하거나 변화하는 경우에 더 적합합니다.  즉, 더 큰 서비스 수준으로 확장할 경우 쿼리도 자동으로 더 많은 메모리를 얻게 됩니다.  
 
 동적 리소스 클래스는 다음과 같은 미리 정의된 데이터베이스 역할로 구현됩니다.
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc. 
+- xlargerc 
 
-이러한 리소스 클래스는 계산 크기를 늘려 추가 리소스를 얻으려는 솔루션에 가장 적합합니다. 
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Gen2 동적 리소스 클래스는 진정으로 동적입니다.
+Gen1에서 동적 리소스 클래스의 세부 정보를 검토해 보면, 동작을 이해하기 어렵게 만드는 복잡성이 더해지는 몇 가지 정보가 있습니다.
+
+- smallrc 리소스 클래스는 정적 리소스 클래스와 같은 고정 메모리 모델로 작동합니다.  Smallrc 쿼리는 서비스 수준이 높아짐에 따라 추가 메모리를 동적으로 가져오지 않습니다.
+- 서비스 수준이 달라지면 사용 가능한 쿼리 동시성이 높아지거나 낮아질 수 있습니다.
+- 서비스 수준을 확장하는 경우 동일한 리소스 클래스에 할당된 메모리가 비례로 변경되지 않습니다.
+
+**Gen2에 한해**, 동적 리소스 클래스는 진정으로 동적이며 위에서 언급한 점을 처리합니다.  새로운 규칙은 **서비스 수준에 관계없이** small-medium-large-xlarge 리소스 클래스에 대해 메모리 비율 할당 3-10-22-70입니다.  다음 표는 서비스 수준에 관계없이, 실행되는 최소 동시 쿼리 수와 메모리 할당 비율에 대한 자세한 내용을 통합적으로 보여 줍니다.
+
+| 리소스 클래스 | 메모리 비율 | 최소 동시 쿼리 수 |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | 3%                | 32                     |
+| mediumrc       | 10%               | 10                     |
+| largerc        | 22%               | 4                      |
+| xlargerc       | 70%               | 1                      |
 
 
 ### <a name="default-resource-class"></a>기본 리소스 클래스
@@ -145,10 +160,11 @@ Removed as these two are not confirmed / supported under SQLDW
 
 리소스 클래스는 미리 정의된 데이터베이스 역할로 구현됩니다. 리소스 클래스에는 두 가지 유형(동적 및 정적)이 있습니다. 리소스 클래스 목록을 보려면 다음 쿼리를 사용합니다.
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>사용자의 리소스 클래스 변경
 
@@ -198,7 +214,7 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>최상의 리소스 클래스를 찾기 위한 예제 코드
  
-다음 저장 프로시저를 사용하여 지정된 SLO에서 리소스 클래스별 메모리 부여 및 동시성을 확인하고 지정된 리소스 클래스의 분할되지 않은 CCI 테이블에 대해 메모리 집약적 CCI 작업을 수행하기 위한 가장 적절한 리소스 클래스를 확인할 수 있습니다.
+**Gen1에 대해서만** 다음 저장 프로시저를 사용하여 지정된 SLO에서 리소스 클래스별 메모리 부여 및 동시성을 확인하고 지정된 리소스 클래스의 분할되지 않은 CCI 테이블에 대해 메모리 집약적 CCI 작업을 수행하기 위한 가장 적절한 리소스 클래스를 확인할 수 있습니다.
 
 이 저장 프로시저의 용도는 다음과 같습니다.  
 1. 지정된 SLO에서 리소스 클래스별로 메모리 부여 및 동시성을 파악하도록 도와줍니다. 사용자는 이 예제에 나와 있는 것처럼 스키마 및 테이블 이름 둘 다에 대해 NULL을 제공해야 합니다.  
@@ -229,6 +245,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> 이 버전의 저장 프로시저에 정의된 값은 Gen1에만 적용됩니다.
+>
+>
 
 다음은 이전 예제에서 사용된 Table1을 만드는 문입니다.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -295,7 +315,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -307,7 +327,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )

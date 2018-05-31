@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: d0092f57c162cc8727cfed33218e440d4da11f1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aec29ac1ccf9386615e7603898f071fe9cda44cf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364338"
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure Policy를 사용하여 Security Center 보안 정책 통합
 이 문서를 사용하면 Azure Policy에서 제공하는 Azure Security Center 보안 정책을 구성할 수 있습니다.
@@ -76,7 +77,7 @@ Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집�
 | 보안 구성 |운영 체제 구성을 매일 분석하여 가상 머신을 공격에 취약하게 만들 수 있는 문제를 확인합니다. 또한 정책은 이러한 취약점을 해결하는 구성 변경 내용을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장되는 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. (현재는 Windows Server 2016이 완전히 지원되지 않습니다.) |
 | Endpoint Protection |바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하도록 모든 Windows VM(가상 머신)에 끝점 보호를 설정하는 것이 좋습니다. |
 | 디스크 암호화 |모든 가상 머신에서 디스크 암호화를 사용하여 휴지 상태의 데이터 보호 기능을 향상시키는 것이 좋습니다. |
-| 네트워크 보안 그룹 |공용 끝점을 사용하여 VM에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 구성하는 것이 좋습니다. 서브넷에 대해 구성된 네트워크 보안 그룹은 별도로 지정하지 않는 한 모든 가상 컴퓨터 네트워크 인터페이스에 상속됩니다. 이 정책은 네트워크 보안 그룹이 구성되었는지 확인하는 것 외에도 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙을 식별합니다. |
+| 네트워크 보안 그룹 |공용 끝점을 사용하여 VM에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 구성하는 것이 좋습니다. 서브넷에 대해 구성된 네트워크 보안 그룹은 별도로 지정하지 않는 한 모든 가상 머신 네트워크 인터페이스에 상속됩니다. 이 정책은 네트워크 보안 그룹이 구성되었는지 확인하는 것 외에도 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙을 식별합니다. |
 | 웹 응용 프로그램 방화벽 |다음 중 하나가 true인 경우 가상 머신에 웹 응용 프로그램 방화벽을 설정하는 것이 좋습니다. <ul><li>[인스턴스 수준 공용 IP](../virtual-network/virtual-networks-instance-level-public-ip.md)를 사용하고, 연결된 네트워크 보안 그룹에 대한 인바운드 보안 규칙에서 80/443 포트에 대한 액세스를 허용하도록 구성합니다.</li><li>부하 분산된 IP를 사용하고, 연결된 부하 분산 및 인바운드 NAT(Network Address Translation) 규칙에서 80/443 포트에 대한 액세스를 허용하도록 구성합니다. 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](../load-balancer/load-balancer-arm.md)을 참조하세요.</li> |
 | 차세대 방화벽 |Azure에 기본 제공되는 네트워크 보안 그룹 외에도 네트워크 보호 기능을 확장합니다. Security Center에서 차세대 방화벽이 권장되는 배포를 검색한 다음 가상 어플라이언스를 설정할 수 있습니다. |
 | SQL 감사 및 위협 검색 |조사를 위해 Azure 데이터베이스에 대한 액세스 감사를 규정 준수 및 고급 위협 검색에 사용하도록 설정하는 것이 좋습니다. |

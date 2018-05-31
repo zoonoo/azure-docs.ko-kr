@@ -9,11 +9,12 @@ ms.custom: load & move data
 ms.date: 04/01/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 7653f0953241fa0b4a1780075641fc3fe5570a23
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 30e89ea940b25e8db4a1203e966000981c47abc9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894044"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL Database를 BACPAC 파일로 내보내기
 
@@ -97,3 +98,4 @@ $exportStatus
 * SQL Server Database에 BACPAC를 가져오는 방법에 대해 자세히 알아보려면 [SQL Server Database로 BACPCAC 가져오기](https://msdn.microsoft.com/library/hh710052.aspx)를 참조하세요.
 * SQL Server Database에서 BACPAC를 내보내는 방법을 알아보려면 [데이터 계층 응용 프로그램 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) 및 [첫 번째 데이터베이스 마이그레이션](sql-database-migrate-your-sql-server-database.md)을 참조하세요.
 * 마이그레이션에 대한 사전 준비로 SQL Server에서 Azure SQL Database로 내보내는 경우 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
+* 저장소 키 및 공유 액세스 서명을 안전하게 관리하고 공유하는 방법을 알아보려면 [Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide)를 참조합니다.
