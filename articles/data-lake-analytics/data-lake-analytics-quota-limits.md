@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311134"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199027"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Azure Data Lake Analytics 할당량 한도
 
@@ -33,29 +33,33 @@ ADLA(Azure Data Lake Analytics) 계정에서 할당량 한도를 조정하고 �
 * 적합한 경우 다른 영역 선택
 * 할당량 증대를 요청하는 [지원 티켓을 열어](#increase-maximum-quota-limits) Azure 고객 지원팀에 문의
 
-## <a name="adla-account-limits"></a>ADLA 계정 한도
+## <a name="default-adla-account-limits"></a>기본 ADLA 계정 한도
 
-**계정당 최대 AU(분석 단위) 수:** 250.
+**계정당 최대 AU(분석 단위) 수** 32
 
 이는 계정에서 동시에 실행할 수 있는 AU의 최대 개수입니다. 모든 작업에서 실행 중인 총 AU 수가 이 한도를 초과하면 최신 작업이 자동으로 큐에 대기됩니다. 예: 
 
-* 250AU로 실행되는 작업이 하나뿐인 경우 두 번째 작업을 제출하면 첫 번째 작업이 완료될 때까지 이 작업이 작업 큐에서 대기합니다.
-* 이미 5개의 작업이 실행 중이고 각각 50AU를 사용하는 경우 20AU가 필요한 6번째 작업을 제출하면 20AU가 사용 가능 상태가 될 때까지 작업 큐에서 대기합니다.
+* 32AU로 실행되는 작업이 하나뿐인 경우 두 번째 작업을 제출하면 첫 번째 작업이 완료될 때까지 이 작업이 작업 큐에서 대기합니다.
+* 이미 4개의 작업이 실행 중이고 각각 8AU를 사용하는 경우 8AU가 필요한 5번째 작업을 제출하면 8AU가 사용 가능 상태가 될 때까지 작업 큐에서 대기합니다.
+
+**작업당 최대 AU(분석 단위) 수** 32
+
+계정에서 각 개별 작업에 할당될 수 있는 AU의 기본 최대 개수입니다. 제출자가 작업당 더 많은 AU를 제공하는 계산 정책(작업 제출 한도)의 영향을 받지 않는 한 이 한도보다 많이 할당된 작업은 거부됩니다. 이 값의 상한은 계정에 대한 AU 한도입니다.
 
 **계정당 동시 U-SQL 작업의 최대 수:** 20.
 
 이는 계정에서 동시에 실행할 수 있는 작업의 최대 개수입니다. 이 값을 초과하면 최신 작업이 자동으로 큐에 대기합니다.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>계정당 ADLA 할당량 한도 조정
+## <a name="adjust-adla-account-limits"></a>ADLA 계정 한도 조정
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 기존 ADLA 계정을 선택합니다.
 3. **속성**을 클릭합니다.
-4. **병렬 처리** 및 **동시 작업**을 요구 사항에 맞게 조정합니다.
-
-    ![Azure Data Lake Analytics 포털 페이지](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. **최대 AU**, **실행 중인 작업의 최대 수** 및 **작업 제출 한도** 값을 요구에 맞게 조정합니다.
 
 ## <a name="increase-maximum-quota-limits"></a>최대 할당량 한도 늘리기
+
+Azure 제한에 대한 자세한 정보는 [Azure 서비스 관련 제한 설명서](../azure-subscription-service-limits.md#data-lake-analytics-limits)에서 확인할 수 있습니다.
 
 1. Azure Portal에서 지원 요청을 엽니다.
 
