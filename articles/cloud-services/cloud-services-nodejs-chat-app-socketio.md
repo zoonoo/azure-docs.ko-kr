@@ -1,11 +1,11 @@
 ---
-title: "Socket.io를 사용하는 Node.js 응용 프로그램 - Azure"
-description: "Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다."
+title: Socket.io를 사용하는 Node.js 응용 프로그램 - Azure
+description: Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011318"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
 
@@ -61,7 +62,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 1. **복제** 단추를 눌러 리포지토리의 로컬 복사본을 만듭니다. **ZIP** 단추를 눌러 프로젝트를 다운로드할 수도 있습니다.
    
-   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 표시하는 브라우저 창][chat-example-view]
+   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 보는 브라우저 창][chat-example-view]
 2. **examples\\chat** 디렉터리를 찾을 때까지 로컬 리포지토리의 디렉터리 구조를 탐색합니다. 이 디렉터리의 내용을 이전에 만든 **C:\\node\\chatapp\\WorkerRole1** 디렉터리로 복사합니다.
    
    ![보관 파일에서 압축을 푼 examples\\chat 디렉터리의 내용을 표시하는 탐색기][chat-contents]
@@ -73,7 +74,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 가지 항목을 수정해야 합니다. server.js 파일에 대해 다음 단계를 수행합니다.
 
 1. Visual Studio 또는 임의의 텍스트 편집기에서 **server.js** 파일을 엽니다.
-2. server.js의 시작 부분에서 **모듈 종속성** 섹션을 찾아 아래와 같이 **sio = require('..//..//lib//socket.io')**가 포함된 줄을 **sio = require('socket.io')**로 변경합니다.
+2. server.js의 시작 부분에서 **모듈 종속성** 섹션을 찾아 아래와 같이 **sio = require('..//..//lib//socket.io')** 가 포함된 줄을 **sio = require('socket.io')** 로 변경합니다.
    
        var express = require('express')
          , stylus = require('stylus')
@@ -123,7 +124,7 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 4. 응용 프로그램을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Azure에 응용 프로그램을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예:
+5. Azure에 응용 프로그램을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예: 
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
