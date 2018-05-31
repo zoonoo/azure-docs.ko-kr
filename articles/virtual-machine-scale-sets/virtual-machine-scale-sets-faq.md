@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895327"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -450,9 +451,9 @@ Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 �
 
 기존 VM이 서비스 복구되면 다시 부팅하는 것처럼 보이며 확장이 다시 실행되지 않습니다. 이미지로 다시 설치되는 경우 OS 드라이브를 원본 이미지로 바꾸는 것과 같습니다. 확장과 같은 최신 모델의 모든 특수화가 실행됩니다.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>가상 머신 확장 집합을 Azure AD 도메인에 가입하려면 어떻게 하나요?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>가상 머신 확장 집합을 Active Directory 도메인에 가입하려면 어떻게 하나요?
 
-가상 머신 확장 집합을 Azure AD(Azure Active Directory) 도메인에 가입하려면 확장을 정의할 수 있습니다. 
+가상 머신 확장 집합을 AD(Active Directory) 도메인에 가입하려면 확장을 정의할 수 있습니다. 
 
 확장을 정의하려면 JsonADDomainExtension 속성을 사용합니다.
 

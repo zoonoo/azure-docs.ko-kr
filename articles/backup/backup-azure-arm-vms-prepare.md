@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: caf2c54c986f8c4dd951628fd6908d42e7ddd281
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940573"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -55,8 +56,8 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 * Backup 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
 * 복원하는 동안 기존 가상 머신의 교체는 지원되지 않습니다. VM이 존재하는 경우 VM 복원을 시도하면, 복원 작업이 실패합니다.
 * 지역 간 백업 및 복원은 지원되지 않습니다.
-* 네트워크 규칙이 적용된 저장소 계정에서 관리되지 않는 디스크를 사용한 가상 머신의 백업 및 복원은 이전 VM 백업 스택의 고객에 대해 지원되지 않습니다. 
 * 백업을 구성하는 동안 **방화벽 및 가상 네트워크** 저장소 계정 설정에서 모든 네트워크의 액세스를 허용하는지 확인합니다.
+* 선택한 네트워크에 대해 저장소 계정에 대한 방화벽 및 가상 네트워크 설정을 구성한 다음, Azure Backup 서비스가 네트워크 제한 저장소 계정에 액세스할 수 있도록 **신뢰할 수 있는 Microsoft 서비스가 이 저장소 계정에 액세스하도록 허용합니다.** 를 예외적으로 선택합니다. 네트워크 제한 저장소 계정에는 항목 수준 복구가 지원되지 않습니다.
 * Azure의 모든 공영 지역에 있는 가상 머신을 백업할 수 있습니다. (지원되는 지역의 [검사 목록](https://azure.microsoft.com/regions/#services)을 참조하세요.) 찾는 지역이 현재 지원되지 않는 경우 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. 대해 자세히 알아보려면 [다중 DC 도메인 컨트롤러 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조하세요.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 머신 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 통해 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)을 참조하세요.
@@ -172,7 +173,7 @@ Recovery Services 자격 증명 모음에 가상 머신을 등록하기 전에 �
 가상 머신을 등록하는 데 문제가 있으면 VM 에이전트 설치 및 네트워크 연결에 대한 다음 정보를 참조하세요. Azure에서 만든 가상 머신을 보호하는 경우 아마도 다음 정보가 필요 없을 것입니다. 그러나 가상 머신을 Azure로 마이그레이션한 경우에는 VM 에이전트가 올바르게 설치되었으며 가상 머신이 가상 네트워크와 통신할 수 있는지 확인해야 합니다.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 머신에 VM 에이전트 설치
-사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/windows/agent-user-guide.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
+사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
 
 Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. 예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.
 
@@ -180,9 +181,9 @@ Azure VM을 백업하는 데 문제가 있는 경우 다음 표를 사용하여 
 
 | **작업** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM 에이전트 설치 |[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. |최신 [Linux 에이전트](../virtual-machines/linux/agent-user-guide.md)를 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. 리포지토리에서 배포 에이전트를 설치하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 설치하는 것은 *좋지 않습니다*.  |
-| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. 리포지토리에서 배포 에이전트를 업데이트하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 업데이트하는 것은 *좋지 않습니다*.<br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
-| VM 에이전트 설치의 유효성 검사 |1. Azure VM에서 C:\WindowsAzure\Packages 폴더로 이동합니다. <br><br>2. WaAppAgent.exe 파일을 찾습니다. <br><br>3. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. **제품 버전** 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
+| VM 에이전트 설치 |[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. |<li> 최신 [Linux 에이전트](../virtual-machines/extensions/agent-linux.md)를 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. 리포지토리에서 배포 에이전트를 설치하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 설치하는 것은 **좋지 않습니다**.  |
+| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. 리포지토리에서 배포 에이전트를 업데이트하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 업데이트하는 것은 **좋지 않습니다**.<br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
+| VM 에이전트 설치 유효성 검사 |<li>Azure VM에서 *C:\WindowsAzure\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
 ### <a name="backup-extension"></a>Backup 확장
 가상 머신에 VM 에이전트를 설치하면 Azure Backup 서비스는 VM 에이전트에 대한 백업 확장을 설치합니다. 백업 서비스가 백업 확장을 원활하게 업그레이드하고 패치합니다.
