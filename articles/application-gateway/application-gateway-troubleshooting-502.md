@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Gateway 502 잘못된 게이트웨이 오류 문제 해결 | Microsoft Docs"
-description: "Application Gateway 502 오류를 해결하는 방법을 알아봅니다"
+title: Azure Application Gateway 502 잘못된 게이트웨이 오류 문제 해결 | Microsoft Docs
+description: Application Gateway 502 오류를 해결하는 방법을 알아봅니다
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356038"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 
@@ -89,10 +90,10 @@ DhcpOptions            : {
 
 * 기본 사이트를 구성하고 127.0.0.1에서 수신 대기 중인지를 확인합니다.
 * BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
-* http://127.0.0.1:port에 대한 호출은 HTTP 결과 코드 200을 반환해야 합니다. 30초 제한 시간 내에 반환되어야 합니다.
+* http://127.0.0.1:port 호출은 HTTP 결과 코드 200을 반환해야 합니다. 30초 제한 시간 내에 반환되어야 합니다.
 * 구성된 포트가 열려 있고 방화벽 규칙 또는 Azure 네트워크 보안 그룹이 없는지를 확인합니다. 여기서 구성된 포트에서 들어오거나 나가는 트래픽을 차단합니다.
 * Azure 클래식 VM 또는 클라우드 서비스를 FQDN 또는 공용 IP와 사용하는 경우 해당 [끝점](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 이 열려 있는지 확인합니다.
-* VM이 Azure Resource Manager를 통해 구성되고 Application Gateway가 배포된 VNet의 외부에 있는 경우 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 을 원하는 포트에 대한 액세스를 허용하도록 구성해야 합니다.
+* VM이 Azure Resource Manager를 통해 구성되고 Application Gateway가 배포된 VNet의 외부에 있는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md) 을 원하는 포트에 대한 액세스를 허용하도록 구성해야 합니다.
 
 ## <a name="problems-with-custom-health-probe"></a>사용자 지정 상태 검색의 문제
 
@@ -102,7 +103,7 @@ DhcpOptions            : {
 
 | 프로브 속성 | 설명 |
 | --- | --- |
-| 이름 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
+| Name |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |
 | 호스트 |프로브에 보낼 호스트 이름입니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. VM 호스트 이름과 다릅니다. |
 | path |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 \<protocol\>://\<host\>:\<port\>\<path\>로 전송됩니다. |

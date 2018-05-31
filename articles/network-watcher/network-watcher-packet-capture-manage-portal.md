@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher를 사용하여 패킷 캡처 관리 - Azure Portal | Microsoft Docs"
-description: "이 페이지에서는 Azure Portal을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법에 대해 설명합니다."
+title: Azure Network Watcher를 사용하여 패킷 캡처 관리 - Azure Portal | Microsoft Docs
+description: 이 페이지에서는 Azure Portal을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법에 대해 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 508b9e7eef757277d4bc0e93a26f3a63045f31e4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187534"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](network-watcher-packet-capture-manage-portal.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
@@ -83,7 +84,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 
 **캡처 구성**
 
-- **로컬 파일 경로** - 패킷 캡처가 저장되는 가상 머신의 로컬 경로(**[파일]**을 선택했을 때만 유효)입니다. 유효한 경로를 지정해야 합니다. Linux 가상 머신의 경우 경로는 / var / captures로 시작해야 합니다.
+- **로컬 파일 경로** - 패킷 캡처가 저장되는 가상 머신의 로컬 경로(**[파일]** 을 선택했을 때만 유효)입니다. 유효한 경로를 지정해야 합니다. Linux 가상 머신의 경우 경로는 / var / captures로 시작해야 합니다.
 - **Storage 계정** - 패킷 캡처를 Storage 계정에 저장할지 여부를 결정합니다.
 - **파일** - 패킷 캡처를 가상 머신에 로컬로 저장할지 여부를 결정합니다.
 - **Storage 계정** - 패킷 캡처를 저장할 선택한 Storage 계정입니다. 기본 위치는 https://{저장소 계정 이름}.blob.core.windows.net/network-watcher-logs/subscriptions/{구독 ID}/resourcegroups/{리소스 그룹 이름}/providers/microsoft.compute/virtualmachines/{가상 머신 이름}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap입니다. (**저장소**를 선택한 경우에만 사용됨)
@@ -142,7 +143,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
+[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png

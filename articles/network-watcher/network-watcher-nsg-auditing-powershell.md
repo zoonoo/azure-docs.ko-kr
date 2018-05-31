@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363379"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Azure Network Watcher 보안 그룹 보기를 사용하여 NSG 감사 자동화
 
 고객은 흔히 인프라의 보안 상태를 확인하는 문제에 직면합니다. 이 문제는 Azure의 VM에 대해서도 마찬가지입니다. 적용된 NSG(네트워크 보안 그룹) 규칙에 따라 유사한 보안 프로필을 포함하는 것이 중요합니다. 보안 그룹 보기를 사용하여 이제 NSG 내의 VM에 적용된 규칙 목록을 가져올 수 있습니다. 골든 NSG 보안 프로필을 정의하고 매주 보안 그룹 보기를 시작하며 출력을 골든 프로필과 비교하여 보고서를 만들 수 있습니다. 이 방법으로 미리 정해진 보안 프로필을 준수하지 않는 모든 VM을 쉽게 파악할 수 있습니다.
 
-네트워크 보안 그룹에 대해 잘 모르는 경우 [네트워크 보안 개요](../virtual-network/virtual-networks-nsg.md)를 방문하세요.
+네트워크 보안 그룹에 대해 잘 모르는 경우 [네트워크 보안 개요](../virtual-network/security-overview.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360151"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -54,6 +55,22 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* 고유 인덱스에 대한 지원이 추가되었습니다.
+* 피드 옵션에서 연속 토큰 크기를 제한할 수 있는 지원이 추가되었습니다.
+* Json Serialization의 버그를 수정했습니다(타임스탬프).
+* Json Serialization의 버그를 수정했습니다(열거형).
+* com.fasterxml.jackson.core:jackson-databind 종속성이 2.9.5로 업그레이드되었습니다.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* 직접 모드에 대한 풀링이 향상되었습니다.
+* 비 orderby 교차 파티션 쿼리의 프리페치 성능이 향상되었습니다.
+* UUID 생성 기능이 향상되었습니다.
+* 세션 일관성 논리가 향상되었습니다.
+* multipolygon 지원이 추가되었습니다.
+* 컬렉션의 파티션 키 범위 통계에 대한 지원이 추가되었습니다.
+* 다중 지역 지원의 버그를 수정했습니다.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * JSON Serialization 성능이 향상되었습니다.
@@ -184,6 +201,8 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |2018년 5월 16일 |--- |
+| [1.16.0](#1.16.0) |2018년 3월 15일 |--- |
 | [1.15.0](#1.15.0) |2017년 11월 14일 |--- |
 | [1.14.0](#1.14.0) |2017년 10월 28일 |--- |
 | [1.13.0](#1.13.0) |2017년 8월 25일 |--- |

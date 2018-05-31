@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356327"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 및 WebHook 바인딩
 
@@ -37,11 +38,13 @@ HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>트리거
 
 HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습니다. HTTP 트리거를 사용하여 서버리스 API를 만들고 웹후크에 응답할 수 있습니다. 
 
-기본적으로 HTTP 트리거는 HTTP 200 OK 상태 코드와 비어 있는 본문을 포함한 요청에 응답합니다. 응답을 수정하려면 [HTTP 출력 바인딩](#http-output-binding)을 구성합니다.
+기본적으로 HTTP 트리거는 Functions 1.x에서 본문이 비어 있는 HTTP 200 OK 또는 Functions 2.x에서 본문이 비어 있는 HTTP 204 No Content를 반환합니다. 응답을 수정하려면 [HTTP 출력 바인딩](#http-output-binding)을 구성합니다.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
@@ -54,7 +57,7 @@ HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습�
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다. 반환 값은 출력 바인딩에 사용되지만, 반환 값 특성은 필요 없습니다.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -85,15 +88,29 @@ public static async Task<HttpResponseMessage> Run(
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+*function.json* 파일은 다음과 같습니다.
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -145,15 +162,25 @@ public class CustomObject {
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](functions-reference-fsharp.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+*function.json* 파일은 다음과 같습니다.
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -201,15 +228,25 @@ let Run(req: HttpRequestMessage) =
 
 다음 예제는 *function.json* 파일의 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+*function.json* 파일은 다음과 같습니다.
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -222,7 +259,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -261,15 +298,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 다음 예제는 *function.json* 파일의 웹후크 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 GitHub 문제 설명을 기록합니다.
 
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+*function.json* 파일은 다음과 같습니다.
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -301,15 +348,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 다음 예제는 *function.json* 파일의 웹후크 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](functions-reference-fsharp.md)를 보여줍니다. 이 함수는 GitHub 문제 설명을 기록합니다.
 
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+*function.json* 파일은 다음과 같습니다.
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -345,11 +402,21 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -384,7 +451,6 @@ public static HttpResponseMessage Run(
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
 다음 표에서는 *function.json* 파일 및 `HttpTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
-
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
@@ -470,13 +536,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -547,35 +613,24 @@ HTTP 트리거를 사용하는 함수가 약 2.5분 안에 완료되지 않으�
 
 ## <a name="output"></a>출력
 
-HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용합니다. 이 바인딩에는 HTTP 트리거가 필요하며 트리거 요청과 관련된 응답을 사용자 지정할 수 있습니다. HTTP 출력 바인딩이 제공되지 않으면 HTTP 트리거는 빈 본문과 함께 HTTP 200 OK를 반환합니다. 
+HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용합니다. 이 바인딩에는 HTTP 트리거가 필요하며 트리거 요청과 관련된 응답을 사용자 지정할 수 있습니다. HTTP 출력 바인딩을 제공하지 않으면 HTTP 트리거는 Functions 1.x에서 본문이 비어 있는 HTTP 200 OK 또는 Functions 2.x에서 본문이 비어 있는 HTTP 204 No Content를 반환합니다.
 
 ## <a name="output---configuration"></a>출력 - 구성
 
-C# 클래스 라이브러리의 경우 출력 관련 바인딩 구성 속성이 없습니다. HTTP 응답을 보내려면 함수가 `HttpResponseMessage` 또는 `Task<HttpResponseMessage>`를 반환하도록 합니다.
-
-다른 언어의 경우 HTTP 출력 바인딩은 다음 예제와 같이 function.json의 `bindings` 배열에 있는 JSON 개체로 정의됩니다.
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다. 
 
 |자산  |설명  |
 |---------|---------|
 | **type** |`http`로 설정해야 합니다. |
 | **direction** | `out`로 설정해야 합니다. |
-|**name** | 응답에 대한 함수 코드에 사용되는 변수 이름입니다. |
+|**name** | 응답에 대한 함수 코드에 사용되는 변수 이름이거나 반환 값을 사용하는 `$return`입니다. |
 
 ## <a name="output---usage"></a>출력 - 사용
 
-출력 매개 변수를 사용하여 HTTP 또는 웹후크 호출자(caller)에 응답할 수 있습니다. 또한 언어 표준 응답 패턴을 사용할 수도 있습니다. 예제 응답은 [트리거 예제](#trigger---example) 및 [웹후크 예제](#trigger---webhook-example)를 참조하세요.
+HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# 또는 C# 스크립트에서는 함수 반환 형식을 `HttpResponseMessage` 또는 `Task<HttpResponseMessage>`로 만듭니다. C#에서는 반환 값 특성이 필요 없습니다.
+
+예제 응답은 [트리거 예제](#trigger---example) 및 [웹후크 예제](#trigger---webhook-example)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
+[Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)

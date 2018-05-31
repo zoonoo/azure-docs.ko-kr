@@ -1,6 +1,6 @@
 ---
-title: "자습서: SAP Cloud Platform Identity Authentication과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 SAP Cloud Platform Identity Authentication 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: SAP Cloud Platform Identity Authentication과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 SAP Cloud Platform Identity Authentication 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e7cc1df5e550dec62869c2a6f68cdc2a84167142
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>자습서: SAP Cloud Platform Identity Authentication과 Azure Active Directory 통합
 
@@ -30,7 +31,7 @@ SAP Cloud Platform Identity Authentication을 Azure AD에 통합하면 다음과
 - 사용자들이 Azure AD 계정으로 SAP 응용 프로그램에 자동 로그인되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-SaaS 앱과 Azure AD의 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+SaaS 앱과 Azure AD의 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -126,21 +127,25 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
  
     ![Single Sign-On 대화 상자](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. **IDP** 시작 모드로 응용 프로그램을 구성하려면 **식별자** 상자의 **SAP Cloud Platform Identity Authentication 도메인 및 URL** 섹션에 다음과 같은 패턴을 갖는 URL을 입력합니다. `https://<entity-id>.accounts.ondemand.com`  
+3. **IDP** 시작 모드로 응용 프로그램을 구성하려면 **SAP Cloud Platform Identity Authentication 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.  
 
     ![SAP Cloud Platform Identity Authentication 도메인 및 URL Single Sign-On이 설정된 구독](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 이 값을 얻으려면 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요. 이 값을 모르는 경우 SAP Cloud Platform Identity Authentication 설명서의 [Tenant SAML 2.0 구성](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) 관련 내용을 참조하세요.
+    a. **식별자** 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택합니다. 
+    나. **회신 URL** 상자에 다음 패턴으로 URL을 입력합니다. `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이 값을 얻으려면 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요. 식별자 값을 모르는 경우 SAP Cloud Platform Identity Authentication 설명서의 [Tenant SAML 2.0 구성](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) 관련 내용을 참조하세요.
+
+4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택합니다.
 
     ![SAP Cloud Platform Identity Authentication 도메인 및 URL Single Sign-On이 설정된 구독](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    **로그온 URL** 상자에 다음과 같은 패턴을 갖는 URL을 입력합니다. `https://<entity-id>.accounts.ondemand.com/admin`
+    **로그온 URL** 상자에 다음과 같은 패턴을 갖는 URL을 입력합니다. `{YOUR BUSINESS APPLICATION URL}`
 
-    > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 이 값을 얻으려면 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요.
+    > [!NOTE]
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 해당 비즈니스 응용 프로그램 로그온 URL을 사용하세요. 궁금한 점은 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요.
 
 5. **SAML 서명 인증서** 섹션 아래에서 **메타데이터 XML**을 선택합니다. 그런 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
@@ -158,9 +163,9 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
     
     ![Single Sign-On 구성](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_attribute_05.png)
     
-    b. **이름** 텍스트 상자에 특성 이름 **firstName**을 입력합니다.
+    나. **이름** 텍스트 상자에 특성 이름 **firstName**을 입력합니다.
     
-    c. **값** 목록에서 특성 값 **user.givenname**을 선택합니다.
+    다. **값** 목록에서 특성 값 **user.givenname**을 선택합니다.
     
     d. **확인**을 선택합니다.
 
@@ -217,9 +222,9 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 선택합니다.
  
@@ -274,7 +279,7 @@ SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -289,4 +294,3 @@ SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 �
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

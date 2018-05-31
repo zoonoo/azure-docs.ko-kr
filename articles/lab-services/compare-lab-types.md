@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/30/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3b2fd59444f50f4ac5da6bf569cb0247f3a36943
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361185"
 ---
-# <a name="compare-managed-and-custom-labs-in-azure-lab-services"></a>Azure Lab Services에서 관리되는 랩 및 사용자 지정 랩 비교
+# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Azure Lab Services에서 관리되는 랩 및 DevTest 랩 비교
 두 가지 유형의 랩, 즉 Azure Lab Services를 사용하여 **관리되는 랩** 및 Azure DevTest Labs를 사용하여 **사용자 지정 랩**을 만들 수 있습니다. 단지 랩에서 필요한 것을 입력하고 랩에 필요한 인프라를 설정하고 관리하도록 하려면 **관리되는 랩** 중 하나를 선택합니다. 현재 **클래스룸 랩**은 Azure Lab Services로 만들 수 있는 관리되는 랩의 유일한 유형입니다. 자신의 인프라를 관리하려면 Azure DevTest Labs를 사용하여 **사용자 지정 랩**을 만듭니다.
 
 다음 섹션에서는 이러한 랩을 대한 자세한 정보를 제공합니다. 
@@ -37,10 +38,10 @@ ms.lasthandoff: 05/07/2018
 - hackathon 호스팅용 가상 머신 랩을 신속하게 프로비전합니다. 마치면 클릭 한 번으로 랩을 삭제합니다. 
 
 
-## <a name="custom-labs"></a>사용자 지정 랩
+## <a name="devtest-labs"></a>DevTest 랩
 자신의 구독 내 모든 인프라 및 구성을 직접 관리하려는 시나리오가 있을 수 있습니다. 이렇게 하려면 Azure Portal의 Azure DevTest Labs에서 사용자 지정 랩을 만드는 방법을 알아봅니다. 이러한 랩인 경우 랩 계정을 만들 필요가 없습니다. 이러한 랩은 랩 계정(관리되는 랩에 대해 존재)에 표시되지 않습니다.  
 
-다음은 몇 가지 **사용자 지정 랩의 사용 사례**입니다. 
+다음은 몇 가지 **DevTest 랩의 사용 사례**입니다. 
 
 - 회의에서 hackathon 또는 실습 세션을 호스트할 가상 머신 랩을 신속하게 프로비전합니다. 마치면 클릭 한 번으로 랩을 삭제합니다. 
 - 응용 프로그램으로 구성된 VM 풀을 만들고 팀이 버그 잡기를 위해 가상 머신을 쉽게 사용할 수 있게 합니다.  
@@ -50,10 +51,10 @@ ms.lasthandoff: 05/07/2018
 - 최신 버전의 제품으로 구성된 랩을 사용하여 고객에게 교육 세션을 제공합니다. 각 고객에게 랩에서 사용할 제한된 시간을 줍니다. 
 
 
-## <a name="managed-labs-vs-custom-labs"></a>관리되는 랩 vs 사용자 지정 랩
+## <a name="managed-labs-vs-devtest-labs"></a>관리되는 랩 및 DevTest 랩
 다음 표는 Azure Lab Services에서 지원하는 두 가지 유형의 랩을 비교합니다. 
 
-| 기능 | 관리되는 랩 | 사용자 지정 랩 |
+| 기능 | 관리되는 랩 | DevTest 랩 |
 | -------- | ----------------  | ---------- |
 | 랩에서 Azure 인프라 관리. |  서비스에 의한 자동 관리 | 직접 관리  |
 | 인프라 문제에 대한 기본 복원력 | 서비스에 의한 자동 처리 | 직접 관리  |

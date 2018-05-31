@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365443"
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Azure PowerShell을 사용하여 네트워크 보안 그룹 문제 해결
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 VM(가상 컴퓨터)에서 NSG(네트워크 보안 그룹)를 구성했으며 VM 연결 문제가 발생하는 경우 이 문서를 통해 문제 해결에 도움이 되는 NSG 진단 기능을 대략적으로 알 수 있습니다.
 
-NSG에서는 VM(가상 머신)에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure VNet(Virtual Network), NIC(네트워크 인터페이스) 또는 둘 다의 서브넷에 NSG를 적용할 수 있습니다. NIC에 적용되는 유효한 규칙은 NIC 및 NIC에 연결된 서브넷에 적용되는 NSG에 존재하는 규칙을 집계한 것입니다. 때로는 이러한 NSG 간의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다.  
+NSG에서는 VM(가상 머신)에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure VNet(Virtual Network), NIC(네트워크 인터페이스) 또는 둘 다의 서브넷에 NSG를 적용할 수 있습니다. NIC에 적용되는 유효한 규칙은 NIC 및 NIC에 연결된 서브넷에 적용되는 NSG에 존재하는 규칙을 집계한 것입니다. 때로는 이러한 NSG 간의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다.
 
-VM의 NIC에 적용된 NSG의 모든 유효 보안 규칙을 볼 수 있습니다. 이 문서에서는 Azure Resource Manager 배포 모델에서 이러한 규칙을 사용하여 VM 연결 문제를 해결하는 방법을 보여 줍니다. VNet 및 NSG 개념에 익숙하지 않은 경우 [가상 네트워크](virtual-networks-overview.md) 및 [네트워크 보안 그룹](virtual-networks-nsg.md) 개요 문서를 읽어보세요.
+VM의 NIC에 적용된 NSG의 모든 유효 보안 규칙을 볼 수 있습니다. 이 문서에서는 Azure Resource Manager 배포 모델에서 이러한 규칙을 사용하여 VM 연결 문제를 해결하는 방법을 보여 줍니다. VNet 및 NSG 개념에 익숙하지 않은 경우 [가상 네트워크 개요](virtual-networks-overview.md) 및 [네트워크 보안 그룹 개요](security-overview.md)를 참조하세요.
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>유효 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결
 다음에 나오는 시나리오는 일반적인 연결 문제의 한 예입니다.
@@ -159,8 +160,7 @@ VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
    
    * 서브넷과 연결된 섹션(*Subnet1*)과 NIC와 연결된 섹션(*VM1-NIC1*)의 두 **NetworkSecurityGroup** 섹션이 있습니다. 이 예제에서는 NSG가 각 섹션에 적용되었습니다.
    * **Association** 에는 지정된 NSG와 연결된 리소스(서브넷 또는 NIC)가 표시됩니다. 이 명령을 실행하기 직전에 NSG 리소스가 이동/연결 해제되면 명령 출력에 변경 내용이 반영될 때까지 몇 초 정도 기다려야 할 수 있습니다. 
-   * *defaultSecurityRules*로 시작하는 규칙 이름: NSG가 생성될 때 몇 가지 기본 보안 규칙이 생성됩니다. 기본 규칙은 제거할 수 없지만 더 높은 우선 순위 규칙으로 재정의할 수 있습니다.
-     NSG 기본 보안 규칙에 대한 자세한 내용은 [NSG 개요](virtual-networks-nsg.md#default-rules) 문서를 읽어보세요.
+   * *defaultSecurityRules*로 시작하는 규칙 이름: NSG가 생성될 때 몇 가지 기본 보안 규칙이 생성됩니다. 기본 규칙은 제거할 수 없지만 더 높은 우선 순위 규칙으로 재정의할 수 있습니다. [기본 보안 규칙](security-overview.md#default-security-rules)에 대해 자세히 알아보세요.
    * **ExpandedAddressPrefix** 는 NSG 기본 태그의 주소 접두사를 확장합니다. 태그는 여러 주소 접두사를 나타냅니다. 특정 주소 접두사와의 VM 연결 문제를 해결할 때 태그를 확장하는 것이 유용할 수 있습니다. 예를 들어 VNET 피어링을 사용할 경우 VIRTUAL_NETWORK 태그는 이전 출력의 피어링된 VNet 접두사를 표시하도록 확장됩니다.
      
      > [!NOTE]

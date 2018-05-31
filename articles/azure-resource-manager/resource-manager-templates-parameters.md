@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿 매개 변수 섹션 | Microsoft Docs"
-description: "선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 매개 변수 섹션에 대해 설명합니다."
+title: Azure Resource Manager 템플릿 매개 변수 섹션 | Microsoft Docs
+description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 매개 변수 섹션에 대해 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359206"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 매개 변수 섹션
 템플릿의 매개 변수 섹션에서는 리소스를 배포할 때 입력할 수 있는 값을 지정합니다. 이러한 매개 변수 값을 사용하여 개발, 테스트 및 프로덕션 등의 특정 환경에 맞게 조정되는 값을 제공함으로써 배포를 사용자 지정할 수 있습니다. 템플릿에서 매개 변수를 제공할 필요는 없지만 매개 변수가 없으면 템플릿이 항상 이름, 위치 및 속성이 같은 동일한 리소스를 배포합니다.
@@ -85,14 +86,14 @@ ms.lasthandoff: 01/22/2018
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | parameterName |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
-| 형식 |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **secureString**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
-| defaultValue |아니요 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
-| allowedValues |아니요 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
-| minValue |아니요 |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
-| maxValue |아니요 |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
-| minLength |아니요 |string, secureString 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
-| maxLength |아니오 |string, secureString 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
-| description |아니요 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. |
+| 형식 |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
+| defaultValue |아니오 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
+| allowedValues |아니오 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
+| minValue |아니오 |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
+| maxValue |아니오 |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
+| minLength |아니오 |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
+| maxLength |아니오 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
+| description |아니오 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. |
 
 ## <a name="template-functions-with-parameters"></a>매개 변수가 있는 템플릿 함수
 
@@ -225,7 +226,7 @@ ms.lasthandoff: 01/22/2018
    }
    ```
 
-* 모든 암호(password) 및 비밀(secret)에 대해 **SecureString**을 사용합니다. JSON 개체에 중요한 데이터를 전달하는 경우 **secureObject** 유형을 사용합니다. 리소스 배포 후에는 secureString 또는 secureObject 형식의 템플릿 매개 변수를 읽을 수 없습니다. 
+* 모든 암호(password) 및 암호(secret)에 대해 **securestring** 을 사용합니다. JSON 개체에 중요한 데이터를 전달하는 경우 **secureObject** 유형을 사용합니다. 리소스 배포 후에는 securestring 또는 secureObject 형식의 템플릿 매개 변수를 읽을 수 없습니다. 
    
    ```json
    "parameters": {

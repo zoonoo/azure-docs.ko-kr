@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch 풀에서 노드 엔드포인트 구성 | Microsoft Docs"
-description: "Azure Batch 풀의 계산 노드에서 SSH 또는 RDP 포트에 대한 액세스를 구성하거나 비활성화하는 방법입니다."
+title: Azure Batch 풀에서 노드 엔드포인트 구성 | Microsoft Docs
+description: Azure Batch 풀의 계산 노드에서 SSH 또는 RDP 포트에 대한 액세스를 구성하거나 비활성화하는 방법입니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,11 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
-ms.openlocfilehash: fdc68744406c3e995a2764f93d4474b807337ff5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358730"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 원격 액세스 구성 또는 비활성화
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 02/14/2018
 ## <a name="about-the-pool-endpoint-configuration"></a>풀 엔드포인트 구성 정보
 이 엔드포인트 구성은 하나 이상의 프런트 엔드 포트 [NAT(Network Address Translation) 풀](/rest/api/batchservice/pool/add#inboundnatpool)로 이루어집니다. (NAT 풀과 계산 노드의 Batch 풀을 혼동하지 마세요.) 각 NAT 풀을 설정하여 풀의 계산 노드에 대한 기본 연결 설정을 재정의합니다. 
 
-각 NAT 풀 구성에는 하나 이상의 [NSG(네트워크 보안 그룹) 규칙](/rest/api/batchservice/pool/add#networksecuritygrouprule)이 포함되어 있습니다. 각 NSG 규칙은 엔드포인트에 대한 특정 네트워크 트래픽을 허용하거나 거부합니다. 모든 트래픽, [기본 태그](../virtual-network/virtual-networks-nsg.md#default-tags)(예: "인터넷")로 식별된 트래픽 또는 특정 IP 주소나 서브넷에서 들어오는 트래픽을 허용하거나 거부하도록 선택할 수 있습니다.
+각 NAT 풀 구성에는 하나 이상의 [NSG(네트워크 보안 그룹) 규칙](/rest/api/batchservice/pool/add#networksecuritygrouprule)이 포함되어 있습니다. 각 NSG 규칙은 엔드포인트에 대한 특정 네트워크 트래픽을 허용하거나 거부합니다. 모든 트래픽, [서비스 태그](../virtual-network/security-overview.md#service-tags)(예: "인터넷")로 식별된 트래픽 또는 특정 IP 주소나 서브넷에서 들어오는 트래픽을 허용하거나 거부하도록 선택할 수 있습니다.
 
 ### <a name="considerations"></a>고려 사항
 * 풀 엔드포인트 구성은 풀 [네트워크 구성](/rest/api/batchservice/pool/add#NetworkConfiguration)의 일부입니다. 네트워크 구성은 풀은 [Azure 가상 네트워크](batch-virtual-network.md)에 조인하는 설정을 선택적으로 포함할 수 있습니다. 가상 네트워크에서 풀을 설정할 경우 가상 네트워크의 주소 설정을 사용하는 NSG 규칙을 만들 수 있습니다.
@@ -124,7 +125,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure의 NSG 규칙에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+- Azure의 NSG 규칙에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/security-overview.md)을 참조하세요.
 
 - Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)을 참조하세요.
 

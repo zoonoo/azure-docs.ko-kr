@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2018
+ms.date: 05/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d8ef36e001aaf417b84efaf99a992fd64f01b6f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366344"
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>시나리오 1: Azure로 마이그레이션하기 위한 온-프레미스 워크로드 평가
 
@@ -22,9 +23,9 @@ Azure로 마이그레이션을 고려 중인 Contoso는 기술 및 재무 평가
 
 **Technology** | **설명** | **비용**
 --- | --- | ---
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA는 Azure에서 데이터베이스 기능에 영향을 줄 수 있는 호환성 문제를 평가 및 검색합니다. 또한 SQL Server 원본과 대상 간의 기능 패리티를 평가하고, 대상 환경의 성능 및 안정성을 향상하기 위한 방안을 제시합니다. | DMA는 무료로 다운로드할 수 있는 도구입니다. 
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA는 Azure에서 데이터베이스 기능에 영향을 줄 수 있는 호환성 문제를 평가 및 검색합니다. 또한 SQL Server 원본과 대상 간의 기능 패리티를 평가하고, 대상 환경의 성능 및 안정성을 향상하기 위한 방안을 제시합니다. | DMA는 무료로 다운로드할 수 있는 도구입니다.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | 이 서비스를 사용하면 Azure로 마이그레이션하기 위한 온-프레미스 컴퓨터를 간편하게 평가할 수 있습니다. 이 서비스는 컴퓨터의 마이그레이션 적합성을 평가하고, Azure에서 실행하기 위한 크기 및 비용 추정치를 제공합니다. 현재 Azure Migrate Azure로 마이그레이션하기 위한 온-프레미스 VMware VM을 평가할 수 있습니다. | 이 서비스는 현재(2018년 4월) 무료로 제공됩니다.
-[서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate는 서비스 맵을 사용하여 마이그레이션하려는 컴퓨터 간의 종속성을 보여줍니다. |  서비스 맵은 Azure Log Analytics에 포함되어 있습니다. 현재 180일 동안 무료로 사용할 수 있습니다. 
+[서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate는 서비스 맵을 사용하여 마이그레이션하려는 컴퓨터 간의 종속성을 보여줍니다. |  서비스 맵은 Azure Log Analytics에 포함되어 있습니다. 현재 180일 동안 무료로 사용할 수 있습니다.
 
 이 시나리오에서는 DMA를 다운로드 및 실행하여 여행 앱에 사용할 온-프레미스 SQL Server 데이터베이스를 평가할 것입니다. Azure Migrate와 종속성 매핑을 사용하여 앱 VM을 평가한 후 Azure로 마이그레이션할 것입니다.
 
@@ -50,7 +51,7 @@ Azure로 마이그레이션을 고려 중인 Contoso는 기술 및 재무 평가
 이 시나리오를 배포하려면 다음과 같은 것들이 필요합니다.
 
 - 5.5, 6.0 또는 6.5 버전을 실행하는 온-프레미스 vCenter 서버.
-- VCenter 서버의 읽기 전용 계정 또는 이러한 계정을 만들 수 있는 권한. 
+- VCenter 서버의 읽기 전용 계정 또는 이러한 계정을 만들 수 있는 권한.
 - .OVA 템플릿을 사용하여 VCenter 서버에 VM을 만들 수 있는 권한.
 - 5.0 이상을 실행하는 ESXi 호스트 하나 이상.
 - 온-프레미스 VMware VM 두 대 이상(그 중 하나는 SQL Server 데이터베이스 실행).
@@ -106,15 +107,15 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
       현재 DMA는 SQL 관리되는 인스턴스로의 마이그레이션 평가를 지원하지 않습니다. 이 문제를 해결하기 위해 Azure VM의 SQL Server를 평가의 대상으로 사용합니다.
 
 1.  **대상 버전 선택**에서는 Azure에서 실행하려는 SQL Server 대상 버전, 그리고 평가에서 검색할 항목을 지정합니다.
-    - **호환성 문제**는 마이그레이션을 중단시킬 수 있는 변경 내용 또는 마이그레이션 전에 사소한 조정이 필요한 변경 내용에 대해 알려줍니다. 사용자가 현재 사용 중이지만 더 이상 사용되지 않은 기능에 대해서도 알려줍니다. 문제는 호환성 수준에 따라 구성됩니다. 
-    - **새 권장 기능**은 마이그레이션 후 데이터베이스에 사용할 수 있는 대상 SQL Server 플랫폼의 새 기능에 대해 알려줍니다. 이러한 권장 기능은 성능, 보안 및 저장소를 기준으로 구성됩니다. 
+    - **호환성 문제**는 마이그레이션을 중단시킬 수 있는 변경 내용 또는 마이그레이션 전에 사소한 조정이 필요한 변경 내용에 대해 알려줍니다. 사용자가 현재 사용 중이지만 더 이상 사용되지 않은 기능에 대해서도 알려줍니다. 문제는 호환성 수준에 따라 구성됩니다.
+    - **새 권장 기능**은 마이그레이션 후 데이터베이스에 사용할 수 있는 대상 SQL Server 플랫폼의 새 기능에 대해 알려줍니다. 이러한 권장 기능은 성능, 보안 및 저장소를 기준으로 구성됩니다.
 
     ![대상 선택](./media/migrate-scenarios-assessment/dma-assessment-2.png)
 
 2. **서버에 연결**에서는 SQL Server 인스턴스를 실행하는 컴퓨터 이름, 인증 유형 및 연결 정보를 지정합니다. 그런 다음 **연결**을 클릭합니다.
 
     ![대상 선택](./media/migrate-scenarios-assessment/dma-assessment-3.png)
-    
+
 3. **원본 추가**에서는 평가할 데이터베이스를 선택하고 **추가**를 클릭합니다.
 4. 지정한 이름을 사용하는 평가가 만들어집니다.
 
@@ -126,7 +127,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ### <a name="analyze-the-database-assessment"></a>데이터베이스 평가 분석
 
-결과를 사용할 수 있게 되는 즉시 DMA에 결과가 표시됩니다. 
+결과를 사용할 수 있게 되는 즉시 DMA에 결과가 표시됩니다.
 
 1. **호환성 문제** 보고서에서는 데이터베이스에 각 호환성 수준의 문제가 있는지 확인하고, 문제가 있으면 해결 방법도 확인합니다. 호환성 수준은 다음과 같이 SQL Server 버전에 매핑됩니다.
     - 100: SQL Server 2008/Azure SQL Database
@@ -141,7 +142,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     ![권장 기능](./media/migrate-scenarios-assessment/dma-assessment-6.png)
 
-3. 문제를 해결한 후에는 **평가 다시 시작**을 클릭하여 평가를 다시 실행합니다. 
+3. 문제를 해결한 후에는 **평가 다시 시작**을 클릭하여 평가를 다시 실행합니다.
 4. 평가 보고서를 JSON 또는 CSV 형식으로 받아 보려면 **보고서 내보내기**를 클릭합니다.
 
 규모가 큰 평가를 실행하는 경우:
@@ -182,8 +183,8 @@ Azure Migrate가 평가할 VM을 자동으로 검색하는 데 사용할 VM 계�
     - 저장소의 경우 Azure Migrate는 Azure에서 온-프레미스 디스크와 크기가 같은 표준 디스크를 권장합니다.
     - 네트워킹의 각 온-프레미스 네트워크 어댑터의 경우 Azure에서 네트워크 어댑터를 권장합니다.
     - 계산의 경우 Azure Migrate는 VM 코어 및 메모리 크기를 살펴본 후 동일한 구성의 Azure VM을 권장합니다. 적합한 Azure VM 크기가 여러 개인 경우 비용이 가장 낮은 크기가 권장됩니다.
-   
-    
+
+
 수준 3의 크기 조정에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
 다음과 같이 수준을 설정합니다.
@@ -215,7 +216,7 @@ Azure Migrate 프로젝트를 만들고, 수집기 VM을 다운로드 및 설치
     ![Azure Migrate](./media/migrate-scenarios-assessment/project-1.png)
 
 
-    
+
 
 ### <a name="download-the-collector-appliance"></a>수집기 어플라이언스를 다운로드 합니다.
 
@@ -225,7 +226,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 2. **컴퓨터 검색**에서 **다운로드**를 클릭하여 OVA 파일을 다운로드합니다.
 3. **프로젝트 자격 증명 복사**에서 프로젝트 ID 및 키를 복사합니다. 수집기를 구성할 때 이러한 항목들이 필요합니다.
 
-    ![.ova 파일 다운로드](./media/migrate-scenarios-assessment/download-ova.png) 
+    ![.ova 파일 다운로드](./media/migrate-scenarios-assessment/download-ova.png)
 
 ### <a name="verify-the-collector-appliance"></a>수집기 어플라이언스를 확인합니다.
 
@@ -235,14 +236,14 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 2. 다음 명령을 실행하여 OVA에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 생성된 해시는 이러한 설정과 일치해야 합니다(버전 1.0.9.7).
-    
+3. 생성된 해시는 이러한 설정과 일치해야 합니다(버전 1.0.9.8).
+
     **알고리즘** | **해시 값**
     --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-    
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
 
 ### <a name="create-the-collector-appliance"></a>수집기 어플라이언스 만들기
 
@@ -250,14 +251,14 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 
 1. vSphere Client 콘솔에서 **파일** > **OVF 템플릿 배포**를 클릭합니다.
 
-    ![OVF 배포](./media/migrate-scenarios-assessment/vcenter-wizard.png) 
+    ![OVF 배포](./media/migrate-scenarios-assessment/vcenter-wizard.png)
 
 2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정하고 **다음**을 클릭합니다.
 3. **OVF 템플릿 세부 정보**에서 **다음**을 클릭합니다. **최종 사용자 사용권 계약**에서 **동의**를 클릭하여 사용권 계약에 동의하고 **다음**을 클릭합니다.
 4. **이름 및 위치**에서 수집기 VM의 표시 이름과 VM이 호스트될 인벤토리 위치를 지정하고 **다음**을 클릭합니다. 수집기 어플라이언스가 실행될 호스트 또는 클러스터를 지정합니다.
 5. **저장소**에서 어플라이언스에 대한 파일을 저장할 위치를 지정하고 **다음**을 클릭합니다.
 6. **디스크 형식**에서 저장소를 프로비전할 방법을 지정합니다.
-7. **네트워크 매핑**에서 수집기 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure로 전송하려면 네트워크에 인터넷 연결이 필요합니다. 
+7. **네트워크 매핑**에서 수집기 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure로 전송하려면 네트워크에 인터넷 연결이 필요합니다.
 8. **완료 준비**에서 설정을 검토하고, **배포 후 전원 켜기**를 선택한 다음, **마침**을 클릭합니다.
 
 어플라이언스가 만들어진 후 완료 확인 메시지가 표시됩니다.
@@ -270,22 +271,22 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 2. 어플라이언스에 대한 언어, 표준 시간대 및 기본 암호를 제공합니다.
 3. 바탕 화면에서 **수집기 실행** 바로 가기를 클릭합니다.
 
-    ![수집기 바로 가기](./media/migrate-scenarios-assessment/collector-shortcut.png) 
-    
+    ![수집기 바로 가기](./media/migrate-scenarios-assessment/collector-shortcut.png)
+
 4. Azure Migrate Collector에서 **필수 조건 설정**을 엽니다.
     - 사용 조건에 동의하고 타사 정보를 읽습니다.
-    - 수집기는 VM이 인터넷에 액세스할 수 있는지, 시간이 동기화되는지, 수집기 서비스가 실행 중인지(기본적으로 VM에 설치됨) 확인합니다. 또한 VMWare PowerCLI를 설치합니다. 
-    
+    - 수집기는 VM이 인터넷에 액세스할 수 있는지, 시간이 동기화되는지, 수집기 서비스가 실행 중인지(기본적으로 VM에 설치됨) 확인합니다. 또한 VMWare PowerCLI를 설치합니다.
+
     > [!NOTE]
     > 여기서는 VM이 프록시 없이 인터넷에 직접 액세스할 수 있다고 가정합니다.
 
     ![필수 조건 확인](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
-    
+
 
 5. **vCenter Server 세부 정보 지정**에서 다음을 수행합니다.
     - vCenter 서버의 이름(FQDN) 또는 IP 주소를 지정합니다.
     - **사용자 이름** 및 **암호**에서, 수집기가 vCenter 서버에서 VM을 검색하기 위해 사용할 읽기 전용 계정 자격 증명을 지정합니다.
-    - **범위 선택**에서 VM 검색에 대한 범위를 선택합니다. 수집기는 지정된 범위 내의 VM만 검색할 수 있습니다. 범위를 특정 폴더, 데이터 센터 또는 클러스터로 설정할 수 있습니다. VM은 1500대 미만이어야 합니다. 
+    - **범위 선택**에서 VM 검색에 대한 범위를 선택합니다. 수집기는 지정된 범위 내의 VM만 검색할 수 있습니다. 범위를 특정 폴더, 데이터 센터 또는 클러스터로 설정할 수 있습니다. VM은 1500대 미만이어야 합니다.
 
     ![VCenter에 연결](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
@@ -296,7 +297,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 7. **컬렉션 진행률 보기**에서 검색을 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다.
 
     ![수집 진행 중](./media/migrate-scenarios-assessment/collector-collection-process.png)
-   
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>포털에서 VM을 확인합니다.
@@ -309,7 +310,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     ![검색된 컴퓨터](./media/migrate-scenarios-assessment/discovery-complete.png)
 
 3. 현재 컴퓨터에 Azure Migrate 에이전트가 설치되지 않았습니다. 종속성을 보려면 에이전트를 설치해야 합니다.
-    
+
     ![검색된 컴퓨터](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
 
@@ -322,7 +323,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 
 VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기 전에 스냅숏을 만듭니다.
 
-![컴퓨터 스냅숏](./media/migrate-scenarios-assessment/snapshot-vm.png) 
+![컴퓨터 스냅숏](./media/migrate-scenarios-assessment/snapshot-vm.png)
 
 
 ### <a name="download-and-install-the-vm-agents"></a>VM 에이전트 다운로드 및 설치
@@ -331,7 +332,7 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
 2.  **컴퓨터 검색** 페이지에서 각 VM에 MMA(Microsoft Monitoring Agent) 및 종속성 에이전트를 다운로드하여 설치합니다.
 3.  작업 영역 ID와 키를 복사합니다. MMA를 설치할 때 필요합니다.
 
-    ![에이전트 다운로드](./media/migrate-scenarios-assessment/download-agents.png) 
+    ![에이전트 다운로드](./media/migrate-scenarios-assessment/download-agents.png)
 
 
 
@@ -339,12 +340,12 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
 
 1. 다운로드한 에이전트를 두 번 클릭합니다.
 2. **Welcome** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의함**을 클릭하여 라이선스에 동의합니다.
-3. **대상 폴더**에서 기본 설치 폴더를 유지하고 **다음**을 클릭합니다. 
-4. **에이전트 설치 옵션**에서 **Azure Log Analytics에 에이전트 연결** > **다음**을 선택합니다. 
+3. **대상 폴더**에서 기본 설치 폴더를 유지하고 **다음**을 클릭합니다.
+4. **에이전트 설치 옵션**에서 **Azure Log Analytics에 에이전트 연결** > **다음**을 선택합니다.
 
-    ![MMA 설치](./media/migrate-scenarios-assessment/mma-install.png) 
+    ![MMA 설치](./media/migrate-scenarios-assessment/mma-install.png)
 5. 포털에서 복사한 작업 영역 ID와 키를 **Azure Log Analytics**에 붙여넣습니다. **다음**을 클릭합니다.
-    ![MMA 설치](./media/migrate-scenarios-assessment/mma-install2.png) 
+    ![MMA 설치](./media/migrate-scenarios-assessment/mma-install2.png)
 
 6. **설치 준비 완료**에서 MMA를 설치합니다.
 
@@ -356,10 +357,10 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
 2.  **사용 조건** 페이지에서 **사용 조건에 동의함**을 클릭합니다.
 3.  **설치**에서 설치가 완료될 때까지 기다립니다. 그런 후 **Next** 를 클릭합니다.
 
-    ![종속성 에이전트](./media/migrate-scenarios-assessment/dependency-agent.png) 
+    ![종속성 에이전트](./media/migrate-scenarios-assessment/dependency-agent.png)
 
 
-       
+
 ## <a name="step-7-run-and-analyze-the-vm-assessment"></a>7단계: VM 평가를 실행 및 분석
 
 컴퓨터 종속성을 확인하고 그룹을 만듭니다. 그런 다음, 평가를 실행합니다.
@@ -368,7 +369,7 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
 
 1.  **컴퓨터** 페이지에서 분석하려는 VM의 **종속성 보기**를 클릭합니다.
 
-    ![컴퓨터 종속성 보기](./media/migrate-scenarios-assessment/view-machine-dependencies.png) 
+    ![컴퓨터 종속성 보기](./media/migrate-scenarios-assessment/view-machine-dependencies.png)
 
 2. SQLVM의 경우 종속성 맵에 다음과 같은 세부 정보가 표시됩니다.
 
@@ -376,8 +377,8 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
     - 모든 종속 컴퓨터와 주고 받는 인바운드(클라이언트) 및 아웃바운드(서버) TCP 연결.
     - Azure Migrate 에이전트가 설치된 종속 컴퓨터는 별도의 상자에 표시됩니다.
     - 에이전트가 설치되지 않은 컴퓨터는 포트 및 IP 주소 정보를 표시합니다.
-    
- 3. 에이전트가 설치된 컴퓨터(WEBVM)의 경우 컴퓨터 상자를 클릭하면 FQDN, 운영 체제, MAC 주소를 포함한 추가 정보를 볼 수 있습니다. 
+
+ 3. 에이전트가 설치된 컴퓨터(WEBVM)의 경우 컴퓨터 상자를 클릭하면 FQDN, 운영 체제, MAC 주소를 포함한 추가 정보를 볼 수 있습니다.
 
     ![그룹 종속성 보기](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
@@ -385,7 +386,7 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
 5. **그룹 만들기**를 클릭하고, 이름(smarthotelapp)을 지정합니다.
 
 > [!NOTE]
-    > 시간 범위를 확장하면 보다 세부적인 종속성을 볼 수 있습니다. 특정 기간을 선택하거나 시작 및 종료 날짜를 선택할 수 있습니다. 
+    > 시간 범위를 확장하면 보다 세부적인 종속성을 볼 수 있습니다. 특정 기간을 선택하거나 시작 및 종료 날짜를 선택할 수 있습니다.
 
 
 ### <a name="run-an-assessment"></a>평가 실행
@@ -409,7 +410,7 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
     **설정** | **세부 정보** | **기본값**
     --- | --- | ---
     **대상 위치** | 마이그레이션할 Azure 위치입니다. | 기본값은 없습니다.
-    **저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 저장소 중복 유형입니다. | 기본값은 [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md)입니다. Azure Migrate는 관리 디스크 기반 평가만 지원하고 관리 디스크는 LRS만 지원하므로 LRS 옵션을 사용합니다. 
+    **저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 저장소 중복 유형입니다. | 기본값은 [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md)입니다. Azure Migrate는 관리 디스크 기반 평가만 지원하고 관리 디스크는 LRS만 지원하므로 LRS 옵션을 사용합니다.
     **크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. *성능 기반* 크기 조정을 수행하거나, 성능 기록을 고려하지 않고 *온-프레미스로* VM 크기를 조정할 수 있습니다. | 기본 옵션은 성능 기반 크기 조정입니다.
     **성능 기록** | VM의 성능을 평가하는 데 고려할 기간입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다. | 기본값은 1일입니다.
     **백분위 수 사용률** | 적정 크기를 산정하는 데 고려되는 성능 샘플 집합의 백분위수 값입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다.  | 기본값은 95번째 백분위수입니다.
@@ -425,7 +426,7 @@ VM을 수정하기 전에 복사본을 만들려면 에이전트를 설치하기
 
 ### <a name="analyze-the-vm-assessment"></a>VM 평가 분석
 
-Azure Migrate 평가에는 온-프레미스 VM과 Azure의 호환성, Azure VM에 적합한 권장 크기, 예상 월별 Azure 비용에 대한 정보가 포함됩니다. 
+Azure Migrate 평가에는 온-프레미스 VM과 Azure의 호환성, Azure VM에 적합한 권장 크기, 예상 월별 Azure 비용에 대한 정보가 포함됩니다.
 
 ![평가 보고서](./media/migrate-scenarios-assessment/assessment-overview.png)
 
@@ -470,12 +471,12 @@ Azure Migrate 평가에는 온-프레미스 VM과 Azure의 호환성, Azure VM�
 
 #### <a name="review-monthly-cost-estimates"></a>월별 예상 비용 검토
 
-이 보기는 각 컴퓨터의 세부 사항과 함께 Azure에서 VM을 실행하는 데 필요한 총 계산 및 저장소 비용을 보여줍니다. 
+이 보기는 각 컴퓨터의 세부 사항과 함께 Azure에서 VM을 실행하는 데 필요한 총 계산 및 저장소 비용을 보여줍니다.
 
-![평가 준비 상태](./media/migrate-scenarios-assessment/azure-costs.png) 
+![평가 준비 상태](./media/migrate-scenarios-assessment/azure-costs.png)
 
 - 예상 비용은 컴퓨터에 권장된 크기를 사용하여 계산됩니다.
-- 계산 및 저장소에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다. 
+- 계산 및 저장소에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다.
 
 
 ## <a name="conclusion"></a>결론
@@ -490,6 +491,3 @@ Azure Migrate 평가에는 온-프레미스 VM과 Azure의 호환성, Azure VM�
 ## <a name="next-steps"></a>다음 단계
 
 다음 시나리오를 계속 진행하여 온-프레미스 VM 및 데이터베이스를 Azure로 [리프트 앤 시프트 마이그레이션](migrate-scenarios-lift-and-shift.md)합니다.
-
-
-

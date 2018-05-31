@@ -8,11 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366463"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성
 [인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)에 설명된 것처럼 Azure Search에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 몇 가지 보안 관련 필수 구성 요소에 유의해야 합니다. 
@@ -55,11 +56,11 @@ Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 �
 아래 링크는 VM 배포를 위한 NSG 구성에 대한 지침을 제공합니다. 이러한 지침에 따라 IP 주소를 기반으로 Azure SEarch 끝점을 ACL로 작성합니다.
 
 > [!NOTE]
-> 배경 지식은 [네트워크 보안 그룹이란?](../virtual-network/virtual-networks-nsg.md)
+> 배경 지식은 [네트워크 보안 그룹이란?](../virtual-network/security-overview.md)
 > 
 > 
 
-* **Resource Manager** VM의 경우 [ARM 배포를 위해 NSG를 만드는 방법](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)을 참조하세요. 
+* **Resource Manager** VM의 경우 [ARM 배포를 위해 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)을 참조하세요. 
 * **클래식** VM의 경우 [클래식 배포를 위해 NSG를 만드는 방법](../virtual-network/virtual-networks-create-nsg-classic-ps.md)을 참조하세요.
 
 IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용자가 문제와 잠재적인 해결 방법을 인식하고 있는 경우 쉽게 극복할 수 있습니다. 나머지 섹션에서는 ACL에서 IP 주소와 관련된 문제 처리를 위한 권장 사항을 제공합니다.
