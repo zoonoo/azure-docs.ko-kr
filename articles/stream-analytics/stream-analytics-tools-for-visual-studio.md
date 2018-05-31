@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941839"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio용 Azure Stream Analytics 도구 사용
 Visual Studio용 Azure Stream Analytics 도구는 현재 일반 공급 상태입니다. Stream Analytics 사용자는 이러한 도구를 통해 풍부한 경험을 얻고 문제를 해결할 수 있을 뿐만 아니라 복잡한 쿼리를 작성하고 로컬에서도 쿼리를 작성할 수 있습니다. 또한 Stream Analytics 작업을 Visual Studio 프로젝트로 내보낼 수 있습니다.
@@ -28,6 +29,20 @@ Visual Studio용 Azure Stream Analytics 도구는 현재 일반 공급 상태입
 * 로컬 샘플 데이터로 로컬에서 작업 테스트
 * 모니터링을 사용하여 문제 해결
 * 기존 작업을 프로젝트로 내보내기
+
+>[!IMPORTANT]
+>
+>2018년 5월 25일에 발효될 새 GDPR(일반 데이터 보호 규정)에 대비하여 Azure Stream Analytics Tools for Visual Studio 사용자는 버전 2.3.3000.5 이상으로 업그레이드하는 것이 좋습니다. 이 버전에는 최신 데이터 보호 요구 사항에 따른 변경 내용이 포함되어 있습니다. 이전 버전은 다운로드할 수 없으며 더 이상 사용되지 않습니다. 
+>
+>**무엇을 해야 하나요?**
+>
+>1. 사용 중인 Azure Stream Analytics Tools for Visual Studio 버전이 2.3.3000.5 이전인지 확인합니다. 
+>   
+>   ![도구 버전 확인](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. 버전이 2.3.3000.5 이전이면 다운로드 센터를 방문하여 Azure Data Lake Tools for Visual Studio를 업데이트합니다. 
+>    - [Visual Studio 2017의 경우](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Visual Studio 2013 및 2015의 경우](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -107,7 +122,7 @@ Visual Studio에서 **파일** > **새 프로젝트**를 차례로 선택합니�
 
 3. **데이터베이스** 이름에서 **TollDataDB**를 입력합니다.
 
-4. **사용자 이름**에서 **tolladmin**을 입력합니다. **암호**에서 **123toll!**을 입력합니다. **테이블**에서 **TollDataRefJoin**을 입력합니다.
+4. **사용자 이름**에서 **tolladmin**을 입력합니다. **암호**에서 **123toll!** 을 입력합니다. **테이블**에서 **TollDataRefJoin**을 입력합니다.
 
 5. **저장**을 선택합니다.
 

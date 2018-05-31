@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940369"
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource를 사용하여 비즈니스 확장
 Azure Marketplace와 AppSource는 모두 Microsoft와 공동으로 시장 진출 활동을 진행하기 위한 출발점이면서 비즈니스 확장을 위한 원동력이 됩니다. 마켓플레이스 제품은 출시 프로모션, 수요 창출, 공동 판매 및 마케팅을 통해 클라우드 비즈니스 엔진의 핵심이 될 수 있습니다. 참여에는 비용이 들지 않습니다. Microsoft 고객은 매일 클라우드 마켓플레이스를 방문하여 비즈니스를 향상시키는 데 도움이 되는 올바른 앱과 서비스를 찾을 수 있습니다. Microsoft 및 파트너 에코시스템의 솔루션과 서비스를 조직과 연결하는 것이 목표입니다. 
@@ -88,7 +89,7 @@ AppSource 목록은 잠재 고객과의 첫 번째 상호 작용이 될 수 있�
 **상점 세부 정보 - 마케팅 아티팩트**
 | 상점 설정       | 모범 사례          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **제품 로고(.png 형식, 58 x 48)**    | 로고는 디지털 매체에 맞게 설계하고 최적화해야 합니다.<br>제품의 검색 페이지에 대한 PNG 형식의 로고를 업로드합니다. |
+| **제품 로고(.png 형식, 48x48)**    | 로고는 디지털 매체에 맞게 설계하고 최적화해야 합니다.<br>제품의 검색 페이지에 대한 PNG 형식의 로고를 업로드합니다. |
 | **제품 로고(.png, 216 x 216)**     | 로고는 디지털 매체에 맞게 설계하고 최적화해야 합니다. <br>제품의 앱 세부 정보 목록 페이지에 대한 PNG 형식의 로고를 업로드합니다. |
 | **자세히 알아보기**   | "자세한 정보"에는 지원하는 판매 및 마케팅 자산(예: 백서, 브로슈어, 검사 목록, PowerPoint 등)이 포함됩니다. 모든 파일은 PDF 형식이어야 합니다. 잠재 고객에게 팔지 말고 알려줍니다. <br>앱 방문 페이지에 대한 링크를 모든 문서에 추가하고, URL 매개 변수를 추가하여 방문자 및 평가판을 추적하는 데 도움을 줍니다. |
 | **비디오**       | 최대 4개까지 허용되는 비디오를 하나 이상 업로드합니다. 비디오는 제품의 가치를 전달해야 합니다. 잠재 고객이 회사가 아니라 이야기의 영웅이 되어야 합니다. 비디오는 핵심 의사 결정자의 주요 과제 및 목표에 대해 이야기해야 합니다. <br>권장 길이는 60-90초입니다. 주요 검색어를 비디오 이름에 통합합니다.<br>방법 안내 비디오, 시작 비디오 또는 고객 사용 소감 비디오와 같은 추가 비디오를 추가하는 것이 좋습니다. |
@@ -98,7 +99,7 @@ AppSource 목록은 잠재 고객과의 첫 번째 상호 작용이 될 수 있�
 
 제품이 AppSource에 나열되면 웹 사이트에 "AppSource에서 사용 가능" 배지를 표시할 수 있는 권한을 얻은 것입니다. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource 배지](./media/marketplace-appsource/appsourcebadge.png)
     
 이 배지를 사이트에 추가하면 AppSource에 대한 제품을 홍보할 수 있고 잠재 고객을 목록 페이지에 직접 연결할 수 있습니다. AppSource 배지는 세 가지 크기로 사용할 수 있습니다. [Microsoft AppSource에서 앱의 가용성 홍보](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource)에서 사용 방법에 대한 지침과 함께 배지를 다운로드할 수 있습니다.
 

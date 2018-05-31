@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9e28184000964564bcf170a2c8015f3b4c220209
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8dbb546954f8eee0bf997b3d2f4f92d67c0b7869
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930877"
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 사용자 복원
 
@@ -31,17 +32,15 @@ ms.lasthandoff: 05/07/2018
 ## <a name="how-to-restore-a-recently-deleted-user"></a>최근에 삭제된 사용자를 복원하는 방법
 사용자가 최근에 삭제된 경우 모든 디렉터리 정보가 유지됩니다. 사용자가 복원되면 해당 정보도 복원됩니다.
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **사용자 및 그룹**&gt;**모든 사용자**를 선택합니다. 
-2. **표시** 아래에서 페이지를 필터링하여 **최근에 삭제된 사용자**를 표시합니다. 
-3. 최근에 삭제된 사용자를 하나 이상 선택합니다.
-4. **사용자 복원**을 선택합니다.
+1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **사용자** &gt; **삭제된 사용자**를 선택합니다. 
+2. 최근에 삭제된 사용자를 하나 이상 선택합니다.
+3. **사용자 복원**을 선택합니다.
 
 ## <a name="how-to-permanently-delete-a-recently-deleted-user"></a>최근에 삭제된 사용자를 영구 삭제하는 방법
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **사용자 및 그룹**&gt;**모든 사용자**를 선택합니다. 
-2. **표시** 아래에서 페이지를 필터링하여 **최근에 삭제된 사용자**를 표시합니다. 
-3. 최근에 삭제된 사용자를 하나 이상 선택합니다.
-4. **영구적으로 삭제**를 선택합니다.
+1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **사용자** &gt; **삭제된 사용자**를 선택합니다. 
+2. 최근에 삭제된 사용자를 하나 이상 선택합니다.
+3. **영구적으로 삭제**를 선택합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 다음 권한이 있으면 사용자를 복원할 수 있습니다.
