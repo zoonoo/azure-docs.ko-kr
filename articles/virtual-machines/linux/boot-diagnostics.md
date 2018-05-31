@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941856"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 Linux 가상 머신 문제를 해결하는 방법
 
@@ -44,15 +45,20 @@ Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 
 - [FSTAB 오류](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>새 가상 머신에서 진단 사용
-1. Preview 포털에서 새 Virtual Machine을 만드는 경우 배포 모델 드롭다운에서 **Azure Resource Manager**를 선택합니다.
+1. Azure Portal에서 새 가상 머신을 만드는 경우 배포 모델 드롭다운에서 **Azure Resource Manager**를 선택합니다.
  
     ![리소스 관리자](./media/boot-diagnostics/screenshot3.jpg)
 
-2. 이러한 진단 파일을 저장할 저장소 계정을 선택하려면 모니터링 옵션을 구성합니다.
+2. **설정**에서 **부팅 진단**을 활성화한 다음, 이러한 진단 파일을 저장하려는 저장소 계정을 선택합니다.
  
-    ![VM 만들기](./media/boot-diagnostics/screenshot4.jpg)
+    ![VM 만들기](./media/boot-diagnostics/create-storage-account.png)
 
-3. Azure Resource Manager 템플릿에서 배포하는 경우 Virtual Machine 리소스로 이동하고 진단 프로필 섹션을 추가합니다. "2015-06-15" API 버전 헤더를 사용해야 합니다.
+    > [!NOTE]
+    > 부팅 진단 기능은 프리미엄 저장소 계정을 지원하지 않습니다. 부팅 진단에 프리미엄 저장소 계정을 사용하는 경우 VM을 시작할 때 StorageAccountTypeNotSupported 오류가 발생할 수 있습니다. 
+    >
+    > 
+
+3. Azure Resource Manager 템플릿에서 배포하는 경우 가상 머신 리소스로 이동하고 진단 프로필 섹션을 추가합니다. "2015-06-15" API 버전 헤더를 사용해야 합니다.
 
     ```json
     {
@@ -74,11 +80,19 @@ Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>기존 가상 컴퓨터 업데이트
+부팅 진단이 활성화된 샘플 가상 머신을 배포하려면 여기에서 리포지토리를 확인하세요.
 
-포털을 통해 부팅 진단을 활성화하려면 포털을 통해 기존 가상 머신을 업데이트할 수도 있습니다. 부팅 진단 옵션을 선택하고 저장합니다. 적용하려면 VM을 다시 시작합니다.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>기존 가상 머신에서 부팅 진단 활성화 
 
-![기본 VM 업데이트](./media/boot-diagnostics/screenshot5.png)
+기존 가상 머신에서 부팅 진단을 활성화하려면 다음 단계를 따릅니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인한 다음, 가상 머신을 선택합니다.
+2. **지원 + 문제 해결**에서 **부팅 진단** > **설정**을 선택하고, 상태를 **On**으로 변경한 다음, 저장소 계정을 선택합니다. 
+4. 부팅 진단 옵션이 선택되어 있는지 확인한 다음, 변경 내용을 저장합니다.
+
+    ![기본 VM 업데이트](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. 적용하려면 VM을 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

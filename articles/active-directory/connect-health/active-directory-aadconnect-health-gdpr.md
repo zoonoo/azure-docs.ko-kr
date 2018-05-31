@@ -1,36 +1,33 @@
 ---
-title: "Azure AD Connect Health 및 일반 데이터 보호 규정 | Microsoft Docs"
-description: "이 문서에서는 Azure AD Connect를 사용하여 GDPR을 준수하는 방법에 대해 설명합니다."
+title: Azure AD Connect Health 및 사용자 개인 정보 | Microsoft Docs
+description: 이 문서에서는 Azure AD Connect Health와 함께 사용자 개인 정보를 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5fedbac439636b56da217e7babd30820bce7b342
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931761"
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect-health"></a>GDPR 규정 준수 및 Azure AD Connect Health 
+# <a name="user-privacy-and-azure-ad-connect-health"></a>사용자 개인 정보 및 Azure AD Connect Health 
 
-[GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 회사, 정부 기관, 비영리 단체 및 기타 조직에 대해 상품 및 서비스를 제공하거나 EU 거주자와 연결된 데이터를 수집하고 분석하는 새 규칙을 수립합니다. 
-
-오늘날, Microsoft 제품 및 서비스는 GDPR 요구 사항을 충족하는 데 도움이 될 수 있습니다. [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침에 대해 자세히 알아보세요.
-
-Azure AD Connect Health는 온 - 프레미스 ID 인프라 및 동기화 서비스를 모니터링합니다. 또한 인사이트 및 표면 경고도 제공합니다. Microsoft는 2018년 5월 GDPR 시행에 맞춰 클라우드 서비스 전체에서 GDPR 규정을 준수하고 계약서에 GDPR 관련 보증을 제공하기 위해 노력하고 있습니다. 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
-> 이 문서에서는 Azure AD Connect Health의 GDPR 준수에 대해 간략하게 설명합니다. Azure AD Connect에서 GDPR 준수에 대한 자세한 내용은 [GDPR 준수 및 Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md)를 참조하세요.
+>이 문서에서는 Azure AD Connect Health 및 사용자 개인 정보를 다룹니다.  Azure AD Connect 및 사용자 개인 정보에 대한 자세한 내용은 [여기](../../active-directory/connect/active-directory-aadconnect-gdpr.md) 문서를 참조하세요.
 
-## <a name="gdpr-classification"></a>GDPR 분류
+## <a name="user-privacy-classification"></a>사용자 개인 정보 분류
 Azure AD Connect Health는 GDPR 분류의 **데이터 프로세서** 범주에 해당합니다. 이 서비스는 데이터 프로세서 파이프라인으로, 주요 파트너 및 최종 소비자에게 데이터 처리 서비스를 제공합니다. Azure AD Connect Health는 사용자 데이터를 생성하지 않으며 개인 데이터가 수집되는 방법 및 해당 데이터의 사용 방법을 독립적으로 제어하지 않습니다. Azure AD Connect Health의 데이터 검색, 집계, 분석 및 보고는 기존 온-프레미스 데이터를 기반으로 합니다. 
 
 ## <a name="data-retention-policy"></a>데이터 보존 정책
@@ -54,18 +51,50 @@ Azure AD Connect Health를 사용하면 모니터링되는 개별 서버 또는 
 - 이 단계를 수행하기 전에 Health Agent를 제거하지 않은 경우 Health Agent와 관련된 서버에 오류 이벤트가 표시될 수 있습니다.
 - 모니터링되는 서비스의 인스턴스에 속한 모든 데이터는 Microsoft Azure 데이터 보존 정책에 따라 삭제됩니다.
 
-### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>모니터링되는 서버에 대한 데이터 수집 및 모니터링을 사용하지 않도록 설정
-[Azure AD Connect Health에서 서버를 제거하는 방법](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service)을 참조하세요.
-
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>모니터링되는 서비스의 인스턴스에 대한 데이터 수집 및 모니터링을 사용하지 않도록 설정
 [Azure AD Connect Health에서 서비스 인스턴스를 제거하는 방법](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service)을 참조하세요.
 
+### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>모니터링되는 서버에 대한 데이터 수집 및 모니터링을 사용하지 않도록 설정
+[Azure AD Connect Health에서 서버를 제거하는 방법](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service)을 참조하세요.
+
+### <a name="disable-data-collection-and-monitoring-for-all-monitored-services-in-azure-ad-connect-health"></a>Azure AD Connect Health에서 모니터링되는 모든 서비스에 대해 데이터 수집 및 모니터링 사용 안 함
+Azure AD Connect Health는 테넌트에 등록된 **모든** 서비스의 데이터 수집을 중지하는 옵션을 제공합니다. 작업을 수행하기 전에 모든 전역 관리자의 승인을 얻고 신중하게 고려하는 것이 좋습니다. 프로세스가 시작되면 Connect Health 서비스는 모든 서비스의 데이터 수신, 처리 및 보고를 중지합니다. Connect Health 서비스의 기존 데이터는 30일 동안만 보존됩니다.
+특정 서버의 데이터 수집을 중지하려면 특정 서버의 삭제 단계를 따르세요. 테넌트 범위 데이터 수집을 중지하려면 다음 단계에 따라 데이터 수집을 중지하고 테넌트의 모든 서비스를 삭제합니다.
+
+1.  주 블레이드의 구성 아래에서 **일반 설정**을 클릭합니다. 
+2.  블레이드의 맨 위에서 **데이터 수집 중지** 단추를 클릭합니다. 프로세스가 시작되면 테넌트 구성 설정의 다른 옵션이 사용하지 않도록 설정됩니다.  
+ 
+ ![데이터 수집 중지](./media/active-directory-aadconnect-health-gdpr/gdpr4.png)
+  
+3.  데이터 수집을 중지할 경우 영향을 받는 온보딩된 서비스 목록을 확인합니다. 
+4.  정확한 테넌트 이름을 입력하여 **삭제** 작업 단추 활성화
+5.  **삭제**를 클릭하여 모든 서비스의 삭제를 트리거합니다. Connect Health가 온보딩된 서비스에서 전송된 모든 데이터의 수신, 처리 및 보고를 중지합니다. 전체 프로세스에는 최대 24시간이 소요될 수 있습니다. 이 단계는 되돌릴 수 없습니다. 
+6.  프로세스가 완료되면 Connect Health에 등록된 서비스가 더 이상 표시되지 않습니다. 
+
+ ![데이터 수집이 중지된 후](./media/active-directory-aadconnect-health-gdpr/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Azure AD Connect Health에서 데이터 수집 및 모니터링을 다시 사용하도록 설정
 Azure AD Connect Health에서 이전에 삭제된 모니터링되는 서비스에 대한 모니터링을 다시 사용하도록 설정하려면 모든 서버에서 [상태 에이전트를 제거한 후 다시 설치](active-directory-aadconnect-health-agent-install.md)해야 합니다.
 
+### <a name="re-enable-data-collection-and-monitoring-for-all-monitored-services"></a>모든 모니터링되는 서비스에 대한 데이터 수집 및 모니터링을 다시 사용하도록 설정
+
+Azure AD Connect Health에서 테넌트 범위 데이터 수집을 다시 시작할 수 있습니다. 작업을 수행하기 전에 모든 전역 관리자의 승인을 얻고 신중하게 고려하는 것이 좋습니다.
+
+>[!IMPORTANT]
+> 다음 단계는 24시간 작업 중지 후 사용할 수 있습니다.
+> 데이터 수집을 사용하도록 설정하면, Connect Health에 표시되었던 정보 및 모니터링 데이터에 이전에 수집된 기존 데이터가 표시되지 않습니다. 
+
+1.  주 블레이드의 구성 아래에서 **일반 설정**을 클릭합니다. 
+2.  블레이드의 맨 위에서 **데이터 수집 사용** 단추를 클릭합니다. 
+ 
+ ![데이터 컬렉션 활성화](./media/active-directory-aadconnect-health-gdpr/gdpr6.png)
+ 
+3.  정확한 테넌트 이름을 입력하여 **사용** 단추를 활성화합니다.
+4.  **사용** 단추를 클릭하여 Connect Health 서비스의 데이터 수집 권한을 부여합니다. 변경 내용은 즉시 적용됩니다. 
+5.  [설치 프로세스](active-directory-aadconnect-health-agent-install.md)에 따라 모니터링할 서버에 에이전트를 다시 설치하고 서비스가 포털에 표시됩니다.  
+
 
 ## <a name="next-steps"></a>다음 단계
 * [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)
-* [Azure AD Connect 및 GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
-* [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect 및 사용자 개인 정보](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
+
