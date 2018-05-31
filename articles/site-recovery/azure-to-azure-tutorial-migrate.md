@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209711"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 마이그레이션
 
@@ -102,7 +103,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 ## <a name="select-the-source"></a>원본 선택
 
 1. Recovery Services 자격 증명 모음에서 **ConsotoVMVault** > **+복제**를 클릭합니다.
-2. **원본**에서 **Azure - 미리 보기**를 선택합니다.
+2. **원본**에서 **Azure**를 선택합니다.
 3. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
 4. 리소스 관리자 배포 모델을 선택합니다. 그런 다음 **원본 리소스 그룹**을 선택합니다.
 5. **확인**을 클릭하여 설정을 저장합니다.
@@ -115,7 +116,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 1. Azure Portal에서 **가상 머신**을 클릭합니다.
 2. 마이그레이션할 VM을 선택합니다. 그런 후 **OK**를 클릭합니다.
-3. **설정**에서 **재해 복구(미리 보기)**를 클릭합니다.
+3. **설정**에서 **재해 복구**를 클릭합니다.
 4. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.
 5. 이 자습서에서는 다른 기본 설정을 적용합니다.
 6. **복제 활성화**를 클릭합니다. VM에 대해 복제를 활성화하는 작업이 시작됩니다.
@@ -126,9 +127,9 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 ## <a name="run-a-failover"></a>장애 조치(Failover) 실행
 
-1. **설정** > **복제된 항목**에서 컴퓨터를 클릭한 다음 **장애 조치(Failover)**를 클릭합니다.
-2. **장애 조치(failover)**에서 **최신**을 선택합니다. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
-3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+1. **설정** > **복제된 항목**에서 컴퓨터를 클릭한 다음 **장애 조치(Failover)** 를 클릭합니다.
+2. **장애 조치(failover)** 에서 **최신**을 선택합니다. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
+3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
 5. **복제된 항목**에서 VM을 마우스 오른쪽 단추로 클릭하고 **커밋**을 클릭합니다. 그러면 마이그레이션 프로세스가 완료됩니다.
 6. 커밋이 완료되면 **복제 사용 안 함**을 클릭합니다.  그러면 VM에 대한 복제가 중지됩니다.

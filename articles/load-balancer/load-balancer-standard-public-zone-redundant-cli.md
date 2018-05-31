@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34273969"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI를 사용하여 모든 가용성 영역에 VM 부하 분산
 
@@ -218,17 +219,19 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>영역별 가상 머신 만들기
 영역 1, 영역 2, 영역 3에서 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 각 영역에서 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
 
-영역 1에서 VM 만들기
+*westeurope* 위치의 각 영역(1영역, 2영역 및 3영역)에서 VM을 만듭니다.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 

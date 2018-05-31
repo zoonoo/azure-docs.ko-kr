@@ -2,20 +2,21 @@
 title: 인덱스된 동영상, Azure SaaS SQL 앱 | Microsoft Docs
 description: 이 문서는 2017년 10월 11일에 열린 Ignite 컨퍼런스에서의 SaaS DB 테넌트 앱 디자인에 관한 81분짜리 동영상에 여러 시점을 인덱싱합니다. 관심 있는 파트로 건너뛸 수 있습니다. 적어도 3 가지 패턴을 설명합니다. 개발 및 관리를 단순화하는 Azure 기능을 설명합니다.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 05/14/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ea62855b61cb7439b19204564cbc2d7fcdbd0fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211296"
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Azure SQL Database를 사용하여 다중 테넌트 SaaS 앱에 대해 인덱싱되고 주석이 지정된 동영상
+# <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Azure SQL Database를 사용하여 다중 테넌트 SaaS 앱에 대해 인덱싱되고 주석이 지정된 동영상
 
 이 문서는 SaaS 테넌트 모델 또는 패턴에 관한 81분짜리 동영상의 시간 위치에 달린 주석이 지정된 인덱스입니다. 이 문서를 사용하면 동영상에서 관심이 있는 부분으로 뒤로 또는 앞으로 건너뛸 수 있습니다. 동영상은 Azure SQL Database에서 다중 테넌트 데이터베이스 응용 프로그램에 대한 주요 디자인 옵션을 설명합니다. 동영상은 데모, 관리 코드의 연습 및 때로 쓰여진 설명서보다 경험에 의해 알려지는 더 자세한 내용을 포함합니다.
 

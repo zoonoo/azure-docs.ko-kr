@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/9/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302156"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기
 
@@ -33,6 +34,8 @@ Azure Blockchain Workbench를 사용하여 구성 및 스마트 계약 코드로
 * Blockchain Workbench 배포. 배포에 대한 자세한 내용은 [Azure Blockchain Workbench 배포](blockchain-workbench-deploy.md)를 참조하세요.
 * Blockchain Workbench와 연결된 테넌트의 Azure Active Directory 사용자. 자세한 내용은 [Azure Blockchain Workbench에서 Azure AD 사용자 추가](blockchain-workbench-manage-users.md#add-azure-ad-users)를 참조하세요.
 * Blockchain Workbench 관리자 계정. 자세한 내용은 [Azure Blockchain Workbench에서 Blockchain Workbench 관리자](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators) 추가를 참조하세요.
+
+## <a name="hello-blockchain"></a>Hello, Blockchain!
 
 요청자가 요청을 보내고 응답자가 요청에 대한 응답을 보내는 기본 응용 프로그램을 빌드해 봅시다. 예를 들어 요청이 "안녕하세요?"라고 하면 응답은 "좋습니다!"라고 할 수 있습니다. 요청과 응답 모두 기본 블록체인에 기록됩니다. 
 
