@@ -3,7 +3,7 @@ title: Azure Application Insights의 원격 분석 샘플링 | Microsoft Docs
 description: 제어에서 원격 분석의 양을 유지하는 방법입니다.
 services: application-insights
 documentationcenter: windows
-author: vgorbenko
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: mbullwin; vitalyg
+ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309609"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869906"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
