@@ -1,18 +1,19 @@
 ---
-title: "개발자를 위한 Azure Batch API 및 도구 | Microsoft Docs"
-description: "Azure Batch 서비스를 사용하여 솔루션을 개발하는 데 사용할 수 있는 API 및 도구에 대해 알아봅니다."
+title: 개발자를 위한 Azure Batch API 및 도구 | Microsoft Docs
+description: Azure Batch 서비스를 사용하여 솔루션을 개발하는 데 사용할 수 있는 API 및 도구에 대해 알아봅니다.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 02/26/2018
+ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359325"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
@@ -26,11 +27,10 @@ Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 [Batch API](
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Batch 개발을 위한 Azure 계정
-Batch 솔루션을 개발할 경우 Microsoft Azure에서는 다음 계정을 사용합니다.
+Batch 솔루션을 개발할 경우 Azure 구독에서는 다음 계정을 사용합니다.
 
-* **Azure 계정 및 구독** - Azure 구독이 없는 경우 [Visual Studio 구독자 혜택][msdn_benefits]을 활성화하거나 [무료 Azure 계정][free_account]을 등록할 수 있습니다. 계정을 만들면 기본 구독이 생성됩니다.
-* **Batch 계정** - 풀, 계산 노드, 작업 및 태스크를 포함하여 Azure Batch 리소스는 Azure Batch 계정과 연결됩니다. 응용 프로그램에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [Batch 계정을 만들](batch-account-create-portal.md) 수 있습니다.
-* **저장소 계정** - Batch는 [Azure Storage][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 거의 모든 Batch 시나리오에서는 Azure Blob 저장소를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. Storage 계정을 만들려면 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
+* **Batch 계정** - 풀, 계산 노드, 작업 및 태스크를 포함하여 Azure Batch 리소스는 Azure [Batch 계정](batch-api-basics.md#account)과 연결됩니다. 응용 프로그램에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [Batch 계정을 만들](batch-account-create-portal.md) 수 있습니다.
+* **저장소 계정** - Batch는 [Azure Storage][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 거의 모든 Batch 시나리오에서는 Azure Blob 저장소를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요.
 
 ## <a name="batch-service-apis"></a>Batch 서비스 API
 

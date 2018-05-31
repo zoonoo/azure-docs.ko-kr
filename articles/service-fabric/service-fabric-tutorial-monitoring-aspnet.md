@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797705"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>자습서: Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 이 자습서는 시리즈의 5부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다. 
@@ -87,7 +88,7 @@ VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구
 Application Insights에는 시나리오에 따라 사용할 수 있는 두 개의 Service Fabric 특정 NuGet이 있습니다. 하나는 Service Fabric의 네이티브 서비스에 사용되고, 다른 하나는 컨테이너 및 게스트 실행 파일에 사용됩니다. 이 경우 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet을 사용하여 가져오는 서비스 컨텍스트 정보를 활용합니다. Application Insights SDK 및 Service Fabric 특정 NuGet에 대한 자세한 내용은 [Service Fabric용 Microsoft Application Insights](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)를 참조하세요. 
 
 NuGet을 설정하는 단계는 다음과 같습니다.
-1. 솔루션 탐색기의 맨 위에서 **솔루션 ‘Voting’**을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리...** 를 클릭합니다.
+1. 솔루션 탐색기의 맨 위에서 **솔루션 ‘Voting’** 을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리...** 를 클릭합니다.
 2. “NuGet - 솔루션” 창의 맨 위 탐색 메뉴에서 **찾아보기**를 클릭하고 검색 표시줄 옆에 있는 **시험판 포함** 상자를 선택합니다.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
 
@@ -237,7 +238,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-이러한 변경 수행을 완료한 후 응용 프로그램을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 응용 프로그램 배포가 완료되면 [localhost:8080](localhost:8080)으로 이동한 다음 몇 가지 응답 옵션을 추가 및 삭제합니다. 그런 다음 Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”와 모든 응답 원격 분석 데이터가 표시되어야 합니다. 
+이러한 변경 수행을 완료한 후 응용 프로그램을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 응용 프로그램 배포가 완료되면 [localhost:8080](localhost:8080)으로 이동한 다음 몇 가지 응답 옵션을 추가 및 삭제합니다. 그런 다음 Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”\* 와 모든 응답 원격 분석 데이터가 표시되어야 합니다. 
 
 ![사용자 지정 이벤트](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778293"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure(큰 인스턴스)의 SAP HANA 인프라 및 연결 
 
 이 가이드를 읽기에 앞서 일부 사전 정의. [SAP HANA (큰 인스턴스) 개요 및 Azure 상의 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 다른 클래스를 도입했습니다.
 
 - SKU의 'Type I 클래스'인 S72, S72m, S144, S144m, S192 및 S192m.
-- SKU의 'Type II 클래스'인 S384, S384m, S384xm, S576, S768, 및 S960.
+- SKU의 'Type II 클래스'인 S384, S384m, S384xm, S576m, S768m 및 S960m.
 
 HANA 큰 인스턴스 설명서 전반에 걸쳐 HANA 큰 인스턴스 SKU를 기반으로 하여 궁극적으로 다양한 기능 및 요구를 참조하는 데 클래스 지정자가 사용될 것입니다.
 
@@ -109,7 +110,7 @@ HANA 큰 인스턴스에 연결되는 Azure VNet에 대한 중요한 사실 요�
 - **VNet 주소 공간**은 Azure VM 서브넷 IP 주소 범위 및 VNet 게이트웨이 서브넷 IP 주소 범위에 대한 범위를 다루는 더 큰 범위일 수 있습니다.
 - 또는 VM 서브넷 IP 주소 범위와 VNet 게이트웨이 서브넷 IP 주소 범위의 다양한 IP 주소 범위를 포함하는 여러 범위를 **VNet 주소 공간**으로 제출할 수도 있습니다.
 - 정의된 **VNet 주소 공간**은 BGP 라우팅 전파에 사용됩니다.
-- 게이트웨이 서브넷의 이름은 **"GatewaySubnet"**이어야 합니다.
+- 게이트웨이 서브넷의 이름은 **"GatewaySubnet"** 이어야 합니다.
 - **VNet 주소 공간**은 Azure에서 HANA 큰 인스턴스 단위로 트래픽을 허용 또는 차단하기 위해 HANA 큰 인스턴스 쪽의 필터로 사용됩니다. Azure VNet의 BGP 라우팅 정보와 HANA 큰 인스턴스 측에서 필터링을 위해 구성된 IP 주소 범위가 일치하지 않으면 연결 문제가 발생할 수 있습니다.
 - 게이트웨이 서브넷에 대한 자세한 내용은 'VNet을 HANA 큰 인스턴스 ExpressRoute에 연결' 섹션에서 자세히 설명합니다.
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 이 예제에서는 HighPerformance 게이트웨이 SKU를 사용했습니다. 옵션은 Azure(큰 인스턴스)의 SAP HANA에 지원되는 유일한 게이트웨이 SKU인 HighPerformance 또는 UltraPerformance입니다.
 
 > [!IMPORTANT]
-> SKU 유형 S384, S384m, S384xm, S576, S768, 및 S960(Type II 클래스 SKU) HANA 큰 인스턴스의 경우 UltraPerformance 게이트웨이 SKU 사용은 필수입니다.
+> SKU 유형 S384, S384m, S384xm, S576m, S768m 및 S960m(Type II 클래스 SKU) HANA 큰 인스턴스의 경우 UltraPerformance 게이트웨이 SKU 사용은 필수입니다.
 
 ### <a name="linking-vnets"></a>VNet 연결
 

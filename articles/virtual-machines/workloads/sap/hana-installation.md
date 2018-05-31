@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778599"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
 다음은 이 지침을 읽기 전에 알아야 할 중요한 정의입니다. [Azure(큰 인스턴스)에서 SAP HANA 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 가지 다른 클래스를 도입했습니다.
 
 - SKU의 'Type I 클래스'인 S72, S72m, S144, S144m, S192 및 S192m.
-- SKU의 'Type II 클래스'인 S384, S384m, S384xm, S576, S768, 및 S960.
+- SKU의 'Type II 클래스'인 S384, S384m, S384xm, S576m, S768m 및 S960m.
 
 클래스 지정자는 HANA 큰 인스턴스 설명서 전반에서 HANA 큰 인스턴스 SKU를 기반으로 하는 다양한 기능과 요구 사항을 언급하는 데 사용됩니다.
 
@@ -234,7 +235,7 @@ YAST에서 Software Maintenance(소프트웨어 유지 관리)로 이동하여 s
 ![yast의 SMT](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동하여 앞에서 검색한 SUSE Customer Center(SUSE 고객 센터)의 조직 자격 증명을 입력합니다. Azure VM 호스트 이름을 SMT 서버 URL로 입력합니다. 이 데모에서는 https://smtserver 입니다(다음 그래픽 참조).
+smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동하여 앞에서 검색한 SUSE Customer Center(SUSE 고객 센터)의 조직 자격 증명을 입력합니다. Azure VM 호스트 이름을 SMT 서버 URL로 입력합니다. 이 데모에서는 https://smtserver입니다(다음 그래픽 참조).
 
 ![SMT 서버 구성](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

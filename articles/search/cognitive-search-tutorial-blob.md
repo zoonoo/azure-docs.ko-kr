@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366752"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>자습서: 인식 검색 API(미리 보기)를 호출하는 방법 알아보기
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 05/07/2018
 
 > [!div class="checklist"]
 > * 인덱스로 라우팅되는 원본 데이터를 보강하는 인덱싱 파이프라인 만들기
-> * 샘플 데이터 집합에 기본 제공 엔터티 인식, 언어 감지, 텍스트 조작 및 핵심 구 추출 기술 사용
+> * 샘플 데이터 집합에 기본 제공 기술 사용: 엔터티 인식, 언어 감지, 텍스트 조작, 핵심 구 추출
 > * 기술 집합에서 입력을 출력에 매핑하여 여러 기술을 연결하는 방법을 알아봅니다
 > * 요청을 실행하고 결과 검토
 > * 추가 개발을 위해 인덱스 및 인덱서 다시 설정
@@ -84,7 +85,7 @@ Azure Search에 대한 REST 호출을 만들려면 PowerShell이나 Telerik Fidd
   연결 문자열은 다음 예제와 비슷한 URL이어야 합니다.
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 공유 액세스 서명을 제공하는 방법을 포함하여 연결 문자열을 지정하는 여러 방법이 있습니다. 데이터 원본 자격 증명에 대한 자세한 내용은 [Azure Blob 저장소 인덱싱](search-howto-indexing-azure-blob-storage.md#Credentials)을 참조하세요.

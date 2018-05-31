@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 67ffe826ba13576578e8f09e36f84128f4ceb0f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366497"
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 문제 해결
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 VM(가상 컴퓨터)에서 NSG(네트워크 보안 그룹)를 구성했으며 VM 연결 문제가 발생하는 경우 이 문서를 통해 문제 해결에 도움이 되는 NSG 진단 기능을 대략적으로 알 수 있습니다.
 
-NSG에서는 VM(가상 머신)에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure VNet(Virtual Network), NIC(네트워크 인터페이스) 또는 둘 다의 서브넷에 NSG를 적용할 수 있습니다. NIC에 적용되는 유효한 규칙은 NIC 및 NIC에 연결된 서브넷에 적용되는 NSG에 존재하는 규칙을 집계한 것입니다. 때로는 이러한 NSG 간의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다.  
+NSG에서는 VM(가상 머신)에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure VNet(Virtual Network), NIC(네트워크 인터페이스) 또는 둘 다의 서브넷에 NSG를 적용할 수 있습니다. NIC에 적용되는 유효한 규칙은 NIC 및 NIC에 연결된 서브넷에 적용되는 NSG에 존재하는 규칙을 집계한 것입니다. 때로는 이러한 NSG 간의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다.
 
-VM의 NIC에 적용된 NSG의 모든 유효 보안 규칙을 볼 수 있습니다. 이 문서에서는 Azure Resource Manager 배포 모델에서 이러한 규칙을 사용하여 VM 연결 문제를 해결하는 방법을 보여 줍니다. VNet 및 NSG 개념에 익숙하지 않은 경우 [가상 네트워크](virtual-networks-overview.md) 및 [네트워크 보안 그룹](virtual-networks-nsg.md) 개요 문서를 읽어보세요.
+VM의 NIC에 적용된 NSG의 모든 유효 보안 규칙을 볼 수 있습니다. 이 문서에서는 Azure Resource Manager 배포 모델에서 이러한 규칙을 사용하여 VM 연결 문제를 해결하는 방법을 보여 줍니다. VNet 및 NSG 개념에 익숙하지 않은 경우 [가상 네트워크 개요](virtual-networks-overview.md) 및 [네트워크 보안 그룹 개요](security-overview.md)를 참조하세요.
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>유효 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결
 다음에 나오는 시나리오는 일반적인 연결 문제의 한 예입니다.
@@ -66,7 +67,7 @@ VM 자체에서 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 �
    * **범위:** 3단계에서 선택한 VM인 *VM1*으로 설정합니다.
    * **네트워크 인터페이스:** *VM1-NIC1* 이 선택됩니다. 하나의 VM에 여러 네트워크 인터페이스(NIC)가 있을 수 있습니다. 각 NIC에는 고유한 유효 보안 규칙이 있을 수 있습니다. 문제를 해결할 때는 각 NIC의 유효 보안 규칙을 확인해야 할 수 있습니다.
    * **관련 NSG:** NSG를 NIC 및 NIC가 연결된 서브넷에 적용할 수 있습니다. 그림에서 NSG는 NIC 및 NIC가 연결된 서브넷 둘 다에 적용되었습니다. NSG 이름을 클릭하여 NSG의 규칙을 직접 수정할 수 있습니다.
-   * **VM1-nsg 탭:** 그림에 표시되는 규칙 목록은 NIC에 적용된 NSG에 대한 것입니다. NSG가 만들어질 때마다 Azure에서 몇 가지 기본 규칙이 생성됩니다. 기본 규칙을 제거할 수 없으나 더 높은 우선 순위의 규칙으로 재정의할 수 있습니다. 기본 규칙에 대한 자세한 내용은 [NSG 개요](virtual-networks-nsg.md#default-rules) 문서를 읽어보세요.
+   * **VM1-nsg 탭:** 그림에 표시되는 규칙 목록은 NIC에 적용된 NSG에 대한 것입니다. NSG가 만들어질 때마다 Azure에서 몇 가지 기본 규칙이 생성됩니다. 기본 규칙을 제거할 수 없으나 더 높은 우선 순위의 규칙으로 재정의할 수 있습니다. [기본 보안 규칙](security-overview.md#default-security-rules)에 대해 자세히 알아보세요.
    * **대상 열:** 일부 규칙에는 열에 텍스트가 있지만 주소 접두사가 있는 경우도 있습니다. 이 텍스트는 보안 규칙이 만들어질 때 적용된 기본 태그의 이름입니다. 태그는 여러 개의 접두사를 나타내는 시스템 제공 식별자입니다. *AllowInternetOutBound*와 같은 태그를 가진 규칙을 선택하면 **주소 접두사** 블레이드에 접두사가 나열됩니다.
    * **다운로드:** 규칙의 목록이 길 수 있습니다. **다운로드** 를 클릭하고 파일을 저장하여 오프라인 분석을 위해 규칙의 .csv 파일을 다운로드할 수 있습니다.
    * **AllowRDP** 인바운드 규칙: 이 규칙은 VM에 대한 RDP 연결을 허용합니다.

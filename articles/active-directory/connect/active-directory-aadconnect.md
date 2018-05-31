@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 73baef03f7b240e7bb33f3d5f827b1fc72c985f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 128a6bffe4e604eb4e02a10f13d561a336fc8c61
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354421"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Azure Active Directory와 온-프레미스 디렉터리 통합
 Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 이 항목은 계획, 배포 및 운영 단계를 안내합니다. 이 영역과 관련된 항목으로 연결되는 링크 컬렉션입니다.
@@ -146,7 +147,7 @@ Azure AD Connect는 페더레이션 트러스트를 관리하고 AD FS를 사용
 
 ADFS는 [복수 도메인](active-directory-aadconnect-multiple-domains.md)을 지원하도록 구성될 수 있습니다. 예를 들어 페더레이션 사용에 필요한 복수의 최상위 도메인을 가질 수 있습니다.
 
-ADFS 서버가 Azure AD 인증서를 자동으로 업데이트하도록 구성되지 않았거나 비 ADFS 솔루션을 사용하는 경우에는 [인증서를 업데이트](active-directory-aadconnect-o365-certs.md)해야 하는 경우 알림이 표시됩니다.
+ADFS 서버가 Azure AD에서 인증서를 자동으로 업데이트하도록 구성되지 않았거나 비 ADFS 솔루션을 사용하는 경우에는 [인증서를 업데이트](active-directory-aadconnect-o365-certs.md)해야 하는 경우 알림이 표시됩니다.
 
 ### <a name="next-steps-to-configure-federation-features"></a>페더레이션 기능을 구성하는 다음 단계
 |항목 |링크|  

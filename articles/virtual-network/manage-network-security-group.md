@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894252"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -34,6 +35,8 @@ ms.lasthandoff: 05/04/2018
 - 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
+Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
+
 ## <a name="work-with-network-security-groups"></a>네트워크 보안 그룹으로 작업
 
 네트워크 보안 그룹의 만들기, [모두 보기](#view-all-network-security-groups), [세부 정보 보기](#view-details-of-a-network-security-group), [변경](#change-a-network-security-group) 및 [삭제](#delete-a-network-security-group)를 수행할 수 있습니다. 네트워크 인터페이스 또는 서브넷에서 네트워크 보안 그룹을 [연결 또는 분리](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)할 수 있습니다.
@@ -44,7 +47,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 1. 포털의 왼쪽 상단 모서리에서 **+ 리소스 만들기**를 선택합니다.
 2. **네트워킹**을 선택한 다음, **네트워크 보안 그룹**을 선택합니다.
-3. 네트워크 보안 그룹의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 다음, **만들기**를 선택합니다. 
+3. 네트워크 보안 그룹의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 다음, **만들기**를 선택합니다.
 
 **명령**
 
@@ -67,7 +70,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 3. 나열된 일반적인 Azure 설정에 대한 자세한 내용은 다음 문서를 참조하세요.
     *   [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [태그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -222,16 +225,31 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 네트워크 보안 그룹, 보안 규칙 및 응용 프로그램 보안 그룹에서 작업을 수행하려면 다음 표에 나열된 적절한 사용 권한이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-|작업                                                       |   작업 이름                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   네트워크 보안 그룹 가져오기                              |
-|Microsoft.Network/ruleTables/write                             |   네트워크 보안 그룹 만들기 또는 업데이트                 |
-|Microsoft.Network/ruleTables/delete                            |   네트워크 보안 그룹 삭제                           |
-|Microsoft.Network/ruleTables/join/action                       |   네트워크 보안 그룹 연결                             |
-|Microsoft.Network/ruleTables/rules/read                       |   규칙 가져오기                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   규칙 만들기 또는 업데이트                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   규칙 삭제                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   네트워크 인터페이스 유효 네트워크 보안 그룹 가져오기  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   VM에서 다음 홉 가져오기                  |
+### <a name="network-security-groups"></a>네트워크 보안 그룹
 
-서브넷에 네트워크 보안 그룹을 연결하려면 *네트워크 보안 그룹 연결* 작업이 필요합니다.
+| 조치                                                        |   Name                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   네트워크 보안 그룹 가져오기                                          |
+| Microsoft.Network/ruleTables/write                            |   네트워크 보안 그룹 만들기 또는 업데이트                             |
+| Microsoft.Network/ruleTables/delete                           |   네트워크 보안 그룹 삭제                                       |
+| Microsoft.Network/ruleTables/join/action                      |   네트워크 보안 그룹을 서브넷 또는 네트워크 인터페이스에 연결 |
+| Microsoft.Network/ruleTables/rules/read                       |   규칙 가져오기                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   규칙 만들기 또는 업데이트                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   규칙 삭제                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   네트워크 인터페이스 유효 네트워크 보안 그룹 가져오기              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   VM에서 다음 홉 가져오기                                         |
+
+### <a name="application-security-groups"></a>응용 프로그램 보안 그룹
+
+| 조치                                                                     | Name                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | IP 구성을 응용 프로그램 보안 그룹에 조인|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 응용 프로그램 보안 그룹에 조인    |
+| Microsoft.Network/applicationSecurityGroups/read                           | 응용 프로그램 보안 그룹 가져오기                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | 응용 프로그램 보안 그룹 만들기 또는 업데이트           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | 응용 프로그램 보안 그룹 삭제                     |
+
+## <a name="next-steps"></a>다음 단계
+
+- [PowerShell](powershell-samples.md) 또는 [Azure CLI](cli-samples.md) 샘플 스크립트를 사용하거나 Azure [Resource Manager 템플릿](template-samples.md)을 사용하여 네트워크 또는 응용 프로그램 보안 그룹 만들기
+- 가상 네트워크에 대한 [Azure 정책](policy-samples.md) 만들기 및 적용
