@@ -3,8 +3,8 @@ title: 가속화된 네트워킹을 사용하는 Azure 가상 머신 만들기 |
 description: 가속 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,23 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/02/2018
-ms.author: jdial
+ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0f7f389df96f38bea3634bf712af3f9bf4bdde09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893952"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
-> [!IMPORTANT] 
-> 가속 네트워킹을 사용하여 가상 머신을 만들어야 합니다. 기존 가상 머신에서는 이 기능을 사용할 수 없습니다. 가속 네트워킹을 사용하려면 다음 단계를 완료합니다.
->   1. 가상 머신을 삭제합니다.
->   2. 가속 네트워킹을 사용하는 가상 머신을 다시 만듭니다.
->
-
-이 자습서에서는 가속 네트워킹을 사용하는 Linux VM(가상 머신)을 만드는 방법에 대해 알아봅니다. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속 네트워킹을 사용할 때와 사용하지 않을 때 두 개의 VM 간의 통신을 보여줍니다.
+이 자습서에서는 가속 네트워킹을 사용하는 Linux VM(가상 머신)을 만드는 방법에 대해 알아봅니다. 가속 네트워킹을 사용하여 Windows VM을 만들려면 [가속 네트워킹을 사용하여 Windows VM 만들기](create-vm-accelerated-networking-powershell.md)를 참조하세요. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속 네트워킹을 사용할 때와 사용하지 않을 때 두 개의 VM 간의 통신을 보여줍니다.
 
 ![비교](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -46,29 +41,39 @@ ms.lasthandoff: 04/16/2018
 * **CPU 사용률 감소:** 호스트의 가상 스위치를 무시하면 네트워크 트래픽 처리에 사용되는 CPU가 감소됩니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
-* **Ubuntu 16.04**: 4.11.0-1013 이상 커널 버전
-* **SLES 12 SP3**: 4.4.92-6.18 이상 커널 버전
-* **RHEL 7.4**: 7.4.2017120423 이상 커널 버전
-* **CentOS 7.4**: 7.4.20171206 이상 커널 버전
+다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다. 
+* **Ubuntu 16.04** 
+* **SLES 12 SP3** 
+* **RHEL 7.4**
+* **CentOS 7.4**
+* **CoreOS Linux**
+* **Debian “Stretch”(백포트 커널 포함)**
+* **Oracle Linux 7.4**
 
-## <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속 네트워킹은 가장 일반적인 용도로 4개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다. 하이퍼스레딩을 지원하는 D/DSv3 또는 E/ESv3과 같은 인스턴스에서 가속 네트워킹은 8개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다.  지원되는 계열은 D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 및 Ms/Mms입니다. 
+## <a name="limitations-and-constraints"></a>제한 및 제약 조건
+
+### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+
+하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-## <a name="regions"></a>영역
+### <a name="regions"></a>영역
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
-## <a name="limitations"></a>제한 사항
-이 기능을 사용하는 경우 다음과 같은 제한이 적용됩니다.
+### <a name="network-interface-creation"></a>네트워크 인터페이스 만들기 
+가속 네트워킹은 새 NIC에서만 사용할 수 있으며, 기존 NIC에서는 사용할 수 없습니다.
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>실행 중인 VM에서 가속 네트워킹 사용
+가속 네트워킹을 사용하지 않고 지원되는 VM 크기에서는 기능이 중지되고 할당이 취소된 경우에만 사용하도록 설정할 수 있습니다.  
+### <a name="deployment-through-azure-resource-manager"></a>Azure Resource Manager를 통한 배포
+가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
 
-* **네트워크 인터페이스 만들기:** 가속화된 네트워킹은 새 NIC에서만 사용할 수 있으며, 기존 NIC에서는 사용할 수 없습니다.
-* **VM 만들기:** VM을 만들 때 가속화된 네트워킹을 사용하도록 설정된 NIC만 VM에 연결할 수 있습니다. 기존 VM에는 이 NIC를 연결할 수 없습니다. VM을 기존 가용성 집합에 추가하는 경우 가용성 집합의 모든 VM에서도 가속화된 네트워킹을 사용할 수 있어야 합니다.
-* **Azure Resource Manager를 통해서만 배포:** 가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
+## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Azure 가속 네트워킹을 사용하여 Linux VM 만들기
 
 이 문서에서는 Azure CLI를 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 가상 머신을 만드는 경우 **설정**의 **가속 네트워킹** 아래에서 **사용**을 선택합니다. [지원되는 운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택하지 않으면 가속 네트워킹을 사용하는 옵션이 포털에 나타나지 않습니다. 가상 머신이 만들어진 후에는 [가속 네트워킹을 사용할 수 있는지 확인](#confirm-that-accelerated-networking-is-enabled)의 지침을 완료해야 합니다.
 
-## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm*이 포함됩니다.
 
@@ -78,7 +83,7 @@ VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machi
 az group create --name myResourceGroup --location centralus
 ```
 
-[Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 지원되는 Linux 지역을 선택해야 합니다.
+[Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 지원되는 Linux 지역을 선택합니다.
 
 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 하나의 서브넷을 포함한 *myVnet*이라는 가상 네트워크를 만듭니다.
 
@@ -91,7 +96,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
+### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
@@ -117,7 +122,7 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-## <a name="create-a-network-interface-with-accelerated-networking"></a>가속 네트워킹을 사용하여 네트워크 인터페이스 만들기
+### <a name="create-a-network-interface-with-accelerated-networking"></a>가속 네트워킹을 사용하여 네트워크 인터페이스 만들기
 
 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하려는 계획이 없다면 공용 IP 주소가 필요하지 않지만 이 문서의 단계를 완료하려면 필요합니다.
 
@@ -140,8 +145,8 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nic"></a>VM 만들기 및 NIC 연결
-VM을 만들 때 `--nics`로 만든 NIC를 지정합니다. [Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 크기 및 배포를 선택해야 합니다. 
+### <a name="create-a-vm-and-attach-the-nic"></a>VM 만들기 및 NIC 연결
+VM을 만들 때 `--nics`로 만든 NIC를 지정합니다. [Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 크기 및 배포를 선택합니다. 
 
 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 가속 네트워킹(*Standard_DS4_v2*)을 지원하는 UbuntuLTS 이미지 및 크기를 사용하여 *myVM*이라는 VM을 만듭니다.
 
@@ -173,7 +178,7 @@ VM을 만들면 다음 예제 출력과 유사한 출력이 반환됩니다. **p
 }
 ```
 
-## <a name="confirm-that-accelerated-networking-is-enabled"></a>가속 네트워킹을 사용할 수 있는지 확인합니다.
+### <a name="confirm-that-accelerated-networking-is-enabled"></a>가속 네트워킹을 사용할 수 있는지 확인합니다.
 
 다음 명령을 사용하여 VM으로 SSH 세션을 만듭니다. `<your-public-ip-address>`를 만든 가상 머신에 할당된 공용 IP 주소와 바꾸고, VM을 만들 때 `--admin-username`에 다른 값을 사용한 경우 *azureuser*를 바꿉니다.
 
@@ -210,3 +215,84 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속 네트워킹 사용
+가속 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM이 위에 설명된 다음 필수 조건을 충족하여 가속 네트워킹을 지원해야 합니다.
+
+* VM이 가속 네트워킹에 대해 지원되는 크기여야 합니다.
+* VM이 지원되는 Azure Gallery 이미지(및 Linux용 커널 버전)여야 합니다.
+* NIC에서 가속 네트워킹을 사용하도록 설정하기 전에 가용성 집합 또는 VMSS에 포함된 모든 VM을 중지/할당 취소해야 합니다.
+
+### <a name="individual-vms--vms-in-an-availability-set"></a>개별 VM 및 가용성 집합의 VM
+먼저 VM을 중지/할당 취소하거나, 가용성 집합인 경우 집합에 포함된 모든 VM을 중지/할당 취소합니다.
+
+```azurecli
+az vm deallocate \
+    --resource-group myResourceGroup \
+    --name myVM
+```
+
+중요한 사항이니 유의하세요. VM이 가용성 집합 없이 개별적으로 만들어진 경우 개별 VM을 중지/할당 취소하기만 하면 가속 네트워킹을 사용하도록 설정할 수 있습니다.  VM이 가용성 집합으로 만들어진 경우 가용성 집합에 포함된 모든 VM을 중지/할당 취소해야 NIC에서 가속 네트워킹을 사용하도록 설정할 수 있습니다. 
+
+VM이 중지되면 해당 VM의 NIC에서 가속 네트워킹을 사용하도록 설정합니다.
+
+```azurecli
+az network nic update \
+    --name myVM -n myNic \
+    --resource-group myResourceGroup \
+    --accelerated-networking true
+```
+
+VM을 다시 시작하거나, 가용성 집합인 경우 집합에 포함된 모든 VM을 다시 시작하고 가속 네트워킹이 사용되는지 확인합니다. 
+
+```azurecli
+az vm start --resource-group myResourceGroup \
+    --name myVM
+```
+
+### <a name="vmss"></a>VMSS
+VMSS는 약간 다르지만 동일한 워크플로를 따릅니다.  먼저 VM을 중지합니다.
+
+```azurecli
+az vmss deallocate \
+    --name myvmss \
+    --resource-group myrg
+```
+
+VM이 중지되면 네트워크 인터페이스 아래의 가속 네트워킹 속성을 업데이트합니다.
+
+```azurecli
+az vmss update --name myvmss \
+    --resource-group myrg \
+    --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
+```
+
+VMSS에는 자동, 롤링, 수동의 세 가지 다른 설정으로 업데이트를 적용하는 VM 업그레이드가 있습니다.  이 지침에서는 다시 시작한 후 VMSS에서 변경 내용을 즉시 픽업하도록 정책이 자동으로 설정되었습니다.  변경 내용이 즉시 픽업되도록 정책을 자동으로 설정하려면 다음을 실행합니다. 
+
+```azurecli
+az vmss update \
+    --name myvmss \
+    --resource-group myrg \
+    --set upgradePolicy.mode="automatic"
+```
+
+마지막으로, VMSS를 다시 시작합니다.
+
+```azurecli
+az vmss start \
+    --name myvmss \
+    --resource-group myrg
+```
+
+다시 시작하고 업그레이드가 완료될 때까지 기다린 후 완료되면 VF가 VM 내부에 나타납니다.  지원되는 OS 및 VM 크기를 사용 중인지 확인합니다.
+
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>가속 네트워킹을 사용하는 기존 VM 크기 조정
+
+가속 네트워킹을 사용하는 VM은 가속 네트워킹이 지원되는 VM으로만 크기 조정할 수 있습니다.  
+
+크기 조정 작업을 통해 가속 네트워킹을 사용하는 VM을 가속 네트워킹이 지원되지 않는 VM 인스턴스로 크기 조정할 수 없습니다.  이러한 VM 중 하나의 크기를 조정하려면 다음을 수행합니다. 
+
+* VM을 중지/할당 취소하거나, 가용성 집합/VMSS인 경우 집합/VMSS에 포함된 모든 VM을 중지/할당 취소합니다.
+* VM 또는 가용성 집합/VMSS인 경우, 집합/VMSS에 포함된 모든 VM의 NIC에서 가속 네트워킹을 사용하지 않도록 설정해야 합니다.
+* 가속 네트워킹이 사용되지 않으면 VM/가용성 집합/VMSS를 가속 네트워킹이 지원되지 않는 새 크기로 이동하고 다시 시작할 수 있습니다.  
+

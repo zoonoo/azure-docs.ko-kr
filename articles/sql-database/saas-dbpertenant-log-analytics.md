@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942062"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>다중 테넌트 SQL Database SaaS 앱을 사용하여 Log Analytics 설정 및 사용
 
@@ -53,7 +54,7 @@ Log Analytics 작업 영역 및 분석 솔루션은 Azure Portal과 Operations M
 
 3. 이제 로드 생성기를 시작하여 모든 테넌트에서 시뮬레이션된 로드를 실행합니다.
 
-    a. **$DemoScenario = 2**, _Generate normal intensity load (approx. 30 DTU)_를 설정합니다.
+    a. **$DemoScenario = 2**, _Generate normal intensity load (approx. 30 DTU)_ 를 설정합니다.
 
     나. 스크립트를 실행하려면 F5 키를 누릅니다.
 
@@ -65,7 +66,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics는 Log Analytics 작업 영역에서 로그 데이터, 원격 분석 및 메트릭을 수집합니다. Log Analytics 작업 영역은 Azure의 다른 리소스와 마찬가지로 생성이 필요합니다. 작업 영역을 자신이 모니터링하는 응용 프로그램과 동일한 리소스 그룹에서 만들 필요는 없습니다. 대부분의 경우 이렇게 하는 것이 적합합니다. Wingtip Tickets 앱의 경우 하나의 리소스 그룹을 사용하면 작업 영역이 응용 프로그램과 함께 삭제되도록 할 수 있습니다.
 
-1. PowerShell ISE에서, *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\**Demo-LogAnalytics.ps1***을 엽니다.
+1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*을 엽니다.
 2. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 이제 Azure Portal에서 또는 Operations Management Suite 포털에서 Log Analytics를 열 수 있습니다. Log Analytics 작업 영역에서 원격 분석을 수집하여 표시하는 데는 몇 분 정도 시간이 걸립니다. 시스템의 데이터 수집 시간이 길어질수록 더 유용한 데이터가 수집됩니다. 
@@ -79,7 +80,7 @@ Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics
 
    ![Log Analytics 열기](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-2. 이름이 _wtploganalytics-&lt;user&gt;_인 작업 영역을 선택합니다.
+2. 이름이 _wtploganalytics-&lt;user&gt;_ 인 작업 영역을 선택합니다.
 
 3. **개요**를 선택하여 Azure Portal에서 Log Analytics를 엽니다.
 
