@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: c4cd3c79b64ef6ba86c7764f0ae27e29418e9ee5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2335872bcd7d3ea64e449d8b1a43f360d86bb4a0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304633"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage 탐색기 시작
 ## <a name="overview"></a>개요
@@ -34,6 +35,8 @@ Azure Storage 탐색기는 다음 버전의 Windows에서 지원됩니다.
 * Windows 10(권장)
 * Windows 8
 * Windows 7
+
+모든 버전의 Windows에서는 .NET Framework 4.6.2 이상 버전이 필요합니다.
 
 [Storage 탐색기 다운로드 및 설치](http://www.storageexplorer.com)
 

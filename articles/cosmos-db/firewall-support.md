@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196800"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 방화벽 지원
 Azure Cosmos DB 데이터베이스 계정에 저장된 데이터를 보호하기 위해 Azure Cosmos DB는 강력한 HMAC(해시 기반 메시지 인증 코드)를 활용하는 암호 기반 [권한 부여 모델](https://msdn.microsoft.com/library/azure/dn783368.aspx)을 지원했습니다. 이제 Azure Cosmos DB는 암호 기반 권한 부여 모델 외에도 인바운드 방화벽 지원에 대한 정책 중심 IP 기반 액세스 제어를 지원합니다. 이 모델은 기존 데이터베이스 시스템의 방화벽 규칙과 유사하며 Azure Cosmos DB 데이터베이스 계정에 추가 보안 수준을 제공합니다. 이제 이 모델에서는 승인된 컴퓨터 및/또는 클라우드 서비스에서만 액세스할 수 있도록 Azure Cosmos DB 데이터베이스 계정을 구성할 수 있습니다. 이러한 승인된 컴퓨터 및 서비스에서 Azure Cosmos DB 리소스에 액세스하려면 여전히 호출자가 유효한 권한 부여 토큰을 제공해야 합니다.
+
+> [!NOTE]
+> 현재 방화벽 지원은 Azure Cosmos DB SQL API 및 Mongo API 계정에만 사용 가능합니다. Azure Germany 또는 Azure Government와 같은 소버린 클라우드 및 다른 API에 대해 방화벽을 구성하는 기능은 곧 제공될 예정입니다. 기존 IP 방화벽이 구성된 Azure Cosmos DB 계정에 대해 서비스 엔드포인트 ACL을 구성하려는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트 ACL을 구성합니다. 서비스 엔드포인트를 구성한 후 필요한 경우에 IP 방화벽을 다시 활성화할 수 있습니다.
 
 ## <a name="ip-access-control-overview"></a>IP 액세스 제어 개요
 기본적으로 요청에 유효한 권한 부여 토큰이 포함되어 있으면 공용 인터넷에서 Azure Cosmos DB 데이터베이스 계정에 액세스할 수 있습니다. IP 정책 기반 액세스 제어를 구성하려면 사용자가 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 또는 IP 주소 범위를 CIDR 형식으로 제공해야 합니다. 이 구성이 적용되면 이 허용되는 목록 이외의 컴퓨터에서 보내는 모든 요청을 서버에서 차단합니다.  IP 기반 액세스 제어의 연결 처리 흐름은 다음 다이어그램에 설명되어 있습니다.

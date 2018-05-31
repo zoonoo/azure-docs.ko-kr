@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 852c854de9feb9bcc98fc89aa9340b93f2c4e8d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212792"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>온-프레미스 컴퓨터 복제를 위한 Azure 리소스 준비
 
@@ -47,7 +48,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 복제된 컴퓨터의 이미지는 Azure Storage에 유지됩니다. 온-프레미스에서 Azure로 장애 조치할 때 저장소에서 Azure VM이 만들어집니다.
 
 1. [Azure Portal](https://portal.azure.com) 메뉴에서 **새로 만들기** > **Storage** > **저장소 계정**을 선택합니다.
-2. **저장소 계정 만들기**에서 계정의 이름을 입력합니다. 이 자습서에서는 **contosovmsacct1910171607**이라는 이름이 사용됩니다. 이름은 Azure 내에서 고유해야 하며 길이가 3자에서 24자 사이이고 숫자 및 소문자만 포함해야 합니다.
+2. **저장소 계정 만들기**에서 계정의 이름을 입력합니다. 이 자습서에서는 **contosovmsacct1910171607**을 사용합니다. 선택한 이름은 Azure 내에서 고유해야 하며 길이가 3자에서 24자 사이이고 숫자 및 소문자만 포함해야 합니다.
 3. **배포 모델**에서 **Resource Manager**를 선택합니다.
 4. **계정 종류**에서 **범용**을 선택합니다. **성능**에서 **표준**을 선택합니다. Blob Storage를 선택하지 마세요.
 5. **복제**에서 저장소 중복에 대해 기본 **읽기 액세스 지역 중복 저장소**를 선택합니다.
@@ -62,7 +63,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
 1. Azure Portal에서 **리소스 만들기** > **모니터링 + 관리** > **Backup 및 Site Recovery**를 선택합니다.
-2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서에서는 **ContosoVMVault**가 사용됩니다.
+2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서의 집합의 경우 **ContosoVMVault**를 사용합니다.
 3. **리소스 그룹**에서 **contosoRG**라는 기존 리소스 그룹을 선택합니다.
 4. **위치**에 이 자습서 집합에서 사용되는 Azure 지역 **유럽 서부**를 입력합니다.
 5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **만들기**를 선택합니다.

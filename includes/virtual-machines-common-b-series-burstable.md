@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8a7207328f49488b0df8f6e1e0ed86c6f965d32f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34307440"
 ---
 B 시리즈 VM 제품군을 사용하면 워크로드에 필요한 기준 수준 성능을 제공하는 VM 크기를 선택할 수 있으며, Intel® Broadwell E5-2673 v4 2.3GHz 또는 Intel® Haswell 2.4GHz E5-2673 v3 프로세서 vCPU의 CPU 성능을 최대 100%까지 버스트할 수 있습니다.
 
@@ -58,8 +59,8 @@ Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세�
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q: B 시리즈에서 Premium Storage 데이터 디스크를 지원하나요?
 **A**: 예, B 시리즈 크기는 모두 Premium Storage 데이터 디스크를 지원합니다.   
     
-### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>Q: redepoy 또는 중지/시작 후에 남은 크레딧은 0으로 설정됩니다.
-**A** : VM이 "REDPLOYED" 즉, VM이 다른 노드로 이동한 경우 누적된 크레딧은 손실됩니다. VM이 중지/시작했지만 동일한 노드에 남아 있는 경우 VM은 누적된 크레딧을 유지합니다. VM이 노드에서 새로 시작할 때마다 초기 크레딧을 가져오는데 Standard_B8ms의 경우 240분입니다.
+### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>Q: redepoy 또는 중지/시작 후에 남은 크레딧이 0으로 설정되는 이유는 무엇인가요?
+**A** : VM이 "REDPLOYED" 상태이고 VM이 다른 노드로 이동한 경우 누적된 크레딧은 손실됩니다. VM이 중지/시작했지만 동일한 노드에 남아 있는 경우 VM은 누적된 크레딧을 유지합니다. VM이 노드에서 새로 시작할 때마다 초기 크레딧을 가져오는데 Standard_B8ms의 경우 240분입니다.
 
     
 

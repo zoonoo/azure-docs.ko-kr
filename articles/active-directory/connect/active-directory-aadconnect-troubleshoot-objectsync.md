@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068230"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193766"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 개체 동기화 문제 해결
 이 문서에서는 문제 해결 작업을 사용하여 개체 동기화 관련 문제를 해결하는 방법에 대한 단계를 제공합니다.
@@ -91,6 +91,8 @@ OU 필터링 구성으로 인해 개체가 동기화 범위를 벗어납니다. 
 
 ## <a name="dynamic-distribution-group-issue"></a>동적 배포 목록 문제
 온-프레미스 Active Directory와 Azure Active Directory 간의 다양한 차이 때문에 Azure AD Connect는 Azure AD 테넌트에 동적 배포 목록을 동기화하지 않습니다.
+
+![동적 메일 그룹](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>HTML 보고서
 문제 해결 작업은 개체를 분석하는 것 외에 개체에 대해 알려진 모든 정보가 포함된 HTML 보고서도 생성합니다. 필요한 경우 추가 문제 해결을 위해 이 HTML 보고서를 지원 팀과 공유할 수 있습니다.

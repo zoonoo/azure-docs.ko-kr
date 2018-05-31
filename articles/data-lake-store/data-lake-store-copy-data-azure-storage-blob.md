@@ -1,24 +1,23 @@
 ---
-title: "Azure Storage Blobs에서 Data Lake Store로 데이터 복사 | Microsoft 문서"
-description: "AdlCopy 도구를 사용하여 Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사"
+title: Azure Storage Blobs에서 Data Lake Store로 데이터 복사 | Microsoft 문서
+description: AdlCopy 도구를 사용하여 Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 964ba0eb9c619fa226b0704a6c83c05186a95261
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197157"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사
 > [!div class="op_single_selector"]
@@ -37,7 +36,7 @@ Azure Data Lake Store는 다음 원본에서 데이터를 복사하는 [AdlCopy]
 * **독립 실행형**, 여기서 도구는 데이터 레이크 저장소 리소스를 사용하여 작업을 수행합니다.
 * **데이터 레이크 분석 계정 사용**, 여기서 데이터 레이크 분석 계정에 할당된 단위는 복사 작업을 수행하는 데 사용됩니다. 예측 가능한 방식으로 복사 작업을 수행하려는 경우 이 옵션을 사용 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.

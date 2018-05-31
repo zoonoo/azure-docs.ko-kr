@@ -10,16 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168914"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198972"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>HDInsight의 Hive 및 Azure Data Lake Store에 대한 성능 조정 지침
 
@@ -47,9 +45,9 @@ ADLS 성능 향상을 위해 조정할 가장 중요한 설정은 다음과 같�
 
 **hive.tez.container.size** - 컨테이너 크기에 따라 각 태스크에 사용 가능한 메모리 양이 결정됩니다.  Hive에서 동시성을 제어하기 위한 기본 입력입니다.  
 
-**tez.grouping.min-size** – 이 매개 변수를 통해 각 매퍼의 최소 크기를 설정할 수 있습니다.  Tez에서 선택한 매퍼 수가 이 매개 변수 값보다 작은 경우 Tez에서 여기서 설정된 값을 사용합니다.  
+**tez.grouping.min-size** – 이 매개 변수를 통해 각 매퍼의 최소 크기를 설정할 수 있습니다.  Tez에서 선택한 매퍼 수가 이 매개 변수 값보다 작은 경우 Tez에서 여기서 설정된 값을 사용합니다.
 
-**tez.grouping.max-size** – 매개 변수를 통해 각 매퍼의 최대 크기를 설정할 수 있습니다.  Tez에서 선택한 매퍼 수가 이 매개 변수 값보다 큰 경우 Tez에서 여기에 설정된 값을 사용합니다.  
+**tez.grouping.max-size** – 매개 변수를 통해 각 매퍼의 최대 크기를 설정할 수 있습니다.  Tez에서 선택한 매퍼 수가 이 매개 변수 값보다 큰 경우 Tez에서 여기에 설정된 값을 사용합니다.
 
 **hive.exec.reducer.bytes.per.reducer** – 이 매개 변수는 각 리듀서의 크기를 설정합니다.  기본적으로 각 리듀서는 256MB입니다.  
 
@@ -76,9 +74,10 @@ ADLS를 사용하여 성능을 개선하기 위한 핵심은 가능한 동시성
     # of YARN containers = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>제한 사항
+
 **ADLS 제한** 
 
-ADLS에서 제공하는 대역폭 한계에 도달한 경우 태스크 오류가 표시됩니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  Tez 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.  작업에 대한 동시성이 더 필요한 경우 문의하세요.   
+ADLS에서 제공하는 대역폭 한계에 도달한 경우 태스크 오류가 표시됩니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  Tez 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.  작업에 대한 동시성이 더 필요한 경우 문의하세요.
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정해야 합니다. 그 방법은 다음과 같습니다.
 

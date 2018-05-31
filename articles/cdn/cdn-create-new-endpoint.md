@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198710"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 끝점 만들기
 이 빠른 시작에서는 새로운 CDN 프로필 및 CDN 끝점을 만들어서 Azure CDN(Content Delivery Network)을 사용하도록 설정합니다. 프로필과 끝점을 만든 후에 고객에게 콘텐츠를 제공하기 시작할 수 있습니다.
@@ -87,6 +88,6 @@ CDN 프로필을 만든 후에 끝점을 만드는 데 사용할 수 있습니�
 사용자 지정 도메인을 CDN 끝점에 추가하는 방법에 대해 알아보려면 다음 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure CDN을 웹앱에 추가](app-service-web-tutorial-content-delivery-network.md)
+> [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
 
 
