@@ -1,9 +1,9 @@
 ---
 title: 워크플로 정의 언어 함수 - Azure Logic Apps | Microsoft Docs
-description: 논리 앱 워크플로 정의에 사용할 수 있는 함수에 대해 알아봅니다.
+description: 워크플로 정의 언어를 사용하여 논리 앱을 만드는 함수에 대해 알아봅니다.
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182253"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886615"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Azure Logic Apps에 대한 워크플로 정의 언어 함수 참조
 
-이 문서에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)으로 워크플로를 만들 때 사용할 수 있는 함수를 설명합니다. 논리 앱 정의에 대한 자세한 내용은 [Azure Logic Apps에 대한 워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)를 참조하세요. 
+이 문서에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)으로 워크플로를 만들 때 사용할 수 있는 함수를 설명합니다. 논리 앱 정의의 함수에 대한 자세한 내용은 [Azure Logic Apps에 대한 워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md#functions)를 참조하세요. 
 
 > [!NOTE]
 > 매개 변수 정의 구문에서 매개 변수 뒤에 나오는 물음표(?)는 해당 매개 변수가 선택 사항임을 의미합니다. 예를 들어 [getFutureTime()](#getFutureTime)을 참조하세요.
@@ -617,7 +617,7 @@ base64ToBinary('aGVsbG8=')
 
 ## <a name="base64tostring"></a>base64ToString
 
-base64로 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 base64 문자열을 디코딩합니다. [decodeBase64()](#decodeBase64) 대신에 이 함수를 사용합니다. 두 함수 모두 같은 방법으로 작동하지만 `base64ToString()`을 사용하는 것이 좋습니다.
+base64로 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 base64 문자열을 디코딩합니다. [decodeBase64()](#decodeBase64) 대신에 이 함수를 사용합니다. 두 함수 모두 같은 방법으로 작동하지만 `base64ToString()`를 사용하는 것이 좋습니다.
 
 ```
 base64ToString('<value>')
@@ -1210,7 +1210,7 @@ dayOfYear('2018-03-15T13:27:36Z')
 
 ## <a name="decodebase64"></a>decodeBase64
 
-base64로 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 base64 문자열을 디코딩합니다. `decodeBase64()` 대신에 [base64ToString()](#base64ToString)의 사용을 검토해 보세요. 두 함수 모두 같은 방법으로 작동하지만 `base64ToString()`을 사용하는 것이 좋습니다.
+base64로 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 base64 문자열을 디코딩합니다. `decodeBase64()` 대신에 [base64ToString()](#base64ToString)의 사용을 검토해 보세요. 두 함수 모두 같은 방법으로 작동하지만 `base64ToString()`를 사용하는 것이 좋습니다.
 
 ```
 decodeBase64('<value>')

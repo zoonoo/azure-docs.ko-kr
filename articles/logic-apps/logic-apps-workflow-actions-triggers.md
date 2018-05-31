@@ -1,67 +1,89 @@
 ---
 title: 워크플로 트리거 및 작업 - Azure Logic Apps | Microsoft Docs
-description: 논리 앱을 사용하여 자동화된 워크플로 및 프로세스를 만드는 트리거 및 작업을 알아봅니다.
+description: Azure Logic Apps에 대한 워크플로 정의에서 트리거 및 작업에 대해 알아보기
 services: logic-apps
-author: divyaswarnkar
-manager: anneta
+author: kevinlam1
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
-ms.date: 10/13/2017
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: reference
+ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886785"
 ---
-# <a name="triggers-and-actions-for-logic-app-workflows"></a>논리 앱 워크플로의 트리거 및 작업
+# <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의에 대한 트리거 및 작업
 
-모든 논리 앱은 트리거로 시작되고 뒤에 작업이 나옵니다. 이 문서에서는 논리 앱을 빌드하여 시스템 통합을 만들고 비즈니스 워크플로 또는 프로세스를 자동화하는 데 사용할 수 있는 트리거 및 작업 종류에 대해 설명합니다. 
-  
-## <a name="triggers-overview"></a>트리거 개요 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 모든 논리 앱 워크플로는 트리거로 시작되고, 작업이 이어집니다. 이 문서에서는 통합 솔루션에서 비즈니스 워크플로 또는 프로세스를 자동화하기 위한 논리 앱을 빌드하는 데 사용할 수 있는 트리거 및 작업을 설명합니다. Logic Apps 디자이너를 시각적으로 사용하거나 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)로 기본 워크플로 정의를 직접 작성하여 논리 앱을 빌드할 수 있습니다. Azure Portal 또는 Visual Studio를 사용할 수 있습니다. [트리거 및 작업에 대한 가격 책정 방식](../logic-apps/logic-apps-pricing.md)에 대해 알아보세요.
 
-모든 논리 앱은 논리 앱 실행을 시작할 수 있는 호출을 지정하는 트리거로 시작됩니다. 사용할 수 있는 트리거 유형은 다음과 같습니다.
+<a name="triggers-overview"></a>
+
+## <a name="triggers-overview"></a>트리거 개요
+
+모든 논리 앱은 논리 앱 워크플로를 시작할 수 있는 호출을 지정하는 트리거로 시작됩니다. 사용할 수 있는 트리거 유형은 다음과 같습니다.
 
 * *폴링* 트리거 - 정기적인 간격으로 서비스의 HTTP 엔드포인트를 검사합니다.
 * *푸시* 트리거 - [워크플로 서비스 REST API](https://docs.microsoft.com/rest/api/logic/workflows)를 호출합니다.
-  
-모든 트리거는 다음과 같은 상위 수준 요소를 포함합니다.  
+ 
+모든 트리거에는 이러한 최상위 요소가 있습니다. 단, 일부는 선택 사항입니다.  
   
 ```json
-"<myTriggerName>": {
-    "type": "<triggerType>",
-    "inputs": { <callSettings> },
-    "recurrence": {  
-        "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-        "interval": "<recurrence-interval-based-on-frequency>"
-    },
-    "conditions": [ <array-with-required-conditions> ],
-    "splitOn": "<property-used-for-creating-runs>",
-    "operationOptions": "<options-for-operations-on-the-trigger>"
+"<triggerName>": {
+   "type": "<triggerType>",
+   "inputs": { "<trigger-behavior-settings>" },
+   "recurrence": { 
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "conditions": [ <array-with-required-conditions> ],
+   "splitOn": "<property-used-for-creating-runs>",
+   "operationOptions": "<optional-trigger-operations>"
 }
 ```
 
-## <a name="trigger-types-and-inputs"></a>트리거 유형 및 입력  
+*필수*
 
-각 트리거 유형은 다른 인터페이스 및 해당 동작을 정의하는 다른 *inputs*를 갖습니다. 
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| <*triggerName*> | JSON 개체 | JSON(Javascript Notation) 형식에 설명된 개체인 트리거에 대한 이름  | 
+| 형식 | 문자열 | 트리거 유형, 예: “Http” 또는 “ApiConnection” | 
+| inputs | JSON 개체 | 트리거의 동작을 정의하는 트리거의 입력 | 
+| 되풀이 | JSON 개체 | 트리거가 실행되는 빈도를 설명하는 간격과 빈도 |  
+| frequency | 문자열 | 트리거가 실행되는 빈도를 설명하는 시간 단위: “초”, “분”, “시간”, “일”, “주” 또는 “월” | 
+| interval | 정수  | 빈도에 따라 트리거가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 "월"이면 되풀이 간격은 6개월마다입니다. | 
+|||| 
+
+*선택 사항*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| [조건](#trigger-conditions) | 배열 | 워크플로를 실행할 것인지 여부를 결정하는 하나 이상의 조건 | 
+| [splitOn](#split-on-debatch) | 문자열 | 처리를 위해 여러 워크플로 인스턴스로 배열 항목을 분할 또는 *분리*하는 식입니다. 이 옵션은 코드 보기에서 직접 작업하는 경우에만 배열을 반환하는 트리거에 대해 사용할 수 있습니다. | 
+| [operationOptions](#trigger-operation-options) | 문자열 | 일부 트리거는 사용자가 기본 트리거 동작을 변경할 수 있는 추가 옵션을 제공합니다. | 
+||||| 
+
+## <a name="trigger-types-and-details"></a>트리거 유형 및 세부 정보  
+
+각 트리거 유형은 트리거의 동작을 정의하는 다른 인터페이스 및 입력을 갖습니다. 
 
 | 트리거 유형 | 설명 | 
 | ------------ | ----------- | 
-| **되풀이** | 정의된 일정에 따라 실행합니다. 이 트리거를 발생시키기 위한 미래의 날짜 및 시간을 설정할 수 있습니다. 빈도에 따라 워크플로를 실행할 시간 및 요일을 지정할 수도 있습니다. | 
-| **요청**  | "수동" 트리거로도 알려져 있는 호출할 수 있는 끝점으로의 논리 앱을 만듭니다. | 
-| **HTTP** | HTTP 웹 끝점을 확인 또는 *폴링*합니다. HTTP 끝점은 “202” 비동기 패턴을 사용하거나 배열을 반환하여 특정 트리거링 계약을 준수해야 합니다. | 
-| **ApiConnection** | HTTP 트리거처럼 폴링하지만 [Microsoft에서 관리하는 API](../connectors/apis-list.md)를 사용합니다. | 
-| **HTTPWebhook** | **Request** 트리거와 같이 논리 앱을 호출 가능한 엔드포인트에 만들지만, 등록 및 등록 취소를 위해 지정된 URL을 호출합니다. |
-| **ApiConnectionWebhook** | **HTTPWebhook** 트리거처럼 작동하지만 Microsoft에서 관리하는 API를 사용합니다. | 
+| [**Recurrence**](#recurrence-trigger) | 정의된 일정에 따라 실행합니다. 이 트리거를 발생시키기 위한 미래의 날짜 및 시간을 설정할 수 있습니다. 빈도에 따라 워크플로를 실행할 시간 및 요일을 지정할 수도 있습니다. | 
+| [**Request**](#request-trigger)  | “수동” 트리거로도 알려져 있는 호출할 수 있는 엔드포인트로의 논리 앱을 만듭니다. 예를 들어 [HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. | 
+| [**HTTP**](#http-trigger) | HTTP 웹 끝점을 확인 또는 *폴링*합니다. HTTP 엔드포인트는 “202” 비동기 패턴을 사용하거나 배열을 반환하여 특정 트리거 계약을 준수해야 합니다. | 
+| [**ApiConnection**](#apiconnection-trigger) | HTTP 트리거처럼 작동하지만 [Microsoft에서 관리하는 API](../connectors/apis-list.md)를 사용합니다. | 
+| [**HTTPWebhook**](#httpwebhook-trigger) | Request 트리거처럼 작동하지만 등록 및 등록 취소를 위해 지정된 URL을 호출합니다. |
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | HTTPWebhook 트리거처럼 작동하지만 [Microsoft에서 관리하는 API](../connectors/apis-list.md)를 사용합니다. | 
 ||| 
-
-자세한 내용은 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)를 참조하세요. 
 
 <a name="recurrence-trigger"></a>
 
@@ -69,161 +91,265 @@ ms.lasthandoff: 04/20/2018
 
 이 트리거는 사용자가 지정하는 되풀이 및 일정에 따라 실행되고 워크플로를 주기적으로 실행하는 쉬운 방법을 제공합니다. 
 
-매일 실행되는 기본 되풀이 트리거 예제는 다음과 같습니다.
+트리거 정의 다음과 같습니다.
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+"Recurrence": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month",
+      "interval": <recurrence-interval-based-on-frequency>,
+      "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+      "timeZone": "<time-zone>",
+      "schedule": {
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "hours": [ <one-or-more-hour-marks> ], 
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "minutes": [ <one-or-more-minute-marks> ], 
+         // Applies only when frequency is Week. Separate values with commas.
+         "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
+      }
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+*필수*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| 되풀이 | JSON 개체 | JSON(Javascript Notation) 형식에 설명된 개체인 트리거에 대한 이름  | 
+| 형식 | 문자열 | “Recurrence”인 트리거 유형 | 
+| inputs | JSON 개체 | 트리거의 동작을 정의하는 트리거의 입력 | 
+| 되풀이 | JSON 개체 | 트리거가 실행되는 빈도를 설명하는 간격과 빈도 |  
+| frequency | 문자열 | 트리거가 실행되는 빈도를 설명하는 시간 단위: “초”, “분”, “시간”, “일”, “주” 또는 “월” | 
+| interval | 정수  | 빈도에 따라 트리거가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 "월"이면 되풀이 간격은 6개월마다입니다. | 
+|||| 
+
+*선택 사항*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| startTime | 문자열 | 다음 형식의 시작 날짜 및 시간: <p>YYYY-MM-DDThh:mm:ss(표준 시간대를 지정하는 경우) <p>또는 <p>YYYY-MM-DDThh:mm:ssZ(표준 시간대를 지정하지 않는 경우) <p>따라서 예를 들어 2017년 9월 18일, 오후 2시를 원할 경우 “2017-09-18T14:00:00”을 지정하고 “태평양 표준시”와 같은 표준 시간대를 지정하거나 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜 시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜 시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 지정하지 않으면 공백 없이 맨 끝에 문자 "Z"를 추가해야 합니다. 이 "Z"는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간이 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. 시작 날짜 및 시간에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요. | 
+| timeZone | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 지정합니다. | 
+| hours | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~23 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 시간으로 지정할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
+| minutes | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~59 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 분으로 지정할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
+| weekDays | 문자열 또는 문자열 배열 | `frequency`에 대해 “Week”를 지정하는 경우 워크플로를 실행하려는 경우 하나 이상의 요일을 쉼표로 구분해서 지정할 수 있습니다. 예를 들면 "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"와 같이 지정합니다. | 
+| 동시성 | JSON 개체 | 되풀이 및 폴링 트리거의 경우 이 개체는 동시에 실행할 수 있는 최대 워크플로 인스턴스 수를 지정합니다. 이 값을 사용하여 백 엔드 시스템에서 수신하는 요청을 제한합니다. <p>예를 들어 이 값은 동시성 제한을 10개 인스턴스로 설정합니다. `"concurrency": { "runs": 10 }` | 
+| operationOptions | 문자열 | `singleInstance` 옵션은 모든 활성 실행이 완료된 후에만 트리거가 실행되도록 지정합니다. [트리거: 모든 활성 실행이 완료된 후에만 실행](#single-instance)을 참조하세요. | 
+|||| 
+
+*예 1*
+
+이 기본 되풀이 트리거가 매일 실행됩니다.
+
+```json
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-트리거를 발생시키기 위한 시작 날짜 및 시간을 예약할 수도 있습니다. 예를 들어 매주 월요일마다 주간 보고서를 시작하려면 다음 예제와 같이 논리 앱이 특정 월요일에 시작되도록 예약할 수 있습니다. 
+*예 2*
+
+트리거를 실행할 시작 날짜 및 시간을 설정할 수 있습니다. 이 되풀이 트리거는 지정된 날짜에 시작한 다음, 매일 실행됩니다.
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": "1",
-        "startTime": "2017-09-18T00:00:00Z"
-    }
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1,
+      "startTime": "2017-09-18T00:00:00Z"
+   }
 }
 ```
 
-이 트리거에 대한 정의는 다음과 같습니다.
+*예 3*
 
-```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "second|minute|hour|day|week|month",
-        "interval": <recurrence-interval-based-on-frequency>,
-        "schedule": {
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ <one-or-more-hour-marks> ], 
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ <one-or-more-minute-marks> ], 
-            // Applies only when frequency is Week. Separate values with commas.
-            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
-        },
-        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
-        "timeZone": "<specify-time-zone>"
-    }
-}
-```
-
-| 요소 이름 | 필수 | 형식 | 설명 | 
-| ------------ | -------- | ---- | ----------- | 
-| frequency | 예 | 문자열 | 트리거 발생 빈도의 시간 단위입니다. 값으로 "second", "minute", "hour", "day", "week" 또는 "month" 중 하나만 사용합니다. | 
-| interval | 예 | 정수  | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 "월"이면 되풀이 간격은 6개월마다입니다. | 
-| timeZone | 아니오 | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 지정합니다. | 
-| startTime | 아니오 | 문자열 | 시작 날짜 및 시간을 다음 형식으로 지정합니다. <p>YYYY-MM-DDThh:mm:ss(표준 시간대를 지정하는 경우) <p>또는 <p>YYYY-MM-DDThh:mm:ssZ(표준 시간대를 지정하지 않는 경우) <p>예를 들어 2017년 9월 18일, 오후 2시를 원할 경우 "2017-09-18T14:00:00"을 지정하고 "태평양 표준시"와 같은 표준 시간대를 지정합니다. 또는 표준 시간대 없이 "2017-09-18T14:00:00Z"를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜/시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜/시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 지정하지 않으면 공백 없이 맨 끝에 문자 "Z"를 추가해야 합니다. 이 "Z"는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간이 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. 시작 날짜 및 시간에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요. | 
-| weekDays | 아니요 | 문자열 또는 문자열 배열 | `frequency`에 대해 “Week”를 지정하는 경우 워크플로를 실행하려는 경우 하나 이상의 요일을 쉼표로 구분해서 지정할 수 있습니다. 예를 들면 "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"와 같이 지정합니다. | 
-| hours | 아니요 | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~23 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 시간으로 지정할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
-| minutes | 아니요 | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~59 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 분으로 지정할 수 있습니다. <p>예를 들어 분 표시로 "30"을 지정하고, 앞에 나온 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
-||||| 
-
-예를 들어 이 recurrence 트리거는 논리 앱이 내주 월요일, 태평양 표준시로 오전 10시 30분, 오후 12시 30분 및 오후 2시 30분에 실행되고, 2017년 9월 9일, 오후 2시 이전에는 시작되지 않도록 지정합니다.
+이 되풀이 트리거는 2017년 9월 9일 오후 2시에 시작하고, 매주 월요일 오전 10시 30분, 오후 12시 30분, 오후 2시 30분에 실행됩니다(태평양 표준시).
 
 ``` json
 "myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": 1,
-        "schedule": {
-            "hours": [
-                10,
-                12,
-                14
-            ],
-            "minutes": [
-                30
-            ],
-            "weekDays": [
-                "Monday"
-            ]
-        },
-       "startTime": "2017-09-07T14:00:00",
-       "timeZone": "Pacific Standard Time"
-    }
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "hours": [ 10, 12, 14 ],
+         "minutes": [ 30 ],
+         "weekDays": [ "Monday" ]
+      },
+      "startTime": "2017-09-07T14:00:00",
+      "timeZone": "Pacific Standard Time"
+   }
 }
 ```
 
-이 트리거의 되풀이 및 시작 시간 예제에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요.
+이 트리거에 대한 자세한 정보 및 예제는 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요.
+
+<a name="request-trigger"></a>
 
 ## <a name="request-trigger"></a>요청 트리거
 
-이 트리거는 HTTP 요청을 통해 논리 앱을 호출하는 데 사용할 수 있는 끝점으로 제공됩니다. 요청 트리거는 다음 예제와 같이 표시됩니다.  
-  
+이 트리거는 들어오는 HTTP 요청을 수락할 수 있는 엔드포인트를 만들어서 논리 앱을 호출할 수 있게 합니다. 이 트리거를 호출하려면 [워크플로 서비스 REST API](https://docs.microsoft.com/rest/api/logic/workflows)에서 `listCallbackUrl` API를 사용해야 합니다. HTTP 엔드포인트로 이 트리거를 사용하는 방법을 알아보려면 [HTTP 엔드포인트를 사용하여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
+
 ```json
-"myRequestTrigger": {
-    "type": "Request",
-    "kind": "Http",
-    "inputs": {
-        "schema": {
-            "type": "Object",
-            "properties": {
-                "myInputProperty1": { "type" : "string" },
-                "myInputProperty2": { "type" : "number" }
-            },
-            "required": [ "myInputProperty1" ]
-        }
-    }
-} 
-```
-
-또한 이 트리거에는 `schema`라는 선택적 속성도 있습니다.
-  
-| 요소 이름 | 필수 | 형식 | 설명 |
-| ------------ | -------- | ---- | ----------- |
-| schema | 아니오 | Object | 들어오는 요청의 유효성을 검사하는 JSON 스키마입니다. 후속 워크플로 단계에서 참조할 속성을 파악하는 데 유용합니다. | 
-||||| 
-
-이 트리거를 엔드포인트로 호출하려면 `listCallbackUrl` API를 호출해야 합니다. [워크플로 서비스 REST API](https://docs.microsoft.com/rest/api/logic/workflows)를 참조하세요.
-
-## <a name="http-trigger"></a>HTTP 트리거  
-
-이 트리거는 지정된 엔드포인트를 폴링하고 응답을 확인하여 워크플로를 실행할지 여부를 결정합니다. 여기서 `inputs` 개체는 HTTP 호출을 생성하는 데 필요한 다음 매개 변수를 사용합니다. 
-
-| 요소 이름 | 필수 | 형식 | 설명 | 
-| ------------ | -------- | ---- | ----------- | 
-| 메서드 | 예 | 문자열 | HTTP 메서드 "GET", "POST", "PUT", "DELETE", "PATCH" 또는 "HEAD" 중 하나를 사용합니다. | 
-| uri | 예| 문자열 | 트리거가 확인하는 HTTP 또는 HTTPS 끝점입니다. 최대 문자열 크기: 2KB | 
-| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니요 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니오 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
-| 인증 | 아니요 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. <p>스케줄러 이외에도 지원되는 속성이 하나 더 있습니다. `authority` 기본적으로 지정되지 않은 경우 이 값은 `https://login.windows.net`이지만 `https://login.windows\-ppe.net`과 등의 다른 값을 사용할 수 있습니다. | 
-||||| 
-
-*다시 시도 정책*은 모든 연결 예외 외에도 HTTP 상태 코드 408, 429 및 5xx로 지정되는 일시적인 오류에 적용됩니다. 여기에 표시된 것처럼 `retryPolicy` 개체를 사용하여 이 정책을 정의할 수 있습니다.
-  
-```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"manual": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "relativePath": "<relative-path-for-accepted-parameter>",
+      "schema": {
+         "type": "object",
+         "properties": { 
+            "<propertyName>": {
+               "type": "<property-type>"
+            }
+         },
+         "required": [ "<required-properties>" ]
+      }
+   }
 }
 ```
 
-HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 따르는 HTTP API가 필요합니다. 트리거는 다음 속성을 인식합니다.  
+*필수*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| 수동 | JSON 개체 | JSON(Javascript Notation) 형식에 설명된 개체인 트리거에 대한 이름  | 
+| 형식 | 문자열 | “Request”인 트리거 유형 | 
+| kind | 문자열 | “Http”인 요청의 유형 | 
+| inputs | JSON 개체 | 트리거의 동작을 정의하는 트리거의 입력 | 
+|||| 
+
+*선택 사항*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| 메서드 | 문자열 | 요청에서 트리거를 호출하는 데 사용해야 하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” 또는 “HEAD” |
+| relativePath | 문자열 | HTTP 엔드포인트의 URL을 허용하는 매개 변수에 대한 상대 경로 | 
+| schema | JSON 개체 | 트리거가 들어오는 요청에서 수신하는 입력 또는 페이로드에 대해 설명하고 유효성을 검사하는 JSON 스키마. 이 스키마는 후속 워크플로 작업에서 참조할 속성을 파악하는 데 유용합니다. | 
+| properties | JSON 개체 | 페이로드를 설명하는 JSON 스키마에서 하나 이상의 속성 | 
+| 필수 | 배열 | 값이 필요한 하나 이상의 속성 | 
+|||| 
+
+*예제*
+
+이 요청 트리거는 들어오는 요청이 HTTP POST 메서드를 사용하여 트리거를 호출하고, 들어오는 요청에서 입력의 유효성을 검사하는 스키마를 지정합니다. 
+
+```json
+"myRequestTrigger": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "POST",
+      "schema": {
+         "type": "Object",
+         "properties": {
+            "customerName": {
+               "type": "String"
+            },
+            "customerAddress": { 
+               "type": "Object",
+               "properties": {
+                  "streetAddress": {
+                     "type": "String"
+                  },
+                  "city": {
+                     "type": "String"
+                  }
+               }
+            }
+         }
+      }
+   }
+} 
+```
+
+<a name="http-trigger"></a>
+
+## <a name="http-trigger"></a>HTTP 트리거  
+
+이 트리거는 지정된 엔드포인트를 폴링하고 응답을 확인합니다. 응답은 워크플로를 실행해야 하는지 여부를 결정합니다. `inputs` JSON 개체는 HTTP 호출을 생성하는 데 필요한 `method` 및 `uri` 매개 변수를 포함하며 필요로 합니다.
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": <recurrence-interval-based-on-frequency>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+
+*필수*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| HTTP | JSON 개체 | JSON(Javascript Notation) 형식에 설명된 개체인 트리거에 대한 이름  | 
+| 형식 | 문자열 | “Http”인 트리거 유형 | 
+| inputs | JSON 개체 | 트리거의 동작을 정의하는 트리거의 입력 | 
+| 메서드 | 예 | 문자열 | 지정된 엔드포인트를 폴링하기 위한 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” 또는 “HEAD” | 
+| uri | 예| 문자열 | 트리거가 확인 또는 폴링하는 HTTP 또는 HTTPS 엔드포인트 URL <p>최대 문자열 크기: 2KB | 
+| 되풀이 | JSON 개체 | 트리거가 실행되는 빈도를 설명하는 간격과 빈도 |  
+| frequency | 문자열 | 트리거가 실행되는 빈도를 설명하는 시간 단위: “초”, “분”, “시간”, “일”, “주” 또는 “월” | 
+| interval | 정수  | 빈도에 따라 트리거가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 "월"이면 되풀이 간격은 6개월마다입니다. | 
+|||| 
+
+*선택 사항*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| 쿼리 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수 <p>예를 들어 이 요소는 `?api-version=2015-02-01` 쿼리 문자열을 URL에 추가합니다. <p>`"queries": { "api-version": "2015-02-01" }` <p>결과: `https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON 개체 | 요청과 함께 보낼 하나 이상의 헤더. <p>예를 들어 요청에 대한 언어 및 유형을 설정하려면 다음을 수행합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | JSON 개체 | 엔드포인트에 보낼 페이로드(데이터) | 
+| 인증 | JSON 개체 | 들어오는 요청이 인증에 대해 사용해야 하는 메서드. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정되지 않은 경우 기본값은 `https://login.windows.net`이지만, `https://login.windows\-ppe.net`과 같이 다른 값을 사용할 수 있습니다. | 
+| retryPolicy | JSON 개체 | 이 개체는 4xx 또는 5xx 상태 코드가 있는 일시적인 오류에 대한 다시 시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| 동시성 | JSON 개체 | 되풀이 및 폴링 트리거의 경우 이 개체는 동시에 실행할 수 있는 최대 워크플로 인스턴스 수를 지정합니다. 이 값을 사용하여 백 엔드 시스템에서 수신하는 요청을 제한합니다. <p>예를 들어 이 값은 동시성 제한을 10개 인스턴스로 설정합니다. <p>`"concurrency": { "runs": 10 }` | 
+| operationOptions | 문자열 | `singleInstance` 옵션은 모든 활성 실행이 완료된 후에만 트리거가 실행되도록 지정합니다. [트리거: 모든 활성 실행이 완료된 후에만 실행](#single-instance)을 참조하세요. | 
+|||| 
+
+HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 따르는 HTTP API가 필요합니다. HTTP 트리거는 다음과 같은 속성을 인식합니다.  
   
 | response | 필수 | 설명 | 
 | -------- | -------- | ----------- |  
-| 상태 코드 | 예 | 상태 코드 200("OK")이면 실행됩니다. 다른 상태 코드이면 실행이 진행되지 않습니다. | 
-| Retry-after 헤더 | 아니오 | 논리 앱이 끝점을 다시 폴링할 때까지의 시간(초)입니다. | 
+| 상태 코드 | 예 | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
+| Retry-after 헤더 | 아니오 | 논리 앱이 엔드포인트를 다시 폴링할 때까지의 시간(초) | 
 | 위치 헤더 | 아니오 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
 |||| 
 
-다른 요청 유형의 동작에 대한 예제는 다음과 같습니다.
-  
-| 응답 코드 | 다음 후 다시 시도 | 동작 | 
-| ------------- | ----------- | -------- | 
+*다른 요청에 대한 예제 동작*
+
+| 상태 코드 | 다음 후 다시 시도 | 동작 | 
+| ----------- | ----------- | -------- | 
 | 200 | {없음} | 워크플로를 실행한 다음, 정의된 되풀이 이후에 데이터가 더 있는지를 다시 확인합니다. | 
 | 200 | 10초 | 워크플로를 실행한 다음, 10초 후에 데이터가 더 있는지를 다시 확인합니다. |  
 | 202 | 60초 | 워크플로를 트리거하지 않습니다. 정의된 되풀이 간격에 따라 1분 후에 다음 시도를 합니다. 정의된 되풀이 간격이 1분 이내이면 retry-after 헤더가 우선적으로 적용됩니다. 그렇지 않으면 정의된 되풀이 간격이 사용됩니다. | 
@@ -231,183 +357,316 @@ HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 �
 | 500 | {없음}| 서버 오류이며 워크플로를 실행하지 않습니다. `retryPolicy`가 정의되지 않으면 기본 정책이 사용됩니다. 다시 시도 횟수에 도달하면 트리거는 정의된 되풀이 이후에 데이터가 더 있는지 다시 확인합니다. | 
 |||| 
 
-다음은 HTTP 트리거 출력입니다. 
-  
+### <a name="http-trigger-outputs"></a>HTTP 트리거 출력
+
 | 요소 이름 | type | 설명 |
 | ------------ | ---- | ----------- |
-| headers | Object | HTTP 응답의 헤더입니다. | 
-| 본문 | Object | HTTP 응답의 본문입니다. | 
+| headers | JSON 개체 | HTTP 응답의 헤더 | 
+| 본문 | JSON 개체 | HTTP 응답의 본문 | 
 |||| 
 
 <a name="apiconnection-trigger"></a>
 
 ## <a name="apiconnection-trigger"></a>APIConnection 트리거  
 
-기본 기능에서 이 트리거는 HTTP 트리거처럼 작동합니다. 하지만 작업을 식별하는 매개 변수는 다릅니다. 다음은 예제입니다.   
-  
+이 트리거는 [HTTP 트리거](#http-trigger)처럼 작동하지만, [Microsoft에서 관리하는 API](../connectors/apis-list.md)를 사용하므로 이 트리거에 대한 매개 변수는 다릅니다. 
+
+트리거 정의는 다음과 같습니다. 많은 섹션이 선택 사항이긴 하지만, 트리거의 동작은 섹션의 포함 여부에 따라 결정됩니다.
+
 ```json
-"myDailyReportTrigger": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://myarticles.example.com/"
-            }
-        },
-        "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
-        }
-    },  
-    "method": "POST",
-    "body": {
-        "category": "myCategory"
-    }
+"<APIConnectionTriggerName>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "<managed-API-endpoint-URL>"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         },
+      },
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
-| 요소 이름 | 필수 | 형식 | 설명 | 
-| ------------ | -------- | ---- | ----------- | 
-| host | 예 | Object | API 앱의 호스트된 게이트웨이 및 ID | 
-| 메서드 | 예 | 문자열 | HTTP 메서드 "GET", "POST", "PUT", "DELETE", "PATCH" 또는 "HEAD" 중 하나를 사용합니다. | 
-| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니요 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
-| 인증 | 아니요 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. | 
-||||| 
+*필수*
 
-`host` 개체의 경우 속성은 다음과 같습니다.  
-  
-| 요소 이름 | 필수 | 설명 | 
-| ------------ | -------- | ----------- | 
-| api runtimeUrl | 예 | 관리되는 API의 끝점입니다. | 
-| connection name |  | 워크플로에서 사용하는 관리되는 API 연결의 이름입니다. `$connection`이라는 매개 변수를 참조해야 합니다. |
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| *APIConnectionTriggerName* | JSON 개체 | JSON(Javascript Notation) 형식에 설명된 개체인 트리거에 대한 이름  | 
+| 형식 | 문자열 | “ApiConnection”인 트리거 유형 | 
+| inputs | JSON 개체 | 트리거의 동작을 정의하는 트리거의 입력 | 
+| host | JSON 개체 | 관리되는 API에 대한 호스트 게이트웨이 및 ID를 설명하는 JSON 개체 <p>`host` JSON 개체에는 `api` 및 `connection`과 같은 요소가 있습니다. | 
+| api | JSON 개체 | 관리되는 API에 대한 엔드포인트 URL: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
+| connection | JSON 개체 | 워크플로에서 사용하는 관리되는 API 연결의 이름으로, `$connection`이라는 매개 변수에 대한 참조를 포함해야 합니다. <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
+| 메서드 | 문자열 | 관리되는 API와 통신하기 위한 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” 또는 “HEAD” | 
+| 되풀이 | JSON 개체 | 트리거가 실행되는 빈도를 설명하는 간격과 빈도 |  
+| frequency | 문자열 | 트리거가 실행되는 빈도를 설명하는 시간 단위: “초”, “분”, “시간”, “일”, “주” 또는 “월” | 
+| interval | 정수  | 빈도에 따라 트리거가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 "월"이면 되풀이 간격은 6개월마다입니다. | 
 |||| 
 
-*다시 시도 정책*은 모든 연결 예외 외에도 HTTP 상태 코드 408, 429 및 5xx로 지정되는 일시적인 오류에 적용됩니다. 여기에 표시된 것처럼 `retryPolicy` 개체를 사용하여 이 정책을 정의할 수 있습니다.
-  
+*선택 사항*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| 쿼리 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수 <p>예를 들어 이 요소는 `?api-version=2015-02-01` 쿼리 문자열을 URL에 추가합니다. <p>`"queries": { "api-version": "2015-02-01" }` <p>결과: `https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON 개체 | 요청과 함께 보낼 하나 이상의 헤더. <p>예를 들어 요청에 대한 언어 및 유형을 설정하려면 다음을 수행합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | JSON 개체 | 관리되는 API로 보내는 페이로드(데이터)를 설명하는 JSON 개체 | 
+| 인증 | JSON 개체 | 들어오는 요청이 인증에 대해 사용해야 하는 메서드. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| retryPolicy | JSON 개체 | 이 개체는 4xx 또는 5xx 상태 코드가 있는 일시적인 오류에 대한 다시 시도 동작을 사용자 지정합니다. <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| 동시성 | JSON 개체 | 되풀이 및 폴링 트리거의 경우 이 개체는 동시에 실행할 수 있는 최대 워크플로 인스턴스 수를 지정합니다. 이 값을 사용하여 백 엔드 시스템에서 수신하는 요청을 제한합니다. <p>예를 들어 이 값은 동시성 제한을 10개 인스턴스로 설정합니다. `"concurrency": { "runs": 10 }` | 
+| operationOptions | 문자열 | `singleInstance` 옵션은 모든 활성 실행이 완료된 후에만 트리거가 실행되도록 지정합니다. [트리거: 모든 활성 실행이 완료된 후에만 실행](#single-instance)을 참조하세요. | 
+||||
+
+*예제*
+
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"Create_daily_report": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "https://myReportsRepo.example.com/"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         }     
+      },
+      "method": "POST",
+      "body": {
+         "category": "statusReports"
+      }  
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-API Connection 트리거의 출력은 다음과 같습니다.
-  
+### <a name="apiconnection-trigger-outputs"></a>APIConnection 트리거 출력
+ 
 | 요소 이름 | type | 설명 |
 | ------------ | ---- | ----------- |
-| headers | Object | HTTP 응답의 헤더입니다. | 
-| 본문 | Object | HTTP 응답의 본문입니다. | 
+| headers | JSON 개체 | HTTP 응답의 헤더 | 
+| 본문 | JSON 개체 | HTTP 응답의 본문 | 
 |||| 
 
-[API 연결 트리거에 대한 가격 책정 작동 방식](../logic-apps/logic-apps-pricing.md#triggers)에 대해 자세히 알아보세요.
+<a name="httpwebhook-trigger"></a>
 
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook 트리거  
 
-HTTPWebhook 트리거는 `Request` 트리거와 비슷한 엔드포인트를 제공하지만, 등록 및 등록 취소를 위해 지정된 URL도 호출합니다. HTTPWebhook 트리거의 예제는 다음과 같습니다.
+이 트리거는 논리 앱에 대한 호출 가능 엔드포인트를 만들어서 [Request 트리거](#request-trigger)처럼 작동합니다. 그러나 이 트리거는 구독을 등록하거나 등록 취소하기 위한 지정된 끝점 URL을 호출합니다. [HTTP 비동기 제한](#asynchronous-limits)과 동일한 방식으로 웹후크 트리거에 대한 제한을 지정할 수 있습니다. 
+
+트리거 정의는 다음과 같습니다. 많은 섹션이 선택 사항이긴 하지만, 트리거의 동작은 사용자가 사용하거나 생략하는 섹션에 따라 결정됩니다.
 
 ```json
-"myAppsSpotTrigger": {
+"HTTP_Webhook": {
     "type": "HttpWebhook",
     "inputs": {
         "subscribe": {
             "method": "POST",
-            "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": {},
+            "uri": "<subscribe-to-endpoint-URL>",
+            "headers": { "<headers-for-request>" },
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {},
             "retryPolicy": {}
         },
         "unsubscribe": {
             "method": "POST",
-            "url": "https://pubsubhubbub.appspot.com/subscribe",
+            "url": "<unsubscribe-from-endpoint-URL>",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {}
         }
     },
-    "conditions": []
 }
 ```
 
-이러한 섹션 대부분은 선택적이며, HTTPWebhook 트리거 동작은 사용자가 제공하거나 생략하는 섹션에 따라 달라집니다. 다음은 HTTPWebhook 트리거에 대한 속성입니다.
-  
-| 요소 이름 | 필수 | 설명 | 
-| ------------ | -------- | ----------- |  
-| subscribe | 아니오 | 트리거가 만들어지고 초기 등록을 수행할 때 호출될 나가는 요청을 지정합니다. | 
-| unsubscribe | 아니요 | 트리거가 삭제될 때 호출될 나가는 요청을 지정합니다. | 
+*필수*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| HTTP_Webhook | JSON 개체 | JSON(Javascript Notation) 형식에 설명된 개체인 트리거에 대한 이름  | 
+| 형식 | 문자열 | “HttpWebhook”인 트리거 유형 | 
+| inputs | JSON 개체 | 트리거의 동작을 정의하는 트리거의 입력 | 
+| subscribe | JSON 개체| 트리거가 생성될 때 초기 등록을 호출 및 수행할 나가는 요청. 이 호출이 발생하면 트리거가 엔드포인트에서 이벤트 수신을 시작할 수 있습니다. 자세한 내용은 [구독 및 구독 취소](#subscribe-unsubscribe)를 참조하세요. | 
+| 메서드 | 문자열 | 구독 요청에 사용되는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” 또는 “HEAD” | 
+| uri | 문자열 | 구독 요청을 보낼 위치에 대한 엔드포인트 URL | 
 |||| 
 
-[HTTP 비동기 제한](#asynchronous-limits)과 동일한 방식으로 웹후크 트리거에 대한 제한을 지정할 수 있습니다. `subscribe` 및 `unsubscribe` 작업에 대한 자세한 내용은 다음을 참조하세요.
+*선택 사항*
 
-* 트리거가 이벤트 수신을 시작할 수 있도록 `subscribe`가 호출됩니다. 이 나가는 호출은 표준 HTTP 작업과 동일한 매개 변수로 시작됩니다. 이 호출은 예를 들어 자격 증명이 롤링되거나 트리거의 입력 매개 변수가 변경될 때 등 워크플로가 어떤 식으로든 변경될 때 발생합니다. 
-  
-  이 호출을 지원하기 위해 `@listCallbackUrl()` 함수는 워크플로에서 이 특정 트리거에 대해 고유한 URL을 반환합니다. 이 URL을 서비스의 REST API를 사용하는 끝점에 대한 고유한 식별자를 나타냅니다.
-  
-* `unsubscribe`는 다음 작업을 비롯한 작업이 이 트리거를 유효하지 않은 것으로 렌더링할 때 자동으로 호출됩니다.
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| unsubscribe | JSON 개체 | 작업으로 인해 트리거가 잘못되면 자동으로 구독을 호출하고 취소하는 나가는 요청. 자세한 내용은 [구독 및 구독 취소](#subscribe-unsubscribe)를 참조하세요. | 
+| 메서드 | 문자열 | 취소 요청에 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” 또는 “HEAD” | 
+| uri | 문자열 | 취소 요청을 보낼 위치에 대한 엔드포인트 URL | 
+| 본문 | JSON 개체 | 구독 또는 취소 요청에 대한 페이로드(데이터)를 설명하는 JSON 개체 | 
+| 인증 | JSON 개체 | 들어오는 요청이 인증에 대해 사용해야 하는 메서드. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| retryPolicy | JSON 개체 | 이 개체는 4xx 또는 5xx 상태 코드가 있는 일시적인 오류에 대한 다시 시도 동작을 사용자 지정합니다. <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+|||| 
 
-  * 트리거 삭제 또는 비활성화 
-  * 워크플로 삭제 또는 비활성화 
-  * 구독 삭제 또는 비활성화 
-  
-  이 함수에 대한 매개 변수는 HTTP 트리거와 같습니다.
+*예제*
 
-다음은 HTTPWebhook 트리거에 대한 출력으로, 들어오는 요청의 콘텐츠입니다.
-  
+```json
+"myAppSpotTrigger": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "headers": {},
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      }
+   },
+}
+```
+
+<a name="subscribe-unsubscribe"></a>
+
+### <a name="subscribe-and-unsubscribe"></a>`subscribe` 및 `unsubscribe`
+
+`subscribe` 호출은 예를 들어 자격 증명이 갱신되거나 트리거의 입력 매개 변수가 변경될 때와 같이 워크플로가 어떤 식으로든 변경될 때 발생합니다. 호출은 표준 HTTP 작업과 동일한 매개 변수를 사용합니다. 
+ 
+다음 예제와 같이 작업으로 인해 HTTPWebhook 트리거가 잘못될 때 `unsubscribe` 호출이 자동으로 발생합니다.
+
+* 트리거 삭제 또는 비활성화 
+* 워크플로 삭제 또는 비활성화 
+* 구독 삭제 또는 비활성화 
+
+이러한 호출을 지원하려면 `@listCallbackUrl()` 함수는 이 트리거에 대한 고유한 “콜백 URL”을 반환합니다. 이 URL은 서비스의 REST API를 사용하는 엔드포인트에 대한 고유 식별자를 나타냅니다. 이 함수에 대한 매개 변수는 HTTP 트리거와 같습니다.
+
+### <a name="httpwebhook-trigger-outputs"></a>HTTPWebhook 트리거 출력
+
 | 요소 이름 | type | 설명 |
 | ------------ | ---- | ----------- |
-| headers | Object | HTTP 응답의 헤더입니다. | 
-| 본문 | Object | HTTP 응답의 본문입니다. | 
+| headers | JSON 개체 | HTTP 응답의 헤더 | 
+| 본문 | JSON 개체 | HTTP 응답의 본문 | 
 |||| 
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+## <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook 트리거
+
+이 트리거는 [HTTPWebhook 트리거](#httpwebhook-trigger)처럼 작동하지만 [Microsoft에서 관리하는 API](../connectors/apis-list.md)를 사용합니다. 
+
+트리거 정의 다음과 같습니다.
+
+```json
+"<ApiConnectionWebhookTriggerName>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },        
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "queries": "<query-parameters>"
+   }
+}
+```
+
+*필수*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| <*ApiConnectionWebhookTriggerName*> | JSON 개체 | JSON(Javascript Notation) 형식에 설명된 개체인 트리거에 대한 이름  | 
+| 형식 | 문자열 | “ApiConnectionWebhook”인 트리거 유형 | 
+| inputs | JSON 개체 | 트리거의 동작을 정의하는 트리거의 입력 | 
+| host | JSON 개체 | 관리되는 API에 대한 호스트 게이트웨이 및 ID를 설명하는 JSON 개체 <p>`host` JSON 개체에는 `api` 및 `connection`과 같은 요소가 있습니다. | 
+| connection | JSON 개체 | 워크플로에서 사용하는 관리되는 API 연결의 이름으로, `$connection`이라는 매개 변수에 대한 참조를 포함해야 합니다. <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
+| 본문 | JSON 개체 | 관리되는 API로 보내는 페이로드(데이터)를 설명하는 JSON 개체 | 
+| NotificationUrl | 문자열 | 관리되는 API가 사용할 수 있는 이 트리거에 대한 고유한 “콜백 URL”을 반환합니다. | 
+|||| 
+
+*선택 사항*
+
+| 요소 이름 | type | 설명 | 
+| ------------ | ---- | ----------- | 
+| 쿼리 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수 <p>예를 들어 이 요소는 `?folderPath=Inbox` 쿼리 문자열을 URL에 추가합니다. <p>`"queries": { "folderPath": "Inbox" }` <p>결과: `https://<managed-API-URL>?folderPath=Inbox` | 
+|||| 
+
+<a name="trigger-conditions"></a>
 
 ## <a name="triggers-conditions"></a>트리거: 조건
 
-모든 트리거에 대해 하나 이상의 조건을 사용하여 워크플로의 실행 여부를 결정할 수 있습니다. 다음 예제에서는 워크플로의 `sendReports` 매개 변수가 true로 설정된 경우에만 보고서가 트리거됩니다. 
+모든 트리거의 경우 워크플로의 실행 여부를 결정하는 하나 이상의 조건과 함께 배열을 포함할 수 있습니다. 이 예제에서는 워크플로의 `sendReports` 매개 변수가 true로 설정된 경우에만 보고서 트리거가 실행됩니다. 
 
 ```json
 "myDailyReportTrigger": {
-    "type": "Recurrence",
-    "conditions": [ 
-        {
-            "expression": "@parameters('sendReports')"
-        } 
-    ],
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+   "type": "Recurrence",
+   "conditions": [ {
+      "expression": "@parameters('sendReports')"
+   } ],
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-마지막으로 조건에서 트리거의 상태 코드를 참조할 수 있습니다. 예를 들어 다음과 같이 웹 사이트에서 500 상태 코드를 반환하는 경우에만 워크플로를 시작할 수 있습니다.
-  
+또한 조건에서 트리거의 상태 코드를 참조할 수 있습니다. 예를 들어 다음과 같이 웹 사이트에서 “500” 상태 코드를 반환하는 경우에만 워크플로를 시작하려 한다고 가정합니다.
+
 ``` json
-"conditions": [ 
-    {  
-      "expression": "@equals(triggers().code, 'InternalServerError')"  
-    }  
-]  
+"conditions": [ {
+   "expression": "@equals(triggers().code, 'InternalServerError')"  
+} ]  
 ```  
 
 > [!NOTE]
-> 기본적으로 트리거는 "200 확인" 응답을 받는 경우에만 트리거됩니다. 식에서 어떤 방식으로든 트리거의 상태 코드를 참조하는 경우 트리거의 기본 동작이 바뀝니다. 따라서 여러 상태 코드(예: 200 및 201 상태 코드)에 따라 트리거를 실행하려면 다음 명령문을 조건으로 포함해야 합니다. 
+> 기본적으로 트리거는 "200 확인" 응답을 받는 경우에만 트리거됩니다. 식에서 어떤 방식으로든 트리거의 상태 코드를 참조하는 경우 트리거의 기본 동작이 바뀝니다. 따라서 여러 상태 코드(예: 200 및 201 상태 코드)에서 트리거를 실행하려면 다음 명령문을 조건으로 포함해야 합니다. 
 >
 > `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## <a name="triggers-process-an-array-with-multiple-runs"></a>트리거: 여러 번 실행되는 배열 처리
+## <a name="triggers-split-an-array-into-multiple-runs"></a>트리거: 여러 번 실행으로 배열을 분할
 
-트리거에서 논리 앱이 처리할 배열을 반환하는 경우, "for each" 루프에서 각 배열 항목을 처리하는 데 너무 오래 걸리는 경우가 있습니다. 대신, 트리거에 **SplitOn** 속성을 사용하여 배열을 *분리 처리(debatch)*합니다. 
+트리거에서 논리 앱이 처리할 배열을 반환하는 경우, "for each" 루프에서 각 배열 항목을 처리하는 데 너무 오래 걸리는 경우가 있습니다. 대신, 트리거에 **SplitOn** 속성을 사용하여 배열을 *분리 처리(debatch)* 합니다. 
 
 분리 처리는 배열 항목을 분할하고 각 배열 항목에 대해 실행되는 새 논리 앱 인스턴스를 시작합니다. 예를 들어 이 방법은 폴링 간격 사이에 여러 개의 새 항목을 반환할 수 있는 엔드포인트를 폴링하려는 경우에 유용합니다.
 **SplitOn**이 단일 논리 앱 실행에서 처리할 수 있는 배열 항목의 최대 개수는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
@@ -442,7 +701,7 @@ HTTPWebhook 트리거는 `Request` 트리거와 비슷한 엔드포인트를 제
     "type": "Http",
     "recurrence": {
         "frequency": "Second",
-        "interval": "1"
+        "interval": 1
     },
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
@@ -476,21 +735,36 @@ HTTPWebhook 트리거는 `Request` 트리거와 비슷한 엔드포인트를 제
     }
 }
 ```
-  
-## <a name="triggers-fire-only-after-all-active-runs-finish"></a>트리거: 모든 활성 실행이 완료된 후에만 실행
 
-recurrence 트리거는 모든 활성 실행이 완료될 때만 발생하도록 구성할 수 있습니다. 이 설정을 구성하려면 `operationOptions` 속성을 `singleInstance`로 설정합니다.
+<a name="trigger-operation-options"></a>
+
+## <a name="triggers-operation-options"></a>트리거: 작업 옵션
+
+이러한 트리거는 사용자가 기본 동작을 변경할 수 있는 더 많은 옵션을 제공합니다.
+
+| 트리거 | 작업 옵션 | 설명 |
+|---------|------------------|-------------|
+| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | 모든 활성 실행이 완료된 후에만 트리거를 실행합니다. |
+||||
+
+<a name="single-instance"></a>
+
+### <a name="triggers-fire-only-after-active-runs-finish"></a>트리거: 모든 활성 실행이 완료된 후에만 실행
+
+되풀이를 설정할 수 있는 트리거의 경우 모든 활성 실행이 완료된 후에만 트리거를 실행하도록 지정할 수 있습니다. 워크플로 인스턴스가 실행되는 동안 예약된 되풀이가 발생하면, 다시 확인하기 전에 트리거에서 이를 건너뛰고 예약된 다음 되풀이까지 기다립니다. 예: 
 
 ```json
-"myTrigger": {
-    "type": "Http",
-    "inputs": { },
-    "recurrence": { },
+"myRecurringTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+    },
     "operationOptions": "singleInstance"
 }
 ```
 
-워크플로 인스턴스가 실행되는 동안 예약된 되풀이가 발생하면, 트리거에서 이를 건너뛰고 예약된 다음 되풀이 간격까지 기다렸다가 다시 확인합니다.
+<a name="actions-overview"></a>
 
 ## <a name="actions-overview"></a>작업 개요
 
@@ -548,12 +822,12 @@ HTTP 작업은 지정된 엔드포인트를 호출하고 응답을 확인하여 
 | ------------ | -------- | ---- | ----------- | 
 | 메서드 | 예 | 문자열 | HTTP 메서드 "GET", "POST", "PUT", "DELETE", "PATCH" 또는 "HEAD" 중 하나를 사용합니다. | 
 | uri | 예| 문자열 | 트리거가 확인하는 HTTP 또는 HTTPS 끝점입니다. 최대 문자열 크기: 2KB | 
-| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니요 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니오 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
-| operationsOptions | 아니요 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
-| 인증 | 아니오 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. <p>스케줄러 이외에도 지원되는 속성이 하나 더 있습니다. `authority` 기본적으로 지정되지 않은 경우 이 값은 `https://login.windows.net`이지만 `https://login.windows\-ppe.net`과 등의 다른 값을 사용할 수 있습니다. | 
+| 쿼리 | 아니오 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니오 | JSON 개체 | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | 아니오 | JSON 개체 | 끝점에 전송된 페이로드를 나타냅니다. | 
+| retryPolicy | 아니오 | JSON 개체 | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| operationsOptions | 아니오 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
+| 인증 | 아니오 | JSON 개체 | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. <p>스케줄러 이외에도 지원되는 속성이 하나 더 있습니다. `authority` 기본적으로 지정되지 않은 경우 이 값은 `https://login.windows.net`이지만 `https://login.windows\-ppe.net`과 등의 다른 값을 사용할 수 있습니다. | 
 ||||| 
 
 HTTP 작업 및 APIConnection 작업은 *다시 시도 정책*을 지원합니다. 다시 시도 정책은 모든 연결 예외 외에도 HTTP 상태 코드 408, 429 및 5xx로 지정되는 일시적인 오류에 적용됩니다. 여기에 표시된 것처럼 `retryPolicy` 개체를 사용하여 이 정책을 정의할 수 있습니다.
@@ -649,15 +923,15 @@ HTTP 작업 및 APIConnection 작업은 *다시 시도 정책*을 지원합니�
 
 | 요소 이름 | 필수 | 형식 | 설명 | 
 | ------------ | -------- | ---- | ----------- | 
-| host | 예 | Object | `runtimeUrl` 및 연결 개체에 대한 참조 등 커넥터 정보를 나타냅니다. | 
+| host | 예 | JSON 개체 | `runtimeUrl` 및 연결 개체에 대한 참조 등 커넥터 정보를 나타냅니다. | 
 | 메서드 | 예 | 문자열 | HTTP 메서드 "GET", "POST", "PUT", "DELETE", "PATCH" 또는 "HEAD" 중 하나를 사용합니다. | 
 | 경로 | 예 | 문자열 | API 작업의 경로입니다. | 
-| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니요 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
-| operationsOptions | 아니요 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
-| 인증 | 아니오 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| 쿼리 | 아니오 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니오 | JSON 개체 | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | 아니오 | JSON 개체 | 끝점에 전송된 페이로드를 나타냅니다. | 
+| retryPolicy | 아니오 | JSON 개체 | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| operationsOptions | 아니오 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
+| 인증 | 아니오 | JSON 개체 | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
 ||||| 
 
 다시 시도 정책은 모든 연결 예외 외에도 HTTP 상태 코드 408, 429 및 5xx로 지정되는 일시적인 오류에 적용됩니다. 여기에 표시된 것처럼 `retryPolicy` 개체를 사용하여 이 정책을 정의할 수 있습니다.
@@ -703,14 +977,14 @@ APIConnectionWebhook 작업은 Microsoft에서 관리하는 커넥터를 참조�
 
 | 요소 이름 | 필수 | 형식 | 설명 | 
 | ------------ | -------- | ---- | ----------- | 
-| host | 예 | Object | `runtimeUrl` 및 연결 개체에 대한 참조 등 커넥터 정보를 나타냅니다. | 
+| host | 예 | JSON 개체 | `runtimeUrl` 및 연결 개체에 대한 참조 등 커넥터 정보를 나타냅니다. | 
 | 경로 | 예 | 문자열 | API 작업의 경로입니다. | 
-| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
-| retryPolicy | 아니오 | Object | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
+| 쿼리 | 아니오 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니오 | JSON 개체 | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | 아니오 | JSON 개체 | 끝점에 전송된 페이로드를 나타냅니다. | 
+| retryPolicy | 아니오 | JSON 개체 | 4xx 또는 5xx 오류에 대한 다시 시도 동작을 사용자 지정하기 위해 이 개체를 사용합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md)을 참조하세요. | 
 | operationsOptions | 아니오 | 문자열 | 재정의할 특정 동작 집합을 정의합니다. | 
-| 인증 | 아니요 | Object | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| 인증 | 아니오 | JSON 개체 | 요청이 인증을 위해 사용해야 하는 메서드를 나타냅니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
 ||||| 
 
 ## <a name="response-action"></a>응답 작업  
@@ -793,10 +1067,10 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | 요소 이름 | 필수 | 형식 | 설명 | 
 | ------------ | -------- | ---- | ----------- |  
 | function id | 예 | 문자열 | 호출하려는 Azure 함수의 리소스 ID입니다. | 
-| 메서드 | 아니요 | 문자열 | 함수를 호출하는 데 사용되는 HTTP 메서드입니다. 지정하지 않으면 "POST"가 기본 메서드입니다. | 
-| 쿼리 | 아니요 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
+| 메서드 | 아니오 | 문자열 | 함수를 호출하는 데 사용되는 HTTP 메서드입니다. 지정하지 않으면 "POST"가 기본 메서드입니다. | 
+| 쿼리 | 아니오 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니오 | JSON 개체 | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | 아니오 | JSON 개체 | 끝점에 전송된 페이로드를 나타냅니다. | 
 |||||
 
 논리 앱을 저장하면 Azure Logic Apps 엔진에서 참조된 함수에 대해 몇 가지 검사를 수행합니다.
@@ -853,8 +1127,8 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | Name | 필수 | 형식 | 설명 | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | 예 | 문자열 | 대상 실행의 상태로, `Failed` 또는 `Cancelled`입니다. |
-| runError | 아니오 | Object | 오류 세부 정보입니다. `runStatus`가 `Failed`로 설정된 경우에만 지원됩니다. |
-| runError code | 아니요 | 문자열 | 실행의 오류 코드입니다. |
+| runError | 아니오 | JSON 개체 | 오류 세부 정보입니다. `runStatus`가 `Failed`로 설정된 경우에만 지원됩니다. |
+| runError code | 아니오 | 문자열 | 실행의 오류 코드입니다. |
 | runError message | 아니오 | 문자열 | 실행의 오류 메시지입니다. | 
 ||||| 
 
@@ -990,9 +1264,9 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 
 | 요소 이름 | 필수 | 형식 | 설명 | 
 | ------------ | -------- | ---- | ----------- | 
-| until | 아니요 | Object | 특정 시점에 따른 대기 시간입니다. | 
+| until | 아니오 | JSON 개체 | 특정 시점에 따른 대기 시간입니다. | 
 | until timestamp | 예 | 문자열 | 대기가 만료되는 [UTC 날짜/시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 특정 시점입니다. | 
-| interval | 아니오 | Object | 간격 단위 및 수에 따른 대기 시간입니다. | 
+| interval | 아니오 | JSON 개체 | 간격 단위 및 수에 따른 대기 시간입니다. | 
 | interval unit | 예 | 문자열 | 시간 단위입니다. 값으로 "second", "minute", "hour", "day", "week" 또는 "month" 중 하나만 사용합니다. | 
 | interval count | 예 | 정수  | 대기 기간에 사용되는 간격 단위 수를 나타내는 양의 정수입니다. | 
 ||||| 
@@ -1029,9 +1303,9 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 | ------------ | -------- | ---- | ----------- |  
 | host id | 예 | 문자열| 호출할 워크플로의 리소스 ID입니다. | 
 | host triggerName | 예 | 문자열 | 호출할 트리거의 이름입니다. | 
-| 쿼리 | 아니오 | Object | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
-| headers | 아니오 | Object | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| 본문 | 아니오 | Object | 끝점에 전송된 페이로드를 나타냅니다. | 
+| 쿼리 | 아니오 | JSON 개체 | URL에 포함하려는 모든 쿼리 매개 변수를 나타냅니다. <p>예를 들어 `"queries": { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다. | 
+| headers | 아니오 | JSON 개체 | 요청에서 전송된 각 헤더를 나타냅니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| 본문 | 아니오 | JSON 개체 | 끝점에 전송된 페이로드를 나타냅니다. | 
 ||||| 
 
 이 작업의 출력은 하위 워크플로의 `Response` 작업에 정의된 내용을 기준으로 합니다. 자식 워크플로에서 `Response` 작업을 정의하지 않으면 출력이 비어 있습니다.
@@ -1042,7 +1316,7 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 
 ## <a name="if-action"></a>If 작업
 
-조건문인 이 작업을 통해 조건을 평가하고 식이 true로 평가 되는지 여부에 따라 분기를 실행할 수 있습니다. 조건이 true로 성공적으로 평가되면 해당 조건은 "성공"으로 표시됩니다. `actions` 또는 `else` 개체에 있는 작업은 다음 값으로 평가됩니다.
+조건문인 이 작업을 통해 조건을 평가하고 식이 true로 평가 되는지 여부에 따라 분기를 실행할 수 있습니다. 조건이 true로 성공적으로 평가되면 해당 조건은 “성공” 상태로 표시됩니다. `actions` 또는 `else` 개체에 있는 작업은 다음 값으로 평가됩니다.
 
 * "성공" - 성공적으로 실행되는 경우
 * "실패" - 실행되었지만 실패하는 경우
@@ -1076,9 +1350,9 @@ response 작업에는 다른 작업에는 적용되지 않는 특수한 제한�
 
 | Name | 필수 | 형식 | 설명 | 
 | ---- | -------- | ---- | ----------- | 
-| actions | 예 | Object | `expression`이 `true`로 평가될 때 실행할 내부 작업입니다. | 
+| actions | 예 | JSON 개체 | `expression`이 `true`로 평가될 때 실행할 내부 작업입니다. | 
 | 식 | 예 | 문자열 | 평가할 식 |
-| else | 아니오 | Object | `expression`이 `false`로 평가될 때 실행할 내부 작업입니다. |
+| else | 아니오 | JSON 개체 | `expression`이 `false`로 평가될 때 실행할 내부 작업입니다. |
 ||||| 
 
 예: 
@@ -1133,14 +1407,14 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
    "type": "Switch",
    "expression": "<evaluate-this-object-expression-token>",
    "cases": {
-      "myCase1" : {
-         "actions" : {
+      "myCase1": {
+         "actions": {
            "myAction1": {}
          },
          "case": "<result1>"
       },
       "myCase2": {
-         "actions" : {
+         "actions": {
            "myAction2": {}
          },
          "case": "<result2>"
@@ -1158,10 +1432,10 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
 | Name | 필수 | 형식 | 설명 | 
 | ---- | -------- | ---- | ----------- | 
 | 식 | 예 | 문자열 | 평가할 개체, 식 또는 토큰 | 
-| cases | 예 | Object | 식 결과에 따라 실행되는 내부 작업 집합을 포함합니다. | 
+| cases | 예 | JSON 개체 | 식 결과에 따라 실행되는 내부 작업 집합을 포함합니다. | 
 | case | 예 | 문자열 | 결과와 일치하는 값 | 
-| actions | 예 | Object | 식 결과와 일치하는 케이스에 대해 실행되는 내부 작업 | 
-| 기본값 | 아니오 | Object | 결과와 일치하는 케이스가 없는 경우 실행되는 내부 작업 | 
+| actions | 예 | JSON 개체 | 식 결과와 일치하는 케이스에 대해 실행되는 내부 작업 | 
+| 기본값 | 아니오 | JSON 개체 | 결과와 일치하는 케이스가 없는 경우 실행되는 내부 작업 | 
 ||||| 
 
 예: 
@@ -1172,13 +1446,13 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
       "Case": {
-         "actions" : {
+         "actions": {
            "Send_an_email": {...}
          },
          "case": "Approve"
       },
       "Case_2": {
-         "actions" : {
+         "actions": {
            "Send_an_email_2": {...}
          },
          "case": "Reject"
@@ -1219,7 +1493,7 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
 
 | Name | 필수 | 형식 | 설명 | 
 | ---- | -------- | ---- | ----------- | 
-| actions | 예 | Object | 루프 내에서 실행될 내부 작업입니다. | 
+| actions | 예 | JSON 개체 | 루프 내에서 실행될 내부 작업입니다. | 
 | foreach | 예 | 문자열 | 반복할 배열입니다. | 
 | operationOptions | 아니오 | 문자열 | 동작 사용자 지정에 대한 작업 옵션을 지정합니다. 기본 동작이 병렬인 반복을 순차적으로 실행하기 위해 현재 `Sequential`만 지원합니다. |
 ||||| 
@@ -1279,11 +1553,11 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
 
 | Name | 필수 | 형식 | 설명 | 
 | ---- | -------- | ---- | ----------- | 
-| actions | 예 | Object | 루프 내에서 실행될 내부 작업입니다. | 
+| actions | 예 | JSON 개체 | 루프 내에서 실행될 내부 작업입니다. | 
 | 식 | 예 | 문자열 | 각 반복 후마다 평가할 식 | 
-| limit | 예 | Object | 루프에 대한 제한입니다. 하나 이상의 제한을 정의해야 합니다. | 
+| limit | 예 | JSON 개체 | 루프에 대한 제한입니다. 하나 이상의 제한을 정의해야 합니다. | 
 | count | 아니오 | 정수  | 수행할 반복 수에 대한 제한 | 
-| 시간 제한 | 아니요 | 문자열 | 루프가 실행될 기간을 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 시간 초과 제한입니다. |
+| 시간 제한 | 아니오 | 문자열 | 루프가 실행될 기간을 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 시간 초과 제한입니다. |
 ||||| 
 
 예: 
@@ -1332,7 +1606,7 @@ switch 문인 이 작업은 개체, 식 또는 토큰의 특정 값에 따라 �
 
 | Name | 필수 | 형식 | 설명 | 
 | ---- | -------- | ---- | ----------- |  
-| actions | 예 | Object | 범위 내에서 실행될 내부 작업 |
+| actions | 예 | JSON 개체 | 범위 내에서 실행될 내부 작업 |
 ||||| 
 
 ## <a name="next-steps"></a>다음 단계

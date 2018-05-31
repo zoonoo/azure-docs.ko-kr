@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 223fa9bc4a19264cc1dcba9830726b30b0f7446c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355086"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -116,7 +117,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / 1886 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|리소스 상태에 상태를 게시하는 데 필요 |외부 및 내부 |
 | * / 25028 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|전자 메일을 보내기 위한 SMTP 릴레이에 연결 |외부 및 내부 |
 | * / 6381 - 6383 |인바운드 및 아웃바운드 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|역할 인스턴스 간 Redis 캐시 인스턴스에 대한 액세스 |외부 및 내부 |
-| * / \* | 인바운드 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 인프라 부하 분산 장치 |외부 및 내부 |
+| * / * | 인바운드 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 인프라 부하 분산 장치 |외부 및 내부 |
 
 >[!IMPORTANT]
 > API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 하지만 다른 포트를 차단할 경우 실행 중인 서비스사를 용 및 모니터링하는 기능이 저하됩니다.
@@ -168,6 +169,7 @@ API Management가 배포될 수 있는 서브넷의 최소 크기 이상으로 �
 * 서브넷과 API Management 서비스는 동일한 구독에 있어야 합니다.
 * API Management 인스턴스가 포함된 서브넷은 구독 간에 이동할 수 없습니다.
 * 내부 가상 네트워크 모드에서 구성된 다중 지역 API Management 배포의 경우 사용자는 라우팅을 소유하는 여러 지역 사이에서 부하 분산을 관리할 책임이 있습니다.
+* 다른 지역에서 전역적으로 피어링된 VNET의 리소스에서 내부 모드의 API Management 서비스로 연결하는 기능은 플랫폼 제한 때문에 작동하지 않습니다. 자세한 내용은 [하나의 가상 네트워크의 리소스는 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치와 통신할 수 없음](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요.
 
 
 ## <a name="related-content"> </a>관련 콘텐츠
@@ -188,4 +190,4 @@ API Management가 배포될 수 있는 서브넷의 최소 크기 이상으로 �
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
+[Network Security Group]: ../virtual-network/security-overview.md

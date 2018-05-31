@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c4dc9b231668315af16c625314c737fee99d672d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: da8eb0b9e2e5aba60b61a36d83f525c7ce4a7958
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776264"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
 
@@ -117,7 +118,7 @@ A: 레거시 저장소 메트릭을 기반으로 하는 클래식 경고 규칙�
 
 * 새 메트릭 데이터는 기본적으로 동일한 저장소 계정에 저장되는가요?
 
-A: 아니요. 메트릭 데이터를 저장소 계정에 보관해야 하는 경우 [Azure Monitor의 진단 설정](https://azure.microsoft.com/blog/azure-monitor-multiple-diagnostic-settings/)을 사용할 수 있습니다.
+A: 아니요. 메트릭 데이터를 저장소 계정에 보관해야 하는 경우 [Azure Monitor 진단 설정 API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

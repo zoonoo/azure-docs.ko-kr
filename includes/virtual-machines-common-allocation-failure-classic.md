@@ -13,6 +13,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31531058"
 ---
 다음은 할당 요청이 고정되도록 하는 일반적인 할당 시나리오입니다. 이 문서의 뒷 부분에서 각 시나리오에 대해 자세히 알아봅니다.
 
@@ -79,7 +80,7 @@ GeneralError*
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>스테이징/프로덕션 배포(Platform as a Service 전용)
 **오류**
 
-New_General* 또는 New_VMSizeNotSupported*
+New_General* 또는 New_VMSizeNotSupported\*
 
 **클러스터 고정의 원인**
 
@@ -92,7 +93,7 @@ New_General* 또는 New_VMSizeNotSupported*
 ## <a name="affinity-group-vmservice-proximity"></a>선호도 그룹(VM/서비스 근접)
 **오류**
 
-New_General* 또는 New_VMSizeNotSupported*
+New_General* 또는 New_VMSizeNotSupported\*
 
 **클러스터 고정의 원인**
 
@@ -105,7 +106,7 @@ New_General* 또는 New_VMSizeNotSupported*
 ## <a name="affinity-group-based-virtual-network"></a>선호도-그룹-기반 가상 네트워크
 **오류**
 
-New_General* 또는 New_VMSizeNotSupported*
+New_General* 또는 New_VMSizeNotSupported\*
 
 **클러스터 고정의 원인**
 

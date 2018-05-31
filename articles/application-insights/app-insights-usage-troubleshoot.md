@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights에서 사용 현황 분석 문제 해결 | Microsoft Docs"
-description: "문제 해결 가이드 - Application Insights를 사용하여 사이트 및 앱 사용 현황 분석"
+title: Azure Application Insights에서 사용 현황 분석 문제 해결 | Microsoft Docs
+description: 문제 해결 가이드 - Application Insights를 사용하여 사이트 및 앱 사용 현황 분석
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867571"
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Application Insights에서 사용 현황 분석 문제 해결
 [Application Insights의 사용 현황 분석 도구](app-insights-usage-overview.md): [사용자, 세션 이벤트](app-insights-usage-segmentation.md), [깔대기](usage-funnels.md), [사용자 흐름](app-insights-usage-flows.md), [보존](app-insights-usage-retention.md) 또는 코호트에 대한 질문이 있나요? 다음은 몇 가지 대답입니다.
@@ -37,7 +38,7 @@ Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2
 ## <a name="naming-events"></a>이벤트 이름 지정
 **내 앱에는 수천 개의 서로 다른 페이지 보기 및 사용자 지정 이벤트 이름이 있습니다. 이러한 항목을 구분하기 어려워서 사용 현황 분석 도구가 응답하지 않는 경우가 많습니다. 이러한 이름 지정 문제를 어떻게 해결할 수 있나요?**
 
-페이지 보기 및 사용자 지정 이벤트 이름은 사용 현황 분석 도구 전체에서 사용됩니다. 이벤트 이름을 잘 지정하는 것은 이러한 도구에서 값을 가져오는 데 매우 중요합니다. 그 목표는 너무 적은 과도하게 일반적인 이름("단추를 클릭함")도 아니고, 너무 많은 과도하게 구체적인 이름("http://www.contoso.com/index에서 편집 단추를 클릭함")도 아닌 적절한 이름을 사용하는 것입니다.
+페이지 보기 및 사용자 지정 이벤트 이름은 사용 현황 분석 도구 전체에서 사용됩니다. 이벤트 이름을 잘 지정하는 것은 이러한 도구에서 값을 가져오는 데 매우 중요합니다. 그 목표는 너무 적은 과도하게 일반적인 이름(“단추를 클릭함”)도 아니고, 너무 많은 과도하게 구체적인 이름(“http://www.contoso.com/index에서 편집 단추를 클릭함”)도 아닌 적절한 이름을 사용하는 것입니다.
 
 앱이 전송하는 페이지 보기 및 사용자 지정 이벤트 이름을 변경하려면 앱의 소스 코드를 변경하고 다시 배포해야 합니다. **Application Insights의 모든 원격 분석 데이터는 90일 동안 저장되며 삭제할 수 없으므로** 이벤트 이름 변경 내용이 완전히 반영되려면 90일이 걸립니다. 이름을 변경한 후 90일 동안, 이전 및 새 이벤트 이름이 모두 원격 분석에 표시되므로, 그에 따라 팀 내에서 쿼리를 조정하고 소통합니다.
 

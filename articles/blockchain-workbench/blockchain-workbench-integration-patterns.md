@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0fe4816dbafc28974796c7d9cd307b04fdb9d6d4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a6a44e30fe58617b43c5491a72fc882015bc9591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886066"
 ---
 # <a name="smart-contract-integration-patterns"></a>스마트 계약 통합 패턴
 
@@ -213,7 +214,7 @@ Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원
 
 ## <a name="storage-integration"></a>저장소 통합
 
-많은 시나리오에서는 증명할 수 있는 파일을 통합해야 할 필요가 있습니다. 여러 이유로 인해 파일을 블록체인에 두는 것은 적절하지 않습니다. 대신 일반적인 접근 방식은 파일에 대해 단방향 해시를 수행하고 분산 원장에서 해시를 공유하는 것입니다. 나중에 언제든지 해시를 다시 수행하면 동일한 결과가 반환됩니다. 파일이 수정되면 이미지에서 한 픽셀만 수정되더라도 해시는 다른 값을 반환합니다.
+많은 시나리오에서는 증명할 수 있는 파일을 통합해야 할 필요가 있습니다. 여러 이유로 인해 파일을 블록체인에 두는 것은 적절하지 않습니다. 대신 일반적인 접근 방식은 파일에 대해 암호화 해시(예: SHA-256)를 수행하고 분산 원장에서 해시를 공유하는 것입니다. 나중에 언제든지 해시를 다시 수행하면 동일한 결과가 반환됩니다. 파일이 수정되면 이미지에서 한 픽셀만 수정되더라도 해시는 다른 값을 반환합니다.
 
 ![저장소 통합](media/blockchain-workbench-integration-patterns/storage-integration.png)
 

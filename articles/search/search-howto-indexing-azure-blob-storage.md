@@ -9,11 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 976b1c6b65036faeff3c4cc21e91ccf798eb0df3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778497"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
@@ -279,7 +280,7 @@ Azure Search는 인덱싱되는 Blob의 크기를 제한합니다. 이러한 제
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>증분 인덱싱 및 삭제 감지
-일정에 따라 실행할 BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `LastModified` 타임스탬프에 지정된 대로 변경된 BLOB만 다시 인덱싱합니다.
+BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `LastModified` 타임스탬프에 지정된 대로 변경된 BLOB만 다시 인덱싱합니다.
 
 > [!NOTE]
 > 변경 감지 정책을 지정하지 않아도 됩니다. 증분 인덱싱이 자동으로 사용됩니다.
