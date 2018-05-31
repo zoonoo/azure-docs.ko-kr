@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211721"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 끝점 모니터링
 
@@ -30,7 +31,7 @@ Azure Traffic Manager에는 기본 제공된 끝점 모니터링 및 자동 끝�
 
 * **프로토콜**. HTTP, HTTPS 또는 TCP를 Traffic Manager가 상태 검사를 위해 끝점을 검색할 때 사용하는 프로토콜로 선택합니다. HTTPS 모니터링은 SSL 인증서가 유효한지 여부를 확인하지 않으며 인증서가 있는지만 확인합니다.
 * **포트**. 요청에 사용될 포트를 선택합니다.
-* **경로**. 이 구성 설정은 경로 설정을 지정해야 하는 HTTP 및 HTTPS 프로토콜에 대해서만 유효합니다. TCP 모니터링 프로토콜에 대해 이 설정을 제공하면 오류가 발생합니다. TCP 프로토콜의 경우 모니터링 기능이 액세스하는 웹 페이지 또는 파일의 상대 경로와 이름을 제공합니다. 슬래시(/)는 상대 경로로 유효한 항목입니다. 이 값은 파일이 루트 디렉터리(기본값)에 있음을 나타냅니다.
+* **경로**. 이 구성 설정은 경로 설정을 지정해야 하는 HTTP 및 HTTPS 프로토콜에 대해서만 유효합니다. TCP 모니터링 프로토콜에 대해 이 설정을 제공하면 오류가 발생합니다. HTTP 및 HTTPS 프로토콜의 경우 모니터링 기능이 액세스하는 웹 페이지 또는 파일의 상대 경로와 이름을 제공합니다. 슬래시(/)는 상대 경로로 유효한 항목입니다. 이 값은 파일이 루트 디렉터리(기본값)에 있음을 나타냅니다.
 * **검색 간격**. 이 값은 Traffic Manager 검색 에이전트에서 끝점의 상태를 검사하는 빈도를 지정합니다. 여기서 30초(일반 검색) 및 10초(빠른 검색)의 두 값을 지정할 수 있습니다. 값을 지정하지 않으면 프로필이 기본값인 30초로 설정됩니다. 빠른 검색 가격 책정에 대한 자세한 내용은 [Traffic Manager 가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager) 페이지를 참조하세요.
 * **허용되는 오류 수** 이 값은 Traffic Manager 검색 에이전트가 해당 끝점을 비정상 상태로 표시하기 전에 허용하는 오류 수를 지정합니다. 해당 값의 범위는 0에서 9 사이일 수 있습니다. 값이 0이면 단일 모니터링 오류로 인해 해당 끝점이 비정상 상태로 표시될 수 있습니다. 값을 지정하지 않으면 기본값 3이 사용됩니다.
 * **모니터링 제한 시간**. 이 속성은 상태 검사 프로브가 끝점으로 전송될 때 Traffic Manager 검색 에이전트가 해당 검사를 오류로 간주하기 전에 기다려야 하는 시간을 지정합니다. 검색 간격이 30초로 설정된 경우 제한 시간 값을 5-10초 사이로 설정할 수 있습니다. 값을 지정하지 않으면 기본값 10초가 사용됩니다. 검색 간격이 10초로 설정된 경우 제한 시간 값을 5-9초 사이로 설정할 수 있습니다. 제한 시간 값을 지정하지 않으면 기본값 9초가 사용됩니다.

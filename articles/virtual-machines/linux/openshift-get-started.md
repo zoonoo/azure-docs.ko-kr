@@ -1,25 +1,26 @@
 ---
-title: "Azure의 OpenShift 개요 | Microsoft Docs"
-description: "Azure의 OpenShift 개요입니다."
+title: Azure의 OpenShift 개요 | Microsoft Docs
+description: Azure의 OpenShift 개요입니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944504"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
@@ -31,14 +32,14 @@ OpenShift는 컨테이너 오케스트레이션 및 관리를 위한 Kubernetes�
 - 간편한 배포 및 확장
 - 팀 및 응용 프로그램에 대한 장기 수명 유지 관리
 
-OpenShift에는 여러 버전이 있으며, 이 중 두 가지는 Azure에서 실행할 수 있습니다.
+OpenShift의 여러 버전을 사용할 수 있습니다.
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift Dedicated
 
-이 문서에 설명된 4가지 버전 중 2가지 즉, OpenShift Origin 및 OpenShift Container Platform은 고객이 직접 Azure에 배포할 수 있습니다.
+이 아티클에 설명된 4가지 버전 중 2가지 즉, OpenShift Origin 및 OpenShift Container Platform은 고객이 Azure에서 배포할 수 있습니다.
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 

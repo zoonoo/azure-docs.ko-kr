@@ -7,18 +7,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0154ec9f08f81d2aa47c607c05f09309f7c23c7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f26f9b6f1b0ddef348c39df5aa4badc5df93b725
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942431"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음을 사용하여 Azure SQL Database 장기 백업 보존을 구성 및 복원
 
 Azure Recovery Services 자격 증명 모음을 구성하여 Azure SQL Database 백업을 저장한 후 Azure Portal 또는 PowerShell을 사용하여 자격 증명 모음에 보존된 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
+
+> [!NOTE]
+> 장기 백업 보존의 미리 보기가 2016년 10월에 처음 출시되면서 Azure 서비스 복구 서비스 자격 증명 모음에 백업이 저장되었습니다. 이 업데이트를 종속성을 제거하지만 이전 버전과의 호환성을 위해 2018년 5월 31일까지 원래 API가 지원됩니다. Azure 서비스 복구 자격 증명 모음의 백업과 상호 작용이 필요한 경우 [Azure 서비스 복구 서비스 자격 증명 모음을 사용한 장기 백업 보존](sql-database-long-term-backup-retention-configure-vault.md)을 참조하세요. 
+
 
 ## <a name="azure-portal"></a>Azure portal
 

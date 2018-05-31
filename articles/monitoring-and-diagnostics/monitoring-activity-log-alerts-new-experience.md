@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor에서 새 경고(미리 보기) 환경을 사용하여 활동 로그 만들기 및 관리 | Microsoft Docs
-description: 이 문서에서는 Azure Monitor 아래의 경고(미리 보기) 탭에서 활동 로그 경고를 만드는 방법에 대한 정보를 제공합니다. 이 문서에서는 이 기능에 대한 새 사용자 환경을 자세히 설명합니다.
+title: Azure Monitor에서 새 경고 환경을 사용하여 활동 로그 만들기 및 관리 | Microsoft Docs
+description: 이 문서에서는 Azure Monitor 아래의 경고 탭에서 활동 로그 경고를 만드는 방법에 대한 정보를 제공합니다.
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202823"
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>새 경고(미리 보기) 환경을 사용하여 활동 로그 경고를 만듭니다.
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>새 경고 환경을 사용하여 활동 로그 경고 만들기
 
 활동 로그 경고는 경고에 지정된 조건과 일치하는 새 활동 로그 이벤트가 발생할 때 활성화되는 경고입니다.
 
-이 경고는 Azure 리소스에 대한 것이며, Azure Resource Manager 템플릿을 사용하여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 그런 다음 Azure Portal에서 [Azure Alerts(미리 보기)](monitoring-overview-unified-alerts.md)의 새로운 환경을 사용하여 활동 로그 이벤트에 대한 경고를 설정하는 방법을 보여 줍니다.
+이 경고는 Azure 리소스에 대한 것이며, Azure Resource Manager 템플릿을 사용하여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 그런 다음, Azure Portal에서 [Azure Alerts](monitoring-overview-unified-alerts.md)의 새로운 환경을 사용하여 활동 로그 이벤트에 대한 경고를 설정하는 방법을 보여줍니다.
 
 일반적으로 Azure 구독의 리소스에서 특정 변경이 발생할 때 알림을 받기 위해 활동 로그 경고를 만들며, 특정 리소스 그룹 또는 리소스로 범위를 지정하는 경우가 많습니다. 예를 들어 (샘플 리소스 그룹) **myProductionResourceGroup**의 가상 머신이 삭제될 때 알림을 받거나, 구독의 사용자에게 새 역할이 할당될 경우 알림을 받고 싶을 수 있습니다.
 
@@ -46,11 +47,11 @@ ms.lasthandoff: 04/16/2018
 서비스 상태 알림에 대해 자세히 알아보려면 [서비스 상태 알림에서 활동 로그 경고 수신](monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요.
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>활동 로그에 대한 경고 미리 보기의 새로운 기능은 무엇인가요?
+## <a name="whats-new-in-alerts-for-activity-logs"></a>활동 로그에 대한 경고의 새로운 기능은 무엇인가요?
 
-이제 [Azure Alerts(미리 보기)](monitoring-overview-unified-alerts.md)에서 활동 로그 경고에 대한 향상된 사용자 환경을 제공합니다. [경고에 대한 향상된 사용자 환경](monitoring-overview-unified-alerts.md)을 통해 이제 다음을 수행할 수 있습니다.
+이제 [Azure Alerts](monitoring-overview-unified-alerts.md)에서 활동 로그 경고에 대한 향상된 사용자 환경을 제공합니다. [경고에 대한 향상된 사용자 환경](monitoring-overview-unified-alerts.md)을 통해 이제 다음을 수행할 수 있습니다.
 
-- **모니터** > **경고(미리 보기)** 블레이드에서 활동 로그 경고 규칙을 [생성](#create-an-alert-rule-for-an-activity-log) 및 [관리](#view-and-manage-activity-log-alert-rules)합니다. [활동 로그](monitoring-overview-activity-logs.md)에 대해 자세히 알아보세요.
+- **모니터** > **경고** 블레이드에서 활동 로그 경고 규칙을 [생성](#create-an-alert-rule-for-an-activity-log) 및 [관리](#view-and-manage-activity-log-alert-rules)합니다. [활동 로그](monitoring-overview-activity-logs.md)에 대해 자세히 알아보세요.
 
 - **경고 대상에 대한 새 옵션**: 새 활동 로그 경고 규칙을 만드는 동안 이제 대상 리소스 또는 리소스 그룹이나 구독을 선택할 수 있습니다.
 
@@ -68,8 +69,8 @@ ms.lasthandoff: 04/16/2018
 
 이렇게 하려면 다음 절차를 수행합니다.
 
-1. Azure Portal에서 **모니터** > **경고(미리 보기)** 를 선택합니다.
-2. **경고(미리 보기)** 창의 맨 위에서 **새 경고 규칙**을 클릭합니다.
+1. Azure Portal에서 **모니터** > **경고**를 선택합니다.
+2. **경고** 창의 맨 위에서 **새 경고 규칙**을 클릭합니다.
 
      ![새 경고 규칙](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +131,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>활동 로그 경고 규칙 보기 및 관리
 
-1. Azure Portal에서 **모니터** > **경고(미리 보기)** 를 클릭하고 창의 왼쪽 위에서 **규칙 관리**를 클릭합니다.
+1. Azure Portal에서 **모니터** > **경고**를 클릭하고 창의 왼쪽 위에서 **규칙 관리**를 클릭합니다.
 
     ![ 경고 규칙 관리](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

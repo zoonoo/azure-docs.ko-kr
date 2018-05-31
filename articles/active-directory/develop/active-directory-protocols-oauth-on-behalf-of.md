@@ -1,25 +1,28 @@
 ---
-title: "OAuth2.0 On-Behalf-Of 초안 사양을 사용하여 Azure AD 서비스 간 인증 | Microsoft Docs"
-description: "이 문서는 OAuth 2.0 On-Behalf-Of 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다."
+title: OAuth2.0 On-Behalf-Of 초안 사양을 사용하여 Azure AD 서비스 간 인증 | Microsoft Docs
+description: 이 문서는 OAuth 2.0 On-Behalf-Of 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157217"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하여 서비스 간 호출
 OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
@@ -41,7 +44,7 @@ OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Azure AD에서 응용 프로그램 및 서비스 등록
 Azure AD에 클라이언트 응용 프로그램 및 중간 계층 서비스를 모두 등록합니다.
 ### <a name="register-the-middle-tier-service"></a>중간 계층 서비스 등록
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 오른쪽 위에서 계정을 클릭하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **새 응용 프로그램 등록**을 선택합니다.
@@ -49,7 +52,7 @@ Azure AD에 클라이언트 응용 프로그램 및 중간 계층 서비스를 �
 6. Azure Portal에서 응용 프로그램을 선택하고 **설정**을 클릭합니다. 설정 메뉴에서 **키**를 선택하고 키를 추가합니다. 키 기간으로는 1년 또는 2년을 선택합니다. 이 페이지를 저장하면 키 값이 표시되고 값을 안전한 위치에 복사 및 저장합니다. 나중에 구현 시 응용 프로그램 설정을 구성하는 데 이 키가 필요합니다. 이 키 값은 다시 표시되지 않으며 다른 방법으로 검색할 수 없으므로 Azure Portal에 표시되는 즉시 기록해 두세요.
 
 ### <a name="register-the-client-application"></a>클라이언트 응용 프로그램 등록
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 오른쪽 위에서 계정을 클릭하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **새 응용 프로그램 등록**을 선택합니다.
@@ -84,7 +87,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
 | scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 다음 HTTP POST는 https://graph.windows.net 웹 API용 액세스 토큰을 요청합니다. `client_id`는 액세스 토큰을 요청하는 서비스를 식별합니다.
 
 ```
@@ -112,15 +115,15 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | 어설션 |필수 | 요청에 사용된 토큰 값입니다. |
 | client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure 관리 포털에서 앱 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 클릭한 후 응용 프로그램 이름을 클릭합니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
-| client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다.  인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
+| client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
 | resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**, 디렉터리를 차례로 클릭하고, 응용 프로그램 이름을 클릭한 후 **모든 설정**, **속성**을 클릭합니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
 | scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
 client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
 
-#### <a name="example"></a>예제
-다음 HTTP POST는 인증서를 포함한 https://graph.windows.net 웹 API용 액세스 토큰을 요청합니다. `client_id`는 액세스 토큰을 요청하는 서비스를 식별합니다.
+#### <a name="example"></a>예
+다음 HTTP POST는 인증서가 있는 https://graph.windows.net 웹 API용 액세스 토큰을 요청합니다. `client_id`는 액세스 토큰을 요청하는 서비스를 식별합니다.
 
 ```
 // line breaks for legibility only
@@ -142,7 +145,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ## <a name="service-to-service-access-token-response"></a>서비스 간 액세스 토큰 응답
 성공 응답은 다음 매개 변수가 있는 JSON OAuth 2.0 응답입니다.
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 | scope |토큰에 부여된 액세스 범위입니다. |
@@ -154,7 +157,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | refresh_token |요청된 액세스 토큰에 대한 새로 고침 토큰입니다. 호출 서비스는 이 토큰을 사용하여 현재 액세스 토큰이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
 
 ### <a name="success-response-example"></a>성공 응답 예제
-다음 예제는 https://graph.windows.net 웹 API에 액세스 토큰 요청에 대한 성공 응답을 보여줍니다.
+다음 예제에서는 https://graph.windows.net 웹 API용 액세스 토큰 요청에 대한 성공 응답을 보여 줍니다.
 
 ```
 {
@@ -189,7 +192,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>보안 리소스에 액세스하는 데 액세스 토큰 사용
 이제 중간 계층 서비스는 위에서 획득한 토큰을 사용하고 `Authorization` 헤더에서 토큰을 설정하여 다운스트림 웹 API에 대해 인증된 요청을 할 수 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net

@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services에 Node.js 앱 빌드 및 배포"
-description: "Azure Cloud Services에 Express.js 응용 프로그램 빌드 및 배포"
+title: Azure Cloud Services에 Node.js 앱 빌드 및 배포
+description: Azure Cloud Services에 Express.js 응용 프로그램 빌드 및 배포
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010111"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드 및 배포
 
@@ -97,7 +98,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
    
    ![index.jade 파일의 내용](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade는 Express 응용 프로그램에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com](영문)을 참조하세요.
+   Jade는 Express 응용 프로그램에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com]을 참조하세요.
 2. **in Azure**를 추가하여 텍스트의 마지막 줄을 수정합니다.
    
    ![index.jade 파일, 마지막 줄: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

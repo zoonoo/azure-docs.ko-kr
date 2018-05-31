@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: eb824913a4b3482879ccc45e2f660342695b1618
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165488"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258949"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -38,14 +38,13 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ## <a name="118190"></a>1.1.819.0
 
-2018년 5월 4일: 자동 업그레이드를 위해 릴리스되며 곧 다운로드할 수 있습니다.
+### <a name="release-status"></a>릴리스 상태
 
-
+2018년 5월 14일: 자동 업그레이드 및 다운로드를 위해 릴리스되었습니다.
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
 새로운 기능 및 향상 기능
-
 
 - 이 릴리스에는 Azure AD Connect에서 PingFederate 통합에 대한 공개 미리 보기가 포함되었습니다. 이 릴리스에서는 고객이 PingFederate를 페더레이션 공급자로 활용할 수 있도록 Azure Active Directory 환경을 안정적으로 쉽게 구성합니다. 이 새로운 기능을 사용하는 방법에 대한 자세한 내용은 [온라인 설명서](active-directory-aadconnect-user-signin.md#federation-with-pingfederate)를 참조하세요. 
 - Azure AD Connect 마법사 문제 해결 유틸리티가 업데이트되었습니다. 여기서는 연결된 사서함 및 AD 동적 그룹과 같은 더 많은 오류 시나리오가 분석됩니다. 문제 해결 유틸리티에 대한 자세한 내용은 [여기](active-directory-aadconnect-troubleshoot-objectsync.md)를 참조하세요.
@@ -63,14 +62,16 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
-
+- 이 릴리스는 SQL Server Express 설치를 특히 여러 보안 취약점에 대한 수정 프로그램을 제공하는 SQL Server 2012 SP4로 업데이트합니다.  SQL Server 2012 SP4에 대한 자세한 내용은 [여기](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information)를 참조하세요.
 - 동기화 규칙 처리: 부모 동기화가 더 이상 적용되지 않는 경우 조인 조건이 없는 아웃바운드 조인 동기화 규칙이 적용 취소됩니다.
+- Synchronization Service Manager UI 및 Sync Rules Editor에 여러 접근성 수정 프로그램이 적용되었습니다.
 - Azure AD Connect 마법사: Azure AD Connect가 작업 그룹에 있을 때 AD 커넥터 계정을 만드는 중 오류가 발생합니다.
 - Azure AD Connect 마법사: Azure AD 로그인 페이지에서 AD 도메인과 확인된 Azure AD 도메인이 일치하지 않을 때마다 확인 확인란이 표시됩니다
 - 자동 업그레이드가 시도되면 자동 업그레이드 PowerShell에서 특정 상황의 자동 업그레이드 상태를 올바르게 설정하도록 수정되었습니다.
 - Azure AD Connect 마법사: 이전에 누락된 정보를 캡처할 수 있도록 원격 분석이 업데이트되었습니다.
-- Azure AD Connect 마법사: 도메인을 관리되는 도메인으로 변환하기 전에 PTA 에이전트를 설치합니다.
-- Azure AD Connect 마법사: 사용자를 PTA에서 관리되는 사용자로 변환하지 않습니다(도메인만 변환).
+- Azure AD Connect 마법사: **사용자 로그인 변경** 작업을 사용하여 AD FS에서 통과 인증으로 전환하는 경우 다음 변경 내용이 적용되었습니다.
+    - 페더레이션 도메인에서 관리되는 도메인으로 변환하기 전에 통과 인증 에이전트가 Azure AD Connect 서버에 설치되고, 통과 인증 기능이 활성화됩니다.
+    - 사용자는 더 이상 페더레이션 사용자에서 관리되는 사용자로 변환되지 않습니다. 도메인만 변환됩니다.
 - Azure AD Connect 마법사: 특수 문자를 지원하기 위해 사용자 UPN에 ' 특수 문자 정규식 업데이트가 있으면 AD FS 다중 도메인 정규식이 올바르지 않습니다.
 - Azure AD Connect 마법사: 변경 내용이 없으면 가상 "원본 앵커 속성 구성" 메시지가 제거됩니다. 
 - Azure AD Connect 마법사: 이중 페더레이션 시나리오에 대한 AD FS 지원이 있습니다.

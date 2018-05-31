@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196766"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -194,21 +195,6 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 #### <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 다음 단계를 완료하여 복원 지점 컬렉션을 제거하세요. <br>
- 
-1. VM이 있는 리소스 그룹에서 잠금을 제거합니다. 
-2. Chocolatey를 사용하여 ARMClient를 설치합니다. <br>
-   https://github.com/projectkudu/ARMClient
-3. ARMClient에 로그인합니다. <br>
-    `.\armclient.exe login`
-4. VM에 해당하는 복원 지점 컬렉션을 가져옵니다. <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    예제: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. 복원 지점 컬렉션을 삭제합니다. <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. 예약된 다음 백업은 복원 지점 컬렉션 및 새 복원 지점을 자동으로 만듭니다.
-
- 
-이 문제는 리소스 그룹을 다시 잠그는 경우 다시 발생합니다. 
+문제를 해결하려면 리소스 그룹에서 잠금을 제거하고 Azure Backup 서비스에서 복구 지점 컬렉션 및 다음 백업의 기본 스냅숏을 지우도록 합니다.
+완료되면 VM 리소스 그룹에 잠금을 다시 넣을 수 있습니다. 
 

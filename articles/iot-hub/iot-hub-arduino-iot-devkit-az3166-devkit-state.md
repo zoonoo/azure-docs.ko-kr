@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: feb31b0cc89c511f7487f995ba6045f89767abbb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3678eb20429d9e5123272499d474fdec2cdab065
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202189"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -86,6 +87,9 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ## <a name="example-operation"></a>예제 작업
 
 ![예제 테스트 절차](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
+
+> [!NOTE]
+> Azure Portal에서 장치 쌍의 원시 데이터를 확인할 수 있습니다. IoT Hub -\> IoT 장치 -\> *\<사용자의 장치\>* -\> 장치 쌍
 
 ## <a name="next-steps"></a>다음 단계
 

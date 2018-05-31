@@ -1,6 +1,6 @@
 ---
-title: SSL 종료로 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs
-description: Azure Portal을 사용하여 응용 프로그램 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
+title: SSL 종료로 응용 프로그램 게이트웨이 구성 - Azure Portal | Microsoft Docs
+description: Azure Portal을 사용하여 응용 프로그램 게이트웨이를 구성하고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195916"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 종료로 응용 프로그램 게이트웨이 만들기
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 종료로 응용 프로그램 게이트웨이 구성
 
-Azure Portal을 사용하여 백엔드 서버에 가상 시스템을 사용하는 SSL 종료용 인증서가 있는 [응용 프로그램 게이트웨이](overview.md)를 만들 수 있습니다.
+Azure Portal을 사용하여 백 엔드 서버에 가상 머신을 사용하는 SSL 종료용 인증서가 있는 [응용 프로그램 게이트웨이](overview.md)를 구성할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
