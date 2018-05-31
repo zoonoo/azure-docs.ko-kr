@@ -10,11 +10,12 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941897"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>다중 테넌트 SaaS 데이터베이스 테넌시 패턴
 
@@ -88,7 +89,7 @@ Azure SQL Database는 공유를 구성, 모니터링 및 관리하는 데 필요
 
 #### <a name="operations-scale-for-database-per-tenant"></a>테넌당 데이터베이스의 작업 규모 조정
 
-Azure SQL Database 플랫폼에는 100,000개가 넘는 경우를 비롯한 많은 수의 데이터베이스를 전체적으로 관리하기 위해 고안된 많은 관리 기능이 제공됩니다.  이러한 기능은 테넌트별 데이터베이스 패턴을 적절히 지원합니다.
+Azure SQL Database 플랫폼에는 100,000개가 넘는 데이터베이스를 비롯한 많은 수의 데이터베이스를 전체적으로 관리하기 위해 고안된 많은 관리 기능이 제공됩니다.  이러한 기능은 테넌트별 데이터베이스 패턴을 적절히 지원합니다.
 
 예를 들어, 시스템에 1000 테넌트 데이터베이스가 유일한 데이터베이스로 사용된다고 가정합니다.  이 데이터베이스에는 20개의 인덱스가 있을 수 있습니다.  시스템이 1000개의 단일 테넌트 데이터베이스를 포함하는 방식으로 변환될 경우 인덱스 수는 20,000개로 증가합니다.  SQL Database에서 [자동 조정][docu-sql-db-automatic-tuning-771a]의 일환으로 자동 인덱싱 기능이 기본적으로 사용되도록 설정됩니다.  자동 인덱싱은 20,000개의 모든 인덱스와 지속적인 생성 및 삭제 최적화를 자동으로 관리합니다.  이러한 자동화된 작업은 개별 데이터베이스 내에서 발생하며 다른 데이터베이스의 비슷한 작업에 따라 조정되거나 제한되지 않습니다.  자동 인덱싱은 덜 바쁜 데이터베이스와 바쁜 데이터베이스에서 인덱스를 다르게 처리합니다.  이러한 방대한 관리 작업을 수동으로 처리해야 한다면 테넌트별 데이터베이스 수준에서 이러한 유형의 인덱스 관리 사용자 지정을 수행하는 것은 비현실적인 일일 것입니다.
 

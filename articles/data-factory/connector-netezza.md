@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940140"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 Netezza에서 데이터 복사
 
@@ -50,6 +51,13 @@ Netezza 연결된 서비스에 다음 속성이 지원됩니다.
 | 형식 | 형식 속성은 **Netezza**로 설정되어야 합니다. | 예 |
 | connectionString | Netezza에 연결할 ODBC 연결 문자열입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+
+일반적인 연결 문자열은 `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`입니다. 사례에 따라 다음과 같은 더 많은 속성을 설정할 수 있습니다.
+
+| 자산 | 설명 | 필수 |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | 드라이버가 데이터 저장소에 연결하는 데 사용하는 보안(SSL/TLS) 수준입니다. 예: `SecurityLevel=preferredSecured` 지원되는 값은 다음과 같습니다.<br/>- Only Unsecured(**onlyUnSecured**): 드라이버가 SSL을 사용하지 않습니다.<br/>- **Preferred Unsecured(preferredUnSecured)(기본값)**: 서버가 선택 사항을 제공하면 드라이버는 SSL을 사용하지 않습니다. <br/>- **Preferred Secured(preferredSecured)**: 서버가 선택 사항을 제공하면 드라이버는 SSL을 사용합니다. <br/>- **Only Secured(onlySecured)**: SSL 연결을 사용할 수 있는 경우가 아니면 드라이버가 연결되지 않습니다. | 아니오 |
+| CaCertFile | 서버에 사용되는 SSL 인증서의 전체 경로입니다. 예: `UseSystemTrustStore=<cert path>;`| 예(SSL을 사용하는 경우) |
 
 **예제:**
 

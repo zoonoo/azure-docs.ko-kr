@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886853"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +104,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 서비스 주체를 �
     - 응용 프로그램 키
     - 테넌트 ID
 
-2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**합니다. AAD 사용자는 AAD 사용자 또는 AAD 그룹일 수 있습니다. MSI로 그룹에 관리자 역할을 부여한 경우 관리자가 DB에 대한 모든 액세스 권한을 가지므로 아래 3 및 4단계는 건너뜁니다.
+2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. AAD 사용자는 AAD 사용자 또는 AAD 그룹일 수 있습니다. MSI로 그룹에 관리자 역할을 부여한 경우 관리자가 DB에 대한 모든 액세스 권한을 가지므로 아래 3 및 4단계는 건너뜁니다.
 
 3. 최소한의 모든 사용자 변경 권한이 있는 AAD ID로 SSMS와 같은 도구를 사용하여 데이터를 복사할 데이터 웨어하우스에 연결하고 다음 T-SQL을 실행하여 **서비스 주체에 대해 포함된 데이터베이스 사용자를 만듭니다**. [여기](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)에서 포함된 데이터베이스 사용자에 대해 자세히 알아보세요.
     
@@ -114,7 +115,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 서비스 주체를 �
 4. 일반적으로 SQL 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 예를 들어 다음을 실행합니다.
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. ADF에서 Azure SQL Data Warehouse 연결된 서비스를 구성합니다.
@@ -151,6 +152,9 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 서비스 주체를 �
 
 데이터 팩터리는 이 특정 데이터 팩터리를 나타내는 [MSI(관리 서비스 ID)](data-factory-service-identity.md)에 연결할 수 있습니다. 사용자의 데이터 웨어하우스에 액세스하고 데이터를 복사할 수 있도록 이 지정된 팩터리를 허용하는 Azure SQL Data Warehouse 인증에 대한 이 서비스 ID를 사용할 수 있습니다.
 
+> [!IMPORTANT]
+> PolyBase는 현재 MSI 인증에 대해 지원되지 않습니다.
+
 AAD 응용 프로그램 토큰 인증을 기반으로 한 MSI를 사용하려면 다음 단계를 수행합니다.
 
 1. **Azure AD에서 그룹을 만들고 팩터리 MSI를 그룹의 구성원으로 만듭니다**.
@@ -163,7 +167,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 MSI를 사용하려면
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**합니다.
+2. 아직 완료하지 않은 경우 Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다.
 
 3. 최소한의 모든 사용자 변경 권한이 있는 AAD ID로 SSMS와 같은 도구를 사용하여 데이터를 복사할 데이터 웨어하우스에 연결하고 다음 T-SQL을 실행하여 **AAD 그룹에 대해 포함된 데이터베이스 사용자를 만듭니다**. [여기](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)에서 포함된 데이터베이스 사용자에 대해 자세히 알아보세요.
     
@@ -174,7 +178,7 @@ AAD 응용 프로그램 토큰 인증을 기반으로 한 MSI를 사용하려면
 4. 일반적으로 SQL 사용자에 대해 수행하듯이 **AAD 그룹에 필요한 권한을 부여**합니다. 예를 들어 다음을 실행합니다.
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. ADF에서 Azure SQL Data Warehouse 연결된 서비스를 구성합니다.
@@ -347,13 +351,13 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | 형식 | 복사 작업 싱크의 형식 속성은 **SqlDWSink**로 설정해야 합니다. | 예 |
 | allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **SQL Data Warehouse로 데이터를 로드하는 데 PolyBase를 사용하는 것이 좋습니다.** 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True**(기본값) 및 **False**입니다.  |아니오 |
 | polyBaseSettings |**allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |아니오 |
-| rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2, ...입니다. |아니요 |
-| rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다.<br/><br/>허용되는 값은 **값**(기본값) 및 **백분율**입니다. |아니요 |
+| rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2, ...입니다. |아니오 |
+| rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다.<br/><br/>허용되는 값은 **값**(기본값) 및 **백분율**입니다. |아니오 |
 | rejectSampleValue |PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2, ...입니다. |예. **rejectType**이 **백분율**인 경우 |
-| useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True**, **False**(기본값)입니다. |아니요 |
+| useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True**, **False**(기본값)입니다. |아니오 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니요 |
-| preCopyScript |각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니오 |(#repeatability-during-copy). |쿼리 문입니다. |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니오 |
+| preCopyScript |각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니오 |(#repeatability-during-copy). |쿼리 문입니다. |아니오 |
 
 **예제:**
 
@@ -375,13 +379,13 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 
-**[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**를 사용하는 것은 처리량이 높은 많은 양의 데이터를 Azure SQL Data Warehouse에 로드하는 효율적인 방법입니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다. 자세히 비교하려면 [복사 성능 참조 번호](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure Data Factory를 통해 Azure SQL Data Warehouse에 15분 이내 1TB 로드](connector-azure-sql-data-warehouse.md)를 참조하세요.
+**[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** 를 사용하는 것은 처리량이 높은 많은 양의 데이터를 Azure SQL Data Warehouse에 로드하는 효율적인 방법입니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다. 자세히 비교하려면 [복사 성능 참조 번호](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure Data Factory를 통해 Azure SQL Data Warehouse에 15분 이내 1TB 로드](connector-azure-sql-data-warehouse.md)를 참조하세요.
 
-* 원본 데이터 형식이 **Azure Blob 또는 Azure Data Lake Store**에 있고 형식이 PolyBase와 호환될 경우 PolyBase를 사용하여 Azure SQL Data Warehouse로 직접 복사할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-using-polybase)**를 참조하세요.
+* 원본 데이터 형식이 **Azure Blob 또는 Azure Data Lake Store**에 있고 형식이 PolyBase와 호환될 경우 PolyBase를 사용하여 Azure SQL Data Warehouse로 직접 복사할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-using-polybase)** 를 참조하세요.
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우 대신 **[PolyBase를 사용하여 준비한 복사본](#staged-copy-using-polybase)** 기능을 사용할 수 있습니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환하고 Azure Blob Storage에 저장하여 향상된 처리량을 제공하기도 합니다. 그런 다음 SQL Data Warehouse에 데이터를 로드합니다.
 
 > [!IMPORTANT]
-> PolyBase는 Azure SQL Data Warehouse SQL 인증을 지원하나, Azure Active Directory 인증은 지원하지 않습니다.
+> PolyBase는 현재 AAD 응용 프로그램 토큰 인증을 기반으로 한 MSI(관리 서비스 ID)에 대해 지원되지 않습니다.
 
 ### <a name="direct-copy-using-polybase"></a>PolyBase를 사용하여 직접 복사
 

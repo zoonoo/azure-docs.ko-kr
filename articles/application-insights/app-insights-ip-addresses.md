@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4ed0c84dfab58f8a92e0f366bb65634b9e3dab82
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935655"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에 사용된 IP 주소
 [Azure Application Insights](app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -49,11 +50,6 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 | 구성 |`auth.gfx.ms` | |`443` |
 | 구성 |`login.live.com` | |`443` |
 | 설치 |`packages.nuget.org`, `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net`(NuGet 다운로드) | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| 목적 | URL | IP | 포트 |
-| --- | --- | --- | --- |
-| 충돌 데이터 |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>가용성 테스트
 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
@@ -236,14 +232,17 @@ East US
 
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
-| 에이전트 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
+| 에이전트 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | 포털 | gateway.azureserviceprofiler.net | 동적 | 443
 | Storage | *.core.windows.net | 동적 | 443
 
 ## <a name="snapshot-debugger"></a>스냅숏 디버거
 
+> [!NOTE]
+> 프로파일러 및 스냅숏 디버거는 동일한 IP 주소 집합을 공유합니다.
+
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
-| 에이전트 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
+| 에이전트 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | 포털 | ppe.gateway.azureserviceprofiler.net | 동적 | 443
 | Storage | *.core.windows.net | 동적 | 443
