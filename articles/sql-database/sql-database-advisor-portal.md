@@ -3,17 +3,18 @@ title: 성능 권장 사항 적용 - Azure SQL Database | Microsoft Docs
 description: Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 있는 성능 권장 사항을 찾을 수 있습니다.
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364355"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -98,7 +99,11 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
     ![관리자 설정](./media/sql-database-advisor-portal/settings.png)
 2. 자동화할 작업을 선택합니다.
    
-    ![권장된 인덱스](./media/sql-database-advisor-portal/automation.png)
+    ![권장된 인덱스](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> 현재 **DROP_INDEX** 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않으므로 이러한 경우에는 설정해서는 안 됩니다.
+>
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>권장 T-SQL 스크립트를 수동으로 실행
 권장 사항을 선택한 다음 **스크립트 보기**를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.

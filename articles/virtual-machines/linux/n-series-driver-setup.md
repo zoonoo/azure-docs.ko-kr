@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/03/2018
+ms.date: 04/27/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6b91f09b6c38c5461638b953f3a0df921fc7c30
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190682"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -321,7 +322,7 @@ EndSection
 echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
-BusID는 VM이 다시 할당되거나 다시 부팅될 때를 변경할 수 있습니다. 따라서 스크립트를 사용하여 VM이 다시 부팅될 때 X11 구성에서 BusID를 업데이트할 수도 있습니다. 예: 
+BusID는 VM이 다시 할당되거나 다시 부팅될 때를 변경할 수 있습니다. 따라서 스크립트를 만들어서 VM이 다시 부팅될 때 X11 구성에서 BusID를 업데이트할 수도 있습니다. 예를 들어, 다음과 같은 콘텐츠의 `busidupdate.sh`(또는 사용자가 선택한 다른 이름)라는 스크립트를 만듭니다.
 
 ```bash 
 #!/bin/bash
@@ -330,7 +331,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-이 파일은 `/etc/rc.d/rc3.d`에서 이에 대한 항목을 만들면 부팅에 대한 루트로 호출될 수 있습니다.
+그런 다음, 부팅 시 루트로 스크립트가 호출되도록 `/etc/rc.d/rc3.d`에서 업데이트 스크립트에 대한 항목을 만듭니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

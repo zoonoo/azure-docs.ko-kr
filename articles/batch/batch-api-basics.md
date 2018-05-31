@@ -15,11 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3423103de774faaf9e7884626a9a1a102e351b68
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add8e184db102d48275bd8d3faa42def63918c19
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360492"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -82,7 +83,7 @@ Batch는 다음과 같은 Azure Storage [계정 옵션](../storage/common/storag
 
 * 범용 v2(GPv2) 계정 
 * 범용 v1(GPv1) 계정
-* Blob 저장소 계정
+* Blob 저장소 계정(현재 가상 머신 구성에서 풀에 대해 지원됨)
 
 Batch 계정을 만들 때 또는 나중에 저장소 계정을 Batch 계정에 연결할 수 있습니다. 저장소 계정을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 예를 들어 GPv2 및 BLOB 저장소 계정 옵션은 GPv1보다 큰 [용량 및 확장성 제한](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)을 지원합니다. (저장소 제한을 늘리려면 Azure 고객 지원팀에 문의하세요.) 이러한 계정 옵션은 저장소 계정에서 데이터를 읽어 오거나 저장소 계정에 데이터를 쓰는 다수의 병렬 태스크를 포함하고 있는 Batch 솔루션의 성능을 향상할 수 있습니다.
 

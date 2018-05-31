@@ -1,24 +1,21 @@
 ---
-title: Azure Portal을 사용하여 Azure Data Lake Analytics 시작 | Microsoft Docs
-description: 'Azure Portal을 사용하여 Data Lake Analytics 계정을 만들고, U-SQL을 사용하여 Data Lake Analytics 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다. '
+title: Azure Portal을 사용하여 Azure Data Lake Analytics 시작
+description: Azure Portal을 사용하여 Data Lake Analytics 계정을 만들고, U-SQL을 사용하여 Data Lake Analytics 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358288"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>U-SQL 작업 제출
 
-1. Data Lake Analytics 계정에서 **새 작업**을 클릭합니다.
-2. 위에 표시된 U-SQL 스크립트의 텍스트에 붙여넣습니다. 
-3. **작업 제출**을 클릭합니다.   
-4. 작업 상태가 **Succeeded**로 바뀔 때까지 기다립니다.
-5. **출력** 탭을 클릭하고 `data.csv`를 클릭합니다. 
+1. Data Lake Analytics 계정에서 **새 작업**을 선택합니다.
+2. 이전 U-SQL 스크립트의 텍스트에 붙여넣습니다. 작업의 이름을 지정합니다. 
+3. **전송** 단추를 선택하여 작업을 시작합니다.   
+4. 작업의 **상태**를 모니터링하고, 작업 상태가 **성공**으로 변경될 때까지 기다립니다.
+5. **데이터** 탭을 선택한 다음, **출력** 탭을 선택합니다. `data.csv`라는 출력 파일을 선택하고 출력 데이터를 확인합니다.
 
 ## <a name="see-also"></a>참고 항목
 
