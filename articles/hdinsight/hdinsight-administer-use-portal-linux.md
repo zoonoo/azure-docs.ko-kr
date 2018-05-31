@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361974"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -68,7 +69,7 @@ HDInsight 클러스터를 만들 때 Azure 구독을 지정해야 합니다. 클
     1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. 왼쪽 메뉴에서 **리소스 그룹**을 클릭하여 리소스 그룹을 나열합니다.
     3. HDInsight 클러스터를 만드는 데 사용할 리소스 그룹을 클릭합니다.
-    4. **액세스 제어(IAM)**를 클릭하고 사용자(또는 사용자가 속한 그룹)에게 리소스 그룹에 대한 참가자 액세스 권한 이상이 있는지 확인합니다.
+    4. **액세스 제어(IAM)** 를 클릭하고 사용자(또는 사용자가 속한 그룹)에게 리소스 그룹에 대한 참가자 액세스 권한 이상이 있는지 확인합니다.
 
 NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류가 발생하면 [Azure 리소스 관리자를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 참조하세요.
 
@@ -125,7 +126,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
    * **기본 데이터 원본**: 기본 클러스터 파일 시스템입니다.
    * **작업자 노드 크기**: 선택한 작업자 노드의 VM 크기입니다.
    * **헤드 노드 크기**: 선택한 헤드 노드의 VM 크기입니다.
-   * **가상 네트워크**: 배포 시 하나를 선택한 경우 해당 클러스터가 배포되는 Virtual Network와 서브넷의 이름입니다.
+   * **가상 네트워크**: 배포 시 하나를 선택한 경우 해당 클러스터가 배포되는 Virtual Network의 이름입니다.
 
 ## <a name="delete-clusters"></a>클러스터 삭제
 클러스터를 삭제하더라도 기본 저장소 계정이나 연결된 저장소 계정은 삭제하지 않습니다. 동일한 저장소 계정과 동일한 Metastore를 사용하여 클러스터를 다시 만들 수 있습니다. 클러스터를 다시 만들 때 새 기본 Blob 컨테이너를 사용하는 것이 좋습니다.

@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362042"
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics를 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -57,7 +58,7 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
 1. Azure Portal에서 **리소스 만들기**로 이동한 후 검색 상자에 **저장소 계정**을 입력하고 **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 
-2. **저장소 계정 만들기** 창에 저장소 계정의 이름을 입력하고 IoT Hub가 저장된 같은 위치를 선택한 다음 **만들기**를 선택합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
+2. **저장소 계정 만들기** 창에 저장소 계정의 이름을 입력하고, IoT Hub가 저장된 위치와 동일한 위치를 선택하고, IoT Hub와 동일한 리소스 그룹을 선택한 다음, **만들기**를 선택합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
 
     ![저장소 계정 만들기][1]
 
@@ -84,32 +85,25 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
 3. **만들기**를 선택합니다.
 
-4. 만든 작업의 **작업 토폴로지** 아래에서 **입력**을 선택하고 **추가**를 선택합니다.
-
-5. **새 입력** 창에서 다음을 수행합니다.
-
-    a. **입력 별칭** 상자에 **온도**를 입력합니다.
-    
-    나. **원본 형식** 상자에서 **데이터 스트림**을 선택합니다.
-    
-    다. 나머지 필드에서 기본값을 사용합니다.
+4. 만든 작업의 **작업 토폴로지** 아래에서 **입력**을 엽니다.
 
    ![Azure Stream Analytics 입력](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. **만들기**를 선택합니다.
+5. **스트림 입력 추가**를 선택하고 **Edge Hub**를 선택합니다.
 
-7. **작업 토폴로지**에서 **출력**을 선택하고 **추가**를 선택합니다.
+5. **새 입력** 창에 입력 별칭으로 **온도**를 입력합니다. 
 
-8. **새 출력** 창에서 다음을 수행합니다.
+6. **저장**을 선택합니다.
 
-    a. **출력 별칭** 상자에서 **경고**를 입력합니다.
-    
-    나. 나머지 필드에서 기본값을 사용합니다. 
-    
-    다. **만들기**를 선택합니다.
+7. **작업 토폴로지**에서 **출력**을 엽니다.
 
    ![Azure Stream Analytics 출력](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. **추가**를 선택하고 **Edge Hub**를 선택합니다.
+
+8. **새 출력** 창에서 출력 별칭으로 **경고**를 입력합니다. 
+
+9. **만들기**를 선택합니다.
 
 9. **작업 토폴로지** 아래에서 **쿼리**를 선택하고 기본 텍스트를 다음 쿼리로 바꿉니다.
 
@@ -130,7 +124,7 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
 이제 IoT Edge 장치에 Azure Stream Analytics 작업을 배포할 준비가 되었습니다.
 
-1. Azure Portal의 IoT Hub에서 **IoT Edge(미리 보기)**로 이동한 후 IoT Edge 장치의 세부 정보 페이지를 엽니다.
+1. Azure Portal의 IoT Hub에서 **IoT Edge(미리 보기)** 로 이동한 후 IoT Edge 장치의 세부 정보 페이지를 엽니다.
 
 2. **모듈 설정**을 선택합니다.  
     이전에 이 장치에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 그렇지 않은 경우 다음을 수행하여 모듈을 추가합니다.
@@ -159,7 +153,7 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
 7. 경로를 구성하려면 **다음**을 선택합니다.
 
-8. 다음 코드를 **경로**로 복사합니다. _{moduleName}_을 복사한 모듈 이름으로 바꿉니다.
+8. 다음 코드를 **경로**로 복사합니다. _{moduleName}_ 을 복사한 모듈 이름으로 바꿉니다.
 
     ```json
     {

@@ -1,26 +1,24 @@
 ---
 title: LDAP 인증 및 Azure MFA 서버 | Microsoft Docs
-description: LDAP 인증 및 Azure Multi-Factor Authentication 서버 배포에 도움이 되는 Azure Multi-Factor 인증 페이지입니다.
+description: LDAP 인증 및 Azure Multi-Factor Authentication 서버 배포.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.openlocfilehash: 7a66a10dc8d7339577e2e51fc12e0f802eaa9316
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2fca59b9b486012367b3d996e0ec76044f48f690
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866453"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
+
 기본적으로 Azure Multi-Factor Authentication 서버는 Active Directory에서 사용자를 가져오거나 동기화하도록 구성됩니다. 그러나 ADAM 디렉터리 또는 특정 Active Directory 도메인 컨트롤러 같은 다른 LDAP 디렉터리에 바인딩하도록 구성할 수 있습니다. LDAP를 통해 디렉터리에 연결된 경우 Azure Multi-Factor Authentication 서버는 LDAP 프록시의 역할인 인증을 수행할 수 있습니다. 또한 RADIUS 대상으로서 LDAP 바인딩 사용, IIS 인증을 사용한 사용자의 사전 인증 또는 Azure MFA 사용자 포털에서 기본 인증이 가능합니다.
 
 Azure Multi-Factor Authentication을 LDAP 프록시로 사용하려면 Azure Multi-Factor Authentication 서버를 LDAP 클라이언트(예: VPN 어플라이언스, 응용 프로그램)와 LDAP 디렉터리 서버 사이에 삽입합니다. Azure Multi-Factor Authentication 서버가 클라이언트 서버 및 LDAP 디렉터리와 모두 통신할 수 있도록 구성되어야 합니다. 이 구성에서 Azure Multi-Factor Authentication 서버는 클라이언트 서버 및 응용 프로그램의 LDAP 요청을 수락하고 대상 LDAP 디렉터리 서버에 전달하여 기본 자격 증명의 유효성을 검사합니다. LDAP 디렉터리가 기본 자격 증명의 유효성을 검사하면 Azure Multi-Factor Authentication은 두 번째 ID 검증을 수행하고 다시 LDAP 클라이언트로 응답을 보냅니다. LDAP 서버 인증 및 2단계 검증이 모두 성공해야만 전체 인증에 성공합니다.
@@ -49,7 +47,7 @@ Azure Multi-Factor Authentication이 LDAP 인증을 받도록 구성된 경우 �
 
 1. LDAP 디렉터리 연결을 구성하려면 **디렉터리 통합** 아이콘을 클릭합니다.
 2. 설정 탭에서 **특정 LDAP 구성 사용** 라디오 단추를 선택합니다.
-3. **편집…**을 선택합니다.
+3. **편집…** 을 선택합니다.
 4. Edit LDAP Configuration(LDAP 구성 편집) 대화 상자에서 LDAP 디렉터리 연결에 필요한 정보를 필드에 입력합니다. 필드의 설명은 Azure Multi-Factor Authentication 서버 도움말 파일에도 포함되어 있습니다.
 
     ![디렉터리 통합](./media/howto-mfaserver-dir-ldap/ldap.png)
