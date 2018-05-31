@@ -11,17 +11,18 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 01/26/2018
-ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941536"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
 Time Series Insights는 IoT 장치에 의해 생성된 것과 같은 대량의 시계열 데이터를 저장하고, 시각화하고, 쿼리하기 위해 구축되었습니다.  클라우드의 시계열 데이터를 저장, 관리, 쿼리 또는 시각화하려면 Time Series Insights를 사용하는 것이 좋습니다.  
 
-![Time Series Insights 순서도] (media/overview/time-series-insights-flowchart.png)
+![Time Series Insights 순서도](media/overview/time-series-insights-flowchart.png)
 
 Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 
@@ -68,7 +69,7 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 4.  Time Series Insights 탐색기를 사용하여 몇 분 만에 데이터를 볼 수 있습니다.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights 탐색기
-이 다이어그램에는 탐색기로 확인한 Time Series Insights 데이터 예제가 나와 있습니다. ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
+이 다이어그램에는 탐색기로 확인한 Time Series Insights 데이터 예제가 나와 있습니다. ![Time Series Insights 탐색기](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>다음 단계
  - [데모 환경에서 Time Series Insights 탐색기를 사용하여 탐색](./time-series-quickstart.md)

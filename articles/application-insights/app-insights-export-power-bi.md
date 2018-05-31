@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights에서 Power BI로 내보내기 | Microsoft Docs"
-description: "분석 쿼리를 Power BI에서 표시할 수 있습니다."
+title: Azure Application Insights에서 Power BI로 내보내기 | Microsoft Docs
+description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869056"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](http://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -58,7 +59,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 ### <a name="export-an-analytics-query"></a>Analytics 쿼리 내보내기
 1. [Analytics 열기 및 쿼리 작성](app-insights-analytics-tour.md).
 2. 결과에 만족할 때까지 쿼리를 테스트하고 수정합니다. 내보내기 전에 Analytics에서 쿼리가 제대로 실행되는지 확인합니다.
-3. **내보내기** 메뉴에서 **Power BI(M)**를 선택합니다. 텍스트 파일을 저장합니다.
+3. **내보내기** 메뉴에서 **Power BI(M)** 를 선택합니다. 텍스트 파일을 저장합니다.
    
     ![내보내기 메뉴가 강조 표시된 Analytics 스크린샷](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
 4. Power BI Desktop을 열고 **데이터 가져오기** > **빈 쿼리**를 선택합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
@@ -121,8 +122,8 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 1. [API 키](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 만듭니다.
 2. Azure Resource Manager URL을 Application Insights API로 대체하여 분석에서 내보낸 Power BI M 스크립트를 업데이트합니다.
-   * **https://management.azure.com/subscriptions/...**를
-   * **https://api.applicationinsights.io/beta/apps/...**로 바꿉니다.
+   * **https://management.azure.com/subscriptions/...** 을
+   * **https://api.applicationinsights.io/beta/apps/...** 으로 바꿉니다.
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
   
 
