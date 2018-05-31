@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33780231"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -154,7 +155,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 아래에서 정의된 **UploadFile** 메서드는 **CreateFromFile**(.NET SDK 확장에 정의됨)을 호출합니다. **CreateFromFile** 은 지정된 원본 파일이 업로드되는 새 자산을 만듭니다.
 
-**CreateFromFile** 메서드는 다음 자산 만들기 옵션 중 하나를 지정할 수 있는 **AssetCreationOptions를 사용합니다.
+**CreateFromFile** 메서드는 다음 자산 만들기 옵션 중 하나를 지정할 수 있는 \*\*AssetCreationOptions를 사용합니다.
 
 * **없음** - 암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 저장소에 저장된 상태일 때 보호되지 않습니다.
   MP4를 배달하려는 경우 이 옵션을 사용하세요.

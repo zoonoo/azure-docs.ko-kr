@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365681"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
 Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
@@ -34,7 +35,7 @@ Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SS
 
 1. SSH 구성을 재설정합니다.
 2. 사용자의 자격 증명을 다시 설정합니다.
-3. [네트워크 보안 그룹](../../virtual-network/virtual-networks-nsg.md) 규칙이 SSH 트래픽을 허용하는지 확인합니다.
+3. [네트워크 보안 그룹](../../virtual-network/security-overview.md) 규칙이 SSH 트래픽을 허용하는지 확인합니다.
    * 네트워크 보안 그룹 규칙이 SSH 트래픽을 허용하기 위해 존재하는지 확인합니다(기본적으로 TCP 포트 22).
    * Azure Load Balancer를 사용하지 않고 포트 리디렉션/매핑을 사용할 수 없습니다.
 4. [VM 리소스 상태](../../resource-health/resource-health-overview.md)를 확인합니다. 

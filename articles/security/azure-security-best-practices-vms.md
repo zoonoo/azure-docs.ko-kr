@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160549"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364406"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
@@ -69,7 +69,7 @@ VM에서 고가용성의 중요한 응용 프로그램을 실행할 경우에는
 
 또한 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)에서는 부하 분산된 VM이 동일한 가용성 집합에 속해야 합니다. 이러한 VM을 인터넷에서 액세스해야 할 경우 [인터넷 연결 부하 분산 장치](../load-balancer/load-balancer-internet-overview.md)를 구성해야 합니다.
 
-VM이 인터넷에 노출되어 있으면 [NSG(네트워크 보안 그룹)를 사용하여 네트워크 트래픽 흐름을 제어](../virtual-network/virtual-networks-nsg.md)하는 것이 중요합니다. NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리소스를 그룹화한 다음 서브넷에 NSG를 적용하여 NSG의 수를 최소화할 수 있습니다. Azure에서 [네트워크 보안](../best-practices-network-security.md) 기능을 적절하게 구성하여 수행할 수 있는 네트워크 격리 계층을 생성하기 위한 것입니다.
+VM이 인터넷에 노출되어 있으면 [NSG(네트워크 보안 그룹)를 사용하여 네트워크 트래픽 흐름을 제어](../virtual-network/security-overview.md)하는 것이 중요합니다. NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리소스를 그룹화한 다음 서브넷에 NSG를 적용하여 NSG의 수를 최소화할 수 있습니다. Azure에서 [네트워크 보안](../best-practices-network-security.md) 기능을 적절하게 구성하여 수행할 수 있는 네트워크 격리 계층을 생성하기 위한 것입니다.
 
 특정 VM에 대한 원격 액세스 권한을 가진 대상 및 시간을 제어하기 위해 Azure Security Center에서 JIT(Just-In-Time) VM 액세스 기능을 사용할 수도 있습니다.
 

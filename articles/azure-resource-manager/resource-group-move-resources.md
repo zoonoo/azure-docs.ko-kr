@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360090"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -156,6 +157,7 @@ ms.lasthandoff: 05/14/2018
 * Virtual Machines(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Virtual Networks - [Virtual Networks 제한 사항](#virtual-networks-limitations) 참조
+* Visual Studio Team Services - Microsoft가 아닌 확장 구매가 있는 VSTS 계정은 [구매를 취소](https://go.microsoft.com/fwlink/?linkid=871160)해야만 구독 간에 계정을 이동할 수 있습니다.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>이동할 수 없는 서비스
@@ -170,10 +172,10 @@ ms.lasthandoff: 05/14/2018
 * Azure Migrate
 * BizTalk Services
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
-* Kubernetes 서비스
 * DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동이 가능하지만, 구독 간 이동은 사용 가능하지 않습니다.
 * Dynamics LCS
 * Express 경로
+* Kubernetes 서비스
 * 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Managed Applications
 * Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조

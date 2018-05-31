@@ -1,5 +1,5 @@
 ---
-title: 웹 응용 프로그램 방화벽으로 웹 트래픽 제한 - Azure CLI
+title: 웹 응용 프로그램 방화벽 활성화 - Azure CLI
 description: Azure CLI를 사용하여 응용 프로그램 게이트웨이에서 웹 응용 프로그램 방화벽으로 웹 트래픽을 제한하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -10,15 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 64de501c2e7912cb4cbbae4b194d6c686a1efe67
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ca00dd3b359d9aff1b987a3bef5b27732678b0a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356225"
 ---
-# <a name="tutorial-restrict-web-traffic-with-a-web-application-firewall-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 웹 응용 프로그램 방화벽으로 웹 트래픽 제한
+# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 웹 응용 프로그램 방화벽 활성화
 
-[응용 프로그램 게이트웨이](overview.md)에서 [WAF(웹 응용 프로그램 방화벽)](waf-overview.md)으로 웹 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 응용 프로그램을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
+[WAF(웹 응용 프로그램 방화벽)](waf-overview.md)를 사용하여 [응용 프로그램 게이트웨이](overview.md)에서 웹 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 응용 프로그램을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -134,7 +135,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: b3bbbd952682c32ea86648a73ae7489d12c98429
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: f6611009ae10bf7a0d5c7f20f3ad26e9d41e456e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2018
-ms.locfileid: "32309004"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34340712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>자습서: Azure Active Directory와 LaunchDarkly 통합
 
@@ -31,7 +31,7 @@ LaunchDarkly를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니
 - 사용자가 해당 Azure AD 계정으로 LaunchDarkly에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -236,7 +236,7 @@ LaunchDarkly에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 
 

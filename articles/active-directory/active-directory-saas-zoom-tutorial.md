@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Active Directory와 Zoom 통합 | Microsoft Docs"
-description: "Azure Active Directory와 Zoom 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Azure Active Directory와 Zoom 통합 | Microsoft Docs'
+description: Azure Active Directory와 Zoom 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 16fca9c8d1ab18ffe6d156d6bf4549d9a687b164
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>자습서: Azure Active Directory와 Zoom 통합
 
@@ -30,9 +31,9 @@ Zoom을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Zoom에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Zoom과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -58,7 +59,7 @@ Zoom의 Azure AD 통합을 구성하려면 갤러리의 Zoom을 관리되는 Saa
 
 **갤러리에서 Zoom을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
@@ -143,7 +144,7 @@ Zoom에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     
     e. **Ok**를 클릭합니다. 
  
-6. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+6. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
@@ -178,7 +179,7 @@ Zoom에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     e. **저장**을 클릭합니다.
 
     > [!NOTE] 
-    > 자세한 내용은 Zoom 설명서 [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)를 참조하세요.
+    > 자세한 내용은 확대/축소 설명서 [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)를 참조하세요.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -282,7 +283,7 @@ Azure AD 사용자가 Zoom에 로그인할 수 있도록 하려면 사용자 계
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

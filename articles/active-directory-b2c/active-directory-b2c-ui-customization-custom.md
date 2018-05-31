@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: f92629a3a5d20cce050aa7f124b140b1f4eb32d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200861"
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: 사용자 지정 정책에서 UI 사용자 지정 구성
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/06/2018
 
 제목에 제품의 브랜드 이름이 포함된 HTML 콘텐츠를 만듭니다.
 
-1. 다음 HTML 코드 조각을 복사합니다. *\<body\>* 태그 내에 있는 *\<div id="api"\>\</div\>*라는 빈 요소와 함께 잘 구성된 HTML5입니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 나타냅니다.
+1. 다음 HTML 코드 조각을 복사합니다. *\<body\>* 태그 내에 있는 *\<div id="api"\>\</div\>* 라는 빈 요소와 함께 잘 구성된 HTML5입니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 나타냅니다.
 
    ```html
    <!DOCTYPE html>
@@ -108,7 +109,7 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 4. **허용되는 동사** 드롭다운 목록에서 **가져오기**와 **옵션**을 모두 선택합니다.
 5. **허용된 헤더**의 경우 별표(\*)를 입력합니다.
 6. **노출된 헤더**의 경우 별표(\*)를 입력합니다.
-7. **최대 기간(초)**의 경우 **200**을 입력합니다.
+7. **최대 기간(초)** 의 경우 **200**을 입력합니다.
 8. **추가**를 클릭합니다.
 
 ## <a name="test-cors"></a>CORS 테스트

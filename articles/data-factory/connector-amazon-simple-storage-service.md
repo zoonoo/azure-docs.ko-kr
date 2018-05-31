@@ -8,13 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b2f87c965a7c69614d476f0d931802587f0f1297
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011251"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -93,15 +94,15 @@ Amazon S3에서 데이터를 복사하려면 데이터 집합의 type 속성을 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 type 속성을 **AmazonS3Object**로 설정해야 합니다. |예 |
-| bucketName | S3 버킷 이름입니다. |예 |
-| key | S3 개체 키입니다. 접두사가 지정되어 있지 않은 경우에만 적용됩니다. |아니오 |
-| 접두사 | S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 지정되어 있지 않은 경우에만 적용됩니다. |아니오 |
-| 버전 | S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. |아니요 |
+| bucketName | S3 버킷 이름입니다. 와일드카드 필터는 지원되지 않습니다. |예 |
+| key | 지정된 버킷에서 S3 개체 키의 **이름 또는 와일드카드 필터**입니다. "prefix" 속성이 지정되어 있지 않은 경우에만 적용됩니다. <br/><br/>와일드카드 필터는 폴더 부분이 아닌 파일 이름 부분에만 지원됩니다. 허용되는 와일드카드는 `*`(여러 문자) 및 `?`(단일 문자)입니다.<br/>- 예 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- 예 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다. |아니오 |
+| 접두사 | S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. "key" 속성이 지정되어 있지 않은 경우에만 적용됩니다. |아니오 |
+| 버전 | S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. |아니오 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 생성하거나 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니오 |
 
-> [!NOTE]
-> **bucketName + 키**는 S3 개체의 위치를 지정합니다. 여기서 버킷은 S3 개체에 대한 루트 컨테이너이며 키는 S3 개체의 전체 경로입니다.
+>[!TIP]
+>폴더에서 모든 파일을 복사하려면 버킷으로 **bucketName** 및 폴더 부분으로 **prefix**를 지정합니다.<br>지정된 이름의 단일 파일을 복사하려면 버킷으로 **bucketName** 및 폴더 및 파일 이름 부분으로 **key**를 지정합니다.<br>폴더에서 파일의 하위 집합을 복사하려면 버킷으로 **bucketName** 및 폴더 및 와일드카드 필터 부분으로 **key**를 지정합니다.
 
 **예제: 접두사 사용**
 
@@ -171,7 +172,7 @@ Amazon S3에서 데이터를 복사하려면 복사 작업의 원본 형식을 *
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |예 |
-| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
+| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니오 |
 
 **예제:**
 

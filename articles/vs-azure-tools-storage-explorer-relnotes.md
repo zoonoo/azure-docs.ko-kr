@@ -14,17 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779008"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
-이 문서에서는 Azure Storage 탐색기 0.9.6(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 제공합니다.
+이 문서에서는 Azure Storage 탐색기 1.0.0 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 제공합니다.
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
+
+## <a name="version-100"></a>Version 1.0.0
+2018/04/16
+
+### <a name="download-azure-storage-explorer-100"></a>Azure Storage 탐색기 1.0.0 다운로드
+- [Windows용 Azure Storage 탐색기 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 1.0.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>새로 만들기
+* Storage 탐색기에서 Visual Studio 2017과 동일한 계정을 사용할 수 있는 향상된 인증입니다. 이 기능을 사용하려면 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
+* AAD에서 지원하는 Azure Stack 계정의 경우 이제 '대상 Azure Stack'을 사용하도록 설정하면 Storage 탐색기가 Azure Stack 등록을 검색합니다. 더 이상 사용자 지정 로그인 환경을 만들 필요가 없습니다.
+* 보다 빠른 탐색이 가능하도록 여러 바로 가기가 추가되었습니다. 그 중에는 다양한 패널을 전환하고 편집기 간에 이동하는 바로 가기도 포함됩니다. 자세한 내용은 보기 메뉴를 참조하세요.
+* 이제 Storage 탐색기 피드백이 GitHub에 있습니다. 왼쪽 아래에 있는 [피드백] 단추를 클릭하거나 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)로 이동하여 문제 페이지를 열 수 있습니다. 자유롭게 의견을 제안하고, 문제를 보고하고, 궁금한 점을 질문하거나 기타 형태의 피드백을 남겨주세요.
+* SSL 인증서 문제가 발생했는데 잘못된 인증서를 찾을 수 없는 경우 이제 명령줄에서 `--ignore-certificate-errors` 플래그로 Storage 탐색기를 시작할 수 있습니다. 이 플래그로 시작하면 Storage 탐색기가 SSL 인증서 오류를 무시합니다.
+* 이제 BLOB 및 파일 항목의 상황에 맞는 메뉴에 '다운로드' 옵션이 있습니다.
+* 향상된 내게 필요한 옵션 및 화면 판독기가 지원됩니다. 내게 필요한 옵션 기능을 사용하는 경우 [내게 필요한 옵션 설명서](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility)에서 자세한 내용을 참조하세요.
+* 이제 Storage 탐색기가 Electron 1.8.3 사용
+
+### <a name="breaking-changes"></a>주요 변경 내용
+* Storage 탐색기가 새로운 인증 라이브러리로 전환되었습니다. 라이브러리 전환 과정의 일부로, 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
+* 중요한 데이터를 암호화하는 데 사용되는 방법이 변경되었습니다. 이로 인해 빠른 실행 항목 중 일부를 다시 추가하고/하거나 연결된 리소스 중 일부를 다시 연결해야 할 수도 있습니다.
+
+### <a name="fixes"></a>수정 프로그램
+* 프록시 뒤에 있는 일부 사용자는 '확인할 수 없습니다' 오류 메시지와 함께 그룹 BLOB 업로드 또는 다운로드가 중단되었습니다. 이 문제가 해결되었습니다.
+* 직접 연결을 사용하는 동안 로그인이 필요한 경우 '로그인' 프롬프트를 클릭하면 빈 대화 상자가 나타났습니다. 이 문제가 해결되었습니다.
+* Linux에서 GPU 프로세스 크래시 때문에 Storage 탐색기를 시작할 수 없는 경우 이제 크래시가 발생했으니 '--disable-gpu' 스위치를 사용하라고 사용자에게 알려주며, 스위치를 사용하도록 설정하면 Storage 탐색기가 자동으로 다시 시작됩니다.
+* 액세스 정책 대화 상자에서 잘못된 액세스 정책을 식별하기가 어려웠습니다. 이제는 쉽게 알아볼 수 있도록 잘못된 액세스 정책 ID의 테두리가 빨간색으로 표시됩니다.
+* 활동 로그가 활동의 여러 부분 사이에 있는 공백을 많이 차지하는 경우가 종종 있었습니다. 이 문제가 해결되었습니다.
+* 테이블 쿼리 편집기에서, 잘못된 상태의 타임스탬프 절에서 나가서 다른 절을 수정하려고 하면 편집기가 동결되었습니다. 이제 다른 절에서 변경 내용이 감지되면 편집기가 타임스탬프 절을 마지막 유효한 상태로 복원합니다.
+* 트리 뷰에서 검색 쿼리에 입력하는 동안 일시 중지하면 검색이 시작되고 텍스트 상자에서 포커스가 사라졌습니다. 이제는 'Enter' 키를 누르거나 [검색 시작] 단추를 클릭하여 명시적으로 검색을 시작해야 합니다.
+* 파일 공유에서 파일을 마우스 오른쪽 단추로 클릭하면 가끔 'Get Shared Access Signature' 명령이 비활성화되었습니다. 이 문제가 해결되었습니다.
+* 검색하는 동안 포커스가 있는 리소스 트리 노드를 필터링하면 리소스 트리를 탭하고 화살표 키를 사용하여 리소스 트리를 탐색할 수 없었습니다. 이제 포커스가 있는 리소스 트리 노드를 숨기면 리소스 트리의 첫 번째 노드로 포커스가 자동으로 이동합니다.
+* 편집기 도구 모음에서 추가 구분 기호가 보이는 경우가 종종 있었습니다. 이 문제가 해결되었습니다.
+* 이동 경로 탐색 텍스트 상자가 가끔 오버플로되었습니다. 이 문제가 해결되었습니다.
+* 많은 파일을 한꺼번에 업로드하면 BLOB 및 파일 공유 편집기가 계속 새로 고침되는 경우가 가끔 있었습니다. 이 문제가 해결되었습니다.
+* '폴더 통계' 기능은 파일 공유 스냅숏 관리 보기에서 아무런 목적도 없었습니다. 이 기능이 비활성화되었습니다.
+* Linux에서 파일 메뉴가 표시되지 않았습니다. 이 문제가 해결되었습니다.
+* 폴더를 파일 공유에 업로드할 때 기본적으로 폴더의 콘텐츠만 업로드되었습니다. 이제 폴더의 콘텐츠를 파일 공유의 일치하는 폴더에 업로드하는 것이 기본 동작입니다.
+* 여러 대화 상자에서 단추 순서가 거꾸로 바뀌었습니다. 이 문제가 해결되었습니다.
+* 다양한 보안 관련 문제가 수정되었습니다.
+
+### <a name="known-issues"></a>알려진 문제
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기 설명된 취소 필터 해결 방법을 사용하기 때문입니다. 
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 0.9.6](#version-096)
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>버전 0.9.6
 02/28/2018
@@ -66,30 +162,6 @@ ms.lasthandoff: 04/28/2018
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 0.9.5](#version-095)
-* [버전 0.9.4 및 0.9.3](#version-094-and-093)
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 및 0.9.0](#version-091-and-090)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
-* [버전 0.8.9 및 0.8.8](#version-089-and-088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>버전 0.9.5
 02/06/2018

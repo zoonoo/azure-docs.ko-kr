@@ -1,14 +1,14 @@
 ---
-title: "Service Fabric 컨테이너 응용 프로그램 패키징 및 배포 | Microsoft Docs"
-description: "이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 응용 프로그램 정의를 생성하고 응용 프로그램을 패키지하는 방법을 알아봅니다."
+title: Service Fabric 컨테이너 응용 프로그램 패키징 및 배포 | Microsoft Docs
+description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 응용 프로그램 정의를 생성하고 응용 프로그램을 패키지하는 방법을 알아봅니다.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365388"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>자습서: Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
@@ -45,7 +46,8 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응
 1. 컴퓨터에서 Node.js 및 NPM을 설치합니다. Mac OSX 사용자는 Homebrew 패키지 관리자를 사용해야 합니다
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. NPM의 컴퓨터에 Yeoman 템플릿 생성기 설치 
 
@@ -123,7 +125,7 @@ ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 
 az acr login --name <acrName>
 ```
 
-이 명령이 완료되면 **로그인했습니다.**라는 메시지를 반환합니다.
+이 명령이 완료되면 **로그인했습니다.** 라는 메시지를 반환합니다.
 
 다음으로 컨테이너 레지스트리 암호를 가져오는 다음 명령을 실행합니다. 이 암호는 Service Fabric에서 컨테이너 이미지를 끌어오기 위해 ACR를 사용하여 인증하는 데 사용됩니다.
 
@@ -251,7 +253,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 
 ![Service Fabric Explorer][sfx]
 
-실행 중인 응용 프로그램에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
+실행 중인 응용 프로그램에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80)로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
 
 ![votingapp][votingapp]
 

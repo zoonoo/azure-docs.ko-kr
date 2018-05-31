@@ -1,9 +1,9 @@
 ---
-title: "개발자 분석용 Visual Studio 확장에 대한 릴리스 정보"
-description: "개발자 분석용 Visual Studio Tools의 최신 업데이트."
+title: 개발자 분석용 Visual Studio 확장에 대한 릴리스 정보
+description: 개발자 분석용 Visual Studio Tools의 최신 업데이트.
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869549"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>개발자 분석 도구에 대한 릴리스 정보
 
@@ -167,7 +168,7 @@ Visual Studio 내에서 베타 배포판의 빌드를 업로드하는 것이 얼
 
 ![유니버설 Windows 앱의 업로드 대화 상자](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
 
-업로드할 콘텐츠(.appxbundle 또는 .appx 파일)를 선택한 다음 마법사에서 릴리스 옵션을 선택합니다. 선택적으로 다음 페이지에서 릴리스 정보를 추가할 수 있습니다. **마침**을 선택하면 업로드가 시작됩니다.
+업로드할 콘텐츠(.appxbundle 또는 .appx 파일)를 선택한 다음, 마법사에서 릴리스 옵션을 선택합니다. 선택적으로 다음 페이지에서 릴리스 정보를 추가할 수 있습니다. **마침**을 선택하면 업로드가 시작됩니다.
 
 업로드가 완료되면 확인 및 HockeyApp 포털의 앱 링크가 포함된 HockeyApp 알림이 표시됩니다.
 
@@ -289,8 +290,3 @@ Visual Studio 진단 도구 페이지에서 다른 디버깅 데이터 외에도
 
 ![새 프로젝트 대화 상자](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>장치 지원
-*Connect();* 2015에서 장치에 대한 모바일 개발자 환경인 HockeyApp를 [발표](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) 했습니다. HockeyApp을 사용하면 테스터에 베타 빌드를 배포하고 앱에서 모든 충돌을 수집하고 분석하며 고객으로부터 직접 의견을 수집할 수 있습니다.
-HockeyApp은 iOS, Android, Windows 또는 Xamarin, Cordova, Unity와 같은 플랫폼 간 솔루션 등 빌드를 위해 선택한 플랫폼에 관계 없이 모든 플랫폼 상의 앱을 지원합니다.
-
-향후 Application Insights 확장 릴리스에서는 HockeyApp과 Visual Studio 간에 보다 통합된 환경을 도입할 예정입니다. 지금은 NuGet 참조를 추가하기만 하면 HockeyApp을 시작할 수 있습니다. 자세한 내용은 [문서](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) 를 참조하세요.
