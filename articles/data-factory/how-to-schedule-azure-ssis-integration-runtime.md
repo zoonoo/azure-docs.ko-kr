@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360328"
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770932"
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법 
 Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다. 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. 이 문서에서 설명하는 개략적인 단계는 다음과 같습니다.
@@ -71,6 +71,9 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
 ### <a name="import-data-factory-modules"></a>Data Factory 모듈 가져오기
 
 1. 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈**을 선택하고 모듈 목록에 **AzureRM.Profile** 및 **AzureRM.DataFactoryV2**가 표시되는지 확인합니다.
+
+    > [!IMPORTANT]
+    > 현재 **AzureRM.DataFactoryV2 0.5.2** 및 **AzureRM.Profile 4.5.0** 모듈만 사용할 수 있습니다.
 
     ![필요한 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
