@@ -7,14 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011767"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 테이블에서 통계 만들기 및 업데이트
 Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
@@ -22,24 +23,46 @@ Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 �
 ## <a name="why-use-statistics"></a>통계를 사용하는 이유는?
 Azure SQL Data Warehouse에서 데이터에 대해 더 많이 알수록 데이터에 대한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대한 통계를 수집하고 SQL Data Warehouse에 로드하는 것은 쿼리를 최적화하기 위해 수행할 수 있는 가장 중요한 작업 중 하나입니다. SQL Data Warehouse 쿼리 최적화 프로그램이 비용 기반 최적화 프로그램이기 때문입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 이는 대부분의 경우 가장 빠르게 실행되는 계획입니다. 예를 들어 최적화 프로그램이 쿼리에서 필터링하는 날짜가 하나의 행을 반환한다고 예측하는 경우, 선택한 날짜가 1백만 개의 행을 반환한다고 예측할 때와 다른 계획을 선택할 수 있습니다.
 
-통계를 만들고 업데이트하는 프로세스는 현재 수동 프로세스이지만 간단하게 수행할 수 있습니다.  곧 단일 열 및 인덱스에 대한 통계를 자동으로 만들고 업데이트할 수 있습니다.  다음 정보를 사용하여 데이터에 대한 통계 관리를 크게 자동화할 수 있습니다. 
+## <a name="automatic-creation-of-statistics"></a>통계 자동 생성
+통계 자동 생성 옵션이 설정되었을 때 AUTO_CREATE_STATISTICS, SQL Data Warehouse는 통계가 누락된 열에 대한 단일 열 통계가 생성되는 들어오는 사용자 쿼리를 분석합니다. 쿼리 최적화 프로그램은 쿼리 계획에 대한 다중성 예상치를 향상하기 위해 쿼리 조건자 또는 조인 조건의 개별 열에 통계를 만듭니다. 통계 자동 생성은 현재 기본적으로 설정됩니다.
 
-## <a name="scenarios"></a>시나리오
-모든 열에서 샘플링된 통계를 만드는 것이 시작하는 쉬운 방법입니다. 통계가 오래되면 차선의 쿼리 성능으로 이어집니다. 그러나 데이터가 증가함에 따라 모든 열에 대한 통계를 업데이트하면 메모리가 소모될 수 있습니다. 
+데이터 웨어하우스가 다음 명령을 실행하여 구성했는지를 확인할 수 있습니다.
 
-다양한 시나리오에 대한 권장 사항은 다음과 같습니다.
-| **시나리오** | 권장 사항 |
-|:--- |:--- |
-| **시작** | SQL Data Warehouse로 마이그레이션한 후에 모든 열 업데이트 |
-| **통계에서 가장 중요한 열** | 해시 배포 키 |
-| **통계에서 두 번째로 중요한 열** | 파티션 키 |
-| **통계에서 다른 중요한 열** | 날짜, JOIN 빈도, GROUP BY, HAVING 및 WHERE |
-| **통계 업데이트의 빈도**  | 일반: 매일 <br></br> 데이터 로드 또는 변환 후 |
-| **샘플링** |  10억 개 미만의 행인 경우 기본 샘플링(20%)을 사용합니다. <br></br> 10억 개 이상의 행인 경우 2% 범위의 통계가 적합합니다. |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+데이터 웨어하우스가 AUTO_CREATE_STATISTICS을 구성하지 않는 경우 다음 명령을 실행하여 이 속성을 사용하는 것이 좋습니다.
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+조인을 포함하거나 조건자의 존재가 검색될 때 다음 명령문은 SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE 및 EXPLAIN과 같은 통계 자동 생성을 트리거합니다. 
+
+> [!NOTE]
+> 통계 자동 생성은 임시 또는 외부 테이블에 만들어집니다.
+> 
+
+통계의 자동 생성은 동기적으로 생성됩니다. 따라서 열에 아직 생성된 통계가 없는 경우 쿼리 성능이 약간 저하될 수 있습니다. 통계 생성은 테이블의 크기에 따라 단일 열에서 몇 초 정도가 걸릴 수 있습니다. 특히 성능 벤치마크에서 성능 저하를 측정하지 않도록 방지하기 위해 통계가 먼저 시스템을 프로파일링하기 전에 벤치마크 워크로드를 실행하여 생성되도록 해야 합니다.
+
+> [!NOTE]
+> 통계 생성은 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016)에도 기록됩니다.
+> 
+
+자동 통계를 만들 때 _WA_Sys_<16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. 다음 명령을 실행하여 이미 생성된 통계를 볼 수 있습니다.
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>통계 업데이트
 
 모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로, 값 분포는 일반적으로 변경되지 않기 때문에 고객 테이블의 국가 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 하나의 국가만 포함되어 있고 새 국가에서 데이터를 가져와서 여러 국가의 데이터가 저장되는 경우 국가 열에 대한 통계를 업데이트해야 합니다.
+
+통계를 업데이트하는 권장 사항은 다음과 같습니다.
+
+| **통계 업데이트 빈도** | 일반: 매일 <br></br> 데이터 로드 또는 변환 이후 | | **샘플링** | 10억 개 미만의 행인 경우 기본 샘플링(20%)을 사용합니다. <br></br> 10억 개 이상의 행인 경우 2% 범위의 통계가 적합합니다. |
 
 쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 

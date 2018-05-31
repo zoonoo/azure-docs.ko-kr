@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: be7db6f8a69731dec83ba94aecc272bc1df17892
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012627"
 ---
-# <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독 
+# <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독
 
-이 자습서에서는 서로 다른 배포 모델을 통해 만들어진 가상 네트워크 간의 가상 네트워크 피어링을 만드는 방법을 알아봅니다. 두 가상 네트워크는 동일한 구독에 있어야 합니다. 두 가상 네트워크를 피어링하면 서로 다른 가상 네트워크에 있는 리소스가 같은 가상 네트워크에 있는 리소스인 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. [가상 네트워크 피어링](virtual-network-peering-overview.md)에 대해 자세히 알아보세요. 
+이 자습서에서는 서로 다른 배포 모델을 통해 만들어진 가상 네트워크 간의 가상 네트워크 피어링을 만드는 방법을 알아봅니다. 두 가상 네트워크는 동일한 구독에 있어야 합니다. 두 가상 네트워크를 피어링하면 서로 다른 가상 네트워크에 있는 리소스가 같은 가상 네트워크에 있는 리소스인 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. [가상 네트워크 피어링](virtual-network-peering-overview.md)에 대해 자세히 알아보세요.
 
 가상 네트워크 피어링을 만드는 단계는 가상 네트워크가 동일한 구독에 있는지 아니면 다른 구독에 있는지에 따라, 그리고 가상 네트워크가 어느 [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 통해 생성되었는지에 따라 다릅니다. 다음 표에 나온 시나리오를 클릭하여 다른 시나리오에서 가상 네트워크 피어링을 만드는 방법을 알아보세요.
 
@@ -33,9 +34,9 @@ ms.lasthandoff: 04/19/2018
 |[둘 다 리소스 관리자](create-peering-different-subscriptions.md) |다름|
 |[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
-클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
+클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다.
 
-이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다. 
+이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다. 가상 네트워크를 피어링하기 전에 [피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다.
 
 [Azure Portal](#portal), Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#powershell) 또는 [Azure Resource Manager 템플릿](#template)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
 

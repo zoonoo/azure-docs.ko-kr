@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304116"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -33,6 +34,8 @@ ms.lasthandoff: 04/23/2018
 Service Bus 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>트리거
 
@@ -49,16 +52,22 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제에서는 Service Bus 큐 메시지를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +75,7 @@ public static void Run(
  
 ### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
 
-다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 Service Bus 큐 메시지를 기록합니다.
+다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록합니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -88,9 +97,19 @@ public static void Run(
 C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +143,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
-다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 이 함수는 Service Bus 큐 메시지를 기록합니다. 
+다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록합니다. 
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -148,6 +167,9 @@ JavaScript 스크립트 코드는 다음과 같습니다.
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -247,7 +269,30 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
 
 ## <a name="trigger---peeklock-behavior"></a>트리거 - PeekLock 동작
 
-Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 수신합니다. 함수가 성공적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 잠금이 자동으로 갱신됩니다.
+Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 수신합니다. 함수가 성공적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 함수가 실행되면 잠금이 자동으로 갱신됩니다. 
+
+함수 1.x를 사용하면 [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout)에 매핑되는 *host.json*에서 `autoRenewTimeout`를 구성할 수 있습니다. 이 설정에 대해 허용되는 최대값음 Service Bus 설명서에 따라 5분입니다. 반면 함수 제한 시간 기본값은 5분에서 10분으로 늘릴 수 있습니다. Service Bus 함수의 경우 Service Bus 갱신 제한을 초과하기 때문에 이 작업을 하지 않는 것이 좋습니다.
+
+## <a name="trigger---message-metadata"></a>트리거 - 메시지 메타데이터
+
+Service Bus 트리거는 몇 가지 [메타데이터 속성](functions-triggers-bindings.md#binding-expressions---trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 클래스의 속성은 다음과 같습니다.
+
+|자산|type|설명|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|배달 수입니다.|
+|`DeadLetterSource`|`string`|배달 못한 편지 원본입니다.|
+|`ExpiresAtUtc`|`DateTime`|만료 시간(UTC)입니다.|
+|`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
+|`MessageId`|`string`|Service Bus에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
+|`ContentType`|`string`|응용 프로그램별 논리의 보낸 사람 및 받는 사람에 의해 활용되는 콘텐츠 형식 식별자입니다.|
+|`ReplyTo`|`string`|큐 주소에 대한 회신입니다.|
+|`SequenceNumber`|`Int64`|Service Bus에 의해 메시지에 할당되는 고유 번호입니다.|
+|`To`|`string`|주소로 보내기입니다.|
+|`Label`|`string`|응용 프로그램별 레이블입니다.|
+|`CorrelationId`|`string`|상관관계 ID입니다.|
+|`Properties`|`IDictionary<String,Object>`|응용 프로그램별 메시지 속성입니다.|
+
+이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger---example)를 참조하세요.
 
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 
@@ -404,7 +449,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -415,9 +460,9 @@ module.exports = function (context, myTimer) {
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```

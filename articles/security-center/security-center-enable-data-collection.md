@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203974"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 이러한 데이터의 예: 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 프로세스 실행, 컴퓨터 이름, IP 주소, 로그인된 사용자 및 테넌트 ID입니다. 또한 Microsoft Monitoring Agent는 작업 영역에 크래시 덤프 파일을 복사합니다.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Microsoft Monitoring Agent 자동 프로비저닝 사용     
-자동 프로비저닝을 사용하도록 설정하면 Security Center는 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Microsoft Monitoring Agent를 프로비전합니다. 자동 프로비저닝을 사용하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Microsoft Monitoring Agent 확장을 설치하는 방법을 알아봅니다](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+자동 프로비저닝은 기본적으로 해제되어 있습니다. 자동 프로비저닝을 사용하도록 설정하면 Security Center는 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Microsoft Monitoring Agent를 프로비전합니다. 자동 프로비저닝을 사용하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Microsoft Monitoring Agent 확장을 설치하는 방법을 알아봅니다](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > 자동 프로비저닝을 사용하지 않도록 설정하면 리소스에 대한 보안 모니터링이 제한됩니다. 자세한 내용은 이 문서의 [자동 프로비저닝을 사용하지 않도록 설정](security-center-enable-data-collection.md#disable-automatic-provisioning)을 참조하세요. 자동 프로비저닝을 사용하지 않도록 설정하더라도 VM 디스크 스냅숏 및 아티팩트 수집은 사용하도록 설정됩니다.
@@ -32,13 +33,16 @@ Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데�
 >
 
 Microsoft Monitoring Agent의 자동 프로비저닝을 사용하도록 설정하려면 다음을 수행합니다.
-1. Security Center 주 메뉴 아래에서 **보안 정책**을 선택합니다.
+1. Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
 2. 구독을 선택합니다.
+
+  ![구독 선택][7]
+
 3. **보안 정책** 아래에서 **데이터 수집**을 선택합니다.
-4. **온보딩** 아래에서 **설정**을 선택하여 자동 프로비저닝을 사용하도록 설정합니다.
+4. **자동 프로비저닝** 아래에서 **설정**을 선택하여 자동 프로비저닝을 사용하도록 설정합니다.
 5. **저장**을 선택합니다.
 
-![자동 프로비저닝 사용][1]
+  ![자동 프로비저닝 사용][1]
 
 ## <a name="default-workspace-configuration"></a>기본 작업 영역 구성
 Security Center에서 수집된 데이터는 Log Analytics 작업 영역에 저장됩니다.  Security Center에서 작성된 작업 영역에 저장되어 있는 Azure VM이나 직접 만든 기존 작업 영역에서 데이터를 수집할 수 있습니다.
@@ -49,16 +53,16 @@ Security Center에서 수집된 데이터는 Log Analytics 작업 영역에 저�
 
 기존 Log Analytics 작업 영역을 선택하려면 다음을 수행합니다.
 
-1. **보안 정책 - 데이터 수집** 아래에서 **다른 작업 영역 사용**을 선택합니다.
+1. **기본 작업 영역 구성** 아래에서 **다른 작업 영역 사용**을 선택합니다.
 
    ![기존 작업 영역 선택][2]
 
 2. 풀다운 메뉴에서 수집된 데이터를 저장할 작업 영역을 선택합니다.
 
-> [!NOTE]
-> 풀다운 메뉴에는 액세스 권한이 있으며 Azure 구독에 포함된 작업 영역만 표시됩니다.
->
->
+  > [!NOTE]
+  > 풀 다운 메뉴의 모든 구독에서 모든 작업 영역을 사용할 수 있습니다. 자세한 내용은 [구독 간 작업 영역 선택](security-center-enable-data-collection.md#cross-subscription-workspace-selection)을 참조하세요.
+  >
+  >
 
 3. **저장**을 선택합니다.
 4. **저장**을 선택하고 나면 모니터링되는 VM을 다시 구성할지를 묻는 메시지가 표시됩니다.
@@ -73,7 +77,15 @@ Security Center에서 수집된 데이터는 Log Analytics 작업 영역에 저�
 
    - 작업을 취소하려면 **취소**를 선택합니다.
 
-   ![기존 작업 영역 선택][3]
+     ![기존 작업 영역 선택][3]
+
+## <a name="cross-subscription-workspace-selection"></a>구독 간 작업 영역 선택
+데이터를 저장하기 위해 작업 영역을 선택할 때 모든 구독에서 모든 작업 영역을 사용할 수 있습니다. 구독 간 작업 영역 선택을 사용하면 서로 다른 구독에서 실행 중인 가상 머신에서 데이터를 수집하고 사용자가 선택한 작업 영역에 저장할 수 있습니다. 이 기능은 Linux 및 Windows에서 실행 중인 가상 머신 둘 다에서 작동합니다.
+
+> [!NOTE]
+> 구독 간 작업 영역 선택은 Azure Security Center 무료 계층의 일부입니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
+>
+>
 
 ## <a name="data-collection-tier"></a>데이터 수집 계층
 Security Center는 조사, 감사 및 위협 검색용 이벤트는 충분히 유지하면서 이벤트의 양을 줄일 수 있습니다. Agent가 수집하도록 할 4개 이벤트 집합 중에서 구독 및 작업 영역에 적합한 필터링 정책을 선택할 수 있습니다.
@@ -84,7 +96,8 @@ Security Center는 조사, 감사 및 위협 검색용 이벤트는 충분히 �
 - **없음** – 보안 및 App Locker 로그에서 보안 이벤트를 수집하지 않도록 설정합니다. 이 옵션을 선택하는 고객의 보안 대시보드에는 Windows 방화벽 로그 및 맬웨어 방지/초기 계획/업데이트 등의 자동 관리 평가만 포함됩니다.
 
 > [!NOTE]
-> 이러한 집합은 일반적인 시나리오를 해결하도록 설계되었습니다. 특정 집합을 구현하기 전에 요구에 적합한 집합을 평가하세요.
+> 이러한 보안 이벤트 집합은 Security Center의 표준 계층에서만 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
+이러한 집합은 일반적인 시나리오를 해결하도록 설계되었습니다. 특정 집합을 구현하기 전에 요구에 적합한 집합을 평가하세요.
 >
 >
 
@@ -115,7 +128,7 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 >
 
 필터링 정책을 선택하려면 다음을 수행합니다.
-1. **보안 정책 및 설정** 블레이드의 **보안 이벤트**에서 필터링 정책을 선택합니다.
+1. **보안 정책 데이터 수집** 블레이드의 **보안 이벤트**에서 필터링 정책을 선택합니다.
 2. **저장**을 선택합니다.
 
    ![필터링 정책 선택][5]
@@ -129,12 +142,13 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 >
 
 1. Security Center 주 메뉴로 돌아가서 보안 정책을 선택합니다.
-
-   ![자동 프로비저닝을 사용하지 않도록 설정][6]
-
 2. 자동 프로비저닝을 사용하지 않도록 설정할 구독을 선택합니다.
-3. **보안 정책 - 데이터 수집** 블레이드의 **온보딩**에서 **해제**를 선택하여 자동 프로비저닝을 사용하지 않도록 설정합니다.
-4. **저장**을 선택합니다.  
+3. **보안 정책 - 데이터 수집** 블레이드의 **자동 프로비저닝** 아래에서 **해제**를 선택합니다.
+4. **저장**을 선택합니다.
+
+  ![자동 프로비저닝 사용 안 함][6]
+
+자동 프로비저닝을 비활성화하면(사용 안 함) 기본 작업 영역 구성 섹션이 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center에서 데이터 수집 및 자동 프로비저닝이 작동하는 방식에 대해 알아보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -153,4 +167,5 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

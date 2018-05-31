@@ -1,31 +1,32 @@
 ---
-title: "Azure Security Center에서 웹 응용 프로그램 방화벽 추가 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center 권장 사항 **웹 응용 프로그램 방화벽 추가** 및 **응용 프로그램 보호 완료**를 구현하는 방법을 보여 줍니다."
+title: Azure Security Center에서 웹 응용 프로그램 방화벽 추가 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center 권장 사항 **웹 응용 프로그램 방화벽 추가** 및 **응용 프로그램 보호 완료**를 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203525"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Security Center에서 웹 응용 프로그램 방화벽 추가
 Azure Security Center에서는 웹 응용 프로그램을 보호하기 위해 Microsoft 파트너의 WAF(웹 응용 프로그램 방화벽)를 추가하도록 권장할 수 있습니다. 이 문서에서는 이 권장 사항을 적용하는 방법의 예를 보여 줍니다.
 
 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.
 
-Security Center에서는 가상 머신과 외부 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.
+Security Center에서는 가상 머신과 [격리된](https://azure.microsoft.com/pricing/details/app-service/windows/) 서비스 계획 아래에 배포된 외부 ASE(App Service 환경)에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. 앱은 격리된 전용 Azure 환경에 호스팅되기 때문에 온-프레미스 네트워크와 안전한 연결이 필요하거나 추가적인 성능 및 규모가 필요한 앱에 이상적입니다. 앱은 격리된 환경에 있는 것 외에도 앱에는 외부 IP 주소 부하 분산 장치가 필요합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  이 문서는 단계별 가이드가 아닙니다.

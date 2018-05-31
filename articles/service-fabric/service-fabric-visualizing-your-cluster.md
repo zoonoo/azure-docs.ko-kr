@@ -1,24 +1,25 @@
 ---
-title: "Azure Service Fabric Explorer를 사용하여 클러스터 시각화 | Microsoft Docs"
-description: "Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 응용 프로그램입니다."
+title: Azure Service Fabric Explorer를 사용하여 클러스터 시각화 | Microsoft Docs
+description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 응용 프로그램입니다.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 916742d89447af4097d37b5d78e97ff86c12834c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210184"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -45,12 +46,12 @@ Service Fabric Explorer를 데스크톱 응용 프로그램으로 다운로드�
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>클러스터에서 Service Fabric Explorer 실행
 
-Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 끝점에도 호스트됩니다. 웹 브라우저에서 SFX를 시작하려면 아무 브라우저에서나 클러스터의 HTTP 관리 끝점으로 이동합니다(예: https://clusterFQDN:19080 ).
+Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 끝점에도 호스트됩니다. 웹 브라우저에서 SFX를 시작하려면 아무 브라우저에서나 클러스터의 HTTP 관리 엔드포인트로 이동합니다(예: https://clusterFQDN:19080).
 
 개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 연결
-Service Fabric 클러스터를 연결하려면 클러스터 관리 끝점(FQDN/IP) 및 HTTP 관리 끝점 포트(기본적으로 19080)가 필요합니다. 예를 들면 https://mysfcluster.westus.cloudapp.azure.com:19080 과 같습니다. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
+Service Fabric 클러스터를 연결하려면 클러스터 관리 끝점(FQDN/IP) 및 HTTP 관리 끝점 포트(기본적으로 19080)가 필요합니다. 예: https://mysfcluster.westus.cloudapp.azure.com:19080. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
 
 ### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 인증서 또는 AAD(Azure Active Directory)를 사용하여 서비스 패브릭 클라이언트에 대한 클라이언트 액세스를 제어할 수 있습니다.

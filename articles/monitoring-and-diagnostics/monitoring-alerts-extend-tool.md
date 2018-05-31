@@ -11,16 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166185"
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>OMS에서 Azure로 경고를 확장(복사)하는 방법
 **2018년 5월14일**부터 [Microsoft OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에 구성된 경고를 사용하는 모든 고객은 Azure로 확장됩니다. Azure로 확장되는 경고는 OMS의 경우와 동일하게 동작합니다. 모니터링 기능은 그대로 유지됩니다. OMS에서 생성된 경고를 Azure로 확장하면 많은 이점이 있습니다. OMS에서 Azure로 경고를 확장할 때의 이점 및 확장 프로세스에 대한 자세한 내용은 [OMS에서 Azure로 경고 확장](monitoring-alerts-extend.md)을 참조하세요.
+
+> [!NOTE]
+> 2018년 5월 14일부터 Microsoft는 경고를 Azure로 확장하는 프로세스를 자동으로 시작합니다. 모든 작업 영역 및 경고가 확장되지는 않습니다. 대신 앞으로 몇 주 안에 Microsoft에서 전면적으로 경고를 자동으로 확장하기 시작할 것입니다. 따라서 OMS 포털의 경고는 2018년 5월 14일에 바로 Azure로 자동 확장되지 않으며, 사용자가 아래 옵션 세부 정보를 사용하여 경고를 수동으로 확장할 수 있습니다.
 
 OMS에서 Azure로 경고를 즉시 이동하려는 고객은 설명된 옵션 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
@@ -221,7 +225,7 @@ POST가 성공하면 다음과 함께 200 정상 응답이 반환합니다.
 ```
 
 ## <a name="troubleshooting"></a>문제 해결 
-OMS에서 Azure로 경고를 확장하는 과정에서 시스템이 필요한 [작업 그룹](monitoring-action-groups.md)을 만들지 못하도록 하는 문제가 발생하는 경우가 종종 있습니다. 이런 경우 경고 섹션의 배너 및 API에 대한 GET 호출을 통해 OMS 포털에 오류 메시지가 표시됩니다.
+OMS에서 Azure로 경고를 확장하는 과정에서 시스템이 필요한 [작업 그룹](monitoring-action-groups.md)을 만들지 못하도록 하는 문제가 가끔 있을 수 있습니다. 이런 경우 경고 섹션의 배너 및 API에 대한 GET 호출을 통해 OMS 포털에 오류 메시지가 표시됩니다.
 
 다음은 각 오류에 대한 수정 단계입니다.
 1. **오류: 구독이 'microsoft.insights' 네임스페이스를 사용하도록 등록되어 있지 않습니다.** ![등록 오류 메시지가 있는 OMS 포털 경고 설정 페이지](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
@@ -236,6 +240,14 @@ OMS에서 Azure로 경고를 확장하는 과정에서 시스템이 필요한 [�
     a. 범위 잠금이 활성화되어 Log Analytics(OMS) 작업 영역이 포함된 구독 또는 리소스 그룹의 새로운 변경이 제한되면, 시스템에서 경고가 Azure로 확장되지 못하고 필요한 작업 그룹이 만들어지지 않습니다.
     
     나. 해결하려면 Azure Portal, Powershell, Azure CLI 또는 API를 사용하여 작업 영역이 포함된 구독 또는 리소스 그룹에서 *ReadOnly* 잠금을 삭제하십시오. 자세히 알아보려면 [리소스 잠금 사용](../azure-resource-manager/resource-group-lock-resources.md)에 대한 문서를 참조하세요. 
+    
+    다. 문서에 설명된 단계에 따라 해결되면 OMS는 다음날 예정된 실행 시간 내에 Azure로 경로를 확장합니다. 작업이나 시작이 필요하지 않습니다.
+
+3. **오류: 정책이 구독/리소스 그룹 수준에 있습니다.**: ![정책 오류 메시지가 있는 OMS 포털 경고 설정 페이지](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Log Analytics(OMS) 작업 영역이 포함된 구독 또는 리소스 그룹의 새 리소스를 제한하는 [Azure 정책](../azure-policy/azure-policy-introduction.md)이 적용되면, 시스템에서 경고를 Azure로 확장(복사)할 수 없고 필요한 작업 그룹을 만들 수 없습니다.
+    
+    나. 해결하려면 *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* 오류가 발생하는 정책을 편집하여 작업 영역이 포함된 구독 또는 리소스 그룹에 새 리소스를 만들 수 없도록 합니다. Azure Portal, Powershell, Azure CLI 또는 API를 사용하여 실패가 발생하는 해당 정책을 찾도록 작업을 감사할 수 있습니다. 자세한 내용은 [작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/resource-group-audit.md) 문서를 참조하세요. 
     
     다. 문서에 설명된 단계에 따라 해결되면 OMS는 다음날 예정된 실행 시간 내에 Azure로 경로를 확장합니다. 작업이나 시작이 필요하지 않습니다.
 

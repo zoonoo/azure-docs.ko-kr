@@ -15,12 +15,12 @@ ms.date: 05/11/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 85a9b3a4f1fc21cbb47d41a61661de38d6fc246d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160838"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203508"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
 [RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할을 수정할 수 없지만, 조직의 특정 요구 사항에 맞는 [사용자 정의 역할](custom-roles.md)을 만들 수 있습니다.
@@ -101,7 +101,7 @@ ms.locfileid: "34160838"
 | [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. |
 | [가상 머신 관리자 로그인](#virtual-machine-administrator-login) | - 이 역할이 할당된 사용자는 Windows 관리자 또는 Linux 루트 사용자 권한으로 가상 머신에 로그인할 수 있습니다. |
-| [Virtual Machine 기여자](#virtual-machine-contributor) | 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
+| [Virtual Machine 기여자](#virtual-machine-contributor) | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 | [가상 머신 사용자 로그인](#virtual-machine-user-login) | 이 역할이 할당된 사용자는 가상 머신에 일반 사용자로 로그인 할 수 있습니다. |
 | [웹 계획 기여자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. |
@@ -1443,7 +1443,7 @@ ms.locfileid: "34160838"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
+> | **설명** | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |

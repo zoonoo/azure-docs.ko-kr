@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bff31dafdf3263ec189f67da7de8fea6eb3d2662
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271489"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
 Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI 2.0을 사용하는 방법을 자세히 설명합니다. [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
@@ -31,6 +32,8 @@ Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우
 3. 문제 해결 VM에 연결합니다. 파일을 편집하거나 도구를 실행하여 원래의 가상 하드 디스크에서 문제를 수정합니다.
 4. 문제 해결 VM에서 가상 하드 디스크를 탑재 해제하고 분리합니다.
 5. 원래 가상 하드 디스크를 사용하여 VM을 만듭니다.
+
+관리 디스크를 사용하는 VM에 대해서는 [새 OS 디스크를 연결하여 Managed Disk VM 문제 해결](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk)을 참조합니다.
 
 이러한 문제 해결 단계를 수행하려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
@@ -183,6 +186,13 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>새 OS 디스크를 연결하여 Managed Disk VM 문제 해결
+1. 영향을 받는 Managed Disk Windows VM을 중지합니다.
+2. Managed Disk VM의 OS 디스크의 [관리 디스크 스냅숏을 만듭니다](../windows/snapshot-copy-managed-disk.md).
+3. [스냅숏에서 새 관리 디스크를 만듭니다](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [VM의 데이터 디스크로서 관리 디스크를 연결합니다](../windows/attach-disk-ps.md).
+5. [4단계의 데이터 디스크를 OS 디스크로 변경합니다](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>다음 단계
 VM에 연결하는 데 문제가 있는 경우 [Azure VM에 SSH 연결 문제 해결](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Linux VM에서 응용 프로그램 연결 문제 해결](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.

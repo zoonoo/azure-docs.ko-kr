@@ -9,16 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212826"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 응용 프로그램 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -105,7 +106,7 @@ Service Fabric은 웹 및 API 응용 프로그램 빌드를 위한 첫 번째 �
 
 전체 앱 수명 주기는 [PowerShell cmdlet](/powershell/module/ServiceFabric/), [CLI 명령](service-fabric-sfctl.md), [C# API](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric._application_management_client) 및 [REST API](/rest/api/servicefabric/)를 사용하여 관리할 수 있습니다. [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) 또는 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)와 같은 도구를 사용하여 지속적인 통합/지속적인 배포 파이프라인을 설정할 수도 있습니다.
 
-다음 Microsoft Virtual Academy 비디오에서는 응용 프로그램 수명 주기를 관리하는 방법을 설명합니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+다음 Microsoft Virtual Academy 비디오에서는 응용 프로그램 수명 주기를 관리하는 방법을 설명합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

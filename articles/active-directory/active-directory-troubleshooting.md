@@ -3,7 +3,8 @@ title: "문제 해결: 'Active Directory' 항목이 없거나 사용할 수 없�
 description: Azure 관리 포털에 Active Directory 메뉴 항목이 표시되지 않을 경우 수행할 작업입니다.
 services: active-directory
 documentationcenter: na
-author: bryanla
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
@@ -13,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: bryanla
-ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8996eaf1d780f957445c63eac96cf9a343b9ef90
+ms.sourcegitcommit: c306be629977f6bc22bb7aefd0522a30ed591ff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34181540"
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>문제 해결: 'Active Directory' 항목이 없거나 사용할 수 없음
 Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분 "Azure 관리 포털로 이동한 다음 **Active Directory**를 클릭합니다."로 시작합니다. 하지만 Active Directory 확장 또는 메뉴 항목이 표시되지 않거나 **사용할 수 없음**으로 표시되는 경우 어떻게 해야 하나요? 이 항목은 도움을 주기 위해 작성되었습니다. **Active Directory** 가 표시되지 않거나 사용할 수 없는 조건 및 계속 진행하는 방법을 설명합니다.

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011376"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -23,9 +24,9 @@ ms.lasthandoff: 04/28/2018
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
 **시나리오** | **세부 정보**
---- | --- 
+--- | ---
 Hyper-V(Virtual Machine Manager 있음) | System Center Virtual Machine Manager 패브릭에서 관리되는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.<br/><br/> Virtual Machine Manager에서 Hyper-V 호스트를 관리하는 경우에는 보조 온-프레미스 사이트로의 재해 복구도 수행할 수 있습니다. 이 시나리오에 대해 자세히 알아보려면 [이 자습서](tutorial-vmm-to-vmm.md)를 읽어보세요.
-Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리하지 않는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다. 
+Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리하지 않는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.
 
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
@@ -39,7 +40,7 @@ Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2016, V
 ## <a name="replicated-vms"></a>복제된 VM
 
 
-다음 표에는 VM 지원 정보가 요약되어 있습니다. Site Recovery는 지원되는 운영 체제에서 실행되는 모든 워크로드를 지원합니다. 
+다음 표에는 VM 지원 정보가 요약되어 있습니다. Site Recovery는 지원되는 운영 체제에서 실행되는 모든 워크로드를 지원합니다.
 
  **구성 요소** | **세부 정보**
 --- | ---
@@ -78,7 +79,8 @@ Azure Traffic Manager | 예 | 예
 예약된 IP | 예 | 예
 IPv4 | 예 | 예
 원본 IP 주소 유지 | 예 | 예
-Azure Virtual Network 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 Virtual Networks) | 아니오 | 아니오
+Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | 예 | 예
+가속 네트워킹 | 아니오 | 아니오
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 저장소
@@ -125,7 +127,7 @@ RDM | 해당 없음 | 해당 없음
 미사용 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니오 | 아니오
-대상에서 복제 데이터에 사용되는 저장소 계정을 캐시하기 위한 Azure Virtual Network 서비스 엔드포인트(Azure Storage 방화벽 및 가상 네트워크) | 아니오 | 아니오
+대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니오 | 아니오
 
 
 ## <a name="azure-compute-features"></a>Azure 계산 기능
@@ -159,9 +161,9 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 ## <a name="recovery-services-vault-actions"></a>Recovery Services 자격 증명 모음 작업
 
 **작업** |  **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
---- | --- | --- 
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오 
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오 
+--- | --- | ---
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오
 
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트
@@ -179,4 +181,4 @@ Microsoft Azure Recovery Services 에이전트 | Hyper-V VM과 Azure 간 복제 
 
 
 ## <a name="next-steps"></a>다음 단계
-온-프레미스 Hyper-V VM 재해 복구용으로 [Azure를 준비](tutorial-prepare-azure.md)하는 방법을 알아봅니다. 
+온-프레미스 Hyper-V VM 재해 복구용으로 [Azure를 준비](tutorial-prepare-azure.md)하는 방법을 알아봅니다.

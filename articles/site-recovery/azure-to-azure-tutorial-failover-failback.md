@@ -1,21 +1,22 @@
 ---
-title: "Azure Site Recovery(미리 보기)를 사용하여 보조 Azure 지역에 복제된 Azure VM 장애 조치(failover) 및 장애 복구(failback)"
-description: "Azure Site Recovery를 사용하여 Azure VM 복제를 보조 Azure 지역에 장애 조치(failover) 및 장애 복구(failback)하는 방법을 알아봅니다."
+title: Azure Site Recovery를 사용하여 보조 Azure 지역에 복제된 Azure VM 장애 조치(failover) 및 장애 복구(failback)
+description: Azure Site Recovery를 사용하여 Azure VM 복제를 보조 Azure 지역에 장애 조치(failover) 및 장애 복구(failback)하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209276"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구(미리 보기)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
 
@@ -27,6 +28,8 @@ ms.lasthandoff: 03/09/2018
 > * 보조 VM 장애 복구(failback)
 > * 보조 지역으로 주 VM 다시 보호
 
+Azure에서 Azure로의 복제는 현재 미리 보기에 있습니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
 - [재해 복구 드릴](azure-to-azure-tutorial-dr-drill.md)을 완료하여 모든 항목이 예상대로 작동하는지 확인합니다.
@@ -34,11 +37,11 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>보조 지역으로 장애 조치(failover) 실행
 
-1. **복제된 항목**에서 장애 조치(failover)할 VM > **장애 조치(Failover)**를 선택합니다.
+1. **복제된 항목**에서 장애 조치(failover)할 VM > **장애 조치(Failover)** 를 선택합니다.
 
    ![장애 조치(failover)](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
-2. **장애 조치(Failover)**에서 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
+2. **장애 조치(Failover)** 에서 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
 
    * **최신**(기본값): 이 옵션은 Site Recovery 서비스의 모든 데이터를 처리하고 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
    * **가장 최근에 처리된 시점**: 이 옵션은 Site Recovery 서비스에서 처리한 최근 복구 지점으로 가상 머신을 되돌립니다.

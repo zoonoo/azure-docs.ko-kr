@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203395"
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072592"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크로드 및 인덱스, 문서, 기타 개체의 수량에 대한 최대 제한은 Azure Search를 **무료**, **기본** 또는 **표준** 가격 책정 계층 중 [어디에 프로비전하는지](search-create-service-portal.md)에 따라 달라집니다.
@@ -45,13 +45,10 @@ ms.locfileid: "34203395"
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | 최대 인덱스 |3 |5 또는 15 |50 |200 |200 |파티션당 1000 또는 서비스당 3000 |
 | 인덱스당 최대 필드 |1000 |100 |1000 |1000 |1000 |1000 |
-| 인덱스당 최대 [확인기](https://docs.microsoft.com/rest/api/searchservice/suggesters) |1 |1 |1 |1 |1 |1 |
-| 인덱스당 [최대 점수 매기기](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) 프로필 |100 |100 |100 |100 |100 |100 |
+| 인덱스당 최대 점수 매기기 프로필 |100 |100 |100 |100 |100 |100 |
 | 프로필당 최대 함수 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> 2017년 후반 이후에 생성된 기본 서비스는 인덱스, 데이터 원본 및 인덱서 한도가 15개로 증가되었습니다. 앞에서 만든 서비스는 5개입니다. 기본 계층은 인덱스당 100개 필드 제한보다 더 낮은 SKU입니다.
-
-<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>문서 제한 
 
@@ -97,7 +94,7 @@ ms.locfileid: "34203395"
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | 최대 인덱서 |3 |5 또는 15|50 |200 |200 |해당 없음 |
 | 최대 데이터 원본 |3 |5 또는 15 |50 |200 |200 |해당 없음 |
-| 최대 기술 집합 <sup>4</sup> |3 |5 또는 15 |50 |200 |200 |해당 없음 |
+| 최대 기술 집합 |3 |5 또는 15 |50 |200 |200 |해당 없음 |
 | 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |해당 없음 |
 | 최대 실행 시간 | 1-3분 |24시간 |24시간 |24시간 |24시간 |해당 없음  |
 | Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 없음  |
@@ -108,8 +105,6 @@ ms.locfileid: "34203395"
 <sup>2</sup> 2017년 후반 이후에 생성된 기본 서비스는 인덱스, 데이터 원본 및 인덱서 한도가 15개로 증가되었습니다. 앞에서 만든 서비스는 5개입니다.
 
 <sup>3</sup> S3 HD 서비스는 인덱서 지원을 포함하지 않습니다.
-
-<sup>4</sup> 기술 집합당 최대 30개의 기술입니다.
 
 ## <a name="queries-per-second-qps"></a>초당 쿼리 수(QPS)
 

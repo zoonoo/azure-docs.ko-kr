@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153129"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192866"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
@@ -98,7 +98,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 |Name  |type  |설명  |기본값  |
 |---------|---------|---------|---------|
-|type     |  열거형       |  수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic, add 및 defragment에 맞춰 정렬됩니다.       |   automatic      |
+|type     |  열거형       |  수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
 |CommitMode     |  열거형       |  개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
 |MaxParallelism     |   int      |  이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
 |RetryCount    |    int     |   작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |

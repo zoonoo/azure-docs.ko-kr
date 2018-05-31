@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 43f364ed7e8539397fe8662a8c75804883a82e4f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303371"
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
@@ -278,7 +279,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  deviceModel | 임의의 문자열 값입니다. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Company")
  domainName | 임의의 문자열 값입니다. | (device.domainName -eq "contoso.com")
- enrollmentProfileName | Apple 장치 등록 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple 장치 등록 프로필 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM(모바일 장치)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
  organizationalUnit | 온-프레미스 Active Directory에 의해 설정된 조직 구성 단위의 이름과 일치하는 임의의 문자열 값 | (device.organizationalUnit -eq "US PCs")

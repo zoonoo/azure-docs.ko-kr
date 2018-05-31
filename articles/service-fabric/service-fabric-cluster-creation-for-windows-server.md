@@ -1,24 +1,25 @@
 ---
-title: "독립 실행형 Azure Service Fabric 클러스터 만들기 | Microsoft Docs"
-description: "온-프레미스 또는 클라우드에서 Windows Server 컴퓨터(실제 또는 가상)를 사용하여 Azure Service Fabric 클러스터를 만듭니다."
+title: 독립 실행형 Azure Service Fabric 클러스터 만들기 | Microsoft Docs
+description: 온-프레미스 또는 클라우드에서 Windows Server 컴퓨터(실제 또는 가상)를 사용하여 Azure Service Fabric 클러스터를 만듭니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: dekapur;chackdan;maburlik
-ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: dekapur
+ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209157"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
 Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 머신 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 응용 프로그램을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다.

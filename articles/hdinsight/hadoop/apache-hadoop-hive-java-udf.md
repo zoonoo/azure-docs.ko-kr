@@ -11,13 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 02/20/2018
+ms.date: 05/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ef8b8630c60b209295b844f7e1b67f8631524aff
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200761"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>HDInsight에서 Hive와 함께 Java UDF 사용
 
@@ -75,14 +76,14 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
     </dependencies>
     ```
 
-    이러한 항목은 HDInsight 3.5와 함께 포함된 Hadoop 및 Hive의 버전을 지정합니다. [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md) 문서에서 HDInsight를 제공하는 Hadoop 및 Hive의 버전에 대한 정보를 찾을 수 있습니다.
+    이러한 항목은 HDInsight 3.6과 함께 포함된 Hadoop 및 Hive의 버전을 지정합니다. [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md) 문서에서 HDInsight를 제공하는 Hadoop 및 Hive의 버전에 대한 정보를 찾을 수 있습니다.
 
     파일 끝의 `</project>` 줄 앞에 `<build>` 섹션을 추가합니다. 이 섹션에는 다음 XML이 포함되어야 합니다.
 
     ```xml
     <build>
         <plugins>
-            <!-- build for Java 1.8. This is required by HDInsight 3.5  -->
+            <!-- build for Java 1.8. This is required by HDInsight 3.6  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

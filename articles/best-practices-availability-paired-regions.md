@@ -9,12 +9,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939030"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302681"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -32,6 +32,7 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 |:--- |:--- |:--- |
 | 아시아 |동아시아 |동남아시아 |
 | 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
+| 오스트레일리아 |오스트레일리아 중부 |오스트레일리아 중부(2) |
 | 브라질 |브라질 남부(2) |미국 중남부 |
 | 캐나다 |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
