@@ -14,11 +14,12 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896268"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 **적용 대상:**
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/28/2018
 Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관련 앱 설정을 클라우드에 백업합니다. 백업 후에는 앱을 사용하여 정보를 새 장치에 복구하면 계정이 잠기거나 계정을 다시 만들어야 하는 문제를 피할 수 있습니다.
 
 >[!IMPORTANT]
-> 각 백업 저장소 위치에 개인 Microsoft 계정 하나와 iCloud 계정 하나가 필요합니다. 하지만 해당 저장 위치 내에서 여러 계정을 백업할 수 있습니다. 예를 들어 개인 계정, 학교 계정 그리고 Facebook, Google 등의 타사 계정을 사용할 수 있습니다.<br><br>사용자의 계정 자격 증명만 저장되며, 여기에는 사용자 이름과 Microsoft Authenticator 앱으로 신분을 증명할 때 필요한 8자리 계정 확인 코드가 포함됩니다. 이메일 또는 파일을 포함하여 계정에 연결된 기타 정보는 저장되지 않습니다. 또한 계정을 어떤 방식으로든, 어떤 제품 또는 서비스에도 연결하거나 공유하지 않습니다. 마지막으로, IT 관리자는 이러한 계정에 대한 정보를 얻을 수 없습니다.
+> 각 백업 저장소 위치에 개인 Microsoft 계정 하나와 iCloud 계정 하나가 필요합니다. 하지만 해당 저장 위치 내에서 여러 계정을 백업할 수 있습니다. 예를 들어 개인 계정, 학교 계정 그리고 Facebook, Google 등의 타사 계정을 사용할 수 있습니다.<br><br>사용자의 개인 및 타사 계정 자격 증명만 저장되며, 여기에는 신원을 증명하는 데 필요한 사용자 이름 및 계정 확인 코드가 포함됩니다. 이메일 또는 파일을 포함하여 계정에 연결된 기타 정보는 저장되지 않습니다. 또한 계정을 어떤 방식으로든, 어떤 제품 또는 서비스에도 연결하거나 공유하지 않습니다. 마지막으로, IT 관리자는 이러한 계정에 대한 정보를 얻을 수 없습니다.
 
 ## <a name="back-up-your-account-credentials"></a>계정 자격 증명 백업
 자격 증명을 백업하려면 다음 두 가지가 필요합니다.

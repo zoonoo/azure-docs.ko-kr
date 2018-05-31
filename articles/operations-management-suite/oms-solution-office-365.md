@@ -1,35 +1,36 @@
 ---
-title: "OMS(Operations Management Suite)의 Office 365 솔루션 | Microsoft 문서"
-description: "이 문서에서는 OMS에서 Office 365 솔루션을 구성하고 사용하는 방법에 대해 자세히 설명합니다.  또한 Log Analytics에서 작성되는 Office 365 레코드에 대해서도 자세히 설명합니다."
+title: Azure에서 Office 365 관리 솔루션 | Microsoft Docs
+description: 이 문서에서는 Azure에서 Office 365 솔루션을 구성하고 사용하는 방법에 대해 자세히 설명합니다.  또한 Log Analytics에서 작성되는 Office 365 레코드에 대해서도 자세히 설명합니다.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777851"
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 Office 365 솔루션
+# <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
 ![Office 365 로고](media/oms-solution-office-365/icon.png)
 
-OMS(Operations Management Suite)용 Office 365 솔루션을 사용하면 Log Analytics에서 Office 365 환경을 모니터링할 수 있습니다.  
+Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환경을 모니터링할 수 있습니다.
 
 - Office 365 계정에서 사용자 활동을 모니터링하면 사용량 패턴을 분석하고 동작 경향을 식별할 수 있습니다. 예를 들어 조직 외부나 인기 SharePoint 사이트에서 공유하는 파일과 같은 특정 사용 시나리오를 추출할 수 있습니다.
 - 관리자 활동을 모니터링하면 구성 변경 내용이나 높은 권한이 필요한 작업을 추적할 수 있습니다.
 - 조직 요구 사항에 따라 사용자 지정할 수 있는 부적절한 사용자 행동을 검색하고 조사할 수 있습니다.
 - 감사 및 규정 준수 방식을 제시할 수 있습니다. 예를 들어 기밀 파일에 대한 파일 액세스 작업을 모니터링하여 감사 및 규정 준수 프로세스를 보다 원활하게 진행할 수 있습니다.
-- 조직의 Office 365 활동 데이터를 토대로 OMS 검색 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
+- 조직의 Office 365 활동 데이터를 토대로 [log searches](../log-analytics/log-analytics-log-search.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
@@ -47,7 +48,7 @@ OMS(Operations Management Suite)용 Office 365 솔루션을 사용하면 Log Ana
 ## <a name="configuration"></a>구성
 [구독에 Office 365 솔루션을 추가](../log-analytics/log-analytics-add-solutions.md)한 후에는 Office 365 구독에 해당 솔루션을 연결해야 합니다.
 
-1. [솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 경고 관리 솔루션을 OMS 작업 영역에 추가합니다.
+1. [솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 경고 관리 솔루션을 Log Analytics 작업 영역에 추가합니다.
 2. OMS 포털에서 **설정**으로 이동합니다.
 3. **연결된 원본** 아래에서 **Office 365**를 선택합니다.
 4. **Office 365 연결**을 클릭합니다.<br>![Office 365 연결](media/oms-solution-office-365/configure.png)
@@ -63,7 +64,7 @@ Office 365 솔루션은 [OMS 에이전트](../log-analytics/log-analytics-data-s
 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [웹후크 알림](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications)을 Log Analytics로 보냅니다.
 
 ## <a name="using-the-solution"></a>솔루션 사용
-Office 365 솔루션을 OMS 작업 영역에 추가하면 OMS 대시보드에 **Office 365** 타일이 추가됩니다. 이 타일은 현재 환경의 컴퓨터 수 및 그래픽 표현과 업데이트 준수를 표시합니다.<br><br>
+Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드에 **Office 365** 타일이 추가됩니다. 이 타일은 현재 환경의 컴퓨터 수 및 그래픽 표현과 업데이트 준수를 표시합니다.<br><br>
 ![Office 365 요약 타일](media/oms-solution-office-365/tile.png)  
 
 **Office 365** 타일을 클릭하여 **Office 365** 대시보드를 엽니다.
@@ -89,9 +90,9 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="common-properties"></a>공용 속성
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
-| 형식 | *OfficeActivity* |
+| type | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 장치의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | 작업 | 사용자 또는 관리자 활동의 이름입니다.  |
@@ -100,13 +101,13 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>응용 프로그램<br>DcAdmin<br>일반<br>Reserved<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>응용 프로그램<br>DcAdmin<br>일반 <br>Reserved<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -117,7 +118,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory 계정 로그온
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
@@ -130,7 +131,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="azure-active-directory"></a>Azure Active Directory
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -147,7 +148,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="data-center-security"></a>데이터 센터 보안
 다음 레코드는 데이터 센터 보안 감사 데이터에서 생성됩니다.  
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | EffectiveOrganization | 권한 상승/cmdlet의 대상 테넌트 이름입니다. |
 | ElevationApprovedTime | 권한 상승이 승인된 시간에 해당하는 타임스탬프입니다. |
@@ -162,7 +163,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="exchange-admin"></a>Exchange 관리
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -176,7 +177,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="exchange-mailbox"></a>Exchange 사서함
 다음 레코드는 Exchange 사서함을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -198,7 +199,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="exchange-mailbox-audit"></a>Exchange 사서함 감사
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -212,7 +213,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="exchange-mailbox-audit-group"></a>Exchange 사서함 감사 그룹
 다음 레코드는 Exchange 그룹을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -230,7 +231,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="sharepoint-base"></a>Sharepoint 기본 속성
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -246,7 +247,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="sharepoint-schema"></a>SharePoint 스키마
 다음 레코드는 SharePoint 구성을 변경하면 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -258,7 +259,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ### <a name="sharepoint-file-operations"></a>SharePoint 파일 작업
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -292,11 +293,11 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 
 Office 365 솔루션이 데이터를 정상적으로 수집하지 않는 경우 OMS 포털의 **설정** -> **연결된 원본** -> **Office 365**에서 솔루션의 상태를 확인합니다. 아래 표에 각 상태에 대한 설명이 나와 있습니다.
 
-| 가동 상태 | 설명 |
+| 상태 | 설명 |
 |:--|:--|
-| Active | Office 365 구독이 활성 상태이며 작업이 OMS 작업 영역에 올바르게 연결되어 있습니다. |
-| Pending | Office 365 구독이 활성 상태이지만 작업이 OMS 작업 영역에 아직 정상적으로 연결되지 않았습니다. Office 365 구독을 처음으로 연결하면 모든 작업은 정상적으로 연결될 때까지 이 상태입니다. 모든 작업이 활성 상태로 전환되려면 24시간 정도 걸립니다. |
-| 비활성 | Office 365 구독이 비활성 상태입니다. 자세한 내용은 Office 365 관리 페이지를 확인하세요. Office 365 구독을 활성화한 후 OMS 작업 영역에서 구독의 연결을 해제했다가 다시 연결하면 데이터가 수신되기 시작합니다. |
+| Active | Office 365 구독이 활성 상태이며 작업이 Log Analytics 작업 영역에 올바르게 연결되어 있습니다. |
+| Pending | Office 365 구독이 활성 상태이지만 작업이 Log Analytics 작업 영역에 아직 정상적으로 연결되지 않았습니다. Office 365 구독을 처음으로 연결하면 모든 작업은 정상적으로 연결될 때까지 이 상태입니다. 모든 작업이 활성 상태로 전환되려면 24시간 정도 걸립니다. |
+| 비활성 | Office 365 구독이 비활성 상태입니다. 자세한 내용은 Office 365 관리 페이지를 확인하세요. Office 365 구독을 활성화한 후 Log Analytics 작업 영역에서 구독의 연결을 해제했다가 다시 연결하면 데이터가 수신되기 시작합니다. |
 
 
 
