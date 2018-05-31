@@ -3,20 +3,20 @@ title: Linux VM에 배포된 Azure Resource Manager에서 저장소 리소스 �
 description: 연결된 VHD가 포함된 저장소 리소스를 삭제할 때 발생하는 문제 해결 방법입니다.
 keywords: ssh 연결 거부, ssh 오류, azure ssh, SSH 연결 실패
 services: virtual-machines-linux
-author: tamram
-manager: jeconnoc
+author: genlin
+manager: cshepard
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: tamram
-ms.openlocfilehash: fccfeca0b164e6c34ceaf94a6967fef6f27cb1d2
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: genli
+ms.openlocfilehash: 823c85f620dcd7c96d0005d39b1a12a7a9fba938
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779764"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363828"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>저장소 리소스 삭제 오류 문제 해결
 

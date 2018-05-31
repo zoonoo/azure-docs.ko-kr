@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363297"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
 
@@ -106,12 +107,11 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
 13.  VM에 액세스합니다. RdAgent가 실행 중이고 로그가 생성됩니다.
 
-클래식 배포 모델을 사용하여 VM을 만든 경우 작업이 끝났습니다.
-
+Resource Manager 배포 모델을 사용하여 VM을 만든 경우 작업이 끝났습니다.
 
 ### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Azure Resource Manager로 만든 VM의 ProvisionGuestAgent 속성 사용
 
-Resource Manager 배포 모델을 사용하여 VM을 만든 경우 Azure PowerShell 모듈을 사용하여 **ProvisionGuestAgent** 속성을 업데이트합니다. 이 속성은 VM에 VM 에이전트가 설치되었다는 사실을 Azure에 알려줍니다.
+클래식 모델을 사용하여 VM을 만든 경우 Azure PowerShell 모듈을 사용하여 **ProvisionGuestAgent** 속성을 업데이트합니다. 이 속성은 VM에 VM 에이전트가 설치되었다는 사실을 Azure에 알려줍니다.
 
 **ProvisionGuestAgent** 속성을 설정하려면 Azure PowerShell에서 다음 명령을 실행합니다.
 
