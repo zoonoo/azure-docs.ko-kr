@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168652"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302742"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
 
@@ -149,4 +149,4 @@ Azure Resource Manager 액세스를 추가하고 데이터를 수집한 후에�
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn 보고서는 보고서당 두 개 이상의 AD 테넌트를 표시합니까?
 
-예. 보유한 각 AD 테넌트에 대해 [해당 클라우드 계정 엔터티를 만들 수 있습니다](tutorial-user-access.md#create-entities). 그런 다음 Amazon Web Services 및 Google Cloud Platform을 포함하여 모든 Azure AD 테넌트 데이터와 기타 클라우드 플랫폼 공급자를 볼 수 있습니다.
+예. 보유한 각 AD 테넌트에 대해 [해당 클라우드 계정 엔터티를 만들 수 있습니다](tutorial-user-access.md#create-and-manage-entities). 그런 다음 Amazon Web Services 및 Google Cloud Platform을 포함하여 모든 Azure AD 테넌트 데이터와 기타 클라우드 플랫폼 공급자를 볼 수 있습니다.

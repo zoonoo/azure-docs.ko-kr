@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 위험 이벤트 | Microsoft Docs"
-description: "이 항목에서는 위험 이벤트의 자세한 개요를 제공합니다."
+title: Azure Active Directory 위험 이벤트 | Microsoft Docs
+description: 이 문서에서는 위험 이벤트의 자세한 개요를 제공합니다.
 services: active-directory
-keywords: "Azure Active Directory ID 보호, 보안, 위험, 위험 이벤트, 취약점, 보안 정책"
+keywords: Azure Active Directory ID 보호, 보안, 위험, 위험 이벤트, 취약점, 보안 정책
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 05/14/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195321"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -39,12 +40,13 @@ ms.lasthandoff: 01/06/2018
 감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. Azure AD Premium P2 버전에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다. Azure AD Premium P1 버전에서 라이선스에서 다루지 않는 감지는 **추가 위험이 있는 로그인이 감지됨** 위험 이벤트로 표시됩니다.
 
 
-이 항목에서는 위험 이벤트의 자세한 개요와 이를 사용하여 Azure AD ID를 보호하는 방법을 제공합니다.
+이 문서에서는 위험 이벤트의 자세한 개요와 이를 사용하여 Azure AD ID를 보호하는 방법을 제공합니다.
 
 
 ## <a name="risk-event-types"></a>위험 이벤트 유형
 
-위험 이벤트 유형 속성은 위험 이벤트 레코드가 만들어진 의심스러운 동작의 식별자입니다.  
+위험 이벤트 유형 속성은 위험 이벤트 레코드가 만들어진 의심스러운 동작의 식별자입니다.
+
 검색 프로세스에 대한 Microsoft의 지속적인 투자는 다음과 같은 결과를 가져왔습니다.
 
 - 기존 위험 이벤트의 검색 정확도 향상 
@@ -76,6 +78,8 @@ ms.lasthandoff: 01/06/2018
 
 이 위험 이벤트 유형은 새로운/알 수 없는 위치를 확인하기 위해 과거 로그인 위치(IP, 위도/경도 및 ASN)를 고려합니다. 시스템은 사용자가 사용한 이전 위치에 대한 정보를 저장하고 이러한 "익숙한" 위치를 고려합니다. 로그인이 익숙한 위치 목록에 없는 위치에서 발생하는 경우 위험 이벤트가 트리거됩니다. 시스템에는 새로운 위치를 알 수 없는 위치의 플래그로 지정하지 않는 30일의 초기 학습 기간이 있습니다. 또한 시스템은 익숙한 장치 및 익숙한 위치에 지리적으로 가까운 위치에서 시도한 로그인을 무시합니다. 
 
+ID 보호는 기본 인증/레거시 프로토콜에 대한 일반적이지 않은 위치에서의 로그인을 검색합니다. 이러한 프로토콜에는 클라이언트 ID와 같은 친숙한 현대적인 기능이 없기 때문에 거짓 긍정을 줄일 만큼 원격 분석이 충분하지 않습니다. 검색된 위험 이벤트 수를 줄이려면 최신 인증으로 이동해야 합니다.   
+
 ### <a name="sign-ins-from-infected-devices"></a>감염된 장치에서 로그인
 
 이 위험 이벤트 유형은 적극적으로 봇 서버와 통신한다고 알려진 맬웨어로 감염된 장치에서 시도한 로그인을 식별합니다. 봇 서버와 접촉했던 IP 주소에 대해 사용자의 장치의 IP 주소를 상호 연결하여 결정됩니다. 
@@ -86,8 +90,7 @@ ms.lasthandoff: 01/06/2018
 
 ## <a name="detection-type"></a>검색 유형
 
-검색 유형 속성은 위험 이벤트의 검색 기간에 대한 지표입니다(실시간 또는 오프라인).  
-현재 대부분의 위험 이벤트는 위험 이벤트가 발생되고 사후 처리 작업에서 오프라인으로 검색됩니다.
+검색 유형 속성은 위험 이벤트의 검색 기간에 대한 지표입니다(실시간 또는 오프라인). 현재 대부분의 위험 이벤트는 위험 이벤트가 발생되고 사후 처리 작업에서 오프라인으로 검색됩니다.
 
 다음 표에는 검색 유형이 관련 보고서에 표시되는 데 걸리는 시간이 나와 있습니다.
 
@@ -113,8 +116,7 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 위험 이벤트의 위험 수준 속성은 위험 이벤트의 심각도 및 신뢰도에 대한 지표입니다(높음, 보통 또는 낮음). 이 속성은 수행해야 하는 작업의 우선 순위를 지정하는 데 도움이 됩니다. 
 
-위험 이벤트의 심각도는 신호의 강도를 ID 손상의 예측 변수로 나타냅니다.  
-신뢰도는 가양성의 가능성에 대한 표시기입니다. 
+위험 이벤트의 심각도는 신호의 강도를 ID 손상의 예측 변수로 나타냅니다. 신뢰도는 가양성의 가능성에 대한 표시기입니다. 
 
 예를 들면 다음과 같습니다. 
 
@@ -132,8 +134,7 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 
-익명 IP 주소는 계정 손상을 확실히 표시하지 않기 때문에 이 위험 이벤트 유형의 위험 수준은 **보통**입니다.  
-사용자에게 즉시 문의하여 익명 IP 주소를 사용했는지를 확인하는 것이 좋습니다.
+익명 IP 주소는 계정 손상을 확실히 표시하지 않기 때문에 이 위험 이벤트 유형의 위험 수준은 **보통**입니다. 사용자에게 즉시 문의하여 익명 IP 주소를 사용했는지를 확인하는 것이 좋습니다.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
@@ -184,5 +185,5 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
  - **Azure AD ID 보호** - 위험 이벤트는 [Azure Active Directory ID 보호](active-directory-identityprotection.md) 보고 기능의 일부입니다.
     
 
-위험 이벤트의 감지는 ID 보호의 중요한 측면을 나타내는 반면 수동으로 해결하거나 조건부 액세스 정책을 구성하여 자동화된 응답을 구현하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory ID 보호](active-directory-identityprotection.md)를 참조하세요.
+위험 이벤트의 감지는 ID 보호의 중요한 측면을 나타내는 반면 수동으로 해결하거나 조건부 액세스 정책을 구성하여 자동화된 응답을 구현하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](active-directory-identityprotection.md)을 참조하세요.
  

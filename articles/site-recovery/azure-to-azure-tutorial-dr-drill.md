@@ -1,21 +1,22 @@
 ---
-title: "Azure Site Recovery(미리 보기)를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행"
-description: "Azure Site Recovery 서비스를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 훈련을 실행하는 방법을 알아봅니다."
+title: Azure Site Recovery를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행
+description: Azure Site Recovery 서비스를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 훈련을 실행하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208977"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역(미리 보기)에 Azure VM의 재해 복구 훈련 실행
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 
@@ -24,6 +25,8 @@ ms.lasthandoff: 02/09/2018
 > [!div class="checklist"]
 > * 필수 구성 요소 확인
 > * VM에 대해 테스트 장애 조치(failover) 실행
+
+Azure에서 Azure로의 복제는 현재 미리 보기에 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

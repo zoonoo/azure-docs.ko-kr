@@ -1,5 +1,5 @@
 ---
-title: Azure Search에 대한 용량 계획 | Microsoft Docs
+title: Azure Search에서 쿼리 및 인덱싱을 위한 파티션 및 복제본 할당 | Microsoft Docs
 description: Azure Search에서 파티션 및 복제본 컴퓨터 리소스를 조정하고 이 곳에서 각 리소스가 청구 가능한 검색 단위로 가격이 책정됩니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,13 +8,14 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203096"
 ---
-# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Azure Search의 쿼리 및 인덱싱 작업을 위한 리소스 수준 확장
+# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Azure Search에서 쿼리 및 인덱싱 작업을 위한 파티션 및 복제본 할당
 [가격 책정 계층을 선택](search-sku-tier.md)하고 [검색 서비스를 프로비전](search-create-service-portal.md)한 후에는 필요에 따라 서비스에 사용되는 복제본 또는 파티션 수를 늘립니다. 각 계층은 고정된 개수의 청구 단위를 제공합니다. 이 문서에서는 쿼리 실행, 인덱싱 및 저장소 요구 사항의 균형을 유지하는 최적의 구성을 달성하기 위해 이러한 단위를 할당하는 방법을 설명합니다.
 
 리소스 구성은 [기본 계층](http://aka.ms/azuresearchbasic) 또는 [표준 계층](search-limits-quotas-capacity.md) 중 하나에서 서비스를 설정할 때 사용할 수 있습니다. 이러한 계층에서 서비스의 경우 각 파티션 및 복제본이 하나의 SU로 계산되는 SU(*검색 단위*)로 용량을 증분하여 구매합니다. 

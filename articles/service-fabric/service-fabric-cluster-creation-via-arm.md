@@ -9,16 +9,17 @@ editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: e3e9e0c13368dbf7dd32c8483f8e6783afc1bdbb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207947"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -99,17 +100,13 @@ Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 
 ### <a name="login-in-to-azure"></a>Azure에 로그인합니다.
 
 ```Powershell
-
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
-
 ```
 
 ```CLI
-
 azure login
 az account set --subscription $subscriptionId
-
 ```
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>모듈에서 제공되는 기본 5개 노드 1 nodetype 템플릿을 사용하여 클러스터 설정
 
@@ -120,7 +117,6 @@ az account set --subscription $subscriptionId
 아래 명령은 Windows 및 Linux 클러스터를 만드는 경우에도 작동합니다. 해당하는 OS를 지정하면 됩니다. 또한 PowerShell/CLI 명령은 CertificateOutputFolder에 지정된 인증서를 출력하지만 인증서 폴더가 이미 만들어졌는지 확인합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
 ```Powershell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -133,11 +129,9 @@ $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser
-
 ```
 
 ```CLI
-
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
 declare vaultResourceGroupName="myvaultrg"
@@ -149,14 +143,11 @@ declare vmuser="myadmin"
 declare vmOs="UbuntuServer1604"
 declare certOutputFolder="c:\certificates"
 
-
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-output-folder $certOutputFolder --certificate-password $certpassword  \
     --vault-name $vaultName --vault-resource-group $resourceGroupName  \
     --template-file $templateFilePath --parameter-file $parametersFilePath --vm-os $vmOs  \
     --vm-password $vmpassword --vm-user-name $vmuser
-
 ```
 
 #### <a name="use-the-custom-template-that-you-already-have"></a>이미 있는 사용자 지정 템플릿 사용 
@@ -179,8 +170,6 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 
 ```PowerShell
-
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
@@ -190,15 +179,12 @@ $certOutputFolder="c:\certificates"
 $parameterFilePath="c:\mytemplates\mytemplateparm.json"
 $templateFilePath="c:\mytemplates\mytemplate.json"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
-
 ```
 
 동일한 작업을 수행하는 해당 CLI 명령은 다음과 같습니다. 선언 문의 값을 적절한 값으로 변경합니다. CLI는 위의 PowerShell 명령이 지원하는 다른 모든 매개 변수를 지원합니다.
 
 ```CLI
-
 declare certPassword=""
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -207,12 +193,10 @@ declare parameterFilePath="c:\mytemplates\linuxtemplateparm.json"
 declare templateFilePath="c:\mytemplates\linuxtemplate.json"
 declare certOutputFolder="c:\certificates"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-output-folder $certOutputFolder --certificate-password $certPassword  \
     --certificate-subject-name $certSubjectName \
     --template-file $templateFilePath --parameter-file $parametersFilePath
-
 ```
 
 
@@ -227,7 +211,6 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 사용되는 템플릿은 [Azure 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)에서 사용할 수 있습니다.
 
 ```PowerShell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -238,11 +221,9 @@ $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
-
 ```
 
 ```CLI
-
 declare vmPassword="Password!1"
 declare certPassword="Password!1"
 declare vmUser="myadmin"
@@ -253,13 +234,11 @@ declare vaultName="myvault"
 declare certificate-file="c:\certificates\mycert.pem"
 declare vmOs="UbuntuServer1604"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-file $certificate-file --certificate-password $certPassword  \
     --vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
     --vm-os vmOs \
     --vm-password $vmPassword --vm-user-name $vmUser
-
 ```
 
 #### <a name="use-the-custom-template-that-you-have"></a>기존의 사용자 지정 템플릿 사용 
@@ -281,7 +260,6 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 
 ```PowerShell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -292,15 +270,12 @@ $parameterFilePath="c:\mytemplates\mytemplateparm.json"
 $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
-
 ```
 
 동일한 작업을 수행하는 해당 CLI 명령은 다음과 같습니다. 선언 문의 값을 적절한 값으로 변경합니다.
 
 ```CLI
-
 declare certPassword="Password!1"
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -320,17 +295,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 기존 Key Vault를 사용하려면 연산 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 Key Vault를 _배포에 대해 사용하도록 설정해야 합니다_.
 
 ```PowerShell
-
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
-
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
 $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
-
 ```
 동일한 작업을 수행하는 해당 CLI 명령은 다음과 같습니다. 선언 문의 값을 적절한 값으로 변경합니다.
 
@@ -340,11 +311,9 @@ declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
-
 ```
 
 <a id="add-AAD-for-client"></a>
@@ -366,8 +335,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 4. `SetupApplications.ps1`을 실행하고 TenantId, ClusterName 및 WebApplicationReplyUrl을 매개 변수로 제공합니다. 예: 
 
 ```powershell
-    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
-
+.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
 PowerShell 명령 `Get-AzureSubscription`을 실행하여 TenantId를 찾을 수 있습니다. 이 명령을 실행하면 모든 구독에 대한 TenantId가 표시됩니다.
@@ -503,7 +471,7 @@ Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작�
 
 ### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Azure AD 구성을 추가하여 클라이언트 액세스를 위해 Azure AD 사용
 
-인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 Azure AD 구성을 추가합니다. Resource Manager 템플릿 매개 변수 파일(azuredeploy.parameters.json)에 해당 Azure AD 매개 변수 및 값을 추가합니다.
+인증서 키를 포함하는 Key Vault를 참조하여 Cluster Resource Manager 템플릿에 Azure AD 구성을 추가합니다. Resource Manager 템플릿 매개 변수 파일(azuredeploy.parameters.json)에 해당 Azure AD 매개 변수 및 값을 추가합니다.
 
 ```json
 {
@@ -542,18 +510,18 @@ Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터
 >
 
 ```json
-        "clusterCertificateThumbprint": {
-            "value": ""
-        },
-        "certificateCommonName": {
-            "value": ""
-        },
-        "clusterCertificateUrlValue": {
-            "value": ""
-        },
-        "sourceVaultvalue": {
-            "value": ""
-        },
+"clusterCertificateThumbprint": {
+    "value": ""
+},
+"certificateCommonName": {
+    "value": ""
+},
+"clusterCertificateUrlValue": {
+    "value": ""
+},
+"sourceVaultvalue": {
+    "value": ""
+},
 ```
 
 응용 프로그램 인증서를 사용하거나 키 자격 증명 모음에 업로드한 기존 클러스터를 사용하는 경우 이 정보를 가져와서 채워야 합니다. 

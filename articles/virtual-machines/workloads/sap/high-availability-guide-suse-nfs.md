@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: sedusch
-ms.openlocfilehash: b1a7b962d07b64aaa662aab937feed1782851a7b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53bc4a6f4ecca8ffe3575a038b86192a8663c35c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261486"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -118,7 +119,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    4. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    5. 서브넷 ID  
-      가상 머신을 연결해야 하는 서브넷의 ID입니다. 새 가상 네트워크를 만들려는 경우 비워 두거나, 가상 머신을 온-프레미스 네트워크에 연결하려는 경우 VPN 또는 ExpressRoute 가상 네트워크의 서브넷을 선택합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;**과 같은 형식입니다.
+      가상 머신을 연결해야 하는 서브넷의 ID입니다. 새 가상 네트워크를 만들려는 경우 비워 두거나, 가상 머신을 온-프레미스 네트워크에 연결하려는 경우 VPN 또는 ExpressRoute 가상 네트워크의 서브넷을 선택합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;** 과 같은 형식입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -129,12 +130,11 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기   
-   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 BYOS 이미지 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1를 사용합니다.  
-   SAP 응용 프로그램 12 SP1용 SLES(BYOS)가 사용됩니다.  
+   SLES4SAP 12 SP3 이상을 사용합니다. 이 예제에서는 SAP 응용 프로그램 12 SP3용 SLES4SAP 12 SP3 BYOS 이미지 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기   
-   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 BYOS 이미지 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1를 사용합니다.  
-   SAP 응용 프로그램 12 SP1용 SLES(BYOS)가 사용됩니다.  
+   SLES4SAP 12 SP3 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP3 BYOS 이미지 사용  
+   SAP 응용 프로그램 12 SP3용 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신의 각 SAP 시스템에 하나의 데이터 디스크를 추가합니다.
 1. 부하 분산 장치(내부) 만들기  

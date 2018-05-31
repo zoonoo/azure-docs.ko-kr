@@ -7,13 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/25/2018
 ms.author: sujayt
-ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011631"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/18/2018
 --- | ---
 **Azure Portal** | 지원됨
 **클래식 포털** | 지원되지 않음
-**PowerShell** | 현재 지원되지 않음
+**PowerShell** | [미리 보기](azure-to-azure-powershell.md)
 **REST API** | 현재 지원되지 않음
 **CLI** | 현재 지원되지 않음
 
@@ -95,22 +96,22 @@ ms.lasthandoff: 04/18/2018
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-14.04 LTS | 9.11 | 3.13.0-24-generic에서 3.13.0-125-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-83-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic에서 3.13.0-132-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic에서 3.13.0-137-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-104-generic |
 14.04 LTS | 9.14 | 3.13.0-24-generic에서 3.13.0-141-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-112-generic |
-16.04 LTS | 9.11 | 4.4.0-21-generic에서 4.4.0-83-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-27-generic |
+14.04 LTS | 9.15 | 3.13.0-24-generic에서 3.13.0-143-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-116-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic에서 4.4.0-96-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic에서 4.4.0-104-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic |
 16.04 LTS | 9.14 | 4.4.0-21-generic에서 4.4.0-112-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-32-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1009-azure |
+16.04 LTS | 9.15 | 4.4.0-21-generic에서 4.4.0-116-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-37-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1012-azure |
 
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Debian 커널 버전
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-Debian 7 | 9.14 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.14, 9.15 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Linux OS를 실행하는 Azure Virtual Machines에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -125,7 +126,7 @@ Debian 8 | 9.14 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서
 **지리적 클러스터** | **Azure 지역**
 -- | --
 아메리카 | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-유럽 | 영국 서부, 영국 남부, 북유럽, 유럽 서부
+유럽 | 영국 서부, 영국 남부, 북유럽, 유럽 서부, 프랑스 중부, 프랑스 남부
 아시아 | 인도 남부, 인도 중부, 동남 아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부, 한국 남부
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부
 Azure Government    | 미국 정부 버지니아, 미국 정부 아이오와, 미국 정부 애리조나, 미국 정부 텍사스, 미국 정부 동부, 미국 정부 중부
@@ -175,7 +176,7 @@ GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
+가상 네트워크의 Azure Storage 방화벽  | 아니오 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
 범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니오 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
@@ -200,6 +201,8 @@ Azure 관리 DNS | 지원됨 |
 인증된 프록시 | 지원되지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.    
 온-프레미스를 사용하는 사이트 간 VPN(ExpressRoute 사용 또는 사용 안 함)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDR 및 NSG가 구성되어 있는지 확인합니다. [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)를 참조하세요.  
 VNet 간 연결 | 지원됨 | [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)를 참조하세요.  
+Virtual Network 서비스 엔드포인트 | 지원됨 | 가상 네트워크의 Azure Storage 방화벽이 지원되지 않습니다. 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
+가속 네트워킹 | 지원되지 않음 | 가속 네트워킹을 사용하는 VM은 복제할 수 있지만 장애 조치 VM은 가속 네트워킹을 사용할 수 없습니다. 가속 네트워킹도 장애 복구(failback) 시 원본 VM에 사용되지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
