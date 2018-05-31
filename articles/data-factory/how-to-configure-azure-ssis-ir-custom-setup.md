@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: b377b5ca9d46d66fe99a8f60383076920b098a7d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ff47060ddfee458279c9fed0fd3fcafcf35229d2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33769718"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885441"
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 사용자 지정 설정
 
@@ -33,6 +33,10 @@ Azure-SSIS Integration Runtime의 사용자 지정 설정 인터페이스를 사
 -   GAC(전역 어셈블리 캐시)에 어셈블리를 설치하기 위해 `gacutil.exe`을 사용하려는 경우 사용자 지정 설치의 일부로서 제공하거나 공개 미리 보기 컨테이너에 제공된 복사본을 사용해야 합니다.
 
 -   사용자 지정 설정을 통해 Azure-SSIS IR을 VNet에 연결해야 할 경우 Azure Resource Manager VNet만 지원됩니다. 일반 VNet은 지원되지 않습니다.
+
+-   관리 공유는 현재 Azure SSIS IR에서 지원되지 않습니다.
+
+-   사용자 지정 설치에서 파일 공유를 드라이브에 매핑하려는 경우 `net use` 명령은 현재 지원되지 않습니다. 따라서 `net use d: \\fileshareserver\sharename`과 같은 명령을 사용할 수 없습니다. 대신 `cmdkey` 명령(예: `cmdkey /add:fileshareserver /user:yyy /pass:zzz`)을 사용하여 패키지에서 `\\fileshareserver\folder`에 직접 액세스합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -136,15 +140,15 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
        4. `MSDTC` 폴더: Azure-SSIS IR의 각 노드에 MSDTC(Microsoft Distributed Transaction Coordinator) 인스턴스에 대한 네트워크 및 보안 구성을 수정하기 위한 사용자 지정 설치를 포함합니다.
 
-       5. `ORACLE ENTERPRISE` 폴더: Azure-SSIS IR Enterprise Edition(비공개 미리 보기)의 각 노드에 Oracle OCI 드라이버를 설치하기 위한 사용자 지정 설정 스크립트(`main.cmd`) 및 자동 설치 구성 파일(`client.rsp`)을 포함합니다. 이 설정을 통해 Oracle Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)에서 `winx64_12102_client.zip`을 다운로드한 다음, `main.cmd` 및 `client.rsp`와 함께 컨테이너에 업로드해야 합니다. TNS를 사용하여 Oracle에 연결할 경우, 설정 중에 Oracle 설치 폴더에 복사될 수 있게 `tnsnames.ora`도 다운로드하여 편집하고 컨테이너에 업로드해야 합니다.
+       5. `ORACLE ENTERPRISE` 폴더: Azure-SSIS IR Enterprise Edition의 각 노드에 Oracle OCI 드라이버를 설치하기 위한 사용자 지정 설정 스크립트(`main.cmd`) 및 자동 설치 구성 파일(`client.rsp`)을 포함합니다. 이 설정을 통해 Oracle Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)에서 최신 Oracle 클라이언트(예: `winx64_12102_client.zip`)를 다운로드한 다음, `main.cmd` 및 `client.rsp`와 함께 컨테이너에 업로드합니다. TNS를 사용하여 Oracle에 연결할 경우, 설정 중에 Oracle 설치 폴더에 복사될 수 있게 `tnsnames.ora`도 다운로드하여 편집하고 컨테이너에 업로드해야 합니다.
 
-       6. `ORACLE STANDARD` 폴더: Azure-SSIS IR의 각 노드에 Oracle ODP.NET 드라이버를 설치하는 사용자 지정 설정 스크립트(`main.cmd`)를 포함합니다. 이 설정을 통해 ADO.NET Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)에서 `ODP.NET_Managed_ODAC122cR1.zip`을 다운로드한 다음, `main.cmd`와 함께 컨테이너에 업로드합니다.
+       6. `ORACLE STANDARD` 폴더: Azure-SSIS IR의 각 노드에 Oracle ODP.NET 드라이버를 설치하는 사용자 지정 설정 스크립트(`main.cmd`)를 포함합니다. 이 설정을 통해 ADO.NET Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)에서 최신 Oracle ODP.NET 드라이버(예: `ODP.NET_Managed_ODAC122cR1.zip`)를 다운로드한 다음, `main.cmd`와 함께 컨테이너에 업로드합니다.
 
-       7. `SAP BW` 폴더: Azure-SSIS IR Enterprise Edition(비공개 미리 보기)의 각 노드에 SAP .NET 연결 어셈블리(`librfc32.dll`)를 설치하기 위한 사용자 지정 설정 스크립트(`main.cmd`)를 포함합니다. 이 설정을 통해 SAP BW Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저, SAP 설치 폴더의 64비트 또는 32비트 `librfc32.dll` 버전을 컨테이너에 `main.cmd`와 함께 업로드합니다. 그러면 설정 중에 스크립트나 SAP 어셈블리를 `%windir%\SysWow64` 또는 `%windir%\System32` 폴더에 복사합니다.
+       7. `SAP BW` 폴더: Azure-SSIS IR Enterprise Edition의 각 노드에 SAP .NET 연결 어셈블리(`librfc32.dll`)를 설치하기 위한 사용자 지정 설정 스크립트(`main.cmd`)를 포함합니다. 이 설정을 통해 SAP BW Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저, SAP 설치 폴더의 64비트 또는 32비트 `librfc32.dll` 버전을 컨테이너에 `main.cmd`와 함께 업로드합니다. 그러면 설정 중에 스크립트나 SAP 어셈블리를 `%windir%\SysWow64` 또는 `%windir%\System32` 폴더에 복사합니다.
 
        8. `STORAGE` 폴더: Azure-SSIS IR의 각 노드에 Azure PowerShell을 설치하는 사용자 지정 설정을 포함합니다. 이 설정을 통해 [PowerShell 스크립트를 실행하여 Azure Storgae 계정을 조작하는](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell) SSIS 패키지를 배포 및 실행할 수 있습니다. `main.cmd`, 샘플 `AzurePowerShell.msi`(또는 최신 버전을 설치) 및 `storage.ps1` 을 컨테이너에 복사합니다. 패키지에 대해 PowerShell.dtsx를 템플릿으로 사용합니다. 패키지 템플릿은 수정 가능한 PowerShell 스크립트로 `storage.ps1`을 다운로드하는 [Azure Blob 다운로드 작업](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task)과, 각 노드에서 스크립트를 실행하는 [프로세스 실행 작업](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/)을 결합합니다.
 
-       9. `TERADATA` 폴더: 사용자 지정 설정 스크립트(`main.cmd)`), 관련 파일(`install.cmd`) 및 설치 관리자 패키지(`.msi`)를 포함합니다. 이 파일은 Teradata 커넥터, TPT API 및 ODBC 드라이버를 Azure-SSIS IR Enterprise Edition(비공개 미리 보기)의 각 노드에 설치합니다. 이 설정을 통해 Teradata Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Teradata](http://partnerintelligence.teradata.com)에서 TTU(Teradata Tools and Utilities) 15.x zip 파일(예: `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`)을 다운로드한 다음, 위의 `.cmd` 및 `.msi` 파일과 함께 컨테이너에 업로드합니다.
+       9. `TERADATA` 폴더: 사용자 지정 설정 스크립트(`main.cmd)`), 관련 파일(`install.cmd`) 및 설치 관리자 패키지(`.msi`)를 포함합니다. 이 파일은 Teradata 커넥터, TPT API 및 ODBC 드라이버를 Azure-SSIS IR Enterprise Edition의 각 노드에 설치합니다. 이 설정을 통해 Teradata Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Teradata](http://partnerintelligence.teradata.com)에서 TTU(Teradata Tools and Utilities) 15.x zip 파일(예: `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`)을 다운로드한 다음, 위의 `.cmd` 및 `.msi` 파일과 함께 컨테이너에 업로드합니다.
 
     ![사용자 시나리오 폴더의 폴더](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

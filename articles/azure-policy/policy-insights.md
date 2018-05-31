@@ -2,18 +2,20 @@
 title: Azure Policy를 사용하여 프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 services: azure-policy
+keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.custom: ''
+ms.openlocfilehash: 5737c33fc4c139e3b0a5535d371ef7cc1d11b9e6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195882"
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937009"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 

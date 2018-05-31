@@ -3,7 +3,7 @@ title: 워크플로 정의 언어 스키마 - Azure Logic Apps | Microsoft Docs
 description: 워크플로 정의 언어로 Azure Logic Apps에 대한 사용자 지정 워크플로 정의 작성
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 14b273841d1fc15df635eb3b41b02ad77cbef90d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775284"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886811"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>워크플로 정의 언어 스키마로 Logic Apps 워크플로 정의
 
@@ -220,13 +220,14 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 ## <a name="functions"></a>Functions
 
-일부 식은 논리 앱이 실행을 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 해당 값을 가져옵니다. 식에서 이러한 값을 사용하거나 참조하려면 *함수*를 사용할 수 있습니다. 예를 들어 정수 또는 부동 소수점에서 합계를 반환하는 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 함수 같은 계산용 수식 함수를 사용할 수 있습니다. 
+일부 식은 논리 앱이 실행을 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 해당 값을 가져옵니다. 식에서 이러한 값을 사용하거나 참조하려면 [*함수*](../logic-apps/workflow-definition-language-functions-reference.md)를 사용할 수 있습니다. 예를 들어 정수 또는 부동 소수점에서 합계를 반환하는 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 함수 같은 계산용 수식 함수를 사용할 수 있습니다. 각 함수에 대한 자세한 내용은 [사전순 참조 문서](../logic-apps/workflow-definition-language-functions-reference.md)를 참조합니다.
+또는 함수 및 함수의 일반 용도에 대해 계속 알아봅니다.
 
 다음은 함수로 수행할 수 있는 한 두 가지 예제 작업입니다. 
 
 | Task | 함수 구문 | 결과 | 
 | ---- | --------------- | -------------- | 
-| 문자열을 소문자 형식으로 반환 합니다. | toLower('<*text*>') <p>예를 들어: toLower('Hello') | "hello" | 
+| 문자열을 소문자 형식으로 반환합니다. | toLower('<*text*>') <p>예를 들어: toLower('Hello') | "hello" | 
 | 전역적으로 고유한 식별자(GUID)를 반환합니다. | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
 
@@ -278,11 +279,11 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 하위 문자열에 대한 종료 위치를 반환합니다. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 하위 문자열을 지정된 문자열로 바꾸고 업데이트된 문자열을 반환합니다. | 
 | [분할](../logic-apps/workflow-definition-language-functions-reference.md#split) | 문자열에서 모든 문자를 지닌 배열을 반환하고 특정 구분 문자로 각 문자를 구분합니다. | 
-| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 문자열이 특정 하위 문자열로 시작 하는지를 확인합니다. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 문자열이 특정 하위 문자열로 시작하는지 검사합니다. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | 지정된 위치에서 시작하여 문자열에서 문자를 반환합니다. | 
-| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 문자열을 소문자 형식으로 반환 합니다. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 문자열을 소문자 형식으로 반환합니다. | 
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | 문자열을 대문자 형식으로 반환합니다. | 
-| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | 문자열에서 선행 및 후행 공백을 제거하고 업데이트 된 문자열을 반환합니다. | 
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | 문자열에서 선행 및 후행 공백을 제거하고 업데이트된 문자열을 반환합니다. | 
 ||| 
 
 <a name="collection-functions"></a>
@@ -293,16 +294,16 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 | 컬렉션 함수 | Task | 
 | ------------------- | ---- | 
-| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | 컬렉션에 특정 항목이 있는지 여부를 확인합니다. |
-| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | 컬렉션이 비어 있는지 여부를 확인합니다. | 
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | 컬렉션에 특정 항목이 있는지 검사합니다. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | 컬렉션이 비어 있는지 검사합니다. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | 컬렉션에서 첫 번째 항목을 반환합니다. | 
-| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 지정된 컬렉션에서 공통 항목*만* 있는 컬렉션을 반환합니다. | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 지정한 컬렉션에서 공통 항목*만* 있는 컬렉션을 반환합니다. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 지정된 문자로 구분되는 배열에서 *모든* 항목이 들어 있는 문자열을 반환합니다. | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | 컬렉션에서 마지막 항목을 반환합니다. | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | 문자열 또는 배열에서 항목 수를 반환합니다. | 
-| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 컬렉션 앞에서 항목을 제거하고 *다른 모든* 항목을 반환합니다. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 컬렉션 앞의 항목을 제거하고 *다른 모든* 항목을 반환합니다. | 
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | 컬렉션 앞에서 항목을 반환합니다. | 
-| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 지정된 컬렉션에서 *모든* 항목이 있는 컬렉션을 반환합니다. | 
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 지정한 컬렉션에서 *모든* 항목이 있는 컬렉션을 반환합니다. | 
 ||| 
 
 <a name="comparison-functions"></a>
@@ -315,13 +316,13 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 | ------------------- | ---- | 
 | [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | 모든 식이 true인지 확인합니다. | 
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | 두 값이 동일한지 확인합니다. | 
-| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | 첫 번째 값이 두 번째 값보다 큰지 확인합니다. | 
-| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | 첫 번째 값이 두 번째 값보다 크거나 같은지 여부를 확인합니다. | 
-| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | 식이 true인지 또는 false인지 확인합니다. 결과에 기반해 지정된 값을 반환합니다. | 
-| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | 첫 번째 값이 두 번째 값보다 작은지 여부를 확인합니다. | 
-| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | 첫 번째 값이 두 번째 값보다 작거나 같은지 여부를 확인합니다. | 
-| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | 식이 false인지 확인합니다. | 
-| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | 최소 하나의 식이 true인지 확인합니다. |
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | 첫 번째 값이 두 번째 값보다 큰지 검사합니다. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | 첫 번째 값이 두 번째 값보다 크거나 같은지 검사합니다. | 
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | 식이 true인지 또는 false인지 검사합니다. 결과에 기반해 지정한 값을 반환합니다. | 
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | 첫 번째 값이 두 번째 값보다 작은지 검사합니다. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | 첫 번째 값이 두 번째 값보다 작거나 같은지 검사합니다. | 
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | 식이 false인지 검사합니다. | 
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | 최소 하나의 식이 true인지 검사합니다. |
 ||| 
 
 <a name="conversion-functions"></a>
@@ -369,9 +370,9 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 | [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | 숫자 또는 배열 집합에서 가장 높은 값을 반환합니다. | 
 | [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | 숫자 또는 배열 집합에서 가장 낮은 값을 반환합니다. | 
 | [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | 두 숫자를 나눈 나머지를 반환합니다. | 
-| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | 두 숫자를 곱한 산출물을 반환합니다. | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | 두 숫자를 곱한 결과를 반환합니다. | 
 | [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | 지정된 범위에서 임의의 정수를 반환합니다. | 
-| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | 지정된 정수에서 시작하는 정수 배열을 반환합니다. | 
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | 지정한 정수에서 시작하는 정수 배열을 반환합니다. | 
 | [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | 첫 번째 숫자에서 두 번째 숫자를 뺀 결과를 반환합니다. | 
 ||| 
 
@@ -438,7 +439,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 | [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Trigger의 다중 부분 출력에서 특정 부분에 대한 본문을 반환합니다. | 
 | [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | *form-data* 또는 *form-encoded* 트리거 출력에서 키 이름이 일치하는 값의 배열을 만듭니다. | 
 | [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | 런타임 시 트리거 출력 또는 다른 JSON 이름-값 쌍에서 값을 반환합니다. [트리거](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 참조합니다. | 
-| [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | 지정된 변수에 대한 값을 반환합니다. | 
+| [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | 지정한 변수에 대한 값을 반환합니다. | 
 | [워크플로](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | 런타임 동안 워크플로 자체에 대한 모든 세부 정보를 반환합니다. | 
 ||| 
 
@@ -467,7 +468,7 @@ JSON 개체와 XML 노드를 사용하려면 이러한 조작 함수를 사용�
 | 조작 함수 | Task | 
 | --------------------- | ---- | 
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | JSON 개체에 속성 및 해당 값 또는 이름-값 쌍을 추가하고 업데이트된 개체를 반환합니다. | 
-| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | 하나 이상의 매개 변수에서 null이 아닌 첫 번째 값을 반환합니다. | 
+| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | 하나 이상의 매개 변수에서 Null이 아닌 첫 번째 값을 반환합니다. | 
 | [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | JSON 개체에서 속성을 제거하고 업데이트된 개체를 반환합니다. | 
 | [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | JSON 개체의 속성에 대한 값을 설정하고 업데이트된 개체를 반환합니다. | 
 | [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | XPath(XML 경로 언어) 식과 일치하는 노드 또는 값에 대한 XML을 확인하고 일치하는 노드 또는 값을 반환합니다. | 
