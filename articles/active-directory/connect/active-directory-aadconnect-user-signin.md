@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055089"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
@@ -28,6 +29,7 @@ Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 
 * [Seamless SSO(Single Sign-on)](active-directory-aadconnect-sso.md)를 사용한 [암호 해시 동기화](#password-hash-synchronization)
 * [Seamless SSO(Single Sign-on)](active-directory-aadconnect-sso.md)를 사용한 [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
 * [Federated SSO(Active Directory Federation Services(AD FS) 지원)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [PingFederate을 사용한 페더레이션](#federation-with-pingfederate)
 
 > [!NOTE] 
 > Azure AD에 대한 페더레이션을 구성하여 Azure AD 테넌트와 페더레이션된 도메인 간 신뢰를 수립하는 것이 중요합니다. 이 신뢰를 통해 페더레이션된 도메인 사용자는 테넌트 내 Azure AD 클라우드 리소스에 액세스할 수 있습니다.  
@@ -88,6 +90,13 @@ Office 365 하이브리드 시나리오에 대한 테넌트를 설정합니다.|
 * 마법사를 실행하는 컴퓨터는 Windows 원격 관리를 통해 AD FS나 웹 응용 프로그램 프록시를 설치하려는 다른 컴퓨터에 연결할 수 있는 컴퓨터
 
 자세한 내용은 참조 [AD FS로 SSO 구성](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)을 참조하세요.
+
+### <a name="federation-with-pingfederate"></a>PingFederate을 사용한 페더레이션
+페더레이션 로그인을 통해 사용자는 온-프레미스 암호로 Azure AD 기반 서비스에 로그인할 수 있습니다. 회사 네트워크에 있는 동안 자신의 암호를 입력할 필요가 없습니다.
+
+Azure Active Directory와 함께 사용할 PingFederate를 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory 및 Office 365와 PingFederate 통합](https://www.pingidentity.com/AzureADConnect)을 참조하세요.
+
+PingFederate를 사용하여 Azure AD Connect를 설정하는 방법에 대한 자세한 내용은 [Azure AD Connect 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)를 참조하세요.
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>이전 버전의 AD FS 또는 타사 솔루션을 사용하여 로그인
 이전 버전의 AD FS(예: AD FS 2.0) 또는 타사 페더레이션 공급자를 사용하여 클라우드 로그온을 이미 구성한 경우, Azure AD Connect를 통해 구성에서 사용자 로그인을 건너뛰도록 선택할 수 있습니다. 이렇게 하면 여전히 기존 솔루션을 사용하여 로그인하는 동안 최신 동기화 및 Azure AD 연결의 다른 기능을 얻을 수 있습니다.
