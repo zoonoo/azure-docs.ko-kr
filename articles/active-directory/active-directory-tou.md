@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192958"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다.  이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다.
@@ -39,7 +40,7 @@ Azure AD 사용 약관은 pdf 형식을 사용하여 콘텐츠를 제공합니�
 다음 단계에 따라 Azure AD 사용 약관을 구성합니다.
 
 1. Azure AD 사용 약관을 구성하려는 디렉터리에 대한 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자를 사용하여 Azure AD에 로그인합니다.
-2. 디렉터리에 Azure AD Premium P1, P2, EMS E3 또는 EMS E5 구독이 있는지 확인합니다.  [Azure AD Premium 다운로드](active-directory-get-started-premium.md) 또는 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 수행하지 않는 경우
+2. 디렉터리에 Azure AD Premium P1, P2, EMS E3 또는 EMS E5 구독이 있는지 확인합니다.  그렇지 않은 경우 [Azure AD Premium 다운로드](active-directory-get-started-premium.md)하거나 [평가판을 시작](https://azure.microsoft.com/trial/get-started-active-directory/)합니다.
 3. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure AD 사용 약관 대시보드를 확인합니다.
 
 >[!IMPORTANT]
@@ -56,7 +57,7 @@ Azure AD 사용 약관은 pdf 형식을 사용하여 콘텐츠를 제공합니�
 4. **표시 이름**을 입력합니다.  이 헤더는 사용자가 로그인할 때 표시됩니다.
 5. 완료된 사용 약관 pdf를 **찾아** 선택합니다.  권장된 글꼴 크기는 24입니다.
 6. 사용 약관의 언어를 **선택**합니다.  언어 옵션을 사용하면 사용 약관을 다양한 언어로 여러 개 업로드할 수 있습니다.  최종 사용자에게 표시되는 사용 약관의 버전은 브라우저 기본 설정에 기반합니다.
-7. **사용자가 사용 약관을 확장해야 함**에 대해 설정 또는 해제를 선택합니다.  이것을 설정하면 최종 사용자가 사용 약관에 동의하기 전에 사용 약관을 봐야 합니다.
+7. **사용자가 사용 약관을 확장해야 함**에 대해 설정 또는 해제를 선택합니다.  이 설정을 완료하면 최종 사용자가 사용 약관에 동의하기 전에 사용 약관을 봐야 합니다.
 8. **조건부 액세스**에서 드롭다운의 템플릿 또는 사용자 지정 조건부 액세스 정책을 선택하여 업로드된 사용 약관을 **강제 적용**할 수 있습니다.  사용자 지정 조건부 액세스 정책을 통해 특정 클라우드 응용 프로그램 또는 사용자 그룹에까지 세분화된 사용 약관을 설정할 수 있습니다.  자세한 내용은 [조건부 액세스 정책 구성](active-directory-conditional-access-best-practices.md)을 참조하세요.
 9. **만들기**를 클릭합니다.
 10. 사용자 지정 조건부 액세스 템플릿을 선택한 경우 CA 정책을 사용자 지정할 수 있는 새 화면이 나타납니다.
@@ -120,6 +121,13 @@ Azure AD 사용 약관은 pdf 형식을 사용하여 콘텐츠를 제공합니�
 
 4.  여기에서 사용자가 동의한 사용 약관을 검토할 수 있습니다. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>현재 사용 약관에서 사용자 제거
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+기본적으로 삭제된 사용자는 30일 동안 Azure AD에서 삭제된 채로 남아 있지만 이 기간 동안 관리자는 필요한 경우 삭제된 사용자를 복원할 수 있습니다.  30일 후 해당 사용자가 영구적으로 삭제됩니다.  또한 Azure Active Directory 포털을 사용하여 전역 관리자는 해당 기간이 만료되기 전에 명시적으로 [최근에 삭제된 사용자를 영구적으로 삭제](active-directory-users-restore.md)할 수 있습니다.  사용자가 영구적으로 삭제됐으므로 추후 해당 사용자에 대한 데이터가 현재 사용 약관에서 제거됩니다.  삭제된 사용자에 대한 감사 정보는 감사 로그에 남아 있습니다.
+
+
 
 ## <a name="additional-information"></a>추가 정보
 다음 정보를 알고 있어야 하며 사용 약관을 사용하는 데 도움이 될 수 있습니다.
@@ -138,7 +146,7 @@ Azure AD 사용 약관은 pdf 형식을 사용하여 콘텐츠를 제공합니�
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q: 사용자가 사용 약관에 동의했는지 어떻게 볼 수 있나요?**</br>
-A: 사용 약관 옆의 [동의] 아래에 있는 숫자를 클릭하면 됩니다.  자세한 내용은 [현재 사용자 상태 보기](#viewing-current-user-status)를 참조하세요.  또한 사용 약관에 동의한 사용자는 감사 로그에 기록됩니다. Azure AD 감사 로그를 검색하여 결과를 볼 수 있습니다.  
+A: 사용 약관 옆의 동의 아래에 있는 숫자를 클릭할 수 있습니다.  자세한 내용은 [현재 사용자 상태 보기](#viewing-current-user-status)를 참조하세요.  또한 사용 약관에 동의한 사용자는 감사 로그에 기록됩니다. Azure AD 감사 로그를 검색하여 결과를 볼 수 있습니다.  
 
 **Q: 사용 약관 조건을 변경한 경우 사용자가 다시 동의해야 하나요?**</br>
 A: 예, 관리자는 사용 약관 조건을 변경할 수 있으며 새 조건에 대해 재동의를 요구할 수 있습니다.
