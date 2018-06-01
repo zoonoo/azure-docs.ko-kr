@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258442"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -52,9 +53,15 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)를 참조하세요.
 
-## <a name="option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate"></a>옵션 1(기본값): CDN 관리되는 인증서를 사용하여 HTTPS 기능을 사용하도록 설정  
+---
 
-이 옵션을 사용하여 사용자 지정 HTTPS 기능을 단 몇 번의 클릭으로 켤 수 있습니다. Azure CDN은 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 CDN 엔드포인트에 이미 매핑된 경우 추가 조치가 필요하지 않습니다. Azure CDN은 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
+## <a name="ssl-certificates"></a>SSL 인증서
+Azure CDN 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 활성화하려면 SSL 인증서를 사용해야 합니다. Azure CDN에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
+
+
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[옵션 1(기본값): CDN 관리되는 인증서를 사용하여 HTTPS 활성화](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+
+CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을 설정할 수 있습니다. Azure CDN은 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 CDN 엔드포인트에 이미 매핑된 경우 추가 조치가 필요하지 않습니다. Azure CDN은 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
 
 사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
 
@@ -81,22 +88,21 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 6. [도메인의 유효성 검사](#validate-the-domain)를 진행합니다.
 
 
-## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 기능을 사용하도록 설정 
+# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 활성화](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> 이 기능은 **Microsoft의 Azure CDN 표준** 프로필에서만 사용할 수 있습니다. 
+> 이 옵션은 **Microsoft의 Azure CDN 표준** 프로필에서만 사용할 수 있습니다. 
 >
  
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다.
 
-Azure CDN에서 사용자 고유의 인증서를 사용하여 HTTPS를 통해 콘텐츠를 배달할 수 있습니다. 이 프로세스는 Azure Key Vault와 통합을 통해 수행됩니다. Azure Key Vault를 통해 고객은 해당 인증서를 안전하게 저장할 수 있습니다. Azure CDN 서비스는 이 보안 메커니즘을 활용하여 인증서를 가져옵니다. 사용자 고유의 인증서를 사용하려면 몇 가지 추가 단계가 필요합니다.
-
-### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>1단계: Azure 키 자격 증명 모음 계정 및 인증서 준비
+### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
 1. Azure Key Vault: 사용자 지정 HTTPS를 활성화하려는 Azure CDN 프로필 및 CDN 엔드포인트와 동일한 구독에서 Azure Key Vault 계정을 실행해야 합니다. 아직 Azure Key Vault 계정이 없는 경우 새로 하나 만듭니다.
  
 2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA(Certificate Authorities) 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 
 
-### <a name="step-2-register-azure-cdn"></a>2단계: Azure CDN 등록
+### <a name="register-azure-cdn"></a>Azure CDN 등록
 
 PowerShell을 통해 Azure Active Directory에서 앱으로 Azure CDN을 등록합니다.
 
@@ -109,7 +115,7 @@ PowerShell을 통해 Azure Active Directory에서 앱으로 Azure CDN을 등록�
     ![PowerShell에서 Azure CDN 등록](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
 
-### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>3단계: 키 자격 증명 모음에 Azure CDN 액세스 권한 부여
+### <a name="grant-azure-cdn-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure CDN 액세스 권한 부여
  
 Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN 사용 권한을 부여합니다.
 
@@ -127,7 +133,7 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
 
     Azure CDN은 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다.
  
-### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>4단계: 배포할 Azure CDN에 대한 인증서 선택
+### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>배포할 Azure CDN에 대한 인증서 선택
  
 1. Azure CDN 포털로 돌아와서 사용자 지정 HTTPS를 활성화하려는 프로필 및 CDN 엔드포인트를 선택합니다. 
 
@@ -150,6 +156,7 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
   
 6. 사용자 고유의 인증서를 사용할 경우 도메인 유효성 검사가 필요하지 않습니다. [전파 대기](#wait-for-propagation)를 진행합니다.
 
+---
 
 ## <a name="validate-the-domain"></a>도메인의 유효성 검사
 

@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 173e31e3b1f855d488f7f8baf6659b1521ea7aa5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212877"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="select-a-replication-goal"></a>복제 목표 선택
 
-1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음 이름인 **ContosoVMVault**를 선택합니다.
+1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음 이름을 선택합니다. 이 시나리오에서는 **ContosoVMVault**를 사용합니다.
 2. **시작**에서 Site Recovery를 선택합니다. 그런 다음, **인프라 준비**를 선택합니다.
 3. **보호 목표** > **컴퓨터가 있는 위치**에서 **온-프레미스**를 선택합니다.
 4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
@@ -139,7 +140,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 1. [Azure Portal](https://portal.azure.com)을 열고 **모든 리소스**를 선택합니다.
 2. **ContosoVMVault**라는 Recovery Service 자격 증명 모음을 선택합니다.
 3. 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** > **+복제 정책**을 선택합니다.
-4. **복제 정책 만들기**에서 **VMwareRepPolicy**라는 정책 이름을 지정합니다.
+4. **복제 정책 만들기**에서 정책 이름을 입력합니다. 이 시나리오에는 **VMwareRepPolicy**를 사용합니다.
 5. **RPO 임계값**에서 기본값인 60분을 사용합니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
 6. **복구 지점 보존**에서 각 복구 지점에 대한 보존 기간으로 기본값인 24시간을 사용합니다. 이 자습서에서는 72시간을 사용합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
 7. **앱 일치 스냅숏 빈도**에서 앱 일치 스냅숏을 만드는 빈도로 기본값인 60분을 사용합니다. **확인**을 선택하여 정책을 만듭니다.

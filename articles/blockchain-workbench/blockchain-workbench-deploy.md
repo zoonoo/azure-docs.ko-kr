@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 85a627678f862d783d47013d82bae8b485d7d4e9
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303946"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -23,6 +24,25 @@ Azure Blockchain Workbench는 Azure Marketplace에서 솔루션 템플릿을 사
 Blockchain Workbench의 구성 요소에 대한 자세한 내용은 [Azure Blockchain Workbench 아키텍처](blockchain-workbench-architecture.md)를 참조하세요.
 
 ## <a name="prepare-for-deployment"></a>배포 준비
+
+블록체인 Workbench를 사용하면 블록체인 기반 응용 프로그램을 빌드하는 데 주로 사용되는 일련의 관련 Azure 서비스와 함께 블록체인 원장을 배포할 수 있습니다. 블록체인 Workbench를 배포하면 Azure 구독의 리소스 그룹 내에서 다음과 같은 Azure 서비스가 프로비전됩니다.
+
+* 1 Event Grid 항목
+* 1 Service Bus 네임스페이스
+* 1 Application Insights
+* 1 SQL Database(표준 S0)
+* 2 App Services(표준)
+* 2 Azure Key Vaults
+* 2 Azure Storage 계정(표준 LRS)
+* 2 가상 머신 확장 집합(유효성 검사기 및 작업자 노드용)
+* 2 Virtual Networks(각 가상 네트워크에 대한 부하 분산 장치, 네트워크 보안 그룹 및 공용 IP 주소 포함)
+* 선택 사항: Azure Monitor
+
+다음은 **myblockchain** 리소스 그룹에서 만든 예제 배포입니다.
+
+![예제 배포](media/blockchain-workbench-deploy/example-deployment.png)
+
+블록체인 Workbench의 비용은 기본 Azure 서비스 비용의 집계입니다. Azure 서비스에 대한 가격 책정 정보는 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 계산할 수 있습니다.
 
 Azure Blockchain Workbench를 배포하기 전에는 몇 가지 필수 구성 요소가 필요합니다. 필수 구성 요소에는 Azure AD 구성 및 응용 프로그램 등록이 포함됩니다.
 
@@ -254,9 +274,18 @@ Azure Blockchain Workbench가 배포되고 나면, 다음 단계는 Azure AD(Azu
 
 7. **저장**을 선택하여 클라이언트 등록을 업데이트합니다.
 
+## <a name="remove-a-deployment"></a>배포 제거
+
+배포가 더 이상 필요 없는 경우 블록체인 Workbench 리소스 그룹을 삭제하여 배포를 제거할 수 있습니다.
+
+1. Azure Portal의 왼쪽 탐색 창에서 **리소스 그룹**으로 이동하고 삭제하려는 리소스 그룹을 선택합니다. 
+2. **리소스 그룹 삭제**를 선택합니다. 리소스 그룹 이름을 입력하여 삭제를 확인하고 **삭제**를 선택합니다.
+
+    ![리소스 그룹 삭제](media/blockchain-workbench-deploy/delete-resource-group.png)
+
 ## <a name="next-steps"></a>다음 단계
 
-이 사용법 문서에서 Azure Blockchain Workbench를 배포했습니다. 블록 체인 응용 프로그램을 만드는 방법을 알아보려면 다음 사용법 문서를 계속 진행합니다.
+이 방법 문서에서 Azure Blockchain Workbench를 배포했습니다. 블록 체인 응용 프로그램을 만드는 방법을 알아보려면 다음 사용법 문서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기](blockchain-workbench-create-app.md)

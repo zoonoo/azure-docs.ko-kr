@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211799"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -123,7 +124,7 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
 BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 대한 별도의 경로가 가상 네트워크에 있는 모든 서브넷의 경로 테이블에 추가됩니다. 원본 및 다음 홉 유형으로 나열되는 *가상 네트워크 게이트웨이*가 포함된 경로가 추가됩니다. 
 
-경로 테이블의 속성을 사용하는 서브넷에서 BGP 경로 전파를 비활성화할 수 있습니다. BGP를 사용하여 Azure와 경로를 교환할 때 BGP 전파가 비활성화된 모든 서브넷의 경로 테이블에 경로가 추가되지 않습니다. VPN 연결을 통한 연결 기능은 다음 홉 형식의 VPN과 사용자 지정 경로(#custom-routes)를 사용하여 구현됩니다. 자세한 정보는 [BGP 경로 전파를 비활성화하는 방법](manage-route-table.md#create-a-route-table)을 참조하세요.
+경로 테이블의 속성을 사용하는 서브넷에서 BGP 경로 전파를 비활성화할 수 있습니다. BGP를 사용하여 Azure와 경로를 교환할 때 BGP 전파가 비활성화된 모든 서브넷의 경로 테이블에 경로가 추가되지 않습니다. VPN 연결을 통한 연결 기능은 다음 홉 형식의 VPN과 [사용자 지정 경로](#custom-routes)를 사용하여 구현됩니다. 자세한 정보는 [BGP 경로 전파를 비활성화하는 방법](manage-route-table.md#create-a-route-table)을 참조하세요.
 
 ## <a name="how-azure-selects-a-route"></a>Azure에서 경로를 선택하는 방법
 

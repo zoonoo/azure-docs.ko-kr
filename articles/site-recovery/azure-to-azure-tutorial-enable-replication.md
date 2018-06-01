@@ -1,21 +1,22 @@
 ---
-title: Azure Site Recovery(미리 보기)를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 설정
+title: Azure Site Recovery를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 설정
 description: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역에 Azure VM의 재해 복구를 설정하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211670"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
 
@@ -27,6 +28,7 @@ ms.lasthandoff: 05/08/2018
 > * VM에 대해 아웃바운드 액세스 설정
 > * VM에 대한 복제 사용
 
+Azure에서 Azure로의 복제는 현재 미리 보기에 있습니다.
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -109,7 +111,7 @@ Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기�
 ### <a name="select-the-source"></a>원본 선택
 
 1. Recovery Services 자격 증명 모음에서 자격 증명 모음 이름 > **+복제**를 클릭합니다.
-2. **원본**에서 **Azure - 미리 보기**를 선택합니다.
+2. **원본**에서 **Azure**를 선택합니다.
 3. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
 4. VM의 **Azure 가상 머신 배포 모델**(**Resource Manager** 또는 **클래식**)을 선택합니다.
 5. **원본 리소스 그룹**(Resource Manager VM의 경우) 또는 **클라우드 서비스**(클래식 VM의 경우)를 선택합니다.

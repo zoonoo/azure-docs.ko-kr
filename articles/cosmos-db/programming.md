@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3d7c94e8b1415a24427e1f90f5613d8c181608a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197996"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
@@ -151,6 +152,21 @@ Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행�
 문서 본문 배열을 입력으로 사용하고 여러 요청을 통해 각각 개별적으로 만드는 대신 동일한 저장 프로시저 실행에서 모두 만들도록 이 저장 프로시저를 수정할 수 있습니다. 이 저장 프로시저를 사용하여 Cosmos DB에 대한 효율적인 대량 가져오기를 구현할 수 있습니다(이 자습서의 뒷부분에서 설명).   
 
 설명한 예제에서는 저장 프로시저를 사용하는 방법을 보여 주었습니다. 다음으로 자습서의 뒷부분에서 트리거와 UDF(사용자 정의 함수)에 대해 알아봅니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+Azure Portal을 사용하여 저장 프로시저를 정의할 때 입력 매개 변수는 항상 문자열로 저장 프로시저에 전송됩니다. 입력으로 문자열의 배열을 전달하는 경우에도 배열은 문자열로 변환되고 저장 프로시저로 전송됩니다. 이 문제를 해결하기 위해 저장 프로시저 내에서 함수를 정의하여 배열로 문자열을 구문 분석할 수 있습니다. 다음 코드는 배열로 문자열을 구문 분석하는 예입니다. 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>데이터베이스 프로그램 트랜잭션
 일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서 **ACID 보장**을 제공합니다. ACID는 원자성, 일관성, 격리 및 내구성의 네 가지 속성을 나타내는 잘 알려진 머리글자어입니다.  
