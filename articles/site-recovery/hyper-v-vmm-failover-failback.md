@@ -1,18 +1,19 @@
 ---
-title: "Site Recovery를 사용하여 복제된 Hyper-V VM을 보조 데이터 센터로 장애 조치(Failover) 및 장애 복구(failback) | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover)하고, 주 사이트로 장애 복구(failback)하는 방법 알아보기"
+title: Site Recovery를 사용하여 복제된 Hyper-V VM을 보조 데이터 센터로 장애 조치(Failover) 및 장애 복구(failback) | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover)하고, 주 사이트로 장애 복구(failback)하는 방법 알아보기
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 3740ec9917499f6a1e87905befe86598a18f68e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecb0b9395ce7071442ddf0dd976e1ca57b8be906
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161144"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>복제된 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover) 및 장애 복구(failback)
 
@@ -45,48 +46,31 @@ ms.lasthandoff: 02/21/2018
 
 Hyper-V VM에 대해 주기적이거나 예정된 장애 조치(Failover)를 실행할 수 있습니다.
 
-- 예기치 않은 중단에 대비해서 주기적인 장애 조치(Failover)를 사용합니다. 이 장애 조치(Failover)를 실행하면 Site Recovery에서 보조 사이트에 VM을 만들고 작동시킵니다. 특정 복구 지점에 대해 장애 조치(Failover)를 실행합니다. 사용하는 복구 지점에 따라 데이터 손실이 발생할 수 있습니다.
+- 예기치 않은 중단에 대비해서 주기적인 장애 조치(Failover)를 사용합니다. 이 장애 조치(Failover)를 실행하면 Site Recovery에서 보조 사이트에 VM을 만들고 작동시킵니다. 동기화되지 않은 보류 중인 데이터에 따라 데이터 손실이 발생할 수 있습니다.
 - 유지 관리 또는 예정된 중단에 대해서는 계획된 장애 조치(failover)를 사용할 수 있습니다. 이 옵션은 데이터 손실을 발생하지 않습니다. 계획된 장애 조치(failover)가 트리거되면 원본 VM이 종료됩니다. 동기화되지 않은 데이터가 동기화되고 장애 조치(failover)가 트리거됩니다. 
 - 
 이 절차에서는 주기적 장애 조치(failover)를 실행하는 방법을 설명합니다.
 
 
-1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)**를 클릭합니다.
-2. **장애 조치(Failover)**에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-    - **최신**(기본값): 이 옵션은 먼저 Site Recovery로 전송된 모든 데이터를 처리합니다. 이 옵션은 장애 조치(Failover) 후에 생성된 복제본 VM은 장애 조치(Failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-    - **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
-    - **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(Failover)합니다. 
-3. 암호화 키는 이 시나리오와 관련이 없습니다.
-4. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 VM을 종료하려고 시도하는 경우 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 또한 Site Recovery는 장애 조치(Failover)를 트리거하기 전에 보조 사이트로 아직 전송되지 않은 온-프레미스 데이터를 동기화하려고 합니다. 종료가 실패하더라도 장애 조치(failover)는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
-5. 이제 보조 VMM 클라우드의 VM을 볼 수 있습니다.
-6. VM을 확인 한 후 장애 조치(Failover)를 **커밋**합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
+1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)** 를 클릭합니다.
+1. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 VM을 종료하려고 시도하는 경우 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 또한 Site Recovery는 장애 조치(Failover)를 트리거하기 전에 보조 사이트로 아직 전송되지 않은 온-프레미스 데이터를 동기화하려고 합니다. 종료가 실패하더라도 장애 조치(failover)는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+2. 이제 보조 VMM 클라우드의 VM을 볼 수 있습니다.
+3. VM을 확인 한 후 장애 조치(Failover)를 **커밋**합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
 
 > [!WARNING]
 > **진행 중인 장애 조치(failover) 취소 안 함**: 장애 조치(failover)를 시작하기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.  
 
 
-## <a name="reprotect-and-fail-back"></a>다시 보호 및 장애 복구(Failback)
+## <a name="reverse-replicate-and-failover"></a>역방향 복제 및 장애 조치
 
-보조 사이트에서 주 사이트로의 복제를 시작하고 주 사이트로 장애 복구(Failback)합니다. 주 사이트에서 VM을 다시 실행한 후에는 보조 사이트로 다시 복제할 수 있습니다.  
+보조 사이트에서 주 사이트로의 복제를 시작하고 주 사이트로 장애 복구(Failback)합니다. 주 사이트에서 VM을 다시 실행하면 보조 사이트로 복제할 수 있습니다.  
 
-1. **설정** > **복제된 항목**에서 VM을 클릭하고 **역방향 복제**를 사용하도록 설정합니다. VM은 주 사이트로 다시 복제되기 시작합니다.
-2. VM > **계획된 장애 조치(Failover)**를 클릭합니다.
-3. **계획된 장애 조치(Failover) 확인**에서 장애 조치(Failover) 방향(보조 VMM 클라우드에서)을 확인하고 원본 및 대상 위치를 선택합니다. 
-4. **데이터 동기화**에서 동기화 방법을 지정합니다.
-    - **장애 조치(failover) 전 데이터 동기화(델타 변경 내용만 동기화)** - 이 옵션에서는 VM을 종료하지 않고 동기화하기 때문에 VM 가동 중지 시간이 최소로 유지됩니다. 수행하는 작업:
-        - 복제본 VM의 스냅숏을 생성한 후 주 Hyper-V 호스트로 복사합니다. 복제본 VM은 계속 실행됩니다.
-        - 복제본 VM을 종료하여 새로 변경되지 않도록 합니다. 최종 델타 변경 집합은 주 사이트로 전송되고, 주 사이트의 VM이 시작됩니다.
-    - **장애 조치 중에만 데이터 동기화(전체 다운로드)** - 오랜 시간 동안 보조 사이트에서 실행한 경우 이 옵션을 사용합니다. 이 옵션에서는 여러 디스크가 변경되고 체크섬 계산에 시간이 소비되지 않으므로 더 빠릅니다. 이 옵션은 디스크 다운로드를 수행합니다. 주 VM이 삭제된 경우에도 유용합니다.
-5. 암호화 키는 이 시나리오와 관련이 없습니다.
-6. 장애 조치를 시작합니다. **작업** 탭에서 장애 조치 진행 상황을 따를 수 있습니다.
-7. 장애 조치(Failover) 전에 데이터를 동기화하도록 선택한 경우, 초기 데이터 동기화가 완료되고 보조 사이트에서 복제본 VM을 종료할 준비가 되면, **작업** > 계획된 장애 조치(Failover) 작업 이름 > **장애 조치(Failover) 완료**를 차례로 클릭합니다. 이렇게 하면 보조 VM이 종료되고, 최신 변경 내용이 주 사이트로 전송되고, 주 VM이 시작됩니다.
-8. 주 VMM 클라우드에서 VM를 사용할 수 있는지 확인합니다.
-9. 주 VM은 이제 커밋 보류 중 상태가 됩니다. **커밋**을 클릭하여 장애 조치(Failover)를 커밋합니다.
-10. 주 VM에서 보조 사이트로의 복제를 다시 시작하려면 **역방향 복제**를 사용하도록 설정합니다.
-
-
-> [!NOTE]
-> 역방향 복제는 복제본 VM이 해제된 후에 발생한 변경 내용만 복제하며 델타 변경 내용만 전송됩니다.
+ 
+1. VM을 클릭하고 **역방향 복제**를 클릭합니다.
+2. 작업이 완료되면 VM을 클릭하고, **장애 조치**에서 보조 VMM 클라우드의 장애 조치 방향을 확인하고, 원본 및 대상 위치를 선택합니다. 
+4. 장애 조치를 시작합니다. **작업** 탭에서 장애 조치 진행 상황을 따를 수 있습니다.
+5. 주 VMM 클라우드에서 VM를 사용할 수 있는지 확인합니다.
+6. 주 VM에서 보조 사이트로 다시 복제하기 시작하려면 **역방향 복제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Hyper-V VM을 보조 사이트에 복제하는 [단계를 검토](hyper-v-vmm-disaster-recovery.md)합니다.
