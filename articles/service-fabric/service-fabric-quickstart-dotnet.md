@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207209"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>빠른 시작: Azure에서 .NET Service Fabric 응용 프로그램 만들기
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -104,18 +105,19 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
     
     ![투표 프런트 엔드 서비스 추가](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - 먼저 백 엔드 서비스 **(1)**에 대해 ReverseProxy에 대한 URL을 구성합니다.
-    - 그런 다음 ReverseProxy **(2)**에 HTTP PUT 요청을 보냅니다.
-    - 마지막으로 백 엔드 서비스로부터 클라이언트 **(3)**에 응답을 반환합니다.
+    - 먼저 백 엔드 서비스 **(1)** 에 대해 ReverseProxy에 대한 URL을 구성합니다.
+    - 그런 다음 ReverseProxy **(2)** 에 HTTP PUT 요청을 보냅니다.
+    - 마지막으로 백 엔드 서비스로부터 클라이언트 **(3)** 에 응답을 반환합니다.
 
 4. 계속하려면 **F5** 키를 누릅니다.
+    - 브라우저에서 메시지가 표시되면 ServiceFabricAllowedUsers 그룹에 디버그 모드에 대한 읽기 및 실행 권한을 부여합니다.
     - 이제 백 엔드 서비스의 중단점에 있습니다.
     
     ![투표 백 엔드 서비스 추가](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - 메서드의 첫 번째 줄**(1)**에서는 `StateManager`가 신뢰할 수 있는 사전 `counts`를 가져오거나 추가합니다.
-    - 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문**(2)**으로 트랜잭션이 만들어집니다.
-    - 트랜잭션에서는 투표 옵션에 대한 관련 키 값을 업데이트하고 작업을 커밋합니다**(3)**. 커밋 메서드가 반환되면 사전에 데이터가 업데이트되고 클러스터의 다른 노드에 복제됩니다. 이제 데이터는 클러스터에 안전하게 저장되며 백 엔드 서비스는 데이터를 계속 제공하면서 다른 노드로 장애 조치할 수 있습니다.
+    - 메서드의 첫 번째 줄 **(1)** 에서는 `StateManager`가 신뢰할 수 있는 사전 `counts`를 가져오거나 추가합니다.
+    - 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문 **(2)** 으로 트랜잭션이 만들어집니다.
+    - 트랜잭션에서는 투표 옵션에 대한 관련 키 값을 업데이트하고 작업을 커밋합니다 **(3)**. 커밋 메서드가 반환되면 사전에 데이터가 업데이트되고 클러스터의 다른 노드에 복제됩니다. 이제 데이터는 클러스터에 안전하게 저장되며 백 엔드 서비스는 데이터를 계속 제공하면서 다른 노드로 장애 조치할 수 있습니다.
 5. 계속하려면 **F5** 키를 누릅니다.
 
 디버깅 세션을 중지하려면 **Shift+F5** 키를 누릅니다.
@@ -175,13 +177,15 @@ Thumbprint                                Subject
 ## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 응용 프로그램 및 서비스 크기 조정
 Service Fabric 서비스는 해당 서비스에 대한 로드 변동량을 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다. 서비스의 크기를 조정하는 여러 가지 방법이 있으며 PowerShell 또는 Service Fabric CLI(sfctl)의 스크립트 또는 명령을 사용할 수 있습니다. 이 예제에서는 Service Fabric Explorer를 사용합니다.
 
-Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`). 
+Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다(예: `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`). 
 
-위치를 신뢰할 수 없다는 브라우저 경고가 표시될 수 있습니다. 이는 인증서가 자체 서명되었기 때문입니다. 경고를 무시하고 진행하도록 선택할 수 있습니다. 브라우저에서 메시지가 나타나면 설치된 인증서를 선택하여 연결합니다. 
+위치를 신뢰할 수 없다는 브라우저 경고가 표시될 수 있습니다. 이는 인증서가 자체 서명되었기 때문입니다. 경고를 무시하고 진행하도록 선택할 수 있습니다.
+1. 브라우저에서 메시지가 나타나면 설치된 인증서를 선택하여 연결합니다. 목록에서 선택한 파티 클러스터 인증서는 액세스하려는 파티 클러스터와 일치해야 합니다. 예: win243uja6w62r.westus.cloudapp.azure.com.
+2. 브라우저에서 메시지가 표시되면 CryptoAPI 개인 키에 이 세션에 대한 액세스 권한을 부여합니다.
 
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음 단계를 수행합니다.
 
-1. 클러스터에서 Service Fabric Explorer를 엽니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`). 
+1. 클러스터에서 Service Fabric Explorer를 엽니다(예: `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`). 
 2. 트리 뷰에서 **응용 프로그램**->**VotingType**->**fabric:/Voting**을 확장합니다. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드 옆에 있는 줄임표(...)를 클릭하고 **Scale Service**를 선택합니다.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -217,7 +221,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
     업그레이드가 실행되는 동안 응용 프로그램을 계속 사용할 수 있습니다. 클러스터에서 실행되는 서비스에는 두 인스턴스가 있으므로 일부 요청은 응용 프로그램의 업그레이드된 버전을 가질 수 있는 반면 일부는 이전 버전을 가질 수 있습니다.
 
 8. 브라우저를 열고 포트 19080에서 클러스터 주소로 이동합니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`).
-9. 트리 뷰의 **응용 프로그램** 노드를 클릭한 후 오른쪽 창에서 **Upgrades in Progress(진행 중인 업그레이드)**를 클릭합니다. 업그레이드가 클러스터에서 업그레이드 도메인을 어떻게 통과하고 다음으로 진행하기 전에 각 도메인 상태가 정상인지 확인하게 됩니다. 도메인 상태가 확인되면 진행률 표시줄에 업그레이드 도메인이 녹색으로 표시됩니다.
+9. 트리 뷰의 **응용 프로그램** 노드를 클릭한 후 오른쪽 창에서 **Upgrades in Progress(진행 중인 업그레이드)** 를 클릭합니다. 업그레이드가 클러스터에서 업그레이드 도메인을 어떻게 통과하고 다음으로 진행하기 전에 각 도메인 상태가 정상인지 확인하게 됩니다. 도메인 상태가 확인되면 진행률 표시줄에 업그레이드 도메인이 녹색으로 표시됩니다.
     ![Service Fabric Explorer에서 업그레이드 보기](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric에서는 클러스터의 각 노드에서 서비스를 업그레이드 한 후 2분 대기함으로써 안전하게 업그레이드합니다. 전체 업데이트에는 약 8분이 소요될 것으로 예상됩니다.

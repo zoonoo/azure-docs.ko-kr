@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010927"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213268"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -155,7 +155,7 @@ Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -Vo
     2. 서버에서 Azure File Sync 서비스가 실행 중인지 확인합니다. 이렇게 하려면 서비스 MMC 스냅인을 열고 Storage 동기화 에이전트 서비스(FileSyncSvc)가 실행 중인지 확인합니다.
 
 <a id="replica-not-ready"></a>**"0x80c8300f - 복제본이 해당 작업을 수행할 준비가 되지 않았습니다." 오류로 인해 동기화 실패**   
-클라우드 엔드포인트를 만들고 데이터가 포함된 Azure 파일 공유를 사용하는 경우 이 문제가 발생할 수 있습니다. Azure 파일 공유에서 변경 검색 작업 실행이 완료되면(최대 24시간이 걸릴 수 있음) 동기화가 올바르게 작동되기 시작합니다.
+클라우드 엔드포인트를 만들고 데이터가 포함된 Azure 파일 공유를 사용하는 경우 이 문제가 발생할 수 있습니다. Azure 파일 공유에서 변경 내용을 검색하는 변경 검색 작업은 24시간마다 한 번으로 예약됩니다.  완료 시간은 Azure 파일 공유의 네임스페이스 크기에 따라 달라집니다.  이 오류는 완료되면 사라집니다.
 
 
     > [!NOTE]

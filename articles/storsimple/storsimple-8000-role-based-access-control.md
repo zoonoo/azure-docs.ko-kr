@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 412098ad6b8a6620b165b6cecaa0d0b3ee05f63e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161161"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
@@ -108,7 +109,7 @@ Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 �
 
 ![RBAC 역할 보기](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-자세한 내용을 보려면 [PowerShell을 사용하여 사용자 지정 RBAC 역할 만들기](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell)로 이동합니다.
+자세한 내용은 [사용자 지정 역할](../role-based-access-control/custom-roles.md)로 이동하세요.
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>PowerShell을 통해 사용자 지정 역할 생성을 위한 샘플 출력
 
@@ -155,7 +156,7 @@ PS C:\WINDOWS\system32>
 
 역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용을 보려면 [리소스 계층 및 액세스 권한 상속(영문)](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance)으로 이동하세요.
 
-1. **액세스 제어(IAM)**로 이동합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
+1. **액세스 제어(IAM)** 로 이동합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
 
     ![RBAC 역할에 액세스 권한 추가](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

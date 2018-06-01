@@ -1,6 +1,6 @@
 ---
-title: "Azure Managed Applications의 UI 정의 만들기 이해 | Microsoft Docs"
-description: "Azure Managed Applications에 대한 UI 정의를 만드는 방법에 대해 설명합니다."
+title: Azure Managed Applications의 UI 정의 만들기 이해 | Microsoft Docs
+description: Azure Managed Applications에 대한 UI 정의를 만드는 방법에 대해 설명합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305228"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 응용 프로그램에 대한 Azure Portal 사용자 인터페이스 만들기
 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 응용 프로그램을 만들기 위한 사용자 인터페이스를 생성합니다.
@@ -79,6 +80,6 @@ createUiDefinition.json 파일 자체에는 간단한 스키마가 있습니다.
 - [요소](create-uidefinition-elements.md)
 - [함수](create-uidefinition-functions.md)
 
-createUiDefinition에 대한 현재 JSON 스키마는 https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json에서 사용할 수 있습니다.
+createUiDefinition에 대한 현재 JSON 스키마는 https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json에 사용할 수 있습니다.
 
 예제 사용자 인터페이스 파일의 경우 [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json)을 참조하세요.

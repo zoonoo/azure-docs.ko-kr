@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304463"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 표준 Load Balancer를 통한 가용성 영역 간 VM 부하 분산
 
@@ -37,6 +38,8 @@ ms.lasthandoff: 04/28/2018
 > * 부하 분산 장치의 실제 동작 보기
 
 Standard Load Balancer에서 가용성 영역 사용에 대한 자세한 내용은 [Standard Load Balancer 및 가용석 영역](load-balancer-standard-availability-zones.md)을 참조하세요.
+
+원하는 경우 [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md)를 사용하여 이 자습서를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -141,18 +144,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 *myResourceGroupLBAZ* 리소스 그룹에 있는 **myVM1**을 클릭합니다.
 2. **개요** 페이지에서 **연결**을 클릭하여 VM에 RDP로 연결합니다.
 3. 사용자 이름으로 *azureuser*를 사용하여 VM에 로그인합니다.
-4. 서버 바탕 화면에서 **Windows 관리 도구**>**서버 관리자**로 이동합니다.
-5. 서버 관리자 빠른 시작 페이지에서 **역할 및 기능 추가**를 클릭합니다.
-
-   ![백 엔드 주소 풀에 추가 ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. **역할 및 기능 추가** 마법사에서 다음 값을 사용합니다.
-    - **설치 유형 선택** 섹션에서 **역할 기반 또는 기능 기반 설치**를 클릭합니다.
-    - **대상 서버 선택** 페이지에서 **myVM1**을 클릭합니다.
-    - **서버 역할 선택** 페이지 **웹 서버(IIS)** 를 클릭합니다.
-    - 지침에 따라 마법사의 나머지 과정을 완료합니다.
-2. *myVM1* 가상 머신으로 RDP 세션을 닫습니다.
-3. 1-7단계를 반복하여 *myVM2* 및 *myVM3*에 IIS를 설치합니다.
+4. 서버 바탕 화면에서 **Windows 관리 도구**>**Windows PowerShell**로 이동합니다.
+5. PowerShell 창에서 다음 명령을 실행하여 IIS 서버를 설치하고, 기본 iisstart.htm 파일을 제거한 다음, VM 이름을 표시하는 새 iisstart.htm 파일을 추가합니다.
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. *myVM1*이 포함된 RDP 세션을 닫습니다.
+7. 1~6단계를 반복하여 *myVM2* 및 *myVM3*에 IIS 및 업데이트된 iisstart.htm 파일을 설치합니다.
 
 ## <a name="create-load-balancer-resources"></a>부하 분산 장치 리소스 만들기
 
@@ -215,7 +221,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 
 2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. IIS 웹 서버의 기본 페이지가 브라우저에 표시됩니다.
 
-      ![IIS 웹 서버](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![IIS 웹 서버](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 영역에 분산되는 VM에서 분산 장치가 트래픽을 분산하는 것을 확인하기 위해 웹 브라우저를 강제로 새로 고칠 수 있습니다.
 

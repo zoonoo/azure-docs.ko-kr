@@ -1,24 +1,25 @@
 ---
-title: "Azure에서 StorSimple 장치 관리자 서비스 배포 | Microsoft Docs"
-description: "Azure Portal에서 StorSimple Device Manager 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다."
+title: Azure에서 StorSimple 장치 관리자 서비스 배포 | Microsoft Docs
+description: Azure Portal에서 StorSimple Device Manager 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012746"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 장치에 StorSimple 장치 관리자 서비스 배포
 
@@ -29,7 +30,9 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 이 자습서에서는 서비스 만들기, 삭제, 마이그레이션 및 서비스 등록 키 관리에 필요한 단계를 설명합니다. 이 문서에 포함된 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. StorSimple 가상 배열에 대한 자세한 내용은 [StorSimple 가상 배열에 StorSimple 장치 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동합니다.
 
 > [!NOTE]
-> 모든 클래식 StorSimple 장치 관리자는 자동으로 새 Azure Portal로 이동되었습니다. 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요. 새 Azure Portal로 이동한 후에는 ASM(Azure Service Management) PowerShell cmdlet이 지원되지 않습니다. 장치를 관리할 스크립트를 업데이트한 후 [Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 장치 관리](storsimple-8000-automation-azurerm-scripts.md)로 이동하여 자세한 내용을 알아보세요. 새 Azure Portal은 업데이트 5.0 이상을 실행하는 장치를 지원합니다. 장치가 최신 상태가 아니면 즉시 업데이트 5를 설치합니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요. StorSimple Cloud Appliance(8010/8020)를 사용하는 경우 클라우드 어플라이언스를 업데이트할 수 없습니다. 최신 버전의 소프트웨어를 사용하여 업데이트 5.0으로 새 클라우드 어플라이언스를 만든 다음 만들어진 새 클라우드 어플라이언스로 장애 조치(failover)합니다. 업데이트 4.0 이하를 실행하는 장치는 [관리 기능이 축소됩니다](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  Azure Portal은 업데이트 5.0 이상을 실행하는 장치를 지원합니다. 장치가 최신 상태가 아니면 즉시 업데이트 5를 설치합니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요. 
+> - StorSimple Cloud Appliance(8010/8020)를 사용하는 경우 클라우드 어플라이언스를 업데이트할 수 없습니다. 최신 버전의 소프트웨어를 사용하여 업데이트 5.0으로 새 클라우드 어플라이언스를 만든 다음 만들어진 새 클라우드 어플라이언스로 장애 조치(failover)합니다. 
+> - 업데이트 4.0 이하를 실행하는 장치는 [관리 기능이 축소됩니다](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>서비스 만들기
 StorSimple 장치 관리자 서비스를 만들려면 다음 항목이 필요합니다.
@@ -38,11 +41,7 @@ StorSimple 장치 관리자 서비스를 만들려면 다음 항목이 필요합
 * 활성 Microsoft Azure 저장소 계정
 * 액세스 관리에 사용되는 청구 정보
 
-기업 규약을 포함하는 구독만이 허용됩니다. Azure 클래식 포털에서 허용된 Microsoft 스폰서쉽 구독은 Azure Portal에서 지원되지 않습니다. 지원되지 않는 구독을 사용하는 경우 다음과 같은 메시지가 표시됩니다.
-
-![유효하지 않은 구독](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-또한 서비스를 만들 때 기본 저장소 계정을 생성하도록 선택할 수 있습니다.
+기업 규약을 포함하는 구독만이 허용됩니다. 또한 서비스를 만들 때 기본 저장소 계정을 생성하도록 선택할 수 있습니다.
 
 하나의 서비스로 여러 장치를 관리할 수 있습니다. 하지만 하나의 장치는 여러 서비스로 확장할 수 없습니다. 대규모 엔터프라이즈는 서로 다른 구독, 조직 또는 배포 위치와 동작하는 여러 서비스 인스턴스를 가질 수 있습니다. 
 
@@ -149,8 +148,7 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 
 > [!NOTE]
 > 키 롤오버가 완료될 때까지 StorSimple Manager 서비스의 Azure Portal에서 수행할 수 있는 작업은 없습니다.
-> 
-> 
+
 
 장치 직렬 콘솔을 사용하여 Windows PowerShell 인터페이스에 연결하는 경우 다음 단계를 수행합니다.
 
@@ -191,24 +189,24 @@ Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 장치�
 
 | 작업                                                                                                                       | 지원됨      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| 장치 등록                                                                                                               | 적용            |
-| 일반, 네트워크 및 보안과 같은 장치 설정 구성                                                                | 적용            |
-| 업데이트 검사, 다운로드 및 설치                                                                                             | 적용            |
-| 장치 비활성화                                                                                                               | 적용            |
-| 장치 삭제                                                                                                                   | 적용            |
-| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아니요             |
-| 볼륨 만들기, 수정 및 삭제                                                                                             | 아니요             |
-| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니요             |
-| 수동 백업 수행                                                                                                            | 아니요             |
+| 장치 등록                                                                                                               | 예            |
+| 일반, 네트워크 및 보안과 같은 장치 설정 구성                                                                | 예            |
+| 업데이트 검사, 다운로드 및 설치                                                                                             | 예            |
+| 장치 비활성화                                                                                                               | 예            |
+| 장치 삭제                                                                                                                   | 예            |
+| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아니오             |
+| 볼륨 만들기, 수정 및 삭제                                                                                             | 아니오             |
+| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니오             |
+| 수동 백업 수행                                                                                                            | 아니오             |
 | 예약된 백업 수행                                                                                                         | 해당 없음 |
-| backupset에서 복원                                                                                                        | 아니요             |
-| 업데이트 3.0 이상을 실행하는 장치에 복제 <br> 원본 장치는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 적용            |
-| 업데이트 3.0 이전 버전을 실행하는 장치에 복제합니다.                                                                          | 아니요             |
-| 원본 장치로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 장치에서 업데이트 3.0 이후 버전을 실행하는 장치로)                                                               | 적용            |
-| 대상 장치로 장애 조치 <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 장치로)                                                                                   | 아니요             |
-| 경고 지우기                                                                                                                  | 적용            |
-| 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 적용            |
-| 장치 컨트롤러 설정 및 해제                                                                                              | 적용            |
+| backupset에서 복원                                                                                                        | 아니오             |
+| 업데이트 3.0 이상을 실행하는 장치에 복제 <br> 원본 장치는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 예            |
+| 업데이트 3.0 이전 버전을 실행하는 장치에 복제합니다.                                                                          | 아니오             |
+| 원본 장치로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 장치에서 업데이트 3.0 이후 버전을 실행하는 장치로)                                                               | 예            |
+| 대상 장치로 장애 조치 <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 장치로)                                                                                   | 아니오             |
+| 경고 지우기                                                                                                                  | 예            |
+| 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 예            |
+| 장치 컨트롤러 설정 및 해제                                                                                              | 예            |
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271652"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, OMS 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
@@ -131,20 +132,18 @@ Microsoft NLB(네트워크 부하 분산) 또는 하드웨어 기반 부하 분�
 
 Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배포하는 방법을 알아보려면 [네트워크 부하 분산](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing)을 참조하세요.  다음 단계에서는 Microsoft 네트워크 부하 분산 클러스터를 구성하는 방법에 대해 설명합니다.  
 
-1.  NLB 클러스터의 구성원인 Windows 서버에 관리 계정으로 로그인합니다.  
-2.  [서버 관리자]에서 [네트워크 부하 분산 관리자]를 열고, **도구**를 클릭한 다음 **네트워크 부하 분산 관리자**를 클릭합니다.
+1. NLB 클러스터의 구성원인 Windows 서버에 관리 계정으로 로그인합니다.  
+2. [서버 관리자]에서 [네트워크 부하 분산 관리자]를 열고, **도구**를 클릭한 다음 **네트워크 부하 분산 관리자**를 클릭합니다.
 3. OMS 게이트웨이 서버를 설치되어 있는 Microsoft Monitoring Agent와 연결하려면 클러스터의 IP 주소를 마우스 오른쪽 단추로 클릭한 후 **클러스터에 호스트 추가**를 클릭합니다.<br><br> ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. 연결하려는 게이트웨이 서버의 IP 주소를 입력합니다.<br><br> ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가: 연결](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS 에이전트 및 Operations Manager 관리 그룹 구성
 다음 섹션에는 OMS 게이트웨이와 직접 연결되는 OMS 에이전트, Operations Manager 관리 그룹 또는 Azure Automation Hybrid Runbook Workers를 구성하여 Azure Automation 또는 Log Analytics와 통신하는 방법에 대한 단계가 포함되어 있습니다.  
 
-Log Analytics에 직접 연결하는 Windows 컴퓨터에 OMS 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-quick-collect-linux-computer.md)을 참조하세요.  Automation Hybrid Runbook Worker와 관련된 내용은 [Hybrid Runbook Worker 배포](../automation/automation-hybrid-runbook-worker.md)를 참조하세요.
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>OMS 게이트웨이를 프록시 서버로 사용하도록 OMS 에이전트 및 Operations Manager 구성
-
 ### <a name="configure-standalone-oms-agent"></a>독립 실행형 OMS 에이전트 구성
-프록시 서버(이 경우 게이트웨이)를 사용하도록 에이전트를 구성하는 방법은 [Microsoft 모니터링 에이전트를 사용하여 프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md)을 참조하세요.  네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 OMS 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.<br><br> ![Microsoft Monitoring Agent 속성 – 프록시 설정](./media/log-analytics-oms-gateway/nlb04.png)
+Log Analytics에 직접 연결하는 Windows 컴퓨터에 OMS 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-quick-collect-linux-computer.md)을 참조하세요. 에이전트를 구성하는 동안 프록시 서버를 지정하지 않고 OMS 게이트웨이 서버와 해당 포트 번호의 IP 주소로 해당 값을 바꿉니다.  네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 OMS 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.  
+
+Automation Hybrid Runbook Worker와 관련된 내용은 [Hybrid Runbook Worker 배포](../automation/automation-hybrid-runbook-worker.md)를 참조하세요.
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Operations Manager 구성 - 모든 에이전트에서 동일한 프록시 서버 사용
 게이트웨이를 추가하도록 Operations Manager를 구성합니다.  설정이 비어 있더라도 Operations Manager 프록시 구성은 Operations Manager에 보고하는 모든 에이전트에 자동으로 적용됩니다.  

@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057931"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212384"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델(미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "34057931"
 |**구매 모델**|**설명**|**적합한 대상**|
 |---|---|---|
 |DTU 기반 모델|계산, 저장소 및 IO 리소스를 번들로 묶은 측정값을 기반으로 합니다. 성능 수준은 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-what-is-a-dtu.md)을 참조하세요.|간단하고 미리 구성된 리소스 옵션을 원하는 고객에게 가장 적합합니다.| 
-|vCore 기반 모델|이 모델을 사용하면 계산 및 저장소 리소스를 독립적으로 크기 조정할 수 있습니다. SQL Server에 대한 Azure 하이브리드 혜택을 사용하여 비용을 절약할 수 있습니다.|유연성, 제어 및 투명성을 중요시하는 고객에게 가장 적합합니다.|
+|vCore 기반 모델|이 모델을 사용하면 계산 및 저장소 리소스를 독립적으로 크기 조정할 수 있습니다(최대 80개 vCore, 4TB 데이터 저장소 및 200000 IOPS). SQL Server에 대한 Azure 하이브리드 혜택을 사용하여 비용을 절약할 수 있습니다.|유연성, 제어 및 투명성을 중요시하는 고객에게 가장 적합합니다.|
 ||||  
 
 ![가격 책정 모델](./media/sql-database-service-tiers/pricing-model.png)
@@ -66,10 +66,10 @@ vCore 기반 구매 모델(미리 보기)로 변환하면 계산 및 저장소 �
 ||**범용**|**중요 비즈니스**|
 |---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 응용 프로그램입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|
-|컴퓨팅|1-16개 vCore|1-16개 vCore|
+|컴퓨팅|1~80개 vCore, 4세대 및 5세대 |1~80개 vCore, 4세대 및 5세대|
 |메모리|코어당 7GB |코어당 7GB |
-|Storage|프리미엄 원격 저장소, 5GB-4TB|로컬 SSD 저장소, 5GB-1TB|
-|IO 처리량(근사치)|vCore당 500IOPS(최대 7,500IOPS)|코어당 5,000IOPS|
+|Storage|프리미엄 원격 저장소, 5GB-4TB|로컬 SSD 저장소, 5GB~4TB|
+|IO 처리량(근사치)|vCore당 500 IOPS(최대 7,000 IOPS)|vCore당 5000 IOPS(최대 200,000 IOPS)|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정](sql-database-read-scale-out.md), 영역 중복 HA|
 |Backup|RA-GRS, 7-35일(기본값: 7일)|RA-GRS, 7-35일(기본값: 7일)*|
 |메모리 내|해당 없음|지원됨|
