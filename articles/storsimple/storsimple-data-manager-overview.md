@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure StorSimple 데이터 관리자 개요 | Microsoft Docs"
-description: "StorSimple 데이터 관리자 서비스 개요 제공"
+title: Microsoft Azure StorSimple 데이터 관리자 개요 | Microsoft Docs
+description: StorSimple 데이터 관리자 서비스 개요 제공
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271907"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
@@ -80,6 +81,11 @@ StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으
 데이터 관리자 지역이 작업 정의 지역과 다른 경우, 이러한 각 지역에 있는 데이터/메타데이터를 이해하는 것이 중요합니다. 다음 다이어그램에서는 데이터 관리자 및 작업 정의에 대해 서로 다른 지역을 유지할 때의 결과를 보여 줍니다.
 
 ![다른 지역의 서비스 및 작업 정의](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>GDPR 규정 준수
+
+[GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 개인 정보를 수집, 저장 및 사용하는 방법에 대한 많은 요구 사항을 포함하고 있습니다. GDPR 규칙은 회사 및 정부 기관 그리고 EU에서 작동하고 EU 지역 거주자와 연결된 데이터를 수집하고 분석하는 다른 조직에 적용됩니다. StorSimple 데이터 관리자는 GDPR 규정을 준수합니다. 데이터 관리자 서비스는 개인 데이터를 수집하지 않습니다.
+자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
