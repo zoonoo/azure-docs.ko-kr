@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196987"
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store의 성능 조정
 
@@ -66,7 +65,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 일반적으로 성능을 향상하려면 데이터를 더 큰 파일로 구성합니다.  경험상, 데이터 집합을 256MB 이상의 파일로 구성합니다. 이미지, 이진 데이터 등과 같이 병렬로 처리할 수 없는 경우도 있습니다.  이 경우 개별 파일을 2GB 미만으로 유지하는 것이 좋습니다.
 
-때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다.  다운스트림 응용 프로그램에 사용할 더 큰 파일을 생성하는 "처리" 프로세스를 포함하는 것이 좋습니다.  
+때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다.  다운스트림 응용 프로그램에 사용할 더 큰 파일을 생성하는 "처리" 프로세스를 포함하는 것이 좋습니다.
 
 ### <a name="organizing-time-series-data-in-folders"></a>시계열 데이터를 폴더로 구성
 
@@ -123,7 +122,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 워크로드에 따라 항상 필요한 최소 YARN 컨테이너 크기가 있습니다. 너무 작은 컨테이너를 선택하면 작업에서 메모리 부족 문제가 발생합니다. 일반적으로 YARN 컨테이너는 1GB 이상이어야 합니다. 3GB YARN 컨테이너도 흔히 볼 수 있습니다. 일부 워크로드의 경우 더 큰 YARN 컨테이너가 필요할 수도 있습니다.  
 
-**YARN 컨테이너당 코어 수를 늘립니다.**  각 컨테이너에 할당된 코어 수를 늘려 각 컨테이너에서 실행되는 병렬 태스크 수를 늘립니다.  이 방법은 컨테이너당 여러 태스크를 실행하는 Spark 등의 응용 프로그램에 적합합니다.  각 컨테이너에서 단일 스레드를 실행하는 경우 Hive 등의 응용 프로그램에서는 컨테이너당 코어 수보다 컨테이너 수를 늘리는 것이 좋습니다.   
+**YARN 컨테이너당 코어 수를 늘립니다.**  각 컨테이너에 할당된 코어 수를 늘려 각 컨테이너에서 실행되는 병렬 태스크 수를 늘립니다.  이 방법은 컨테이너당 여러 태스크를 실행하는 Spark 등의 응용 프로그램에 적합합니다.  각 컨테이너에서 단일 스레드를 실행하는 경우 Hive 등의 응용 프로그램에서는 컨테이너당 코어 수보다 컨테이너 수를 늘리는 것이 좋습니다.
 
 ### <a name="workload-layer"></a>워크로드 계층
 
