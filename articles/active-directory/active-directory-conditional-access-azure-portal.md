@@ -16,11 +16,12 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 94d34df771334319db36009053a7264f0aeacf46
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257736"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
@@ -121,3 +122,5 @@ Azure AD 조건부 액세스를 사용하여 인증 시도가 다음에서 오�
 - 조건부 액세스 정책을 구성하는 경험을 쌓으려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
 
 - 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)를 참조하세요. 
+
+- 권장된 정책을 사용하여 단계별 배포 계획을 원하는 경우 [조건부 액세스 배포 계획](http://aka.ms/conditionalaccessdeploymentplan)을 참조하세요.

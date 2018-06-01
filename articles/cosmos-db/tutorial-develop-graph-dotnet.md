@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: a442b6c3c8e2b8a781ee54f41a2e0db5b44b7395
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1843e37d9baf1ab264db96109eb5ffd0704e35b7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271292"
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: .NET의 Graph API를 사용하여 개발
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
@@ -168,13 +169,13 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## <a name="add-vertices-and-edges"></a>꼭짓점 및 가장자리 추가
 
-이전 섹션에서 자세히 설명한 Gremlin 문을 살펴보겠습니다. 먼저 Gremlin의 `addV` 메서드를 사용하는 몇 가지 꼭짓점이 있습니다. 예를 들어 다음 코드 조각에서는 이름, 성 및 나이에 대한 속성이 있는 "Person" 형식의 "Thomas Andersen" 꼭짓점을 만듭니다.
+이전 섹션에서 표시된 Gremlin 문에 대해 자세히 살펴보겠습니다. 먼저 Gremlin의 `addV` 메서드를 사용하여 몇 가지 꼭짓점을 추가합니다. 예를 들어 다음 코드 조각에서는 이름 및 나이에 대한 속성이 있는 "person" 형식의 "Thomas Andersen" 꼭짓점을 만듭니다.
 
 ```cs
 // Create a vertex
 IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
     graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
+    "g.addV('person').property('firstName', 'Thomas').property('age', 44)");
 
 while (createVertexQuery.HasMoreResults)
 {

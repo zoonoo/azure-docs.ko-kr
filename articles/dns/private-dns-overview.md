@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 677fc66b66d6c17806a313f2fac3a15e8e1775ba
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261582"
 ---
 # <a name="using-azure-dns-for-private-domains"></a>개인 도메인에 Azure DNS 사용
 DNS(Domain Name System)는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다.  인터넷 연결 DNS 도메인 외에도 Azure DNS는 이제 사설 DNS 도메인을 미리 보기 기능으로 지원합니다.  

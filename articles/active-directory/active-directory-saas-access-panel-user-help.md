@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931267"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260512"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>My Apps 포털 액세스 및 사용과 관련된 문제 해결
 
@@ -58,10 +58,11 @@ My Apps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
 - **Internet Explorer 11**: Windows 7 이상(제한적 지원)
 
-또한 Chrome 및 Edge 확장은 다음 사이트에서 직접 다운로드할 수도 있습니다.
+다음 사이트에서 확장을 직접 다운로드할 수도 있습니다.
 
-- [Chrome 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 확장을 설치했지만 여전히 문제가 발생하는 경우 다음을 시도해 보세요.
 

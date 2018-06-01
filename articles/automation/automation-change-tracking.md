@@ -7,14 +7,15 @@ ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0716466eab69ef2a2439a533cd51e92307bd056
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258263"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -97,6 +98,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 * Windows 파일 추적을 위한 폴더(디렉터리)
 * Windows 파일 추적을 위한 재귀
 * Windows 파일 추적을 위한 와일드카드
+* Windows 레지스트리 추적을 위한 재귀
 * 경로 변수
 * 네트워크 파일 시스템
 * File Content(파일 내용)
