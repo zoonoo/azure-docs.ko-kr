@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 83203737706b859bfbdfc1b356bbaca6d0b65dc0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6d4f7378ccd24af4281793dbc93df40830a1b31a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931400"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300804"
 ---
-# <a name="use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Linux VM에서 사용자 할당 ID를 사용하여 Azure Resource Manager에 액세스
+# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>자습서: Linux VM에서 사용자 할당 ID를 사용하여 Azure Resource Manager에 액세스
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -40,7 +40,7 @@ ms.locfileid: "33931400"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 관리 서비스 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
+- 관리 서비스 ID를 잘 모르는 경우 [개요](overview.md) 섹션을 확인하세요. **[시스템 할당 ID와 사용자 할당 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - 이 자습서에서 필요한 리소스 만들기 및 역할 관리 단계를 수행하려면 적절한 범위(사용자 구독 또는 리소스 그룹)에서 계정에 “소유자” 권한이 필요합니다. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](/azure/role-based-access-control/role-assignments-portal)를 참조하세요.
 

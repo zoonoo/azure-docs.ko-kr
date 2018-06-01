@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 5/14/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef6be97144d05f18362ef707ef255b93c8cf21d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196681"
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup 서버를 사용하여 워크로드 백업 준비
 > [!div class="op_single_selector"]
@@ -73,40 +74,19 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 > - Exchange Server를 실행하는 컴퓨터
 > - 클러스터의 한 노드인 컴퓨터
 
-항상 Azure Backup Server를 도메인에 가입시킵니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 설치하기 전에 서버를 새 도메인에 가입시키는 것이 좋습니다. 배포 후 기존 Azure Backup 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
+항상 Azure Backup Server를 도메인에 가입시킵니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 먼저 설치한 다음, 서버를 새 도메인에 가입합니다. 배포 후 기존 Azure Backup 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
 
-## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
-Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없이 소프트웨어는 Azure에 연결되어야 합니다. 더 구체적으로 설명하자면 Azure Backup 서버 컴퓨터를 복구 서비스 자격 증명 모음에 등록해야 합니다.
+백업 데이터를 Azure에 전송하거나 로컬로 유지하는 경우 Azure Backup Server를 Recovery Services 자격 증명 모음에 등록해야 합니다.
 
-복구 서비스 자격 증명 모음을 만들려면:
-
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**을 클릭합니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
-
-    Recovery Services 자격 증명 모음의 목록이 표시됩니다.
-3. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭합니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
-
-    Recovery Services 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 5단계](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
-4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
-5. **구독** 을 클릭하여 사용 가능한 구독 목록을 볼 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
-6. **리소스 그룹**을 클릭하여 사용 가능한 리소스 그룹 목록을 표시하거나 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹에 대한 전체 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-7. **위치** 를 클릭하여 자격 증명 모음에 대한 지리적 지역을 선택합니다.
-8. **만들기**를 클릭합니다. Recovery Services 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다.
-   사용자 자격 증명 모음을 만들면 포털에서 열립니다.
+[!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>저장소 복제 설정
-저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 저장소를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 저장소 복제 설정을 편집하려면
 
-1. 자격 증명 모음 대시보드 및 설정 블레이드를 열 자격 증명 모음을 선택합니다. **설정** 블레이드가 열리지 않을 경우 자격 증명 모음 대시보드에서 **모든 설정**을 클릭합니다.
-2. **설정** 블레이드에서 **Backup 인프라** > **Backup 구성**을 클릭하여 **Backup 구성** 블레이드를 엽니다. **백업 구성** 블레이드에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
+1. 자격 증명 모음 대시보드 및 설정 메뉴를 열 자격 증명 모음을 선택합니다. **설정** 메뉴가 열리지 않을 경우 자격 증명 모음 대시보드에서 **모든 설정**을 클릭합니다.
+2. **설정** 메뉴에서 **Backup 인프라** > **Backup 구성**을 클릭하여 **Backup 구성** 블레이드를 엽니다. **백업 구성** 메뉴에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -115,7 +95,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 ## <a name="software-package"></a>소프트웨어 패키지
 ### <a name="downloading-the-software-package"></a>소프트웨어 패키지 다운로드
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. Recovery Services 자격 증명 모음이 이미 열려 있으면 3단계를 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 허브 메뉴에서 **찾아보기**를 클릭합니다.
+2. Recovery Services 자격 증명 모음이 이미 열려 있으면 3단계를 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 주 메뉴에서 **찾아보기**를 클릭합니다.
 
    * 리소스 목록에서 **Recovery Services**를 입력합니다.
    * 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 클릭합니다.

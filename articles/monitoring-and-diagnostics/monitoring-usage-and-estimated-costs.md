@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176289"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203780"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
 
@@ -93,7 +93,7 @@ Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Anal
 비용 예측에서 이러한 변경의 효과를 보여 줍니다.
 
 > [!WARNING]
-> 구독에서 Azure Resource Manager 또는 PowerShell을 사용하여 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) 또는 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell)를 배포하는 경우 새 가격 책정 모델로 이동했습니다. Log Analytics 또는 Application Insights의 "Basic"에 대해 "pergb2018" 이외의 가격 책정 계층/계획을 지정하는 경우 잘못된 가격 책정 계층/계획을 지정한 이유로 배포에 실패하지 않고 성공하지만 **유효한 가격 책정 계층/계획만을 사용합니다**. 
+> 구독에서 Azure Resource Manager 또는 PowerShell을 사용하여 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) 또는 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell)를 배포하는 경우 새 가격 책정 모델로 이동했습니다. Log Analytics 또는 Application Insights의 "Basic"에 대해 "pergb2018" 이외의 가격 책정 계층/계획을 지정하는 경우 잘못된 가격 책정 계층/계획을 지정한 이유로 배포에 실패하지 않고 성공하지만 **유효한 가격 책정 계층/계획만을 사용합니다**(유효하지 않은 가격 책정 계층 메시지가 생성되는 Log Analytics Free 계층에는 적용되지 않음).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환

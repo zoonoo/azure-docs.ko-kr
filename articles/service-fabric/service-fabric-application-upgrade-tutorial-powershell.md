@@ -1,24 +1,25 @@
 ---
-title: "PowerShell을 사용하여 Service Fabric 앱 업그레이드 | Microsoft Docs"
-description: "이 문서는 PowerShell을 사용하여 서비스 패브릭 응용 프로그램의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다."
+title: PowerShell을 사용하여 Service Fabric 앱 업그레이드 | Microsoft Docs
+description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 응용 프로그램의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205487"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드
 > [!div class="op_single_selector"]
@@ -38,7 +39,7 @@ ms.lasthandoff: 02/24/2018
 </a></center>
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 배포
-응용 프로그램 프로젝트 **VisualObjectsApplication,**을 마우스 오른쪽 단추로 클릭하고 **게시** 명령을 선택하여 응용 프로그램을 빌드 및 게시합니다.  자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.  또는 PowerShell을 사용하여 응용 프로그램을 배포할 수 있습니다.
+응용 프로그램 프로젝트 **VisualObjectsApplication,** 을 마우스 오른쪽 단추로 클릭하고 **게시** 명령을 선택하여 응용 프로그램을 빌드 및 게시합니다.  자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.  또는 PowerShell을 사용하여 응용 프로그램을 배포할 수 있습니다.
 
 > [!NOTE]
 > 어떤 서비스 패브릭 명령이 PowerShell에서 사용되기 전에 `Connect-ServiceFabricCluster` cmdlet을 사용하여 클러스터에 처음 연결해야 합니다. 마찬가지로, 클러스터는 로컬 컴퓨터에 이미 설치된 것으로 간주됩니다. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)문서를 참조하십시오.
@@ -47,7 +48,7 @@ ms.lasthandoff: 02/24/2018
 
 Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 를 사용하여 응용 프로그램 패키지를 ImageStore에 복사합니다. 앱 패키지를 로컬로 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet을 사용합니다. 다음 단계는 [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet을 사용하여 서비스 패브릭 런타임에 응용 프로그램을 등록하는 것입니다. 다음 단계로, [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 응용 프로그램의 인스턴스를 시작합니다.  이 세 단계는 Visual Studio의 **배포** 메뉴를 사용하는 것과 유사합니다.  프로비전이 완료되면 리소스 소비를 줄이기 위해 이미지 저장소에서 복사된 응용 프로그램 패키지를 정리해야 합니다.  같은 이유로, 응용 프로그램 형식이 더 이상 필요하지 않은 경우 등록 해제해야 합니다. 자세한 내용은 [PowerShell을 사용하여 응용 프로그램 배포 및 제거](service-fabric-application-upgrade-tutorial-powershell.md)를 참조하세요.
 
-이제 [클러스터 및 응용 프로그램을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. 응용 프로그램에는 웹 서비스가 있으며, Internet Explorer 주소 표시줄에 [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) 를 입력하여 웹 서비스로 이동할 수 있습니다.  화면에서 일부 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.  또한 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) 을 사용하여 응용 프로그램 상태를 확인할 수 있습니다.
+이제 [클러스터 및 응용 프로그램을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. 응용 프로그램에는 웹 서비스가 있으며, Internet Explorer 주소 표시줄에 [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects)를 입력하여 웹 서비스로 이동할 수 있습니다.  화면에서 일부 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.  또한 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) 을 사용하여 응용 프로그램 상태를 확인할 수 있습니다.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>2단계: 시각적 개체 샘플 업데이트
 1단계에서에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 응용 프로그램을 시각적 개체도 회전하도록 업그레이드하겠습니다.

@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8a2715666c4fff490f5184b7b8719b412952b9bf
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 419ed6dc76101366e47ae94067f7b671a10c94e2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196337"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 문제 해결
 
@@ -49,7 +50,8 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 |---------|---------|----|
 | 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | 예 |
 | ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | 예 |
-| OutputDirectory | 출력 ZIP 파일을 생성하는 경로입니다. 지정하지 않으면 기본값은 현재 디렉터리입니다. | 아니오
+| OutputDirectory | 출력 ZIP 파일을 생성하는 경로입니다. 지정하지 않으면 기본값은 현재 디렉터리입니다. | 아니오 |
+| LookbackHours | 원격 분석을 끌어올 때 사용할 시간 수입니다. 기본값은 24시간입니다. 최댓값은 90시간입니다. | 아니오 |
 | OmsSubscriptionId | OMS가 배포되는 구독 ID입니다. 블록체인 네트워크에 대한 OMS가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니오 |
 | OmsResourceGroup |OMS가 배포되는 리소스 그룹입니다. 블록체인 네트워크에 대한 OMS가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니오 |
 | OmsWorkspaceName | OMS 작업 영역 이름입니다. 블록체인 네트워크에 대한 OMS가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다. | 아니오 |
@@ -58,15 +60,17 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 
 출력 ZIP 파일에는 다음 폴더 구조가 포함됩니다.
 
-| 폴더 \ 파일 | 설명  |
+| 폴더 또는 파일 | 설명  |
 |---------|---------|
 | \Summary.txt | 시스템의 요약 |
-| \metrics\blockchain | 블록체인에 대한 메트릭 |
-| \metrics\workbench | 워크벤치에 대한 메트릭 |
-| \details\blockchain | 블록체인에 대한 자세한 로그 |
-| \details\workbench | 블록체인에 대한 자세한 로그 |
+| \Metrics\blockchain | 블록체인에 대한 메트릭 |
+| \Metrics\Workbench | 워크벤치에 대한 메트릭 |
+| \Details\Blockchain | 블록체인에 대한 자세한 로그 |
+| \Details\Workbench | 블록체인에 대한 자세한 로그 |
 
 요약 파일에는 응용 프로그램의 전반적인 상태와 응용 프로그램의 상태에 대한 스냅숏을 제공합니다. 요약에서는 실행하는 서비스에 대한 권장되는 작업, 강조 표시된 최상위 오류 및 메타데이터를 제공합니다.
+
+**메트릭** 폴더는 시간에 따라 다양한 시스템 구성 요소의 메트릭을 포함합니다. 예를 들어 출력 파일 `\Details\Workbench\apiMetrics.txt`는 다양한 응답 코드 및 컬렉션 기간 동안 응답 시간의 요약을 포함합니다. **세부 정보** 폴더는 워크벤치 또는 기본 블록체인 네트워크의 특정 문제 해결을 위한 자세한 로그를 포함합니다. 예를 들어 `\Details\Workbench\Exceptions.csv`는 시스템에서 발생한 가장 최근 예외의 목록을 포함합니다. 이는 스마트 계약의 오류를 해결하거나 블록체인과 상호 작용하는 데 유용합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

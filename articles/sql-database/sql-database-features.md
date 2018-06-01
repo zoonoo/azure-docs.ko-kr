@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/15/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895574"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210058"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server 
 
@@ -83,7 +83,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [지역 복원](sql-database-recovery-using-backups.md#geo-restore) | 예 | 아니요 – 주기적으로 만드는 COPY_ONLY 전체 백업을 복원할 수 있음 - [백업 차이점](sql-database-managed-instance-transact-sql-information.md#backup) 및 [복원 차이점](sql-database-managed-instance-transact-sql-information.md#restore-statement) 참조 |
 | [지역에서 복제](sql-database-geo-replication-overview.md) | 예 | 아니오 |
 | [그래프 처리 중](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 예 | 예 |
-| [메모리 내 최적화](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 예- [프리미엄 계층 및 중요 비즈니스 계층](sql-database-in-memory.md) | 아니오 |
+| [메모리 내 최적화](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 예- [프리미엄 계층 및 중요 비즈니스 계층만](sql-database-in-memory.md) | 아니오 |
 | [JSON 데이터 지원](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [예](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [예](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [언어 요소](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 대부분 - 개별 요소 참조 |  예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조 |
 | [연결된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md) 참조 | SQL Server 및 SQL Database만 |
