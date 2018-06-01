@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304728"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
 
@@ -95,7 +96,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     - *TCP* - **프로토콜**로 입력합니다.
     - *허용* - **작업**에 대해 선택합니다.
     - *100* - **우선 순위**로 입력합니다.
-    - *myHTTPRule* - **이름**으로 입력합니다.
+    - *myHTTPRule* - **이름**
     - *HTTP 허용* - **설명**으로 입력합니다.
 4. **확인**을 클릭합니다.
  
@@ -139,7 +140,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 2. **개요** 페이지에서 **연결**을 클릭하여 VM에 RDP로 연결합니다.
 3. VM을 만들 때 지정한 사용자 이름과 암호를 사용하여 VM에 로그인(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택**을 선택한 다음, **다른 계정 사용**을 선택해야 할 수도 있음)한 다음, **확인**을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예**를 선택하여 연결을 진행합니다.
 4. 서버 바탕 화면에서 **Windows 관리 도구**>**Windows PowerShell**로 이동합니다.
-6. PowerShell 창에서 다음 명령을 실행하여 IIS 서버를 설치하고, default.htm 파일을 제거하고, VM 이름을 표시하는 새 default.htm 파일을 추가합니다.
+6. PowerShell 창에서 다음 명령을 실행하여 IIS 서버를 설치하고, 기본 iisstart.htm 파일을 제거한 다음, VM 이름을 표시하는 새 iisstart.htm 파일을 추가합니다.
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. *myVM1*이 포함된 RDP 세션을 닫습니다.
-9. 1-8단계를 반복하여 *myVM2*에 IIS를 설치합니다.
+7. *myVM1*이 포함된 RDP 세션을 닫습니다.
+8. 1-7단계를 반복하여 *myVM2*에 IIS를 설치합니다.
 
 ## <a name="create-load-balancer-resources"></a>부하 분산 장치 리소스 만들기
 

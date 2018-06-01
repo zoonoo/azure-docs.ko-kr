@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: bcbafcb5b72fd156f0d8b4a4ddd52aab1d699996
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076258"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304133"
 ---
-# <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Linux VM MSI를 사용하여 Azure Cosmos DB 액세스 
+# <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>자습서: Linux VM MSI를 사용하여 Azure Cosmos DB 액세스 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -70,7 +70,7 @@ MSI 기반 VM을 만들려면:
    az group create --name myResourceGroup --location westus
    ```
 
-3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 MSI를 사용하여 *myVM*이라는 VM을 만듭니다. ph x="1" /> 및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
+3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 MSI를 사용하여 *myVM*이라는 VM을 만듭니다. `--admin-username` 및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
