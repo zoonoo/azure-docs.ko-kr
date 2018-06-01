@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d256d87548d54951cb77beffb88bba26a1a3de49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34272083"
 ---
 # <a name="transforms-and-jobs"></a>Transform 및 Job
 
@@ -26,6 +27,40 @@ Azure Media Services REST API의 최신 버전(v3)에는 비디오 인코딩 및
 **Transform** 개체는 레시피이며 **Job**은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Azure Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 비디오의 위치는 HTTP URL, SAS URL 또는 로컬이나 Azure Blob Storage에 있는 파일 경로를 사용하여 지정할 수 있습니다. Azure Media Services 계정에 Transform을 최대 100개까지 포함할 수 있으며 해당 Transform에 따라 Job을 제출할 수 있습니다. 그런 다음 Azure Event Grid 알림 시스템과 직접 통합되는 알림을 사용하여 작업 상태 변경과 같은 이벤트에 가입할 수 있습니다. 
 
 이 API는 Azure Resource Manager에 의해 실행되기 때문에 Resource Manager 템플릿을 사용하여 Media Services 계정에 Transform를 만들고 배포할 수 있습니다. API의 리소스 수준에서 역할 기반 액세스 제어를 설정하여 Transform과 같은 특정 리소스에 대한 액세스를 잠글 수도 있습니다.
+
+## <a name="transform-definition"></a>변환 정의
+
+다음 표에서는 변환의 속성을 표시하고 해당 정의를 제공합니다.
+
+|Name|type|설명|
+|---|---|---|
+|Id|string|리소스에 대한 정규화된 리소스 ID입니다.|
+|이름|string|리소스의 이름입니다.|
+|properties.created |string|변환이 생성될 때 UTC 날짜 및 시간은 'YYYY-MM-DDThh:mm:ssZ' 형식입니다.|
+|properties.description |string|변환에 대한 자세한 정보 표시 설명입니다(선택 사항).|
+|properties.lastModified |string|변환이 마지막으로 업데이트될 때 UTC 날짜 및 시간은 'YYYY-MM-DDThh:mm:ssZ' 형식입니다.|
+|properties.outputs |TransformOutput[]|변환이 생성해야 하는 하나 이상의 TransformOutputs의 배열입니다.|
+|형식|string|리소스 유형입니다.|
+
+전체 정의는 [변환](https://docs.microsoft.com/rest/api/media/transforms)을 참조합니다.
+
+## <a name="job-definition"></a>작업 정의
+
+다음 표에서는 작업의 속성을 표시하고 해당 정의를 제공합니다.
+
+|Name|type|설명|
+|---|---|---|
+|Id|string|리소스에 대한 정규화된 리소스 ID입니다.|
+|이름|string|리소스의 이름입니다.|
+|properties.created |string|변환이 생성될 때 UTC 날짜 및 시간은 'YYYY-MM-DDThh:mm:ssZ' 형식입니다.|
+|properties.description |string|작업에 대한 자세한 정보 표시 설명입니다(선택 사항).|
+|properties.lastModified |string|변환이 마지막으로 업데이트될 때 UTC 날짜 및 시간은 'YYYY-MM-DDThh:mm:ssZ' 형식입니다.|
+|properties.outputs |JobOutput[]:JobOutputAsset[] |작업에 대한 출력입니다.|
+|properties.priority |우선 순위 |작업을 처리해야 하는 우선 순위입니다. 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 먼저 처리됩니다. 설정하지 않은 경우 기본값은 보통입니다.
+|properties.state |JobState |작업의 현재 상태입니다.
+|형식|string|리소스 유형입니다.|
+
+전체 정의는 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 참조합니다.
 
 ## <a name="typical-workflow-and-example"></a>일반적인 워크플로 및 예제
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206449"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261285"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Azure AD B2C에서 나이 게이팅 사용
 
@@ -48,25 +48,22 @@ ms.locfileid: "33206449"
 사용자 흐름에 나이 게이팅을 사용하면 사용자 경험이 바뀝니다.  이제 사용자는 등록할 때 사용자 흐름에 대해 구성된 사용자 특성과 함께 생년월일 및 거주 국가를 입력해야 합니다.  이전에 생년월일 및 거주 국가를 입력하지 않은 사용자는 다음에 로그인할 때 이 정보를 입력해야 합니다.  Azure AD B2C는 이 두 값을 사용하여 사용자가 미성년자인지 식별하고 `ageGroup` 필드를 업데이트하며, 가능한 값은 `null`, `Undefined`, `Minor`, `Adult` 및 `NotAdult`입니다.  그리고 `ageGroup` 및 `consentProvidedForMinor` 필드를 사용하여 `legalAgeGroupClassification`을 계산합니다. 
 
 ##<a name="age-gating-options"></a>나이 게이팅 옵션
-Azure AD B2C가 보호자 동의서 없는 미성년자를 차단하도록 선택할 수도 있고, 허용하되 이들이 할 수 있는 작업을 응용 프로그램에서 결정하게 할 수도 있습니다.  
+Azure AD B2C가 보호자 동의 없는 미성년자를 차단하도록 선택할 수도 있고, 허용하되 이들이 할 수 있는 작업을 응용 프로그램에서 결정하게 할 수도 있습니다.  
 
 ###<a name="allowing-minors-without-parental-consent"></a>보호자 동의서 없는 미성년자 허용
-등록, 로그인 또는 둘 다 사용하는 사용자 흐름의 경우 보호자 동의서 없는 미성년자가 응용 프로그램에 들어오는 것을 허용 수 있습니다.  `legalAgeGroupClassification` 클레임을 사용하여 보호자 동의서 없는 미성년자가 정상적으로 로그인 또는 등록하고 ID 토큰을 발급하도록 허용할 수 있습니다.  이 클레임을 사용하면 보호자 동의서를 받는(그리고 `consentProvidedForMinor` 필드를 업데이트하는) 경험처럼 이러한 사용자가 하게 될 경험을 선택할 수 있습니다.
+등록, 로그인 또는 둘 다 사용하는 사용자 흐름의 경우 보호자 동의 없는 미성년자가 응용 프로그램에 들어오는 것을 허용 수 있습니다.  `legalAgeGroupClassification` 클레임을 사용하여 보호자 동의 없는 미성년자가 정상적으로 로그인 또는 등록하고 Azure AD B2C에서 ID 토큰을 발급하도록 허용할 수 있습니다.  이 클레임을 사용하면 보호자 동의서를 받는(그리고 `consentProvidedForMinor` 필드를 업데이트하는) 경험처럼 이러한 사용자가 하게 될 경험을 선택할 수 있습니다.
 
 ###<a name="blocking-minors-without-parental-consent"></a>보호자 동의서 없는 미성년자 차단
-등록, 로그인 또는 둘 다 사용하는 사용자 흐름의 경우 보호자 동의서 없는 미성년자가 응용 프로그램에 들어오지 못하게 차단할 수 있습니다.  Azure AD B2C에는 차단된 사용자를 처리하는 두 가지 옵션이 있습니다.
+등록, 로그인 또는 둘 다 사용하는 사용자 흐름의 경우 보호자 동의 없는 미성년자를 응용 프로그램에서 차단할 수 있습니다.  Azure AD B2C에는 차단된 사용자를 처리하는 두 가지 옵션이 있습니다.
 * 응용 프로그램에 다시 JSON 보내기 - 이 옵션은 미성년자가 차단한 응용 프로그램에 다시 응답을 보냅니다.
 * 오류 페이지 표시 - 응용 프로그램에 액세스할 수 없다는 정보를 제공하는 페이지가 사용자에게 표시됩니다.
 
 ##<a name="known-issues"></a>알려진 문제
-###<a name="customization-unavailable-for-new-pages"></a>새 페이지에 사용자 지정을 사용할 수 없음
-나이 게이팅을 설정하면 사용자 흐름에서 사용할 수 있는 두 개의 새 페이지가 있습니다.  로그인 시 국가 및 생년월일 정보를 수집하기 위한 두 페이지와 오류 페이지는 페이지 레이아웃 또는 언어 사용자 지정에 사용할 수 없습니다.  이 옵션은 향후 업데이트에서 제공될 예정입니다.
-
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>미성년자 차단 시 응답 형식.
 현재는 응답 형식이 올바르게 구성되지 않으며, 이 버그는 향후 업데이트에서 해결될 예정입니다.
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>설정 과정에서 추가된 특정 특성을 삭제하면 디렉터리에 나이 게이팅을 사용할 수 없습니다.
-나이 게이팅 설정 시 `Properties`의 옵션을 통해 디렉터리를 구성했습니다.  `legalCountry` 또는 `dateOfBirth`를 삭제하면 테넌트에서 더 이상 나이 게이팅을 사용할 수 없고 이러한 속성을 다시 만들 수 없습니다.
+나이 게이팅 설정 시 `Properties`의 옵션을 통해 디렉터리를 구성했습니다.  Graph를 통해 `legalCountry` 또는 `dateOfBirth`를 삭제하면 디렉터리에서 더 이상 나이 게이팅을 사용할 수 없고 이러한 속성을 다시 만들 수 없습니다.
 
 ###<a name="list-of-countries-is-incomplete"></a>국가 목록은 아직 미완성
 현재 legalCountry의 국가 목록은 아직 미완성이며, 향후 업데이트에서 나머지 국가가 추가될 예정입니다.

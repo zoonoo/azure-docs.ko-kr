@@ -1,20 +1,21 @@
 ---
-title: "Azure 서비스 카탈로그 관리되는 응용 프로그램 만들기 및 게시 | Microsoft Docs"
-description: "조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 만드는 방법이 나와 있습니다."
+title: Azure 서비스 카탈로그 관리되는 응용 프로그램 만들기 및 게시 | Microsoft Docs
+description: 조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 만드는 방법이 나와 있습니다.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305313"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>내부 사용을 위한 관리되는 응용 프로그램 게시
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 12/19/2017
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -138,7 +139,7 @@ Azure Portal은 **createUiDefinition.json** 파일을 사용하여 관리되는 
 }
 ```
 
-createUIDefinition.json 파일을 저장합니다.
+createUiDefinition.json 파일을 저장합니다.
 
 ## <a name="package-the-files"></a>파일을 패키지로 만들기
 
@@ -152,8 +153,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +173,9 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 리소스 관리에 사용할 사용자 그룹의 개체 ID가 필요합니다. 
 
-![그룹 ID 가져오기](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>역할 정의 ID 가져오기
 
@@ -203,21 +205,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>포털을 사용하여 관리되는 응용 프로그램 만들기
+## <a name="create-the-managed-application"></a>관리되는 응용 프로그램 만들기
+
+포털, PowerShell 또는 Azure CLI를 통해 관리되는 응용 프로그램을 배포할 수 있습니다.
+
+### <a name="powershell"></a>PowerShell
+
+먼저 PowerShell을 사용하여 관리되는 응용 프로그램을 배포합니다.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+이제 관리되는 응용 프로그램 및 관리되는 인프라가 구독에 존재합니다.
+
+### <a name="portal"></a>포털
 
 이제 포털을 사용하여 관리되는 응용 프로그램을 배포합니다. 패키지에서 만든 사용자 인터페이스를 확인합니다.
 
-1. Azure Portal로 이동합니다. **+ 새로 만들기**를 선택하고 **서비스 카탈로그**를 검색합니다.
+1. Azure Portal로 이동합니다. **+ 리소스 만들기**를 선택하고 **서비스 카탈로그**를 검색합니다.
 
-   ![Search 서비스 카탈로그](./media/publish-service-catalog-app/select-new.png)
+   ![Search 서비스 카탈로그](./media/publish-service-catalog-app/create-new.png)
 
 1. **서비스 카탈로그 관리되는 응용 프로그램**을 선택합니다.
 
-   ![서비스 카탈로그 선택](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![서비스 카탈로그 선택](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. **만들기**를 선택합니다.
 
@@ -229,15 +259,15 @@ New-AzureRmManagedApplicationDefinition `
 
 1. 관리되는 응용 프로그램에 필요한 기본 정보를 제공합니다. 관리되는 응용 프로그램을 포함할 구독 및 새 리소스 그룹을 지정합니다. 위치에 **미국 중서부**를 선택합니다. 완료되면 **확인**을 선택합니다.
 
-   ![관리되는 응용 프로그램 매개 변수 제공](./media/publish-service-catalog-app/provide-basics.png)
+   ![관리되는 응용 프로그램 매개 변수 제공](./media/publish-service-catalog-app/add-basics.png)
 
 1. 관리되는 응용 프로그램의 리소스에 관련된 값을 제공합니다. 완료되면 **확인**을 선택합니다.
 
-   ![리소스 매개 변수 제공](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![리소스 매개 변수 제공](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. 템플릿에서 사용자가 제공한 값의 유효성을 검사합니다. 유효성 검사에 성공하면 **확인**을 선택하여 배포를 시작합니다.
 
-   ![관리되는 응용 프로그램 유효성 검사](./media/publish-service-catalog-app/validate.png)
+   ![관리되는 응용 프로그램 유효성 검사](./media/publish-service-catalog-app/view-summary.png)
 
 배포가 완료되면 관리되는 응용 프로그램은 applicationGroup이라는 리소스 그룹에 포함됩니다. 저장소 계정은 applicationGroup이라는 리소스 그룹과 해시된 문자열 값에 들어 있습니다.
 
