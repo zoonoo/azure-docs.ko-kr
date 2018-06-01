@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157795"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258315"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -96,6 +96,7 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 
 - 또한 사용자 인트라넷 영역에서 "스크립트를 통한 상태 표시줄 업데이트 허용" 설정을 사용하도록 설정해야 합니다.
 
+조직이 온-프레미스 AD에서 자동 관리(페더레이션되지 않은) 설정을 사용하고, ADFS를 사용하여 Azure AD에 페더레이션하지 않는 경우 Windows 10의 하이브리드 Azure AD 연결은 Azure AD에 동기화할 AD의 컴퓨터 개체에 의존합니다. 따라서 하이브리드 Azure AD를 연결해야 하는 컴퓨터 개체가 포함된 OU(조직 구성 단위)는 Azure AD Connect 동기화 구성에서 동기화에 대해 활성화되어 있어야 합니다.
 
 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다.
 
@@ -187,6 +188,14 @@ Windows Server 2008 이전 버전을 실행하는 도메인 컨트롤러의 경�
 
     $deSCP.CommitChanges()
 
+위의 스크립트에서
+
+- `$verifiedDomain = "contoso.com"`은 Azure AD에서 확인된 도메인 이름 중 하나로 교체해야 하는 자리 표시자입니다. 사용하려면 먼저 도메인을 소유해야 합니다.
+
+확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)를 참조하세요.  
+확인된 회사 도메인 목록을 보려면 the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet을 사용합니다. 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>2단계: 클레임 발급 설정
 
@@ -330,6 +339,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 
 확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)를 참조하세요.  
+
 확인된 회사 도메인 목록을 보려면 the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet을 사용합니다. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
