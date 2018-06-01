@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions에 대한 앱 설정 참조"
-description: "Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다."
+title: Azure Functions에 대한 앱 설정 참조
+description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194270"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -155,8 +156,8 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [앱 설정 업데이트 방법 알아보기](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[앱 설정 업데이트 방법 알아보기](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [host.json 파일의 전역 설정 보기](functions-host-json.md)
+[host.json 파일의 전역 설정 보기](functions-host-json.md)
+
+[App Service 앱에 대한 다른 앱 설정 보기](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

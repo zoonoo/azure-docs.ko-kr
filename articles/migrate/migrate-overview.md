@@ -4,14 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202850"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -78,7 +79,7 @@ Azure Migrate의 기능:
 |구성 요소          |통신 대상     |필요한 포트  |이유   |
 |-------------------|------------------------|---------------|---------|
 |데이터 수집기          |Azure Migrate 서비스   |TCP 443        |수집기는 SSL 포트 443을 통해 서비스에 연결|
-|데이터 수집기          |vCenter Server          |기본값 9443   | 기본적으로는 수집기는 9443 포트로 vCenter 서버에 연결합니다. 서버가 다른 포트에서 수신 대기하는 경우 수집기 VM에서 송신 포트로 구성되어야 합니다. |
+|데이터 수집기          |vCenter Server          |기본값 443   | 기본적으로 수집기는 443 포트로 vCenter 서버에 연결합니다. 서버가 다른 포트에서 수신 대기하는 경우 수집기 VM에서 송신 포트로 구성되어야 합니다. |
 |온-프레미스 VM     | Log Analytics 작업 영역          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA 에이전트는 TCP 443을 사용하여 Log Analytics에 연결합니다. 종속성 시각화 기능을 사용하고 MMA(Microsoft Monitoring Agent) 에이전트를 설치하려는 경우에만 이 포트가 필요합니다. |
 
 

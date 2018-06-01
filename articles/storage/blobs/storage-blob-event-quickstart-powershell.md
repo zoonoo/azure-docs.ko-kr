@@ -8,11 +8,12 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 6d7ccd94243d7064008197518f6194d5837b17be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261441"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Powershell로 Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅
 
@@ -21,7 +22,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 그러나 이 문서의 예제를 간소화하기 위해 메시지만 수집하는 URL로 이벤트를 보냅니다. [Hookbin](https://hookbin.com/)에서 타사 도구를 사용하여 이 URL을 만듭니다.
 
 > [!NOTE]
-> 처리량이 높은 경우에는 **Hookbin** 사용이 적합하지 않습니다. 이 도구는 순전히 시연을 위해서만 사용됩니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
+> 처리량이 높은 경우에는 **Hookbin** 사용이 적합하지 않습니다. 이 도구는 순전히 시연을 위해서만 사용됩니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다. 또한 **Hookbin**이 Azure Event Grid에서 [특별한 취급](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint)을 받습니다. 테스트를 용이하게 진행하기 위해 Event Grid는 ([그렇지 않으면](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details) 발생하게 될) 구독 유효성 검사 요청에 대한 올바른 응답을 요구하지 않고 거기에 이벤트를 전송합니다.
 
 이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 끝점으로 보내졌음을 알 수 있습니다.
 
@@ -61,7 +62,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Blob Storage 이벤트를 사용하려면 [Blob Storage 계정](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) 또는 [범용 v2 저장소 계정](../common/storage-account-options.md#general-purpose-v2)이 필요합니다. **범용 v2(GPv2)**는 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스에서 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다.  
+Blob Storage 이벤트를 사용하려면 [Blob Storage 계정](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) 또는 [범용 v2 저장소 계정](../common/storage-account-options.md#general-purpose-v2)이 필요합니다. **범용 v2(GPv2)** 는 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스에서 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다.  
 
 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount)를 사용하여 LRS 복제를 통한 Blob Storage 계정을 만든 후 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트를 검색합니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예제에서는 LRS(로컬 중복 저장소)를 사용하여 **gridstorage**라는 저장소 계정을 만듭니다. 
 

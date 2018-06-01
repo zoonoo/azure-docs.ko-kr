@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b3fb3ba0757744ba9f84280778be7e274d4ac5a2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303844"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -33,6 +34,8 @@ ms.lasthandoff: 03/28/2018
 Azure Functions 버전 1.x의 경우 Event Hubs 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에서 제공됩니다. Functions 2.x의 경우 [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) 패키지를 사용합니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>트리거
 
@@ -82,15 +85,29 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-이벤트 메타데이터에 대한 액세스를 얻으려면 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체에 바인딩합니다(`Microsoft.ServiceBus.Messaging`에 `using` 문이 필요함).
+함수 코드에서 [이벤트 메타데이터](#trigger---event-metadata)에 대한 액세스를 얻으려면 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체에 바인딩합니다(`Microsoft.ServiceBus.Messaging`에 using 문이 필요함). 메서드 시그니처의 바인딩 식을 사용하여 동일한 속성에 액세스할 수도 있습니다.  다음 예제에서는 동일한 데이터를 가져오는 두 가지 방법을 모두 보여줍니다.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
+public static void Run(
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
+
 일괄 처리에서 이벤트를 수신하려면 `string` 또는 `EventData` 배열을 만듭니다.
 
 ```cs
@@ -130,16 +147,29 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-이벤트 메타데이터에 대한 액세스를 얻으려면 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체에 바인딩합니다(`Microsoft.ServiceBus.Messaging`에 using 문이 필요함).
+함수 코드에서 [이벤트 메타데이터](#trigger---event-metadata)에 대한 액세스를 얻으려면 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체에 바인딩합니다(`Microsoft.ServiceBus.Messaging`에 using 문이 필요함). 메서드 시그니처의 바인딩 식을 사용하여 동일한 속성에 액세스할 수도 있습니다.  다음 예제에서는 동일한 데이터를 가져오는 두 가지 방법을 모두 보여줍니다.
 
 ```cs
 #r "Microsoft.ServiceBus"
 using System.Text;
+using System;
 using Microsoft.ServiceBus.Messaging;
 
-public static void Run(EventData myEventHubMessage, TraceWriter log)
+public static void Run(EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
 
@@ -180,7 +210,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
-다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 이벤트 허브 트리거의 메시지 본문을 기록합니다.
+다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 [이벤트 메타데이터](#trigger---event-metadata)를 읽고 메시지를 기록합니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -197,8 +227,12 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 JavaScript 코드는 다음과 같습니다.
 
 ```javascript
-module.exports = function (context, myEventHubMessage) {
-    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+module.exports = function (context, eventHubMessage) {
+    context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('SequenceNumber =', context.bindingData.sequenceNumber);
+    context.log('Offset =', context.bindingData.offset);
+     
     context.done();
 };
 ```
@@ -262,6 +296,22 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임스페이스](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="trigger---event-metadata"></a>트리거 - 이벤트 메타데이터
+
+Event Hubs 트리거는 몇 가지 [메타데이터 속성](functions-triggers-bindings.md#binding-expressions---trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스의 속성은 다음과 같습니다.
+
+|자산|type|설명|
+|--------|----|-----------|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 인스턴스|
+|`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
+|`Offset`|`string`|Event Hub 파티션 스트림을 기준으로 데이터의 오프셋 오프셋은 Event Hubs 스트림 내의 이벤트에 대한 표식 또는 식별자입니다. 식별자는 Event Hubs 스트림의 파티션 내에서 고유합니다.|
+|`PartitionKey`|`string`|이벤트 데이터를 전송해야 하는 파티션|
+|`Properties`|`IDictionary<String,Object>`|이벤트 데이터의 사용자 속성|
+|`SequenceNumber`|`Int64`|이벤트의 논리적 시퀀스 번호|
+|`SystemProperties`|`IDictionary<String,Object>`|이벤트 데이터를 비롯한 시스템 속성|
+
+이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger---example)를 참조하세요.
 
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 
