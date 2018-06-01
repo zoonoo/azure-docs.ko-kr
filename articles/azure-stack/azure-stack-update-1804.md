@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dde2783db08ec00696a70c0cad08ca211194a470
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34700127"
 ---
 # <a name="azure-stack-1804-update"></a>Azure 스택 1804 업데이트
 
@@ -38,12 +39,21 @@ Azure 스택 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 
 - <!-- 15028744 - IS -->  **Visual Studio support for disconnected Azure Stack deployments using AD FS**. Within Visual Studio you now can add subscriptions and authenticate using AD FS federated User credentials. 
  
-- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md). 
+- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available after the update installs:
-  - *기본 공급자 구독*합니다. 만 핵심 인프라에 대 한이 구독을 사용 합니다. 리소스 또는이 구독에 리소스 공급자를 배포 하지 마십시오.
-  - *구독을 계량*합니다. 리소스 공급자 배포에 대 한이 구독을 사용 합니다. 이 구독에 배포 된 리소스는 청구 되지 않습니다.
-  - *소비 구독*합니다. 배포 하려는 다른 모든 워크 로드에 대 한이 구독을 사용 합니다. 여기에 배포 된 리소스 정상적인 사용 가격으로 청구 됩니다.
+- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+
+  Azure 스택 1804 버전을 업데이트 하면 새 구독 이라는 표시 되지 않습니다. 그러나 Azure 스택의 새 배포 시스템을 통합 있고 Azure 스택 개발 키트 버전 1804 이상이 설치 된 모든 세 가지 구독 유형에 대 한 액세스.  
+
+  이러한 새 구독 유형은 기본 공급자 구독을 보호 하 고 쉽게 SQL 호스팅 서버와 같은 공유 리소스를 배포 하는 큰 변경의 일부입니다. Azure 스택에이 더 큰 변경 향후 업데이트의 더 많은 부분을 추가 했습니다 이러한 새 구독 유형 아래에서 배포 된 리소스가 손실 될 수 있습니다. 
+
+  이제 표시 세 구독 유형은 다음과 같습니다.  
+  - 기본 공급자 구독:이 구독 유형을 사용 하 여 계속 합니다. 
+  - 구독을 계량: *이 구독의 유형은 사용 하지 마십시오.*
+  - 소비 구독: *이 구독의 유형은 사용 하지 마십시오*
+
+  
+
 
 
 ## <a name="fixed-issues"></a>해결된 문제
@@ -60,12 +70,11 @@ Azure 스택 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 다음 사용할 수 있지만 Azure 스택 업데이트 1804 필요 하지 않습니다.
 - **Microsoft Azure 스택 System Center Operations Manager 모니터링 팩으로 업데이트**합니다. 새 버전 (1.0.3.0)는 Microsoft System Center Operations Manager 모니터링 팩에 대 한 Azure 스택의를 사용할 수 있는 [다운로드](https://www.microsoft.com/download/details.aspx?id=55184)합니다. 이 버전에서는 연결 된 Azure 스택 배포를 추가 하면 서비스 사용자를 사용할 수 있습니다. 또한이 버전의 Operations Manager 내에서 직접 수정 조치를 취할 수 있는 업데이트 관리 경험을 기능 합니다. 리소스 공급자를 표시, 단위, 확장 및 단위 노드를 확장 하는 새 대시보드도 있습니다.
 
-- **새로운 Azure 관리자 PowerShell 버전 1.2.12 스택**합니다.  Azure 스택 PowerShell 1.2.12 설치용으로 제공 되었습니다. 이 버전에는 Azure 스택을 관리 하는 모든 관리자 리소스 공급자에 대 한 명령을 제공 합니다.  이 릴리스에서 일부 콘텐츠를 Azure 스택 도구 GitHub에서 중단 예정 [리포지토리](https://github.com/Azure/AzureStack-Tools)합니다. 
+- **새로운 Azure 스택 관리자 PowerShell 버전 1.3.0**합니다.  Azure 스택 PowerShell 1.3.0 설치용으로 제공 되었습니다. 이 버전에는 Azure 스택을 관리 하는 모든 관리자 리소스 공급자에 대 한 명령을 제공 합니다.  이 릴리스에서 일부 콘텐츠를 Azure 스택 도구 GitHub에서 중단 예정 [리포지토리](https://github.com/Azure/AzureStack-Tools)합니다. 
 
-   설치 세부 정보에 따라는 [지침](azure-stack-powershell-install.md) 또는 [도움말](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.12) 1.2.12 Azure 스택 모듈에 대 한 콘텐츠입니다. 
+   설치 세부 정보에 따라는 [지침](azure-stack-powershell-install.md) 또는 [도움말](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) 1.3.0 Azure 스택 모듈에 대 한 콘텐츠입니다. 
 
-- **초기 버전의 Azure 스택 API Rest 참조**합니다. 이제 두 설정은 모든 Azure 스택 관리자 리소스 공급자에 대 한 API 참조
-
+- **초기 버전의 Azure 스택 API Rest 참조**합니다. [모든 Azure 스택 관리자 리소스 공급자에 대 한 API 참조](https://docs.microsoft.com/rest/api/azure-stack/) 이제 게시 되었습니다. 
 
 
 ## <a name="before-you-begin"></a>시작하기 전에    
@@ -74,9 +83,10 @@ Azure 스택 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 - Azure 스택 설치 [1803 업데이트](azure-stack-update-1803.md) Azure 스택 1804 업데이트를 적용 하기 전에.    
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제   
-- <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+- 경고 제목 1804 업데이트를 설치 하는 동안 표시 될 수 있습니다 *오류 – FaultType UserAccounts.New에 대 한 템플릿이 누락 되었습니다.*  이러한 경고를 안전 하 게 무시할 수 있습니다. 이러한 경고 1804 업데이트가 완료 된 후 자동으로 닫힙니다.   
  
-- <!-- 2328416 - IS --> During installation of the 1804 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+- <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 *1804 업데이트에 대 한 업데이트 후 단계가 없습니다.*
@@ -87,6 +97,15 @@ Azure 스택 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 빌드에 대 한 설치 후 알려진된 문제는 다음과 같은 **20180513.1**합니다.
 
 #### <a name="portal"></a>포털
+- <!-- 1272111 - IS --> After you install or update to this version of Azure Stack, you might not be able to view Azure Stack scale units in the Admin portal.  
+  해결 방법: 배율 단위에 대 한 정보를 보려면 PowerShell을 사용 하 여 합니다. 자세한 내용은 참조는 [도움말](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) 1.3.0 Azure 스택 모듈에 대 한 콘텐츠입니다. 
+
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  해결 방법:이 업데이트를 설치한 후이 문제를 해결 하려면 사용에서 3 단계는 [트리거를 구성 하는 자동화 클레임 공급자 트러스트 Azure 스택의](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) 프로시저는 구독 소유자의 기본 공급자를 다시 설정 합니다.   
+
+- <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+
+
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - Azure 스택 통합된 시스템을 사용 하 여 https://aka.ms/newsupportrequest합니다.
 
@@ -107,12 +126,46 @@ Azure 스택 1804 업데이트 빌드 번호는 **20180513.1**합니다.
   이 경고는 무시 해도 됩니다. 
 
 
+#### <a name="health-and-monitoring"></a>상태 및 모니터링
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   #1 경고:
+   - 이름: 인프라 역할 비정상
+   - 심각도: 경고
+   - 구성 요소: 상태 컨트롤러
+   - 설명: 상태 컨트롤러 하트 비트 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
+
+  경고 # 2:
+   - 이름: 인프라 역할 비정상
+   - 심각도: 경고
+   - 구성 요소: 상태 컨트롤러
+   - 설명: 상태 컨트롤러 오류 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
+
+  두 가지 경고는 무시 해도 됩니다. 시간에 따라 자동으로 종료 됩니다.  
+ 
+
 #### <a name="compute"></a>컴퓨팅
+- <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
+  문제를 해결 VM을 배포 하는 다음 방법 중 하나를 사용 합니다. 각 방법에 사용할 VM 크기를 지정 해야 합니다.
+
+  - **Azure 리소스 관리자 템플릿:** 서식 파일을 사용 하면 설정는 *vmSize* 템플릿의 원하는 VM 크기와 같아야 합니다. 예를 들어 다음 하는 데 사용 하는 VM을 배포는 *F32s_v2* 크기:  
+
+    ```
+        "properties": {
+        "hardwareProfile": {
+                "vmSize": "Standard_F32s_v2"
+        },
+    ```  
+  - **Azure CLI:** 사용할 수 있습니다는 [az vm 만들기](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) 명령 및 VM 크기 비슷합니다 매개 변수로 지정 `--size "Standard_F32s_v2"`합니다.
+
+  - **PowerShell:** Powershell을 사용할 수 있습니다 [새로 AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) 비슷합니다 v M 크기를 지정 하는 매개 변수와 함께 `-VMSize "Standard_F32s_v2"`합니다.
+
+
 - <!-- TBD - IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
 - <!-- TBD - IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
 
 - <!-- TBD - IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -226,17 +279,17 @@ Azure 스택 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 
 
 #### <a name="app-service"></a>App Service
-- <!-- TBD - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 - <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
 
+- <!-- TBD - IS ASDK --> App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
 
 #### <a name="usage"></a>사용 현황  
 - <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 
 <!-- #### Identity -->
-<!-- #### Health and monitoring --> 
 <!-- #### Marketplace --> 
 
 
