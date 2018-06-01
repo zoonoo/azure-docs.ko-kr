@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: daaca3c7b389642a288f738eb0954050e168abef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011631"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210565"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -31,7 +31,7 @@ ms.locfileid: "34011631"
 --- | ---
 **Azure Portal** | 지원됨
 **클래식 포털** | 지원되지 않음
-**PowerShell** | [미리 보기](azure-to-azure-powershell.md)
+**PowerShell** | [PowerShell을 사용한 Azure 간 복제](azure-to-azure-powershell.md)
 **REST API** | 현재 지원되지 않음
 **CLI** | 현재 지원되지 않음
 
