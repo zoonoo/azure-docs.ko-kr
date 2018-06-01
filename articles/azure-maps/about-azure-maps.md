@@ -12,14 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e84580c4023be87ebfc1988c631af0b76e213987
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193954"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Azure Maps 소개
-Azure Maps는 지도, 검색, 경로, 트래픽 및 표준 시간대를 포함하는 지리 공간 서비스 포트폴리오입니다. Azure OneAPI 규격 서비스를 사용하면 익숙한 도구를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 응용 프로그램에 제공하는 데 필수적인 최신 지도 데이터가 포함된 강력한 지리 공간적 기능을 제공합니다. Azure Maps는 여러 미디어를 통한 개발을 쉽고 유연하며 이식 가능하도록 웹 기반 JavaScript 제어와 함께 제공되는 REST API 집합입니다. 
+Azure Maps는 지도, 검색, 경로, 트래픽 및 표준 시간대를 포함하는 지리 공간 서비스 포트폴리오입니다. 서비스 포트폴리오를 사용하면 익숙한 도구를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 응용 프로그램에 제공하는 데 필수적인 최신 지도 데이터가 포함된 강력한 지리 공간적 기능을 제공합니다. Azure Maps는 여러 미디어를 통한 개발을 쉽고 유연하며 이식 가능하도록 웹 기반 JavaScript 제어와 함께 제공되는 REST API 집합입니다. 
 
 다음 비디오는 Azure Maps를 소개합니다.
 
@@ -87,7 +88,7 @@ Microsoft의 목표는 위치 서비스와 관련하여 개발자 커뮤니티�
 | 시나리오 | Azure Maps를 사용하는 경우 | Bing 지도를 사용하는 경우 |
 | ------------- | ------------- | ------------- |
 | 개발 환경 | 다른 Azure 서비스에서 빌드 또는 다른 Azure 서비스와 상호 작용 | 타사 클라우드 또는 기타 개발자 환경 사용 |
-| 개발 단계  | Azure Maps는 현재 공개 미리 보기 단계이므로 초기 단계 테스트와 POC(개념 증명) 개발에 최적화되었습니다. | 프로덕션 환경에는 엔터프라이즈급 SLA가 필요합니다. |
+| 개발 단계  | Azure Maps는 초기 단계 테스트와 POC(개념 증명) 개발에 최적화되었습니다. | 프로덕션 환경에는 엔터프라이즈급 SLA가 필요합니다. |
 | 가격 책정 옵션 | 예비 개발자 가격 책정 옵션으로 충분 | 사용자 지정된 엔터프라이즈급 가격 책정 필요 |
 | 사용 사례 환경 | 차량 내 사용 필요 | 차량 내 사용 필수 아님 |
 | 지리적 검사 | 인도, 중국, 일본 및 대한민국 필수 아님 | 인도, 중국, 일본 및 대한민국 지도 검사 필요 |
