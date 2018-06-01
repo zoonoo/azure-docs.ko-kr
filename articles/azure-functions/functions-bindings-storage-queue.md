@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: d140822b47325e8749d3b2788b47cf820f720a39
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a1ca2b821678b48f65fe6ec6e58fa65cd8e4304f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303416"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Queue Storage 바인딩
 
@@ -33,6 +34,10 @@ ms.lasthandoff: 04/28/2018
 Queue Storage 바인딩은 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>트리거
 
@@ -241,7 +246,7 @@ JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로�
 
 ## <a name="trigger---message-metadata"></a>트리거 - 메시지 메타데이터
 
-큐 트리거는 몇 가지 [메타데이터 속성](functions-triggers-bindings.md#binding-expressions---trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage)와 동일한 의미 체계를 가집니다.
+큐 트리거는 몇 가지 [메타데이터 속성](functions-triggers-bindings.md#binding-expressions---trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 클래스의 속성은 다음과 같습니다.
 
 |자산|type|설명|
 |--------|----|-----------|

@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/2/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: cec2ab862a34a8753601dfeef3081ae9e9ca9fd9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 63e87c59a2e560b5a78708482c2ed89f5f8fb127
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257906"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain Workbench REST API 사용 
 
@@ -26,12 +27,14 @@ Azure Blockchain Workbench REST API는 개발자 및 정보 근로자에게 블�
 * 계약에 사용 가능한 작업 나열
 * 계약에 대한 작업 실행
 
+시나리오에서 사용되는 예제 블록체인 응용 프로그램은 [GitHub에서 다운로드](https://github.com/Azure-Samples/blockchain)할 수 있습니다. 
+
 ## <a name="list-applications"></a>응용 프로그램 나열
 
-사용자가 블록체인 클라이언트에 로그인하면 가장 먼저 해당 사용자에 대한 모든 Blockchain Workbench 블록체인 응용 프로그램이 검색됩니다. 이 시나리오에서 사용자는 다음 두 응용 프로그램에 액세스할 수 있습니다.
+사용자가 블록체인 클라이언트에 로그인하면 가장 먼저 해당 사용자에 대한 모든 Blockchain Workbench 응용 프로그램이 검색됩니다. 이 시나리오에서 사용자는 다음 두 응용 프로그램에 액세스할 수 있습니다.
 
-1.  Asset Transfer
-2.  Refrigerated Transportation
+1.  [Asset Transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2.  [Refrigerated Transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 [Applications GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) 사용:
 
@@ -74,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>응용 프로그램에 대한 워크플로 나열
 
-사용자가 해당 블록체인 응용 프로그램(이 예에서는 Asset Transfer)을 선택하면 블록체인 클라이언트는 특정 블록체인 응용 프로그램의 모든 워크플로를 검색합니다. 그 후 사용자가 해당 워크플로를 선택하면 워크플로에 대한 모든 스마트 계약 인스턴스가 표시됩니다. 각 블록체인 응용 프로그램에는 하나 이상의 워크플로가 있고 각 워크플로에는 제로 또는 스마트 계약 인스턴스가 있습니다. 블록체인 클라이언트 응용 프로그램을 빌드할 때 블록체인 응용 프로그램에 대한 워크플로가 하나밖에 없는 경우 사용자가 적절한 워크플로를 선택할 수 있도록 사용자 경험 흐름을 건너뛰는 것이 좋습니다. 이 예의 Asset Transfer는 워크플로가 하나밖에 없고, 그 이름도 Asset Transfer입니다.
+사용자가 해당 블록체인 응용 프로그램(이 예에서는 **Asset Transfer**)을 선택하면 블록체인 클라이언트는 특정 블록체인 응용 프로그램의 모든 워크플로를 검색합니다. 그 후 사용자가 해당 워크플로를 선택하면 워크플로에 대한 모든 스마트 계약 인스턴스가 표시됩니다. 각 블록체인 응용 프로그램에는 하나 이상의 워크플로가 있고 각 워크플로에는 제로 또는 스마트 계약 인스턴스가 있습니다. 블록체인 클라이언트 응용 프로그램을 빌드할 때 블록체인 응용 프로그램에 대한 워크플로가 하나밖에 없는 경우 사용자가 적절한 워크플로를 선택할 수 있도록 사용자 경험 흐름을 건너뛰는 것이 좋습니다. 이 예의 **Asset Transfer**는 워크플로가 하나밖에 없고, 그 이름도 **Asset Transfer**입니다.
 
 [Applications Workflows GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) 사용:
 
@@ -106,7 +109,7 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>워크플로에 대한 스마트 계약 인스턴스 나열
 
-사용자가 해당 워크플로(이 예에서는 Asset Transfer)를 선택하면 블록체인 클라이언트는 지정된 워크플로에 대한 모든 스마트 계약 인스턴스를 검색합니다. 이 정보를 사용하여 워크플로에 대한 모든 스마트 계약 인스턴스를 표시하고, 사용자가 표시된 스마트 계약 인스턴스 중 원하는 것을 자세히 살펴볼 수 있도록 허용할 수 있습니다. 이 예제에서는 사용자가 조치를 취할 스마트 계약 인스턴스 중 하나와 상호 작용하려 한다고 가정해 봅시다.
+사용자가 해당 워크플로(이 예에서는 **Asset Transfer**)를 선택하면 블록체인 클라이언트는 지정된 워크플로에 대한 모든 스마트 계약 인스턴스를 검색합니다. 이 정보를 사용하여 워크플로에 대한 모든 스마트 계약 인스턴스를 표시하고, 사용자가 표시된 스마트 계약 인스턴스 중 원하는 것을 자세히 살펴볼 수 있도록 허용할 수 있습니다. 이 예제에서는 사용자가 조치를 취할 스마트 계약 인스턴스 중 하나와 상호 작용하려 한다고 가정해 봅시다.
 
 [Contracts GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget) 사용:
 

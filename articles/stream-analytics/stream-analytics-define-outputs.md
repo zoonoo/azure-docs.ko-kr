@@ -8,12 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/14/2018
+ms.openlocfilehash: e14c4671669bc00e52c84c821a5229d26b2ba1c1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211374"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다. 
@@ -86,7 +87,7 @@ Stream Analytics는 [Azure Data Lake 저장소](https://azure.microsoft.com/serv
 | Storage 계정 | 출력을 보내는 저장소 계정의 이름 |
 | Storage 계정 키 | 저장소 계정과 연결된 비밀 키입니다. |
 | 저장소 컨테이너 | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
-| 경로 패턴 | 선택 사항입니다. 지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. </br></br> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 날짜 시간 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. </br> {date}, {time} </br> </br>필드 이름이 영숫자이고 공백, 하이픈 및 밑줄을 포함할 수 있는지에 따라 데이터에서 파티션 Blob으로 하나의 필드 {열} 이름을 지정할 수도 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>대/소문자 구문 없음(열 "ID" 및 열 "id" 간 다를 수 없음)</li><li>중첩된 필드는 허용되지 않음(대신 "평면화" 필드에 대한 작업 쿼리에서 별칭 사용)</li><li>식은 필드 이름으로 사용할 수 없음</li></ul>예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3: cluster1/{client_id}/{date}/{time}</li><li>예제 4: cluster1/{myField} 여기서 쿼리는 SELECT data.myField AS myField FROM 입력</li></ul><BR> 파일 명명은 다음 규칙을 따릅니다. </br> {경로 접두사 패턴}/schemaHashcode_Guid_Number.extension </br></br> 예제 출력 파일: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| 경로 패턴 | 선택 사항입니다. 지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. </br></br> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 날짜 시간 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. </br> {date}, {time} </br> </br>[미리 보기](https://aka.ms/ASAPreview)에 등록한 경우 필드 이름이 영숫자이고 공백, 하이픈 및 밑줄을 포함할 수 있는지에 따라 이벤트 데이터에서 파티션 Blob으로 하나의 사용자 지정 {필드} 이름을 지정할 수도 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>대/소문자 구문 없음(열 "ID" 및 열 "id" 간 다를 수 없음)</li><li>중첩된 필드는 허용되지 않음(대신 "평면화" 필드에 대한 작업 쿼리에서 별칭 사용)</li><li>식은 필드 이름으로 사용할 수 없음</li></ul>예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3(미리 보기): cluster1/{client_id}/{date}/{time}</li><li>예제 4(미리 보기): cluster1/{myField} 여기서 쿼리는 SELECT data.myField AS myField FROM 입력</li></ul><BR> 파일 명명은 다음 규칙을 따릅니다. </br> {경로 접두사 패턴}/schemaHashcode_Guid_Number.extension </br></br> 예제 출력 파일: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
 | 시간 형식 | 선택 사항입니다. 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다.  JSON, CSV 및 Avro를 지원합니다.
@@ -289,7 +290,7 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 | --- | --- | --- | --- |
 | Azure Data Lake Store | 예 | 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
 | Azure SQL Database | 아니오 | 없음 | 사용할 수 없습니다. | 
-| Azure Blob 저장소 | 예 | 경로 패턴에 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
+| Azure Blob 저장소 | 예 | 경로 패턴의 사용자 이벤트 필드에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. [미리 보기](https://aka.ms/ASAPreview)의 일부로 단일 사용자 지정 이벤트 특성 {fieldname}으로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
 | Azure Event Hub | 예 | 예 | 파티션 맞춤에 따라 달라집니다.</br> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 동일하게 맞춰질 때 작성기의 수는 출력 이벤트 허브 파티션의 수와 동일합니다. 각 작성기는 이벤트 허브의 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)를 사용하여 특정 파티션에 이벤트를 전송합니다. </br> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 맞춰지지 않는 경우 작성기의 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 EventHubClient [SendBatchAsync 클래스](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)를 사용하여 모든 출력 파티션에 이벤트를 전송합니다. |
 | Power BI | 아니오 | 없음 | 사용할 수 없습니다. | 
 | Azure 테이블 저장소 | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 

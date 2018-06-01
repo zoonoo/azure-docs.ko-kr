@@ -2,25 +2,20 @@
 title: Azure AD SSPR 데이터 요구 사항 | Microsoft Docs
 description: Azure AD 셀프 서비스 암호 재설정의 데이터 요구 사항 및 충족 방법
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257591"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
@@ -39,16 +34,27 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 배�
 
 Azure AD Connect에서 기본 설정을 사용한 경우 다음과 같은 매핑이 수행됩니다.
 
-| 온-프레미스 Active Directory | Azure AD | Azure AD 인증 연락처 정보 |
-| --- | --- | --- |
-| telephoneNumber | 사무실 전화 | 대체 전화 |
-| mobile | 휴대폰 | Phone |
+| 온-프레미스 Active Directory | Azure AD |
+| --- | --- |
+| telephoneNumber | 사무실 전화 |
+| mobile | 휴대폰 |
 
-이러한 필드는 사용자가 해당 인증 데이터를 확인할 때까지 비어 있을 수 있습니다.
+사용자가 자신의 휴대폰 번호를 확인하면 Azure AD에서 인증 연락처 정보 아래의 전화 필드도 해당 번호로 채워집니다.
+
+## <a name="authentication-contact-info"></a>인증 연락처 정보
 
 전역 관리자는 다음 스크린샷에 표시된 대로 사용자에 대한 인증 연락처 정보를 수동으로 설정할 수 있습니다.
 
 ![연락처][Contact]
+
+전화 필드가 채워지고 휴대폰이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 번호를 볼 수 있습니다. 
+
+대체 전화 필드는 암호 재설정에 사용되지 않습니다.
+
+이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 이메일을 볼 수 있습니다.
+
+대체 이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지에서 해당 이메일을 볼 수 **없지만** 암호 재설정 워크플로 중 볼 수 있습니다. 
+
 
 ## <a name="security-questions-and-answers"></a>보안 질문 및 답변
 

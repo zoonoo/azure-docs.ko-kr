@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 35a45947c2766ccc5e64f4c3523ce163a9680680
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258042"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 응용 프로그램 사용
 
@@ -33,7 +34,7 @@ Blockchain Workbench의 구성원으로 로그인해야 합니다. 나열된 응
 
 ## <a name="create-new-contract"></a>새 계약 만들기 
 
-새 계약을 만들려면 **AllowedInstanceRoles** 역할의 구성원이 되어야 합니다. 
+새 계약을 만들려면 계약 **초기자**로 지정된 구성원여야 합니다. 계약에 대한 응용 프로그램 역할 및 초기자 정의에 대한 내용은 [구성 개요의 워크플로](blockchain-workbench-configuration-overview.md#workflows)를 참조하세요. 응용 프로그램 역할에 구성원 할당에 대한 내용은 [응용 프로그램에 구성원 추가](blockchain-workbench-manage-users.md#add-member-to-application)를 참조하세요.
 
 1. Blockchain Workbench 응용 프로그램 섹션에서 만들 계약이 포함된 응용 프로그램 타일을 선택합니다. 활성 계약 목록이 표시됩니다.
 
@@ -51,15 +52,10 @@ Blockchain Workbench의 구성원으로 로그인해야 합니다. 나열된 응
 
 ## <a name="take-action-on-contract"></a>계약에서 작업 수행
 
+계약의 상태에 따라 구성원은 계약의 다음 상태로 전환하는 작업을 수행할 수 있습니다. 작업은 [상태](blockchain-workbench-configuration-overview.md#states) 내에서 [전환](blockchain-workbench-configuration-overview.md#transitions)으로 정의됩니다. 전환에 대해 허용되는 응용 프로그램 또는 인스턴스 역할에 속하는 구성원은 작업을 수행할 수 있습니다. 
+
 1. Blockchain Workbench 응용 프로그램 섹션에서 작업을 수행할 계약이 포함된 응용 프로그램 타일을 선택합니다.
-
-    ![응용 프로그램 목록](media/blockchain-workbench-use/apps-list.png)
-
-2. 목록에서 계약을 선택합니다.
-
-    ![계약 목록](media/blockchain-workbench-use/select-contract.png)
-
-    계약에 대한 세부 정보는 서로 다른 섹션에 표시됩니다. 
+2. 목록에서 계약을 선택합니다. 계약에 대한 세부 정보는 서로 다른 섹션에 표시됩니다. 
 
     ![계약 세부 정보](media/blockchain-workbench-use/contract-details.png)
 
@@ -74,9 +70,14 @@ Blockchain Workbench의 구성원으로 로그인해야 합니다. 나열된 응
 
 4. 계약의 현재 상태에 대한 세부 정보가 창에 표시됩니다. 드롭다운 목록에서 수행하려는 작업을 선택합니다. 
 
+    ![작업 선택](media/blockchain-workbench-use/choose-action.png)
+
+5. **작업 수행**을 선택하여 작업을 시작합니다.
+6. 작업에 매개 변수가 필요한 경우 작업에 대한 값을 지정합니다.
+
     ![작업 수행](media/blockchain-workbench-use/take-action.png)
 
-5. **실행**을 선택하여 작업을 수행합니다.
+7. **작업 수행**을 선택하여 작업을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

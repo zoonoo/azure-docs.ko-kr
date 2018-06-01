@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266864"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure VM(Virtual Machines)의 SAP HANA 고가용성
 
@@ -228,10 +229,10 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       논리 볼륨 만들기
+        논리 볼륨을 만듭니다. -i 스위치 없는 lvcreate를 사용하는 경우 선형 볼륨을 만들 수 있습니다. IO 성능 향상을 위해 스트라이프 볼륨을 만들려면 -i 인수는 기본 물리적 볼륨 수와 동일해야 합니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 -i 스위치 인수는 2입니다. 로그 볼륨에 1개의 물리적 볼륨이 사용되므로 -i 스위치를 명시적으로 사용하지 않습니다. 각 데이터, 로그 또는 공유 볼륨에 대해 1 초과 물리적 볼륨을 사용하는 경우 -i 스위치를 사용하고 해당 수를 동일한 기본 물리적 볼륨 수로 바꿉니다.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

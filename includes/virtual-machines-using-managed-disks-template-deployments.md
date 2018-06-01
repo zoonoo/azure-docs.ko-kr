@@ -1,6 +1,6 @@
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 Managed Disks 사용
 
-이 문서는 가상 컴퓨터를 프로비전하는 데 Azure Resource Manager 템플릿을 사용할 때 관리 및 관리되지 않는 디스크 간의 차이점을 설명합니다. 따라서 관리되지 않는 디스크를 사용하는 기존 템플릿을 관리 디스크로 업데이트할 수 있습니다. 참조를 위해 [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) 템플릿을 가이드로 사용합니다. 직접 비교하려는 경우 [관리 디스크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json)를 사용하는 것과 [관리되지 않는 디스크](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json)를 사용하는 이전 버전을 사용하는 템플릿을 살펴볼 수 있습니다.
+이 문서는 가상 머신을 프로비전하는 데 Azure Resource Manager 템플릿을 사용할 때 관리 및 관리되지 않는 디스크 간의 차이점을 설명합니다. 따라서 관리되지 않는 디스크를 사용하는 기존 템플릿을 관리 디스크로 업데이트할 수 있습니다. 참조를 위해 [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) 템플릿을 가이드로 사용합니다. 직접 비교하려는 경우 [관리 디스크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json)를 사용하는 것과 [관리되지 않는 디스크](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json)를 사용하는 이전 버전을 사용하는 템플릿을 살펴볼 수 있습니다.
 
 ## <a name="unmanaged-disks-template-formatting"></a>관리되지 않는 디스크 템플릿 서식 지정
 
@@ -20,7 +20,7 @@
 }
 ```
 
-가상 컴퓨터 개체 내에서 계정이 가상 컴퓨터 이전에 생성되도록 저장소 계정에 대한 종속성이 필요합니다. `storageProfile` 섹션 내에서 저장소 계정을 참조하고 OS 디스크 및 모든 데이터 디스크에 필요한 VHD 위치의 전체 URI를 지정합니다. 
+가상 머신 개체 내에서 계정이 가상 머신 이전에 생성되도록 저장소 계정에 대한 종속성이 필요합니다. `storageProfile` 섹션 내에서 저장소 계정을 참조하고 OS 디스크 및 모든 데이터 디스크에 필요한 VHD 위치의 전체 URI를 지정합니다. 
 
 ```
 {
@@ -79,7 +79,7 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 
 ### <a name="default-managed-disk-settings"></a>기본 관리 디스크 설정
 
-관리 디스크를 사용하여 VM을 만들기 위해 저장소 계정 리소스를 만들지 않아도 되며 다음과 같이 가상 컴퓨터 리소스를 업데이트할 수 있습니다. 특히 `apiVersion`은 `2017-03-30`를 반영하며 `osDisk` 및 `dataDisks`는 VHD에 대한 특정 URI를 더 이상 참조하지 않습니다. 추가 속성을 지정하지 않고 배포할 경우 디스크는 [표준 LRS 저장소](../articles/storage/common/storage-redundancy.md)를 사용합니다. 이름을 지정하지 않으면 OS 디스크에 대해 `<VMName>_OsDisk_1_<randomstring>` 형식을, 각 데이터 디스크에 대해 `<VMName>_disk<#>_<randomstring>`을 사용합니다. 기본적으로 Azure Disk Encryption은 사용하지 않으며 OS 디스크에 대한 캐싱은 읽기/쓰기이고 데이터 디스크에 대한 캐싱은 없음입니다. 아래 예에서 여전히 저장소 계정 종속성이 있음을 알 수 있습니다. 이는 진단 저장소에만 해당되며 디스크 저장소에는 필요하지 않습니다.
+관리 디스크를 사용하여 VM을 만들기 위해 저장소 계정 리소스를 만들지 않아도 되며 다음과 같이 가상 머신 리소스를 업데이트할 수 있습니다. 특히 `apiVersion`은 `2017-03-30`를 반영하며 `osDisk` 및 `dataDisks`는 VHD에 대한 특정 URI를 더 이상 참조하지 않습니다. 추가 속성을 지정하지 않고 배포할 경우 디스크는 [표준 LRS 저장소](../articles/storage/common/storage-redundancy.md)를 사용합니다. 이름을 지정하지 않으면 OS 디스크에 대해 `<VMName>_OsDisk_1_<randomstring>` 형식을, 각 데이터 디스크에 대해 `<VMName>_disk<#>_<randomstring>`을 사용합니다. 기본적으로 Azure Disk Encryption은 사용하지 않으며 OS 디스크에 대한 캐싱은 읽기/쓰기이고 데이터 디스크에 대한 캐싱은 없음입니다. 아래 예에서 여전히 저장소 계정 종속성이 있음을 알 수 있습니다. 이는 진단 저장소에만 해당되며 디스크 저장소에는 필요하지 않습니다.
 
 ```
 {
@@ -120,7 +120,7 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 
 ### <a name="using-a-top-level-managed-disk-resource"></a>최상위 관리 디스크 리소스 사용
 
-가상 컴퓨터 개체에서 디스크 구성을 지정하는 대신, 최상위 디스크 리소스를 만들고 가상 컴퓨터 만들기의 일부로 연결할 수 있습니다. 예를 들어 다음과 같이 데이터 디스크로 사용할 디스크 리소스를 만들 수 있습니다.
+가상 머신 개체에서 디스크 구성을 지정하는 대신, 최상위 디스크 리소스를 만들고 가상 머신 만들기의 일부로 연결할 수 있습니다. 예를 들어 다음과 같이 데이터 디스크로 사용할 디스크 리소스를 만들 수 있습니다.
 
 ```
 {
@@ -216,4 +216,4 @@ REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST A
 * 관리 디스크에 대해 자세히 알아보려면 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md) 문서를 참조하세요.
 * [Microsoft.Compute/virtualMachines 템플릿 참조](/azure/templates/microsoft.compute/virtualmachines) 문서를 방문하여 가상 컴퓨터 리소스에 대한 템플릿 참조 설명서를 검토하세요.
 * [Microsoft.Compute/disks 템플릿 참조](/azure/templates/microsoft.compute/disks) 문서를 방문하여 디스크 리소스에 대한 템플릿 참조 설명서를 검토하세요.
- 
+* Azure VM Scale Sets에서 관리 디스크를 사용하는 방법에 대한 정보는 [확장 집합으로 데이터 디스크 사용](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) 문서를 참조하세요.

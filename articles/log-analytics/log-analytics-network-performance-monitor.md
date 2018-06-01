@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304660"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -74,7 +75,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 네트워크 성능 모니터는 가상 트랜잭션을 사용하여 원본과 대상 에이전트 사이의 네트워크 성능을 모니터링합니다. 성능 모니터 및 서비스 엔드포인트 모니터 기능으로 모니터링하기 위해서 TCP와 ICMP 중 하나를 프로토콜로 선택할 수 있습니다. TCP는 ExpressRoute 모니터에 사용됩니다. 선택한 프로토콜로 모니터링하는 데 사용되는 Operations Management Suite 에이전트간에 통신을 방화벽에서 허용하는지 확인합니다. 
 
-* **TCP 프로토콜:** 모니터링을 위한 프로토콜로 TCP를 선택했으면 네트워크 성능 모니터 및 ExpressRoute 모니터에 사용되는 에이전트에서 방화벽 포트를 열어서 에이전트가 서로 연결할 수 있는지 확인합니다. 포트를 열려면 매개 변수 없이 PowerShell 창에서 관리자 권한으로 EnableRules.ps1 PowerShell 스크립트를 실행합니다.
+* **TCP 프로토콜:** 모니터링을 위한 프로토콜로 TCP를 선택했으면 네트워크 성능 모니터 및 ExpressRoute 모니터에 사용되는 에이전트에서 방화벽 포트를 열어서 에이전트가 서로 연결할 수 있는지 확인합니다. 포트를 열려면 매개 변수 없이 PowerShell 창에서 관리자 권한으로 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 스크립트를 실행합니다.
 
     스크립트를 통해 솔루션에 필요한 레지스트리 키가 만들어집니다. 또한 에이전트가 서로 TCP 연결을 만들 수 있도록 Windows 방화벽 규칙이 만들어집니다. 스크립트로 만들어진 레지스트리 키는 디버그 로그와 로그 파일의 경로를 기록할지 여부를 지정합니다. 스크립트는 통신에 사용되는 에이전트 TCP 포트도 정의합니다. 이러한 키 값은 스크립트에 의해 자동으로 설정됩니다. 이 키는 수동으로 변경하지 마십시오. 기본적으로 열리는 포트는 8084입니다. 스크립트에 매개 변수 portNumber를 지정하여 사용자 지정 포트를 사용할 수 있습니다. 스크립트가 실행되는 모든 컴퓨터에서 동일한 포트를 사용하십시오. 
 
@@ -82,7 +83,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     > 스크립트는 Windows 방화벽만 로컬로 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트를 대상으로 하는 트래픽을 허용하는지 확인해야 합니다.
 
     >[!NOTE]
-    > 서비스 엔드포인트 모니터에 대해 EnableRules.ps1 PowerShell 스크립트를 실행할 필요가 없습니다.
+    > 서비스 엔드포인트 모니터에 대해 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
 
     
 

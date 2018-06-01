@@ -14,11 +14,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8c67c89f00362b0fc6a510a8117ac176bb3c8b6c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15fa3e7738810ada48f471a685f79a82445ad70c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271309"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정
 **스크립트 동작** 은 클러스터 생성 과정 중 클러스터에 추가 소프트웨어를 설치하기 위해 [사용자 지정 스크립트](hdinsight-hadoop-script-actions.md) 를 호출하는 데 사용될 수 있습니다.
@@ -312,12 +313,10 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 * [HDInsight의 Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
 * [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
 * [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
-* [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-install-r]
 * [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
 * [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

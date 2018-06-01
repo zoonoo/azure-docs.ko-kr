@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34272185"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -86,6 +87,14 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 추가 저장소 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.
 
 Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 제한, 저장소 비율, 저장소 사용됨 및 IO 백분율](concepts-monitoring.md)입니다.
+
+### <a name="reaching-the-store-limit"></a>저장 제한에 도달
+
+여유 저장 공간 용량이 프로비전된 저장소의 5% 또는 5GB 미만 중에서 더 작은 용량이 되면 서버는 읽기 전용으로 표시됩니다. 예를 들어 100GB의 저장소를 프로비전하고 실제 활용이 95GB를 넘어서는 경우 서버는 읽기 전용으로 표시됩니다. 또는 5GB 저장소를 프로비전하는 경우 서버는 여유 저장 공간이 250MB 미만이 되면 읽기 전용으로 표시됩니다.  
+
+서버가 읽기 전용으로 설정되면 모든 기존 세션은 연결이 끊어지고 커밋되지 않은 트랜잭션이 롤백됩니다. 모든 후속 쓰기 작업 및 트랜잭션 커밋은 실패합니다. 모든 후속 읽기 쿼리는 계속 작동합니다.  
+
+서버에 프로비전된 저장소의 크기를 늘리거나, 읽기/쓰기 모드에서 새 세션을 시작하고 여유 저장 공간을 회수하기 위해 데이터를 삭제할 수 있습니다. `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;`을 실행하면 읽기 쓰기 모드에 현재 세션을 설정할 수 있습니다. 데이터 손상을 방지하려면 서버가 아직 읽기 전용 상태에 있을 경우 어떤 쓰기 작업도 수행하지 마십시오.
 
 ## <a name="backup"></a>Backup
 
