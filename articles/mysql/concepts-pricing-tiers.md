@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271980"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -85,6 +86,12 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 추가 저장소 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.
 
 Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 제한, 저장소 비율, 저장소 사용됨 및 IO 백분율](concepts-monitoring.md)입니다.
+
+### <a name="reaching-the-storage-limit"></a>저장소 제한에 도달
+
+여유 저장 공간 용량이 프로비전된 저장소의 5% 또는 5GB 미만 중에서 더 작은 용량이 되면 서버는 읽기 전용으로 표시됩니다. 예를 들어 100GB의 저장소를 프로비전하고 실제 활용이 95GB를 넘어서는 경우 서버는 읽기 전용으로 표시됩니다. 또는 5GB 저장소를 프로비전하는 경우 서버는 여유 저장 공간이 250MB 미만이 되면 읽기 전용으로 표시됩니다.  
+
+서비스가 서버를 읽기 전용으로 만들려고 하는 동안 모든 새 쓰기 트랜잭션 요청은 차단되고 기존 활성 트랜잭션은 계속 실행됩니다. 서버가 읽기 전용으로 설정되면 모든 후속 쓰기 작업 및 트랜잭션 커밋은 실패합니다. 읽기 쿼리는 중단 없이 계속 작동합니다. 프로비전된 저장소를 늘린 후 서버는 다시 쓰기 트랜잭션을 허용할 준비를 갖춥니다.
 
 ## <a name="backup"></a>Backup
 

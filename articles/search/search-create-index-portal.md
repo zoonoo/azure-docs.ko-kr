@@ -9,22 +9,18 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: ea05cd34e5ba3f55b2f5400f1252f729401c5d6a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203872"
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스 만들기
-> [!div class="op_single_selector"]
-> * [개요](search-what-is-an-index.md)
-> * [포털](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST (영문)](search-create-index-rest-api.md)
-> 
-> 
 
 Azure Portal에서 기본 제공되는 인덱스 디자이너를 사용하여 Azure Search 서비스에서 실행할 [검색 인덱스](search-what-is-an-index.md)를 프로토타입화하거나 만듭니다. 
+
+또는 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -48,7 +44,7 @@ Azure Portal에서 기본 제공되는 인덱스 디자이너를 사용하여 Az
 
 인덱스 컴퍼지션은 인덱스에서 검색 가능한 데이터를 정의하는 *필드 컬렉션*을 포함합니다. 구체적으로 말하면, 개별적으로 업로드하는 문서 구조를 지정합니다. 필드 컬렉션에는 필드가 사용되는 방식을 결정하는 인덱스 특성과 함께 이름 및 형식이 지정된 필수 및 옵션 필드가 포함됩니다.
 
-1. **인덱스 추가** 블레이드에서 **필드 >**를 클릭하여 필드 정의 블레이드를 엽니다. 
+1. **인덱스 추가** 블레이드에서 **필드 >** 를 클릭하여 필드 정의 블레이드를 엽니다. 
 
 2. Edm.String 형식으로 생성된 *키* 필드를 허용합니다. 기본적으로 필드 이름은 *id*로 지정되지만 문자열이 [명명 규칙](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)을 충족하기만 하면 이름을 변경할 수 있습니다. 키 필드는 모든 Azure Search 인덱스에 필수이며 문자열이어야 합니다.
 

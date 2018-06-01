@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304881"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 기본 부하 분산 장치 만들기
 
@@ -194,4 +195,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그 후 이러한 리소스를 사용하여 부하 분산 장치를 만들었습니다. 부하 분산 장치 및 관련 리소스에 대해 자세히 알아보려면 자습서 문서를 계속 진행하세요.
+이 빠른 시작에서는 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그 다음, 이러한 리소스를 사용하여 기본 Load Balancer를 만들었습니다. Azure Load Balancer에 대해 자세히 알아보려면 Azure Load Balancer에 대한 자습서를 계속 진행합니다.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer 자습서](tutorial-load-balancer-basic-internal-portal.md)
