@@ -30,7 +30,7 @@
       href: vpn-gateway-highlyavailable.md
     - name: 지점 및 사이트 간 연결 정보
       href: point-to-site-about.md
-    - name: 지점 및 사이트 간 라우팅 정보
+    - name: 지점 및 사이트 간 VPN 라우팅 정보
       href: vpn-gateway-about-point-to-site-routing.md
 - name: 방법 가이드
   items:

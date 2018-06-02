@@ -205,17 +205,9 @@
     - name: 문제 해결
       items:
         - name: 네트워크 보안 그룹
-          items:
-            - name: Azure portal
-              href: virtual-network-nsg-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-nsg-troubleshoot-powershell.md
+          href: diagnose-network-traffic-filter-problem.md
         - name: 경로
-          items:
-            - name: Azure portal
-              href: virtual-network-routes-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-routes-troubleshoot-powershell.md
+          href: diagnose-network-routing-problem.md
         - name: 처리량 테스트
           href: virtual-network-bandwidth-testing.md
         - name: 가상 네트워크를 삭제할 수 없음

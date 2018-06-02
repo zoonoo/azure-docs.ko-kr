@@ -23,13 +23,12 @@
 ### [Site Recovery 개요](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## 보안
-### [리소스 모니터링](oms-security-monitoring-resources.md)
-### [보안 경고에 대응](oms-security-responding-alerts.md)
-### [기준 평가](oms-security-baseline.md)
-### [맬웨어 평가](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [시스템 업데이트 평가](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [보안 제품 연결](oms-security-connect-products.md)
-### [웹 기준 평가](oms-security-web-baseline-assessment.md)
+### [리소스 모니터링](../security-center/security-center-monitoring.md)
+### [보안 경고에 대응](../security-center/security-center-managing-and-responding-alerts.md)
+### [기준 평가](../security-center/security-center-customize-os-security-config.md)
+### [맬웨어 평가](../security-center/security-center-install-endpoint-protection.md)
+### [보안 제품 연결](../security-center/quick-security-solutions.md)
+### [웹 기준 평가](../security-center/security-center-customize-os-security-config.md)
 
 ## 솔루션 사용
 ### [관리 솔루션](../monitoring/monitoring-solutions.md)

@@ -6,6 +6,10 @@
       href: sql-data-warehouse-overview-what-is.md
     - name: 참고 자료
       href: cheat-sheet.md
+- name: 릴리스 정보
+  items:
+    - name: 2018년 5월
+      href: release-notes-may-2018.md
 - name: 빠른 시작
   expanded: true
   items:
