@@ -1,5 +1,7 @@
 - name: Data Factory V2 설명서
   href: index.yml
+- name: 버전 1 문서로 전환
+  href: v1/data-factory-introduction.md
 - name: 개요
   items:
     - name: Data Factory 소개
@@ -374,6 +376,8 @@
       items:
         - name: VNET에 Azure SSIS 통합 런타임 조인
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure SSIS 통합 런타임에 Azure AD 인증 사용
+          href: enable-aad-authentication-azure-ssis-ir.md
         - name: Azure-SSIS 통합 런타임을 위한 고성능 구성
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Azure-SSIS 통합 런타임을 위한 Enterprise Edition 프로비전
@@ -382,7 +386,7 @@
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Azure-SSIS 통합 런타임을 위한 라이선스 구성 요소 배포
           href: how-to-develop-azure-ssis-ir-licensed-components.md
-        - name: SSIS 작업으로 SSIS 패키지 실행
+        - name: SSIS 패키지 실행 작업으로 SSIS 패키지 실행
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: 저장 프로시저 작업으로 SSIS 패키지 실행
           href: how-to-invoke-ssis-package-stored-procedure-activity.md

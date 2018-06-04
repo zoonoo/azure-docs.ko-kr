@@ -22,7 +22,9 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [사용자 추가](data-lake-analytics-add-users.md)
 ### [정책](data-lake-analytics-policies.md)
+### [보안 작업 폴더](data-lake-analytics-secure.md)
 ### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
 ### [할당량 한도 조정](data-lake-analytics-quota-limits.md)
 
@@ -38,6 +40,10 @@
 #### [인지 확장](data-lake-analytics-u-sql-cognitive.md)
 #### [프로그램 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK
+#### [로컬 실행 및 디버그](data-lake-analytics-data-lake-tools-local-run.md)
+#### [실행 및 테스트](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
 #### [설치](data-lake-analytics-data-lake-tools-install.md)
 #### [작업 검색 및 보기](data-lake-analytics-data-lake-tools-view-jobs.md)
@@ -46,6 +52,7 @@
 #### [꼭짓점 실행 세부 정보](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [U-SQL 데이터베이스 내보내기](data-lake-analytics-data-lake-tools-export-database.md)
 #### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
+#### [데이터 기울이기 해결](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
@@ -64,7 +71,7 @@
 # 리소스
 ## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
+## [변경 내용 요청](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [가격](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

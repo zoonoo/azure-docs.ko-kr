@@ -45,8 +45,6 @@
           href: container-instances-using-azure-container-registry.md
         - name: 환경 변수 설정(env)
           href: container-instances-environment-variables.md
-        - name: 배포 문제 해결
-          href: container-instances-troubleshooting.md
     - name: 관리
       items:
         - name: 명령 실행(exec)
@@ -69,6 +67,12 @@
           href: container-instances-volume-gitrepo.md
         - name: secret
           href: container-instances-volume-secret.md
+    - name: 문제 해결
+      items:
+        - name: 컨테이너 로그 및 이벤트 가져오기
+          href: container-instances-get-logs.md
+        - name: 일반적인 문제 해결
+          href: container-instances-troubleshooting.md
 - name: 참고 자료
   items:
     - name: Azure CLI
@@ -78,7 +82,7 @@
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
     - name: .NET
-      href: /dotnet/api/overview/azure/containerinstances
+      href: /dotnet/api/overview/azure/containerinstance
     - name: 파이썬
       href: /python/api/overview/azure/containerinstance
     - name: 자바
