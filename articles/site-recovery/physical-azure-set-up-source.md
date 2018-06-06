@@ -1,8 +1,8 @@
 ---
-title: "원본 환경 설정(Azure에 대한 물리적 서버) | Microsoft Docs"
-description: "이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다."
+title: 원본 환경 설정(Azure에 대한 물리적 서버) | Microsoft Docs
+description: 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811140"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>원본 환경 설정(Azure에 대한 물리적 서버)
 
