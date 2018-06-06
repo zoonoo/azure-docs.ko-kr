@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "31589631"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/19/2018
 서버 SDK에 대한 참조 설명서는 [Azure Mobile Apps .NET 참조][1]에서 찾을 수 있습니다.
 
 ## <a name="create-app"></a>방법: .NET 모바일 앱 백 엔드 만들기
-새 프로젝트를 시작하는 경우 [Azure 포털] 과 Visual Studio 중 하나를 사용하여 App Service 응용 프로그램을 만들 수 있습니다. App Service 응용 프로그램을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
+새 프로젝트를 시작하는 경우 [Azure Portal] 과 Visual Studio 중 하나를 사용하여 App Service 응용 프로그램을 만들 수 있습니다. App Service 응용 프로그램을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
 
 기존 프로젝트에 모바일 기능을 추가하는 경우 [SDK 다운로드 및 초기화](#install-sdk) 섹션을 참조하세요.
 
@@ -214,7 +215,7 @@ Azure SDK가 설치되어 있으면 이제 다음과 같이 템플릿 테이블 
 PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니다.  클라이언트 페이지 크기 변경에 대한 내용은 특정 클라이언트 방법 설명서를 참조하세요.
 
 ## <a name="how-to-define-a-custom-api-controller"></a>방법: 사용자 지정 API 컨트롤러 정의
-사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. ph x="1" /> 특성은 경로를 등록하고 Mobile Apps JSON 직렬 변환기를 설정한 후 [클라이언트 버전 검사](app-service-mobile-client-and-server-versioning.md)를 켭니다.
+사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. `MobileAppController`특성은 경로를 등록하고 Mobile Apps JSON 직렬 변환기를 설정한 후 [클라이언트 버전 검사](app-service-mobile-client-and-server-versioning.md)를 켭니다.
 
 1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
 2. `CustomController`와 같은 **컨트롤러 이름**을 제공하고 **추가**를 클릭합니다.
@@ -468,7 +469,7 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 앞의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 *authAudience* 및 *authIssuer* 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 *authSigningKey* 를 응용 프로그램의 서명 키의 값으로 설정해야 합니다.
 서명 키를 가져오려면:
 
-1. [Azure 포털]
+1. [Azure Portal]
 2. **도구**, **Kudu**, **이동**을 클릭합니다.
 3. Kudu 관리 사이트에서 **환경**을 클릭합니다.
 4. *WEBSITE\_AUTH\_SIGNING\_KEY*에 대한 값을 찾습니다.
@@ -481,7 +482,7 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
