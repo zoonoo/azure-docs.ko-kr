@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: 6edcf9ae8135de8bf82d819e50d3d336b641166e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34068576"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침
 [지원 요청을 만들 때](https://portal.azure.com/#create/Microsoft.Support)파일 업로드 유틸리티를 사용하면 진단 파일이나 인시던트에 관련된 다른 파일을 쉽게 업로드할 수 있습니다.  

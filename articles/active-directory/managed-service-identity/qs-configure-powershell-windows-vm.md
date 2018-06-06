@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
 ms.openlocfilehash: 6981c0f917fb7175f444ceca8c55c0df186774db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "33932322"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>PowerShell을 사용하여 VM MSI(관리 서비스 ID) 구성

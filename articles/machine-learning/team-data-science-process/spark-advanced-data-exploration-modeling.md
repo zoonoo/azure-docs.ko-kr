@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath
 ms.openlocfilehash: 9f24d05a344e0042fa498b62c874617ba7466f8f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "32778345"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -1413,7 +1414,7 @@ R-sqr = 0.740751197012
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-**소비 Notebook에서 사용할 모델 파일에 대한 경로를 출력합니다. ** 독립적인 데이터 집합을 사용하고 점수를 매기려면 이러한 파일 이름을 복사하여 "Consumption notebook(소비 Notebook)"에 붙여넣어야 합니다.
+\*\*소비 Notebook에서 사용할 모델 파일에 대한 경로를 출력합니다. ** 독립적인 데이터 집합을 사용하고 점수를 매기려면 이러한 파일 이름을 복사하여 "Consumption notebook(소비 Notebook)"에 붙여넣어야 합니다.
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";

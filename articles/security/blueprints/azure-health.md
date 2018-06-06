@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33894316"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -282,7 +283,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **2. Key Vault**에 요청한 토큰과 연결된 비밀을 요청합니다.
 
-\*\*3. Azure 역할에서 요청의 유효성을 검사하고 액세스 요청에 대한 권한을 Key Vault에 부여합니다.
+**3. Azure 역할에서 요청의 유효성을 검사하고 액세스 요청에 대한 권한을 Key Vault에 부여합니다.
 
 **4. Key Vault**에서 비밀(이 경우 SQL DB 연결 문자열)을 반환합니다.
 

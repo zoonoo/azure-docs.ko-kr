@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33777538"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 푸시
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -333,7 +334,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     ```
    
     장치 토큰 설정이 어떻게 로그인 단추를 활성화하는지에 주목하세요. 이는 로그인 작업 중에 보기 컨트롤러가 푸시 알림을 앱 백 엔드에 등록하기 때문입니다. 따라서 장치 토큰이 제대로 설정되기 전에는 로그인 작업에 액세스하지 못하게 해야 합니다. 로그인 작업이 토큰 설정 전에 발생하는 경우 푸시 등록에서 로그인을 분리할 수 있습니다.
-2. ViewController.m에서 다음 스니펫을 사용하여 **로그인** 단추에 대한 작업 메소드 및 ASP.NET 백 엔드를 사용하여 알림 메시지를 보내는 메서드를 구현합니다.
+2. ViewController.m에서 다음 스니펫을 사용하여 **로그인** 단추에 대한 작업 메소드 및 ASP.NET 백엔드를 사용하여 알림 메시지를 보내는 메서드를 구현합니다.
    
     ```obj-c
        - (IBAction)LogInAction:(id)sender {
@@ -408,7 +409,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
         }
     ```
 
-1. **알림 보내기** 단추의 작업을 업데이트하여 ASP.NET 백 엔드를 사용하고 스위치에서 사용하도록 설정된 모든 PNS를 보냅니다.
+1. **알림 보내기** 단추의 작업을 업데이트하여 ASP.NET 백엔드를 사용하고 스위치에서 사용하도록 설정된 모든 PNS를 보냅니다.
 
     ```obj-c
         - (IBAction)SendNotificationMessage:(id)sender

@@ -8,7 +8,7 @@
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
-3. 보호하려는 컴퓨터의 Windows 방화벽에서 **방화벽을 통해 앱 또는 기능 허용**을 선택합니다. **파일 및 프린터 공유**와 **WMI(Windows Management Instrumentation)**를 사용하도록 설정합니다. 도메인에 속하는 컴퓨터의 경우 GPO(그룹 정책 개체)를 사용하여 방화벽 설정을 구성할 수 있습니다.
+3. 보호하려는 컴퓨터의 Windows 방화벽에서 **방화벽을 통해 앱 또는 기능 허용**을 선택합니다. **파일 및 프린터 공유**와 **WMI(Windows Management Instrumentation)** 를 사용하도록 설정합니다. 도메인에 속하는 컴퓨터의 경우 GPO(그룹 정책 개체)를 사용하여 방화벽 설정을 구성할 수 있습니다.
 
    ![방화벽 설정](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
 

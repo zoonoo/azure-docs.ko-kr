@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
 ms.openlocfilehash: 187171d75a6bcc54a48c891aa2eafd8408b06ddb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "32778277"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
@@ -457,7 +457,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 ![주 패널로 데이터 집합 끌기](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
-> 학습 및 테스트 데이터 집합 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.\*\*
+> 학습 및 테스트 데이터 집합 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.**
 > 
 > 
 

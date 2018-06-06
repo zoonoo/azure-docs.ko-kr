@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "32178239"
 ---
 # <a name="what-is-appsource"></a>AppSource란?
 AppSource는 Microsoft 파트너가 Microsoft 지원 온라인 상점을 통해 고객에게 기술과 서비스를 검색할 수 있도록 합니다. AppSource 게시자는 AppSource에 비즈니스 사용자를 끌어들여 기간 업무 SaaS 응용 프로그램과 구현 서비스를 찾고, 사용해 보고, 가져옴으로써 비즈니스 결과를 이끌어내고 가치 창출 시간을 단축할 수 있습니다. 
