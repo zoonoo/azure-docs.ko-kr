@@ -10,6 +10,8 @@
   items:
     - name: 2018년 5월
       href: release-notes-may-2018.md
+    - name: 2018년 4월
+      href: release-notes-april-2018.md
 - name: 빠른 시작
   expanded: true
   items:

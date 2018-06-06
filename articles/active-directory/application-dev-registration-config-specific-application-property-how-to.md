@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "34055620"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대한 특정 필드를 작성하는 방법

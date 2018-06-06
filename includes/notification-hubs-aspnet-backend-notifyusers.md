@@ -9,10 +9,11 @@ ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 634bb14cfef3df2cf944eeafbfa8d671afa4ac98
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33835800"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
 다음 섹션에서는 새 ASP.NET WebAPI 백 엔드 만들기를 설명합니다. 이 프로세스에는 세 가지 주요 목적이 있습니다.

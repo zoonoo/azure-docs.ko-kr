@@ -1,4 +1,4 @@
-# [Azure AD Domain Services 설명서](index.md)
+# [Azure AD Domain Services 설명서](index.yml)
 
 # 개요
 ## [Azure AD Domain Services란?](active-directory-ds-overview.md)

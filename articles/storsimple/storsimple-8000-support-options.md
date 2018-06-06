@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cb2d1cea80488970ef82071275b6c38e7f97cee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "32191549"
 ---
 # <a name="storsimple-solution-support"></a>StorSimple 솔루션 지원
@@ -121,7 +121,7 @@ StorSimple 배열을 구입한 방법에 따라 StorSimple 8000 시리즈 저장
 
 *<text> * 프리미엄 적용 범위는 일부 위치에서 사용할 수 없습니다. StorSimple 프리미엄 지원을 구입하기 전에 지역별 적용 범위에 대해 Microsoft(SSSupOps@microsoft.com)에 문의하세요.*
 
-**\*프리미엄 StorSimple 지원으로 무료 업그레이드를 받으려면 고객에게 프리미어 지원이 적용되는 지역에 StorSimple 어플라이언스를 배포해야 합니다.*
+***프리미엄 StorSimple 지원으로 무료 업그레이드를 받으려면 고객에게 프리미어 지원이 적용되는 지역에 StorSimple 어플라이언스를 배포해야 합니다.*
 
 
 ASAP+ 고객은 표준 지원이 포함된 구독 모델로 전환할 수 있습니다. 구독 가격 책정에 StorSimple 가격 계산기를 사용하고, 궁금한 점이 있으면 SSSupOps@microsoft.com에 문의하세요. 전환은 ASAP+에서 구독으로만 진행되는 단방향입니다.

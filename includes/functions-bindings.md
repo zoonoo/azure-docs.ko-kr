@@ -1,6 +1,6 @@
 다음 표는 Azure Functions 런타임의 두 주요 버전에서 지원되는 바인딩을 보여 줍니다.
 
-| 형식 | 1.x | 2.x | 트리거 | 입력 | 출력 |  
+| type | 1.x | 2.x | 트리거 | 입력 | 출력 |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔<sup>1</sup>|✔|✔|✔|  
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|  
