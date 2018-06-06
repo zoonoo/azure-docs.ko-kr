@@ -1,24 +1,25 @@
 ---
-title: 'Azure 스택 저장소: 차이점과 고려 사항'
-description: Azure 스택 배포 고려 사항 함께 Azure 스택 저장소 및 Azure 저장소 간의 차이점을 이해 합니다.
+title: Azure 스택 저장소 차이점과 고려 사항을 | Microsoft Docs
+description: Azure 스택 저장소와 함께 Azure 스택 배포 고려 사항 Azure 저장소의 차이점을 이해 합니다.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604463"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure 스택 저장소: 차이점과 고려 사항
 
@@ -26,15 +27,15 @@ ms.lasthandoff: 05/16/2018
 
 Azure 스택 저장소는 Microsoft Azure 스택에서 저장소 클라우드 서비스의 집합입니다. Azure 스택 저장소는 blob, 테이블, 큐 및 Azure에 일관 된 의미 체계를 포함 하는 계정 관리 기능을 제공 합니다.
 
-이 문서는 Azure 저장소 서비스에서 알려진된 Azure 스택 저장소 차이점을 요약 합니다. 또한 Azure 스택을 배포할 때 고려해 야 할 사항 나열 합니다. Azure 스택와 Azure 간의 대략적인 차이 대 한 자세한 내용은 [고려 사항 키](azure-stack-considerations.md) 항목입니다.
+이 문서는 Azure 저장소 서비스에서 알려진된 Azure 스택 저장소 차이점을 요약 합니다. 또한 Azure 스택을 배포할 때 고려해 야 할 사항 나열 합니다. 전역 Azure 및 Azure 스택 간에 높은 수준의 차이점에 대 한 자세한 내용은 [고려 사항 키](azure-stack-considerations.md) 항목입니다.
 
 ## <a name="cheat-sheet-storage-differences"></a>치트 시트: 저장소의 차이
 
 | 기능 | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|지원 클라우드 기반 SMB 파일 공유|아직 지원 되지 않음
-|휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화|256 비트 AES 암호화|BitLocker 128 비트 AES 암호화
-|Storage 계정 유형|범용 및 Azure Blob 저장소 계정|범용만 합니다.
+|미사용 데이터에 대 한 azure 저장소 서비스 암호화|256 비트 AES 암호화|BitLocker 128 비트 AES 암호화
+|Storage 계정 유형|범용 및 Azure blob 저장소 계정|범용만 합니다.
 |복제 옵션|로컬 중복 저장소, 지역 중복 저장소, 읽기 액세스 지역 중복 저장소 및 영역 중복 저장소|로컬 중복 저장소입니다.
 |Premium Storage|완전하게 지원|성능 제한이 있지만 제공 될 수 있습니다 또는 보장 합니다.
 |관리 디스크|지 원하는 표준 및 프리미엄|아직 지원 되지 않습니다.
