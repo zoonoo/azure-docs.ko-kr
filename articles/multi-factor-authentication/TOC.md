@@ -54,6 +54,7 @@
 ### [사용자 지정 앱에 작성(SDK)](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## [보고](../active-directory/authentication/howto-mfa-reporting.md)
+### [데이터 수집](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 ## [MFA 사용자 가이드](./end-user/multi-factor-authentication-end-user.md)
 

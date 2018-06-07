@@ -4,7 +4,7 @@
 ## [리소스 관리자란?](resource-group-overview.md)
 ## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
-## [구독 거버넌스](resource-manager-subscription-governance.md)
+## [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [관리 그룹으로 리소스 구성](management-groups-overview.md)
 
 # 시작하기
@@ -50,7 +50,6 @@
 ### [EA 구독을 프로그래밍 방식으로 만들기](programmatically-create-subscription.md)
 ### [관리 그룹 만들기](management-groups-create.md)
 ### [관리 그룹 관리](management-groups-manage.md)
-### [거버넌스 예제](resource-manager-subscription-examples.md)
 
 ## 액세스 제어
 ### 서비스 주체 만들기
