@@ -54,7 +54,7 @@
 ### [페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md)
 ### [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](active-directory-aadconnect-federation-saml-idp.md)
-### [로그인 시 이메일을 사용하는 게스트 사용자 계정 동기화](active-directory-aadconnect-guest-sync.md)
+
 
 
 ## Azure AD Connect 동기화 관리
