@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605572"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure 스택 마켓플레이스 개요
 
@@ -28,6 +29,9 @@ ms.lasthandoff: 05/17/2018
 마켓플레이스는 서비스, 응용 프로그램 및 Azure 스택에 대 한 사용자 지정 된 리소스의 컬렉션입니다. 리소스에는 네트워크, 가상 컴퓨터, 저장소 및에 포함 됩니다. 여기로 사용자와 새 리소스를 만들 새 응용 프로그램을 배포 합니다. 것으로 생각 하면 쇼핑 카탈로그 사용자 찾아볼 수도 있고 사용 하려는 항목을 선택 합니다. 마켓플레이스 항목을 사용 하려면 사용자가 항목에 대 한 액세스를 부여 하는 서비스를 구독 해야 합니다.
 
 Azure 스택 연산자로 결정 추가할 항목을 마켓플레이스에 (게시). 데이터베이스, 응용 프로그램 서비스 등과 같은 항목을 게시할 수 있습니다. 게시에 모든 사용자에 게 표시 되도록 만듭니다. 작성 한 사용자 지정 항목을 게시할 수 있습니다. 증가 하는 항목을 게시할 수도 있습니다 [Azure 마켓플레이스 항목 목록이](azure-stack-marketplace-azure-items.md)합니다. 마켓플레이스 항목을 게시할 때 사용자가 5 분 이내 볼 수 있습니다.
+
+> [!Caution]  
+> 이미지 및 json 파일 이라고 하는 모든 갤러리 항목 아티팩트는 Azure 스택 시장에서 사용할 수 있도록 후 인증 없이 액세스할 수입니다. 사용자 지정 마켓플레이스 항목을 게시 하는 경우 자세한 문제에 대해서 참조 [만들기 마켓플레이스 항목을 게시 하 고](azure-stack-create-and-publish-marketplace-item.md)합니다.
 
 마켓플레이스를 열려면 선택에 관리 콘솔에서 **새로**합니다.
 

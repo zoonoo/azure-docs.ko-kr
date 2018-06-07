@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9154f509f9019c28515970869678aa6633d16163
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fd1c2241fe22dc35ceb09e0ba3650fa0000a77b1
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603619"
 ---
 # <a name="update-the-sql-resource-provider-adapter"></a>SQL 리소스 공급자 어댑터 업데이트
 Azure 스택 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 업데이트를 순서 대로 설치 해야: 버전을 건너뛸 수 없습니다 (에서 버전 목록을 보려면 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
@@ -37,10 +38,9 @@ DeploySqlProvider.ps1 스크립트에 대 한 설명 하는 동일한 인수를 
 > 업데이트 프로세스는 통합 된 시스템에만 적용 됩니다.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

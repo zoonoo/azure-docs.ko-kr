@@ -6,30 +6,34 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.reviewer: kivenkat
+ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604134"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 가상 머신 소개
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-## <a name="overview"></a>개요
-Azure 스택 가상 컴퓨터 (VM)에 Azure 스택 제공 하는 요청 시, 확장 가능한 컴퓨팅 리소스의 형식입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 가상 컴퓨터를 선택합니다. 이 문서에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법에 대해 설명합니다.
+Azure 스택 한 가지 유형의 요청 시, 확장 가능한 컴퓨팅 리소스와 가상 컴퓨터 (Vm)를 제공합니다. 다른 선택 사항 보다 더 많은 컴퓨팅 환경 제어 해야 할 때 VM을 선택할 수 있습니다. VM을 만들기 전에이 문서에서는 자세히 설명 합니다.
 
 Azure 스택 VM 클러스터 또는 개별 컴퓨터를 관리할 필요 없이 가상화의 유연성을 제공 합니다. 그러나 여전히 해야 구성, 패치, 및를 실행 하는 소프트웨어를 설치 하는 등의 작업을 수행 하 여 VM을 유지 합니다.
 
 다양 한 방법으로 Azure 스택 가상 컴퓨터를 사용할 수 있습니다. 예: 
 
-* **개발 및 테스트** – Azure 스택 Vm 빠른을 제공 하 고 코드 및 응용 프로그램을 테스트 하는 데 필요한 손쉬운 방법을 특정 구성으로 컴퓨터를 만듭니다.
+- **개발 및 테스트**  
+    Azure 스택 Vm 코드 하는 데 필요한 특정 구성으로는 컴퓨터를 만들고 응용 프로그램을 테스트 하는 빠르고 쉬운 방법을 제공 합니다.
 
-* **응용 프로그램은 클라우드에서** – 응용 프로그램에 대 한 수요가 변동 수 때문에 좋을 수 있습니다 경제 스택에서 Azure VM에서 실행 되도록 합니다. 필요할 경우 여분의 VM에 대해 비용을 지불하고, 그렇지 않은 경우에는 해당 VM을 종료합니다.
+- **클라우드에서 응용 프로그램**  
+    응용 프로그램에 대 한 수요가 변동 수 때문에 좋을 수 있습니다 경제 스택에서 Azure VM에서 실행 되도록 합니다. 필요할 경우 여분의 VM에 대해 비용을 지불하고, 그렇지 않은 경우에는 해당 VM을 종료합니다.
 
-* **데이터 센터 확장** – 스택 Azure 가상 네트워크의 가상 컴퓨터 또는 Azure 조직 네트워크에 쉽게 연결할 수 있습니다.
+- **확장 된 데이터 센터**  
+    스택 Azure 가상 네트워크의 가상 컴퓨터 또는 Azure에 조직의 네트워크에 쉽게 연결할 수 있습니다.
 
 응용 프로그램에 사용 수직 확장 또는 요구를 충족 하는 데 필요한 무엇이를 확장할 수 있는 Vm입니다.
 
@@ -37,12 +41,12 @@ Azure 스택 VM 클러스터 또는 개별 컴퓨터를 관리할 필요 없이 
 
 항상 다양 한 디자인 고려 사항이 Azure 스택의 응용 프로그램 인프라를 빌드할 때 있습니다. VM의 이러한 측면은 인프라를 만들기를 시작 하기 전에 고려해 야 하는 것이 중요 합니다.
 
-* 응용 프로그램 리소스의 이름입니다.
-* VM의 크기입니다.
-* 만들 수 있는 Vm의 최대 수입니다.
-* VM이 실행 하는 운영 체제.
-* 시작 된 후 VM의 구성입니다.
-* Vm 관련된 리소스
+- 응용 프로그램 리소스의 이름입니다.
+- VM의 크기입니다.
+- 만들 수 있는 Vm의 최대 수입니다.
+- VM이 실행 하는 운영 체제.
+- 시작 된 후 VM의 구성입니다.
+- Vm 관련된 리소스
 
 ### <a name="naming"></a>이름 지정
 
@@ -78,9 +82,14 @@ Azure 스택 다양 한 버전 및 운영 체제의 종류와 함께 사용할 �
 VM 확장 사후 배포 구성 및 자동화 된 작업을 통해 사용자 VM 추가 기능을 제공합니다.
 다음과 같은 일반 작업은 확장을 사용하여 수행할 수 있습니다.
 
-* -사용자 지정 스크립트를 실행 하는 사용자 지정 스크립트 확장 하면 VM에서 VM 프로 비전 될 때 스크립트를 실행 하 여 작업 부하를 구성 있습니다.
-* 배포 및 구성 관리-PowerShell 필요한 상태 구성 (DSC) 확장을 사용 하면 VM에서 DSC 구성 / 환경 관리를 설정 합니다.
-* 수집 된 진단 데이터-Azure 진단 확장의 응용 프로그램의 상태를 모니터링 하는 데 사용할 수 있는 진단 데이터를 수집 하는 VM을 구성 하도록 도와줍니다.
+- **사용자 지정 스크립트를 실행 합니다.**  
+    사용자 지정 스크립트 확장 VM에서 VM 프로 비전 될 때 스크립트를 실행 하 여 작업 부하를 구성 하도록 도와줍니다.
+
+- **배포 및 구성 관리**  
+    PowerShell 필요한 상태 구성 (DSC) 확장을 사용 하면 VM에서 DSC 구성 / 환경 관리를 설정 합니다.
+
+- **진단 데이터 수집**  
+    Azure 진단 확장 응용 프로그램의 상태를 모니터링 하는 데 사용할 수 있는 진단 데이터를 수집 하는 VM을 구성 하도록 도와줍니다.
 
 ### <a name="related-resources"></a>관련 리소스
 
@@ -96,7 +105,7 @@ VM 확장 사후 배포 구성 및 자동화 된 작업을 통해 사용자 VM �
 |Linux|예|네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다.|
 |데이터 디스크|아니요|VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다.|
 
-## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법
+## <a name="create-your-first-vm"></a>첫 번째 VM 만들기
 
 VM을 만드는 여러 가지 옵션이 있습니다. 선택한 사용자의 환경에 따라 달라 집니다.
 다음 표에서 VM을 만들기 시작 하는 데는 정보를 제공 합니다.
@@ -109,16 +118,16 @@ VM을 만드는 여러 가지 옵션이 있습니다. 선택한 사용자의 환
 |PowerShell|[Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기](azure-stack-quick-create-vm-windows-powershell.md)<br>[Azure 스택에서 PowerShell을 사용 하 여 Linux 가상 컴퓨터 만들기](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Azure 스택에서 CLI를 사용 하 여 Windows 가상 컴퓨터 만들기](azure-stack-quick-create-vm-windows-cli.md)<br>[Azure 스택에서 CLI를 사용 하 여 Linux 가상 컴퓨터 만들기](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>만든 VM을 관리하는 방법
+## <a name="manage-your-vm"></a>VM 관리
 
 브라우저 기반 포털로, Api를 통해 직접 또는 스크립트에 대 한 지원 사용 하 여 명령줄 도구를 사용 하 여 Vm을 관리할 수 있습니다. 수행할 수 있는 몇 가지 일반적인 관리 작업 다음과 같습니다.
 
-* VM에 대 한 정보 가져오기
-* VM에 연결
-* 가용성 관리
-* 백업
+- VM에 대 한 정보 가져오기
+- VM에 연결
+- 가용성 관리
+- 백업
 
-### <a name="get-information-about-a-vm"></a>VM에 대한 정보 가져오기
+### <a name="get-information-about-your-vm"></a>VM에 대 한 정보 가져오기
 
 다음 표에서 보여 줍니다는 몇 가지는 VM에 대 한 정보를 얻을 수 있습니다.
 
@@ -129,10 +138,10 @@ VM을 만드는 여러 가지 옵션이 있습니다. 선택한 사용자의 환
 |Azure PowerShell|Vm을 관리 하는 것은 Azure 및 Azure 스택과 비슷합니다. PowerShell을 사용 하는 방법에 대 한 자세한 내용은 다음 Azure 항목을 참조 합니다.<br>[만들기 및 Azure PowerShell 모듈과 함께 Windows Vm 관리](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |클라이언트 SDK|사용 하 여 C# Vm을 관리 하는 것은 Azure 및 Azure 스택과 비슷합니다. 자세한 내용은 다음 Azure 항목을 참조 합니다.<br>[만들기 및 C#을 사용 하 여 Azure에 Windows Vm 관리](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>VM에 연결
+### <a name="connect-to-your-vm"></a>VM에 연결
 
 사용할 수는 **연결** VM에 연결 하기 위해 Azure 스택 포털에서 단추입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 스택의 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)
+- [Azure 스택의 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)

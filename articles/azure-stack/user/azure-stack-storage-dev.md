@@ -1,19 +1,20 @@
 ---
-title: Azure 스택 저장소 개발 도구 시작
+title: Azure 스택 저장소 개발 도구를 시작 | Microsoft Docs
 description: Azure 스택 저장소 개발 도구를 사용 하 여 시작에 대 한 지침
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ceda393412f8217a893a347ec5f3a9ac03efa3d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604480"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure 스택 저장소 개발 도구 시작
 
@@ -23,8 +24,8 @@ Microsoft Azure 스택 저장소 서비스의 blob, 테이블 및 큐 저장소�
 
 지침으로이 문서를 사용 하 여 Azure 스택 저장소 개발 도구를 사용 하 여 시작 합니다. Azure 저장소의 해당 자습서에서 보다 자세한 정보 및 예제 코드를 찾을 수 있습니다.
 
->[!NOTE]
->Azure 스택 저장소와 Azure 저장소의 경우 각 플랫폼에 대 한 특정 요구 사항을 비롯 한 차이점으로 알려져 있습니다. 예를 들어 특정 클라이언트 라이브러리 및 Azure 스택에 대 한 특정 끝점 접미사 요구 됩니다. 자세한 내용은 참조 [Azure 스택 저장소: 차이점과 고려 사항을](azure-stack-acs-differences.md)합니다.
+> [!NOTE]  
+> Azure 스택 저장소 및 각 플랫폼에 대 한 특정 요구 사항을 비롯 한 Azure 저장소와 차이점 알려져 있습니다. 예를 들어 특정 클라이언트 라이브러리 및 Azure 스택에 대 한 특정 끝점 접미사 요구 됩니다. 자세한 내용은 참조 [Azure 스택 저장소: 차이점과 고려 사항을](azure-stack-acs-differences.md)합니다.
 
 ## <a name="azure-client-libraries"></a>Azure 클라이언트 라이브러리
 
@@ -209,4 +210,4 @@ EndpointSuffix=local.azurestack.external
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft Azure Storage 소개](../../storage/common/storage-introduction.md)
+* [Microsoft Azure 저장소 소개](../../storage/common/storage-introduction.md)

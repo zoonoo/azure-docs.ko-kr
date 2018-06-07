@@ -3,7 +3,7 @@ title: Azure에 Azure 스택 사용 데이터 보고 | Microsoft Docs
 description: Azure 스택의 보고 기능 사용 현황 데이터를 설정 하는 방법을 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603705"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure에 Azure 스택 사용 현황 데이터를 보고 합니다. 
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 04/28/2018
 - **수량** – 리소스 사용량입니다.
 - **위치** – 현재 스택에서 Azure 리소스를 배포 하는 위치입니다.
 - **리소스 URI** – 정규화 된 사용량이 보고 되는 리소스의 URI입니다.
-- **구독 ID** – Azure 스택 사용자의 구독 ID입니다. 로컬 (Azure 스택) 구독입니다.
+- **구독 ID** – 로컬 (Azure 스택) 구독이 Azure 스택 사용자의 구독 ID입니다.
 - **시간** – 사용 현황 데이터의 시작 시간과 종료 시간입니다. 약간의 지연 시간 사이의 Azure 스택에 사용 된 이러한 리소스는 사용 현황 데이터를 상거래에 보고 하는 경우. Azure 스택 집계 사용 현황 데이터를 24 시간 마다 고 commerce 파이프라인 Azure에 사용 현황 데이터를 보고 다른 몇 시간을 이동합니다. 따라서 자정 되기 바로 전에 발생 하는 경우에 표시 될 Azure는 다음 날입니다.
 
 ## <a name="generate-usage-data-reporting"></a>사용 데이터 보고를 생성 합니다.
@@ -68,7 +69,7 @@ Azure 스택 다른 구독 형식의 예를 들어 선불 구독을 사용 하 �
 
    ![청구 흐름](media/azure-stack-usage-reporting/pricing-details.png)
 
-Azure 스택 개발 키트에 대 한 Azure 스택 리소스는 가격이 $0.00으로 표시 되 고 있으므로 청구 되지 않습니다. Azure 스택 multi-node 일반 공급 되 면 이러한 각 리소스에 대 한 실제 비용을 볼 수 있습니다.
+Azure 스택 개발 키트에 대 한 Azure 스택 리소스는 가격이 $0.00으로 표시 되 고 있으므로 청구 되지 않습니다.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>있는 Azure 스택 배포 요금이 청구 됩니다.
 
@@ -82,7 +83,7 @@ Azure 스택 개발 키트에 대 한 Azure 스택 리소스는 가격이 $0.00�
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Azure 스택에서 사용 하려는 하는 경우 Windows Server 라이선스 아니오, 어떻게 하나요?
 
-기존 라이선스를 사용 하 여 사용 미터 생성을 방지 합니다. "Azure 스택 기존 소프트웨어 사용" 섹션에 설명 된 대로 Azure 스택에서 기존 Windows Server 라이선스를 사용할 수 있습니다 [Azure 스택 라이선스 가이드](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)합니다. 고객에 설명 된 대로 Windows Server 가상 컴퓨터를 배포할 필요가 [Windows Server 라이선스에 대 한 하이브리드 혜택](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) 하 여 기존 라이선스를 사용 하려면 항목입니다.
+기존 라이선스를 사용 하 여 사용 미터 생성을 방지 합니다. "Azure 스택 기존 소프트웨어 사용" 섹션에 설명 된 대로 Azure 스택에서 기존 Windows Server 라이선스를 사용할 수 있습니다 [Azure 스택 라이선스 가이드](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)합니다. 고객에 설명 된 대로 Windows Server 가상 컴퓨터를 배포할 필요가 [Windows Server 라이선스에 대 한 하이브리드 혜택](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) 하 여 기존 라이선스를 사용 하려면 문서입니다.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>구독 리소스를 사용 요금이 부과 됩니다.
 때 제공 되는 구독 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md) 요금이 부과 됩니다.
@@ -101,7 +102,7 @@ Azure 스택 개발 키트 사용 데이터 보고 글로벌 Azure 시스템에�
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Azure 스택에 보고를 사용 하지 않는 r e 계정 센터에서 생성 된 보고서를 일치 하는 이유
 
-Azure 스택 사용 Api 및 Azure 계정 센터에서 보고 사용 현황 데이터에서 사용 데이터 보고 delaybetween는 항상... 이 지연 시간은 Azure 상거래 Azure 스택에서 사용 현황 데이터를 업로드 하는 데 필요한 시간입니다. 이 지연으로 인해 자정 되기 바로 전에 발생 하는 경우에 표시 될 Azure는 다음 날입니다. 사용 하는 경우는 [Azure 스택 사용량 Api](azure-stack-provider-resource-api.md), Azure 청구 포털에서 보고 사용에 대 한 결과 비교 하 고, 차이 볼 수 있습니다.
+Azure 스택 Api 사용 하 여 보고 되는 사용 현황 데이터과 Azure 계정 센터에서 보고 한 사용 현황 데이터는 항상입니다. 이 지연 시간은 Azure 상거래 Azure 스택에서 사용 현황 데이터를 업로드 하는 데 필요한 시간입니다. 이 지연으로 인해 자정 되기 바로 전에 발생 하는 경우에 표시 될 Azure는 다음 날입니다. 사용 하는 경우는 [Azure 스택 사용량 Api](azure-stack-provider-resource-api.md), Azure 청구 포털에서 보고 사용에 대 한 결과 비교 하 고, 차이 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

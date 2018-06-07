@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604151"
 ---
 # <a name="azure-stack-1712-update"></a>Azure 스택 1712 업데이트
 
@@ -116,7 +117,25 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 
 #### <a name="health-and-monitoring"></a>상태 및 모니터링
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   #1 경고:
+   - 이름: 인프라 역할 비정상
+   - 심각도: 경고
+   - 구성 요소: 상태 컨트롤러
+   - 설명: 상태 컨트롤러 하트 비트 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
+
+  경고 # 2:
+   - 이름: 인프라 역할 비정상
+   - 심각도: 경고
+   - 구성 요소: 상태 컨트롤러
+   - 설명: 상태 컨트롤러 오류 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
+
+  두 가지 경고는 무시 해도 됩니다. 시간에 따라 자동으로 종료 됩니다.  
+
 - 인프라 역할 인스턴스를 다시 부팅 하는 경우 다시 부팅 실패 했음을 나타내는 메시지가 나타날 수 있습니다. 그러나 다시 부팅 실제로 성공 했습니다.
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - 이 릴리스의 호환성 문제로 인해 일부 마켓플레이스 항목을 제거 되 고 됩니다. 이러한 다시 활성화 됩니다 추가 유효성 검사 후 합니다.

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 39708248160b029185b64ed927a453562e1003f2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604372"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 컴퓨터 이미지에서에서 사용할 수 있도록 Azure 스택
 
@@ -108,7 +109,7 @@ Azure 스택에서 만들면 가상 컴퓨터 이미지 사용할 수 있는 사
     예: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
     Blob 저장소 URI를 지정할 수 있습니다에 대 한 프로그램 `osDisk`합니다.  
 
-    추가 AzsPlatformimage cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [Azure 스택 연산자 모듈 문서](https://docs.microsoft.com/powershell/module/)합니다.
+    자세한 내용은 참조에 대 한 PowerShell 참조의 [추가 AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet 및 [새로 DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell을 사용 하 여 사용자 지정 VM 이미지를 시장에 추가
 

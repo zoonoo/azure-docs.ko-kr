@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604270"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure 스택 앱 서비스 리소스 공급자 추가
 
@@ -66,6 +67,12 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 시간이 걸
         * Azure Active Directory (Azure AD)를 사용 하 여 Azure AD 관리자 계정 및 Azure 스택을 배포할 때 사용자가 제공한 암호를 입력 합니다. **로그인**을 클릭합니다.
         * Active Directory Federation Services (AD FS)를 사용 하 여 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 하 고 클릭 **로그인**합니다.
     2. 에 **Azure 스택 구독** 상자는 **공급자 구독 기본**합니다.
+    
+    > [!NOTE]
+    > 앱 서비스에만 배포할 수는 **공급자 구독 기본** 이 이번에 있습니다.  Azure 스택 1804에 도입 된 새 계량 구독으로 배포 응용 프로그램 서비스는 향후 업데이트에서 및 기존의 모든 배포를 새 구독에도 마이그레이션할 수 됩니다.
+    >
+    >
+    
     3. 에 **Azure 스택 위치** 상자에 배포 하는 영역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure 스택 개발 키트를 배포 합니다.
 
     ![앱 서비스 설치 관리자][3]

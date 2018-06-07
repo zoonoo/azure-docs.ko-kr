@@ -1,26 +1,26 @@
 ---
-title: Azure 스택 저장소 용 도구
+title: Azure 스택 저장소에 대 한 도구 | Microsoft Docs
 description: Azure 스택 저장소 데이터에 대 한 자세한 내용은 전송 도구
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a148f8089dd104933e6ba95f573182e0c1a32ae5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604729"
 ---
-# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>데이터 전송 도구를 사용 하 여 Azure 저장소의 스택
+# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure 스택 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
@@ -102,9 +102,9 @@ azcopy \
     --dest-key <key>
 ````
 
-### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure 스택 저장소 및 Azure 간 데이터 이동
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure 및 Azure 스택 저장소 간에 데이터를 이동
 
-Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정 하는 **/SyncCopy** 또는 **-동기화 복사** 옵션입니다.
+Azure 저장소 및 Azure 스택 사이의 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정 하는 **/SyncCopy** 또는 **-동기화 복사** 옵션입니다.
 
 **Windows**
 
@@ -127,7 +127,7 @@ azcopy \
 ### <a name="azcopy-known-issues"></a>Azcopy 알려진 문제
 
  - 파일 저장소에 대해 AzCopy 연산을 사용할 수 없는 경우 파일 저장소가 아직 사용할 수 없기 때문에 Azure 스택
- - Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정할 수는 **/SyncCopy** 옵션 데이터를 복사 합니다.
+ - Azure 저장소 및 Azure 스택 사이의 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정할 수는 **/SyncCopy** 옵션 데이터를 복사 합니다.
  - Linux 버전의 Azcopy 1802 업데이트 또는 이후 버전에만 지원합니다. 및 테이블 서비스 지원 하지 않습니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -150,7 +150,7 @@ Azure 스택 호환 Azure PowerShell 모듈은 Azure 스택이 작동 해야 합
    > [!NOTE]
    > 이 스크립트에 대 한 루트 디렉터리에서 실행할 **AzureStack_Tools**합니다.
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -213,7 +213,7 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-```
+````
 
 ### <a name="powershell-known-issues"></a>PowerShell의 알려진 문제
 
@@ -222,12 +222,12 @@ Azure 스택에 대 한 호환 되는 Azure PowerShell 모듈은 현재 버전 1
 * 반환 값 형식을 `Get-AzureRmStorageAccountKey` 버전 1.3.0에 두 개의 속성이: `Key1` 및 `Key2`, 현재 Azure 버전은 모든 account 키를 포함 하는 배열을 반환 하는 반면, 합니다.
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -242,7 +242,7 @@ Azure CLI에는 Azure의 Azure 리소스를 관리 하기 위한 명령줄 환�
 
 관리 하 고 명령줄에서 Azure 리소스를 관리 하 고 Azure 리소스 관리자에 대해 작동 하는 자동화 스크립트를 작성 하기 위한 azure CLI 최적화 됩니다. 여러 가지 다양 한 데이터 액세스를 포함 하 여 Azure 스택 포털의 동일한 기능을 제공 합니다.
 
-Azure 스택 Azure CLI 버전 2.0 필요합니다. 설치 하 고 Azure 스택에 Azure CLI를 구성 하는 방법에 대 한 자세한 내용은 참조 [설치 하 고 Azure 스택 CLI 구성](azure-stack-version-profiles-azurecli2.md)합니다. Azure 스택 저장소 계정의 리소스를 사용 하는 여러 작업을 수행할 Azure CLI 2.0을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure CLI2.0를 사용 하 여 Azure 저장소](../../storage/storage-azure-cli.md)
+Azure 스택 Azure CLI 버전 2.0 필요합니다. 설치 하 고 Azure 스택에 Azure CLI를 구성 하는 방법에 대 한 자세한 내용은 참조 [설치 하 고 Azure 스택 CLI 구성](azure-stack-version-profiles-azurecli2.md)합니다. Azure 스택 저장소 계정의 리소스를 사용 하는 여러 작업을 수행할 Azure CLI 2.0을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure CLI2.0를 사용 하 여 Azure 저장소와](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure 스택에 대 한 azure CLI 샘플 스크립트
 
@@ -263,7 +263,7 @@ CLI 설치 및 구성을 완료 하면 Azure 스택 저장소 리소스와 상�
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -292,17 +292,18 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-```
+````
 
-## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기
+## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 저장소 탐색기
 
-Microsoft Azure 저장소 탐색기는 Microsoft에서 독립 실행형 앱입니다. Azure 저장소 및 Azure 스택 저장소 데이터를 모두 사용 하 여 Windows, macOS 및 Linux 컴퓨터에서 쉽게 사용할 수 있습니다. 쉽게 Azure 스택 저장소 데이터를 관리 하는 방법을 원하는 다음 Microsoft Azure 저장소 탐색기를 사용 하십시오.
+Microsoft Azure 저장소 탐색기는 Microsoft에서 독립 실행형 앱입니다. 쉽게 사용할 Azure 저장소와 Azure 스택 저장소가 모두 데이터 창, macOS 및 Linux 컴퓨터에 있습니다. 쉽게 Azure 스택 저장소 데이터를 관리 하는 방법을 원하는 다음 Microsoft Azure 저장소 탐색기를 사용 하십시오.
 
-* Azure 스택 사용 하려면 Azure 저장소 탐색기를 구성 하는 방법에 대 한 자세한 참조 [스택 Azure 구독에 저장소 탐색기 연결](azure-stack-storage-connect-se.md)합니다.
+* Azure 스택 사용 하려면 Azure 저장소 탐색기 구성에 대 한 자세한 참조 [스택 Azure 구독에 저장소 탐색기 연결](azure-stack-storage-connect-se.md)합니다.
 * Microsoft Azure 저장소 탐색기에 대 한 자세한 참조 [저장소 탐색기를 시작 하려면](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>다음 단계
+
 * [저장소 탐색기는 스택 Azure 구독에 연결](azure-stack-storage-connect-se.md)
 * [저장소 탐색기를 시작](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [일관 된 azure 저장소: 차이점과 고려 사항](azure-stack-acs-differences.md)
-* [Microsoft Azure Storage 소개](../../storage/common/storage-introduction.md)
+* [Microsoft Azure 저장소 소개](../../storage/common/storage-introduction.md)

@@ -1,25 +1,27 @@
 ---
-title: 'Azure 스택 네트워킹: 차이점과 고려 사항'
+title: Azure 스택 차이점과 고려 사항을 네트워킹 | Microsoft Docs
 description: Azure 스택에서 네트워킹을 작업할 때 차이점과 고려 사항에 알아봅니다.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: faff52ba5b5e2f0d573a67633d3a8411b2d7de74
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606429"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure 스택 네트워킹에 대 한 고려 사항
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure 스택 네트워킹 다양 한 Azure 네트워킹에서 제공 하는 기능에 있습니다. 그러나 Azure 스택 네트워크를 배포 하기 전에 이해 해야 하는 몇 가지 주요 차이점이 있습니다.
+Azure 스택 네트워킹을 사용 하면 Azure 네트워킹에서 제공 하는 기능의 많습니다. 그러나 Azure 스택 네트워크를 배포 하기 전에 이해 해야 하는 몇 가지 주요 차이점이 있습니다.
 
 이 문서에서는 Azure 스택 네트워킹 및 해당 기능에 대 한 고유 고려 사항에 대 한 개요를 제공 합니다. Azure 스택와 Azure 간의 대략적인 차이 대 한 자세한 내용은 [고려 사항 키](azure-stack-considerations.md) 항목입니다.
 

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 095356e76dc72c3e549c23ab3855962e9c2f1d26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 1186776742562566be893c411a642d2feb819a86
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603947"
 ---
 # <a name="azure-stack-1803-update"></a>Azure 스택 1803 업데이트
 
@@ -56,7 +57,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 ### <a name="post-update-steps"></a>업데이트 후 단계
 - 1803 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.
 
-  - [Azure 스택 업데이트를 설치 하려고 할 때 KB 4103348-네트워크 컨트롤러 API 서비스가 충돌](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441-리소스 실패 하는 테 넌 트 및 예기치 않은 공유에 대 한 작업은 동일한 테 넌 트 또는 인프라 볼륨에 생성 됩니다.](https://support.microsoft.com/en-us/help/4294441)
 
 - 이 업데이트를 설치한 후 되도록 방화벽 구성을 검토 [필요한 포트가](azure-stack-integrate-endpoints.md) 열려 있습니다. 예를 들어이 업데이트 작업 로그에 감사 로그의 변경 사항이 포함 되어 있는 Azure 모니터를 소개 합니다. 이러한 변경으로 인해 포트 13012는 이제 사용 및도 열려 있어야 합니다.  
 
@@ -110,6 +111,9 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 빌드에 대 한 설치 후 알려진된 문제는 다음과 같은 **20180323.2**합니다.
 
 #### <a name="portal"></a>포털
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  해결 방법:이 업데이트를 설치한 후이 문제를 해결 하려면 사용에서 3 단계는 [트리거를 구성 하는 자동화 클레임 공급자 트러스트 Azure 스택의](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) 프로시저는 구독 소유자의 기본 공급자를 다시 설정 합니다.   
+
 - 기능 [새 지원 요청을 드롭다운 목록에서 열려는](azure-stack-manage-portals.md#quick-access-to-help-and-support) 에서 관리자 내에서 포털 사용할 수 없습니다. 대신, 다음 링크를 사용 합니다.     
     - Azure 스택 통합된 시스템을 사용 하 여 https://aka.ms/newsupportrequest합니다.
 
@@ -131,7 +135,23 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
   이 경고는 무시 해도 됩니다. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>상태 및 모니터링
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   #1 경고:
+   - 이름: 인프라 역할 비정상
+   - 심각도: 경고
+   - 구성 요소: 상태 컨트롤러
+   - 설명: 상태 컨트롤러 하트 비트 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
+
+  경고 # 2:
+   - 이름: 인프라 역할 비정상
+   - 심각도: 경고
+   - 구성 요소: 상태 컨트롤러
+   - 설명: 상태 컨트롤러 오류 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
+
+  두 가지 경고는 무시 해도 됩니다. 시간에 따라 자동으로 종료 됩니다.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - 사용자가 구독 하지 않고 전체 마켓플레이스를 찾아볼 수 있으며, 계획 및 제안 같은 관리 항목을 볼 수 있습니다. 이러한 항목은 사용자에 게 기능입니다.
@@ -143,7 +163,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 - 가용성으로 이동 하 여 포털에서 집합을 만들 때 **새로** > **계산** > **가용성 집합**를 만들 수 있습니다는 가용성 장애 도메인과 업데이트 도메인 1으로 설정합니다. 해결 방법으로, 새 가상 컴퓨터를 만들 때, 가용성 집합 내에서 또는 PowerShell, CLI를 사용 하 여 만듭니다 포털입니다.
 
-- Azure 스택 사용자 포털에 가상 컴퓨터를 만들 때 포털 잘못 된 DS 시리즈 VM에 연결할 수 있는 데이터 디스크 수를 표시 합니다. DS 시리즈 Vm은 Azure 구성으로 많은 데이터 디스크를 수용할 수 있습니다.
+- Azure 스택 사용자 포털에 가상 컴퓨터를 만들 때 포털 잘못 된 D 시리즈 VM에 연결할 수 있는 데이터 디스크 수를 표시 합니다. 모든 지원 되는 D 시리즈 Vm은 Azure 구성으로 많은 데이터 디스크를 수용할 수 있습니다.
 
 - VM 이미지를 만들 실패 하면 VM 이미지 계산 블레이드로 삭제할 수 없는 실패 한 항목을 추가할 수 있습니다.
 
@@ -264,6 +284,8 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>GitHub에서 Azure 스택 도구를 다운로드합니다.
 - 사용 하는 경우는 *호출 webrequest* Github에서 Azure 스택을 다운로드 하려면 PowerShell cmdlet 도구, 오류가 발생 합니다.     

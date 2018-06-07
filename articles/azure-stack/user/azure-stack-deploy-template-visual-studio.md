@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4101567eff68789fe5d46a01de26f6a873b519fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6cd722fedc0483e37ce6ee491d74a7c985111353
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605126"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Visual Studio를 사용하여 Azure Stack의 템플릿 배포
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/20/2018
 
 Azure 스택에 Azure 리소스 관리자 템플릿을 배포 하려면 Visual Studio를 사용할 수 있습니다.
 
-서식 파일을 배포 하려면
+## <a name="to-deploy-a-template"></a>서식 파일을 배포 하려면
 
 1. Visual Studio를 사용하여 Azure Stack에 [설치하고 연결합니다](azure-stack-install-visual-studio.md).
 2. Visual Studio를 엽니다.

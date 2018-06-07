@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604219"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure 스택 방화벽 통합
 Azure 스택 보안을 위해 방화벽 장치를 사용 하는 것이 좋습니다. 하지만 방화벽 등으로 분산 된 서비스 거부 (DDOS) 공격, 침입 감지 및 콘텐츠 검사에 도움이 될 수, blob, 테이블 및 큐와 같은 Azure 저장소 서비스에 대 한 처리량 병목 지점이 될 수도 있습니다.
@@ -48,7 +49,7 @@ NAT에서 외부 네트워크 또는 공용 Vip에 공용 IP 주소에 대 한 �
 
 일반적으로 라우팅 가능한 공용 IP 주소는 외부 네트워크에서 공용 VIP 풀에 대 한 배포 시에 지정 됩니다. 가장자리 시나리오에서는 다른 네트워크에 보안을 위해 라우팅할 수 있는 공용 Ip를 사용 하도록 하지 좋습니다. 이 시나리오에는 사용자를를 Azure와 같은 공용 클라우드 처럼 전체 자체 제어 클라우드 환경을 경험할 수 있습니다.  
 
-![Azure 스택 가장자리 방화벽 예제](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Azure 스택 가장자리 방화벽 예제](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>엔터프라이즈 인트라넷 이나 경계 네트워크 방화벽 시나리오
 엔터프라이즈 인트라넷 또는 주변 배포에서 Azure 스택 사이의 경계 면 방화벽 및 회사 내부 네트워크 방화벽 또는 다중 영역 설정 방화벽에 배포 됩니다. 해당 트래픽을 분산 하는 다음의 보안, 경계 네트워크 (또는 DMZ) 사이 및 아래에서 설명으로 보안 되지 않은 영역:

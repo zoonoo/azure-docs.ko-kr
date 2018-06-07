@@ -12,13 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605391"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure 스택에서 가상 컴퓨터를 사용 하기 위한 고려 사항
 
@@ -102,7 +103,7 @@ Get-AzureRmResourceProvider | `
 Windows 제품이 제품 사용권 및 Microsoft 사용 조건에 따라 사용 해야 합니다. Azure 스택 사용 하 여 [자동 VM 정품 인증](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) AVMA ()를 Windows Server 가상 컴퓨터 (Vm)를 활성화 합니다.
 
 - Azure 스택 호스트 AVMA 키를 가진 Windows Server 2016에 대 한 Windows를 활성화합니다. Windows Server 2012를 실행 하거나 나중에 자동으로 활성화 되는 모든 Vm
-- Vm을 실행된 하는 Windows Server 2008 R2가 자동으로 활성화를 사용 하 여 활성화 되어야 합니다 [MAK 정품 인증](https://technet.microsoft.com/library/ff793438.aspx)합니다.
+- Vm을 실행된 하는 Windows Server 2008 R2가 자동으로 활성화를 사용 하 여 활성화 되어야 합니다 [MAK 정품 인증](https://technet.microsoft.com/library/ff793438.aspx)합니다. MAK 정품 인증을 사용 하려면 고유한 제품 키를 제공 해야 합니다.
 
 Microsoft Azure는 Windows Vm을 활성화 하기 위해 KMS 정품 인증을 사용 합니다. 문제를 활성화 하는 Azure 스택에서 Azure 발생 하는 VM을 이동 하는 경우 참조 [문제를 해결 하는 Azure Windows 가상 컴퓨터 정품 인증 문제](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)합니다. 추가 정보를 찾을 수 있습니다는 [Azure Vm에서 문제 해결 Windows 정품 인증 오류](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure 지원 팀 블로그 게시물입니다.
 

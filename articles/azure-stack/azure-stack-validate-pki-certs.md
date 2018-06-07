@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cd917165804314f6ee4ee006e3f29263d8d4b4c5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605613"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure 스택 PKI 인증서의 유효성을 검사합니다
 
@@ -44,6 +45,8 @@ ms.lasthandoff: 04/16/2018
     순서가 올바른지 유효성을 검사 하는 인증서의 순서를 확인 합니다.
 - **기타 인증서**  
     다른 인증서가 없습니다. 관련 리프 인증서와 체인 이외의 PFX에 패키지 된 확인 합니다.
+- **프로필이 없습니다.**  
+    새 사용자 데이터를 로드할 수 PFX 사용자 프로필 로드 없이 인증서를 서비스 하는 동안 gMSA 계정의 동작을 모방을 확인 합니다.
 
 > [!IMPORTANT]  
 > PKI 인증서는 PFX 파일 및 중요 한 정보로 암호 처리 되어야 합니다.
@@ -57,43 +60,46 @@ ms.lasthandoff: 04/16/2018
 - DeploymentData.json
 - Windows 10 또는 Windows Server 2016
 
-## <a name="perform-certificate-validation"></a>인증서 유효성 검사를 수행 합니다.
+## <a name="perform-core-services-certificate-validation"></a>핵심 서비스 인증서 유효성 검사를 수행 합니다.
 
-다음이 단계를 사용 하 여 준비 하 고 Azure 스택 PKI 인증서를 확인:
+다음이 단계를 사용 하 여 준비 하 고 배포 및 비밀 회전에 대 한 Azure 스택 PKI 인증서를 확인:
 
-1. (5.1 이상) PowerShell 프롬프트에서 다음 cmdlet을 실행 하 여 AzsReadinessChecker를 설치 합니다.
+1. 설치 **AzsReadinessChecker** PowerShell 프롬프트에서 (5.1 이상), 다음 cmdlet을 실행 하 여:
 
     ````PowerShell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker 
+        Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ````
 
 2. 인증서 디렉터리 구조를 만듭니다. 아래 예제에서는 변경할 수 있습니다 `<c:\certificates>` 를 새 디렉터리 경로로 선택 합니다.
 
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
-
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
-
-    $destination = 'c:\certificates' 
-
-    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
+    
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    
+    $destination = 'c:\certificates'
+    
+    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
     ````
+    
+    > [!Note]  
+    > Id 시스템으로 AD FS를 사용 하는 경우 AD FS와 그래프가 필요 합니다.
+    
+     - 이전 단계에서 만든 적절 한 디렉터리에 사용 하 여 인증서를 배치 합니다. 예:   
+        - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
 
- - 이전 단계에서 만든 적절 한 디렉터리에 사용 하 여 인증서를 배치 합니다. 예:   
-    - c:\certificates\ACSBlob\CustomerCertificate.pfx 
-    - c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx 
-    - c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx 
-    - 및 기타 등등... 
-
-3. 실행할 PowerShell 창:
+3. PowerShell 창에서 값을 변경할 **RegionName** 및 **FQDN** Azure 스택 환경에 적합 한 및 다음 실행:
 
     ````PowerShell  
-    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
+    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+
     ````
 
-4. 모든 인증서는 테스트를 통과 했는지 확인 하려면 출력을 검토 합니다. 예: 
+4. 모든 테스트를 통과 하는 출력 및 모든 인증서를 확인 합니다. 예: 
 
     ````PowerShell
     AzsReadinessChecker v1.1803.405.3 started
@@ -125,7 +131,8 @@ ms.lasthandoff: 04/16/2018
     Finished Certificate Validation
 
     AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
+    AzsReadinessChecker Report location: 
+    C:\AzsReadinessChecker\AzsReadinessReport.json
     AzsReadinessChecker Completed
     ````
 
@@ -162,12 +169,87 @@ ms.lasthandoff: 04/16/2018
 
 **해결 방법**: 도구의 세부 정보 구역에서 각 인증서에 대 한 테스트의 각 집합에 대 한 지침을 따릅니다.
 
+## <a name="perform-platform-as-a-service-certificate-validation"></a>플랫폼으로 서비스 인증서 유효성 검사 수행
+
+SQL/MySQL 또는 응용 프로그램 서비스 배포를 계획 하는 경우 다음이 단계를 사용 하 여 준비 하 고 플랫폼에 대 한 Azure 스택 PKI 인증서는 서비스 (PaaS) 인증서로 유효성을 검사 합니다.
+
+1.  설치 **AzsReadinessChecker** PowerShell 프롬프트에서 (5.1 이상), 다음 cmdlet을 실행 하 여:
+
+    ````PowerShell  
+      Install-Module Microsoft.AzureStack.ReadinessChecker -force
+    ````
+
+2.  경로 및 암호 유효성 검사 필요 각 PaaS 인증서를 포함 하는 중첩 된 해시 테이블을 만듭니다. 실행할 PowerShell 창:
+
+    ```PowerShell
+        $PaaSCertificates = @{
+        'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSAPICert' = @{'pfxPath' = '<Path to API PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        }
+    ```
+
+3.  값을 변경 **RegionName** 및 **FQDN** 유효성 검사를 시작 하려면 Azure 스택 환경과 일치 하도록 합니다. 그런 후 다음을 실행합니다.
+
+    ```PowerShell
+    Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
+    ```
+4.  출력 하 고 있는 모든 인증서 모든 테스트를 통과 있는지 확인 하십시오.
+
+    ```PowerShell
+    AzsReadinessChecker v1.1805.425.2 started
+    Starting PaaS Certificate Validation
+    
+    Starting Azure Stack Certificate Validation 1.0 
+    Testing: PaaSCerts\wildcard.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\api.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\wildcard.dbadapter.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\sso.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+    ```
+
 ## <a name="using-validated-certificates"></a>유효성이 검사 된 인증서를 사용 하 여
 
 AzsReadinessChecker 하 여 유효성 검사 된 인증서를 Azure 스택 배포에서 또는 Azure 스택 비밀 회전에 대 한 사용할 준비가 됩니다. 
 
  - 배포에 적합 한 안전 하 게 전송 인증서를 배포 엔지니어링에 지정 된 배포 호스트에 복사할 수 있습니다는 [Azure 스택 PKI 요구 사항 문서](azure-stack-pki-certs.md)합니다.
  - 비밀 회전에 대 한 수행 하 여 Azure 스택 환경의 공용 인프라 끝점에 대 한 오래 된 인증서를 업데이트 하는 인증서를 사용할 수는 [Azure 스택 비밀 회전 설명서](azure-stack-rotate-secrets.md)합니다.
+ - PaaS 서비스의 경우에 따라 Azure 스택의 SQL, MySQL 및 응용 프로그램 서비스 리소스 공급자를 설치 하는 인증서를 사용할 수는 [Azure 스택 설명서에는 서비스 제공의 개요](azure-stack-offer-services-overview.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

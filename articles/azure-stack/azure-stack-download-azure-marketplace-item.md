@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604535"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure 스택에 마켓플레이스 항목을 다운로드
 
@@ -85,7 +86,7 @@ PowerShell을 사용 하 여 Azure 스택 연결이 끊어진된 모드에서 �
 
 - 다운로드 한 마켓플레이스 항목의 가져오기를 설정 하려면는 [Azure 스택 연산자에 대 한 PowerShell 환경](azure-stack-powershell-configure-admin.md) 구성 해야 합니다.  
 
-- 저장소 계정 (즉, 저장소 blob) 공개적으로 액세스할 수 있는 컨테이너에 있는 Azure 스택의에 있어야 합니다. 마켓플레이스 항목 갤러리 파일에 대 한 임시 저장소로 컨테이너를 사용 합니다. 저장소 계정 및 컨테이너에 익숙하지 않은 경우 참조 [blob-Azure 포털을](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) Azure 설명서에서.
+- 있어야는 [저장소 계정](azure-stack-manage-storage-accounts.md) (즉, 저장소 blob) 공개적으로 액세스할 수 있는 컨테이너에 있는 Azure 스택의 합니다. 마켓플레이스 항목 갤러리 파일에 대 한 임시 저장소로 컨테이너를 사용 합니다. 저장소 계정 및 컨테이너에 익숙하지 않은 경우 참조 [blob-Azure 포털을](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) Azure 설명서에서.
 
 - 마켓플레이스 배포 도구는 첫 번째 절차 중에 다운로드 됩니다. 
 

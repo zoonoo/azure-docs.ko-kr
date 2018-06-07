@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8643e75a24ff7840b71dfaceae9934cdda566d30
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604423"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 Azure 스택 SQL Server 리소스 공급자를 사용 하 여 SQL 데이터베이스를 Azure 스택의 서비스로 노출 합니다. SQL 리소스 공급자는 Windows Server 코어 가상 컴퓨터는 VM에서 SQL 리소스 공급자 서비스 실행 됩니다.
@@ -29,10 +30,14 @@ Azure 스택 SQL 리소스 공급자를 배포 하기 전에 준비 되어야 �
 - 하면 아직 수행 하지 않은, 경우 [레지스터 Azure 스택](.\azure-stack-registration.md) Azure와 함께 Azure 마켓플레이스 항목을 다운로드할 수 있도록 합니다.
 - 다운로드 하 여 Azure 스택 marketplace에 필요한 Windows Server 코어 VM 추가 **Windows Server 2016 Server core** 이미지입니다. 업데이트를 설치 해야 할 경우에 단일을 배치할 수 있습니다. 로컬 종속성 경로에 MSU 패키지입니다. 둘 이상 있습니다. MSU 파일이, SQL 리소스 공급자 설치에 실패 합니다.
 - 이진 SQL 리소스 공급자를 다운로드 하 고 임시 디렉터리에 콘텐츠를 추출 자동 압축 풀기를 실행 하십시오. 리소스 공급자에는 빌드는 최소 해당 Azure 스택 합니다. 실행 중인 Azure 스택 버전에 대 한 올바른 이진을 다운로드 해야 합니다.
-    - Azure 스택 1802 (1.0.180302.1) 버전: [SQL RP 버전 1.1.18.0](https://aka.ms/azurestacksqlrp1802)합니다.
-    - Azure 스택 버전 1712 (1.0.180102.3, 1.0.180103.2 또는 1.0.180106.1 (통합된 시스템)): [SQL RP 버전 1.1.14.0](https://aka.ms/azurestacksqlrp1712)합니다.
+
+    |Azure 스택 버전|SQL RP 버전|
+    |-----|-----|
+    |버전 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 버전](https://aka.ms/azurestacksqlrp1804)
+    |버전 1802 (1.0.180302.1)|[SQL RP 1.1.18.0 버전](https://aka.ms/azurestacksqlrp1802)|
+    |버전 1712 (1.0.180102.3, 1.0.180103.2 또는 1.0.180106.1 (통합된 시스템))|[SQL RP 1.1.14.0 버전](https://aka.ms/azurestacksqlrp1712)|
+    |     |     |
 - 통합된 시스템 설치에 대해 제공 해야의 선택적 PaaS 인증서 섹션에 설명 된 대로 SQL PaaS PKI 인증서 [Azure 스택 배포에 대 한 PKI 요구 사항](.\azure-stack-pki-certs.md#optional-paas-certificates)를 위치에.pfx 파일을 배치 하 여 에 지정 된는 **DependencyFilesLocalPath** 매개 변수입니다.
-- 있어야는 [최신 버전의 Azure 스택 PowerShell](.\azure-stack-powershell-install.md) (v1.2.11) 설치 합니다. 
 
 ## <a name="deploy-the-sql-resource-provider"></a>SQL 리소스 공급자를 배포 합니다.
 성공적으로 준비 하는 모든 필수 구성 요소를 충족 하 여 SQL 리소스 공급자를 설치 하려면 후 실행할 수 있습니다는 **DeploySqlProvider.ps1** SQL 리소스 공급자를 배포 하는 스크립트입니다. Azure 스택 버전에 해당 하는 다운로드 이진 SQL 리소스 공급자의 일부로 DeploySqlProvider.ps1 스크립트 추출 됩니다. 
@@ -81,10 +86,9 @@ SQL 리소스 공급자 배포 시작 되 고 system.local.sqladapter 리소스 
 DeploySqlProvider.ps1 스크립트를 실행할 때 필요한 정보를 수동으로 입력을 방지 하려면 기본 계정 정보 및 필요에 따라 암호를 변경 하 여 다음 스크립트 예제를 사용자 지정할 수 있습니다.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -113,12 +117,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+$tempDir\DeploySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
+    -VMLocalCredential $vmLocalAdminCreds `
+    -CloudAdminCredential $cloudAdminCreds `
+    -PrivilegedEndpoint $privilegedEndpoint `
+    -DefaultSSLCertificatePassword $PfxPass `
+    -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Azure 스택 포털을 사용 하 여 배포 확인

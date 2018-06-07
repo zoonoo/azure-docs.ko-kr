@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 278f15271d3a5443102f5e387d3db1adb53fe7db
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: eea4f568f21693764222c8fdbe3316bf6008cc05
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604236"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Azure Stack 포털을 사용하여 템플릿 배포
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/20/2018
 
 Azure 스택 Azure 리소스 관리자 템플릿을 배포 하는 포털을 사용할 수 있습니다.
 
-서식 파일을 배포 하려면
+## <a name="to-deploy-a-template"></a>서식 파일을 배포 하려면
 
 1. 선택 포털에 로그인 **새로**를 선택한 후 **사용자 지정**합니다.
 2. 선택 **템플릿 배포**합니다.
@@ -39,4 +40,4 @@ Azure 스택 Azure 리소스 관리자 템플릿을 배포 하는 포털을 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-[PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
+* [PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
