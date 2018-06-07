@@ -12,9 +12,15 @@
 - name: 자습서
   items:
     - name: '업로드, 인코딩 및 스트리밍'
-      href: stream-files-tutorial-with-api.md
+      items:
+        - name: .NET 사용
+          href: stream-files-tutorial-with-api.md
+        - name: REST 사용
+          href: stream-files-tutorial-with-rest.md
     - name: 비디오 분석
-      href: analyze-videos-tutorial-with-api.md
+      items:
+        - name: .NET 사용
+          href: analyze-videos-tutorial-with-api.md
 - name: 샘플
   items:
     - name: Azure 코드 샘플
@@ -25,18 +31,24 @@
   items:
     - name: 자산
       href: assets-concept.md
-    - name: Autogen 적응 비트 전송률 사다리
-      href: autogen-bitrate-ladder.md
+    - name: Encoding
+      items:
+        - name: 개요
+          href: encoding-concept.md
+        - name: Autogen 적응 비트 전송률 사다리
+          href: autogen-bitrate-ladder.md
     - name: 미디어 인텔리전스
       href: intelligence-concept.md
+    - name: 이벤트에 반응
+      href: reacting-to-media-services-events.md
     - name: Storage 계정
       href: storage-account-concept.md
     - name: 변환 및 작업
       href: transform-concept.md
-    - name: 이벤트에 반응
-      href: reacting-to-media-services-events.md
 - name: 방법 가이드
   items:
+    - name: v2에서 v3로 마이그레이션
+      href: migrate-from-v2-to-v3.md
     - name: 계정 만들기 - CLI
       href: create-account-cli-how-to.md
     - name: API 액세스 - CLI
@@ -49,8 +61,14 @@
           href: job-input-from-http-how-to.md
         - name: 로컬 파일에서
           href: job-input-from-local-file-how-to.md
+    - name: 변환 사전 설정 사용자 지정
+      items:
+        - name: .NET Core 사용
+          href: customize-encoder-presets-how-to.md
 - name: 참고 자료
   items:
+    - name: OpenAPI 사양(Swagger)
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
     - name: Azure CLI 2.0
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST (영문)
@@ -61,6 +79,8 @@
       href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
     - name: 파이썬
       href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
+    - name: Node .js
+      href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: 이벤트 스키마
       href: media-services-event-schemas.md
 - name: 리소스
@@ -77,3 +97,5 @@
       href: release-notes.md
     - name: 할당량 및 제한 사항
       href: limits-quotas-constraints.md
+    - name: FAQ
+      href: frequently-asked-questions.md

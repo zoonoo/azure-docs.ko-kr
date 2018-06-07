@@ -14,6 +14,8 @@
   items:
     - name: TSI JavaScript 클라이언트 라이브러리 탐색
       href: tutorial-explore-js-client-lib.md
+    - name: TSI 환경 만들기
+      href: tutorial-create-populate-tsi-environment.md
 - name: 개념
   items:
     - name: 환경 계획
@@ -56,6 +58,8 @@
       href: time-series-insights-how-to-scale-your-environment.md
     - name: 템플릿을 사용하여 리소스 관리
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+    - name: 쿼리에 대한 셰이프 JSON
+      href: how-to-shape-query-json.md
 - name: 참고 자료
   items:
     - name: 쿼리 API

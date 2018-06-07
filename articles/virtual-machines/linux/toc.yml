@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: 고성능 계산
           href: sizes-hpc.md
+        - name: 이전 세대
+          href: sizes-previous-gen.md
         - name: Azure 계산 단위(ACU)
           href: acu.md
         - name: 벤치마크 점수
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: 템플릿 사용
           href: create-ssh-secured-vm-from-template.md
+        - name: REST API 사용
+          href: create-vm-rest-api.md
         - name: VM 복사 또는 복제
           href: copy-vm.md
     - name: VM 보안
@@ -188,7 +192,12 @@
         - name: VM에 태그 지정
           href: tag.md
         - name: VM에서 스크립트 실행
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: 사용자 지정 스크립트 확장
+              href: ../extensions/custom-script-linux.md
+            - name: 명령 실행
+              href: run-command.md
         - name: 원격 데스크톱 사용
           href: use-remote-desktop.md
         - name: VM을 Azure Active Directory에 가입시키기
@@ -416,21 +425,7 @@
             - name: 내부 DNS 사용
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: VM 확장 사용
-      items:
-        - name: VM 확장 개요
-          href: extensions-features.md
-        - name: 사용자 지정 스크립트 확장
-          href: extensions-customscript.md
-        - name: OMS 에이전트 확장
-          href: extensions-oms.md
-        - name: Linux 진단 확장
-          href: diagnostic-extension.md
-        - name: Network Watcher 에이전트
-          href: extensions-nwa.md
-        - name: VMAccess 확장
-          href: using-vmaccess-extension.md
-        - name: 확장 설치 제한
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: VM 마이그레이션
       items:
         - name: AWS 및 온-프레미스 VM 마이그레이션

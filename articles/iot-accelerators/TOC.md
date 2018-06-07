@@ -3,13 +3,13 @@
 
 # 개요
 ## [IoT 아키텍처 개념](iot-accelerators-what-is-azure-iot.md)
-## [Azure IoT 옵션 비교](../iot-suite/iot-suite-options.md)
+## [Azure IoT 옵션 비교](iot-accelerators-options.md)
 ## [솔루션 가속기 개요](iot-accelerators-what-are-solution-accelerators.md)
 
 # 시작하기
 ## 원격 모니터링
 ### [솔루션 가속기 배포](iot-accelerators-remote-monitoring-deploy.md)
-### [솔루션 가속기 작동](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [솔루션 가속기 작동](iot-accelerators-remote-monitoring-explore.md)
 
 ## 원격 모니터링(이전 버전)
 ### [솔루션 가속기란?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -43,8 +43,8 @@
 
 
 ## 예측 유지 관리
-### [예측 유지 관리 솔루션 가속기 개요](../iot-suite/iot-suite-predictive-overview.md)
-### [예측 유지 관리 솔루션 가속기 연습](../iot-suite/iot-suite-predictive-walkthrough.md)
+### [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
+### [예측 유지 관리 솔루션 가속기 연습](iot-accelerators-predictive-walkthrough.md)
 
 ## 연결된 팩터리
 ### [연결된 팩터리란?](iot-accelerators-connected-factory-features.md)
@@ -70,7 +70,7 @@
 ### [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)
 ### [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [로컬로 배포](iot-accelerators-remote-monitoring-deploy-local.md)
-### [Time Series Insights를 사용하여 데이터 시각화](../iot-suite/iot-suite-time-series-insights.md)
+### [Time Series Insights를 사용하여 데이터 시각화](iot-accelerators-time-series-insights.md)
 ### [Data Lake와 통합](iot-accelerators-integrate-data-lake.md)
 ### 실제 장치 연결
 #### [Windows에서 C](iot-accelerators-connecting-devices.md)
@@ -78,7 +78,7 @@
 #### [Node.js(일반)](iot-accelerators-connecting-devices-node.md)
 #### [Raspberry Pi의 Node.js](iot-accelerators-connecting-pi-node.md)
 #### [Raspberry Pi의 C](iot-accelerators-connecting-pi-c.md)
-#### [MX 칩 AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
+#### [MX 칩 AZ3166 DevKit](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### 개념
 #### [원격 모니터링 구현 세부 정보](iot-accelerators-remote-monitoring-sample-walkthrough.md)
@@ -89,19 +89,19 @@
 ### [연결된 팩터리 사용자 지정](iot-accelerators-connected-factory-customize.md)
 ### [연결된 팩터리에 OPC 게시자 사용](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [연결된 팩터리 구성](iot-accelerators-connected-factory-configure.md)
-## [azureiotsuite.com의 사용 권한](../iot-suite/iot-suite-permissions.md)
+## [azureiotsuite.com의 사용 권한](iot-accelerators-permissions.md)
 
 # 참고 자료
 ## [개발자 참조 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [개발자 문제 해결 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [보안 아키텍처](../iot-suite/iot-security-architecture.md)
-## [보안 모범 사례](../iot-suite/iot-security-best-practices.md)
-## [IoT 배포 보안 유지](../iot-suite/iot-suite-security-deployment.md)
-## [처음부터 보안을 고려](../iot-suite/securing-iot-ground-up.md)
+## [보안 아키텍처](iot-security-architecture.md)
+## [보안 모범 사례](iot-security-best-practices.md)
+## [IoT 배포 보안 유지](iot-accelerators-security-deployment.md)
+## [처음부터 보안을 고려](securing-iot-ground-up.md)
 
 # 관련 항목
 ## 솔루션 
-### [IoT Suite 미리 구성된 솔루션](/azure/iot-suite) 
+### [IoT 솔루션 가속기](/azure/iot-suite) 
 ### [IoT 중부](https://docs.microsoft.com/microsoft-iot-central/) 
 ## 플랫폼 서비스 
 ### [IoT 허브](/azure/iot-hub) 

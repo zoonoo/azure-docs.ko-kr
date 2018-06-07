@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: 개념
   items:
-    - name: 수집기 개념
+    - name: 수집기 정보
       href: concepts-collector.md
     - name: 평가 계산
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
-    - name: 온-프레미스 리소스를 Azure로 마이그레이션
+    - name: Contoso 마이그레이션 시리즈
       items:
-        - name: 시나리오 개요 - 온-프레미스 리소스를 Azure로 마이그레이션
-          href: migrate-scenarios-overview.md
-        - name: 시나리오 1 - Azure로 마이그레이션할 온-프레미스 리소스 평가
+        - name: 1. Contoso-마이그레이션 개요
+          href: contoso-migration-overview.md
+        - name: 2. Contoso-Azure 인프라 설정
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso-Azure로 마이그레이션할 온-프레미스 리소스 평가
           href: migrate-scenarios-assessment.md
-        - name: 시나리오 2 - Azure로 신속한 마이그레이션 전환
+        - name: 4. Contoso-Azure VM 및 Azure SQL 관리되는 인스턴스에서 다시 호스트
           href: migrate-scenarios-lift-and-shift.md
     - name: 대규모 환경 검색 및 평가
       href: how-to-scale-assessment.md

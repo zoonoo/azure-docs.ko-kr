@@ -9,6 +9,7 @@
 ## [원격 분석 보내기(.NET)](quickstart-send-telemetry-dotnet.md)
 ## [원격 분석 보내기(Java)](quickstart-send-telemetry-java.md)
 ## [원격 분석 보내기(Python)](quickstart-send-telemetry-python.md)
+## [원격 분석 보내기(iOS)](quickstart-send-telemetry-ios.md)
 ## [장치 제어(Node.js)](quickstart-control-device-node.md)
 ## [장치 제어(.NET)](quickstart-control-device-dotnet.md)
 ## [장치 제어(Java)](quickstart-control-device-java.md)
@@ -18,29 +19,19 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [메시지 라우팅](tutorial-routing.md)
+## [장치 구성](tutorial-device-twins.md)
+## [장치 연결 테스트](tutorial-connectivity.md)
 ## 클라우드-장치 메시지 보내기
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## 쌍 장치 시작
-### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
-### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
-### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-getstarted.md)
-### [Python 백 엔드/Python 장치](iot-hub-python-twin-getstarted.md)
 ## 장치 관리 시작
 ### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-device-management-get-started.md)
 ### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-device-management-get-started.md)
 ### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java 백 엔드/Java 장치](iot-hub-java-java-device-management-getstarted.md)
 ### [Python 백 엔드/Python 장치](iot-hub-python-python-device-management-get-started.md)
-## 쌍 속성 사용 방법
-### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-how-to-configure.md)
-### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-how-to-configure.md)
-### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-how-to-configure.md)
-### [Python 백 엔드/Python 장치](iot-hub-python-python-twin-how-to-configure.md)
 ## 장치 작업을 사용하여 장치 펌웨어 업데이트
 ### [노드 백 엔드/노드 장치](iot-hub-node-node-firmware-update.md)
 ### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-firmware-update.md)
@@ -80,6 +71,8 @@
 ### [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)
 ### [가격 책정 예](iot-hub-devguide-pricing.md)
 ### [장치 및 서비스 SDK](iot-hub-devguide-sdks.md)
+### [제한된 장치에 대한 개발](iot-hub-devguide-develop-for-constrained-devices.md)
+### [모바일 장치용 개발](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT 지원](iot-hub-mqtt-support.md)
 ### [용어](iot-hub-devguide-glossary.md)
 
@@ -89,7 +82,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS(Swift)](quickstart-send-telemetry-ios.md)
 ## [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
 ### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
 ### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
@@ -157,17 +149,26 @@
 ### [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
 #### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
 #### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
+### [제한된 장치에 대한 개발](iot-hub-devguide-develop-for-constrained-devices.md)
+### [모바일 장치용 개발](iot-hub-how-to-develop-for-mobile-devices.md)
 ### 메시지 라우팅
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
+### [허브 경로에서 Avro 데이터 쿼리](iot-hub-query-avro-data.md)
 ### 클라우드-장치 메시지 보내기
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### 쌍 장치 시작
+#### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
+#### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-getstarted.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-twin-getstarted.md)
 ### 장치에서 파일 업로드
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -217,13 +218,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## 작업 예약 및 브로드캐스트
-### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-schedule-jobs.md)
-### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java 백 엔드/Java 장치](iot-hub-java-java-schedule-jobs.md)
-### [Python 백 엔드/Python 장치](iot-hub-python-python-schedule-jobs.md)
 
 ## IoT Hub 만들기 
 ### [Azure Portal 사용](iot-hub-create-through-portal.md)

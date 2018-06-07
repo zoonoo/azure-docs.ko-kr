@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: 가상 네트워크에서 풀 만들기
           href: batch-virtual-network.md
+        - name: Azure 파일 공유 탑재
+          href: pool-file-shares.md
         - name: 계산 집약적 VM 사용
           href: batch-pool-compute-intensive-sizes.md
         - name: Linux 계산 노드 사용

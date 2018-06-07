@@ -1,26 +1,24 @@
 ---
-title: "Azure Data Lake Analytics 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "Data Lake Analytics를 사용하는 빅 데이터 분석에 대해 알아봅니다. 자습서에서는 실시간으로 일괄 처리 대화형 분석을 실행하는 방법 및 U-SQL 쿼리를 작성하는 방법을 보여 줍니다."
+title: Azure Data Lake Analytics 설명서 - 자습서, API 참조
+description: Azure Data Lake Analytics를 사용하는 빅 데이터 분석에 대해 알아봅니다. 자습서에서는 실시간으로 일괄 처리 대화형 분석을 실행하는 방법 및 U-SQL 쿼리를 작성하는 방법을 보여 줍니다.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624219"
 ---
-# <a name="data-lake-analytics-documentation"></a>Data Lake Analytics 설명서
+# <a name="azure-data-lake-analytics-documentation"></a>Azure Data Lake Analytics 설명서
 
-Data Lake Analytics를 사용하여 방대한 데이터 집합으로 확장되는 빅 데이터 분석 작업을 실행하는 방법을 알아봅니다. 자습서 및 기타 설명서에서는 실시간으로 일괄 처리 대화형 분석 작업을 만들고 관리하는 방법 및 U-SQL 언어를 사용하여 쿼리하는 방법을 보여 줍니다.
+Azure Data Lake Analytics를 사용하여 방대한 데이터 집합으로 확장되는 빅 데이터 분석 작업을 실행하는 방법을 알아봅니다. 자습서 및 기타 설명서에서는 실시간으로 일괄 처리 대화형 분석 작업을 만들고 관리하는 방법 및 U-SQL 언어를 사용하여 쿼리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -84,7 +82,7 @@ Data Lake Analytics를 사용하여 방대한 데이터 집합으로 확장되�
     <tr>
         <td><a href="data-lake-analytics-get-started-portal.md">포털</a></td>
         <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
-        <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Contact.java</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Visual Studio Code</a></td>
         <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
         <td><a href="data-lake-analytics-get-started-cli2.md">Azure CLI 2.0</a></td>
     </tr>
@@ -98,13 +96,12 @@ Data Lake Analytics를 사용하여 방대한 데이터 집합으로 확장되�
         <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 
 ---
  
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -126,7 +123,7 @@ Data Lake Analytics를 사용하여 방대한 데이터 집합으로 확장되�
                     <div class="cardText">
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.JS</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>

@@ -204,11 +204,17 @@
 ##### [자동 설치](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [사용자 지정 홈 페이지](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [인라인 링크 변환](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
+##### [와일드카드](active-directory-application-proxy-wildcard.md)
+##### [개인 데이터 제거](manage-apps/application-proxy-remove-personal-data.md)
+
+
 #### 게시 연습
 ##### [원격 데스크톱](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft 팀](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
+
 
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
 
@@ -303,7 +309,7 @@
 ##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
 ##### [앱 기반 조건부 액세스 설정](active-directory-conditional-access-mam.md)
 ##### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)
-##### [VPN 연결 설정](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [VPN 연결 설정](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
 ##### [재구성](active-directory-conditional-access-device-remediation.md)
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)

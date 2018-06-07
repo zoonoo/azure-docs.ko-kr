@@ -19,7 +19,8 @@
 #### [Azure Key Vault 통합 구성](virtual-machines-windows-ps-sql-keyvault.md)
 ## Backup 및 복원
 ### [Backup 및 복원](virtual-machines-windows-sql-backup-recovery.md)
-### [자동화된 백업](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2014의 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2016+의 자동화된 백업](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [백업 및 복원에 Azure Storage 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # 방법 가이드
@@ -40,16 +41,16 @@
 ### 장애 조치 클러스터 인스턴스
 #### [구성](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server 드라이버](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
-## [REST (영문)](/rest/api/)
+## [REST](/rest/api/)
 
 # 리소스
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
-## [가격 책정](virtual-machines-windows-sql-server-pricing-guidance.md)
+## [가격](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [PaaS 또는 IaaS?](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)
 ## [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)

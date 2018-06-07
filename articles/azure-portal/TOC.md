@@ -15,6 +15,7 @@
 ### [Azure 대시보드를 프로그래밍 방식으로 만들기](azure-portal-dashboards-create-programmatically.md)
 ## 관리
 ### [고대비 켜기 및 테마 변경](azure-portal-change-theme-high-contrast.md)
+### [사용자 설정 내보내기 또는 삭제](azure-portal-export-delete-settings.md)
 ### [포털을 사용하여 리소스 관리](../azure-resource-manager/resource-group-portal.md)
 ### [역할 기반 Access Control로 액세스 관리](../role-based-access-control/role-assignments-portal.md)
 ### [역할 기반 Access Control로 대시보드 공유](azure-portal-dashboard-share-access.md)

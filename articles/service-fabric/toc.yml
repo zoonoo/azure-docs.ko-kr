@@ -433,6 +433,8 @@
           href: service-fabric-visualstudio-configure-secure-connections.md
         - name: VS에서 .NET 서비스 디버그
           href: service-fabric-debugging-your-application.md
+        - name: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버그
+          href: service-fabric-how-to-debug-windows-containers.md
         - name: 일반적인 오류 및 예외
           href: service-fabric-errors-and-exceptions.md
         - name: 로컬로 모니터링 및 진단
@@ -521,12 +523,18 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: 인증서 일반 이름을 사용하는 클러스터
                   href: service-fabric-create-cluster-using-cert-cn.md
+                - name: Windows용 디스크 암호화 사용
+                  href: service-fabric-enable-azure-disk-encryption-windows.md
+                - name: Linux용 디스크 암호화 사용
+                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: 확장
               items:
-                - name: 수동
+                - name: 수동으로 규모 확장
                   href: service-fabric-cluster-scale-up-down.md
-                - name: 프로그래밍 방식
+                - name: 프로그래밍 방식으로 규모 확장
                   href: service-fabric-cluster-programmatic-scaling.md
+                - name: 주 노드 형식 VM 강화
+                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: 업그레이드
               href: service-fabric-cluster-upgrade.md
             - name: 액세스 제어 설정
@@ -599,10 +607,10 @@
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: 인프라 모니터
           items:
-            - name: WAD를 사용하여 성능 모니터링
-              href: service-fabric-diagnostics-perf-wad.md
             - name: OMS 에이전트를 사용한 성능 모니터링
               href: service-fabric-diagnostics-oms-agent.md
+            - name: WAD를 사용하여 성능 모니터링
+              href: service-fabric-diagnostics-perf-wad.md
         - name: 상태 모니터링
           items:
             - name: 상태 보고 및 확인
@@ -613,6 +621,8 @@
               href: service-fabric-view-entities-aggregated-health.md
         - name: 로컬 클러스터 문제 해결
           href: service-fabric-troubleshoot-local-cluster-setup.md
+        - name: 일반적인 시나리오 진단
+          href: service-fabric-diagnostics-common-scenarios.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell
@@ -628,20 +638,29 @@
           href: service-fabric-sfctl-application.md
         - name: sfctl chaos
           href: service-fabric-sfctl-chaos.md
+          items:
+            - name: sfctl chaos schedule
+              href: service-fabric-sfctl-chaos-schedule.md
         - name: sfctl cluster
           href: service-fabric-sfctl-cluster.md
         - name: sfctl compose
           href: service-fabric-sfctl-compose.md
+        - name: sfctl container
+          href: service-fabric-sfctl-container.md
         - name: sfctl is
           href: service-fabric-sfctl-is.md
         - name: sfctl node
           href: service-fabric-sfctl-node.md
         - name: sfctl partition
           href: service-fabric-sfctl-partition.md
+        - name: sfctl property
+          href: service-fabric-sfctl-property.md
         - name: sfctl 복제본
           href: service-fabric-sfctl-replica.md
         - name: sfctl rpm
           href: service-fabric-sfctl-rpm.md
+        - name: sfctl sa-cluster
+          href: service-fabric-sfctl-sa-cluster.md
         - name: sfctl service
           href: service-fabric-sfctl-service.md
         - name: sfctl store

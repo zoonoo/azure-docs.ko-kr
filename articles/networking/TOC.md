@@ -43,11 +43,9 @@
 ### [개별 전용 연결(ExpressRoute) 만들기](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## 관리
+### [네트워크 모니터링 개요](network-monitoring-overview.md)
+### [Azure 제한에 대해 리소스 사용량 확인](check-usage-against-limits.md)
 ### [네트워크 토폴로지 보기](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [패킷 캡처 관리](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [다음 홉 라우팅 확인](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [VM에 대한 IP 흐름 확인](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [네트워크 모니터링 개요](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## 샘플 스크립트
 ### [Azure CLI](cli-samples.md)

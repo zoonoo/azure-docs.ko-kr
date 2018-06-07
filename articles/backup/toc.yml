@@ -63,6 +63,8 @@
           items:
             - name: Azure Portal에서 Azure Backup Server 작업 준비
               href: backup-azure-microsoft-azure-backup.md
+            - name: Azure Stack에 Azure Backup Server 설치
+              href: backup-mabs-install-azure-stack.md
             - name: Azure Backup Server에 저장소 추가
               href: backup-mabs-add-storage.md
             - name: Azure Backup Server를 v.2로 업그레이드
@@ -157,12 +159,10 @@
           href: backup-dpm-automation.md
         - name: Azure Portal의 Windows Server
           href: backup-client-automation.md
-    - name: Azure SQL Database
+    - name: Azure VM의 SQL
       items:
-        - name: SQL Database 백업 구성 및 복원 - SQL 저장소
-          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: SQL Database 백업 구성 및 복원 - Recovery Services 자격 증명 모음
-          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Azure에서 SQL 데이터베이스 백업
+          href: backup-azure-sql-database.md
     - name: Windows Server
       items:
         - name: Windows Server 파일 및 폴더 백업
