@@ -1,5 +1,5 @@
 - name: ExpressRoute 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   items:
     - name: ExpressRoute란?

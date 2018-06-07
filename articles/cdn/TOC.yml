@@ -10,6 +10,8 @@
   items:
     - name: 프로필 및 끝점 만들기
       href: cdn-create-new-endpoint.md
+    - name: 저장소 계정 통합
+      href: cdn-create-a-storage-account-with-cdn.md
 - name: 자습서
   items:
     - name: Azure CDN을 웹앱에 추가
@@ -28,29 +30,21 @@
   items:
     - name: 캐싱 작동 방식
       href: cdn-how-caching-works.md
+    - name: 중국 콘텐츠 전송
+      href: cdn-china-delivery.md
+    - name: HTTP/2 지원
+      href: cdn-http2.md
 - name: 방법 가이드
   items:
-    - name: 통합
-      items:
-        - name: Storage
-          items:
-            - name: 저장소 계정 통합
-              href: cdn-create-a-storage-account-with-cdn.md
-            - name: SAS 저장소 지원
-              href: cdn-sas-storage-support.md
-        - name: 크로스-원본 자원 공유
-          href: cdn-cors.md
     - name: 콘텐츠 최적화
+      href: cdn-optimization-overview.md
       items:
-        - name: 최적화 개요
-          href: cdn-optimization-overview.md
-          items:
-            - name: 대용량 파일 최적화
-              href: cdn-large-file-optimization.md
-            - name: 미디어 스트리밍 최적화
-              href: cdn-media-streaming-optimization.md
-            - name: 동적 사이트 가속
-              href: cdn-dynamic-site-acceleration.md
+        - name: 대용량 파일 최적화
+          href: cdn-large-file-optimization.md
+        - name: 미디어 스트리밍 최적화
+          href: cdn-media-streaming-optimization.md
+        - name: 동적 사이트 가속
+          href: cdn-dynamic-site-acceleration.md
     - name: 관리
       items:
         - name: Azure PowerShell로 관리
@@ -61,8 +55,6 @@
           href: cdn-improve-performance.md
         - name: 캐싱 동작 제어
           items:
-            - name: 캐싱 작동 방식
-              href: cdn-how-caching-works.md
             - name: 캐싱 규칙을 사용하여 캐싱 동작 제어
               href: cdn-caching-rules.md
             - name: 쿼리 문자열별 캐시 콘텐츠
@@ -83,35 +75,35 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
+        - name: SAS 저장소 지원
+          href: cdn-sas-storage-support.md
+        - name: 크로스-원본 자원 공유
+          href: cdn-cors.md
         - name: 리소스 모니터링
           href: cdn-resource-health.md
         - name: 규칙을 사용하여 동작 재정의
           href: cdn-rules-engine.md
-        - name: 실시간 경고 받기
-          href: cdn-real-time-alerts.md
-        - name: HTTP/2 지원
-          href: cdn-http2.md
     - name: 분석
+      href: cdn-log-analysis.md
       items:
-        - name: Azure CDN 사용 패턴 분석
-          href: cdn-log-analysis.md
+        - name: Azure 진단 로그
+          href: cdn-azure-diagnostic-logs.md
+        - name: Verizon의 Azure CDN에 대한 분석 도구
           items:
-            - name: Azure 진단 로그
-              href: cdn-azure-diagnostic-logs.md
-            - name: Verizon의 Azure CDN에 대한 분석 도구
-              items:
-                - name: Verizon의 코어 보고서
-                  href: cdn-analyze-usage-patterns.md
-                - name: Verizon의 사용자 지정 보고서
-                  href: cdn-verizon-custom-reports.md
-            - name: Verizon의 Azure CDN Premium에 대한 분석 도구
-              items:
-                - name: 고급 HTTP 보고서 생성
-                  href: cdn-advanced-http-reports.md
-                - name: 실시간 통계 보기
-                  href: cdn-real-time-stats.md
-                - name: 에지 노드 성능 분석
-                  href: cdn-edge-performance.md
+            - name: Verizon의 코어 보고서
+              href: cdn-analyze-usage-patterns.md
+            - name: Verizon의 사용자 지정 보고서
+              href: cdn-verizon-custom-reports.md
+        - name: Verizon의 Azure CDN Premium에 대한 분석 도구
+          items:
+            - name: 고급 HTTP 보고서 생성
+              href: cdn-advanced-http-reports.md
+            - name: 실시간 통계 보기
+              href: cdn-real-time-stats.md
+            - name: 에지 노드 성능 분석
+              href: cdn-edge-performance.md
+            - name: 실시간 경고 받기
+              href: cdn-real-time-alerts.md
     - name: 개발
       items:
         - name: .NET

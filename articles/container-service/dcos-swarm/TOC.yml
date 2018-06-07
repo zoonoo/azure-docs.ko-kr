@@ -7,9 +7,9 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Docker Swarm Linux
-      href: container-service-swarm-walkthrough.md
-    - name: DC/OS Linux
+    - name: Docker Swarm
+      href: container-service-swarm-mode-walkthrough.md
+    - name: DC/OS
       href: container-service-dcos-quickstart.md
 - name: 자습서
   items:
@@ -27,10 +27,6 @@
       href: container-service-security.md
 - name: 방법 가이드
   items:
-    - name: ACS 클러스터 만들기
-      href: container-service-create-acs-cluster-cli.md
-    - name: ACS 클러스터와 연결
-      href: container-service-connect.md
     - name: ACS 클러스터 확장
       href: container-service-scale.md
     - name: DC/OS
@@ -69,7 +65,7 @@
           href: container-service-docker-swarm-setup-ci-cd.md
         - name: Docker Swarm(ACS 엔진) 및 VSTS를 사용하는 CI/CD
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/acs
@@ -91,5 +87,5 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

@@ -58,10 +58,10 @@
               href: 'https://github.com/Azure-Samples/active-directory-b2c-android-native-msal'
             - name: 앱 인증을 사용한 Android
               href: active-directory-b2c-devquickstarts-android.md
-            - name: .NET
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
-            - name: Xamarin
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
+        - name: .NET
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
+        - name: Xamarin
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
         - name: 리소스 소유자 암호 자격 증명
           href: configure-ropc.md
     - name: 웹 앱
@@ -268,7 +268,7 @@
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory-b2c'
     - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-ad-b2c'
+      href: 'https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework'
     - name: 지원
       href: active-directory-b2c-support.md
     - name: 동영상

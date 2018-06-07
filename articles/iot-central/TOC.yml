@@ -81,7 +81,7 @@
   items:
     - name: 솔루션
       items:
-        - name: IoT Suite 미리 구성된 솔루션
+        - name: IoT 솔루션 가속기
           href: /azure/iot-suite
         - name: IoT Central
           href: /microsoft-iot-central

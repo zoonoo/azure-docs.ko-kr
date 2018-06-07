@@ -81,6 +81,8 @@
               href: n-series-driver-setup.md
         - name: 고성능 계산
           href: sizes-hpc.md
+        - name: 이전 세대
+          href: sizes-previous-gen.md
         - name: Azure 계산 단위(ACU)
           href: acu.md
         - name: 벤치마크 점수
@@ -190,7 +192,12 @@
         - name: VM에 태그 지정
           href: tag.md
         - name: VM에서 스크립트 실행
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: 사용자 지정 스크립트 확장
+              href: ../extensions/custom-script-windows.md
+            - name: 명령 실행
+              href: run-command.md
         - name: 임시 드라이브 문자 변경
           href: change-drive-letter.md
         - name: 가용성 집합 변경
@@ -329,41 +336,7 @@
         - name: DNS 확인
           href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM 확장 사용
-      items:
-        - name: VM 확장 개요
-          href: extensions-features.md
-        - name: 사용자 지정 스크립트 확장
-          href: extensions-customscript.md
-        - name: OMS 에이전트 확장
-          href: extensions-oms.md
-        - name: Powershell DSC 확장
-          href: extensions-dsc-overview.md
-          items:
-            - name: PowerShell DSC 확장 자격 증명 처리
-              href: extensions-dsc-credentials.md
-            - name: 템플릿을 사용하여 DSC 및 VMSS
-              href: extensions-dsc-template.md
-        - name: Azure 로그 수집기 확장
-          href: log-collector-extension.md
-        - name: Azure 진단 확장
-          href: extensions-diagnostics.md
-          items:
-            - name: 확장 스키마
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-            - name: PowerShell을 사용하여 사용
-              href: ps-extensions-diagnostics.md
-            - name: 템플릿을 사용하여 사용
-              href: extensions-diagnostics-template.md
-            - name: 문제 해결
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-        - name: VM 확장 내보내기
-          href: extensions-export-templates.md
-        - name: 확장 문제 해결
-          href: extensions-troubleshoot.md
-        - name: Network Watcher 에이전트
-          href: extensions-nwa.md
-        - name: 확장 설치 제한
-          href: ../extensions/extensions-rmpolicy-howto-ps.md
+      href: ../extensions/overview.md
     - name: VM 마이그레이션
       items:
         - name: AWS 및 온-프레미스 VM 마이그레이션

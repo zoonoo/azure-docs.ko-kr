@@ -67,6 +67,8 @@
           href: concepts-firewall-rules.md
         - name: SSL 구성
           href: concepts-ssl-connection-security.md
+        - name: VNet
+          href: concepts-data-access-and-security-vnet.md
     - name: 비즈니스 연속성
       items:
         - name: 개요
@@ -119,6 +121,12 @@
       items:
         - name: 메트릭에 대한 경고 만들기
           href: howto-alert-on-metric.md
+    - name: Virtual Network
+      items:
+        - name: Azure portal
+          href: howto-manage-vnet-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-using-cli.md
 - name: 참고 자료
   items:
     - name: Azure CLI
