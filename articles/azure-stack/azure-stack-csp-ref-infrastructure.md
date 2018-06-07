@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에 대 한 클라우드 서비스 공급자에 대 한 보고 인프라 사용 | Microsoft Docs"
-description: "Azure 스택 발생 하 고 Azure에 전달 하는 대로 사용을 추적 하는 데 필요한 인프라에 포함 됩니다."
+title: Azure 스택에 대 한 클라우드 서비스 공급자에 대 한 보고 인프라 사용 | Microsoft Docs
+description: Azure 스택 발생 하 고 Azure에 전달 하는 대로 사용을 추적 하는 데 필요한 인프라에 포함 됩니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 4ac808e0e85b1daeb54a3f2fd7bec0a7c10aa13e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fe2a6444e605f388df68803b89643420b19fb54
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823489"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
 
@@ -35,7 +36,7 @@ Azure 스택 미터 Azure 서비스와 마찬가지로 Commerce and 파트너 �
 1. 파트너 센터에서 이동 하 여 **대시보드 메뉴** > **서비스 및 가격 책정**합니다.
 2. 아래 **사용량 기반 서비스**선택, **현재**합니다.
 3. 열기는 **글로벌 CSP 가격 목록에 Azure** 스프레드시트 합니다.
-4. 필터링 할 **지역 Azure 스택 =**합니다.
+4. 필터링 할 **지역 Azure 스택 =** 합니다.
 
 ## <a name="usage-and-billing-error-codes"></a>사용 및 오류 코드를 청구 합니다.
 
@@ -65,4 +66,4 @@ Azure 스택 미터 Azure 서비스와 마찬가지로 Commerce and 파트너 �
 ## <a name="next-steps"></a>다음 단계
 
  - CSP 프로그램에 대 한 자세한 참조 [클라우드 솔루션 공급자 프로그램](https://partnercenter.microsoft.com/en-us/partner/programs)합니다.
- - 스택에서 Azure 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 참조 [사용 및 청구 Azure 스택의](/azure-stack-billing-and-chargeback.md)합니다.
+ - 스택에서 Azure 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 참조 [사용 및 청구 Azure 스택의](azure-stack-billing-and-chargeback.md)합니다.

@@ -16,11 +16,12 @@ ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 325ef42d72970f4e0962a9b1a81b78bbd39585d4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a093e60718881b2fe9ca70df7596e8963dc55d9f
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808046"
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>로컬 원본의 Azure 스택 마켓플레이스 항목을 추가 하는 자습서:
 
@@ -48,85 +49,82 @@ PowerShell을 사용 하 여 이전에 다운로드 한 ISO 이미지를 추가 
 
 Azure 스택 연결이 끊긴 시나리오에서 또는 시나리오에서 함께 배포한 연결을 제한 하는 경우이 옵션을 사용 합니다.
 
-1. Azure 스택 가져오기 `Connect` 및 `ComputeAdmin` 다음 명령을 사용 하 여 Azure 스택 도구 디렉터리에 포함 된 PowerShell 모듈:
+1. [Azure 스택에 대 한 PowerShell을 설치](../azure-stack-powershell-install.md)합니다.
 
-   ```powershell
-   Set-ExecutionPolicy RemoteSigned
+  ```PowerShell  
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
 
-   # Import the Connect and ComputeAdmin modules.   
-   Import-Module .\Connect\AzureStack.Connect.psm1
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience
 
-   ```
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
-2. Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택 환경 배포 여부에 따라 ASDK 호스트 컴퓨터에 로그온 하려면 다음 스크립트 중 하나를 실행 합니다.
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ```
 
-  - 에 대 한 명령 **Azure AD 배포**: 
+2. 사용 하는 경우 **Active Directory Federation Services**를 다음 cmdlet을 사용 합니다.
 
-      ```PowerShell
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+  ```PowerShell
+  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "https://graph.windows.net/"
-      
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
+  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
 
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience
-
-      $TenantID = Get-AzsDirectoryTenantId `
-      # Replace the AADTenantName value to reflect your Azure AD tenant name.
-        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-        -EnvironmentName AzureStackAdmin
-
-      Add-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
-      ```
-
-  - 에 대 한 명령 **AD FS 배포**:
-      
-      ```PowerShell
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "https://graph.local.azurestack.external/"
-
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
-
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience `
-        -EnableAdfsAuthentication:$true
-
-      $TenantID = Get-AzsDirectoryTenantId `
-      -ADFS `
-      -EnvironmentName "AzureStackAdmin" 
-
-      Add-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
-      ```
-   
-3. Azure 스택 마켓플레이스로 Windows Server 2016 이미지를 추가 합니다. (대체 *fully_qualified_path_to_ISO* 다운로드 한 Windows Server 2016 ISO에 경로 사용 합니다.)
-
-    ```PowerShell
-    $ISOPath = "<fully_qualified_path_to_ISO>"
-
-    # Add a Windows Server 2016 Evaluation VM image.
-    New-AzsServer2016VMImage `
-      -ISOPath $ISOPath
-
+  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
     ```
+
+3. 운영자 Azure 스택에 로그인 합니다. 자세한 내용은 [연산자로 스택 Azure에 로그인](../azure-stack-powershell-configure-admin.md)합니다.
+
+   ````PowerShell  
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ````
+
+4. Azure 스택 마켓플레이스로 Windows Server 2016 이미지를 추가 합니다.
+
+    **추가 AzsPlatformimage** 이미지를 추가 하는 데 사용 되는 cmdlet이 VM 이미지를 참조 하 여 Azure 리소스 관리자 템플릿을 사용 하는 값을 지정 합니다.
+    
+    값은 다음과 같습니다.
+    
+  - **publisher**  
+    예: `Microsoft`  
+    사용자가 이미지를 배포할 때 사용 되는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오.  
+  - **offer**  
+    예: `WindowsServer`  
+    사용자가 VM 이미지를 배포할 때 사용 되는 VM 이미지의 제안 이름 세그먼트입니다. 예로 **windows Server**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오.  
+  - **sku**  
+    예: `Datacenter2016`  
+    사용자가 VM 이미지를 배포할 때 사용 되는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오.  
+  - **version**  
+    예: `1.0.0`  
+    사용자가 VM 이미지를 배포할 때 사용 되는 VM 이미지의 버전입니다. 이 버전은 형식에서  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오.  
+  - **osType**  
+    예: `Windows`  
+    이미지의 osType 납입이 되어야 **Windows** 또는 **Linux**합니다. 대체 *fully_qualified_path_to_ISO* 다운로드 한 Windows Server 2016 ISO에 경로 사용 합니다. 
+  - **OSUri**  
+    예: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+    Blob 저장소 URI를 지정할 수 있습니다에 대 한 프로그램 `osDisk`합니다. 자신의 게에서 다운로드 한 이미지를 저장 위치를 지정 합니다.
+
+    자세한 내용은 참조에 대 한 PowerShell 참조의 [추가 AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet.
+
+    프롬프트를 관리자 권한으로 PowerShell을 열고 실행 합니다.
+
+      ````PowerShell  
+        Add-AzsPlatformimage -publisher "Microsoft" -offer "WindowsServer" -sku "Datacenter2016" -version "1.0.0” -OSType "Windows" -OSUri "<fully_qualified_path_to_ISO>"
+      ````  
 
 ## <a name="verify-the-marketplace-item-is-available"></a>마켓플레이스 항목을 사용할 수 확인
 Azure 스택 marketplace에서 새 VM 이미지를 사용할 수 있는지 확인 하려면 다음이 단계를 사용 합니다.

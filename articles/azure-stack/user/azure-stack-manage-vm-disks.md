@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807434"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Azure 스택에서 가상 컴퓨터 디스크 저장소를 프로 비전
 
@@ -61,7 +62,7 @@ VM을 만든 후 포털을 사용할 수 있습니다.
 각 관리 되지 않는 디스크를 추가 하면 별도 컨테이너에 저장 되어야 합니다.
 
 >[!NOTE]
->Azure에서 만들고 관리 하는 디스크 라고 [관리 디스크](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview)합니다.
+>Azure에서 만들고 관리 하는 디스크 라고 [관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)합니다.
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>만들고 새 데이터 디스크를 연결 합니다. 포털을 사용 합니다.
 

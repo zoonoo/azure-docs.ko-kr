@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 8c8037fe3936485082299250e603b2f3ea3859b9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34822958"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Azure 스택 인프라 Backup 서비스에 대 한 백업 및 데이터 복구
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 05/12/2018
 - **자격 증명**  
   도메인 사용자 계정 및 자격 증명 필요, 예를 들어 Azure 스택 관리자 자격 증명을 사용할 수 있습니다.
 - **암호화 키**  
-  이 키를 사용 하 여 백업 파일이 암호화 됩니다. 이 키는 안전한 위치에 저장 했는지 확인 합니다. 를 처음으로이 키를 설정 하거나 나중에 키를 회전 후이 인터페이스에서이 키를 볼 수 없습니다. 사전 공유 키를 생성 하려면 명령에 대 한 스크립트에 따라 [PowerShell과 함께 Azure 스택에 대 한 백업 사용](http://azure-stack-backup-enable-backup-powershell.md)합니다.
+  이 키를 사용 하 여 백업 파일이 암호화 됩니다. 이 키는 안전한 위치에 저장 했는지 확인 합니다. 를 처음으로이 키를 설정 하거나 나중에 키를 회전 후이 인터페이스에서이 키를 볼 수 없습니다. 사전 공유 키를 생성 하려면 명령에 대 한 스크립트에 따라 [PowerShell과 함께 Azure 스택에 대 한 백업 사용](azure-stack-backup-enable-backup-powershell.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

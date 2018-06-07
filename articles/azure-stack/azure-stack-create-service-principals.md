@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: c2e18f30e55007a0625a19258ec3745f64dc25da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824573"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Azure 스택에 응용 프로그램 액세스 권한을 제공합니다
+# <a name="provide-applications-access-to-azure-stack"></a>Azure Stack에 대한 액세스를 응용 프로그램에 제공합니다.
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
@@ -76,7 +77,7 @@ AD FS와 Azure 스택을 배포한 경우에 서비스 사용자를 만들고 �
 
 
 Requirements:
-- 인증 된가 필요 합니다.
+- 인증서가 필요 합니다.
 
 **매개 변수**
 
