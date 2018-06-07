@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: mattbriggs
+ms.date: 05/21/2018
+ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a3a69f3cf91c0d202d54d0da5dc5fe0531ef9db1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714904"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>저장소 탐색기는 Azure 스택 구독 또는 저장소 계정에 연결
 
@@ -25,8 +26,8 @@ ms.lasthandoff: 05/16/2018
 
 이 문서에서는 Azure 스택 구독 및 저장소 탐색기를 사용 하 여 저장소 계정을 연결 하는 방법을 배웁니다. Azure 저장소 탐색기는 Windows, macOS 등 및 Linux에서 Azure 스택 저장소 데이터에 쉽게 사용할 수 있도록 하는 독립 실행형 앱입니다.
 
->[!NOTE]
->Azure 스택 저장소에서 데이터를 이동할 수 있는 여러 도구가 있습니다. 자세한 내용은 참조 [데이터 전송 스택 Azure 저장소에 대 한 도구](azure-stack-storage-transfer.md)합니다.
+> [!NOTE]  
+> Azure 스택 저장소에서 데이터를 이동할 수 있는 여러 도구가 있습니다. 자세한 내용은 참조 [데이터 전송 스택 Azure 저장소에 대 한 도구](azure-stack-storage-transfer.md)합니다.
 
 저장소 탐색기를 아직 설치 하지 않은 경우 [저장소 탐색기를 다운로드](http://www.storageexplorer.com/) 하 고 설치 합니다.
 
@@ -34,7 +35,7 @@ Azure 스택 구독 또는 저장소 계정에 연결한 후 사용할 수 있�
 
 ## <a name="prepare-for-connecting-to-azure-stack"></a>Azure 스택에 연결 하기 위한 준비
 
-Azure 스택 구독에 액세스 하려면 Azure 스택 또는 저장소 탐색기에 대 한 VPN 연결에 대 한 직접 액세스를 해야 합니다. Azure Stack에 VPN 연결을 설정하는 방법은 [VPN을 사용하여 Azure Stack에 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)을 참조하세요.
+Azure 스택 또는 스택 Azure 구독에 액세스 하려면 저장소 탐색기에 대 한 VPN 연결에 대 한 직접 액세스를 해야 합니다. Azure Stack에 VPN 연결을 설정하는 방법은 [VPN을 사용하여 Azure Stack에 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)을 참조하세요.
 
 Azure 스택 개발 키트에 대 한 Azure 스택 기관 루트 인증서를 내보낼 필요가 있습니다.
 
@@ -75,9 +76,9 @@ Azure 스택 구독에 저장소 탐색기를 연결 하려면 다음 단계를 
 
     ![Azure Stack 계정 추가](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Azure 저장소 대화 상자에 대 한 연결에서 아래 **Azure 환경**선택, **Azure** 또는 **Azure 중국**사용 중인 Azure 스택 계정에 따라 합니다. 선택 **로그인** 하나 이상의 활성 스택 Azure 구독과 연결 된 Azure 스택 계정에 로그인 합니다.
+3. Azure 저장소 대화 상자에 대 한 연결에서 아래 **Azure 환경**선택, **Azure** 또는 **Azure 중국**, 사용 되는 Azure 스택 계정에 종속 되, 선택 **로그인** 하나 이상의 활성 스택 Azure 구독과 연결 된 Azure 스택 계정으로 로그인 합니다.
 
-    ![Azure 저장소에 연결](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
+    ![Azure Storage에 연결](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
 4. Azure Stack 계정으로 성공적으로 로그인하면 왼쪽 창이 해당 계정과 연결된 Azure Stack 구독으로 채워집니다. 작업하려는 Azure Stack 구독을 선택한 후 **적용**을 선택합니다. (**모든 구독** 확인란을 선택하면 나열된 모든 Azure Stack 구독이 선택되고, 선택 취소하면 아무 구독도 선택되지 않습니다.)
 

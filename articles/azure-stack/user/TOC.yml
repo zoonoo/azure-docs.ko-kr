@@ -35,9 +35,9 @@
       href: azure-stack-rest-api-use.md
     - name: 보안 및 규정 준수
       items:
-        - name: RBAC 관리
+        - name: 역할 기반 액세스 제어 사용
           href: azure-stack-manage-permissions.md
-        - name: 서비스 주체 만들기
+        - name: 서비스 보안 주체를 사용 하 여
           href: Azure-stack-create-service-principals.md
     - name: 서비스 사용
       items:
@@ -107,7 +107,7 @@
           items:
             - name: Azure Stack PowerShell 설치
               href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: 도구 다운로드
+            - name: Azure 스택 도구 다운로드
               href: azure-stack-powershell-download.md
             - name: PowerShell 구성 - 사용자
               href: azure-stack-powershell-configure-user.md
@@ -128,13 +128,13 @@
                   href: azure-stack-version-profiles-python.md
                 - name: 리소스 공급자 프로필에서 지 원하는 Api
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: 정책 모듈 사용
+        - name: Azure 스택 정책 모듈 사용
           href: azure-stack-policy-module.md
         - name: 템플릿 사용
           items:
             - name: 템플릿 개요
               href: azure-stack-arm-templates.md
-            - name: 템플릿 개발
+            - name: 템플릿 고려 사항
               href: azure-stack-develop-templates.md
             - name: 템플릿 확인
               href: azure-stack-validate-templates.md
