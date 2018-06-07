@@ -3,16 +3,19 @@ title: 자습서 - Azure Active Directory B2C를 사용하여 단일 페이지 �
 description: Active Directory B2C를 사용하여 .NET Core Web api를 보호하고 단일 페이지 앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34711096"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱에서 ASP.NET Core Web API로의 액세스 권한 부여
 
@@ -155,13 +158,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. **속성**에서 **launchSettings.json** 파일을 열고 *applicationURL* 설정을 찾은 후 다음 섹션에서 사용할 값을 기록합니다.
+
 ### <a name="configure-the-single-page-app"></a>단일 페이지 앱 구성
 
 단일 페이지 앱은 사용자 등록, 로그인 및 보호되는 ASP.NET Core Web API 호출에 Azure AD B2C를 사용합니다. .NET Core Web api를 호출하도록 단일 페이지 앱을 업데이트해야 합니다.
 앱 설정을 변경하려면 다음을 수행합니다.
 
 1. Node.js 단일 페이지 앱 샘플에서 `index.html` 파일을 엽니다.
-2. Azure AD B2C 테넌트 등록 정보를 사용하여 샘플을 구성합니다. 다음 코드 줄에서 **b2cScopes** 및 **webApi** 값을 변경합니다.
+2. Azure AD B2C 테넌트 등록 정보를 사용하여 샘플을 구성합니다. 다음 코드에서 테넌트 이름을 **b2cScopes**에 추가하고 **webApi** 값을 이전에 기록한 *applicationURL* 값으로 변경합니다.
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -169,7 +174,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 
