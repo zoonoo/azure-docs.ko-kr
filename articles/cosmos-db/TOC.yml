@@ -1,3 +1,4 @@
+metadata: {}
 items:
   - name: Azure Cosmos DB 설명서
     href: index.yml
@@ -70,6 +71,8 @@ items:
     items:
       - name: 글로벌 분포
         href: distribute-data-globally.md
+      - name: 다중 마스터 설치
+        href: multi-region-writers.md
       - name: 분할
         href: partition-data.md
       - name: 처리량
@@ -165,8 +168,6 @@ items:
                 href: sql-api-resources.md
               - name: 모델 문서 데이터
                 href: modeling-data.md
-              - name: 다중 마스터 설치
-                href: multi-region-writers.md
           - name: 방법 가이드
             items:
               - name: BulkExecutor - .NET
@@ -397,8 +398,6 @@ items:
                 href: table-storage-how-to-use-dotnet.md
               - name: 'F#'
                 href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
-              - name: Node.js
-                href: table-storage-cloud-service-nodejs.md
               - name: 자바
                 href: table-storage-how-to-use-java.md
               - name: Node.js
@@ -411,8 +410,6 @@ items:
                 href: table-storage-how-to-use-python.md
               - name: Ruby
                 href: table-storage-how-to-use-ruby.md
-              - name: PowerShell
-                href: table-storage-how-to-use-powershell.md
           - name: 참고 자료
             items:
               - name: .NET

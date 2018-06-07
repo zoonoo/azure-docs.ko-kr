@@ -151,11 +151,6 @@
 #### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
 ### [제한된 장치에 대한 개발](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [모바일 장치용 개발](iot-hub-how-to-develop-for-mobile-devices.md)
-### 메시지 라우팅
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
 ### [허브 경로에서 Avro 데이터 쿼리](iot-hub-query-avro-data.md)
 ### 클라우드-장치 메시지 보내기
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
