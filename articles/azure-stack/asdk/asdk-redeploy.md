@@ -1,6 +1,6 @@
 ---
 title: Azure 스택 개발 키트 (ASDK)를 다시 배포 | Microsoft Docs
-description: 이 자습서는 ASDK 다시 설치 하는 방법에 설명 합니다.
+description: 이 문서는 ASDK 다시 설치 하는 방법에 설명 합니다.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,28 +11,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850323"
 ---
-# <a name="tutorial-redeploy-the-asdk"></a>자습서:는 ASDK 다시 배포
-이 자습서는 Azure 스택 개발 키트 (ASDK) 비-프로덕션 환경에서 다시 배포 하는 방법에 설명 합니다. 업그레이드는 ASDK 지원 되지 않는, 완전히 새 버전으로 이동 하 고 다시 배포 해야 합니다. 또한 언제 든 지 처음부터 다시 시작 하려는 ASDK를 다시 배포할 수 있습니다.
+# <a name="redeploy-the-asdk"></a>ASDK 다시 배포
+이 문서는 Azure 스택 개발 키트 (ASDK) 비-프로덕션 환경에서 다시 배포 하는 방법에 설명 합니다. 업그레이드는 ASDK 지원 되지 않는, 완전히 새 버전으로 이동 하 고 다시 배포 해야 합니다. 또한 언제 든 지 처음부터 다시 시작 하려는 ASDK를 다시 배포할 수 있습니다.
 
 > [!IMPORTANT]
 > 새 버전으로는 ASDK 업그레이드 지원 되지 않습니다. ASDK 개발 키트 호스트 컴퓨터에 최신 버전의 Azure 스택 평가할 때마다 다시 배포 해야 합니다.
-
-이 자습서에서는 다음 방법에 대해 알아봅니다.
-
-> [!div class="checklist"]
-> * Azure 등록을 제거 
-> * ASDK 다시 배포
 
 ## <a name="remove-azure-registration"></a>Azure 등록을 제거 
 Azure와 함께 이전에 ASDK 설치를 등록 하는 경우 등록 리소스는 ASDK 다시 배포 하기 전에 제거 해야 합니다. ASDK는 ASDK 다시 배포할 때 마켓플레이스 배포를 사용 하도록 설정 하려면 다시 등록 합니다. Azure 구독과 ASDK를 이전에 등록 하지 않은 경우에이 섹션을 건너뛸 수 있습니다.
@@ -55,7 +50,7 @@ Azure와 함께 이전에 ASDK 설치를 등록 하는 경우 등록 리소스�
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
@@ -71,7 +66,7 @@ Azure와 함께 이전에 ASDK 설치를 등록 하는 경우 등록 리소스�
 
 Azure 스택 이제 성공적으로 취소 해야 Azure 구독에서 등록 합니다. 또한 Azure를 통해는 ASDK를 등록할 때 만들어진 azurestack 리소스 그룹 에서도 삭제 하도록 합니다.
 
-## <a name="redeploy-the-asdk"></a>ASDK 다시 배포
+## <a name="deploy-the-asdk"></a>ASDK 배포
 Azure 스택을 다시 배포 하려면 다시 시작 해야 처음부터 아래에서 설명 합니다. 단계는 ASDK를 설치 하려면 Azure 스택 설치 관리자 (asdk installer.ps1) 스크립트를 사용 여부에 따라 다릅니다.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>설치 관리자 스크립트를 사용 하 여 ASDK 다시 배포
@@ -85,7 +80,7 @@ Azure 스택을 다시 배포 하려면 다시 시작 해야 처음부터 아래
 
 3. 로컬 관리자로 개발 키트 호스트를 기본 운영 체제로 다시 부팅 한 후에 로그인 합니다. 찾아 삭제는 **C:\CloudBuilder.vhdx** 이전 배포의 일환으로 사용 된 파일이 있습니다. 
 
-4. 처음 수행한 동일한 단계를 반복 [배포는 ASDK](asdk-deploy.md)합니다.
+4. 처음 수행한 동일한 단계를 반복 [배포는 ASDK](asdk-install.md)합니다.
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>설치 관리자를 사용 하지 않고는 ASDK를 재배포 합니다.
 Asdk installer.ps1 스크립트는 ASDK 설치를 사용 하지 않은 경우에는 ASDK 재배포 하려면 먼저 수동으로 개발 키트 호스트 컴퓨터를 재구성 해야 합니다.
@@ -100,16 +95,7 @@ Asdk installer.ps1 스크립트는 ASDK 설치를 사용 하지 않은 경우에
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * Azure 등록을 제거 
-> * ASDK 다시 배포
-
-Azure 스택 마켓플레이스 항목을 추가 하는 방법에 알아보려면 다음 자습서를 진행 합니다.
-
-> [!div class="nextstepaction"]
-> [Azure 스택 마켓플레이스 항목 추가](asdk-marketplace-item.md)
+[ASDK 설치 후 구성 작업](asdk-post-deploy.md)
 
 
 

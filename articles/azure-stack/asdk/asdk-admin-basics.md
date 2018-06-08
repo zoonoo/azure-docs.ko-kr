@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849511"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 관리 기본 사항 
 처음 사용 Azure 스택 개발 키트 (ASDK) 관리 하는 경우 알아야 할 몇 가지 있습니다. 이 설명서는 평가 환경에서 Azure 스택 운영자 사용자 역할의 개요를 제공 하 고 테스트 사용자를 확인 하는 방법을 신속 하 게 생산성을 유지 될 수 있습니다.
@@ -64,5 +65,5 @@ Azure 스택 하는 기본 배포, 관리 및 조직 메커니즘으로 Azure �
 > ASDK 평가 환경 이기 때문에 지원은 없습니다 공식를 통해 Microsoft 지원 CSS (고객 서비스)를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[ASDK 배포](asdk-deploy.md)
+[ASDK 배포](asdk-install.md)
 
