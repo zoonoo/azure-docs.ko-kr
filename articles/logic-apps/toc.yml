@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: 범위
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: 값을 저장하기 위한 변수 만들기
+          href: logic-apps-create-variables-store-values.md
         - name: Azure Functions를 사용하여 사용자 지정 코드 추가
           href: logic-apps-azure-functions.md
         - name: Azure Functions를 사용하여 논리 앱 호출

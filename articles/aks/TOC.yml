@@ -63,6 +63,8 @@
           href: internal-lb.md
         - name: 수신 및 TLS
           href: ingress.md
+        - name: 송신 트래픽
+          href: egress.md
         - name: HTTP 응용 프로그램 라우팅
           href: http-application-routing.md
     - name: 보안 및 인증

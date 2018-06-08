@@ -39,7 +39,9 @@
   items:
     - name: 배포
       items:
-        - name: 다중 컨테이너 그룹 배포
+        - name: 다중 컨테이너 그룹 - YAML
+          href: container-instances-multi-container-yaml.md
+        - name: 다중 컨테이너 그룹 - Resource Manager
           href: container-instances-multi-container-group.md
         - name: Azure Container Registry에서 배포
           href: container-instances-using-azure-container-registry.md

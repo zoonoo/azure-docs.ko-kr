@@ -113,6 +113,8 @@
       href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: 참고 자료
   items:
+    - name: 청구 자동화 시나리오
+      href: billing-cost-management-automation-scenarios.md
     - name: Azure 청구 API 개요
       href: billing-usage-rate-card-overview.md
       items:
@@ -120,7 +122,8 @@
           href: 'https://docs.microsoft.com/rest/api/billing'
         - name: 파트너 솔루션 – Cloud Cruiser
           href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-    - name: Azure Consumption API
+    - name: Azure Consumption API 개요
+      href: billing-consumption-api-overview.md
       items:
         - name: Azure Consumption REST API
           href: 'https://docs.microsoft.com/rest/api/consumption'
