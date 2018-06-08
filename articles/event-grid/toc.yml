@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: 큐 저장소에 이벤트 보내기
       href: custom-event-to-queue-storage.md
+    - name: Event Hubs에 이벤트 보내기
+      href: custom-event-to-eventhub.md
 - name: 자습서
   items:
     - name: VM 변경 시 이메일 보내기
