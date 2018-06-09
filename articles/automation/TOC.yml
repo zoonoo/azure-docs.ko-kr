@@ -29,6 +29,8 @@
   items:
     - name: 온보딩
       items:
+        - name: 포털에서 다중 VM 등록
+          href: automation-onboard-solutions-from-browse.md
         - name: Azure VM에서 온보드
           href: automation-onboard-solutions-from-vm.md
         - name: Automation 계정에서 온보드

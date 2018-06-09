@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: b1bfff16c4f51a9fa53204930df78cbd2cf19b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1fa01d23108ce92fbd7c854442c0474b19395d25
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248706"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Azure Stack에서 계획 만들기
 
@@ -29,34 +30,46 @@ ms.lasthandoff: 04/28/2018
 
 1. Azure 스택 관리자 포털에 로그인 (https://adminportal.local.azurestack.external)합니다.
 
-2. 계획 및 사용자가 구독할 수 있는 제품을 만들려면 선택 **새로** > **제공 + 계획** > **계획**합니다.  
+2. 계획 및 사용자가 구독할 수 있는 제품을 만들려면 선택 **새로** > **제공 + 계획** > **계획**합니다.
+  
    ![계획 선택](media/azure-stack-create-plan/select-plan.png)
 
-3. 에 **새 계획** 창에서 전체 **표시 이름** 및 **리소스 이름**합니다. 표시 이름은는 사용자에 게 표시 하는 계획의 이름이입니다. 관리자만이 관리자는 Azure 리소스 관리자 리소스에 따라 계획을 사용 하려면 사용 하는 이름을 리소스 이름을 볼 수 있습니다.  
+3. 아래 **새 계획**를 입력 한 **표시 이름** 및 **리소스 이름**합니다. 표시 이름은 사용자가 볼 수 있는 계획의 친숙 한 이름이입니다. 관리자만 관리자는 Azure 리소스 관리자 리소스에 따라 계획 작업에 사용할 리소스 이름을 볼 수 있습니다.
+
    ![세부 정보 지정](media/azure-stack-create-plan/plan-name.png)
 
-4. 새 **리소스 그룹**, 또는 계획에 대 한 컨테이너로 기존 템플릿을 선택 합니다.  
+4. 새 **리소스 그룹**, 또는 계획에 대 한 컨테이너로 기존 템플릿을 선택 합니다.
+
    ![리소스 그룹을 지정 합니다.](media/azure-stack-create-plan/resource-group.png)
 
-5. 선택 **서비스** 다음에 대 한 확인란을 선택 하 고 **Microsoft.Compute**, **Microsoft.Network**, 및 **Microsoft.Storage**합니다. 다음으로, 선택 **선택** 구성을 저장 합니다. 확인란에는 각 옵션 위에 마우스를 이동할 때 표시 됩니다.  
+5. 선택 **서비스** 다음에 대 한 확인란을 선택 하 고 **Microsoft.Compute**, **Microsoft.Network**, 및 **Microsoft.Storage**합니다. 다음으로, 선택 **선택** 구성을 저장 합니다. 확인란에는 각 옵션 위에 마우스를 이동할 때 표시 됩니다.
+  
    ![서비스 선택](media/azure-stack-create-plan/services.png)
 
-6. 선택 **할당량**, **Microsoft.Storage (로컬)**, 기본 할당량 또는 선택 중 하나를 선택 합니다 **새 할당량 만들기** 할당량을 사용자 지정할 수 있습니다.  
+6. 선택 **할당량**, **Microsoft.Storage (로컬)**, 기본 할당량 또는 선택 중 하나를 선택 합니다 **새 할당량 만들기** 사용자 지정 된 할당량을 만들려고 합니다.
+  
    ![할당량](media/azure-stack-create-plan/quotas.png)
 
-7. 새 할당량을 만드는 경우 입력 한 **이름** 할당량에 대 한 > 할당량 값을 지정 > 선택 **확인**합니다. **할당량 만들기** 창이 닫히고 합니다.
+7. 새 할당량을 만드는 경우 입력 한 **이름** 할당량에 대 한 > 할당량 값을 지정 > 선택 **확인**합니다. **할당량 만들기** 대화 상자를 닫습니다.
+
    ![새 할당량](media/azure-stack-create-plan/new-quota.png)
 
-   만든 새 할당량을 선택 합니다. 할당량을 선택 하면 할당 되 고 선택 창을 닫습니다.  
+   만든 새 할당량을 선택 합니다. 할당량을 선택 하면 할당 되 고 선택 대화 상자를 닫습니다.
+  
    ![할당량 할당](media/azure-stack-create-plan/assign-quota.png)
 
-8. 반복 6-7 단계를 만들고 할당에 대 한 할당량 **Microsoft.Network (로컬)** 및 **Microsoft.Compute (로컬)** 합니다.  세 서비스에 모두 할당 된 할당량이, 하면 다음 이미지와 비슷하게 나타납니다.  
+8. 반복 6-7 단계를 만들고 할당에 대 한 할당량 **Microsoft.Network (로컬)** 및 **Microsoft.Compute (로컬)** 합니다. 세 서비스에 모두 지정 된 할당량 경우 표시 되는 모양 다음 예제와 유사 합니다.
+
    ![전체 할당량 할당](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. 에 **할당량** 창 선택 **확인**, 한 다음는 **새 계획** 창 선택 **만들기** 계획을 만들 합니다.  
+9. 아래 **할당량**, 선택 **확인**, 그 다음 **새 계획**, 선택 **만들기** 계획을 만들 합니다.
+
     ![계획 만들기](media/azure-stack-create-plan/create.png)
-10. 새 계획을 보려면 선택 **모든 리소스**계획에 대 한 다음 검색 하 고 해당 이름을 선택 합니다. 사용 하 여 리소스의 목록이 긴 경우 **검색** 이름으로 계획을 찾으려고 합니다.  
+
+10. 새 계획을 보려면 선택 **모든 리소스**계획에 대 한 다음 검색 하 고 해당 이름을 선택 합니다. 사용 하 여 리소스의 목록이 긴 경우 **검색** 이름으로 계획을 찾으려고 합니다.
+
    ![계획을 검토](media/azure-stack-create-plan/plan-overview.png)
 
-### <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
+
 [제품 만들기](azure-stack-create-offer.md)

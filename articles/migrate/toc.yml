@@ -14,7 +14,7 @@
       href: concepts-collector.md
     - name: 평가 계산
       href: concepts-assessment-calculation.md
-    - name: 종속성 시각화
+    - name: 종속성 시각화 정보
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
@@ -30,6 +30,8 @@
           href: contoso-migration-rehost-vm-sql-managed-instance.md
         - name: 5. Contoso-Azure VM에서 앱 다시 호스트
           href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso-Azure VM 및 Azure SQL AlwaysOn에서 앱 다시 호스트
+          href: contoso-migration-rehost-vm-sql-ag.md
     - name: 대규모 환경 검색 및 평가
       href: how-to-scale-assessment.md
     - name: 컴퓨터 그룹화

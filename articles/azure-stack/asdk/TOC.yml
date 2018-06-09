@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: ASDK 릴리스 정보
       href: asdk-release-notes.md
-- name: 자습서
-  items:
-    - name: 제품 구독
-      href: asdk-subscribe-services.md
-    - name: 계획 및 업데이트 제공
-      href: asdk-update-offers.md
-    - name: 서식 파일에서 VM 만들기
-      href: asdk-create-vm-template.md
 - name: 개념
   items:
     - name: 배포 계획 고려 사항
