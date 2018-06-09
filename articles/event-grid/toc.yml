@@ -49,6 +49,8 @@
       href: powershell-samples.md
     - name: 리소스 관리자 템플릿
       href: template-samples.md
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid'
 - name: 개념
   items:
     - name: Event Grid 개념

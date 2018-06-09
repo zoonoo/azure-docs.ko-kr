@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: REST 사용
           href: stream-files-tutorial-with-rest.md
+    - name: 라이브 스트리밍
+      items:
+        - name: .NET Core 사용
+          href: stream-live-tutorial-with-api.md
     - name: 비디오 분석
       items:
         - name: .NET 사용
@@ -37,6 +41,8 @@
           href: encoding-concept.md
         - name: Autogen 적응 비트 전송률 사다리
           href: autogen-bitrate-ladder.md
+    - name: 라이브 스트리밍
+      href: live-streaming-overview.md
     - name: 미디어 인텔리전스
       href: intelligence-concept.md
     - name: 이벤트에 반응
