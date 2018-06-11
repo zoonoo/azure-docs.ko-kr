@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: 역방향 DNS
       href: dns-reverse-dns-overview.md
+    - name: Azure DNS 및 Traffic Manager를 사용하여 재해 복구
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 방법
   items:
     - name: 사용자 지정 DNS 영역 및 레코드 만들기 - Azure CLI

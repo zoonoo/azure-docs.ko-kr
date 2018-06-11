@@ -8,6 +8,7 @@
 ### [네트워크 보안 모범 사례](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [고가용성 네트워크 가상 어플라이언스](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [부하 분산 방법 결합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Azure DNS 및 Traffic Manager를 사용하여 재해 복구](disaster-recovery-dns-traffic-manager.md)
 ## 계획 및 디자인
 ### [가상 네트워크](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)

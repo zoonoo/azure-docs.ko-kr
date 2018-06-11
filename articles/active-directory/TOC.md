@@ -125,7 +125,7 @@
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [감사 활동 참조](active-directory-reporting-activity-audit-reference.md)
 #### [로그인 작업 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
@@ -326,6 +326,7 @@
 #### [조건](active-directory-conditional-access-conditions.md)
 #### [위치 조건](active-directory-conditional-access-locations.md)
 #### [컨트롤](active-directory-conditional-access-controls.md)
+#### [기준 보호](active-directory-conditional-access-baseline-protection.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
