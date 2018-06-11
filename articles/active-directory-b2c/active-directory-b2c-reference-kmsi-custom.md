@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: KMSI| Microsoft Docs'
-description: "'로그인 상태 유지'를 설정하는 방법을 보여주는 항목"
+title: Azure Active Directory B2C에서 로그인 유지 | Microsoft Docs
+description: "'로그인 유지'를 설정하는 방법을 보여주는 항목"
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: davidmu
-ms.openlocfilehash: 073ba8eef7f2f42d1c308fb20d3bfdbfc8d321b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: a32aaa5d91426199c29765d2d9645e8a4ddb03b4
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709158"
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: 'KMSI(로그인 유지)' 활성화  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -164,11 +164,11 @@ ms.lasthandoff: 03/23/2018
 
 4. KMSI는 `UserJourneyBehaviors`에서 구성됩니다. 
 
-5. **`KeepAliveInDays`**는 사용자가 로그인한 상태로 유지되는 기간을 제어합니다. 다음 예제에서 KMSI 세션은 사용자가 자동 인증을 수행하는 빈도에 관계 없이 14일 후에 자동으로 만료됩니다.
+5. **`KeepAliveInDays`** 는 사용자가 로그인한 상태로 유지되는 기간을 제어합니다. 다음 예제에서 KMSI 세션은 사용자가 자동 인증을 수행하는 빈도에 관계 없이 14일 후에 자동으로 만료됩니다.
 
    `KeepAliveInDays` 값을 0으로 설정하면 KMSI 기능을 해제합니다. 기본적으로 이 값은 0입니다.
 
-6. **`SessionExpiryType`**은 *롤링*인 경우 KMSI 세션은 사용자가 자동 인증을 수행할 때마다 14일이 늘어납니다.  *롤링*은 선택한 경우 날짜를 최소로 유지하는 것이 좋습니다. 
+6. **`SessionExpiryType`** 은 *롤링*인 경우 KMSI 세션은 사용자가 자동 인증을 수행할 때마다 14일이 늘어납니다.  *롤링*은 선택한 경우 날짜를 최소로 유지하는 것이 좋습니다. 
 
        <RelyingParty>
        <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />

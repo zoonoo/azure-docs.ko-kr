@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 클라이언트 인증서를 사용하여 RESTful 서비스 보호'
+title: Azure Active Directory B2C에서 클라이언트 인증서를 사용하여 RESTful 서비스 보호 | Microsoft Docs
 description: 클라이언트 인증서를 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 004577ead56befce02771b82ace088706e8f0c3c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709209"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/18/2018
    ```
 
    >[!NOTE]
-   >*이름이 유효하지 않습니다. 유효한 이름을 입력하세요.*라는 오류 메시지가 표시되면 Azure AD B2C에서 클라이언트 인증서를 제공하는 동안 성공적으로 RESTful 서비스를 호출했음을 의미합니다. 다음 단계에서는 인증서의 유효성을 검사합니다.
+   >*이름이 유효하지 않습니다. 유효한 이름을 입력하세요.* 라는 오류 메시지가 표시되면 Azure AD B2C에서 클라이언트 인증서를 제공하는 동안 성공적으로 RESTful 서비스를 호출했음을 의미합니다. 다음 단계에서는 인증서의 유효성을 검사합니다.
 
 ## <a name="step-6-add-certificate-validation"></a>6단계: 인증서 유효성 검사 추가
 Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 인증서가 있는지를 확인하는 것을 제외하고 Azure Web Apps 플랫폼에 의한 유효성 검사를 거치지 않습니다. 인증서의 유효성을 검사하는 작업은 웹앱에서 담당합니다. 

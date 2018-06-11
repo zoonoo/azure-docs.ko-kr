@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: REST API 클레임 교환을 오케스트레이션 단계로 통합 | Microsoft Docs'
-description: API와 통합하는 Azure Active Directory B2C 사용자 지정 정책에 대한 항목입니다.
+title: Azure Active Directory B2C에서 REST API 클레임 교환을 오케스트레이션 단계로 통합 | Microsoft Docs
+description: API와 통합하는 Azure Active Directory B2C 사용자 지정 정책에 대한 항목
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: davidmu
-ms.openlocfilehash: 0a3f69f8262e67de624d4cd97e0cad49c6a96ef0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 0b8fff2e7a47ad84c146a02fb09b64931398b208
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34710783"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합
 

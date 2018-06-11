@@ -1,25 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하여 Azure AD 공급자 추가 | Microsoft Docs'
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure AD 공급자 추가 | Microsoft Docs
 description: Azure Active Directory B2C 사용자 지정 정책에 대해 알아봅니다.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 9d010564aadcb6ea33312b7fb40854cfd0a97f1a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140226"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709243"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Azure AD 계정을 사용하여 로그인
 

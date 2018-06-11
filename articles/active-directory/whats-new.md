@@ -10,19 +10,20 @@ featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/25/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0554aacf3f81231d9a09f1b20115fcf268f29af
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159871"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34713969"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -31,7 +32,7 @@ ms.locfileid: "32159871"
 
 
 
-Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음에 대한 정보를 제공합니다.
+Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
 -   최신 릴리스
 -   알려진 문제
@@ -40,6 +41,286 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 -   변경 계획
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
+
+
+## <a name="may-2018"></a>2018년 5월
+ 
+
+
+### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API의 TOU에 대한 관리 시나리오
+
+**유형:** 새로운 기능  
+**서비스 범주:** 사용 약관  
+**제품 기능:** 개발자 환경
+ 
+
+ Azure AD 사용 약관의 관리 작업에 대한 Microsoft Graph API를 추가했습니다. 사용 약관 개체를 만들고, 업데이트하고, 삭제할 수 있습니다.
+
+---
+ 
+
+
+### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Azure AD 다중 테넌트 엔드포인트를 Azure AD B2C의 ID 공급자로 추가
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+ 
+
+사용자 지정 정책을 사용하여 이제 Azure AD B2C에서 ID 공급자로 Azure AD 공용 엔드포인트를 추가할 수 있습니다. 이를 통해 응용 프로그램에 로그인하는 모든 Azure AD 사용자에 대한 항목의 단일 지점을 가질 수 있습니다. 자세한 내용은 [Azure Active Directory B2C: 사용자 지정 정책을 사용하여 사용자가 다중 테넌트 Azure AD ID 공급자에 로그인할 수 있게 함](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom)을 참조하세요.
+
+ 
+
+---
+
+
+### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>내 앱 로그인 확장 및 Azure AD 응용 프로그램 프록시를 통해 내부 URL을 사용하여 어디서나 앱에 액세스
+
+**유형:** 새로운 기능  
+**서비스 범주:** 내 앱  
+**제품 기능:** SSO
+ 
+
+사용자는 이제 Azure AD에 대한 내 앱 보안 로그인 확장을 사용하여 회사 네트워크 외부에서도 내부 URL을 통해 응용 프로그램에 액세스할 수 있습니다. 이는 액세스 패널 브라우저 확장이 설치되어 있는 모든 브라우저에서 Azure AD 응용 프로그램 프록시를 사용하여 게시한 모든 응용 프로그램에 사용할 수 있습니다. URL 리디렉션 기능은 사용자가 확장에 로그인하면 자동으로 활성화됩니다. 확장은 [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) 및 [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)에서 사용할 수 있습니다.
+ 
+
+---
+ 
+
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>로그인 활동 로그를 통해 레거시 인증 보기
+
+**유형:** 새로운 기능  
+**서비스 범주:** 보고  
+**제품 기능:** 모니터링 및 보고
+ 
+
+로그인 활동 로그에서 **클라이언트 앱**이라는 필드의 도입으로 고객은 이제 레거시 인증을 사용하는 사용자를 볼 수 있습니다. 고객은 로그인 MS Graph API를 사용하거나 **클라이언트 앱** 컨트롤을 사용하여 레거시 인증을 필터링할 수 있는 Azure AD 포털에서 로그인 활동 로그를 통해 이 정보에 액세스할 수 있습니다. 자세한 내용은 설명서를 참조하세요.
+ 
+
+---
+ 
+
+### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory - 유럽 고객을 위한 유럽의 데이터
+
+**유형:** 새로운 기능  
+**서비스 범주:** 기타  
+**제품 기능:** GoLocal
+ 
+
+유럽의 고객은 데이터를 유럽에 유지해야 하며 개인 정보 보호 및 유럽 법을 충족하도록 유럽 데이터 센터 외부에서 복제되지 않습니다. 이 [문서](https://go.microsoft.com/fwlink/?linkid=872328)는 유럽 내에서 저장되는 ID 정보에 대한 특정 세부 정보를 제공하고 유럽 데이터 센터 외부에 저장되는 정보에 대한 세부 정보도 제공합니다. 
+
+ 
+
+---
+ 
+
+### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>새 사용자 프로비저닝 SaaS 앱 통합 - 2018년 5월
+
+**유형:** 새로운 기능  
+**서비스 범주:** 앱 프로비전  
+**제품 기능**: 타사 통합
+ 
+
+Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 2018년 5월에 Azure AD 앱 갤러리에서 다음 응용 프로그램에 대한 사용자 프로비저닝 지원을 추가했습니다.
+
+- [BlueJeans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
+
+- [Cornerstone OnDemand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+
+- [Zendesk](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
+
+Azure AD 갤러리에서 사용자 프로비저닝을 지원하는 모든 응용 프로그램의 목록은 [https://aka.ms/appstutorial](https://aka.ms/appstutorial)을 참조하세요.
+
+ 
+
+---
+ 
+
+### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>이제 그룹 및 앱 액세스에 대한 Azure AD 액세스 검토가 반복 검토 제공
+
+**유형:** 새로운 기능  
+**서비스 범주:** 액세스 검토  
+**제품 기능:** 거버넌스
+ 
+
+이제 Azure AD Premium P2의 일부로 그룹 및 앱에 대한 액세스 검토를 일반적으로 사용할 수 있습니다.  관리자는 월간 또는 분기별과 같은 정기적인 간격으로 그룹 멤버 자격 및 응용 프로그램 할당에 대한 액세스 검토를 자동으로 반복하도록 구성할 수 있습니다.
+ 
+
+---
+ 
+
+### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>이제 Azure AD 활동 로그(로그인 및 감사)를 MS Graph를 통해 사용 가능
+
+**유형:** 새로운 기능  
+**서비스 범주:** 보고  
+**제품 기능:** 모니터링 및 보고
+ 
+
+이제 Azure AD 활동 로그(로그인 및 감사 로그 포함)를 MS Graph를 통해 사용할 수 있습니다. 이러한 로그에 액세스하도록 MS Graph를 통해 2개의 엔드포인트를 노출했습니다. Azure AD Reporting API에 프로그래밍 방식으로 액세스하여 시작하려면 [문서](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)를 참조하세요. 
+ 
+
+---
+ 
+
+
+
+### <a name="improvements-to-the-b2b-redemption-experience-and-leave-an-org"></a>B2B 상환 환경 및 조직 떠나기에 대한 개선
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2B  
+**제품 기능:** B2B/B2C
+ 
+
+**JIT(Just in time) 상환:** B2B API를 사용하여 게스트 사용자와 리소스를 공유하면 특별한 초대 이메일을 보낼 필요가 없습니다. 대부분의 경우에서 게스트 사용자는 간단히 리소스에 액세스할 수 있으며 필요한 때에 상환 환경을 통해 제거됩니다. 누락된 이메일로 인한 영향이 더 이상 없습니다. 게스트 사용자에게 "시스템이 보낸 해당 상환 링크를 클릭했나요?"라고 더 이상 묻지 않습니다. 즉, SPO에서 초대 관리자를 사용하면 흐린 첨부 파일은 모든 상환 상태에서 내부 및 외부 모든 사용자에 대해 동일한 정식 URL을 가질 수 있습니다.
+
+**최신 상환 환경:** 더 이상 화면 상환 방문 페이지를 분할하지 않습니다. 사용자는 타사 앱에 대해 수행하는 것과 같이 초대 조직의 개인정보처리방침과 함께 최신 동의 환경을 봅니다.
+
+
+**게스트 사용자는 조직을 떠날 수 있음:** 조직과의 사용자의 관계가 끝나면 사용자는 스스로 조직을 떠날 수 있습니다. "제거되는" 초대 조직의 관리자를 더 이상 호출하지 않고, 지원 티켓을 더 이상 발생하지 않습니다.
+ 
+
+---
+ 
+
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱 - 2018년 5월
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능**: 타사 통합
+ 
+
+2018년 5월에 앱 갤러리에 페더레이션 지원이 제공되는 다음과 같은 18개의 새 앱을 추가했습니다.
+
+ 
+
+[AwardSpring](https://docs.microsoft.com/azure/active-directory/active-directory-saas-awardspring-tutorial), [Infogix Data3Sixty Govern](), [Yodeck](https://docs.microsoft.com/azure/active-directory/active-directory-saas-infogix-tutorial), [Jamf Pro](https://docs.microsoft.com/azure/active-directory/active-directory-saas-jamfprosamlconnector-tutorial), [KnowledgeOwl](https://docs.microsoft.com/azure/active-directory/active-directory-saas-knowledgeowl-tutorial), [Envi MMIS](https://docs.microsoft.com/azure/active-directory/active-directory-saas-envimmis-tutorial), [LaunchDarkly](https://docs.microsoft.com/azure/active-directory/active-directory-saas-launchdarkly-tutorial), [Adobe Captivate Prime](https://docs.microsoft.com/azure/active-directory/active-directory-saas-adobecaptivateprime-tutorial), [Montage Online](https://docs.microsoft.com/azure/active-directory/active-directory-saas-montageonline-tutorial), [まなびポケット](https://docs.microsoft.com/azure/active-directory/active-directory-saas-manabipocket-tutorial), OpenReel, [Arc Publishing - SSO](https://docs.microsoft.com/azure/active-directory/active-directory-saas-arc-tutorial), [PlanGrid](https://docs.microsoft.com/azure/active-directory/active-directory-saas-plangrid-tutorial), [iWellnessNow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-iwellnessnow-tutorial), [Proxyclick](https://docs.microsoft.com/azure/active-directory/active-directory-saas-proxyclick-tutorial), [Riskware](https://docs.microsoft.com/azure/active-directory/active-directory-saas-riskware-tutorial), [Flock](https://docs.microsoft.com/azure/active-directory/active-directory-saas-flock-tutorial), [Reviewsnap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-reviewsnap-tutorial)
+
+ 
+
+[여기](https://aka.ms/appstutorial)에서 모든 응용 프로그램의 설명서를 찾을 수도 있습니다.
+
+Azure AD 앱 갤러리에서 응용 프로그램을 나열하려면 [Azure Active Directory 응용 프로그램 갤러리에서 응용 프로그램 나열](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)을 참조하세요. 
+
+ 
+
+---
+ 
+
+### <a name="deployment-plans---guidance-to-get-you-started-with-azure-active-directory"></a>배포 계획 - Azure Active Directory 시작 지침
+
+**유형:** 새로운 기능  
+**서비스 범주:** 기타  
+**제품 기능:** 디렉터리
+ 
+
+배포에 대한 단계별 지침을 찾고 있습니다(SSPR, SSO, CA, 앱 프록시, 사용자 프로비저닝, ADFS-PTA, 또는 ADFS-PHS). 지원할 배포 계획을 가져왔습니다!
+
+종단 간 지침에 액세스하여 해당 기능에서 값 가져오기를 시작할 수 있는 [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans)로 이동합니다.
+
+
+
+- [배포 계획을 어떻게 가져올 수 있나요](http://Aka.ms/DeploymentPlans)? 
+
+- [여기](http://aka.ms/DeploymentPlanFeedback)에서 피드백을 제공할 수 있습니다.
+
+- 질문이 있으십니까? 연락하기: [IDGitDeploy@microsoft.com](mailto:IDGitDeploy@microsoft.com)
+
+
+
+     
+
+ 
+
+---
+ 
+
+### <a name="enterprise-applications-search---load-more-apps"></a>Enterprise 응용 프로그램 검색 - 앱 추가 로드
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** SSO
+ 
+
+응용 프로그램/서비스 사용자를 찾는 데 문제가 있나요? 엔터프라이즈 응용 프로그램 모든 응용 프로그램 목록에 더 많은 응용 프로그램을 로드하는 기능을 추가했습니다. 기본적으로 20개의 응용 프로그램을 표시합니다. 이제 추가 로드를 클릭하여 추가 응용 프로그램을 볼 수 있습니다. 
+ 
+
+---
+ 
+
+
+### <a name="public-preview-of-new-and-improved-sign-ins-user-experience-in-azure-portal"></a>Azure Portal에서 개선된 새 로그인 사용자 환경 공개 미리 보기
+
+**유형:** 변경된 기능  
+**서비스 범주:** 보고  
+**제품 기능:** 모니터링 및 보고
+ 
+
+Azure AD 포털 내에서 개선된 새 로그인 로그 사용자 환경을 소개합니다. 새 로그인 사용자 환경을 사용하여 고객은 이제 다음을 가져올 수 있습니다.
+
+- 2시간에서 5분 내로 향상된 대기 시간 자세한 내용은 [대기 시간](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-latencies-azure-portal) 문서를 참조하세요.
+
+- "열" 단추를 사용하여 동적으로 필터를 추가하는 기능 UX에서 로그인 보고서에 열을 추가하여 사용할 필터로 자동으로 볼 수 있습니다.
+
+- 날짜, 사용자 이름 및 응용 프로그램별로 정렬하는 기능
+
+- 레거시 인증 및 "클라이언트 앱" 열을 사용하여 레거시 인증을 필터링하는 기능의 포함
+
+- UX에서 선택하는 필터 조건에 따라 사용자 지정되는 다운로드 가능한 PowerShell 스크립트의 포함 이 PowerShell 스크립트를 사용하여 원하는 만큼의 데이터의 행을 가져올 수 있습니다(필터 조건에 따라). 이는 .csv 형식으로 출력을 제공합니다.
+
+이 기능의 자세한 내용은 [Azure Active Directory 포털의 로그인 활동 보고서](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins)를 참조하세요.
+ 
+
+---
+ 
+
+
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>AADConnect의 5월 릴리스에는 PingFederate와의 통합, 중요 보안 업데이트, 여러 버그 수정 및 뛰어난 새 문제 해결 도구에 대한 공개 미리 보기가 포함되어 있습니다. 
+
+**유형:** 변경된 기능  
+**서비스 범주:** AD Connect  
+**제품 기능:** ID 수명 주기 관리
+ 
+
+AADConnect의 5월 릴리스에는 PingFederate와의 통합, 중요 보안 업데이트, 여러 버그 수정 및 뛰어난 새 문제 해결 도구에 대한 공개 미리 보기가 포함되어 있습니다. [여기](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190)에서 릴리스 정보를 찾을 수 있습니다.
+
+ 
+
+---
+ 
+
+
+### <a name="azure-ad-access-reviews-auto-apply"></a>Azure AD 액세스 검토: 자동 적용
+
+**유형:** 변경된 기능  
+**서비스 범주:** 액세스 검토  
+**제품 기능:** 거버넌스
+ 
+
+이제 Azure AD Premium P2의 일부로 그룹 및 앱에 대한 액세스 검토를 일반적으로 사용할 수 있습니다. 관리자는 액세스 검토가 완료되면 검토자의 변경 내용을 해당 그룹 또는 앱에 자동으로 적용하도록 구성할 수 있습니다. 관리자는 검토자가 응답하지 않는 경우 사용자의 지속적인 액세스에 발생하는 것을 지정하고, 액세스를 제거하고, 액세스를 유지하거나 시스템 권장 사항을 사용할 수도 있습니다. 
+
+ 
+
+---
+ 
+
+
+### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>ID 토큰은 새 앱의 response_mode 쿼리를 사용하여 더 이상 반환할 수 없습니다. 
+
+**유형:** 변경된 기능  
+**서비스 범주:** 인증(로그인)  
+**제품 기능:** 사용자 인증
+ 
+
+2018/4/25 이후에 생성되는 앱은 더 이상 response_mode **쿼리**를 사용하여 **id_token**을 요청할 수 없습니다.  OIDC 사양으로 Azure AD 인라인을 가져오고 앱 공격 노출 영역을 줄일 수 있습니다.  2018/4/25 이전에 생성되는 앱은 **id_token**의 response_type으로 response_mode **쿼리** 사용이 차단됩니다.  AAD에서 id_token을 요청할 때 반환되는 오류는 **AADSTS70007: 토큰을 요청할 때 ‘쿼리’는 ‘response_mode’의 지원되는 값이 아닙니다**입니다.
+
+새 응용 프로그램 개체(예: 앱 프록시 사용)를 만들 때 **조각** 및 **form_post** response_mode는 계속해서 작동합니다. 새 응용 프로그램을 만들기 전에 이러한 response_mode 중 하나를 사용하는지 확인합니다.  
+ 
+
+---
+ 
+
 
 
 ## <a name="april-2018"></a>2018년 4월
@@ -347,7 +628,7 @@ Office 365 네이티브 클라이언트(버전 16.0.8730.xxxx 이상)를 사용�
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
-응용 프로그램(예: `https://contoso.sharepoint.com`)이 Azure AD의 공통 끝점(`https://login.microsoftonline.com/common/<...>`) 대신 Azure AD의 테넌트 끝점(즉, `https://login.microsoftonline.com/contoso.com/<..>` 또는 `https://login.microsoftonline.com/<tenant_ID>/<..>`)으로 로그인 요청을 전송할 경우 사용자는 Seamless SSO를 사용하여 자동 로그온 환경을 사용할 수 있습니다.
+응용 프로그램(예: `https://contoso.sharepoint.com`)이 Azure AD의 공통 엔드포인트(`https://login.microsoftonline.com/common/<...>`) 대신 Azure AD의 테넌트 엔드포인트(즉, `https://login.microsoftonline.com/contoso.com/<..>` 또는 `https://login.microsoftonline.com/<tenant_ID>/<..>`)로 로그인 요청을 전송할 경우 사용자는 Seamless SSO를 사용하여 자동 로그온 환경을 사용할 수 있습니다.
 
 자세한 내용은 [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)을 참조하세요. 
 
@@ -418,7 +699,7 @@ Office 365 네이티브 클라이언트(버전 16.0.8730.xxxx 이상)를 사용�
  
 Azure AD 설명서가 OAuth 2.0 권한 부여 코드 부여 흐름 동안 좀 더 안전한 통신을 허용하는 PKCE에 대한 지원 내용을 포함하도록 업데이트되었습니다.  S256 및 일반 텍스트 code_challenges 둘 다 v1.0 및 v2.0 끝점에서 지원됩니다. 
 
-자세한 내용은 권한 부여 코드 요청[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code)을 참조하세요. 
+자세한 내용은 [권한 부여 코드 요청](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code)을 참조하세요. 
 
  
 ---
@@ -658,7 +939,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 **수정된 문제**
 
-- 다음 페이지로 전환할 때 파티션 필터링 페이지에 대한 백그라운드 작업에 대한 시간 범위가 수정되었습니다.
+- 다음 페이지로 전환할 때 파티션 필터링 페이지에 대한 백그라운드 작업에서 타이밍 창 수정
 - ConfigDB 사용자 지정 작업을 수행하는 동안 액세스 위반이 발생하는 버그가 수정되었습니다.
 - SQL 연결 시간 제한에서 복구하는 버그가 수정되었습니다.
 - SAN 와일드카드가 있는 인증서가 필수 구성 요소 검사에 실패하는 버그가 수정되었습니다.
@@ -667,12 +948,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 **새 기능 및 향상된 기능**
 
-- GDPR의 경우 Microsoft와 공유하는 고객 데이터(원격 분석, 상태 등)의 종류를 나타내고, 자세한 온라인 설명서에 대한 링크를 제공하며, 기본 설정을 변경할 수 있는 방법을 제공해야 합니다.  이 체크 인은 다음을 추가합니다.
-    - 새로 설치 EULA 페이지에 데이터 공유 및 개인 정보 알림.
 
-    - 업그레이드 페이지에 데이터 공유 및 개인 정보 알림.
-
-    - 사용자가 기본 설정을 변경할 수 있도록 새로 추가된 **개인 정보 설정** 작업
  
 - 응용 프로그램 원격 분석 - 관리자가 이 데이터 클래스를 설정/해제할 수 있습니다.
 

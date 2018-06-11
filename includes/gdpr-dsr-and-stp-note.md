@@ -1,7 +1,7 @@
 ---
- 제목: 포함 파일 설명: 포함 파일 서비스: azure-policy 작성자: eross msft
+ 제목: 포함 파일 설명: 포함 파일 서비스: active-directory 작성자: eross msft
  
-ms.service: azure-policy ms.topic: 포함 ms.date: 04/24/2018 ms.author: lizross ms.custom: 포함 파일
+ms.service: active-directory ms.topic: include ms.date: 04/24/2018 ms.author: lizross ms.custom: 포함 파일
 ---
 
 >[!Note] 

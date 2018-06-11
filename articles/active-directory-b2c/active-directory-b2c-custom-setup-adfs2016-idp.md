@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가'
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가 | Microsoft Docs
 description: SAML 프로토콜 및 사용자 지정 정책을 사용하여 ADFS 2016을 설정하는 방법 문서
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: af102bbc3bc7608fe641db19f4af8c760907a564
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 06b70e48398fd720b6c87cc4575b7a7973f5bce5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709192"
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
