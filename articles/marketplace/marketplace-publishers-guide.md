@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 30847ff20abf6654e58a0e72a12f04dcd88d5871
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011114"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34715363"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드
 
@@ -100,7 +100,7 @@ Microsoft는 파트너가 제품을 나열하고, 평가판을 활성화하고, 
 |---------|---------|---------|
 | 1. Microsoft 파트너 네트워크에 등록 | 15분 | MPN(Microsoft 파트너 네트워크)에 조인하여 공식 Microsoft 파트너가 되고 Azure Marketplace 게시자가 되기 위한 추가 혜택 및 지원을 받습니다. MPN에 등록하려면 Microsoft 파트너 네트워크를 방문하고 “등록”을 클릭하세요. 등록하는 동안 해당하는 경우 조직의 기존 멤버 자격에 조인할 수 없습니다. 일단 등록되면 조직의 MPN ID를 기록해 둡니다. Cloud 파트너 포털에서 게시자 프로필을 활성화하도록 요청합니다(3단계).      |
 |2. Microsoft ID 만들기     |   15분      |  이 Microsoft ID는 Cloud 파트너 포털에 액세스하는 데 사용됩니다. 이 이메일 주소는 Microsoft ID로 등록되어야 하며, Cloud 파트너 포털(3단계) 및 Microsoft 개발자 센터(4단계) 둘 다에서 사용됩니다. 선택한 이메일 주소는 회사 도메인에 포함된 것이거나, IT 팀에서 관리하는 것이 좋습니다. ID를 만들기 전의 지침은 지침 및 방법 섹션을 검토하세요. |
-|3. Marketplace 추천 양식 제출     |  1-3일       | Microsoft 클라우드 Marketplace 게시자가 되려는 조직을 추천합니다. 이 양식은 조직, 게시하려는 응용 프로그램 또는 서비스 제품, 제공하는 지원 수준에 관한 정보를 포함합니다. <ul><li>[Azure Marketplace 추천 양식](http://aka.ms/listonazuremarketplace)</li><li>[AppSource 추천 양식](http://aka.ms/listonappsource)</li></ul> 양식을 제출한 후 Marketplace 팀에서 응용 프로그램을 검토하고 요청의 유효성을 검사합니다. 요청을 검토한 후에 승인된 파트너가 되고 Cloud 파트너 포털에 액세스하기 위해 다음 단계에서 이메일을 통해 알림을 받습니다. 여기서 첫 번째 제품 등록을 완료하고 추가 제품을 만들 수 있습니다. 승인되면 Microsoft 개발자 센터(4단계)에 대한 등록 요금을 면제 받는 프로모션 코드도 받게 됩니다. |
+|3. Marketplace 추천 양식 제출     |  1-3일       | Microsoft 클라우드 Marketplace 게시자가 되려는 조직을 추천합니다. 이 양식은 조직, 게시하려는 응용 프로그램 또는 서비스 제품, 제공하는 지원 수준에 관한 정보를 포함합니다. <ul><li>[Azure Marketplace 추천 양식](https://azuremarketplace.microsoft.com/sell/signup)</li><li>[AppSource 추천 양식](http://aka.ms/listonappsource)</li></ul> 양식을 제출한 후 Marketplace 팀에서 응용 프로그램을 검토하고 요청의 유효성을 검사합니다. 요청을 검토한 후에 승인된 파트너가 되고 Cloud 파트너 포털에 액세스하기 위해 다음 단계에서 이메일을 통해 알림을 받습니다. 여기서 첫 번째 제품 등록을 완료하고 추가 제품을 만들 수 있습니다. 승인되면 Microsoft 개발자 센터(4단계)에 대한 등록 요금을 면제 받는 프로모션 코드도 받게 됩니다. |
 |4. 개발자 센터에 등록     |    5-10일     | Microsoft 개발자 센터는 가상 머신, 솔루션 템플릿 및 Azure 관리 앱 등 마켓플레이스에서 거래 기능을 포함하는 응용 프로그램을 게시하기 위해 필요합니다. 이 요구 사항을 통해 Microsoft는 사용자의 회사 정보, 회사의 법인명, 세금 및 은행 엔터티의 유효성을 검사할 수 있습니다. 등록자는 조직의 정식 담당자여야 하며 신원을 확인할 수 있는 개인 정보를 제공해야 합니다. 등록자는 회사에서 공유되는 Microsoft ID(2단계)를 사용해야 하며 Cloud 파트너 포털에서도 동일한 계정을 사용해야 합니다. <ul>참고로 Marketplace 추천 양식을 완료하지 않을 경우 $99의 등록 요금이 청구됩니다. 이 요금을 면제받으려면 Marketplace 추천 양식을 완료하고 이메일을 통해 프로모션 코드를 받아야 합니다. 중요: Microsoft 개발자 센터 계정 만들기를 시작하기 전에 회사에 Microsoft 개발자 센터 계정이 아직 없는지 확인해야 합니다. 이 프로세스에 대한 단계별 설명을 보려면 개발자 센터에 등록하는 방법에 대한 지침을 참조하세요.</ul>   |
 |5. Cloud 파트너 포털에 로그인합니다.     |  15분       |  추천이 승인되고 [Microsoft 파트너 네트워크](https://partner.microsoft.com/en-us/membership/) 및 [Microsoft 개발자 센터](https://dev.windows.com/)에 등록되면 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 액세스하기 위한 계정이 생성됩니다. 추천 승인 전자 메일에는 최초 로그인 자격 증명이 포함됩니다. Cloud 파트너 포털을 사용하는 방법에 대한 자세한 내용을 보려면 포털 내에서 [학습](https://cloudpartner.azure.com/#Learn) 메뉴로 이동하고 설명서 섹션을 검토하세요.    |
 
@@ -359,8 +359,8 @@ Azure AD 페더레이션 SSO를 처음 접하는 경우:
 |---------|---------|---------|
 | 1. Microsoft 파트너 네트워크에 등록 | 15분 | MPN(Microsoft 파트너 네트워크)에 조인하여 공식 Microsoft 파트너가 되고 Azure Marketplace 게시자가 되기 위한 추가 혜택 및 지원을 받습니다. MPN에 등록하려면 Microsoft 파트너 네트워크를 방문하고 “등록”을 클릭하세요. 등록하는 동안 해당하는 경우 조직의 기존 멤버 자격에 조인할 수 없습니다. 일단 등록되면 조직의 MPN ID를 기록해 둡니다. Cloud 파트너 포털에서 게시자 프로필을 활성화하도록 요청합니다(3단계).      |
 |2. Microsoft ID 만들기     |   15분      |  이 Microsoft ID는 Cloud 파트너 포털에 액세스하는 데 사용됩니다. 이 이메일 주소는 Microsoft ID로 등록되어야 하며, Cloud 파트너 포털(3단계) 및 Microsoft 개발자 센터(4단계) 둘 다에서 사용됩니다. 선택한 이메일 주소는 회사 도메인에 포함된 것이거나, IT 팀에서 관리하는 것이 좋습니다. ID를 만들기 전의 지침은 지침 및 방법 섹션을 검토하세요. |
-|3. Marketplace 추천 양식 제출     |  1-3일       | Microsoft 클라우드 Marketplace 게시자가 되려는 조직을 추천합니다. 이 양식은 조직, 게시하려는 응용 프로그램 또는 서비스 제품, 제공하는 지원 수준에 관한 정보를 포함합니다. <ul><li>[Azure Marketplace 추천 양식](http://aka.ms/listonazuremarketplace)</li><li>[AppSource 추천 양식](http://aka.ms/listonappsource)</li></ul> 양식을 제출한 후 Marketplace 팀에서 응용 프로그램을 검토하고 요청의 유효성을 검사합니다. 요청을 검토한 후에 승인된 파트너가 되고 Cloud 파트너 포털에 액세스하기 위해 다음 단계에서 이메일을 통해 알림을 받습니다. 여기서 첫 번째 제품 등록을 완료하고 추가 제품을 만들 수 있습니다. 승인되면 Microsoft 개발자 센터(4단계)에 대한 등록 요금을 면제 받는 프로모션 코드도 받게 됩니다. |
-|4. 개발자 센터에 등록     |    5-10일     | Microsoft 개발자 센터는 가상 머신, 솔루션 템플릿 및 Azure 관리 앱 등 마켓플레이스에서 거래 기능을 포함하는 응용 프로그램을 게시하기 위해 필요합니다. 이 요구 사항을 통해 Microsoft는 사용자의 회사 정보, 회사의 법인명, 세금 및 은행 엔터티의 유효성을 검사할 수 있습니다. 등록자는 조직의 정식 담당자여야 하며 신원을 확인할 수 있는 개인 정보를 제공해야 합니다. 등록자는 회사에서 공유되는 Microsoft ID(2단계)를 사용해야 하며 Cloud 파트너 포털에서도 동일한 계정을 사용해야 합니다. <ul>참고로 Marketplace 추천 양식을 완료하지 않을 경우 $99의 등록 요금이 청구됩니다. 이 요금을 면제받으려면 Marketplace 추천 양식을 완료하고 이메일을 통해 프로모션 코드를 받아야 합니다. 중요: Microsoft 개발자 센터 계정 만들기를 시작하기 전에 회사에 Microsoft 개발자 센터 계정이 아직 없는지 확인해야 합니다. 이 프로세스에 대한 단계별 설명을 보려면 개발자 센터에 등록하는 방법에 대한 지침을 참조하세요.</ul>   |
+|3. Marketplace 추천 양식 제출     |  1-3일       | Microsoft 클라우드 Marketplace 게시자가 되려는 조직을 추천합니다. 이 양식은 조직, 게시하려는 응용 프로그램 또는 서비스 제품, 제공하는 지원 수준에 관한 정보를 포함합니다. <ul><li>[Azure Marketplace 추천 양식](https://azuremarketplace.microsoft.com/sell/signup)</li><li>[AppSource 추천 양식](http://aka.ms/listonappsource)</li></ul> 양식을 제출한 후 Marketplace 팀에서 응용 프로그램을 검토하고 요청의 유효성을 검사합니다. 요청을 검토한 후에 승인된 파트너가 되고 Cloud 파트너 포털에 액세스하기 위해 다음 단계에서 이메일을 통해 알림을 받습니다. 여기서 첫 번째 제품 등록을 완료하고 추가 제품을 만들 수 있습니다. 승인되면 Microsoft 개발자 센터(4단계)에 대한 등록 요금을 면제 받는 프로모션 코드도 받게 됩니다. |
+|4. 개발자 센터에 등록     |    5-10일     | Microsoft 개발자 센터는 Virtual Machines, 솔루션 템플릿, Azure 관리 앱, 컨테이너 및 SaaS 구독 등 마켓플레이스에서 거래 기능을 포함하는 응용 프로그램을 게시하기 위해 필요합니다. 이 요구 사항을 통해 Microsoft는 사용자의 회사 정보, 회사의 법인명, 세금 및 은행 엔터티의 유효성을 검사할 수 있습니다. 등록자는 조직의 정식 담당자여야 하며 신원을 확인할 수 있는 개인 정보를 제공해야 합니다. 등록자는 회사에서 공유되는 Microsoft ID(2단계)를 사용해야 하며 Cloud 파트너 포털에서도 동일한 계정을 사용해야 합니다. <ul>참고로 Marketplace 추천 양식을 완료하지 않을 경우 $99의 등록 요금이 청구됩니다. 이 요금을 면제받으려면 Marketplace 추천 양식을 완료하고 이메일을 통해 프로모션 코드를 받아야 합니다. 중요: Microsoft 개발자 센터 계정 만들기를 시작하기 전에 회사에 Microsoft 개발자 센터 계정이 아직 없는지 확인해야 합니다. 이 프로세스에 대한 단계별 설명을 보려면 개발자 센터에 등록하는 방법에 대한 지침을 참조하세요.</ul>   |
 |5. Cloud 파트너 포털에 로그인합니다.     |  15분       |  추천이 승인되고 [Microsoft 파트너 네트워크](https://partner.microsoft.com/en-us/membership/) 및 [Microsoft 개발자 센터](https://dev.windows.com/)에 등록되면 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 액세스하기 위한 계정이 생성됩니다. 추천 승인 전자 메일에는 최초 로그인 자격 증명이 포함됩니다. Cloud 파트너 포털을 사용하는 방법에 대한 자세한 내용을 보려면 포털 내에서 [학습](https://cloudpartner.azure.com/#Learn) 메뉴로 이동하고 설명서 섹션을 검토하세요.    |
 
 
