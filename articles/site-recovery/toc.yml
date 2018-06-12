@@ -235,6 +235,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: 물리적 서버 복제를 위한 구성 서버 관리
               href: physical-manage-configuration-server.md
+            - name: 프로세스 서버 관리
+              href: vmware-azure-manage-process-server.md
             - name: vCenter 서버 관리
               href: vmware-azure-manage-vcenter.md
             - name: 서버 제거 및 보호 사용 안 함
