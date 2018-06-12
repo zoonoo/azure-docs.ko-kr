@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 79e7d049ebf184e273e05250bd6f112d4c6be53d
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34715363"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34806873"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드
 
@@ -144,7 +144,7 @@ Azure Marketplace에 대한 지원 옵션 목록은 다음과 같습니다.
 |지원 채널  |설명  |
 |---------|---------|
 |MSDN 포럼: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network 포럼입니다.         |
-|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Azure 및 Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 Stack Overflow 환경입니다.<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure 리소스 관리자](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Azure 및 Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 Stack Overflow 환경입니다.<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Azure의 컨테이너](https://stackoverflow.com/search?q=azure+container)</li></ul> |
 
 
 **마케팅 리소스**
@@ -215,7 +215,10 @@ GTM 혜택 및 마켓플레이스에서 비즈니스를 성장시키는 방법�
 |**요구 사항**  |**세부 정보** |**게시 옵션**  |
 |---------|---------|---------|
 |**청구 및 계량**   |  컨테이너는 무료 또는 BYOL 청구 모델 중 하나를 지원해야 합니다.       |  트랜잭션       |
-|**Docker 기반 이미지**    |   컨테이너 이미지는 Docker 이미지 형식에 기반해야 하며 Azure Container Registries에서 끌어와야 합니다.      |  트랜잭션       |
+|**Dockerfile에서 작성된 이미지**    |   컨테이너 이미지는 Docker 이미지 사양을 기반으로 해야 하며 Dockerfile에서 작성해야 합니다. [여기]에서 docker 이미지 빌드에 대해 자세히 알아보세요.(https://docs.docker.com/engine/reference/builder/#usage)     |  트랜잭션       |
+|**ACR에서 호스팅**    |   컨테이너 이미지는 Azure Container Registry(ACR) 리포지토리에서 호스팅되어야 합니다. [여기]에서 ACR 작업에 대해 자세히 알아보세요.(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     |  트랜잭션       |
+|**이미지 태그 지정**    |   컨테이너 이미지는 최소 1개 이상의 태그를 포함해야 합니다(최대 태그: 16). [여기]에서 이미지의 태그 지정에 대해 자세히 알아보세요.(https://docs.docker.com/engine/reference/commandline/tag/)     |  트랜잭션       |
+
 
 #### <a name="prerequisites-specific-to-transation-publishing-for-saas-app-subscriptions"></a>SaaS 앱 구독에 대한 거래 게시와 관련된 필수 구성 요소
 
@@ -224,7 +227,8 @@ GTM 혜택 및 마켓플레이스에서 비즈니스를 성장시키는 방법�
 |**청구 및 계량**    |   제품은 월정액으로 가격이 책정됩니다. 사용량 기반 가격 책정 및 사용량 기반 "현실화" 기능은 이번에 지원되지 않습니다.      |   트랜잭션      |
 |**취소**  |   제품은 언제든지 고객에 의해 취소될 수 있습니다.      |   트랜잭션      |
 |**트랜잭션 방문 페이지**     |   사용자가 SaaS 서비스 계정을 만들고 관리할 수 있는 Azure 공동 브랜드 트랜잭션 방문 페이지를 호스트합니다.      |    트랜잭션     |
-|**SaaS 구독 API**    |   SaaS 구독과 상호 작용할 수 있는 서비스를 노출하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다.      |     트랜잭션    |
+|**구독 API**    |   SaaS 구독과 상호 작용할 수 있는 서비스를 노출하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다.      |     트랜잭션    |
+
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>컨설팅 서비스 게시 관련 필수 구성 요소
 
