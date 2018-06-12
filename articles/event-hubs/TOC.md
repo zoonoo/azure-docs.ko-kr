@@ -33,6 +33,8 @@
 ### [Kafka 사용 Event Hubs 만들기](event-hubs-create-kafka-enabled.md) 
 ### [Kafka 에코시스템용 Azure Event Hubs로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 ### [Kafka 에코시스템용 Azure Event Hub와 함께 Kafka MirrorMaker 사용](event-hubs-kafka-mirror-maker-tutorial.md)
+### [Kafka용 Event Hubs 에코시스템으로 Apache Flink 사용](event-hubs-kafka-flink-tutorial.md)
+### [Kafka용 Event Hubs 에코시스템으로 Akka Streams 사용](event-hubs-kafka-akka-streams-tutorial.md)
 ## 개발
 ### [.NET Framework를 사용하여 이벤트 보내기](event-hubs-dotnet-framework-getstarted-send.md)
 ### [.NET Framework를 사용하여 이벤트 받기](event-hubs-dotnet-framework-getstarted-receive-eph.md)

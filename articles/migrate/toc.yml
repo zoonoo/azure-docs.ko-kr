@@ -32,6 +32,10 @@
           href: contoso-migration-rehost-vm.md
         - name: 6. Contoso-Azure VM 및 Azure SQL AlwaysOn에서 앱 다시 호스트
           href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso-Azure VM에서 Linux 앱 다시 호스트
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso-Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트
+          href: contoso-migration-rehost-linux-vm-mysql.md
     - name: 대규모 환경 검색 및 평가
       href: how-to-scale-assessment.md
     - name: 컴퓨터 그룹화

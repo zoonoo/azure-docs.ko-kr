@@ -80,6 +80,7 @@
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [파워 쿼리 M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+## [테이블 형식 개체 모델(TOM)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)
 
 # 리소스
 
