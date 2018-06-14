@@ -1,12 +1,12 @@
 ---
-title: "Azure App Service 계획 개요 | Microsoft Docs"
-description: "Azure App Service에 대한 App Service 계획의 작동 방식 및 이러한 계획을 통해 관리 환경을 향상시킬 수 있는 방법을 알아봅니다."
-keywords: "App Service, Azure App Service, 규모, 확장 가능, 확장성, App Service 계획, App Service 비용"
+title: Azure App Service 계획 개요 | Microsoft Docs
+description: Azure App Service에 대한 App Service 계획의 작동 방식 및 이러한 계획을 통해 관리 환경을 향상시킬 수 있는 방법을 알아봅니다.
+keywords: App Service, Azure App Service, 규모, 확장 가능, 확장성, App Service 계획, App Service 비용
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862362"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 

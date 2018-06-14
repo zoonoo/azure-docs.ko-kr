@@ -1,11 +1,11 @@
 ---
-title: "로컬 Docker 컨테이너에서 앱 디버깅 | Microsoft Docs"
-description: "로컬 Docker 컨테이너에서 실행 중인 앱을 수정하고, 편집 및 새로 고침을 통해 컨테이너를 새로 고치고, 디버깅 중단점을 설정하는 방법을 알아봅니다."
+title: 로컬 Docker 컨테이너에서 앱 디버깅 | Microsoft Docs
+description: 로컬 Docker 컨테이너에서 실행 중인 앱을 수정하고, 편집 및 새로 고침을 통해 컨테이너를 새로 고치고, 디버깅 중단점을 설정하는 방법을 알아봅니다.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781397"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>로컬 Docker 컨테이너에서 앱 디버깅
 ## <a name="overview"></a>개요

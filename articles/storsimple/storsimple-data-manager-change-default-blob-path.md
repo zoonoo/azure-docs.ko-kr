@@ -1,12 +1,12 @@
 ---
-title: "기본값에서 Blob 경로 변경 | Microsoft Docs"
-description: "Azure 함수를 설정하여 Blob 파일 경로의 이름을 변경하는 방법 알아보기"
+title: 기본값에서 Blob 경로 변경 | Microsoft Docs
+description: Azure 함수를 설정하여 Blob 파일 경로의 이름을 변경하는 방법 알아보기
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862403"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
@@ -61,7 +62,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
     ![+ 새 함수 클릭](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
-6. 언어로 **C#**을 선택합니다. 템플릿 타일 배열의 **QueueTrigger-CSharp** 타일에서 **C#**을 선택합니다.
+6. 언어로 **C#** 을 선택합니다. 템플릿 타일 배열의 **QueueTrigger-CSharp** 타일에서 **C#** 을 선택합니다.
 
 7. **큐 트리거**에서 다음을 수행합니다.
 

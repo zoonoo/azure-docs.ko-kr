@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27600149"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
@@ -147,10 +148,10 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 1. Azure Blob Storage에서 데이터 확인
 
-    Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 **Azure Blob Storage** 구성 요소를 클릭하고 오른쪽 패널에서 **열기**를 클릭하면 [Azure Portal](https://portal.azure.com)로 이동합니다. **Blobs**을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **"energysadata"**를 클릭합니다. 다음 패널에 **“demandongoing”** 폴더가 표시됩니다. rawdata 폴더 안에 date=2016-01-28 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 성공적으로 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 파일이 표시됩니다.
+    Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 **Azure Blob Storage** 구성 요소를 클릭하고 오른쪽 패널에서 **열기**를 클릭하면 [Azure Portal](https://portal.azure.com)로 이동합니다. **Blobs**을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **"energysadata"** 를 클릭합니다. 다음 패널에 **“demandongoing”** 폴더가 표시됩니다. rawdata 폴더 안에 date=2016-01-28 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 성공적으로 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 파일이 표시됩니다.
 2. Azure SQL Database에서 데이터를 확인합니다.
 
-    파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 작성하는 것입니다. 데이터를 SQL Database에 표시하려면 최대 2시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://portal.azure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)를 찾아 클릭합니다. 그런 다음 데이터베이스(예: demo123456db)를 찾고 클릭합니다. 다음 페이지의 **"데이터베이스에 연결"** 섹션 아래에서 **"SQL Database에 대해 Transact-SQL 쿼리 실행"**을 클릭합니다.
+    파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 작성하는 것입니다. 데이터를 SQL Database에 표시하려면 최대 2시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://portal.azure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)를 찾아 클릭합니다. 그런 다음 데이터베이스(예: demo123456db)를 찾고 클릭합니다. 다음 페이지의 **"데이터베이스에 연결"** 섹션 아래에서 **"SQL Database에 대해 Transact-SQL 쿼리 실행"** 을 클릭합니다.
 
     여기서 새 쿼리를 클릭하고, 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 하므로 여러 행에 대해 쿼리할 수 있습니다(예: “DemandRealHourly에서 수( * ) 선택”).
 3. Power BI 대시보드에서 데이터를 확인합니다.
@@ -168,7 +169,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 실시간 분석 대시보드](stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
    * [Azure Portal](https://portal.azure.com)에서 스트림 분석 작업을 찾습니다. 작업의 이름은 솔루션 이름+"streamingjob"+난수+"asapbi"(예: demostreamingjob123456asapbi)여야 합니다.
-   * ASA 작업에 PowerBI 출력을 추가합니다. **출력 별칭**을 **‘PBIoutput’**으로 설정합니다. **데이터 집합 이름**과 **테이블 이름**을 **‘EnergyStreamData’**로 설정합니다. 출력을 추가했으면 페이지 하단에서 **"시작"** 을 클릭하여 Stream Analytics 작업을 시작합니다. 확인 메시지가 표시되어야 합니다(예: “스트림 분석 작업 myteststreamingjob12345asablob 성공”).
+   * ASA 작업에 PowerBI 출력을 추가합니다. **출력 별칭**을 **‘PBIoutput’** 으로 설정합니다. **데이터 집합 이름**과 **테이블 이름**을 **‘EnergyStreamData’** 로 설정합니다. 출력을 추가했으면 페이지 하단에서 **"시작"** 을 클릭하여 Stream Analytics 작업을 시작합니다. 확인 메시지가 표시되어야 합니다(예: “스트림 분석 작업 myteststreamingjob12345asablob 성공”).
 2. [Power BI 온라인](http://www.powerbi.com)
 
    * 내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 Power BI의 왼쪽 패널에 새 데이터 집합이 표시되는 것을 확인할 수 있습니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다.
@@ -196,7 +197,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
    다음 단계로 이동하기 전에 **데이터베이스 서버 이름, 데이터베이스 이름, 사용자 이름 및 암호** 가 필요합니다. 찾는 방법을 안내하는 단계는 다음과 같습니다.
 
-   * 솔루션 템플릿 다이어그램의 **"Azure SQL Database"**가 녹색으로 바뀌면 클릭한 다음 **"열기"**를 클릭합니다. Azure Portal로 안내되고 데이터베이스 정보 페이지도 열립니다.
+   * 솔루션 템플릿 다이어그램의 **"Azure SQL Database"** 가 녹색으로 바뀌면 클릭한 다음 **"열기"** 를 클릭합니다. Azure Portal로 안내되고 데이터베이스 정보 페이지도 열립니다.
    * 이 페이지에서 "데이터베이스" 섹션을 찾을 수 있습니다. 여기에 만든 데이터베이스가 나열됩니다. 데이터베이스 이름은 **“솔루션 이름 + 난수 + ‘db’”**(예: “mytest12345db”)여야 합니다.
    * 데이터베이스를 클릭하고 표시되는 새 패널 맨 위에서 데이터베이스 서버 이름을 찾을 수 있습니다. 데이터베이스 서버 이름은 `"Your Solution Name + Random Number + 'database.windows.net,1433'"`(예: “mytest12345.database.windows.net,1433”)이어야 합니다.
    * 데이터베이스 **사용자 이름** 및 **암호**는 솔루션 배포 중 이전에 기록된 사용자 이름 및 암호와 동일합니다.
@@ -205,14 +206,14 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
    * 최신 버전의 [Power BI 데스크톱](https://powerbi.microsoft.com/desktop)을 설치했는지 확인합니다.
    * 다운로드한 **“DemandForecastingDataGeneratorv1.0”** 폴더에서 **‘Power BI Template\DemandForecastPowerBI.pbix’** 파일을 두 번 클릭합니다. 초기 시각화는 더미 데이터를 기반으로 합니다. **참고:** 오류 메시지가 표시되면 최신 버전의 Power BI Desktop을 설치했는지 확인합니다.
 
-     열리면 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **‘원본’**을 두 번 클릭합니다.
+     열리면 파일의 맨 위에서 **'쿼리 편집'** 을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **‘원본’** 을 두 번 클릭합니다.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
-   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"**를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"**을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSolutionName.database.windows.net, 1433**). 화면에 나타나는 경고 메시지를 무시합니다.
-   * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **"데이터베이스"**를 클릭하고 **"사용자 이름"** 및 **"암호"**를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **"연결"**을 클릭합니다.
+   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"** 를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"** 을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSolutionName.database.windows.net, 1433**). 화면에 나타나는 경고 메시지를 무시합니다.
+   * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **"데이터베이스"** 를 클릭하고 **"사용자 이름"** 및 **"암호"** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **"연결"** 을 클릭합니다.
    * 이전 페이지로 안내된 후 창을 닫습니다. 메시지가 나타나면 **적용**을 클릭합니다. 마지막으로 **저장** 단추를 클릭하여 변경 내용을 저장합니다. Power BI 파일은 이제 서버에 대한 연결을 설정합니다. 시각화가 비어 있는 경우 범례의 오른쪽 위 모퉁이의 지우개 아이콘을 클릭하여 모든 데이터를 시각화하도록 시각화의 선택 항목을 해제해야 합니다. 새로 고침 단추를 사용하여 시각화에 새 데이터를 반영합니다. 처음에 데이터 팩터리는 3시간마다 새로 고치도록 예약되어 있으므로 시각화에는 시드 데이터만 나타납니다. 3시간 후 데이터를 새로 고치면 시각화에 적용된 새 예측이 표시됩니다.
 3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](http://www.powerbi.com/)에 게시합니다. 이 단계는 Power BI 계정(또는 Office 365 계정)이 필요합니다.
 
-   * **"게시"**를 클릭하고 몇 초 후 녹색 확인 표시로 "Power BI에 게시 성공!"을 창이 나타납니다. 다음 “Power BI에서 demoprediction.pbix 열기” 링크를 클릭합니다. 자세한 지침을 찾으려면 [Power BI 데스크톱에서 게시](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)를 참조하세요.
+   * **"게시"** 를 클릭하고 몇 초 후 녹색 확인 표시로 "Power BI에 게시 성공!"을 창이 나타납니다. 다음 “Power BI에서 demoprediction.pbix 열기” 링크를 클릭합니다. 자세한 지침을 찾으려면 [Power BI 데스크톱에서 게시](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)를 참조하세요.
    * 새 대시보드를 만들려면 왼쪽 창의 **대시보드** 섹션 옆의 **+** 기호를 클릭합니다. 이 새 대시보드에 대해 "Demand Forecasting Demo(수요 예측 데모)" 이름을 입력합니다.
    * 보고서를 열면 ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png)을(를) 클릭하여 모든 시각화를 대시보드에 고정합니다. 자세한 지침을 찾으려면 [보고서에서 Power BI 대시보드에 타일 고정](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)을 참조하세요.
      대시보드 페이지로 이동하고 시각화의 크기 및 위치를 조정하고 제목을 편집합니다. 타일을 편집하는 방법에 자세한 지침을 찾으려면 [타일 편집 - 하이퍼링크 크기 조정, 이동, 이름 바꾸기, 고정, 삭제, 추가](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)를 참조하세요. 다음은 고정된 몇 가지 콜드 경로 시각화를 사용한 예제 대시보드입니다.

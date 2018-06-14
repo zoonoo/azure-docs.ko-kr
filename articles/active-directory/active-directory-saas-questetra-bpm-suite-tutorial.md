@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34351922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>자습서: Questetra BPM Suite와 Azure Active Directory 통합
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager를 사용하여 Redis Cache 프로비전 | Microsoft Docs"
-description: "Azure 리소스 관리자 템플릿을 사용하여 Azure Redis Cache를 배포합니다."
+title: Azure Resource Manager를 사용하여 Redis Cache 프로비전 | Microsoft Docs
+description: Azure 리소스 관리자 템플릿을 사용하여 Azure Redis Cache를 배포합니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910744"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>템플릿을 사용하여 Redis Cache 만들기
 이 항목에서는 Azure Redis Cache를 배포하는 Azure Resource Manager 템플릿을 만드는 방법을 배웁니다. 기존 저장소 계정과 함께 캐시를 사용하여 진단 데이터를 유지할 수 있습니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법도 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.

@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 웹앱 복제"
-description: "PowerShell을 사용하여 Web Apps를 새 Web Apps에 복제하는 방법에 대해 알아봅니다."
+title: PowerShell을 사용하여 웹앱 복제
+description: PowerShell을 사용하여 Web Apps를 새 Web Apps에 복제하는 방법에 대해 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27867475"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 Microsoft Azure PowerShell 버전 1.1.0 릴리스에서는 기존 웹앱을 다른 지역이나 동일한 지역에서 새로 만든 앱에 복제할 수 있도록 하는 새 옵션이 `New-AzureRMWebApp`에 추가되었습니다. 이 옵션을 사용하여 고객은 수많은 앱을 다른 지역에 배포할 수 있습니다.
