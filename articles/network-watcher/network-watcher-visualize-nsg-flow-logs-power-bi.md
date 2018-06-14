@@ -1,11 +1,11 @@
 ---
-title: "Power BI를 사용하여 Azure 네트워크 보안 그룹 흐름 로그 시각화 | Microsoft Docs"
-description: "이 페이지에서는 Power BI를 사용하여 NSG 흐름 로그를 시각화하는 방법을 설명합니다."
+title: Power BI를 사용하여 Azure 네트워크 보안 그룹 흐름 로그 시각화 | Microsoft Docs
+description: 이 페이지에서는 Power BI를 사용하여 NSG 흐름 로그를 시각화하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24878584"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 

@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio를 사용하여 Windows에서 Docker 클라이언트 오류 문제 해결 | Microsoft Docs"
-description: "Visual Studio 2017을 사용하여 웹앱을 만들고 Docker에 배포하는 경우 발생하는 문제를 해결합니다."
+title: Visual Studio를 사용하여 Windows에서 Docker 클라이언트 오류 문제 해결 | Microsoft Docs
+description: Visual Studio 2017을 사용하여 웹앱을 만들고 Docker에 배포하는 경우 발생하는 문제를 해결합니다.
 services: azure-container-service
 documentationcenter: na
 author: devinb
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 346f70b9-7b52-4688-a8e8-8f53869618d3
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24002933"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>Docker를 사용한 Visual Studio 2017 개발 문제 해결
 

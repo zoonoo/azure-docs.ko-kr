@@ -1,11 +1,11 @@
 ---
-title: "Azure HDInsight 문제 해결 가이드 | Microsoft Docs"
-description: "Azure HDInsight를 사용하여 Hadoop 워크로드 문제를 해결합니다. 단계별 설명서에서는 HDInsight를 사용하여 Hive, Spark, YARN, HBase, HDFS 및 Storm의 일반적인 문제를 해결하는 방법을 보여 줍니다."
+title: Azure HDInsight 문제 해결 가이드 | Microsoft Docs
+description: Azure HDInsight를 사용하여 Hadoop 워크로드 문제를 해결합니다. 단계별 설명서에서는 HDInsight를 사용하여 Hive, Spark, YARN, HBase, HDFS 및 Storm의 일반적인 문제를 해결하는 방법을 보여 줍니다.
 services: hdinsight
 author: arijitt
 manager: arijitt
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984728"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 문제 해결
 

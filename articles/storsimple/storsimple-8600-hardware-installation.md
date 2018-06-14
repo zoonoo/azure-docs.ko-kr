@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple 8600 장치 설치 | Microsoft Docs"
-description: "소프트웨어를 배포하고 구성하기 전에 StorSimple 8600 장치를 개봉, 랙 탑재, 케이블 연결하는 방법을 설명합니다."
+title: Microsoft Azure StorSimple 8600 장치 설치 | Microsoft Docs
+description: 소프트웨어를 배포하고 구성하기 전에 StorSimple 8600 장치를 개봉, 랙 탑재, 케이블 연결하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743722"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>StorSimple 8600 장치 개봉, 랙 탑재, 케이블 연결
 ## <a name="overview"></a>개요
@@ -103,7 +104,7 @@ Microsoft Azure StorSimple 8600은 이중 인클로저 장치이며 기본 및 E
 19인치 랙 캐비닛에 사용할 탑재 레일 세트가 제공됩니다. 이들 레일은 최대 인클로저 무게를 견딜 수 있는지 테스트를 거쳤습니다. 이러한 레일은 또한 랙 내의 공간 손실 없이 여러 인클로저의 설치를 허용합니다. EBOD 인클로저를 먼저 설치합니다.
 
 #### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>레일에 EBOD 인클로저를 설치하려면
-1. 내부 레일이 장치에 설치되지 않은 경우에만 이 단계를 수행합니다. 일반적으로 내부 레일은 공장에서 설치됩니다. 레일이 설치되지 않은 경우에는 왼쪽 레일과 오른쪽 레일의 슬라이드를 인클로저 섀시의 측면에 설치합니다. 각 면에서 6개의 미터 나사를 사용하여 연결합니다. 방향을 잡는 데 도움이 되도록 레일 슬라이드는 **LH – Front(전면)** 및 **RH – Front(전면)**라고 표시되어 있으며 인클로저의 뒷면 쪽에 부착된 끝은 테이퍼 모양입니다.
+1. 내부 레일이 장치에 설치되지 않은 경우에만 이 단계를 수행합니다. 일반적으로 내부 레일은 공장에서 설치됩니다. 레일이 설치되지 않은 경우에는 왼쪽 레일과 오른쪽 레일의 슬라이드를 인클로저 섀시의 측면에 설치합니다. 각 면에서 6개의 미터 나사를 사용하여 연결합니다. 방향을 잡는 데 도움이 되도록 레일 슬라이드는 **LH – Front(전면)** 및 **RH – Front(전면)** 라고 표시되어 있으며 인클로저의 뒷면 쪽에 부착된 끝은 테이퍼 모양입니다.
    
     ![인클로저 섀시에 레일 슬라이드 장착](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
@@ -113,7 +114,7 @@ Microsoft Azure StorSimple 8600은 이중 인클로저 장치이며 기본 및 E
    | --- | --- |
    |  1 |M 3 x 4 단추 머리 나사 |
    |  2 |섀시 슬라이드 |
-2. 왼쪽 레일 및 오른쪽 레일 어셈블리를 랙 캐비닛 수직재에 연결합니다. 브라켓에 **LH**, **RH**, **This side up(위쪽)**이 표시되어 있어서 방향을 올바르게 잡을 수 있습니다.
+2. 왼쪽 레일 및 오른쪽 레일 어셈블리를 랙 캐비닛 수직재에 연결합니다. 브라켓에 **LH**, **RH**, **This side up(위쪽)** 이 표시되어 있어서 방향을 올바르게 잡을 수 있습니다.
 3. 레일 어셈블리의 앞면/뒷면에서 레일 핀을 찾으세요. 랙 포스트 사이에 맞도록 레일을 확장하고 앞면/뒷면 랙 포스트 수직재의 구멍에 핀을 삽입합니다. 레일 어셈블리가 평평한지 확인합니다.
 4. 제공된 미터 나사 2개를 사용하여 레일 어셈블리를 랙 수직재에 고정합니다. 앞면과 뒷면에 하나씩 나사를 사용합니다.
 5. 다른 레일 어셈블리에 대해서도 이들 단계를 반복합니다.

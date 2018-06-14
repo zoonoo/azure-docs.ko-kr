@@ -1,6 +1,6 @@
 ---
-title: "가상 컴퓨터 도움말 문서 | Microsoft Docs"
-description: "Azure Portal에 있는 가상 컴퓨터의 도움말 콘텐츠 개요"
+title: 가상 컴퓨터 도움말 문서 | Microsoft Docs
+description: Azure Portal에 있는 가상 컴퓨터의 도움말 콘텐츠 개요
 services: virtual-machines
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057674"
 ---
 # <a name="virtual-machines-documentation"></a>가상 컴퓨터 설명서
 Azure Virtual Machines는 안전하고 가상화된 주문형 대규모 인프라를 제공합니다. Red Hat, Ubuntu 또는 원하는 Linux 배포를 실행하는 Windows 가상 컴퓨터 또는 Linux 가상 컴퓨터를 만들 수 있습니다. 방법을 알아보려면 다음을 참조하세요.

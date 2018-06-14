@@ -1,11 +1,11 @@
 ---
-title: "클라우드 서비스 할당 실패 문제 해결 | Microsoft Docs"
-description: "Azure에서 Cloud Services 배포 시 할당 실패 문제 해결"
+title: 클라우드 서비스 할당 실패 문제 해결 | Microsoft Docs
+description: Azure에서 Cloud Services 배포 시 할당 실패 문제 해결
 services: azure-service-management, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984119"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure에서 Cloud Services 배포 시 할당 실패 문제 해결
 ## <a name="summary"></a>요약

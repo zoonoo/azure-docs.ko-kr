@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault - CLI로 일시 삭제를 사용하는 방법"
-description: "CLI 코드 캡처를 통한 일시 삭제의 사용 사례 예제"
+ms.assetid: ''
+title: Azure Key Vault - CLI로 일시 삭제를 사용하는 방법
+description: CLI 코드 캡처를 통한 일시 삭제의 사용 사례 예제
 author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927977"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 

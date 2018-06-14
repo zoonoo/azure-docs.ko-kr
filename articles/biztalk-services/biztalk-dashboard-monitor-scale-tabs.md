@@ -1,11 +1,11 @@
 ---
-title: "BizTalk Services의 대시보드, 모니터, 크기 조정, 구성 및 하이브리드 연결 | Microsoft Docs"
-description: "컨트롤에 대해 알아보고 BizTalk Services의 성능을 모니터링합니다."
+title: BizTalk Services의 대시보드, 모니터, 크기 조정, 구성 및 하이브리드 연결 | Microsoft Docs
+description: 컨트롤에 대해 알아보고 BizTalk Services의 성능을 모니터링합니다.
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7a1815db-0de2-4274-8be0-198c1b077324
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103364"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭 검토
 
