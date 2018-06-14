@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31514407"
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET용 Batch 클라이언트 라이브러리를 사용한 솔루션 빌드 시작
 

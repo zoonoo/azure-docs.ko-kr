@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23126681"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>예 1 – Azure Resource Manager 템플릿으로 NSG를 사용하여 간단한 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]

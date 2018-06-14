@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523169"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL Data Warehouse의 동적 SQL
 솔루션 개발을 위한 Azure SQL Data Warehouse의 동적 SQL 사용 팁.

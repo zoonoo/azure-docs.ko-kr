@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure StorSimple 8000 시리즈 장치에 대한 StorSimple 저장소 계정 자격 증명 관리 | Microsoft Docs"
-description: "StorSimple 장치 관리자 구성 페이지를 사용하여 저장소 계정에 대한 보안 키를 추가, 편집, 삭제 또는 회전하는 방법을 설명합니다."
+title: Microsoft Azure StorSimple 8000 시리즈 장치에 대한 StorSimple 저장소 계정 자격 증명 관리 | Microsoft Docs
+description: StorSimple 장치 관리자 구성 페이지를 사용하여 저장소 계정에 대한 보안 키를 추가, 편집, 삭제 또는 회전하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108721"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>StorSimple 장치 관리자 서비스를 사용하여 저장소 계정 자격 증명 관리
 
@@ -105,7 +106,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 2. **저장소 계정 자격 증명** 블레이드의 저장소 계정 자격 증명 목록에서 편집하려는 항목을 선택하고 클릭합니다. 
 
-3. **SSL 사용** 섹션을 수정할 수 있습니다. **자세히...**를 클릭하여 저장소 계정 액세스 키를 회전하도록 **Sync access key to rotate**(회전할 액세스 키 동기화)를 선택할 수도 있습니다. 키 회전을 수행하는 방법에 대한 자세한 내용을 보려면 [저장소 계정의 키 회전](#key-rotation-of-storage-accounts)으로 이동합니다. 설정을 수정한 후 **저장**을 클릭합니다. 
+3. **SSL 사용** 섹션을 수정할 수 있습니다. **자세히...** 를 클릭하여 저장소 계정 액세스 키를 회전하도록 **Sync access key to rotate**(회전할 액세스 키 동기화)를 선택할 수도 있습니다. 키 회전을 수행하는 방법에 대한 자세한 내용을 보려면 [저장소 계정의 키 회전](#key-rotation-of-storage-accounts)으로 이동합니다. 설정을 수정한 후 **저장**을 클릭합니다. 
 
     ![편집된 저장소 계정 자격 증명 저장](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 

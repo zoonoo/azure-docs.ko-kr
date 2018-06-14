@@ -1,17 +1,17 @@
 ---
-title: "Azure CLI 스크립트 샘플 - Azure CLI를 통해 여러 웹 사이트 부하 분산 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - 동일한 가상 머신으로 여러 웹 사이트 부하 분산"
+title: Azure CLI 스크립트 샘플 - Azure CLI를 통해 여러 웹 사이트 부하 분산 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 동일한 가상 머신으로 여러 웹 사이트 부하 분산
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849140"
 ---
 # <a name="load-balance-multiple-websites"></a>여러 웹 사이트 부하 분산
 

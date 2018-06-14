@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409553"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>기계 학습 및 데이터 과학 도구
 데이터 과학 Virtual Machine(DSVM)에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 기계 학습에 대한 다양한 도구 및 라이브러리 집합이 있습니다. 

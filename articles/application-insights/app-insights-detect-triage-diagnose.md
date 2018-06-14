@@ -1,9 +1,9 @@
 ---
-title: "DevOps용 Azure Application Insights 개요 | Microsoft Docs"
-description: "DevOps 환경에서 Application Insights를 사용하는 방법을 알아봅니다."
+title: DevOps용 Azure Application Insights 개요 | Microsoft Docs
+description: DevOps 환경에서 Application Insights를 사용하는 방법을 알아봅니다.
 author: mrbullwinkle
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23660598"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps용 Application Insights 개요
 
