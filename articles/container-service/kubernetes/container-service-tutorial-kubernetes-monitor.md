@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32165411"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
 
