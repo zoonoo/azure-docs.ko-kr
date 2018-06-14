@@ -1,11 +1,11 @@
 ---
-title: "Mobile Services를 사용하고 있습니다. App Service가 어떤 도움을 주나요?"
-description: "App Service가 기존 Mobile Services 프로젝트에 제공하는 이점을 알아봅니다."
+title: Mobile Services를 사용하고 있습니다. App Service가 어떤 도움을 주나요?
+description: App Service가 기존 Mobile Services 프로젝트에 제공하는 이점을 알아봅니다.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460415"
 ---
 # <a name="getting-started"></a>Mobile Services를 사용하고 있습니다. App Service가 어떤 도움을 주나요?
 ## <a name="overview"></a>개요
