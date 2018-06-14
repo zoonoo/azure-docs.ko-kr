@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 갤러리 응용 프로그램에 대한 사용자 프로비저닝이 오래 걸림 | Microsoft Docs"
-description: "응용 프로그램에 대한 프로비저닝이 예상보다 오래 걸리는 이유를 확인하는 방법"
+title: Azure AD 갤러리 응용 프로그램에 대한 사용자 프로비저닝이 오래 걸림 | Microsoft Docs
+description: 응용 프로그램에 대한 프로비저닝이 예상보다 오래 걸리는 이유를 확인하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614068"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Azure AD 갤러리 응용 프로그램에 대한 사용자 프로비저닝이 오래 걸림
 

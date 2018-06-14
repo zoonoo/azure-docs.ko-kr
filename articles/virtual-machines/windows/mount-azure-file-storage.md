@@ -1,15 +1,15 @@
 ---
-title: "Azure Windows VM에서 Azure File Storage 탑재 | Microsoft Docs"
-description: "Azure File Storage를 사용하여 클라우드에 파일을 저장하고 Azure VM(Virtual Machine)에서 클라우드 파일 공유를 탑재합니다."
-documentationcenter: 
+title: Azure Windows VM에서 Azure File Storage 탑재 | Microsoft Docs
+description: Azure File Storage를 사용하여 클라우드에 파일을 저장하고 Azure VM(Virtual Machine)에서 클라우드 파일 공유를 탑재합니다.
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577554"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Windows VM과 Azure 파일 공유 사용 
 
@@ -37,7 +38,7 @@ VM에서 파일을 저장하고 액세스하는 방법으로 Azure 파일 공유
 8. 사용할 구문을 선택하고 오른쪽의 [복사] 단추를 선택하여 클립보드에 복사합니다. 쉽게 액세스할 수 있는 위치에 붙여넣습니다. 
 8. VM에 연결하고 명령 프롬프트를 엽니다.
 9. 편집된 연결 구문에 붙여넣고 **Enter** 키를 누릅니다.
-10. 연결이 생성되면 **명령이 성공적으로 완료되었습니다.**라는 메시지가 표시됩니다.
+10. 연결이 생성되면 **명령이 성공적으로 완료되었습니다.** 라는 메시지가 표시됩니다.
 11. 해당 드라이브로 전환되도록 드라이브 문자를 입력하여 연결을 확인하고, **dir**를 입력하여 파일 공유의 내용을 확인합니다.
 
 

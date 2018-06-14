@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - Blob 컨테이너 총 청구 크기 계산 | Microsoft Docs"
-description: "요금 청구를 위해 Azure Blob Storage에 있는 컨테이너의 총 크기를 계산합니다."
+title: Azure PowerShell 스크립트 샘플 - Blob 컨테이너 총 청구 크기 계산 | Microsoft Docs
+description: 요금 청구를 위해 Azure Blob Storage에 있는 컨테이너의 총 크기를 계산합니다.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26368547"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Blob 컨테이너의 총 청구 크기 계산
 

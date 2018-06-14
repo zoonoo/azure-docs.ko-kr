@@ -1,11 +1,11 @@
 ---
-title: "부하 분산을 위해 Traffic Manager를 사용하는 Azure App Service의 사용자 지정 도메인 이름 구성"
-description: "부하 분산을 위해 Traffic Manager를 포함하는 Azure App Service의 웹 앱에 대한 사용자 지정 도메인 이름을 사용합니다."
+title: 부하 분산을 위해 Traffic Manager를 사용하는 Azure App Service의 사용자 지정 도메인 이름 구성
+description: 부하 분산을 위해 Traffic Manager를 포함하는 Azure App Service의 웹 앱에 대한 사용자 지정 도메인 이름을 사용합니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713854"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
