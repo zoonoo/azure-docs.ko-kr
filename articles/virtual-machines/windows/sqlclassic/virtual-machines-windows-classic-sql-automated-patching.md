@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852713"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)
 > [!div class="op_single_selector"]

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939011"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Microsoft Azure Certified 프로그램을 통해 사전 승인 받기
 이 문서에서는 Azure Marketplace에 솔루션을 게시하고 마케팅 혜택을 받을 수 있도록 Microsoft Azure Certified가 되는 방법에 대한 지침을 제공합니다. Microsoft Azure Certified 프로그램 및 그 혜택에 대한 자세한 개요는 [http://azure.com/certified](http://azure.com/certified)를 참조하세요.

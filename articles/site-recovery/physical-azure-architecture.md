@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery의 물리적 서버와 Azure 간 복제 아키텍처 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 물리적 서버를 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다."
+title: Azure Site Recovery의 물리적 서버와 Azure 간 복제 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 물리적 서버를 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
@@ -11,6 +11,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874895"
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Azure에 대한 물리적 서버 복제 아키텍처
 

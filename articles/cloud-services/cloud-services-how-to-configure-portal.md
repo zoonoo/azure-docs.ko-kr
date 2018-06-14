@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874324"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 

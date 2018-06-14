@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 복제 용량 추정 | Microsoft Docs"
-description: "이 문서를 사용하여 Azure Site Recovery로 복제할 때 용량을 추정합니다."
+title: Azure에서 복제 용량 추정 | Microsoft Docs
+description: 이 문서를 사용하여 Azure Site Recovery로 복제할 때 용량을 추정합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875908"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Site Recovery를 사용하여 Hyper-V VM을 보호하기 위한 용량 계획
 
@@ -59,11 +60,11 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
 
-   나. **평균 일일 데이터 변경률(%)**에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
+   나. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
    다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
-   d. **보존 기간(일)**에서 복제본을 보존할 기간을 일 단위로 지정합니다.
+   d. **보존 기간(일)** 에서 복제본을 보존할 기간을 일 단위로 지정합니다.
 
    e. **가상 머신의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 머신 수**에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다. Site Recovery가 배포되면 초기 데이터 집합 전체가 업로드됩니다.
 
@@ -97,17 +98,17 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **프로세서 코어**에는 원본 서버의 총 코어 수를 지정합니다.
 
-   나. **메모리 할당(MB)**에는 원본 서버의 RAM 크기를 지정합니다.
+   나. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
    다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 
-   d. **총 저장소(GB)**에는 VM 저장소의 총 크기를 지정합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 저장소 크기는 1500GB입니다.
+   d. **총 저장소(GB)** 에는 VM 저장소의 총 크기를 지정합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 저장소 크기는 1500GB입니다.
 
    e. **연결된 디스크 수**에는 원본 서버의 총 디스크 수를 지정합니다.
 
-   f. **디스크 용량 사용률(%)**에는 평균 사용률을 지정합니다.
+   f. **디스크 용량 사용률(%)** 에는 평균 사용률을 지정합니다.
 
-   g. **일일 데이터 변경률(%)**에는 원본 서버의 일일 데이터 변경률을 지정합니다.
+   g. **일일 데이터 변경률(%)** 에는 원본 서버의 일일 데이터 변경률을 지정합니다.
 
    h. **매핑 Azure VM 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 수행하지 않으려면**IaaS VM 계산**을 선택합니다. 수동 설정을 입력하고 **IaaS VM 계산**을 선택하면 수동 설정을 덮어쓸 수도 있습니다. 계산 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문입니다.
 

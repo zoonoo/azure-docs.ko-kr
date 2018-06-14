@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949806"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>자습서: 로컬 Service Fabric 클러스터에 배포된 Java 응용 프로그램 디버그 
 이 자습서는 시리즈의 2부입니다. Eclipse를 사용하여 Service Fabric 응용 프로그램에 원격 디버거를 연결하는 방법을 알아봅니다. 또한 개발자를 위해 편리한 위치에서 실행 중인 응용 프로그램에서 로그를 리디렉션하는 방법을 알아봅니다.
@@ -52,7 +53,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 ## <a name="debug-java-application-using-eclipse"></a>Eclipse를 사용하여 Java 응용 프로그램 디버그
 
-1. 컴퓨터에서 Eclipse IDE를 열고 **파일 -> 가져오기...**를 클릭합니다.
+1. 컴퓨터에서 Eclipse IDE를 열고 **파일 -> 가져오기...** 를 클릭합니다.
 
 2. 팝업 창에서 **일반 -> 작업 영역에서 기존 프로젝트** 옵션을 선택하고 다음을 누릅니다. 
 
@@ -78,7 +79,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 7. *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* 파일의109번째 줄에 중단점을 놓습니다. 
 
-8. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -> 응용 프로그램 게시...**를 클릭합니다. 
+8. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -> 응용 프로그램 게시...** 를 클릭합니다. 
 
 9. **응용 프로그램 게시** 창의 드롭다운 메뉴에서 **Local.json**을 선택하고 **게시**를 클릭합니다.
 

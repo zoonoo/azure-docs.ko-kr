@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30902585"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>참조 아키텍처: Microsoft Azure Stream Analytics으로 실시간 이벤트 처리
 Microsoft Azure Stream Analytics과 실시간 이벤트 처리의 참조 아키텍처는 Microsoft Azure를 지원하는 실시간 PaaS(Platform as a Service) 스트림 처리 솔루션 배포에 대한 전체적인 청사진을 제공하기 위한 것입니다.

@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 스크립트 샘플 - VHD를 사용하여 VM 만들기 | Microsoft 문서"
-description: "Azure CLI 스크립트 샘플 - 가상 하드 디스크를 사용하여 VM 만들기."
+title: Azure CLI 스크립트 샘플 - VHD를 사용하여 VM 만들기 | Microsoft 문서
+description: Azure CLI 스크립트 샘플 - 가상 하드 디스크를 사용하여 VM 만들기.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849344"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>가상 하드 디스크를 사용하여 VM 만들기
 
