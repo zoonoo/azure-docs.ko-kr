@@ -1,5 +1,5 @@
 
-1. 솔루션 뷰(또는 Visual Studio의 **솔루션 탐색기**)에서 **Components** 폴더를 마우스 오른쪽 단추로 클릭하고 **Get More Components...**를 클릭하고 **Google Cloud Messaging Client** 구성 요소를 검색하여 이를 프로젝트에 추가합니다.
+1. 솔루션 뷰(또는 Visual Studio의 **솔루션 탐색기**)에서 **Components** 폴더를 마우스 오른쪽 단추로 클릭하고 **Get More Components...** 를 클릭하고 **Google Cloud Messaging Client** 구성 요소를 검색하여 이를 프로젝트에 추가합니다.
 2. ToDoActivity.cs 프로젝트 파일을 열고 클래스에 다음 using 문을 추가합니다.
    
         using Gcm.Client;

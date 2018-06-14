@@ -1,8 +1,8 @@
 ---
-title: "Azure Blob Storage를 사용하여 SAS(공유 액세스 서명) 만들기 및 사용 | Microsoft Docs"
-description: "이 자습서에서는 Blob Storage에서 사용할 공유 액세스 서명을 만드는 방법과 클라이언트 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다."
+title: Azure Blob Storage를 사용하여 SAS(공유 액세스 서명) 만들기 및 사용 | Microsoft Docs
+description: 이 자습서에서는 Blob Storage에서 사용할 공유 액세스 서명을 만드는 방법과 클라이언트 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056798"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용
 
@@ -112,7 +113,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-**Main()** 메서드의 맨 아래에 다음 줄을 추가하여 **Console.ReadLine()**에 대한 호출 앞에 **GetContainerSasUri()**를 호출하고 콘솔 창에 서명 URI를 작성합니다.
+**Main()** 메서드의 맨 아래에 다음 줄을 추가하여 **Console.ReadLine()** 에 대한 호출 앞에 **GetContainerSasUri()** 를 호출하고 콘솔 창에 서명 URI를 작성합니다.
 
 ```csharp
 //Generate a SAS URI for the container, without a stored access policy.
@@ -160,7 +161,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
 }
 ```
 
-**Main()** 메서드의 맨 아래에 **GetBlobSasUri()**를 호출하는 다음 줄을 추가하여 **Console.ReadLine()**에 대한 호출 앞의 콘솔 창에 공유 액세스 서명 URI를 작성합니다.
+**Main()** 메서드의 맨 아래에 **GetBlobSasUri()** 를 호출하는 다음 줄을 추가하여 **Console.ReadLine()** 에 대한 호출 앞의 콘솔 창에 공유 액세스 서명 URI를 작성합니다.
 
 ```csharp
 //Generate a SAS URI for a blob within the container, without a stored access policy.
@@ -205,7 +206,7 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
 }
 ```
 
-**Main()** 메서드의 맨 아래에 **Console.ReadLine()**에 대한 호출 앞에 다음 행을 추가하여 먼저 기존 액세스 정책을 지운 다음 **CreateSharedAccessPolicy()** 메서드를 호출합니다.
+**Main()** 메서드의 맨 아래에 **Console.ReadLine()** 에 대한 호출 앞에 다음 행을 추가하여 먼저 기존 액세스 정책을 지운 다음 **CreateSharedAccessPolicy()** 메서드를 호출합니다.
 
 ```csharp
 //Clear any existing access policies on container.
@@ -238,7 +239,7 @@ static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string 
 }
 ```
 
-**Main()** 메서드의 맨 아래에 **Console.ReadLine()**에 대한 호출 앞에 **GetContainerSasUriWithPolicy** 메서드를 호출하는 다음 줄을 추가합니다.
+**Main()** 메서드의 맨 아래에 **Console.ReadLine()** 에 대한 호출 앞에 **GetContainerSasUriWithPolicy** 메서드를 호출하는 다음 줄을 추가합니다.
 
 ```csharp
 //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
@@ -276,7 +277,7 @@ static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string polic
 }
 ```
 
-**Main()** 메서드의 맨 아래에 **Console.ReadLine()**에 대한 호출 앞에 **GetBlobSasUriWithPolicy** 메서드를 호출하는 다음 줄을 추가합니다.
+**Main()** 메서드의 맨 아래에 **Console.ReadLine()** 에 대한 호출 앞에 **GetBlobSasUriWithPolicy** 메서드를 호출하는 다음 줄을 추가합니다.
 
 ```csharp
 //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
@@ -459,7 +460,7 @@ static void UseContainerSAS(string sas)
 }
 ```
 
-컨테이너에서 만든 공유 액세스 서명을 모두 사용하여 **UseContainerSAS()**를 호출하도록 **Main()** 메서드를 업데이트합니다.
+컨테이너에서 만든 공유 액세스 서명을 모두 사용하여 **UseContainerSAS()** 를 호출하도록 **Main()** 메서드를 업데이트합니다.
 
 ```csharp
 static void Main(string[] args)
@@ -478,7 +479,7 @@ static void Main(string[] args)
 ```
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 Blob 작업을 수행하는 메서드 추가
-마지막으로 Blob에서 공유 액세스 서명을 사용하여 일부 Blob 작업을 테스트하는 메서드를 추가합니다. 이 경우 공유 액세스 서명을 전달하여 Blob에 대한 참조를 반환하는 생성자 **CloudBlockBlob(String)**을 사용합니다. 다른 인증은 필요하지 않으며 서명만을 기반으로 합니다.
+마지막으로 Blob에서 공유 액세스 서명을 사용하여 일부 Blob 작업을 테스트하는 메서드를 추가합니다. 이 경우 공유 액세스 서명을 전달하여 Blob에 대한 참조를 반환하는 생성자 **CloudBlockBlob(String)** 을 사용합니다. 다른 인증은 필요하지 않으며 서명만을 기반으로 합니다.
 
 Program.cs에 다음 메서드를 추가합니다.
 
@@ -553,7 +554,7 @@ static void UseBlobSAS(string sas)
 }
 ```
 
-Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()**를 호출하도록 **Main()** 메서드를 업데이트합니다.
+Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()** 를 호출하도록 **Main()** 메서드를 업데이트합니다.
 
 ```csharp
 static void Main(string[] args)
