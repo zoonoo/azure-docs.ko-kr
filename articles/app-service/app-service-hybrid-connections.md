@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service 하이브리드 연결 | Microsoft Docs"
-description: "하이브리드 연결을 만들고 사용하여 서로 다른 네트워크의 리소스에 액세스하는 방법"
+title: Azure App Service 하이브리드 연결 | Microsoft Docs
+description: 하이브리드 연결을 만들고 사용하여 서로 다른 네트워크의 리소스에 액세스하는 방법
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2017
+ms.locfileid: "25990822"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결 #
 

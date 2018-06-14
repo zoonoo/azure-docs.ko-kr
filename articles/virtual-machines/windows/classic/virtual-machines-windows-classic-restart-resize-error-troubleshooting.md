@@ -1,11 +1,11 @@
 ---
-title: "VM 재시작 또는 크기 조정 문제 | Microsoft Docs"
-description: "Azure의 기존 Windows Virtual Machine 재시작 또는 크기 조정 관련 클래식 배포 문제 해결"
+title: VM 재시작 또는 크기 조정 문제 | Microsoft Docs
+description: Azure의 기존 Windows Virtual Machine 재시작 또는 크기 조정 관련 클래식 배포 문제 해결
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: aa854fff-c057-4b8e-ad77-e4dbc39648cc
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23989297"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Azure의 기존 Windows Virtual Machine 재시작 또는 크기 조정 관련 클래식 배포 문제 해결
 > [!div class="op_single_selector"]

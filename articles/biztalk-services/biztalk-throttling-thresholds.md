@@ -1,11 +1,11 @@
 ---
-title: "BizTalk Services의 제한에 대한 자세한 정보 | Microsoft Docs"
-description: "BizTalk Services에 대한 제한 임계값 및 결과 런타임 동작에 대해 알아봅니다. 제한은 메모리 사용량 및 메시지 수를 기반으로 합니다. MABS, WABS"
+title: BizTalk Services의 제한에 대한 자세한 정보 | Microsoft Docs
+description: BizTalk Services에 대한 제한 임계값 및 결과 런타임 동작에 대해 알아봅니다. 제한은 메모리 사용량 및 메시지 수를 기반으로 합니다. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: f6663cf2-cda4-4bac-855e-27d2ad5c4fa4
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102089"
 ---
 # <a name="biztalk-services-throttling"></a>BizTalk Services: 제한
 

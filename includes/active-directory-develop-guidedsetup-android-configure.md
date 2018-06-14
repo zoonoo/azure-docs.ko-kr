@@ -22,7 +22,7 @@
 
 5. **앱** > **java** > **{host}.{namespace}** 아래에서 `MainActivity`를 엽니다. 
 
-6.  다음 줄에서 *[여기에 응용 프로그램 ID 입력]*을 방금 등록한 응용 프로그램 ID로 바꿉니다.
+6.  다음 줄에서 *[여기에 응용 프로그램 ID 입력]* 을 방금 등록한 응용 프로그램 ID로 바꿉니다.
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";

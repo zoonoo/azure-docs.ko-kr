@@ -1,11 +1,11 @@
 ---
-title: "논리 앱에 지연 추가 | Microsoft Docs"
-description: "지연 및 다음 기간까지 지연 동작에 대한 개요와 Azure 논리 앱에서 이를 사용하는 방법을 설명합니다."
-services: 
-documentationcenter: 
+title: 논리 앱에 지연 추가 | Microsoft Docs
+description: 지연 및 다음 기간까지 지연 동작에 대한 개요와 Azure 논리 앱에서 이를 사용하는 방법을 설명합니다.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27963675"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>지연 및 다음 기간까지 지연 동작 시작
 지연 및 다음 기간까지 지연 동작을 사용하여 워크플로 시나리오를 완료할 수 있습니다.

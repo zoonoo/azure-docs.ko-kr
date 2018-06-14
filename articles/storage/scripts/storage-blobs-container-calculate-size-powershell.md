@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - Blob 컨테이너 크기 계산 | Microsoft Docs"
-description: "컨테이너에 있는 각 Blob의 크기를 합계해서 Azure Blob Storage의 컨테이너 크기를 계산합니다."
+title: Azure PowerShell 스크립트 샘플 - Blob 컨테이너 크기 계산 | Microsoft Docs
+description: 컨테이너에 있는 각 Blob의 크기를 합계해서 Azure Blob Storage의 컨테이너 크기를 계산합니다.
 services: storage
 documentationcenter: na
 author: tamram
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24814578"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Blob Storage 컨테이너 크기 계산
 

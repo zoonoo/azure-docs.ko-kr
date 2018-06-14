@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 모니터링 표시기 | Microsoft Docs"
-description: "StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED(발광 다이오드) 및 청각적 경보에 대해 설명합니다."
+title: StorSimple 모니터링 표시기 | Microsoft Docs
+description: StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED(발광 다이오드) 및 청각적 경보에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2017
+ms.locfileid: "24030360"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>StorSimple 모니터링 표시기를 사용하여 장치 관리
 

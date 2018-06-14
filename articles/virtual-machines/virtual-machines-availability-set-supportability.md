@@ -1,12 +1,12 @@
 ---
-title: "기존 가용성 집합에 Azure VM 추가의 지원 가능성 | Microsoft Docs"
-description: "기존 가용성 집합에 Azure VM 추가의 지원 가능성"
+title: 기존 가용성 집합에 Azure VM 추가의 지원 가능성 | Microsoft Docs
+description: 기존 가용성 집합에 Azure VM 추가의 지원 가능성
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23987723"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>기존 가용성 집합에 Azure VM 추가의 지원 가능성
 

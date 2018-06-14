@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis Cache를 모니터링하는 방법 | Microsoft Docs"
-description: "Azure Redis Cache 인스턴스의 상태와 성능을 모니터링하는 방법을 알아봅니다."
+title: Azure Redis Cache를 모니터링하는 방법 | Microsoft Docs
+description: Azure Redis Cache 인스턴스의 상태와 성능을 모니터링하는 방법을 알아봅니다.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910652"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Azure Redis Cache를 모니터링하는 방법
 Azure Redis Cache에서는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하여 캐시 인스턴스를 모니터링하기 위한 몇 가지 옵션을 제공합니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다.
@@ -68,7 +69,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 2. **설정**을 클릭합니다.
 3. **저장소 계정에 보관**을 선택합니다.
 4. 캐시 메트릭을 저장할 저장소 계정을 선택합니다.
-5. **1분** 확인란을 선택하고 **보존(일)** 정책을 지정합니다. 보존 정책 적용 및 데이터 무기한 보존을 원하지 않는 경우 **보존(일)**을 **0**으로 설정합니다.
+5. **1분** 확인란을 선택하고 **보존(일)** 정책을 지정합니다. 보존 정책 적용 및 데이터 무기한 보존을 원하지 않는 경우 **보존(일)** 을 **0**으로 설정합니다.
 6. **저장**을 클릭합니다.
 
 ![Redis 진단](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
