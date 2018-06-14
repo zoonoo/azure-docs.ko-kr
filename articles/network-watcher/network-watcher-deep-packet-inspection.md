@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher로 패킷 검사 | Microsoft Docs"
-description: "이 문서에서는 Network Watcher를 사용하여 VM에서 수집한 패킷에 심도 있는 검사를 수행하는 방법을 설명합니다."
+title: Azure Network Watcher로 패킷 검사 | Microsoft Docs
+description: 이 문서에서는 Network Watcher를 사용하여 VM에서 수집한 패킷에 심도 있는 검사를 수행하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036338"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Network Watcher로 패킷 검사
 

@@ -1,6 +1,6 @@
 ---
-title: "해결 방법 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "Microsoft 위협 모델링 도구에 대한 해결 방법 페이지로, 생성되는 가장 큰 노출 위협에 대한 가능한 해결 방법을 강조 표시합니다."
+title: 해결 방법 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: Microsoft 위협 모델링 도구에 대한 해결 방법 페이지로, 생성되는 가장 큰 노출 위협에 대한 가능한 해결 방법을 강조 표시합니다.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,12 +19,13 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043438"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft 위협 모델링 도구 해결 방법
 
 위협 모델링 도구는 Microsoft SDL(Security Development Lifecycle)의 핵심 요소입니다. 소프트웨어 설계자는 이 도구를 사용하여 비교적 쉽고 비용 효과적으로 문제를 해결할 수 있는 조기에 잠재적인 보안 문제를 식별하고 완화할 수 있습니다. 결과적으로 전체 개발 비용이 크게 절감됩니다. 또한 보안 전문가가 아닌 사용자를 염두에 두고 개발되었으므로 위협 모델을 만들고 분석하기 위한 정확한 지침을 제공하여 모든 개발자가 쉽게 위협 모델링을 수행할 수 있도록 합니다.
 
-지금 바로 시작하려면 **[위협 모델링 도구](./azure-security-threat-modeling-tool.md)**를 방문하세요!
+지금 바로 시작하려면 **[위협 모델링 도구](./azure-security-threat-modeling-tool.md)** 를 방문하세요!
 
 ## <a name="mitigation-categories"></a>해결 방법 범주
 
@@ -48,8 +49,8 @@ ms.lasthandoff: 10/11/2017
 * 가장 일반적인 실수가 수행되는 위치
 * 실행 가능한 개선 방법이 제공되는 위치
 
-결과적으로 이러한 범주를 사용하여 보안 작업에 주력하고 우선 순위를 두고 있고, 입력 유효성 검사, 인증 및 권한 부여 범주에서 보안 문제가 가장 널리 발생한다는 사실을 알 수 있으므로 여기서부터 시작할 수 있습니다. 자세한 내용은 **[이 특허 링크](https://www.google.com/patents/US7818788)**를 방문하세요.
+결과적으로 이러한 범주를 사용하여 보안 작업에 주력하고 우선 순위를 두고 있고, 입력 유효성 검사, 인증 및 권한 부여 범주에서 보안 문제가 가장 널리 발생한다는 사실을 알 수 있으므로 여기서부터 시작할 수 있습니다. 자세한 내용은 **[이 특허 링크](https://www.google.com/patents/US7818788)** 를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-**[위협 모델링 도구 위협](./azure-security-threat-modeling-tool-threats.md)**을 방문하여 도구에서 가능한 디자인 위협을 생성하는 데 사용하는 위협 범주에 대한 자세한 내용을 알아봅니다.
+**[위협 모델링 도구 위협](./azure-security-threat-modeling-tool-threats.md)** 을 방문하여 도구에서 가능한 디자인 위협을 생성하는 데 사용하는 위협 범주에 대한 자세한 내용을 알아봅니다.

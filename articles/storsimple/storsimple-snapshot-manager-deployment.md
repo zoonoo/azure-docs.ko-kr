@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager 배포 | Microsoft Docs"
-description: "StorSimple 데이터 보호 및 백업 기능을 관리하기 위한 MMC 스냅인인 StorSimple 스냅숏 관리자를 다운로드 및 설치하는 방법을 알아봅니다."
+title: StorSimple Snapshot Manager 배포 | Microsoft Docs
+description: StorSimple 데이터 보호 및 백업 기능을 관리하기 위한 MMC 스냅인인 StorSimple 스냅숏 관리자를 다운로드 및 설치하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110671"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>StorSimple 스냅숏 관리자 MMC 스냅인 배포
 

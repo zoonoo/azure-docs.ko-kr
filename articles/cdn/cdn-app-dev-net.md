@@ -1,11 +1,11 @@
 ---
-title: ".NET용 Azure CDN 라이브러리 시작하기 | Microsoft Docs"
-description: "Visual Studio로 Azure CDN을 관리하는 .NET 응용 프로그램을 만드는 방법에 대해 알아보기"
+title: .NET용 Azure CDN 라이브러리 시작하기 | Microsoft Docs
+description: Visual Studio로 Azure CDN을 관리하는 .NET 응용 프로그램을 만드는 방법에 대해 알아보기
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "22998178"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="create-your-project-and-add-nuget-packages"></a>프로젝트 만들기 및 Nuget 패키지 추가하기
 CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 끝점을 관리하기 위한 Azure AD 응용 프로그램 권한을 부여했으므로, 응용 프로그램을 만들 수 있습니다.
 
-Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...**를 클릭하여 새 프로젝트 대화 상자를 엽니다.  **Visual C#**을 확장하고 왼쪽 창에서 **Windows**를 선택합니다.  가운데 창에서 **콘솔 응용 프로그램** 을 클릭합니다.  프로젝트 이름을 지정하고 **확인**을 클릭합니다.  
+Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...** 를 클릭하여 새 프로젝트 대화 상자를 엽니다.  **Visual C#** 을 확장하고 왼쪽 창에서 **Windows**를 선택합니다.  가운데 창에서 **콘솔 응용 프로그램** 을 클릭합니다.  프로젝트 이름을 지정하고 **확인**을 클릭합니다.  
 
 ![새 프로젝트](./media/cdn-app-dev-net/cdn-new-project.png)
 
@@ -50,7 +51,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 1. **도구** 메뉴, **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
    
     ![Nuget 패키지 관리](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. 패키지 관리자 콘솔에서 다음 명령을 실행하여 **Active Directory 인증 라이브러리(ADAL)**를 설치합니다.
+2. 패키지 관리자 콘솔에서 다음 명령을 실행하여 **Active Directory 인증 라이브러리(ADAL)** 를 설치합니다.
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. 다음 명령을 실행하여 **Azure CDN 관리 라이브러리**를 설치합니다.
@@ -72,7 +73,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  `Main` 메서드 전에 `Program` 클래스에 다음 내용을 추가합니다.  **&lt;꺽쇠 괄호&gt;**를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
+2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  `Main` 메서드 전에 `Program` 클래스에 다음 내용을 추가합니다.  **&lt;꺽쇠 괄호&gt;** 를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
    
     ```csharp
     //Tenant app constants

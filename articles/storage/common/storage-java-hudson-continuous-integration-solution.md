@@ -1,6 +1,6 @@
 ---
-title: "Blob 저장소와 함께 Hudson을 사용하는 방법 | Microsoft Docs"
-description: "아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다."
+title: Blob 저장소와 함께 Hudson을 사용하는 방법 | Microsoft Docs
+description: 아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060128"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
 ## <a name="overview"></a>개요
@@ -107,7 +108,7 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 
 5. 작업 구성의 **빌드 후 작업** 섹션에서 **Microsoft Azure Blob Storage에 아티팩트 업로드**를 클릭합니다.
 6. **Storage Account Name**에서는 사용할 저장소 계정을 선택합니다.
-7. **컨테이너 이름**에서 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 **${JOB_NAME}**를 입력합니다.
+7. **컨테이너 이름**에서 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 **${JOB_NAME}** 를 입력합니다.
    
     **팁**
    
@@ -115,7 +116,7 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 8. 이 예의 경우 **Make new container public by default** 를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 문서에서 다루지 않습니다. [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
 9. [선택 사항] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **업로드 전에 컨테이너 정리**를 클릭합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **업로드할 아티팩트 목록**에 **text/*.txt**를 입력합니다.
-11. **업로드된 아티팩트에 대한 일반적인 가상 경로**에 **${BUILD\_ID}/${BUILD\_NUMBER}**를 입력합니다.
+11. **업로드된 아티팩트에 대한 일반적인 가상 경로**에 **${BUILD\_ID}/${BUILD\_NUMBER}** 를 입력합니다.
 12. **Save** 를 클릭하여 설정을 저장합니다.
 13. Hudson 대시보드에서 **지금 빌드**를 클릭하여 **MyJob**을 실행합니다. 콘솔 출력을 점검하여 상태를 확인합니다. 빌드 후 작업이 빌드 아티팩트를 업로드하기 시작하면 Azure 저장소 상태 메시지가 콘솔 출력에 포함됩니다.
 14. 작업이 성공적으로 완료되었을 때 공용 Blob을 열어 빌드 아티팩트를 검사할 수 있습니다.
@@ -148,7 +149,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 ## <a name="components-used-by-the-blob-service"></a>Blob 서비스에서 사용하는 구성 요소
 다음은 Blob 서비스 구성 요소의 개요를 제공합니다.
 
-* **저장소 계정:**Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 이는 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
+* **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 이는 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
 * **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
 * **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob 저장소 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 * **URL 형식**: Blob에 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다.
@@ -157,7 +158,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   
     위의 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure 포털](https://portal.azure.com) 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
   
-    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/**에서 찾을 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}**는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
+    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/** 에서 찾을 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
   
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Import/Export 도구 설정 | Microsoft Docs"
-description: "Azure Import/Export 서비스를 위한 드라이브 준비 및 복구 도구 설정 방법을 알아봅니다."
+title: Azure Import/Export 도구 설정 | Microsoft Docs
+description: Azure Import/Export 서비스를 위한 드라이브 준비 및 복구 도구 설정 방법을 알아봅니다.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059768"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Azure Import/Export 도구 설정
 

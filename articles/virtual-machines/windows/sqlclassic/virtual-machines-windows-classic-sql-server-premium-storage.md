@@ -1,8 +1,8 @@
 ---
-title: "SQL Server에서 Azure Premium Storage 사용 | Microsoft Docs"
-description: "이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure Virtual Machines에서 실행되는 SQL Server에서 Azure Premium Storage를 사용하기 위한 지침을 제공합니다."
+title: SQL Server에서 Azure Premium Storage 사용 | Microsoft Docs
+description: 이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure Virtual Machines에서 실행되는 SQL Server에서 Azure Premium Storage를 사용하기 위한 지침을 제공합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: craigg
 editor: monicar
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400616"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Virtual Machines의 SQL Server에서 Azure Premium Storage 사용
 ## <a name="overview"></a>개요

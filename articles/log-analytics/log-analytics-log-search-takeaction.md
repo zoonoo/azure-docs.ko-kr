@@ -1,12 +1,12 @@
 ---
-title: "Log Analytics에서 사용자가 시작한 Azure Automation Runbook 작업 | Microsoft Docs"
-description: "이 문서는 요청 시 Log Analytics 검색 결과에서 Automation Runbook을 실행하는 방법을 설명합니다."
+title: Log Analytics에서 사용자가 시작한 Azure Automation Runbook 작업 | Microsoft Docs
+description: 이 문서는 요청 시 Log Analytics 검색 결과에서 Automation Runbook을 실행하는 방법을 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394618"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Log Analytics 로그 검색 결과에서 Automation Runbook으로 작업 수행
 
@@ -45,7 +46,7 @@ Azure Log Analytics의 로그 검색 결과에서 이제 Automation Runbook을 �
 
 6. **실행**을 클릭한 후 작업의 상태를 검토할 수 있도록 Runbook 작업 페이지가 열립니다.   
 
-[Log Analytics 경고에서 호출](../automation/automation-invoke-runbook-from-omsla-alert.md)되도록 구성된 Runbook을 선택하는 경우 **개체** 유형인 **WebhookData**라는 입력 매개 변수를 갖습니다.  입력 매개 변수가 필수인 경우 JSON 형식 문자열을 Runbook 작업에서 참조할 특정 항목을 필터링할 수 있도록 하는 개체 형식으로 변환할 수 있도록 검색 결과를 Runbook에 전달해야 합니다.  드롭다운 목록에서 **검색 결과(개체)**를 선택하여 수행합니다.<br><br> ![Runbook 매개 변수에 대한 웹후크 데이터 개체 선택](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
+[Log Analytics 경고에서 호출](../automation/automation-invoke-runbook-from-omsla-alert.md)되도록 구성된 Runbook을 선택하는 경우 **개체** 유형인 **WebhookData**라는 입력 매개 변수를 갖습니다.  입력 매개 변수가 필수인 경우 JSON 형식 문자열을 Runbook 작업에서 참조할 특정 항목을 필터링할 수 있도록 하는 개체 형식으로 변환할 수 있도록 검색 결과를 Runbook에 전달해야 합니다.  드롭다운 목록에서 **검색 결과(개체)** 를 선택하여 수행합니다.<br><br> ![Runbook 매개 변수에 대한 웹후크 데이터 개체 선택](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
 ## <a name="next-steps"></a>다음 단계
 

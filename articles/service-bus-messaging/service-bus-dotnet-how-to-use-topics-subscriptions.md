@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus 항목 및 구독 시작 | Microsoft Docs"
-description: "Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 응용 프로그램을 작성합니다."
+title: Azure Service Bus 항목 및 구독 시작 | Microsoft Docs
+description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 응용 프로그램을 작성합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396944"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 
@@ -84,7 +85,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기** 탭을 클릭하고 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**를 검색한 다음 **Microsoft.Azure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+2. **찾아보기** 탭을 클릭하고 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** 를 검색한 다음 **Microsoft.Azure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
    
     ![NuGet 패키지 선택][nuget-pkg]
 

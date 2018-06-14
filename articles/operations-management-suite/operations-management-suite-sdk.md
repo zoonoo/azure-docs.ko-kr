@@ -1,8 +1,8 @@
 ---
 title: OMS(Operations Management Suite) SDK | Microsoft Docs
-description: "이 문서에는 OMS 및 Azure Portal 외부에서 OMS 서비스에 액세스하기 위해 사용할 수 있는 설명서 및 기타 리소스가 나열되어 있습니다.  여기에는 다양한 프로그래밍 인터페이스 및 PowerShell 같은 스크립팅 엔진에서 액세스를 위해 사용하는 REST API가 포함됩니다."
+description: 이 문서에는 OMS 및 Azure Portal 외부에서 OMS 서비스에 액세스하기 위해 사용할 수 있는 설명서 및 기타 리소스가 나열되어 있습니다.  여기에는 다양한 프로그래밍 인터페이스 및 PowerShell 같은 스크립팅 엔진에서 액세스를 위해 사용하는 REST API가 포함됩니다.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039018"
 ---
 # <a name="operations-management-suite-oms-sdk"></a>OMS(Operations Management Suite) SDK
 [Operations Management Suite(OMS)](operations-management-suite-overview.md)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서에는 OMS 및 Azure Portal 외부에서 OMS 서비스에 액세스하기 위해 사용할 수 있는 설명서 및 기타 리소스가 나열되어 있습니다.  여기에는 다양한 프로그래밍 인터페이스 및 PowerShell 같은 스크립팅 엔진에서 액세스를 위해 사용하는 REST API가 포함됩니다. 

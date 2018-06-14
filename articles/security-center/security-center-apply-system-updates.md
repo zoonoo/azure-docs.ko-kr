@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center의 시스템 업데이트 적용 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **시스템 업데이트 적용** 및 **시스템 업데이트 후 다시 부팅**을 구현하는 방법을 보여 줍니다."
+title: Azure Security Center의 시스템 업데이트 적용 | Microsoft Docs
+description: 이 문서에서는 Azure 보안 센터 권장 사항 **시스템 업데이트 적용** 및 **시스템 업데이트 후 다시 부팅**을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040488"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure 보안 센터의 시스템 업데이트 적용
 Azure Security Center는 매일 Windows 및 Linux VM(가상 컴퓨터)과 컴퓨터에서 누락된 운영 체제 업데이트를 모니터링합니다. Security Center는 Windows 컴퓨터에 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. 보안 센터는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM 또는 컴퓨터에 누락된 시스템 업데이트가 있으면 Security Center는 시스템 업데이트를 적용하는 것이 좋다는 메시지를 표시합니다.

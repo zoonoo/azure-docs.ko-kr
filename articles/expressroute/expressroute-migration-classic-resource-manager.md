@@ -1,13 +1,13 @@
 ---
-title: "클래식에서 Resource Manager로 ExpressRoute 연결된 가상 네트워크 마이그레이션: Azure: PowerShell | Microsoft Docs"
-description: "이 페이지에서는 회로를 이동한 후에 Resource Manager로 연결된 가상 네트워크를 마이그레이션하는 방법을 설명합니다."
+title: '클래식에서 Resource Manager로 ExpressRoute 연결된 가상 네트워크 마이그레이션: Azure: PowerShell | Microsoft Docs'
+description: 이 페이지에서는 회로를 이동한 후에 Resource Manager로 연결된 가상 네트워크를 마이그레이션하는 방법을 설명합니다.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013208"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>클래식에서 Resource Manager로 ExpressRoute 연결된 가상 네트워크 마이그레이션
 

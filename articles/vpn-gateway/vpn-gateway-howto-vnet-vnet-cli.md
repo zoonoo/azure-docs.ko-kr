@@ -1,11 +1,11 @@
 ---
-title: "VNet-VNet 연결을 사용하여 가상 네트워크를 다른 VNet에 연결: Azure CLI | Microsoft Docs"
-description: "VNet-VNet 연결 및 Azure CLI를 사용하여 가상 네트워크를 서로 연결합니다."
+title: 'VNet-VNet 연결을 사용하여 가상 네트워크를 다른 VNet에 연결: Azure CLI | Microsoft Docs'
+description: VNet-VNet 연결 및 Azure CLI를 사용하여 가상 네트워크를 서로 연결합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400320"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -337,7 +338,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ### <a name="connections5"></a>8단계 - 연결 만들기
 
-게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]**로 표시된 두 개의 CLI 세션으로 나뉩니다. 구독을 전환하려면 'az account list --all'을 사용하여 계정에서 사용할 수 있는 구독을 나열한 다음 'az account set –subscription <subscriptionID>'를 사용하여 사용할 구독으로 전환합니다.
+게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]** 로 표시된 두 개의 CLI 세션으로 나뉩니다. 구독을 전환하려면 'az account list --all'을 사용하여 계정에서 사용할 수 있는 구독을 나열한 다음 'az account set –subscription <subscriptionID>'를 사용하여 사용할 구독으로 전환합니다.
 
 1. **[구독 1]** 로그인하고 구독 1에 연결합니다. 다음 명령을 실행하여 출력에서 게이트웨이의 이름과 ID를 가져옵니다.
 
