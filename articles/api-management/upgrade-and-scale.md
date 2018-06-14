@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 인스턴스 업그레이드 및 크기 조정 | Microsoft Docs"
-description: "이 항목에서는 Azure API Management 인스턴스를 업그레이드하고 크기 조정하는 방법을 설명합니다."
+title: Azure API Management 인스턴스 업그레이드 및 크기 조정 | Microsoft Docs
+description: 이 항목에서는 Azure API Management 인스턴스를 업그레이드하고 크기 조정하는 방법을 설명합니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26658639"
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>API Management 인스턴스 업그레이드 및 크기 조정 
 

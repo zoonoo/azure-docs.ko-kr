@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070283"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>액세스 패널의 응용 프로그램에 로그인하는 문제
 

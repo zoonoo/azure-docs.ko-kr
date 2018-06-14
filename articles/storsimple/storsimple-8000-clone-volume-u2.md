@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈에서 볼륨 복제 | Microsoft Docs"
-description: "다른 복제 유형 및 사용에 대해 설명하고, StorSimple 8000 시리즈 장치에서 개별 볼륨을 복제하는 데 백업 세트를 사용하는 방법에 대해 설명합니다."
+title: StorSimple 8000 시리즈에서 볼륨 복제 | Microsoft Docs
+description: 다른 복제 유형 및 사용에 대해 설명하고, StorSimple 8000 시리즈 장치에서 개별 볼륨을 복제하는 데 백업 세트를 사용하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26333205"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Azure Portal에서 StorSimple 장치 관리자 서비스를 사용하여 볼륨 복제
 

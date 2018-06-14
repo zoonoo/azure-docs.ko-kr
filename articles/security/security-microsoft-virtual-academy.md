@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Virtual Academy의 Azure 보안 교육 과정 | Microsoft Docs"
-description: "이 문서는 Microsoft Virtual Academy의 엄선된 Azure 보안 관련 과정을 제공합니다.  Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이 최신 기술을 배우고 스킬을 구축하며 경력을 발전시켜 나갈 수 있게 도와 주기 위한 무료 온라인 교육을 제공합니다."
+title: Microsoft Virtual Academy의 Azure 보안 교육 과정 | Microsoft Docs
+description: 이 문서는 Microsoft Virtual Academy의 엄선된 Azure 보안 관련 과정을 제공합니다.  Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이 최신 기술을 배우고 스킬을 구축하며 경력을 발전시켜 나갈 수 있게 도와 주기 위한 무료 온라인 교육을 제공합니다.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540051"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy의 Azure 보안 교육 과정
 Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이 최신 기술을 배우고 스킬을 구축하며 경력을 발전시켜 나갈 수 있게 도와 주기 위한 무료 온라인 교육을 제공합니다.
