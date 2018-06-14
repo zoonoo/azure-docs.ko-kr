@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 샘플 - Azure Functions | Microsoft Docs"
-description: "Azure CLI 샘플 - Azure Functions"
+title: Azure CLI 샘플 - Azure Functions | Microsoft Docs
+description: Azure CLI 샘플 - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27740104"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 

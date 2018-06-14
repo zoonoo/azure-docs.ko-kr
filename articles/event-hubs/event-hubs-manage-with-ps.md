@@ -1,12 +1,12 @@
 ---
-title: "PowerShell을 사용한 Azure Event Hubs 리소스 관리 | Microsoft Docs"
-description: "PowerShell 모듈을 사용하여 Event Hubs 만들기 및 관리"
+title: PowerShell을 사용한 Azure Event Hubs 리소스 관리 | Microsoft Docs
+description: PowerShell 모듈을 사용하여 Event Hubs 만들기 및 관리
 services: event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782220"
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>PowerShell을 사용하여 Event Hubs 리소스 관리
 

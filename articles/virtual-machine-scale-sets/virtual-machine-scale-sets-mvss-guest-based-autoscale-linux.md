@@ -1,11 +1,11 @@
 ---
-title: "Linux 확장 집합 템플릿에서 게스트 메트릭을 사용하여 Azure 자동 크기 조정 사용 | Microsoft Docs"
-description: "Linux Virtual Machine Scale Set 템플릿에서 게스트 메트릭을 사용하여 자동으로 크기를 조정하는 방법을 알아봅니다."
+title: Linux 확장 집합 템플릿에서 게스트 메트릭을 사용하여 Azure 자동 크기 조정 사용 | Microsoft Docs
+description: Linux Virtual Machine Scale Set 템플릿에서 게스트 메트릭을 사용하여 자동으로 크기를 조정하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: na
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781431"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Linux 확장 집합 템플릿에서 게스트 메트릭을 사용한 자동 크기 조정
 

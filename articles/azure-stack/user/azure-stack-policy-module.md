@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259086"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Azure 스택 정책 모듈을 사용 하 여 Azure 정책 관리
 

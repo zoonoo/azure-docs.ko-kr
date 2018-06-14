@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360345"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services 정의 WebRole 스키마
 Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI와 같이 IIS 7에서 지원되는 것처럼 웹 응용 프로그램 프로그래밍에 대해 사용자 지정된 역할입니다.

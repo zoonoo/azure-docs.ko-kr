@@ -1,12 +1,12 @@
 ---
-title: "ExpressRoute 연결 모델: 네트워크 서비스 공급자, Exchange 및 이더넷 공급자를 통해 Microsoft Azure에 연결 | Microsoft Docs"
-description: "이 문서는 고객 네트워크와 Microsoft Azure, Office 365 및 Dynamics 365 사이의 다양한 연결 모드를 설명합니다. 고객은 MPLS 공급자, 클라우드 Exchange 및 이더넷 공급자를 사용할 수 있습니다."
+title: 'ExpressRoute 연결 모델: 네트워크 서비스 공급자, Exchange 및 이더넷 공급자를 통해 Microsoft Azure에 연결 | Microsoft Docs'
+description: 이 문서는 고객 네트워크와 Microsoft Azure, Office 365 및 Dynamics 365 사이의 다양한 연결 모드를 설명합니다. 고객은 MPLS 공급자, 클라우드 Exchange 및 이더넷 공급자를 사용할 수 있습니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709898"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute 연결 모델
 온-프레미스 네트워크와 Microsoft 클라우드 간 연결은 [CloudExchange 공동 배치](#CloudExchange), [지점 간 이더넷 연결](#Ethernet) 및 [임의(IPVPN) 연결](#IPVPN)이라는 세 가지 방법으로 만들 수 있습니다. 연결 공급자는 하나 이상의 연결 모델을 제공할 수 있습니다. 연결 공급자로 작업하여 사용자에게 적합한 다양한 모델을 선택할 수 있습니다.

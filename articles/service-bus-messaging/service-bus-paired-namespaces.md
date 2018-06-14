@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus와 쌍을 이루는 연결된 네임스페이스 | Microsoft Docs"
-description: "쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용"
+title: Azure Service Bus와 쌍을 이루는 연결된 네임스페이스 | Microsoft Docs
+description: 쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159544"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용의 영향
 

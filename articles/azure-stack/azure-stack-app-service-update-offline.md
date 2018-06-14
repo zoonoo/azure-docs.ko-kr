@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359036"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 Azure의 오프 라인 업데이트
 

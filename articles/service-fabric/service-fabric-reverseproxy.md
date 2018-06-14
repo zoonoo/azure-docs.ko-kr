@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212278"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
 Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabric 클러스터 탐색에서 마이크로 서비스의 실행을 지원하고 http 끝점이 있는 타 서비스와 통신합니다.
