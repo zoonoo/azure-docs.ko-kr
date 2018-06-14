@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Virtual Array 재해 복구 및 장치 장애 조치 | Microsoft Docs"
-description: "StorSimple 가상 배열 장애 조치 방법에 대해 자세히 알아봅니다."
+title: StorSimple Virtual Array 재해 복구 및 장치 장애 조치 | Microsoft Docs
+description: StorSimple 가상 배열 장애 조치 방법에 대해 자세히 알아봅니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110751"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Azure Portal을 통해 StorSimple 가상 배열에 대한 재해 복구 및 장치 장애 조치
 
@@ -111,7 +112,7 @@ DR이 성공적으로 완료된 후에는, 원본 장치에 있는 클라우드 
    
     3. 공유/볼륨을 선택하고 **오프라인으로 전환**을 마우스 오른쪽 단추로 클릭하고 선택합니다. 
    
-    4. 확인을 위한 메시지가 나타나면 **이 공유를 오프라인으로 전환하는 영향을 이해합니다.**를 확인합니다. 
+    4. 확인을 위한 메시지가 나타나면 **이 공유를 오프라인으로 전환하는 영향을 이해합니다.** 를 확인합니다. 
    
     5. **오프라인으로 전환**을 클릭합니다.
 
@@ -135,7 +136,7 @@ DR이 성공적으로 완료된 후에는, 원본 장치에 있는 클라우드 
 
     2. 사용 가능한 장치 드롭다운 목록에서 **대상 장치**를 선택합니다. 충분한 용량이 있는 장치만 드롭다운 목록에 표시됩니다.
 
-    3. **이 작업이 대상 장치에 대한 데이터를 장애 조치한다는 것을 이해합니다.**를 확인합니다. 
+    3. **이 작업이 대상 장치에 대한 데이터를 장애 조치한다는 것을 이해합니다.** 를 확인합니다. 
 
     4. **장애 조치**를 클릭합니다.
     

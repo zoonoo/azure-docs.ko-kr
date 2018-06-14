@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23109981"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple 가상 배열 업데이트 0.2 및 0.1 릴리스 정보
 ## <a name="overview"></a>개요

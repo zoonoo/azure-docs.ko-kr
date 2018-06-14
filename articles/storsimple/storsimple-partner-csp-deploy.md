@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure StorSimple 및 클라우드 솔루션 공급자 프로그램 개요 | Microsoft Docs"
-description: "StorSimple 파트너용 StorSimple 및 CSP에 대한 개요입니다."
+title: Microsoft Azure StorSimple 및 클라우드 솔루션 공급자 프로그램 개요 | Microsoft Docs
+description: StorSimple 파트너용 StorSimple 및 CSP에 대한 개요입니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109581"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램용 StorSimple 가상 배열 배포
 
