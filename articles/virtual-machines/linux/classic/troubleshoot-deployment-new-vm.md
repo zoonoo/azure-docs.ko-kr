@@ -1,11 +1,11 @@
 ---
-title: "Linux VM 배포 클래식 문제 해결 | Microsoft Docs"
-description: "Azure에서 새 Linux 가상 머신을 만드는 경우 클래식 배포 문제 해결"
+title: Linux VM 배포 클래식 문제 해결 | Microsoft Docs
+description: Azure에서 새 Linux 가상 머신을 만드는 경우 클래식 배포 문제 해결
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27965971"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure에서 새 Linux 가상 머신 생성 관련 클래식 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]

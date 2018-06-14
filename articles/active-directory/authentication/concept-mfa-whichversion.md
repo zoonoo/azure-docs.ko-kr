@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866355"
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택
 Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때문에 사용하기에 적절한 버전을 파악하기 위해 몇 가지 질문에 답해야 합니다.  해당 질문은 다음과 같습니다.

@@ -1,11 +1,11 @@
 ---
-title: "다른 Azure 서비스와 함께 Azure DNS 사용 | Microsoft 문서"
-description: "Azure DNS를 사용하여 다른 Azure 서비스에 대한 이름을 확인하는 방법 이해"
+title: 다른 Azure 서비스와 함께 Azure DNS 사용 | Microsoft 문서
+description: Azure DNS를 사용하여 다른 Azure 서비스에 대한 이름을 확인하는 방법 이해
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure dns
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
@@ -21,6 +21,7 @@ ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2017
+ms.locfileid: "25989846"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>다른 Azure 서비스와 함께 Azure DNS가 작동하는 방법
 

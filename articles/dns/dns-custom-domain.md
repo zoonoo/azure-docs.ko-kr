@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS와 Azure 리소스 통합 | Microsoft Docs"
-description: "Azure DNS를 함께 사용하여 Azure 리소스에 대해 DNS를 제공하는 방법에 대해 알아봅니다."
+title: Azure DNS와 Azure 리소스 통합 | Microsoft Docs
+description: Azure DNS를 함께 사용하여 Azure 리소스에 대해 DNS를 제공하는 방법에 대해 알아봅니다.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27994385"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공
 

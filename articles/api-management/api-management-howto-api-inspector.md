@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934695"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>요청 추적을 사용하여 API 디버그
 
