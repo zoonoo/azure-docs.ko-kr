@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps 커넥터 개요 | Microsoft Docs"
-description: "논리 앱에서 사용할 수 있는 커넥터의 개요"
-services: 
-documentationcenter: 
+title: Logic Apps 커넥터 개요 | Microsoft Docs
+description: 논리 앱에서 사용할 수 있는 커넥터의 개요
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: ca8dab2e-9b69-4b1e-865d-1facd9f0cdac
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27961655"
 ---
 # <a name="using-connectors-in-a-logic-app"></a>논리 앱에서 커넥터 사용
 커넥터는 서비스, 프로토콜 및 플랫폼에 걸쳐 이벤트, 데이터 및 작업에 빠르게 액세스할 수 있도록 합니다.  Logic Apps가 지원하는 커넥터의 전체 목록은 [여기에서 찾을 수 있습니다](apis-list.md).  커넥터는 논리 앱에서 트리거 또는 작업으로 사용할 수 있으며 사용하기 위해 구성된 *연결* 이 필요합니다(예: 사용자 대신 액세스하거나 게시할 수 있는 권한을 Twitter 계정에 부여).

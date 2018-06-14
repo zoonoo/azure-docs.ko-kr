@@ -1,11 +1,11 @@
 ---
-title: "논리 앱에서 쿼리 작업 추가 | Microsoft Docs"
-description: "배열 필터링과 같은 작업을 수행하기 위한 쿼리 작업의 개요입니다."
-services: 
-documentationcenter: 
+title: 논리 앱에서 쿼리 작업 추가 | Microsoft Docs
+description: 배열 필터링과 같은 작업을 수행하기 위한 쿼리 작업의 개요입니다.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962648"
 ---
 # <a name="get-started-with-the-query-action"></a>쿼리 작업 시작
 쿼리 작업을 사용하면 배치 및 배열을 통해 다음을 수행하는 워크플로를 완료할 수 있습니다.

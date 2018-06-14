@@ -1,11 +1,11 @@
 ---
-title: "BizTalk Services 버전의 기능 알아보기 | Microsoft 문서"
-description: "BizTalk 서비스 버전(Developer, Basic, Standard 및 Premium)의 기능을 비교합니다. MABS, WABS"
+title: BizTalk Services 버전의 기능 알아보기 | Microsoft 문서
+description: BizTalk 서비스 버전(Developer, Basic, Standard 및 Premium)의 기능을 비교합니다. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: c589629f-06b1-44bb-b8ca-1db71826ea59
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22706651"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk 서비스: 버전 차트
 

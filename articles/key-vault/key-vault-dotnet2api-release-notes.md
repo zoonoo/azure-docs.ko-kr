@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27909757"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
 다음 정보는 C# 및 .NET용 Azure Key Vault 라이브러리 2.0 버전으로 마이그레이션하는 데 도움이됩니다.  이전 버전용으로 작성된 앱은 최신 버전을 지원하도록 업데이트해야 합니다.  이러한 변경 사항은 **Key Vault 인증서**와 같이 새롭고 향상된 기능을 완벽하게 지원하는 데 필요합니다.
@@ -51,19 +52,19 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 * *비밀*을 *SecretBundle*로 변경
 * *사전*을 *IDictionary*로 변경
-* *목록<T>, string []*을 *IList<T>*로 변경
+* *목록<T>, string []* 을 *IList<T>* 로 변경
 * *NextList*를 *NextPageLink*로 변경
 
 ## <a name="return-types"></a>반환 유형
 
-* 이제 **KeyList** 및 **SecretList**는 *ListKeysResponseMessage* 대신 *IPage<T>*를 반환합니다.
+* 이제 **KeyList** 및 **SecretList**는 *ListKeysResponseMessage* 대신 *IPage<T>* 를 반환합니다.
 * 생성된 **BackupKeyAsync**는 *값*(백업 blob)을 포함하는 *BackupKeyResult*를 반환합니다. 이전에는 메서드가 래핑되고 해당 값만 반환되었습니다.
 
 ## <a name="exceptions"></a>예외
 
 * *KeyVaultClientException*를 *KeyVaultErrorException*로 변경합니다.
 * 서비스 오류는 *exception.Error*에서 *exception.Body.Error.Message*로 변경되었습니다.
-* **[JsonExtensionData]**에 대한 오류 메시지에서 추가 정보를 제거합니다.
+* **[JsonExtensionData]** 에 대한 오류 메시지에서 추가 정보를 제거합니다.
 
 ## <a name="constructors"></a>생성자
 
