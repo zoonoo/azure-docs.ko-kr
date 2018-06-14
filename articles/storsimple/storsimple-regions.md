@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 지역 가용성 | Microsoft Docs"
-description: "다양한 StorSimple 장치 모델을 사용할 수 있는 Azure 지역에 대해 설명합니다."
+title: StorSimple 지역 가용성 | Microsoft Docs
+description: 다양한 StorSimple 장치 모델을 사용할 수 있는 Azure 지역에 대해 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24879061"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple을 사용할 수 있는 지역
 

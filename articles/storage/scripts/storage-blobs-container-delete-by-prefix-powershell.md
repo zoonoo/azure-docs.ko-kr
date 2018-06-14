@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - 접두사별 컨테이너 삭제 | Microsoft Docs"
-description: "컨테이너 이름 접두사를 기준으로 Azure Storage Blob 컨테이너를 삭제합니다."
+title: Azure PowerShell 스크립트 샘플 - 접두사별 컨테이너 삭제 | Microsoft Docs
+description: 컨테이너 이름 접두사를 기준으로 Azure Storage Blob 컨테이너를 삭제합니다.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25983901"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>컨테이너 이름 접두사를 기준으로 컨테이너 삭제
 

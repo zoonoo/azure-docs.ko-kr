@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937819"
 ---
 # <a name="azure-stack-validation-report"></a>Azure 스택 유효성 검사 보고서
 Azure 스택 준비 검사 도구를 지 원하는 배포 및 Azure 스택 환경 서비스를 제공 하는 유효성 검사를 실행 합니다. 이 도구는.json 보고서 파일에 유효성 검사 결과 씁니다. 보고서 표시 세부 및 요약 된 데이터의 Azure 스택의 배포 필수 구성 요소 상태에 비밀 회전에 기존 Azure 스택 배포에 대 한 합니다.  

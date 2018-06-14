@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 인증 및 권한 부여 | Microsoft Docs"
-description: "SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다."
+title: Azure Service Bus 인증 및 권한 부여 | Microsoft Docs
+description: SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24813932"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
 

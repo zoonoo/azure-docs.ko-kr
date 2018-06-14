@@ -18,6 +18,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055343"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>내 응용 프로그램 목록에 예기치 않은 응용 프로그램
 

@@ -1,7 +1,7 @@
 ---
-title: "Azure Application Insights에서 고객 이해 | Microsoft Docs"
-description: "Azure Application Insights를 사용하여 고객이 응용 프로그램을 사용하는 방법을 이해하는 자습서입니다."
-keywords: 
+title: Azure Application Insights에서 고객 이해 | Microsoft Docs
+description: Azure Application Insights를 사용하여 고객이 응용 프로그램을 사용하는 방법을 이해하는 자습서입니다.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24099024"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 응용 프로그램을 사용하는 방법 이해
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942305"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 이 항목에서는 가장 중요한 Media Services 개념에 대한 개요를 제공합니다.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941431"
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>클래식 Linux 가상 머신을 이미지로 캡처하는 방법
 > [!IMPORTANT]

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932645"
 ---
 # <a name="problems-managing-application-access-and-permissions"></a>응용 프로그램 액세스 및 사용 권한을 관리하는 문제
 

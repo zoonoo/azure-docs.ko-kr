@@ -1,8 +1,8 @@
 ---
-title: "2단계 인증 시작 | Microsoft Docs"
-description: "최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다."
+title: 2단계 인증 시작 | Microsoft Docs
+description: 최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198108"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication은 무엇을 의미하나요?
 IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 계정에 보안 확인을 좀 더 추가했다고 이야기했을 수 있습니다.  이것은 무엇을 의미할까요?

@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 메시징 엔터티 일시 중단 | Microsoft Docs"
-description: "Azure Service Bus 메시지 엔터티를 일시 중단한 후 다시 활성화합니다."
+title: Azure Service Bus 메시징 엔터티 일시 중단 | Microsoft Docs
+description: Azure Service Bus 메시지 엔터티를 일시 중단한 후 다시 활성화합니다.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197029"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
 
