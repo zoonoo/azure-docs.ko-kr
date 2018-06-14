@@ -1,10 +1,10 @@
 ---
-title: "Azure Mobile Apps를 사용하여 iOS 앱에 푸시 알림 추가"
-description: "Azure Mobile Apps를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+title: Azure Mobile Apps를 사용하여 iOS 앱에 푸시 알림 추가
+description: Azure Mobile Apps를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
 services: app-service\mobile
 documentationcenter: ios
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29116673"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>iOS 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]

@@ -1,8 +1,8 @@
 ---
-title: "Azure 계산 옵션 - Azure Cloud Services | Microsoft Docs"
-description: "Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. App Service, Azure Cloud Services 및 Virtual Machines"
+title: Azure 계산 옵션 - Azure Cloud Services | Microsoft Docs
+description: Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. App Service, Azure Cloud Services 및 Virtual Machines
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120287"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Azure Cloud Services 또는 다른 항목을 선택해야 합니까?
 Azure Cloud Services가 적절한 선택입니까? Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 제공합니다. 각각 서로 다른 서비스 집합을 제공합니다. 정확하게 수행하려는 항목에 따라 선택이 달라집니다.

@@ -1,12 +1,12 @@
 ---
-title: "Azure 스택 통합 시스템 연결 모델 | Microsoft Docs"
-description: "배포 계획 multi-node Azure 스택에 대 한 결정을 확인 합니다."
+title: Azure 스택 통합 시스템 연결 모델 | Microsoft Docs
+description: 배포 계획 multi-node Azure 스택에 대 한 결정을 확인 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118791"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure 스택 통합 시스템 연결 모델
 이해 해야 Azure 스택 통합 시스템에 관심이 있다면 [여러 데이터 센터에 대 한 통합 고려 사항](azure-stack-datacenter-integration.md) 시스템 데이터 센터에 들어가는지는 방법을 확인 하려면 Azure 스택 배포에 대 한 합니다. 또한 정확 하 게 통합 하는 방법은 됩니다 Azure 스택 하이브리드 클라우드 환경으로 결정 해야 합니다. 이 문서에서는 모델 결정 대금 청구 및 Azure 연결 id 저장소를 포함 하 여 이러한 중요 한 결정에 대 한 개요를 제공 합니다.
