@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager 백업 작업 | Microsoft Docs"
-description: "StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 예약된 백업 작업, 현재 실행 중인 백업 작업 및 완료된 백업 작업을 보고 관리하는 방법을 설명합니다."
+title: StorSimple Snapshot Manager 백업 작업 | Microsoft Docs
+description: StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 예약된 백업 작업, 현재 실행 중인 백업 작업 및 완료된 백업 작업을 보고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109861"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>StorSimple 스냅숏 관리자를 사용하여 백업 작업 보기 및 관리
 

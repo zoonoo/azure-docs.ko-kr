@@ -1,9 +1,9 @@
 ---
-title: "Azure AD: 암호 재설정 | Microsoft Docs"
-description: "셀프 서비스 암호 재설정을 사용하여 회사 또는 학교 사용자 계정에 대한 액세스 권한 다시 얻기"
+title: 'Azure AD: 암호 재설정 | Microsoft Docs'
+description: 셀프 서비스 암호 재설정을 사용하여 회사 또는 학교 사용자 계정에 대한 액세스 권한 다시 얻기
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463781"
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
@@ -112,7 +113,7 @@ ms.lasthandoff: 02/22/2018
 
    ![암호 다시 설정][ResetPassword]
 
-4. **암호가 재설정되었습니다.**라는 메시지가 표시되면 **마침**을 선택합니다.
+4. **암호가 재설정되었습니다.** 라는 메시지가 표시되면 **마침**을 선택합니다.
 
 이제 계정에 액세스할 수 있습니다. 계정에 액세스할 수 없는 경우 조직의 IT 직원에게 문의하여 추가 도움을 요청합니다.
 

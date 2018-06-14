@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal을 통해 Azure Database for PostgreSQL에서 서버 매개 변수 구성"
-description: "이 문서에서는 Azure Portal을 통해 Azure Database for PostgreSQL에서 서버 매개 변수를 구성하는 방법을 설명합니다."
+title: Azure Portal을 통해 Azure Database for PostgreSQL에서 서버 매개 변수 구성
+description: 이 문서에서는 Azure Portal을 통해 Azure Database for PostgreSQL에서 서버 매개 변수를 구성하는 방법을 설명합니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687869"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Azure Portal에서 서버 매개 변수 구성
 Azure Portal을 통해 Azure Database for PostgreSQL에 대한 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다.

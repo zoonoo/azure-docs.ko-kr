@@ -1,12 +1,12 @@
 ---
-title: "정부 포털에서 StorSimple 8000 시리즈 장치 배포 | Microsoft Docs"
-description: "Azure Government 포털에서 업데이트 3 이상을 실행하는 StorSimple 8000 시리즈 장치 및 서비스를 배포하기 위한 단계와 모범 사례를 설명합니다."
+title: 정부 포털에서 StorSimple 8000 시리즈 장치 배포 | Microsoft Docs
+description: Azure Government 포털에서 업데이트 3 이상을 실행하는 StorSimple 8000 시리즈 장치 및 서비스를 배포하기 위한 단계와 모범 사례를 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108751"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Government 포털에서 온-프레미스 StorSimple 장치 배포
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure로의 Hyper-V 복제에 대한 Azure Site Recovery Deployment Planner | Microsoft Docs"
-description: "이 문서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner에서 생성한 보고서를 분석합니다."
+title: Azure로의 Hyper-V 복제에 대한 Azure Site Recovery Deployment Planner | Microsoft Docs
+description: 이 문서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner에서 생성한 보고서를 분석합니다.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466879"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서 분석
 이 문서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner에서 생성한 Excel 보고서에 포함된 시트에 대해 설명합니다.

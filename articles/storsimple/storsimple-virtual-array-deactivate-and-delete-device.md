@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 비활성화 및 삭제 | Microsoft Docs"
-description: "먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다."
+title: Microsoft Azure StorSimple 가상 배열 비활성화 및 삭제 | Microsoft Docs
+description: 먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a929f5bc-03e2-4b01-b925-973db236f19f
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109881"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>StorSimple 가상 배열 비활성화 및 삭제
 

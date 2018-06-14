@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 장치에 대한 안정성 | Microsoft Docs"
-description: "안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 장치를 안전하게 설치하고 작동하는 방법을 설명합니다."
+title: StorSimple 장치에 대한 안정성 | Microsoft Docs
+description: 안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 장치를 안전하게 설치하고 작동하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dae6d535-1ca2-4d2b-b221-6819043aa068
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109931"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 장치의 안전한 설치 및 작동
 ![경고 아이콘](./media/storsimple-safety/IC740879.png)

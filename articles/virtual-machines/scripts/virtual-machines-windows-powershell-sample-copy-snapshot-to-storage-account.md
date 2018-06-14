@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅숏을 VHD로 내보내기/복사 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅숏을 VHD로 내보내기/복사"
+title: Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅숏을 VHD로 내보내기/복사 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅숏을 VHD로 내보내기/복사
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23116481"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 저장소 계정으로 관리 스냅숏을 VHD로 내보내기/복사
 

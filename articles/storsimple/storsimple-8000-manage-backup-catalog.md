@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 백업 카탈로그 관리 | Microsoft Docs"
-description: "StorSimple 장치 관리자 서비스 백업 카탈로그 페이지를 사용하여 백업 세트를 나열, 선택 및 삭제하는 방법을 설명합니다."
+title: StorSimple 백업 카탈로그 관리 | Microsoft Docs
+description: StorSimple 장치 관리자 서비스 백업 카탈로그 페이지를 사용하여 백업 세트를 나열, 선택 및 삭제하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108381"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>StorSimple 장치 관리자 서비스를 사용하여 백업 카탈로그 관리
 ## <a name="overview"></a>개요
