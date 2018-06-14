@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 샘플 - Azure 관리되는 응용 프로그램 | Microsoft Docs"
-description: "Azure PowerShell 샘플 - Azure 관리되는 응용 프로그램"
+title: Azure PowerShell 샘플 - Azure 관리되는 응용 프로그램 | Microsoft Docs
+description: Azure PowerShell 샘플 - Azure 관리되는 응용 프로그램
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636983"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
 

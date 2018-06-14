@@ -1,6 +1,6 @@
 ---
-title: "2계층 응용 프로그램을 사용한 하이브리드 연결 | Microsoft Docs"
-description: "Azure에서 다중 계층 응용 프로그램 환경을 만드는 UDR 및 가상 어플라이언스를 배포하는 방법에 대해 알아봅니다."
+title: 2계층 응용 프로그램을 사용한 하이브리드 연결 | Microsoft Docs
+description: Azure에서 다중 계층 응용 프로그램 환경을 만드는 UDR 및 가상 어플라이언스를 배포하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23643867"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
 대규모 Azure 고객 간에 일반적인 시나리오는 온-프레미스 데이터 센터에서 후면 계층에 액세스를 허용하는 동안 인터넷에 노출된 2계층 응용 프로그램을 제공해야 하는 경우입니다. 이 문서에서는 UDR(사용자 정의 경로), VPN Gateway 및 네트워크 가상 어플라이언스를 사용하여 다음 요구 사항을 충족하는 2계층 환경을 배포하는 시나리오를 설명합니다.
