@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 테스트 | Microsoft Docs"
-description: "Postman, cURL 및 Node.js를 사용하여 Azure 함수를 테스트합니다."
+title: Azure Functions 테스트 | Microsoft Docs
+description: Postman, cURL 및 Node.js를 사용하여 Azure 함수를 테스트합니다.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처, 테스트"
+editor: ''
+tags: ''
+keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처, 테스트
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
 ms.service: functions
 ms.devlang: multiple
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22992198"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -247,7 +248,7 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 >
 >
 
-1. 함수 앱에 대한 [Azure Portal]에서 **새 함수** > **QueueTrigger - C#**을 클릭합니다.
+1. 함수 앱에 대한 [Azure Portal]에서 **새 함수** > **QueueTrigger - C#** 을 클릭합니다.
 2. 큐 함수가 모니터링할 큐 이름을 입력합니다.
 
         queue-newusers
@@ -256,7 +257,7 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>큐에 메시지를 놓는 타이머 트리거 만들기
 1. 새 브라우저 창에서 [Azure Portal]을 열고 함수 앱으로 이동합니다.
-2. **새 함수** > **TimerTrigger - C#**을 클릭합니다. 타이머 코드가 큐 함수 테스트할 빈도를 설정하는 cron 식을 입력합니다. 그런 다음 **Create**를 클릭합니다. 테스트를 30초마다 실행하려는 경우 다음 [CRON 식](https://wikipedia.org/wiki/Cron#CRON_expression)을 사용할 수 있습니다.
+2. **새 함수** > **TimerTrigger - C#** 을 클릭합니다. 타이머 코드가 큐 함수 테스트할 빈도를 설정하는 cron 식을 입력합니다. 그런 다음 **Create**를 클릭합니다. 테스트를 30초마다 실행하려는 경우 다음 [CRON 식](https://wikipedia.org/wiki/Cron#CRON_expression)을 사용할 수 있습니다.
 
         */30 * * * * *
 3. 새 타이머 트리거에 대한 **통합** 탭을 클릭합니다.
