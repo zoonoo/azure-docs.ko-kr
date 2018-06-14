@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194114"
 ---
 # <a name="migrate-automation-account-and-resources"></a>Automation 계정 및 리소스 마이그레이션
 Automation 계정 및 연결된 리소스 (즉, 자산, Runbook, 모듈 등)를 Azure Portal에서 만든 다른 또는 하나의 구독에서 다른 한 리소스 그룹에서 마이그레이션에 대해 손쉽게 수행할 수 있습니다 [리소스 이동](../azure-resource-manager/resource-group-move-resources.md) Azure Portal에서 사용할 수 있는 기능입니다. 그러나 이 작업을 계속하기 전에 다음 [리소스를 이동하기 전의 검사 목록](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources)과 다음 Automation 관련 목록을 검토해야 합니다.  

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161383"
 ---
 # <a name="cli-example-reset-the-account-credentials"></a>CLI 예: 계정 자격 증명 다시 설정
 

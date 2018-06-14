@@ -18,6 +18,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164741"
 ---
 # <a name="bulk-load-data-into-phoenix-using-psql"></a>psql을 사용하여 Phoenix로 데이터 대량 로드
 

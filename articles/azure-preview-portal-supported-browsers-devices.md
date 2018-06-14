@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165114"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure Portal에서 지원되는 브라우저 및 장치
 [Azure Portal](https://portal.azure.com)은 모든 최신 데스크톱, 태블릿 장치 및 브라우저에서 실행할 수 있습니다.

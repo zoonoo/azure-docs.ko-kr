@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212503"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>FabricClient API로 작업하는 경우 일반적인 예외 및 오류
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API를 사용하여 클러스터 및 응용 프로그램 관리자가 Service Fabric 응용 프로그램, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 응용 프로그램 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 응용 프로그램 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 서비스 패브릭 클러스터 및 응용 프로그램을 관리하기 위한 도구를 개발할 수 있습니다.

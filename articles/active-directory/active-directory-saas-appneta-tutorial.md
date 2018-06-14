@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>자습서: AppNeta Performance Monitor와 Azure Active Directory 통합
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198476"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack의 주요 기능 및 개념
 Microsoft Azure Stack을 처음 접하는 경우 이러한 용어와 기능 설명은 도움이 될 수 있습니다.
