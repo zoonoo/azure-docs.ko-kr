@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31517627"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석
 
@@ -45,7 +46,7 @@ Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소�
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    **/HdiSamples/HdiSamples/SensorSampleData/hvac/**의 **HVAC.csv** 샘플 데이터 파일을 Azure Data Lake Store 계정으로 복사합니다. 코드 조각은 다음과 같습니다.
+    **/HdiSamples/HdiSamples/SensorSampleData/hvac/** 의 **HVAC.csv** 샘플 데이터 파일을 Azure Data Lake Store 계정으로 복사합니다. 코드 조각은 다음과 같습니다.
 
         AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 

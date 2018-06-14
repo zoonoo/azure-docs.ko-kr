@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401053"
 ---
 # <a name="authorize-users-for-ambari-views"></a>사용자에게 Ambari 보기에 대한 권한 부여
 
@@ -33,7 +34,7 @@ Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 
 
 ## <a name="access-the-ambari-management-page"></a>Ambari 관리 페이지 액세스
 
-[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에서 **Ambari 관리 페이지**로 이동하려면 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**으로 이동합니다. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다. 다음으로, Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
+[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에서 **Ambari 관리 페이지**로 이동하려면 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 으로 이동합니다. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다. 다음으로, Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 
 ![Ambari 관리](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
