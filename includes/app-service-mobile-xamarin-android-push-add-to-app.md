@@ -29,7 +29,7 @@
             public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
    
-    위의 코드에서 Google 개발자 포털에서 앱을 프로비전할 때 Google에서 할당한 프로젝트 번호로 *`<PROJECT_NUMBER>`*을(를) 바꿉니다. 
+    위의 코드에서 Google 개발자 포털에서 앱을 프로비전할 때 Google에서 할당한 프로젝트 번호로 *`<PROJECT_NUMBER>`* 을(를) 바꿉니다. 
 5. ToDoBroadcastReceiver.cs 프로젝트 파일에서 **PushHandlerService** 클래스를 정의하는 다음 코드를 추가합니다.
    
         // The ServiceAttribute must be applied to the class.
