@@ -1,11 +1,11 @@
 ---
-title: "앱 서비스 환경으로 지역 분산된 규모"
-description: "트래픽 관리자 및 앱 서비스 환경으로 지역 분포를 사용하여 앱을 수평으로 확장하는 방법을 알아봅니다."
+title: 앱 서비스 환경으로 지역 분산된 규모
+description: 트래픽 관리자 및 앱 서비스 환경으로 지역 분포를 사용하여 앱을 수평으로 확장하는 방법을 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986788"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>앱 서비스 환경으로 지역 분산된 규모
 ## <a name="overview"></a>개요
