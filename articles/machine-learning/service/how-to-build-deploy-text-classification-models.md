@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939715"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Azure Machine Learning으로 텍스트 분류 모델 작성 및 배포
 
@@ -420,13 +421,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>다양한 파이프라인 단계의 매개 변수 검토 및 설정
 
-전처리는 scikit-learn 모델의 맞춤이지만 전처리기 및 featurizer(기능 부여자)(변환) 단계의 파이프라인을 사용하여 맞추기 전에 수행됩니다. 따라서 학습 시 "파이프라인"을 참조합니다. 평가하는 동안 전처리 및 scikit-learn 모델 예측을 포함하는 전체 파이프라인이 테스트 데이터 집합에 적용됩니다.
+학습하는 동안 텍스트 열과 레이블 열이 모두 있어야 합니다. 반면, 예측에는 텍스트 열만 필요합니다. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>다양한 파이프라인 단계의 매개 변수 검토 및 설정
+    
+일반적으로 모델을 맞추기 전에 매개 변수를 설정합니다. 
 
 ***text_word_ngrams에 표시된 예제*** 
-
-일반적으로 모델을 맞추기 전에 매개 변수를 설정합니다. 
 
 다음 코드 샘플은 기본 파이프라인 및 모델 매개 변수를 사용하여 모델을 학습시키는 방법을 보여줍니다. 
 

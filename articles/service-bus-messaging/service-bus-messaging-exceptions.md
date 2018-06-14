@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 메시징 예외 | Microsoft Docs"
-description: "Service Bus 메시징 예외 및 제안 조치의 목록입니다."
+title: Azure Service Bus 메시징 예외 | Microsoft Docs
+description: Service Bus 메시징 예외 및 제안 조치의 목록입니다.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930153"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
 이 문서는 Microsoft Azure Service Bus 메시징 API를 통해 발생하는 몇 가지 예외를 설명합니다. 이 참조는 변경될 수 있으므로 나중에 다시 업데이트를 확인하세요.

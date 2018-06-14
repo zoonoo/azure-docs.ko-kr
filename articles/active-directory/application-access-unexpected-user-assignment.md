@@ -18,6 +18,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053356"
 ---
 # <a name="how-to-assign-users-to-applications"></a>응용 프로그램에 사용자를 할당하는 방법
 

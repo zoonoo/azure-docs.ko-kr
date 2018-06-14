@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 런타임 개요 | Microsoft Docs"
-description: "Azure Functions 런타임 미리 보기 개요"
+title: Azure Functions 런타임 개요 | Microsoft Docs
+description: Azure Functions 런타임 미리 보기 개요
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290229"
 ---
 # <a name="azure-functions-runtime-overview"></a>Azure Functions 런타임 개요
 

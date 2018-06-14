@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931744"
 ---
 # <a name="problems-using-the-application-access-panel-website-or-mobile-application"></a>응용 프로그램 액세스 패널 웹 사이트 또는 모바일 응용 프로그램을 사용하는 문제
 

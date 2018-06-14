@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 도메인 간 정책 | Microsoft Docs"
-description: "Azure API Management에 사용할 수 있는 도메인 간 정책에 대해 알아봅니다."
+title: Azure API Management 도메인 간 정책 | Microsoft Docs
+description: Azure API Management에 사용할 수 있는 도메인 간 정책에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129037"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  

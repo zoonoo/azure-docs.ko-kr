@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 메시지 프리페치 | Microsoft Docs"
-description: "Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다."
+title: Azure Service Bus 메시지 프리페치 | Microsoft Docs
+description: Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28928164"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
 

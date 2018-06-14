@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33933087"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>백 엔드 서비스에 요청 컨텍스트 정보 보내기
 

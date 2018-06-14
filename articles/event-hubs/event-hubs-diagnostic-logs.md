@@ -1,13 +1,13 @@
 ---
-title: "Azure Event Hubs 진단 로그 | Microsoft Docs"
-description: "Azure에서 이벤트 허브의 진단 로그를 설정하는 방법을 배웁니다."
-keywords: 
-documentationcenter: 
+title: Azure Event Hubs 진단 로그 | Microsoft Docs
+description: Azure에서 이벤트 허브의 진단 로그를 설정하는 방법을 배웁니다.
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932718"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Event Hubs 진단 로그
 

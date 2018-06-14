@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28209589"
 ---
 # <a name="ansible-with-azure"></a>Azure에서 Ansible 사용
 

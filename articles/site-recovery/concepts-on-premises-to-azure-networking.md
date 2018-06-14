@@ -14,6 +14,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071640"
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Azure에 장애 조치(failover)한 후 연결할 IP 주소 설정
 

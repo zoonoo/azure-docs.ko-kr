@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937830"
 ---
 # <a name="validate-azure-identity"></a>Azure id 유효성 검사 
 Azure 스택 준비 검사 도구 (AzsReadinessChecker)를 사용 하 여 Azure Active Directory (Azure AD)가 Azure 스택을 사용할 수 있는지를 확인 합니다. Azure 스택 배포 시작 하기 전에 Azure id 솔루션의 유효성을 검사 합니다.  

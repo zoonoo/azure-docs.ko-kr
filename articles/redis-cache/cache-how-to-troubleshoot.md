@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis Cache 문제를 해결하는 방법 | Microsoft Docs"
-description: "Azure Redis Cache와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다."
+title: Azure Redis Cache 문제를 해결하는 방법 | Microsoft Docs
+description: Azure Redis Cache와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984574"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Azure Redis Cache 문제를 해결하는 방법
 이 문서에서는 다음 범주의 Azure Redis Cache 문제를 해결하는 것에 대한 지침을 제공합니다.

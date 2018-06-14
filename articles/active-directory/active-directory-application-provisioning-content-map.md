@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929820"
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>응용 프로그램에 사용자를 구성 및 프로비전하는 문제
 
