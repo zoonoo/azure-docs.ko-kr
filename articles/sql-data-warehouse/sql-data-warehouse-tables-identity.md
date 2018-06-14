@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526987"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 IDENTITY를 사용하여 서로게이트 키 만들기
 Azure SQL Data Warehouse의 테이블에 IDENTITY 속성을 사용하여 서로게이트 키를 만들기 위한 권장 사항 및 예제입니다.
