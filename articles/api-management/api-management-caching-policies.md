@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 캐싱 정책 | Microsoft Docs"
-description: "Azure API Management에 사용할 수 있는 캐싱 정책에 대해 알아봅니다."
+title: Azure API Management 캐싱 정책 | Microsoft Docs
+description: Azure API Management에 사용할 수 있는 캐싱 정책에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26344825"
 ---
 # <a name="api-management-caching-policies"></a>API Management 캐싱 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  

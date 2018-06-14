@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 큐 시작 | Microsoft Docs"
-description: "Service Bus 메시징 큐를 사용하는 C# 콘솔 응용 프로그램을 작성합니다."
+title: Azure Service Bus 큐 시작 | Microsoft Docs
+description: Service Bus 메시징 큐를 사용하는 C# 콘솔 응용 프로그램을 작성합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26642463"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 
@@ -65,7 +66,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기** 탭을 클릭하고 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**를 검색한 다음 **Microsoft.Azure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+2. **찾아보기** 탭을 클릭하고 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** 를 검색한 다음 **Microsoft.Azure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
    
     ![NuGet 패키지 선택][nuget-pkg]
 

@@ -1,11 +1,11 @@
 ---
-title: "사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지 않음 | Microsoft Docs"
-description: "Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 응용 프로그램에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법"
+title: 사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지 않음 | Microsoft Docs
+description: Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 응용 프로그램에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26616295"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지 않음
 

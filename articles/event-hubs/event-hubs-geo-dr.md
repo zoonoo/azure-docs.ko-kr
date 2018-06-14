@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs 지리적 재해 복구 | Microsoft Docs"
-description: "지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Event Hubs에서 재해 복구를 수행하는 방법"
+title: Azure Event Hubs 지리적 재해 복구 | Microsoft Docs
+description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Event Hubs에서 재해 복구를 수행하는 방법
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745897"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs 지역 재해 복구
 

@@ -1,11 +1,11 @@
 ---
-title: "사용자 할당 필요 - Azure AD | Microsoft Docs"
-description: "Azure 응용 프로그램에 대해 사용자 할당을 요구하는 방법."
+title: 사용자 할당 필요 - Azure AD | Microsoft Docs
+description: Azure 응용 프로그램에 대해 사용자 할당을 요구하는 방법.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598832"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD 및 응용 프로그램: 사용자 할당 요구
 ## <a name="requiring-user-assignment"></a>사용자 할당 요구

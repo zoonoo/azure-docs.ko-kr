@@ -1,11 +1,11 @@
 ---
-title: "자습서: Azure BizTalk Services를 사용하여 EDIFACT 송장 처리 | Microsoft Docs"
-description: "Box 커넥터 또는 API 앱을 만들어서 구성하고 Azure App Service의 논리 앱에서 사용하는 방법"
+title: '자습서: Azure BizTalk Services를 사용하여 EDIFACT 송장 처리 | Microsoft Docs'
+description: Box 커넥터 또는 API 앱을 만들어서 구성하고 Azure App Service의 논리 앱에서 사용하는 방법
 services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
 ms.service: biztalk-services
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26633868"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>자습서: Azure BizTalk Services를 사용하여 EDIFACT 송장 처리
 
@@ -204,7 +205,7 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
    ```
 8. 구성 세부 정보를 포함하도록 EDIBridge.config 파일 업데이트
    
-   * *<behaviors>*아래에서 BizTalk Services 구독에 연결된 ACS 네임스페이스 및 키를 제공합니다.
+   * *<behaviors>* 아래에서 BizTalk Services 구독에 연결된 ACS 네임스페이스 및 키를 제공합니다.
    * *<client>* 아래에서 EDI 송신 규약이 배포되는 끝점을 제공합니다.
    
    변경 내용을 저장하고 구성 파일을 닫습니다.

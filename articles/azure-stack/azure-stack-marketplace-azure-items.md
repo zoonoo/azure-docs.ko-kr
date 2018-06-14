@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: be8c997df5893782c469eefe4e3c79ab698f4c78
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165250"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -40,8 +41,8 @@ ms.lasthandoff: 05/12/2018
 | ![Linux 용 VM 액세스](media/azure-stack-marketplace-azure-items/cse.png) | [ Linux 용 VM 액세스 ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Linux 확장용는 VMAccess의 기본 버전으로이 업데이트를 다운로드 합니다. 이 업데이트는 Debian Linux Vm을 사용 하려는 경우에 중요 합니다.</b> | Microsoft | Linux |
 | ![Linux 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [ Linux 용 Acronis 백업 확장 ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Linux |
 | ![Windows 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [ Windows 용 Acronis 백업 확장 ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Windows |
-| ![Linux 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Linux 용 CloudLink SecureVM 확장 ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 신뢰도 사용 하 여 Vm을 암호화 합니다. | Dell EMC | Linux |
-| ![Windows 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Windows 용 CloudLink SecureVM 확장 ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 신뢰도 사용 하 여 Vm을 암호화 합니다. | Dell EMC | Windows |
+| ![Linux 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Linux 용 CloudLink SecureVM 확장 ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 신뢰도 사용 하 여 Vm을 암호화 합니다. | Dell EMC | Linux |
+| ![Windows 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Windows 용 CloudLink SecureVM 확장 ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 신뢰도 사용 하 여 Vm을 암호화 합니다. | Dell EMC | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 가상 컴퓨터 이미지 및 솔루션 템플릿
 
@@ -214,7 +215,8 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![Barracuda 웹 응용 프로그램 방화벽 (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 웹 응용 프로그램 방화벽 (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 보안 및 자동화 & 대상 공격을 DDoS 방지 합니다. | Barracuda Networks, Inc. |
 | ![검사점 vSEC 보안 관리](media/azure-stack-marketplace-azure-items/checkpoint.png) | [검사점 vSEC 보안 관리](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 검사점 vSEC 자산을 보호 하기 고객이 Azure에서 맬웨어 및 정교한 위협 으로부터 고급, 다중 계층 위협 방지를 제공 합니다. <b>두 체크 포인트 vSEC 마켓플레이스 항목을 다운로드 합니다.</b> | Check Point |
 | ![Chef 자동화](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef 자동화](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 빌드, 배포 및 사용 하 여 Chef 자동화 연속 자동화 플랫폼 관리 합니다. <b>Chef 마켓플레이스 항목을 모두 다운로드</b> | Chef 소프트웨어, Inc |
-| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 신뢰도 사용 하 여 Vm을 암호화 합니다. <b>모든 CloudLink SecureVM 항목을 다운로드 합니다.<b> | Dell EMC |
+| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 신뢰도 사용 하 여 Vm을 암호화 합니다. <b>모든 CloudLink SecureVM 항목을 다운로드 합니다.<b> | Dell EMC |
+| ![F5 키](media/azure-stack-marketplace-azure-items/f5.png) | [ f5 BIG-IP 가상 버전 ](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 고급 부하 분산, 데 GSLB, 네트워크 방화벽, DNS, WAF 및 응용 프로그램 액세스 합니다. | F5 Networks |
 | ![Hortonworks Data Platform (HDP) 샌드박스](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Hadoop, Spark, 스톰, HBase, Kafka, Hive, Ambari 2.5 100% 오픈 소스 플랫폼 HDP에 의해 제공. | Hortonworks |
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산 장치, 콘텐츠 스위치 및 트래픽 관리자. | KEMP Inc. |
 | ![NooBaa 하이브리드 AWS S3 호환-Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 하이브리드 AWS S3 compatibe-Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3 호환 저장소 서비스 공개에 걸쳐 있고 온-프레미스 리소스 용량입니다. | NooBaa |

@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics에서 Windows 이벤트 로그 수집 및 분석 | Microsoft Docs"
-description: "Windows 이벤트 로그는 Log Analytics에서 사용되는 가장 일반적인 데이터 원본 중 하나입니다.  이 문서에서는 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고, Log Analytics 작업 영역에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
+title: Azure Log Analytics에서 Windows 이벤트 로그 수집 및 분석 | Microsoft Docs
+description: Windows 이벤트 로그는 Log Analytics에서 사용되는 가장 일반적인 데이터 원본 중 하나입니다.  이 문서에서는 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고, Log Analytics 작업 영역에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782033"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Log Analytics의 Windows 이벤트 로그 데이터 원본
 많은 응용 프로그램이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](log-analytics-data-sources.md) 중 하나입니다.  모니터링해야 하는 응용 프로그램에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 응용 프로그램 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -28,7 +29,7 @@ ms.lasthandoff: 12/20/2017
 ## <a name="configuring-windows-event-logs"></a>Windows 이벤트 로그 수집
 [Log Analytics 설정의 데이터 메뉴](log-analytics-data-sources.md#configuring-data-sources)에서 Windows 이벤트 로그를 구성합니다.
 
-Log Analytics에서는 설정에 지정된 Windows 이벤트 로그에서만 이벤트를 수집합니다.  로그 이름을 입력하고 **+**를 클릭하여 이벤트 로그를 추가할 수 있습니다.  각 로그의 경우 선택한 심각도의 이벤트만 수집됩니다.  수집하려는 특정 로그에 대한 심각도를 확인합니다.  이벤트를 필터링할 추가 조건을 제공할 수 없습니다.
+Log Analytics에서는 설정에 지정된 Windows 이벤트 로그에서만 이벤트를 수집합니다.  로그 이름을 입력하고 **+** 를 클릭하여 이벤트 로그를 추가할 수 있습니다.  각 로그의 경우 선택한 심각도의 이벤트만 수집됩니다.  수집하려는 특정 로그에 대한 심각도를 확인합니다.  이벤트를 필터링할 추가 조건을 제공할 수 없습니다.
 
 이벤트 로그 이름을 입력하면 Log Analytics는 일반적인 이벤트 로그 이름을 제안합니다. 추가하려는 로그가 목록에 나타나지 않으면 로그의 전체 이름을 입력하여 추가할 수 있습니다. 이벤트 뷰어를 사용하여 로그의 전체 이름을 찾을 수 있습니다. 이벤트 뷰어에서 로그의 *속성*을 열고 *전체 이름* 필드에서 문자열을 복사합니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 키 자격 증명 모음 소개 | Microsoft Docs"
-description: "Azure 스택 키 자격 증명 모음 키 및 암호를 관리 하는 방법에 대해 알아봅니다"
+title: Azure 스택 키 자격 증명 모음 소개 | Microsoft Docs
+description: Azure 스택 키 자격 증명 모음 키 및 암호를 관리 하는 방법에 대해 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26636729"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>주요 자격 증명 모음에서 Azure 스택 소개
 
