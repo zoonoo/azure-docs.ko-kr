@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치 모니터링 | Microsoft Docs"
-description: "StorSimple 장치 관리자 서비스를 사용하여 사용량, I/O 성능 및 수용작업량 사용률을 모니터링하는 방법에 대해 설명합니다."
+title: StorSimple 8000 시리즈 장치 모니터링 | Microsoft Docs
+description: StorSimple 장치 관리자 서비스를 사용하여 사용량, I/O 성능 및 수용작업량 사용률을 모니터링하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23479269"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다.
 

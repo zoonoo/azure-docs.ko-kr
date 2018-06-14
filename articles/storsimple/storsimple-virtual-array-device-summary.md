@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Virtual Array 장치 요약 블레이드 | Microsoft Docs"
-description: "StorSimple Manager 장치 관리자에 대한 장치 요약 블레이드 및 이 기능을 사용하여 StorSimple 가상 배열의 상태를 모니터링하는 방법을 설명합니다."
+title: StorSimple Virtual Array 장치 요약 블레이드 | Microsoft Docs
+description: StorSimple Manager 장치 관리자에 대한 장치 요약 블레이드 및 이 기능을 사용하여 StorSimple 가상 배열의 상태를 모니터링하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a13c1ea7-6428-4234-84a6-0ebf51670a85
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109641"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>StorSimple 가상 배열에 연결된 StorSimple 장치 관리자에 대한 장치 요약 블레이드 사용
 
