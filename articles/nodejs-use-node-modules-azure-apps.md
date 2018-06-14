@@ -1,11 +1,11 @@
 ---
-title: "Node.js 모듈 작업"
-description: "Azure 앱 서비스 또는 클라우드 서비스를 사용할 때 Node.js 모듈로 작업하는 방법을 알아봅니다."
-services: 
+title: Node.js 모듈 작업
+description: Azure 앱 서비스 또는 클라우드 서비스를 사용할 때 Node.js 모듈로 작업하는 방법을 알아봅니다.
+services: ''
 documentationcenter: nodejs
 author: TomArcher
 manager: routlaw
-editor: 
+editor: ''
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036468"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure 응용 프로그램에 Node.js 모듈 사용
 이 문서에서는 Azure에서 호스트되는 응용 프로그램에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 응용 프로그램에서 특정 버전의 모듈을 사용하고 Azure 네이티브 모듈을 사용하도록 하는 방법을 설명합니다.

@@ -1,12 +1,12 @@
 ---
-title: "Azure Log Analytics VM 확장 문제 해결 | Microsoft Docs"
-description: "Windows 및 Linux Azure VM에 대한 Log Analytics VM 확장에서 발생하는 가장 일반적인 문제에 대한 증상, 원인 및 해결 방법에 대해 설명합니다."
+title: Azure Log Analytics VM 확장 문제 해결 | Microsoft Docs
+description: Windows 및 Linux Azure VM에 대한 Log Analytics VM 확장에서 발생하는 가장 일반적인 문제에 대한 증상, 원인 및 해결 방법에 대해 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394989"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 문제 해결
 이 문서는 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 머신에 대한 Log Analytics VM 확장에서 발생할 수 있는 오류를 해결하는 데 도움을 주며, 가능한 해결 방법을 제안합니다.

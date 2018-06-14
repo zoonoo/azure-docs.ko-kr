@@ -1,11 +1,11 @@
 ---
-title: "온-프레미스 Always On 가용성 그룹을 Azure로 확장 | Microsoft Docs"
-description: "이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, SSMS(SQL Server Management Studio)에서 복제본 추가 마법사를 사용하여 Azure에 Always On 가용성 그룹 복제본을 추가하는 방법을 설명합니다."
+title: 온-프레미스 Always On 가용성 그룹을 Azure로 확장 | Microsoft Docs
+description: 이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, SSMS(SQL Server Management Studio)에서 복제본 추가 마법사를 사용하여 Azure에 Always On 가용성 그룹 복제본을 추가하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400480"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>온-프레미스 Always On 가용성 그룹을 Azure로 확장
 Always On 가용성 그룹은 보조 복제본 추가를 통해 데이터베이스 그룹에 고가용성을 제공합니다. 이러한 복제본은 오류 발생 시의 데이터베이스 장애 조치를 허용합니다. 또한 읽기 워크로드 또는 백업 작업의 부하를 줄이는 데 사용할 수 있습니다.
@@ -41,12 +42,12 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 > [!IMPORTANT]
 > **Azure 복제본 추가 마법사**는 클래식 배포 모델을 사용하여 만든 가상 머신만 지원합니다. 새 VM 배포는 최신 Resource Manager 모델을 사용해야 합니다. Resource Manager와 함께 VM을 사용 중인 경우 Transact-SQL 명령(여기에 표시되지 않음)을 사용하여 보조 Azure 복제본을 수동으로 추가해야 합니다. 이 마법사는 Resource Manager 시나리오에서는 작동하지 않습니다.
 
-1. SQL Server Management Studio에서 **Always On 고가용성** > **가용성 그룹** > **[가용성 그룹 이름]**을 확장합니다.
+1. SQL Server Management Studio에서 **Always On 고가용성** > **가용성 그룹** > **[가용성 그룹 이름]** 을 확장합니다.
 2. 마우스 오른쪽 단추로 **가용성 복제본**을 클릭한 다음 **복제본 추가**를 클릭합니다.
 3. 기본적으로는 **가용성 그룹에 복제본 추가 마법사** 가 표시됩니다. **다음**을 클릭합니다.  그 전에 이 마법사를 실행하는 중에 페이지 하단에 표시되는 **이 페이지를 다시 표시 안 함** 옵션을 선택한 경우 이 화면이 표시되지 않습니다.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
-4. 모든 기존 보조 복제본에 연결해야 합니다. **연결…**을 클릭합니다. 화면 하단의 **모두 연결…**을 을 클릭할 수 있습니다. 인증 후 **다음** 을 클릭하여 다음 화면으로 이동합니다.
+4. 모든 기존 보조 복제본에 연결해야 합니다. **연결…** 을 클릭합니다. 화면 하단의 **모두 연결…** 을 을 클릭할 수 있습니다. 인증 후 **다음** 을 클릭하여 다음 화면으로 이동합니다.
 5. **복제본 지정** 페이지 상단에 **복제본**, **끝점**, **Backup 기본 설정** 및 **수신기** 등의 여러 탭이 나열됩니다. **복제본** 탭을 클릭하여 **Azure 복제본 추가...** 를 클릭하여 Azure 복제본 추가 마법사를 실행합니다.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)

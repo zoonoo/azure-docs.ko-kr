@@ -1,11 +1,11 @@
 ---
-title: "Node.js용 Azure CDN SDK 시작하기 | Microsoft Docs"
-description: "Node.js 응용 프로그램을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다."
+title: Node.js용 Azure CDN SDK 시작하기 | Microsoft Docs
+description: Node.js 응용 프로그램을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "22998388"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -85,7 +86,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  다음을 추가합니다.  **&lt;꺽쇠 괄호&gt;**를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
+2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  다음을 추가합니다.  **&lt;꺽쇠 괄호&gt;** 를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
    
     ``` javascript
     //Tenant app constants
@@ -118,7 +119,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    올바른 정보로 **&lt;꺾쇠 괄호&gt;**의 항목을 교체해야 합니다.  `<redirect URI>`의 경우 Azure AD에서 응용 프로그램을 등록할 때 입력한 리디렉션 URI를 사용합니다.
+    올바른 정보로 **&lt;꺾쇠 괄호&gt;** 의 항목을 교체해야 합니다.  `<redirect URI>`의 경우 Azure AD에서 응용 프로그램을 등록할 때 입력한 리디렉션 URI를 사용합니다.
 4. Node.js 콘솔 응용 프로그램에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
    
    ```javascript
