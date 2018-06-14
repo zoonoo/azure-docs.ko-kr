@@ -1,12 +1,12 @@
 ---
-title: "Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기) | Microsoft Docs"
-description: "이 문서에서는 보안 센터 평가를 사용자 지정하는 방법을 설명합니다."
+title: Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기) | Microsoft Docs
+description: 이 문서에서는 보안 센터 평가를 사용자 지정하는 방법을 설명합니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200013"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)
 
@@ -280,10 +281,10 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 | **오류**                                | **설명**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | *schemaVersion* 속성이 잘못되었거나 비어 있습니다. 값을 *{0}*으로 설정해야 합니다.                                                         |
+| BaselineConfiguratiohSchemaVersionError  | *schemaVersion* 속성이 잘못되었거나 비어 있습니다. 값을 *{0}* 으로 설정해야 합니다.                                                         |
 | BaselineInvalidStringError               | *{0}* 속성에 *\\n*을 포함할 수 없습니다.                                                                                                         |
 | BaselineNullRuleError                    | 기준 구성 규칙 목록에 값이 *null*인 규칙이 있습니다.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}*이 고유하지 않습니다.                                                                                                                  |
+| BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* 이 고유하지 않습니다.                                                                                                                  |
 | BaselineRuleEmptyProperty                | *{0}* 속성이 없거나 잘못되었습니다.                                                                                                       |
 | BaselineRuleIdNotInDefault               | 규칙에 소스 속성 *Microsoft*가 있지만 Microsoft 기본 규칙 집합에 없습니다.                                                   |
 | BaselineRuleIdNotUniqueError             | 규칙 ID가 고유하지 않습니다.                                                                                                                       |
@@ -294,21 +295,21 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 | BaselineRuleNotFoundError                | 해당 규칙이 기본 기준 규칙 집합에 없습니다.                                                                                        |
 | BaselineRuleNotInPlace                   | 규칙이 {0} 유형의 기본 규칙과 일치하며 {1} 목록에 나열됩니다.                                                                       |
 | BaselineRulePropertyTooLong              | *{0}* 속성이 너무 깁니다. 허용되는 최대 길이는 {1}입니다.                                                                                        |
-| BaselineRuleRegTypeInvalidError          | 예상 값 *{0}*이(가) 정의된 레지스트리 값 형식과 일치하지 않습니다.                                                              |
-| BaselineRulesetAdded                     | 기본 구성에 ID가 *{0}*인 규칙 집합이 없습니다. 규칙 집합을 추가할 수 없습니다.                                               |
-| BaselineRulesetIdMustBeUnique            | 지정된 기준 규칙 집합 *{0}*이(가) 고유해야 합니다.                                                                                           |
-| BaselineRulesetNotFound                  | 지정된 구성에 ID가 *{0}*이고 이름이 *{1}*인 규칙 집합이 없습니다. 규칙 집합을 삭제할 수 없습니다.                                |
-| BaselineRuleSourceNotMatch               | ID가 *{0}*인 규칙이 이미 정의되어 있습니다.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | 기본 규칙 유형은 *{0}*입니다.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | 규칙의 실제 유형이 *{0}*인데 *ruleType* 속성이 *{1}*입니다.                                                                          |
+| BaselineRuleRegTypeInvalidError          | 예상 값 *{0}* 이(가) 정의된 레지스트리 값 형식과 일치하지 않습니다.                                                              |
+| BaselineRulesetAdded                     | 기본 구성에 ID가 *{0}* 인 규칙 집합이 없습니다. 규칙 집합을 추가할 수 없습니다.                                               |
+| BaselineRulesetIdMustBeUnique            | 지정된 기준 규칙 집합 *{0}* 이(가) 고유해야 합니다.                                                                                           |
+| BaselineRulesetNotFound                  | 지정된 구성에 ID가 *{0}* 이고 이름이 *{1}* 인 규칙 집합이 없습니다. 규칙 집합을 삭제할 수 없습니다.                                |
+| BaselineRuleSourceNotMatch               | ID가 *{0}* 인 규칙이 이미 정의되어 있습니다.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | 기본 규칙 유형은 *{0}* 입니다.                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | 규칙의 실제 유형이 *{0}* 인데 *ruleType* 속성이 *{1}* 입니다.                                                                          |
 | BaselineRuleUnpermittedChangesError      | *expectedValue* 및 *state* 속성만 변경할 수 있습니다.                                                                       |
 | BaselineTooManyRules                     | 허용되는 최대 사용자 지정 규칙 수는 규칙 {0}개입니다. 지정된 구성에는 {1} 규칙, {2} 기본 규칙 및 {3} 사용자 지정 규칙이 있습니다. |
 | ErrorNoConfigurationStatus               | 구성 상태가 없습니다. 원하는 구성 상태(*Default* 또는 *Custom*)를 설정하세요.                                    |
 | ErrorNonEmptyRulesetOnDefault            | 구성 상태가 Default로 설정되어 있습니다. *BaselineRulesets* 목록은 null이거나 비어 있어야 합니다.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | 지정된 구성 상태가 *Custom*인데 *baselineRulesets* 속성이 null이거나 비어 있습니다.                                             |
 | ErrorParsingBaselineConfig               | 지정된 구성이 잘못되었습니다. 정의된 하나 이상의 값이 null 값이거나 잘못된 형식입니다.                                  |
-| ErrorParsingIsDefaultProperty            | 지정된 *configurationStatus* 값 *{0}*이(가) 잘못되었습니다. 값에 *Default* 또는 *Custom*만 지정할 수 있습니다.                                         |
-| InCompatibleViewVersion                  | 뷰 버전 *{0}*은(는) 이 작업 영역 유형에서 지원되지 *않습니다*.                                                                                   |
+| ErrorParsingIsDefaultProperty            | 지정된 *configurationStatus* 값 *{0}* 이(가) 잘못되었습니다. 값에 *Default* 또는 *Custom*만 지정할 수 있습니다.                                         |
+| InCompatibleViewVersion                  | 뷰 버전 *{0}* 은(는) 이 작업 영역 유형에서 지원되지 *않습니다*.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | 지정된 기준 구성에 하나 이상의 형식 유효성 검사 오류가 있습니다.                                                          |
 | ViewConversionError                      | 뷰가 작업 영역에서 지원하는 버전보다 오래된 버전입니다. 뷰 변환 실패: {0}                                                                 |
 
