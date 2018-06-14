@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Container Service 설명서
 metadata:
-  document_id: null
-  title: 'Azure Container Service 설명서 - 자습서, API 참조 | Microsoft Docs'
-  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: Azure Container Service 설명서 - 자습서, API 참조 | Microsoft Docs
+  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: czeumault
   manager: carolz
@@ -14,22 +14,28 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: 7625fbb02a1ede91c01c35cddd286f4c26ad77be
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068375"
 abstract:
-  description: 'Azure Container Service를 사용하면 프로덕션 준비 Kubernetes, DC/OS 또는 Docker Swarm 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플을 통해 Azure Container Service를 사용하는 방법을 알아보세요.'
+  description: Azure Container Service를 사용하면 프로덕션 준비 Kubernetes, DC/OS 또는 Docker Swarm 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플을 통해 Azure Container Service를 사용하는 방법을 알아보세요.
 sections:
-  - title: null
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Kubernetes 클러스터 시작
-            href: /azure/container-service/kubernetes
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
-          - title: DC/OS 및 Docker Swarm 클러스터 시작
-            href: /azure/container-service/dcos-swarm
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+    - title: Kubernetes 클러스터 시작
+      href: /azure/container-service/kubernetes
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/kubernetes
+    - title: DC/OS 및 Docker Swarm 클러스터 시작
+      href: /azure/container-service/dcos-swarm
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/dcos-swarm

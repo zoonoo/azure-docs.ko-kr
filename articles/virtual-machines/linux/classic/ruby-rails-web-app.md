@@ -1,11 +1,11 @@
 ---
-title: "Linux VM에서 Ruby on Rails 웹 사이트 호스트 | Microsoft Docs"
-description: "Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 기반 웹 사이트를 설정 및 호스트하는 방법에 대해 알아봅니다."
+title: Linux VM에서 Ruby on Rails 웹 사이트 호스트 | Microsoft Docs
+description: Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 기반 웹 사이트를 설정 및 호스트하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397600"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 응용 프로그램
 이 자습서에서는 Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  

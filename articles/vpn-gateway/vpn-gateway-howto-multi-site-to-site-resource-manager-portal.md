@@ -1,11 +1,11 @@
 ---
-title: "VNet에 여러 VPN Gateway 사이트 간 연결 추가: Azure Portal: Resource Manager| Microsoft Docs"
-description: "기존 연결이 있는 VPN Gateway에 다중 사이트 S2S 연결 추가"
+title: 'VNet에 여러 VPN Gateway 사이트 간 연결 추가: Azure Portal: Resource Manager| Microsoft Docs'
+description: 기존 연결이 있는 VPN Gateway에 다중 사이트 S2S 연결 추가
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398613"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 5. **연결 추가** 페이지에서 다음 필드에 정보를 입력합니다.
    
    * **이름:** 연결을 만들고자 하는 사이트에 부여하고자 하는 이름입니다.
-   * **연결 형식:** **사이트 간(IPSec)**을 선택합니다.
+   * **연결 형식:** **사이트 간(IPSec)** 을 선택합니다.
      
      ![연결 추가 페이지](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "연결 추가 페이지")<br>
 

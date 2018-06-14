@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs 정의 및 사용하는 이유 | Microsoft Docs"
-description: "Azure Event Hubs 개요 및 소개 - 웹 사이트, 앱 및 장치에서 클라우드 규모 원격 분석 수집"
+title: Azure Event Hubs 정의 및 사용하는 이유 | Microsoft Docs
+description: Azure Event Hubs 개요 및 소개 - 웹 사이트, 앱 및 장치에서 클라우드 규모 원격 분석 수집
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686908"
 ---
 # <a name="what-is-event-hubs"></a>Event Hubs란?
 
