@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209341"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors 프레임워크의 다형성
 Reliable Actors 프레임워크를 사용하면 개체 지향 디자인에 사용하는 동일한 기술을 대부분 사용하여 행위자를 빌드할 수 있습니다. 이러한 다형성 기술 중 하나는 보다 일반화된 부모로부터 형식과 인터페이스를 상속하도록 허용합니다. Reliable Actors 프레임워크의 상속은 일반적으로 몇 가지 추가적인 제약 조건과 함께 .NET 모델을 따릅니다. Java/Linux의 경우 Java 모델을 따릅니다.

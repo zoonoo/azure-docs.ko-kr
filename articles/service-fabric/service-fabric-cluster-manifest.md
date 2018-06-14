@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205368"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
 이 문서에서는 ClusterConfig.json 파일을 사용하여 독립 실행형 Azure Service Fabric 클러스터를 구성하는 방법에 대해 설명합니다. 이 파일을 사용하여 오류 및 업그레이드 도메인 측면에서 네트워크 토폴로지뿐만 아니라 클러스터의 노드, 보안 구성에 관한 정보를 지정합니다.

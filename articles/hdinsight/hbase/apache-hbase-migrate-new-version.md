@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165097"
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>HBase 클러스터를 최신 버전으로 마이그레이션
 

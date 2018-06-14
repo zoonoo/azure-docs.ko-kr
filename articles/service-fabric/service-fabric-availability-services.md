@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206252"
 ---
 # <a name="availability-of-service-fabric-services"></a>서비스 패브릭 서비스의 가용성
 이 문서에서는 Azure Service Fabric이 서비스의 가용성을 유지하는 방법에 대한 개요를 설명합니다.

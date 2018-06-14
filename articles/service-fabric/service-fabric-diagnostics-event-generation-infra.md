@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211177"
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>클러스터 및 플랫폼 모니터링
 

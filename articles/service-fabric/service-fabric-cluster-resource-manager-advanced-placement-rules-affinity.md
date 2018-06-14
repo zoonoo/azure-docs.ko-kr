@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204858"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>서비스 패브릭에서 서비스 선호도 구성 및 사용
 선호도는 주로 더 큰 모놀리식 응용 프로그램을 클라우드 및 마이크로 서비스 환경으로 쉽게 전환하도록 해주는 컨트롤입니다. 또한 서비스의 성능 향상을 위한 최적화로 사용되지만 이 경우 부작용이 있을 수 있습니다.

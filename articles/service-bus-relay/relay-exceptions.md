@@ -1,11 +1,11 @@
 ---
-title: "Azure Relay 예외 및 해결 방법 | Microsoft Docs"
-description: "Azure Relay 예외 및 해결하기 위해 수행할 수 있는 권장된 동작의 목록입니다."
+title: Azure Relay 예외 및 해결 방법 | Microsoft Docs
+description: Azure Relay 예외 및 해결하기 위해 수행할 수 있는 권장된 동작의 목록입니다.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855864"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
 

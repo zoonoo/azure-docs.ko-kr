@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 기술 사양 | Microsoft Docs"
-description: "StorSimple 하드웨어 구성 요소에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다."
+title: StorSimple 기술 사양 | Microsoft Docs
+description: StorSimple 하드웨어 구성 요소에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27785529"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 장치에 대한 기술 사양 및 규정 준수
 

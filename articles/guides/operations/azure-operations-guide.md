@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361658"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>클라우드 컴퓨팅 및 Microsoft Azure 소개
 

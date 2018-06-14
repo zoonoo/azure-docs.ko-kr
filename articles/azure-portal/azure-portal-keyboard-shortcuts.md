@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165420"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure Portal에서 바로 가기 키
 이 문서에서는 Azure Portal를 통해 작동하는 바로 가기 키를 보여 줍니다. 개별 서비스에는 자신의 고유한 바로 가기 키가 있을 수 있습니다.

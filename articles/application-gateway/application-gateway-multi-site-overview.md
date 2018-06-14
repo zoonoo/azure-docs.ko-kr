@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Gateway에서 여러 사이트 호스팅 | Microsoft Docs"
-description: "이 페이지에서는 응용 프로그램 게이트웨이 다중 사이트 지원에 대한 개요를 제공합니다."
+title: Azure Application Gateway에서 여러 사이트 호스팅 | Microsoft Docs
+description: 이 페이지에서는 응용 프로그램 게이트웨이 다중 사이트 지원에 대한 개요를 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704764"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>응용 프로그램 게이트웨이 다중 사이트 호스팅
 

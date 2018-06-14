@@ -15,6 +15,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267186"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 공동 작업의 제한 사항
 Azure AD(Azure Active Directory) B2B 공동 작업에는 이 문서에 설명된 제한 사항이 적용됩니다.

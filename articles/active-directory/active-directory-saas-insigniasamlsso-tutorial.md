@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34340358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>자습서: Insignia SAML SSO와 Azure Active Directory 통합
 
