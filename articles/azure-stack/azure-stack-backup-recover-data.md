@@ -20,6 +20,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075723"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>치명적인 데이터 손실 로부터 복구
 
