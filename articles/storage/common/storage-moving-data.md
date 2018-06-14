@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 클라우드 저장소 내부/외부로 대량의 데이터 이동 | Microsoft Docs"
-description: "Azure Storage 내부/외부로 데이터를 이동하는 다양한 방법에 대한 개요입니다."
+title: Azure에서 클라우드 저장소 내부/외부로 대량의 데이터 이동 | Microsoft Docs
+description: Azure Storage 내부/외부로 데이터를 이동하는 다양한 방법에 대한 개요입니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984598"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage의 데이터 이동
 온-프레미스 데이터를 Azure Storage로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.

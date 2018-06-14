@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 배율 단위 노드에 하드웨어 구성 요소를 바꾸기 | Microsoft Docs"
-description: "Azure 스택 통합 시스템 하드웨어 구성 요소를 대체 하는 방법에 알아봅니다."
+title: Azure 스택 배율 단위 노드에 하드웨어 구성 요소를 바꾸기 | Microsoft Docs
+description: Azure 스택 통합 시스템 하드웨어 구성 요소를 대체 하는 방법에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919715"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Azure 스택 배율 단위 노드에 하드웨어 구성 요소를 대체 합니다.
 
