@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 볼륨 관리(업데이트 3) | Microsoft Docs"
-description: "StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다."
+title: StorSimple 볼륨 관리(업데이트 3) | Microsoft Docs
+description: StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26578876"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 장치 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
 

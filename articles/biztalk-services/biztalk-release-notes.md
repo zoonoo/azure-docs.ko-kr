@@ -1,11 +1,11 @@
 ---
-title: "Azure BizTalk Services에 대한 릴리스 정보 | Microsoft Docs"
-description: "Azure BizTalk Services에 대한 알려진 문제를 나열합니다."
+title: Azure BizTalk Services에 대한 릴리스 정보 | Microsoft Docs
+description: Azure BizTalk Services에 대한 알려진 문제를 나열합니다.
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f4906fdc-4cd9-4a57-a007-a88c2e51a18f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26633819"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services에 대한 릴리스 정보
 
@@ -153,11 +154,11 @@ LOB 구성 요소의 주소 및 엔터티 이름에 특수 문자를 사용하�
 **TestMap** 속성이 Visual Studio에 표시되지 않습니다. **속성** 창 및 **솔루션 탐색기** 창이 동시에 도킹되지 않는 경우 이러한 현상이 발생할 수 있습니다. 이 문제를 해결하려면 **속성** 및 **솔루션 탐색기** 창을 도킹합니다.  
 
 ### <a name="datetime-reformat-drop-down-is-grayed-out"></a>DateTime 서식 다시 지정 드롭다운이 회색 표시됨
-DateTime 서식 다시 지정 매핑 작업이 디자인 화면에 추가되고 구성된 경우 서식 드롭다운 목록이 회색 표시될 수 있습니다. 컴퓨터 디스플레이가 **보통 – 125%** 또는 **크게 – 150%**로 설정된 경우 이러한 현상이 발생할 수 있습니다. 해결하려면 디스플레이를 아래 단계에 따라 **작게 – 100%(기본값)** 로 설정합니다.  
+DateTime 서식 다시 지정 매핑 작업이 디자인 화면에 추가되고 구성된 경우 서식 드롭다운 목록이 회색 표시될 수 있습니다. 컴퓨터 디스플레이가 **보통 – 125%** 또는 **크게 – 150%** 로 설정된 경우 이러한 현상이 발생할 수 있습니다. 해결하려면 디스플레이를 아래 단계에 따라 **작게 – 100%(기본값)** 로 설정합니다.  
 
 1. **제어판**을 열고 **모양 및 개인 설정**을 클릭합니다.
 2. **디스플레이**를 클릭합니다.
-3. **작게 – 100%(기본값)**를 클릭하고 **적용**을 클릭합니다.
+3. **작게 – 100%(기본값)** 를 클릭하고 **적용**을 클릭합니다.
 
 이제 **서식** 드롭다운 목록이 예상대로 작동합니다.
 

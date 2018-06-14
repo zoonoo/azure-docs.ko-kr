@@ -1,6 +1,6 @@
 ---
-title: "Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "위협 모델링 도구에서 사용할 수 있는 모든 기능에 대해 알아보기"
+title: Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: 위협 모델링 도구에서 사용할 수 있는 모든 기능에 대해 알아보기
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754748"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 

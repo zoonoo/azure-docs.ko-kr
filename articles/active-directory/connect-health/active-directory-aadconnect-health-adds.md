@@ -1,8 +1,8 @@
 ---
-title: "AD DS와 함께 Azure AD Connect Health 사용 | Microsoft Docs"
-description: "AD DS를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다."
+title: AD DS와 함께 Azure AD Connect Health 사용 | Microsoft Docs
+description: AD DS를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: arluca
 manager: mtillman
 editor: curtand
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614416"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>AD DS와 함께 Azure AD Connect Health 사용
 다음 문서는 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 중점을 둡니다. 지원되는 AD DS 버전은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016입니다.

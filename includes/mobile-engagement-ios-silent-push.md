@@ -20,7 +20,7 @@
         <array>
         <string>remote-notification</string>
         </array>
-7. **Xcode 7+** 및**iOS 9+**를 사용 중인 경우,
+7. **Xcode 7+** 및**iOS 9+** 를 사용 중인 경우,
    
    * 대상 > 대상 이름 > 기능에서 **푸시 알림**을 사용하도록 설정합니다.
 

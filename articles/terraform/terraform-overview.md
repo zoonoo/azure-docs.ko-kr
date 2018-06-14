@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 Terraform 사용"
-description: "Terraform을 사용하여 Azure 인프라를 프로비전하고 배포하는 방법을 소개합니다."
+title: Azure에서 Terraform 사용
+description: Terraform을 사용하여 Azure 인프라를 프로비전하고 배포하는 방법을 소개합니다.
 ms.service: virtual-machines-linux
-keywords: "terraform, devops, 개요, 계획, 적용, 자동화"
+keywords: terraform, devops, 개요, 계획, 적용, 자동화
 author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
@@ -12,6 +12,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26364473"
 ---
 # <a name="terraform-with-azure"></a>Azure의 Terraform
 
