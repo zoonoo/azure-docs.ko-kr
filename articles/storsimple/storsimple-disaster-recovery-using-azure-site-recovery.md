@@ -1,11 +1,11 @@
 ---
-title: "Azure Site Recovery로 StorSimple 파일 공유 DR 자동화 | Microsoft Docs"
-description: "Microsoft Azure StorSimple 저장소에서 호스팅되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계와 모범 사례에 대해 설명합니다."
+title: Azure Site Recovery로 StorSimple 파일 공유 DR 자동화 | Microsoft Docs
+description: Microsoft Azure StorSimple 저장소에서 호스팅되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계와 모범 사례에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23452412"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
 ## <a name="overview"></a>개요
@@ -89,7 +90,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
       >
       >
 3. **다음**을 누릅니다.
-4. **Terms of Agreement(계약 조건)**에 동의하고 **다음**을 클릭합니다.
+4. **Terms of Agreement(계약 조건)** 에 동의하고 **다음**을 클릭합니다.
 5. **Finish**를 클릭합니다.
 6. StorSimple 저장소의 잘라낸 볼륨을 사용하여 파일 공유를 만듭니다. 자세한 내용은 [StorSimple Manager 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes.md)를 참조하세요.
 
@@ -102,7 +103,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    7. **구성** 탭을 선택하고 장치의 IP 주소를 적어둡니다.
    8. 온-프레미스 VM에서 다시 **iSCSI 초기자** 로 이동하여 빠른 연결 섹션에 IP를 입력합니다. **빠른 연결** 을 클릭합니다(이제 장치가 연결됨).
    9. Azure 포털을 열고 **볼륨 및 장치** 탭을 선택합니다. **자동 구성**을 클릭합니다. 만든 볼륨이 표시됩니다.
-   10. 포털에서 **장치** 탭을 선택한 다음 **Create a New Virtual Device(새 가상 장치 만들기)**를 선택합니다. 를 선택합니다. (이 가상 장치는 장애 조치(failover)가 발생하는 경우 사용됩니다.) 이 새 가상 장치는 추가 비용을 방지하기 위해 오프라인 상태로 유지될 수 있습니다. 가상 장치를 오프라인 상태로 전환하려면 포털에서 **가상 컴퓨터** 섹션으로 이동하여 해당 가상 장치를 종료합니다.
+   10. 포털에서 **장치** 탭을 선택한 다음 **Create a New Virtual Device(새 가상 장치 만들기)** 를 선택합니다. 를 선택합니다. (이 가상 장치는 장애 조치(failover)가 발생하는 경우 사용됩니다.) 이 새 가상 장치는 추가 비용을 방지하기 위해 오프라인 상태로 유지될 수 있습니다. 가상 장치를 오프라인 상태로 전환하려면 포털에서 **가상 컴퓨터** 섹션으로 이동하여 해당 가상 장치를 종료합니다.
    11. 온-프레미스 VM으로 돌아가 디스크 관리를 엽니다(Windows 키+X를 누르고 **디스크 관리**를 선택).
    12. 만든 볼륨 수에 따라 몇 가지 추가 디스크가 표시될 수 있습니다. 첫 번째 디스크를 마우스 오른쪽 단추로 클릭하고 **디스크 초기화**를 선택한 다음 **확인**을 선택합니다. **할당되지 않음** 섹션에서 마우스 오른쪽 단추를 클릭하고 **새 단순 볼륨**을 선택한 다음 드라이브 문자를 할당하고 마법사를 마칩니다.
    13. 모든 디스크에 대해 l단계를 반복합니다. 이제 Windows 탐색기에서 **내 PC** 의 모든 디스크를 볼 수 있습니다.
@@ -276,11 +277,11 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 #### <a name="to-perform-the-test-failover"></a>테스트 장애 조치(failover)를 수행하려면
 1. Azure 포털에서 Site Recovery 자격 증명 모음을 선택합니다.
 2. 파일 서버 VM에 대해 만든 복구 계획을 클릭합니다.
-3. **테스트 장애 조치(failover)**를 클릭합니다.
+3. **테스트 장애 조치(failover)** 를 클릭합니다.
 4. 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 가상 네트워크를 선택합니다.
 
    ![장애 조치(Failover) 시작](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
-5. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 &gt; **작업** &gt; **Site Recovery 작업**에서 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
+5. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 &gt; **작업** &gt; **Site Recovery 작업**에서 **테스트 장애 조치(failover)** 에서 진행률을 추적할 수 있습니다.
 6. 또한 장애 조치(failover)가 완료된 후 Azure 포털 &gt; **Virtual Machines**에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다. 유효성 검사를 수행할 수 있습니다.
 7. 유효성 검사가 완료된 후 **유효성 검사 완료**를 클릭합니다. 이렇게 하여 StorSimple 볼륨을 정리하고 StorSimple Cloud Appliance를 제거합니다.
 8. 작업이 완료되면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. 참고에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치 중에 생성된 가상 컴퓨터가 삭제됩니다.

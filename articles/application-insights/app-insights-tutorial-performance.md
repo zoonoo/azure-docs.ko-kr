@@ -15,6 +15,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29969137"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
@@ -103,7 +104,7 @@ Application Insights는 최적화를 위한 서버 프로세스 식별 외에도
 
     ![브라우저 요약](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  아래의 **가장 느린 페이지는 무엇인가요?**로 스크롤합니다.  클라이언트가 로드하는 데 가장 긴 시간이 소요되는 응용 프로그램의 페이지 목록을 표시합니다.  이 정보를 사용하여 사용자에 가장 큰 영향을 주는 해당 페이지의 우선 순위를 지정할 수 있습니다.
+2.  아래의 **가장 느린 페이지는 무엇인가요?** 로 스크롤합니다.  클라이언트가 로드하는 데 가장 긴 시간이 소요되는 응용 프로그램의 페이지 목록을 표시합니다.  이 정보를 사용하여 사용자에 가장 큰 영향을 주는 해당 페이지의 우선 순위를 지정할 수 있습니다.
 3.  페이지 중 하나를 클릭하여 **페이지 보기** 패널을 엽니다.  예제에서 **/FabrikamProd** 페이지는 과도 한 평균 기간을 표시합니다.  **페이지 보기** 패널은 다른 기간 범위의 분석을 포함하여 이 페이지에 대한 세부 정보를 제공합니다.
 
     ![페이지 보기](media/app-insights-tutorial-performance/page-view.png)

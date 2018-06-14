@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943244"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Azure Marketplace에 제품 배포
 제품에 만족(즉, 고객 시나리오, 마케팅 콘텐츠 등을 테스트)하고 시작할 준비가 되면 **게시** 탭에서 **프로덕션으로 푸시**를 요청합니다.  

@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용"
-description: "원격 데스크톱 연결을 허용하기 위해 PowerShell을 사용하여 Azure 클라우드 서비스 응용 프로그램을 구성하는 방법"
+title: PowerShell을 사용하여 Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
+description: 원격 데스크톱 연결을 허용하기 위해 PowerShell을 사용하여 Azure 클라우드 서비스 응용 프로그램을 구성하는 방법
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf2f70a4-20dc-4302-a91a-38cd7a2baa62
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874143"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell을 사용하여 Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
 

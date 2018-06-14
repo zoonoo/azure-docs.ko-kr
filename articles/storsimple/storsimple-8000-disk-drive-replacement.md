@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치의 디스크 드라이브 교체 | Microsoft Docs"
-description: "StorSimple 기본 인클로저 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다."
+title: StorSimple 8000 시리즈 장치의 디스크 드라이브 교체 | Microsoft Docs
+description: StorSimple 기본 인클로저 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108321"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 디스크 드라이브 교체
 

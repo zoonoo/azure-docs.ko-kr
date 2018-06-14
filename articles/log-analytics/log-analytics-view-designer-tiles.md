@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947319"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics의 뷰 디자이너 타일에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역에 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.

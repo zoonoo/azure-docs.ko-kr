@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528361"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -88,7 +89,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
           }
         }
 
-4. **{USERNAME}**, **{CLUSTERDNSNAME}** 및 **{BASE64ENCODEDPASSWORD}**를 적합한 값으로 바꿉니다. 즐겨 사용하는 프로그래밍 언어 또는 온라인의 다양한 유틸리티를 사용하여 실제 암호에 대한 base64 인코딩 암호를 생성할 수 있습니다.
+4. **{USERNAME}**, **{CLUSTERDNSNAME}** 및 **{BASE64ENCODEDPASSWORD}** 를 적합한 값으로 바꿉니다. 즐겨 사용하는 프로그래밍 언어 또는 온라인의 다양한 유틸리티를 사용하여 실제 암호에 대한 base64 인코딩 암호를 생성할 수 있습니다.
 
 5. `config.json`에서 올바른 하트 비트 설정을 구성합니다. `kernel_python_credentials` 및 이전에 추가한 `kernel_scala_credentials` 조각과 같은 수준에서 이러한 설정을 추가해야 합니다. 하트비트 설정을 추가하는 방법 및 추가할 위치에 대한 예제를 보려면 [샘플 config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)을 참조하세요.
 

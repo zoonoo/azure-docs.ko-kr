@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958710"
 ---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>포털을 사용하여 다른 구독으로 VM 이동
 포털을 사용하여 다른 구독으로 연결된 리소스인 VM을 이동할 수 있습니다.

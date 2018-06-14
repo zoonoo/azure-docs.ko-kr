@@ -1,11 +1,11 @@
 ---
-title: "Docker Machine으로 Azure에서 Docker 호스트 만들기 | Microsoft Docs"
-description: "Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다."
+title: Docker Machine으로 Azure에서 Docker 호스트 만들기 | Microsoft Docs
+description: Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a3ff6e1-fa93-4a62-b524-ab182d2fea08
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124501"
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Docker Machine으로 Azure에서 Docker 호스트 만들기
 [Docker](https://www.docker.com/) 컨테이너를 실행하려면 호스트 VM이 docker 데몬을 실행해야 합니다.

@@ -1,10 +1,10 @@
 ---
-title: "Jenkins를 사용하여 Azure에 웹앱 배포 | Microsoft Docs"
-description: "Jenkins 및 Docker를 사용하여 Java 웹앱에 대해 GitHub에서 Azure App Service로 지속적인 통합을 설정합니다."
+title: Jenkins를 사용하여 Azure에 웹앱 배포 | Microsoft Docs
+description: Jenkins 및 Docker를 사용하여 Java 웹앱에 대해 GitHub에서 Azure App Service로 지속적인 통합을 설정합니다.
 author: rloutlaw
 manager: douge
 ms.service: jenkins
-ms.search.scope: 
+ms.search.scope: ''
 ms.devlang: java
 ms.topic: article
 ms.workload: web
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29853002"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins를 사용하여 Azure App Service로 지속적인 통합 및 배포 설정
 

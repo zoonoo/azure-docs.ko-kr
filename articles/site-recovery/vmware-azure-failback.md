@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29944010"
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
 
@@ -63,7 +64,7 @@ Azure로 장애 조치(failover)한 후 다음 단계를 실행하여 온-프레
 > [!IMPORTANT]
 > 장애 복구를 시작하기 전에 가상 머신의 다시 보호를 완료해야 합니다. 가상 머신은 **양호**한 상태로 보호되어야 합니다. 가상 머신을 다시 보호하려면 [다시 보호하는 방법](vmware-azure-reprotect.md)을 읽어보세요.
 
-1. 복제된 항목 페이지에서 가상 머신을 선택합니다. 마우스 오른쪽 단추로 클릭하여 **계획되지 않은 장애 조치(failover)**를 선택합니다.
+1. 복제된 항목 페이지에서 가상 머신을 선택합니다. 마우스 오른쪽 단추로 클릭하여 **계획되지 않은 장애 조치(failover)** 를 선택합니다.
 2. **장애 조치(failover) 확인**에서 장애 조치(Failover) 방향이 Azure부터인지 확인합니다. 그런 다음, 장애 조치(failover)에 사용할 복구 지점(최신 또는 최근 앱 일치)을 선택합니다. 앱 일치 시점이 최신 시점보다 늦어지고 이로 인해 데이터 손실이 발생합니다.
 3. 장애 조치(failover) 중에 Site Recovery가 Azure 가상 머신을 종료합니다. 장애 복구가 예상대로 완료되었는지 확인한 후에 Azure에서 가상 머신이 종료되었는지 확인할 수 있습니다.
 4. Azure에서 장애 조치된 가상 머신을 제거하려면 **커밋**이 필요합니다. 보호된 항목을 마우스 오른쪽 단추로 클릭한 다음, **커밋**을 선택합니다. Azure에서 장애 조치된 가상 머신을 제거하는 작업이 수행됩니다.

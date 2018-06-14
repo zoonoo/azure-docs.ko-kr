@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312646"
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>상태별로 태스크 수를 계산하여 작업의 진행 상황 모니터링(미리 보기)
 
