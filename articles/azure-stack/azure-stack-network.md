@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936520"
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 가장 Azure 스택을 기존 네트워킹 환경에 통합 하는 방법을 결정할 수 있도록 Azure 스택 네트워크 인프라 정보를 제공 합니다. 

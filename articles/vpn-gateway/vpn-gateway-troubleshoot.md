@@ -1,13 +1,13 @@
 ---
-title: "VPN Gateway 구성 및 연결 문제 해결 | Microsoft Docs"
-description: "이 문서에서는 VPN Gateway 구성, 연결 문제를 해결하고 처리량이 유효한지 검사하기 위한 문서로 연결할 수 있게 도와줍니다."
+title: VPN Gateway 구성 및 연결 문제 해결 | Microsoft Docs
+description: 이 문서에서는 VPN Gateway 구성, 연결 문제를 해결하고 처리량이 유효한지 검사하기 위한 문서로 연결할 수 있게 도와줍니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28934655"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN Gateway 문제 해결
 
