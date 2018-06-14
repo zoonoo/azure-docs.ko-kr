@@ -1,11 +1,11 @@
 ---
-title: "새 로그 검색으로 Azure Log Analytics 업그레이드 | Microsoft Docs"
-description: "새로운 Log Analytics 쿼리 언어가 곧 시작될 예정이며, 공개 미리 보기로 참여할 수 있습니다.  이 문서는 새 언어의 장점과 작업 영역을 변환하는 방법에 대해 설명합니다."
+title: 새 로그 검색으로 Azure Log Analytics 업그레이드 | Microsoft Docs
+description: 새로운 Log Analytics 쿼리 언어가 곧 시작될 예정이며, 공개 미리 보기로 참여할 수 있습니다.  이 문서는 새 언어의 장점과 작업 영역을 변환하는 방법에 대해 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983991"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>새 로그 검색으로 Azure Log Analytics 업그레이드
 

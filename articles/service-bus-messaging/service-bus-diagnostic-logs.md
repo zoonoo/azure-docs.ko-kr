@@ -1,13 +1,13 @@
 ---
-title: "Azure Service Bus 진단 로그 | Microsoft Docs"
-description: "Azure에서 Service Bus에 대한 진단 로그를 설정하는 방법을 알아봅니다."
-keywords: 
+title: Azure Service Bus 진단 로그 | Microsoft Docs
+description: Azure에서 Service Bus에 대한 진단 로그를 설정하는 방법을 알아봅니다.
+keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29122183"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 

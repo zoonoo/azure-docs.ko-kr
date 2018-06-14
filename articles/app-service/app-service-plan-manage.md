@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 App Service 계획 관리 | Microsoft Docs"
-description: "다양한 작업을 수행하여 App Service 계획을 관리하는 방법을 알아봅니다."
-keywords: "App Service, Azure App Service, 규모, App Service 계획, 변경, 만들기, 관리, 운영"
+title: Azure에서 App Service 계획 관리 | Microsoft Docs
+description: 다양한 작업을 수행하여 App Service 계획을 관리하는 방법을 알아봅니다.
+keywords: App Service, Azure App Service, 규모, App Service 계획, 변경, 만들기, 관리, 운영
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117683"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 

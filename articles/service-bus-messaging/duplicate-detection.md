@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 중복 메시지 검색 | Microsoft Docs"
-description: "중복 Service Bus 메시지 검색"
+title: Azure Service Bus 중복 메시지 검색 | Microsoft Docs
+description: 중복 Service Bus 메시지 검색
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198556"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 

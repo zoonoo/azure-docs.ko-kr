@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 SQLRuleAction 구문 참조 | Microsoft Docs"
-description: "SQLRuleAction 문법에 대한 세부 정보입니다."
+title: Azure에서 SQLRuleAction 구문 참조 | Microsoft Docs
+description: SQLRuleAction 문법에 대한 세부 정보입니다.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29125822"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 구문
 

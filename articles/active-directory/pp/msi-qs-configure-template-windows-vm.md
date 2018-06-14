@@ -1,11 +1,11 @@
 ---
-title: "Azure 템플릿을 사용하여 Azure VM에 사용자 할당 MSI를 구성하는 방법"
-description: "Azure Resource Manager 템플릿을 사용하여 Azure VM에서 사용자 할당 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다."
+title: Azure 템플릿을 사용하여 Azure VM에 사용자 할당 MSI를 구성하는 방법
+description: Azure Resource Manager 템플릿을 사용하여 Azure VM에서 사용자 할당 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984042"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Azure 템플릿을 사용하여 VM에 사용자 할당 MSI(관리 서비스 ID) 구성
 

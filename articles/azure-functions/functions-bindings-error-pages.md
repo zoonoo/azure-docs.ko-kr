@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 오류 처리 지침 | Microsoft Docs"
-description: "함수를 실행하는 경우에 발생하는 오류를 처리하기 위한 일반적인 지침 및 바인딩 관련 오류 항목에 대한 링크를 제공합니다."
+title: Azure Functions 오류 처리 지침 | Microsoft Docs
+description: 함수를 실행하는 경우에 발생하는 오류를 처리하기 위한 일반적인 지침 및 바인딩 관련 오류 항목에 대한 링크를 제공합니다.
 services: functions
-cloud: 
-documentationcenter: 
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29133700"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
 
