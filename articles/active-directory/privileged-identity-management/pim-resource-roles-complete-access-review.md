@@ -3,22 +3,23 @@ title: Privileged Identity Management를 사용하여 Azure 리소스에 대한 
 description: Azure 리소스에 대한 액세스 검토를 완료하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ae64d9ebbca80f6c21b8c7f352022a0878518e65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e6556d3bac386bff26f9a5ce8f599e099fdb6c4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149341"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233804"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스에 대한 액세스 검토 완료
 [보안 검토가 시작](pim-resource-roles-start-access-review.md)된 후에 권한 있는 역할 관리자가 권한이 있는 액세스를 검토할 수 있습니다. Azure 리소스에 대한 PIM(Privileged Identity Management)에서는 사용자에게 해당 액세스를 검토하도록 요청하는 이메일을 자동으로 전송합니다. 사용자가 메일을 받지 못하는 경우 [보안 검토를 수행하는 방법](pim-resource-roles-perform-access-review.md)의 지침을 보낼 수 있습니다.
