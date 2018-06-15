@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: LocalDB 10GB 제한 문제에서 복구하는 방법 | Microsoft Docs"
-description: "이 항목에서는 LocalDB 10GB 제한 문제가 발생한 경우 Azure AD Connect 동기화 서비스를 복구하는 방법을 설명합니다."
+title: 'Azure AD Connect: LocalDB 10GB 제한 문제에서 복구하는 방법 | Microsoft Docs'
+description: 이 항목에서는 LocalDB 10GB 제한 문제가 발생한 경우 Azure AD Connect 동기화 서비스를 복구하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b72f6730d32a71146781420923226fc521b5982b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3ba491902444c9c05f997f854353206d78f2957d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591275"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10GB 제한에서 복구하는 방법
 Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 SQL을 사용할 수 있습니다. SQL Server Express는 10GB 크기 제한을 적용합니다. LocalDB를 사용하고 이 제한에 도달하는 경우 Azure AD Connect 동기화 서비스는 더 이상 제대로 시작하거나 동기화할 수 없습니다. 이 문서에서는 복구 단계를 제공합니다.
@@ -28,7 +30,7 @@ Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베�
 
 * Azure AD Connect 동기화 서비스가 **실행**되지만 *“stopped-database-disk-full”* 오류로 동기화에 실패합니다.
 
-* Azure AD Connect 동기화 서비스를 **시작할 수 없습니다**. 서비스를 시작하려고 할 때 이벤트 6323 및 오류 메시지 *"SQL Server의 디스크 공간이 부족하기 때문에 서버에서 오류가 발생했습니다."*와 함께 실패합니다.
+* Azure AD Connect 동기화 서비스를 **시작할 수 없습니다**. 서비스를 시작하려고 할 때 이벤트 6323 및 오류 메시지 *"SQL Server의 디스크 공간이 부족하기 때문에 서버에서 오류가 발생했습니다."* 와 함께 실패합니다.
 
 ## <a name="short-term-recovery-steps"></a>단기 복구 단계
 이 섹션에서는 Azure AD Connect 동기화 서비스를 다시 시작하는 작업에 필요한 DB 공간을 회수하는 단계를 제공합니다. 단계는 다음과 같습니다.

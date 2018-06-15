@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory 통과 인증 보안 심층 분석 | Microsoft Docs"
-description: "이 문서에서는 Azure AD(Active Directory) 통과 인증이 온-프레미스 계정을 보호하는 방법에 대해 설명합니다."
+title: Azure Active Directory 통과 인증 보안 심층 분석 | Microsoft Docs
+description: 이 문서에서는 Azure AD(Active Directory) 통과 인증이 온-프레미스 계정을 보호하는 방법에 대해 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.service: active-directory
@@ -12,12 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84a5ef23739635ba4d2f0adc688c1b506f643a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595039"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -179,7 +181,7 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 
 새 버전이 출시되는 경우 업데이트 프로그램 응용 프로그램이 인증 에이전트를 자동으로 업데이트합니다. 업데이트 응용 프로그램은 테넌트의 암호 유효성 검사 요청을 처리하지 않습니다. 
 
-Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer 패키지(MSI)**로서 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
+Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer 패키지(MSI)** 로서 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
 
 ![자동 업데이트](./media/active-directory-aadconnect-pass-through-authentication-security-deep-dive/pta5.png)
 

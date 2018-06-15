@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: 관리되는 도메인에 Windows Server VM 가입 | Microsoft Docs"
-description: "Windows Server 가상 머신을 Azure AD DS에 가입"
+title: 'Azure Active Directory Domain Services: 관리되는 도메인에 Windows Server VM 가입 | Microsoft Docs'
+description: Windows Server 가상 머신을 Azure AD DS에 가입
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 7b5c23f1f4b6180d8b664f1371ccfd8a075572e6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dadc20cdee68730fa1d81dd86b3ffa0b0022a5b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586956"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Azure Portal을 사용하여 Windows Server 가상 머신을 배포하는 방법을 보여줍니다. 그런 후 가상 머신을 Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인에 가입하는 방법을 보여줍니다.

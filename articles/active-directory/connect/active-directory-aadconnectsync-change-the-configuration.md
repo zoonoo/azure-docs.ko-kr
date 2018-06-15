@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595107"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -63,7 +65,7 @@ ms.lasthandoff: 03/17/2018
    ![인바운드 규칙 범위 지정 필터](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
    이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
 4. **조인 규칙** 페이지에서는 필드를 비워 둡니다.
-5. **변환** 페이지에서 **FlowType**을 **식**으로 변경합니다. **대상 특성**에 **givenName**을 선택합니다. 또 **원본**에는 **PCase([givenName])**를 입력합니다.
+5. **변환** 페이지에서 **FlowType**을 **식**으로 변경합니다. **대상 특성**에 **givenName**을 선택합니다. 또 **원본**에는 **PCase([givenName])** 를 입력합니다.
    ![인바운드 규칙 변환](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
    동기화 엔진은 함수 이름과 특성 이름 모두에서 대/소문자를 구분합니다. 잘못 입력한 경우 규칙을 추가할 때 경고가 표시됩니다. 저장하고 계속할 수 있지만 다시 열어서 규칙을 수정해야 합니다.
 6. **추가** 를 클릭하여 규칙을 저장합니다.

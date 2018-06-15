@@ -3,16 +3,17 @@ title: 'Azure Analysis Services 자습서 단원 6: 측정값 만들기 | Micros
 description: Azure Analysis Services 자습서 프로젝트에서 측정값을 만드는 방법을 설명합니다.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31531abb5c2d2309317f1b88a1a794392b914f90
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 223567112a428818b49dab319bd7c507d71b1f78
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596875"
 ---
 # <a name="create-measures"></a>측정값 만들기
 

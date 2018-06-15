@@ -3,21 +3,23 @@ title: Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 �
 description: Azure AD 응용 프로그램 프록시를 사용하여 Azure AD와 통합된 온-프레미스 응용 프로그램에 로그인할 수 없을 때 직면하는 일반적인 문제 해결
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 5aba26d14ba0ee8e8ee58f62deb8a82ad147a8aa
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: 05008c8cc39cb3bc588fcfac625e6799934ce27a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591415"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램에 로그인하는 데 문제가 있음
 
