@@ -15,27 +15,23 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 7bf08849cd03a77095ffe717c8387d79d1961b06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: baaa53b04f608e2cb3546fcac6a6eb4eda4d3c4b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640757"
 ---
 # <a name="quickstart-create-a-aspnet-web-app-with-redis-cache"></a>빠른 시작: Redis Cache를 사용하여 ASP.NET 웹앱 만들기
 
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.JS](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
->
 
 ## <a name="introduction"></a>소개
 
 이 빠른 시작에서는 Visual Studio 2017을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 Azure App Service에 배포하는 방법을 보여 줍니다. 샘플 응용 프로그램은 Azure Redis Cache에 연결되어 데이터를 저장하고 캐시에서 검색합니다. 빠른 시작을 완료하면 Azure에서 호스팅되며 Azure Redis Cache에서 읽고 쓰는 실행 웹앱을 갖게 됩니다.
 
 ![간단한 테스트가 완료된 Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,8 +40,6 @@ ms.lasthandoff: 04/28/2018
 * 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
     * ASP.NET 및 웹 개발
     * Azure 개발
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -322,13 +316,13 @@ Visual Studio에서 **출력** 창을 모니터링하여 Azure에 대한 게시 
 
 [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 항목의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
+**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
 ![삭제](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

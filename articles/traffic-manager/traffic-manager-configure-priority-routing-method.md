@@ -1,11 +1,11 @@
 ---
-title: "Azure Traffic Manager를 사용한 우선 순위 트래픽 라우팅 방법 구성 | Microsoft Docs"
-description: "이 문서에서는 Traffic Manager에서 우선 순위 트래픽 라우팅 방법을 구성하는 방법을 설명합니다."
+title: Azure Traffic Manager를 사용한 우선 순위 트래픽 라우팅 방법 구성 | Microsoft Docs
+description: 이 문서에서는 Traffic Manager에서 우선 순위 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111141"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Traffic Manager에서 우선 순위 트래픽 라우팅 방법 구성
 

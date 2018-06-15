@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599087"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 CTAS(CREATE TABLE AS SELECT) 사용
 솔루션 개발을 위해 Azure SQL Data Warehouse에서 CTAS(CREATE TABLE AS SELECT) T-SQL 문으로 코딩하는 방법에 대한 팁입니다.

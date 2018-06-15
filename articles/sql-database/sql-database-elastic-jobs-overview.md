@@ -7,14 +7,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3fdc24a811544de87d97da498d7946507653cec5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646088"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>규모가 확장된 클라우드 데이터베이스 관리
 규모가 확장된 분할된 데이터베이스를 관리하기 위해 **Elastic Database 작업** 기능(미리 보기)을 사용하면 다음을 포함한 데이터베이스 그룹에 대해 Transact-SQL(T-SQL) 스크립트를 안정적으로 실행할 수 있습니다.

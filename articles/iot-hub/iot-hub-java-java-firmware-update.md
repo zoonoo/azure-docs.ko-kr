@@ -1,24 +1,20 @@
 ---
 title: Azure IoT Hub를 사용하여 장치 펌웨어 업데이트(Java/Java) | Microsoft Docs
 description: 장치 펌웨어 업데이트를 시작하려면 Azure IoT Hub에서 장치 관리를 사용하는 방법입니다. Java용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 펌웨어 업데이트를 트리거하는 서비스 앱을 구현합니다.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: v-masebo;dobett
-ms.openlocfilehash: ff8fc5cc1623c570f79a8acfa0afbcf95450c1d2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: 5991615bca26749e1f138b561260108f8bcf2646
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634610"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>장치 관리를 사용하여 장치 펌웨어 업데이트(Java/Java)를 시작합니다.
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -108,7 +104,7 @@ ms.lasthandoff: 04/05/2018
     import java.util.concurrent.TimeUnit;
     ```
 
-1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubconnectionstring}**을 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 대체합니다.
+1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubconnectionstring}** 을 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 대체합니다.
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -286,7 +282,7 @@ ms.lasthandoff: 04/05/2018
     import java.util.HashMap;
     ```
 
-1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{yourdeviceconnectionstring}**을 *장치 ID 만들기* 섹션에서 기록해 둔 장치 연결 문자열로 바꿉니다.
+1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{yourdeviceconnectionstring}** 을 *장치 ID 만들기* 섹션에서 기록해 둔 장치 연결 문자열로 바꿉니다.
 
     ```java
     private static final int METHOD_SUCCESS = 200;

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
 ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896132"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652994"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리하기 위한 Ansible 설치 및 구성
 
@@ -150,7 +150,7 @@ sudo pip uninstall -y cryptography
 
 Ansible은 사용자 이름 및 암호 또는 서비스 주체를 사용하여 Azure와 통신합니다. Azure 서비스 주체는 앱, 서비스 및 Ansible과 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다. 사용자 이름 및 암호를 입력하는 것 이상으로 보안을 강화하기 위해 이 예제에서는 기본 서비스 주체를 만듭니다.
 
-호스트 컴퓨터 또는 Azure Cloud Shell에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)를 사용하여 서비스 주체를 만듭니다. Ansible에서 필요한 자격 증명이 화면에 출력됩니다.
+호스트 컴퓨터 또는 Azure Cloud Shell에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)를 사용하여 서비스 주체를 만듭니다. Ansible에서 필요한 자격 증명이 화면에 출력됩니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -166,7 +166,7 @@ az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tena
 }
 ```
 
-Azure에서 인증하려면 [az account show](/cli/azure/account#az_account_show)를 사용하여 Azure 구독 ID를 가져와야 합니다.
+Azure에서 인증하려면 [az account show](/cli/azure/account#az-account-show)를 사용하여 Azure 구독 ID를 가져와야 합니다.
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"
