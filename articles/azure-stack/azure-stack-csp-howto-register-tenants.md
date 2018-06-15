@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157393"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용에 대 한 테 넌 트를 추가 하 고 Azure 스택에 청구
 

@@ -1,12 +1,12 @@
 ---
-title: "다운로드 하 고 압축 Azure 스택 개발 키트 (ASDK) | Microsoft Docs"
-description: "다운로드 하 여 Azure 스택 개발 키트 (ASDK)을 추출 하는 방법을 설명 합니다."
+title: 다운로드 하 고 압축 Azure 스택 개발 키트 (ASDK) | Microsoft Docs
+description: 다운로드 하 여 Azure 스택 개발 키트 (ASDK)을 추출 하는 방법을 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29976419"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>다운로드 하 고 Azure 스택 개발 키트 (ASDK) 추출
 을 개발 키트 호스트 컴퓨터가 ASDK를 설치 하기 위한 기본 요구 사항을 충족 하는지 확인 한 후 다음 단계를 다운로드 하 여 Cloudbuilder.vhdx 가져오려는 ASDK 배포 패키지를 추출할입니다.

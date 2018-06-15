@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 SMTP 배너 검사를 위한 역방향 조회 영역 구성 | Microsoft Docs"
-description: "Azure에서 SMTP 배너 검사를 위한 역방향 조회 영역을 구성하는 방법을 설명합니다."
+title: Azure에서 SMTP 배너 검사를 위한 역방향 조회 영역 구성 | Microsoft Docs
+description: Azure에서 SMTP 배너 검사를 위한 역방향 조회 영역을 구성하는 방법을 설명합니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
 manager: WillChen
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 02/06/2018
 ms.author: genli
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: 1e95b00ea08105238a860265e46275c24ed7bfbd
 ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151820"
 ---
 #  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>SMTP 배너 검사를 위한 역방향 조회 영역 구성
 

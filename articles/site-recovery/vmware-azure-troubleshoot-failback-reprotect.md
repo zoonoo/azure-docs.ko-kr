@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941036"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Azure에서 VMware로 장애 복구 문제 해결
 
