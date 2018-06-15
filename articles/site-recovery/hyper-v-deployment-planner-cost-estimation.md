@@ -1,6 +1,6 @@
 ---
-title: "Azure로의 Hyper-V 복제에 대한 Azure Site Recovery Deployment Planner 비용 예측 세부 정보 | Microsoft Docs"
-description: "이 문서에서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner를 사용하여 생성된 보고서의 비용 예측 세부 정보를 설명합니다."
+title: Azure로의 Hyper-V 복제에 대한 Azure Site Recovery Deployment Planner 비용 예측 세부 정보 | Microsoft Docs
+description: 이 문서에서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner를 사용하여 생성된 보고서의 비용 예측 세부 정보를 설명합니다.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466829"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 

@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V 가상 머신의 온-프레미스 사이트에 대한 장애 복구(failback) 실행 | Microsoft Docs"
-description: "Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure에서 온-프레미스 데이터 센터로 장애 복구하는 방법에 대해 알아봅니다."
+title: Hyper-V 가상 머신의 온-프레미스 사이트에 대한 장애 복구(failback) 실행 | Microsoft Docs
+description: Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure에서 온-프레미스 데이터 센터로 장애 복구하는 방법에 대해 알아봅니다.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466749"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Hyper-V VM에 대한 장애 복구(failback) 실행
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 02/22/2018
 
 ## <a name="perform-failback"></a>장애 복구(failback) 수행
 기본 위치에서 보조 위치로 장애 조치한 후에는 Site Recovery에서 복제된 가상 머신을 보호하지 않으며 보조 위치가 현재 활성 위치로 작동합니다. 복구 계획에서 VM을 장애 복구(failback)하려면 다음과 같이 계획된 장애 조치(failover)를 보조 사이트에서 기본 사이트까지 실행합니다. 
-1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** > **Planned 장애 조치(Failover)**에서 의견이나 질문을 게시합니다.
+1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** > **Planned 장애 조치(Failover)** 에서 의견이나 질문을 게시합니다.
 2. **계획된 장애 조치(failover) 확인** 페이지에서 원본 및 대상 위치를 선택합니다. 장애 조치 방향을 유의하십시오. 기본으로부터 장애 조치가 예상대로 작동하고 모든 가상 머신이 보조 위치에 있다면 이것은 정보 제공용입니다.
 3. Azure로부터 장애 복구하는 경우 **데이터 동기화**:에서 설정을 선택합니다.
     - **장애 조치(failover) 전 데이터 동기화(델타 변경 내용만 동기화)** - 가상 머신을 종료하지 않고 동기화할 때 가상 머신의 가동 중지 시간을 최소화하는 옵션입니다. 다음 단계를 수행합니다.

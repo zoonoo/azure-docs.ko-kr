@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성 | Microsoft Docs"
-description: "Terraform을 설치하고 구성하여 Azure 리소스를 만드는 방법을 알아봅니다."
+title: Azure에서 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성 | Microsoft Docs
+description: Terraform을 설치하고 구성하여 Azure 리소스를 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: jtalkar
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399171"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성
  

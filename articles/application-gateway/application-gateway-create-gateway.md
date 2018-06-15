@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771192"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell을 사용하여 Application Gateway 만들기, 시작 또는 삭제 
 

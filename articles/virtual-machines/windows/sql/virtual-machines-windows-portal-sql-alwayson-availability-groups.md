@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager VM의 고가용성 설정 | Microsoft Docs"
-description: "이 자습서에서는 Azure Resource Manager 모드에서 Azure Virtual Machines로 Always On 가용성 그룹을 만드는 방법을 보여 줍니다."
+title: Azure Resource Manager VM의 고가용성 설정 | Microsoft Docs
+description: 이 자습서에서는 Azure Resource Manager 모드에서 Azure Virtual Machines로 Always On 가용성 그룹을 만드는 방법을 보여 줍니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401024"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Azure Virtual Machines에서 자동으로 Always On 가용성 그룹 구성: Resource Manager
 

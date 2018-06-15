@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774389"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>빠른 시작: Security Center에 보안 솔루션 연결
 

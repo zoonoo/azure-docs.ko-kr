@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 (서비스 관리자 및 테 넌 트)에 사용자별 리소스에 대 한 사용 권한 관리 | Microsoft Docs"
-description: "서비스 관리자 또는 테 넌 트 RBAC 사용 권한을 관리 하는 방법에 설명 합니다."
+title: Azure 스택 (서비스 관리자 및 테 넌 트)에 사용자별 리소스에 대 한 사용 권한 관리 | Microsoft Docs
+description: 서비스 관리자 또는 테 넌 트 RBAC 사용 권한을 관리 하는 방법에 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29385639"
 ---
 # <a name="manage-role-based-access-control"></a>역할 기반 Access Control 관리
 
