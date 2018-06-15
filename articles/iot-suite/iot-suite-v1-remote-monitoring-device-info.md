@@ -1,12 +1,12 @@
 ---
-title: "원격 모니터링 솔루션의 장치 정보 메타데이터 | Microsoft Docs"
-description: "Azure IoT에 대한 설명은 원격 모니터링 솔루션 및 해당 아키텍처를 미리 구성합니다."
-services: 
+title: 원격 모니터링 솔루션의 장치 정보 메타데이터 | Microsoft Docs
+description: Azure IoT에 대한 설명은 원격 모니터링 솔루션 및 해당 아키텍처를 미리 구성합니다.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 5ada9413b1bb0923df96cfd93c3a0a875e80dd28
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 80f03a4cef1d79e819c59ca68a786776a5c4edb7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636099"
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터
 
@@ -104,7 +105,7 @@ IoT Hub는 원격 모니터링 솔루션에 연결된 각 시뮬레이션된 장
 
 ## <a name="device-information-message-processing"></a>장치 정보 메시지 처리
 
-장치에서 보낸 장치 정보 메시지는 원격 분석 메시지와 구별됩니다. 장치 정보 메시지는 장치가 응답할 수 있는 명령 및 모든 명령 기록을 포함합니다. IoT Hub 자체에는 장치 정보 메시지에 포함된 메타데이터의 정보가 없으며 장치-클라우드 메시지를 처리하는 것과 동일한 방식으로 메시지를 처리합니다. 원격 모니터링 솔루션에서 [Azure Stream Analytics][lnk-stream-analytics](ASA) 작업은 IoT Hub의 메시지를 읽습니다. **DeviceInfo** Stream Analytics 작업은 **"ObjectType": "DeviceInfo"**를 포함하는 메시지를 필터링하고 웹 작업에서 실행되는 **EventProcessorHost** 호스트 인스턴스에 전달합니다. **EventProcessorHost** 인스턴스의 논리는 장치 ID를 사용하여 특정 장치에 대한 Cosmos DB 레코드를 찾아 레코드를 업데이트합니다.
+장치에서 보낸 장치 정보 메시지는 원격 분석 메시지와 구별됩니다. 장치 정보 메시지는 장치가 응답할 수 있는 명령 및 모든 명령 기록을 포함합니다. IoT Hub 자체에는 장치 정보 메시지에 포함된 메타데이터의 정보가 없으며 장치-클라우드 메시지를 처리하는 것과 동일한 방식으로 메시지를 처리합니다. 원격 모니터링 솔루션에서 [Azure Stream Analytics][lnk-stream-analytics](ASA) 작업은 IoT Hub의 메시지를 읽습니다. **DeviceInfo** Stream Analytics 작업은 **"ObjectType": "DeviceInfo"** 를 포함하는 메시지를 필터링하고 웹 작업에서 실행되는 **EventProcessorHost** 호스트 인스턴스에 전달합니다. **EventProcessorHost** 인스턴스의 논리는 장치 ID를 사용하여 특정 장치에 대한 Cosmos DB 레코드를 찾아 레코드를 업데이트합니다.
 
 > [!NOTE]
 > 장치 정보 메시지는 표준 장치-클라우드 메시지입니다. 솔루션은 ASA 쿼리를 사용하여 장치 정보 메시지와 원격 분석 메시지를 구분합니다.
@@ -129,6 +130,6 @@ IoT Hub는 원격 모니터링 솔루션에 연결된 각 시뮬레이션된 장
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dynamic-telemetry]: iot-suite-v1-dynamic-telemetry.md
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md

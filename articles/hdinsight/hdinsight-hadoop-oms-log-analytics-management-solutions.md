@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398090"
 ---
 # <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Log Analytics에 HDInsight 클러스터 관리 솔루션 추가
 

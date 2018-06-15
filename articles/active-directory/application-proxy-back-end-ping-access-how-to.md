@@ -3,21 +3,24 @@ title: PingAccess를 사용하도록 응용 프로그램 프록시 응용 프로
 description: PingAccess를 사용하여 응용 프로그램 프록시의 이점을 헤더 기반 인증을 사용하는 응용 프로그램으로 확장하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: deb43d977418a2a1a700461765f71877487e20bc
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: aba88472a7fdc4f3e4dfb53e6268376d7d3068dc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590140"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>PingAccess를 사용하도록 응용 프로그램 프록시 응용 프로그램을 구성하는 방법
 

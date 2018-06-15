@@ -1,20 +1,19 @@
 ---
 title: Azure IoT Edge를 사용하여 C# 모듈 디버그 | Microsoft Docs
 description: Visual Studio Code를 사용하여 Visual Studio Code에서 Azure IoT Edge를 통해 C# 모듈을 디버그합니다.
-services: iot-edge
-keywords: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 035cb129bc3933c10f430b593226108f5d160972
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 5d521a4e5b22222f0b0a5505f14684598d7d5b0a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165726"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631397"
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge에서 C# 모듈 디버그
 이 문서에서는 [VS(Visual Studio) Code](https://code.visualstudio.com/)를 주 개발 도구로 사용하여 Azure IoT Edge 모듈을 디버그하기 위한 지침에 대해 자세히 설명합니다.
