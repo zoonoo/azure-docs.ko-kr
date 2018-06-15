@@ -3,23 +3,21 @@ title: MongoDB API를 사용하여 Azure Cosmos DB 앱 빌드 | Microsoft Docs
 description: 이 문서는 MongoDB용 Azure Cosmos DB API를 사용하여 온라인 데이터베이스를 만드는 자습서입니다.
 keywords: MongoDB 예제
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 editor: ''
-documentationcenter: ''
-ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-mongo
+ms.devlang: nodejs
+ms.topic: sample
 ms.date: 03/23/2018
-ms.author: anhoh
-ms.openlocfilehash: 81eff479c94af938918e6a221d45184ca1a84aef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: sngun
+ms.openlocfilehash: bd31656404f11c9676b321e2e40454c33f61e3f5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795196"
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Node.js를 사용하여 Azure Cosmos DB: MongoDB API 앱 빌드
 > [!div class="op_single_selector"]
@@ -165,7 +163,7 @@ ms.lasthandoff: 04/16/2018
     > [!IMPORTANT]
     > **MongoDB Node.js 3.0 드라이버**는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구합니다. '=' 문자를 %3D로 인코딩하는지 확인
     >
-    > 예: 암호 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==*가 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*로 인코딩됩니다
+    > 예: 암호 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* 가 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*로 인코딩됩니다
     >
     > **MongoDB Node.js 2.2 드라이버**는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구하지 않습니다.
     >

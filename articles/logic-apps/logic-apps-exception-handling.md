@@ -4,7 +4,7 @@ description: Logic Apps의 오류 및 예외 처리 패턴
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300065"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Logic Apps에서 오류 및 예외 처리
 
@@ -95,7 +96,7 @@ ms.lasthandoff: 04/03/2018
 | 형식 | 예 | 문자열 | **기하급수적** |
 | count | 예 | 정수  | 재시도 횟수이며, 1~90 사이여야 합니다.  |
 | interval | 예 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 재시도 간격이며, PT5S와 PT1D 사이여야 합니다. |
-| minimumInterval | 아니요 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 재시도 간격이며, PT5S와 **interval** 사이여야 합니다. |
+| minimumInterval | 아니오 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 재시도 간격이며, PT5S와 **interval** 사이여야 합니다. |
 | maximumInterval | 아니오 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 재시도 간격이며, **interval**과 PT1D 사이여야 합니다. | 
 ||||| 
 
@@ -177,7 +178,7 @@ ms.lasthandoff: 04/03/2018
 
 **@result()** 함수는 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체에는 작업 시작 시간, 종료 시간, 상태, 입력, 상관 ID 및 출력과 같이 **@actions()** 개체와 동일한 특성이 포함됩니다. 범위 내에서 실패한 작업에 대한 컨텍스트를 보내려면 **@result()** 함수를 **runAfter** 속성과 쉽게 페어링할 수 있습니다.
 
-**실패** 결과가 있는 범위에서 *각 작업*에 대해 작업을 실행하고 실패한 작업에 대한 결과 배열을 필터링하려면 **[배열 필터링](../connectors/connectors-native-query.md)** 작업 및 **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** 루프와 **@result()**를 페어링할 수 있습니다. 필터링된 결과 배열을 사용하고 **ForEach** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
+**실패** 결과가 있는 범위에서 *각 작업*에 대해 작업을 실행하고 실패한 작업에 대한 결과 배열을 필터링하려면 **[배열 필터링](../connectors/connectors-native-query.md)** 작업 및 **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** 루프와 **@result()** 를 페어링할 수 있습니다. 필터링된 결과 배열을 사용하고 **ForEach** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
 
 다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
 
@@ -222,7 +223,7 @@ ms.lasthandoff: 04/03/2018
 
 이 예제에서 수행되는 작업을 설명하는 자세한 연습은 다음과 같습니다.
 
-1. My_Scope 내의 모든 작업에 대한 결과를 가져오기 위해 **배열 필터링** 작업에서 **@result('My_Scope')**를 필터링합니다.
+1. My_Scope 내의 모든 작업에 대한 결과를 가져오기 위해 **배열 필터링** 작업에서 **@result('My_Scope')** 를 필터링합니다.
 
 2. **배열 필터링**에 대한 조건은 상태가 **실패**인 모든 **@result()** 항목입니다. 이 조건은 My_Scope의 모든 작업 결과에 대한 배열을 실패한 작업 결과만 있는 배열로 필터링합니다.
 
@@ -231,11 +232,11 @@ ms.lasthandoff: 04/03/2018
    범위에서 단일 작업이 실패한 경우 **foreach**의 작업은 한 번만 실행됩니다. 
    여러 실패한 작업에서 오류당 하나의 작업이 발생합니다.
 
-4. **@item()['outputs']['body']**인 **foreach** 항목 응답 본문에 HTTP POST를 보냅니다. **@result()** 항목 모양은 **@actions()** 모양과 같으며 동일한 방식으로 구문 분석할 수 있습니다.
+4. **@item()['outputs']['body']** 인 **foreach** 항목 응답 본문에 HTTP POST를 보냅니다. **@result()** 항목 모양은 **@actions()** 모양과 같으며 동일한 방식으로 구문 분석할 수 있습니다.
 
-5. 실패한 작업 이름 **@item()[’name’]** 및 실패한 실행 클라이언트 추적 ID **@item()['clientTrackingId']**가 있는 두 개의 사용자 지정 헤더도 포함됩니다.
+5. 실패한 작업 이름 **@item()[’name’]** 및 실패한 실행 클라이언트 추적 ID **@item()['clientTrackingId']** 가 있는 두 개의 사용자 지정 헤더도 포함됩니다.
 
-참고로, 이전 예제에서 구문 분석된 **name**, **body** 및 **clientTrackingId** 속성을 보여 주는 단일 **@result()** 항목의 예제는 다음과 같습니다. **foreach** 작업 외부에서 **@result()**는 이러한 개체의 배열을 반환합니다.
+참고로, 이전 예제에서 구문 분석된 **name**, **body** 및 **clientTrackingId** 속성을 보여 주는 단일 **@result()** 항목의 예제는 다음과 같습니다. **foreach** 작업 외부에서 **@result()** 는 이러한 개체의 배열을 반환합니다.
 
 ```json
 {

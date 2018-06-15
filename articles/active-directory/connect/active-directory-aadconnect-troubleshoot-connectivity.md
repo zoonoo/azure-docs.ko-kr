@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c12630deb45fd057537c42157d88fdeef22d18b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593016"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -84,7 +86,7 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 
 프록시가 올바르게 구성되었으면 ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)과 같은 성공 상태가 표시됩니다.
 
-**원격 서버에 연결할 수 없습니다.**라는 메시지가 표시되면 PowerShell이 프록시를 사용하지 않고 직접 호출을 수행하려고 하거나 DNS가 올바르게 구성되지 않습니다. **machine.config** 파일이 올바르게 구성되었는지 확인합니다.
+**원격 서버에 연결할 수 없습니다.** 라는 메시지가 표시되면 PowerShell이 프록시를 사용하지 않고 직접 호출을 수행하려고 하거나 DNS가 올바르게 구성되지 않습니다. **machine.config** 파일이 올바르게 구성되었는지 확인합니다.
 ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
 프록시가 올바르게 구성되지 않으면 ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)

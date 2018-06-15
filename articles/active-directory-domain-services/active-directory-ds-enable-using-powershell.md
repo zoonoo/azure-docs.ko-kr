@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 22be243b9da5afd93744ca9410b63a8ec936088a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 386157360e8349c3df3b7351ae25b34ae9bdcc4b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588508"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 이 문서에서는 PowerShell을 사용하여 Azure AD(Azure Active Directory) Domain Services를 사용하도록 설정하는 방법을 보여 줍니다.
@@ -136,8 +138,8 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 > [!WARNING]
 > **관리되는 도메인을 프로비전한 후 추가 구성 단계를 잊지 말고 진행합니다.**
 > 관리되는 도메인이 프로비전되면 다음 작업을 완료해야 합니다.
-> * 가상 컴퓨터가 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 **[DNS 설정을 업데이트](active-directory-ds-getting-started-dns.md)**합니다.
-* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 **[Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)**합니다.
+> * 가상 컴퓨터가 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 **[DNS 설정을 업데이트](active-directory-ds-getting-started-dns.md)** 합니다.
+* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 **[Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)** 합니다.
 >
 
 

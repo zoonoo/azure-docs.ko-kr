@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 345c1b1bd72d3df19f8b087d4cbffd4e25e092ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e1545c8fd05795c683b24c029376a3d1e6d85b8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835834"
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Machine Learning 웹 서비스에 대해 로깅 사용
 이 문서에서는 Machine Learning 웹 서비스의 로깅 기능을 설명합니다. 로깅은 오류 번호 및 메시지 외에 Machine Learning API 호출 문제를 해결하는 데 유용한 추가 정보를 제공합니다.  
