@@ -1,22 +1,23 @@
 ---
-title: "Azure Application Insights에서 웹앱 성능 변화의 스마트 진단 | Microsoft Docs"
-description: "웹앱의 성능 원격 분석에서 스파이크 또는 단계의 자동 진단입니다."
+title: Azure Application Insights에서 웹앱 성능 변화의 스마트 진단 | Microsoft Docs
+description: 웹앱의 성능 원격 분석에서 스파이크 또는 단계의 자동 진단입니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2017
 ms.author: mbullwin
-ms.openlocfilehash: e0c8d712f03da0c5e47ea422b051c0b8734c6b21
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 08b1da205797d663191dde45f8c091dba91fc573
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294370"
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>앱 원격 분석에서 급격한 변화 진단
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 11/01/2017
  * 요약 절 앞에 이름 정의를 포함하는 프로젝트 절이 없습니다.
 
  
- ## <a name="related-articles"></a>관련된 문서
+ ## <a name="related-articles"></a>관련 문서
 
  * [Analytics 자습서](app-insights-analytics-tour.md)
  * [스마트 감지](app-insights-proactive-diagnostics.md)는 성능 문제에 대해 자동으로 경고합니다.

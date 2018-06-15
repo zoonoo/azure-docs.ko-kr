@@ -4,7 +4,7 @@ description: Wunderlist에 대한 연결을 만들고 이 연결을 사용하여
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ed9b19700157abca6e5ac4265f1e8c99a3d846d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296376"
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Wunderlist 커넥터 시작
 Wunderlist는 사용자가 작업을 완료할 수 있게 하는 할 일 목록 및 작업 관리자입니다.  식료품 목록을 공유하거나, 프로젝트에서 작업하거나, 휴가를 계획할 경우 Wunderlist를 사용하여 목록 항목을 쉽게 캡처하고 공유하며 완료할 수 있습니다. Wunderlist는 어디에서든 어떤 작업에 액세스할 수 있도록 전화, 태블릿과 컴퓨터 간을 즉시 동기화합니다.

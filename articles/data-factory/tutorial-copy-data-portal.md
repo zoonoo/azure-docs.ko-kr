@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30173341"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -103,7 +104,7 @@ ms.lasthandoff: 03/23/2018
     나. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
          
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
-6. **버전** 아래에서 **V2(미리 보기)**를 선택합니다.
+6. **버전** 아래에서 **V2(미리 보기)** 를 선택합니다.
 7. **위치**에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
 8. **대시보드에 고정**을 선택합니다. 
 9. **만들기**를 선택합니다. 
@@ -170,7 +171,7 @@ ms.lasthandoff: 03/23/2018
 12. **adftutorial/input** 폴더로 이동하고, **emp.txt** 파일을 선택한 다음, **마침**을 선택합니다. 또는 **emp.txt**를 두 번 클릭할 수도 있습니다. 
 
     ![입력 파일 선택](./media/tutorial-copy-data-portal/select-input-file.png)
-13. **파일 형식**이 **텍스트 형식**으로 설정되고, **열 구분 기호**가 **쉼표(`,`)**로 설정되어 있는지 확인합니다. 원본 파일에서 다른 행 및 열 구분 기호를 사용하는 경우 **파일 형식**에 대해 **텍스트 형식 검색**을 선택할 수 있습니다. 데이터 복사 도구에서 파일 형식과 구분 기호를 자동으로 검색합니다. 이러한 값은 여전히 재정의할 수 있습니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기**를 선택합니다.
+13. **파일 형식**이 **텍스트 형식**으로 설정되고, **열 구분 기호**가 **쉼표(`,`)** 로 설정되어 있는지 확인합니다. 원본 파일에서 다른 행 및 열 구분 기호를 사용하는 경우 **파일 형식**에 대해 **텍스트 형식 검색**을 선택할 수 있습니다. 데이터 복사 도구에서 파일 형식과 구분 기호를 자동으로 검색합니다. 이러한 값은 여전히 재정의할 수 있습니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기**를 선택합니다.
 
     ![텍스트 형식 검색](./media/tutorial-copy-data-portal/detect-text-format.png)
 14. **속성** 창의 **스키마** 탭으로 이동하고 **스키마 가져오기**를 선택합니다. 응용 프로그램이 원본 파일에서 두 개의 열을 검색했습니다. 원본 데이터 저장소의 열을 싱크 데이터 저장소에 매핑할 수 있도록 스키마를 여기로 가져옵니다. 열을 매핑할 필요가 없으면 이 단계를 건너뛸 수 있습니다. 이 자습서에서는 스키마를 가져옵니다.
@@ -212,7 +213,7 @@ ms.lasthandoff: 03/23/2018
     
     ![새 연결된 서비스 저장](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-22. **테이블**에서 **[dbo].[emp]**를 선택합니다. 
+22. **테이블**에서 **[dbo].[emp]** 를 선택합니다. 
 
     ![테이블](./media/tutorial-copy-data-portal/select-emp-table.png)
 23. **스키마** 탭으로 이동하고 **스키마 가져오기**를 선택합니다. 

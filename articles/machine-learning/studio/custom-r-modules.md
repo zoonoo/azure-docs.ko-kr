@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834358"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning에서 사용자 지정 R 모듈 작성
 이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
@@ -226,7 +228,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 
 ### <a name="arguments"></a>인수
 **Arguments** 요소에 정의된 모듈 매개 변수를 통해 R 함수에 추가 데이터를 전달할 수 있습니다. 이러한 매개 변수는 모듈을 선택한 경우 Machine Learning UI의 맨 오른쪽 속성 창에 표시됩니다. 인수는 지원되는 형식 중 하나이거나, 필요한 경우 사용자 지정 열거형을 만들 수 있습니다. **Ports** 요소와 마찬가지로, **Arguments** 요소에는 매개 변수 이름 위에 마우스를 놓으면 표시되는 텍스트를 지정하는 선택적 **Description** 요소가 있을 수 있습니다.
-defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Properties** 요소의 특성으로 인수에 추가할 수 있습니다. **Properties** 요소의 유효한 속성은 인수 형식에 따라 다르며, 아래 섹션의 지원되는 인수 형식에 설명되어 있습니다. **"true"**로 설정된 **isOptional** 속성을 가진 인수는 사용자가 값을 입력하지 않아도 됩니다. 인수에 값을 입력하지 않으면 진입점 함수에 전달되지 않습니다. 예: 선택적인 진입점 함수의 인수는 함수에 의해 명시적으로 처리되어야 합니다(예: 진입점 함수 정에서 할당된 NULL의 기본값). 선택적 인수는 사용자가 값을 제공하는 경우 다른 인수 제약 조건(즉, min 또는 max)을 적용합니다.
+defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Properties** 요소의 특성으로 인수에 추가할 수 있습니다. **Properties** 요소의 유효한 속성은 인수 형식에 따라 다르며, 아래 섹션의 지원되는 인수 형식에 설명되어 있습니다. **"true"** 로 설정된 **isOptional** 속성을 가진 인수는 사용자가 값을 입력하지 않아도 됩니다. 인수에 값을 입력하지 않으면 진입점 함수에 전달되지 않습니다. 예: 선택적인 진입점 함수의 인수는 함수에 의해 명시적으로 처리되어야 합니다(예: 진입점 함수 정에서 할당된 NULL의 기본값). 선택적 인수는 사용자가 값을 제공하는 경우 다른 인수 제약 조건(즉, min 또는 max)을 적용합니다.
 입력 및 출력과 마찬가지로 각 매개 변수에는 고유한 ID 값이 연결되어 있어야 합니다. 이 빠른 시작 예제에서 연결된 ID/매개 변수는 *swap*입니다.
 
 ### <a name="arg-element"></a>Arg 요소

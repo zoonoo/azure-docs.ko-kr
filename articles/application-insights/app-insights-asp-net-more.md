@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights를 최대한 활용하기 | Microsoft Docs"
-description: "Application Insights를 시작한 경우 다음 기능을 사용할 수 있습니다."
+title: Azure Application Insights를 최대한 활용하기 | Microsoft Docs
+description: Application Insights를 시작한 경우 다음 기능을 사용할 수 있습니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 167f0175b2c5de804a4251307a7b16e5e40a516a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294339"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Application Insights의 추가 원격 분석
 [ASP.NET 코드에 Application Insights를 추가](app-insights-asp-net.md)한 후 추가 원격 분석을 위해 수행할 수 있는 몇 가지 작업이 있습니다. 

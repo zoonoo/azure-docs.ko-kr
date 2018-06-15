@@ -1,12 +1,12 @@
 ---
-title: "이메일 및 첨부 파일을 처리하는 워크플로 빌드 - Azure Logic Apps | Microsoft Docs"
-description: "이 자습서에서는 Azure Logic Apps, Azure Storage 및 Azure Functions로 이메일과 첨부 파일을 처리하는 자동화 워크플로를 만드는 방법을 보여줍니다."
+title: 이메일 및 첨부 파일을 처리하는 워크플로 빌드 - Azure Logic Apps | Microsoft Docs
+description: 이 자습서에서는 Azure Logic Apps, Azure Storage 및 Azure Functions로 이메일과 첨부 파일을 처리하는 자동화 워크플로를 만드는 방법을 보여줍니다.
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3d6d66dca06c1f34a31155a27c32bbe3e48c8aa3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300636"
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>논리 앱으로 이메일 및 첨부 파일 처리
 
@@ -52,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 <a href="https://azure.
 
 * <a href="http://storageexplorer.com/" target="_blank">체험판 Microsoft Azure Storage 탐색기</a>를 다운로드하여 설치합니다. 이 도구를 사용하여 저장소 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 
@@ -91,7 +92,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    
    1. 저장소 계정 메뉴의 **개요** 창에 있는 **서비스** 아래에서 **Blobs**을 선택한 다음, **+ 컨테이너**를 선택합니다.
 
-   2. 컨테이너 이름으로 "첨부파일"을 입력합니다. **공용 액세스 수준** 아래에서 **컨테이너(컨테이너와 Blob에 대한 익명 읽기 권한)**를 선택하고 **확인**을 선택합니다.
+   2. 컨테이너 이름으로 "첨부파일"을 입력합니다. **공용 액세스 수준** 아래에서 **컨테이너(컨테이너와 Blob에 대한 익명 읽기 권한)** 를 선택하고 **확인**을 선택합니다.
 
    [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create)를 사용할 수도 있습니다. 
    여기까지 마쳤으면 Azure Portal에서 저장소 계정의 저장소 컨테이너를 찾을 수 있습니다.
@@ -409,7 +410,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **Storage 계정** | attachmentstorageacct | 앞에서 첨부 파일 저장용으로 만든 저장소 계정의 이름 | 
    |||| 
 
-4.  **설명이 포함되도록** BLOB 만들기```Create blob for email body``` 작업 이름을 바꿉니다.
+4. **설명이 포함되도록**BLOB 만들기```Create blob for email body``` 작업 이름을 바꿉니다.
 
 5. **BLOB 만들기** 작업에서 다음 정보를 입력하고, 여기에 설명된 것처럼 BLOB을 만들 매개 변수를 선택합니다.
 
@@ -494,7 +495,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    ![BLOB을 만드는 작업 추가](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3.  **설명이 포함되도록** BLOB 2 만들기```Create blob for each email attachment``` 작업 이름을 바꿉니다.
+3. **설명이 포함되도록**BLOB 2 만들기```Create blob for each email attachment``` 작업 이름을 바꿉니다.
 
 4. **각 이메일 첨부파일에 대한 BLOB 만들기** 작업에서 다음 정보를 입력하고, 여기에 설명된 것처럼 각 BLOB을 만들 매개 변수를 선택합니다.
 

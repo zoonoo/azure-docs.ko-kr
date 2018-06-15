@@ -1,24 +1,25 @@
 ---
-title: "오류 문제 해결 및 진단 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱 실패 과정 및 원인 이해"
+title: 오류 문제 해결 및 진단 - Azure Logic Apps | Microsoft Docs
+description: 논리 앱 실패 과정 및 원인 이해
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: de706f711e9c57b2e575d130a2a0cfd0bdc907a1
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298793"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>논리 앱 오류 문제 해결 및 진단
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 10/21/2017
 
    트리거 시도에서 가능한 상태는 다음과 같습니다.
 
-   | 가동 상태 | 설명 | 
+   | 상태 | 설명 | 
    | ------ | ----------- | 
    | **성공함** | 트리거는 끝점을 확인하고 사용할 수 있는 데이터를 찾았습니다. 일반적으로 "실행됨" 상태도 이 상태와 함께 나타납니다. 그렇지 않은 트리거 정의는 `SplitOn` 또는 조건을 충족하지 않는 명령을 포함합니다. <p>이 상태는 수동 트리거, 되풀이 트리거 또는 폴링 트리거에 적용될 수 있습니다. 작업이 처리되지 않은 오류를 생성할 때 트리거가 성공적으로 실행될 수는 있지만 실행 자체는 실패할 수 있습니다. | 
    | **생략** | 트리거는 끝점을 확인했지만 데이터가 없습니다. | 
@@ -82,7 +83,7 @@ ms.lasthandoff: 10/21/2017
 
    실행에서 가능한 상태는 다음과 같습니다.
 
-   | 가동 상태 | 설명 | 
+   | 상태 | 설명 | 
    | ------ | ----------- | 
    | **성공함** | 모든 작업에 성공했습니다. <p>특정 작업에서 오류가 발생하는 경우 워크플로에서 다음 작업은 해당 오류를 처리합니다. | 
    | **실패** | 하나 이상의 작업이 실패하면 워크플로에서 오류를 처리하기 위한 후속 동작이 설정되지 않습니다. | 
@@ -98,7 +99,7 @@ ms.lasthandoff: 10/21/2017
 
    ![논리 앱 실행에 대한 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예:
+3. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예: 
 
    ![단계 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

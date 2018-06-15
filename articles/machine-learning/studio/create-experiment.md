@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.openlocfilehash: ec49d7e82da58c90e66f65a1a1d303ca9b3824f7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b85cbc401299621e38802561f4070cc6fadb6b74
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834038"
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
@@ -87,7 +89,7 @@ Studio을 시작하려면 [https://studio.azureml.net](https://studio.azureml.ne
 ## <a name="step-1-get-data"></a>1단계: 데이터 가져오기
 
 기계 학습을 수행해야 할 첫 번째가 데이터입니다.
-Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이터를 가져올 수 있는 여러 샘플 데이터 집합이 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 집합, 즉 **자동차 가격 데이터(원시)**를 사용합니다.
+Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이터를 가져올 수 있는 여러 샘플 데이터 집합이 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 집합, 즉 **자동차 가격 데이터(원시)** 를 사용합니다.
 이 데이터 집합에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 여러 개별 자동차에 대한 항목이 포함되어 있습니다.
 
 실험에 데이터 집합을 가져오는 방법은 다음과 같습니다.
@@ -98,7 +100,7 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
     ![실험 이름 바꾸기][rename-experiment]
 
-2. 실험 캔버스 왼쪽에는 데이터 집합과 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile**을 입력하여 레이블이 **Automobile price data (Raw)**인 데이터 집합을 찾습니다. 실험 캔버스에 데이터 집합을 끌어 놓습니다.
+2. 실험 캔버스 왼쪽에는 데이터 집합과 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile**을 입력하여 레이블이 **Automobile price data (Raw)** 인 데이터 집합을 찾습니다. 실험 캔버스에 데이터 집합을 끌어 놓습니다.
 
     ![자동차 데이터 집합을 찾아서 실험 캔버스에 끌어 놓기][type-automobile]
     <br/>

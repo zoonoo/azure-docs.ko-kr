@@ -4,7 +4,7 @@ description: REST API 매개 변수를 사용하는 Twitter 커넥터 개요
 services: ''
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: eb953ee7701d407b9b75a0699f53b9b64828a0e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b44a973a94043f71f2fd9803abca47652363d8a1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296546"
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Twitter 커넥터 시작
 Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
@@ -64,7 +65,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
    ![Twitter 조건 이미지 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
 3. **값 선택** 컨트롤을 선택합니다. 이 컨트롤에서는 이전 작업 또는 트리거 중 하나 이상의 속성을 선택할 수 있습니다. 이 속성 값의 조건은 true 또는 false로 평가됩니다.
    ![Twitter 조건 이미지 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. **...**를 선택하여 속성 목록을 확장하면 사용 가능한 모든 속성을 볼 수 있습니다.        
+4. **...** 를 선택하여 속성 목록을 확장하면 사용 가능한 모든 속성을 볼 수 있습니다.        
    ![Twitter 조건 이미지 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
 5. **팔로워 수** 속성을 선택합니다.    
    ![Twitter 조건 이미지 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
@@ -90,7 +91,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 3. **트윗 텍스트** 컨트롤을 선택합니다. 이제 논리 앱에서 이전 작업 및 트리거의 모든 출력이 표시됩니다. 이러한 출력 중 하나를 선택하여 새 트윗의 일부 트윗 텍스트로 사용할 수 있습니다.     
    ![Twitter 작업 이미지 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
 4. **사용자 이름**을 선택합니다.   
-5. 사용자 이름 바로 뒤에 있는 트윗 텍스트 컨트롤에 *says:*를 입력합니다.
+5. 사용자 이름 바로 뒤에 있는 트윗 텍스트 컨트롤에 *says:* 를 입력합니다.
 6. *트윗 텍스트*를 선택합니다.       
    ![Twitter 작업 이미지 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
 7. 워크플로를 활성화하려면 작업을 저장하고 #Seattle 해시 태그로 트윗을 보냅니다.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30317041"
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Python용 Batch SDK 시작
 
@@ -49,7 +50,7 @@ Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-bat
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
 ### <a name="python-environment"></a>Python 환경
-로컬 워크스테이션에서 *python_tutorial_client.py* 샘플 스크립트를 실행하려면 **2.7** 또는 **3.3+**와 호환되는 **Python 인터프리터**가 필요합니다. 스크립트는 Linux와 Windows 모두에서 테스트되었습니다.
+로컬 워크스테이션에서 *python_tutorial_client.py* 샘플 스크립트를 실행하려면 **2.7** 또는 **3.3+** 와 호환되는 **Python 인터프리터**가 필요합니다. 스크립트는 Linux와 Windows 모두에서 테스트되었습니다.
 
 ### <a name="cryptography-dependencies"></a>암호화 종속성
 `azure-batch` 및 `azure-storage` Python 패키지에 필수적인 [암호화][crypto] 라이브러리에 대한 종속성을 설치해야 합니다. 자세한 내용은 플랫폼에 적합한 다음 작업 중 하나를 수행하거나 [암호화 설치][crypto_install] 세부 정보를 참조하세요.

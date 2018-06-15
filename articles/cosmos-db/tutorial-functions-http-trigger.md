@@ -2,29 +2,26 @@
 title: Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기 | Microsoft Docs
 description: HTTP 트리거 포함 Azure Functions를 사용하여 Azure Cosmos DB를 쿼리하는 방법에 대해 알아봅니다.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818902"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기
 
 Azure Cosmos DB는 스키마가 없고 서버를 사용하지 않으며 전 세계에 배포된 다중 모델 데이터베이스입니다. Azure Function은 요청 시 코드를 실행할 수 있으며 서버를 사용하지 않는 컴퓨팅 서비스입니다. 이 두 가지 Azure 서비스를 모두 가지고 있다면 컴퓨팅과 데이터베이스 요구에 대한 프로비전 및 서버 유지 관리를 걱정하지 않고 우수한 앱 만들기에 전념할 수 있게 해주는 서버 없는 아키텍처의 기초를 다진 것입니다.
 
-이 자습서는 [.NET에 대한 Graph API 퀵 스타트](create-graph-dotnet.md)에서 만든 코드를 기반으로 합니다. 이 자습서에서는 [HTTP 트리거](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger)를 포함하는 Azure Function을 추가합니다. HTTP 트리거는 Azure Cosmos DB [입력 바인딩](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md)을 사용하여 퀵 스타트에서 만든 Graph 데이터베이스에서 데이터를 검색합니다. 이 특정 HTTP 트리거는 Azure Cosmos DB에서 데이터를 쿼리하지만 Azure Cosmos DB의 입력 바인딩을 사용하여 무엇이든 기능에 필요한 데이터 입력 값을 검색할 수 있습니다.
+이 자습서는 [.NET에 대한 Graph API 퀵 스타트](create-graph-dotnet.md)에서 만든 코드를 기반으로 합니다. 이 자습서에서는 [HTTP 트리거](../azure-functions/functions-bindings-http-webhook.md)를 포함하는 Azure Function을 추가합니다. HTTP 트리거는 Azure Cosmos DB [입력 바인딩](../azure-functions/functions-triggers-bindings.md)을 사용하여 퀵 스타트에서 만든 Graph 데이터베이스에서 데이터를 검색합니다. 이 특정 HTTP 트리거는 Azure Cosmos DB에서 데이터를 쿼리하지만 Azure Cosmos DB의 입력 바인딩을 사용하여 무엇이든 기능에 필요한 데이터 입력 값을 검색할 수 있습니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
