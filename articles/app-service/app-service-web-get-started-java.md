@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure에서 첫 번째 Java 웹앱 만들기
 description: 기본 Java 앱을 배포하여 App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30283931"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
@@ -216,4 +217,3 @@ Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합�
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain.md)
-

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316198"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>명령줄을 사용하여 Azure Stack의 템플릿 배포
 

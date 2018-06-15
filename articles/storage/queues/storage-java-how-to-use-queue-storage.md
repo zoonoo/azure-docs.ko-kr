@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30319484"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Java에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

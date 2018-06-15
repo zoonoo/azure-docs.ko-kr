@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171566"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
@@ -141,7 +142,7 @@ ms.lasthandoff: 03/23/2018
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
          
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-6. **버전** 아래에서 **V2(미리 보기)**를 선택합니다.
+6. **버전** 아래에서 **V2(미리 보기)** 를 선택합니다.
 7. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
 8. **대시보드에 고정**을 선택합니다. 
 9. **만들기**를 선택합니다.
@@ -218,7 +219,7 @@ ms.lasthandoff: 03/23/2018
 
     a. **연결된 서비스**에서 **SqlServerLinkedService**가 표시되는지 확인합니다.
 
-    나. **테이블**에서 **[dbo].[emp]**를 선택합니다.
+    나. **테이블**에서 **[dbo].[emp]** 를 선택합니다.
 
     ![원본 데이터 집합 연결 정보](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
 16. **SQLServerToBlobPipeline**이 있는 탭으로 이동하거나 트리 뷰에서 **SQLServerToBlobPipeline**을 선택합니다. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30178711"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 

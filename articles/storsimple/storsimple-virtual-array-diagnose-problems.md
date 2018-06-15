@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Virtual Array 문제 해결 | Microsoft Docs"
-description: "StorSimple 장치 관리자 진단 기능 및 이 기능을 사용하여 StorSimple 가상 배열 문제를 해결하는 방법을 설명합니다."
+title: StorSimple Virtual Array 문제 해결 | Microsoft Docs
+description: StorSimple 장치 관리자 진단 기능 및 이 기능을 사용하여 StorSimple 가상 배열 문제를 해결하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 53f57d17-07af-457f-a0e8-741e52fbbc2a
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108901"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 가상 배열 문제 해결
 ## <a name="overview"></a>개요

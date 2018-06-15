@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30185988"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30283387"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
 

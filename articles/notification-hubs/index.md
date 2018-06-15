@@ -1,48 +1,49 @@
 ---
-title: Azure Redis Cache 설명서 - 자습서, API 참조 | Microsoft Docs
-description: 응용 프로그램이 데이터에 빠르게 액세스할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
-services: redis-cache
+title: Azure Notification Hubs 설명서 - 자습서, API 참조 | Microsoft Docs
+description: Notification Hubs를 통해 백 엔드에서 모바일 장치에 푸시 알림을 전송하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
+services: notification-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: ''
-ms.service: redis-cache
+ms.service: notification-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8b772df55f8862330da9e557b9bf2ed11b9e2347
+ms.openlocfilehash: 8f4921e4c7571b05bb8612dcd6fe9750f83a7142
 ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177990"
+ms.locfileid: "30182459"
 ---
-# <a name="redis-cache-documentation"></a>Redis Cache 설명서
+# <a name="notification-hubs-documentation"></a>Notification Hubs 설명서
 
-응용 프로그램의 데이터에 대한 많은 처리량을 짧은 대기 시간 동안 처리할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Azure에 있는 응용 프로그램의 Redis Cache를 사용하는 방법을 보여 줍니다.
+신속하게 수백만 개의 메시지를 보내기 위한 확장 가능한 다중 플랫폼 푸시 알림 엔진인 Notification Hubs를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 백 엔드에서 모바일 장치에 푸시 알림을 설정하고 보내는 방법을 보여 줍니다. 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/redis-cache/cache-premium-tier-intro">
+        <a href="/azure/notification-hubs/notification-hubs-push-notification-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/redis-cache.svg" alt="" />
+                            <img src="media/index/notification-hubs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Redis Cache 프리미엄 계층에 대해 알아보기</h3>
+                        <h3>Notification Hubs에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li><li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=redis-cache">
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -52,25 +53,7 @@ ms.locfileid: "30177990"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Redis Cache 비디오 라이브러리</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
-   <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>.NET을 사용하여 Redis Cache 시작</h3>
+                        <h3>Notification Hubs 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -78,17 +61,17 @@ ms.locfileid: "30177990"
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-web-app-howto">
+        <a href="/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>ASP.NET MVC를 사용하여 Redis Cache 시작</h3>
+                        <h3>Azure Notification Hubs를 사용하여 Android(FCM)에 푸시 알림 보내기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -96,17 +79,17 @@ ms.locfileid: "30177990"
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-nodejs-get-started">
+        <a href="/azure/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js를 사용하여 Redis Cache 시작</h3>
+                        <h3>Baidu를 사용하여 Notification Hubs 시작</h3>
                     </div>
                 </div>
             </div>
@@ -114,17 +97,17 @@ ms.locfileid: "30177990"
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-java-get-started">
+        <a href="/azure/notification-hubs/notification-hubs-chrome-push-notifications-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Java를 사용하여 Redis Cache 시작</h3>
+                        <h3>Azure Notification Hubs를 사용하여 Chrome 앱에 푸시 알림 보내기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -132,17 +115,53 @@ ms.locfileid: "30177990"
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-python-get-started">
+        <a href="/azure/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/python.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Python을 사용하여 Redis Cache 시작</h3>
+                        <h3>Azure Notification Hubs를 사용하여 iOS에 푸시 알림 보내기 시작</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Kindle 앱에 대한 Notification Hubs 시작</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Windows 유니버설 플랫폼 앱용 Notification Hubs 시작</h3>
                     </div>
                 </div>
             </div>
@@ -161,8 +180,7 @@ ms.locfileid: "30177990"
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="/cli/azure/redis">Azure CLI 2.0(미리 보기)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -174,10 +192,7 @@ ms.locfileid: "30177990"
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
-                        <p><a href="http://redis.io/clients">Redis 클라이언트</a></p>
-                        <p><a href="http://redis.io/commands#">Redis 명령</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
                    </div>
                 </div>
             </div>
@@ -189,12 +204,11 @@ ms.locfileid: "30177990"
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">REST API 참조</a></p>
+                        <p><a href="/rest/api/notificationhubs">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
 

@@ -1,12 +1,12 @@
 ---
-title: "8000 시리즈 장치에 대한 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs"
-description: "자체적으로, 다른 실제 장치 또는 클라우드 어플라이언스로 StorSimple 장치의 장애를 조치하는 방법을 알아봅니다."
+title: 8000 시리즈 장치에 대한 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs
+description: 자체적으로, 다른 실제 장치 또는 클라우드 어플라이언스로 StorSimple 장치의 장애를 조치하는 방법을 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108481"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에 대한 장애 조치 및 재해 복구
 

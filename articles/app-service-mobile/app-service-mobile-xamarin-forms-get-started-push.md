@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30164433"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -49,7 +50,7 @@ iOS의 경우 [Apple 개발자 프로그램 멤버 자격](https://developer.app
 ### <a name="add-push-notifications-to-the-android-project"></a>Android 프로젝트에 푸시 알림 추가
 FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언트에 구성 요소 및 코드를 추가할 수 있습니다. 또한 Mobile Apps 백 엔드를 통해 Azure Notification Hubs에 푸시 알림을 등록하고 알림을 수신할 수도 있습니다.
 
-1. **Droid** 프로젝트에서 **참조 > NuGet 패키지 관리...**를 마우스 오른쪽 단추로 클릭합니다.
+1. **Droid** 프로젝트에서 **참조 > NuGet 패키지 관리...** 를 마우스 오른쪽 단추로 클릭합니다.
 1. NuGet 패키지 관리자 창에서 **Xamarin.Firebase.Messaging** 패키지를 검색하고 프로젝트에 추가합니다.
 1. **Droid** 프로젝트에 대한 프로젝트 속성에서 앱을 Android 버전 7.0 이상을 사용하여 컴파일하도록 설정합니다.
 1. Firebase 콘솔에서 다운로드한 **google-services.json** 파일을 **Droid** 프로젝트의 루트에 추가하고 해당 빌드 작업을 **GoogleServicesJson**으로 설정합니다. 자세한 내용은 [Google 서비스 JSON 파일 추가](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File)를 참조하세요.
