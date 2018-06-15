@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311324"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure 스택에서 실제 디스크 교체
 

@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30239901"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Azure Storage에 대량의 임의 데이터를 병렬로 업로드
 
@@ -47,7 +48,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>연결 문자열 구성
 
-Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 이전 단계에서 만든 가상 머신에 로그인합니다. 관리자 권한으로 **명령 프롬프트**를 열고 `setx` 명령을 `/m` 스위치와 함께 실행합니다. 이 명령은 시스템 설정 환경 변수를 저장합니다. **명령 프롬프트**를 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>**을 바꿉니다.
+Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 이전 단계에서 만든 가상 머신에 로그인합니다. 관리자 권한으로 **명령 프롬프트**를 열고 `setx` 명령을 `/m` 스위치와 함께 실행합니다. 이 명령은 시스템 설정 환경 변수를 저장합니다. **명령 프롬프트**를 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>** 을 바꿉니다.
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m

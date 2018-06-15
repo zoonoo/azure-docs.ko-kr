@@ -14,23 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e64cc232aa01a5619a55290f9b07421165a6d5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698733"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성
 
 이 자습서에서는 사용자 계정을 Azure AD에서 ServiceNow로 자동으로 프로비전 및 프로비전 해제하도록 ServiceNow 및 Azure AD에서 수행해야 하는 단계를 설명합니다.
 
+> [!NOTE]
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](./active-directory-saas-app-provisioning.md)를 참조하세요.
+
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+ServiceNow와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-*   Azure Active Directory 테넌트.
-*   유효한 ServiceNow for Work 또는 ServiceNow for Education용 테넌트가 있어야 합니다. 어느 서비스에나 평가판 계정을 사용할 수 있습니다.
-*   팀 관리자 권한있는 ServiceNow의 사용자 계정입니다.
+- Azure AD 구독
+- ServiceNow의 경우 ServiceNow의 인스턴스 또는 테넌트, Calgary 버전 이상
+- ServiceNow Express의 경우 ServiceNow Express의 인스턴스, Helsinki 버전 이상
+
+> [!NOTE]
+> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
+
+- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
+- Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
+
 
 ## <a name="assigning-users-to-servicenow"></a>ServiceNow에 사용자 할당
 

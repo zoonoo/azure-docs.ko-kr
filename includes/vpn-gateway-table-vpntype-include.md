@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198012"
 ---
 #### <a name="vpn-type---resource-manager-deployment-model"></a>VPN 유형 - Resource Manager 배포 모델
 |  | **경로 기반** | **정책 기반** |

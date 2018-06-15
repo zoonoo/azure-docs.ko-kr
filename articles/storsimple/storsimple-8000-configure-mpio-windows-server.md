@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30245740"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>StorSimple 장치에 대한 다중 경로 I/O 구성
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30239177"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure에 MySQL을 설치하는 방법
 이 문서에서는 Linux를 실행하는 Azure 가상 머신에서 MySQL을 설치 및 구성하는 방법을 알아봅니다.

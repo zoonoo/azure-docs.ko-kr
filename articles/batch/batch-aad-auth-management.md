@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311342"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
 
