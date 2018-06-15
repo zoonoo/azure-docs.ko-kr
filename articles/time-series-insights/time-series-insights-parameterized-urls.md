@@ -1,22 +1,21 @@
 ---
-title: "Azure Time Series Insights 사용자 지정 보기를 매개 변수가 있는 URL과 공유 | Microsoft Docs"
-description: "이 문서에서는 고객 보기를 쉽게 공유할 수 있도록 Azure Time Series Insights에서 매개 변수가 있는 URL을 개발하는 방법을 설명합니다."
-services: time-series-insights
+title: Azure Time Series Insights 사용자 지정 보기를 매개 변수가 있는 URL과 공유 | Microsoft Docs
+description: 이 문서에서는 고객 보기를 쉽게 공유할 수 있도록 Azure Time Series Insights에서 매개 변수가 있는 URL을 개발하는 방법을 설명합니다.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: MarkMcGeeAtAquent
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
-ms.devlang: rest-api
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ac3267412163f402813024f490c11579b8fdf8e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656757"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 

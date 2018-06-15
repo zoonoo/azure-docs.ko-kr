@@ -1,22 +1,23 @@
 ---
-title: "Microsoft Flow를 사용하여 Azure Application Insights 프로세스 자동화"
-description: "Microsoft Flow를 통해 Application Insights 커넥터를 사용하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다."
+title: Microsoft Flow를 사용하여 Azure Application Insights 프로세스 자동화
+description: Microsoft Flow를 통해 Application Insights 커넥터를 사용하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: a1d2787626ed8fa71e3e4e9921ffb8a4680014cb
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c92b50ee78c100a531a2973181251444b3810967
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293776"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 
@@ -92,9 +93,9 @@ ms.lasthandoff: 11/01/2017
 
    a. 받는 사람의 이메일 주소를 입력합니다.
 
-   b. 이메일의 제목을 입력합니다.
+   나. 이메일의 제목을 입력합니다.
 
-   c. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
+   다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
 
    d. **고급 옵션 표시**를 클릭합니다.
 
@@ -104,9 +105,9 @@ ms.lasthandoff: 11/01/2017
 
     a. **첨부 파일 이름**을 선택합니다.
 
-    b. **첨부 파일 콘텐츠**를 선택합니다.
+    나. **첨부 파일 콘텐츠**를 선택합니다.
     
-    c. **HTML임** 상자에서 **예**를 선택합니다.
+    다. **HTML임** 상자에서 **예**를 선택합니다.
 
     ![Office 365 메일 구성 창](./media/app-insights-automate-with-flow/flow7.png)
 

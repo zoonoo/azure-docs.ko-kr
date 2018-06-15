@@ -1,24 +1,19 @@
 ---
-title: Azure Backup Server v2 설치 | Microsoft Docs
+title: Azure Backup Server v2 설치
 description: Azure Backup Server v2에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다. Azure Backup Server v2를 설치하거나 이 버전으로 업그레이드하는 방법을 알아봅니다.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: adigan
+ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606956"
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup Server v2 설치
 

@@ -2,23 +2,21 @@
 title: '빠른 시작: Graph API와 Python - Azure Cosmos DB | Microsoft Docs'
 description: 이 빠른 시작은 Azure Portal 및 Python과 함께 Azure Cosmos DB Graph API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다.
 services: cosmos-db
-documentationcenter: python
 author: luisbosquez
 manager: kfile
-ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a29a27ec633f5f67bb8cac4b9a4823c5f0966f8e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795791"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Python 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -79,7 +77,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ```python
     ...
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
@@ -104,7 +102,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 2. connect.py 파일을 열고 줄 104에서 URI 값을 `<YOUR_ENDPOINT>`에 붙여넣습니다.
 
     ```python
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -112,14 +110,12 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     클라이언트 개체의 URI 부분이 이제 이 코드와 비슷하게 표시됩니다.
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
 
-3. 클라우드 이름에서 `graphs.azure.com`을 `gremlin.cosmosdb.azure.com`으로 변경합니다. 그래프 데이터베이스 계정이 2017년 12월 20일 이전에 만들어진 경우 변경하지 않고 다음 단계를 진행합니다.
-
-4. `<YOUR_DATABASE>` 및 `<YOUR_COLLECTION_OR_GRAPH>` 문자열을 대체할 `client` 개체의 두 번째 매개 변수를 변경합니다. 제안된 값을 사용한 경우 매개 변수가 이 코드와 비슷하게 표시됩니다.
+3. `<YOUR_DATABASE>` 및 `<YOUR_COLLECTION_OR_GRAPH>` 문자열을 대체할 `client` 개체의 두 번째 매개 변수를 변경합니다. 제안된 값을 사용한 경우 매개 변수가 이 코드와 비슷하게 표시됩니다.
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
@@ -131,7 +127,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
         password="<YOUR_PASSWORD>")
     ```
 
-5. Azure Portal에서 복사 단추로 기본 키를 복사하여 `password=<YOUR_PASSWORD>` 매개 변수의 `<YOUR_PASSWORD>`에 붙여넣습니다.
+4. Azure Portal에서 복사 단추로 기본 키를 복사하여 `password=<YOUR_PASSWORD>` 매개 변수의 `<YOUR_PASSWORD>`에 붙여넣습니다.
 
     전체 `client` 개체 정의가 이 코드처럼 표시됩니다.
     ```python

@@ -3,22 +3,24 @@ title: 응용 프로그램 프록시 응용 프로그램을 사용하는 경우 
 description: Azure AD 응용 프로그램 프록시 응용 프로그램의 일반적인 액세스 문제를 해결하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: 1c6c6f56f8e4d8d1d7a10bd07679732d64b86e23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156095"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292306"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램을 사용하는 경우 발생하는 "이 회사 응용 프로그램에 액세스할 수 없습니다." 오류
 
@@ -108,7 +110,7 @@ Azure의 응용 프로그램에 사용자가 할당되었는지 확인하려면 
 
 오류가 계속 표시되면 커넥터를 설치한 컴퓨터로 이동하여 브라우저를 열고 응용 프로그램에 사용되는 내부 URL에 대한 연결을 시도합니다. 커넥터는 동일한 컴퓨터에서 다른 클라이언트처럼 작동합니다. 응용 프로그램에 연결할 수 없는 경우 해당 컴퓨터를 응용 프로그램에 연결하거나 응용 프로그램에 액세스할 수 있는 서버에서 커넥터를 사용할 수 없는 원인을 조사합니다.
 
-해당 컴퓨터의 응용 프로그램에 연결하면 커넥터 자체의 문제 또는 오류를 찾습니다. [문제 해결 문서](active-directory-application-proxy-troubleshoot.md#connector-errors)에서 일반적인 오류를 확인할 수 있습니다. 오류를 식별하기 위해 커넥터 로그를 직접 찾아볼 수도 있습니다. 다양한 오류 메시지는 수정하기 위해 보다 구체적인 권장 사항을 공유합니다. 로그를 보는 방법을 알아보려면 [커넥터 문서](manage-apps/application-proxy-connectors.md#under-the-hood)를 참조하세요.
+해당 컴퓨터의 응용 프로그램에 연결하면 커넥터 자체의 문제 또는 오류를 찾습니다. [문제 해결 문서](manage-apps/application-proxy-troubleshoot.md#connector-errors)에서 일반적인 오류를 확인할 수 있습니다. 오류를 식별하기 위해 커넥터 로그를 직접 찾아볼 수도 있습니다. 다양한 오류 메시지는 수정하기 위해 보다 구체적인 권장 사항을 공유합니다. 로그를 보는 방법을 알아보려면 [커넥터 문서](manage-apps/application-proxy-connectors.md#under-the-hood)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시 커넥터 이해](manage-apps/application-proxy-connectors.md)

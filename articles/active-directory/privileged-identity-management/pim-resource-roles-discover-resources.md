@@ -3,21 +3,22 @@ title: Privileged Identity Management를 사용하여 Azure 리소스 검색 및
 description: PIM을 사용하여 Azure 리소스를 보호하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: 51a10ea164e8bd7650ad2823281d9ed6a4c91915
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: rolyon
+ms.openlocfilehash: 563c7f24ec4045b46d5bdcf0dc267dbdda2d5a5e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151283"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234474"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스 검색 및 관리
 

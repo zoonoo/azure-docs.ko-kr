@@ -1,13 +1,13 @@
 ---
-title: "그룹 또는 컬렉션으로 메시지를 Batch 처리 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱에서의 일괄 처리에 대한 메시지 보내기 및 받기"
-keywords: "일괄 처리"
+title: 그룹 또는 컬렉션으로 메시지를 Batch 처리 - Azure Logic Apps | Microsoft Docs
+description: 논리 앱에서의 일괄 처리에 대한 메시지 보내기 및 받기
+keywords: 일괄 처리
 author: jonfancey
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298018"
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>논리 앱의 메시지 보내기, 받기 및 일괄 처리
 
@@ -168,7 +169,7 @@ ms.lasthandoff: 01/19/2018
    이 예제의 경우 현재 날짜 및 시간을 일괄 처리로 보내는 메시지 콘텐츠에 삽입하는 이 식을 추가합니다.
 
      1. **동적 콘텐츠** 목록이 표시되면 **식**을 선택합니다. 
-     2. 식 **utcnow()**를 입력하고 **확인**을 선택합니다. 
+     2. 식 **utcnow()** 를 입력하고 **확인**을 선택합니다. 
 
         ![“메시지 콘텐츠”에서 “식”을 선택합니다. “utcnow()”을 입력합니다.](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
 

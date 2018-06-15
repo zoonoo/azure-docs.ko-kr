@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Domain Services - 관리되는 도메인의 상태 확인 | Microsoft Docs"
-description: "Azure Portal에서 상태 페이지를 사용하여 관리되는 도메인의 상태를 확인합니다."
+title: Azure AD Domain Services - 관리되는 도메인의 상태 확인 | Microsoft Docs
+description: Azure Portal에서 상태 페이지를 사용하여 관리되는 도메인의 상태를 확인합니다.
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9421ace7abf1f3d45b1f8cd810067d79faa92ec
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5be6a2c36dfec8c8543f6dcfe252ce01b4c28e50
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587241"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인의 상태 확인
 

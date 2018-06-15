@@ -1,14 +1,15 @@
 ---
-title: "Azure Portal에서 다단계 인증이 필요한 클래식 정책 마이그레이션 | Microsoft Docs"
-description: "이 문서에서는 Azure Portal에서 다단계 인증이 필요한 클래식 정책을 마이그레이션하는 방법을 보여 줍니다."
+title: Azure Portal에서 다단계 인증이 필요한 클래식 정책 마이그레이션 | Microsoft Docs
+description: 이 문서에서는 Azure Portal에서 다단계 인증이 필요한 클래식 정책을 마이그레이션하는 방법을 보여 줍니다.
 services: active-directory
-keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
-documentationcenter: 
+keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 77484dc3773736ea15c39ede5f9d49b6b694d960
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 52d4297d2e86ad67672d38f1c527041b813f8d61
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723690"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Azure Portal에서 다단계 인증이 필요한 클래식 정책 마이그레이션 
 
@@ -53,7 +55,7 @@ ms.lasthandoff: 12/12/2017
 
     ![조건부 액세스](./media/active-directory-conditional-access-migration-mfa/02.png)
 
-3. **관리** 섹션에서 **클래식 정책(미리 보기)**을 클릭합니다.
+3. **관리** 섹션에서 **클래식 정책(미리 보기)** 을 클릭합니다.
 
     ![클래식 정책](./media/active-directory-conditional-access-migration-mfa/12.png)
 
@@ -91,11 +93,11 @@ ms.lasthandoff: 12/12/2017
 
     ![조건부 액세스](./media/active-directory-conditional-access-migration/35.png)
 
-    b. 클래식 정책에서 그룹을 선택한 경우 **사용자 및 그룹 선택**을 클릭한 다음 필요한 사용자 및 그룹을 선택합니다.
+    나. 클래식 정책에서 그룹을 선택한 경우 **사용자 및 그룹 선택**을 클릭한 다음 필요한 사용자 및 그룹을 선택합니다.
 
     ![조건부 액세스](./media/active-directory-conditional-access-migration/36.png)
 
-    c. 제외된 그룹이 있는 경우 **제외** 탭을 클릭한 다음 필요한 사용자 및 그룹을 선택합니다. 
+    다. 제외된 그룹이 있는 경우 **제외** 탭을 클릭한 다음 필요한 사용자 및 그룹을 선택합니다. 
 
     ![조건부 액세스](./media/active-directory-conditional-access-migration/37.png)
 
@@ -109,9 +111,9 @@ ms.lasthandoff: 12/12/2017
 
     a. **앱 선택**을 클릭합니다.
 
-    b. **선택**을 클릭합니다.
+    나. **선택**을 클릭합니다.
 
-    c. **선택** 페이지에서 클라우드 앱을 선택한 다음 **선택**을 클릭합니다.
+    다. **선택** 페이지에서 클라우드 앱을 선택한 다음 **선택**을 클릭합니다.
 
     d. **클라우드 앱** 페이지에서 **완료**를 클릭합니다.
 
@@ -125,9 +127,9 @@ ms.lasthandoff: 12/12/2017
 
     ![조건부 액세스](./media/active-directory-conditional-access-migration/27.png)
 
-    b. **허용** 페이지에서 **액세스 허용**을 클릭하고 **다단계 인증 필요**를 클릭합니다.
+    나. **허용** 페이지에서 **액세스 허용**을 클릭하고 **다단계 인증 필요**를 클릭합니다.
 
-    c. **선택**을 클릭합니다.
+    다. **선택**을 클릭합니다.
 
 
 10. **설정**을 클릭하여 정책을 사용하도록 설정합니다.

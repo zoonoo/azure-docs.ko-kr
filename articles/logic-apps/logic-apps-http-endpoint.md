@@ -1,12 +1,12 @@
 ---
-title: "HTTP 끝점을 통해 워크플로 호출, 트리거 또는 중첩 - Azure Logic Apps | Microsoft 문서"
-description: "Azure Logic Apps에 대해 워크플로를 호출, 트리거 또는 중첩하기 위해 HTTP 끝점 설정"
+title: HTTP 끝점을 통해 워크플로 호출, 트리거 또는 중첩 - Azure Logic Apps | Microsoft 문서
+description: Azure Logic Apps에 대해 워크플로를 호출, 트리거 또는 중첩하기 위해 HTTP 끝점 설정
 services: logic-apps
-keywords: "워크플로, HTTP 끝점"
+keywords: 워크플로, HTTP 끝점
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 9c02a0f540f52007412a850b9d69e337743fc35f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300201"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Logic Apps의 HTTP 끝점을 통해 워크플로 호출, 트리거 또는 중첩
 

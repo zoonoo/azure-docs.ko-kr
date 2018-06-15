@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오 | Microsoft Docs"
-description: "Azure Virtual Machines의 SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오"
+title: SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오 | Microsoft Docs
+description: Azure Virtual Machines의 SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31f3765d807882e65a247819a5999c191f9e7ac5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6612e3fb5368d8d5a4f59c0e5eefc8ef24c04aec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656927"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 
@@ -146,7 +147,7 @@ ms.lasthandoff: 11/15/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP 다중 SID 고가용성 구성)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -248,7 +249,7 @@ Azure의 SAP 고가용성은 다음 세 가지 유형으로 구분할 수 있습
 
 * **SAP 응용 프로그램 고가용성**: 
 
-    완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예:
+    완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예: 
     * 이중화 SAP 응용 프로그램 서버
     * 고유한 구성 요소 SAP ASCS/SCS 인스턴스 또는 DBMS(데이터베이스 관리 시스템)과 같은 SPOF(단일 실패 지점) 구성 요소를 예로 들 수 있습니다.
 
@@ -258,7 +259,7 @@ Windows의 경우와 달리 Linux용 sapinst 통합 SAP 고가용성 구성은 �
 
 ## <a name="azure-infrastructure-high-availability"></a>Azure 인프라 고가용성
 
-### <a name="sla-for-single-instance-virtual-machines"></a>단일 인스턴스 가상 컴퓨터에 대한 SLA
+### <a name="sla-for-single-instance-virtual-machines"></a>단일 인스턴스 가상 머신에 대한 SLA
 
 현재 Premium Storage를 사용하는 단일 VM SLA는 99.9%입니다. 다양한 [Azure 서비스 수준 계약][azure-sla]의 제품을 빌드해 보면 단일 VM의 가용성이 어떻게 나타나는지 이해하는 데 도움이 됩니다.
 
@@ -266,35 +267,35 @@ Windows의 경우와 달리 Linux용 sapinst 통합 SAP 고가용성 구성은 �
 
 (가용성 서비스 #1/100) * (가용성 서비스 #2/100) * (가용성 서비스 #3/100) \*…
 
-예:
+예: 
 
 (99.95/100) * (99.9/100) * (99.9/100) = 0.9975 또는 전체 가용성 99.75%
 
-### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>동일한 가용성 집합의 여러 가상 컴퓨터 인스턴스
-동일한 *가용성 집합*에 배포된 두 개 이상의 인스턴스가 있는 모든 가상 컴퓨터의 경우에는 최소 99.95%의 시간 동안 가상 컴퓨터 연결을 사용할 수 있도록 보장합니다.
+### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>동일한 가용성 집합의 여러 가상 머신 인스턴스
+동일한 *가용성 집합*에 배포된 두 개 이상의 인스턴스가 있는 모든 가상 머신의 경우에는 최소 99.95%의 시간 동안 가상 머신 연결을 사용할 수 있도록 보장합니다.
 
-두 대 이상의 VM이 동일한 가용성 집합에 포함된 경우 해당 가용성 집합의 각 가상 컴퓨터는 기본 Azure 플랫폼에 의해 *업데이트 도메인* 및 *장애 도메인*에 할당됩니다.
+두 대 이상의 VM이 동일한 가용성 집합에 포함된 경우 해당 가용성 집합의 각 가상 머신은 기본 Azure 플랫폼에 의해 *업데이트 도메인* 및 *장애 도메인*에 할당됩니다.
 
 * **업데이트 도메인**은 Azure 인프라의 계획된 유지 관리 동안 여러 VM이 동시에 다시 부팅되지 않고 한 번에 하나의 VM만 다시 부팅되도록 보장합니다.
 
 * **장애 도메인**은 공통 전원과 네트워크 스위치를 공유하지 않는 하드웨어 구성 요소에 VM이 배포되도록 보장합니다. 서버, 네트워크 스위치 또는 전원이 갑작스럽게 가동 중지되면 VM만 영향을 받습니다.
 
-자세한 내용은 [Azure에서 Windows 가상 컴퓨터의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
+자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
 
 가용성 집합은 다음 항목의 고가용성을 얻기 위해 사용됩니다.
 
 * 이중화 SAP 응용 프로그램 서버  
 * SAP ASCS/SCS 인스턴스 또는 DBMS 같은 SPOF를 보호하는 두 개 이상의 노드(예: VM)로 구성된 클러스터
 
-### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>가상 컴퓨터의 계획된 유지 관리 및 계획되지 않은 유지 관리
+### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>가상 머신의 계획된 유지 관리 및 계획되지 않은 유지 관리
 
-다음 2가지 유형의 Azure 플랫폼 이벤트가 가상 컴퓨터의 가용성에 영향을 줄 수 있습니다.
+다음 2가지 유형의 Azure 플랫폼 이벤트가 가상 머신의 가용성에 영향을 줄 수 있습니다.
 
-* **계획된 유지 관리** 이벤트는 Microsoft에서 기본 Azure 플랫폼에 정기적으로 수행하는 업데이트입니다. 업데이트는 가상 컴퓨터가 실행되는 플랫폼 인프라의 전반적인 안정성, 성능 및 보안을 개선합니다.
+* **계획된 유지 관리** 이벤트는 Microsoft에서 기본 Azure 플랫폼에 정기적으로 수행하는 업데이트입니다. 업데이트는 가상 머신이 실행되는 플랫폼 인프라의 전반적인 안정성, 성능 및 보안을 개선합니다.
 
-* **계획되지 않은 유지 관리** 이벤트는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 컴퓨터를 호스트하는 비정상 물리적 서버에서 정상 물리적 서버로 가상 컴퓨터를 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 컴퓨터가 재부팅되도록 할 수도 있습니다.
+* **계획되지 않은 유지 관리** 이벤트는 가상 머신의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 머신을 호스트하는 비정상 물리적 서버에서 정상 물리적 서버로 가상 머신을 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 머신이 재부팅되도록 할 수도 있습니다.
 
-자세한 내용은 [Azure에서 Windows 가상 컴퓨터의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
+자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
 
 ### <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생하는 경우에도 Azure Storage SLA를 충족합니다.
@@ -304,11 +305,11 @@ Azure Storage에서는 기본적으로 데이터의 3가지 이미지를 유지�
 자세한 내용은 [Azure Storage 복제][azure-storage-redundancy]를 참조하세요.
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
-Managed Disks는 Azure Storage 계정에 저장된 가상 하드 디스크 대신 사용할 수 있는 Azure Resource Manager의 새로운 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 컴퓨터의 가용성 집합에 맞게 자동으로 조정됩니다. 따라서 가상 컴퓨터에서 실행되는 서비스와 가상 컴퓨터의 가용성을 높여 줍니다.
+Managed Disks는 Azure Storage 계정에 저장된 가상 하드 디스크 대신 사용할 수 있는 Azure Resource Manager의 새로운 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 머신의 가용성 집합에 맞게 자동으로 조정됩니다. 따라서 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다.
 
 자세한 내용은 [Azure Managed Disks 개요][azure-storage-managed-disks-overview]를 참조하세요.
 
-Managed Disks를 사용하면 가상 컴퓨터를 간편하고 배포 및 관리할 수 있으므로 권장됩니다.
+Managed Disks를 사용하면 가상 머신을 간편하고 배포 및 관리할 수 있으므로 권장됩니다.
 
 SAP는 현재 프리미엄 Managed Disks만 지원합니다. 자세한 내용은 SAP Note [1928533]을 참조하세요.
 
@@ -320,7 +321,7 @@ Linux에서 WSFC 또는 Pacemaker와 같은 기능을 사용하지 않기로 결
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Azure IaaS의 SAP 응용 프로그램 고가용성
 
-완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예:
+완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예: 
   * 이중화 SAP 응용 프로그램 서버
   * 고유한 구성 요소 SAP ASCS/SCS 인스턴스 또는 DBMS(데이터베이스 관리 시스템)과 같은 SPOF(단일 실패 지점) 구성 요소를 예로 들 수 있습니다.
 
@@ -339,15 +340,15 @@ Linux에서 WSFC 또는 Pacemaker와 같은 기능을 사용하지 않기로 결
 
 _**그림 1:** 고가용성 SAP 응용 프로그램 서버_
 
-SAP 응용 프로그램 서버 인스턴스를 호스트하는 모든 가상 컴퓨터를 동일한 Azure 가용성 집합에 배치해야 합니다. Azure 가용성 집합은 다음을 확인합니다.
+SAP 응용 프로그램 서버 인스턴스를 호스트하는 모든 가상 머신을 동일한 Azure 가용성 집합에 배치해야 합니다. Azure 가용성 집합은 다음을 확인합니다.
 
-* 모든 가상 컴퓨터가 동일한 업데이트 도메인에 속하는지 여부.  
-    업데이트 도메인은 가상 컴퓨터가 계획된 유지 관리 가동 중지 시간 동안 동시에 업데이트되지 않는지 확인합니다.
+* 모든 가상 머신이 동일한 업데이트 도메인에 속하는지 여부.  
+    업데이트 도메인은 가상 머신이 계획된 유지 관리 가동 중지 시간 동안 동시에 업데이트되지 않는지 확인합니다.
 
     Azure 배율 단위 내의 다른 업데이트 및 장애 도메인을 기반으로 하는 기본 기능은 이미 [업데이터 도메인][planning-guide-3.2.2] 섹션에서 살펴보았습니다.
 
-* 모든 가상 컴퓨터가 동일한 장애 도메인에 속하는지 여부.  
-    장애 도메인은 어떤 단일 장애 지점도 모든 가상 컴퓨터의 가용성에 영향을 주지 않도록 가상 컴퓨터가 배포되어 있는지 확인합니다.
+* 모든 가상 머신이 동일한 장애 도메인에 속하는지 여부.  
+    장애 도메인은 어떤 단일 장애 지점도 모든 가상 머신의 가용성에 영향을 주지 않도록 가상 머신이 배포되어 있는지 확인합니다.
 
 Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 업데이트 도메인 및 장애 도메인 수는 제한되어 있습니다. 단일 가용성 집합에 VM을 계속 추가하는 경우 둘 이상의 VM이 결과적으로 동일한 장애 도메인 또는 업데이트 도메인에 추가됩니다.
 
@@ -356,14 +357,14 @@ Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 업
 ![그림 2: Azure 가용성 집합에 있는 SAP 응용 프로그램 서버의 고가용성][planning-guide-figure-3000]
 _**그림 2:** Azure 가용성 집합에 있는 SAP 응용 프로그램 서버의 고가용성_
 
-자세한 내용은 [Azure에서 Windows 가상 컴퓨터의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
+자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
 
 자세한 내용은 SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현 문서의 [Azure 가용성 집합][planning-guide-3.2.3] 섹션을 참조하세요.
 
-**비관리 디스크에만 해당하는 설명:** Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 둘 이상의 가상 컴퓨터가 배포될 둘 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 컴퓨터의 디스크를 다른 저장소 계정에 배포합니다.
+**비관리 디스크에만 해당하는 설명:** Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 둘 이상의 가상 머신이 배포될 둘 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 머신의 디스크를 다른 저장소 계정에 배포합니다.
 
 > [!IMPORTANT]
-> SAP 고가용성 설치에는 Azure Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 연결되어 있는 가상 컴퓨터의 가용성 집합에 맞게 자동으로 조정되므로, 가상 컴퓨터에서 실행되는 서비스와 가상 컴퓨터의 가용성을 높여 줍니다.  
+> SAP 고가용성 설치에는 Azure Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 연결되어 있는 가상 머신의 가용성 집합에 맞게 자동으로 조정되므로, 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다.  
 >
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Windows의 SAP ASCS/SCS 인스턴스에 대한 고가용성 아키텍처
