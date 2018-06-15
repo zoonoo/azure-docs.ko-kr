@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d1de8baf725233bee30a14eca770e4f04e7a70b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f648bec7530260a6445f74b6d141140f728674ee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617164"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -133,7 +134,7 @@ OData에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 형식 속성을 **ODataResource**로 설정해야 합니다. | 예 |
-| 경로 | OData 리소스에 대한 경로입니다. | 아니요 |
+| 경로 | OData 리소스에 대한 경로입니다. | 예 |
 
 **예제**
 
@@ -166,7 +167,7 @@ OData에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예: “?$select=Name,Description&$top=5”.<br/><br/>마지막에 OData 커넥터가 결합된 URL(`[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
+| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예: “?$select=Name,Description&$top=5”.<br/><br/>마지막에 OData 커넥터가 결합된 URL(`[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니오 |
 
 **예제:**
 

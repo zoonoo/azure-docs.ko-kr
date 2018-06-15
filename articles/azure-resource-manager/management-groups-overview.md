@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604746"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성 
 
@@ -69,7 +70,7 @@ REST API를 사용하여 구독에 대한 정보를 가져오면 액세스할 �
 
 Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 지원합니다. 이러한 권한은 해당 계층 구조에 있는 자식 리소스에 상속됩니다.   
 
-[기본 제공 RBAC 역할](../role-based-access-control/overview.md#built-in-roles)을 관리 그룹에 할당할 수 있지만, 다음과 같은 네 가지 역할이 주로 사용됩니다. 
+[기본 제공 RBAC 역할](../role-based-access-control/built-in-roles.md)을 관리 그룹에 할당할 수 있지만, 다음과 같은 네 가지 역할이 주로 사용됩니다. 
 - **소유자** 는 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다. 
 - **참가자**는 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수 없습니다.
 - **리소스 정책 참가자**는 리소스의 디렉터리에 정책을 만들고 관리할 수 있습니다.     

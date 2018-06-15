@@ -128,6 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: 네트워크 리소스 관리
           href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: 사용자 구독 소유자 변경
+          href: azure-stack-change-subscription-owner.md
         - name: Windows Azure 팩 VM 관리
           href: azure-stack-manage-windows-azure-pack.md
         - name: 시작 및 중지 Azure 스택
@@ -189,6 +191,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: 암호를 회전
           href: azure-stack-rotate-secrets.md
+        - name: 바이러스 백신 업데이트
+          href: azure-stack-security-av.md
     - name: 서비스 제공
       items:
         - name: 서비스 제공 개요
@@ -216,7 +220,7 @@
           items:
             - name: SQL Server 리소스 공급자를 배포 합니다.
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: 호스팅 서버 추가
+            - name: SQL 호스팅 서버 추가
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL 데이터베이스 만들기
               href: azure-stack-sql-resource-provider-databases.md
@@ -227,7 +231,20 @@
             - name: SQL Server 리소스 공급자를 제거 합니다.
               href: azure-stack-sql-resource-provider-remove.md
         - name: PaaS로 MySQL을 제공 합니다.
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: MySQL Server 리소스 공급자를 배포 합니다.
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: MySQL 호스팅 서버를 추가 합니다.
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: MySQL 데이터베이스 만들기
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: MySQL Server 리소스 공급자 업데이트
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: MySQL Server 리소스 공급자를 유지 관리
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: MySQL Server 리소스 공급자를 제거 합니다.
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: App Service를 PaaS로 제공
           items:
             - name: Azure Stack 개요에 대한 App Service
