@@ -59,16 +59,16 @@
       href: create-account-cli-how-to.md
     - name: API 액세스 - CLI
       href: access-api-cli-how-to.md
-    - name: 작업 상태 이벤트 - CLI
+    - name: 작업 상태 이벤트 모니터링 - CLI
       href: job-state-events-cli-how-to.md
+    - name: 변환 사전 설정 사용자 지정 - .NET
+      href: customize-encoder-presets-how-to.md
     - name: 콘텐츠 업로드
       items:
         - name: HTTP(s)에서 - .NET
           href: job-input-from-http-how-to.md
         - name: 로컬 파일에서 - .NET
           href: job-input-from-local-file-how-to.md
-    - name: 변환 사전 설정 사용자 지정 - .NET
-      href: customize-encoder-presets-how-to.md
 - name: 참고 자료
   items:
     - name: OpenAPI 사양(Swagger)

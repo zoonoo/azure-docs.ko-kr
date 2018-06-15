@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940140"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617895"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 Netezza에서 데이터 복사
 
@@ -57,7 +57,7 @@ Netezza 연결된 서비스에 다음 속성이 지원됩니다.
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | 드라이버가 데이터 저장소에 연결하는 데 사용하는 보안(SSL/TLS) 수준입니다. 예: `SecurityLevel=preferredSecured` 지원되는 값은 다음과 같습니다.<br/>- Only Unsecured(**onlyUnSecured**): 드라이버가 SSL을 사용하지 않습니다.<br/>- **Preferred Unsecured(preferredUnSecured)(기본값)**: 서버가 선택 사항을 제공하면 드라이버는 SSL을 사용하지 않습니다. <br/>- **Preferred Secured(preferredSecured)**: 서버가 선택 사항을 제공하면 드라이버는 SSL을 사용합니다. <br/>- **Only Secured(onlySecured)**: SSL 연결을 사용할 수 있는 경우가 아니면 드라이버가 연결되지 않습니다. | 아니오 |
-| CaCertFile | 서버에 사용되는 SSL 인증서의 전체 경로입니다. 예: `UseSystemTrustStore=<cert path>;`| 예(SSL을 사용하는 경우) |
+| CaCertFile | 서버에 사용되는 SSL 인증서의 전체 경로입니다. 예: `CaCertFile=<cert path>;`| 예(SSL을 사용하는 경우) |
 
 **예제:**
 

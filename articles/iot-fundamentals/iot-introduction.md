@@ -1,24 +1,19 @@
 ---
 title: Azure IoT(사물 인터넷) 소개
 description: Azure IoT 및 관련 서비스와 기술에 대해 간략히 설명합니다.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-layout: LandingPage
-ms.openlocfilehash: 183925324c404b412b5d12c3a9bff93ccd842535
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/18/2018
+ms.author: bryanla
+ms.openlocfilehash: 685de6a3cfe0e3f5a2ea82da831247d7b4144fea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636208"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Azure IoT(사물 인터넷) 소개
 
@@ -83,17 +78,6 @@ IoT 솔루션 아키텍처에서 장치는 일반적으로 저장 및 처리를 
 
 프레젠테이션 및 Business Connectivity 계층을 통해 최종 사용자가 IoT 솔루션 및 장치를 조작할 수 있습니다. 이를 통해 사용자가 해당 장치에서 수집된 데이터를 보고 분석할 수 있습니다. 이러한 보기는 기록 데이터와 거의 실시간 데이터를 모두 표시할 수 있는 대시보드 또는 BI 보고서 형식일 수 있습니다. 예를 들어 운영자는 특정 펌핑 스테이션의 상태를 검사하고 시스템에서 발생한 경고를 확인할 수 있습니다. 또한 이 계층을 통해 IoT 솔루션 백 엔드와 기존 기간 업무 응용 프로그램을 통합하여 엔터프라이즈 비즈니스 프로세스 또는 워크플로와 연결할 수 있습니다. 예를 들어 예측 유지 관리 솔루션은 유지 관리가 필요한 펌프를 식별한 경우 엔지니어가 펌핑 스테이션을 방문하는 일정을 예약하는 예약 시스템과 통합될 수 있습니다.
 
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
-
-[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
-[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-
-
 ## <a name="why-azure-iot"></a>Azure IoT가 적합한 이유
 
 Azure IoT는 IoT 프로젝트의 복잡성을 간소화하고, 보안, 인프라 비호환성 및 IoT 솔루션 크기 조정과 같은 과제를 처리합니다. 방법은 다음과 같습니다.
@@ -141,7 +125,7 @@ IoT 과정 가속화
                 <div class="card">
                     <div class="cardText">
                         <h3>솔루션</h3>
-                        <a href="/azure/iot-suite">IoT Suite</a><br/>
+                        <a href="/azure/iot-suite">IoT 솔루션 가속기</a><br/>
                         <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
@@ -179,14 +163,22 @@ IoT 과정 가속화
 </ul>
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
+[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
+[img-dashboard]: ./media/iot-introduction/iot-suite.png
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
 [lnk-iot-dps-land]: /azure/iot-dps/index.yml
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/azure-maps/index.yml
-[lnk-iot-suite-land]: /azure/iot-suite/index.md
+[lnk-iot-maps-land]: /azure/maps/index.yml
+[lnk-iot-sa-land]: ../iot-accelerators/index.md
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+
+[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
+[lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
+[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
+[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
+[lnk-refarch]: https://aka.ms/iotrefarchitecture
 
 

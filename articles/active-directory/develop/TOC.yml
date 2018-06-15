@@ -259,6 +259,8 @@
               href: active-directory-v2-protocols-oauth-on-behalf-of.md
             - name: 인증서 자격 증명
               href: active-directory-certificate-credentials.md
+            - name: Oauth 2.0 샘플 코드
+              href: active-directory-protocols-oauth-get-jwt-token.md
         - name: 토큰
           href: active-directory-v2-tokens.md
         - name: 범위 및 동의

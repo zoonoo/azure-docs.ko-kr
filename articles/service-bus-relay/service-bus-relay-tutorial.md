@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus WCF 릴레이 자습서 | Microsoft Docs"
-description: "WCF 릴레이를 사용하여 클라이언트 및 서비스 응용 프로그램을 빌드합니다."
+title: Azure Service Bus WCF 릴레이 자습서 | Microsoft Docs
+description: WCF 릴레이를 사용하여 클라이언트 및 서비스 응용 프로그램을 빌드합니다.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642311"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 릴레이 자습서
 
-이 자습서에서는 Azure Relay를 사용하여 WCF 릴레이 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 설명합니다. [Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging)을 사용하는 유사한 자습서는 [Service Bus 큐 시작](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
+이 자습서에서는 Azure Relay를 사용하여 WCF 릴레이 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 설명합니다. [Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md)을 사용하는 유사한 자습서는 [Service Bus 큐 시작](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
 
 이 자습서를 통해 WCF 릴레이 클라이언트 및 서비스 응용 프로그램을 만드는 데 필요한 단계를 이해할 수 있습니다. 기존 WCF 대응처럼 서비스는 하나 이상의 끝점을 노출하는 구문으로, 각각 하나 이상의 서비스 작업을 노출합니다. 서비스 끝점은 서비스를 찾을 수 있는 주소, 클라이언트가 서비스와 통신해야 하는 정보가 포함된 바인딩, 서비스가 클라이언트에 제공하는 기능을 정의하는 계약을 지정합니다. WCF와 WCF 릴레이 간의 가장 큰 차이는 끝점이 컴퓨터의 로컬이 아닌 클라우드에서 노출된다는 점입니다.
 
@@ -48,13 +49,13 @@ ms.lasthandoff: 11/04/2017
 ### <a name="create-a-relay-contract-with-an-interface"></a>인터페이스와 함께 릴레이 계약 만들기
 
 1. **시작** 메뉴의 프로그램을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하여 Visual Studio를 관리자 권한으로 엽니다.
-2. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**를 선택한 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭합니다. **Visual C#**이 표시되지 않으면 **다른 언어**에서 찾아봅니다. **콘솔 앱(.NET Framework)** 템플릿을 클릭하고 **EchoService**로 이름을 지정합니다. **확인** 을 클릭하여 프로젝트를 만듭니다.
+2. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**를 선택한 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#** 을 클릭합니다. **Visual C#** 이 표시되지 않으면 **다른 언어**에서 찾아봅니다. **콘솔 앱(.NET Framework)** 템플릿을 클릭하고 **EchoService**로 이름을 지정합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
     ![][2]
 
 3. Service Bus NuGet 패키지를 설치합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식으로 액세스할 수 있도록 하는 네임스페이스입니다. Service Bus는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
-    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
     ![][3]
 4. 아직 열리지 않은 경우 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
@@ -98,7 +99,7 @@ ms.lasthandoff: 11/04/2017
     채널은 호스트 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 두 응용 프로그램 간에 정보를 에코할 채널에 대한 코드를 작성합니다.
 10. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 **Ctrl+Shift+B**를 눌러 지금까지 수행한 작업이 정확한지 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 코드는 WCF 릴레이 계약을 정의하는 기본 인터페이스를 보여 줍니다.
 
@@ -412,7 +413,7 @@ namespace Microsoft.ServiceBus.Samples
 1. 다음을 수행하여 클라이언트에 대 해 현재 Visual Studio 솔루션에서 새 프로젝트를 만듭니다.
 
    1. 솔루션 탐색기에서 해당 서비스를 포함하는 동일한 솔루션 중 현재 솔루션(프로젝트 아님)을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭합니다. 그런 후 **새 프로젝트**를 클릭합니다.
-   2. **새 프로젝트 추가** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 표시되지 않으면 **다른 언어**에서 찾음) **콘솔 앱(.NET Framework)** 템플릿을 선택한 후 **EchoClient**로 이름을 지정합니다.
+   2. **새 프로젝트 추가** 대화 상자에서 **Visual C#** 을 클릭하고(**Visual C#** 이 표시되지 않으면 **다른 언어**에서 찾음) **콘솔 앱(.NET Framework)** 템플릿을 선택한 후 **EchoClient**로 이름을 지정합니다.
    3. **확인**을 클릭합니다.
       <br />
 2. 솔루션 탐색기에서 **EchoClient** 프로젝트에 있는 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
@@ -439,7 +440,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
 7. **Ctrl+Shift+B**를 눌러 클라이언트를 빌드합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 코드에서는 **EchoClient** 프로젝트에서 Program.cs 파일의 현재 상태를 보여 줍니다.
 
@@ -500,7 +501,7 @@ namespace Microsoft.ServiceBus.Samples
     이 단계에서는 끝점 이름, 서비스에서 정의한 계약, 클라이언트가 TCP를 사용하여 Azure Relay와 통신한다는 사실을 정의합니다. 끝점 이름은 이 끝점 구성을 서비스 URI에 연결하는 다음 절차에서 사용됩니다. 
 5. **파일**을 클릭한 다음 **모두 저장**을 클릭합니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 코드는 Echo 클라이언트에 대한 App.config 파일을 보여줍니다.
 
@@ -714,7 +715,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Service Bus의 WCF 릴레이 기능을 사용하여 Azure Relay 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여 줍니다. [Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging)을 사용하는 유사한 자습서는 [Service Bus 큐 시작](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
+이 자습서에서는 Service Bus의 WCF 릴레이 기능을 사용하여 Azure Relay 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여 줍니다. [Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md)을 사용하는 유사한 자습서는 [Service Bus 큐 시작](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
 
 Azure 릴레이에 대한 자세한 내용은 다음 항목을 참조하세요.
 

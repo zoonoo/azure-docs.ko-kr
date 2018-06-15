@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bc24465fa0efc9c473a78503d18200ea5b361920
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644609"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
@@ -206,7 +207,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 2. 지난 시간에 가장 많이 사용한 데이터베이스를 나타내는 **Elastic Database 모니터링**을 검사합니다. *contosoconcerthall* 데이터베이스는 곧 가장 많이 사용한 데이터베이스 5개 중 하나로 나타나야 합니다.
 3. **Elastic Database 모니터링** **차트**를 클릭하면 아무 데이터베이스나 모니터링할 수 있는 **데이터베이스 리소스 사용률** 페이지가 열립니다. 이 기능을 사용하여 *contosoconcerthall* 데이터베이스에 대한 화면을 격리할 수 있습니다.
 4. 데이터베이스 목록을 보려면 **contosoconcerthall**을 클릭합니다.
-5. **가격 책정 계층(DTU 조정)**을 클릭하여 **성능 구성** 페이지를 엽니다. 여기에서 데이터베이스에 대한 독립 실행형 성능 수준을 설정할 수 있습니다.
+5. **가격 책정 계층(DTU 조정)** 을 클릭하여 **성능 구성** 페이지를 엽니다. 여기에서 데이터베이스에 대한 독립 실행형 성능 수준을 설정할 수 있습니다.
 6. **표준** 탭을 클릭하여 표준 계층에서 규모 옵션을 엽니다.
 7. **DTU 슬라이드**를 오른쪽으로 밀어 **100** DTU를 선택합니다. 이는 서비스 목표 **S3**에 해당합니다.
 8. **적용**을 클릭하여 데이터베이스를 풀에서 밖으로 이동하고 *표준 S3* 데이터베이스로 만듭니다.

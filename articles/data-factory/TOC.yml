@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: 자습서
   items:
-    - name: 1 - Azure-SSIS 통합 런타임 만들기
+    - name: 1 - Azure-SSIS 통합 런타임 프로비전
       items:
         - name: 사용자 인터페이스(UI)
           href: tutorial-deploy-ssis-packages-azure.md

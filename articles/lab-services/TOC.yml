@@ -79,6 +79,8 @@
               href: devtest-lab-resize-vm.md
             - name: VM 재배포
               href: devtest-lab-redeploy-vm.md
+            - name: VM 가져오기
+              href: devtest-lab-import-vm.md
         - name: 랩에서 환경 사용
           items:
             - name: 환경 만들기

@@ -10,11 +10,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9f0cc6ee06042948442aace05d56fcffa3742a8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b4fed559b6364149170dc8b1da421c9c3ee1203c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635766"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 응용 프로그램에 Key Vault 추가
 
@@ -25,7 +26,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 ## <a name="prerequisites"></a>필수 조건
 
 - **Azure 구독**. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-- 설치된 **Visual Studio 2017 버전 15.7**과 **웹 개발** 워크로드. [여기에서 다운로드하세요](https://aka.ms/vsdownload).
+- 설치된 **Visual Studio 2017 버전 15.7**과 **웹 개발** 워크로드. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - ASP.NET(Core 아님)의 경우 기본적으로 설치되어 있지 않은 .NET Framework 4.7.1 개발 도구가 필요합니다. 설치하려면 Visual Studio 설치 관리자를 시작하고, **수정**을 선택한 다음, **개별 구성 요소**를 선택한 다음, 오른쪽에서 **ASP.NET 및 웹 개발**을 확장하고 **.NET Framework 4.7.1 개발 도구**를 선택합니다.
 - ASP.NET 4.7.1 또는 ASP.NET Core 2.0 웹 프로젝트 열기.
 

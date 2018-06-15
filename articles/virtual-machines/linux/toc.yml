@@ -222,6 +222,8 @@
           href: scheduled-events.md
         - name: 모니터 메타데이터
           href: instance-metadata-service.md
+        - name: REST로 사용 메트릭 가져오기
+          href: metrics-vm-usage-rest.md
     - name: 이미지 사용
       items:
         - name: 이미지 검색 및 사용
