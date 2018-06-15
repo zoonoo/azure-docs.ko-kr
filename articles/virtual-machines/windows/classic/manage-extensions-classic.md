@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918067"
 ---
 # <a name="manage-virtual-machine-extensions"></a>가상 머신 확장 관리
 Azure의 Windows 또는 Linux Virtual Machines에서 VM 확장의 찾기, 추가, 수정 또는 제거 방법을 설명합니다.
