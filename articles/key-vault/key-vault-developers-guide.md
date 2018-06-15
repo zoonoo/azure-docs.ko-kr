@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ff8c038ac5fa42668227a0531fa77bd853dd2b2
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757522"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -56,7 +57,7 @@ Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전
 
 MSI에 대한 자세한 내용은 [Azure 리소스용 MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)를 참조하세요.
 
-AAD 사용에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
+AAD 사용에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
 
 Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문서에 설명된 대로 CLI, PowerShell, Resource Manager 템플릿 또는 REST를 통해 Key Vault를 만들고 관리합니다.
 

@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 91b3c9df8a7fd0e1abb79c21b1e1d833e57c24d5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835929"
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Azure Machine Learning 웹 서비스 매개 변수 사용
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
@@ -65,7 +67,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
    
    ![웹 서비스 매개 변수][parameter]
 6. **실행**을 클릭합니다. 
-7. **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 또는 **웹 서비스 배포[신규]**를 선택하여 웹 서비스를 배포합니다.
+7. **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 또는 **웹 서비스 배포[신규]** 를 선택하여 웹 서비스를 배포합니다.
 
 > [!NOTE] 
 > 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 

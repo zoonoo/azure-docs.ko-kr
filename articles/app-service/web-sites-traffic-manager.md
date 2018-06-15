@@ -1,8 +1,8 @@
 ---
-title: "Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어"
-description: "이 문서에서는 Azure App Service와 관련된 Azure Traffic Manager의 요약 정보를 제공합니다."
+title: Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
+description: 이 문서에서는 Azure App Service와 관련된 Azure Traffic Manager의 요약 정보를 제공합니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824043"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
 > [!NOTE]
@@ -33,10 +34,10 @@ Azure Traffic Manager를 사용하면 웹 클라이언트의 요청을 Azure App
 ## <a name="routing-methods"></a>라우팅 방법
 Azure Traffic Manager는 4가지의 다른 라우팅 방법을 사용합니다. 이러한 방법은 Azure App Service와 관련된 다음 목록에서 설명합니다.
 
-* **[우선 순위](#priority):** 모든 트래픽에 대해 기본 앱을 사용하고 기본 또는 백업 앱을 사용할 수 없는 경우 백업을 제공합니다.
-* **[가중](#weighted):** 앱 집합에 균일하게 또는 정의한 가중치에 따라 트래픽을 분산합니다.
-* **[성능](#performance):** 앱이 여러 지리적 위치에 있을 때 가장 낮은 네트워크 지연 시간을 기준으로 "가장 가까운" 앱을 사용합니다.
-* **[지리적](#geographic):** DNS 쿼리가 시작된 지리적 위치에 따라 특정 앱으로 사용자를 전송합니다. 
+* **[우선 순위](../traffic-manager/traffic-manager-routing-methods.md#priority):** 모든 트래픽에 대해 기본 앱을 사용하고 기본 또는 백업 앱을 사용할 수 없는 경우 백업을 제공합니다.
+* **[가중](../traffic-manager/traffic-manager-routing-methods.md#weighted):** 앱 집합에 균일하게 또는 정의한 가중치에 따라 트래픽을 분산합니다.
+* **[성능](../traffic-manager/traffic-manager-routing-methods.md#performance):** 앱이 여러 지리적 위치에 있을 때 가장 낮은 네트워크 지연 시간을 기준으로 "가장 가까운" 앱을 사용합니다.
+* **[지리적](../traffic-manager/traffic-manager-routing-methods.md#geographic):** DNS 쿼리가 시작된 지리적 위치에 따라 특정 앱으로 사용자를 전송합니다. 
 
 자세한 내용은 [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요.
 

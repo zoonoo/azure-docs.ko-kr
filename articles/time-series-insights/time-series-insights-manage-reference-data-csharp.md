@@ -1,22 +1,22 @@
 ---
 title: C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리 | Microsoft Docs
 description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 응용 프로그램을 만들어 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하는 방법을 설명합니다.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6cbc95f3af1fc65967248d0b1e8501498a4be68c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652892"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/28/2018
  
    비대화형 응용 프로그램을 설정하는 방법에 대한 내용은 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조하세요.
 
-3. 샘플 코드를 편집하고 코드 시작 부분의 **#DUMMY#**에 지정된 예제 상수를 바꿉니다. 
+3. 샘플 코드를 편집하고 코드 시작 부분의 **#DUMMY#** 에 지정된 예제 상수를 바꿉니다. 
 
 이 예제 코드는 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)에도 제공됩니다.
 

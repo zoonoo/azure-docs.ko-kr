@@ -7,14 +7,16 @@ ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 8ea7e7453ba49b17560b7c2147dd6c71c6c1a7a0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1a4b6b803687b2c433ad94a54f076f23fe63c350
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831315"
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
 
@@ -29,12 +31,12 @@ Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동
     - \<run configuration name>.runconfig
 
 >[!NOTE]
->일반적으로 만드는 각 계산 대상에 대한 계산 대상 파일 및 실행 구성 파일이 있습니다. 하지만 이러한 파일을 독립적으로 만들고 여러 실행 구성 파일이 같은 계산 대상을 가리키도록 할 수 있습니다.
+>일반적으로 만드는 각 계산 대상에 대한 계산 대상 파일 및 실행 구성 파일이 있습니다. 하지만 이러한 파일을 독립적으로 만들 수 있으며, 여러 실행 구성 파일을 같은 계산 대상에 가리키도록 할 수 있습니다.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
 이 파일은 코드가 의존하는 패키지Python 런타임 버전 및 패키지를 지정하는 [conda 환경 파일](https://conda.io/docs/using/envs.html#create-environment-file-by-hand)입니다. Azure ML Workbench는 Docker 컨테이너 또는 HDInsight 클러스터에서 스크립트를 실행할 때 사용자 스크립트를 실행할 [conda 환경](https://conda.io/docs/using/envs.html)을 만듭니다. 
 
-실행을 위해 스크립트에 필요한 Python 패키지를 이 파일에 지정합니다. Azure ML 실험 서비스는 종속성 목록에 따라 conda 환경을 만듭니다. 여기에 나열된 패키지는 다음과 같은 채널을 통해 실행 엔진이 도달할 수 있어야 합니다.
+실행을 위해 스크립트에 필요한 Python 패키지를 이 파일에 지정합니다. Azure ML 실험 서비스는 종속성 목록에 따라 conda 환경을 만듭니다. 여기에 나열된 패키지는 다음과 같은 채널을 통해 실행 엔진에서 연결할 수 있어야 합니다.
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -103,10 +105,10 @@ packages:
 ```
 
 >[!NOTE]
->작업자 크기 및 코어와 같은 클러스터 튜닝 매개 변수는 spark_dependecies.yml 파일의 "configuration" 섹션으로 들어가야 함 
+>작업자 크기 및 코어와 같은 클러스터 튜닝 매개 변수는 spark_dependecies.yml 파일의 "configuration" 섹션에 들어가야 합니다. 
 
 >[!NOTE]
->Python 환경에서 스크립트를 실행하는 경우 *spark_dependencies.yml* 파일은 무시됩니다. Spark(Docker 또는 HDInsight 클러스터)에서 실행중인 경우에만 사용됩니다.
+>Python 환경에서 스크립트를 실행하는 경우 *spark_dependencies.yml* 파일은 무시됩니다. Spark(Docker 또는 HDInsight 클러스터)에서 실행 중인 경우에만 사용됩니다.
 
 ## <a name="run-configuration"></a>실행 구성
 특정 실행 구성을 지정하려면 .compute 파일과 .runconfig 파일이 필요합니다. 이들은 일반적으로 CLI 명령을 사용하여 생성됩니다. 기존 명령을 복제하고 이름을 변경하고 편집할 수도 있습니다.
@@ -153,7 +155,7 @@ _\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 �
 **pythonLocation**: 컴퓨터 대상에서 사용자의 프로그램을 실행하는 데 사용할 Python 런타임의 위치를 지정합니다. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<run configuration name>.runconfig
-_\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 구성 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
+_\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
 
 **ArgumentVector**: 이 섹션은 이 실행의 일부로 실행할 스크립트 및 해당 스크립트에 대한 매개 변수를 지정합니다. 예를 들어 "<run configuration name>.runconfig" 파일에 다음과 같은 코드 조각이 있는 경우 
 
@@ -164,7 +166,7 @@ _\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정
   - "-v" 
  ] 
 ```
-_"az ml experiment submit foo.runconfig"_는 234를 매개 변수로 전달하는 _myscript.py_ 파일을 자동으로 실행하고 --verbose 플래그를 설정합니다.
+_"az ml experiment submit foo.runconfig"_ 는 234를 매개 변수로 전달하는 _myscript.py_ 파일을 자동으로 실행하고 --verbose 플래그를 설정합니다.
 
 **Target**: 이 매개 변수는 _runconfig_ 파일이 참조하는 _.compute_ 파일의 이름입니다. 이는 일반적으로 _foo.compute_ 파일을 가리키지만 다른 계산 대상을 가리키도록 편집할 수 있습니다.
 
@@ -175,7 +177,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-이러한 환경 변수는 사용자의 코드에서 액세스할 수 있습니다. 예를 들어 이 Python 코드는 "EXAMPLE_ENV_VAR"이라는 환경 변수를 인쇄함
+이러한 환경 변수는 사용자의 코드에서 액세스할 수 있습니다. 예를 들어 이 Python 코드는 "EXAMPLE_ENV_VAR"이라는 환경 변수를 출력합니다.
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
@@ -194,7 +196,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **DataSourceSettings**: 이 구성 섹션은 데이터 소스 설정을 지정합니다. 이 섹션에서 사용자는 실행의 일부로 사용하는 특정 데이터 소스의 기존 데이터 샘플을 지정합니다. 
 
-다음 구성 설정은 "MyDataSource"라는 데이터 소스에 대해 "MySample"이라는 샘플을 사용한다는 것을 지정함
+다음 구성 설정은 "MySample"이라는 샘플이 "MyDataSource"라는 데이터 소스에 사용되는 것을 지정합니다.
 ```
 DataSourceSettings:
     MyDataSource.dsource:

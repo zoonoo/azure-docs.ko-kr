@@ -2,22 +2,20 @@
 title: Azure CosmosDB Graph API .NET SDK 및 리소스 | Microsoft Docs
 description: 릴리스 날짜, 사용 중지 날짜 및 각 버전 간에 변경된 내용을 포함하는 Azure CosmosDB Graph API에 대한 모든 것을 알아봅니다.
 services: cosmos-db
-documentationcenter: .net
 author: luisbosquez
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-graph
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 41608e76216f63ccf3165cc3959787c661d71fa0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c5975809b0f196fe88a11504549b046e910fc93c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795927"
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB Graph .NET API: 다운로드 및 릴리스 정보
 

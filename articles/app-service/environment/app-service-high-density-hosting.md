@@ -1,24 +1,25 @@
 ---
-title: "Azure App Service의 고밀도 호스팅 | Microsoft Docs"
-description: "Azure App Service의 고밀도 호스팅"
+title: Azure App Service의 고밀도 호스팅 | Microsoft Docs
+description: Azure App Service의 고밀도 호스팅
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 22/01/2018
+ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 8bdf62ce70929c583b59b91e5f1e7c520376120b
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735815"
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Azure App Service의 고밀도 호스팅
 App Service를 사용할 경우 응용 프로그램은 2가지 개념에 의해 할당된 용량에서 분리됩니다.

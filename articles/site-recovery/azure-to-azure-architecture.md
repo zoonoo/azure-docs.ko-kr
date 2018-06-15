@@ -6,23 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 67552b05d70e3ae44d75cbe1005743b6d17b2c2c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209504"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716230"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 간 복제 아키텍처
 
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure 지역 간에 Azure VM(가상 머신)을 복제, 장애 조치(Failover) 및 복구할 때 사용되는 아키텍처에 대해 설명합니다.
 
->[!NOTE]
->Site Recovery 서비스를 사용하는 Azure VM 복제는 현재 미리 보기로 제공됩니다.
 
 
 

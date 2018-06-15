@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757198"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화
 
@@ -148,7 +149,7 @@ Storage
 
 **인터넷 게이트웨이 및 공용 IP 주소**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 WAF(웹 응용 프로그램 방화벽) 보호 기능을 포함하는 계층 7 라우팅 및 부하 분산 기능을 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다.
 
-**관리 VNet**: 이 [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains)에는 프로덕션 VNet에서 실행되는 워크로드에 관리 및 모니터링 기능을 구현하는 리소스가 포함되어 있습니다.
+**관리 VNet**: 이 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에는 프로덕션 VNet에서 실행되는 워크로드에 관리 및 모니터링 기능을 구현하는 리소스가 포함되어 있습니다.
 
 **Jumpbox**: [요새 호스트](https://en.wikipedia.org/wiki/Bastion_host)라고도 하며 관리자가 프로덕션 VNet의 VM에 연결하는 데 사용하는 네트워크의 보안 VM입니다. Jumpbox는 안전 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하는 NSG를 사용합니다. RDP(원격 데스크톱) 트래픽을 허용하려면 트래픽의 원본이 NSG에 정의되어야 합니다. 프로덕션 리소스는 보안 Jumpbox VM을 사용하여 RDP를 통해 관리됩니다.
 

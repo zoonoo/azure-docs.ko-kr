@@ -7,14 +7,16 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 93df053bf62b5a69f74d816fc05520d040d73bd7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831992"
 ---
 # <a name="consuming-web-services"></a>웹 서비스 사용
 모델을 실시간 웹 서비스로 배포하면 다양한 플랫폼과 응용 프로그램에서 데이터를 보내고 예측을 가져올 수 있습니다. 실시간 웹 서비스는 예측을 가져오기 위한 REST API를 공개합니다. 여러 예측을 한 번에 가져오기 위해 웹 서비스에 데이터를 단일 또는 다중 행 형식으로 보낼 수 있습니다.

@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: adhurwit
-ms.openlocfilehash: de8276b22377db37075c6793d0710bb18625446c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802105"
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>웹 응용 프로그램에서 Azure Key Vault 사용
 
@@ -260,7 +261,7 @@ Web App에 인증서 추가에 대해 자세히 알아보려면 [Azure Websites 
 
 ## <a id="next"></a>다음 단계
 
-프로그래밍 참조는 [Azure Key Vault C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
+프로그래밍 참조는 [Azure Key Vault C# 클라이언트 API 참조](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

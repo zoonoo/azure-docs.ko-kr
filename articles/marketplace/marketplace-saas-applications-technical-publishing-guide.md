@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076714"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809474"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS 응용 프로그램 기술 게시 가이드
 
@@ -51,7 +51,7 @@ SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다
 | **PowerBI/Dynamics** | 예 | 예(Azure AD 통합) |  
 | **SaaS 앱**| 예 | 예(Azure AD 통합) |     
 
-Marketplace 상점 및 각 게시 옵션의 설명에 대한 자세한 내용은 [Marketplace 게시자 가이드](https://aka.ms/sellerguide) 및 [게시 옵션](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option)을 참조하세요.
+Marketplace 상점 및 각 게시 옵션의 설명에 대한 자세한 내용은 [Marketplace 게시자 가이드](https://aka.ms/sellerguide) 및 [게시 옵션](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option)을 참조하세요.
 
 ## <a name="business-requirements"></a>비즈니스 요구 사항
 SaaS 제품 비즈니스 요구 사항은 기술 요구 사항과 병렬로 완료될 수 있습니다. 대부분의 비즈니스 요구 사항 및 정보는 Cloud 파트너 포털에 있는 SaaS 제품을 빌드할 때 수집됩니다. 비즈니스 요구 사항은 다음과 같습니다. 
@@ -62,7 +62,7 @@ SaaS 제품 비즈니스 요구 사항은 기술 요구 사항과 병렬로 완�
 * 개인 정보 취급 방침 및 사용 약관 설정
 * 고객 지원팀 연락처 정의  
 
-자세한 내용은 [마켓플레이스 게시에 대한 필수 구성 요소](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing) 항목에서 찾을 수 있습니다.
+자세한 내용은 [마켓플레이스 게시에 대한 필수 구성 요소](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing) 항목에서 찾을 수 있습니다.
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
@@ -72,11 +72,11 @@ SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게�
 
 최상의 Azure Active Directory 설명서, 샘플 및 지침은 다음 사이트에 위치합니다. 
 
-* [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Azure Active Directory와 통합](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Azure Active Directory와 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Azure 로드맵 - 보안 및 ID](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -125,7 +125,7 @@ SaaS 게시 프로세스에는 기술 및 비즈니스 단계가 있습니다.  
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 
-Microsoft에서는 Azure AD를 사용하여 모든 Marketplace를 인증하므로, 인증된 사용자가 Marketplace에서 평가판 항목을 클릭하고 평가판 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 평가판 단계로 직접 프로비전할 수 있습니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
+Microsoft에서는 Azure AD를 사용하여 모든 Marketplace를 인증하므로, 인증된 사용자가 Marketplace에서 평가판 항목을 클릭하고 평가판 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 평가판 단계로 직접 프로비전할 수 있습니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
 
 Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클릭 인증을 사용할 수 있습니다.  
 * 고객이 Marketplace의 환경에서 평가판으로 간단히 전환할 수 있습니다.  
@@ -141,15 +141,15 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 이미 Azure AD를 지원하는 경우 다음을 수행합니다.
 1.  Azure Portal에서 응용 프로그램을 등록합니다.
-2.  Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)에서 자세한 내용을 찾을 수 있습니다.  
+2.  Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에서 자세한 내용을 찾을 수 있습니다.  
 
 Azure AD 페더레이션 SSO를 처음 사용하는 경우 다음을 수행합니다. 
 1.  Azure Portal에서 응용 프로그램을 등록합니다.
-2.  [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 Azure AD에서 SSO를 개발합니다.
-3.  AAD의 다중 테넌트 지원 기능으로 '원클릭'만으로 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)에서 자세한 내용을 찾을 수 있습니다.  
+2.  [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 Azure AD에서 SSO를 개발합니다.
+3.  AAD의 다중 테넌트 지원 기능으로 '원클릭'만으로 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)에서 자세한 내용을 찾을 수 있습니다.  
 
 **단일 테넌트 응용 프로그램의 경우 다음 옵션 중 하나를 사용합니다.**  
-* [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 사용하여 게스트 사용자로 디렉터리에 사용자 추가
+* [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 사용하여 게스트 사용자로 디렉터리에 사용자 추가
 * '연락처'를 사용하여 고객에게 평가판을 수동으로 프로비전
 * 고객별로 '시험 사용' 개발
 * SSO를 통해 다중 테넌트 샘플 데모 앱을 빌드합니다.
