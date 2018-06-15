@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792633"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
@@ -38,7 +39,7 @@ SQL 쿼리 편집기는 Azure Portal에서 Azure SQL Database 또는 Azure SQL D
 
 1. 왼쪽 메뉴에서 **SQL 데이터베이스**를 클릭하고 쿼리할 데이터베이스를 클릭합니다.
 
-2. 데이터베이스의 SQL Database 페이지에서 왼쪽 메뉴에 있는 **쿼리 편집기(미리 보기)**를 찾아 클릭합니다.
+2. 데이터베이스의 SQL Database 페이지에서 왼쪽 메뉴에 있는 **쿼리 편집기(미리 보기)** 를 찾아 클릭합니다.
 
     ![쿼리 편집기 찾기](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
@@ -66,7 +67,7 @@ Active Directory 관리자를 구성하면 단일 ID를 사용하여 Azure Porta
 
 4. Active Directory 관리 블레이드의 위쪽에서 **저장** 명령을 클릭하여 Active Directory 관리자를 설정합니다.
 
-쿼리하려는 SQL Database로 이동하고 왼쪽 메뉴에서 **데이터 탐색기(미리 보기)**를 클릭합니다. 데이터 편집기 페이지가 열리고 해당 데이터베이스에 자동으로 연결됩니다.
+쿼리하려는 SQL Database로 이동하고 왼쪽 메뉴에서 **데이터 탐색기(미리 보기)** 를 클릭합니다. 데이터 편집기 페이지가 열리고 해당 데이터베이스에 자동으로 연결됩니다.
 
 
 ## <a name="run-query-using-query-editor"></a>쿼리 편집기를 사용하여 쿼리 실행

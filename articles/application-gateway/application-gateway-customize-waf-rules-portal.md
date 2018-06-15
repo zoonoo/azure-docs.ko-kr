@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769123"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Azure Portal을 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정
 

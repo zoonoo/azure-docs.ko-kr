@@ -8,19 +8,20 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.openlocfilehash: dfc59c8d976720ddb313c2e9d29e68c56a8d49f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/07/2018
+ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893653"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 실시간 스트리밍 시나리오에서 임시 창에 포함된 데이터에서 작업을 수행하는 것은 일반적인 패턴입니다. Stream Analytics에는 개발자가 최소한의 노력으로 복잡한 스트림 처리 작업을 작성할 수 있도록 창 함수에 대한 네이티브 지원이 있습니다.
 
-다음과 같은 선택할 수 있는 네 종류의 임시 창이 있습니다. [**연속**](https://msdn.microsoft.com/library/dn835055.aspx), [**도약**](https://msdn.microsoft.com/library/dn835041.aspx), [**슬라이딩**](https://msdn.microsoft.com/library/dn835051.aspx) 및 **세션** 창  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) 절에서 창 함수를 사용합니다.
+다음과 같은 선택할 수 있는 네 종류의 임시 창이 있습니다. [**연속**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**도약**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**슬라이딩**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) 및 [**세션**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) 창  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) 절에서 창 함수를 사용합니다.
 
-모든 [창](https://msdn.microsoft.com/library/dn835019.aspx) 작업 결과는 창의 **끝**에 출력됩니다. 창의 출력은 사용된 집계 함수를 기반으로 하는 단일 이벤트입니다. 출력 이벤트에는 창 끝의 타임스탬프가 있고 모든 창 함수는 고정된 길이로 정의됩니다. 
+모든 [창](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) 작업 결과는 창의 **끝**에 출력됩니다. 창의 출력은 사용된 집계 함수를 기반으로 하는 단일 이벤트입니다. 출력 이벤트에는 창 끝의 타임스탬프가 있고 모든 창 함수는 고정된 길이로 정의됩니다. 
 
 ![Stream Analytics 창 함수 개념](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -54,7 +55,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

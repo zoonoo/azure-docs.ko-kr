@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33835783"
 ---
 1. Android Studio의 도구 모음에서 아이콘을 클릭하거나 메뉴에서 **도구** > **Android** > **SDK Manager**를 클릭하여 Android SDK Manager를 엽니다. 프로젝트에서 사용되는 Android SDK의 대상 버전을 찾고, **패키지 정보 표시**를 클릭하여 열고, 아직 설치되지 않은 경우 **Google API**를 선택합니다.
 2. **SDK 도구** 탭을 클릭합니다. Google Play Service를 아직 설치하지 않은 경우 아래와 같이 **Google Play Services** 를 클릭합니다. **적용** 을 클릭하여 설치합니다. 
