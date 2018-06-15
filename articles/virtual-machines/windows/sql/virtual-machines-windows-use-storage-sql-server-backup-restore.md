@@ -1,8 +1,8 @@
 ---
-title: "SQL Server 백업 및 복원에 Azure 저장소를 사용하는 방법 | Microsoft Docs"
-description: "Azure Storage에 SQL Server를 백업하는 방법에 알아봅니다. Azure Storage에 SQL 데이터베이스를 백업할 때의 이점에 대해 설명합니다."
+title: SQL Server 백업 및 복원에 Azure 저장소를 사용하는 방법 | Microsoft Docs
+description: Azure Storage에 SQL Server를 백업하는 방법에 알아봅니다. Azure Storage에 SQL 데이터베이스를 백업할 때의 이점에 대해 설명합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399052"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server 백업 및 복원에 Azure Storage 사용
 ## <a name="overview"></a>개요

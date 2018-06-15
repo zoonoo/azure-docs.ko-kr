@@ -1,11 +1,11 @@
 ---
-title: "지점 및 사이트 간 연결과 인증서 인증을 사용하여 가상 네트워크에 컴퓨터 연결: Azure Portal 클래식 | Microsoft Docs"
-description: "Azure Portal을 사용하여 클래식 지점 및 사이트 간 VPN 게이트웨이 연결을 만듭니다."
+title: '지점 및 사이트 간 연결과 인증서 인증을 사용하여 가상 네트워크에 컴퓨터 연결: Azure Portal 클래식 | Microsoft Docs'
+description: Azure Portal을 사용하여 클래식 지점 및 사이트 간 VPN 게이트웨이 연결을 만듭니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464330"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>인증서 인증(클래식)을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure Portal
 
@@ -169,8 +170,8 @@ ms.lasthandoff: 02/22/2018
 1. Azure Portal에서 VNet에 대한 **개요** 페이지의 **VPN 연결**에서 클라이언트 그래픽을 클릭하여 **지점 및 사이트 간 VPN 연결** 페이지를 엽니다.
 2. **지점 및 사이트 간 VPN 연결** 페이지 맨 위에서 설치할 클라이언트 운영 체제에 해당하는 다운로드 패키지를 선택합니다.
 
-  * 64비트 클라이언트인 경우 **VPN 클라이언트(64비트)**를 선택합니다.
-  * 32비트 클라이언트인 경우 **VPN 클라이언트(32비트)**를 선택합니다.
+  * 64비트 클라이언트인 경우 **VPN 클라이언트(64비트)** 를 선택합니다.
+  * 32비트 클라이언트인 경우 **VPN 클라이언트(32비트)** 를 선택합니다.
 
   ![VPN 클라이언트 구성 패키지 다운로드](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)<br>
 3. 패키지가 생성되면 다운로드하여 클라이언트 컴퓨터에 설치합니다. SmartScreen 팝업이 표시되면 **자세한 정보**, **실행**을 차례로 클릭합니다. 다른 클라이언트 컴퓨터에 설치하기 위해 패키지를 저장할 수도 있습니다.

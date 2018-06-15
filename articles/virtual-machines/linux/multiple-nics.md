@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525185"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 머신)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결되어 있는 VM을 만드는 방법과 기존 VM에서 NIC를 추가 또는 제거하는 방법을 자세히 설명합니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
@@ -195,7 +196,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-네트워크 스택이 활성화되어 있는 동안 변경 내용을 영구적으로 적용하려면 */etc/sysconfig/network-scripts/ifcfg-eth0* 및 */etc/sysconfig/network-scripts/ifcfg-eth1*을 편집합니다. *"NM_CONTROLLED=yes"* 행을 *"NM_CONTROLLED=no"*로 바꿉니다. 이 단계를 수행하지 않으면 추가 규칙/라우팅이 자동으로 적용되지 않습니다.
+네트워크 스택이 활성화되어 있는 동안 변경 내용을 영구적으로 적용하려면 */etc/sysconfig/network-scripts/ifcfg-eth0* 및 */etc/sysconfig/network-scripts/ifcfg-eth1*을 편집합니다. *"NM_CONTROLLED=yes"* 행을 *"NM_CONTROLLED=no"* 로 바꿉니다. 이 단계를 수행하지 않으면 추가 규칙/라우팅이 자동으로 적용되지 않습니다.
  
 다음으로, 라우팅 테이블을 확장합니다. 다음과 같이 설정되었다고 가정해 보겠습니다.
 
