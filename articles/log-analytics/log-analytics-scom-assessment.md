@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics를 사용하여 System Center Operations Manager 환경 최적화 | Microsoft Docs"
-description: "System Center Operations Manager Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다."
+title: Azure Log Analytics를 사용하여 System Center Operations Manager 환경 최적화 | Microsoft Docs
+description: System Center Operations Manager Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180039"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
