@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31601059"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -243,7 +244,7 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-4. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 연결을 만들 때 사용한 이름을 볼 수 있습니다.<br>VNet 이름은 **VirtualNetworkSite name =**으로 나열됩니다.<br>사이트 이름은 **LocalNetworkSiteRef name =**으로 나열됩니다.
+4. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 연결을 만들 때 사용한 이름을 볼 수 있습니다.<br>VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.<br>사이트 이름은 **LocalNetworkSiteRef name =** 으로 나열됩니다.
 
 ## <a name="createconnections"></a>8단계 - VPN 게이트웨이 연결 만들기
 
