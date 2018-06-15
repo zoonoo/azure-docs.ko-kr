@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f1d3076957a98eab68e0e566d8d0c594b385ee2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208977"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716043"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행
 
@@ -26,7 +26,7 @@ ms.locfileid: "34208977"
 > * 필수 구성 요소 확인
 > * VM에 대해 테스트 장애 조치(failover) 실행
 
-Azure에서 Azure로의 복제는 현재 미리 보기에 있습니다.
+
 
 ## <a name="prerequisites"></a>필수 조건
 

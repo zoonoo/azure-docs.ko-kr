@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 동기화: 아키텍처 이해 | Microsoft Docs"
-description: "이 항목에서는 Azure AD Connect 동기화의 아키텍처와 사용되는 용어에 대해 설명합니다."
+title: 'Azure AD Connect 동기화: 아키텍처 이해 | Microsoft Docs'
+description: 이 항목에서는 Azure AD Connect 동기화의 아키텍처와 사용되는 용어에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a6150dca80a137e9787d943bfe9abb4224e6fe6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 079dfe772e6c189c0e81ea7af16d11a1c40f3ebe
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593489"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect 동기화: 아키텍처 이해
 이 항목에서는 Azure AD Connect 동기화의 기본 아키텍처에 대해 설명합니다. 다양한 측면에서 이전 버전의 MIIS 2003, ILM 2007 및 FIM 2010과 비슷합니다. Azure AD Connect 동기화는 이러한 기술이 진화된 모습입니다. 이러한 앞의 기술에 대해 잘 알고 있다면 이 항목의 내용 역시 이해하기 쉽습니다. 동기화를 처음 접하는 경우 이 항목이 도움이 될 것입니다. 하지만 Azure AD Connect 동기화(이 토픽에서는 동기화 엔진이라고 함)를 성공적으로 사용자 지정하기 위해 이 항목의 세부 내용을 알 필요는 없습니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 동기화 엔진은 연결된 여러 데이터 원본에 저장된 개체의 통합된 보기를 만들고 해당 데이터 원본에서 ID 정보를 관리합니다. 이 통합된 보기는 연결된 데이터 원본에서 검색된 ID 정보와 이 정보를 처리하는 방법을 결정하는 규칙 집합에 의해 결정됩니다.
 
 ### <a name="connected-data-sources-and-connectors"></a>연결된 데이터 원본 및 커넥터

@@ -6,18 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
-ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: 4048df1c5e536a4a33af39466e57b1b38c080c06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 85cf3a7e59991b6bf7884a72af7ba0ff76e19460
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712721"
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>빠른 시작: Azure Active Directory Premium에 등록
 Azure AD(Azure Active Directory) Premium을 시작하기 위해 라이선스를 구입하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만드는 경우 다음 절에 설명된 대로 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다. 

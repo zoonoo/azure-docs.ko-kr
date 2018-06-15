@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 내 Analytics 문제 해결 | Microsoft Docs"
-description: "Application Insights Analytics에 문제가 있습니까? 여기에서 시작합니다. "
+title: Azure Application Insights 내 Analytics 문제 해결 | Microsoft Docs
+description: 'Application Insights Analytics에 문제가 있습니까? 여기에서 시작합니다. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -10,21 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294162"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights의 Analytics 문제 해결
 [Application Insights Analytics](app-insights-analytics.md)에 문제가 있습니까? 여기에서 시작합니다. Analytics는 Azure Application Insights의 강력한 검색 도구입니다.
 
 ## <a name="limits"></a>제한
 * 현재, 쿼리 결과는 지난 주의 데이터로 제한됩니다.
-* 테스트 브라우저: Chrome, Microsoft Edge 및 Internet Explorer 최신 버전.
+* 테스트 브라우저: Chrome, Edge 및 Internet Explorer 최신 버전.
 
 ## <a name="known-incompatible-browser-extensions"></a>알려진 호환되지 않는 브라우저 확장
 * Ghostery

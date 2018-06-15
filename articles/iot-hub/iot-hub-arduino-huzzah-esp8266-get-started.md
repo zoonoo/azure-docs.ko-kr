@@ -1,25 +1,20 @@
 ---
 title: ESP8266에서 클라우드로 - Feather HUZZAH ESP8266을 Azure IoT Hub에 연결 | Microsoft Docs
 description: 이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Adafruit Feather HUZZAH ESP8266를 설정하고 해당 Azure IoT Hub에 연결하는 방법을 알아봅니다.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
-keywords: ''
-ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
+manager: nasing
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: b850bb25d7a6d06a2d0f55ed915321badf76bb39
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3431cc729550c0dd6eae8f332e2f8996cde9b02f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631480"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266을 클라우드의 Azure IoT Hub에 연결
 
@@ -180,7 +175,7 @@ Visual Studio Code에 Feather HUZZAH ESP8266 패키지를 설치합니다.
    ![esp8266 패키지가 설치됨](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
 1. `F1` 및 **Arduino**를 차례로 입력하고 **Arduino: 보드 구성**을 선택합니다.
-1. **선택한 보드:**에 대한 상자를 클릭하고 **esp8266**을 선택한 후 **Adafruit HUZZAH ESP8266(esp8266)**을 선택합니다.
+1. **선택한 보드:** 에 대한 상자를 클릭하고 **esp8266**을 선택한 후 **Adafruit HUZZAH ESP8266(esp8266)** 을 선택합니다.
 
    ![esp8266 보드 선택](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
@@ -210,7 +205,7 @@ Visual Studio Code에 Feather HUZZAH ESP8266 패키지를 설치합니다.
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Feather HUZZAH ESP8266에 응용 프로그램 예제 배포
 
-1. Visual Studio Code의 상태 표시줄에서 **<Select Serial Port>**를 클릭한 후 Feather HUZZAH ESP8266에 대한 직렬 포트를 클릭합니다.
+1. Visual Studio Code의 상태 표시줄에서 **<Select Serial Port>** 를 클릭한 후 Feather HUZZAH ESP8266에 대한 직렬 포트를 클릭합니다.
 1. `F1`을 입력하고 **Arduino**를 입력한 후 **Arduino: 업로드**를 선택하여 샘플 응용 프로그램을 빌드하고 Feather HUZZAH ESP8266에 배포합니다.
 
 ### <a name="enter-your-credentials"></a>자격 증명 입력

@@ -2,7 +2,7 @@
 title: 통합 계정 아티팩트 메타데이터 관리 - Azure Logic Apps | Microsoft Docs
 description: Azure Logic Apps에 대한 통합 계정에서 아티팩트 메타데이터 추가 또는 검색
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 02/23/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8ebca60c21366cddadccfd0456880696457d7777
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3e7ef6aef9bc1062ae0f76adfbaf086961fcaa94
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298368"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Logic Apps에 대한 통합 계정에서 아티팩트 메타데이터 관리
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect - userCertificate 특성으로 인한 LargeObject 오류 | Microsoft Docs"
-description: "이 항목에서는 userCertificate 특성으로 인한 LargeObject 오류에 대한 수정 단계를 제공합니다."
+title: Azure AD Connect - userCertificate 특성으로 인한 LargeObject 오류 | Microsoft Docs
+description: 이 항목에서는 userCertificate 특성으로 인한 LargeObject 오류에 대한 수정 단계를 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9866454735b33239a812dca238006299c74e5ae2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592809"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
 
@@ -78,7 +80,7 @@ Azure AD에 의도하지 않은 변경 사항을 내보내지 않도록 새 동�
 
 3. 시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
 
-4. **작업** 탭으로 이동하고 상태가 *“진행 중”*인 작업이 없는지 확인합니다.
+4. **작업** 탭으로 이동하고 상태가 *“진행 중”* 인 작업이 없는지 확인합니다.
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>2단계. userCertificate 특성에 대한 기존 아웃바운드 동기화 규칙을 찾습니다.
 User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 활성화 및 구성된 기존 동기화 규칙이 있어야 합니다. 이 동기화 규칙을 찾아 해당 **우선 순위**와 **범위 지정 필터** 구성을 확인합니다.
@@ -142,14 +144,14 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 4. 미리 보기 팝업 화면에서 **전체 동기화**를 선택하고 **커밋 미리 보기**를 클릭합니다.
 5. 미리 보기 화면과 커넥터 공간 개체 속성 화면을 닫습니다.
 6. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
-7. **Azure AD** 커넥터를 마우스 오른쪽 단추로 클릭하고 **실행...**을 선택합니다.
+7. **Azure AD** 커넥터를 마우스 오른쪽 단추로 클릭하고 **실행...** 을 선택합니다.
 8. 커넥터 실행 팝업에서 **내보내기** 단계를 선택하고 **확인**을 클릭합니다.
 9. Azure AD로 내보내기가 완료될 때까지 기다렸다가 이 특정 개체에 LargeObject 오류가 더 이상 없는지 확인합니다.
 
 ### <a name="step-5-apply-the-new-sync-rule-to-remaining-objects-with-largeobject-error"></a>5단계. LargeObject 오류가 있는 나머지 개체에 새 동기화 규칙을 적용합니다.
 동기화 규칙이 추가되면 AD 커넥터에서 전체 동기화 단계를 실행해야 합니다.
 1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
-2. **AD** 커넥터를 마우스 오른쪽 단추로 클릭하고 **실행...**을 선택합니다.
+2. **AD** 커넥터를 마우스 오른쪽 단추로 클릭하고 **실행...** 을 선택합니다.
 3. 커넥터 실행 팝업에서 **전체 동기화** 단계를 선택하고 **확인**을 클릭합니다.
 4. 전체 동기화 단계가 완료될 때까지 기다립니다.
 5. AD 커넥터가 둘 이상이면 나머지 AD 커넥터에 대해 위의 단계를 반복합니다. 일반적으로 여러 온-프레미스 디렉터리가 있으면 여러 커넥터가 필요합니다.
@@ -166,7 +168,7 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 ### <a name="step-7-export-the-changes-to-azure-ad"></a>7단계. 변경 사항을 Azure AD로 내보냅니다.
 변경 사항을 Azure AD로 내보내려면
 1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
-2. **Azure AD** 커넥터를 마우스 오른쪽 단추로 클릭하고 **실행...**을 선택합니다.
+2. **Azure AD** 커넥터를 마우스 오른쪽 단추로 클릭하고 **실행...** 을 선택합니다.
 4. 커넥터 실행 팝업에서 **내보내기** 단계를 선택하고 **확인**을 클릭합니다.
 5. Azure AD로 내보내기가 완료될 때까지 기다렸다가 LargeObject 오류가 더 이상 없는지 확인합니다.
 

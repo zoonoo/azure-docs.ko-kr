@@ -1,7 +1,7 @@
 ---
-title: "Azure Application Insights에서 사용자 지정 대시보드 만들기 | Microsoft Docs"
-description: "Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드를 만드는 자습서입니다."
-keywords: 
+title: Azure Application Insights에서 사용자 지정 대시보드 만들기 | Microsoft Docs
+description: Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드를 만드는 자습서입니다.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29178199"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 

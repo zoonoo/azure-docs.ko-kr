@@ -15,12 +15,12 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 10/06/2017
 ms.author: Alexander.Yukhanov
-ms.openlocfilehash: 3601ea412790c991892a0c05210d2551810287b8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8d2381f710e87751bd6547c7f435080f185020d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869022"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608548"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-cli"></a>Azure CLI를 사용하여 CNTK 교육 작업 실행
 
@@ -446,5 +446,5 @@ az batchai job show -n cntk_python_1 -g batchai.quickstart --query jobOutputDire
 다음 명령을 사용하여 리소스 그룹과 할당된 모든 리소스를 삭제합니다.
 
 ```azurecli
-az batchai group delete -n batchai.quickstart -y
+az group delete -n batchai.quickstart -y
 ```

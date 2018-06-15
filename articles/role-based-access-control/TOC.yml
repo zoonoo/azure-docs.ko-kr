@@ -15,11 +15,13 @@
           href: tutorial-role-assignments-user-powershell.md
         - name: 그룹에 대한 액세스 권한 부여 - PowerShell
           href: tutorial-role-assignments-group-powershell.md
+        - name: 사용자 지정 역할 만들기 - PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: 사용자 지정 역할 만들기 - CLI
+          href: tutorial-custom-role-cli.md
     - name: 역할 할당 관리
       items:
-        - name: 사용자
-          href: role-assignments-users.md
-        - name: 리소스
+        - name: 포털
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Azure CLI
           href: role-assignments-cli.md
