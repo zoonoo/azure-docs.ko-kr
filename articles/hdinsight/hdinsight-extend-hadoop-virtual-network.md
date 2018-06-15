@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700709"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -90,7 +91,7 @@ ms.lasthandoff: 05/20/2018
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        자세한 내용은 [네트워크 보안 그룹 문제 해결](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) 문서를 참조하세요.
+        자세한 내용은 [네트워크 보안 그룹 문제 해결](../virtual-network/diagnose-network-traffic-filter-problem.md) 문서를 참조하세요.
 
         > [!IMPORTANT]
         > 네트워크 보안 그룹 규칙은 규칙 우선 순위에 따라 적용됩니다. 트래픽 패턴과 일치하는 첫 번째 규칙이 적용되고 해당 트래픽에 대해서는 다른 규칙이 적용되지 않습니다. 가장 허용적인 것부터 가장 허용적이지 않은 것 순서로 규칙을 정렬합니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/security-overview.md) 문서를 참조하세요.
@@ -107,7 +108,7 @@ ms.lasthandoff: 05/20/2018
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        자세한 내용은 [문제 해결 경로](../virtual-network/virtual-network-routes-troubleshoot-portal.md) 문서를 참조하세요.
+        자세한 내용은 [문제 해결 경로](../virtual-network/diagnose-network-routing-problem.md) 문서를 참조하세요.
 
 4. HDInsight 클러스터를 만들고 구성 중 Azure Virtual Network를 선택합니다. 클러스터 만들기 프로세스를 이해하려면 다음 문서의 단계를 사용하세요.
 

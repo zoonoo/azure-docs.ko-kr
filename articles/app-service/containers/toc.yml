@@ -157,6 +157,8 @@
       href: /rest/api/appservice/
 - name: 리소스
   items:
+    - name: Linux의 App Service FAQ
+      href: app-service-linux-faq.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격

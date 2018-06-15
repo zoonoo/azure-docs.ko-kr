@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31602504"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 이러한 단계에서는 Azure PowerShell 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다.

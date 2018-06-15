@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785762"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 Encoding 워크플로 만들기
 ## <a name="overview"></a>개요

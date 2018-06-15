@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33882983"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869923"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 모바일 앱 인증 활성화
 

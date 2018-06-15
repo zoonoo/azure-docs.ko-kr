@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Suite FAQ | Microsoft Docs
-description: "IoT Suite에 대한 질문과 대답"
-services: 
+description: IoT Suite에 대한 질문과 대답
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 77b9fab68b66fe8998733a8f890acb9dd6b97899
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702335"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
 
-연결된 팩터리 관련 [FAQ](iot-suite-faq-cf.md)도 참조하세요.
+연결된 팩터리 관련 [FAQ](../iot-accelerators/iot-accelerators-faq-cf.md)도 참조하세요.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>어디에서 미리 구성된 솔루션의 소스 코드를 찾을 수 있습니까?
 
@@ -63,7 +64,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
 
-2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜잭션 Level 1 계획을 사용하여 기본으로 프로비전됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
+2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜젝션 Level 1 계획을 사용하여 기본으로 프로비전됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
 
 ### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>정적 맵이 있는 원격 모니터링 솔루션 배포에서는 대화형 Bing 맵을 어떻게 추가하나요?
 
@@ -104,11 +105,11 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk
 미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
 
 * [예측 정비 사전 구성 솔루션 개요][lnk-predictive-overview]
-* [연결된 팩터리 미리 구성된 솔루션 개요](iot-suite-connected-factory-overview.md)
+* [연결된 팩터리 미리 구성된 솔루션 개요](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [처음부터 IoT 보안을 고려][lnk-security-groundup]
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

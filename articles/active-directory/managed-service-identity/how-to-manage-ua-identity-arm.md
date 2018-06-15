@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: e5c5ff74ee94f8df03ceb5b469ad635bd80d5a11
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ce8221cd7bf427084e63f8b13dcf6f0f1cc7a35e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931030"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699005"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 사용자 할당 ID 생성, 나열 및 삭제
 
@@ -53,8 +53,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
 
 사용자 할당 ID를 만들려면 다음 템플릿을 사용하세요. `<USER ASSIGNED IDENTITY NAME>` 값을 원하는 값으로 바꿉니다.
 
-> [!IMPORTANT]
-> 사용자 할당 ID 만들기는 영숫자와 하이픈(0-9 또는 a-z 또는 A-Z 또는 -) 문자만 지원합니다. 또한 VM/VMSS에 대한 할당이 제대로 작동하려면 이름의 길이가 24자로 제한되어야 합니다. 업데이트를 다시 확인하십시오. 자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```json
 {
