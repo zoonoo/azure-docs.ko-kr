@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201371"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>PowerShell을 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정
 

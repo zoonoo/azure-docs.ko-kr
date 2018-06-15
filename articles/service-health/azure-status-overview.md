@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181823"
 ---
 # <a name="azure-status"></a>Azure 상태
 [Azure 상태](https://azure.microsoft.com/status/)는 Azure 서비스 상태에 대한 전반적인 보기를 제공합니다. Azure 상태를 사용하여 서비스 가용성에 대한 최신 정보를 얻을 수 있습니다. 모든 사용자는 Azure 상태에 대한 액세스를 가지며 해당 서비스 상태를 보고하는 모든 서비스를 볼 수 있습니다. 
