@@ -8,18 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34361378"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830540"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>데이터 과학 가상 머신 기반 팀 분석 및 AI 환경 
 DSVM([데이터 과학 가상 머신](overview.md))은 Azure 클라우드에 이미 만들어진 AI 및 데이터 분석용 소프트웨어를 포함한 풍부한 환경을 제공합니다. 일반적으로 DSVM은 개별 분석 바탕 화면으로 사용해 왔으며 개인 데이터 과학자는 미리 만들어진 자신의 분석 환경에 대한 이 공유 표기법으로 생산성을 높입니다. 대규모 분석 팀이 자신의 데이터 과학자와 AI 개발자를 위한 자체의 분석 환경을 계획할 때 늘 되풀이되는 주제 중 하나는 전체 데이터 과학 / 분석 팀에 걸쳐 공동 작업 및 일관성을 촉진하는 엔터프라이즈 IT 정책과 일치하는 공유 분석 개발 및 실험 인프라에 대한 것입니다. 또한 IT는 공유 인프라를 사용하여 분석 환경을 더 잘 활용할 수 있습니다. 팀 기반 데이터 과학 / 분석 인프라를 사용하면 데이터 과학자가 다양한 데이터 자산에 액세스하면서도 프로덕션 환경에 영향을 주지 않고 빠르게 데이터를 이해하고 실험을 실행하고 가설의 유효성을 검사하고 예측 모델을 안전한 방법으로 만들 수 있으므로 어떤 조직에서는 이를 일명 "분석 샌드박스"라고도 합니다. 

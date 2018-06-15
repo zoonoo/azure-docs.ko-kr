@@ -1,25 +1,21 @@
 ---
 title: Azure Logic Apps를 사용하여 IoT 원격 모니터링 및 알림 | Microsoft Docs
 description: Azure Logic Apps을 사용하여 IoT Hub에서 IoT 온도를 모니터링하고 감지된 이상에 대한 전자 메일 알림을 자동으로 사서함에 보낼 수 있습니다.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: iot 모니터링, iot 알림, iot 온도 모니터링
-ms.assetid: 43043067-2e1f-42c9-953d-e2dce8fd86df
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e54c36d0cfbaedb93db86ad6ce5f99b288b63c9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e59577e99114f1b2061a2f9075976da3f0b1811f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634457"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
 
@@ -132,7 +128,7 @@ IoT Hub와 사서함을 연결하여 온도를 모니터링하고 알림을 보�
 
    ![Service Bus를 선택하여 Azure Portal에서 논리 앱 만들기 시작](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6_select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. **Service Bus – 큐에 하나 이상의 메시지가 도착하는 경우(자동 완성)**를 클릭합니다.
+1. **Service Bus – 큐에 하나 이상의 메시지가 도착하는 경우(자동 완성)** 를 클릭합니다.
 1. Service Bus 연결을 만듭니다.
    1. 연결 이름을 입력합니다.
    1. Service Bus 네임스페이스 > Service Bus 정책 > **만들기**를 클릭합니다.

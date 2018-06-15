@@ -2,7 +2,7 @@
 title: B2B 모니터링을 위한 AS2 추적 스키마 - Azure Logic Apps | Microsoft Docs
 description: AS2 추적 스키마를 사용하여 Azure 통합 계정의 트랜잭션에서 B2B 메시지를 모니터링합니다.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300884"
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>AS2 메시지 및 MDN의 추적을 시작 또는 사용하여 성공, 오류 및 메시지 속성을 모니터링
 Azure 통합 계정에서 다음 AS2 추적 스키마를 사용하여 B2B(business-to-business) 트랜잭션을 모니터링할 수 있습니다.
@@ -59,7 +60,7 @@ Azure 통합 계정에서 다음 AS2 추적 스키마를 사용하여 B2B(busine
     }
 ````
 
-| 자산 | 유형 | 설명 |
+| 자산 | type | 설명 |
 | --- | --- | --- |
 | senderPartnerName | 문자열 | AS2 메시지 보낸 사람의 파트너 이름입니다. (선택 사항) |
 | receiverPartnerName | 문자열 | AS2 메시지 받는 사람의 파트너 이름입니다. (선택 사항) |
@@ -111,7 +112,7 @@ Azure 통합 계정에서 다음 AS2 추적 스키마를 사용하여 B2B(busine
     }
 ````
 
-| 자산 | 유형 | 설명 |
+| 자산 | type | 설명 |
 | --- | --- | --- |
 | senderPartnerName | 문자열 | AS2 메시지 보낸 사람의 파트너 이름입니다. (선택 사항) |
 | receiverPartnerName | 문자열 | AS2 메시지 받는 사람의 파트너 이름입니다. (선택 사항) |

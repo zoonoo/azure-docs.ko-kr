@@ -1,11 +1,11 @@
 ---
-title: "B2B 엔터프라이즈 통합용 EDIFACT 메시지 - Azure Logic Apps | Microsoft Docs"
-description: "EDI 형식인 B2B 엔터프라이즈 통합용 EDIFACT 메시지를 Azure Logic Apps과 교환"
+title: B2B 엔터프라이즈 통합용 EDIFACT 메시지 - Azure Logic Apps | Microsoft Docs
+description: EDI 형식인 B2B 엔터프라이즈 통합용 EDIFACT 메시지를 Azure Logic Apps과 교환
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d85db6f5be487578ceab261d2779589439bfad31
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300099"
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>엔터프라이즈 통합에 대한 EDIFACT 메시지를 Logic Apps과 교환
 
@@ -44,7 +45,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 1. [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 
 
-2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
+2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 

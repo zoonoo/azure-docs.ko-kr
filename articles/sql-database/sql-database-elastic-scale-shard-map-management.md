@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: sstein
-ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e156142a68b30471646ea3a9181ce7d0097e626
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646996"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터베이스 맵 관리자를 사용합니다. 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 집합에서 모든 분할된 데이터베이스(데이터베이스)에 대한 전역 매핑 정보를 유지 관리하는 특수한 데이터베이스입니다. 메타데이터를 사용하면 응용 프로그램을 **분할 키**의 값에 따라 올바른 데이터베이스에 연결할 수 있습니다. 또한 집합에 있는 모든 분할된 데이터베이스는 로컬 분할된 데이터베이스 데이터를 추적하는 맵을 포함합니다( **shardlet**라고도 함). 
@@ -70,9 +71,9 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 | ... |... |
 
 ### <a name="range-shard-maps"></a>범위 분할된 데이터베이스 맵
-**범위 분할된 데이터베이스 맵**에서 키 범위는 한 쌍 **[낮은 값, 높은 값)**으로 기술됩니다. 여기서 *낮은 값*은 범위에서 최소 키이고 *높은 값*은 범위보다 높은 첫 번째 값입니다. 
+**범위 분할된 데이터베이스 맵**에서 키 범위는 한 쌍 **[낮은 값, 높은 값)** 으로 기술됩니다. 여기서 *낮은 값*은 범위에서 최소 키이고 *높은 값*은 범위보다 높은 첫 번째 값입니다. 
 
-예를 들어 **[0, 100)**에는 0 이상 100 미만의 모든 정수가 포함됩니다. 여러 범위가 동일한 데이터베이스를 가리킬 수 있으며 연결되지 않은 범위도 지원됩니다. 예를 들어 아래 예제에서 [100, 200) 및 [400, 600)은 모두 데이터베이스 C를 가리킵니다.
+예를 들어 **[0, 100)** 에는 0 이상 100 미만의 모든 정수가 포함됩니다. 여러 범위가 동일한 데이터베이스를 가리킬 수 있으며 연결되지 않은 범위도 지원됩니다. 예를 들어 아래 예제에서 [100, 200) 및 [400, 600)은 모두 데이터베이스 C를 가리킵니다.
 
 | 키 | 분할된 데이터베이스 위치 |
 | --- | --- |

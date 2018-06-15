@@ -4,7 +4,7 @@ description: Azure 플랫폼의 SAP에 대한 현재 구성 및 인증의 업데
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: 1038f0c8a967c05ebf07849619268f22b1eb0c4b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: f2d342558e83c54e101e0ff9128611da9bec1e77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160906"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656961"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
 

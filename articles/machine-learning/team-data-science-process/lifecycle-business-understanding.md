@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: b406a0cd3e5176649b33d6ad8f41facb7043952d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6d8eedbbf4a682443e73ecb9cf9496f3cdd1cd9d
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837204"
 ---
 # <a name="business-understanding"></a>비즈니스 이해
 
@@ -80,7 +82,7 @@ ms.lasthandoff: 05/03/2018
 이 단계의 결과물은 다음과 같습니다.
 
    * [선언 문서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): TDSP 프로젝트 구조 정의에서 표준 템플릿을 제공하는 실무 문서입니다. 새로운 결과를 발견했으며 비즈니스 요구 사항이 달라질 때 프로젝트 전체에서 템플릿을 업데이트합니다. 검색 프로세스를 진행하면서 이 문서에서 반복적으로 더 자세히 추가하는 것이 핵심입니다. 고객 및 기타 이해 관계자가 변경 작업을 수행하도록 만들고 변경 이유를 명확하게 전달해야 합니다.  
-   * [데이터 원본](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): TDSP 프로젝트 **데이터 보고서** 폴더에 있는 **데이터 정의** 보고서의 **원시 데이터 원본** 섹션에 데이터 원본이 포함되어 있습니다. 이 섹션은 원시 데이터의 원본 및 대상 위치를 지정합니다. 이후 단계에서 추가 세부 정보(예: 스크립트)를 입력하여 데이터를 분석 환경으로 옮깁니다.  
+   * [데이터 원본](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): TDSP 프로젝트 **데이터 보고서** 폴더에 있는 **데이터 정의** 보고서의 **원시 데이터 원본** 섹션에 데이터 원본이 포함되어 있습니다. 이 섹션은 원시 데이터의 원본 및 대상 위치를 지정합니다. 이후 단계에서 추가 세부 정보(예: 스크립트)를 입력하여 데이터를 분석 환경으로 옮깁니다.  
    * [데이터 사전](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): 이 문서는 클라이언트가 제공하는 데이터를 설명합니다. 이러한 설명에는 스키마(데이터 형식, 유효성 검사 규칙(있는 경우)에 대한 정보) 및 엔터티-관계 다이어그램(해당되는 경우)에 대한 정보가 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
