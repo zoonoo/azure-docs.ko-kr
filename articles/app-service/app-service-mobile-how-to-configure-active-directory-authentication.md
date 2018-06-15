@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32155299"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Azure Active Directory 로그인을 사용하도록 App Service 앱 구성
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

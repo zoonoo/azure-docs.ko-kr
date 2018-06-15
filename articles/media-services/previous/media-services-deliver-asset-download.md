@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782802"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>방법: 다운로드를 통해 자산 제공
 이 문서에서는 Media Services에 업로드된 미디어 자산을 제공하는 옵션에 대해 설명합니다. 다양한 응용 프로그램 시나리오에서 Media Services 콘텐츠를 제공할 수 있습니다. 인코딩한 다음, 생성된 미디어 자산을 다운로드하거나 스트리밍 로케이터를 사용하여 액세스합니다. 향상된 성능과 확장성을 위해 Content Delivery Network(CDN)를 사용하여 콘텐츠를 배달할 수도 있습니다.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190015"
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Azure에서 HPC 팩 2016 클러스터 배포
 
