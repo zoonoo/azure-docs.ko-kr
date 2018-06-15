@@ -1,24 +1,19 @@
 ---
-title: "Azure CLI(az.py)를 사용하여 IoT Hub에 파일 업로드 구성 | Microsoft Docs"
-description: "플랫폼 간 Azure CLI 2.0(az.py)을 사용하여 Azure IoT Hub에 파일 업로드를 구성하는 방법입니다."
-services: iot-hub
-documentationcenter: 
+title: Azure CLI(az.py)를 사용하여 IoT Hub에 파일 업로드 구성 | Microsoft Docs
+description: 플랫폼 간 Azure CLI 2.0(az.py)을 사용하여 Azure IoT Hub에 파일 업로드를 구성하는 방법입니다.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 378fb06f7ac9cbb6dc645994682786f474077d03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633855"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 파일 업로드 구성
 
@@ -28,7 +23,7 @@ ms.lasthandoff: 11/18/2017
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [계정][lnk-free-trial]을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 * [Azure CLI 2.0][lnk-CLI-install].
 * Azure IoT Hub - IoT Hub가 없는 경우 `az iot hub create` [명령][lnk-cli-create-iothub]을 사용하여 IoT Hub를 만들거나, 포털을 사용하여 [IoT Hub를 만들][lnk-portal-hub] 수 있습니다.
 * Azure Storage 계정. Azure Storage 계정이 없는 경우 [Azure CLI 2.0 - 저장소 계정 관리][lnk-manage-storage]를 사용하여 저장소 계정을 만들거나, 포털을 사용하여 [저장소 계정을 만들][lnk-portal-storage] 수 있습니다.

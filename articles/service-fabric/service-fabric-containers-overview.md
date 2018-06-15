@@ -12,22 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 5/21/2018
 ms.author: msfussell
-ms.openlocfilehash: c70db92d6071a295dfc329768ab8a0fd561f8ce5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641915"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
-> [!NOTE]
-> Windows 10에서 또는 Docker CE를 사용하여 Service Fabric 클러스터에 컨테이너를 배포하는 기능은 지원되지 않습니다. 
->   
-
-> [!NOTE]
-> Service Fabric 버전 6.1은 Windows Server 버전 1709에 대한 미리 보기 지원을 포함합니다. 오픈 네트워킹 및 Service Fabric DNS Service는 Windows Server 버전 1709와 작동하지 않습니다. 
-> 
 
 ## <a name="introduction"></a>소개
 Azure Service Fabric은 컴퓨터 클러스터에서 사용되는 여러 서비스의 [Orchestrator](service-fabric-cluster-resource-manager-introduction.md)로, Microsoft의 방대한 서비스에서 수년 동안 사용되면서 최적화 과정을 거친 기능입니다. 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md) 사용부터 [게스트 실행 파일](service-fabric-guest-executables-introduction.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다.   
@@ -44,10 +38,6 @@ Azure Service Fabric은 컴퓨터 클러스터에서 사용되는 여러 서비�
 
 ## <a name="container-types-and-supported-environments"></a>컨테이너 유형 및 지원되는 환경
 Service Fabric은 Linux와 Windows 모두에서 컨테이너를 지원하고 Windows의 Hyper-V 격리 모드도 지원합니다. 
-
-> [!NOTE]
-> Windows 10에서 Service Fabric 클러스터에 컨테이너 배포는 현재 지원되지 않습니다. 
-> 
 
 ### <a name="docker-containers-on-linux"></a>Linux의 Docker 컨테이너
 Docker는 고급 수준의 API를 제공하여 Linux 커널 컨테이너 위에서 컨테이너를 만들고 관리합니다. Docker 허브는 컨테이너 이미지를 저장하고 검색하기 위한 중앙 리포지토리입니다.

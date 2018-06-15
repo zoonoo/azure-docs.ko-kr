@@ -1,25 +1,19 @@
 ---
 title: Azure IoT Hub 크기 조정 | Microsoft Docs
 description: 예상된 메시지 처리량 및 원하는 기능을 지원하도록 IoT 허브를 확장하는 방법입니다. 분할을 위한 옵션 및 각 계층에 지원되는 처리량에 대한 요약을 포함합니다.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: e7bd4968-db46-46cf-865d-9c944f683832
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 23ace9f643596c4519014f370cf0142540724be6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635443"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 

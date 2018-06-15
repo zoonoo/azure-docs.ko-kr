@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367276"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640203"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -45,7 +45,7 @@ ms.locfileid: "34367276"
 정규화된 이미지의 최대 너비와 높이에 대한 2000 픽셀이라는 기본값은 [OCR 기술](cognitive-search-skill-ocr.md) 및 [이미지 분석 기술](cognitive-search-skill-image-analysis.md)에서 지원하는 최대 크기에 기반합니다. 최대 한도를 늘리면 더 큰 이미지를 처리하는 데 실패할 수 있습니다.
 
 
-다음과 같이 [인덱서 정의](ref-create-indexer.md)에서 imageAction을 지정합니다.
+다음과 같이 [인덱서 정의](https://docs.microsoft.com/rest/api/searchservice/create-indexer)에서 imageAction을 지정합니다.
 
 ```json
 {
@@ -218,7 +218,7 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
 ```
 
 ## <a name="see-also"></a>참고 항목
-+ [인덱서 만들기(REST)](ref-create-indexer.md)
++ [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [이미지 기술 분석](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)
 + [텍스트 병합 기술](cognitive-search-skill-textmerger.md)

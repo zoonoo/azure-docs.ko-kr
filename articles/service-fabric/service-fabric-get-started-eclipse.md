@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: f0c97fdec07a0b882c1c67d4278a0c3fb7b1a5cd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2fbae584c09fd83f2233895d31c1013acd06ae3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207396"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643001"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 응용 프로그램 배포를 위한 Azure Service Fabric 플러그 인
 Eclipse는 가장 널리 사용되는 Java 개발자를 위한 IDE(통합 개발 환경) 중 하나입니다. 이 문서에서는 Azure Service Fabric 작업을 수행하기 위해 Eclipse 개발 환경을 설정하는 방법에 대해 설명합니다. Service Fabric 플러그 인을 설치하고 Service Fabric 응용 프로그램을 만들며 Service Fabric 응용 프로그램을 Eclipse의 로컬 또는 원격 Service Fabric 클러스터에 배포하는 방법을 알아봅니다. 

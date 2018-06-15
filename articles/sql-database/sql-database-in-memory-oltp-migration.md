@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: 19ddcdf9a7d27535172c1e9ccfa89b3836589c84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a2f0d901abfa0013a6f53bacd72a9f8db2e0fd99
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648050"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 응용 프로그램의 성능 향상
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [프리미엄 및 중요 비즈니스용 계층](sql-database-service-tiers-vcore.md) 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 

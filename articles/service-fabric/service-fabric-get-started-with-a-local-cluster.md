@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 244a26df25e39fd4000a8a2692edd8205e354582
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205249"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643246"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
 Azure 서비스 패브릭 SDK에서는 전체 로컬 개발 환경을 포함하고 로컬 클러스터에서 응용 프로그램을 배포 및 관리하는 작업을 빠르게 시작하는 데 사용할 수 있습니다. 이 문서에서는 Windows PowerShell에서 로컬 클러스터를 만들고 기존 응용 프로그램을 거기에 배포한 다음 새 버전으로 해당 응용 프로그램을 업그레이드합니다.

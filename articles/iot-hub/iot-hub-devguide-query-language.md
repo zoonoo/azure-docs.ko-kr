@@ -1,24 +1,19 @@
 ---
 title: Azure IoT Hub 쿼리 언어 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub에서 장치/모듈 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 663277bfe347f42fa7ee241f5acddf4a3dca9268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633515"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -314,7 +309,7 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 [장치-클라우드 경로][lnk-devguide-messaging-routes]를 사용하면 장치-클라우드 메시지를 다른 끝점으로 전달하도록 IoT Hub를 구성할 수 있습니다. 이러한 전달은 개별 메시지에 대해 평가된 식을 기준으로 합니다.
 
-경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 둘 다 포함될 수도 있습니다. IoT Hub는 메시지를 라우팅하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정합니다. 다음 섹션에서는 IoT Hub가 제대로 라우팅하는 데 필요한 사항을 설명합니다.
+경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 둘 다포함될 수도 있습니다. IoT Hub는 메시지를 라우팅하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정합니다. 다음 섹션에서는 IoT Hub가 제대로 라우팅하는 데 필요한 사항을 설명합니다.
 
 ### <a name="routing-on-message-headers"></a>메시지 헤더에서 라우팅
 

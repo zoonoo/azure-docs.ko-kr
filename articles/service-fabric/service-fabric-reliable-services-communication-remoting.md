@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: d9ba650549d313a4ecc9ceae5eb05e1cde727892
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 672bdd3ddb5b32b82d83322eadce2a594b13ce5b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643535"
 ---
 # <a name="service-remoting-with-reliable-services"></a>Reliable Services로 서비스 원격 호출
 특정한 통신 프로토콜 또는 스택에 얽매여 있지 않는 서비스(예: WebAPI, WCF(Windows Communication Foundation) 등)의 경우, Reliable Services 프레임워크가 원격 메커니즘을 제공하여 서비스에 대한 원격 프로시저 호출을 신속하고 간편하게 설정합니다.
@@ -52,7 +53,7 @@ class MyService : StatelessService, IMyService
     {
     }
 
-    public Task HelloWorldAsync()
+    public Task<string> HelloWorldAsync()
     {
         return Task.FromResult("Hello!");
     }
@@ -391,3 +392,4 @@ V1에서 V2로 업그레이드하려면 2 단계 업그레이드가 필수입니
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services와 WCF 통신](service-fabric-reliable-services-communication-wcf.md)
 * [Reliable Services에 대한 통신 보안 유지](service-fabric-reliable-services-secure-communication.md)
+

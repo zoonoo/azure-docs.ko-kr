@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 350ea0d4b744467849916f2d958cc49fd72d3e4b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6257edbb567be3ebb3151724e7e50ca81905ad40
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646238"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 클래스는 분할된 데이터베이스 환경에서 ADO.Net 응용 프로그램이 GSM(전역 분할된 데이터베이스 맵)과 LSM(로컬 분할된 데이터베이스 맵) 간의 모든 불일치를 쉽게 감지하고 수정하는 기능을 제공합니다. 
@@ -27,7 +28,7 @@ RecoveryManager 클래스는 [Elastic Database 클라이언트 라이브러리](
 용어 정의는 [Elastic Database 도구 용어집](sql-database-elastic-scale-glossary.md)을 참조하세요. 분할된 데이터베이스 솔루션에서 데이터를 관리하는 데 **ShardMapManager** 가 어떻게 사용되는지 이해하려면 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요.
 
 ## <a name="why-use-the-recovery-manager"></a>복구 관리자를 사용하는 이유
-분할된 데이터베이스 환경에서는 데이터베이스당 한 개의 테넌트가 있고 서버당 여러 데이터베이스가 있습니다. 또한 환경에 여러 서버가 있을 수도 있습니다. 분할된 데이터베이스 맵에서 각 데이터베이스를 매핑하므로 올바른 서버 및 데이터베이스로 호출을 라우트할 수 있습니다. 데이터베이스는 **분할 키**에 따라 추적되며 각 분할된 데이터베이스에는 **키 값 범위**가 할당됩니다. 예를 들어 분할 키는 "D"에서 "F"까지의 고객 이름을 나타낼 수 있습니다. 모든 분할된 데이터베이스의 매핑(즉, 데이터베이스) 및 매핑 범위는 **GSM(전역 분할된 데이터베이스 맵)**에 포함됩니다. 각 데이터베이스에도 분할된 데이터베이스에 포함된 범위 맵이 포함되며 이를 **LSM(로컬 분할된 데이터베이스 맵)**이라고 합니다. 앱이 분할된 데이터베이스에 연결될 때 빠른 검색을 위해 매핑이 앱과 함께 캐시됩니다. LSM은 캐시된 데이터의 유효성을 검사하는 데 사용됩니다. 
+분할된 데이터베이스 환경에서는 데이터베이스당 한 개의 테넌트가 있고 서버당 여러 데이터베이스가 있습니다. 또한 환경에 여러 서버가 있을 수도 있습니다. 분할된 데이터베이스 맵에서 각 데이터베이스를 매핑하므로 올바른 서버 및 데이터베이스로 호출을 라우트할 수 있습니다. 데이터베이스는 **분할 키**에 따라 추적되며 각 분할된 데이터베이스에는 **키 값 범위**가 할당됩니다. 예를 들어 분할 키는 "D"에서 "F"까지의 고객 이름을 나타낼 수 있습니다. 모든 분할된 데이터베이스의 매핑(즉, 데이터베이스) 및 매핑 범위는 **GSM(전역 분할된 데이터베이스 맵)** 에 포함됩니다. 각 데이터베이스에도 분할된 데이터베이스에 포함된 범위 맵이 포함되며 이를 **LSM(로컬 분할된 데이터베이스 맵)** 이라고 합니다. 앱이 분할된 데이터베이스에 연결될 때 빠른 검색을 위해 매핑이 앱과 함께 캐시됩니다. LSM은 캐시된 데이터의 유효성을 검사하는 데 사용됩니다. 
 
 GSM 및 LSM이 동기화되지 않는 이유는 다음과 같습니다.
 

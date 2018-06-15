@@ -6,14 +6,15 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 243110e47ab7c98c9fec9b2747fde73ccb775fbc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645758"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]
