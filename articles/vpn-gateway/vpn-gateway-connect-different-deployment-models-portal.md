@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603380"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -216,7 +217,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 2. **구성**을 클릭하여 IP 주소 값이 클래식 VNet에 대한 VPN 게이트웨이인지 확인합니다. 필요한 경우 업데이트하고 **저장**을 클릭합니다. 페이지를 닫습니다.
 3. **모든 리소스**에서 로컬 네트워크 게이트웨이를 클릭합니다.
 4. **연결**을 클릭하여 연결 페이지를 엽니다.
-5. **연결** 페이지에서 **+**를 클릭하여 연결을 추가합니다.
+5. **연결** 페이지에서 **+** 를 클릭하여 연결을 추가합니다.
 6. **연결 추가** 페이지에서 연결의 이름을 지정합니다. 예: 'RMtoClassic'.
 7. **사이트 간**이 페이지에 이미 선택되어 있습니다.
 8. 이 사이트와 연결할 가상 네트워크 게이트웨이를 선택합니다.
@@ -277,8 +278,8 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 텍스트 편집기로 파일을 열고 클래식 VNet의 이름을 확인합니다. PowerShell cmdlet을 실행할 때는 네트워크 구성 파일의 이름을 사용해야 합니다.
 
-- VNet 이름은 **VirtualNetworkSite name =**으로 나열됩니다.
-- 사이트 이름은 **LocalNetworkSite name =**으로 나열됩니다.
+- VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.
+- 사이트 이름은 **LocalNetworkSite name =** 으로 나열됩니다.
 
 ### <a name="3-create-the-connection"></a>3. 연결 만들기
 

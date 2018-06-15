@@ -1,24 +1,20 @@
 ---
 title: SendGrid 서비스 및 Azure Functions를 사용하여 문을 여는 경우 이메일 수신 | Microsoft Docs
 description: 자기 센서를 모니터링하여 문이 열릴 때를 감지하고 Azure Functions를 사용하여 이메일 알림을 보냅니다.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 80537bb817baf20831ad5020f0db775f21836f92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632138"
 ---
 # <a name="door-monitor"></a>문 모니터링          
 

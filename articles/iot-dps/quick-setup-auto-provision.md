@@ -1,22 +1,20 @@
 ---
-title: "Azure Portal에서 Device Provisioning 설정 | Microsoft Docs"
-description: "Azure 빠른 시작 - Azure Portal에서 Azure IoT Hub Device Provisioning Service 설정"
-services: iot-dps
-keywords: 
+title: Azure Portal에서 Device Provisioning 설정 | Microsoft Docs
+description: Azure 빠른 시작 - Azure Portal에서 Azure IoT Hub Device Provisioning Service 설정
 author: dsk-2015
 ms.author: dkshir
 ms.date: 09/05/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 276bd33f5724db4d67da0cc31b16297915c9a417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629442"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure Portal에서 IoT Hub Device Provisioning 서비스 설정
 
@@ -31,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
 
 2. **사물 인터넷**, **IoT Hub**를 선택하고 **만들기** 단추를 클릭합니다. 
 
@@ -44,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service에 대한 새 인스턴스 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
 
 2. **Device Provisioning Service**에 대한 *Marketplace를 검색*합니다. **IoT Hub Device Provisioning 서비스**를 선택하고 **만들기** 단추를 클릭합니다. 
 

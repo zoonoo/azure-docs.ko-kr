@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783082"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 라이브 스트리밍 제공
 

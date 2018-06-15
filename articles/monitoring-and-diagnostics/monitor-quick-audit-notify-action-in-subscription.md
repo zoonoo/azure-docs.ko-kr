@@ -1,20 +1,20 @@
 ---
-title: Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신 | Microsoft Docs
+title: Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신
 description: 활동 로그에서 리소스 관리, 서비스 상태 및 기타 구독 활동 기록을 파악한 다음 활동 로그 경고를 사용하여 구독에 대해 높은 권한의 작업이 수행될 때 전자 메일 알림을 받습니다.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 5a6f4d7ab978543a6871eb0ac3926fa25fb65ad2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263333"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신
 

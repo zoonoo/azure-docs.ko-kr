@@ -1,24 +1,20 @@
 ---
-title: "템플릿을 사용하여 Azure IoT Hub 만들기(.NET) | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 C# 프로그램으로 IoT Hub를 만드는 방법입니다."
-services: iot-hub
-documentationcenter: .net
+title: 템플릿을 사용하여 Azure IoT Hub 만들기(.NET) | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 C# 프로그램으로 IoT Hub를 만드는 방법입니다.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a447b40c-c728-487e-875d-db554db5adc3
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 3f84ab26c43f33827479faed46db1de246920ae5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635545"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(.NET)
 
@@ -32,7 +28,7 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio 2015 또는 Visual Studio 2017.
-* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
+* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 * Azure Resource Manager 템플릿 파일을 저장할 수 있는 [Azure Storage 계정][lnk-storage-account]입니다.
 * [Azure PowerShell 1.0][lnk-powershell-install] 이상.
 

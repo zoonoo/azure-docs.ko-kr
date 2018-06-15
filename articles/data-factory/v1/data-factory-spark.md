@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622281"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -339,7 +340,7 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 | arguments | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니오 |
 | proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 아니오 |
 | sparkConfig | [Spark 구성: 응용 프로그램 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 아니오 |
-| getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 저장소에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 아니요 |
+| getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 저장소에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 아니오 |
 | sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Storage 연결된 서비스입니다. 이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. | 아니오 |
 
 ## <a name="folder-structure"></a>폴더 구조
@@ -352,7 +353,7 @@ HDInsight 연결된 서비스에서 참조하는 Blob 저장소에 다음 폴더
 | 에서도 확인할 수 있습니다. | 저장소 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |
 | ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 아니오 | 폴더 |
-| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 아니요 | 폴더 |
+| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 아니오 | 폴더 |
 | ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 아니오 | 폴더 |
 | ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니오 | 폴더 |
 | ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니오 | 폴더 |

@@ -1,22 +1,20 @@
 ---
 title: Azure IoT Hub Device Provisioning Service를 위한 장치 설정
 description: 장치 제조 프로세스 중 IoT Hub Device Provisioning Service를 통해 프로비전할 장치 설정
-services: iot-dps
-keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1e4e93c276fe62caae17c85bf9ac92282dfdfb88
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631271"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전
 
@@ -109,16 +107,16 @@ Device Provisioning Service 클라이언트 SDK는 장치 등록 소프트웨어
 
    3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Tools** 폴더로 이동합니다. **tpm_device_provision** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 선택합니다. 
 
-   4. "디버그" 메뉴에서 "시작" 명령 중 하나를 사용하여 솔루션을 실행합니다. 장치 등록에 필요한 TPM 시뮬레이터의 **_등록 ID_**와 **_인증 키_**가 출력 창에 표시됩니다. 나중에 사용할 수 있도록 이러한 값을 복사합니다. 이 창을 닫아도 되지만(등록 Id 및 인증 키를 얻은 후) 1단계에서 시작한 TPM 시뮬레이터 창은 계속 실행되도록 두세요.
+   4. "디버그" 메뉴에서 "시작" 명령 중 하나를 사용하여 솔루션을 실행합니다. 장치 등록에 필요한 TPM 시뮬레이터의 **_등록 ID_** 와 **_인증 키_** 가 출력 창에 표시됩니다. 나중에 사용할 수 있도록 이러한 값을 복사합니다. 이 창을 닫아도 되지만(등록 Id 및 인증 키를 얻은 후) 1단계에서 시작한 TPM 시뮬레이터 창은 계속 실행되도록 두세요.
 
 - 시뮬레이션된 X.509 장치:
   1. Visual Studio를 사용하여 *cmake* 폴더에 생성된 `azure_iot_sdks.sln` 솔루션을 열고, "빌드" 메뉴에서 "솔루션 빌드" 명령을 사용하여 빌드합니다.
 
   2. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Tools** 폴더로 이동합니다. **dice\_device\_enrollment** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 
   
-  3. "디버그" 메뉴에서 "시작" 명령 중 하나를 사용하여 솔루션을 실행합니다. 메시지가 표시되면 출력 창에서 개별 등록에 대해 **i**를 입력합니다. 출력 창에는 시뮬레이션된 장치에 대해 로컬로 생성된 X.509 인증서가 표시됩니다. *-----BEGIN CERTIFICATE-----*에서 시작하여 첫 번째 *-----END CERTIFICATE-----*에서 끝나는 출력(이 두 줄 모두 포함)을 클립보드에 복사합니다. 출력 창의 첫 번째 인증서만 필요하기 때문입니다.
+  3. "디버그" 메뉴에서 "시작" 명령 중 하나를 사용하여 솔루션을 실행합니다. 메시지가 표시되면 출력 창에서 개별 등록에 대해 **i**를 입력합니다. 출력 창에는 시뮬레이션된 장치에 대해 로컬로 생성된 X.509 인증서가 표시됩니다. *-----BEGIN CERTIFICATE-----* 에서 시작하여 첫 번째 *-----END CERTIFICATE-----* 에서 끝나는 출력(이 두 줄 모두 포함)을 클립보드에 복사합니다. 출력 창의 첫 번째 인증서만 필요하기 때문입니다.
  
-  4. **_X509testcert.pem_**이라는 파일을 만들어 원하는 텍스트 편집기에서 연 다음, 클립보드의 내용을 이 파일에 복사합니다. 나중에 장치를 등록할 때 사용해야 하므로 파일을 저장해 둡니다. 등록 소프트웨어를 실행하면 자동 프로비전과 동일한 인증서를 사용합니다.    
+  4. **_X509testcert.pem_** 이라는 파일을 만들어 원하는 텍스트 편집기에서 연 다음, 클립보드의 내용을 이 파일에 복사합니다. 나중에 장치를 등록할 때 사용해야 하므로 파일을 저장해 둡니다. 등록 소프트웨어를 실행하면 자동 프로비전과 동일한 인증서를 사용합니다.    
 
 이러한 보안 아티팩트는 장치를 Device Provisioning Service에 등록할 때 꼭 필요합니다. 프로비전 서비스는 향후 특정한 시점에 이러한 장치가 부팅 및 연결될 때까지 대기합니다. 장치가 처음으로 부팅되면 클라이언트 SDK 논리가 칩(또는 시뮬레이터)과 상호 작용하여 장치에서 보안 아티팩트를 추출하고, Device Provisioning Service에 등록을 확인합니다. 
 

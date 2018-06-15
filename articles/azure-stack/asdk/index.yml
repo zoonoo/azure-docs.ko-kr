@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786726"
 abstract:
   description: Azure 스택 개발 키트 (ASDK)은 다운로드 하 고 무료로 사용할 수 있는 Azure 스택의 단일 노드 배포를 수행 합니다. ASDK Azure 스택 평가 하 고 Api를 사용 하 고 비-프로덕션 환경에서 Azure와 일치 tooling 최신 응용 프로그램을 개발할 수 있는 환경을 제공 하기 위한 것입니다. <br/><br/>을 사용 하는 Azure 스택 운영자에 게는 통합 된 시스템 인프라를 관리 하 고 서비스를 제공 하는 경우 참조 우리의 <a href="/azure/azure-stack/">연산자 설명서</a>합니다.<br/><br/>Azure 스택에 대 한 앱을 빌드에 사용되는지와 서비스를 사용 하는 Azure 스택 사용자 인 경우 참조 우리의 <a href="/azure/azure-stack/user">사용자 용 설명 문서</a>합니다.
 sections:
