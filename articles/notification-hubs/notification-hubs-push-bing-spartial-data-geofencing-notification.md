@@ -21,6 +21,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778446"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>자습서: Azure Notification Hubs 및 Bing 공간 데이터로 위치 기반 알림 푸시
 이 자습서에서는 Azure Notification Hubs 및 Bing 공간 데이터로 위치 기반 푸시 알림을 전달하는 방법을 알아봅니다. 

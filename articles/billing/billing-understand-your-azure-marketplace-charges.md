@@ -21,6 +21,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203972"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure 외부 서비스 요금 청구의 이해
 외부 서비스는 Azure Marketplace의 타사 소프트웨어 공급 업체에 의해 게시됩니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.

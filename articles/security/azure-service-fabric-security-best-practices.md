@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894132"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 응용 프로그램을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 응용 프로그램을 배포하기 전에 응용 프로그램에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33784532"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
 

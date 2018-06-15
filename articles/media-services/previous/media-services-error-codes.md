@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783572"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services 오류 코드
 Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원되지 않는 작업에 대한 인증 토큰 만료와 같은 문제에 따라 서비스에서 HTTP 오류 코드를 받을 수도 있습니다. 다음은 Media Services에서 반환되는 **HTTP 오류 코드** 및 가능한 원인의 목록입니다.  

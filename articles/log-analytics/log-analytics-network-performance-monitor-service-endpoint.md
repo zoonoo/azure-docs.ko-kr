@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30240537"
 ---
 # <a name="service-endpoint-monitor"></a>서비스 끝점 모니터
 

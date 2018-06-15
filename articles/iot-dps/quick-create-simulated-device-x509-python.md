@@ -1,22 +1,21 @@
 ---
 title: Python을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 장치 프로비전 | Microsoft Docs
 description: Azure 빠른 시작 - IoT Hub Device Provisioning Service용 Python 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-masebo;bryanla
+ms.author: bryanla
 ms.date: 12/21/2017
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 936bb5edcda3816030ba3925ac9c155a7977689b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 315274129b051c0c0329f7abfab89d67820e7c66
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630105"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Python 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -79,7 +78,7 @@ ms.lasthandoff: 04/16/2018
       - 장치에 대해 원하는 초기 구성으로 **초기 장치 쌍 상태**를 업데이트합니다.
     - 완료되면 **저장** 단추를 클릭합니다. 
 
-    [![포털에 X.509 증명에 대한 개별 등록 추가](./media/python-quick-create-simulated-device-x509/individual-enrollment.png)](./media/python-quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/python-quick-create-simulated-device-x509/individual-enrollment.png)](./media/python-quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
 
    등록에 성공하면 X.509 장치가 *개별 등록* 탭의 *등록 ID* 열에 **riot-device-cert**로 표시됩니다. 
 
@@ -145,4 +144,4 @@ ms.lasthandoff: 04/16/2018
 이 빠른 시작에서는 시뮬레이션된 X.509 장치를 Windows 컴퓨터에 만들고, 포털에서 Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 이 장치를 프로비전했습니다. 프로그래밍 방식으로 X.509 장치를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 장치를 등록하는 빠른 시작으로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 장치 등록](quick-enroll-device-x509-java.md)
+> [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 장치 등록](quick-enroll-device-x509-python.md)

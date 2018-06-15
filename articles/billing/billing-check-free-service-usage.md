@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205893"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인 
 

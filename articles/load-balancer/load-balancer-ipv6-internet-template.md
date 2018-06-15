@@ -21,6 +21,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30263081"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
