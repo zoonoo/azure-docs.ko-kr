@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841897"
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
 > [!IMPORTANT] 
@@ -59,7 +60,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](../
 > 
 > 
 
-또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 **[Linux 설치 참고 사항](../create-upload-generic.md#general-linux-installation-notes)**을 참조하세요.
+또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 **[Linux 설치 참고 사항](../create-upload-generic.md#general-linux-installation-notes)** 을 참조하세요.
 
 <a id="connect"> </a>
 

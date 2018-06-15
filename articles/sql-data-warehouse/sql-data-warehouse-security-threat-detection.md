@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523900"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 위협 탐지
 Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이벤트 탐색합니다.

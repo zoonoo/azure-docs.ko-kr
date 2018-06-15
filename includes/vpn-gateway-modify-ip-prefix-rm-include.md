@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30326536"
 ---
 ### <a name="noconnection"></a>로컬 네트워크 게이트웨이 IP 주소 접두사를 수정하려면 - 게이트웨이 연결 없음
 

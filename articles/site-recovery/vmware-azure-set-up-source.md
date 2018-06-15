@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811090"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 

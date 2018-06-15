@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401964"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

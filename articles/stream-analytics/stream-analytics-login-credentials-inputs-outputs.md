@@ -14,6 +14,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30907282"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Stream Analytics 작업에서 입력 및 출력을 위한 로그인 자격 증명 순환
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918118"
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>클래식 배포 모델을 사용하여 만든, Windows Server 2016을 실행하는 가상 머신에 MySQL 설치
 [MySQL](https://www.mysql.com) 은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 **Windows Server 2016**을 실행하는 가상 컴퓨터에 MySQL Server로 **커뮤니티 버전의 MySQL 5.7.18**을 설치하고 실행하는 방법을 보여 줍니다. 다른 버전의 MySQL 또는 Windows Server에서는 작업 단계가 약간 다를 수 있습니다.
@@ -94,7 +95,7 @@ Windows Server 2016을 실행하는 VM이 아직 없는 경우 이 [자습서](.
 
 MySQL Server 서비스의 끝점을 구성하려면
 
-1. Azure Portal에서 **Virtual Machines(클래식)**를 클릭하고 MySQL 가상 머신의 이름을 클릭한 다음 **끝점**을 클릭합니다.
+1. Azure Portal에서 **Virtual Machines(클래식)** 를 클릭하고 MySQL 가상 머신의 이름을 클릭한 다음 **끝점**을 클릭합니다.
 2. 명령 모음에서 **추가**를 클릭합니다.
 3. **끝점 추가** 페이지에서 **이름**에 고유 이름을 입력합니다.
 4. 프로토콜로 **TCP**를 선택합니다.
@@ -108,7 +109,7 @@ MySQL Server 서비스의 끝점을 구성하려면
 ## <a name="test-your-remote-connection"></a>원격 연결 테스트
 MySQL Server 서비스를 실행하는 Azure VM에 원격 연결을 테스트하려면 VN를 포함하는 클라우드 서비스의 DNS 이름을 제공해야 합니다.
 
-1. Azure 포털에서 **Virtual Machines(클래식)**을 클릭하고 MySQL 서버 가상 컴퓨터의 이름을 클릭한 다음 **개요**를 클릭합니다.
+1. Azure 포털에서 **Virtual Machines(클래식)** 을 클릭하고 MySQL 서버 가상 컴퓨터의 이름을 클릭한 다음 **개요**를 클릭합니다.
 2. 가상 머신 대시보드에서 **DNS 이름** 값을 적어 둡니다. 다음은 예제입니다.
 
    ![](media/mysql-2008r2/MySQL_DNSName.png)

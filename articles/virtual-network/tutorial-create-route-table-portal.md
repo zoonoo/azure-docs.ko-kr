@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842325"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -253,7 +254,7 @@ Azure가 *myVmPublic* VM을 만드는 동안 *myVmPrivate* VM을 만들 수 있�
 
 1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:**에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

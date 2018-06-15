@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406510"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅
 Tez UI는 실행 엔진으로 Tez를 사용하는 Hive 작업을 디버그하는 데 사용할 수 있습니다. Tez UI를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.

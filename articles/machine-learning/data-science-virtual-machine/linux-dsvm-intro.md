@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31421796"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전
 
@@ -169,7 +170,7 @@ Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미�
 > 
 > 
 
-모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. *https://\<VM DNS 이름 또는 IP 주소\>:8000/*만 입력하면 됩니다.
+모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. *https://\<VM DNS 이름 또는 IP 주소\>:8000/* 만 입력하면 됩니다.
 
 > [!NOTE]
 > VM이 프로비전될 때 포트 8000이 방화벽에 기본적으로 열립니다.

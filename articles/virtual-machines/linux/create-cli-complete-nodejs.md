@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30910767"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 전체 Linux 환경 만들기
 이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425081"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/16/2018
    * 다음을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치** 를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다.  VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 9. 완료를 클릭합니다. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
-10. VM의 **상태**는 프로비전 프로세스 중에는 **시작 중(프로비전 중)**으로 표시되다가 VM이 프로비전되고 사용할 준비가 되면 **실행 중**으로 표시됩니다.
+10. VM의 **상태**는 프로비전 프로세스 중에는 **시작 중(프로비전 중)** 으로 표시되다가 VM이 프로비전되고 사용할 준비가 되면 **실행 중**으로 표시됩니다.
 
 ## <a name="step-2-create-a-server-certificate"></a>2단계: 서버 인증서 만들기
 > [!NOTE]

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31392853"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell에 대 한 API 버전 프로필을 사용 하 여
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840231"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>다중 계층 응용 프로그램을 위한 네트워크 만들기 스크립트 샘플
 

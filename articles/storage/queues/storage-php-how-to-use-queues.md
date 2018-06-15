@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30924803"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -48,7 +49,7 @@ Azure Queue Storage에 액세스하는 PHP 응용 프로그램을 만들기 위�
       }
     }
     ```
-2. 프로젝트 루트에 **[composer.phar][composer-phar]**을 다운로드합니다.
+2. 프로젝트 루트에 **[composer.phar][composer-phar]** 을 다운로드합니다.
 3. 명령 프롬프트를 열고 프로젝트 루트에서 다음 명령을 실행합니다.
    
     ```

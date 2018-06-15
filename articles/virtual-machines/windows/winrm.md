@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914548"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>Azure 서비스 관리 및 Azure Resource Manager의 WinRM

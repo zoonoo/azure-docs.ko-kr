@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841914"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFoam 실행
 이 문서에서는 Azure 가상 머신에서 OpenFoam을 실행하는 한 가지 방법을 설명합니다. 여기서는 Azure에서 Linux 계산 노드를 사용하여 Microsoft HPC Pack 클러스터를 배포하고 Intel MPI를 사용하여 [OpenFoam](http://openfoam.com/) 작업을 실행합니다. 계산 노드에 RDMA 지원 Azure VM을 사용할 수 있으므로 계산 노드는 Azure RDMA 네트워크를 통해 통신합니다. Azure에서 OpenFoam을 실행하는 다른 옵션으로는 Marketplace에서 제공되는 완전히 구성된 상용 이미지(예: UberCloud에서 제공하는 [CentOS 6의 OpenFoam 2.3](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/)) 및 [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/)에서 실행되는 이미지가 있습니다. 

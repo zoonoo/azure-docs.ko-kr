@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914986"
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>Windows 가상 머신에서 디스크를 분리하는 방법
 > [!IMPORTANT]

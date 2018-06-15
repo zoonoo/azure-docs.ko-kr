@@ -1,6 +1,6 @@
 ---
-title: "대상 준비(물리적 대상에서 Azure로) | Microsoft Docs"
-description: "이 문서에서는 Azure 환경을 준비하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다."
+title: 대상 준비(물리적 대상에서 Azure로) | Microsoft Docs
+description: 이 문서에서는 Azure 환경을 준비하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811060"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 

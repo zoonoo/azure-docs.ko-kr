@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915262"
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Marketplace 이미지를 사용하여 Azure VM에 HPC 팩 클러스터의 헤드 노드 만들기
 Azure Marketplace 및 Azure Portal에서 [Microsoft HPC 팩 2012 R2 가상 머신 이미지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)를 사용하여 HPC 클러스터의 헤드 노드를 만드는 방법을 보여 줍니다. 이 HPC 팩 VM 이미지는 HPC 팩 2012 R2 업데이트 3이 미리 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다. Azure에서 HPC 팩의 개념 증명 배포에 대해 이 헤드 노드를 사용합니다. 그런 다음 계산 노드를 HPC 워크로드를 실행하는 클러스터에 추가할 수 있습니다.

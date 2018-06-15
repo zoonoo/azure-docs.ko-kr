@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30908846"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
 ## <a name="prerequisites"></a>필수 조건

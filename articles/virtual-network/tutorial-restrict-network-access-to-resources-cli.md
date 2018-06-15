@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841982"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 끝점으로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -267,7 +268,7 @@ VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력�
 
 ## <a name="confirm-access-to-storage-account"></a>저장소 계정에 대한 액세스 확인
 
-*myVmPrivate* VM으로 SSH를 수행합니다. *<publicIpAddress>*를 *myVmPrivate* VM의 공용 IP 주소로 바꿉니다.
+*myVmPrivate* VM으로 SSH를 수행합니다. *<publicIpAddress>* 를 *myVmPrivate* VM의 공용 IP 주소로 바꿉니다.
 
 ```bash 
 ssh <publicIpAddress>

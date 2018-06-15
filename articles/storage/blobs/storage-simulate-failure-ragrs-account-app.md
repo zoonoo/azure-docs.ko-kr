@@ -15,6 +15,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30835605"
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
 
@@ -80,7 +81,7 @@ IDE 또는 텍스트 편집기에서 응용 프로그램을 실행합니다. 응
 
 응용 프로그램이 일시 중지된 상태에서 이제 이전 단계에서 Fiddler에 저장한 사용자 지정 규칙의 주석 처리를 제거할 수 있습니다. 코드 샘플에서는 RA-GRS 저장소 계정에 대한 요청을 찾고, 경로에 해당 이미지의 이름(`HelloWorld`)이 포함되어 있는 경우 `503 - Service Unavailable` 응답 코드를 반환합니다.
 
-Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...**을 선택합니다.  다음 라인의 주석 처리를 제거하고 `STORAGEACCOUNTNAME`을(를) 저장소 계정 이름으로 대체합니다. **파일** -> **저장**을 선택하여 변경 내용을 저장합니다. 
+Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...** 을 선택합니다.  다음 라인의 주석 처리를 제거하고 `STORAGEACCOUNTNAME`을(를) 저장소 계정 이름으로 대체합니다. **파일** -> **저장**을 선택하여 변경 내용을 저장합니다. 
 
 > [!NOTE]
 > Linux에서 샘플 응용 프로그램을 실행하는 경우 Fiddler에서 사용자 지정 논리를 설치하기 위해 **CustomRule.js** 파일을 편집할 때마다 Fiddler를 다시 시작해야 합니다. 
@@ -107,7 +108,7 @@ Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...**을 선택�
 
 응용 프로그램을 일시 중지하려면 **아무 키**나 누릅니다.
 
-Fiddler로 이동하여 **규칙**, **규칙 사용자 지정...**을 선택합니다.  `OnBeforeResponse` 함수에서 사용자 지정 논리를 주석 처리하거나 제거하여 기본 함수를 유지합니다. **파일**, **저장**을 선택하여 변경 내용을 저장합니다.
+Fiddler로 이동하여 **규칙**, **규칙 사용자 지정...** 을 선택합니다.  `OnBeforeResponse` 함수에서 사용자 지정 논리를 주석 처리하거나 제거하여 기본 함수를 유지합니다. **파일**, **저장**을 선택하여 변경 내용을 저장합니다.
 
 ![사용자 지정된 규칙 제거](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
