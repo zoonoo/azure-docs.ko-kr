@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30322899"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
@@ -42,7 +43,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
-2. **+**를 클릭하여 포털에서 새 개체를 만듭니다.
+2. **+** 를 클릭하여 포털에서 새 개체를 만듭니다.
 
    ![새 개체](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -273,7 +274,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
    ![네트워크 인터페이스](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/26-networkinterface.png)
 
 5. **속성**을 클릭합니다.
-6. **인터넷 프로토콜 버전 4(TCP/IPv4)**를 선택하고 **속성**을 클릭합니다.
+6. **인터넷 프로토콜 버전 4(TCP/IPv4)** 를 선택하고 **속성**을 클릭합니다.
 7. **다음 DNS 서버 주소 사용**을 선택하고 **기본 설정 DNS 서버**에서 주 도메인 컨트롤러 주소를 지정합니다.
 8. **확인**을 클릭한 후 **닫기**를 클릭하여 변경 내용을 커밋합니다. 이제 VM을 **corp.contoso.com**에 연결할 수 있습니다.
 
@@ -320,7 +321,7 @@ Azure Portal의 가상 네트워크에서 보조 도메인 컨트롤러의 IP �
 
 1. **ad-primary-dc** 컴퓨터에 로그인합니다.
 2. **서버 관리자**에서 **도구**를 선택한 후 **Active Directory 관리 센터**를 클릭합니다.   
-3. 왼쪽 창에서 **corp(로컬)**을 선택합니다.
+3. 왼쪽 창에서 **corp(로컬)** 을 선택합니다.
 4. 오른쪽 **작업** 창에서 **새로 만들기**를 선택한 후 **사용자**를 클릭합니다.
    ![Active Directory 관리 센터](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/29-addcnewuser.png)
 
@@ -331,7 +332,7 @@ Azure Portal의 가상 네트워크에서 보조 도메인 컨트롤러의 IP �
 6. 3개의 각 계정에 대해 위의 단계를 반복합니다.
 
 ### <a name="grant-the-required-permissions-to-the-installation-account"></a>설치 계정에 필요한 권한 부여
-1. **Active Directory 관리 센터**의 왼쪽 창에서 **corp(로컬)**을 선택합니다. 다음으로 오른쪽 **작업** 창에서 **속성**을 클릭합니다.
+1. **Active Directory 관리 센터**의 왼쪽 창에서 **corp(로컬)** 을 선택합니다. 다음으로 오른쪽 **작업** 창에서 **속성**을 클릭합니다.
 
     ![CORP 사용자 속성](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/31-addcproperties.png)
 2. **확장**을 선택한 후 **보안** 탭에서 **고급** 단추를 클릭합니다.

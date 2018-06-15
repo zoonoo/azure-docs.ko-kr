@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30320988"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Linux 가상 머신의 가용성 관리
 

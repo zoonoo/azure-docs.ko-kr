@@ -17,6 +17,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786732"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>PowerShell을 사용하여 Azure 알림 허브 만들기
 

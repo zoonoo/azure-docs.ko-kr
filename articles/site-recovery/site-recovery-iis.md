@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809423"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 응용 프로그램 복제
 

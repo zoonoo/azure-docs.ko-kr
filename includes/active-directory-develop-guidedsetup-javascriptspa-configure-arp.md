@@ -17,7 +17,7 @@
 
 > #### <a name="setting-redirect-url-for-python"></a>Python에 대한 리디렉션 URL 설정
 > Python의 경우 명령줄을 통해 웹 서버 포트를 설정할 수 있습니다. 이 단계별 설치는 참조를 위해 포트 8080을 사용하지만 다른 포트도 자유롭게 사용 가능합니다. 어떤 경우든, 다음 지침에 따라 응용 프로그램 등록 정보에 리디렉션 URL을 설정합니다.<br/>
-> 이 페이지 맨 위에서 `http://localhost:8080/`을 `Redirect URL`로 설정하거나 사용자 지정 TCP 포트를 사용하는 경우 `http://localhost:[port]/`를 사용하고(여기서 *[port]*는 사용자 지정 TCP 포트 번호임) [업데이트]를 클릭합니다.
+> 이 페이지 맨 위에서 `http://localhost:8080/`을 `Redirect URL`로 설정하거나 사용자 지정 TCP 포트를 사용하는 경우 `http://localhost:[port]/`를 사용하고(여기서 *[port]* 는 사용자 지정 TCP 포트 번호임) [업데이트]를 클릭합니다.
 
 ### <a name="configure-your-javascript-spa-application"></a>JavaScript SPA 응용 프로그램 구성
 

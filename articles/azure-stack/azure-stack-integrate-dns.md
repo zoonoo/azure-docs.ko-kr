@@ -1,6 +1,6 @@
 ---
-title: "Azure 스택 데이터 센터 통합-DNS"
-description: "Azure 스택 DNS DNS 데이터 센터와 통합 하는 방법에 알아봅니다"
+title: Azure 스택 데이터 센터 통합-DNS
+description: Azure 스택 DNS DNS 데이터 센터와 통합 하는 방법에 알아봅니다
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -9,12 +9,13 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
+keywords: ''
 ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
 ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733862"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure 스택 데이터 센터 통합-DNS
 Azure 스택 끝점에 액세스할 수 있게 되기를 (`portal`, `adminportal`, `management`, `adminmanagement`등.)  외부 Azure 스택에서 Azure 스택에서 사용 하려는 DNS 영역을 호스트 하는 DNS 서버와 Azure 스택 DNS 서비스를 통합 해야 합니다.

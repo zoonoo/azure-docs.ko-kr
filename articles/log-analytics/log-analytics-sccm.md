@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30283999"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager 환경을 Azure Log Analytics에 연결하여 장치 수집 데이터를 동기화하고 Log Analytics 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -49,7 +50,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Log Analytics 작업 영역 목록에서 수정할 작업 영역을 선택합니다.
-3. 왼쪽 창에서 **액세스 제어(IAM)**를 선택합니다.
+3. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
 4. [액세스 제어] 페이지에서 **추가**를 클릭하면 **권한 추가** 창이 나타납니다.
 5. **권한 추가** 창의 **역할** 드롭다운 목록 아래에서 **참가자** 역할을 선택합니다.  
 6. **다음에 대한 액세스 할당** 드롭다운 목록 아래에서 이전에 AD에서 만든 Configuration Manager 응용 프로그램을 선택한 다음, **확인**을 클릭합니다.  

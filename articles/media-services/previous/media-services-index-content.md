@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783772"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer를 사용하여 미디어 파일 인덱싱
 Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.  
