@@ -21,6 +21,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31589376"
 ---
 # <a name="connect-a-web-app-to-a-storage-account"></a>저장소 계정에 웹앱 연결
 

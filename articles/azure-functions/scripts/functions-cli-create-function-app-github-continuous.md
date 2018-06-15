@@ -1,9 +1,9 @@
 ---
-title: "Azure에서 GitHub로부터 배포되는 함수 만들기 | Microsoft Docs"
-description: "함수 앱을 만들고 Azure Functions를 사용하여 GitHub 리포지토리에서 함수 코드를 배포합니다."
+title: Azure에서 GitHub로부터 배포되는 함수 만들기 | Microsoft Docs
+description: 함수 앱을 만들고 Azure Functions를 사용하여 GitHub 리포지토리에서 함수 코드를 배포합니다.
 services: functions
 ms.service: functions
-keywords: 
+keywords: ''
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842731"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Azure에서 GitHub로부터 배포되는 함수 앱 만들기
 
