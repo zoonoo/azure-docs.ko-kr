@@ -1,19 +1,20 @@
 ---
-title: "Azure Database for MySQL로 최소 가동 중지 시간 마이그레이션"
-description: "이 문서에서는 Azure Database for MySQL로 MySQL 데이터베이스의 최소 가동 중지 시간을 마이그레이션하는 방법 및 Microsoft 마이그레이션에서 Attunity Replicate를 사용하여 데이터베이스의 초기 로드 및 원본 데이터베이스에서 대상 데이터베이스로 지속적인 데이터 동기화를 설정하는 방법을 설명합니다."
+title: Azure Database for MySQL로 최소 가동 중지 시간 마이그레이션
+description: 이 문서에서는 Azure Database for MySQL로 MySQL 데이터베이스의 최소 가동 중지 시간을 마이그레이션하는 방법 및 Microsoft 마이그레이션에서 Attunity Replicate를 사용하여 데이터베이스의 초기 로드 및 원본 데이터베이스에서 대상 데이터베이스로 지속적인 데이터 동기화를 설정하는 방법을 설명합니다.
 services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e1be72d97570643cc8a7c6eb05d3d363e96357b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 99add55188615debdc96b6cfc8b21e34552fd9d4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267257"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Azure Database for MySQL로 최소 가동 중지 시간 마이그레이션
 Microsoft 마이그레이션에서 Attunity Replicate를 사용하여 기존 MySQL 데이터베이스를 Azure Database for MySQL로 마이그레이션할 수 있습니다. Attunity Replicate는 Attunity 및 Microsoft에서 제공하는 결합입니다. Azure Database Migration Service와 함께 Microsoft 고객에게 추가 비용 없이 제공됩니다. 

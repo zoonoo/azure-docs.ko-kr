@@ -1,29 +1,24 @@
 ---
 title: Azure IoT(사물 인터넷) 기술 및 솔루션
 description: Azure IoT 솔루션 구축에 사용할 수 있는 PaaS/SaaS 기술 컬렉션을 제공합니다.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-ms.custom: ''
-ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 05/18/2018
+ms.author: bryanla
+ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631414"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT 기술 및 솔루션: PaaS 및 SaaS
 
 Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록 모든 고객의 요구 사항을 지원하는 포트폴리오를 만들었습니다. Azure IoT 제품 포트폴리오는 사용 가능한 PaaS/SaaS 기술 및 솔루션의 개요를 보여줍니다. 고객이 고유의 솔루션을 구축하는 데 사용할 수 있는 두 가지 경로를 제공합니다.
-- PaaS(Platform as a Service): 사용자 지정 IoT 솔루션의 개발을 가속화하는 미리 구성된 엔터프라이즈급 솔루션 컬렉션인 [Azure IoT 솔루션 가속기](https://www.azureiotsuite.com/)를 사용하여 응용 프로그램을 빌드하세요.
+- PaaS(Platform as a Service): 사용자 지정 IoT 솔루션의 개발을 가속화하는 미리 구성된 엔터프라이즈급 솔루션 컬렉션인 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/)를 사용하여 응용 프로그램을 빌드하세요.
 - SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 장치 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
 
 ![Azure IoT 기술 및 솔루션][img-paas-saas-technologies-solutions]

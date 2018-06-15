@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 61143302b21f93326f9f81885d845cd388203eb3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27873930ebef75923088f8bf2170c8e6a383cfa8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837415"
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure ML 웹 서비스 배포
 
@@ -65,7 +67,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 ## <a name="create-the-predictive-experiment"></a>예측 실험 만들기
 다음에는 웹 서비스를 배포할 예측 실험을 설정합니다.
 
-1. 실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **예측 웹 서비스[권장]**를 선택합니다.
+1. 실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **예측 웹 서비스[권장]** 를 선택합니다.
 2. 예측 실험에서 *웹 서비스 입력* 및 *웹 서비스 출력 모듈*을 제거합니다. 
 3. 구성 요소 검색 상자에 내보내기를 입력합니다.
 4. 결과 목록에서 *데이터 내보내기* 모듈을 실험 캔버스에 추가합니다.
@@ -98,7 +100,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 기존 웹 서비스로 배포하고 해당 서비스를 사용하기 위한 응용 프로그램을 만들려면
 
 1. 실험 캔버스 맨 아래에서 실행을 클릭합니다.
-2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]**를 선택합니다.
+2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 를 선택합니다.
 3. 웹 서비스 대시보드에서 API 키를 찾습니다. 나중에 사용할 수 있게 복사한 다음 저장합니다.
 4. **기본 끝점** 테이블에서 **Batch 실행** 링크를 클릭하여 API 도움말 페이지를 엽니다.
 5. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)**)에서 C# 콘솔 응용 프로그램을 만듭니다.
@@ -126,7 +128,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 새 웹 서비스로 배포하고 해당 서비스를 사용하기 위한 응용 프로그램을 만들려면
 
 1. 실험 캔버스 맨 아래에서 **실행**을 클릭합니다.
-2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다.
+2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다.
 3. 실험 배포 페이지에서 웹 서비스의 이름을 입력하고 가격 책정 계획을 선택한 후 **배포**를 클릭합니다.
 4. **빠른 시작** 페이지에서 **사용**을 클릭합니다.
 5. **샘플 코드** 섹션에서 **Batch**를 클릭합니다.

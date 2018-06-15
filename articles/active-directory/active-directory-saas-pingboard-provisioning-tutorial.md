@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8fa98ff4cee206894c35f84cca3f3b4c43e2e5ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4d483f045a8e778953ddb578dd7bb81fdb05fdf2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292411"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
@@ -42,7 +43,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 프로비전 서비스를 구성 및 사용하도록 설정하기 전에 Azure AD에서 Pingboard 앱에 액세스해야 하는 사용자를 결정해야 합니다. 그런 후 다음 지침에 따라 해당 사용자를 Pingboard 앱에 할당할 수 있습니다.
 
-[엔터프라이즈 앱에 사용자 할당](active-directory-coreapps-assign-user-azure-portal.md)
+[엔터프라이즈 앱에 사용자 할당](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Pingboard에 사용자를 할당하기 위한 주요 팁
 
@@ -99,6 +100,6 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](manage-apps/what-is-single-sign-on.md)
 * [Single Sign-on 구성](active-directory-saas-pingboard-tutorial.md)

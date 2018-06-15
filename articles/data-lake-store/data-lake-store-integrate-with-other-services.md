@@ -10,13 +10,14 @@ ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e11100118f599b4fee6362625aff05c50bb07c87
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3fd1b03d2ce0b814f453ae4d87a136f28479662d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624100"
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>데이터 레이크 저장소와 다른 Azure 서비스 통합
 Azure 데이터 레이크 저장소를 다른 Azure 서비스와 함께 사용하면 광범위한 범위의 시나리오를 사용할 수 있습니다. 다음 문서에는 데이터 레이크 저장소와 통합될 수 있는 서비스가 나열되어 있습니다.

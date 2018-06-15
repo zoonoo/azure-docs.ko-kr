@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836378"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure Machine Learning에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
 
@@ -143,7 +145,7 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 * Azure Machine Learning Studio 환경을 시작합니다.
 * 화면의 왼쪽 아래에 있는 **+ 새로 만들기**를 클릭하고 **데이터 집합**을 선택합니다.
 * **로컬 파일에서**를 선택한 다음 **찾아보기**를 선택하여 파일을 선택합니다.
-* **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))**를 데이터 집합 형식으로 선택했는지 확인합니다.
+* **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))** 를 데이터 집합 형식으로 선택했는지 확인합니다.
 * 확인 표시를 클릭합니다.
 * 데이터 집합을 업로드한 후 **데이터 집합** 탭을 클릭하여 새 데이터 집합을 확인해야 합니다.  
 
@@ -151,7 +153,7 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 이제 Machine Learning Studio에 일부 데이터가 있으므로 분석을 수행하기 위한 실험을 만들어야 합니다.  
 
 * 왼쪽 아래에 있는 **+ 새로 만들기**를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
-* 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)**을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
+* 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)** 을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
 * 실험 페이지의 왼쪽에서 **저장된 데이터 집합**, **내 데이터 집합**을 차례로 확장합니다. 이전에 업로드한 **cadairydata.csv**가 표시되어야 합니다.
 * **csdairydata.csv 데이터 집합**을 실험에 끌어다 놓습니다.
 * 왼쪽 창 맨 위의 **실험 항목 검색** 상자에 [R 스크립트 실행][execute-r-script]을 입력합니다. 검색 목록에 모듈이 표시됩니다.
