@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 배포 문제 해결 | Microsoft Docs"
-description: "StorSimple을 처음 배포할 때 발생하는 오류를 진단하고 해결하는 방법을 설명합니다."
+title: StorSimple 8000 시리즈 배포 문제 해결 | Microsoft Docs
+description: StorSimple을 처음 배포할 때 발생하는 오류를 진단하고 해결하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23112261"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 장치 배포 문제 해결
 ## <a name="overview"></a>개요

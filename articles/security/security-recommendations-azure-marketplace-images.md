@@ -1,11 +1,11 @@
 ---
-title: "Azure Marketplace의 보안 권장 사항 이미지 | Microsoft Docs"
-description: "이 문서는 마켓플레이스에 포함된 이미지에 대한 권장 사항을 제공합니다."
+title: Azure Marketplace의 보안 권장 사항 이미지 | Microsoft Docs
+description: 이 문서는 마켓플레이스에 포함된 이미지에 대한 권장 사항을 제공합니다.
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23465408"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Marketplace의 보안 권장 사항 이미지
 

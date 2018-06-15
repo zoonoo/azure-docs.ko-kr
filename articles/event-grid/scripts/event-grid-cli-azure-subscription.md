@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426040"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Azure CLI를 사용하여 Azure 구독에 대한 이벤트 구독
 
