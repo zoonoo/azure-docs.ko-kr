@@ -11,6 +11,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894299"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제
 

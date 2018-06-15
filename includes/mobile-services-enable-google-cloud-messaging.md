@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33836527"
 ---
 1. [Google 클라우드 콘솔](https://console.developers.google.com/cloud-resource-manager)로 이동하고 Google 계정 자격 증명으로 로그인합니다. 
 2. 도구 모음에서 **프로젝트 만들기**를 선택합니다. 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764345"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>사용자 지정 이미지, 다중 컨테이너 또는 기본 제공 플랫폼 이미지
 
