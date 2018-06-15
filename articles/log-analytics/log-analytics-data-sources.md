@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792551"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics의 데이터 원본
 Log Analytics는 연결된 원본에서 데이터를 수집하여 Log Analytics 작업 영역에 저장합니다.  각 원본에서 수집되는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  Log Analytics의 데이터는 레코드 집합으로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
