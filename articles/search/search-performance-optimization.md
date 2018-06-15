@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797767"
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure Search 성능 및 최적화 고려 사항
 뛰어난 검색 환경은 많은 모바일 및 웹 응용 프로그램의 성공에 반드시 필요합니다. 부동산에서 중고차 마켓플레이스와 온라인 카탈로그에 이르기까지 빠른 검색 및 관련성 높은 결과는 고객 환경에 영향을 줍니다. 이 문서는 확장성, 다국어 지원 또는 사용자 지정 순위 등을 요구하는 고급 시나리오에서, 특히 Azure Search를 최대한 활용하는 방법에 대한 모범 사례를 알아내는 데 도움을 주기 위해 작성되었습니다.  또한 이 문서는 내부 구성을 간략하게 설명하고 실제 고객 앱에서 효과적으로 작동하는 접근 방법을 소개합니다.

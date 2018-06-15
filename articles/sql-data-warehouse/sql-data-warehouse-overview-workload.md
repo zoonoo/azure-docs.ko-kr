@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794612"
 ---
 # <a name="data-warehouse-workload"></a>데이터 웨어하우스 워크로드
 데이터 웨어하우스 워크로드란 데이터 웨어하우스에 대해 발생하는 모든 작업을 나타냅니다. 데이터 웨어하우스 워크로드는 데이터를 웨어하우스에 로드, 데이터 웨어하우스에서 분석 및 보고 수행, 데이터 웨어하우스에서 데이터 관리 및 데이터 웨어하우스로부터 데이터를 내보내는 전체 프로세스를 포괄합니다. 이러한 구성 요소의 깊이와 범위는 일반적으로 데이터 웨어하우스의 성숙도 수준과 관련이 있습니다.

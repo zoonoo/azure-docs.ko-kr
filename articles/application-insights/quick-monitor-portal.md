@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights로 ASP.NET 웹앱 모니터링 | Microsoft Docs"
-description: "Application Insights를 사용한 모니터링을 위해 ASP.NET 웹앱을 신속하게 설정하도록 지침 제공"
+title: Azure Application Insights로 ASP.NET 웹앱 모니터링 | Microsoft Docs
+description: Application Insights를 사용한 모니터링을 위해 ASP.NET 웹앱을 신속하게 설정하도록 지침 제공
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/14/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23660551"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 응용 프로그램 모니터링 시작
 
