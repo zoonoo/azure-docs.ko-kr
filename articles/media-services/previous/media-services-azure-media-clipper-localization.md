@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782682"
 ---
 # <a name="configure-localization"></a>지역화 구성
 Azure Media Clipper는 18개 언어로 제공됩니다. 위젯 언어를 설정하려면 초기화 중에 `language` 매개 변수를 정의해야 합니다. 다음 목록에서 원하는 언어 코드 문자열에서 전달합니다.
