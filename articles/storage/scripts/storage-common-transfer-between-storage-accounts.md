@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션 | Microsoft Docs"
-description: "AzCopy를 사용하여 한 Azure Storage 계정의 Blob 내용을 다른 저장소 계정에 복사합니다."
+title: Azure PowerShell 스크립트 샘플 - Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션 | Microsoft Docs
+description: AzCopy를 사용하여 한 Azure Storage 계정의 Blob 내용을 다른 저장소 계정에 복사합니다.
 services: storage
 documentationcenter: na
 author: roygara
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "29360720"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션
 

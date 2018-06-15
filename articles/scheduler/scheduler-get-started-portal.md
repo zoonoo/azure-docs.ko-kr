@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413433"
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure Portal에서 Azure Scheduler 시작
 Azure Scheduler에서 예약된 작업을 만드는 것은 쉽습니다. 이 자습서에서는 작업을 만드는 방법을 알아봅니다. Scheduler의 모니터링 및 관리 기능도 알아봅니다.

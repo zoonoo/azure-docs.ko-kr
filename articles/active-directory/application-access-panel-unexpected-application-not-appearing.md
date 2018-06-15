@@ -1,11 +1,11 @@
 ---
-title: "할당한 응용 프로그램이 액세스 패널에 표시되지 않음 | Microsoft Docs"
-description: "응용 프로그램이 액세스 패널에 표시되지 않는 문제 해결"
+title: 할당한 응용 프로그램이 액세스 패널에 표시되지 않음 | Microsoft Docs
+description: 응용 프로그램이 액세스 패널에 표시되지 않는 문제 해결
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384119"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>할당한 응용 프로그램이 액세스 패널에 표시되지 않음
 

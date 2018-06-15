@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407717"
 ---
 # <a name="code-snippets-for-migrating-content-from-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 콘텐츠를 마이그레이션하기 위한 코드 조각
 

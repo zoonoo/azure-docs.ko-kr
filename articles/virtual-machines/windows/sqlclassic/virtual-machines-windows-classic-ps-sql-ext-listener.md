@@ -1,11 +1,11 @@
 ---
-title: "Always On 가용성 그룹에 대한 외부 수신기 구성 | Microsoft Docs"
-description: "이 자습서에서는 연결된 클라우드 서비스의 공용 가상 IP 주소를 사용하여 외부에서 액세스 가능한 Azure의 Always On 가용성 그룹 수신기를 만드는 과정을 안내합니다."
+title: Always On 가용성 그룹에 대한 외부 수신기 구성 | Microsoft Docs
+description: 이 자습서에서는 연결된 클라우드 서비스의 공용 가상 IP 주소를 사용하여 외부에서 액세스 가능한 Azure의 Always On 가용성 그룹 수신기를 만드는 과정을 안내합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398865"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성
 > [!div class="op_single_selector"]

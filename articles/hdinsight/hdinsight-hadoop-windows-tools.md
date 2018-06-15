@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31404986"
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Hadoop 에코시스템 작업
 
@@ -35,8 +36,8 @@ PowerShell로 수행할 수 있는 작업의 예:
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>브라우저에서 실행할 수 있는 유틸리티
 다음 유틸리티는 브라우저에서 실행되는 웹 UI가 있습니다.
-* **[Azure Cloud Shell(미리 보기)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**은 브라우저 및 Azure Portal 내에서 실행되는 대화형 명령줄 셸입니다.
-* **[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)**는 다음과 같은 다양한 종류의 작업을 관리하는 데 사용할 수 있으며 Azure Portal에서 사용 가능한 관리 및 모니터링 유틸리티입니다.
+* **[Azure Cloud Shell(미리 보기)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** 은 브라우저 및 Azure Portal 내에서 실행되는 대화형 명령줄 셸입니다.
+* **[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)** 는 다음과 같은 다양한 종류의 작업을 관리하는 데 사용할 수 있으며 Azure Portal에서 사용 가능한 관리 및 모니터링 유틸리티입니다.
     * [REST API로 Ambari 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Ambari에서 Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Ambari에서 Tez 보기](hdinsight-debug-ambari-tez-view.md)
@@ -83,9 +84,9 @@ HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 �
 
 Linux에서만 사용 가능한 도구 또는 기술을 사용해야 하는 상황이 발생한 경우 다음 옵션을 고려합니다.
 
-* **Windows 10의 Bash(베타)**는 Windows에서 Linux 하위 시스템을 제공합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Bash 베타를 Windows 10에서 설치 및 실행](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Windows 10의 Bash(베타)** 는 Windows에서 Linux 하위 시스템을 제공합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Bash 베타를 Windows 10에서 설치 및 실행](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Windows용 Docker**는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. 또한 Docker를 사용하여 로컬 Jupyter Notebook을 실행하고 HDInsight의 Spark에 원격으로 연결할 수 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)**을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
+* **[MobaXTerm](http://mobaxterm.mobatek.net/)** 을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Linux 기반 클러스터에서 작업하는 데 익숙하지 않은 경우 다음 문서를 참조하세요.

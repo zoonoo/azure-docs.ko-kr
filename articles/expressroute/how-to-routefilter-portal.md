@@ -1,13 +1,13 @@
 ---
-title: "Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: Portal | Microsoft Docs"
-description: "이 문서에서는 Azure Portal을 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다."
+title: 'Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: Portal | Microsoft Docs'
+description: 이 문서에서는 Azure Portal을 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387730"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure Portal
 > [!div class="op_single_selector"]

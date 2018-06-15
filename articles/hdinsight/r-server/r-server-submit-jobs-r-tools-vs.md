@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409325"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -43,7 +44,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 6. Visual Studio 환경에 데이터 과학 설정을 적용하여 작업 영역에 R 도구를 위한 새 레이아웃을 제공하는 옵션이 제공됩니다.
     1. 현재 Visual Studio 설정을 저장하려면 **도구 > 설정 가져오기 및 내보내기** 명령을 사용한 다음, **선택한 환경 설정 내보내기**를 선택하고 파일 이름을 지정합니다. 이러한 설정을 복원하려면 동일한 명령을 사용하고 **선택한 환경 설정 가져오기**를 선택합니다.
 
-    2. **R 도구** 메뉴 항목으로 이동한 후 **데이터 과학 설정...**을 선택합니다.
+    2. **R 도구** 메뉴 항목으로 이동한 후 **데이터 과학 설정...** 을 선택합니다.
 
         ![데이터 과학 설정...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
@@ -69,7 +70,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
 PuTTY가 장착된 Windows 컴퓨터에서 Microsoft R Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 계산 컨텍스트를 만듭니다.
 
-1. Edge 노드의 호스트 이름을 찾으려면 Azure에서 HDInsight R 클러스터 창을 연 다음, 개요 창의 상단 메뉴에서 **SSH(보안 셸)**를 선택합니다.
+1. Edge 노드의 호스트 이름을 찾으려면 Azure에서 HDInsight R 클러스터 창을 연 다음, 개요 창의 상단 메뉴에서 **SSH(보안 셸)** 를 선택합니다.
 
     ![SSH(보안 셸)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 

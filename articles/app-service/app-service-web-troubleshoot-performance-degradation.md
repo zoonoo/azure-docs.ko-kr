@@ -1,13 +1,13 @@
 ---
-title: "App Service에서 느린 웹앱 성능 | Microsoft Docs"
-description: "이 문서에서는 Azure App Service의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다."
+title: App Service에서 느린 웹앱 성능 | Microsoft Docs
+description: 이 문서에서는 Azure App Service의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "웹앱 성능, 느린 앱, 앱 느림"
+keywords: 웹앱 성능, 느린 앱, 앱 느림
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461845"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 웹앱 성능 문제 해결
 이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다.

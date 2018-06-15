@@ -1,6 +1,6 @@
 ---
-title: "SQL Server VM에 대한 저장소 구성 | Microsoft Docs"
-description: "이 항목에서는 Azure가 프로비전하는 동안 SQL Server VM에 대한 저장소를 구성하는 방법을 설명합니다(Resource Manager 배포 모델). 또한 기존 SQL Server VM에 대한 저장소를 구성하는 방법을 설명합니다."
+title: SQL Server VM에 대한 저장소 구성 | Microsoft Docs
+description: 이 항목에서는 Azure가 프로비전하는 동안 SQL Server VM에 대한 저장소를 구성하는 방법을 설명합니다(Resource Manager 배포 모델). 또한 기존 SQL Server VM에 대한 저장소를 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399086"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 저장소 구성
 Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에서는 저장소 구성을 자동화할 수 있습니다. 저장소를 VM에 연결하고 해당 저장소를 SQL Server에 액세스할 수 있도록 하고 구성하여 특정 성능 요구 사항에 최적화하는 작업을 포함합니다.

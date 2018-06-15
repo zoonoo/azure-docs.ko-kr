@@ -1,12 +1,12 @@
 ---
-title: "마켓플레이스 도구 키트를 사용 하 여 만들고 마켓플레이스 항목을 게시 | Microsoft Docs"
-description: "게시 도구 키트에 마켓플레이스 항목을 만들 신속 하 게 하는 방법을 알아봅니다"
+title: 마켓플레이스 도구 키트를 사용 하 여 만들고 마켓플레이스 항목을 게시 | Microsoft Docs
+description: 게시 도구 키트에 마켓플레이스 항목을 만들 신속 하 게 하는 방법을 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386880"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>게시 도구를 사용 하 여 마켓플레이스 항목을 추가 합니다.
 에 콘텐츠를 추가 [Azure 스택 마켓플레이스](azure-stack-marketplace.md) 및 배포에 대 한 테 넌 트를 솔루션을 사용할 수 있게 합니다.  마켓플레이스 Toolkit IaaS Azure 리소스 관리자 템플릿 또는 VM 확장에 따라 Azure 마켓플레이스 패키지 (.azpkg) 파일을 만듭니다.  사용 하거나 도구를 사용 하 여 만든.azpkg 파일을 게시할 마켓플레이스 도구 키트를 사용할 수도 있습니다 [수동](azure-stack-create-and-publish-marketplace-item.md) 단계입니다.  이 항목에서는 도구를 다운로드 하 고 VM 템플릿을 기반으로 마켓플레이스 항목을 만드는 다음 Azure 스택 Marketplace에 해당 항목을 게시 안내 합니다.     
