@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785742"
 ---
 # <a name="how-to-check-job-progress"></a>방법: 작업 진행 상태 확인
 > [!div class="op_single_selector"]

@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795537"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 트랜잭션 최적화
 긴 롤백에 대한 위험을 최소화하면서 Azure SQL Data Warehouse의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.

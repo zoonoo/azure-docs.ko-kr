@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794527"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>가상 네트워크 구성 파일에서 DNS 설정 지정
 네트워크 구성 파일에는 도메인 이름 시스템(DNS) 설정 지정에 사용할 수 있는 두 요소 **DnsServers** 및 **DnsServerRef**가 있습니다. **DnsServers** 요소에 해당 IP 주소 및 참조 이름를 지정하여 DNS 서버 목록을 추가할 수 있습니다. 그런 다음 **DnsServerRef** 요소를 사용하여 가상 네트워크 내의 다른 네트워크 사이트에 대해 사용될 DnsServers 요소의 DNS 서버 항목을 지정할 수 있습니다.

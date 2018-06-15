@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795887"
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>포털을 사용하여 Azure Search로 데이터 가져오기
 Azure Portal에는 인덱스에 데이터를 로드하기 위한 **데이터 가져오기** 마법사가 Azure Search 대시보드에 제공됩니다. 

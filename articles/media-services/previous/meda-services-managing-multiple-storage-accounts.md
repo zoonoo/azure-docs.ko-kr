@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783272"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 Storage 계정에서 Media Services 자산 관리
 Microsoft Azure Media Services 2.2부터는 여러 저장소 계정을 단일 Media Services 계정에 연결할 수 있습니다. 여러 저장소 계정을 Media Services 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.

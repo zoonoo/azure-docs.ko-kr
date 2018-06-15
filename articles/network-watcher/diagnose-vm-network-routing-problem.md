@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312198"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 진단 문제
 

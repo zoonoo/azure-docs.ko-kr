@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814801"
 ---
 # <a name="internet-of-things-security-architecture"></a>사물 인터넷 보안 아키텍처
 

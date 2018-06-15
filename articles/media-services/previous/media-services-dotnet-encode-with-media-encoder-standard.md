@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783452"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩
 Encoding 작업은 Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코딩할 때는 Media Services 기본 제공 미디어 인코더를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수도 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 
