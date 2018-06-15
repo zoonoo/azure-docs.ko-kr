@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Edge를 사용하여 Azure 함수 배포 | Microsoft Docs
 description: Azure 함수를 모듈로 Edge 장치에 배포
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
+services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f1c6b5cd07752c6b29234a365b3298d76b639b3a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6102a28ec92f841fe32652e4dac36848d69e389c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631703"
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Azure 함수를 IoT Edge 모듈로 배포 - 미리 보기
 비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 “[Windows][lnk-tutorial1-win] 또는 [Linux][lnk-tutorial1-lin]에서 시뮬레이트된 장치에 Azure IoT Edge 배포” 자습서에서 만든 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
@@ -135,7 +135,7 @@ ms.lasthandoff: 04/06/2018
    ```
    이 명령에서 사용할 사용자 이름, 암호 및 로그인 서버를 찾으려면 [Azure Portal](https://portal.azure.com))로 이동합니다. **모든 리소스**에서 Azure Container Registry에 대한 타일을 클릭하여 속성을 연 다음 **액세스 키**를 클릭합니다. **사용자 이름**, **암호** 및 **로그인 서버** 필드의 값을 복사합니다. 
 
-2. **module.json**을 엽니다. 선택적으로 `"version"`을 eg **"1.0"**으로 업데이트할 수 있습니다. 또한 `dotnet new aziotedgefunction`의 `-r` 매개 변수에 입력한 리포지토리의 이름이 표시됩니다.
+2. **module.json**을 엽니다. 선택적으로 `"version"`을 eg **"1.0"** 으로 업데이트할 수 있습니다. 또한 `dotnet new aziotedgefunction`의 `-r` 매개 변수에 입력한 리포지토리의 이름이 표시됩니다.
 
 3. **module.json** 파일을 저장합니다.
 
@@ -161,7 +161,7 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
 ## <a name="run-the-solution"></a>솔루션 실행
 
 1. **Azure Portal**에서 IoT Hub로 이동합니다.
-2. **IoT Edge(미리 보기)**로 이동하여 IoT Edge 장치를 선택합니다.
+2. **IoT Edge(미리 보기)** 로 이동하여 IoT Edge 장치를 선택합니다.
 1. **모듈 설정**을 선택합니다. 
 2. 이 장치에 **tempSensor** 모듈을 이미 배포한 경우 자동으로 채워집니다. 그러지 않은 경우 다음 단계에 따라 추가합니다.
     1. **IoT Edge 모듈 추가**를 선택합니다.
@@ -195,10 +195,10 @@ IoT Edge 장치에서 IoT Hub로 보낸 장치-클라우드 메시지를 모니�
 1. IoT Hub용 연결 문자열로 Azure IoT Toolkit 확장을 구성합니다. 
     1. Azure Portal에서 IoT 허브로 이동하고 **공유 액세스 정책**을 선택합니다. 
     2. **iothubowner**를 선택한 후 **연결 문자열 - 기본 키** 값을 복사합니다.
-    3. VS Code 탐색기에서 **IOT HUB 장치**를 클릭하고 **...**을 클릭합니다. 
+    3. VS Code 탐색기에서 **IOT HUB 장치**를 클릭하고 **...** 을 클릭합니다. 
     4. **Set IoT Hub Connection String**(IoT Hub 연결 문자열 설정)을 선택하고 팝업 창에 Iot Hub 연결 문자열을 입력합니다. 
 
-2. IoT Hub에 도착하는 데이터를 모니터링하려면 **보기** > **명령 팔레트...**를 선택하고 **IoT: D2C 메시지 모니터링 시작**을 검색합니다. 
+2. IoT Hub에 도착하는 데이터를 모니터링하려면 **보기** > **명령 팔레트...** 를 선택하고 **IoT: D2C 메시지 모니터링 시작**을 검색합니다. 
 3. 데이터 모니터링을 중지하려면 명령 팔레트에서 **IoT: D2C 메시지 모니터링 중지** 명령을 사용합니다. 
 
 ## <a name="next-steps"></a>다음 단계

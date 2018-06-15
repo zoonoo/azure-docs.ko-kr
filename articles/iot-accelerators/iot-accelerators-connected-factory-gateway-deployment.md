@@ -1,24 +1,19 @@
 ---
 title: 연결된 팩터리 게이트웨이 배포 - Azure | Microsoft Docs
 description: Windows 또는 Linux에서 게이트웨이를 배포하여 연결된 팩터리 솔루션 가속기에 대한 연결을 사용하도록 설정하는 방법.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626907"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 경계 게이트웨이 배포
 
@@ -170,6 +165,6 @@ OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-연결된 팩터리 솔루션 가속기의 아키텍처에 대한 자세한 내용은 [연결된 팩터리 솔루션 가속기 연습](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough)을 참조하세요.
+연결된 팩터리 솔루션 가속기의 아키텍처에 대한 자세한 내용은 [연결된 팩터리 솔루션 가속기 연습](iot-accelerators-connected-factory-sample-walkthrough.md)을 참조하세요.
 
 [OPC 게시자 참조 구현](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher)에 대해 살펴봅니다.
