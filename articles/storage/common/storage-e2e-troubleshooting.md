@@ -18,6 +18,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323307"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -248,7 +249,7 @@ Message Analyzer의 저장소 자산에는 다양한 시나리오에서 유용�
 
 ![보기 레이아웃 메뉴](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
-먼저 **Grouped by ClientRequestID and Module(ClientRequestID 및 모듈별로 그룹화)**을 선택합니다. 이 보기 레이아웃은 먼저 세 로그 모두의 로그 데이터를 클라이언트 요청 ID별로 그룹화한 후 원본 로그 파일(또는 Message Analyzer의 **모듈** )별로 그룹화합니다. 이 보기를 사용하여 특정 클라이언트 요청 ID로 드릴다운하고 해당 클라이언트 요청 ID에 대한 세 로그 파일 모두의 데이터를 볼 수 있습니다.
+먼저 **Grouped by ClientRequestID and Module(ClientRequestID 및 모듈별로 그룹화)** 을 선택합니다. 이 보기 레이아웃은 먼저 세 로그 모두의 로그 데이터를 클라이언트 요청 ID별로 그룹화한 후 원본 로그 파일(또는 Message Analyzer의 **모듈** )별로 그룹화합니다. 이 보기를 사용하여 특정 클라이언트 요청 ID로 드릴다운하고 해당 클라이언트 요청 ID에 대한 세 로그 파일 모두의 데이터를 볼 수 있습니다.
 
 아래 그림은 샘플 로그 데이터에 적용된 이 레이아웃 보기와 표시된 열의 하위 집합을 보여 줍니다. 특정 클라이언트 요청 ID의 레이아웃을 볼 수 있습니다. 분석 그리드에는 클라이언트 로그, 서버 로그 및 네트워크 추적의 데이터가 표시됩니다.
 
@@ -264,7 +265,7 @@ Azure Storage 보기 레이아웃을 사용할 뿐만 아니라 고유의 보기
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>분석 그리드에 색 규칙 적용
 저장소 자산에는 분석 그리드에서 여러 유형의 오류를 식별하는 시각적 수단을 제공하는 색 규칙도 포함되어 있습니다. 미리 정의된 색 규칙이 HTTP 오류에 적용되면 서버 로그 및 네트워크 추적에 대해서만 표시됩니다.
 
-색 규칙을 적용하려면 도구 모음 리본에서 **Color Rules(색 규칙)** 를 선택합니다. 메뉴에서 Azure Storage 색 규칙을 볼 수 있습니다. 자습서의 경우 아래 그림에 표시된 대로 **Client Errors (StatusCode between 400 and 499)[클라이언트 오류(400과 499 사이의 StatusCode)]**를 선택합니다.
+색 규칙을 적용하려면 도구 모음 리본에서 **Color Rules(색 규칙)** 를 선택합니다. 메뉴에서 Azure Storage 색 규칙을 볼 수 있습니다. 자습서의 경우 아래 그림에 표시된 대로 **Client Errors (StatusCode between 400 and 499)[클라이언트 오류(400과 499 사이의 StatusCode)]** 를 선택합니다.
 
 ![Azure Storage 보기 레이아웃](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 

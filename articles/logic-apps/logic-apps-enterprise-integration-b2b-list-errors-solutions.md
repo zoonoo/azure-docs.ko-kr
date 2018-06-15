@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps B2B 오류 및 해결 방법 목록: Azure App Service | Microsoft Docs"
-description: "Logic Apps B2B 오류 및 해결 방법 목록"
+title: 'Logic Apps B2B 오류 및 해결 방법 목록: Azure App Service | Microsoft Docs'
+description: Logic Apps B2B 오류 및 해결 방법 목록
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1865d75f1b4c2aa18d5a3130f639572d19563b3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8503792d57dd7ed64434d5a306afce850ced77db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298341"
 ---
 # <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Logic Apps B2B 오류 및 해결 방법 목록  
 이 문서에서는 Logic Apps B2B 시나리오에서 발생할 수 있는 오류를 해결하고 이러한 오류를 수정하기 위한 적절한 조치를 제안합니다.
