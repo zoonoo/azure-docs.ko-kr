@@ -130,8 +130,6 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: 사용자 구독 소유자 변경
           href: azure-stack-change-subscription-owner.md
-        - name: Windows Azure 팩 VM 관리
-          href: azure-stack-manage-windows-azure-pack.md
         - name: 시작 및 중지 Azure 스택
           href: azure-stack-start-and-stop.md
         - name: 용량 관리
